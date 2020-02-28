@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"));
-    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir(databasePath).mkpath(databasePath);
     db.setDatabaseName(databasePath + "/database.db3");
     db.open();
