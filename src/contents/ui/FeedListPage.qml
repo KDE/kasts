@@ -26,8 +26,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 import org.kde.alligator 1.0
 
-Component {
-    Kirigami.ScrollablePage {
+Kirigami.ScrollablePage {
         title: "Alligator"
 
         contextualActions: [
@@ -94,4 +93,3 @@ Component {
             }
         }
     }
-}
