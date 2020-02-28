@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     db.setDatabaseName(databasePath + "/database.db3");
     db.open();
 
-    QSqlQuery query = QSqlQuery(db);
+    QSqlQuery query(db);
     query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT);"));
     query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT);"));
     query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (id TEXT, name TEXT, uri TEXT, email TEXT);"));

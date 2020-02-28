@@ -44,7 +44,7 @@ void Fetcher::fetch(QUrl url)
         Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
 
         QSqlDatabase db = QSqlDatabase::database();
-        QSqlQuery query = QSqlQuery(db);
+        QSqlQuery query(db);
 
         for (const auto &entry : feed->items()) {
             query = QSqlQuery(db);

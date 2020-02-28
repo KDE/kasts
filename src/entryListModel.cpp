@@ -69,7 +69,7 @@ void EntryListModel::fetch()
 {
     connect(&Fetcher::instance(), &Fetcher::finished, this, [this]() {
         beginResetModel();
-        QSqlQuery query = QSqlQuery(QSqlDatabase::database());
+        QSqlQuery query(QSqlDatabase::database());
         query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed;"));
         query.bindValue(QStringLiteral(":feed"), m_feed);
         query.exec();

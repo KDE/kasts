@@ -30,7 +30,7 @@
 FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    QSqlQuery query = QSqlQuery(QSqlDatabase::database());
+    QSqlQuery query(QSqlDatabase::database());
     query.exec(QStringLiteral("SELECT name, url FROM Feeds"));
     beginInsertRows(QModelIndex(), 0, query.size());
     while (query.next()) {
@@ -66,7 +66,7 @@ void FeedListModel::add_feed(QString url)
     beginInsertRows(QModelIndex(), feeds.size(), feeds.size());
     feeds.append(Feed(url));
     endInsertRows();
-    QSqlQuery query = QSqlQuery(QSqlDatabase::database());
+    QSqlQuery query(QSqlDatabase::database());
     query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:url, :name);"));
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":name"), url);
@@ -76,7 +76,7 @@ void FeedListModel::add_feed(QString url)
 void FeedListModel::remove_feed(int index)
 {
     Feed toRemove = feeds[index];
-    QSqlQuery query = QSqlQuery(QSqlDatabase::database());
+    QSqlQuery query(QSqlDatabase::database());
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE name=:name AND url=url;"));
     query.bindValue(QStringLiteral(":url"), toRemove.url());
     query.bindValue(QStringLiteral(":name"), toRemove.name());
