@@ -64,6 +64,7 @@ void Fetcher::fetch(QUrl url)
                 query.exec();
             }
         }
+        delete reply;
         emit finished();
     });
 }
