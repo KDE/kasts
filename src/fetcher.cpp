@@ -63,6 +63,10 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":email"), author->email());
                 query.exec();
             }
+            query.prepare(QStringLiteral("UPDATE Feeds SET name=:name WHERE url=:url;"));
+            query.bindValue(QStringLiteral(":name"), feed->title());
+            query.bindValue(QStringLiteral(":url"), url.toString());
+            query.exec();
         }
         delete reply;
         emit finished();

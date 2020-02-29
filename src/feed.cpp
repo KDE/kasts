@@ -47,8 +47,3 @@ QString Feed::name() const
 {
     return m_name;
 }
-
-void Feed::setName(QString name)
-{
-    m_name = name;
-}

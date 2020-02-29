@@ -23,9 +23,8 @@
 #include <QObject>
 #include <QString>
 
-class Feed : public QObject
+class Feed
 {
-    Q_OBJECT
 public:
     Feed(const QString url);
     Feed(const Feed &other);
@@ -33,11 +32,6 @@ public:
 
     QString name() const;
     QString url() const;
-
-    void setName(QString name);
-
-Q_SIGNALS:
-    void nameChanged(const QString &name);
 
 private:
     QString m_url;
