@@ -40,7 +40,7 @@ public:
     int rowCount(const QModelIndex &index) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void add_feed(QString url);
+    Q_INVOKABLE void addFeed(QString url);
     Q_INVOKABLE void remove_feed(int index);
 
 private:

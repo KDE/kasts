@@ -60,7 +60,7 @@ int FeedListModel::rowCount(const QModelIndex &index) const
     return feeds.size();
 }
 
-void FeedListModel::add_feed(QString url)
+void FeedListModel::addFeed(QString url)
 {
     Fetcher::instance().fetch(QUrl(url));
     beginInsertRows(QModelIndex(), feeds.size(), feeds.size());

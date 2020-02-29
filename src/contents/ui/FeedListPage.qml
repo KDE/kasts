@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                        enabled: urlField.text
                        onClicked: {
-                            feedListModel.add_feed(urlField.text)
+                            feedListModel.addFeed(urlField.text)
                             addSheet.close()
                        }
                    }
