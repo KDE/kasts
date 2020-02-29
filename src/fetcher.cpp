@@ -23,7 +23,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
-#include <syndication.h>
+#include <Syndication/Syndication>
 
 #include "fetcher.h"
 

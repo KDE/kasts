@@ -22,8 +22,6 @@
 #include <QSqlQuery>
 #include <QVector>
 
-#include <syndication.h>
-
 #include "entryListModel.h"
 #include "fetcher.h"
 

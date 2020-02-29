@@ -23,7 +23,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <syndication.h>
+#include <Syndication/Syndication>
 
 #include "entry.h"
 

@@ -22,7 +22,7 @@
 #include <QSqlQuery>
 #include <QUrl>
 
-#include <syndication.h>
+#include <Syndication/Syndication>
 
 #include "feedListModel.h"
 #include "fetcher.h"
