@@ -18,7 +18,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.14
+import QtQuick 2.13
 import QtQuick.Controls 2.10 as Controls
 import QtQuick.Layouts 1.12
 
