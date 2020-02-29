@@ -50,14 +50,14 @@ QHash<int, QByteArray> FeedListModel::roleNames() const
 QVariant FeedListModel::data(const QModelIndex &index, int role) const
 {
     if (role == Url)
-        return QVariant(this->feeds[index.row()].url());
+        return feeds[index.row()].url();
     if (role == Qt::DisplayRole)
-        return QVariant(this->feeds[index.row()].name());
-    return QVariant();
+        return feeds[index.row()].name();
+    return QStringLiteral("DEADBEEF");
 }
 int FeedListModel::rowCount(const QModelIndex &index) const
 {
-    return this->feeds.size();
+    return feeds.size();
 }
 
 void FeedListModel::add_feed(QString url)

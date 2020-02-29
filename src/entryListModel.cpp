@@ -35,12 +35,12 @@ EntryListModel::EntryListModel(QObject *parent)
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
     if (role == Bookmark)
-        return QVariant(m_entries[index.row()].isBookmark());
+        return m_entries[index.row()].isBookmark();
     if (role == Read)
-        return QVariant(m_entries[index.row()].isRead());
+        return m_entries[index.row()].isRead();
     if (role == Qt::DisplayRole)
         return m_entries[index.row()].title();
-    return QVariant(index.row());
+    return QStringLiteral("DEADBEEF");
 }
 int EntryListModel::rowCount(const QModelIndex &index) const
 {
