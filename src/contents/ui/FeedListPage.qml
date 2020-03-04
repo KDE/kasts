@@ -22,7 +22,7 @@ import QtQuick 2.13
 import QtQuick.Controls 2.10 as Controls
 import QtQuick.Layouts 1.12
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 
 import org.kde.alligator 1.0
 
@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
                        id: urlField
                        Layout.fillWidth: true
                        //placeholderText: "https://example.org/feed.xml"
-                       text: "https://rss.golem.de/rss.php?feed=RSS2.0"
+                       text: "https://planet.kde.org/rss20.xml"
                        Kirigami.FormData.label: "Url"
                    }
                    Controls.Button {

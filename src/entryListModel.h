@@ -33,8 +33,10 @@ class EntryListModel : public QAbstractListModel
     Q_PROPERTY(QString feed READ feed WRITE setFeed NOTIFY feedChanged)
 public:
     enum DataRole {
-        Bookmark = Qt::UserRole + 1,
+        Title = Qt::UserRole + 1,
+        Bookmark,
         Read,
+        Content,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

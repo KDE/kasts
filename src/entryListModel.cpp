@@ -36,7 +36,9 @@ QVariant EntryListModel::data(const QModelIndex &index, int role) const
         return m_entries[index.row()].isBookmark();
     if (role == Read)
         return m_entries[index.row()].isRead();
-    if (role == Qt::DisplayRole)
+    if (role == Content)
+        return m_entries[index.row()].content();
+    if (role == Title)
         return m_entries[index.row()].title();
     return QStringLiteral("DEADBEEF");
 }
@@ -47,9 +49,10 @@ int EntryListModel::rowCount(const QModelIndex &index) const
 QHash<int, QByteArray> EntryListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
-    roleNames[Qt::DisplayRole] = "display";
+    roleNames[Title] = "title";
     roleNames[Bookmark] = "bookmark";
     roleNames[Read] = "read";
+    roleNames[Content] = "content";
     return roleNames;
 }
 bool EntryListModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -72,7 +75,7 @@ void EntryListModel::fetch()
         query.bindValue(QStringLiteral(":feed"), m_feed);
         query.exec();
         while (query.next()) {
-            m_entries.append(Entry(query.value(1).toString(), false, false));
+            m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), false, false));
         }
         endResetModel();
     });

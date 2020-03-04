@@ -48,11 +48,14 @@ void Fetcher::fetch(QUrl url)
 
         for (const auto &entry : feed->items()) {
             query = QSqlQuery(db);
-            query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :contents);"));
+            query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content);"));
             query.bindValue(QStringLiteral(":feed"), url.toString());
             query.bindValue(QStringLiteral(":id"), entry->id());
             query.bindValue(QStringLiteral(":title"), entry->title());
-            query.bindValue(QStringLiteral(":contents"), entry->content());
+            if(!entry->content().isEmpty())
+                query.bindValue(QStringLiteral(":content"), entry->content());
+            else
+                query.bindValue(QStringLiteral(":content"), entry->description());
             query.exec();
             for (const auto &author : entry->authors()) {
                 query = QSqlQuery(db);

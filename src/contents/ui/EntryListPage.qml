@@ -55,9 +55,9 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.SwipeListItem {
             Controls.Label {
-                id: postTitle
                 width: parent.width
-                text: model.display
+                text: model.title
+                textFormat: Text.RichText
                 color: model.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
             }
             
@@ -73,7 +73,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 model.read = true;
-                //pageStack.push("qrc:/qml/EntryDetailsPage.qml", {"modelData": model})
+                pageStack.push("qrc:/EntryPage.qml", {"data": model})
             }
         }
     }
