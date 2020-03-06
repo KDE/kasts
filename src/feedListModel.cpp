@@ -21,11 +21,14 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QUrl>
+#include <QSqlError>
 
 #include <Syndication/Syndication>
 
 #include "feedListModel.h"
 #include "fetcher.h"
+
+#include <iostream>
 
 FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -62,6 +65,22 @@ int FeedListModel::rowCount(const QModelIndex &index) const
 
 void FeedListModel::addFeed(QString url)
 {
+    connect(&Fetcher::instance(), &Fetcher::finished, this, [this, url]() {
+        QSqlQuery query(QSqlDatabase::database());
+        query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), url);
+        query.exec();
+        if(!query.next())
+            std::cout << "Query empty" << std::endl;
+        for(int i = 0; i < feeds.length(); i++) {
+            if(feeds[i].url() == url) {
+                feeds.removeAt(i);
+                feeds.insert(i, Feed(url, query.value(0).toString()));
+                emit dataChanged(index(i), index(i));
+                break;
+            }
+        }
+    });
     Fetcher::instance().fetch(QUrl(url));
     beginInsertRows(QModelIndex(), feeds.size(), feeds.size());
     feeds.append(Feed(url));
