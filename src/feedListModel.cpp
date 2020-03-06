@@ -28,8 +28,6 @@
 #include "feedListModel.h"
 #include "fetcher.h"
 
-#include <iostream>
-
 FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -70,8 +68,7 @@ void FeedListModel::addFeed(QString url)
         query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
         query.exec();
-        if(!query.next())
-            std::cout << "Query empty" << std::endl;
+        query.next()
         for(int i = 0; i < feeds.length(); i++) {
             if(feeds[i].url() == url) {
                 feeds.removeAt(i);

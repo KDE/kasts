@@ -30,6 +30,10 @@
 #include "entryListModel.h"
 #include "feedListModel.h"
 
+#include "alligator-debug.h"
+
+Q_LOGGING_CATEGORY(ALLIGATOR, "alligator");
+
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
