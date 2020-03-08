@@ -68,7 +68,7 @@ void FeedListModel::addFeed(QString url)
         query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
         query.exec();
-        query.next()
+        query.next();
         for(int i = 0; i < feeds.length(); i++) {
             if(feeds[i].url() == url) {
                 feeds.removeAt(i);
