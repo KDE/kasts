@@ -1,1 +1,4 @@
 build/
+.kdev4/
+CMakeLists.txt.user
+alligator.kdev4
