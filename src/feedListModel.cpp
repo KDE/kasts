@@ -18,21 +18,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QSqlDatabase>
-#include <QSqlQuery>
 #include <QUrl>
-#include <QSqlError>
 
 #include <Syndication/Syndication>
 
 #include "feedListModel.h"
 #include "fetcher.h"
+#include "database.h"
+
+#include "alligator-debug.h"
 
 FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    QSqlQuery query(QSqlDatabase::database());
-    query.exec(QStringLiteral("SELECT name, url FROM Feeds"));
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT name, url FROM Feeds"));
+    Database::instance().execute(query);
     beginInsertRows(QModelIndex(), 0, query.size());
     while (query.next()) {
         feeds += Feed(query.value(1).toString(), query.value(0).toString());
@@ -63,11 +64,17 @@ int FeedListModel::rowCount(const QModelIndex &index) const
 
 void FeedListModel::addFeed(QString url)
 {
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
+    query.bindValue(QStringLiteral(":url"), url);
+    Database::instance().execute(query);
+    query.next();
+    if(query.value(0).toInt() != 0) return;
     connect(&Fetcher::instance(), &Fetcher::finished, this, [this, url]() {
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query;
         query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
-        query.exec();
+        Database::instance().execute(query);
         query.next();
         for(int i = 0; i < feeds.length(); i++) {
             if(feeds[i].url() == url) {
@@ -82,21 +89,21 @@ void FeedListModel::addFeed(QString url)
     beginInsertRows(QModelIndex(), feeds.size(), feeds.size());
     feeds.append(Feed(url));
     endInsertRows();
-    QSqlQuery query(QSqlDatabase::database());
+
     query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:url, :name);"));
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":name"), url);
-    query.exec();
+    Database::instance().execute(query);
 }
 
 void FeedListModel::remove_feed(int index)
 {
     Feed toRemove = feeds[index];
-    QSqlQuery query(QSqlDatabase::database());
+    QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE name=:name AND url=url;"));
     query.bindValue(QStringLiteral(":url"), toRemove.url());
     query.bindValue(QStringLiteral(":name"), toRemove.name());
-    query.exec();
+    Database::instance().execute(query);
     beginRemoveRows(QModelIndex(), index, index);
     feeds.remove(index);
     endRemoveRows();

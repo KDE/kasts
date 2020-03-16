@@ -18,12 +18,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QSqlDatabase>
-#include <QSqlQuery>
 #include <QVector>
 
 #include "entryListModel.h"
 #include "fetcher.h"
+#include "database.h"
 
 EntryListModel::EntryListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -70,10 +69,10 @@ void EntryListModel::fetch()
 {
     connect(&Fetcher::instance(), &Fetcher::finished, this, [this]() {
         beginResetModel();
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query;
         query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed;"));
         query.bindValue(QStringLiteral(":feed"), m_feed);
-        query.exec();
+        Database::instance().execute(query);
         while (query.next()) {
             m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), false, false));
         }

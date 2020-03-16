@@ -21,14 +21,10 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QUrl>
-#include <QStandardPaths>
-#include <QDir>
 
 #include "entryListModel.h"
 #include "feedListModel.h"
+#include "database.h"
 
 #include "alligator-debug.h"
 
@@ -48,16 +44,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"));
-    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QDir(databasePath).mkpath(databasePath);
-    db.setDatabaseName(databasePath + "/database.db3");
-    db.open();
-
-    QSqlQuery query(db);
-    query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT);"));
-    query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT);"));
-    query.exec(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (id TEXT, name TEXT, uri TEXT, email TEXT);"));
+    Database::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

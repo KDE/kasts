@@ -5,6 +5,7 @@ set(alligator_SRCS
     fetcher.cpp
     feed.cpp
     entry.cpp
+    database.cpp
     resources.qrc
     )
 

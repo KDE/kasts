@@ -20,12 +20,12 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QSqlDatabase>
-#include <QSqlQuery>
 
 #include <Syndication/Syndication>
 
 #include "fetcher.h"
+
+#include "database.h"
 
 Fetcher::Fetcher() {
 }
@@ -47,7 +47,6 @@ void Fetcher::fetch(QUrl url)
         QSqlQuery query(db);
 
         for (const auto &entry : feed->items()) {
-            query = QSqlQuery(db);
             query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content);"));
             query.bindValue(QStringLiteral(":feed"), url.toString());
             query.bindValue(QStringLiteral(":id"), entry->id());
@@ -56,7 +55,7 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":content"), entry->content());
             else
                 query.bindValue(QStringLiteral(":content"), entry->description());
-            query.exec();
+            Database::instance().execute(query);
             for (const auto &author : entry->authors()) {
                 query = QSqlQuery(db);
                 query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:id, :name, :uri, :email);"));
@@ -64,12 +63,12 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":name"), author->name());
                 query.bindValue(QStringLiteral(":uri"), author->uri());
                 query.bindValue(QStringLiteral(":email"), author->email());
-                query.exec();
+                Database::instance().execute(query);
             }
             query.prepare(QStringLiteral("UPDATE Feeds SET name=:name WHERE url=:url;"));
             query.bindValue(QStringLiteral(":name"), feed->title());
             query.bindValue(QStringLiteral(":url"), url.toString());
-            query.exec();
+            Database::instance().execute(query);
         }
         delete reply;
         emit finished();
