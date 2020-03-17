@@ -61,10 +61,25 @@ Kirigami.ScrollablePage {
         }
 
         ListView {
+            id: feedList
             anchors.fill: parent
             model: FeedListModel {
                 id: feedListModel
             }
+
+            header:
+                Kirigami.SwipeListItem {
+                    Controls.Label {
+                        text: "All feeds"
+                    }
+
+                    width: parent.width;
+                    height: Kirigami.Units.gridUnit * 2
+                    onClicked: {
+                        feedList.focus = false
+                        pageStack.push("qrc:/EntryListPage.qml", {"name": "All feeds", "url": "all"})
+                    }
+                }
 
             delegate: Kirigami.SwipeListItem {
                 Controls.Label {

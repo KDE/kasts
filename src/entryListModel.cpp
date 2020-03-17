@@ -24,6 +24,8 @@
 #include "fetcher.h"
 #include "database.h"
 
+#include "alligator-debug.h"
+
 EntryListModel::EntryListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -67,18 +69,28 @@ bool EntryListModel::setData(const QModelIndex &index, const QVariant &value, in
 
 void EntryListModel::fetch()
 {
-    connect(&Fetcher::instance(), &Fetcher::finished, this, [this]() {
-        beginResetModel();
-        QSqlQuery query;
+    connect(&Fetcher::instance(), &Fetcher::finished, this, &EntryListModel::update);
+    if(m_feed.compare("all") != 0)
+        Fetcher::instance().fetch(m_feed);
+    else
+        update();
+}
+
+void EntryListModel::update() {
+    beginResetModel();
+    QSqlQuery query;
+    if(m_feed.compare("all") == 0) {
+        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries;"));
+    }
+    else {
         query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed;"));
         query.bindValue(QStringLiteral(":feed"), m_feed);
-        Database::instance().execute(query);
-        while (query.next()) {
-            m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), false, false));
-        }
-        endResetModel();
-    });
-    Fetcher::instance().fetch(m_feed);
+    }
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), false, false));
+    }
+    endResetModel();
 }
 
 QString EntryListModel::feed() const

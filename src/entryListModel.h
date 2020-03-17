@@ -55,4 +55,6 @@ Q_SIGNALS:
 private:
     QVector<Entry> m_entries;
     QString m_feed;
+
+    void update();
 };
