@@ -80,10 +80,10 @@ void EntryListModel::update() {
     beginResetModel();
     QSqlQuery query;
     if(m_feed.compare("all") == 0) {
-        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries;"));
+        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries ORDER BY updated DESC;"));
     }
     else {
-        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed;"));
+        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
         query.bindValue(QStringLiteral(":feed"), m_feed);
     }
     Database::instance().execute(query);
