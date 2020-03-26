@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.kde.mobile.alligator</id>
+  <name>Alligator</name>
+  <summary>Feed reader for mobile devices</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <developer_name>KDE Community</developer_name>
+   <description>
+    <p>Alligator is a mobile feed reader</p>
+  </description>
+  <provides>
+    <binary>alligator</binary>
+  </provides>
+  <launchable type="desktop-id">org.kde.mobile.alligator.desktop</launchable>
+</component>

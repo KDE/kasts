@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Alligator
+Comment=Mobile Feed Reader
+GenericName=Feed Reader
+Encoding=UTF-8
+Icon=org.kde.mobile.alligator
+Exec=alligator
+Type=Application
+Categories=Qt;KDE;RSS;
+Terminal=false
+MimeType=application/rss+xml;
+InitialPreference=10
