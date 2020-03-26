@@ -6,4 +6,26 @@ Kirigami.ScrollablePage {
     title: "Settings"
 
     property QtObject settings
+
+
+    Kirigami.FormLayout {
+        Controls.TextField {
+            id: deleteAfterCount
+            text: settings.deleteAfterCount
+            Kirigami.FormData.label: "Delete posts after:"
+        }
+        Controls.ComboBox {
+            id: deleteAfterType
+            currentIndex: settings.deleteAfterType
+            model: ["Posts", "Days", "Weeks", "Months"]
+        }
+        Controls.Button {
+            text: "Save"
+            onClicked: {
+                settings.deleteAfterCount = deleteAfterCount.text
+                settings.deleteAfterType = deleteAfterType.currentIndex
+                settings.save()
+            }
+        }
+    }
 }
