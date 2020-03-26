@@ -21,10 +21,14 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QQmlContext>
+
+#include <KAboutData>
 
 #include "entryListModel.h"
 #include "feedListModel.h"
 #include "database.h"
+#include "alligatorsettings.h"
 
 #include "alligator-debug.h"
 
@@ -43,6 +47,17 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<EntryListModel>("org.kde.alligator", 1, 0, "EntryListModel");
 
     QQmlApplicationEngine engine;
+
+    KAboutData about(QStringLiteral("alligator"), QStringLiteral("Alligator"), QStringLiteral("0.1"), QStringLiteral("Feed Reader"),
+                     KAboutLicense::GPL, QStringLiteral("© 2020 KDE Community"));
+    about.addAuthor(QStringLiteral("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+    KAboutData::setApplicationData(about);
+
+    engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
+
+    AlligatorSettings settings;
+
+    engine.rootContext()->setContextProperty(QStringLiteral("_settings"), &settings);
 
     Database::instance();
 

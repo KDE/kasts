@@ -34,9 +34,10 @@ class EntryListModel : public QAbstractListModel
 public:
     enum DataRole {
         Title = Qt::UserRole + 1,
+        Content,
+        Updated,
         Bookmark,
         Read,
-        Content,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

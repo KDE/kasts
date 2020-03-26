@@ -20,9 +20,10 @@
 
 #include "entry.h"
 
-Entry::Entry(const QString title, const QString content, const bool bookmark, const bool read)
+Entry::Entry(const QString title, const QString content, const int updated, const bool bookmark, const bool read)
     : m_title(title)
     , m_content(content)
+    , m_updated(updated)
     , m_bookmark(bookmark)
     , m_read(read)
 {
@@ -31,6 +32,7 @@ Entry::Entry(const QString title, const QString content, const bool bookmark, co
 Entry::Entry(const Entry &other)
     : m_title(other.title())
     , m_content(other.content())
+    , m_updated(other.updated())
     , m_bookmark(other.isBookmark())
     , m_read(other.isRead())
 {
@@ -54,6 +56,11 @@ QString Entry::title() const
 QString Entry::content() const
 {
     return m_content;
+}
+
+int Entry::updated() const
+{
+    return m_updated;
 }
 
 void Entry::setRead(bool read)

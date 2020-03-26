@@ -21,7 +21,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 2.0 as Controls
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 
 Kirigami.ApplicationWindow {
     id: root
@@ -29,6 +29,27 @@ Kirigami.ApplicationWindow {
     title: "Alligator"
 
     pageStack.initialPage: feedList
+
+    globalDrawer: Kirigami.GlobalDrawer {
+        isMenu: true
+        actions: [
+            Kirigami.Action {
+                text: "Settings"
+                onTriggered: pageStack.push("qrc:/SettingsPage.qml", {"settings": _settings})
+            },
+            Kirigami.Action {
+                text: "About"
+                onTriggered: root.pageStack.push(aboutPage)
+            }
+        ]
+    }
+
+    Component {
+        id: aboutPage
+        Kirigami.AboutPage {
+            aboutData: _aboutData
+        }
+    }
 
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer

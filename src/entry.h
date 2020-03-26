@@ -26,10 +26,11 @@ class Entry
 {
 public:
     Entry(const Entry &);
-    Entry(const QString title, const QString content, const bool bookmark, const bool read);
+    Entry(const QString title, const QString content, const int updated, const bool bookmark, const bool read);
 
     QString title() const;
     QString content() const;
+    int updated() const;
     bool isBookmark() const;
     bool isRead() const;
 
@@ -39,6 +40,7 @@ public:
 private:
     QString m_title;
     QString m_content;
+    int m_updated;
     bool m_bookmark;
     bool m_read;
 };

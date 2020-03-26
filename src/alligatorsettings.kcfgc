@@ -1,0 +1,7 @@
+File=alligatorsettings.kcfg
+ClassName=AlligatorSettings
+Mutators=true
+DefaultValueGetters=true
+GenerateProperties=true
+ParentInConstructor=true
+ 

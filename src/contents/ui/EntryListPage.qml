@@ -21,7 +21,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.10 as Controls
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 
 import org.kde.alligator 1.0
 
@@ -57,7 +57,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.SwipeListItem {
             Controls.Label {
                 width: parent.width
-                text: model.title
+                text: model.title + " - " + model.updated
                 textFormat: Text.RichText
                 color: model.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
             }

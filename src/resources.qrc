@@ -4,5 +4,6 @@
         <file alias="EntryListPage.qml">contents/ui/EntryListPage.qml</file>
         <file alias="FeedListPage.qml">contents/ui/FeedListPage.qml</file>
         <file alias="EntryPage.qml">contents/ui/EntryPage.qml</file>
+        <file alias="SettingsPage.qml">contents/ui/SettingsPage.qml</file>
     </qresource>
 </RCC>

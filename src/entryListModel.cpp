@@ -19,6 +19,7 @@
  */
 
 #include <QVector>
+#include <QDateTime>
 
 #include "entryListModel.h"
 #include "fetcher.h"
@@ -33,14 +34,20 @@ EntryListModel::EntryListModel(QObject *parent)
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
+    if (role == Title)
+        return m_entries[index.row()].title();
+    if (role == Content)
+        return m_entries[index.row()].content();
+    if (role == Updated) {
+        QDateTime updated;
+        updated.setSecsSinceEpoch(m_entries[index.row()].updated());
+        return updated;
+    }
     if (role == Bookmark)
         return m_entries[index.row()].isBookmark();
     if (role == Read)
         return m_entries[index.row()].isRead();
-    if (role == Content)
-        return m_entries[index.row()].content();
-    if (role == Title)
-        return m_entries[index.row()].title();
+
     return QStringLiteral("DEADBEEF");
 }
 int EntryListModel::rowCount(const QModelIndex &index) const
@@ -51,9 +58,11 @@ QHash<int, QByteArray> EntryListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
     roleNames[Title] = "title";
+    roleNames[Content] = "content";
+    roleNames[Updated] = "updated";
     roleNames[Bookmark] = "bookmark";
     roleNames[Read] = "read";
-    roleNames[Content] = "content";
+
     return roleNames;
 }
 bool EntryListModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -80,15 +89,15 @@ void EntryListModel::update() {
     beginResetModel();
     QSqlQuery query;
     if(m_feed.compare("all") == 0) {
-        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries ORDER BY updated DESC;"));
+        query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries ORDER BY updated DESC;"));
     }
     else {
-        query.prepare(QStringLiteral("SELECT id, title, content FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
+        query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
         query.bindValue(QStringLiteral(":feed"), m_feed);
     }
     Database::instance().execute(query);
     while (query.next()) {
-        m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), false, false));
+        m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), false, false));
     }
     endResetModel();
 }
