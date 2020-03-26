@@ -25,6 +25,7 @@ Kirigami.ScrollablePage {
                 settings.deleteAfterCount = deleteAfterCount.text
                 settings.deleteAfterType = deleteAfterType.currentIndex
                 settings.save()
+                pageStack.pop()
             }
         }
     }

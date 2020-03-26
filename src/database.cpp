@@ -22,8 +22,10 @@
 #include <QStandardPaths>
 #include <QSqlError>
 #include <QSqlDatabase>
+#include <QDateTime>
 
 #include "database.h"
+#include "alligatorsettings.h"
 #include "alligator-debug.h"
 
 #define TRUE_OR_RETURN(x) if(!x) return false;
@@ -40,6 +42,8 @@ Database::Database()
     if(!migrate()) {
         qCCritical(ALLIGATOR) << "Failed to migrate the database";
     }
+
+    cleanup();
 }
 
 bool Database::migrate() {
@@ -86,4 +90,25 @@ int Database::version() {
         qCCritical(ALLIGATOR) << "Failed to check database version";
     }
     return -1;
+}
+
+void Database::cleanup() {
+    AlligatorSettings settings;
+    int count = settings.deleteAfterCount();
+    int type = settings.deleteAfterType();
+
+    if(type == 0) { // Delete after <count> posts per feed
+       //TODO
+    } else {
+        QDateTime dateTime = QDateTime::currentDateTime();
+        if(type == 1) dateTime.addDays(-count);
+        else if(type == 2) dateTime.addDays(-7*count);
+        else if(type == 3) dateTime.addMonths(-count);
+        qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
+
+        QSqlQuery query;
+        query.prepare("DELETE FROM Entries WHERE updated < :sinceEpoch;");
+        query.bindValue(":sinceEpoch", sinceEpoch);
+        execute(query);
+    }
 }

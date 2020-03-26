@@ -39,4 +39,5 @@ private:
 
     bool migrate();
     bool migrateTo1();
+    void cleanup();
 };
