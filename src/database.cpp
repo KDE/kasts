@@ -101,9 +101,9 @@ void Database::cleanup() {
        //TODO
     } else {
         QDateTime dateTime = QDateTime::currentDateTime();
-        if(type == 1) dateTime.addDays(-count);
-        else if(type == 2) dateTime.addDays(-7*count);
-        else if(type == 3) dateTime.addMonths(-count);
+        if(type == 1) dateTime = dateTime.addDays(-count);
+        else if(type == 2) dateTime = dateTime.addDays(-7*count);
+        else if(type == 3) dateTime = dateTime.addMonths(-count);
         qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
 
         QSqlQuery query;
