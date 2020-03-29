@@ -29,6 +29,7 @@
 #include "feedListModel.h"
 #include "database.h"
 #include "alligatorsettings.h"
+#include "feed.h"
 
 #include "alligator-debug.h"
 
@@ -45,6 +46,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     qmlRegisterType<FeedListModel>("org.kde.alligator", 1, 0, "FeedListModel");
     qmlRegisterType<EntryListModel>("org.kde.alligator", 1, 0, "EntryListModel");
+    qRegisterMetaType<Feed>();
 
     QQmlApplicationEngine engine;
 

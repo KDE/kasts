@@ -19,7 +19,8 @@
  */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.10 as Controls
+import QtQuick.Layouts 1.14
+import QtQuick.Controls 2.14 as Controls
 
 import org.kde.kirigami 2.8 as Kirigami
 
@@ -27,31 +28,39 @@ import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
     id: page
-    property string name
-    property string url
-    title: name
+    property var feed
 
     contextualActions: [
         Kirigami.Action {
             text: "Details"
-            visible: url != "all"
+            visible: feed.url != "all"
             onTriggered: ;//pageStack.push("qrc:/qml/FeedDetailsPage.qml", {"modelData": atomModel})
         }
     ]
 
 
     Component.onCompleted: {
-        entryListModel.fetch(url);
+        entryListModel.fetch();
     }
 
     ListView {
         model: EntryListModel {
             id: entryListModel
-            feed: url
+            feed: page.feed
         }
 
-        Connections {
-            target: entryListModel
+        header: RowLayout {
+            width: parent.width
+            height: page.height * 0.2
+            Image {
+                source: feed.image
+                fillMode: Image.PreserveAspectFit
+                sourceSize.width: 0
+                sourceSize.height: parent.height
+            }
+            Kirigami.Heading {
+                text: feed.name
+            }
         }
 
         delegate: Kirigami.SwipeListItem {

@@ -83,10 +83,8 @@ Kirigami.ScrollablePage {
 
             delegate: Kirigami.SwipeListItem {
                 Controls.Label {
-                    text: model.display
+                    text: model.feed.name
                 }
-
-                onTextChanged: console.log(model.display)
 
                 width: parent.width
                 height: Kirigami.Units.gridUnit * 2
@@ -103,7 +101,7 @@ Kirigami.ScrollablePage {
                     }
                 ]
                 onClicked: {
-                    pageStack.push("qrc:/EntryListPage.qml", {"name": model.display, "url": model.url})
+                    pageStack.push("qrc:/EntryListPage.qml", {feed: model.feed})
                 }
             }
         }

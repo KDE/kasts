@@ -79,8 +79,8 @@ bool EntryListModel::setData(const QModelIndex &index, const QVariant &value, in
 void EntryListModel::fetch()
 {
     connect(&Fetcher::instance(), &Fetcher::finished, this, &EntryListModel::update);
-    if(m_feed.compare("all") != 0)
-        Fetcher::instance().fetch(m_feed);
+    if(m_feed.url().compare("all") != 0)
+        Fetcher::instance().fetch(m_feed.url());
     else
         update();
 }
@@ -88,12 +88,12 @@ void EntryListModel::fetch()
 void EntryListModel::update() {
     beginResetModel();
     QSqlQuery query;
-    if(m_feed.compare("all") == 0) {
+    if(m_feed.url().compare("all") == 0) {
         query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries ORDER BY updated DESC;"));
     }
     else {
         query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
-        query.bindValue(QStringLiteral(":feed"), m_feed);
+        query.bindValue(QStringLiteral(":feed"), m_feed.url());
     }
     Database::instance().execute(query);
     while (query.next()) {
@@ -102,12 +102,13 @@ void EntryListModel::update() {
     endResetModel();
 }
 
-QString EntryListModel::feed() const
+Feed EntryListModel::feed()
 {
     return m_feed;
 }
 
-void EntryListModel::setFeed(QString feed)
+void EntryListModel::setFeed(Feed feed)
 {
     m_feed = feed;
+    emit feedChanged(feed);
 }

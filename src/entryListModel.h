@@ -23,14 +23,13 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <Syndication/Syndication>
-
 #include "entry.h"
+#include "feed.h"
 
 class EntryListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString feed READ feed WRITE setFeed NOTIFY feedChanged)
+    Q_PROPERTY(Feed feed READ feed WRITE setFeed NOTIFY feedChanged)
 public:
     enum DataRole {
         Title = Qt::UserRole + 1,
@@ -45,17 +44,17 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
-    QString feed() const;
-    void setFeed(QString feed);
+    Feed feed();
+    void setFeed(Feed feed);
 
     Q_INVOKABLE void fetch();
 
 Q_SIGNALS:
-    void feedChanged(QString);
+    void feedChanged(Feed);
 
 private:
     QVector<Entry> m_entries;
-    QString m_feed;
+    Feed m_feed;
 
     void update();
 };

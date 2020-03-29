@@ -54,7 +54,7 @@ bool Database::migrate() {
 
 bool Database::migrateTo1() {
     QSqlQuery query(QSqlDatabase::database());
-    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT, created INTEGER, updated INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (id TEXT, name TEXT, uri TEXT, email TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 1;")));

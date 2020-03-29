@@ -18,23 +18,38 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include <QVariant>
+
 #include "feed.h"
 
+Feed::Feed()
+    : m_url(QStringLiteral(""))
+    , m_name(QStringLiteral(""))
+    , m_image(QStringLiteral(""))
+{
+}
 Feed::Feed(const QString url)
     : m_url(url)
     , m_name(url)
+    , m_image(QStringLiteral(""))
 {
 }
 
-Feed::Feed(const QString url, const QString name)
+Feed::Feed(const QString url, const QString name, const QString image)
     : m_url(url)
     , m_name(name)
+    , m_image(image)
 {
 }
 
 Feed::Feed(const Feed &other)
     : m_url(other.url())
     , m_name(other.name())
+    , m_image(other.image())
+{
+}
+
+Feed::~Feed()
 {
 }
 
@@ -46,4 +61,19 @@ QString Feed::url() const
 QString Feed::name() const
 {
     return m_name;
+}
+
+QString Feed::image() const
+{
+    return m_image;
+}
+
+void Feed::setName(QString name)
+{
+    m_name = name;
+}
+
+void Feed::setImage(QString image)
+{
+    m_image = image;
 }

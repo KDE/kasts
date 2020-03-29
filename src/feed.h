@@ -25,15 +25,29 @@
 
 class Feed
 {
+    Q_GADGET
+    Q_PROPERTY(QString url READ url)
+    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(QString image READ image WRITE setImage)
 public:
+    Feed();
     Feed(const QString url);
+    Feed(const QString url, const QString name, const QString image);
     Feed(const Feed &other);
-    Feed(const QString url, const QString name);
+    ~Feed();
 
     QString name() const;
     QString url() const;
+    QString image() const;
 
 private:
     QString m_url;
     QString m_name;
+    QString m_image;
+
+    void setName(QString);
+    void setImage(QString);
 };
+
+
+Q_DECLARE_METATYPE(Feed);

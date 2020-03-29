@@ -20,8 +20,6 @@
 
 #include <QUrl>
 
-#include <Syndication/Syndication>
-
 #include "feedListModel.h"
 #include "fetcher.h"
 #include "database.h"
@@ -32,11 +30,11 @@ FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT name, url FROM Feeds"));
+    query.prepare(QStringLiteral("SELECT name, url, image FROM Feeds"));
     Database::instance().execute(query);
     beginInsertRows(QModelIndex(), 0, query.size());
     while (query.next()) {
-        feeds += Feed(query.value(1).toString(), query.value(0).toString());
+        feeds += Feed(query.value(1).toString(), query.value(0).toString(), query.value(2).toString());
     }
     endInsertRows();
 }
@@ -44,17 +42,15 @@ FeedListModel::FeedListModel(QObject *parent)
 QHash<int, QByteArray> FeedListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
-    roleNames[Qt::DisplayRole] = "display";
-    roleNames[Url] = "url";
+    roleNames[FeedRole] = "feed";
     return roleNames;
 }
 
 QVariant FeedListModel::data(const QModelIndex &index, int role) const
 {
-    if (role == Url)
-        return feeds[index.row()].url();
-    if (role == Qt::DisplayRole)
-        return feeds[index.row()].name();
+    if (role == FeedRole) {
+        return QVariant::fromValue(feeds[index.row()]);
+    }
     return QStringLiteral("DEADBEEF");
 }
 int FeedListModel::rowCount(const QModelIndex &index) const
@@ -72,14 +68,14 @@ void FeedListModel::addFeed(QString url)
     if(query.value(0).toInt() != 0) return;
     connect(&Fetcher::instance(), &Fetcher::finished, this, [this, url]() {
         QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE url=:url;"));
+        query.prepare(QStringLiteral("SELECT name, image FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
         Database::instance().execute(query);
         query.next();
         for(int i = 0; i < feeds.length(); i++) {
             if(feeds[i].url() == url) {
                 feeds.removeAt(i);
-                feeds.insert(i, Feed(url, query.value(0).toString()));
+                feeds.insert(i, Feed(url, query.value(0).toString(), query.value(0).toString()));
                 emit dataChanged(index(i), index(i));
                 break;
             }
@@ -90,7 +86,7 @@ void FeedListModel::addFeed(QString url)
     feeds.append(Feed(url));
     endInsertRows();
 
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:url, :name);"));
+    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:url, :name, '');"));
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":name"), url);
     Database::instance().execute(query);

@@ -70,9 +70,10 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":email"), author->email());
                 Database::instance().execute(query);
             }
-            query.prepare(QStringLiteral("UPDATE Feeds SET name=:name WHERE url=:url;"));
+            query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
             query.bindValue(QStringLiteral(":name"), feed->title());
             query.bindValue(QStringLiteral(":url"), url.toString());
+            query.bindValue(QStringLiteral(":image"), feed->image()->url());
             Database::instance().execute(query);
         }
         delete reply;

@@ -33,7 +33,7 @@ class FeedListModel : public QAbstractListModel
 
 public:
     enum DataRole {
-        Url = Qt::UserRole + 1,
+        FeedRole = Qt::UserRole + 1,
     };
     explicit FeedListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
