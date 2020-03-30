@@ -1,9 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file alias="main.qml">contents/ui/main.qml</file>
-        <file alias="EntryListPage.qml">contents/ui/EntryListPage.qml</file>
-        <file alias="FeedListPage.qml">contents/ui/FeedListPage.qml</file>
-        <file alias="EntryPage.qml">contents/ui/EntryPage.qml</file>
-        <file alias="SettingsPage.qml">contents/ui/SettingsPage.qml</file>
+        <file alias="main.qml">qml/main.qml</file>
+        <file alias="EntryListPage.qml">qml/EntryListPage.qml</file>
+        <file alias="FeedListPage.qml">qml/FeedListPage.qml</file>
+        <file alias="EntryPage.qml">qml/EntryPage.qml</file>
+        <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
     </qresource>
 </RCC>
