@@ -18,7 +18,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.13
+import QtQuick 2.14
 import QtQuick.Controls 2.10 as Controls
 import QtQuick.Layouts 1.12
 
@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
             }
 
             header:
-                Kirigami.SwipeListItem {
+                Kirigami.AbstractListItem {
                     Controls.Label {
                         text: "All feeds"
                     }
@@ -81,27 +81,32 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-            delegate: Kirigami.SwipeListItem {
-                Controls.Label {
-                    text: model.feed.name
-                }
+            delegate: Kirigami.AbstractListItem {
+                height: Kirigami.Units.gridUnit*2
 
-                width: parent.width
-                height: Kirigami.Units.gridUnit * 2
-                actions: [
-                    Kirigami.Action {
-                        icon.name: "list-remove"
-                        text: "Remove"
-                        onTriggered: feedListModel.remove_feed(index)
-                    },
-                    Kirigami.Action {
-                        icon.name: "document-edit"
-                        text: "Edit"
-                        onTriggered:; //TODO
+                Item {
+                    height: parent.height
+
+                    Kirigami.Icon {
+                        id: icon
+                        source: model.feed.image
+                        width: height
+                        height: parent.height
                     }
-                ]
-                onClicked: {
-                    pageStack.push("qrc:/EntryListPage.qml", {feed: model.feed})
+
+                    Controls.Label {
+                        text: model.feed.name
+                        height: parent.height
+                        leftPadding: Kirigami.Units.gridUnit*0.5
+                        anchors.left: icon.right
+                    }
+                    MouseArea {
+                        x: 0
+                        y: 0
+                        width: parent.width
+                        height: parent.height
+                        onClicked: pageStack.push("qrc:/EntryListPage.qml", {feed: model.feed})
+                    }
                 }
             }
         }
