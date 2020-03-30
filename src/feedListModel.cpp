@@ -75,7 +75,7 @@ void FeedListModel::addFeed(QString url)
         for(int i = 0; i < feeds.length(); i++) {
             if(feeds[i].url() == url) {
                 feeds.removeAt(i);
-                feeds.insert(i, Feed(url, query.value(0).toString(), query.value(0).toString()));
+                feeds.insert(i, Feed(url, query.value(0).toString(), query.value(1).toString()));
                 emit dataChanged(index(i), index(i));
                 break;
             }
