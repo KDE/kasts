@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
                        id: urlField
                        Layout.fillWidth: true
                        //placeholderText: "https://example.org/feed.xml"
-                       text: "https://planet.kde.org/rss20.xml"
+                       text: "https://planet.kde.org/global/atom.xml/"
                        Kirigami.FormData.label: "Url"
                    }
                    Controls.Button {

@@ -24,8 +24,8 @@
 #include <Syndication/Syndication>
 
 #include "fetcher.h"
-
 #include "database.h"
+#include "alligator-debug.h"
 
 Fetcher::Fetcher() {
 }
@@ -36,12 +36,15 @@ void Fetcher::fetch(QUrl url)
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
     manager->enableStrictTransportSecurityStore(true);
+
     QNetworkRequest request = QNetworkRequest(QUrl(url));
     QNetworkReply *reply = manager->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
         Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url.toString());
         Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
+
+        if(feed.isNull()) return;
 
         QSqlQuery query;
 
