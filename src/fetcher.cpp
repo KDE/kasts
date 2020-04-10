@@ -25,7 +25,6 @@
 
 #include "fetcher.h"
 #include "database.h"
-#include "alligator-debug.h"
 
 Fetcher::Fetcher() {
 }

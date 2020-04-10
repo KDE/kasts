@@ -25,8 +25,6 @@
 #include "fetcher.h"
 #include "database.h"
 
-#include "alligator-debug.h"
-
 EntryListModel::EntryListModel(QObject *parent)
     : QAbstractListModel(parent)
 {

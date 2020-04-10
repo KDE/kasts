@@ -26,7 +26,6 @@
 
 #include "database.h"
 #include "alligatorsettings.h"
-#include "alligator-debug.h"
 
 #define TRUE_OR_RETURN(x) if(!x) return false;
 
@@ -36,18 +35,18 @@ Database::Database()
     QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir(databasePath).mkpath(databasePath);
     db.setDatabaseName(databasePath + QStringLiteral("/database.db3"));
-    qCDebug(ALLIGATOR) << "Opening database " << databasePath << "/database.db3";
+    qDebug() << "Opening database " << databasePath << "/database.db3";
     db.open();
 
     if(!migrate()) {
-        qCCritical(ALLIGATOR) << "Failed to migrate the database";
+        qCritical() << "Failed to migrate the database";
     }
 
     cleanup();
 }
 
 bool Database::migrate() {
-    qCDebug(ALLIGATOR) << "Migrating database";
+    qDebug() << "Migrating database";
     if(version() < 1) TRUE_OR_RETURN(migrateTo1());
     return true;
 }
@@ -69,9 +68,9 @@ bool Database::execute(QString query) {
 
 bool Database::execute(QSqlQuery &query) {
     if(!query.exec()) {
-        qCWarning(ALLIGATOR) << "Failed to execute SQL Query";
-        qCWarning(ALLIGATOR) << query.lastQuery();
-        qCWarning(ALLIGATOR) << query.lastError();
+        qWarning() << "Failed to execute SQL Query";
+        qWarning() << query.lastQuery();
+        qWarning() << query.lastError();
         return false;
     }
     return true;
@@ -84,10 +83,10 @@ int Database::version() {
     if(query.next()) {
         bool ok;
         int value = query.value(0).toInt(&ok);
-        qCDebug(ALLIGATOR) << "Database version " << value;
+        qDebug() << "Database version " << value;
         if(ok) return value;
     } else {
-        qCCritical(ALLIGATOR) << "Failed to check database version";
+        qCritical() << "Failed to check database version";
     }
     return -1;
 }

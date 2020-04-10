@@ -24,8 +24,6 @@
 #include "fetcher.h"
 #include "database.h"
 
-#include "alligator-debug.h"
-
 FeedListModel::FeedListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
