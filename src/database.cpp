@@ -35,7 +35,7 @@ Database::Database()
     QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir(databasePath).mkpath(databasePath);
     db.setDatabaseName(databasePath + QStringLiteral("/database.db3"));
-    qDebug() << "Opening database " << databasePath << "/database.db3";
+    qDebug() << "Opening database " << databasePath + "/database.db3";
     db.open();
 
     if(!migrate()) {
