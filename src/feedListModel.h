@@ -41,7 +41,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addFeed(QString url);
-    Q_INVOKABLE void remove_feed(int index);
+    Q_INVOKABLE void removeFeed(int index);
 
 private:
     QVector<Feed> feeds;

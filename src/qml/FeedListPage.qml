@@ -21,7 +21,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.10 as Controls
 import QtQuick.Layouts 1.12
-
 import org.kde.kirigami 2.8 as Kirigami
 
 import org.kde.alligator 1.0
@@ -81,12 +80,10 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-            delegate: Kirigami.AbstractListItem {
+            delegate: Kirigami.SwipeListItem {
                 height: Kirigami.Units.gridUnit*2
 
                 Item {
-                    height: parent.height
-
                     Kirigami.Icon {
                         id: icon
                         source: model.feed.image
@@ -97,17 +94,18 @@ Kirigami.ScrollablePage {
                     Controls.Label {
                         text: model.feed.name
                         height: parent.height
-                        leftPadding: Kirigami.Units.gridUnit*0.5
                         anchors.left: icon.right
-                    }
-                    MouseArea {
-                        x: 0
-                        y: 0
-                        width: parent.width
-                        height: parent.height
-                        onClicked: pageStack.push("qrc:/EntryListPage.qml", {feed: model.feed})
+                        leftPadding: 0.5*Kirigami.Units.gridUnit
                     }
                 }
+
+                actions: [
+                    Kirigami.Action {
+                        icon.name: "delete"
+                        onTriggered: feedListModel.removeFeed(index)
+                    }
+
+                ]
             }
         }
     }

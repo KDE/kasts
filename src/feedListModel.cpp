@@ -90,7 +90,7 @@ void FeedListModel::addFeed(QString url)
     Database::instance().execute(query);
 }
 
-void FeedListModel::remove_feed(int index)
+void FeedListModel::removeFeed(int index)
 {
     Feed toRemove = feeds[index];
     QSqlQuery query;
