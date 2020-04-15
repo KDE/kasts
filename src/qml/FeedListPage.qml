@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
                     height: Kirigami.Units.gridUnit * 2
                     onClicked: {
                         feedList.focus = false
-                        pageStack.push("qrc:/EntryListPage.qml", {"name": "All feeds", "url": "all"})
+                        pageStack.push("qrc:/EntryListPage.qml")
                     }
                 }
 
@@ -106,6 +106,8 @@ Kirigami.ScrollablePage {
                     }
 
                 ]
+
+                onClicked: pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
             }
         }
     }
