@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
-            text: "Details"
+            text: i18n("Details")
             visible: feed.url != "all"
             onTriggered: ;//pageStack.push("qrc:/qml/FeedDetailsPage.qml", {"modelData": atomModel})
         }
@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
             actions: [
                 Kirigami.Action {
                     icon.name: model.bookmark ? "bookmark-remove" : "bookmark-new"
-                    text: "Bookmark"
+                    text: i18n("Bookmark")
                     onTriggered: {
                         model.bookmark = !model.bookmark
                     }

@@ -24,6 +24,7 @@
 #include <QQmlContext>
 
 #include <KAboutData>
+#include <KLocalizedString>
 
 #include "entryListModel.h"
 #include "feedListModel.h"
@@ -46,9 +47,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    KAboutData about(QStringLiteral("alligator"), QStringLiteral("Alligator"), QStringLiteral("0.1"), QStringLiteral("Feed Reader"),
-                     KAboutLicense::GPL, QStringLiteral("© 2020 KDE Community"));
-    about.addAuthor(QStringLiteral("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"),
+                     KAboutLicense::GPL, i18n("© 2020 KDE Community"));
+    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     KAboutData::setApplicationData(about);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));

@@ -34,12 +34,12 @@ Kirigami.ApplicationWindow {
         isMenu: true
         actions: [
             Kirigami.Action {
-                text: "Settings"
+                text: i18n("Settings")
                 iconName: "settings-configure"
                 onTriggered: pageStack.push("qrc:/SettingsPage.qml", {"settings": _settings})
             },
             Kirigami.Action {
-                text: "About"
+                text: i18n("About")
                 iconName: "help-about"
                 onTriggered: root.pageStack.push(aboutPage)
             }

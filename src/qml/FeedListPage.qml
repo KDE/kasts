@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
         contextualActions: [
                 Kirigami.Action {
-                    text: "Add feed"
+                    text: i18n("Add feed")
                     onTriggered: {
                         addSheet.open()
                     }
@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
                        Kirigami.FormData.label: "Url"
                    }
                    Controls.Button {
-                       text: "Add"
+                       text: i18n("Add")
                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                        enabled: urlField.text
                        onClicked: {
@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
             header:
                 Kirigami.AbstractListItem {
                     Controls.Label {
-                        text: "All feeds"
+                        text: i18n("All feeds")
                     }
 
                     width: parent.width;

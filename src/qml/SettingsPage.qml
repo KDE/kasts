@@ -3,7 +3,7 @@ import org.kde.kirigami 2.8 as Kirigami
 import QtQuick.Controls 2.10 as Controls
 
 Kirigami.ScrollablePage {
-    title: "Settings"
+    title: i18n("Settings")
 
     property QtObject settings
 
@@ -12,15 +12,15 @@ Kirigami.ScrollablePage {
         Controls.TextField {
             id: deleteAfterCount
             text: settings.deleteAfterCount
-            Kirigami.FormData.label: "Delete posts after:"
+            Kirigami.FormData.label: i18n("Delete posts after:")
         }
         Controls.ComboBox {
             id: deleteAfterType
             currentIndex: settings.deleteAfterType
-            model: ["Posts", "Days", "Weeks", "Months"]
+            model: [i18n("Posts"), i18n("Days"), i18n("Weeks"), i18n("Months")]
         }
         Controls.Button {
-            text: "Save"
+            text: i18n("Save")
             onClicked: {
                 settings.deleteAfterCount = deleteAfterCount.text
                 settings.deleteAfterType = deleteAfterType.currentIndex
