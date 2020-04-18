@@ -20,29 +20,30 @@
 
 #pragma once
 
-#include <QAbstractListModel>
+#include <QSqlTableModel>
 #include <QUrl>
 #include <QVector>
 
-#include "feed.h"
+//#include "feed.h"
 #include "fetcher.h"
 
-class FeedListModel : public QAbstractListModel
+class FeedListModel : public QSqlTableModel
 {
     Q_OBJECT
 
 public:
     enum DataRole {
-        FeedRole = Qt::UserRole + 1,
+        Name = 0,
+        Url,
+        Image,
     };
     explicit FeedListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex &index) const override;
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addFeed(QString url);
     Q_INVOKABLE void removeFeed(int index);
 
 private:
-    QVector<Feed> feeds;
+    bool feedExists(QString url);
 };

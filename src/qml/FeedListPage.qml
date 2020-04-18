@@ -86,13 +86,13 @@ Kirigami.ScrollablePage {
                 Item {
                     Kirigami.Icon {
                         id: icon
-                        source: model.feed.image
+                        source: model.image
                         width: height
                         height: parent.height
                     }
 
                     Controls.Label {
-                        text: model.feed.name
+                        text: model.name
                         height: parent.height
                         anchors.left: icon.right
                         leftPadding: 0.5*Kirigami.Units.gridUnit
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
 
                 ]
 
-                onClicked: pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+                onClicked: pageStack.push("qrc:/EntryListPage.qml", {"data": model})
             }
         }
     }

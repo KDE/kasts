@@ -3,8 +3,6 @@ set(alligator_SRCS
     feedListModel.cpp
     entryListModel.cpp
     fetcher.cpp
-    feed.cpp
-    entry.cpp
     database.cpp
     resources.qrc
     )

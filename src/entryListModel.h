@@ -20,41 +20,32 @@
 
 #pragma once
 
-#include <QAbstractListModel>
+#include <QSqlTableModel>
 #include <QObject>
+#include <QString>
 
-#include "entry.h"
-#include "feed.h"
-
-class EntryListModel : public QAbstractListModel
+class EntryListModel : public QSqlTableModel
 {
     Q_OBJECT
-    Q_PROPERTY(Feed feed READ feed WRITE setFeed NOTIFY feedChanged)
+    Q_PROPERTY(QString feed READ feed WRITE setFeed)
 public:
     enum DataRole {
-        Title = Qt::UserRole + 1,
+        Feed = 0,
+        Id,
+        Title,
         Content,
+        Created,
         Updated,
-        Bookmark,
-        Read,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex &index) const override;
     QHash<int, QByteArray> roleNames() const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-
-    Feed feed();
-    void setFeed(Feed feed);
 
     Q_INVOKABLE void fetch();
 
-Q_SIGNALS:
-    void feedChanged(Feed);
+    QString feed() const;
+    void setFeed(QString feed);
 
 private:
-    QVector<Entry> m_entries;
-    Feed m_feed;
-
-    void update();
+    QString m_feed;
 };

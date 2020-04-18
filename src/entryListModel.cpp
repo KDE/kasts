@@ -26,87 +26,49 @@
 #include "database.h"
 
 EntryListModel::EntryListModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QSqlTableModel(parent)
 {
+    setTable("entries");
+    setSort(Updated, Qt::DescendingOrder);
+    setEditStrategy(OnFieldChange);
+    select();
 }
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
-    if (role == Title)
-        return m_entries[index.row()].title();
-    if (role == Content)
-        return m_entries[index.row()].content();
-    if (role == Updated) {
+    if(role == Updated || role == Created) {
         QDateTime updated;
-        updated.setSecsSinceEpoch(m_entries[index.row()].updated());
+        updated.setSecsSinceEpoch(QSqlQueryModel::data(createIndex(index.row(), role), 0).toInt());
         return updated;
     }
-    if (role == Bookmark)
-        return m_entries[index.row()].isBookmark();
-    if (role == Read)
-        return m_entries[index.row()].isRead();
+        return QSqlQueryModel::data(createIndex(index.row(), role), 0);
+}
 
-    return QStringLiteral("DEADBEEF");
-}
-int EntryListModel::rowCount(const QModelIndex &index) const
-{
-    return m_entries.size();
-}
 QHash<int, QByteArray> EntryListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
+    roleNames[Feed] = "feed";
+    roleNames[Id] = "id";
     roleNames[Title] = "title";
     roleNames[Content] = "content";
+    roleNames[Created] = "created";
     roleNames[Updated] = "updated";
-    roleNames[Bookmark] = "bookmark";
-    roleNames[Read] = "read";
-
     return roleNames;
 }
-bool EntryListModel::setData(const QModelIndex &index, const QVariant &value, int role)
+
+void EntryListModel::setFeed(QString url)
 {
-    if (role == Bookmark) {
-        m_entries[index.row()].setBookmark(value.toBool());
-    } else if (role == Read) {
-        m_entries[index.row()].setRead(value.toBool());
-    }
-    emit dataChanged(index, index, QVector<int>({role}));
-    return true;
+    m_feed = url;
+    setFilter(QStringLiteral("feed ='%1'").arg(url));
+    select();
 }
 
-void EntryListModel::fetch()
-{
-    connect(&Fetcher::instance(), &Fetcher::finished, this, &EntryListModel::update);
-    if(m_feed.url().compare("all") != 0)
-        Fetcher::instance().fetch(m_feed.url());
-    else
-        update();
-}
-
-void EntryListModel::update() {
-    beginResetModel();
-    QSqlQuery query;
-    if(m_feed.url().compare("all") == 0) {
-        query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries ORDER BY updated DESC;"));
-    }
-    else {
-        query.prepare(QStringLiteral("SELECT id, title, content, updated FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
-        query.bindValue(QStringLiteral(":feed"), m_feed.url());
-    }
-    Database::instance().execute(query);
-    while (query.next()) {
-        m_entries.append(Entry(query.value(1).toString(), query.value(2).toString(), query.value(3).toInt(), false, false));
-    }
-    endResetModel();
-}
-
-Feed EntryListModel::feed()
+QString EntryListModel::feed() const
 {
     return m_feed;
 }
 
-void EntryListModel::setFeed(Feed feed)
+void EntryListModel::fetch()
 {
-    m_feed = feed;
-    emit feedChanged(feed);
+    Fetcher::instance().fetch(m_feed);
 }

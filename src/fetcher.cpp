@@ -31,6 +31,7 @@ Fetcher::Fetcher() {
 
 void Fetcher::fetch(QUrl url)
 {
+    qDebug() << "Starting to fetch" << url.toString();
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
@@ -47,7 +48,15 @@ void Fetcher::fetch(QUrl url)
 
         QSqlQuery query;
 
+        query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":name"), feed->title());
+        query.bindValue(QStringLiteral(":url"), url.toString());
+        query.bindValue(QStringLiteral(":image"), feed->image()->url());
+        Database::instance().execute(query);
+        qDebug() << "Updated feed title:" << feed->title();
+
         for (const auto &entry : feed->items()) {
+            qDebug() << "Processing" << entry->title();
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE id=:id;"));
             query.bindValue(QStringLiteral(":id"), entry->id());
             Database::instance().execute(query);
@@ -72,13 +81,9 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":email"), author->email());
                 Database::instance().execute(query);
             }
-            query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
-            query.bindValue(QStringLiteral(":name"), feed->title());
-            query.bindValue(QStringLiteral(":url"), url.toString());
-            query.bindValue(QStringLiteral(":image"), feed->image()->url());
-            Database::instance().execute(query);
         }
+
+        emit updated();
         delete reply;
-        emit finished();
     });
 }

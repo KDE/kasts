@@ -39,5 +39,5 @@ private:
     Fetcher(const Fetcher &);
 
 Q_SIGNALS:
-    void finished();
+    void updated();
 };

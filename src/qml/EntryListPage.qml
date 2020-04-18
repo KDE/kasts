@@ -28,16 +28,18 @@ import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
     id: page
-    property var feed
+
+    property var data
+
+    property var all: page.data.url === "all"
 
     contextualActions: [
         Kirigami.Action {
             text: i18n("Details")
-            visible: feed.url != "all"
+            visible: !all
             onTriggered: ;//pageStack.push("qrc:/qml/FeedDetailsPage.qml", {"modelData": atomModel})
         }
     ]
-
 
     Component.onCompleted: {
         entryListModel.fetch();
@@ -46,27 +48,28 @@ Kirigami.ScrollablePage {
     ListView {
         model: EntryListModel {
             id: entryListModel
-            feed: page.feed
+            feed: page.data.url
         }
 
         header: RowLayout {
             width: parent.width
             height: page.height * 0.2
+            visible: !all
             Image {
-                source: feed.image
+                source: page.data.image
                 fillMode: Image.PreserveAspectFit
                 sourceSize.width: 0
                 sourceSize.height: parent.height
             }
             Kirigami.Heading {
-                text: feed.name
+                text: page.data.name
             }
         }
 
         delegate: Kirigami.SwipeListItem {
             Controls.Label {
                 width: parent.width
-                text: model.title + " - " + model.updated
+                text: model.title + " - " + model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat)
                 textFormat: Text.RichText
                 color: model.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
             }

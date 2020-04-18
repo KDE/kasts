@@ -19,86 +19,77 @@
  */
 
 #include <QUrl>
+#include <QSqlRecord>
+#include <QDebug>
+#include <QModelIndex>
+#include <QSqlError>
 
 #include "feedListModel.h"
 #include "fetcher.h"
 #include "database.h"
 
 FeedListModel::FeedListModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QSqlTableModel(parent)
 {
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT name, url, image FROM Feeds"));
-    Database::instance().execute(query);
-    beginInsertRows(QModelIndex(), 0, query.size());
-    while (query.next()) {
-        feeds += Feed(query.value(1).toString(), query.value(0).toString(), query.value(2).toString());
-    }
-    endInsertRows();
+    setTable("Feeds");
+    setSort(0, Qt::AscendingOrder);
+    setEditStrategy(OnFieldChange);
+    select();
 }
 
 QHash<int, QByteArray> FeedListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
-    roleNames[FeedRole] = "feed";
+    roleNames[Name] = "name";
+    roleNames[Url] = "url";
+    roleNames[Image] = "image";
     return roleNames;
-}
-
-QVariant FeedListModel::data(const QModelIndex &index, int role) const
-{
-    if (role == FeedRole) {
-        return QVariant::fromValue(feeds[index.row()]);
-    }
-    return QStringLiteral("DEADBEEF");
-}
-int FeedListModel::rowCount(const QModelIndex &index) const
-{
-    return feeds.size();
 }
 
 void FeedListModel::addFeed(QString url)
 {
+    qDebug() << "Adding feed";
+    if(feedExists(url)) {
+        qDebug() << "Feed already exists";
+        return;
+    }
+    qDebug() << "Feed does not yet exist";
+
+    QSqlRecord rec = record();
+    rec.setValue(0, url);
+    rec.setValue(1, url);
+    rec.setValue(2, "");
+
+    insertRecord(-1, rec);
+
+    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() {
+        select();
+
+        disconnect(&Fetcher::instance(), &Fetcher::updated, nullptr, nullptr);
+    });
+    Fetcher::instance().fetch(QUrl(url));
+}
+
+QVariant FeedListModel::data(const QModelIndex &index, int role) const
+{
+    return QSqlTableModel::data(createIndex(index.row(), role), 0);
+}
+
+bool FeedListModel::feedExists(QString url) {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), url);
     Database::instance().execute(query);
     query.next();
-    if(query.value(0).toInt() != 0) return;
-    connect(&Fetcher::instance(), &Fetcher::finished, this, [this, url]() {
-        QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT name, image FROM Feeds WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), url);
-        Database::instance().execute(query);
-        query.next();
-        for(int i = 0; i < feeds.length(); i++) {
-            if(feeds[i].url() == url) {
-                feeds.removeAt(i);
-                feeds.insert(i, Feed(url, query.value(0).toString(), query.value(1).toString()));
-                emit dataChanged(index(i), index(i));
-                break;
-            }
-        }
-    });
-    Fetcher::instance().fetch(QUrl(url));
-    beginInsertRows(QModelIndex(), feeds.size(), feeds.size());
-    feeds.append(Feed(url));
-    endInsertRows();
-
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:url, :name, '');"));
-    query.bindValue(QStringLiteral(":url"), url);
-    query.bindValue(QStringLiteral(":name"), url);
-    Database::instance().execute(query);
+    return query.value(0).toInt() != 0;
 }
 
 void FeedListModel::removeFeed(int index)
 {
-    Feed toRemove = feeds[index];
+    //Workaround...
     QSqlQuery query;
-    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE name=:name AND url=url;"));
-    query.bindValue(QStringLiteral(":url"), toRemove.url());
-    query.bindValue(QStringLiteral(":name"), toRemove.name());
+    query.prepare("DELETE FROM Feeds WHERE url=:url");
+    query.bindValue(":url", data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);
-    beginRemoveRows(QModelIndex(), index, index);
-    feeds.remove(index);
-    endRemoveRows();
+    select();
 }
