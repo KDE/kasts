@@ -5,5 +5,6 @@
         <file alias="FeedListPage.qml">qml/FeedListPage.qml</file>
         <file alias="EntryPage.qml">qml/EntryPage.qml</file>
         <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
+        <file alias="FeedDetailsPage.qml">qml/FeedDetailsPage.qml</file>
     </qresource>
 </RCC>

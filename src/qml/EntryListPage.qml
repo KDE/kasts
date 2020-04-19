@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18n("Details")
             visible: !all
-            onTriggered: ;//pageStack.push("qrc:/qml/FeedDetailsPage.qml", {"modelData": atomModel})
+            onTriggered: pageStack.push("qrc:/FeedDetailsPage.qml")
         }
     ]
 
