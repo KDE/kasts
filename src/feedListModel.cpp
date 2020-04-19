@@ -88,8 +88,8 @@ void FeedListModel::removeFeed(int index)
 {
     //Workaround...
     QSqlQuery query;
-    query.prepare("DELETE FROM Feeds WHERE url=:url");
-    query.bindValue(":url", data(createIndex(index, 0), 1).toString());
+    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url"));
+    query.bindValue(QStringLiteral(":url"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);
     select();
 }
