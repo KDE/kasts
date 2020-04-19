@@ -1,6 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
+
 import org.kde.kirigami 2.8 as Kirigami
-import QtQuick.Controls 2.10 as Controls
 
 Kirigami.ScrollablePage {
     title: i18n("Settings")

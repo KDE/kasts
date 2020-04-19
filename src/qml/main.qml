@@ -18,8 +18,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.1
-import QtQuick.Controls 2.0 as Controls
+import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
 
 import org.kde.kirigami 2.8 as Kirigami
 
