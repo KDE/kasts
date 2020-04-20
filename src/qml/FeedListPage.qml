@@ -29,6 +29,8 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
         title: "Alligator"
 
+        property var lastFeed: ""
+
         contextualActions: [
                 Kirigami.Action {
                     text: i18n("Add feed")
@@ -103,12 +105,19 @@ Kirigami.ScrollablePage {
                 actions: [
                     Kirigami.Action {
                         icon.name: "delete"
-                        onTriggered: feedListModel.removeFeed(index)
+                        onTriggered: {
+                            if(pageStack.depth > 1 && model.url === lastFeed)
+                                pageStack.pop()
+                            feedListModel.removeFeed(index)
+                        }
                     }
 
                 ]
 
-                onClicked: pageStack.push("qrc:/EntryListPage.qml", {"data": model})
+                onClicked: {
+                    lastFeed = model.url
+                    pageStack.push("qrc:/EntryListPage.qml", {"data": model})
+                }
             }
         }
     }
