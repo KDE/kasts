@@ -87,6 +87,10 @@ bool FeedListModel::feedExists(QString url) {
 void FeedListModel::removeFeed(int index)
 {
     QSqlQuery query;
+    query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
+    query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
+    Database::instance().execute(query);
+
     query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);

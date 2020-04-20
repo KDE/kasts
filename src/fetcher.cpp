@@ -74,7 +74,8 @@ void Fetcher::fetch(QUrl url)
                 query.bindValue(QStringLiteral(":content"), entry->description());
             Database::instance().execute(query);
             for (const auto &author : entry->authors()) {
-                query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:id, :name, :uri, :email);"));
+                query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
+                query.bindValue(QStringLiteral(":feed"), url.toString());
                 query.bindValue(QStringLiteral(":id"), entry->id());
                 query.bindValue(QStringLiteral(":name"), author->name());
                 query.bindValue(QStringLiteral(":uri"), author->uri());
