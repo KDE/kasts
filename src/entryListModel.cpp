@@ -28,7 +28,7 @@
 EntryListModel::EntryListModel(QObject *parent)
     : QSqlTableModel(parent)
 {
-    setTable("entries");
+    setTable(QStringLiteral("entries"));
     setSort(Updated, Qt::DescendingOrder);
     setEditStrategy(OnFieldChange);
     select();
@@ -70,5 +70,5 @@ QString EntryListModel::feed() const
 
 void EntryListModel::fetch()
 {
-    Fetcher::instance().fetch(m_feed);
+    Fetcher::instance().fetch(QUrl(m_feed));
 }

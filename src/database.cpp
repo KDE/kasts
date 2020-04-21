@@ -35,7 +35,6 @@ Database::Database()
     QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     QDir(databasePath).mkpath(databasePath);
     db.setDatabaseName(databasePath + QStringLiteral("/database.db3"));
-    qDebug() << "Opening database " << databasePath + "/database.db3";
     db.open();
 
     if(!migrate()) {
@@ -106,8 +105,8 @@ void Database::cleanup() {
         qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
 
         QSqlQuery query;
-        query.prepare("DELETE FROM Entries WHERE updated < :sinceEpoch;");
-        query.bindValue(":sinceEpoch", sinceEpoch);
+        query.prepare(QStringLiteral("DELETE FROM Entries WHERE updated < :sinceEpoch;"));
+        query.bindValue(QStringLiteral(":sinceEpoch"), sinceEpoch);
         execute(query);
     }
 }

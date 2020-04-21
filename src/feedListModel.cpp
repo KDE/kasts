@@ -31,7 +31,7 @@
 FeedListModel::FeedListModel(QObject *parent)
     : QSqlTableModel(parent)
 {
-    setTable("Feeds");
+    setTable(QStringLiteral("Feeds"));
     setSort(0, Qt::AscendingOrder);
     setEditStrategy(OnFieldChange);
     select();
@@ -58,7 +58,7 @@ void FeedListModel::addFeed(QString url)
     QSqlRecord rec = record();
     rec.setValue(0, url);
     rec.setValue(1, url);
-    rec.setValue(2, "");
+    rec.setValue(2, QStringLiteral(""));
 
     insertRecord(-1, rec);
 

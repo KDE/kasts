@@ -18,13 +18,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifdef Q_OS_ANDROID
+#include <QGuiApplication>
+#else
 #include <QApplication>
+#endif
+
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include <QQmlContext>
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KLocalizedContext>
 
 #include "entryListModel.h"
 #include "feedListModel.h"
@@ -32,10 +38,17 @@
 #include "alligatorsettings.h"
 #include "feed.h"
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
+#ifdef Q_OS_ANDROID
+Q_DECL_EXPORT
+#endif
+int main(int argc, char *argv[])
 {
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#ifdef Q_OS_ANDROID
+    QGuiApplication app(argc, argv);
+#else
     QApplication app(argc, argv);
+#endif
+
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
@@ -45,6 +58,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<EntryListModel>("org.kde.alligator", 1, 0, "EntryListModel");
 
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
     KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"),
                      KAboutLicense::GPL, i18n("© 2020 KDE Community"));
