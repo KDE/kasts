@@ -7,9 +7,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.kde.alligator"
           android:versionName="0.0.1"
-          android:versionCode="1587503687"
+          android:versionCode="1587507847"
           android:installLocation="auto">
-    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Alligator">
+    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Alligator" android:icon="@drawable/alligator">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
                   android:label="Alligator"
