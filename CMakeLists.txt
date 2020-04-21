@@ -36,6 +36,7 @@ add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 
 install(PROGRAMS org.kde.mobile.alligator.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.mobile.alligator.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES alligator.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
 add_subdirectory(src)
 
