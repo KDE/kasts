@@ -18,16 +18,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QDir>
-#include <QStandardPaths>
-#include <QSqlError>
-#include <QSqlDatabase>
 #include <QDateTime>
+#include <QDir>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QStandardPaths>
 
-#include "database.h"
 #include "alligatorsettings.h"
+#include "database.h"
 
-#define TRUE_OR_RETURN(x) if(!x) return false;
+#define TRUE_OR_RETURN(x)                                                                                                                                                                                                                      \
+    if (!x)                                                                                                                                                                                                                                    \
+        return false;
 
 Database::Database()
 {
@@ -37,19 +39,22 @@ Database::Database()
     db.setDatabaseName(databasePath + QStringLiteral("/database.db3"));
     db.open();
 
-    if(!migrate()) {
+    if (!migrate()) {
         qCritical() << "Failed to migrate the database";
     }
 
     cleanup();
 }
 
-bool Database::migrate() {
-    if(version() < 1) TRUE_OR_RETURN(migrateTo1());
+bool Database::migrate()
+{
+    if (version() < 1)
+        TRUE_OR_RETURN(migrateTo1());
     return true;
 }
 
-bool Database::migrateTo1() {
+bool Database::migrateTo1()
+{
     qDebug() << "Migrating database to version 1";
     QSqlQuery query(QSqlDatabase::database());
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT);")));
@@ -59,14 +64,16 @@ bool Database::migrateTo1() {
     return true;
 }
 
-bool Database::execute(QString query) {
+bool Database::execute(QString query)
+{
     QSqlQuery q;
     q.prepare(query);
     return execute(q);
 }
 
-bool Database::execute(QSqlQuery &query) {
-    if(!query.exec()) {
+bool Database::execute(QSqlQuery &query)
+{
+    if (!query.exec()) {
         qWarning() << "Failed to execute SQL Query";
         qWarning() << query.lastQuery();
         qWarning() << query.lastError();
@@ -75,33 +82,39 @@ bool Database::execute(QSqlQuery &query) {
     return true;
 }
 
-int Database::version() {
+int Database::version()
+{
     QSqlQuery query;
     query.prepare(QStringLiteral("PRAGMA user_version;"));
     execute(query);
-    if(query.next()) {
+    if (query.next()) {
         bool ok;
         int value = query.value(0).toInt(&ok);
         qDebug() << "Database version " << value;
-        if(ok) return value;
+        if (ok)
+            return value;
     } else {
         qCritical() << "Failed to check database version";
     }
     return -1;
 }
 
-void Database::cleanup() {
+void Database::cleanup()
+{
     AlligatorSettings settings;
     int count = settings.deleteAfterCount();
     int type = settings.deleteAfterType();
 
-    if(type == 0) { // Delete after <count> posts per feed
-       //TODO
+    if (type == 0) { // Delete after <count> posts per feed
+                     // TODO
     } else {
         QDateTime dateTime = QDateTime::currentDateTime();
-        if(type == 1) dateTime = dateTime.addDays(-count);
-        else if(type == 2) dateTime = dateTime.addDays(-7*count);
-        else if(type == 3) dateTime = dateTime.addMonths(-count);
+        if (type == 1)
+            dateTime = dateTime.addDays(-count);
+        else if (type == 2)
+            dateTime = dateTime.addDays(-7 * count);
+        else if (type == 3)
+            dateTime = dateTime.addMonths(-count);
         qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
 
         QSqlQuery query;
