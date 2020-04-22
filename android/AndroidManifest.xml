@@ -7,7 +7,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.kde.alligator"
           android:versionName="0.0.1"
-          android:versionCode="1587507847"
+          android:versionCode="1587578760"
           android:installLocation="auto">
     <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Alligator" android:icon="@drawable/alligator">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
@@ -41,6 +41,9 @@
             <meta-data android:value="@string/ministro_not_found_msg" android:name="android.app.ministro_not_found_msg"/>
             <meta-data android:value="@string/ministro_needed_msg" android:name="android.app.ministro_needed_msg"/>
             <meta-data android:value="@string/fatal_error_msg" android:name="android.app.fatal_error_msg"/>
+
+                        <!-- Splash screen -->
+            <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/splash"/>
 
             <!-- Background running -->
             <meta-data android:name="android.app.background_running" android:value="false"/>
