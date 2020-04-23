@@ -18,15 +18,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QUrl>
-#include <QSqlRecord>
 #include <QDebug>
 #include <QModelIndex>
 #include <QSqlError>
+#include <QSqlRecord>
+#include <QUrl>
 
+#include "database.h"
 #include "feedListModel.h"
 #include "fetcher.h"
-#include "database.h"
 
 FeedListModel::FeedListModel(QObject *parent)
     : QSqlTableModel(parent)
@@ -49,7 +49,7 @@ QHash<int, QByteArray> FeedListModel::roleNames() const
 void FeedListModel::addFeed(QString url)
 {
     qDebug() << "Adding feed";
-    if(feedExists(url)) {
+    if (feedExists(url)) {
         qDebug() << "Feed already exists";
         return;
     }
@@ -75,7 +75,8 @@ QVariant FeedListModel::data(const QModelIndex &index, int role) const
     return QSqlTableModel::data(createIndex(index.row(), role), 0);
 }
 
-bool FeedListModel::feedExists(QString url) {
+bool FeedListModel::feedExists(QString url)
+{
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), url);
@@ -95,7 +96,7 @@ void FeedListModel::removeFeed(int index)
     query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);
 
-    //Workaround...
+    // Workaround...
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);

@@ -25,18 +25,18 @@
 #endif
 
 #include <QQmlApplicationEngine>
-#include <QQuickView>
 #include <QQmlContext>
+#include <QQuickView>
 
 #include <KAboutData>
-#include <KLocalizedString>
 #include <KLocalizedContext>
+#include <KLocalizedString>
 
-#include "entryListModel.h"
-#include "feedListModel.h"
-#include "database.h"
 #include "alligatorsettings.h"
+#include "database.h"
+#include "entryListModel.h"
 #include "feed.h"
+#include "feedListModel.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -60,8 +60,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
-    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"),
-                     KAboutLicense::GPL, i18n("© 2020 KDE Community"));
+    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     KAboutData::setApplicationData(about);
 

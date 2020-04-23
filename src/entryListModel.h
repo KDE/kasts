@@ -20,8 +20,8 @@
 
 #pragma once
 
-#include <QSqlTableModel>
 #include <QObject>
+#include <QSqlTableModel>
 #include <QString>
 
 class EntryListModel : public QSqlTableModel

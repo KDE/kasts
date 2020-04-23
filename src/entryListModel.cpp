@@ -18,12 +18,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QVector>
 #include <QDateTime>
+#include <QVector>
 
+#include "database.h"
 #include "entryListModel.h"
 #include "fetcher.h"
-#include "database.h"
 
 EntryListModel::EntryListModel(QObject *parent)
     : QSqlTableModel(parent)
@@ -36,12 +36,12 @@ EntryListModel::EntryListModel(QObject *parent)
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
-    if(role == Updated || role == Created) {
+    if (role == Updated || role == Created) {
         QDateTime updated;
         updated.setSecsSinceEpoch(QSqlQueryModel::data(createIndex(index.row(), role), 0).toInt());
         return updated;
     }
-        return QSqlQueryModel::data(createIndex(index.row(), role), 0);
+    return QSqlQueryModel::data(createIndex(index.row(), role), 0);
 }
 
 QHash<int, QByteArray> EntryListModel::roleNames() const

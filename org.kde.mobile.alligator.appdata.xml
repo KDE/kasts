@@ -2,12 +2,32 @@
 <component type="desktop-application">
   <id>org.kde.mobile.alligator</id>
   <name>Alligator</name>
+  <name xml:lang="ca">Alligator</name>
+  <name xml:lang="et">Alligator</name>
+  <name xml:lang="nl">Alligator</name>
+  <name xml:lang="uk">Alligator</name>
+  <name xml:lang="x-test">xxAlligatorxx</name>
   <summary>Feed reader for mobile devices</summary>
+  <summary xml:lang="ca">Lector de fonts per a dispositius mòbils</summary>
+  <summary xml:lang="et">Mobiilseadmete uudistelugeja</summary>
+  <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
+  <summary xml:lang="uk">Програма для читання подач на мобільних пристроях</summary>
+  <summary xml:lang="x-test">xxFeed reader for mobile devicesxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <developer_name>KDE Community</developer_name>
-   <description>
+  <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="et">KDE kogukond</developer_name>
+  <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
+  <developer_name xml:lang="uk">Спільнота KDE</developer_name>
+  <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
+  <description>
     <p>Alligator is a mobile feed reader</p>
+    <p xml:lang="ca">L'Alligator és un lector de fonts per a mòbil</p>
+    <p xml:lang="et">Alligator on mobiilide uudistelugeja</p>
+    <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
+    <p xml:lang="uk">Alligator — програма для читання подач на мобільних пристроях</p>
+    <p xml:lang="x-test">xxAlligator is a mobile feed readerxx</p>
   </description>
   <provides>
     <binary>alligator</binary>
