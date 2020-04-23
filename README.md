@@ -13,17 +13,14 @@ Alligator is a convergent RSS/Atom feed reader.
 
 ## Linux
 
-`git clone https://invent.kde.org/kde/alligator`
-
-`cd alligator`
-
-`mkdir build && cd  build`
-
-`cmake .. -DCMAKE_PREFIX_PATH=/usr`
-
-`make`
-
-`sudo make install`
+```
+git clone https://invent.kde.org/kde/alligator
+cd alligator
+mkdir build && cd  build
+cmake .. -DCMAKE_PREFIX_PATH=/usr
+make
+sudo make install
+```
 
 This assumes all dependencies are installed. If your distribution does not provide
 them, you can use [kdesrc-build](https://kdesrc-build.kde.org/) to build all of them.
