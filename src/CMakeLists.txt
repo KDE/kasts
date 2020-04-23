@@ -24,6 +24,7 @@ if(ANDROID)
         delete
         settings-configure
         help-about
+        list-add
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
