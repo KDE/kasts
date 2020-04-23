@@ -45,7 +45,18 @@ Kirigami.ScrollablePage {
         entryListModel.fetch();
     }
 
+    Kirigami.PlaceholderMessage {
+        visible: entryList.count === 0
+
+        width: Kirigami.Units.gridUnit * 20
+        anchors.centerIn: parent
+
+        text: i18n("No Entries available.")
+    }
+
     ListView {
+        id: entryList
+        visible: count !== 0
         model: EntryListModel {
             id: entryListModel
             feed: page.data.url
