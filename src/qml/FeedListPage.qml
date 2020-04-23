@@ -22,7 +22,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.8 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
@@ -42,6 +42,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.OverlaySheet {
                id: addSheet
+
                contentItem: Kirigami.FormLayout {
                    Controls.TextField {
                        id: urlField
@@ -55,15 +56,25 @@ Kirigami.ScrollablePage {
                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                        enabled: urlField.text
                        onClicked: {
-                            feedListModel.addFeed(urlField.text)
-                            addSheet.close()
+                           feedListModel.addFeed(urlField.text)
+                           addSheet.close()
                        }
                    }
                }
         }
 
+        Kirigami.PlaceholderMessage {
+            visible: feedList.count === 0
+
+            width: Kirigami.Units.gridUnit * 20
+            anchors.centerIn: parent
+
+            text: i18n("No Feeds added yet.")
+        }
+
         ListView {
             id: feedList
+            visible: count !== 0
             anchors.fill: parent
             model: FeedListModel {
                 id: feedListModel
