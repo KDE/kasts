@@ -34,6 +34,7 @@ Kirigami.ScrollablePage {
         contextualActions: [
                 Kirigami.Action {
                     text: i18n("Add feed")
+                    iconName: "list-add"
                     onTriggered: {
                         addSheet.open()
                     }
