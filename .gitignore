@@ -3,3 +3,4 @@ build/
 CMakeLists.txt.user
 alligator.kdev4
 .vscode/
+.clang-format
