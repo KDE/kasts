@@ -20,7 +20,6 @@
 
 #include <QDebug>
 #include <QModelIndex>
-#include <QSqlError>
 #include <QSqlRecord>
 #include <QUrl>
 
@@ -35,6 +34,10 @@ FeedListModel::FeedListModel(QObject *parent)
     setSort(0, Qt::AscendingOrder);
     setEditStrategy(OnFieldChange);
     select();
+
+    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() {
+        select();
+    });
 }
 
 QHash<int, QByteArray> FeedListModel::roleNames() const
@@ -62,11 +65,6 @@ void FeedListModel::addFeed(QString url)
 
     insertRecord(-1, rec);
 
-    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() {
-        select();
-
-        disconnect(&Fetcher::instance(), &Fetcher::updated, nullptr, nullptr);
-    });
     Fetcher::instance().fetch(QUrl(url));
 }
 
@@ -101,4 +99,9 @@ void FeedListModel::removeFeed(int index)
     query.bindValue(QStringLiteral(":url"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);
     select();
+}
+
+QString FeedListModel::image(QString url)
+{
+    return Fetcher::instance().image(url);
 }

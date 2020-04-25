@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QUrl>
+#include <QNetworkAccessManager>
 
 class Fetcher : public QObject
 {
@@ -33,10 +34,13 @@ public:
         return _instance;
     }
     void fetch(QUrl);
+    QString image(QString);
 
 private:
     Fetcher();
     Fetcher(const Fetcher &);
+
+    QNetworkAccessManager *manager;
 
 Q_SIGNALS:
     void updated();

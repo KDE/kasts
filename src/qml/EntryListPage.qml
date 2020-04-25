@@ -29,9 +29,11 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
     id: page
 
-    property var data
+    property var name
+    property var url
+    property var image
 
-    property var all: page.data.url === "all"
+    property var all: page.feedData.url === "all"
 
     contextualActions: [
         Kirigami.Action {
@@ -59,21 +61,21 @@ Kirigami.ScrollablePage {
         visible: count !== 0
         model: EntryListModel {
             id: entryListModel
-            feed: page.data.url
+            feed: page.url
         }
 
         header: RowLayout {
             width: parent.width
-            height: page.height * 0.2
+            height: root.height * 0.2
             visible: !all
-            Image {
-                source: page.data.image
-                fillMode: Image.PreserveAspectFit
-                sourceSize.width: 0
-                sourceSize.height: parent.height
+            Kirigami.Icon {
+                source: entryListModel.image(page.image)
+                width: height
+                height: parent.height
+                Component.onCompleted: console.log("Height: " + page.height)
             }
             Kirigami.Heading {
-                text: page.data.name
+                text: page.name
             }
         }
 

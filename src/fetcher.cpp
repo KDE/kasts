@@ -20,6 +20,9 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QFile>
+#include <QStandardPaths>
+#include <QFileInfo>
 
 #include <Syndication/Syndication>
 
@@ -28,17 +31,17 @@
 
 Fetcher::Fetcher()
 {
+    manager = new QNetworkAccessManager(this);
+    manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+    manager->setStrictTransportSecurityEnabled(true);
+    manager->enableStrictTransportSecurityStore(true);
 }
 
 void Fetcher::fetch(QUrl url)
 {
     qDebug() << "Starting to fetch" << url.toString();
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-    manager->setStrictTransportSecurityEnabled(true);
-    manager->enableStrictTransportSecurityStore(true);
 
-    QNetworkRequest request = QNetworkRequest(QUrl(url));
+    QNetworkRequest request(url);
     QNetworkReply *reply = manager->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
@@ -53,7 +56,11 @@ void Fetcher::fetch(QUrl url)
         query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
         query.bindValue(QStringLiteral(":name"), feed->title());
         query.bindValue(QStringLiteral(":url"), url.toString());
-        query.bindValue(QStringLiteral(":image"), feed->image()->url());
+        if(feed->image()->url().startsWith(QStringLiteral("/"))) {
+            QString absolute = url.adjusted(QUrl::RemovePath).toString() + feed->image()->url();
+            query.bindValue(QStringLiteral(":image"), absolute);
+        } else
+            query.bindValue(QStringLiteral(":image"), feed->image()->url());
         Database::instance().execute(query);
         qDebug() << "Updated feed title:" << feed->title();
 
@@ -90,4 +97,28 @@ void Fetcher::fetch(QUrl url)
         emit updated();
         delete reply;
     });
+}
+
+QString Fetcher::image(QString url)
+{
+    QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+
+    if(QFileInfo(path).exists()) {
+        return path;
+    }
+
+    QNetworkRequest request((QUrl(url)));
+    QNetworkReply *reply = manager->get(request);
+    connect(reply, &QNetworkReply::finished, this, [this, url, reply, path]() {
+        QByteArray data = reply->readAll();
+        QFile file(path);
+        file.open(QIODevice::WriteOnly);
+        file.write(data);
+        file.close();
+
+        emit updated();
+        delete reply;
+    });
+
+    return QStringLiteral("");
 }

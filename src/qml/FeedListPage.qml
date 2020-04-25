@@ -101,7 +101,7 @@ Kirigami.ScrollablePage {
                 Item {
                     Kirigami.Icon {
                         id: icon
-                        source: model.image
+                        source: feedListModel.image(model.image)
                         width: height
                         height: parent.height
                     }
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     lastFeed = model.url
-                    pageStack.push("qrc:/EntryListPage.qml", {"data": model})
+                    pageStack.push("qrc:/EntryListPage.qml", {"name": name, "url": url, "image": image})
                 }
             }
         }

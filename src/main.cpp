@@ -35,8 +35,8 @@
 #include "alligatorsettings.h"
 #include "database.h"
 #include "entryListModel.h"
-#include "feed.h"
 #include "feedListModel.h"
+#include "fetcher.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
