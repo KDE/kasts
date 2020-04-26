@@ -7,6 +7,7 @@
   <name xml:lang="ko">Alligator</name>
   <name xml:lang="nl">Alligator</name>
   <name xml:lang="pt">Alligator</name>
+  <name xml:lang="sv">Alligator</name>
   <name xml:lang="uk">Alligator</name>
   <name xml:lang="x-test">xxAlligatorxx</name>
   <summary>Feed reader for mobile devices</summary>
@@ -15,6 +16,7 @@
   <summary xml:lang="ko">모바일 장치용 피드 리더</summary>
   <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
   <summary xml:lang="pt">Leitor de fontes para dispositivos móveis</summary>
+  <summary xml:lang="sv">Kanalläsare för mobila apparater</summary>
   <summary xml:lang="uk">Програма для читання подач на мобільних пристроях</summary>
   <summary xml:lang="x-test">xxFeed reader for mobile devicesxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -25,6 +27,7 @@
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
+  <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
   <description>
@@ -34,6 +37,7 @@
     <p xml:lang="ko">Alligator는 모바일 피드 리더입니다</p>
     <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
     <p xml:lang="pt">O Alligator é um leitor móvel de fontes de notícias</p>
+    <p xml:lang="sv">Alligator är en mobil kanalläsare</p>
     <p xml:lang="uk">Alligator — програма для читання подач на мобільних пристроях</p>
     <p xml:lang="x-test">xxAlligator is a mobile feed readerxx</p>
   </description>
