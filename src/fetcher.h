@@ -20,9 +20,9 @@
 
 #pragma once
 
+#include <QNetworkAccessManager>
 #include <QObject>
 #include <QUrl>
-#include <QNetworkAccessManager>
 
 class Fetcher : public QObject
 {
@@ -35,10 +35,13 @@ public:
     }
     void fetch(QUrl);
     QString image(QString);
+    void removeImage(QString);
 
 private:
     Fetcher();
     Fetcher(const Fetcher &);
+
+    QString imagePath(QString);
 
     QNetworkAccessManager *manager;
 

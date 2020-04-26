@@ -18,11 +18,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include <QFile>
+#include <QFileInfo>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QFile>
 #include <QStandardPaths>
-#include <QFileInfo>
 
 #include <Syndication/Syndication>
 
@@ -56,7 +56,7 @@ void Fetcher::fetch(QUrl url)
         query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
         query.bindValue(QStringLiteral(":name"), feed->title());
         query.bindValue(QStringLiteral(":url"), url.toString());
-        if(feed->image()->url().startsWith(QStringLiteral("/"))) {
+        if (feed->image()->url().startsWith(QStringLiteral("/"))) {
             QString absolute = url.adjusted(QUrl::RemovePath).toString() + feed->image()->url();
             query.bindValue(QStringLiteral(":image"), absolute);
         } else
@@ -101,9 +101,8 @@ void Fetcher::fetch(QUrl url)
 
 QString Fetcher::image(QString url)
 {
-    QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
-
-    if(QFileInfo(path).exists()) {
+    QString path = imagePath(url);
+    if (QFileInfo(path).exists()) {
         return path;
     }
 
@@ -121,4 +120,15 @@ QString Fetcher::image(QString url)
     });
 
     return QStringLiteral("");
+}
+
+void Fetcher::removeImage(QString url)
+{
+    qDebug() << imagePath(url);
+    QFile(imagePath(url)).remove();
+}
+
+QString Fetcher::imagePath(QString url)
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }

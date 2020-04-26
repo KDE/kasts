@@ -35,9 +35,7 @@ FeedListModel::FeedListModel(QObject *parent)
     setEditStrategy(OnFieldChange);
     select();
 
-    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() {
-        select();
-    });
+    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() { select(); });
 }
 
 QHash<int, QByteArray> FeedListModel::roleNames() const
@@ -85,6 +83,7 @@ bool FeedListModel::feedExists(QString url)
 
 void FeedListModel::removeFeed(int index)
 {
+    Fetcher::instance().removeImage(data(createIndex(index, 0), Image).toString());
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
