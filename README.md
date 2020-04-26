@@ -2,6 +2,10 @@
 
 Alligator is a convergent RSS/Atom feed reader.
 
+# Get it
+
+Nightly Android APKs are available at [KDE's Binary Factory](https://binary-factory.kde.org/view/Android/job/Alligator_android/).
+
 # Building
 
 ## Requirements
