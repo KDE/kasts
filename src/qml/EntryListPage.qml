@@ -43,6 +43,12 @@ Kirigami.ScrollablePage {
         }
     ]
 
+    actions.main: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh Feed")
+        onTriggered: entryListModel.fetch()
+    }
+
     Component.onCompleted: {
         entryListModel.fetch();
     }
