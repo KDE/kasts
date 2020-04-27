@@ -5,10 +5,6 @@ cmake_minimum_required(VERSION 2.8.12)
 set(KF5_MIN_VERSION "5.70.0")
 set(QT_MIN_VERSION "5.10.0")
 
-if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
-   message(FATAL_ERROR "This application requires an out of source build. Please create a separate build directory.")
-endif()
-
 include(FeatureSummary)
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
