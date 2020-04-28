@@ -24,6 +24,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Syndication C
 if (ANDROID)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
+    find_package(OpenSSL REQUIRED)
 else()
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
 endif()

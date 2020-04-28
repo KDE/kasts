@@ -16,6 +16,7 @@ if(ANDROID)
     target_link_libraries(alligator PRIVATE
         KF5::Kirigami2
         Qt5::Svg
+        OpenSSL::SSL
     )
 
     kirigami_package_breeze_icons(ICONS
