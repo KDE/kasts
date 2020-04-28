@@ -26,6 +26,7 @@ if(ANDROID)
         settings-configure
         help-about
         list-add
+        view-refresh
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
