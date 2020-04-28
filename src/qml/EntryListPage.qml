@@ -87,12 +87,12 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.SwipeListItem {
             Controls.Label {
-                width: parent.width
                 text: model.title + " - " + model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat)
                 textFormat: Text.RichText
                 color: model.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
+                wrapMode: Text.Wrap
             }
-            
+
             actions: [
                 Kirigami.Action {
                     icon.name: model.bookmark ? "bookmark-remove" : "bookmark-new"
