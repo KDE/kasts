@@ -7,6 +7,7 @@
   <name xml:lang="ko">Alligator</name>
   <name xml:lang="nl">Alligator</name>
   <name xml:lang="pt">Alligator</name>
+  <name xml:lang="sk">Alligator</name>
   <name xml:lang="sv">Alligator</name>
   <name xml:lang="uk">Alligator</name>
   <name xml:lang="x-test">xxAlligatorxx</name>
@@ -27,6 +28,7 @@
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
+  <developer_name xml:lang="sk">KDE komunita</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
