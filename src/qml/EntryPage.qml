@@ -35,6 +35,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         Controls.Label {
             text: page.data.content
+            textFormat: Text.RichText
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
