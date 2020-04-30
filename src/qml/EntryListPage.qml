@@ -85,23 +85,9 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.SwipeListItem {
-            Controls.Label {
-                text: model.title + " - " + model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat)
-                textFormat: Text.RichText
-                color: model.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-                wrapMode: Text.Wrap
-            }
-
-            actions: [
-                Kirigami.Action {
-                    icon.name: model.bookmark ? "bookmark-remove" : "bookmark-new"
-                    text: i18n("Bookmark")
-                    onTriggered: {
-                        model.bookmark = !model.bookmark
-                    }
-                }
-            ]
+        delegate: Kirigami.BasicListItem {
+            text: model.title
+            subtitle: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat)
 
             onClicked: {
                 model.read = true;
