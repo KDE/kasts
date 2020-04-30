@@ -33,6 +33,8 @@ Kirigami.ScrollablePage {
     property var url
     property var image
 
+    title: name
+
     property var all: page.url === "all"
 
     contextualActions: [
