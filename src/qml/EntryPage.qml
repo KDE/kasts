@@ -29,11 +29,13 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
     id: page
     property QtObject data
+    property alias baseUrl: label.baseUrl
 
     title: data.title
 
     ColumnLayout {
         Controls.Label {
+            id: label
             text: page.data.content
             textFormat: Text.RichText
             wrapMode: Text.WordWrap

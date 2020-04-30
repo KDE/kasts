@@ -53,6 +53,7 @@ QHash<int, QByteArray> EntryListModel::roleNames() const
     roleNames[Content] = "content";
     roleNames[Created] = "created";
     roleNames[Updated] = "updated";
+    roleNames[Link] = "link";
     return roleNames;
 }
 
@@ -76,4 +77,9 @@ void EntryListModel::fetch()
 QString EntryListModel::image(QString url)
 {
     return Fetcher::instance().image(url);
+}
+
+QString EntryListModel::baseUrl(QString url)
+{
+    return QUrl(url).adjusted(QUrl::RemovePath).toString();
 }

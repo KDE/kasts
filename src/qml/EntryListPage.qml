@@ -105,7 +105,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 model.read = true;
-                pageStack.push("qrc:/EntryPage.qml", {"data": model})
+                pageStack.push("qrc:/EntryPage.qml", {"data": model, "baseUrl": entryListModel.baseUrl(model.link)})
             }
         }
     }

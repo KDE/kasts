@@ -36,6 +36,7 @@ public:
         Content,
         Created,
         Updated,
+        Link,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -43,6 +44,7 @@ public:
 
     Q_INVOKABLE void fetch();
     Q_INVOKABLE QString image(QString url);
+    Q_INVOKABLE QString baseUrl(QString url);
 
     QString feed() const;
     void setFeed(QString feed);
