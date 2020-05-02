@@ -23,7 +23,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QStandardPaths>
-#include <QTextDocument>
+#include <QTextDocumentFragment>
 
 #include <Syndication/Syndication>
 
@@ -76,10 +76,7 @@ void Fetcher::fetch(QUrl url)
             query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link);"));
             query.bindValue(QStringLiteral(":feed"), url.toString());
             query.bindValue(QStringLiteral(":id"), entry->id());
-
-            QTextDocument title;
-            title.setHtml(entry->title());
-            query.bindValue(QStringLiteral(":title"), title.toPlainText());
+            query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());
             query.bindValue(QStringLiteral(":created"), static_cast<int>(entry->datePublished()));
             query.bindValue(QStringLiteral(":updated"), static_cast<int>(entry->dateUpdated()));
             query.bindValue(QStringLiteral(":link"), entry->link());
