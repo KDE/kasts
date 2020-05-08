@@ -5,6 +5,7 @@
   <name xml:lang="ca">Alligator</name>
   <name xml:lang="ca-valencia">Alligator</name>
   <name xml:lang="et">Alligator</name>
+  <name xml:lang="fr">Alligator</name>
   <name xml:lang="ko">Alligator</name>
   <name xml:lang="nl">Alligator</name>
   <name xml:lang="pt">Alligator</name>
@@ -17,6 +18,7 @@
   <summary xml:lang="ca">Lector de fonts per a dispositius mòbils</summary>
   <summary xml:lang="ca-valencia">Lector de fonts per a dispositius mòbils</summary>
   <summary xml:lang="et">Mobiilseadmete uudistelugeja</summary>
+  <summary xml:lang="fr">Lecteur de fils d'actualité pour les périphériques mobiles</summary>
   <summary xml:lang="ko">모바일 장치용 피드 리더</summary>
   <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
   <summary xml:lang="pt">Leitor de fontes para dispositivos móveis</summary>
@@ -29,6 +31,7 @@
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="et">KDE kogukond</developer_name>
+  <developer_name xml:lang="fr">Communauté KDE</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
@@ -42,6 +45,7 @@
     <p xml:lang="ca">L'Alligator és un lector de fonts per a mòbil</p>
     <p xml:lang="ca-valencia">L'Alligator és un lector de fonts per a mòbil</p>
     <p xml:lang="et">Alligator on mobiilide uudistelugeja</p>
+    <p xml:lang="fr">Alligator est un lecteur nomade de fils d'actualité</p>
     <p xml:lang="ko">Alligator는 모바일 피드 리더입니다</p>
     <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
     <p xml:lang="pt">O Alligator é um leitor móvel de fontes de notícias</p>
