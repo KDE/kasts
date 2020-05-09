@@ -3,6 +3,7 @@ include:
   - https://invent.kde.org/sysadmin/ci-tooling/raw/master/invent/ci-extragear-linux.yml
 
 android:
+  stage: build
   image: kdeorg/android-sdk
   script:
     - /opt/helpers/build-generic alligator
