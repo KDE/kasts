@@ -3,6 +3,8 @@ include:
   - https://invent.kde.org/sysadmin/ci-tooling/raw/master/invent/ci-extragear-linux.yml
 
 android:
+  variables:
+    CI_TOOLING: /home/user
   stage: build
   image: kdeorg/android-sdk
   script:
