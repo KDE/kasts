@@ -8,7 +8,7 @@ android:
 
   stage: build
   image: kdeorg/android-sdk
-    
+
   script:
     - cd /home/user
     - /opt/helpers/build-kde-dependencies alligator
