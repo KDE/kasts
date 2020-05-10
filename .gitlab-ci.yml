@@ -12,6 +12,7 @@ android:
   script:
     - cd /home/user
     - /opt/helpers/build-kde-dependencies alligator
+    - ls
     - APK_ARGS=`python3 /opt/helpers/get-apk-args.py .`
     - build-kde-project alligator Applications $APK_ARGS
     - /opt/helpers/create-apk alligator
