@@ -121,7 +121,7 @@ QString Fetcher::image(QString url)
         delete reply;
     });
 
-    return QStringLiteral("");
+    return QLatin1String("");
 }
 
 void Fetcher::removeImage(QString url)
