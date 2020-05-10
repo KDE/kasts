@@ -7,11 +7,11 @@ android:
     CI_TOOLING: /home/user/ci-tooling
 
   stage: build
-  image: kdeorg/android-sdk
+  image: nicolasfella/android-sdk
 
   script:
     - cd /home/user
     - /opt/helpers/build-kde-dependencies alligator
-    - APK_ARGS=`/opt/helpers/get-apk-args alligator`
+    - APK_ARGS=`python3 /opt/helpers/get-apk-args.py .`
     - build-kde-project alligator Applications $APK_ARGS
     - /opt/helpers/create-apk alligator
