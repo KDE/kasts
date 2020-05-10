@@ -32,6 +32,10 @@ EntryListModel::EntryListModel(QObject *parent)
     setSort(Updated, Qt::DescendingOrder);
     setEditStrategy(OnFieldChange);
     select();
+
+    connect(&Fetcher::instance(), &Fetcher::updated, this, [this] () {
+        select();
+    });
 }
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
