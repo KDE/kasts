@@ -9,11 +9,19 @@ android:
   stage: build
   image: nicolasfella/android-sdk
 
+  artifacts:
+    paths:
+      - /home/user/build-arm/alligator/*.apk
+
   script:
+    - SRCDIR=$(pwd)
     - pushd /home/user
     - /opt/helpers/build-kde-dependencies alligator
+    - APK_ARGS=`python3 /opt/helpers/get-apk-args.py $SRCDIR`
+    - /opt/helpers/build-cmake alligator $SRCDIR $APK_ARGS
+    - pushd /home/user/build-arm/alligator
+    - make create-apk
     - popd
-    - ls
-    - APK_ARGS=`python3 /opt/helpers/get-apk-args.py .`
-    - /opt/helpers/build-kde-project alligator Applications $APK_ARGS
-    - /opt/helpers/create-apk alligator
+    - pushd /home/user/build-arm64/alligator
+    - make create-apk
+    - popd
