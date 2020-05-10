@@ -45,7 +45,7 @@ QVariant EntryListModel::data(const QModelIndex &index, int role) const
         updated.setSecsSinceEpoch(QSqlTableModel::data(createIndex(index.row(), role), 0).toInt());
         return updated;
     }
-    return QSqlQueryModel::data(createIndex(index.row(), role), 0);
+    return QSqlTableModel::data(createIndex(index.row(), role), 0);
 }
 
 QHash<int, QByteArray> EntryListModel::roleNames() const
