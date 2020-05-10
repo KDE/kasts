@@ -42,7 +42,7 @@ QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
     if (role == Updated || role == Created) {
         QDateTime updated;
-        updated.setSecsSinceEpoch(QSqlQueryModel::data(createIndex(index.row(), role), 0).toInt());
+        updated.setSecsSinceEpoch(QSqlTableModel::data(createIndex(index.row(), role), 0).toInt());
         return updated;
     }
     return QSqlQueryModel::data(createIndex(index.row(), role), 0);

@@ -59,7 +59,7 @@ void FeedListModel::addFeed(QString url)
     QSqlRecord rec = record();
     rec.setValue(0, url);
     rec.setValue(1, url);
-    rec.setValue(2, QStringLiteral(""));
+    rec.setValue(2, QLatin1String(""));
 
     insertRecord(-1, rec);
 
