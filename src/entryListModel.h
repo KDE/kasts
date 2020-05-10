@@ -27,7 +27,7 @@
 class EntryListModel : public QSqlTableModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString feed READ feed WRITE setFeed)
+    Q_PROPERTY(QString feed READ feed WRITE setFeed NOTIFY feedChanged)
 public:
     enum DataRole {
         Feed = 0,
@@ -48,6 +48,9 @@ public:
 
     QString feed() const;
     void setFeed(QString feed);
+
+Q_SIGNALS:
+    void feedChanged(QString feed);
 
 private:
     QString m_feed;

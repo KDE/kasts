@@ -66,6 +66,7 @@ void EntryListModel::setFeed(QString url)
     m_feed = url;
     setFilter(QStringLiteral("feed ='%1'").arg(url));
     select();
+    emit feedChanged(url);
 }
 
 QString EntryListModel::feed() const
