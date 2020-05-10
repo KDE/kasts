@@ -104,7 +104,7 @@ void Fetcher::fetch(QUrl url)
 QString Fetcher::image(QString url)
 {
     QString path = imagePath(url);
-    if (QFileInfo(path).exists()) {
+    if (QFileInfo::exists(path)) {
         return path;
     }
 
