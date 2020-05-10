@@ -11,7 +11,7 @@ android:
 
   artifacts:
     paths:
-      - /home/user/build-arm/alligator/*.apk
+      - /home/user/build-arm/alligator/**/*.apk
 
   script:
     - SRCDIR=$(pwd)
