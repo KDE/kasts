@@ -4,9 +4,14 @@ include:
 
 android:
   variables:
-    CI_TOOLING: /home/user/ci-tooling
+    CI_TOOLING: /home/user
+
   stage: build
   image: kdeorg/android-sdk
+    
   script:
     - cd /home/user
-    - /opt/helpers/build-generic alligator
+    - /opt/helpers/build-kde-dependencies alligator
+    - APK_ARGS=`/opt/helpers/get-apk-args alligator`
+    - build-kde-project alligator Applications $APK_ARGS
+    - /opt/helpers/create-apk alligator
