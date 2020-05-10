@@ -40,7 +40,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: i18n("About")
-                iconName: "help-about"
+                iconName: "help-about-symbolic"
                 onTriggered: root.pageStack.push(aboutPage)
             }
         ]

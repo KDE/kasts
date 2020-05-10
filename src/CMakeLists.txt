@@ -24,7 +24,7 @@ if(ANDROID)
         bookmark-new
         delete
         settings-configure
-        help-about
+        help-about-symbolic
         list-add
         view-refresh
     )
