@@ -11,17 +11,16 @@ android:
 
   artifacts:
     paths:
-      - /home/user/build-arm/alligator/**/*.apk
+      - "*.apk"
 
   script:
-    - SRCDIR=$(pwd)
-    - pushd /home/user
+    - cd /home/user
     - /opt/helpers/build-kde-dependencies alligator
-    - APK_ARGS=`python3 /opt/helpers/get-apk-args.py $SRCDIR`
-    - /opt/helpers/build-cmake alligator $SRCDIR $APK_ARGS
-    - pushd /home/user/build-arm/alligator
+    - APK_ARGS=`python3 /opt/helpers/get-apk-args.py $CI_PROJECT_DIR`
+    - /opt/helpers/build-cmake alligator $CI_PROJECT_DIR $APK_ARGS -DANDROID_APK_OUTPUT_DIR=$CI_PROJECT_DIR
+    - pushd build-arm/alligator
     - make create-apk
     - popd
-    - pushd /home/user/build-arm64/alligator
+    - pushd build-arm64/alligator
     - make create-apk
     - popd
