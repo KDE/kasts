@@ -42,6 +42,8 @@ void Fetcher::fetch(QUrl url)
 {
     qDebug() << "Starting to fetch" << url.toString();
 
+    emit updated();
+
     QNetworkRequest request(url);
     QNetworkReply *reply = manager->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {

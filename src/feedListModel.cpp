@@ -49,36 +49,12 @@ QHash<int, QByteArray> FeedListModel::roleNames() const
 
 void FeedListModel::addFeed(QString url)
 {
-    qDebug() << "Adding feed";
-    if (feedExists(url)) {
-        qDebug() << "Feed already exists";
-        return;
-    }
-    qDebug() << "Feed does not yet exist";
-
-    QSqlRecord rec = record();
-    rec.setValue(0, url);
-    rec.setValue(1, url);
-    rec.setValue(2, QLatin1String(""));
-
-    insertRecord(-1, rec);
-
-    Fetcher::instance().fetch(QUrl(url));
+    Database::instance().addFeed(url);
 }
 
 QVariant FeedListModel::data(const QModelIndex &index, int role) const
 {
     return QSqlTableModel::data(createIndex(index.row(), role), 0);
-}
-
-bool FeedListModel::feedExists(QString url)
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), url);
-    Database::instance().execute(query);
-    query.next();
-    return query.value(0).toInt() != 0;
 }
 
 void FeedListModel::removeFeed(int index)

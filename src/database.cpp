@@ -26,6 +26,7 @@
 
 #include "alligatorsettings.h"
 #include "database.h"
+#include "fetcher.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                                                                                                      \
     if (!x)                                                                                                                                                                                                                                    \
@@ -121,4 +122,33 @@ void Database::cleanup()
         query.bindValue(QStringLiteral(":sinceEpoch"), sinceEpoch);
         execute(query);
     }
+}
+
+bool Database::feedExists(QString url)
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
+    query.bindValue(QStringLiteral(":url"), url);
+    Database::instance().execute(query);
+    query.next();
+    return query.value(0).toInt() != 0;
+}
+
+void Database::addFeed(QString url)
+{
+    qDebug() << "Adding feed";
+    if (feedExists(url)) {
+        qDebug() << "Feed already exists";
+        return;
+    }
+    qDebug() << "Feed does not yet exist";
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image);"));
+    query.bindValue(QStringLiteral(":name"), url);
+    query.bindValue(QStringLiteral(":url"), url);
+    query.bindValue(QStringLiteral(":image"), QLatin1String(""));
+    execute(query);
+
+    Fetcher::instance().fetch(QUrl(url));
 }

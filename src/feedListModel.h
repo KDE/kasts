@@ -44,7 +44,4 @@ public:
     Q_INVOKABLE void addFeed(QString url);
     Q_INVOKABLE void removeFeed(int index);
     Q_INVOKABLE QString image(QString url);
-
-private:
-    bool feedExists(QString url);
 };

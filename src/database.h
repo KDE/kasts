@@ -32,6 +32,7 @@ public:
     }
     bool execute(QSqlQuery &query);
     bool execute(QString query);
+    void addFeed(QString url);
 
 private:
     Database();
@@ -40,4 +41,5 @@ private:
     bool migrate();
     bool migrateTo1();
     void cleanup();
+    bool feedExists(QString url);
 };
