@@ -15,12 +15,12 @@ android:
 
   script:
     - cd /home/user
-    - /opt/helpers/build-kde-dependencies alligator
+    - /opt/helpers/build-kde-dependencies $CI_PROJECT_NAME
     - APK_ARGS=`python3 /opt/helpers/get-apk-args.py $CI_PROJECT_DIR`
-    - /opt/helpers/build-cmake alligator $CI_PROJECT_DIR $APK_ARGS -DANDROID_APK_OUTPUT_DIR=$CI_PROJECT_DIR
-    - pushd build-arm/alligator
+    - /opt/helpers/build-cmake $CI_PROJECT_NAME $CI_PROJECT_DIR $APK_ARGS -DANDROID_APK_OUTPUT_DIR=$CI_PROJECT_DIR
+    - pushd build-arm/$CI_PROJECT_NAME
     - make create-apk
     - popd
-    - pushd build-arm64/alligator
+    - pushd build-arm64/$CI_PROJECT_NAME
     - make create-apk
     - popd
