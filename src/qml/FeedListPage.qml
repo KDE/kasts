@@ -43,18 +43,19 @@ Kirigami.ScrollablePage {
 
         Kirigami.OverlaySheet {
                id: addSheet
+               header: Kirigami.Heading {
+                   text: i18n("Add new Feed")
+               }
 
                contentItem: Kirigami.FormLayout {
                    Controls.TextField {
                        id: urlField
-                       Layout.fillWidth: true
                        //placeholderText: "https://example.org/feed.xml"
                        text: "https://planet.kde.org/global/atom.xml/"
-                       Kirigami.FormData.label: "Url"
+                       Kirigami.FormData.label: "Url:"
                    }
                    Controls.Button {
-                       text: i18n("Add")
-                       Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                       text: i18n("Add Feed")
                        enabled: urlField.text
                        onClicked: {
                            feedListModel.addFeed(urlField.text)
