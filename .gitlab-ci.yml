@@ -7,7 +7,7 @@ android:
     CI_TOOLING: /home/user/ci-tooling
 
   stage: build
-  image: nicolasfella/android-sdk
+  image: kdeorg/android-sdk
 
   artifacts:
     paths:
