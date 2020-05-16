@@ -20,6 +20,7 @@
 
 #include <QDateTime>
 #include <QVector>
+#include <QSqlQuery>
 
 #include "database.h"
 #include "entryListModel.h"
@@ -40,6 +41,18 @@ EntryListModel::EntryListModel(QObject *parent)
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
+    if(role == Authors) {
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id"));
+        query.bindValue(QStringLiteral(":id"), data(index, Id));
+        Database::instance().execute(query);
+        QStringList authors;
+        while(query.next()) {
+            authors += query.value(0).toString();
+        }
+        return authors;
+    }
+
     if (role == Updated || role == Created) {
         QDateTime updated;
         updated.setSecsSinceEpoch(QSqlTableModel::data(createIndex(index.row(), role), 0).toInt());
@@ -58,6 +71,7 @@ QHash<int, QByteArray> EntryListModel::roleNames() const
     roleNames[Created] = "created";
     roleNames[Updated] = "updated";
     roleNames[Link] = "link";
+    roleNames[Authors] = "authors";
     return roleNames;
 }
 

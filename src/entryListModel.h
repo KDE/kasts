@@ -37,6 +37,7 @@ public:
         Created,
         Updated,
         Link,
+        Authors,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

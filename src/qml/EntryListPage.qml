@@ -89,7 +89,7 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.BasicListItem {
             text: model.title
-            subtitle: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat)
+            subtitle: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.authors.join(", "))
 
             onClicked: {
                 model.read = true;
