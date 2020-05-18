@@ -42,7 +42,7 @@ private:
     Fetcher();
     Fetcher(const Fetcher &);
 
-    QString imagePath(QString);
+    QString filePath(QString);
     void processFeed(Syndication::FeedPtr feed, QUrl url);
     void processEntry(Syndication::ItemPtr entry, QUrl url);
     void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url);

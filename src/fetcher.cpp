@@ -144,7 +144,7 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
 
 QString Fetcher::image(QString url)
 {
-    QString path = imagePath(url);
+    QString path = filePath(url);
     if (QFileInfo::exists(path)) {
         return path;
     }
@@ -167,11 +167,11 @@ QString Fetcher::image(QString url)
 
 void Fetcher::removeImage(QString url)
 {
-    qDebug() << imagePath(url);
-    QFile(imagePath(url)).remove();
+    qDebug() << filePath(url);
+    QFile(filePath(url)).remove();
 }
 
-QString Fetcher::imagePath(QString url)
+QString Fetcher::filePath(QString url)
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }
