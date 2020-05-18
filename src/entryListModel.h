@@ -38,6 +38,7 @@ public:
         Updated,
         Link,
         Authors,
+        Enclosure,
     };
     explicit EntryListModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -55,4 +56,6 @@ Q_SIGNALS:
 
 private:
     QString m_feed;
+
+    QString enclosure(QString id) const;
 };

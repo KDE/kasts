@@ -39,6 +39,9 @@ EntryListModel::EntryListModel(QObject *parent)
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
+    if (role == Enclosure) {
+        return enclosure(data(index, Id).toString());
+    }
     if (role == Authors) {
         QSqlQuery query;
         query.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id"));
@@ -59,6 +62,15 @@ QVariant EntryListModel::data(const QModelIndex &index, int role) const
     return QSqlTableModel::data(createIndex(index.row(), role), 0);
 }
 
+QString EntryListModel::enclosure(QString id) const
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT url from Enclosures WHERE id=:id;"));
+    query.bindValue(QStringLiteral(":id"), id);
+    Database::instance().execute(query);
+    return query.next() ? query.value(0).toString() : QLatin1String("");
+}
+
 QHash<int, QByteArray> EntryListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
@@ -70,6 +82,7 @@ QHash<int, QByteArray> EntryListModel::roleNames() const
     roleNames[Updated] = "updated";
     roleNames[Link] = "link";
     roleNames[Authors] = "authors";
+    roleNames[Enclosure] = "enclosure";
     return roleNames;
 }
 
