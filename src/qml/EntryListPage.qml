@@ -87,9 +87,27 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.BasicListItem {
-            text: model.title
-            subtitle: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.authors.join(", "))
+        delegate: Kirigami.SwipeListItem {
+            ColumnLayout {
+                spacing: 0
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                Controls.Label {
+                    text: model.title
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    opacity: 1
+                }
+                Controls.Label {
+                    id: subtitleItem
+                    text: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.authors.join(", "))
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    font: Kirigami.Theme.smallFont
+                    opacity: 0.6
+                    visible: text.length > 0
+                }
+            }
 
             onClicked: {
                 model.read = true;
