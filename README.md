@@ -18,7 +18,7 @@ Nightly Android APKs are available at [KDE's Binary Factory](https://binary-fact
 ## Linux
 
 ```
-git clone https://invent.kde.org/kde/alligator
+git clone https://invent.kde.org/plasma-mobile/alligator
 cd alligator
 mkdir build && cd  build
 cmake .. -DCMAKE_PREFIX_PATH=/usr
