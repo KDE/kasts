@@ -19,8 +19,8 @@
  */
 
 #include <QDateTime>
-#include <QVector>
 #include <QSqlQuery>
+#include <QVector>
 
 #include "database.h"
 #include "entryListModel.h"
@@ -34,20 +34,18 @@ EntryListModel::EntryListModel(QObject *parent)
     setEditStrategy(OnFieldChange);
     select();
 
-    connect(&Fetcher::instance(), &Fetcher::updated, this, [this] () {
-        select();
-    });
+    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() { select(); });
 }
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
-    if(role == Authors) {
+    if (role == Authors) {
         QSqlQuery query;
         query.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id"));
         query.bindValue(QStringLiteral(":id"), data(index, Id));
         Database::instance().execute(query);
         QStringList authors;
-        while(query.next()) {
+        while (query.next()) {
             authors += query.value(0).toString();
         }
         return authors;

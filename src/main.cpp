@@ -24,10 +24,10 @@
 #include <QApplication>
 #endif
 
+#include <QCommandLineParser>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickView>
-#include <QCommandLineParser>
 
 #include <KAboutData>
 #include <KLocalizedContext>
@@ -68,10 +68,10 @@ int main(int argc, char *argv[])
     parser.addPositionalArgument(QLatin1String("url"), i18n("Url to add to the subscriptions"));
     parser.process(app);
 
-    if(parser.positionalArguments().size() == 1) {
+    if (parser.positionalArguments().size() == 1) {
         QString url = parser.positionalArguments().at(0);
         qDebug() << url;
-        //TODO
+        // TODO
     }
 
     KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));

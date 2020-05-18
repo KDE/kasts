@@ -23,6 +23,7 @@
 #include <QNetworkAccessManager>
 #include <QObject>
 #include <QUrl>
+#include <Syndication/Syndication>
 
 class Fetcher : public QObject
 {
@@ -42,6 +43,9 @@ private:
     Fetcher(const Fetcher &);
 
     QString imagePath(QString);
+    void processFeed(Syndication::FeedPtr feed, QUrl url);
+    void processEntry(Syndication::ItemPtr entry, QUrl url);
+    void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url);
 
     QNetworkAccessManager *manager;
 
