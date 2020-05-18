@@ -149,11 +149,18 @@ QString Fetcher::image(QString url)
         return path;
     }
 
+    download(url);
+
+    return QLatin1String("");
+}
+
+void Fetcher::download(QString url)
+{
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = manager->get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, url, reply, path]() {
+    connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
-        QFile file(path);
+        QFile file(filePath(url));
         file.open(QIODevice::WriteOnly);
         file.write(data);
         file.close();
@@ -161,8 +168,6 @@ QString Fetcher::image(QString url)
         emit updated();
         delete reply;
     });
-
-    return QLatin1String("");
 }
 
 void Fetcher::removeImage(QString url)

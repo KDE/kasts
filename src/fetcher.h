@@ -37,6 +37,7 @@ public:
     void fetch(QUrl);
     QString image(QString);
     void removeImage(QString);
+    void download(QString url);
 
 private:
     Fetcher();
