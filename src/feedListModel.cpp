@@ -69,6 +69,10 @@ void FeedListModel::removeFeed(int index)
     query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
     Database::instance().execute(query);
 
+    query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
+    query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
+    Database::instance().execute(query);
+
     // Workaround...
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), data(createIndex(index, 0), 1).toString());

@@ -110,6 +110,10 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QUrl url)
     for (const auto &author : entry->authors()) {
         processAuthor(author, entry, url);
     }
+
+    for (const auto &enclosure : entry->enclosures()) {
+        processEnclosure(enclosure, entry, url);
+    }
 }
 
 void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url)
@@ -121,6 +125,20 @@ void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr 
     query.bindValue(QStringLiteral(":name"), author->name());
     query.bindValue(QStringLiteral(":uri"), author->uri());
     query.bindValue(QStringLiteral(":email"), author->email());
+    Database::instance().execute(query);
+}
+
+void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QUrl feedUrl)
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url);"));
+    query.bindValue(QStringLiteral(":feed"), feedUrl.toString());
+    query.bindValue(QStringLiteral(":id"), entry->id());
+    query.bindValue(QStringLiteral(":duration"), enclosure->duration());
+    query.bindValue(QStringLiteral(":size"), enclosure->length());
+    query.bindValue(QStringLiteral(":title"), enclosure->title());
+    query.bindValue(QStringLiteral(":type"), enclosure->type());
+    query.bindValue(QStringLiteral(":url"), enclosure->url());
     Database::instance().execute(query);
 }
 

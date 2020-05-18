@@ -46,6 +46,7 @@ private:
     void processFeed(Syndication::FeedPtr feed, QUrl url);
     void processEntry(Syndication::ItemPtr entry, QUrl url);
     void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url);
+    void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QUrl feedUrl);
 
     QNetworkAccessManager *manager;
 
