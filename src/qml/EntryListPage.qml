@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
             height: root.height * 0.2
             visible: !all
             Kirigami.Icon {
-                source: entryListModel.image(page.image)
+                source: Fetcher.image(page.image)
                 width: height
                 height: parent.height
                 Component.onCompleted: console.log("Height: " + page.height)

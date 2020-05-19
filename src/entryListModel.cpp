@@ -104,11 +104,6 @@ void EntryListModel::fetch()
     Fetcher::instance().fetch(QUrl(m_feed));
 }
 
-QString EntryListModel::image(QString url)
-{
-    return Fetcher::instance().image(url);
-}
-
 QString EntryListModel::baseUrl(QString url)
 {
     return QUrl(url).adjusted(QUrl::RemovePath).toString();

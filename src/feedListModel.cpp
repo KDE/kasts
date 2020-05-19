@@ -79,8 +79,3 @@ void FeedListModel::removeFeed(int index)
     Database::instance().execute(query);
     select();
 }
-
-QString FeedListModel::image(QString url)
-{
-    return Fetcher::instance().image(url);
-}

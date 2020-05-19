@@ -102,7 +102,7 @@ Kirigami.ScrollablePage {
                 Item {
                     Kirigami.Icon {
                         id: icon
-                        source: feedListModel.image(model.image)
+                        source: Fetcher.image(model.image)
                         width: height
                         height: parent.height
                     }

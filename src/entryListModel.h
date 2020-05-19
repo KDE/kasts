@@ -45,7 +45,6 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void fetch();
-    Q_INVOKABLE QString image(QString url);
     Q_INVOKABLE QString baseUrl(QString url);
 
     QString feed() const;

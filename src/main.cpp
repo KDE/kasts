@@ -57,6 +57,10 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<FeedListModel>("org.kde.alligator", 1, 0, "FeedListModel");
     qmlRegisterType<EntryListModel>("org.kde.alligator", 1, 0, "EntryListModel");
+    qmlRegisterSingletonType<Fetcher>("org.kde.alligator", 1, 0, "Fetcher", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&Fetcher::instance(), QQmlEngine::CppOwnership);
+        return &Fetcher::instance();
+    });
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

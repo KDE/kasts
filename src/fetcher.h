@@ -35,9 +35,9 @@ public:
         return _instance;
     }
     void fetch(QUrl);
-    QString image(QString);
+    Q_INVOKABLE QString image(QString);
     void removeImage(QString);
-    void download(QString url);
+    Q_INVOKABLE void download(QString url);
 
 private:
     Fetcher();
