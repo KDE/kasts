@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
     property var feed
 
-    title: feed.title
+    title: feed.name
 
     //property bool all: feed
 
