@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
                        text: i18n("Add Feed")
                        enabled: urlField.text
                        onClicked: {
-                           feedListModel.addFeed(urlField.text)
+                           Database.addFeed(urlField.text)
                            addSheet.close()
                        }
                    }
@@ -82,6 +82,7 @@ Kirigami.ScrollablePage {
                 id: feedListModel
             }
 
+            /*
             header:
                 Kirigami.AbstractListItem {
                     Controls.Label {
@@ -95,6 +96,7 @@ Kirigami.ScrollablePage {
                         pageStack.push("qrc:/EntryListPage.qml")
                     }
                 }
+            */
 
             delegate: Kirigami.SwipeListItem {
                 height: Kirigami.Units.gridUnit*2
@@ -102,13 +104,13 @@ Kirigami.ScrollablePage {
                 Item {
                     Kirigami.Icon {
                         id: icon
-                        source: Fetcher.image(model.image)
+                        source: Fetcher.image(model.feed.image)
                         width: height
                         height: parent.height
                     }
 
                     Controls.Label {
-                        text: model.name
+                        text: model.feed.name
                         height: parent.height
                         anchors.left: icon.right
                         leftPadding: 0.5*Kirigami.Units.gridUnit
@@ -119,7 +121,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         icon.name: "delete"
                         onTriggered: {
-                            if(pageStack.depth > 1 && model.url === lastFeed)
+                            if(pageStack.depth > 1 && model.feed.url === lastFeed)
                                 pageStack.pop()
                             feedListModel.removeFeed(index)
                         }
@@ -128,8 +130,8 @@ Kirigami.ScrollablePage {
                 ]
 
                 onClicked: {
-                    lastFeed = model.url
-                    pageStack.push("qrc:/EntryListPage.qml", {"name": name, "url": url, "image": image})
+                    lastFeed = model.feed.url
+                    pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
                 }
             }
         }

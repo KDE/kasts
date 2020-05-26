@@ -18,8 +18,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <QDateTime>
-#include <QSqlQuery>
+#include <QAbstractListModel>
+#include <QVariant>
 #include <QVector>
 
 #include "database.h"
@@ -27,84 +27,90 @@
 #include "fetcher.h"
 
 EntryListModel::EntryListModel(QObject *parent)
-    : QSqlTableModel(parent)
+    : QAbstractListModel(parent)
 {
-    setTable(QStringLiteral("entries"));
-    setSort(Updated, Qt::DescendingOrder);
-    setEditStrategy(OnFieldChange);
-    select();
-
-    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() { select(); });
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](QString url) {
+        if (m_feed->url() == url) {
+            beginResetModel();
+            for (auto &entry : m_entries) {
+                delete entry;
+            }
+            m_entries.clear();
+            endResetModel();
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image) {
+        if (m_feed->url() == url) {
+            m_feed->setName(name);
+            m_feed->setImage(image);
+        }
+    });
 }
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const
 {
-    if (role == Enclosure) {
-        return enclosure(data(index, Id).toString());
-    }
-    if (role == Authors) {
-        QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id"));
-        query.bindValue(QStringLiteral(":id"), data(index, Id));
-        Database::instance().execute(query);
-        QStringList authors;
-        while (query.next()) {
-            authors += query.value(0).toString();
-        }
-        return authors;
-    }
-
-    if (role == Updated || role == Created) {
-        QDateTime updated;
-        updated.setSecsSinceEpoch(QSqlTableModel::data(createIndex(index.row(), role), 0).toInt());
-        return updated;
-    }
-    return QSqlTableModel::data(createIndex(index.row(), role), 0);
-}
-
-QString EntryListModel::enclosure(QString id) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT url from Enclosures WHERE id=:id;"));
-    query.bindValue(QStringLiteral(":id"), id);
-    Database::instance().execute(query);
-    return query.next() ? query.value(0).toString() : QLatin1String("");
+    if (role != 0)
+        return QVariant();
+    if (m_entries[index.row()] == nullptr)
+        loadEntry(index.row());
+    return QVariant::fromValue(m_entries[index.row()]);
 }
 
 QHash<int, QByteArray> EntryListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
-    roleNames[Feed] = "feed";
-    roleNames[Id] = "id";
-    roleNames[Title] = "title";
-    roleNames[Content] = "content";
-    roleNames[Created] = "created";
-    roleNames[Updated] = "updated";
-    roleNames[Link] = "link";
-    roleNames[Authors] = "authors";
-    roleNames[Enclosure] = "enclosure";
+    roleNames[0] = "entry";
     return roleNames;
 }
 
-void EntryListModel::setFeed(QString url)
+int EntryListModel::rowCount(const QModelIndex &parent) const
 {
-    m_feed = url;
-    setFilter(QStringLiteral("feed ='%1'").arg(url));
-    select();
-    emit feedChanged(url);
+    Q_UNUSED(parent)
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT() FROM Entries WHERE feed=:feed;"));
+    query.bindValue(QStringLiteral(":feed"), m_feed->url());
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to query feed count";
+    return query.value(0).toInt();
 }
 
-QString EntryListModel::feed() const
+void EntryListModel::loadEntry(int index) const
+{
+    QSqlQuery entryQuery;
+    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    entryQuery.bindValue(QStringLiteral(":index"), index);
+    Database::instance().execute(entryQuery);
+    if (!entryQuery.next())
+        qWarning() << "No element with index" << index << "found in feed" << m_feed->url();
+
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id"));
+    authorQuery.bindValue(QStringLiteral(":id"), entryQuery.value(QStringLiteral("id")).toString());
+    Database::instance().execute(authorQuery);
+    QVector<Author *> authors;
+    while (authorQuery.next()) {
+        authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+    }
+
+    QDateTime created;
+    created.setSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt());
+
+    QDateTime updated;
+    updated.setSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt());
+
+    Entry *entry = new Entry(entryQuery.value(QStringLiteral("title")).toString(), entryQuery.value(QStringLiteral("content")).toString(), authors, created, updated, entryQuery.value(QStringLiteral("link")).toString(), nullptr);
+    m_entries[index] = entry;
+}
+
+Feed *EntryListModel::feed() const
 {
     return m_feed;
 }
 
-void EntryListModel::fetch()
+void EntryListModel::setFeed(Feed *feed)
 {
-    Fetcher::instance().fetch(QUrl(m_feed));
-}
-
-QString EntryListModel::baseUrl(QString url)
-{
-    return QUrl(url).adjusted(QUrl::RemovePath).toString();
+    m_feed = feed;
+    emit feedChanged(feed);
 }

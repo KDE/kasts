@@ -151,5 +151,7 @@ void Database::addFeed(QString url)
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
     execute(query);
 
-    Fetcher::instance().fetch(QUrl(url));
+    Q_EMIT feedAdded(url);
+
+    Fetcher::instance().fetch(url);
 }

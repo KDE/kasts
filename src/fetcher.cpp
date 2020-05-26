@@ -38,27 +38,24 @@ Fetcher::Fetcher()
     manager->enableStrictTransportSecurityStore(true);
 }
 
-void Fetcher::fetch(QUrl url)
+void Fetcher::fetch(QString url)
 {
-    qDebug() << "Starting to fetch" << url.toString();
+    qDebug() << "Starting to fetch" << url;
 
-    emit updated();
-
-    QNetworkRequest request(url);
+    QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = manager->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
-        Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url.toString());
+        Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
         Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
 
         processFeed(feed, url);
 
-        emit updated();
         delete reply;
     });
 }
 
-void Fetcher::processFeed(Syndication::FeedPtr feed, QUrl url)
+void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
 {
     if (feed.isNull())
         return;
@@ -67,20 +64,25 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QUrl url)
     query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
-    if (feed->image()->url().startsWith(QStringLiteral("/"))) {
-        QString absolute = url.adjusted(QUrl::RemovePath).toString() + feed->image()->url();
-        query.bindValue(QStringLiteral(":image"), absolute);
-    } else
-        query.bindValue(QStringLiteral(":image"), feed->image()->url());
+    QString image;
+    if (feed->image()->url().startsWith(QStringLiteral("/")))
+        image = QUrl(url).adjusted(QUrl::RemovePath).toString() + feed->image()->url();
+    else
+        image = feed->image()->url();
+    query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
     qDebug() << "Updated feed title:" << feed->title();
+
+    Q_EMIT feedDetailsUpdated(url, feed->title(), image);
 
     for (const auto &entry : feed->items()) {
         processEntry(entry, url);
     }
+
+    Q_EMIT feedUpdated(url);
 }
 
-void Fetcher::processEntry(Syndication::ItemPtr entry, QUrl url)
+void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
 {
     qDebug() << "Processing" << entry->title();
     QSqlQuery query;
@@ -116,11 +118,11 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QUrl url)
     }
 }
 
-void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url)
+void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QString url)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
-    query.bindValue(QStringLiteral(":feed"), url.toString());
+    query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":name"), author->name());
     query.bindValue(QStringLiteral(":uri"), author->uri());
@@ -128,11 +130,11 @@ void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr 
     Database::instance().execute(query);
 }
 
-void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QUrl feedUrl)
+void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QString feedUrl)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url);"));
-    query.bindValue(QStringLiteral(":feed"), feedUrl.toString());
+    query.bindValue(QStringLiteral(":feed"), feedUrl);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":duration"), enclosure->duration());
     query.bindValue(QStringLiteral(":size"), enclosure->length());
@@ -165,7 +167,6 @@ void Fetcher::download(QString url)
         file.write(data);
         file.close();
 
-        emit updated();
         delete reply;
     });
 }

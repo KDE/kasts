@@ -4,6 +4,9 @@ set(alligator_SRCS
     entryListModel.cpp
     fetcher.cpp
     database.cpp
+    entry.cpp
+    feed.cpp
+    author.cpp
     resources.qrc
 )
 

@@ -61,6 +61,10 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&Fetcher::instance(), QQmlEngine::CppOwnership);
         return &Fetcher::instance();
     });
+    qmlRegisterSingletonType<Database>("org.kde.alligator", 1, 0, "Database", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&Database::instance(), QQmlEngine::CppOwnership);
+        return &Database::instance();
+    });
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

@@ -18,37 +18,31 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#ifndef AUTHOR_H
+#define AUTHOR_H
 
-#include <QAbstractListModel>
-#include <QHash>
 #include <QObject>
-#include <QString>
 
-#include "entry.h"
-
-class EntryListModel : public QAbstractListModel
+class Author : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Feed *feed READ feed WRITE setFeed NOTIFY feedChanged)
+    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(QString email READ email CONSTANT)
+    Q_PROPERTY(QString url READ url CONSTANT)
 
 public:
-    explicit EntryListModel(QObject *parent = nullptr);
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QHash<int, QByteArray> roleNames() const override;
-    int rowCount(const QModelIndex &parent) const override;
+    Author(QString name, QString email, QString url, QObject *parent = nullptr);
+    ~Author();
 
-    Feed *feed() const;
-
-    void setFeed(Feed *feed);
-
-Q_SIGNALS:
-    void feedChanged(Feed *feed);
+    QString name() const;
+    QString email() const;
+    QString url() const;
 
 private:
-    void loadEntry(int index) const;
-
-    Feed *m_feed;
-    mutable QHash<int, Entry *> m_entries;
+    QString m_name;
+    QString m_email;
+    QString m_url;
 };
+
+#endif // AUTHOR_H

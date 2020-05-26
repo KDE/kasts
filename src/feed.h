@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2020 Tobias Fella <fella@posteo.de>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,37 +18,41 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#ifndef FEED_H
+#define FEED_H
 
-#include <QAbstractListModel>
-#include <QHash>
 #include <QObject>
-#include <QString>
 
-#include "entry.h"
-
-class EntryListModel : public QAbstractListModel
+class Feed : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Feed *feed READ feed WRITE setFeed NOTIFY feedChanged)
+    Q_PROPERTY(QString url READ url CONSTANT)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
 
 public:
-    explicit EntryListModel(QObject *parent = nullptr);
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QHash<int, QByteArray> roleNames() const override;
-    int rowCount(const QModelIndex &parent) const override;
+    Feed(QString url, QString name, QString image, QObject *parent = nullptr);
 
-    Feed *feed() const;
+    ~Feed();
 
-    void setFeed(Feed *feed);
+    QString url() const;
+    QString name() const;
+    QString image() const;
+
+    void setName(QString name);
+    void setImage(QString image);
+
+    void remove();
 
 Q_SIGNALS:
-    void feedChanged(Feed *feed);
+    void nameChanged(QString &name);
+    void imageChanged(QString &image);
 
 private:
-    void loadEntry(int index) const;
-
-    Feed *m_feed;
-    mutable QHash<int, Entry *> m_entries;
+    QString m_url;
+    QString m_name;
+    QString m_image;
 };
+
+#endif // FEED_H

@@ -18,37 +18,55 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#pragma once
-
-#include <QAbstractListModel>
-#include <QHash>
-#include <QObject>
-#include <QString>
-
 #include "entry.h"
+#include <QUrl>
 
-class EntryListModel : public QAbstractListModel
+Entry::Entry(QString title, QString content, QVector<Author *> authors, QDateTime created, QDateTime updated, QString link, QObject *parent)
+    : QObject(parent)
+    , m_title(title)
+    , m_content(content)
+    , m_authors(authors)
+    , m_created(created)
+    , m_updated(updated)
+    , m_link(link)
 {
-    Q_OBJECT
+}
 
-    Q_PROPERTY(Feed *feed READ feed WRITE setFeed NOTIFY feedChanged)
+Entry::~Entry()
+{
+}
 
-public:
-    explicit EntryListModel(QObject *parent = nullptr);
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QHash<int, QByteArray> roleNames() const override;
-    int rowCount(const QModelIndex &parent) const override;
+QString Entry::title() const
+{
+    return m_title;
+}
 
-    Feed *feed() const;
+QString Entry::content() const
+{
+    return m_content;
+}
 
-    void setFeed(Feed *feed);
+QVector<Author *> Entry::authors() const
+{
+    return m_authors;
+}
 
-Q_SIGNALS:
-    void feedChanged(Feed *feed);
+QDateTime Entry::created() const
+{
+    return m_created;
+}
 
-private:
-    void loadEntry(int index) const;
+QDateTime Entry::updated() const
+{
+    return m_updated;
+}
 
-    Feed *m_feed;
-    mutable QHash<int, Entry *> m_entries;
-};
+QString Entry::link() const
+{
+    return m_link;
+}
+
+QString Entry::baseUrl() const
+{
+    return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
+}

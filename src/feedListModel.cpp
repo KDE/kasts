@@ -20,62 +20,78 @@
 
 #include <QDebug>
 #include <QModelIndex>
-#include <QSqlRecord>
+#include <QSqlQuery>
 #include <QUrl>
+#include <QVariant>
 
 #include "database.h"
 #include "feedListModel.h"
 #include "fetcher.h"
 
 FeedListModel::FeedListModel(QObject *parent)
-    : QSqlTableModel(parent)
+    : QAbstractListModel(parent)
 {
-    setTable(QStringLiteral("Feeds"));
-    setSort(0, Qt::AscendingOrder);
-    setEditStrategy(OnFieldChange);
-    select();
-
-    connect(&Fetcher::instance(), &Fetcher::updated, this, [this]() { select(); });
+    connect(&Database::instance(), &Database::feedAdded, this, [this]() {
+        beginInsertRows(QModelIndex(), rowCount(QModelIndex()) - 1, rowCount(QModelIndex()) - 1);
+        endInsertRows();
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image) {
+        for (int i = rowCount(QModelIndex()) - 1; i >= 0; i--) {
+            if (m_feeds[i]->url() == url) {
+                m_feeds[i]->setName(name);
+                m_feeds[i]->setImage(image);
+                Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+                break;
+            }
+        }
+    });
 }
 
 QHash<int, QByteArray> FeedListModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
-    roleNames[Name] = "name";
-    roleNames[Url] = "url";
-    roleNames[Image] = "image";
+    roleNames[0] = "feed";
     return roleNames;
 }
 
-void FeedListModel::addFeed(QString url)
+int FeedListModel::rowCount(const QModelIndex &parent) const
 {
-    Database::instance().addFeed(url);
+    Q_UNUSED(parent)
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT() FROM Feeds;"));
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to query feed count";
+    return query.value(0).toInt();
 }
 
 QVariant FeedListModel::data(const QModelIndex &index, int role) const
 {
-    return QSqlTableModel::data(createIndex(index.row(), role), 0);
+    if (role != 0)
+        return QVariant();
+    if (m_feeds[index.row()] == nullptr)
+        loadFeed(index.row());
+    return QVariant::fromValue(m_feeds[index.row()]);
+}
+
+void FeedListModel::loadFeed(int index) const
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Feeds LIMIT 1 OFFSET :index;"));
+    query.bindValue(QStringLiteral(":index"), index);
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to lod feed" << index;
+    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(), query.value(QStringLiteral("name")).toString(), query.value(QStringLiteral("image")).toString(), nullptr);
+    m_feeds[index] = feed;
 }
 
 void FeedListModel::removeFeed(int index)
 {
-    Fetcher::instance().removeImage(data(createIndex(index, 0), Image).toString());
-    QSqlQuery query;
-    query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
-    Database::instance().execute(query);
-
-    query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
-    Database::instance().execute(query);
-
-    query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), data(createIndex(index, 0), 1).toString());
-    Database::instance().execute(query);
-
-    // Workaround...
-    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), data(createIndex(index, 0), 1).toString());
-    Database::instance().execute(query);
-    select();
+    Feed *feed = m_feeds[index];
+    beginRemoveRows(QModelIndex(), index, index);
+    m_feeds[index] = nullptr;
+    endRemoveRows();
+    feed->remove();
+    delete feed;
 }

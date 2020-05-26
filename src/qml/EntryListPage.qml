@@ -29,13 +29,11 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
     id: page
 
-    property var name
-    property var url
-    property var image
+    property var feed
 
-    title: name
+    title: feed.title
 
-    property var all: page.url === "all"
+    //property bool all: feed
 
     contextualActions: [
         Kirigami.Action {
@@ -48,11 +46,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         iconName: "view-refresh"
         text: i18n("Refresh Feed")
-        onTriggered: entryListModel.fetch()
-    }
-
-    Component.onCompleted: {
-        entryListModel.fetch();
+        onTriggered: Fetcher.fetch(page.feed.url)
     }
 
     Kirigami.PlaceholderMessage {
@@ -69,7 +63,7 @@ Kirigami.ScrollablePage {
         visible: count !== 0
         model: EntryListModel {
             id: entryListModel
-            feed: page.url
+            feed: page.feed
         }
 
         header: RowLayout {
@@ -77,13 +71,12 @@ Kirigami.ScrollablePage {
             height: root.height * 0.2
             visible: !all
             Kirigami.Icon {
-                source: Fetcher.image(page.image)
+                source: Fetcher.image(page.feed.image)
                 width: height
                 height: parent.height
-                Component.onCompleted: console.log("Height: " + page.height)
             }
             Kirigami.Heading {
-                text: page.name
+                text: page.feed.name
             }
         }
 
@@ -93,14 +86,14 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
                 Controls.Label {
-                    text: model.title
+                    text: model.entry.title
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     opacity: 1
                 }
                 Controls.Label {
                     id: subtitleItem
-                    text: model.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.authors.join(", "))
+                    text: model.entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.entry.authors[0].name)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -110,8 +103,7 @@ Kirigami.ScrollablePage {
             }
 
             onClicked: {
-                model.read = true;
-                pageStack.push("qrc:/EntryPage.qml", {"data": model, "baseUrl": entryListModel.baseUrl(model.link)})
+                pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
             }
         }
     }

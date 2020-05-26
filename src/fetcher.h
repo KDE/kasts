@@ -34,23 +34,23 @@ public:
         static Fetcher _instance;
         return _instance;
     }
-    void fetch(QUrl);
+    Q_INVOKABLE void fetch(QString url);
     Q_INVOKABLE QString image(QString);
     void removeImage(QString);
     Q_INVOKABLE void download(QString url);
 
 private:
     Fetcher();
-    Fetcher(const Fetcher &);
 
     QString filePath(QString);
-    void processFeed(Syndication::FeedPtr feed, QUrl url);
-    void processEntry(Syndication::ItemPtr entry, QUrl url);
-    void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QUrl url);
-    void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QUrl feedUrl);
+    void processFeed(Syndication::FeedPtr feed, QString url);
+    void processEntry(Syndication::ItemPtr entry, QString url);
+    void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QString url);
+    void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QString feedUrl);
 
     QNetworkAccessManager *manager;
 
 Q_SIGNALS:
-    void updated();
+    void feedUpdated(QString url);
+    void feedDetailsUpdated(QString url, QString name, QString image);
 };
