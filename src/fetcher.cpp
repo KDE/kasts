@@ -64,6 +64,13 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
     query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
+    query.bindValue(QStringLiteral(":link"), feed->link());
+    query.bindValue(QStringLiteral(":description"), feed->description());
+
+    for(auto &author : feed->authors()) {
+        processAuthor(author, QLatin1String(""), url);
+    }
+
     QString image;
     if (feed->image()->url().startsWith(QStringLiteral("/")))
         image = QUrl(url).adjusted(QUrl::RemovePath).toString() + feed->image()->url();
@@ -71,9 +78,10 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
         image = feed->image()->url();
     query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
+
     qDebug() << "Updated feed title:" << feed->title();
 
-    Q_EMIT feedDetailsUpdated(url, feed->title(), image);
+    Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description());
 
     for (const auto &entry : feed->items()) {
         processEntry(entry, url);
@@ -110,7 +118,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
     Database::instance().execute(query);
 
     for (const auto &author : entry->authors()) {
-        processAuthor(author, entry, url);
+        processAuthor(author, entry->id(), url);
     }
 
     for (const auto &enclosure : entry->enclosures()) {
@@ -118,12 +126,12 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
     }
 }
 
-void Fetcher::processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QString url)
+void Fetcher::processAuthor(Syndication::PersonPtr author, QString entryId, QString url)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
     query.bindValue(QStringLiteral(":feed"), url);
-    query.bindValue(QStringLiteral(":id"), entry->id());
+    query.bindValue(QStringLiteral(":id"), entryId);
     query.bindValue(QStringLiteral(":name"), author->name());
     query.bindValue(QStringLiteral(":uri"), author->uri());
     query.bindValue(QStringLiteral(":email"), author->email());

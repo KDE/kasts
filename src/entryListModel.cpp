@@ -39,12 +39,6 @@ EntryListModel::EntryListModel(QObject *parent)
             endResetModel();
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image) {
-        if (m_feed->url() == url) {
-            m_feed->setName(name);
-            m_feed->setImage(image);
-        }
-    });
 }
 
 QVariant EntryListModel::data(const QModelIndex &index, int role) const

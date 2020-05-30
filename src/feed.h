@@ -23,6 +23,8 @@
 
 #include <QObject>
 
+#include "author.h"
+
 class Feed : public QObject
 {
     Q_OBJECT
@@ -30,29 +32,44 @@ class Feed : public QObject
     Q_PROPERTY(QString url READ url CONSTANT)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
+    Q_PROPERTY(QString link READ link WRITE setLink NOTIFY linkChanged)
+    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
 
 public:
-    Feed(QString url, QString name, QString image, QObject *parent = nullptr);
+    Feed(QString url, QString name, QString image, QString link, QString description, QVector<Author *> authors, QObject *parent = nullptr);
 
     ~Feed();
 
     QString url() const;
     QString name() const;
     QString image() const;
+    QString link() const;
+    QString description() const;
+    QVector<Author *> authors() const;
 
     void setName(QString name);
     void setImage(QString image);
+    void setLink(QString link);
+    void setDescription(QString description);
+    void setAuthors(QVector<Author *> authors);
 
     void remove();
 
 Q_SIGNALS:
     void nameChanged(QString &name);
     void imageChanged(QString &image);
+    void linkChanged(QString &link);
+    void descriptionChanged(QString &description);
+    void authorsChanged(QVector<Author *> &authors);
 
 private:
     QString m_url;
     QString m_name;
     QString m_image;
+    QString m_link;
+    QString m_description;
+    QVector<Author *> m_authors;
 };
 
 #endif // FEED_H

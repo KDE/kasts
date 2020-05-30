@@ -45,12 +45,12 @@ private:
     QString filePath(QString);
     void processFeed(Syndication::FeedPtr feed, QString url);
     void processEntry(Syndication::ItemPtr entry, QString url);
-    void processAuthor(Syndication::PersonPtr author, Syndication::ItemPtr entry, QString url);
+    void processAuthor(Syndication::PersonPtr author, QString entryId, QString url);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QString feedUrl);
 
     QNetworkAccessManager *manager;
 
 Q_SIGNALS:
     void feedUpdated(QString url);
-    void feedDetailsUpdated(QString url, QString name, QString image);
+    void feedDetailsUpdated(QString url, QString name, QString image, QString link, QString description);
 };

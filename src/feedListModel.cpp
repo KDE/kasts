@@ -35,11 +35,13 @@ FeedListModel::FeedListModel(QObject *parent)
         beginInsertRows(QModelIndex(), rowCount(QModelIndex()) - 1, rowCount(QModelIndex()) - 1);
         endInsertRows();
     });
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image) {
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image, QString link, QString description) {
         for (int i = rowCount(QModelIndex()) - 1; i >= 0; i--) {
             if (m_feeds[i]->url() == url) {
                 m_feeds[i]->setName(name);
                 m_feeds[i]->setImage(image);
+                m_feeds[i]->setLink(link);
+                m_feeds[i]->setDescription(description);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
                 break;
             }
@@ -81,8 +83,18 @@ void FeedListModel::loadFeed(int index) const
     query.bindValue(QStringLiteral(":index"), index);
     Database::instance().execute(query);
     if (!query.next())
-        qWarning() << "Failed to lod feed" << index;
-    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(), query.value(QStringLiteral("name")).toString(), query.value(QStringLiteral("image")).toString(), nullptr);
+        qWarning() << "Failed to load feed" << index;
+
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.bindValue(QStringLiteral(":feed"), query.value(QStringLiteral("url")).toString());
+    Database::instance().execute(authorQuery);
+    QVector<Author *> authors;
+    while (authorQuery.next()) {
+        authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+    }
+
+    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(), query.value(QStringLiteral("name")).toString(), query.value(QStringLiteral("image")).toString(), query.value(QStringLiteral("link")).toString(), query.value(QStringLiteral("description")).toString(), authors, nullptr);
     m_feeds[index] = feed;
 }
 
