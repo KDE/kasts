@@ -31,15 +31,13 @@ Kirigami.ScrollablePage {
 
         property var lastFeed: ""
 
-        contextualActions: [
-                Kirigami.Action {
+        actions.main: Kirigami.Action {
                     text: i18n("Add feed")
                     iconName: "list-add"
                     onTriggered: {
                         addSheet.open()
                     }
                 }
-            ]
 
         Kirigami.OverlaySheet {
                id: addSheet
