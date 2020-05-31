@@ -27,134 +27,134 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
-        title: "Alligator"
+    title: "Alligator"
 
-        property var lastFeed: ""
+    property var lastFeed: ""
 
-        supportsRefreshing: true
-        onRefreshingChanged:
-            if(refreshing)  {
-                timer.running = true
-                Fetcher.fetchAll()
-            }
-
-        Timer {
-            id: timer
-            interval: 1000
-            onTriggered: refreshing = false
+    supportsRefreshing: true
+    onRefreshingChanged:
+        if(refreshing)  {
+            timer.running = true
+            Fetcher.fetchAll()
         }
 
-        actions.main: Kirigami.Action {
-                    text: i18n("Add feed")
-                    iconName: "list-add"
-                    onTriggered: {
-                        addSheet.open()
-                    }
+    Timer {
+        id: timer
+        interval: 1000
+        onTriggered: refreshing = false
+    }
+
+    actions.main: Kirigami.Action {
+                text: i18n("Add feed")
+                iconName: "list-add"
+                onTriggered: {
+                    addSheet.open()
                 }
-
-        Kirigami.OverlaySheet {
-               id: addSheet
-               header: Kirigami.Heading {
-                   text: i18n("Add new Feed")
-               }
-
-               contentItem: Kirigami.FormLayout {
-                   Controls.TextField {
-                       id: urlField
-                       //placeholderText: "https://example.org/feed.xml"
-                       text: "https://planet.kde.org/global/atom.xml/"
-                       Kirigami.FormData.label: "Url:"
-                   }
-                   Controls.Button {
-                       text: i18n("Add Feed")
-                       enabled: urlField.text
-                       onClicked: {
-                           Database.addFeed(urlField.text)
-                           addSheet.close()
-                       }
-                   }
-               }
-        }
-
-        Kirigami.PlaceholderMessage {
-            visible: feedList.count === 0
-
-            width: Kirigami.Units.gridUnit * 20
-            anchors.centerIn: parent
-
-            text: i18n("No Feeds added yet.")
-        }
-
-        ListView {
-            id: feedList
-            visible: count !== 0
-            anchors.fill: parent
-            model: FeedListModel {
-                id: feedListModel
             }
 
-            /*
-            header:
-                Kirigami.AbstractListItem {
-                    Controls.Label {
-                        text: i18n("All feeds")
-                    }
+    Kirigami.OverlaySheet {
+            id: addSheet
+            header: Kirigami.Heading {
+                text: i18n("Add new Feed")
+            }
 
-                    width: parent.width;
-                    height: Kirigami.Units.gridUnit * 2
+            contentItem: Kirigami.FormLayout {
+                Controls.TextField {
+                    id: urlField
+                    //placeholderText: "https://example.org/feed.xml"
+                    text: "https://planet.kde.org/global/atom.xml/"
+                    Kirigami.FormData.label: "Url:"
+                }
+                Controls.Button {
+                    text: i18n("Add Feed")
+                    enabled: urlField.text
                     onClicked: {
-                        feedList.focus = false
-                        pageStack.push("qrc:/EntryListPage.qml")
+                        Database.addFeed(urlField.text)
+                        addSheet.close()
                     }
                 }
-            */
+            }
+    }
 
-            delegate: Kirigami.SwipeListItem {
-                height: Kirigami.Units.gridUnit*2
+    Kirigami.PlaceholderMessage {
+        visible: feedList.count === 0
 
+        width: Kirigami.Units.gridUnit * 20
+        anchors.centerIn: parent
+
+        text: i18n("No Feeds added yet.")
+    }
+
+    ListView {
+        id: feedList
+        visible: count !== 0
+        anchors.fill: parent
+        model: FeedListModel {
+            id: feedListModel
+        }
+
+        /*
+        header:
+            Kirigami.AbstractListItem {
+                Controls.Label {
+                    text: i18n("All feeds")
+                }
+
+                width: parent.width;
+                height: Kirigami.Units.gridUnit * 2
+                onClicked: {
+                    feedList.focus = false
+                    pageStack.push("qrc:/EntryListPage.qml")
+                }
+            }
+        */
+
+        delegate: Kirigami.SwipeListItem {
+            height: Kirigami.Units.gridUnit*2
+
+            Item {
                 Item {
-                    Item {
-                        id: icon
+                    id: icon
+                    width: height
+                    height: parent.height
+                    Kirigami.Icon {
+                        source: Fetcher.image(model.feed.image)
                         width: height
                         height: parent.height
-                        Kirigami.Icon {
-                            source: Fetcher.image(model.feed.image)
-                            width: height
-                            height: parent.height
-                            visible: !busy.visible
-                        }
-                        Controls.BusyIndicator {
-                            id: busy
-                            width: height
-                            height: parent.height
-                            visible: model.feed.refreshing
-                        }
+                        visible: !busy.visible
                     }
-
-                    Controls.Label {
-                        text: model.feed.name
+                    Controls.BusyIndicator {
+                        id: busy
+                        width: height
                         height: parent.height
-                        anchors.left: icon.right
-                        leftPadding: 0.5*Kirigami.Units.gridUnit
+                        visible: model.feed.refreshing
                     }
                 }
 
-                actions: [
-                    Kirigami.Action {
-                        icon.name: "delete"
-                        onTriggered: {
-                            if(pageStack.depth > 1 && model.feed.url === lastFeed)
-                                pageStack.pop()
-                            feedListModel.removeFeed(index)
-                        }
-                    }
-
-                ]
-
-                onClicked: {
-                    lastFeed = model.feed.url
-                    pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
+                Controls.Label {
+                    text: model.feed.name
+                    height: parent.height
+                    anchors.left: icon.right
+                    leftPadding: 0.5*Kirigami.Units.gridUnit
                 }
+            }
+
+            actions: [
+                Kirigami.Action {
+                    icon.name: "delete"
+                    onTriggered: {
+                        if(pageStack.depth > 1 && model.feed.url === lastFeed)
+                            pageStack.pop()
+                        feedListModel.removeFeed(index)
+                    }
+                }
+
+            ]
+
+            onClicked: {
+                lastFeed = model.feed.url
+                pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
             }
         }
     }
+}
