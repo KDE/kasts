@@ -107,3 +107,10 @@ void FeedListModel::removeFeed(int index)
     feed->remove();
     delete feed;
 }
+
+void FeedListModel::refreshAll()
+{
+    for(auto &feed : m_feeds) {
+        feed->refresh();
+    }
+}

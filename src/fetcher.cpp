@@ -42,6 +42,8 @@ void Fetcher::fetch(QString url)
 {
     qDebug() << "Starting to fetch" << url;
 
+    Q_EMIT startedFetchingFeed(url);
+
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = manager->get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
@@ -53,6 +55,16 @@ void Fetcher::fetch(QString url)
 
         delete reply;
     });
+}
+
+void Fetcher::fetchAll()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+    Database::instance().execute(query);
+    while(query.next()) {
+        fetch(query.value(0).toString());
+    }
 }
 
 void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)

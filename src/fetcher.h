@@ -35,6 +35,7 @@ public:
         return _instance;
     }
     Q_INVOKABLE void fetch(QString url);
+    Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(QString);
     void removeImage(QString);
     Q_INVOKABLE void download(QString url);
@@ -51,6 +52,7 @@ private:
     QNetworkAccessManager *manager;
 
 Q_SIGNALS:
+    void startedFetchingFeed(QString url);
     void feedUpdated(QString url);
     void feedDetailsUpdated(QString url, QString name, QString image, QString link, QString description);
 };

@@ -22,6 +22,7 @@
 
 #include "database.h"
 #include "feed.h"
+#include "fetcher.h"
 
 Feed::Feed(QString url, QString name, QString image, QString link, QString description, QVector<Author *> authors, QObject *parent)
     : QObject(parent)
@@ -32,6 +33,16 @@ Feed::Feed(QString url, QString name, QString image, QString link, QString descr
     , m_description(description)
     , m_authors(authors)
 {
+    connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this] (QString url) {
+        if(url == m_url) {
+            setRefreshing(true);
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this] (QString url) {
+        if(url == m_url) {
+            setRefreshing(false);
+        }
+    });
 }
 
 Feed::~Feed()
@@ -68,6 +79,11 @@ QVector<Author *> Feed::authors() const
     return m_authors;
 }
 
+bool Feed::refreshing() const
+{
+    return m_refreshing;
+}
+
 void Feed::setName(QString name)
 {
     m_name = name;
@@ -96,6 +112,17 @@ void Feed::setAuthors(QVector<Author *> authors)
 {
     m_authors = authors;
     emit authorsChanged(m_authors);
+}
+
+void Feed::setRefreshing(bool refreshing)
+{
+    m_refreshing = refreshing;
+    emit refreshingChanged(m_refreshing);
+}
+
+void Feed::refresh()
+{
+    Fetcher::instance().fetch(m_url);
 }
 
 void Feed::remove()

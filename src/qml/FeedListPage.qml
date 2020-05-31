@@ -31,6 +31,19 @@ Kirigami.ScrollablePage {
 
         property var lastFeed: ""
 
+        supportsRefreshing: true
+        onRefreshingChanged:
+            if(refreshing)  {
+                timer.running = true
+                Fetcher.fetchAll()
+            }
+
+        Timer {
+            id: timer
+            interval: 1000
+            onTriggered: refreshing = false
+        }
+
         actions.main: Kirigami.Action {
                     text: i18n("Add feed")
                     iconName: "list-add"
@@ -100,11 +113,22 @@ Kirigami.ScrollablePage {
                 height: Kirigami.Units.gridUnit*2
 
                 Item {
-                    Kirigami.Icon {
+                    Item {
                         id: icon
-                        source: Fetcher.image(model.feed.image)
                         width: height
                         height: parent.height
+                        Kirigami.Icon {
+                            source: Fetcher.image(model.feed.image)
+                            width: height
+                            height: parent.height
+                            visible: !busy.visible
+                        }
+                        Controls.BusyIndicator {
+                            id: busy
+                            width: height
+                            height: parent.height
+                            visible: model.feed.refreshing
+                        }
                     }
 
                     Controls.Label {

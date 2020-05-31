@@ -35,6 +35,7 @@ class Feed : public QObject
     Q_PROPERTY(QString link READ link WRITE setLink NOTIFY linkChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
+    Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
 
 public:
     Feed(QString url, QString name, QString image, QString link, QString description, QVector<Author *> authors, QObject *parent = nullptr);
@@ -47,13 +48,16 @@ public:
     QString link() const;
     QString description() const;
     QVector<Author *> authors() const;
+    bool refreshing() const;
 
     void setName(QString name);
     void setImage(QString image);
     void setLink(QString link);
     void setDescription(QString description);
     void setAuthors(QVector<Author *> authors);
+    void setRefreshing(bool refreshing);
 
+    void refresh();
     void remove();
 
 Q_SIGNALS:
@@ -62,6 +66,7 @@ Q_SIGNALS:
     void linkChanged(QString &link);
     void descriptionChanged(QString &description);
     void authorsChanged(QVector<Author *> &authors);
+    void refreshingChanged(bool refreshing);
 
 private:
     QString m_url;
@@ -70,6 +75,7 @@ private:
     QString m_link;
     QString m_description;
     QVector<Author *> m_authors;
+    bool m_refreshing = false;
 };
 
 #endif // FEED_H
