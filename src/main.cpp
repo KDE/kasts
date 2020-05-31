@@ -70,14 +70,15 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("RSS Feed Reader"));
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.process(app);
+    parser.setApplicationDescription(i18n("RSS/Atom Feed Reader"));
 
     KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     KAboutData::setApplicationData(about);
+
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
 
