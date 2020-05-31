@@ -42,6 +42,7 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
+            iconName: "help-about-symbolic"
             text: i18n("Details")
             visible: !all
             onTriggered: pageStack.push("qrc:/FeedDetailsPage.qml")
