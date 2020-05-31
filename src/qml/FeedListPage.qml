@@ -56,27 +56,27 @@ Kirigami.ScrollablePage {
             }
 
     Kirigami.OverlaySheet {
-            id: addSheet
-            header: Kirigami.Heading {
-                text: i18n("Add new Feed")
-            }
+        id: addSheet
+        header: Kirigami.Heading {
+            text: i18n("Add new Feed")
+        }
 
-            contentItem: Kirigami.FormLayout {
-                Controls.TextField {
-                    id: urlField
-                    //placeholderText: "https://example.org/feed.xml"
-                    text: "https://planet.kde.org/global/atom.xml/"
-                    Kirigami.FormData.label: "Url:"
-                }
-                Controls.Button {
-                    text: i18n("Add Feed")
-                    enabled: urlField.text
-                    onClicked: {
-                        Database.addFeed(urlField.text)
-                        addSheet.close()
-                    }
+        contentItem: Kirigami.FormLayout {
+            Controls.TextField {
+                id: urlField
+                //placeholderText: "https://example.org/feed.xml"
+                text: "https://planet.kde.org/global/atom.xml/"
+                Kirigami.FormData.label: "Url:"
+            }
+            Controls.Button {
+                text: i18n("Add Feed")
+                enabled: urlField.text
+                onClicked: {
+                    Database.addFeed(urlField.text)
+                    addSheet.close()
                 }
             }
+        }
     }
 
     Kirigami.PlaceholderMessage {
@@ -95,22 +95,6 @@ Kirigami.ScrollablePage {
         model: FeedListModel {
             id: feedListModel
         }
-
-        /*
-        header:
-            Kirigami.AbstractListItem {
-                Controls.Label {
-                    text: i18n("All feeds")
-                }
-
-                width: parent.width;
-                height: Kirigami.Units.gridUnit * 2
-                onClicked: {
-                    feedList.focus = false
-                    pageStack.push("qrc:/EntryListPage.qml")
-                }
-            }
-        */
 
         delegate: Kirigami.SwipeListItem {
             height: Kirigami.Units.gridUnit*2
