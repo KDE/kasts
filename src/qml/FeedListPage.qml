@@ -44,6 +44,15 @@ Kirigami.ScrollablePage {
         onTriggered: refreshing = false
     }
 
+    contextualActions: [
+        Kirigami.Action {
+            text: i18n("Refresh all feeds")
+            iconName: "view-refresh"
+            onTriggered: Fetcher.fetchAll()
+            visible: !Kirigami.Settings.isMobile
+        }
+    ]
+
     actions.main: Kirigami.Action {
                 text: i18n("Add feed")
                 iconName: "list-add"
