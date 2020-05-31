@@ -73,7 +73,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
         return;
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image WHERE url=:url;"));
+    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":link"), feed->link());
