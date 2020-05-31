@@ -57,7 +57,7 @@ public:
     void setAuthors(QVector<Author *> authors);
     void setRefreshing(bool refreshing);
 
-    void refresh();
+    Q_INVOKABLE void refresh();
     void remove();
 
 Q_SIGNALS:

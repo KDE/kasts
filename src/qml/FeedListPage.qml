@@ -34,21 +34,15 @@ Kirigami.ScrollablePage {
     supportsRefreshing: true
     onRefreshingChanged:
         if(refreshing)  {
-            timer.running = true
             Fetcher.fetchAll()
+            refreshing = false
         }
-
-    Timer {
-        id: timer
-        interval: 1000
-        onTriggered: refreshing = false
-    }
 
     contextualActions: [
         Kirigami.Action {
             text: i18n("Refresh all feeds")
             iconName: "view-refresh"
-            onTriggered: Fetcher.fetchAll()
+            onTriggered: refreshing = true
             visible: !Kirigami.Settings.isMobile
         }
     ]
@@ -139,7 +133,6 @@ Kirigami.ScrollablePage {
                         visible: model.feed.refreshing
                     }
                 }
-
                 Controls.Label {
                     text: model.feed.name
                     height: parent.height

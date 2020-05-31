@@ -32,8 +32,13 @@ Kirigami.ScrollablePage {
     property var feed
 
     title: feed.name
+    supportsRefreshing: true
 
-    //property bool all: feed
+    onRefreshingChanged:
+        if(refreshing) {
+            feed.refresh()
+            refreshing = false
+        }
 
     contextualActions: [
         Kirigami.Action {
@@ -46,7 +51,8 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         iconName: "view-refresh"
         text: i18n("Refresh Feed")
-        onTriggered: Fetcher.fetch(page.feed.url)
+        onTriggered: page.refreshing = true
+        visible: !Kirigami.Settings.isMobile
     }
 
     Kirigami.PlaceholderMessage {
@@ -70,10 +76,22 @@ Kirigami.ScrollablePage {
             width: parent.width
             height: root.height * 0.2
             visible: !all
-            Kirigami.Icon {
-                source: Fetcher.image(page.feed.image)
+            Item {
+                id: icon
                 width: height
                 height: parent.height
+                Kirigami.Icon {
+                    source: Fetcher.image(page.feed.image)
+                    width: height
+                    height: parent.height
+                    visible: !busy.visible
+                }
+                Controls.BusyIndicator {
+                    id: busy
+                    width: height
+                    height: parent.height
+                    visible: page.feed.refreshing
+                }
             }
             Kirigami.Heading {
                 text: page.feed.name
