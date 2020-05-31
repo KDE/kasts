@@ -87,37 +87,37 @@ bool Feed::refreshing() const
 void Feed::setName(QString name)
 {
     m_name = name;
-    emit nameChanged(m_name);
+    Q_EMIT nameChanged(m_name);
 }
 
 void Feed::setImage(QString image)
 {
     m_image = image;
-    emit imageChanged(m_image);
+    Q_EMIT imageChanged(m_image);
 }
 
 void Feed::setLink(QString link)
 {
     m_link = link;
-    emit linkChanged(m_link);
+    Q_EMIT linkChanged(m_link);
 }
 
 void Feed::setDescription(QString description)
 {
     m_description = description;
-    emit descriptionChanged(m_description);
+    Q_EMIT descriptionChanged(m_description);
 }
 
 void Feed::setAuthors(QVector<Author *> authors)
 {
     m_authors = authors;
-    emit authorsChanged(m_authors);
+    Q_EMIT authorsChanged(m_authors);
 }
 
 void Feed::setRefreshing(bool refreshing)
 {
     m_refreshing = refreshing;
-    emit refreshingChanged(m_refreshing);
+    Q_EMIT refreshingChanged(m_refreshing);
 }
 
 void Feed::refresh()

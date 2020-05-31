@@ -106,5 +106,5 @@ Feed *EntryListModel::feed() const
 void EntryListModel::setFeed(Feed *feed)
 {
     m_feed = feed;
-    emit feedChanged(feed);
+    Q_EMIT feedChanged(feed);
 }
