@@ -30,6 +30,7 @@ if(ANDROID)
         help-about-symbolic
         list-add
         view-refresh
+        alligator
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
