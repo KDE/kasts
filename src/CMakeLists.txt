@@ -31,6 +31,8 @@ if(ANDROID)
         list-add
         view-refresh
         alligator
+        mail-sent
+        globe
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
