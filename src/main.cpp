@@ -73,14 +73,7 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription(i18n("RSS Feed Reader"));
     parser.addHelpOption();
     parser.addVersionOption();
-    parser.addPositionalArgument(QLatin1String("url"), i18n("Url to add to the subscriptions"));
     parser.process(app);
-
-    if (parser.positionalArguments().size() == 1) {
-        QString url = parser.positionalArguments().at(0);
-        qDebug() << url;
-        // TODO
-    }
 
     KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
