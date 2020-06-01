@@ -43,6 +43,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("About")
                 iconName: "help-about-symbolic"
                 onTriggered: root.pageStack.push(aboutPage)
+                enabled: pageStack.currentItem.title !== i18n("About")
             }
         ]
     }
