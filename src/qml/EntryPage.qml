@@ -21,6 +21,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
+import QtWebView 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
@@ -31,17 +32,17 @@ Kirigami.ScrollablePage {
 
     property QtObject entry
 
+    property var content: "<style> img { max-width: 100%; } body { background: " + Kirigami.Theme.backgroundColor + "; font-family: " + Kirigami.Theme.defaultFont.family + "; }</style><body>" + page.entry.content + "</body>";
+
     title: entry.title
 
-    ColumnLayout {
-        Controls.Label {
-            id: label
-            baseUrl: page.entry.baseUrl
-            text: page.entry.content
-            textFormat: Text.RichText
-            wrapMode: Text.WordWrap
-            Layout.fillWidth: true
-            onLinkActivated: Qt.openUrlExternally(link)
+    Flickable {
+        WebView {
+            width: page.width
+            height: page.height - 20
+            Component.onCompleted: {
+                loadHtml(page.content, page.entry.baseUrl)
+            }
         }
     }
 }
