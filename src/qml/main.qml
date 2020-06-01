@@ -37,6 +37,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Settings")
                 iconName: "settings-configure"
                 onTriggered: pageStack.push("qrc:/SettingsPage.qml", {"settings": _settings})
+                enabled: pageStack.currentItem.title !== i18n("Settings")
             },
             Kirigami.Action {
                 text: i18n("About")
