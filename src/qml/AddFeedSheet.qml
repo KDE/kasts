@@ -26,55 +26,30 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.ScrollablePage {
-    id: page
-
-    property var feed
-
-    title: feed.name
-    supportsRefreshing: true
-
-    onRefreshingChanged:
-        if(refreshing) {
-            feed.refresh()
-            refreshing = false
-        }
-
-    contextualActions: [
-        Kirigami.Action {
-            iconName: "help-about-symbolic"
-            text: i18n("Details")
-            visible: !all
-            onTriggered: pageStack.push("qrc:/FeedDetailsPage.qml")
-        }
-    ]
-
-    actions.main: Kirigami.Action {
-        iconName: "view-refresh"
-        text: i18n("Refresh Feed")
-        onTriggered: page.refreshing = true
-        visible: !Kirigami.Settings.isMobile
+Kirigami.OverlaySheet {
+    id: addSheet
+    parent: applicationWindow().overlay
+    header: Kirigami.Heading {
+        text: i18n("Add new Feed")
     }
 
-    Kirigami.PlaceholderMessage {
-        visible: entryList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18n("No Entries available.")
+    contentItem: ColumnLayout {
+        Controls.Label {
+            text: i18n("Url:")
+        }
+        Controls.TextField {
+            id: urlField
+            Layout.fillWidth: true
+            text: "https://planet.kde.org/global/atom.xml/"
+        }
     }
 
-    ListView {
-        id: entryList
-        visible: count !== 0
-        model: EntryListModel {
-            id: entryListModel
-            feed: page.feed
+    footer: Controls.Button {
+        text: i18n("Add Feed")
+        enabled: urlField.text
+        onClicked: {
+            Database.addFeed(urlField.text)
+            addSheet.close()
         }
-
-        header: EntryListHeader { }
-
-        delegate: EntryListDelegate { }
     }
 }

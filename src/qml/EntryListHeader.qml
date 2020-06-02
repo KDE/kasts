@@ -26,55 +26,27 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.ScrollablePage {
-    id: page
-
-    property var feed
-
-    title: feed.name
-    supportsRefreshing: true
-
-    onRefreshingChanged:
-        if(refreshing) {
-            feed.refresh()
-            refreshing = false
+RowLayout {
+    width: parent.width
+    height: root.height * 0.2
+    Item {
+        id: icon
+        width: height
+        height: parent.height
+        Kirigami.Icon {
+            source: Fetcher.image(page.feed.image)
+            width: height
+            height: parent.height
+            visible: !busy.visible
         }
-
-    contextualActions: [
-        Kirigami.Action {
-            iconName: "help-about-symbolic"
-            text: i18n("Details")
-            visible: !all
-            onTriggered: pageStack.push("qrc:/FeedDetailsPage.qml")
+        Controls.BusyIndicator {
+            id: busy
+            width: height
+            height: parent.height
+            visible: page.feed.refreshing
         }
-    ]
-
-    actions.main: Kirigami.Action {
-        iconName: "view-refresh"
-        text: i18n("Refresh Feed")
-        onTriggered: page.refreshing = true
-        visible: !Kirigami.Settings.isMobile
     }
-
-    Kirigami.PlaceholderMessage {
-        visible: entryList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18n("No Entries available.")
-    }
-
-    ListView {
-        id: entryList
-        visible: count !== 0
-        model: EntryListModel {
-            id: entryListModel
-            feed: page.feed
-        }
-
-        header: EntryListHeader { }
-
-        delegate: EntryListDelegate { }
+    Kirigami.Heading {
+        text: page.feed.name
     }
 }

@@ -26,55 +26,29 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.ScrollablePage {
-    id: page
-
-    property var feed
-
-    title: feed.name
-    supportsRefreshing: true
-
-    onRefreshingChanged:
-        if(refreshing) {
-            feed.refresh()
-            refreshing = false
+Kirigami.SwipeListItem {
+    ColumnLayout {
+        spacing: 0
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
+        Controls.Label {
+            text: model.entry.title
+            Layout.fillWidth: true
+            elide: Text.ElideRight
+            opacity: 1
         }
-
-    contextualActions: [
-        Kirigami.Action {
-            iconName: "help-about-symbolic"
-            text: i18n("Details")
-            visible: !all
-            onTriggered: pageStack.push("qrc:/FeedDetailsPage.qml")
+        Controls.Label {
+            id: subtitleItem
+            text: model.entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.entry.authors[0].name)
+            Layout.fillWidth: true
+            elide: Text.ElideRight
+            font: Kirigami.Theme.smallFont
+            opacity: 0.6
+            visible: text.length > 0
         }
-    ]
-
-    actions.main: Kirigami.Action {
-        iconName: "view-refresh"
-        text: i18n("Refresh Feed")
-        onTriggered: page.refreshing = true
-        visible: !Kirigami.Settings.isMobile
     }
 
-    Kirigami.PlaceholderMessage {
-        visible: entryList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18n("No Entries available.")
-    }
-
-    ListView {
-        id: entryList
-        visible: count !== 0
-        model: EntryListModel {
-            id: entryListModel
-            feed: page.feed
-        }
-
-        header: EntryListHeader { }
-
-        delegate: EntryListDelegate { }
+    onClicked: {
+        pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
     }
 }

@@ -47,39 +47,15 @@ Kirigami.ScrollablePage {
         }
     ]
 
-    actions.main: Kirigami.Action {
-                text: i18n("Add feed")
-                iconName: "list-add"
-                onTriggered: {
-                    addSheet.open()
-                }
-            }
-
-    Kirigami.OverlaySheet {
+    AddFeedSheet {
         id: addSheet
-        parent: applicationWindow().overlay
-        header: Kirigami.Heading {
-            text: i18n("Add new Feed")
-        }
+    }
 
-        contentItem: ColumnLayout {
-            Controls.Label {
-                text: i18n("Url:")
-            }
-            Controls.TextField {
-                id: urlField
-                Layout.fillWidth: true
-                text: "https://planet.kde.org/global/atom.xml/"
-            }
-        }
-
-        footer: Controls.Button {
-            text: i18n("Add Feed")
-            enabled: urlField.text
-            onClicked: {
-                Database.addFeed(urlField.text)
-                addSheet.close()
-            }
+    actions.main: Kirigami.Action {
+        text: i18n("Add feed")
+        iconName: "list-add"
+        onTriggered: {
+            addSheet.open()
         }
     }
 
@@ -100,51 +76,6 @@ Kirigami.ScrollablePage {
             id: feedListModel
         }
 
-        delegate: Kirigami.SwipeListItem {
-            height: Kirigami.Units.gridUnit*2
-
-            Item {
-                Item {
-                    id: icon
-                    width: height
-                    height: parent.height
-                    Kirigami.Icon {
-                        source: Fetcher.image(model.feed.image)
-                        width: height
-                        height: parent.height
-                        visible: !busy.visible
-                    }
-                    Controls.BusyIndicator {
-                        id: busy
-                        width: height
-                        height: parent.height
-                        visible: model.feed.refreshing
-                    }
-                }
-                Controls.Label {
-                    text: model.feed.name
-                    height: parent.height
-                    anchors.left: icon.right
-                    leftPadding: 0.5*Kirigami.Units.gridUnit
-                }
-            }
-
-            actions: [
-                Kirigami.Action {
-                    icon.name: "delete"
-                    onTriggered: {
-                        if(pageStack.depth > 1 && model.feed.url === lastFeed)
-                            pageStack.pop()
-                        feedListModel.removeFeed(index)
-                    }
-                }
-
-            ]
-
-            onClicked: {
-                lastFeed = model.feed.url
-                pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
-            }
-        }
+        delegate: FeedListDelegate { }
     }
 }
