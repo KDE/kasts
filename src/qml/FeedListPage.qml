@@ -57,24 +57,28 @@ Kirigami.ScrollablePage {
 
     Kirigami.OverlaySheet {
         id: addSheet
+        parent: applicationWindow().overlay
         header: Kirigami.Heading {
             text: i18n("Add new Feed")
         }
 
-        contentItem: Kirigami.FormLayout {
+        contentItem: ColumnLayout {
+            Controls.Label {
+                text: i18n("Url:")
+            }
             Controls.TextField {
                 id: urlField
-                //placeholderText: "https://example.org/feed.xml"
+                Layout.fillWidth: true
                 text: "https://planet.kde.org/global/atom.xml/"
-                Kirigami.FormData.label: "Url:"
             }
-            Controls.Button {
-                text: i18n("Add Feed")
-                enabled: urlField.text
-                onClicked: {
-                    Database.addFeed(urlField.text)
-                    addSheet.close()
-                }
+        }
+
+        footer: Controls.Button {
+            text: i18n("Add Feed")
+            enabled: urlField.text
+            onClicked: {
+                Database.addFeed(urlField.text)
+                addSheet.close()
             }
         }
     }
