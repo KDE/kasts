@@ -32,17 +32,21 @@ Kirigami.ScrollablePage {
 
     property QtObject entry
 
-    property var content: "<style> img { max-width: 100%; } body { background: " + Kirigami.Theme.backgroundColor + "; font-family: " + Kirigami.Theme.defaultFont.family + "; }</style><body>" + page.entry.content + "</body>";
+    property var content: "<style> img { max-width: 100%; } body { background: " + Kirigami.Theme.backgroundColor + "; font-family: " + Kirigami.Theme.defaultFont.family + "; overflow: hidden } </style><body>" + page.entry.content + "</body>";
 
     title: entry.title
 
-    Flickable {
-        WebView {
-            width: page.width
-            height: page.height - 20
-            Component.onCompleted: {
-                loadHtml(page.content, page.entry.baseUrl)
-            }
+    WebView {
+        id: webView
+        width: page.width
+        Component.onCompleted: {
+            loadHtml(page.content, page.entry.baseUrl)
+        }
+        onLoadingChanged: {
+                runJavaScript("document.documentElement.scrollHeight", function(result) {
+                webView.height = result * 1.025
+            })
         }
     }
 }
+   
