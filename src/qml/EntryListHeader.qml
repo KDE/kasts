@@ -46,7 +46,15 @@ RowLayout {
             visible: page.feed.refreshing
         }
     }
-    Kirigami.Heading {
-        text: page.feed.name
+    ColumnLayout {
+        Kirigami.Heading {
+            text: page.feed.name
+        }
+        Controls.Label {
+            text: page.feed.description
+        }
+        Controls.Label {
+            text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+        }
     }
 }
