@@ -34,11 +34,12 @@ Kirigami.ScrollablePage {
             id: deleteAfterCount
             text: settings.deleteAfterCount
             Kirigami.FormData.label: i18n("Delete posts after:")
+            enabled: deleteAfterType.currentIndex !== 0
         }
         Controls.ComboBox {
             id: deleteAfterType
             currentIndex: settings.deleteAfterType
-            model: [i18n("Posts"), i18n("Days"), i18n("Weeks"), i18n("Months")]
+            model: [i18n("Never"), i18n("Posts"), i18n("Days"), i18n("Weeks"), i18n("Months")]
         }
         Controls.Button {
             text: i18n("Save")

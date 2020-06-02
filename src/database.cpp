@@ -106,15 +106,19 @@ void Database::cleanup()
     int count = settings.deleteAfterCount();
     int type = settings.deleteAfterType();
 
-    if (type == 0) { // Delete after <count> posts per feed
+    if(type == 0) { //Never delete Entries
+        return;
+    }
+
+    if (type == 1) { // Delete after <count> posts per feed
                      // TODO
     } else {
         QDateTime dateTime = QDateTime::currentDateTime();
-        if (type == 1)
+        if (type == 2)
             dateTime = dateTime.addDays(-count);
-        else if (type == 2)
-            dateTime = dateTime.addDays(-7 * count);
         else if (type == 3)
+            dateTime = dateTime.addDays(-7 * count);
+        else if (type == 4)
             dateTime = dateTime.addMonths(-count);
         qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
 

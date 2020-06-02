@@ -11,7 +11,7 @@
     </entry>
     <entry name="deleteAfterType" type="Int">
       <label>Delete after type</label>
-      <default>2</default>
+      <default>3</default>
     </entry>
   </group>
 </kcfg>
