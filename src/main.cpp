@@ -25,7 +25,6 @@
 #endif
 
 #include <QCommandLineParser>
-#include <QtWebView>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickView>
@@ -45,7 +44,6 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
-    QtWebView::initialize();
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
 #else
