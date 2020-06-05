@@ -19,21 +19,33 @@
  */
 
 #include "entry.h"
+
+#include <QSqlQuery>
 #include <QUrl>
 
-Entry::Entry(QString title, QString content, QVector<Author *> authors, QDateTime created, QDateTime updated, QString link, QObject *parent)
+#include "database.h"
+
+Entry::Entry(Feed *feed, QString id, QString title, QString content, QVector<Author *> authors, QDateTime created, QDateTime updated, QString link, bool read, QObject *parent)
     : QObject(parent)
+    , m_feed(feed)
+    , m_id(id)
     , m_title(title)
     , m_content(content)
     , m_authors(authors)
     , m_created(created)
     , m_updated(updated)
     , m_link(link)
+    , m_read(read)
 {
 }
 
 Entry::~Entry()
 {
+}
+
+QString Entry::id() const
+{
+    return m_id;
 }
 
 QString Entry::title() const
@@ -66,7 +78,24 @@ QString Entry::link() const
     return m_link;
 }
 
+bool Entry::read() const
+{
+    return m_read;
+}
+
 QString Entry::baseUrl() const
 {
     return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
+}
+
+void Entry::setRead(bool read)
+{
+    m_read = read;
+    Q_EMIT readChanged(m_read);
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE id=:id AND feed=:feed"));
+    query.bindValue(QStringLiteral(":id"), m_id);
+    query.bindValue(QStringLiteral(":feed"), m_feed->url());
+    query.bindValue(QStringLiteral(":read"), m_read);
+    Database::instance().execute(query);
 }

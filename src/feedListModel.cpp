@@ -35,13 +35,14 @@ FeedListModel::FeedListModel(QObject *parent)
         beginInsertRows(QModelIndex(), rowCount(QModelIndex()) - 1, rowCount(QModelIndex()) - 1);
         endInsertRows();
     });
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image, QString link, QString description) {
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image, QString link, QString description, QDateTime lastUpdated) {
         for (int i = rowCount(QModelIndex()) - 1; i >= 0; i--) {
             if (m_feeds[i]->url() == url) {
                 m_feeds[i]->setName(name);
                 m_feeds[i]->setImage(image);
                 m_feeds[i]->setLink(link);
                 m_feeds[i]->setDescription(description);
+                m_feeds[i]->setLastUpdated(lastUpdated);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
                 break;
             }
@@ -94,7 +95,26 @@ void FeedListModel::loadFeed(int index) const
         authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
     }
 
-    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(), query.value(QStringLiteral("name")).toString(), query.value(QStringLiteral("image")).toString(), query.value(QStringLiteral("link")).toString(), query.value(QStringLiteral("description")).toString(), authors, nullptr);
+    QDateTime subscribed;
+    subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
+
+    QDateTime lastUpdated;
+    lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
+
+    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(),
+                          query.value(QStringLiteral("name")).toString(),
+                          query.value(QStringLiteral("image")).toString(),
+                          query.value(QStringLiteral("link")).toString(),
+                          query.value(QStringLiteral("description")).toString(),
+                          authors,
+                          query.value(QStringLiteral("deleteAfterCount")).toInt(),
+                          query.value(QStringLiteral("deleteAfterType")).toInt(),
+                          subscribed,
+                          lastUpdated,
+                          query.value(QStringLiteral("autoUpdateCount")).toInt(),
+                          query.value(QStringLiteral("autoUpdateType")).toInt(),
+                          query.value(QStringLiteral("notify")).toBool(),
+                          nullptr);
     m_feeds[index] = feed;
 }
 
@@ -110,7 +130,7 @@ void FeedListModel::removeFeed(int index)
 
 void FeedListModel::refreshAll()
 {
-    for(auto &feed : m_feeds) {
+    for (auto &feed : m_feeds) {
         feed->refresh();
     }
 }

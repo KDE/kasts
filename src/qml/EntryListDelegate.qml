@@ -36,6 +36,7 @@ Kirigami.SwipeListItem {
             Layout.fillWidth: true
             elide: Text.ElideRight
             opacity: 1
+            color: model.entry.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
         Controls.Label {
             id: subtitleItem
@@ -45,10 +46,12 @@ Kirigami.SwipeListItem {
             font: Kirigami.Theme.smallFont
             opacity: 0.6
             visible: text.length > 0
+            color: model.entry.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
     }
 
     onClicked: {
+        model.entry.read = true
         pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
     }
 }

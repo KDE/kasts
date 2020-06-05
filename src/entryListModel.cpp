@@ -94,7 +94,16 @@ void EntryListModel::loadEntry(int index) const
     QDateTime updated;
     updated.setSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt());
 
-    Entry *entry = new Entry(entryQuery.value(QStringLiteral("title")).toString(), entryQuery.value(QStringLiteral("content")).toString(), authors, created, updated, entryQuery.value(QStringLiteral("link")).toString(), nullptr);
+    Entry *entry = new Entry(m_feed,
+                             entryQuery.value(QStringLiteral("id")).toString(),
+                             entryQuery.value(QStringLiteral("title")).toString(),
+                             entryQuery.value(QStringLiteral("content")).toString(),
+                             authors,
+                             created,
+                             updated,
+                             entryQuery.value(QStringLiteral("link")).toString(),
+                             entryQuery.value(QStringLiteral("read")).toBool(),
+                             nullptr);
     m_entries[index] = entry;
 }
 

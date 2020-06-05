@@ -54,5 +54,5 @@ private:
 Q_SIGNALS:
     void startedFetchingFeed(QString url);
     void feedUpdated(QString url);
-    void feedDetailsUpdated(QString url, QString name, QString image, QString link, QString description);
+    void feedDetailsUpdated(QString url, QString name, QString image, QString link, QString description, QDateTime lastUpdated);
 };

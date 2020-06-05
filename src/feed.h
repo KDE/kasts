@@ -21,6 +21,7 @@
 #ifndef FEED_H
 #define FEED_H
 
+#include <QDateTime>
 #include <QObject>
 
 #include "author.h"
@@ -36,9 +37,31 @@ class Feed : public QObject
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
+    Q_PROPERTY(int deleteAfterCount READ deleteAfterCount WRITE setDeleteAfterCount NOTIFY deleteAfterCountChanged)
+    Q_PROPERTY(int deleteAfterType READ deleteAfterType WRITE setDeleteAfterType NOTIFY deleteAfterTypeChanged)
+    Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
+    Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
+    Q_PROPERTY(int autoUpdateCount READ autoUpdateCount WRITE setAutoUpdateCount NOTIFY autoUpdateCountChanged)
+    Q_PROPERTY(int autoUpdateType READ autoUpdateType WRITE setAutoUpdateType NOTIFY autoUpdateCountChanged)
+    Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
+    Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
+    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
 
 public:
-    Feed(QString url, QString name, QString image, QString link, QString description, QVector<Author *> authors, QObject *parent = nullptr);
+    Feed(QString url,
+         QString name,
+         QString image,
+         QString link,
+         QString description,
+         QVector<Author *> authors,
+         int deleteAfterCount,
+         int deleteAfterType,
+         QDateTime subscribed,
+         QDateTime lastUpdated,
+         int autoUpdateCount,
+         int autoUpdateType,
+         bool notify,
+         QObject *parent = nullptr);
 
     ~Feed();
 
@@ -48,6 +71,17 @@ public:
     QString link() const;
     QString description() const;
     QVector<Author *> authors() const;
+    int deleteAfterCount() const;
+    int deleteAfterType() const;
+    QDateTime subscribed() const;
+    QDateTime lastUpdated() const;
+    int autoUpdateCount() const;
+    int autoUpdateType() const;
+    bool notify() const;
+    int entryCount() const;
+    int unreadEntryCount() const;
+    bool read() const;
+
     bool refreshing() const;
 
     void setName(QString name);
@@ -55,6 +89,12 @@ public:
     void setLink(QString link);
     void setDescription(QString description);
     void setAuthors(QVector<Author *> authors);
+    void setDeleteAfterCount(int count);
+    void setDeleteAfterType(int type);
+    void setLastUpdated(QDateTime lastUpdated);
+    void setAutoUpdateCount(int count);
+    void setAutoUpdateType(int type);
+    void setNotify(bool notify);
     void setRefreshing(bool refreshing);
 
     Q_INVOKABLE void refresh();
@@ -66,6 +106,15 @@ Q_SIGNALS:
     void linkChanged(QString &link);
     void descriptionChanged(QString &description);
     void authorsChanged(QVector<Author *> &authors);
+    void deleteAfterCountChanged(int count);
+    void deleteAfterTypeChanged(int type);
+    void lastUpdatedChanged(QDateTime lastUpdated);
+    void autoUpdateCountChanged(int count);
+    void autoUpdateTypeChanged(int type);
+    void notifyChanged(bool notify);
+    void entryCountChanged();
+    void unreadEntryCountChanged();
+
     void refreshingChanged(bool refreshing);
 
 private:
@@ -75,6 +124,14 @@ private:
     QString m_link;
     QString m_description;
     QVector<Author *> m_authors;
+    int m_deleteAfterCount;
+    int m_deleteAfterType;
+    QDateTime m_subscribed;
+    QDateTime m_lastUpdated;
+    int m_autoUpdateCount;
+    int m_autoUpdateType;
+    bool m_notify;
+
     bool m_refreshing = false;
 };
 

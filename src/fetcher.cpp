@@ -18,6 +18,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include <QDateTime>
 #include <QFile>
 #include <QFileInfo>
 #include <QNetworkAccessManager>
@@ -62,7 +63,7 @@ void Fetcher::fetchAll()
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
     Database::instance().execute(query);
-    while(query.next()) {
+    while (query.next()) {
         fetch(query.value(0).toString());
     }
 }
@@ -73,13 +74,16 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
         return;
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description WHERE url=:url;"));
+    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":link"), feed->link());
     query.bindValue(QStringLiteral(":description"), feed->description());
 
-    for(auto &author : feed->authors()) {
+    QDateTime current = QDateTime::currentDateTime();
+    query.bindValue(QStringLiteral(":lastUpdated"), current.toSecsSinceEpoch());
+
+    for (auto &author : feed->authors()) {
         processAuthor(author, QLatin1String(""), url);
     }
 
@@ -93,7 +97,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
 
     qDebug() << "Updated feed title:" << feed->title();
 
-    Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description());
+    Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 
     for (const auto &entry : feed->items()) {
         processEntry(entry, url);
@@ -114,7 +118,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
     if (query.value(0).toInt() != 0)
         return;
 
-    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link);"));
+    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, false);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());

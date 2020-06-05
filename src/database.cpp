@@ -57,8 +57,8 @@ bool Database::migrate()
 bool Database::migrateTo1()
 {
     qDebug() << "Migrating database to version 1";
-    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT);")));
-    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT, created INTEGER, updated INTEGER, link TEXT);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT, deleteAfterCount INTEGER, deleteAfterType INTEGER, subscribed INTEGER, lastUpdated INTEGER, autoUpdateCount INTEGER, autoUpdateType INTEGER, notify BOOL);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT, created INTEGER, updated INTEGER, link TEXT, read bool);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (feed TEXT, id TEXT, name TEXT, uri TEXT, email TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosures (feed TEXT, id TEXT, duration INTEGER, size INTEGER, title TEXT, type STRING, url STRING);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 1;")));
@@ -106,7 +106,7 @@ void Database::cleanup()
     int count = settings.deleteAfterCount();
     int type = settings.deleteAfterType();
 
-    if(type == 0) { //Never delete Entries
+    if (type == 0) { // Never delete Entries
         return;
     }
 
@@ -149,12 +149,19 @@ void Database::addFeed(QString url)
     qDebug() << "Feed does not yet exist";
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description);"));
+    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :autoUpdateCount, :autoUpdateType, :notify);"));
     query.bindValue(QStringLiteral(":name"), url);
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
     query.bindValue(QStringLiteral(":link"), QLatin1String(""));
     query.bindValue(QStringLiteral(":description"), QLatin1String(""));
+    query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
+    query.bindValue(QStringLiteral(":deleteAfterType"), 0);
+    query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
+    query.bindValue(QStringLiteral(":lastUpdated"), 0);
+    query.bindValue(QStringLiteral(":autoUpdateCount"), 0);
+    query.bindValue(QStringLiteral(":autoUpdateType"), 0);
+    query.bindValue(QStringLiteral(":notify"), false);
     execute(query);
 
     Q_EMIT feedAdded(url);
