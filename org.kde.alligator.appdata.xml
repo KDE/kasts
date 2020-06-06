@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
-  <id>org.kde.mobile.alligator</id>
+  <id>org.kde.alligator</id>
   <name>Alligator</name>
   <name xml:lang="ca">Alligator</name>
   <name xml:lang="ca-valencia">Alligator</name>
@@ -68,5 +68,5 @@
   <provides>
     <binary>alligator</binary>
   </provides>
-  <launchable type="desktop-id">org.kde.mobile.alligator.desktop</launchable>
+  <launchable type="desktop-id">org.kde.alligator.desktop</launchable>
 </component>
