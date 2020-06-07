@@ -34,13 +34,13 @@ Kirigami.ScrollablePage {
     title: entry.title
 
     Controls.Label {
-        //anchors.fill: parent
         text: page.entry.content
         baseUrl: page.entry.baseUrl
         textFormat: Text.RichText
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
         onLinkActivated: Qt.openUrlExternally(link)
+        onWidthChanged: text = entry.adjustedContent(width, font.pixelSize)
     }
 }
    

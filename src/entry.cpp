@@ -20,6 +20,7 @@
 
 #include "entry.h"
 
+#include <QRegularExpression>
 #include <QSqlQuery>
 #include <QUrl>
 
@@ -115,4 +116,38 @@ void Entry::setRead(bool read)
     query.bindValue(QStringLiteral(":feed"), m_feed->url());
     query.bindValue(QStringLiteral(":read"), m_read);
     Database::instance().execute(query);
+}
+
+QString Entry::adjustedContent(int width, int fontSize)
+{
+    QString ret(m_content);
+    QRegularExpression imgRegex(QStringLiteral("<img ((?!width=\"[0-9]+(px)?\").)*(width=\"([0-9]+)(px)?\")?[^>]*>"));
+
+    QRegularExpressionMatchIterator i = imgRegex.globalMatch(ret);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+
+        QString imgTag(match.captured());
+        if (imgTag.contains(QStringLiteral("wp-smiley")))
+            imgTag.insert(4, QStringLiteral(" width=\"%1\"").arg(fontSize));
+
+        QString widthParameter = match.captured(4);
+
+        if (widthParameter.length() != 0) {
+            if (widthParameter.toInt() > width)
+                imgTag.replace(match.captured(3), QStringLiteral("width=\"%1\"").arg(width));
+        } else {
+            imgTag.insert(4, QStringLiteral(" width=\"%1\"").arg(width));
+        }
+        ret.replace(match.captured(), imgTag);
+    }
+
+    ret.replace(QRegularExpression(QStringLiteral("<ul[^>]*>")), QLatin1String(""));
+    ret.replace(QRegularExpression(QStringLiteral("</ul>")), QLatin1String(""));
+
+    ret.replace(QRegularExpression(QStringLiteral("<li[^>]*>")), QLatin1String(""));
+    ret.replace(QRegularExpression(QStringLiteral("</li>")), QLatin1String(""));
+
+    ret.replace(QStringLiteral("<img"), QStringLiteral("<br /> <img"));
+    return ret;
 }

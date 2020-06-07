@@ -61,6 +61,8 @@ public:
 
     void setRead(bool read);
 
+    Q_INVOKABLE QString adjustedContent(int width, int fontSize);
+
 Q_SIGNALS:
     void readChanged(bool read);
 
