@@ -79,43 +79,7 @@ QVariant FeedListModel::data(const QModelIndex &index, int role) const
 
 void FeedListModel::loadFeed(int index) const
 {
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Feeds LIMIT 1 OFFSET :index;"));
-    query.bindValue(QStringLiteral(":index"), index);
-    Database::instance().execute(query);
-    if (!query.next())
-        qWarning() << "Failed to load feed" << index;
-
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":feed"), query.value(QStringLiteral("url")).toString());
-    Database::instance().execute(authorQuery);
-    QVector<Author *> authors;
-    while (authorQuery.next()) {
-        authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
-    }
-
-    QDateTime subscribed;
-    subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
-
-    QDateTime lastUpdated;
-    lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
-
-    Feed *feed = new Feed(query.value(QStringLiteral("url")).toString(),
-                          query.value(QStringLiteral("name")).toString(),
-                          query.value(QStringLiteral("image")).toString(),
-                          query.value(QStringLiteral("link")).toString(),
-                          query.value(QStringLiteral("description")).toString(),
-                          authors,
-                          query.value(QStringLiteral("deleteAfterCount")).toInt(),
-                          query.value(QStringLiteral("deleteAfterType")).toInt(),
-                          subscribed,
-                          lastUpdated,
-                          query.value(QStringLiteral("autoUpdateCount")).toInt(),
-                          query.value(QStringLiteral("autoUpdateType")).toInt(),
-                          query.value(QStringLiteral("notify")).toBool(),
-                          nullptr);
-    m_feeds[index] = feed;
+    m_feeds[index] = new Feed(index);
 }
 
 void FeedListModel::removeFeed(int index)

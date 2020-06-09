@@ -48,20 +48,7 @@ class Feed : public QObject
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
 
 public:
-    Feed(QString url,
-         QString name,
-         QString image,
-         QString link,
-         QString description,
-         QVector<Author *> authors,
-         int deleteAfterCount,
-         int deleteAfterType,
-         QDateTime subscribed,
-         QDateTime lastUpdated,
-         int autoUpdateCount,
-         int autoUpdateType,
-         bool notify,
-         QObject *parent = nullptr);
+    Feed(int index);
 
     ~Feed();
 

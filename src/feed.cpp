@@ -24,35 +24,40 @@
 #include "feed.h"
 #include "fetcher.h"
 
-Feed::Feed(QString url,
-           QString name,
-           QString image,
-           QString link,
-           QString description,
-           QVector<Author *> authors,
-           int deleteAfterCount,
-           int deleteAfterType,
-           QDateTime subscribed,
-           QDateTime lastUpdated,
-           int autoUpdateCount,
-           int autoUpdateType,
-           bool notify,
-           QObject *parent)
-    : QObject(parent)
-    , m_url(url)
-    , m_name(name)
-    , m_image(image)
-    , m_link(link)
-    , m_description(description)
-    , m_authors(authors)
-    , m_deleteAfterCount(deleteAfterCount)
-    , m_deleteAfterType(deleteAfterType)
-    , m_subscribed(subscribed)
-    , m_lastUpdated(lastUpdated)
-    , m_autoUpdateCount(autoUpdateCount)
-    , m_autoUpdateType(autoUpdateType)
-    , m_notify(notify)
+Feed::Feed(int index)
+    : QObject(nullptr)
 {
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Feeds LIMIT 1 OFFSET :index;"));
+    query.bindValue(QStringLiteral(":index"), index);
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to load feed" << index;
+
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.bindValue(QStringLiteral(":feed"), query.value(QStringLiteral("url")).toString());
+    Database::instance().execute(authorQuery);
+    while (authorQuery.next()) {
+        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+    }
+
+    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
+
+    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
+
+    m_url = query.value(QStringLiteral("url")).toString();
+    m_name = query.value(QStringLiteral("name")).toString();
+    m_image = query.value(QStringLiteral("image")).toString();
+    m_link = query.value(QStringLiteral("link")).toString();
+    m_description = query.value(QStringLiteral("description")).toString();
+    m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
+    m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
+    m_autoUpdateCount = query.value(QStringLiteral("autoUpdateCount")).toInt();
+    m_autoUpdateType = query.value(QStringLiteral("autoUpdateType")).toInt();
+    m_notify = query.value(QStringLiteral("notify")).toBool();
+
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](QString url) {
         if (url == m_url) {
             setRefreshing(true);
@@ -61,8 +66,8 @@ Feed::Feed(QString url,
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](QString url) {
         if (url == m_url) {
             setRefreshing(false);
-            emit entryCountChanged();
-            emit unreadEntryCountChanged();
+            Q_EMIT entryCountChanged();
+            Q_EMIT unreadEntryCountChanged();
         }
     });
 }
