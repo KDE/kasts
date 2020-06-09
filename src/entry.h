@@ -45,7 +45,7 @@ class Entry : public QObject
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged);
 
 public:
-    Entry(Feed *feed, QString id, QString title, QString content, QVector<Author *> authors, QDateTime created, QDateTime updated, QString link, bool read, QObject *parent = nullptr);
+    Entry(Feed *feed, int index);
     ~Entry();
 
     QString id() const;

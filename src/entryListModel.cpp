@@ -71,40 +71,7 @@ int EntryListModel::rowCount(const QModelIndex &parent) const
 
 void EntryListModel::loadEntry(int index) const
 {
-    QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
-    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
-    entryQuery.bindValue(QStringLiteral(":index"), index);
-    Database::instance().execute(entryQuery);
-    if (!entryQuery.next())
-        qWarning() << "No element with index" << index << "found in feed" << m_feed->url();
-
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id"));
-    authorQuery.bindValue(QStringLiteral(":id"), entryQuery.value(QStringLiteral("id")).toString());
-    Database::instance().execute(authorQuery);
-    QVector<Author *> authors;
-    while (authorQuery.next()) {
-        authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
-    }
-
-    QDateTime created;
-    created.setSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt());
-
-    QDateTime updated;
-    updated.setSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt());
-
-    Entry *entry = new Entry(m_feed,
-                             entryQuery.value(QStringLiteral("id")).toString(),
-                             entryQuery.value(QStringLiteral("title")).toString(),
-                             entryQuery.value(QStringLiteral("content")).toString(),
-                             authors,
-                             created,
-                             updated,
-                             entryQuery.value(QStringLiteral("link")).toString(),
-                             entryQuery.value(QStringLiteral("read")).toBool(),
-                             nullptr);
-    m_entries[index] = entry;
+    m_entries[index] = new Entry(m_feed, index);
 }
 
 Feed *EntryListModel::feed() const
