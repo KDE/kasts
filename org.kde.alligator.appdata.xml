@@ -15,6 +15,7 @@
   <name xml:lang="pt">Alligator</name>
   <name xml:lang="ru">Alligator</name>
   <name xml:lang="sk">Alligator</name>
+  <name xml:lang="sl">Alligator</name>
   <name xml:lang="sv">Alligator</name>
   <name xml:lang="uk">Alligator</name>
   <name xml:lang="x-test">xxAlligatorxx</name>
@@ -29,6 +30,7 @@
   <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
   <summary xml:lang="nn">Kjeldelesar for mobile einingar</summary>
   <summary xml:lang="pt">Leitor de fontes para dispositivos móveis</summary>
+  <summary xml:lang="sl">Bralnik novic za mobilne naprave</summary>
   <summary xml:lang="sv">Kanalläsare för mobila apparater</summary>
   <summary xml:lang="uk">Програма для читання подач на мобільних пристроях</summary>
   <summary xml:lang="x-test">xxFeed reader for mobile devicesxx</summary>
@@ -47,6 +49,7 @@
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="ru">Сообщество KDE</developer_name>
   <developer_name xml:lang="sk">KDE komunita</developer_name>
+  <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
@@ -62,6 +65,7 @@
     <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
     <p xml:lang="nn">Alligator er ein kjeldelesar for mobile einingar</p>
     <p xml:lang="pt">O Alligator é um leitor móvel de fontes de notícias</p>
+    <p xml:lang="sl">Alligator je mobilni bralnik novic</p>
     <p xml:lang="sv">Alligator är en mobil kanalläsare</p>
     <p xml:lang="uk">Alligator — програма для читання подач на мобільних пристроях</p>
     <p xml:lang="x-test">xxAlligator is a mobile feed readerxx</p>
