@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE QString image(QString);
     void removeImage(QString);
     Q_INVOKABLE void download(QString url);
+    QNetworkReply *get(QNetworkRequest &request);
 
 private:
     Fetcher();

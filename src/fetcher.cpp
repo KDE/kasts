@@ -46,7 +46,7 @@ void Fetcher::fetch(QString url)
     Q_EMIT startedFetchingFeed(url);
 
     QNetworkRequest request((QUrl(url)));
-    QNetworkReply *reply = manager->get(request);
+    QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
         Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
@@ -183,7 +183,7 @@ QString Fetcher::image(QString url)
 void Fetcher::download(QString url)
 {
     QNetworkRequest request((QUrl(url)));
-    QNetworkReply *reply = manager->get(request);
+    QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         QByteArray data = reply->readAll();
         QFile file(filePath(url));
@@ -204,4 +204,10 @@ void Fetcher::removeImage(QString url)
 QString Fetcher::filePath(QString url)
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+}
+
+QNetworkReply *Fetcher::get(QNetworkRequest &request)
+{
+    request.setRawHeader("User-Agent", "Alligator/0.1; Syndication");
+    return manager->get(request);
 }
