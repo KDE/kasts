@@ -48,12 +48,16 @@ void Fetcher::fetch(QString url)
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
-        QByteArray data = reply->readAll();
-        Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
-        Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
-
-        processFeed(feed, url);
-
+        if(reply->error()) {
+            qWarning() << "Error fetching feed";
+            qWarning() << reply->errorString();
+            Q_EMIT error(url, reply->error(), reply->errorString());
+        } else {
+            QByteArray data = reply->readAll();
+            Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
+            Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
+            processFeed(feed, url);
+        }
         delete reply;
     });
 }

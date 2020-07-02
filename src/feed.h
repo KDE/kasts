@@ -46,6 +46,8 @@ class Feed : public QObject
     Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
+    Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
+    Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
 
 public:
     Feed(int index);
@@ -68,6 +70,8 @@ public:
     int entryCount() const;
     int unreadEntryCount() const;
     bool read() const;
+    int errorId() const;
+    QString errorString() const;
 
     bool refreshing() const;
 
@@ -83,6 +87,8 @@ public:
     void setAutoUpdateType(int type);
     void setNotify(bool notify);
     void setRefreshing(bool refreshing);
+    void setErrorId(int errorId);
+    void setErrorString(QString errorString);
 
     Q_INVOKABLE void refresh();
     void remove();
@@ -101,6 +107,8 @@ Q_SIGNALS:
     void notifyChanged(bool notify);
     void entryCountChanged();
     void unreadEntryCountChanged();
+    void errorIdChanged(int &errorId);
+    void errorStringChanged(QString &errorString);
 
     void refreshingChanged(bool refreshing);
 
@@ -118,6 +126,8 @@ private:
     int m_autoUpdateCount;
     int m_autoUpdateType;
     bool m_notify;
+    int m_errorId;
+    QString m_errorString;
 
     bool m_refreshing = false;
 };

@@ -68,6 +68,14 @@ Feed::Feed(int index)
             setRefreshing(false);
             Q_EMIT entryCountChanged();
             Q_EMIT unreadEntryCountChanged();
+            setErrorId(0);
+            setErrorString(QLatin1String(""));
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::error, this, [this](QString url, int errorId, QString errorString) {
+        if(url == m_url) {
+            setErrorId(errorId);
+            setErrorString(errorString);
         }
     });
 }
@@ -168,6 +176,16 @@ bool Feed::refreshing() const
     return m_refreshing;
 }
 
+int Feed::errorId() const
+{
+    return m_errorId;
+}
+
+QString Feed::errorString() const
+{
+    return m_errorString;
+}
+
 void Feed::setName(QString name)
 {
     m_name = name;
@@ -238,6 +256,18 @@ void Feed::setRefreshing(bool refreshing)
 {
     m_refreshing = refreshing;
     Q_EMIT refreshingChanged(m_refreshing);
+}
+
+void Feed::setErrorId(int errorId)
+{
+    m_errorId = errorId;
+    Q_EMIT errorIdChanged(m_errorId);
+}
+
+void Feed::setErrorString(QString errorString)
+{
+    m_errorString = errorString;
+    Q_EMIT errorStringChanged(m_errorString);
 }
 
 void Feed::refresh()
