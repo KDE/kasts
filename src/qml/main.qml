@@ -36,14 +36,14 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Settings")
                 iconName: "settings-configure"
-                onTriggered: pageStack.push("qrc:/SettingsPage.qml", {"settings": _settings})
-                enabled: pageStack.currentItem.title !== i18n("Settings")
+                onTriggered: pageStack.layers.push("qrc:/SettingsPage.qml", {"settings": _settings})
+                enabled: pageStack.layers.currentItem.title !== i18n("Settings")
             },
             Kirigami.Action {
                 text: i18n("About")
                 iconName: "help-about-symbolic"
-                onTriggered: root.pageStack.push(aboutPage)
-                enabled: pageStack.currentItem.title !== i18n("About")
+                onTriggered: pageStack.layers.push(aboutPage)
+                enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
     }
