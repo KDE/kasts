@@ -58,6 +58,9 @@ Feed::Feed(int index)
     m_autoUpdateType = query.value(QStringLiteral("autoUpdateType")).toInt();
     m_notify = query.value(QStringLiteral("notify")).toBool();
 
+    m_errorId = 0;
+    m_errorString = QLatin1String("");
+
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](QString url) {
         if (url == m_url) {
             setRefreshing(true);
