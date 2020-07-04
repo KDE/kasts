@@ -79,6 +79,7 @@ Feed::Feed(int index)
         if(url == m_url) {
             setErrorId(errorId);
             setErrorString(errorString);
+            setRefreshing(false);
         }
     });
 }
