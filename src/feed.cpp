@@ -82,6 +82,10 @@ Feed::Feed(int index)
             setRefreshing(false);
         }
     });
+    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](QString url) {
+        if(url == m_image)
+            Q_EMIT imageChanged(url);
+    });
 }
 
 Feed::~Feed()

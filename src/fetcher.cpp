@@ -195,6 +195,7 @@ void Fetcher::download(QString url)
         file.write(data);
         file.close();
 
+        Q_EMIT imageDownloadFinished(url);
         delete reply;
     });
 }
