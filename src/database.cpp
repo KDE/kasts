@@ -148,10 +148,11 @@ void Database::addFeed(QString url)
     }
     qDebug() << "Feed does not yet exist";
 
+    QUrl urlFromInput = QUrl::fromUserInput(url);
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :autoUpdateCount, :autoUpdateType, :notify);"));
-    query.bindValue(QStringLiteral(":name"), url);
-    query.bindValue(QStringLiteral(":url"), url);
+    query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
+    query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
     query.bindValue(QStringLiteral(":link"), QLatin1String(""));
     query.bindValue(QStringLiteral(":description"), QLatin1String(""));
@@ -164,7 +165,7 @@ void Database::addFeed(QString url)
     query.bindValue(QStringLiteral(":notify"), false);
     execute(query);
 
-    Q_EMIT feedAdded(url);
+    Q_EMIT feedAdded(urlFromInput.toString());
 
-    Fetcher::instance().fetch(url);
+    Fetcher::instance().fetch(urlFromInput.toString());
 }
