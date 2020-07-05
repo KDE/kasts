@@ -26,35 +26,50 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-RowLayout {
+ColumnLayout {
     width: parent.width
-    height: root.height * 0.2
-    Item {
-        id: icon
-        width: height
-        height: parent.height
-        Kirigami.Icon {
-            source: Fetcher.image(page.feed.image)
-            width: height
-            height: parent.height
-            visible: !busy.visible
-        }
-        Controls.BusyIndicator {
-            id: busy
-            width: height
-            height: parent.height
-            visible: page.feed.refreshing
-        }
+    spacing: 0
+
+    Kirigami.InlineMessage {
+        type: Kirigami.MessageType.Error
+        Layout.fillWidth: true
+        Layout.margins: Kirigami.Units.smallSpacing
+        text: i18n("Error (%1): %2", page.feed.errorId, page.feed.errorString)
+        visible: page.feed.errorId !== 0
     }
-    ColumnLayout {
-        Kirigami.Heading {
-            text: page.feed.name
+    RowLayout {
+        width: parent.width
+        height: root.height * 0.2
+
+        Item {
+            id: icon
+            width: height
+            height: parent.height
+
+            Kirigami.Icon {
+                source: Fetcher.image(page.feed.image)
+                width: height
+                height: parent.height
+                visible: !busy.visible
+            }
+            Controls.BusyIndicator {
+                id: busy
+                width: height
+                height: parent.height
+                visible: page.feed.refreshing
+            }
         }
-        Controls.Label {
-            text: page.feed.description
-        }
-        Controls.Label {
-            text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+
+        ColumnLayout {
+            Kirigami.Heading {
+                text: page.feed.name
+            }
+            Controls.Label {
+                text: page.feed.description
+            }
+            Controls.Label {
+                text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+            }
         }
     }
 }
