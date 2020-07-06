@@ -41,8 +41,6 @@ class Feed : public QObject
     Q_PROPERTY(int deleteAfterType READ deleteAfterType WRITE setDeleteAfterType NOTIFY deleteAfterTypeChanged)
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
-    Q_PROPERTY(int autoUpdateCount READ autoUpdateCount WRITE setAutoUpdateCount NOTIFY autoUpdateCountChanged)
-    Q_PROPERTY(int autoUpdateType READ autoUpdateType WRITE setAutoUpdateType NOTIFY autoUpdateCountChanged)
     Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
@@ -64,8 +62,6 @@ public:
     int deleteAfterType() const;
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
-    int autoUpdateCount() const;
-    int autoUpdateType() const;
     bool notify() const;
     int entryCount() const;
     int unreadEntryCount() const;
@@ -83,8 +79,6 @@ public:
     void setDeleteAfterCount(int count);
     void setDeleteAfterType(int type);
     void setLastUpdated(QDateTime lastUpdated);
-    void setAutoUpdateCount(int count);
-    void setAutoUpdateType(int type);
     void setNotify(bool notify);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
@@ -102,8 +96,6 @@ Q_SIGNALS:
     void deleteAfterCountChanged(int count);
     void deleteAfterTypeChanged(int type);
     void lastUpdatedChanged(QDateTime lastUpdated);
-    void autoUpdateCountChanged(int count);
-    void autoUpdateTypeChanged(int type);
     void notifyChanged(bool notify);
     void entryCountChanged();
     void unreadEntryCountChanged();
@@ -123,8 +115,6 @@ private:
     int m_deleteAfterType;
     QDateTime m_subscribed;
     QDateTime m_lastUpdated;
-    int m_autoUpdateCount;
-    int m_autoUpdateType;
     bool m_notify;
     int m_errorId;
     QString m_errorString;

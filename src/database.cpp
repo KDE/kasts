@@ -57,7 +57,7 @@ bool Database::migrate()
 bool Database::migrateTo1()
 {
     qDebug() << "Migrating database to version 1";
-    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT, deleteAfterCount INTEGER, deleteAfterType INTEGER, subscribed INTEGER, lastUpdated INTEGER, autoUpdateCount INTEGER, autoUpdateType INTEGER, notify BOOL);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT, deleteAfterCount INTEGER, deleteAfterType INTEGER, subscribed INTEGER, lastUpdated INTEGER, notify BOOL);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entries (feed TEXT, id TEXT UNIQUE, title TEXT, content TEXT, created INTEGER, updated INTEGER, link TEXT, read bool);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (feed TEXT, id TEXT, name TEXT, uri TEXT, email TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosures (feed TEXT, id TEXT, duration INTEGER, size INTEGER, title TEXT, type STRING, url STRING);")));
@@ -150,7 +150,7 @@ void Database::addFeed(QString url)
 
     QUrl urlFromInput = QUrl::fromUserInput(url);
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :autoUpdateCount, :autoUpdateType, :notify);"));
+    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :notify);"));
     query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -160,8 +160,6 @@ void Database::addFeed(QString url)
     query.bindValue(QStringLiteral(":deleteAfterType"), 0);
     query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
     query.bindValue(QStringLiteral(":lastUpdated"), 0);
-    query.bindValue(QStringLiteral(":autoUpdateCount"), 0);
-    query.bindValue(QStringLiteral(":autoUpdateType"), 0);
     query.bindValue(QStringLiteral(":notify"), false);
     execute(query);
 

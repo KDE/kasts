@@ -54,8 +54,6 @@ Feed::Feed(int index)
     m_description = query.value(QStringLiteral("description")).toString();
     m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
     m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
-    m_autoUpdateCount = query.value(QStringLiteral("autoUpdateCount")).toInt();
-    m_autoUpdateType = query.value(QStringLiteral("autoUpdateType")).toInt();
     m_notify = query.value(QStringLiteral("notify")).toBool();
 
     m_errorId = 0;
@@ -140,16 +138,6 @@ QDateTime Feed::subscribed() const
 QDateTime Feed::lastUpdated() const
 {
     return m_lastUpdated;
-}
-
-int Feed::autoUpdateCount() const
-{
-    return m_autoUpdateCount;
-}
-
-int Feed::autoUpdateType() const
-{
-    return m_autoUpdateType;
 }
 
 bool Feed::notify() const
@@ -240,18 +228,6 @@ void Feed::setLastUpdated(QDateTime lastUpdated)
 {
     m_lastUpdated = lastUpdated;
     Q_EMIT lastUpdatedChanged(m_lastUpdated);
-}
-
-void Feed::setAutoUpdateCount(int count)
-{
-    m_autoUpdateCount = count;
-    Q_EMIT autoUpdateCountChanged(m_autoUpdateCount);
-}
-
-void Feed::setAutoUpdateType(int type)
-{
-    m_autoUpdateType = type;
-    Q_EMIT autoUpdateTypeChanged(m_autoUpdateType);
 }
 
 void Feed::setNotify(bool notify)
