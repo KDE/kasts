@@ -30,27 +30,14 @@ Kirigami.SwipeListItem {
     height: Kirigami.Units.gridUnit*2
 
     Item {
-        Item {
-            id: icon
-            width: height
-            height: parent.height
-            Kirigami.Icon {
-                source: Fetcher.image(model.feed.image)
-                width: height
-                height: parent.height
-                visible: !busy.visible
-            }
-            Controls.BusyIndicator {
-                id: busy
-                width: height
-                height: parent.height
-                visible: model.feed.refreshing
-            }
+        FeedImage {
+            id: image
+            feed: model.feed
         }
         Controls.Label {
             text: model.feed.name
             height: parent.height
-            anchors.left: icon.right
+            anchors.left: image.right
             leftPadding: 0.5*Kirigami.Units.gridUnit
         }
     }
