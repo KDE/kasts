@@ -34,7 +34,7 @@ Item {
     property QtObject feed
 
     Kirigami.Icon {
-        source: Fetcher.image(feed.image)
+        source: feed.image === "" ? "rss" : Fetcher.image(feed.image)
         width: height
         height: parent.height
         visible: !busy.visible

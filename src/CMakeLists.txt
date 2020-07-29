@@ -34,6 +34,7 @@ if(ANDROID)
         mail-sent
         globe
         data-error
+        rss
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
