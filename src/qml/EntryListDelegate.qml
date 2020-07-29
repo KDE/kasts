@@ -27,31 +27,27 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
-    ColumnLayout {
-        spacing: 0
-        Layout.fillWidth: true
-        Layout.alignment: Qt.AlignVCenter
-        Controls.Label {
-            text: model.entry.title
-            Layout.fillWidth: true
-            elide: Text.ElideRight
-            opacity: 1
-            color: model.entry.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
-        }
-        Controls.Label {
-            id: subtitleItem
-            text: model.entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.entry.authors[0].name)
-            Layout.fillWidth: true
-            elide: Text.ElideRight
-            font: Kirigami.Theme.smallFont
-            opacity: 0.6
-            visible: text.length > 0
-            color: model.entry.read ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
+
+    contentItem: Kirigami.BasicListItem {
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        text: model.entry.title
+        subtitle: model.entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.entry.authors[0].name)
+        reserveSpaceForIcon: false
+        bold: !model.entry.read
+
+        onClicked: {
+            model.entry.read = true
+            pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
         }
     }
 
-    onClicked: {
-        model.entry.read = true
-        pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
-    }
+    actions: [
+        Kirigami.Action {
+            text: i18n("Open in Browser")
+            icon.name: "globe"
+            onTriggered: Qt.openUrlExternally(model.entry.link)
+        }
+    ]
 }
