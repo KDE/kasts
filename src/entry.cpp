@@ -116,6 +116,7 @@ void Entry::setRead(bool read)
     query.bindValue(QStringLiteral(":feed"), m_feed->url());
     query.bindValue(QStringLiteral(":read"), m_read);
     Database::instance().execute(query);
+    Q_EMIT m_feed->unreadEntryCountChanged();
 }
 
 QString Entry::adjustedContent(int width, int fontSize)

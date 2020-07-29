@@ -27,18 +27,18 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
-    height: Kirigami.Units.gridUnit*2
 
-    Item {
-        FeedImage {
-            id: image
-            feed: model.feed
-        }
-        Controls.Label {
-            text: model.feed.name
-            height: parent.height
-            anchors.left: image.right
-            leftPadding: 0.5*Kirigami.Units.gridUnit
+    contentItem: Kirigami.BasicListItem {
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        text: model.feed.name
+        icon: model.feed.refreshing ? "view-refresh" : model.feed.image === "" ? "rss" : model.feed.image
+        subtitle: i18np("%1 unread entry", "%1 unread entries", model.feed.unreadEntryCount)
+
+
+        onClicked: {
+            lastFeed = model.feed.url
+            pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
         }
     }
 
@@ -54,8 +54,4 @@ Kirigami.SwipeListItem {
 
     ]
 
-    onClicked: {
-        lastFeed = model.feed.url
-        pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
-    }
 }
