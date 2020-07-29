@@ -31,7 +31,6 @@ Kirigami.SwipeListItem {
     contentItem: Kirigami.BasicListItem {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.left: parent.left
         text: model.entry.title
         subtitle: model.entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (model.entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + model.entry.authors[0].name)
         reserveSpaceForIcon: false
