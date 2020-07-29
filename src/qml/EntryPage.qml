@@ -42,5 +42,10 @@ Kirigami.ScrollablePage {
         onLinkActivated: Qt.openUrlExternally(link)
         onWidthChanged: text = entry.adjustedContent(width, font.pixelSize)
     }
+
+    actions.main: Kirigami.Action {
+        text: i18n("Open in Browser")
+        icon.name: "globe"
+        onTriggered: Qt.openUrlExternally(entry.link)
+    }
 }
-   
