@@ -37,8 +37,15 @@ Kirigami.ScrollablePage {
     onRefreshingChanged:
         if(refreshing) {
             feed.refresh()
-            refreshing = false
         }
+
+    Connections {
+        target: feed
+        function onRefreshingChanged(refreshing) {
+            if(!refreshing)
+                page.refreshing = refreshing
+        }
+    }
 
     contextualActions: [
         Kirigami.Action {

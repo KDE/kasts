@@ -41,8 +41,10 @@ ColumnLayout {
         width: parent.width
         height: root.height * 0.2
 
-        FeedImage {
-            feed: page.feed
+        Kirigami.Icon {
+            source: Fetcher.image(page.feed.image)
+            width: height
+            height: parent.height
         }
 
         ColumnLayout {
