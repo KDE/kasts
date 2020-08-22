@@ -145,7 +145,7 @@ int Feed::entryCount() const
 int Feed::unreadEntryCount() const
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=false;"));
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
     Database::instance().execute(query);
     if (!query.next())
