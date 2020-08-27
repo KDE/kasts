@@ -9,6 +9,7 @@
   <name xml:lang="et">Alligator</name>
   <name xml:lang="eu">Alligator</name>
   <name xml:lang="fr">Alligator</name>
+  <name xml:lang="hi">एल्लिगेटर (Alligator)</name>
   <name xml:lang="it">Alligator</name>
   <name xml:lang="ko">Alligator</name>
   <name xml:lang="nl">Alligator</name>
@@ -28,6 +29,7 @@
   <summary xml:lang="et">Mobiilseadmete uudistelugeja</summary>
   <summary xml:lang="eu">Gailu mugikorretako web-jario irakurlea</summary>
   <summary xml:lang="fr">Lecteur de fils d'actualité pour les périphériques mobiles</summary>
+  <summary xml:lang="hi">मोबाइल उपकरणो के लिए फ़ीड रीडर</summary>
   <summary xml:lang="it">Lettore di fonti per dispositivi mobili</summary>
   <summary xml:lang="ko">모바일 장치용 피드 리더</summary>
   <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
@@ -47,6 +49,7 @@
   <developer_name xml:lang="et">KDE kogukond</developer_name>
   <developer_name xml:lang="eu">KDE komunitatea</developer_name>
   <developer_name xml:lang="fr">Communauté KDE</developer_name>
+  <developer_name xml:lang="hi">केडीई समुदाय</developer_name>
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
@@ -67,6 +70,7 @@
     <p xml:lang="et">Alligator on mobiilide uudistelugeja</p>
     <p xml:lang="eu">Alligator mugikorrerako web-jario irakurle bat da</p>
     <p xml:lang="fr">Alligator est un lecteur nomade de fils d'actualité</p>
+    <p xml:lang="hi"> एल्लिगेटर (Alligator) मोबाइल फ़ीड रीडर है</p>
     <p xml:lang="it">Alligator è un lettore di fonti mobile</p>
     <p xml:lang="ko">Alligator는 모바일 피드 리더입니다</p>
     <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
