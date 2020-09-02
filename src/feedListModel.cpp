@@ -22,7 +22,7 @@ FeedListModel::FeedListModel(QObject *parent)
         endInsertRows();
     });
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image, QString link, QString description, QDateTime lastUpdated) {
-        for (int i = rowCount(QModelIndex()) - 1; i >= 0; i--) {
+        for (int i = 0; i < m_feeds.length(); i++) {
             if (m_feeds[i]->url() == url) {
                 m_feeds[i]->setName(name);
                 m_feeds[i]->setImage(image);
