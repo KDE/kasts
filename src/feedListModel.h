@@ -28,5 +28,5 @@ public:
 private:
     void loadFeed(int index) const;
 
-    mutable QHash<int, Feed *> m_feeds;
+    mutable QVector<Feed *> m_feeds;
 };

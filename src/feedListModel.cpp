@@ -58,24 +58,23 @@ QVariant FeedListModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    if (m_feeds[index.row()] == nullptr)
+    if (m_feeds.length() <= index.row())
         loadFeed(index.row());
     return QVariant::fromValue(m_feeds[index.row()]);
 }
 
 void FeedListModel::loadFeed(int index) const
 {
-    m_feeds[index] = new Feed(index);
+    m_feeds += new Feed(index);
 }
 
 void FeedListModel::removeFeed(int index)
 {
-    Feed *feed = m_feeds[index];
+    m_feeds[index]->remove();
+    delete m_feeds[index];
     beginRemoveRows(QModelIndex(), index, index);
-    m_feeds[index] = nullptr;
+    m_feeds.removeAt(index);
     endRemoveRows();
-    feed->remove();
-    delete feed;
 }
 
 void FeedListModel::refreshAll()
