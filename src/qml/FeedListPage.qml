@@ -6,6 +6,7 @@
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
+import Qt.labs.platform 1.1
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
@@ -30,6 +31,11 @@ Kirigami.ScrollablePage {
             iconName: "view-refresh"
             onTriggered: refreshing = true
             visible: !Kirigami.Settings.isMobile
+        },
+        Kirigami.Action {
+            text: i18n("Import Feeds...")
+            iconName: "document-import"
+            onTriggered: importDialog.open()
         }
     ]
 
@@ -63,5 +69,13 @@ Kirigami.ScrollablePage {
         }
 
         delegate: FeedListDelegate { }
+    }
+
+    FileDialog {
+        id: importDialog
+        title: i18n("Import Feeds")
+        folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+        nameFilters: [i18n("All Files (*.*)"), i18n("XML Files (*.xml)"), i18n("OPML Files (*.opml)")]
+        onAccepted: Database.importFeedsFromUrl(file)
     }
 }

@@ -9,6 +9,8 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QStandardPaths>
+#include <QUrl>
+#include <QXmlStreamReader>
 
 #include "alligatorsettings.h"
 #include "database.h"
@@ -152,4 +154,20 @@ void Database::addFeed(QString url)
     Q_EMIT feedAdded(urlFromInput.toString());
 
     Fetcher::instance().fetch(urlFromInput.toString());
+}
+
+void Database::importFeedsFromUrl(QString url)
+{
+    QFile *file = new QFile(QUrl(url).toLocalFile());
+    file->open(QIODevice::ReadOnly);
+
+    QXmlStreamReader xmlReader;
+    xmlReader.setDevice(file);
+    while(!xmlReader.atEnd()) {
+        xmlReader.readNext();
+        if(xmlReader.tokenType() == 4 &&  xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
+            addFeed(xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString());
+        }
+    }
+    Fetcher::instance().fetchAll();
 }
