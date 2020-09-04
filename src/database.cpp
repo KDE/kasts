@@ -11,6 +11,7 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QXmlStreamReader>
+#include <QXmlStreamWriter>
 
 #include "alligatorsettings.h"
 #include "database.h"
@@ -156,13 +157,12 @@ void Database::addFeed(QString url)
     Fetcher::instance().fetch(urlFromInput.toString());
 }
 
-void Database::importFeedsFromUrl(QString url)
+void Database::importFeeds(QString path)
 {
-    QFile *file = new QFile(QUrl(url).toLocalFile());
-    file->open(QIODevice::ReadOnly);
+    QFile file(QUrl(path).toLocalFile());
+    file.open(QIODevice::ReadOnly);
 
-    QXmlStreamReader xmlReader;
-    xmlReader.setDevice(file);
+    QXmlStreamReader xmlReader(&file);
     while(!xmlReader.atEnd()) {
         xmlReader.readNext();
         if(xmlReader.tokenType() == 4 &&  xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
@@ -170,4 +170,29 @@ void Database::importFeedsFromUrl(QString url)
         }
     }
     Fetcher::instance().fetchAll();
+}
+
+void Database::exportFeeds(QString path)
+{
+    QFile file(QUrl(path).toLocalFile());
+    file.open(QIODevice::WriteOnly);
+    QXmlStreamWriter xmlWriter(&file);
+    xmlWriter.setAutoFormatting(true);
+    xmlWriter.writeStartDocument(QStringLiteral("1.0"));
+    xmlWriter.writeStartElement(QStringLiteral("opml"));
+    xmlWriter.writeEmptyElement(QStringLiteral("head"));
+    xmlWriter.writeStartElement(QStringLiteral("body"));
+    xmlWriter.writeAttribute(QStringLiteral("version"), QStringLiteral("1.0"));
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT url, name FROM Feeds;"));
+    execute(query);
+    while(query.next()) {
+        xmlWriter.writeEmptyElement(QStringLiteral("outline"));
+        xmlWriter.writeAttribute(QStringLiteral("xmlUrl"), query.value(0).toString());
+        xmlWriter.writeAttribute(QStringLiteral("title"), query.value(1).toString());
+    }
+    xmlWriter.writeEndElement();
+    xmlWriter.writeEndElement();
+    xmlWriter.writeEndDocument();
+
 }

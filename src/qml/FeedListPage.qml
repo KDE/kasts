@@ -36,6 +36,11 @@ Kirigami.ScrollablePage {
             text: i18n("Import Feeds...")
             iconName: "document-import"
             onTriggered: importDialog.open()
+        },
+        Kirigami.Action {
+            text: i18n("Export Feeds...")
+            iconName: "document-export"
+            onTriggered: exportDialog.open()
         }
     ]
 
@@ -75,7 +80,16 @@ Kirigami.ScrollablePage {
         id: importDialog
         title: i18n("Import Feeds")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18n("All Files (*.*)"), i18n("XML Files (*.xml)"), i18n("OPML Files (*.opml)")]
-        onAccepted: Database.importFeedsFromUrl(file)
+        nameFilters: [i18n("All Files (*)"), i18n("XML Files (*.xml)"), i18n("OPML Files (*.opml)")]
+        onAccepted: Database.importFeeds(file)
+    }
+
+    FileDialog {
+        id: exportDialog
+        title: i18n("Export Feeds")
+        folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+        nameFilters: [i18n("All Files")]
+        onAccepted: Database.exportFeeds(file)
+        fileMode: FileDialog.SaveFile
     }
 }

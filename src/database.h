@@ -21,7 +21,8 @@ public:
     bool execute(QSqlQuery &query);
     bool execute(QString query);
     Q_INVOKABLE void addFeed(QString url);
-    Q_INVOKABLE void importFeedsFromUrl(QString url);
+    Q_INVOKABLE void importFeeds(QString path);
+    Q_INVOKABLE void exportFeeds(QString path);
 
 Q_SIGNALS:
     void feedAdded(QString url);
