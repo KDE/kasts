@@ -8,6 +8,8 @@ Nightly Android APKs are available at [KDE's Binary Factory](https://binary-fact
 
 # Building
 
+Note: When using versions of alligator built from git-master, it's possible that the database format or the name of downloaded files change from one version to another without the necessary migrations to handle it. If you notice bugs after upgrading to a git-master version, export your feeds, delete `~/.local/share/KDE/alligator` and import the feeds again.
+
 ## Requirements
  - KCoreAddons
  - KI18n
