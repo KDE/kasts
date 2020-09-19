@@ -35,6 +35,8 @@ if(ANDROID)
         globe
         data-error
         rss
+        document-import
+        document-export
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
