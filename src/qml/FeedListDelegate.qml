@@ -14,13 +14,15 @@ import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
 
+    leftPadding: 0
+    rightPadding: 0
+
     contentItem: Kirigami.BasicListItem {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         text: model.feed.name
         icon: model.feed.refreshing ? "view-refresh" : model.feed.image === "" ? "rss" : Fetcher.image(model.feed.image)
         subtitle: i18np("%1 unread entry", "%1 unread entries", model.feed.unreadEntryCount)
-
 
         onClicked: {
             lastFeed = model.feed.url

@@ -14,6 +14,9 @@ import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
 
+    leftPadding: 0
+    rightPadding: 0
+
     contentItem: Kirigami.BasicListItem {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
