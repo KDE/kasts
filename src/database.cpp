@@ -159,7 +159,8 @@ void Database::addFeed(QString url)
 
 void Database::importFeeds(QString path)
 {
-    QFile file(QUrl(path).toLocalFile());
+    QUrl url(path);
+    QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
     file.open(QIODevice::ReadOnly);
 
     QXmlStreamReader xmlReader(&file);
@@ -174,8 +175,10 @@ void Database::importFeeds(QString path)
 
 void Database::exportFeeds(QString path)
 {
-    QFile file(QUrl(path).toLocalFile());
+    QUrl url(path);
+    QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
     file.open(QIODevice::WriteOnly);
+
     QXmlStreamWriter xmlWriter(&file);
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument(QStringLiteral("1.0"));
