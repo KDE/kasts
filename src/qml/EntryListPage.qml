@@ -61,10 +61,7 @@ Kirigami.ScrollablePage {
     ListView {
         id: entryList
         visible: count !== 0
-        model: EntryListModel {
-            id: entryListModel
-            feed: page.feed
-        }
+        model: page.feed.entries
 
         header: EntryListHeader { }
 

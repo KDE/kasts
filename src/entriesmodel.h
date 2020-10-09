@@ -8,25 +8,29 @@
 
 #include <QAbstractListModel>
 #include <QHash>
-#include <QSqlTableModel>
-#include <QUrl>
+#include <QObject>
+#include <QString>
 
+#include "entry.h"
 #include "feed.h"
 
-class FeedListModel : public QAbstractListModel
+class EntriesModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY(Feed *feed READ feed CONSTANT)
+
 public:
-    explicit FeedListModel(QObject *parent = nullptr);
+    explicit EntriesModel(Feed *feed);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
-    Q_INVOKABLE void removeFeed(int index);
-    Q_INVOKABLE void refreshAll();
+
+    Feed *feed() const;
 
 private:
-    void loadFeed(int index) const;
+    void loadEntry(int index) const;
 
-    mutable QVector<Feed *> m_feeds;
+    Feed *m_feed;
+    mutable QHash<int, Entry *> m_entries;
 };

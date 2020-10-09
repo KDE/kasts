@@ -9,11 +9,12 @@
 #include <QVector>
 
 #include "database.h"
-#include "entryListModel.h"
+#include "entriesmodel.h"
 #include "fetcher.h"
 
-EntryListModel::EntryListModel(QObject *parent)
-    : QAbstractListModel(parent)
+EntriesModel::EntriesModel(Feed *feed)
+    : QAbstractListModel(feed)
+    , m_feed(feed)
 {
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](QString url) {
         if (m_feed->url() == url) {
@@ -27,7 +28,7 @@ EntryListModel::EntryListModel(QObject *parent)
     });
 }
 
-QVariant EntryListModel::data(const QModelIndex &index, int role) const
+QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
@@ -36,14 +37,14 @@ QVariant EntryListModel::data(const QModelIndex &index, int role) const
     return QVariant::fromValue(m_entries[index.row()]);
 }
 
-QHash<int, QByteArray> EntryListModel::roleNames() const
+QHash<int, QByteArray> EntriesModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
     roleNames[0] = "entry";
     return roleNames;
 }
 
-int EntryListModel::rowCount(const QModelIndex &parent) const
+int EntriesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     QSqlQuery query;
@@ -55,18 +56,12 @@ int EntryListModel::rowCount(const QModelIndex &parent) const
     return query.value(0).toInt();
 }
 
-void EntryListModel::loadEntry(int index) const
+void EntriesModel::loadEntry(int index) const
 {
     m_entries[index] = new Entry(m_feed, index);
 }
 
-Feed *EntryListModel::feed() const
+Feed *EntriesModel::feed() const
 {
     return m_feed;
-}
-
-void EntryListModel::setFeed(Feed *feed)
-{
-    m_feed = feed;
-    Q_EMIT feedChanged(feed);
 }

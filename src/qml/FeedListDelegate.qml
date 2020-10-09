@@ -36,7 +36,7 @@ Kirigami.SwipeListItem {
             onTriggered: {
                 if(pageStack.depth > 1 && model.feed.url === lastFeed)
                     pageStack.pop()
-                feedListModel.removeFeed(index)
+                feedsModel.removeFeed(index)
             }
         }
 

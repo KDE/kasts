@@ -11,10 +11,10 @@
 #include <QVariant>
 
 #include "database.h"
-#include "feedListModel.h"
+#include "feedsmodel.h"
 #include "fetcher.h"
 
-FeedListModel::FeedListModel(QObject *parent)
+FeedsModel::FeedsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     connect(&Database::instance(), &Database::feedAdded, this, [this]() {
@@ -36,14 +36,14 @@ FeedListModel::FeedListModel(QObject *parent)
     });
 }
 
-QHash<int, QByteArray> FeedListModel::roleNames() const
+QHash<int, QByteArray> FeedsModel::roleNames() const
 {
     QHash<int, QByteArray> roleNames;
     roleNames[0] = "feed";
     return roleNames;
 }
 
-int FeedListModel::rowCount(const QModelIndex &parent) const
+int FeedsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     QSqlQuery query;
@@ -54,7 +54,7 @@ int FeedListModel::rowCount(const QModelIndex &parent) const
     return query.value(0).toInt();
 }
 
-QVariant FeedListModel::data(const QModelIndex &index, int role) const
+QVariant FeedsModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
@@ -63,12 +63,12 @@ QVariant FeedListModel::data(const QModelIndex &index, int role) const
     return QVariant::fromValue(m_feeds[index.row()]);
 }
 
-void FeedListModel::loadFeed(int index) const
+void FeedsModel::loadFeed(int index) const
 {
     m_feeds += new Feed(index);
 }
 
-void FeedListModel::removeFeed(int index)
+void FeedsModel::removeFeed(int index)
 {
     m_feeds[index]->remove();
     delete m_feeds[index];
@@ -77,7 +77,7 @@ void FeedListModel::removeFeed(int index)
     endRemoveRows();
 }
 
-void FeedListModel::refreshAll()
+void FeedsModel::refreshAll()
 {
     for (auto &feed : m_feeds) {
         feed->refresh();

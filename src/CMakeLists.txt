@@ -1,7 +1,7 @@
 set(alligator_SRCS
     main.cpp
-    feedListModel.cpp
-    entryListModel.cpp
+    feedsmodel.cpp
+    entriesmodel.cpp
     fetcher.cpp
     database.cpp
     entry.cpp

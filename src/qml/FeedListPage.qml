@@ -69,8 +69,8 @@ Kirigami.ScrollablePage {
         id: feedList
         visible: count !== 0
         anchors.fill: parent
-        model: FeedListModel {
-            id: feedListModel
+        model: FeedsModel {
+            id: feedsModel
         }
 
         delegate: FeedListDelegate { }

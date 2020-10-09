@@ -7,6 +7,7 @@
 #include <QVariant>
 
 #include "database.h"
+#include "entriesmodel.h"
 #include "feed.h"
 #include "fetcher.h"
 
@@ -70,6 +71,8 @@ Feed::Feed(int index)
         if(url == m_image)
             Q_EMIT imageChanged(url);
     });
+
+    m_entries = new EntriesModel(this);
 }
 
 Feed::~Feed()

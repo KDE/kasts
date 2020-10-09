@@ -23,8 +23,8 @@
 
 #include "alligatorsettings.h"
 #include "database.h"
-#include "entryListModel.h"
-#include "feedListModel.h"
+#include "entriesmodel.h"
+#include "feedsmodel.h"
 #include "fetcher.h"
 
 #ifdef Q_OS_ANDROID
@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
     QCoreApplication::setApplicationVersion(QStringLiteral("0.1"));
 
-    qmlRegisterType<FeedListModel>("org.kde.alligator", 1, 0, "FeedListModel");
-    qmlRegisterType<EntryListModel>("org.kde.alligator", 1, 0, "EntryListModel");
+    qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
+    qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterSingletonType<Fetcher>("org.kde.alligator", 1, 0, "Fetcher", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         engine->setObjectOwnership(&Fetcher::instance(), QQmlEngine::CppOwnership);
         return &Fetcher::instance();

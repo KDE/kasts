@@ -12,6 +12,8 @@
 
 #include "author.h"
 
+class EntriesModel;
+
 class Feed : public QObject
 {
     Q_OBJECT
@@ -32,6 +34,7 @@ class Feed : public QObject
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
     Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
+    Q_PROPERTY(EntriesModel *entries MEMBER m_entries CONSTANT)
 
 public:
     Feed(int index);
@@ -104,6 +107,7 @@ private:
     bool m_notify;
     int m_errorId;
     QString m_errorString;
+    EntriesModel *m_entries;
 
     bool m_refreshing = false;
 };
