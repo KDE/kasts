@@ -26,6 +26,8 @@ Kirigami.SwipeListItem {
         bold: !model.entry.read
 
         onClicked: {
+            if(pageStack.depth > 2)
+                pageStack.pop()
             model.entry.read = true
             pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
         }
