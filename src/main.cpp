@@ -21,6 +21,7 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#include "alligator-version.h"
 #include "alligatorsettings.h"
 #include "database.h"
 #include "entriesmodel.h"
@@ -42,7 +43,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("0.1"));
 
     qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
     qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("RSS/Atom Feed Reader"));
 
-    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral("0.1"), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));
+    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral(ALLIGATOR_VERSION_STRING), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     KAboutData::setApplicationData(about);
 
