@@ -26,18 +26,10 @@ Kirigami.SwipeListItem {
         bold: !model.entry.read
 
         onClicked: {
-            if(pageStack.depth > 2)
+            while(pageStack.depth > 2)
                 pageStack.pop()
             model.entry.read = true
             pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
         }
     }
-
-    actions: [
-        Kirigami.Action {
-            text: i18n("Open in Browser")
-            icon.name: "globe"
-            onTriggered: Qt.openUrlExternally(model.entry.link)
-        }
-    ]
 }

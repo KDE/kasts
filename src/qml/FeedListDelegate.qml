@@ -26,6 +26,8 @@ Kirigami.SwipeListItem {
 
         onClicked: {
             lastFeed = model.feed.url
+            while(pageStack.depth > 1)
+                pageStack.pop()
             pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
         }
     }
