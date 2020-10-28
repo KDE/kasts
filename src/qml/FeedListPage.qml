@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("No Feeds added yet.")
+        text: i18n("No Feeds added yet")
     }
 
     ListView {
