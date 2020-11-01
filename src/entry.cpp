@@ -45,6 +45,7 @@ Entry::Entry(Feed *feed, int index)
 
 Entry::~Entry()
 {
+    qDeleteAll(m_authors);
 }
 
 QString Entry::id() const

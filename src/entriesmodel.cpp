@@ -28,6 +28,11 @@ EntriesModel::EntriesModel(Feed *feed)
     });
 }
 
+EntriesModel::~EntriesModel()
+{
+    qDeleteAll(m_entries);
+}
+
 QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
