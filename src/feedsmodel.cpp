@@ -21,7 +21,7 @@ FeedsModel::FeedsModel(QObject *parent)
         beginInsertRows(QModelIndex(), rowCount(QModelIndex()) - 1, rowCount(QModelIndex()) - 1);
         endInsertRows();
     });
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](QString url, QString name, QString image, QString link, QString description, QDateTime lastUpdated) {
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
         for (int i = 0; i < m_feeds.length(); i++) {
             if (m_feeds[i]->url() == url) {
                 m_feeds[i]->setName(name);

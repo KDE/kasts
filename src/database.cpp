@@ -54,7 +54,7 @@ bool Database::migrateTo1()
     return true;
 }
 
-bool Database::execute(QString query)
+bool Database::execute(const QString &query)
 {
     QSqlQuery q;
     q.prepare(query);
@@ -118,7 +118,7 @@ void Database::cleanup()
     }
 }
 
-bool Database::feedExists(QString url)
+bool Database::feedExists(const QString &url)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds WHERE url=:url;"));
@@ -128,7 +128,7 @@ bool Database::feedExists(QString url)
     return query.value(0).toInt() != 0;
 }
 
-void Database::addFeed(QString url)
+void Database::addFeed(const QString &url)
 {
     qDebug() << "Adding feed";
     if (feedExists(url)) {
@@ -157,7 +157,7 @@ void Database::addFeed(QString url)
     Fetcher::instance().fetch(urlFromInput.toString());
 }
 
-void Database::importFeeds(QString path)
+void Database::importFeeds(const QString &path)
 {
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
@@ -173,7 +173,7 @@ void Database::importFeeds(QString path)
     Fetcher::instance().fetchAll();
 }
 
-void Database::exportFeeds(QString path)
+void Database::exportFeeds(const QString &path)
 {
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());

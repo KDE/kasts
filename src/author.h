@@ -18,7 +18,7 @@ class Author : public QObject
     Q_PROPERTY(QString url READ url CONSTANT)
 
 public:
-    Author(QString name, QString email, QString url, QObject *parent = nullptr);
+    Author(const QString &name, const QString &email, const QString &url, QObject *parent = nullptr);
     ~Author();
 
     QString name() const;

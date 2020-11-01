@@ -25,7 +25,7 @@ Fetcher::Fetcher()
     manager->enableStrictTransportSecurityStore(true);
 }
 
-void Fetcher::fetch(QString url)
+void Fetcher::fetch(const QString &url)
 {
     qDebug() << "Starting to fetch" << url;
 
@@ -58,7 +58,7 @@ void Fetcher::fetchAll()
     }
 }
 
-void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
+void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
 {
     if (feed.isNull())
         return;
@@ -96,7 +96,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, QString url)
     Q_EMIT feedUpdated(url);
 }
 
-void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
+void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
 {
     qDebug() << "Processing" << entry->title();
     QSqlQuery query;
@@ -132,7 +132,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, QString url)
     }
 }
 
-void Fetcher::processAuthor(Syndication::PersonPtr author, QString entryId, QString url)
+void Fetcher::processAuthor(Syndication::PersonPtr author, const QString &entryId, const QString &url)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
@@ -144,7 +144,7 @@ void Fetcher::processAuthor(Syndication::PersonPtr author, QString entryId, QStr
     Database::instance().execute(query);
 }
 
-void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, QString feedUrl)
+void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url);"));
@@ -158,7 +158,7 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     Database::instance().execute(query);
 }
 
-QString Fetcher::image(QString url)
+QString Fetcher::image(const QString &url)
 {
     QString path = filePath(url);
     if (QFileInfo::exists(path)) {
@@ -170,7 +170,7 @@ QString Fetcher::image(QString url)
     return QLatin1String("");
 }
 
-void Fetcher::download(QString url)
+void Fetcher::download(const QString &url)
 {
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = get(request);
@@ -186,13 +186,13 @@ void Fetcher::download(QString url)
     });
 }
 
-void Fetcher::removeImage(QString url)
+void Fetcher::removeImage(const QString &url)
 {
     qDebug() << filePath(url);
     QFile(filePath(url)).remove();
 }
 
-QString Fetcher::filePath(QString url)
+QString Fetcher::filePath(const QString &url)
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }

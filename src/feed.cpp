@@ -46,12 +46,12 @@ Feed::Feed(int index)
     m_errorId = 0;
     m_errorString = QLatin1String("");
 
-    connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
         if (url == m_url) {
             setRefreshing(true);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &url) {
         if (url == m_url) {
             setRefreshing(false);
             Q_EMIT entryCountChanged();
@@ -60,14 +60,14 @@ Feed::Feed(int index)
             setErrorString(QLatin1String(""));
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::error, this, [this](QString url, int errorId, QString errorString) {
+    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, int errorId, const QString &errorString) {
         if(url == m_url) {
             setErrorId(errorId);
             setErrorString(errorString);
             setRefreshing(false);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](const QString &url) {
         if(url == m_image)
             Q_EMIT imageChanged(url);
     });
@@ -171,31 +171,31 @@ QString Feed::errorString() const
     return m_errorString;
 }
 
-void Feed::setName(QString name)
+void Feed::setName(const QString &name)
 {
     m_name = name;
     Q_EMIT nameChanged(m_name);
 }
 
-void Feed::setImage(QString image)
+void Feed::setImage(const QString &image)
 {
     m_image = image;
     Q_EMIT imageChanged(m_image);
 }
 
-void Feed::setLink(QString link)
+void Feed::setLink(const QString &link)
 {
     m_link = link;
     Q_EMIT linkChanged(m_link);
 }
 
-void Feed::setDescription(QString description)
+void Feed::setDescription(const QString &description)
 {
     m_description = description;
     Q_EMIT descriptionChanged(m_description);
 }
 
-void Feed::setAuthors(QVector<Author *> authors)
+void Feed::setAuthors(const QVector<Author *> &authors)
 {
     m_authors = authors;
     Q_EMIT authorsChanged(m_authors);
@@ -213,7 +213,7 @@ void Feed::setDeleteAfterType(int type)
     Q_EMIT deleteAfterTypeChanged(m_deleteAfterType);
 }
 
-void Feed::setLastUpdated(QDateTime lastUpdated)
+void Feed::setLastUpdated(const QDateTime &lastUpdated)
 {
     m_lastUpdated = lastUpdated;
     Q_EMIT lastUpdatedChanged(m_lastUpdated);
@@ -237,7 +237,7 @@ void Feed::setErrorId(int errorId)
     Q_EMIT errorIdChanged(m_errorId);
 }
 
-void Feed::setErrorString(QString errorString)
+void Feed::setErrorString(const QString &errorString)
 {
     m_errorString = errorString;
     Q_EMIT errorStringChanged(m_errorString);

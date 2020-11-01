@@ -16,7 +16,7 @@ EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)
     , m_feed(feed)
 {
-    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &url) {
         if (m_feed->url() == url) {
             beginResetModel();
             for (auto &entry : m_entries) {

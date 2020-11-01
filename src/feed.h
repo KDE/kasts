@@ -60,36 +60,36 @@ public:
 
     bool refreshing() const;
 
-    void setName(QString name);
-    void setImage(QString image);
-    void setLink(QString link);
-    void setDescription(QString description);
-    void setAuthors(QVector<Author *> authors);
+    void setName(const QString &name);
+    void setImage(const QString &image);
+    void setLink(const QString &link);
+    void setDescription(const QString &description);
+    void setAuthors(const QVector<Author *> &authors);
     void setDeleteAfterCount(int count);
     void setDeleteAfterType(int type);
-    void setLastUpdated(QDateTime lastUpdated);
+    void setLastUpdated(const QDateTime &lastUpdated);
     void setNotify(bool notify);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
-    void setErrorString(QString errorString);
+    void setErrorString(const QString &errorString);
 
     Q_INVOKABLE void refresh();
     void remove();
 
 Q_SIGNALS:
-    void nameChanged(QString &name);
-    void imageChanged(QString &image);
-    void linkChanged(QString &link);
-    void descriptionChanged(QString &description);
-    void authorsChanged(QVector<Author *> &authors);
+    void nameChanged(const QString &name);
+    void imageChanged(const QString &image);
+    void linkChanged(const QString &link);
+    void descriptionChanged(const QString &description);
+    void authorsChanged(const QVector<Author *> &authors);
     void deleteAfterCountChanged(int count);
     void deleteAfterTypeChanged(int type);
-    void lastUpdatedChanged(QDateTime lastUpdated);
+    void lastUpdatedChanged(const QDateTime &lastUpdated);
     void notifyChanged(bool notify);
     void entryCountChanged();
     void unreadEntryCountChanged();
     void errorIdChanged(int &errorId);
-    void errorStringChanged(QString &errorString);
+    void errorStringChanged(const QString &errorString);
 
     void refreshingChanged(bool refreshing);
 

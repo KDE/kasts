@@ -6,7 +6,7 @@
 
 #include "author.h"
 
-Author::Author(QString name, QString email, QString url, QObject *parent)
+Author::Author(const QString &name, const QString &email, const QString &url, QObject *parent)
     : QObject(parent)
     , m_name(name)
     , m_email(email)
