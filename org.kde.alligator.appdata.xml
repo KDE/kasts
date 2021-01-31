@@ -19,6 +19,8 @@
   <name xml:lang="ko">Alligator</name>
   <name xml:lang="nl">Alligator</name>
   <name xml:lang="nn">Alligator</name>
+  <name xml:lang="pa">ਐਲੀਗੇਟਰ</name>
+  <name xml:lang="pl">Alligator</name>
   <name xml:lang="pt">Alligator</name>
   <name xml:lang="pt-BR">Alligator</name>
   <name xml:lang="ro">Alligator</name>
@@ -47,6 +49,8 @@
   <summary xml:lang="ko">모바일 장치용 피드 리더</summary>
   <summary xml:lang="nl">Feedlezer voor mobiele apparaten</summary>
   <summary xml:lang="nn">Kjeldelesar for mobile einingar</summary>
+  <summary xml:lang="pa">ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਫੀਡ ਰੀਡਰ</summary>
+  <summary xml:lang="pl">Darmowy czytnik kanałów dla urządzeń przenośnych</summary>
   <summary xml:lang="pt">Leitor de fontes para dispositivos móveis</summary>
   <summary xml:lang="pt-BR">Leitor de fonte de notícias para dispositivos móveis</summary>
   <summary xml:lang="ro">Cititor de fluxuri pentru dispozitive mobile</summary>
@@ -75,6 +79,8 @@
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
+  <developer_name xml:lang="pa">ਕੇਡੀਈ ਕਮਿਊਨਟੀ</developer_name>
+  <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="pt-BR">Comunidade KDE</developer_name>
   <developer_name xml:lang="ro">Comunitatea KDE</developer_name>
@@ -104,6 +110,8 @@
     <p xml:lang="ko">Alligator는 모바일 피드 리더입니다</p>
     <p xml:lang="nl">Alligator is een mobiele feedlezer</p>
     <p xml:lang="nn">Alligator er ein kjeldelesar for mobile einingar</p>
+    <p xml:lang="pa">ਐਲੀਗੇਟਰ ਮੋਬਾਈਲ ਫੀਡਰ ਰੀਡਰ ਹੈ</p>
+    <p xml:lang="pl">Alligator jest przenośnym czytnikiem kanałów</p>
     <p xml:lang="pt">O Alligator é um leitor móvel de fontes de notícias</p>
     <p xml:lang="pt-BR">O Alligator é um leitor de fonte de notícias móvel</p>
     <p xml:lang="ro">Alligator e un cititor mobil de fluxuri</p>
