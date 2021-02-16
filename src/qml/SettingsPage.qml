@@ -6,6 +6,7 @@
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
+import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
@@ -16,20 +17,36 @@ Kirigami.ScrollablePage {
 
 
     Kirigami.FormLayout {
-        Controls.TextField {
-            id: deleteAfterCount
-            text: settings.deleteAfterCount
-            Kirigami.FormData.label: i18n("Delete posts after:")
-            enabled: deleteAfterType.currentIndex !== 0
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Article List")
         }
-        Controls.ComboBox {
-            id: deleteAfterType
-            currentIndex: settings.deleteAfterType
-            model: [i18n("Never"), i18n("Posts"), i18n("Days"), i18n("Weeks"), i18n("Months")]
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Delete after:")
+
+            Controls.SpinBox {
+                id: deleteAfterCount
+                value: settings.deleteAfterCount
+                enabled: deleteAfterType.currentIndex !== 0
+            }
+
+            Controls.ComboBox {
+                id: deleteAfterType
+                currentIndex: settings.deleteAfterType
+                model: [i18n("Never"), i18n("Articles"), i18n("Days"), i18n("Weeks"), i18n("Months")]
+            }
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Article")
         }
 
         Controls.SpinBox {
             id: articleFontSizeSpinBox
+
             enabled: !useSystemFontCheckBox.checked
             value: settings.articleFontSize
             Kirigami.FormData.label: i18n("Font size:")
@@ -46,7 +63,7 @@ Kirigami.ScrollablePage {
         Controls.Button {
             text: i18n("Save")
             onClicked: {
-                settings.deleteAfterCount = deleteAfterCount.text
+                settings.deleteAfterCount = deleteAfterCount.value
                 settings.deleteAfterType = deleteAfterType.currentIndex
                 settings.articleFontSize = articleFontSizeSpinBox.value
                 settings.articleFontUseSystem = useSystemFontCheckBox.checked
