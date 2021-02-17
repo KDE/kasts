@@ -13,8 +13,6 @@ import org.kde.kirigami 2.12 as Kirigami
 Kirigami.ScrollablePage {
     title: i18n("Settings")
 
-    property QtObject settings
-
 
     Kirigami.FormLayout {
 
@@ -28,13 +26,13 @@ Kirigami.ScrollablePage {
 
             Controls.SpinBox {
                 id: deleteAfterCount
-                value: settings.deleteAfterCount
+                value: _settings.deleteAfterCount
                 enabled: deleteAfterType.currentIndex !== 0
             }
 
             Controls.ComboBox {
                 id: deleteAfterType
-                currentIndex: settings.deleteAfterType
+                currentIndex: _settings.deleteAfterType
                 model: [i18n("Never"), i18n("Articles"), i18n("Days"), i18n("Weeks"), i18n("Months")]
             }
         }
@@ -48,7 +46,7 @@ Kirigami.ScrollablePage {
             id: articleFontSizeSpinBox
 
             enabled: !useSystemFontCheckBox.checked
-            value: settings.articleFontSize
+            value: _settings.articleFontSize
             Kirigami.FormData.label: i18n("Font size:")
             from: 6
             to: 20
@@ -56,18 +54,18 @@ Kirigami.ScrollablePage {
 
         Controls.CheckBox {
             id: useSystemFontCheckBox
-            checked: settings.articleFontUseSystem
+            checked: _settings.articleFontUseSystem
             text: i18n("Use system default")
         }
 
         Controls.Button {
             text: i18n("Save")
             onClicked: {
-                settings.deleteAfterCount = deleteAfterCount.value
-                settings.deleteAfterType = deleteAfterType.currentIndex
-                settings.articleFontSize = articleFontSizeSpinBox.value
-                settings.articleFontUseSystem = useSystemFontCheckBox.checked
-                settings.save()
+                _settings.deleteAfterCount = deleteAfterCount.value
+                _settings.deleteAfterType = deleteAfterType.currentIndex
+                _settings.articleFontSize = articleFontSizeSpinBox.value
+                _settings.articleFontUseSystem = useSystemFontCheckBox.checked
+                _settings.save()
                 pageStack.pop()
             }
         }
