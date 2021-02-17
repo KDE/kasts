@@ -13,7 +13,6 @@ import org.kde.kirigami 2.12 as Kirigami
 Kirigami.ScrollablePage {
     title: i18n("Settings")
 
-
     Kirigami.FormLayout {
 
         Kirigami.Heading {
@@ -28,12 +27,16 @@ Kirigami.ScrollablePage {
                 id: deleteAfterCount
                 value: _settings.deleteAfterCount
                 enabled: deleteAfterType.currentIndex !== 0
+
+                onValueModified: _settings.deleteAfterCount = value
             }
 
             Controls.ComboBox {
                 id: deleteAfterType
                 currentIndex: _settings.deleteAfterType
                 model: [i18n("Never"), i18n("Articles"), i18n("Days"), i18n("Weeks"), i18n("Months")]
+
+                onActivated: _settings.deleteAfterType = index
             }
         }
 
@@ -50,24 +53,18 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Font size:")
             from: 6
             to: 20
+
+            onValueModified: _settings.articleFontSize = value
+
         }
 
         Controls.CheckBox {
             id: useSystemFontCheckBox
             checked: _settings.articleFontUseSystem
             text: i18n("Use system default")
+
+            onToggled: _settings.articleFontUseSystem = checked
         }
 
-        Controls.Button {
-            text: i18n("Save")
-            onClicked: {
-                _settings.deleteAfterCount = deleteAfterCount.value
-                _settings.deleteAfterType = deleteAfterType.currentIndex
-                _settings.articleFontSize = articleFontSizeSpinBox.value
-                _settings.articleFontUseSystem = useSystemFontCheckBox.checked
-                _settings.save()
-                pageStack.pop()
-            }
-        }
     }
 }

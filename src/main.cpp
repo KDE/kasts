@@ -76,6 +76,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty(QStringLiteral("_settings"), &settings);
 
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, &settings, &AlligatorSettings::save);
+
     Database::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
