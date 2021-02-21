@@ -24,17 +24,18 @@ public:
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
     void removeImage(const QString &url);
-    Q_INVOKABLE void download(const QString &url);
+    Q_INVOKABLE QNetworkReply *download(QString url);
     QNetworkReply *get(QNetworkRequest &request);
+    QString filePath(const QString &url);
 
 private:
     Fetcher();
 
-    QString filePath(const QString &url);
     void processFeed(Syndication::FeedPtr feed, const QString &url);
     void processEntry(Syndication::ItemPtr entry, const QString &url);
     void processAuthor(Syndication::PersonPtr author, const QString &entryId, const QString &url);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
+
 
     QNetworkAccessManager *manager;
 
@@ -43,5 +44,5 @@ Q_SIGNALS:
     void feedUpdated(const QString &url);
     void feedDetailsUpdated(const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated);
     void error(const QString &url, int errorId, const QString &errorString);
-    void imageDownloadFinished(const QString &url);
+    void downloadFinished(QString url);
 };

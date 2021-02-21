@@ -40,12 +40,15 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 #endif
 
+    qDebug() << QQuickStyle::availableStyles();
+
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
 
     qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
     qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
+    qmlRegisterUncreatableType<Enclosure>("org.kde.alligator", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
     qmlRegisterSingletonType<Fetcher>("org.kde.alligator", 1, 0, "Fetcher", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         engine->setObjectOwnership(&Fetcher::instance(), QQmlEngine::CppOwnership);
         return &Fetcher::instance();
@@ -54,6 +57,7 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&Database::instance(), QQmlEngine::CppOwnership);
         return &Database::instance();
     });
+
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

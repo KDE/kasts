@@ -7,13 +7,15 @@ add_executable(alligator
     entry.cpp
     feed.cpp
     author.cpp
+    enclosure.cpp
+    enclosuredownloadjob.cpp
     resources.qrc
 )
 
 kconfig_add_kcfg_files(alligator alligatorsettings.kcfgc GENERATE_MOC)
 
 target_include_directories(alligator PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
+target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(alligator PRIVATE
@@ -37,6 +39,8 @@ if(ANDROID)
         rss
         document-import
         document-export
+        edit-delete-remove
+        download
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)

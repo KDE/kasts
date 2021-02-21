@@ -41,6 +41,10 @@ Entry::Entry(Feed *feed, int index)
     m_content = entryQuery.value(QStringLiteral("content")).toString();
     m_link = entryQuery.value(QStringLiteral("link")).toString();
     m_read = entryQuery.value(QStringLiteral("read")).toBool();
+
+    if (entryQuery.value(QStringLiteral("hasEnclosure")).toBool()) {
+        m_enclosure = new Enclosure(this);
+    }
 }
 
 Entry::~Entry()
@@ -138,4 +142,14 @@ QString Entry::adjustedContent(int width, int fontSize)
 
     ret.replace(QStringLiteral("<img"), QStringLiteral("<br /> <img"));
     return ret;
+}
+
+Enclosure *Entry::enclosure() const
+{
+    return m_enclosure;
+}
+
+Feed *Entry::feed() const
+{
+    return m_feed;
 }

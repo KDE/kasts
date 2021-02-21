@@ -67,7 +67,42 @@ Kirigami.ScrollablePage {
         visible: count !== 0
         model: page.feed.entries
 
-        header: EntryListHeader { }
+        onOriginYChanged: contentY = originY
+
+        header: ColumnLayout {
+            width: parent.width
+            spacing: 0
+
+            Kirigami.InlineMessage {
+                type: Kirigami.MessageType.Error
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
+                text: i18n("Error (%1): %2", page.feed.errorId, page.feed.errorString)
+                visible: page.feed.errorId !== 0
+            }
+            RowLayout {
+                width: parent.width
+                height: root.height * 0.2
+
+                Kirigami.Icon {
+                    source: Fetcher.image(page.feed.image)
+                    width: height
+                    height: parent.height
+                }
+
+                ColumnLayout {
+                    Kirigami.Heading {
+                        text: page.feed.name
+                    }
+                    Controls.Label {
+                        text: page.feed.description
+                    }
+                    Controls.Label {
+                        text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+                    }
+                }
+            }
+        }
 
         delegate: EntryListDelegate { }
     }

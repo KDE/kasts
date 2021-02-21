@@ -48,6 +48,8 @@ Feed::Feed(int index)
 
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
         if (url == m_url) {
+            m_errorId = 0;
+            m_errorString = QLatin1String("");
             setRefreshing(true);
         }
     });
@@ -67,7 +69,8 @@ Feed::Feed(int index)
             setRefreshing(false);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](const QString &url) {
+
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if(url == m_image)
             Q_EMIT imageChanged(url);
     });

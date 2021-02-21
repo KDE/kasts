@@ -110,13 +110,14 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     if (query.value(0).toInt() != 0)
         return;
 
-    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0);"));
+    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, :hasEnclosure);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());
     query.bindValue(QStringLiteral(":created"), static_cast<int>(entry->datePublished()));
     query.bindValue(QStringLiteral(":updated"), static_cast<int>(entry->dateUpdated()));
     query.bindValue(QStringLiteral(":link"), entry->link());
+    query.bindValue(QStringLiteral(":hasEnclosure"), entry->enclosures().length() == 0 ? 0 : 1);
 
     if (!entry->content().isEmpty())
         query.bindValue(QStringLiteral(":content"), entry->content());
@@ -172,20 +173,24 @@ QString Fetcher::image(const QString &url)
     return QLatin1String("");
 }
 
-void Fetcher::download(const QString &url)
+QNetworkReply *Fetcher::download(QString url)
 {
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
-        QByteArray data = reply->readAll();
-        QFile file(filePath(url));
-        file.open(QIODevice::WriteOnly);
-        file.write(data);
-        file.close();
+    connect(reply, &QNetworkReply::finished, this, [=]() {
+        if (reply->isOpen()) {
+            QByteArray data = reply->readAll();
+            QFile file(filePath(url));
+            file.open(QIODevice::WriteOnly);
+            file.write(data);
+            file.close();
 
-        Q_EMIT imageDownloadFinished(url);
-        delete reply;
+            Q_EMIT downloadFinished(url);
+        }
+        reply->deleteLater();
     });
+
+    return reply;
 }
 
 void Fetcher::removeImage(const QString &url)
