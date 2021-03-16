@@ -7,6 +7,8 @@
 #include <QNetworkReply>
 #include <QTimer>
 
+#include <KLocalizedString>
+
 #include "enclosuredownloadjob.h"
 #include "fetcher.h"
 
@@ -27,7 +29,7 @@ void EnclosureDownloadJob::startDownload()
 {
     m_reply = Fetcher::instance().download(m_url);
 
-    Q_EMIT description(this, QStringLiteral("Downloading %1").arg(m_title));
+    Q_EMIT description(this, i18n("Downloading %1", m_title));
 
     connect(m_reply, &QNetworkReply::downloadProgress, this, [this](qint64 received, qint64 total) {
         setProcessedAmount(Bytes, received);
