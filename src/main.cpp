@@ -40,8 +40,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 #endif
 
-    qDebug() << QQuickStyle::availableStyles();
-
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
