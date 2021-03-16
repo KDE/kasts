@@ -56,7 +56,6 @@ int main(int argc, char *argv[])
         return &Database::instance();
     });
 
-
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("alligator");
