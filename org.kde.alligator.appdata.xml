@@ -124,5 +124,16 @@
   <provides>
     <binary>alligator</binary>
   </provides>
+  <developer_name>The KDE Community</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Alligator feed list on the desktop</caption>
+      <image>https://cdn.kde.org/screenshots/alligator/alligator-desktop.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Alligator on a phone</caption>
+      <image>https://cdn.kde.org/screenshots/alligator/alligator-mobile.png</image>
+    </screenshot>
+  </screenshots>
   <launchable type="desktop-id">org.kde.alligator.desktop</launchable>
 </component>
