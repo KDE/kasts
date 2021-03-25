@@ -62,5 +62,27 @@ Kirigami.ApplicationWindow {
         source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
     }
 
-    footer: MinimizedPlayerControls { }
+    Loader {
+        anchors.fill: parent
+        active: true
+        visible: true
+        //z: (!item || item.contentY == 0) ? 0 : 999
+        z: (audio.entry == undefined) ? -1 : 0
+        sourceComponent: FooterBar {
+            contentHeight: root.height * 2
+            focus: true
+        }
+
+    }
+
+    //footer: MinimizedPlayerControls { }
+
+    /*Kirigami.OverlaySheet {
+        id: playeroverlay
+        sheetOpen: False
+        PlayerControls {
+            height: root.height*5.0/6.0
+            width: root.width*5.0/6.0;
+        }
+    }*/
 }

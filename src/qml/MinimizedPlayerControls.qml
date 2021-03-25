@@ -14,10 +14,15 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-Component {
-    id: minimizedplayercontrols
+Item {
+    width: parent.width
+    height: (audio.entry == undefined) ? 0 : (footerrowlayout.height + 3.0 * miniprogressbar.height)
+    //margins.bottom: miniprogressbar.height
+    visible: audio.entry !== undefined
+
     // progress bar for limited width (phones)
     Rectangle {
+        id: miniprogressbar
         z: 1
         anchors.top: parent.top
         anchors.left: parent.left
@@ -27,78 +32,77 @@ Component {
         visible: true
     }
 
-RowLayout {
+    RowLayout {
+        id: footerrowlayout
+        width: parent.width
+        anchors.margins: miniprogressbar.height
+        anchors.bottom: parent.bottom
+        spacing: Kirigami.Units.smallSpacing
 
-    width: parent.width
-    visible: audio.entry !== undefined
-    spacing: Kirigami.Units.smallSpacing
-    Kirigami.Icon {
-        source: Fetcher.image(audio.entry.feed.image)
-        Layout.alignment: Qt.AlignVCenter
-        Layout.leftMargin: Kirigami.Units.smallSpacing
-    }
-    Controls.Button {
-        text: audio.playbackRate + "x"
-        onClicked: {
-            if(audio.playbackRate === 2.5)
-                audio.playbackRate = 1
-            else
-                audio.playbackRate = audio.playbackRate + 0.25
+        Item {
+            Layout.fillHeight: true
+            Layout.preferredWidth: parent.width - playButton.width
+            Layout.maximumWidth: parent.width - playButton.width
+
+            RowLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                Kirigami.Icon {
+                    source: Fetcher.image(audio.entry.feed.image)
+                    Layout.preferredHeight: parent.height
+                    Layout.alignment: Qt.AlignVCenter
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
+                }
+
+                // track information
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Controls.Label {
+                        id: mainLabel
+                        text: audio.entry.title
+                        wrapMode: Text.Wrap
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignLeft
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                        font.weight: Font.Bold
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1
+                    }
+
+                    Controls.Label {
+                        id: feedLabel
+                        text: audio.entry.feed.name
+                        wrapMode: Text.Wrap
+                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignLeft
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                        font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1
+                    }
+                }
+            }
+            MouseArea {
+                id: trackClick
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: playeroverlay.open()
+                //showPassiveNotification("Ping")
+            }
         }
-        flat: true
-        Layout.alignment: Qt.AlignHCenter
-        implicitWidth: playButton.width
-        implicitHeight: playButton.height
+        Controls.Button {
+            id: playButton
+            icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+            icon.height: Kirigami.Units.gridUnit * 2
+            icon.width: Kirigami.Units.gridUnit * 2
+            flat: true
+            onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
+            Layout.alignment: Qt.AlignHCenter
+        }
     }
-    Controls.Button {
-        icon.name: "media-seek-backward"
-        icon.height: Kirigami.Units.gridUnit * 2
-        icon.width: Kirigami.Units.gridUnit * 2
-        flat: true
-        Layout.alignment: Qt.AlignHCenter
-        onClicked: audio.seek(audio.position - 10000)
-    }
-    Controls.Button {
-        id: playButton
-        icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-        icon.height: Kirigami.Units.gridUnit * 2
-        icon.width: Kirigami.Units.gridUnit * 2
-        flat: true
-        onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
-        Layout.alignment: Qt.AlignHCenter
-    }
-    Controls.Button {
-        icon.name: "media-seek-forward"
-        icon.height: Kirigami.Units.gridUnit * 2
-        icon.width: Kirigami.Units.gridUnit * 2
-        flat: true
-        Layout.alignment: Qt.AlignHCenter
-        onClicked: audio.seek(audio.position + 10000)
-    }
-    Controls.Button {
-        icon.name: "media-skip-forward"
-        icon.height: Kirigami.Units.gridUnit * 2
-        icon.width: Kirigami.Units.gridUnit * 2
-        flat: true
-        Layout.alignment: Qt.AlignHCenter
-        onClicked: console.log("TODO")
-    }
-    Controls.Label {
-        text: (Math.floor(audio.position/3600000) < 10 ? "0" : "") + Math.floor(audio.position/3600000) + ":" + (Math.floor(audio.position/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/60000) % 60 + ":" + (Math.floor(audio.position/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/1000) % 60
-        padding: Kirigami.Units.gridUnit
-    }
-    Controls.Slider {
-        Layout.fillWidth: true
-        from: 0
-        to: audio.duration
-        value: audio.position
-        onMoved: audio.seek(value)
-    }
-    Controls.Label {
-        text: (Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60
-        padding: Kirigami.Units.gridUnit
-    }
-}
 }
 
 

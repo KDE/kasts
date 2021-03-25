@@ -19,12 +19,15 @@ Kirigami.Page {
 
     title: entry.title
     clip: true
+    Layout.margins: 0
 
     Kirigami.SwipeNavigator {
         anchors.fill: parent
         initialIndex: 1
+        Layout.margins: 0
 
         Kirigami.Page {
+            id: playpage
             property var entry: podcastPlayerPage.entry
             Component.onCompleted: audio.entry = entry
 

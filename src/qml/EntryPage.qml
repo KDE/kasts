@@ -36,7 +36,7 @@ Kirigami.Page {
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
             onLinkActivated: Qt.openUrlExternally(link)
-            onWidthChanged: text.adjustedContent(width, font.pixelSize)
+            onWidthChanged: entry.adjustedContent(width, font.pixelSize)
         }
     }
 }

@@ -11,6 +11,8 @@
         <file alias="FeedListDelegate.qml">qml/FeedListDelegate.qml</file>
         <file alias="PodcastPlayerPage.qml">qml/PodcastPlayerPage.qml</file>
         <file alias="MinimizedPlayerControls.qml">qml/MinimizedPlayerControls.qml</file>
+        <file alias="PlayerControls.qml">qml/PlayerControls.qml</file>
+        <file alias="FooterBar.qml">qml/FooterBar.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>
