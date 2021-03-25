@@ -13,6 +13,7 @@
         <file alias="MinimizedPlayerControls.qml">qml/MinimizedPlayerControls.qml</file>
         <file alias="PlayerControls.qml">qml/PlayerControls.qml</file>
         <file alias="FooterBar.qml">qml/FooterBar.qml</file>
+        <file alias="QueuePage.qml">qml/QueuePage.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

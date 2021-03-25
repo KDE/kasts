@@ -19,11 +19,25 @@ Kirigami.ApplicationWindow {
 
     title: "Alligator"
 
+    property bool playerOpen: false
+
     pageStack.initialPage: feedList
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: true
         actions: [
+            Kirigami.Action {
+                text: i18n("Feed List")
+                iconName: "rss"
+                onTriggered: root.pageStack.clear(), root.pageStack.push(feedList)
+                enabled: pageStack.layers.currentItem.title !== i18n("Feed List")
+            },
+            Kirigami.Action {
+                text: i18n("Podcast Queue")
+                iconName: "source-playlist"
+                onTriggered: root.pageStack.clear(), root.pageStack.push(queuelist)
+                enabled: pageStack.layers.currentItem.title !== i18n("Podcast Queue")
+            },
             Kirigami.Action {
                 text: i18n("Settings")
                 iconName: "settings-configure"
@@ -54,28 +68,43 @@ Kirigami.ApplicationWindow {
         id: feedList
     }
 
+    QueuePage {
+        id: queuelist
+    }
+
     Audio {
         id: audio
 
         property var entry
+        property bool playerOpen: false
 
         source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
     }
 
+    /*
     Loader {
+        id: footerLoader
+
+        property var minimizedSize: Kirigami.Units.gridUnit * 3.0
+
         anchors.fill: parent
-        active: true
-        visible: true
-        //z: (!item || item.contentY == 0) ? 0 : 999
-        z: (audio.entry == undefined) ? -1 : 0
+        active: (audio.entry == undefined) ? false : true
+        visible: active
+        z: (!item || item.contentY == 0) ? -1 : 999
         sourceComponent: FooterBar {
             contentHeight: root.height * 2
             focus: true
         }
 
     }
+    */
 
-    //footer: MinimizedPlayerControls { }
+    footer: MinimizedPlayerControls {}
+    /*Item {
+        visible: (audio.entry !== undefined)
+        height: footerLoader.minimizedSize
+    }
+    */
 
     /*Kirigami.OverlaySheet {
         id: playeroverlay

@@ -14,7 +14,7 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
-    title: "Alligator"
+    title: "Alligator Feed List"
 
     property var lastFeed: ""
 

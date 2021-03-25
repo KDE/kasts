@@ -14,19 +14,19 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     id: page
 
     property QtObject entry
 
     title: entry.title
 
-    Flickable {
+    /*Flickable {
         anchors.fill: parent
 
         clip: true
         contentHeight: text.height
-
+*/
         Controls.Label {
             width: page.width - 30
             id: text
@@ -35,8 +35,25 @@ Kirigami.Page {
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            Layout.fillHeight: true
             onLinkActivated: Qt.openUrlExternally(link)
             onWidthChanged: entry.adjustedContent(width, font.pixelSize)
+        }
+    //}
+    actions.main: Kirigami.Action {
+        text: !entry.enclosure ? i18n("Open in Browser") :
+            entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
+            entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
+            i18n("Delete downloaded file")
+        icon.name: !entry.enclosure ? "globe" :
+            entry.enclosure.status === Enclosure.Downloadable ? "download" :
+            entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
+            "delete"
+        onTriggered: {
+            if(!entry.enclosure) Qt.openUrlExternally(entry.link)
+            else if(entry.enclosure.status === Enclosure.Downloadable) entry.enclosure.download()
+            else if(entry.enclosure.status === Enclosure.Downloading) entry.enclosure.cancelDownload()
+            else entry.enclosure.deleteFile()
         }
     }
 }

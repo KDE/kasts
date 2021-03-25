@@ -75,7 +75,7 @@ Flickable {
         // a cover for content underneath the panel
         Rectangle {
             id: coverUnderneath
-            color: "#424242" // since background blurs have a dark hue, it doesn't make sense to theme
+            color: Kirigami.Theme.backgroundColor
             anchors.fill: parent
         }
 
@@ -87,7 +87,7 @@ Flickable {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: mainWindow.height + elisaTheme.mediaPlayerControlHeight
+        height: root.height + footerLoader.minimizedSize
         spacing: 0
 
         MinimizedPlayerControls {

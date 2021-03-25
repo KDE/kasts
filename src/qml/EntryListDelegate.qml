@@ -54,7 +54,7 @@ Kirigami.SwipeListItem {
 
     onClicked: {
         model.entry.read = true
-        pageStack.push(model.entry.enclosure ? "qrc:/PodcastPlayerPage.qml" : "qrc:/EntryPage.qml", {"entry": model.entry})
+        pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
     }
 
     actions: [

@@ -20,6 +20,9 @@ Kirigami.Page {
     clip: true
     Layout.margins: 0
 
+    Component.onCompleted: audio.playerOpen = true
+    Component.onDestruction: audio.playerOpen = false
+
     ColumnLayout {
         anchors.fill: parent
         Kirigami.Icon {

@@ -16,9 +16,9 @@ import org.kde.alligator 1.0
 
 Item {
     width: parent.width
-    height: (audio.entry == undefined) ? 0 : (footerrowlayout.height + 3.0 * miniprogressbar.height)
+    height: (audio.entry == undefined || audio.playerOpen) ? 0 : (footerrowlayout.height + 3.0 * miniprogressbar.height)
     //margins.bottom: miniprogressbar.height
-    visible: audio.entry !== undefined
+    visible: (audio.entry !== undefined) && !audio.playerOpen
 
     // progress bar for limited width (phones)
     Rectangle {
@@ -89,7 +89,7 @@ Item {
                 id: trackClick
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: playeroverlay.open()
+                onClicked: pageStack.layers.push("qrc:/PlayerControls.qml") // playeroverlay.open()
                 //showPassiveNotification("Ping")
             }
         }
