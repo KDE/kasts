@@ -36,8 +36,8 @@ Kirigami.Page {
                 Kirigami.Icon {
                     source: Fetcher.image(entry.feed.image)
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.enormous * 3
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.enormous * 3
+                    Layout.preferredWidth: Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3)
+                    Layout.preferredHeight: Math.min(parent.height - 2*controls.height, Kirigami.Units.iconSizes.enormous * 3)
                 }
                 Item {
                     id: media
