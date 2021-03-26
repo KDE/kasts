@@ -19,8 +19,6 @@ Kirigami.ApplicationWindow {
 
     title: "Alligator"
 
-    property bool playerOpen: false
-
     pageStack.initialPage: feedList
 
     globalDrawer: Kirigami.GlobalDrawer {

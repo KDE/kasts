@@ -115,6 +115,7 @@ void Database::cleanup()
         query.prepare(QStringLiteral("DELETE FROM Entries WHERE updated < :sinceEpoch;"));
         query.bindValue(QStringLiteral(":sinceEpoch"), sinceEpoch);
         execute(query);
+        // TODO: also delete enclosures and authors(?)
     }
 }
 
