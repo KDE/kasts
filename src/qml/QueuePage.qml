@@ -23,13 +23,13 @@ Kirigami.ScrollablePage {
                 Kirigami.ListItemDragHandle {
                     listItem: listItem
                     listView: mainList
-                    onMoveRequested: listModel.move(oldIndex, newIndex, 1)
+                    onMoveRequested: queueModel.moveRows(oldIndex, newIndex, 1)
                 }
 
                 Controls.Label {
                     Layout.fillWidth: true
                     height: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                    text: model.title
+                    text: model.entry.title
                     color: listItem.checked || (listItem.pressed && !listItem.checked && !listItem.sectionDelegate) ? listItem.activeTextColor : listItem.textColor
                 }
             }
@@ -37,8 +37,21 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     iconName: "media-playback-start"
                     text: "Play"
-                    onTriggered: showPassiveNotification(model.title + " Action 1 clicked")
-                }]
+                    onTriggered: {
+                        audio.entry = model.entry
+                        audio.play()
+                    }
+                },
+                Kirigami.Action {
+                    iconName: "delete"
+                    text: i18n("Delete download")
+                    onTriggered: model.entry.enclosure.deleteFile()
+                    visible: model.entry.enclosure && model.entry.enclosure.status === Enclosure.Downloaded
+                }
+            ]
+            onClicked: {
+                pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
+            }
         }
     }
 
@@ -50,7 +63,7 @@ Kirigami.ScrollablePage {
             onTriggered: page.refreshing = false
         }
 
-        model: ListModel {
+        /*model: ListModel {
             id: listModel
             Component.onCompleted: {
                 for (var i = 0; i < 200; ++i) {
@@ -60,7 +73,8 @@ Kirigami.ScrollablePage {
                     })
                 }
             }
-        }
+        }*/
+        model: QueueModel { id: queueModel }
 
         moveDisplaced: Transition {
             YAnimator {

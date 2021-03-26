@@ -9,6 +9,7 @@ add_executable(alligator
     author.cpp
     enclosure.cpp
     enclosuredownloadjob.cpp
+    queuemodel.cpp
     resources.qrc
 )
 
