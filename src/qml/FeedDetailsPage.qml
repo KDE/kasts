@@ -27,27 +27,41 @@ Kirigami.ScrollablePage {
         }
         Kirigami.Heading {
             text: feed.name
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Kirigami.Heading {
             text: feed.description;
             level: 3
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Controls.Label {
             text: i18nc("by <author(s)>", "by %1", feed.authors[0].name)
             visible: feed.authors.length !== 0
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Controls.Label {
             text: "<a href='%1'>%1</a>".arg(feed.link)
             onLinkActivated: Qt.openUrlExternally(link)
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Controls.Label {
             text: i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat))
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Controls.Label {
             text: i18n("last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat))
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
         Controls.Label {
             text: i18n("%1 posts, %2 unread", feed.entryCount, feed.unreadEntryCount)
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
         }
     }
 }

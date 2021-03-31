@@ -25,11 +25,11 @@ Kirigami.Page {
         initialIndex: 1
 
         Kirigami.Page {
-
             property var entry: podcastPlayerPage.entry
             Component.onCompleted: audio.entry = entry
 
-            title: "▶️"
+            icon.name: "media-playback-start"
+            title: "Play"
 
             ColumnLayout {
                 anchors.fill: parent
@@ -130,7 +130,8 @@ Kirigami.Page {
 
         EntryPage {
             entry: podcastPlayerPage.entry
-            title: "📃"
+            icon.name: "help-about"
+            title: "Info"
         }
     }
     actions.main: Kirigami.Action {

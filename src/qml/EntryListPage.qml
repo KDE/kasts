@@ -93,12 +93,18 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Kirigami.Heading {
                         text: page.feed.name
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
                     }
                     Controls.Label {
                         text: page.feed.description
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
                     }
                     Controls.Label {
                         text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+                        wrapMode: Text.WordWrap
+                        Layout.fillWidth: true
                     }
                 }
             }
