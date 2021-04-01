@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
                 Kirigami.ListItemDragHandle {
                     listItem: listItem
                     listView: mainList
-                    onMoveRequested: queueModel.moveRows(oldIndex, newIndex, 1)
+                    onMoveRequested: queueModel.move(oldIndex, newIndex)
                 }
 
                 Controls.Label {
@@ -55,26 +55,12 @@ Kirigami.ScrollablePage {
         }
     }
 
+    QueueModel { id: queueModel }
+
     ListView {
         id: mainList
-        Timer {
-            id: refreshRequestTimer
-            interval: 3000
-            onTriggered: page.refreshing = false
-        }
 
-        /*model: ListModel {
-            id: listModel
-            Component.onCompleted: {
-                for (var i = 0; i < 200; ++i) {
-                    listModel.append({"title": "Item " + i,
-                        "actions": [{text: "Action 1", icon: "document-decrypt"},
-                                    {text: "Action 2", icon: "mail-reply-sender"}]
-                    })
-                }
-            }
-        }*/
-        model: QueueModel { id: queueModel }
+        model: queueModel
 
         moveDisplaced: Transition {
             YAnimator {
@@ -83,7 +69,7 @@ Kirigami.ScrollablePage {
             }
         }
         delegate: Kirigami.DelegateRecycler {
-            width: parent ? parent.width : implicitWidth
+            width: mainList.width
             sourceComponent: delegateComponent
         }
     }

@@ -32,8 +32,6 @@ QueueModel::QueueModel(QObject *parent)
 
 void QueueModel::updateQueue()
 {
-    qDebug() << "Begin create queuemodel object";
-
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures"));
     Database::instance().execute(query);
@@ -120,24 +118,23 @@ int QueueModel::rowCount(const QModelIndex &parent) const
     return m_entries.size();
 }
 
+bool QueueModel::move(int from, int to)
+{
+    return moveRows(QModelIndex(), from, 1, QModelIndex(), to);
+}
 
 bool QueueModel::moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild)
 {
-    if (sourceParent != destinationParent) {
+    Q_ASSERT(count == 1);  // Only implemented the case of moving one row at a time
+    Q_ASSERT(sourceParent == destinationParent); // No moving between lists
+
+    int to = (sourceRow < destinationChild) ? destinationChild + 1 : destinationChild;
+
+    if (!beginMoveRows(sourceParent, sourceRow, sourceRow, destinationParent, to)) {
         return false;
     }
 
-    if (!beginMoveRows(sourceParent, sourceRow, sourceRow + count - 1, destinationParent, destinationChild)) {
-        return false;
-    }
-
-    for (auto cptItem = 0; cptItem < count; ++cptItem) {
-        if (sourceRow < destinationChild) {
-            m_entries.move(sourceRow, destinationChild - 1);
-        } else {
-            m_entries.move(sourceRow, destinationChild);
-        }
-    }
+    m_entries.move(sourceRow, destinationChild);
 
     endMoveRows();
 

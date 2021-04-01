@@ -27,14 +27,18 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Feed List")
                 iconName: "rss"
-                onTriggered: root.pageStack.clear(), root.pageStack.push(feedList)
-                enabled: pageStack.layers.currentItem.title !== i18n("Feed List")
+                onTriggered: {
+                    pageStack.clear()
+                    pageStack.push(feedList)
+                }
             },
             Kirigami.Action {
                 text: i18n("Podcast Queue")
                 iconName: "source-playlist"
-                onTriggered: root.pageStack.clear(), root.pageStack.push(queuelist)
-                enabled: pageStack.layers.currentItem.title !== i18n("Podcast Queue")
+                onTriggered: {
+                    pageStack.clear()
+                    pageStack.push(queuelist)
+                }
             },
             Kirigami.Action {
                 text: i18n("Settings")
@@ -97,7 +101,7 @@ Kirigami.ApplicationWindow {
     }
     */
 
-    footer: MinimizedPlayerControls {}
+    footer: MinimizedPlayerControls { }
     /*Item {
         visible: (audio.entry !== undefined)
         height: footerLoader.minimizedSize

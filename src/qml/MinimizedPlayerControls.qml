@@ -20,6 +20,12 @@ Item {
     //margins.bottom: miniprogressbar.height
     visible: (audio.entry !== undefined) && !audio.playerOpen
 
+    // Set background
+    Rectangle {
+        anchors.fill: parent
+        color: Kirigami.Theme.backgroundColor
+    }
+
     // progress bar for limited width (phones)
     Rectangle {
         id: miniprogressbar

@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.fillHeight: true
             onLinkActivated: Qt.openUrlExternally(link)
-            onWidthChanged: entry.adjustedContent(width, font.pixelSize)
+            //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
         }
     //}
     actions.main: Kirigami.Action {
