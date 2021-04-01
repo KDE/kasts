@@ -5,11 +5,15 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+
 #include <QQuickStyle>
 #include <QQuickView>
+#include <QString>
+#include <QStringList>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -38,6 +42,7 @@
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
 #endif
+
 int main(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
@@ -72,6 +77,11 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Podcast application"));
+    QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add")
+                                   , i18n("Adds a new podcast to subscriptions.")
+                                   , i18n("podcast URL")
+                                   , QStringLiteral("none"));
+    parser.addOption(addFeedOption);
 
     KAboutData about(QStringLiteral("kasts"),
                      i18n("Kasts"),
@@ -85,6 +95,11 @@ int main(int argc, char *argv[])
 
     about.setupCommandLine(&parser);
     parser.process(app);
+    QString feedURL = parser.value(addFeedOption);
+    if(feedURL != QStringLiteral("none")) {
+        Database::instance();
+        DataManager::instance().addFeed(feedURL);
+    }
     about.processCommandLine(&parser);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
@@ -109,11 +124,6 @@ int main(int argc, char *argv[])
 
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
-
-    Database::instance();
-    DataManager::instance();
-    DownloadProgressModel::instance();
-    ErrorLogModel::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
