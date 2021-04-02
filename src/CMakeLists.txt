@@ -10,6 +10,7 @@ add_executable(alligator
     enclosure.cpp
     enclosuredownloadjob.cpp
     queuemodel.cpp
+    datamanager.cpp
     resources.qrc
 )
 

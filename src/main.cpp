@@ -28,6 +28,7 @@
 #include "feedsmodel.h"
 #include "fetcher.h"
 #include "queuemodel.h"
+#include "datamanager.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -57,6 +58,10 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&Database::instance(), QQmlEngine::CppOwnership);
         return &Database::instance();
     });
+    qmlRegisterSingletonType<DataManager>("org.kde.alligator", 1, 0, "DataManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&DataManager::instance(), QQmlEngine::CppOwnership);
+        return &DataManager::instance();
+    });
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
@@ -82,6 +87,8 @@ int main(int argc, char *argv[])
     QObject::connect(&app, &QCoreApplication::aboutToQuit, &settings, &AlligatorSettings::save);
 
     Database::instance();
+
+    DataManager::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
