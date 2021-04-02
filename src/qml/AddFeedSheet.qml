@@ -26,7 +26,7 @@ Kirigami.OverlaySheet {
         Controls.TextField {
             id: urlField
             Layout.fillWidth: true
-            text: "https://planet.kde.org/global/atom.xml/"
+            text: "https://planet.kde.org/global/atom.xml"
         }
     }
 
