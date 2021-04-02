@@ -20,12 +20,6 @@ public:
     }
     bool execute(QSqlQuery &query);
     bool execute(const QString &query);
-    Q_INVOKABLE void addFeed(const QString &url);
-    Q_INVOKABLE void importFeeds(const QString &path);
-    Q_INVOKABLE void exportFeeds(const QString &path);
-
-Q_SIGNALS:
-    void feedAdded(const QString &url);
 
 private:
     Database();
@@ -34,5 +28,4 @@ private:
     bool migrate();
     bool migrateTo1();
     void cleanup();
-    bool feedExists(const QString &url);
 };

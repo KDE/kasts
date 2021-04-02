@@ -22,7 +22,6 @@ class EntriesModel : public QAbstractListModel
 
 public:
     explicit EntriesModel(Feed *feed);
-    ~EntriesModel() override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
@@ -30,8 +29,5 @@ public:
     Feed *feed() const;
 
 private:
-    void loadEntry(int index) const;
-
     Feed *m_feed;
-    mutable QHash<int, Entry *> m_entries;
 };

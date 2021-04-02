@@ -24,9 +24,4 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     Q_INVOKABLE void removeFeed(int index);
     Q_INVOKABLE void refreshAll();
-
-private:
-    void loadFeed(int index) const;
-
-    mutable QVector<Feed *> m_feeds;
 };

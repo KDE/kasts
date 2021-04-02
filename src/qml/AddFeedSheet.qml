@@ -34,7 +34,7 @@ Kirigami.OverlaySheet {
         text: i18n("Add Feed")
         enabled: urlField.text
         onClicked: {
-            Database.addFeed(urlField.text)
+            DataManager.addFeed(urlField.text)
             addSheet.close()
         }
     }

@@ -35,6 +35,7 @@ class Entry : public QObject
 
 public:
     Entry(Feed *feed, int index);
+    Entry(Feed *feed, QString id);
     ~Entry();
 
     QString id() const;

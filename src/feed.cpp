@@ -7,6 +7,7 @@
 #include <QVariant>
 
 #include "database.h"
+#include "datamanager.h"
 #include "entriesmodel.h"
 #include "feed.h"
 #include "fetcher.h"
@@ -25,6 +26,73 @@ Feed::Feed(int index)
     QSqlQuery authorQuery;
     authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":feed"), query.value(QStringLiteral("url")).toString());
+    Database::instance().execute(authorQuery);
+    while (authorQuery.next()) {
+        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+    }
+
+    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
+
+    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
+
+    m_url = query.value(QStringLiteral("url")).toString();
+    m_name = query.value(QStringLiteral("name")).toString();
+    m_image = query.value(QStringLiteral("image")).toString();
+    m_link = query.value(QStringLiteral("link")).toString();
+    m_description = query.value(QStringLiteral("description")).toString();
+    m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
+    m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
+    m_notify = query.value(QStringLiteral("notify")).toBool();
+
+    m_errorId = 0;
+    m_errorString = QLatin1String("");
+
+    connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
+        if (url == m_url) {
+            m_errorId = 0;
+            m_errorString = QLatin1String("");
+            setRefreshing(true);
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &url) {
+        if (url == m_url) {
+            setRefreshing(false);
+            Q_EMIT entryCountChanged();
+            Q_EMIT unreadEntryCountChanged();
+            setErrorId(0);
+            setErrorString(QLatin1String(""));
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, int errorId, const QString &errorString) {
+        if(url == m_url) {
+            setErrorId(errorId);
+            setErrorString(errorString);
+            setRefreshing(false);
+        }
+    });
+
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if(url == m_image)
+            Q_EMIT imageChanged(url);
+    });
+
+    m_entries = new EntriesModel(this);
+}
+
+Feed::Feed(QString const feedurl)
+    : QObject(nullptr)
+{
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:feedurl;"));
+    query.bindValue(QStringLiteral(":feedurl"), feedurl);
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to load feed" << feedurl;
+
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
         m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
@@ -139,24 +207,12 @@ bool Feed::notify() const
 
 int Feed::entryCount() const
 {
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
-    if (!query.next())
-        return -1;
-    return query.value(0).toInt();
+    return DataManager::instance().entryCount(this);
 }
 
 int Feed::unreadEntryCount() const
 {
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
-    if (!query.next())
-        return -1;
-    return query.value(0).toInt();
+    return DataManager::instance().unreadEntryCount(this);
 }
 
 bool Feed::refreshing() const
@@ -249,25 +305,4 @@ void Feed::setErrorString(const QString &errorString)
 void Feed::refresh()
 {
     Fetcher::instance().fetch(m_url);
-}
-
-void Feed::remove()
-{
-    // Delete Authors
-    QSqlQuery query;
-    query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
-
-    // Delete Entries
-    query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
-
-    // TODO Delete Enclosures
-
-    // Delete Feed
-    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), m_url);
-    Database::instance().execute(query);
 }

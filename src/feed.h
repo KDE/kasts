@@ -38,6 +38,7 @@ class Feed : public QObject
 
 public:
     Feed(int index);
+    Feed(QString const feedurl);
 
     ~Feed();
 
@@ -74,7 +75,6 @@ public:
     void setErrorString(const QString &errorString);
 
     Q_INVOKABLE void refresh();
-    void remove();
 
 Q_SIGNALS:
     void nameChanged(const QString &name);
