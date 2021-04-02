@@ -26,9 +26,10 @@ public:
 
     Q_INVOKABLE bool move(int from, int to);
     Q_INVOKABLE bool moveRows(const QModelIndex &sourceParent, int sourceRow, int count, const QModelIndex &destinationParent, int destinationChild) override;
+    Q_INVOKABLE void addEntry(QString feedurl, QString id);
 
 private:
     void updateQueue();
 
-    mutable QList<Entry *> m_entries;
+    mutable QVector<Entry *> m_entries;
 };

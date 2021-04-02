@@ -56,4 +56,10 @@ Kirigami.ScrollablePage {
             else entry.enclosure.deleteFile()
         }
     }
+    actions.right: Kirigami.Action {
+        text: "Add to queue"
+        icon.name: "media-playlist-append"
+        visible: entry.enclosure
+        onTriggered: { queueModel.addEntry(entry.feed.url, entry.id) }
+    }
 }

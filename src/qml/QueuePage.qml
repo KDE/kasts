@@ -14,7 +14,7 @@ import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
     id: queuepage
-    title: "Queue"
+    title: i18n("Queue")
     Component {
         id: delegateComponent
         Kirigami.SwipeListItem {
@@ -55,12 +55,10 @@ Kirigami.ScrollablePage {
         }
     }
 
-    QueueModel { id: queueModel }
-
     ListView {
         id: mainList
 
-        model: queueModel
+        model: root.queueModel
 
         moveDisplaced: Transition {
             YAnimator {
