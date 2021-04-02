@@ -14,7 +14,7 @@ import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
     id: queuepage
-    title: "Alligator Play Queue"
+    title: "Queue"
     Component {
         id: delegateComponent
         Kirigami.SwipeListItem {

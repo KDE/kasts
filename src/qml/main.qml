@@ -25,19 +25,19 @@ Kirigami.ApplicationWindow {
         isMenu: true
         actions: [
             Kirigami.Action {
-                text: i18n("Feed List")
-                iconName: "rss"
-                onTriggered: {
-                    pageStack.clear()
-                    pageStack.push(feedList)
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Podcast Queue")
+                text: i18n("Queue")
                 iconName: "source-playlist"
                 onTriggered: {
                     pageStack.clear()
                     pageStack.push(queuelist)
+                }
+            },
+            Kirigami.Action {
+                text: i18n("Subscriptions")
+                iconName: "rss"
+                onTriggered: {
+                    pageStack.clear()
+                    pageStack.push(feedList)
                 }
             },
             Kirigami.Action {
