@@ -195,7 +195,7 @@ void DataManager::removeFeed(const int &index)
     query.bindValue(QStringLiteral(":url"), feedurl);
     Database::instance().execute(query);
 
-    Q_EMIT(feedRemoved(index));
+    Q_EMIT feedRemoved(index);
 }
 
 void DataManager::addFeed(const QString &url)

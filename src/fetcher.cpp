@@ -13,6 +13,8 @@
 #include <QNetworkReply>
 #include <QStandardPaths>
 #include <QTextDocumentFragment>
+#include <QDomElement>
+#include <QMultiMap>
 
 #include <Syndication/Syndication>
 
@@ -133,6 +135,8 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     for (const auto &enclosure : entry->enclosures()) {
         processEnclosure(enclosure, entry, url);
     }
+    QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
+    qDebug() << "other items" << otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
     Q_EMIT entryAdded(url, entry->id());
 }
 
