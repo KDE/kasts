@@ -43,8 +43,8 @@ public:
 Q_SIGNALS:
     void feedAdded(const QString &url);
     void feedRemoved(const int &index);
-    void entryAdded(const QString &id);
-    void entryRemoved(const Feed*, const int &index);
+    void entryAdded(const QString &feedurl, const QString &id);
+    void entryRemoved(const Feed*, const int &index); // TODO: implement this method
     void feedEntriesUpdated(const QString &url);
 
 private:

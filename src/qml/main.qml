@@ -40,7 +40,6 @@ Kirigami.ApplicationWindow {
                     pageStack.push(feedList)
                 }
             },
-            Kirigami.Action{ separator: true },
             Kirigami.Action {
                 text: i18n("Settings")
                 iconName: "settings-configure"

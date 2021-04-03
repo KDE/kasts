@@ -27,9 +27,27 @@ DataManager::DataManager()
         m_feeds[url]->setLastUpdated(lastUpdated);
         // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
     });
-    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &url) {
-        // TODO: make DataManager rescan entries
-        Q_EMIT feedEntriesUpdated(url);
+    connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
+        // Only add the new entry to m_entries
+        // we will repopulate m_entrymap once all new entries have been added,
+        // such that m_entrymap will show all new entries in the correct order
+        m_entries[id] = nullptr;
+        Q_EMIT entryAdded(feedurl, id);
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &feedurl) {
+        // Update m_entrymap for feedurl, such that the new and old entries show
+        // up in the correct order
+        // TODO: put this code into a separate method and re-use this in the constructor
+        QSqlQuery query;
+        m_entrymap[feedurl].clear();
+        query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
+        query.bindValue(QStringLiteral(":feed"), feedurl);
+        Database::instance().execute(query);
+        while (query.next()) {
+            m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
+            qDebug() << m_entrymap[feedurl];
+        }
+        Q_EMIT feedEntriesUpdated(feedurl);
     });
 
     // Only read unique feedurls and entry ids from the database.
@@ -43,11 +61,12 @@ DataManager::DataManager()
     qDebug() << m_feedmap;
 
     for (auto &feedurl : m_feedmap) {
-        query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated;"));
+        query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
         query.bindValue(QStringLiteral(":feed"), feedurl);
         Database::instance().execute(query);
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
+            m_entries[query.value(QStringLiteral("id")).toString()] = nullptr;
             qDebug() << m_entrymap[feedurl];
         }
     }
@@ -143,7 +162,9 @@ void DataManager::removeFeed(const int &index)
     query.bindValue(QStringLiteral(":url"), feed->url());
     Database::instance().execute(query);
 
-    // Then delete the instances and mappings
+    // TODO: delete files: enclosure files and images
+
+    // Then delete the object instances and mappings
     for (auto& id : m_entrymap[feed->url()]) {
         delete m_entries[id]; // delete pointer
         m_entries.remove(id); // delete the hash key

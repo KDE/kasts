@@ -17,10 +17,12 @@ EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)
     , m_feed(feed)
 {
+    // When feed is updated, the entire model needs to be reset because we
+    // cannot know where the new entries will be inserted into the list (or that
+    // maybe even items have been removed.
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         if (m_feed->url() == url) {
             beginResetModel();
-            // TODO: make sure to pop the entrylistpage if it's the active one
             endResetModel();
         }
     });

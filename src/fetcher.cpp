@@ -133,6 +133,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     for (const auto &enclosure : entry->enclosures()) {
         processEnclosure(enclosure, entry, url);
     }
+    Q_EMIT entryAdded(url, entry->id());
 }
 
 void Fetcher::processAuthor(Syndication::PersonPtr author, const QString &entryId, const QString &url)
