@@ -25,9 +25,16 @@ QueueModel::QueueModel(QObject *parent)
         qDebug() << "Moved entry" << from << "to" << to;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &pos, const QString &id) {
+        Q_UNUSED(id)
         beginInsertRows(QModelIndex(), pos, pos);
         endInsertRows();
         qDebug() << "Added entry at pos" << pos;
+    });
+    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int &pos, const QString &id) {
+        Q_UNUSED(id)
+        beginRemoveRows(QModelIndex(), pos, pos);
+        endRemoveRows();
+        qDebug() << "Removed entry at pos" << pos;
     });
 }
 

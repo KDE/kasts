@@ -37,11 +37,12 @@ public:
     //Q_INVOKABLE void removeEntry(const QString &url);
     //Q_INVOKABLE void removeEntry(const Feed* feed, const int &index);
 
-    // TODO: add getQueue, queueCount etc.
     Entry* getQueueEntry(int const &index) const;
     int queueCount() const;
     Q_INVOKABLE void addtoQueue(const QString &feedurl, const QString &id);
     Q_INVOKABLE void moveQueueItem(const int &from, const int &to);
+    Q_INVOKABLE void removeQueueItem(const int &index);
+    Q_INVOKABLE void removeQueueItem(const Entry* entry);
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
@@ -52,8 +53,8 @@ Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);
     //void entryRemoved(const Feed*, const int &index); // TODO: implement this signal
     void feedEntriesUpdated(const QString &url);
-    void queueEntryAdded(const int &index, const QString &id);  // TODO: implement
-    void queueEntryRemoved(const int &index, const QString &id);  // TODO: implement
+    void queueEntryAdded(const int &index, const QString &id);
+    void queueEntryRemoved(const int &index, const QString &id);
     void queueEntryMoved(const int &from, const int $to);
 
 private:
@@ -61,6 +62,7 @@ private:
     void loadFeed(QString feedurl) const;
     void loadEntry(QString id) const;
     bool feedExists(const QString &url);
+    void updateQueueListnrs() const;
 
     mutable QHash<QString, Feed*> m_feeds; // hash of pointers to all feeds in db, key = url (lazy loading)
     mutable QHash<QString, Entry*> m_entries; // hash of pointers to all entries in db, key = id (lazy loading)

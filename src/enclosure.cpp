@@ -34,7 +34,7 @@ Enclosure::Enclosure(Entry *entry)
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
 
-    QFile file(Fetcher::instance().filePath(m_url));
+    QFile file(path());
     if(file.size() == m_size) {
         m_status = Downloaded;
     } else {
@@ -88,7 +88,7 @@ void Enclosure::download()
 
 void Enclosure::deleteFile()
 {
-    QFile(Fetcher::instance().filePath(m_url)).remove();
+    QFile(path()).remove();
     m_status = Downloadable;
     Q_EMIT statusChanged();
 }

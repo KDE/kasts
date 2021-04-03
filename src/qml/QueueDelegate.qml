@@ -92,6 +92,11 @@ Kirigami.SwipeListItem {
             icon.name: "delete"
             onTriggered: model.entry.enclosure.deleteFile()
             visible: model.entry.enclosure && model.entry.enclosure.status === Enclosure.Downloaded
+        },
+        Kirigami.Action {
+            text: i18n("Remove from Queue")
+            icon.name: "delete-table-row"
+            onTriggered: { DataManager.removeQueueItem(model.entry) }
         }
     ]
 }

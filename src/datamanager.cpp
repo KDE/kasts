@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+ * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -71,6 +71,13 @@ DataManager::DataManager()
         }
     }
     qDebug() << m_entrymap;
+
+    query.prepare(QStringLiteral("SELECT id FROM Queue ORDER BY listnr;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_queuemap += query.value(QStringLiteral("id")).toString();
+    }
+    qDebug() << m_queuemap;
 }
 
 Feed* DataManager::getFeed(int const index) const
@@ -221,16 +228,62 @@ int DataManager::queueCount() const
 
 void DataManager::addtoQueue(const QString &feedurl, const QString &id)
 {
-    // TODO: also add the entry to queue database table
+    // If item is already in queue, then stop here
+    if (m_queuemap.contains(id)) return;
+
+    // Add to internal queuemap data structure
     m_queuemap += id;
     qDebug() << m_queuemap;
-    Q_EMIT queueEntryAdded(m_queuemap.length()-1, id);
+
+    // Get index of this entry
+    const int index = m_queuemap.indexOf(id); // add new entry to end of queue
+
+    // Add to Queue database
+    QSqlQuery query;
+    query.prepare(QStringLiteral("INSERT INTO Queue VALUES (:index, :feedurl, :id);"));
+    query.bindValue(QStringLiteral(":index"), index);
+    query.bindValue(QStringLiteral(":feedurl"), feedurl);
+    query.bindValue(QStringLiteral(":id"), id);
+    Database::instance().execute(query);
+
+    // Make sure that the QueueModel is aware of the changes
+    Q_EMIT queueEntryAdded(index, id);
 }
 
 void DataManager::moveQueueItem(const int &from, const int &to)
 {
+    // First move the items in the internal data structure
     m_queuemap.move(from, to);
+
+    // Then make sure that the database Queue table reflects these changes
+    updateQueueListnrs();
+
+    // Make sure that the QueueModel is aware of the changes so it can update
     Q_EMIT queueEntryMoved(from, to);
+}
+
+void DataManager::removeQueueItem(const int &index)
+{
+    // First remove the item from the internal data structure
+    const QString id = m_queuemap[index];
+    m_queuemap.removeAt(index);
+    qDebug() << m_queuemap;
+
+    // Then make sure that the database Queue table reflects these changes
+    QSqlQuery query;
+    query.prepare(QStringLiteral("DELETE FROM Queue WHERE listnr=:listnr;"));
+    query.bindValue(QStringLiteral(":listnr"), index);
+    Database::instance().execute(query);
+    // ... and update all other listnrs in Queue table
+    updateQueueListnrs();
+
+    // Make sure that the QueueModel is aware of the change so it can update
+    Q_EMIT queueEntryRemoved(index, id);
+}
+
+void DataManager::removeQueueItem(const Entry* entry)
+{
+    removeQueueItem(m_queuemap.indexOf(entry->id()));
 }
 
 void DataManager::importFeeds(const QString &path)
@@ -302,4 +355,15 @@ void DataManager::loadEntry(const QString id) const
 bool DataManager::feedExists(const QString &url)
 {
     return m_feeds.contains(url);
+}
+
+void DataManager::updateQueueListnrs() const
+{
+    QSqlQuery query;
+    for (int i=0; i<m_queuemap.count(); i++) {
+        query.prepare(QStringLiteral("UPDATE Queue SET listnr=:i WHERE id=:id;"));
+        query.bindValue(QStringLiteral(":i"), i);
+        query.bindValue(QStringLiteral(":id"), m_queuemap[i]);
+        Database::instance().execute(query);
+    }
 }
