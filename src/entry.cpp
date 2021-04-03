@@ -12,41 +12,6 @@
 
 #include "database.h"
 
-Entry::Entry(Feed *feed, int index)
-    : QObject(nullptr)
-    , m_feed(feed)
-{
-    QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
-    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
-    entryQuery.bindValue(QStringLiteral(":index"), index);
-    Database::instance().execute(entryQuery);
-    if (!entryQuery.next())
-        qWarning() << "No element with index" << index << "found in feed" << m_feed->url();
-
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id"));
-    authorQuery.bindValue(QStringLiteral(":id"), entryQuery.value(QStringLiteral("id")).toString());
-    Database::instance().execute(authorQuery);
-
-    while (authorQuery.next()) {
-        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
-    }
-
-    m_created.setSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt());
-    m_updated.setSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt());
-
-    m_id = entryQuery.value(QStringLiteral("id")).toString();
-    m_title = entryQuery.value(QStringLiteral("title")).toString();
-    m_content = entryQuery.value(QStringLiteral("content")).toString();
-    m_link = entryQuery.value(QStringLiteral("link")).toString();
-    m_read = entryQuery.value(QStringLiteral("read")).toBool();
-
-    if (entryQuery.value(QStringLiteral("hasEnclosure")).toBool()) {
-        m_enclosure = new Enclosure(this);
-    }
-}
-
 Entry::Entry(Feed *feed, QString id)
     : QObject(nullptr)
     , m_feed(feed)
@@ -78,6 +43,7 @@ Entry::Entry(Feed *feed, QString id)
     m_read = entryQuery.value(QStringLiteral("read")).toBool();
 
     if (entryQuery.value(QStringLiteral("hasEnclosure")).toBool()) {
+        m_hasenclosure = true;
         m_enclosure = new Enclosure(this);
     }
 }
@@ -182,6 +148,11 @@ QString Entry::adjustedContent(int width, int fontSize)
 Enclosure *Entry::enclosure() const
 {
     return m_enclosure;
+}
+
+bool Entry::hasEnclosure() const
+{
+    return m_hasenclosure;
 }
 
 Feed *Entry::feed() const

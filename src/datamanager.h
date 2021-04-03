@@ -42,7 +42,7 @@ public:
     Q_INVOKABLE void addtoQueue(const QString &feedurl, const QString &id);
     Q_INVOKABLE void moveQueueItem(const int &from, const int &to);
     Q_INVOKABLE void removeQueueItem(const int &index);
-    Q_INVOKABLE void removeQueueItem(const Entry* entry);
+    Q_INVOKABLE void removeQueueItem(const QString id);
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);

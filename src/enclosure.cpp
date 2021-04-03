@@ -88,9 +88,14 @@ void Enclosure::download()
 
 void Enclosure::deleteFile()
 {
-    QFile(path()).remove();
+    qDebug() << "Trying to delete enclosure file" << path();
+    // First check if file still exists; you never know what has happened
+    if (QFile(path()).exists())
+        QFile(path()).remove();
+    // If file disappeared unexpectedly, then still change status to downloadable
     m_status = Downloadable;
     Q_EMIT statusChanged();
+
 }
 
 QString Enclosure::path() const

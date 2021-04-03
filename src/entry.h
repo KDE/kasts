@@ -32,9 +32,9 @@ class Entry : public QObject
     Q_PROPERTY(QString baseUrl READ baseUrl CONSTANT)
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged);
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT);
+    Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT);
 
 public:
-    Entry(Feed *feed, int index);
     Entry(Feed *feed, QString id);
     ~Entry();
 
@@ -47,6 +47,7 @@ public:
     QString link() const;
     bool read() const;
     Enclosure *enclosure() const;
+    bool hasEnclosure() const;
     Feed *feed() const;
 
     QString baseUrl() const;
@@ -69,6 +70,7 @@ private:
     QString m_link;
     bool m_read;
     Enclosure *m_enclosure = nullptr;
+    bool m_hasenclosure = false;
 };
 
 #endif // ENTRY_H

@@ -145,42 +145,56 @@ void DataManager::removeFeed(const int &index)
 {
     // Get feed pointer
     Feed* feed = m_feeds[m_feedmap[index]];
+    const QString feedurl = feed->url();
 
-    // First delete everything from the database
+    // Delete the object instances and mappings
+    // First delete entries in Queue
+    qDebug() << "delete queueentries of" << feedurl;
+    for (auto& id : m_queuemap) {
+        if (getEntry(id)->feed()->url() == feedurl) {
+            removeQueueItem(id);
+        }
+    }
+
+    // Delete entries themselves
+    qDebug() << "delete entries of" << feedurl;
+    for (auto& id : m_entrymap[feedurl]) {
+        if (getEntry(id)->hasEnclosure()) getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
+        delete m_entries[id]; // delete pointer
+        m_entries.remove(id); // delete the hash key
+    }
+    m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
+
+    qDebug() << "Remove image" << feed->image() << "for feed" << feedurl;
+    if (!feed->image().isEmpty()) Fetcher::instance().removeImage(feed->image());
+    delete feed; // remove the pointer
+    m_feeds.remove(m_feedmap[index]); // remove from m_feeds
+    m_feedmap.removeAt(index); // remove from m_feedmap
+
+    // Then delete everything from the database
+    qDebug() << "delete database part of" << feedurl;
 
     // Delete Authors
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feed->url());
+    query.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(query);
 
     // Delete Entries
     query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feed->url());
+    query.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(query);
 
     // Delete Enclosures
     query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feed->url());
+    query.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(query);
 
     // Delete Feed
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), feed->url());
+    query.bindValue(QStringLiteral(":url"), feedurl);
     Database::instance().execute(query);
 
-    // TODO: delete files: enclosure files and images
-
-    // Then delete the object instances and mappings
-    for (auto& id : m_entrymap[feed->url()]) {
-        delete m_entries[id]; // delete pointer
-        m_entries.remove(id); // delete the hash key
-    }
-    m_entrymap.remove(feed->url()); // remove all the entry mappings belonging to the feed
-
-    delete feed; // remove the pointer
-    m_feeds.remove(m_feedmap[index]); // remove from m_feeds
-    m_feedmap.removeAt(index); // remove from m_feedmap
     Q_EMIT(feedRemoved(index));
 }
 
@@ -281,9 +295,9 @@ void DataManager::removeQueueItem(const int &index)
     Q_EMIT queueEntryRemoved(index, id);
 }
 
-void DataManager::removeQueueItem(const Entry* entry)
+void DataManager::removeQueueItem(const QString id)
 {
-    removeQueueItem(m_queuemap.indexOf(entry->id()));
+    removeQueueItem(m_queuemap.indexOf(id));
 }
 
 void DataManager::importFeeds(const QString &path)
