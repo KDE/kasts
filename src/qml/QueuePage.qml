@@ -15,60 +15,39 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
     id: queuepage
     title: i18n("Queue")
+
+    Kirigami.PlaceholderMessage {
+        visible: queueList.count === 0
+
+        width: Kirigami.Units.gridUnit * 20
+        anchors.centerIn: parent
+
+        text: i18n("Nothing added to the queue yet")
+    }
+
     Component {
         id: delegateComponent
-        Kirigami.SwipeListItem {
-            id: listItem
-            contentItem: RowLayout {
-                Kirigami.ListItemDragHandle {
-                    listItem: listItem
-                    listView: mainList
-                    onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
-                }
-
-                Controls.Label {
-                    Layout.fillWidth: true
-                    height: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                    text: model.entry.title
-                    color: listItem.checked || (listItem.pressed && !listItem.checked && !listItem.sectionDelegate) ? listItem.activeTextColor : listItem.textColor
-                }
-            }
-            actions: [
-                Kirigami.Action {
-                    iconName: "media-playback-start"
-                    text: "Play"
-                    onTriggered: {
-                        audio.entry = model.entry
-                        audio.play()
-                    }
-                },
-                Kirigami.Action {
-                    iconName: "delete"
-                    text: i18n("Delete download")
-                    onTriggered: model.entry.enclosure.deleteFile()
-                    visible: model.entry.enclosure && model.entry.enclosure.status === Enclosure.Downloaded
-                }
-            ]
-            onClicked: {
-                pageStack.push("qrc:/EntryPage.qml", {"entry": model.entry})
-            }
-        }
+        QueueDelegate { }
     }
 
     ListView {
-        id: mainList
+        id: queueList
+        visible: count !== 0
 
-        model: root.queueModel
+        model: QueueModel {
+            id: queueModel
+        }
+        delegate: Kirigami.DelegateRecycler {
+            width: queueList.width
+            sourceComponent: delegateComponent
+        }
+        anchors.fill: parent
 
         moveDisplaced: Transition {
             YAnimator {
                 duration: Kirigami.Units.longDuration
                 easing.type: Easing.InOutQuad
             }
-        }
-        delegate: Kirigami.DelegateRecycler {
-            width: mainList.width
-            sourceComponent: delegateComponent
         }
     }
 }

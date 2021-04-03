@@ -70,10 +70,6 @@ Kirigami.ApplicationWindow {
         id: feedList
     }
 
-    QueueModel {
-        id: queueModel
-    }
-
     QueuePage {
         id: queuelist
     }
