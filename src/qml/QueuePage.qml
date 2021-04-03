@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
                 Kirigami.ListItemDragHandle {
                     listItem: listItem
                     listView: mainList
-                    onMoveRequested: queueModel.move(oldIndex, newIndex)
+                    onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
                 }
 
                 Controls.Label {

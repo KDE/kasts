@@ -60,6 +60,6 @@ Kirigami.ScrollablePage {
         text: "Add to queue"
         icon.name: "media-playlist-append"
         visible: entry.enclosure
-        onTriggered: { queueModel.addEntry(entry.feed.url, entry.id) }
+        onTriggered: { DataManager.addtoQueue(entry.feed.url, entry.id) }
     }
 }

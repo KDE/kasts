@@ -209,6 +209,30 @@ void DataManager::addFeed(const QString &url)
     Fetcher::instance().fetch(urlFromInput.toString());
 }
 
+Entry* DataManager::getQueueEntry(int const &index) const
+{
+    return getEntry(m_queuemap[index]);
+}
+
+int DataManager::queueCount() const
+{
+    return m_queuemap.count();
+}
+
+void DataManager::addtoQueue(const QString &feedurl, const QString &id)
+{
+    // TODO: also add the entry to queue database table
+    m_queuemap += id;
+    qDebug() << m_queuemap;
+    Q_EMIT queueEntryAdded(m_queuemap.length()-1, id);
+}
+
+void DataManager::moveQueueItem(const int &from, const int &to)
+{
+    m_queuemap.move(from, to);
+    Q_EMIT queueEntryMoved(from, to);
+}
+
 void DataManager::importFeeds(const QString &path)
 {
     QUrl url(path);
