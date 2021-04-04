@@ -89,8 +89,6 @@ int main(int argc, char *argv[])
     Database::instance();
 
     DataManager::instance();
-    //qDebug() << DataManager::instance().getFeed(0)->name();
-    //qDebug() << DataManager::instance().getEntry(0, 0)->title();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

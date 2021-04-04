@@ -9,7 +9,6 @@
         <file alias="EntryListDelegate.qml">qml/EntryListDelegate.qml</file>
         <file alias="AddFeedSheet.qml">qml/AddFeedSheet.qml</file>
         <file alias="FeedListDelegate.qml">qml/FeedListDelegate.qml</file>
-        <file alias="PodcastPlayerPage.qml">qml/PodcastPlayerPage.qml</file>
         <file alias="MinimizedPlayerControls.qml">qml/MinimizedPlayerControls.qml</file>
         <file alias="PlayerControls.qml">qml/PlayerControls.qml</file>
         <file alias="FooterBar.qml">qml/FooterBar.qml</file>
