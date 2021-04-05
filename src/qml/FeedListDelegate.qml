@@ -26,8 +26,7 @@ Kirigami.SwipeListItem {
 
         onClicked: {
             lastFeed = model.feed.url
-            while(pageStack.depth > 1)
-                pageStack.pop()
+
             pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
         }
     }
@@ -37,7 +36,8 @@ Kirigami.SwipeListItem {
             icon.name: "delete"
             onTriggered: {
                 if(pageStack.depth > 1 && model.feed.url === lastFeed)
-                    pageStack.pop()
+                    while(pageStack.depth > 1)
+                        pageStack.pop()
                 feedsModel.removeFeed(index)
             }
         }
