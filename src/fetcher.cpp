@@ -67,6 +67,9 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (feed.isNull())
         return;
 
+    // Retrieve "other" fields; this will include the "itunes" tags
+    QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
+
     QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
@@ -77,15 +80,40 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     QDateTime current = QDateTime::currentDateTime();
     query.bindValue(QStringLiteral(":lastUpdated"), current.toSecsSinceEpoch());
 
-    for (auto &author : feed->authors()) {
-        processAuthor(author, QLatin1String(""), url);
+    // Process authors
+    QString authorname, authoremail;
+    if (feed->authors().count() > 0) {
+        for (auto &author : feed->authors()) {
+            processAuthor(url, QLatin1String(""), author->name(), QLatin1String(""), QLatin1String(""));
+        }
+    } else {
+        // Try to find itunes fields if plain author doesn't exist
+        QString authorname, authoremail;
+        // First try the "itunes:owner" tag, if that doesn't succeed, then try the "itunes:author" tag
+        if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdowner")).hasChildNodes()) {
+            QDomNodeList nodelist = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdowner")).childNodes();
+            for (int i=0; i < nodelist.length(); i++) {
+                if (nodelist.item(i).nodeName() == QStringLiteral("itunes:name")) {
+                    authorname = nodelist.item(i).toElement().text();
+                } else if (nodelist.item(i).nodeName() == QStringLiteral("itunes:email")) {
+                    authoremail = nodelist.item(i).toElement().text();
+                }
+            }
+        } else {
+            authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
+            qDebug() << "authorname" << authorname;
+        }
     }
 
-    QString image;
-    if (feed->image()->url().startsWith(QStringLiteral("/")))
-        image = QUrl(url).adjusted(QUrl::RemovePath).toString() + feed->image()->url();
-    else
-        image = feed->image()->url();
+    QString image = feed->image()->url();
+    // If there is no regular image tag, then try the itunes tags
+    if (image.isEmpty()) {
+        if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
+            image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+        }
+    }
+    if (image.startsWith(QStringLiteral("/")))
+        image = QUrl(url).adjusted(QUrl::RemovePath).toString() + image;
     query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
 
@@ -103,6 +131,10 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
 void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
 {
     qDebug() << "Processing" << entry->title();
+
+    // Retrieve "other" fields; this will include the "itunes" tags
+    QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
+
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE id=:id;"));
     query.bindValue(QStringLiteral(":id"), entry->id());
@@ -112,7 +144,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     if (query.value(0).toInt() != 0)
         return;
 
-    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, :hasEnclosure);"));
+    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, :hasEnclosure, :image);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());
@@ -126,29 +158,44 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     else
         query.bindValue(QStringLiteral(":content"), entry->description());
 
+    // Look for image in itunes tags
+    QString image;
+    if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
+        image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+    }
+    if (image.startsWith(QStringLiteral("/")))
+        image = QUrl(url).adjusted(QUrl::RemovePath).toString() + image;
+    query.bindValue(QStringLiteral(":image"), image);
+    //qDebug() << "Entry image found" << image;
+
     Database::instance().execute(query);
 
-    for (const auto &author : entry->authors()) {
-        processAuthor(author, entry->id(), url);
+    if (entry->authors().count() > 0) {
+        for (const auto &author : entry->authors()) {
+            processAuthor(url, entry->id(), author->name(), author->uri(), author->email());
+        }
+    } else {
+        // As fallback, check if there is itunes "author" information
+        QString authorName = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
+        if (!authorName.isEmpty()) processAuthor(url, entry->id(), authorName, QLatin1String(""), QLatin1String(""));
     }
 
     for (const auto &enclosure : entry->enclosures()) {
         processEnclosure(enclosure, entry, url);
     }
-    QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
-    qDebug() << "other items" << otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+
     Q_EMIT entryAdded(url, entry->id());
 }
 
-void Fetcher::processAuthor(Syndication::PersonPtr author, const QString &entryId, const QString &url)
+void Fetcher::processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail)
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entryId);
-    query.bindValue(QStringLiteral(":name"), author->name());
-    query.bindValue(QStringLiteral(":uri"), author->uri());
-    query.bindValue(QStringLiteral(":email"), author->email());
+    query.bindValue(QStringLiteral(":name"), authorName);
+    query.bindValue(QStringLiteral(":uri"), authorUri);
+    query.bindValue(QStringLiteral(":email"), authorEmail);
     Database::instance().execute(query);
 }
 

@@ -45,7 +45,7 @@ DataManager::DataManager()
         Database::instance().execute(query);
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
-            qDebug() << m_entrymap[feedurl];
+            //qDebug() << m_entrymap[feedurl];
         }
         Q_EMIT feedEntriesUpdated(feedurl);
     });
@@ -58,7 +58,7 @@ DataManager::DataManager()
     while (query.next()) {
         m_feedmap += query.value(QStringLiteral("url")).toString();
     }
-    qDebug() << m_feedmap;
+    //qDebug() << m_feedmap;
 
     for (auto &feedurl : m_feedmap) {
         query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
@@ -67,17 +67,17 @@ DataManager::DataManager()
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
             m_entries[query.value(QStringLiteral("id")).toString()] = nullptr;
-            qDebug() << m_entrymap[feedurl];
+            //qDebug() << m_entrymap[feedurl];
         }
     }
-    qDebug() << m_entrymap;
+    //qDebug() << m_entrymap;
 
     query.prepare(QStringLiteral("SELECT id FROM Queue ORDER BY listnr;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_queuemap += query.value(QStringLiteral("id")).toString();
     }
-    qDebug() << m_queuemap;
+    //qDebug() << m_queuemap;
 }
 
 Feed* DataManager::getFeed(int const index) const
@@ -247,7 +247,7 @@ void DataManager::addtoQueue(const QString &feedurl, const QString &id)
 
     // Add to internal queuemap data structure
     m_queuemap += id;
-    qDebug() << m_queuemap;
+    //qDebug() << m_queuemap;
 
     // Get index of this entry
     const int index = m_queuemap.indexOf(id); // add new entry to end of queue
@@ -281,7 +281,7 @@ void DataManager::removeQueueItem(const int &index)
     // First remove the item from the internal data structure
     const QString id = m_queuemap[index];
     m_queuemap.removeAt(index);
-    qDebug() << m_queuemap;
+    //qDebug() << m_queuemap;
 
     // Then make sure that the database Queue table reflects these changes
     QSqlQuery query;
