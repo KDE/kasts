@@ -14,7 +14,13 @@ import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
 
-    contentItem: ColumnLayout {
+    contentItem: RowLayout {
+        Kirigami.Icon {
+            source: Fetcher.image(entry.image)
+            height: parent.height
+            width: height
+        }
+    ColumnLayout {
         spacing: 0
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignVCenter
@@ -51,6 +57,7 @@ Kirigami.SwipeListItem {
             }
         }
     }
+}
 
     onClicked: {
         model.entry.read = true

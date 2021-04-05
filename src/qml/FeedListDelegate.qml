@@ -22,6 +22,7 @@ Kirigami.SwipeListItem {
         anchors.bottom: parent.bottom
         text: model.feed.name
         icon: model.feed.refreshing ? "view-refresh" : model.feed.image === "" ? "rss" : Fetcher.image(model.feed.image)
+        iconSize: Kirigami.Units.iconSizes.large
         subtitle: i18np("%1 unread entry", "%1 unread entries", model.feed.unreadEntryCount)
 
         onClicked: {

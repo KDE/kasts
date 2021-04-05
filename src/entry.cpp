@@ -11,11 +11,16 @@
 #include <QUrl>
 
 #include "database.h"
+#include "fetcher.h"
 
 Entry::Entry(Feed *feed, QString id)
     : QObject(nullptr)
     , m_feed(feed)
 {
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if(url == m_image)
+            Q_EMIT imageChanged(url);
+    });
     QSqlQuery entryQuery;
     entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
     entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
@@ -46,6 +51,7 @@ Entry::Entry(Feed *feed, QString id)
         m_hasenclosure = true;
         m_enclosure = new Enclosure(this);
     }
+    m_image = entryQuery.value(QStringLiteral("image")).toString();
 }
 
 Entry::~Entry()
@@ -153,6 +159,21 @@ Enclosure *Entry::enclosure() const
 bool Entry::hasEnclosure() const
 {
     return m_hasenclosure;
+}
+
+QString Entry::image() const
+{
+    if (!m_image.isEmpty()) {
+        return m_image;
+    } else {
+        return m_feed->image();
+    }
+}
+
+void Entry::setImage(const QString &image)
+{
+    m_image = image;
+    Q_EMIT imageChanged(m_image);
 }
 
 Feed *Entry::feed() const

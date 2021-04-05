@@ -26,7 +26,7 @@ Kirigami.Page {
     ColumnLayout {
         anchors.fill: parent
         Kirigami.Icon {
-            source: Fetcher.image(audio.entry.feed.image)
+            source: Fetcher.image(audio.entry.image)
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Layout.preferredWidth: Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3)
             Layout.preferredHeight: Math.min(parent.height - 2*controls.height, Kirigami.Units.iconSizes.enormous * 3)

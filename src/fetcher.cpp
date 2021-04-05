@@ -217,7 +217,8 @@ QString Fetcher::image(const QString &url)
 {
     QString path = filePath(url);
     if (QFileInfo::exists(path)) {
-        return path;
+        if (QFileInfo(path).size() != 0 )
+            return path;
     }
 
     download(url);

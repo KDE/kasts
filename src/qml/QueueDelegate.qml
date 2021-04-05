@@ -22,6 +22,11 @@ Kirigami.SwipeListItem {
             listView: queueList
             onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
         }
+        Kirigami.Icon {
+            source: Fetcher.image(model.entry.image)
+            height: parent.height
+            width: height
+        }
         ColumnLayout {
             spacing: 0
             Layout.fillWidth: true

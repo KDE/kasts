@@ -86,8 +86,11 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Icon {
                     source: Fetcher.image(page.feed.image)
-                    width: height
-                    height: parent.height
+                    property int size: Kirigami.Units.iconSizes.large
+                    Layout.minimumWidth: size
+                    Layout.minimumHeight: size
+                    Layout.maximumWidth: size
+                    Layout.maximumHeight: size
                 }
 
                 ColumnLayout {

@@ -55,7 +55,7 @@ Item {
                 Layout.fillWidth: true
 
                 Kirigami.Icon {
-                    source: Fetcher.image(audio.entry.feed.image)
+                    source: Fetcher.image(audio.entry.image)
                     Layout.preferredHeight: parent.height
                     Layout.alignment: Qt.AlignVCenter
                     Layout.leftMargin: Kirigami.Units.smallSpacing
