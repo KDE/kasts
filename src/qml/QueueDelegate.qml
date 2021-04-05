@@ -24,8 +24,9 @@ Kirigami.SwipeListItem {
         }
         Kirigami.Icon {
             source: Fetcher.image(model.entry.image)
-            height: parent.height
-            width: height
+            property int size: Kirigami.Units.iconSizes.medium
+            Layout.minimumHeight: size
+            Layout.minimumWidth: size
         }
         ColumnLayout {
             spacing: 0
