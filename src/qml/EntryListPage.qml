@@ -62,10 +62,20 @@ Kirigami.ScrollablePage {
         icon.name: feed.errorId === 0 ? "" : "data-error"
     }
 
+    Component {
+        id: entryListDelegate
+        EntryListDelegate { }
+    }
+
     ListView {
         id: entryList
         visible: count !== 0
         model: page.feed.entries
+
+        delegate: Kirigami.DelegateRecycler {
+            width: entryList.width
+            sourceComponent: entryListDelegate
+        }
 
         onOriginYChanged: contentY = originY
 
@@ -112,7 +122,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
-        delegate: EntryListDelegate { }
     }
 }
