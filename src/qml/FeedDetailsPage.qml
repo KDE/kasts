@@ -21,7 +21,7 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         Kirigami.Icon {
-            source: Fetcher.image(feed.image)
+            source: feed.image === "" ? "rss" : Fetcher.image(feed.image)
             property int size: Kirigami.Units.iconSizes.huge
             Layout.minimumHeight: size
             Layout.minimumWidth: size

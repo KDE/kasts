@@ -85,7 +85,7 @@ Kirigami.ScrollablePage {
                 height: root.height * 0.2
 
                 Kirigami.Icon {
-                    source: Fetcher.image(page.feed.image)
+                    source: page.feed.image === "" ? "rss" : Fetcher.image(page.feed.image)
                     property int size: Kirigami.Units.iconSizes.large
                     Layout.minimumWidth: size
                     Layout.minimumHeight: size

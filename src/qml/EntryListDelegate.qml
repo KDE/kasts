@@ -16,7 +16,7 @@ Kirigami.SwipeListItem {
 
     contentItem: RowLayout {
         Kirigami.Icon {
-            source: Fetcher.image(entry.image)
+            source: model.entry.image === "" ? "rss" : Fetcher.image(model.entry.image)
             height: parent.height
             width: height
         }
