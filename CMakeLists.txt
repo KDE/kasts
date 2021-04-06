@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+# SPDX-FileCopyrightText: 2020 Nicolas Fella <nicolas.fella@gmx.de>
+# SPDX-License-Identifier: BSD-2-Clause
+
 cmake_minimum_required(VERSION 3.14)
 
 project(Kasts)

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+# SPDX-License-Identifier: BSD-2-Clause
+
 
 set(SRCS_base
     main.cpp
