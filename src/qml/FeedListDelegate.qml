@@ -20,15 +20,15 @@ Kirigami.SwipeListItem {
     contentItem: Kirigami.BasicListItem {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        text: model.feed.name
-        icon: model.feed.refreshing ? "view-refresh" : model.feed.image === "" ? "rss" : Fetcher.image(model.feed.image)
-        iconSize: Kirigami.Units.iconSizes.large
-        subtitle: i18np("%1 unread entry", "%1 unread entries", model.feed.unreadEntryCount)
+        text: feed.name
+        icon: feed.refreshing ? "view-refresh" : feed.image === "" ? "rss" : Fetcher.image(feed.image)
+        iconSize: Kirigami.Units.iconSizes.medium
+        subtitle: i18np("%1 unread entry", "%1 unread entries", feed.unreadEntryCount)
 
         onClicked: {
-            lastFeed = model.feed.url
+            lastFeed = feed.url
 
-            pageStack.push("qrc:/EntryListPage.qml", {"feed": model.feed})
+            pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
         }
     }
 
@@ -36,7 +36,7 @@ Kirigami.SwipeListItem {
         Kirigami.Action {
             icon.name: "delete"
             onTriggered: {
-                if(pageStack.depth > 1 && model.feed.url === lastFeed)
+                if(pageStack.depth > 1 && feed.url === lastFeed)
                     while(pageStack.depth > 1)
                         pageStack.pop()
                 feedsModel.removeFeed(index)

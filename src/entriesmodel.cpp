@@ -32,7 +32,7 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    qDebug() << "fetching item" << index.row();
+    //qDebug() << "fetching item" << index.row();
     return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
 }
 
