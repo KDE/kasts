@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
+#include <QDir>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QStandardPaths>
@@ -213,27 +214,27 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     Database::instance().execute(query);
 }
 
-QString Fetcher::image(const QString &url)
+QString Fetcher::image(const QString& url) const
 {
-    QString path = filePath(url);
+    QString path = imagePath(url);
     if (QFileInfo::exists(path)) {
         if (QFileInfo(path).size() != 0 )
             return path;
     }
 
-    download(url);
+    download(url, path);
 
     return QLatin1String("");
 }
 
-QNetworkReply *Fetcher::download(QString url)
+QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
 {
     QNetworkRequest request((QUrl(url)));
     QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->isOpen()) {
             QByteArray data = reply->readAll();
-            QFile file(filePath(url));
+            QFile file(filePath);
             file.open(QIODevice::WriteOnly);
             file.write(data);
             file.close();
@@ -248,16 +249,28 @@ QNetworkReply *Fetcher::download(QString url)
 
 void Fetcher::removeImage(const QString &url)
 {
-    qDebug() << filePath(url);
-    QFile(filePath(url)).remove();
+    qDebug() << imagePath(url);
+    QFile(imagePath(url)).remove();
 }
 
-QString Fetcher::filePath(const QString &url)
+QString Fetcher::imagePath(const QString &url) const
 {
-    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+    QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/images/");
+    // Create path in cache if it doesn't exist yet
+    QFileInfo().absoluteDir().mkpath(path);
+    return path + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }
 
-QNetworkReply *Fetcher::get(QNetworkRequest &request)
+
+QString Fetcher::enclosurePath(const QString &url) const
+{
+    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/enclosures/");
+    // Create path in cache if it doesn't exist yet
+    QFileInfo().absoluteDir().mkpath(path);
+    return path + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+}
+
+QNetworkReply *Fetcher::get(QNetworkRequest &request) const
 {
     request.setRawHeader("User-Agent", "Alligator/0.1; Syndication");
     return manager->get(request);

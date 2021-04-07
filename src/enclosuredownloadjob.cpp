@@ -12,9 +12,10 @@
 #include "enclosuredownloadjob.h"
 #include "fetcher.h"
 
-EnclosureDownloadJob::EnclosureDownloadJob(const QString& url, const QString& title, QObject *parent)
+EnclosureDownloadJob::EnclosureDownloadJob(const QString& url, const QString& filename, const QString& title, QObject *parent)
     : KJob(parent)
     , m_url(url)
+    , m_filename(filename)
     , m_title(title)
 {
     setCapabilities(Killable);
@@ -27,7 +28,7 @@ void EnclosureDownloadJob::start()
 
 void EnclosureDownloadJob::startDownload()
 {
-    m_reply = Fetcher::instance().download(m_url);
+    m_reply = Fetcher::instance().download(m_url, m_filename);
 
     Q_EMIT description(this, i18n("Downloading %1", m_title));
 

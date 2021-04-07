@@ -48,7 +48,7 @@ Enclosure::Enclosure(Entry *entry)
 
 void Enclosure::download()
 {
-    EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, m_entry->title());
+    EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, path(), m_entry->title());
     downloadJob->start();
 
     m_downloadProgress = 0;
@@ -101,5 +101,5 @@ void Enclosure::deleteFile()
 
 QString Enclosure::path() const
 {
-    return Fetcher::instance().filePath(m_url);
+    return Fetcher::instance().enclosurePath(m_url);
 }

@@ -22,11 +22,12 @@ public:
     }
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetchAll();
-    Q_INVOKABLE QString image(const QString &url);
+    Q_INVOKABLE QString image(const QString &url) const;
     void removeImage(const QString &url);
-    Q_INVOKABLE QNetworkReply *download(QString url);
-    QNetworkReply *get(QNetworkRequest &request);
-    QString filePath(const QString &url);
+    Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
+    QNetworkReply *get(QNetworkRequest &request) const;
+    QString imagePath(const QString &url) const;
+    QString enclosurePath(const QString &url) const;
 
 private:
     Fetcher();
@@ -45,5 +46,5 @@ Q_SIGNALS:
     void feedDetailsUpdated(const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated);
     void error(const QString &url, int errorId, const QString &errorString);
     void entryAdded(const QString &feedurl, const QString &id);
-    void downloadFinished(QString url);
+    void downloadFinished(QString url) const;
 };
