@@ -46,6 +46,7 @@ Entry::Entry(Feed *feed, QString id)
     m_content = entryQuery.value(QStringLiteral("content")).toString();
     m_link = entryQuery.value(QStringLiteral("link")).toString();
     m_read = entryQuery.value(QStringLiteral("read")).toBool();
+    m_new = entryQuery.value(QStringLiteral("new")).toBool();
 
     if (entryQuery.value(QStringLiteral("hasEnclosure")).toBool()) {
         m_hasenclosure = true;
@@ -99,6 +100,11 @@ bool Entry::read() const
     return m_read;
 }
 
+bool Entry::getNew() const
+{
+    return m_new;
+}
+
 QString Entry::baseUrl() const
 {
     return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
@@ -117,6 +123,18 @@ void Entry::setRead(bool read)
     Q_EMIT m_feed->unreadEntryCountChanged();
 }
 
+void Entry::setNew(bool state)
+{
+    m_new = state;
+    Q_EMIT newChanged(m_new);
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE id=:id AND feed=:feed"));
+    query.bindValue(QStringLiteral(":id"), m_id);
+    query.bindValue(QStringLiteral(":feed"), m_feed->url());
+    query.bindValue(QStringLiteral(":new"), m_new);
+    Database::instance().execute(query);
+    // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
+}
 QString Entry::adjustedContent(int width, int fontSize)
 {
     QString ret(m_content);

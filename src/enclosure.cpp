@@ -33,6 +33,7 @@ Enclosure::Enclosure(Entry *entry)
     m_title = query.value(QStringLiteral("title")).toString();
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
+    m_playposition = query.value(QStringLiteral("playposition")).toInt();
 
     QFile file(path());
     if(file.size() == m_size) {

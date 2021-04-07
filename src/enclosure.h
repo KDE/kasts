@@ -25,6 +25,7 @@ class Enclosure : public QObject
     Q_PROPERTY(Status status MEMBER m_status NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
+    Q_PROPERTY(QString playposition MEMBER m_playposition CONSTANT)
 
 public:
     Enclosure(Entry *entry);
@@ -55,6 +56,7 @@ private:
     QString m_title;
     QString m_type;
     QString m_url;
+    int m_playposition;
     double m_downloadProgress = 0;
     Status m_status;
 };

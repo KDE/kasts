@@ -144,7 +144,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     if (query.value(0).toInt() != 0)
         return;
 
-    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, :hasEnclosure, :image);"));
+    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, 1, :hasEnclosure, :image);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());
@@ -202,7 +202,7 @@ void Fetcher::processAuthor(const QString &url, const QString &entryId, const QS
 void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl)
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url);"));
+    query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, 0);"));
     query.bindValue(QStringLiteral(":feed"), feedUrl);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":duration"), enclosure->duration());

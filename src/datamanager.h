@@ -29,6 +29,7 @@ public:
     int entryCount(const int feed_index) const;
     int entryCount(const Feed* feed) const;
     int unreadEntryCount(const Feed* feed) const;
+    int newEntryCount(const Feed* feed) const;
     Q_INVOKABLE void addFeed(const QString &url);
     Q_INVOKABLE void removeFeed(const Feed* feed);
     Q_INVOKABLE void removeFeed(const int &index);

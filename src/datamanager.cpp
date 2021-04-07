@@ -136,6 +136,17 @@ int DataManager::unreadEntryCount(const Feed* feed) const
     return query.value(0).toInt();
 }
 
+int DataManager::newEntryCount(const Feed* feed) const
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
+    query.bindValue(QStringLiteral(":feed"), feed->url());
+    Database::instance().execute(query);
+    if (!query.next())
+        return -1;
+    return query.value(0).toInt();
+}
+
 void DataManager::removeFeed(const Feed* feed)
 {
     removeFeed(m_feedmap.indexOf(feed->url()));

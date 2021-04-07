@@ -215,6 +215,11 @@ int Feed::unreadEntryCount() const
     return DataManager::instance().unreadEntryCount(this);
 }
 
+int Feed::newEntryCount() const
+{
+    return DataManager::instance().newEntryCount(this);
+}
+
 bool Feed::refreshing() const
 {
     return m_refreshing;

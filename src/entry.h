@@ -31,6 +31,7 @@ class Entry : public QObject
     Q_PROPERTY(QString link READ link CONSTANT)
     Q_PROPERTY(QString baseUrl READ baseUrl CONSTANT)
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged);
+    Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged);
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT);
     Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT);
     Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
@@ -47,6 +48,7 @@ public:
     QDateTime updated() const;
     QString link() const;
     bool read() const;
+    bool getNew() const;
     Enclosure *enclosure() const;
     bool hasEnclosure() const;
     QString image() const;
@@ -55,12 +57,14 @@ public:
     QString baseUrl() const;
 
     void setRead(bool read);
+    void setNew(bool state);
     void setImage(const QString &url);
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 
 Q_SIGNALS:
     void readChanged(bool read);
+    void newChanged(bool state);
     void imageChanged(const QString &url);
 
 private:
@@ -73,6 +77,7 @@ private:
     QDateTime m_updated;
     QString m_link;
     bool m_read;
+    bool m_new;
     Enclosure *m_enclosure = nullptr;
     QString m_image;
     bool m_hasenclosure = false;

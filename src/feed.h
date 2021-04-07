@@ -32,6 +32,7 @@ class Feed : public QObject
     Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
+    Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
     Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
     Q_PROPERTY(EntriesModel *entries MEMBER m_entries CONSTANT)
@@ -55,6 +56,7 @@ public:
     bool notify() const;
     int entryCount() const;
     int unreadEntryCount() const;
+    int newEntryCount() const;
     bool read() const;
     int errorId() const;
     QString errorString() const;
@@ -88,6 +90,7 @@ Q_SIGNALS:
     void notifyChanged(bool notify);
     void entryCountChanged();
     void unreadEntryCountChanged();
+    void newEntryCountChanged();
     void errorIdChanged(int &errorId);
     void errorStringChanged(const QString &errorString);
 
