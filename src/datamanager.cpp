@@ -240,6 +240,7 @@ void DataManager::addFeed(const QString &url)
     Q_EMIT feedAdded(urlFromInput.toString());
 
     Fetcher::instance().fetch(urlFromInput.toString());
+    // TODO: fetch authors?
 }
 
 Entry* DataManager::getQueueEntry(int const &index) const

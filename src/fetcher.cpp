@@ -104,7 +104,9 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
             qDebug() << "authorname" << authorname;
         }
+        if (!authorname.isEmpty()) processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
     }
+
 
     QString image = feed->image()->url();
     // If there is no regular image tag, then try the itunes tags
