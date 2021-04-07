@@ -80,7 +80,10 @@ Kirigami.ApplicationWindow {
         property var entry
         property bool playerOpen: false
 
-        source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
+        source: "file://" + entry.enclosure.path
+        //source: entry.enclosure.url
+        onError: console.debug(errorString)
+        //source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
     }
 
     /*
