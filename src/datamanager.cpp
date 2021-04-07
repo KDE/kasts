@@ -171,12 +171,13 @@ void DataManager::removeFeed(const int &index)
     qDebug() << "delete entries of" << feedurl;
     for (auto& id : m_entrymap[feedurl]) {
         if (getEntry(id)->hasEnclosure()) getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
+        if (!getEntry(id)->image().isEmpty()) Fetcher::instance().removeImage(getEntry(id)->image()); // delete entry images
         delete m_entries[id]; // delete pointer
         m_entries.remove(id); // delete the hash key
     }
     m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
 
-    qDebug() << "Remove image" << feed->image() << "for feed" << feedurl;
+    qDebug() << "Remove feed image" << feed->image() << "for feed" << feedurl;
     if (!feed->image().isEmpty()) Fetcher::instance().removeImage(feed->image());
     delete feed; // remove the pointer
     m_feeds.remove(m_feedmap[index]); // remove from m_feeds
