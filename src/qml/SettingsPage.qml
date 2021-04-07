@@ -13,57 +13,38 @@ import org.kde.kirigami 2.12 as Kirigami
 Kirigami.ScrollablePage {
     title: i18n("Settings")
 
+    // TODO: Remove old alligator settings from the kcfg and the qml code
+
     Kirigami.FormLayout {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
-            text: i18n("Article List")
-        }
-
-        RowLayout {
-            Kirigami.FormData.label: i18n("Delete after:")
-
-            Controls.SpinBox {
-                id: deleteAfterCount
-                value: _settings.deleteAfterCount
-                enabled: deleteAfterType.currentIndex !== 0
-
-                onValueModified: _settings.deleteAfterCount = value
-            }
-
-            Controls.ComboBox {
-                id: deleteAfterType
-                currentIndex: _settings.deleteAfterType
-                model: [i18n("Never"), i18n("Articles"), i18n("Days"), i18n("Weeks"), i18n("Months")]
-
-                onActivated: _settings.deleteAfterType = index
-            }
-        }
-
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Article")
+            text: i18n("Queue Settings")
         }
 
         Controls.SpinBox {
-            id: articleFontSizeSpinBox
+            id: numberNewEpisodes
 
-            enabled: !useSystemFontCheckBox.checked
-            value: _settings.articleFontSize
-            Kirigami.FormData.label: i18n("Font size:")
-            from: 6
-            to: 20
+            Kirigami.FormData.label: i18n("# of episodes to label as new when adding a new subscription:")
+            value: _settings.numberNewEpisodes
 
-            onValueModified: _settings.articleFontSize = value
-
+            onValueModified: _settings.numberNewEpisodes = value
         }
 
         Controls.CheckBox {
-            id: useSystemFontCheckBox
-            checked: _settings.articleFontUseSystem
-            text: i18n("Use system default")
+            id: autoDownload
+            checked: _settings.autoDownload
+            text: i18n("Automatically download new episodes")
 
-            onToggled: _settings.articleFontUseSystem = checked
+            onToggled: _settings.autoDownload = checked
+        }
+
+        Controls.CheckBox {
+            id: allowStreaming
+            checked: _settings.allowStreaming
+            text: i18n("Allow streaming of audio")
+
+            onToggled: _settings.allowStreaming = checked
         }
 
     }
