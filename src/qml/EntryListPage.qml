@@ -94,13 +94,14 @@ Kirigami.ScrollablePage {
                 width: parent.width
                 height: root.height * 0.2
 
-                Kirigami.Icon {
-                    source: page.feed.image === "" ? "rss" : Fetcher.image(page.feed.image)
+                Image {
+                    source: page.feed.image === "" ? "rss" : "file://"+Fetcher.image(page.feed.image)
                     property int size: Kirigami.Units.iconSizes.large
                     Layout.minimumWidth: size
                     Layout.minimumHeight: size
                     Layout.maximumWidth: size
                     Layout.maximumHeight: size
+                    asynchronous: true
                 }
 
                 ColumnLayout {

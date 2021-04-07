@@ -38,7 +38,7 @@ Kirigami.SwipeListItem {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             Controls.Label {
-                text: entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? " · " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "")
+                text: entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " · " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font: Kirigami.Theme.smallFont

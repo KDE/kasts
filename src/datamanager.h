@@ -40,10 +40,12 @@ public:
 
     Entry* getQueueEntry(int const &index) const;
     int queueCount() const;
+    Q_INVOKABLE bool entryInQueue(const QString &feedurl, const QString &id) const;
     Q_INVOKABLE void addtoQueue(const QString &feedurl, const QString &id);
     Q_INVOKABLE void moveQueueItem(const int &from, const int &to);
     Q_INVOKABLE void removeQueueItem(const int &index);
     Q_INVOKABLE void removeQueueItem(const QString id);
+    Q_INVOKABLE void removeQueueItem(Entry* entry);
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
@@ -56,7 +58,7 @@ Q_SIGNALS:
     void feedEntriesUpdated(const QString &url);
     void queueEntryAdded(const int &index, const QString &id);
     void queueEntryRemoved(const int &index, const QString &id);
-    void queueEntryMoved(const int &from, const int $to);
+    void queueEntryMoved(const int &from, const int &to);
 
 private:
     DataManager();

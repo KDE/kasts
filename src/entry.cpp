@@ -11,6 +11,7 @@
 #include <QUrl>
 
 #include "database.h"
+#include "datamanager.h"
 #include "fetcher.h"
 
 Entry::Entry(Feed *feed, QString id)
@@ -20,6 +21,16 @@ Entry::Entry(Feed *feed, QString id)
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if(url == m_image)
             Q_EMIT imageChanged(url);
+    });
+    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &index, const QString &id) {
+        Q_UNUSED(index)
+        if(id == m_id)
+            Q_EMIT queueStatusChanged(queueStatus());
+    });
+    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int &index, const QString &id) {
+        Q_UNUSED(index)
+        if(id == m_id)
+            Q_EMIT queueStatusChanged(queueStatus());
     });
     QSqlQuery entryQuery;
     entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
@@ -186,6 +197,11 @@ QString Entry::image() const
     } else {
         return m_feed->image();
     }
+}
+
+bool Entry::queueStatus() const
+{
+    return DataManager::instance().entryInQueue(m_feed->url(), m_id);
 }
 
 void Entry::setImage(const QString &image)

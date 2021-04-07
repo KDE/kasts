@@ -56,7 +56,7 @@ Kirigami.ScrollablePage {
             else entry.enclosure.deleteFile()
         }
     }
-    actions.right: Kirigami.Action {
+    actions.left: Kirigami.Action {
         text: "Add to queue"
         icon.name: "media-playlist-append"
         visible: entry.enclosure

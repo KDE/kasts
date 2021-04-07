@@ -252,6 +252,12 @@ int DataManager::queueCount() const
     return m_queuemap.count();
 }
 
+bool DataManager::entryInQueue(const QString &feedurl, const QString &id) const
+{
+    Q_UNUSED(feedurl);
+    return m_queuemap.contains(id);
+}
+
 void DataManager::addtoQueue(const QString &feedurl, const QString &id)
 {
     // If item is already in queue, then stop here
@@ -290,10 +296,10 @@ void DataManager::moveQueueItem(const int &from, const int &to)
 
 void DataManager::removeQueueItem(const int &index)
 {
+    qDebug() << m_queuemap;
     // First remove the item from the internal data structure
     const QString id = m_queuemap[index];
     m_queuemap.removeAt(index);
-    //qDebug() << m_queuemap;
 
     // Then make sure that the database Queue table reflects these changes
     QSqlQuery query;
@@ -312,6 +318,10 @@ void DataManager::removeQueueItem(const QString id)
     removeQueueItem(m_queuemap.indexOf(id));
 }
 
+void DataManager::removeQueueItem(Entry* entry)
+{
+    removeQueueItem(m_queuemap.indexOf(entry->id()));
+}
 void DataManager::importFeeds(const QString &path)
 {
     QUrl url(path);
