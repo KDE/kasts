@@ -19,22 +19,40 @@ Kirigami.SwipeListItem {
             asynchronous: true
             source: entry.image === "" ? "rss" : "file://"+Fetcher.image(entry.image)
             fillMode: Image.PreserveAspectFit
-            property int size: Kirigami.Units.iconSizes.medium
+            property int size: Kirigami.Units.gridUnit * 3
             Layout.maximumHeight: size
             Layout.maximumWidth: size
             sourceSize.width: size
             sourceSize.height: size
+            Layout.rightMargin: Kirigami.Units.smallSpacing
         }
         ColumnLayout {
             spacing: 0
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
+            RowLayout{
+                Kirigami.Icon {
+                    Layout.maximumHeight: 0.7 * supertitle.implicitHeight
+                    Layout.maximumWidth:  0.7 * supertitle.implicitHeight
+                    source: "source-playlist"
+                    visible: entry.queueStatus
+                    opacity: (entry.read) ? 0.4 : 0.7
+                }
+                Controls.Label {
+                    id: supertitle
+                    text: (entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    font: Kirigami.Theme.smallFont
+                    opacity: (entry.read) ? 0.4 : 0.7
+                }
+            }
             Controls.Label {
                 text: entry.title
                 Layout.fillWidth: true
                 elide: Text.ElideRight
-                font.weight: entry.read ? Font.Normal : Font.Bold
-                opacity: 1
+                font.weight: Font.Normal
+                opacity: (entry.read) ? 0.6 : 1
             }
             Loader {
                 sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : subtitle
@@ -42,11 +60,11 @@ Kirigami.SwipeListItem {
                 Component {
                     id: subtitle
                     Controls.Label {
-                        text: entry.updated.toLocaleString(Qt.locale(), Locale.ShortFormat) + (entry.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + entry.authors[0].name)
+                        text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: entry.read ? 0.7 : 0.9
+                        opacity: (entry.read) ? 0.4 : 0.7
                         visible: !downloadProgress.visible
                     }
                 }
