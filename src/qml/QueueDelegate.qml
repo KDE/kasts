@@ -114,7 +114,7 @@ Kirigami.SwipeListItem {
         },
         Kirigami.Action {
             text: i18n("Remove from Queue")
-            icon.name: "delete-table-row"
+            icon.name: "list-remove"
             onTriggered: { DataManager.removeQueueItem(entry) }
         }
     ]
