@@ -18,11 +18,13 @@ Kirigami.SwipeListItem {
     contentItem: RowLayout {
         Image {
             asynchronous: true
-            source: entry.image === "" ? "rss" : "file://"+Fetcher.image(entry.image)
+            source: entry.image === "" ? "logo.png" : "file://"+Fetcher.image(entry.image)
             fillMode: Image.PreserveAspectFit
             property int size: Kirigami.Units.gridUnit * 3
             Layout.maximumHeight: size
             Layout.maximumWidth: size
+            height: size
+            width: size
             sourceSize.width: size
             sourceSize.height: size
             Layout.rightMargin: Kirigami.Units.smallSpacing
@@ -61,7 +63,7 @@ Kirigami.SwipeListItem {
                 Component {
                     id: subtitle
                     Controls.Label {
-                        text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
+                        text: entry.enclosure ? ((Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60) : ""
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

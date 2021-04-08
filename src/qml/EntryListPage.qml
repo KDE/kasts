@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
             sourceComponent: entryListDelegate
         }
 
-        onOriginYChanged: contentY = originY // Why is this needed?
+        //onOriginYChanged: contentY = originY // Why is this needed?
 
         //headerPositioning: ListView.OverlayHeader  // seems broken
         header: Item {
@@ -97,13 +97,13 @@ Kirigami.ScrollablePage {
             }
             Image {
                 id: backgroundimage
-                source: page.feed.image === "" ? "rss" : "file://"+Fetcher.image(page.feed.image)
+                source: page.feed.image === "" ? "logo.png" : "file://"+Fetcher.image(page.feed.image)
                 fillMode: Image.PreserveAspectCrop
                 anchors.fill: parent
                 asynchronous: true
             }
-             GaussianBlur {
-                 id: blur
+            GaussianBlur {
+                id: blur
                 anchors.fill: backgroundimage
                 source: backgroundimage
                 radius: 12
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
 
                 Image {
                     id: frontimage
-                    source: page.feed.image === "" ? "rss" : "file://"+Fetcher.image(page.feed.image)
+                    source: page.feed.image === "" ? "logo.png" : "file://"+Fetcher.image(page.feed.image)
                     Layout.maximumHeight: parent.size
                     Layout.maximumWidth: parent.size
                     asynchronous: true
