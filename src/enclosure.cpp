@@ -35,6 +35,7 @@ Enclosure::Enclosure(Entry *entry)
     m_url = query.value(QStringLiteral("url")).toString();
     m_playposition = query.value(QStringLiteral("playposition")).toInt();
 
+    // TODO: what to do if the rss-reported filesize doesn't match the real file size???
     QFile file(path());
     if(file.size() == m_size) {
         m_status = Downloaded;
