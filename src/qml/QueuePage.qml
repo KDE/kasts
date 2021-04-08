@@ -16,6 +16,20 @@ Kirigami.ScrollablePage {
     id: queuepage
     title: i18n("Queue")
 
+    supportsRefreshing: true
+    onRefreshingChanged:
+        if(refreshing)  {
+            Fetcher.fetchAll()
+            refreshing = false
+        }
+
+    actions.main: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh Feed")
+        onTriggered: page.refreshing = true
+        visible: !Kirigami.Settings.isMobile || queueList.count === 0
+    }
+
     Kirigami.PlaceholderMessage {
         visible: queueList.count === 0
 
