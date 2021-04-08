@@ -25,11 +25,33 @@ Kirigami.Page {
 
     ColumnLayout {
         anchors.fill: parent
-        Kirigami.Icon {
-            source: Fetcher.image(audio.entry.image)
+        Controls.SwipeView {
+            id: swipeView
+
+            currentIndex: 0
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-            Layout.preferredWidth: Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3)
-            Layout.preferredHeight: Math.min(parent.height - 2*controls.height, Kirigami.Units.iconSizes.enormous * 3)
+            Layout.preferredWidth: parent.width
+            Layout.preferredHeight: parent.height - media.height - indicator.height
+            Layout.margins: 0
+            Item {
+                Image {
+                    asynchronous: true
+                    source: audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)
+                    fillMode: Image.PreserveAspectFit
+                    anchors.centerIn: parent
+                    //Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+                    width: Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3)
+                    height: Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)
+                }
+            }
+            EntryPage { entry: audio.entry }
+        }
+        Controls.PageIndicator {
+            id: indicator
+
+            count:swipeView.count
+            currentIndex: swipeView.currentIndex
+            Layout.alignment: Qt.AlignHCenter
         }
         Item {
             id: media
@@ -41,7 +63,7 @@ Kirigami.Page {
             ColumnLayout {
                 id: mediaControls
 
-                implicitHeight: controls.height
+                //implicitHeight: controls.height
 
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -55,23 +77,37 @@ Kirigami.Page {
                 }
                 RowLayout {
                     id: controls
-                    Layout.margins: 0
-                    spacing: 0
+                    Layout.leftMargin: 0
+                    Layout.rightMargin: 0
+                    Layout.fillWidth: true
                     Controls.Label {
+                        //anchor.left: parent.left
                         text: (Math.floor(audio.position/3600000) < 10 ? "0" : "") + Math.floor(audio.position/3600000) + ":" + (Math.floor(audio.position/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/60000) % 60 + ":" + (Math.floor(audio.position/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/1000) % 60
-                        padding: Kirigami.Units.gridUnit
                     }
                     Item {
                         Layout.fillWidth: true
                     }
-                    Controls.Label {
-                        text: (Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60
-                        padding: Kirigami.Units.gridUnit
+                    Item {
+                        Layout.preferredHeight: endLabel.implicitHeight + Kirigami.Units.gridUnit
+                        Layout.preferredWidth: endLabel.implicitWidth + Kirigami.Units.gridUnit
+                        Controls.Label {
+                            id: endLabel
+                            property int toggle: 0
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: (toggle === 0) ? ((Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60) : ((Math.floor((audio.duration-audio.position)/3600000) < 10 ? "-0" : "-") + Math.floor((audio.duration-audio.position)/3600000) + ":" + (Math.floor((audio.duration-audio.position)/60000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/60000) % 60 + ":" + (Math.floor((audio.duration-audio.position)/1000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/1000) % 60)
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onClicked: (endLabel.toggle === 0) ? endLabel.toggle=1 : endLabel.toggle=0
+                        }
                     }
                 }
                 RowLayout {
                     Layout.maximumWidth: Number.POSITIVE_INFINITY //TODO ?
                     Layout.fillWidth: true
+                    Layout.topMargin: Kirigami.Units.gridUnit * 2
                     property int buttonsize: Kirigami.Units.gridUnit * 2
 
                     Controls.Button {
