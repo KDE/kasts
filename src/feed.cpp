@@ -90,14 +90,6 @@ Feed::Feed(QString const feedurl)
     if (!query.next())
         qWarning() << "Failed to load feed" << feedurl;
 
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":feed"), feedurl);
-    Database::instance().execute(authorQuery);
-    while (authorQuery.next()) {
-        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
-    }
-
     m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
 
     m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
@@ -113,6 +105,8 @@ Feed::Feed(QString const feedurl)
 
     m_errorId = 0;
     m_errorString = QLatin1String("");
+
+    retrieveAuthors();
 
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
         if (url == m_url) {
@@ -148,6 +142,23 @@ Feed::Feed(QString const feedurl)
 
 Feed::~Feed()
 {
+}
+
+void Feed::retrieveAuthors()
+{
+    qDebug() << "Start retrieving authors for" << m_name;
+    for (int i=0; i < m_authors.count(); i++) {
+        delete m_authors[i];
+    }
+    m_authors.clear();
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.bindValue(QStringLiteral(":feed"), m_url);
+    Database::instance().execute(authorQuery);
+    while (authorQuery.next()) {
+        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+    }
+    Q_EMIT authorsChanged(m_authors);
 }
 
 QString Feed::url() const
@@ -261,6 +272,10 @@ void Feed::setDescription(const QString &description)
 
 void Feed::setAuthors(const QVector<Author *> &authors)
 {
+    for (auto& author : m_authors) {
+        delete author;
+    }
+    m_authors.clear();
     m_authors = authors;
     Q_EMIT authorsChanged(m_authors);
 }

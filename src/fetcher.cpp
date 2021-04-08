@@ -193,7 +193,17 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
 void Fetcher::processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail)
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Authors WHERE feed=:feed AND id=:id;"));
+    query.bindValue(QStringLiteral(":feed"), url);
+    query.bindValue(QStringLiteral(":id"), entryId);
+    Database::instance().execute(query);
+    query.next();
+
+    if (query.value(0).toInt() != 0)
+        query.prepare(QStringLiteral("UPDATE Authors SET feed=:feed, id=:id, name=:name, uri=:uri, email=:email WHERE feed=:feed AND id=:id;"));
+    else
+        query.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
+
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entryId);
     query.bindValue(QStringLiteral(":name"), authorName);

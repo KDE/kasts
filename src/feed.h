@@ -43,6 +43,8 @@ public:
 
     ~Feed();
 
+    void retrieveAuthors();
+
     QString url() const;
     QString name() const;
     QString image() const;

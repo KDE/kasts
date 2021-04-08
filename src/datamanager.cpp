@@ -25,6 +25,7 @@ DataManager::DataManager()
         m_feeds[url]->setLink(link);
         m_feeds[url]->setDescription(description);
         m_feeds[url]->setLastUpdated(lastUpdated);
+        m_feeds[url]->retrieveAuthors();
         // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
     });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
@@ -212,6 +213,10 @@ void DataManager::removeFeed(const int &index)
 
 void DataManager::addFeed(const QString &url)
 {
+    // This method will add the relevant internal data structures, and then add
+    // a preliminary entry into the database.  Those details (as well as entries,
+    // authors and enclosures) will be updated by calling Fetcher::fetch() which
+    // will trigger a full update of the feed and all related items.
     qDebug() << "Adding feed";
     if (feedExists(url)) {
         qDebug() << "Feed already exists";
@@ -240,7 +245,6 @@ void DataManager::addFeed(const QString &url)
     Q_EMIT feedAdded(urlFromInput.toString());
 
     Fetcher::instance().fetch(urlFromInput.toString());
-    // TODO: fetch authors?
 }
 
 Entry* DataManager::getQueueEntry(int const &index) const
