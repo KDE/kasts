@@ -5,8 +5,8 @@
 */
 
 // Includes relevant modules used by the QML
-import QtQuick 2.6
-import QtQuick.Controls 2.0 as Controls
+import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.2
 import org.kde.kirigami 2.13 as Kirigami
 import QtMultimedia 5.15
