@@ -216,7 +216,17 @@ void Fetcher::processAuthor(const QString &url, const QString &entryId, const QS
 void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl)
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, 0);"));
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE feed=:feed AND id=:id;"));
+    query.bindValue(QStringLiteral(":feed"), feedUrl);
+    query.bindValue(QStringLiteral(":id"), entry->id());
+    Database::instance().execute(query);
+    query.next();
+
+    if (query.value(0).toInt() != 0)
+        query.prepare(QStringLiteral("UPDATE Enclosures SET feed=:feed, id=:id, duration=:duration, size=:size, title=:title, type=:type, url=:url, playposition=:playposition;"));
+    else
+        query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition);"));
+
     query.bindValue(QStringLiteral(":feed"), feedUrl);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":duration"), enclosure->duration());
@@ -224,6 +234,7 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.bindValue(QStringLiteral(":title"), enclosure->title());
     query.bindValue(QStringLiteral(":type"), enclosure->type());
     query.bindValue(QStringLiteral(":url"), enclosure->url());
+    query.bindValue(QStringLiteral(":playposition"), 0);
     Database::instance().execute(query);
 }
 
