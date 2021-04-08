@@ -1,5 +1,5 @@
-/*
-   SPDX-FileCopyrightText: 2021 (c) Bart De Vries <bart@mogwai.be>
+/**
+   SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
 
    SPDX-License-Identifier: GPL-2.0-or-later
 */
