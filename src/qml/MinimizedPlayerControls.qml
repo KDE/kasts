@@ -15,8 +15,12 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Item {
+    anchors.right: parent.right
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
     width: parent.width
-    height: (audio.entry == undefined || audio.playerOpen) ? 0 : (footerrowlayout.height + 3.0 * miniprogressbar.height)
+    //height: (audio.entry == undefined || audio.playerOpen) ? 0 : Kirigami.Units.gridUnit * 3.5 + (Kirigami.Units.gridUnit / 6)
+    height: Kirigami.Units.gridUnit * 3.5 + (Kirigami.Units.gridUnit / 6)
     //margins.bottom: miniprogressbar.height
     visible: (audio.entry !== undefined) && !audio.playerOpen
 
@@ -40,31 +44,28 @@ Item {
 
     RowLayout {
         id: footerrowlayout
-        width: parent.width
-        anchors.margins: miniprogressbar.height
-        anchors.bottom: parent.bottom
-        spacing: Kirigami.Units.smallSpacing
-
+        anchors.topMargin: miniprogressbar.height
+        anchors.fill: parent
         Item {
             Layout.fillHeight: true
-            Layout.preferredWidth: parent.width - playButton.width
-            Layout.maximumWidth: parent.width - playButton.width
+            Layout.fillWidth: true
 
             RowLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+                anchors.fill: parent
 
-                Kirigami.Icon {
-                    source: Fetcher.image(audio.entry.image)
-                    Layout.preferredHeight: parent.height
-                    Layout.alignment: Qt.AlignVCenter
-                    Layout.leftMargin: Kirigami.Units.smallSpacing
+                Image {
+                    asynchronous: true
+                    source: audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)
+                    fillMode: Image.PreserveAspectFit
+                    Layout.fillHeight: true
+                    Layout.maximumWidth: height
                 }
 
                 // track information
                 ColumnLayout {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                     Controls.Label {
                         id: mainLabel
                         text: audio.entry.title
@@ -95,18 +96,20 @@ Item {
                 id: trackClick
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: pageStack.layers.push("qrc:/PlayerControls.qml") // playeroverlay.open()
-                //showPassiveNotification("Ping")
+                onClicked: pageStack.layers.push("qrc:/PlayerControls.qml")
             }
         }
         Controls.Button {
             id: playButton
             icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-            icon.height: Kirigami.Units.gridUnit * 2
-            icon.width: Kirigami.Units.gridUnit * 2
+            icon.height: Kirigami.Units.gridUnit * 2.5
+            icon.width: Kirigami.Units.gridUnit * 2.5
             flat: true
+            Layout.fillHeight: true
+            Layout.maximumHeight: Kirigami.Units.gridUnit *3.5
+            Layout.maximumWidth: height
             onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
-            Layout.alignment: Qt.AlignHCenter
+            Layout.alignment: Qt.AlignVCenter
         }
     }
 }

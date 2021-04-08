@@ -46,18 +46,23 @@ Kirigami.Page {
                 anchors.left: parent.left
                 anchors.right: parent.right
 
+                Controls.Slider {
+                    Layout.fillWidth: true
+                    from: 0
+                    to: audio.duration
+                    value: audio.position
+                    onMoved: audio.seek(value)
+                }
                 RowLayout {
                     id: controls
+                    Layout.margins: 0
+                    spacing: 0
                     Controls.Label {
                         text: (Math.floor(audio.position/3600000) < 10 ? "0" : "") + Math.floor(audio.position/3600000) + ":" + (Math.floor(audio.position/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/60000) % 60 + ":" + (Math.floor(audio.position/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/1000) % 60
                         padding: Kirigami.Units.gridUnit
                     }
-                    Controls.Slider {
+                    Item {
                         Layout.fillWidth: true
-                        from: 0
-                        to: audio.duration
-                        value: audio.position
-                        onMoved: audio.seek(value)
                     }
                     Controls.Label {
                         text: (Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60
@@ -67,6 +72,7 @@ Kirigami.Page {
                 RowLayout {
                     Layout.maximumWidth: Number.POSITIVE_INFINITY //TODO ?
                     Layout.fillWidth: true
+                    property int buttonsize: Kirigami.Units.gridUnit * 2
 
                     Controls.Button {
                         text: audio.playbackRate + "x"
@@ -83,8 +89,8 @@ Kirigami.Page {
                     }
                     Controls.Button {
                         icon.name: "media-seek-backward"
-                        icon.height: Kirigami.Units.gridUnit * 2
-                        icon.width: Kirigami.Units.gridUnit * 2
+                        icon.height: parent.buttonsize
+                        icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         onClicked: audio.seek(audio.position - 10000)
@@ -92,24 +98,24 @@ Kirigami.Page {
                     Controls.Button {
                         id: playButton
                         icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-                        icon.height: Kirigami.Units.gridUnit * 2
-                        icon.width: Kirigami.Units.gridUnit * 2
+                        icon.height: parent.buttonsize
+                        icon.width: parent.buttonsize
                         flat: true
                         onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
                         Layout.alignment: Qt.AlignHCenter
                     }
                     Controls.Button {
                         icon.name: "media-seek-forward"
-                        icon.height: Kirigami.Units.gridUnit * 2
-                        icon.width: Kirigami.Units.gridUnit * 2
+                        icon.height: parent.buttonsize
+                        icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         onClicked: audio.seek(audio.position + 10000)
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"
-                        icon.height: Kirigami.Units.gridUnit * 2
-                        icon.width: Kirigami.Units.gridUnit * 2
+                        icon.height: parent.buttonsize
+                        icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         onClicked: console.log("TODO")

@@ -81,10 +81,17 @@ Kirigami.ApplicationWindow {
         property var entry
         property bool playerOpen: false
 
-        source: "file://" + entry.enclosure.path
+        source: entry ? (entry.enclosure ? "file://" + entry.enclosure.path : "") : ""
         //source: entry.enclosure.url
         onError: console.debug(errorString)
         //source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
+    }
+
+
+    footer: Loader {
+        active: (audio.entry !== undefined) && !audio.playerOpen
+        visible: (audio.entry !== undefined) && !audio.playerOpen
+        sourceComponent: MinimizedPlayerControls { }
     }
 
     /*
@@ -103,10 +110,8 @@ Kirigami.ApplicationWindow {
         }
 
     }
-    */
 
-    footer: MinimizedPlayerControls { }
-    /*Item {
+    Item {
         visible: (audio.entry !== undefined)
         height: footerLoader.minimizedSize
     }
