@@ -80,12 +80,12 @@ Kirigami.ScrollablePage {
 
         onOriginYChanged: contentY = originY // Why is this needed?
 
-        headerPositioning: ListView.OverlayHeader
+        //headerPositioning: ListView.OverlayHeader  // seems broken
         header: Item {
             //anchors.top: parent.top
             anchors.right: parent.right
             anchors.left: parent.left
-            height: Kirigami.Units.gridUnit * 12
+            height: Kirigami.Units.gridUnit * 8
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -115,8 +115,8 @@ Kirigami.ScrollablePage {
                 color:"#87000000"  //RGBA, but first value is actually the alpha channel
             }
             RowLayout {
-                property int size: Kirigami.Units.gridUnit * 7
-                property int margin: Kirigami.Units.gridUnit * 2
+                property int size: Kirigami.Units.gridUnit * 6
+                property int margin: Kirigami.Units.gridUnit * 1
                 height: size
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
@@ -138,21 +138,28 @@ Kirigami.ScrollablePage {
                     Layout.leftMargin: parent.margin/2
                     Controls.Label {
                         Layout.fillWidth: true
+                        Layout.fillHeight: true
                         text: page.feed.name
+                        fontSizeMode: Text.Fit
                         font.pointSize: 18
+                        minimumPointSize: 12
                         horizontalAlignment: Text.AlignLeft
+                        verticalAlignment: Text.AlignBottom
                         color: "white"
                         opacity: 1
+                        elide: Text.ElideRight
                         wrapMode: Text.WordWrap
                     }
                     Controls.Label {
                         Layout.fillWidth: true
                         text: page.feed.authors.length === 0 ? "" : i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
-                        font.pointSize: 14
+                        fontSizeMode: Text.Fit
+                        font.pointSize: 12
+                        minimumPointSize: 10
                         horizontalAlignment: Text.AlignLeft
                         color: "white"
+                        elide: Text.ElideRight
                         opacity: 1
-                        wrapMode: Text.WordWrap
                     }
                 }
             }
