@@ -71,7 +71,8 @@ Kirigami.Page {
             Item {
                 Flickable {
                     anchors.fill: parent
-                    anchors.margins: 25
+                    anchors.leftMargin: 25
+                    anchors.rightMargin: 25
                     clip: true
                     contentHeight: text.height
                     Controls.Label {
@@ -119,8 +120,8 @@ Kirigami.Page {
                 }
                 RowLayout {
                     id: controls
-                    Layout.leftMargin: 0
-                    Layout.rightMargin: 0
+                    //Layout.leftMargin: 0
+                    //Layout.rightMargin: 0
                     Layout.fillWidth: true
                     Controls.Label {
                         //anchor.left: parent.left
