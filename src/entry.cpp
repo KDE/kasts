@@ -147,6 +147,7 @@ void Entry::setNew(bool state)
     Database::instance().execute(query);
     // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
 }
+
 QString Entry::adjustedContent(int width, int fontSize)
 {
     QString ret(m_content);
