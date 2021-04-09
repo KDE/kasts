@@ -75,7 +75,7 @@ Item {
                         horizontalAlignment: Text.AlignLeft
                         elide: Text.ElideRight
                         maximumLineCount: 1
-                        font.weight: Font.Bold
+                        //font.weight: Font.Bold
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1
                     }
 
@@ -88,6 +88,7 @@ Item {
                         horizontalAlignment: Text.AlignLeft
                         elide: Text.ElideRight
                         maximumLineCount: 1
+                        opacity: 0.6
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1
                     }
                 }
