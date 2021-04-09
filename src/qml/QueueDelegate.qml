@@ -37,12 +37,22 @@ Kirigami.SwipeListItem {
             spacing: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
-            Controls.Label {
-                text: entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " · " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
-                Layout.fillWidth: true
-                elide: Text.ElideRight
-                font: Kirigami.Theme.smallFont
-                opacity: 0.7
+            RowLayout{
+                Controls.Label {
+                    text: entry.new ? i18n("new") + "  ·" : ""
+                    font.capitalization: Font.AllUppercase
+                    color: Kirigami.Theme.highlightColor
+                    visible: entry.new
+                    opacity: (entry.read) ? 0.4 : 0.7
+                }
+                Controls.Label {
+                    id: supertitle
+                    text: entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    font: Kirigami.Theme.smallFont
+                    opacity: (entry.read) ? 0.4 : 0.7
+                }
             }
             Controls.Label {
                 text: entry.title
