@@ -199,9 +199,9 @@ void DataManager::removeFeed(const int &index)
 
     qDebug() << "Remove feed image" << feed->image() << "for feed" << feedurl;
     if (!feed->image().isEmpty()) Fetcher::instance().removeImage(feed->image());
-    delete feed; // remove the pointer
     m_feeds.remove(m_feedmap[index]); // remove from m_feeds
     m_feedmap.removeAt(index); // remove from m_feedmap
+    delete feed; // remove the pointer
 
     // Then delete everything from the database
     qDebug() << "delete database part of" << feedurl;
