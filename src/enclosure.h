@@ -50,6 +50,8 @@ Q_SIGNALS:
 
 private:
 
+    void processDownloadedFile();
+
     Entry *m_entry;
     int m_duration;
     int m_size;

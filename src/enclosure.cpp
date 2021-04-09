@@ -35,7 +35,6 @@ Enclosure::Enclosure(Entry *entry)
     m_url = query.value(QStringLiteral("url")).toString();
     m_playposition = query.value(QStringLiteral("playposition")).toInt();
 
-    // TODO: what to do if the rss-reported filesize doesn't match the real file size???
     QFile file(path());
     if(file.size() == m_size) {
         m_status = Downloaded;
@@ -61,6 +60,8 @@ void Enclosure::download()
     connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
         if(downloadJob->error() == 0) {
             m_status = Downloaded;
+            processDownloadedFile();
+
         } else {
             m_status = Downloadable;
             if(downloadJob->error() != QNetworkReply::OperationCanceledError) {
@@ -86,6 +87,28 @@ void Enclosure::download()
 
     m_status = Downloading;
     Q_EMIT statusChanged();
+}
+
+void Enclosure::processDownloadedFile() {
+    // This will be run if the enclosure has been downloaded successfully
+
+    // Unset "new" status of item
+    if (m_entry->getNew()) m_entry->setNew(false);
+
+    // Check if reported filesize in rss feed corresponds to real file size
+    // if not, correct the filesize in the database
+    // otherwise the file will get deleted because of mismatch in signature
+    QFile file(path());
+    if(file.size() != m_size) {
+        qDebug() << "enclosure file size mismatch" << m_entry->title();
+        m_size = file.size();
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
+        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.bindValue(QStringLiteral(":size"), m_size);
+        Database::instance().execute(query);
+    }
 }
 
 void Enclosure::deleteFile()
