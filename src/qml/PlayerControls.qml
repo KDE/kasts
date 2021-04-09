@@ -44,20 +44,22 @@ Kirigami.Page {
                     height: Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)
                 }
             }
-            Flickable {
-                clip: true
-                contentHeight: text.height
-                Controls.Label {
-                    width: parent.width - 40
-                    id: text
-                    text: audio.entry.content
-                    verticalAlignment: Text.AlignTop
-                    baseUrl: audio.entry.baseUrl
-                    textFormat: Text.RichText
-                    wrapMode: Text.WordWrap
+            Item {
+                Flickable {
                     anchors.fill: parent
-                    anchors.margins: 20
-                    onLinkActivated: Qt.openUrlExternally(link)
+                    anchors.margins: 25
+                    clip: true
+                    contentHeight: text.height
+                    Controls.Label {
+                        width: parent.width
+                        id: text
+                        text: audio.entry.content
+                        verticalAlignment: Text.AlignTop
+                        baseUrl: audio.entry.baseUrl
+                        textFormat: Text.RichText
+                        wrapMode: Text.WordWrap
+                        onLinkActivated: Qt.openUrlExternally(link)
+                    }
                 }
             }
         }
