@@ -62,8 +62,14 @@ DataManager::DataManager()
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
             while (query.next()) {
-                addtoQueue(feedurl, query.value(QStringLiteral("id")).toString());
+                QString const id = query.value(QStringLiteral("id")).toString();
+                addtoQueue(feedurl, id);
+                if (AlligatorSettings::self()->autoDownload()) {
+                    if (getEntry(id)->hasEnclosure())
+                        getEntry(id)->enclosure()->download();
+                }
             }
+
         }
 
         Q_EMIT feedEntriesUpdated(feedurl);
@@ -322,7 +328,12 @@ void DataManager::moveQueueItem(const int &from, const int &to)
 void DataManager::removeQueueItem(const int &index)
 {
     qDebug() << m_queuemap;
-    // First remove the item from the internal data structure
+    // Unset "new" state
+    getEntry(m_queuemap[index])->setNew(false);
+    // TODO: Make sure to unset the pointer in the Audio class once it's been
+    // ported to c++
+
+    // Remove the item from the internal data structure
     const QString id = m_queuemap[index];
     m_queuemap.removeAt(index);
 
@@ -347,6 +358,7 @@ void DataManager::removeQueueItem(Entry* entry)
 {
     removeQueueItem(m_queuemap.indexOf(entry->id()));
 }
+
 void DataManager::importFeeds(const QString &path)
 {
     QUrl url(path);

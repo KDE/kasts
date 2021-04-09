@@ -24,7 +24,7 @@ Kirigami.SwipeListItem {
         }
         Image {
             asynchronous: true
-            source: entry.image === "" ? "rss" : "file://"+Fetcher.image(entry.image)
+            source: entry.image === "" ? "logo.png" : "file://"+Fetcher.image(entry.image)
             fillMode: Image.PreserveAspectFit
             property int size: Kirigami.Units.gridUnit * 3
             sourceSize.width: size
