@@ -22,6 +22,7 @@
 
 #include "database.h"
 #include "fetcher.h"
+#include "alligatorsettings.h"
 
 Fetcher::Fetcher()
 {
@@ -69,15 +70,25 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (feed.isNull())
         return;
 
+    // First check if this is a newly added feed
+    bool isNewFeed = false;
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT new FROM Feeds WHERE url=:url;"));
+    query.bindValue(QStringLiteral(":url"), url);
+    Database::instance().execute(query);
+    if (query.next())
+        isNewFeed = query.value(QStringLiteral("new")).toBool();
+    qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
+
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated WHERE url=:url;"));
+    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, new=:new WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":link"), feed->link());
     query.bindValue(QStringLiteral(":description"), feed->description());
+    query.bindValue(QStringLiteral(":new"), false); // set "new" to false now that new feed is being processed
 
     QDateTime current = QDateTime::currentDateTime();
     query.bindValue(QStringLiteral(":lastUpdated"), current.toSecsSinceEpoch());
@@ -126,13 +137,29 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 
     for (const auto &entry : feed->items()) {
-        processEntry(entry, url);
+        processEntry(entry, url, isNewFeed);
+    }
+
+    // Now mark the appropriate number of recent entries "new" and "read" for new feeds
+    query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT :recentNew;"));
+    query.bindValue(QStringLiteral(":feed"), url);
+    query.bindValue(QStringLiteral(":recentNew"), AlligatorSettings::self()->numberNewEpisodes());
+    Database::instance().execute(query);
+    QSqlQuery updateQuery;
+    while (query.next()) {
+        qDebug() << "new" << query.value(QStringLiteral("id")).toString();
+        updateQuery.prepare(QStringLiteral("UPDATE Entries SET read=:read, new=:new WHERE id=:id AND feed=:feed;"));
+        updateQuery.bindValue(QStringLiteral(":read"), false);
+        updateQuery.bindValue(QStringLiteral(":new"), true);
+        updateQuery.bindValue(QStringLiteral(":feed"), url);
+        updateQuery.bindValue(QStringLiteral(":id"), query.value(QStringLiteral("id")).toString());
+        Database::instance().execute(updateQuery);
     }
 
     Q_EMIT feedUpdated(url);
 }
 
-void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
+void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed)
 {
     qDebug() << "Processing" << entry->title();
 
@@ -148,7 +175,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     if (query.value(0).toInt() != 0)
         return;
 
-    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, 0, 1, :hasEnclosure, :image);"));
+    query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image);"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entry->id());
     query.bindValue(QStringLiteral(":title"), QTextDocumentFragment::fromHtml(entry->title()).toPlainText());
@@ -156,6 +183,8 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url)
     query.bindValue(QStringLiteral(":updated"), static_cast<int>(entry->dateUpdated()));
     query.bindValue(QStringLiteral(":link"), entry->link());
     query.bindValue(QStringLiteral(":hasEnclosure"), entry->enclosures().length() == 0 ? 0 : 1);
+    query.bindValue(QStringLiteral(":read"), isNewFeed);  // if new feed, then mark all as read
+    query.bindValue(QStringLiteral(":new"), !isNewFeed);  // if new feed, then mark none as new
 
     if (!entry->content().isEmpty())
         query.bindValue(QStringLiteral(":content"), entry->content());

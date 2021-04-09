@@ -34,7 +34,7 @@ private:
     Fetcher();
 
     void processFeed(Syndication::FeedPtr feed, const QString &url);
-    void processEntry(Syndication::ItemPtr entry, const QString &url);
+    void processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed);
     void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
 

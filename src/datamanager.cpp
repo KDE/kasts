@@ -226,7 +226,7 @@ void DataManager::addFeed(const QString &url)
 
     QUrl urlFromInput = QUrl::fromUserInput(url);
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :notify);"));
+    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :new, :notify);"));
     query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -236,6 +236,7 @@ void DataManager::addFeed(const QString &url)
     query.bindValue(QStringLiteral(":deleteAfterType"), 0);
     query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
     query.bindValue(QStringLiteral(":lastUpdated"), 0);
+    query.bindValue(QStringLiteral(":new"), true);
     query.bindValue(QStringLiteral(":notify"), false);
     Database::instance().execute(query);
 
