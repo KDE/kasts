@@ -34,14 +34,38 @@ Kirigami.Page {
             Layout.preferredHeight: parent.height - media.height - indicator.height
             Layout.margins: 0
             Item {
+                property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
                 Image {
+                    id: coverImage
                     asynchronous: true
                     source: audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)
                     fillMode: Image.PreserveAspectFit
-                    anchors.centerIn: parent
-                    //Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-                    width: Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3)
-                    height: Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: Math.max(0, parent.height - (height + imageLabels.height + 2*parent.textMargin))/2
+                    height: Math.min( Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)-(imageLabels.height+2*parent.textMargin),
+                                    Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3))
+                    width: height
+                }
+                ColumnLayout {
+                    id: imageLabels
+                    anchors.top: coverImage.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.topMargin: parent.textMargin
+                    Controls.Label {
+                        text: audio.entry.title
+                        elide: Text.ElideRight
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.maximumWidth: parent.width
+                    }
+                    Controls.Label {
+                        text: audio.entry.feed.name
+                        elide: Text.ElideRight
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.maximumWidth: parent.width
+                        opacity: 0.6
+                    }
                 }
             }
             Item {
