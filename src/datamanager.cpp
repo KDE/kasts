@@ -15,6 +15,7 @@
 #include "datamanager.h"
 #include "fetcher.h"
 #include "database.h"
+#include "alligatorsettings.h"
 
 DataManager::DataManager()
 {
@@ -53,6 +54,18 @@ DataManager::DataManager()
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
             //qDebug() << m_entrymap[feedurl];
         }
+
+        // Check for "new" entries
+        if (AlligatorSettings::self()->autoQueue()) {
+            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            query.bindValue(QStringLiteral(":new"), true);
+            Database::instance().execute(query);
+            while (query.next()) {
+                addtoQueue(feedurl, query.value(QStringLiteral("id")).toString());
+            }
+        }
+
         Q_EMIT feedEntriesUpdated(feedurl);
     });
 

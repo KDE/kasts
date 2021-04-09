@@ -140,7 +140,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         processEntry(entry, url, isNewFeed);
     }
 
-    // Now mark the appropriate number of recent entries "new" and "read" for new feeds only
+    // Now mark the appropriate number of recent entries "new" and "read" only for new feeds
     if (isNewFeed) {
         query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT :recentNew;"));
         query.bindValue(QStringLiteral(":feed"), url);

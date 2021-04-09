@@ -9,6 +9,10 @@
             <label>How many recent episodes should be labeled 'new' when adding a new subscription</label>
             <default>1</default>
         </entry>
+        <entry name="autoQueue" type="Bool">
+            <label>Automatically add new episodes to queue</label>
+            <default>true</default>
+        </entry>
         <entry name="autoDownload" type="Bool">
             <label>Automatically download new episodes</label>
             <default>false</default>
