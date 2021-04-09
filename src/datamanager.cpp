@@ -20,13 +20,18 @@ DataManager::DataManager()
 {
     // connect signals to lambda slots
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-        m_feeds[url]->setName(name);
-        m_feeds[url]->setImage(image);
-        m_feeds[url]->setLink(link);
-        m_feeds[url]->setDescription(description);
-        m_feeds[url]->setLastUpdated(lastUpdated);
-        m_feeds[url]->retrieveAuthors();
-        // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+        qDebug() << "Start updating feed details" << m_feeds;
+        Feed* feed = getFeed(url);
+        if (feed != nullptr) {
+            feed->setName(name);
+            feed->setImage(image);
+            feed->setLink(link);
+            feed->setDescription(description);
+            feed->setLastUpdated(lastUpdated);
+            //qDebug() << "Retrieving authors";
+            feed->retrieveAuthors();
+            // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+        }
     });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
         // Only add the new entry to m_entries
@@ -58,6 +63,7 @@ DataManager::DataManager()
     Database::instance().execute(query);
     while (query.next()) {
         m_feedmap += query.value(QStringLiteral("url")).toString();
+        m_feeds[query.value(QStringLiteral("url")).toString()] == nullptr;
     }
     //qDebug() << m_feedmap;
 
@@ -156,7 +162,7 @@ void DataManager::removeFeed(const Feed* feed)
 void DataManager::removeFeed(const int &index)
 {
     // Get feed pointer
-    Feed* feed = m_feeds[m_feedmap[index]];
+    Feed* feed = getFeed(m_feedmap[index]);
     const QString feedurl = feed->url();
 
     // Delete the object instances and mappings
@@ -240,7 +246,7 @@ void DataManager::addFeed(const QString &url)
     query.bindValue(QStringLiteral(":notify"), false);
     Database::instance().execute(query);
 
-    m_feeds[urlFromInput.toString()] = new Feed(urlFromInput.toString());
+    m_feeds[urlFromInput.toString()] = nullptr;
     m_feedmap.append(urlFromInput.toString());
 
     Q_EMIT feedAdded(urlFromInput.toString());
