@@ -34,16 +34,23 @@ Kirigami.SwipeListItem {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             RowLayout{
+                Controls.Label {
+                    text: entry.new ? i18n("new") + "  ·" : ""
+                    font.capitalization: Font.AllUppercase
+                    color: Kirigami.Theme.highlightColor
+                    visible: entry.new
+                    opacity: (entry.read) ? 0.4 : 0.7
+                }
                 Kirigami.Icon {
-                    Layout.maximumHeight: 0.7 * supertitle.implicitHeight
-                    Layout.maximumWidth:  0.7 * supertitle.implicitHeight
+                    Layout.maximumHeight: 0.8 * supertitle.implicitHeight
+                    Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "source-playlist"
                     visible: entry.queueStatus
                     opacity: (entry.read) ? 0.4 : 0.7
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
+                    text: (entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
