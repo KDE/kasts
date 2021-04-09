@@ -93,9 +93,8 @@ int Database::version()
 
 void Database::cleanup()
 {
-    AlligatorSettings settings;
-    int count = settings.deleteAfterCount();
-    int type = settings.deleteAfterType();
+    int count = AlligatorSettings::self()->deleteAfterCount();
+    int type = AlligatorSettings::self()->deleteAfterType();
 
     if (type == 0) { // Never delete Entries
         return;

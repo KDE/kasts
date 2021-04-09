@@ -10,6 +10,7 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Settings")
@@ -27,25 +28,25 @@ Kirigami.ScrollablePage {
             id: numberNewEpisodes
 
             Kirigami.FormData.label: i18n("# of episodes to label as new when adding a new subscription:")
-            value: _settings.numberNewEpisodes
+            value: AlligatorSettings.numberNewEpisodes
 
-            onValueModified: _settings.numberNewEpisodes = value
+            onValueModified: AlligatorSettings.numberNewEpisodes = value
         }
 
         Controls.CheckBox {
             id: autoDownload
-            checked: _settings.autoDownload
+            checked: AlligatorSettings.autoDownload
             text: i18n("Automatically download new episodes")
 
-            onToggled: _settings.autoDownload = checked
+            onToggled: AlligatorSettings.autoDownload = checked
         }
 
         Controls.CheckBox {
             id: allowStreaming
-            checked: _settings.allowStreaming
+            checked: AlligatorSettings.allowStreaming
             text: i18n("Allow streaming of audio")
 
-            onToggled: _settings.allowStreaming = checked
+            onToggled: AlligatorSettings.allowStreaming = checked
         }
 
     }

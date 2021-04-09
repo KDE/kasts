@@ -63,6 +63,10 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&DataManager::instance(), QQmlEngine::CppOwnership);
         return &DataManager::instance();
     });
+    qmlRegisterSingletonType<AlligatorSettings>("org.kde.alligator", 1, 0, "AlligatorSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(AlligatorSettings::self(), QQmlEngine::CppOwnership);
+        return AlligatorSettings::self();
+    });
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
@@ -81,11 +85,8 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
 
-    AlligatorSettings settings;
-
-    engine.rootContext()->setContextProperty(QStringLiteral("_settings"), &settings);
-
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, &settings, &AlligatorSettings::save);
+    // Make sure that settings are saved before the application exits
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, AlligatorSettings::self(), &AlligatorSettings::save);
 
     Database::instance();
 
