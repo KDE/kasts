@@ -15,12 +15,15 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Item {
+    property int miniplayerheight: Kirigami.Units.gridUnit * 3
+    property int progressbarheight: Kirigami.Units.gridUnit / 6
+    property int buttonsize: Kirigami.Units.gridUnit * 2
     anchors.right: parent.right
     anchors.left: parent.left
     anchors.bottom: parent.bottom
     width: parent.width
     //height: (audio.entry == undefined || audio.playerOpen) ? 0 : Kirigami.Units.gridUnit * 3.5 + (Kirigami.Units.gridUnit / 6)
-    height: Kirigami.Units.gridUnit * 3.5 + (Kirigami.Units.gridUnit / 6)
+    height: miniplayerheight + progressbarheight
     //margins.bottom: miniprogressbar.height
     visible: (audio.entry !== undefined) && !audio.playerOpen
 
@@ -36,7 +39,7 @@ Item {
         z: 1
         anchors.top: parent.top
         anchors.left: parent.left
-        height: Kirigami.Units.gridUnit / 6
+        height: parent.progressbarheight
         color: Kirigami.Theme.highlightColor
         width: parent.width * audio.position / audio.duration
         visible: true
@@ -103,11 +106,11 @@ Item {
         Controls.Button {
             id: playButton
             icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-            icon.height: Kirigami.Units.gridUnit * 2.5
-            icon.width: Kirigami.Units.gridUnit * 2.5
+            icon.height: parent.parent.buttonsize //Kirigami.Units.gridUnit * 2.5
+            icon.width: parent.parent.buttonsize //Kirigami.Units.gridUnit * 2.5
             flat: true
             Layout.fillHeight: true
-            Layout.maximumHeight: Kirigami.Units.gridUnit *3.5
+            Layout.maximumHeight: parent.parent.miniplayerheight
             Layout.maximumWidth: height
             onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
             Layout.alignment: Qt.AlignVCenter
