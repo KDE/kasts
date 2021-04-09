@@ -34,6 +34,14 @@ Kirigami.ScrollablePage {
         }
 
         Controls.CheckBox {
+            id: autoQueue
+            checked: AlligatorSettings.autoQueue
+            text: i18n("Automatically queue new episodes")
+
+            onToggled: AlligatorSettings.autoQueue = checked
+        }
+
+        Controls.CheckBox {
             id: autoDownload
             checked: AlligatorSettings.autoDownload
             text: i18n("Automatically download new episodes")
