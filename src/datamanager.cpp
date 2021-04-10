@@ -375,7 +375,6 @@ void DataManager::importFeeds(const QString &path)
             addFeed(xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString());
         }
     }
-    Fetcher::instance().fetchAll();
 }
 
 void DataManager::exportFeeds(const QString &path)
