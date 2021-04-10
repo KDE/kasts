@@ -82,7 +82,7 @@ Kirigami.ApplicationWindow {
     Audio {
         id: audio
 
-        property var entry
+        property var entry: SettingsManager.lastPlayingEntry !== "none" ? DataManager.getEntry(SettingsManager.lastPlayingEntry) : undefined
         property bool playerOpen: false
 
         onEntryChanged: SettingsManager.lastPlayingEntry = entry.id

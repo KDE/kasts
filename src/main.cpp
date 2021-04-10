@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
         return SettingsManager::self();
     });
+    qRegisterMetaType<Entry*>("const Entry*"); // "hack" to make qml understand Entry*
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

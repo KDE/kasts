@@ -24,7 +24,7 @@ public:
     Feed* getFeed(QString const feedurl) const;
     Entry* getEntry(int const feed_index, int const entry_index) const;
     Entry* getEntry(const Feed* feed, int const entry_index) const;
-    Entry* getEntry(const QString id) const;
+    Q_INVOKABLE Entry* getEntry(const QString id) const;
     int feedCount() const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed* feed) const;
