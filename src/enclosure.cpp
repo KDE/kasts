@@ -33,7 +33,8 @@ Enclosure::Enclosure(Entry *entry)
     m_title = query.value(QStringLiteral("title")).toString();
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
-    m_playposition = query.value(QStringLiteral("playposition")).toInt();
+    m_playposition = query.value(QStringLiteral("playposition")).toLongLong();
+    m_playposition_dbsave = m_playposition;
 
     QFile file(path());
     if(file.size() == m_size) {
@@ -126,4 +127,26 @@ void Enclosure::deleteFile()
 QString Enclosure::path() const
 {
     return Fetcher::instance().enclosurePath(m_url);
+}
+
+qint64 Enclosure::playPosition() const{
+    return m_playposition;
+}
+
+void Enclosure::setPlayPosition(const qint64 &position)
+{
+    m_playposition = position;
+    qDebug() << "save playPosition" << m_entry->title();
+
+    // let's only save the play position to the database every 15 seconds
+    if (abs(m_playposition - m_playposition_dbsave) > 15000) {
+        qDebug() << "save playPosition to database" << m_entry->title();
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));
+        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.bindValue(QStringLiteral(":playposition"), m_playposition);
+        Database::instance().execute(query);
+        m_playposition_dbsave = m_playposition;
+    }
 }
