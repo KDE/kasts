@@ -135,15 +135,17 @@ Kirigami.Page {
                         Layout.preferredWidth: endLabel.implicitWidth + Kirigami.Units.gridUnit
                         Controls.Label {
                             id: endLabel
-                            property int toggle: 0
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            text: (toggle === 0) ? ((Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60) : ((Math.floor((audio.duration-audio.position)/3600000) < 10 ? "-0" : "-") + Math.floor((audio.duration-audio.position)/3600000) + ":" + (Math.floor((audio.duration-audio.position)/60000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/60000) % 60 + ":" + (Math.floor((audio.duration-audio.position)/1000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/1000) % 60)
+                            text: (SettingsManager.showRemainingTime) ?
+                                    ((Math.floor((audio.duration-audio.position)/3600000) < 10 ? "-0" : "-") + Math.floor((audio.duration-audio.position)/3600000) + ":" + (Math.floor((audio.duration-audio.position)/60000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/60000) % 60 + ":" + (Math.floor((audio.duration-audio.position)/1000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/1000) % 60)
+                                    : ((Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60)
+
                         }
                         MouseArea {
                             anchors.fill: parent
                             hoverEnabled: true
-                            onClicked: (endLabel.toggle === 0) ? endLabel.toggle=1 : endLabel.toggle=0
+                            onClicked: SettingsManager.showRemainingTime = !SettingsManager.showRemainingTime
                         }
                     }
                 }
