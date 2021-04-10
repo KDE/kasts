@@ -22,7 +22,7 @@
 
 #include "database.h"
 #include "fetcher.h"
-#include "alligatorsettings.h"
+#include "settingsmanager.h"
 
 Fetcher::Fetcher()
 {
@@ -144,7 +144,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (isNewFeed) {
         query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT :recentNew;"));
         query.bindValue(QStringLiteral(":feed"), url);
-        query.bindValue(QStringLiteral(":recentNew"), AlligatorSettings::self()->numberNewEpisodes());
+        query.bindValue(QStringLiteral(":recentNew"), SettingsManager::self()->numberNewEpisodes());
         Database::instance().execute(query);
         QSqlQuery updateQuery;
         while (query.next()) {

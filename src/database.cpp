@@ -14,7 +14,7 @@
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 
-#include "alligatorsettings.h"
+#include "settingsmanager.h"
 #include "database.h"
 #include "fetcher.h"
 
@@ -93,8 +93,8 @@ int Database::version()
 
 void Database::cleanup()
 {
-    int count = AlligatorSettings::self()->deleteAfterCount();
-    int type = AlligatorSettings::self()->deleteAfterType();
+    int count = SettingsManager::self()->deleteAfterCount();
+    int type = SettingsManager::self()->deleteAfterType();
 
     if (type == 0) { // Never delete Entries
         return;

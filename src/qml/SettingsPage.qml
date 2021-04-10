@@ -28,40 +28,40 @@ Kirigami.ScrollablePage {
             id: numberNewEpisodes
 
             Kirigami.FormData.label: i18n("# of episodes to label as new when adding a new subscription:")
-            value: AlligatorSettings.numberNewEpisodes
+            value: SettingsManager.numberNewEpisodes
 
-            onValueModified: AlligatorSettings.numberNewEpisodes = value
+            onValueModified: SettingsManager.numberNewEpisodes = value
         }
 
         Controls.CheckBox {
             id: autoQueue
-            checked: AlligatorSettings.autoQueue
+            checked: SettingsManager.autoQueue
             text: i18n("Automatically queue new episodes")
 
             onToggled: {
-                AlligatorSettings.autoQueue = checked
+                SettingsManager.autoQueue = checked
                 if (!checked) {
                     autoDownload.checked = false
-                    AlligatorSettings.autoDownload = false
+                    SettingsManager.autoDownload = false
                 }
             }
         }
 
         Controls.CheckBox {
             id: autoDownload
-            checked: AlligatorSettings.autoDownload
+            checked: SettingsManager.autoDownload
             text: i18n("Automatically download new episodes")
 
             enabled: autoQueue.checked
-            onToggled: AlligatorSettings.autoDownload = checked
+            onToggled: SettingsManager.autoDownload = checked
         }
 
         Controls.CheckBox {
             id: allowStreaming
-            checked: AlligatorSettings.allowStreaming
+            checked: SettingsManager.allowStreaming
             text: i18n("Allow streaming of audio")
 
-            onToggled: AlligatorSettings.allowStreaming = checked
+            onToggled: SettingsManager.allowStreaming = checked
         }
 
     }

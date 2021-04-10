@@ -23,7 +23,7 @@
 #include <KLocalizedString>
 
 #include "alligator-version.h"
-#include "alligatorsettings.h"
+#include "settingsmanager.h"
 #include "database.h"
 #include "entriesmodel.h"
 #include "feedsmodel.h"
@@ -63,9 +63,9 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&DataManager::instance(), QQmlEngine::CppOwnership);
         return &DataManager::instance();
     });
-    qmlRegisterSingletonType<AlligatorSettings>("org.kde.alligator", 1, 0, "AlligatorSettings", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(AlligatorSettings::self(), QQmlEngine::CppOwnership);
-        return AlligatorSettings::self();
+    qmlRegisterSingletonType<SettingsManager>("org.kde.alligator", 1, 0, "SettingsManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
+        return SettingsManager::self();
     });
 
     QQmlApplicationEngine engine;
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
 
     // Make sure that settings are saved before the application exits
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, AlligatorSettings::self(), &AlligatorSettings::save);
+    QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
 
     Database::instance();
 

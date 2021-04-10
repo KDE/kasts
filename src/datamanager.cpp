@@ -15,7 +15,7 @@
 #include "datamanager.h"
 #include "fetcher.h"
 #include "database.h"
-#include "alligatorsettings.h"
+#include "settingsmanager.h"
 
 DataManager::DataManager()
 {
@@ -56,7 +56,7 @@ DataManager::DataManager()
         }
 
         // Check for "new" entries
-        if (AlligatorSettings::self()->autoQueue()) {
+        if (SettingsManager::self()->autoQueue()) {
             query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             query.bindValue(QStringLiteral(":new"), true);
@@ -64,9 +64,11 @@ DataManager::DataManager()
             while (query.next()) {
                 QString const id = query.value(QStringLiteral("id")).toString();
                 addtoQueue(feedurl, id);
-                if (AlligatorSettings::self()->autoDownload()) {
-                    if (getEntry(id)->hasEnclosure())
+                if (SettingsManager::self()->autoDownload()) {
+                    if (getEntry(id)->hasEnclosure()) {
+                        qDebug() << "Start downloading" << getEntry(id)->title();
                         getEntry(id)->enclosure()->download();
+                    }
                 }
             }
 

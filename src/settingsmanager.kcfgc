@@ -1,5 +1,5 @@
-File=alligatorsettings.kcfg
-ClassName=AlligatorSettings
+File=settingsmanager.kcfg
+ClassName=SettingsManager
 Mutators=true
 DefaultValueGetters=true
 GenerateProperties=true
