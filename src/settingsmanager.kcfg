@@ -38,4 +38,14 @@
             <default>0</default>
         </entry>
     </group>
+    <group name="Persistency">
+        <entry name="lastOpenedPage" type="String">
+            <label>The top-level page that was open at shutdown</label>
+            <default>FeedListPage</default>
+        </entry>
+        <entry name="lastPlayingEntry" type="String">
+            <label>The entry that was being played at shutdown</label>
+            <default>none</default>
+        </entry>
+    </group>
 </kcfg>

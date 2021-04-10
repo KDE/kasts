@@ -20,7 +20,9 @@ Kirigami.ApplicationWindow {
 
     title: "Alligator"
 
-    pageStack.initialPage: feedList
+    pageStack.initialPage: SettingsManager.lastOpenedPage === "FeedListPage" ? feedList
+                            : SettingsManager.lastOpenedPage === "QueuePage" ? queueList
+                            : feedList
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: true
@@ -29,14 +31,16 @@ Kirigami.ApplicationWindow {
                 text: i18n("Queue")
                 iconName: "source-playlist"
                 onTriggered: {
+                    SettingsManager.lastOpenedPage = "QueuePage" // for persistency
                     pageStack.clear()
-                    pageStack.push(queuelist)
+                    pageStack.push(queueList)
                 }
             },
             Kirigami.Action {
                 text: i18n("Subscriptions")
                 iconName: "rss"
                 onTriggered: {
+                    SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
                     pageStack.clear()
                     pageStack.push(feedList)
                 }
@@ -72,7 +76,7 @@ Kirigami.ApplicationWindow {
     }
 
     QueuePage {
-        id: queuelist
+        id: queueList
     }
 
     Audio {
@@ -81,6 +85,7 @@ Kirigami.ApplicationWindow {
         property var entry
         property bool playerOpen: false
 
+        onEntryChanged: SettingsManager.lastPlayingEntry = entry.id
         source: entry ? (entry.enclosure ? "file://" + entry.enclosure.path : "") : ""
         //source: entry.enclosure.url
         onError: console.debug(errorString)
