@@ -1,7 +1,8 @@
-/*
-   SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
-
-   SPDX-License-Identifier: LGPL-3.0-or-later
+/**
+ * SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ *
+ * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
 #include "audiomanager.h"
@@ -23,7 +24,6 @@ private:
     bool playerOpen = false;
 
     friend class AudioManager;
-
 };
 
 AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_unique<AudioManagerPrivate>())
