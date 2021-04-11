@@ -6,11 +6,14 @@
  */
 
 #include "audiomanager.h"
-#include "powermanagementinterface.h"
 
 #include <QTimer>
 #include <QAudio>
 #include <QEventLoop>
+
+#include "powermanagementinterface.h"
+#include "datamanager.h"
+#include "settingsmanager.h"
 
 class AudioManagerPrivate
 {
@@ -43,6 +46,12 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::savePlayPosition);
     connect(&d->m_player, &QMediaPlayer::seekableChanged, this, &AudioManager::seekableChanged);
+
+    // Check if an entry was playing when the program was shut down and restore it
+    if (SettingsManager::self()->lastPlayingEntry() != QStringLiteral("none"))
+        setEntry(DataManager::instance().getEntry(SettingsManager::self()->lastPlayingEntry()));
+    //SettingsManager.lastPlayingEntry !== "none" ? DataManager.getEntry(SettingsManager.lastPlayingEntry) : undefined
+
 }
 
 AudioManager::~AudioManager()
