@@ -179,6 +179,8 @@ private Q_SLOTS:
 
     void playerVolumeChanged();
 
+    void savePlayPosition(qint64 position);
+
 private:
 
     friend class AudioManagerPrivate;

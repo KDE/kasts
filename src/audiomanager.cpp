@@ -23,6 +23,7 @@ private:
 
     Entry* m_entry = nullptr;
     bool playerOpen = false;
+    bool lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
     friend class AudioManager;
 };
@@ -40,6 +41,7 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
+    connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::savePlayPosition);
     connect(&d->m_player, &QMediaPlayer::seekableChanged, this, &AudioManager::seekableChanged);
 }
 
@@ -120,10 +122,13 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry* entry)
 {
     if (entry != nullptr) {
+        qDebug() << "Going to change source";
+        d->lockPositionSaving = true;
         d->m_entry = entry;
         d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+        qDebug() << "Changed source to" << d->m_entry->title();
 
-        qint64 startingPosition = 0;
+        qint64 startingPosition = d->m_entry->enclosure()->playPosition();
         // What follows is a dirty hack to get the player positioned at the
         // correct spot.  The audio only becomes seekable when the player is
         // actually playing.  So we start the playback and then set a timer to
@@ -145,6 +150,7 @@ void AudioManager::setEntry(Entry* entry)
         qDebug() << "Changing position";
         if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
         d->m_player.pause();
+        d->lockPositionSaving = false;
         Q_EMIT entryChanged(entry);
     }
 }
@@ -257,4 +263,11 @@ void AudioManager::playerMutedChanged()
     qDebug() << "AudioManager::playerMutedChanged";
 
     QTimer::singleShot(0, [this]() {Q_EMIT mutedChanged(muted());});
+}
+
+void AudioManager::savePlayPosition(qint64 position)
+{
+    if (!d->lockPositionSaving)
+        d->m_entry->enclosure()->setPlayPosition(position);
+    qDebug() << d->m_player.mediaStatus();
 }
