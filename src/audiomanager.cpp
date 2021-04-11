@@ -18,9 +18,9 @@ private:
 
     PowerManagementInterface mPowerInterface;
 
-    QMediaPlayer mPlayer;
+    QMediaPlayer m_player;
 
-    Entry* entry = nullptr;
+    Entry* m_entry = nullptr;
     bool playerOpen = false;
 
     friend class AudioManager;
@@ -28,18 +28,18 @@ private:
 
 AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_unique<AudioManagerPrivate>())
 {
-    connect(&d->mPlayer, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
-    connect(&d->mPlayer, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
-    connect(&d->mPlayer, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
-    connect(&d->mPlayer, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::statusChanged);
-    connect(&d->mPlayer, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
-    connect(&d->mPlayer, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
-    connect(&d->mPlayer, &QMediaPlayer::stateChanged, this, &AudioManager::playerStateChanged);
-    connect(&d->mPlayer, &QMediaPlayer::playbackRateChanged, this, &AudioManager::playbackRateChanged);
-    connect(&d->mPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
-    connect(&d->mPlayer, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
-    connect(&d->mPlayer, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
-    connect(&d->mPlayer, &QMediaPlayer::seekableChanged, this, &AudioManager::seekableChanged);
+    connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
+    connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
+    //connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
+    connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::statusChanged);
+    connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
+    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
+    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playerStateChanged);
+    connect(&d->m_player, &QMediaPlayer::playbackRateChanged, this, &AudioManager::playbackRateChanged);
+    connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
+    connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
+    connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
+    connect(&d->m_player, &QMediaPlayer::seekableChanged, this, &AudioManager::seekableChanged);
 }
 
 AudioManager::~AudioManager()
@@ -49,7 +49,7 @@ AudioManager::~AudioManager()
 
 Entry* AudioManager::entry () const
 {
-    return d->entry;
+    return d->m_entry;
 }
 
 bool AudioManager::playerOpen() const
@@ -59,65 +59,69 @@ bool AudioManager::playerOpen() const
 
 bool AudioManager::muted() const
 {
-    return d->mPlayer.isMuted();
+    return d->m_player.isMuted();
 }
 
 qreal AudioManager::volume() const
 {
-    auto realVolume = static_cast<qreal>(d->mPlayer.volume() / 100.0);
+    auto realVolume = static_cast<qreal>(d->m_player.volume() / 100.0);
     auto userVolume = static_cast<qreal>(QAudio::convertVolume(realVolume, QAudio::LinearVolumeScale, QAudio::LogarithmicVolumeScale));
 
     return userVolume * 100.0;
 }
 
+/*
 QUrl AudioManager::source() const
 {
-    return d->mPlayer.media().request().url();
+    return d->m_player.media().request().url();
 }
+*/
 
 QMediaPlayer::Error AudioManager::error() const
 {
-    if (d->mPlayer.error() != QMediaPlayer::NoError) {
-        qDebug() << "AudioManager::error" << d->mPlayer.errorString();
+    if (d->m_player.error() != QMediaPlayer::NoError) {
+        qDebug() << "AudioManager::error" << d->m_player.errorString();
     }
 
-    return d->mPlayer.error();
+    return d->m_player.error();
 }
 
 qint64 AudioManager::duration() const
 {
-    return d->mPlayer.duration();
+    return d->m_player.duration();
 }
 
 qint64 AudioManager::position() const
 {
-    return d->mPlayer.position();
+    return d->m_player.position();
 }
 
 bool AudioManager::seekable() const
 {
-    return d->mPlayer.isSeekable();
+    return d->m_player.isSeekable();
 }
 
 QMediaPlayer::State AudioManager::playbackState() const
 {
-    return d->mPlayer.state();
+    return d->m_player.state();
 }
 
 qreal AudioManager::playbackRate() const
 {
-    return d->mPlayer.playbackRate();
+    return d->m_player.playbackRate();
 }
 
 QMediaPlayer::MediaStatus AudioManager::status() const
 {
-    return d->mPlayer.mediaStatus();
+    return d->m_player.mediaStatus();
 }
 
 void AudioManager::setEntry(Entry* entry)
 {
-    d->entry = entry;
-    Q_EMIT entryChanged(entry);
+    if (entry != nullptr) {
+        d->m_entry = entry;
+        Q_EMIT entryChanged(entry);
+    }
 }
 
 void AudioManager::setPlayerOpen(bool state)
@@ -128,7 +132,7 @@ void AudioManager::setPlayerOpen(bool state)
 
 void AudioManager::setMuted(bool muted)
 {
-    d->mPlayer.setMuted(muted);
+    d->m_player.setMuted(muted);
 }
 
 void AudioManager::setVolume(qreal volume)
@@ -136,68 +140,70 @@ void AudioManager::setVolume(qreal volume)
     qDebug() << "AudioManager::setVolume" << volume;
 
     auto realVolume = static_cast<qreal>(QAudio::convertVolume(volume / 100.0, QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale));
-    d->mPlayer.setVolume(qRound(realVolume * 100));
+    d->m_player.setVolume(qRound(realVolume * 100));
 }
 
+/*
 void AudioManager::setSource(const QUrl &source)
 {
     qDebug() << "AudioManager::setSource" << source;
 
-    d->mPlayer.setMedia({source});
+    d->m_player.setMedia({source});
 }
+*/
 
 void AudioManager::setPlaybackRate(const qreal rate)
 {
     qDebug() << "AudioManager::setPlaybackRate" << rate;
 
-    d->mPlayer.setPlaybackRate(rate);
+    d->m_player.setPlaybackRate(rate);
 }
 
 void AudioManager::setPosition(qint64 position)
 {
     qDebug() << "AudioManager::setPosition" << position;
 
-    d->mPlayer.setPosition(position);
+    d->m_player.setPosition(position);
 }
 
 void AudioManager::play()
 {
     qDebug() << "AudioManager::play";
 
-    d->mPlayer.play();
+    d->m_player.play();
 }
 
 void AudioManager::pause()
 {
     qDebug() << "AudioManager::pause";
 
-    d->mPlayer.pause();
+    d->m_player.pause();
 }
 
 void AudioManager::stop()
 {
     qDebug() << "AudioManager::stop";
 
-    d->mPlayer.stop();
+    d->m_player.stop();
 }
 
 void AudioManager::seek(qint64 position)
 {
     qDebug() << "AudioManager::seek" << position;
 
-    d->mPlayer.setPosition(position);
+    d->m_player.setPosition(position);
 }
 
 void AudioManager::mediaStatusChanged()
 {
-    qDebug() << "AudioManager::mediaStatusChanged" << d->mPlayer.mediaStatus();
+    qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
 }
 
 void AudioManager::playerStateChanged()
 {
-    qDebug() << "AudioManager::playerStateChanged" << d->mPlayer.state();
+    qDebug() << "AudioManager::playerStateChanged" << d->m_player.state();
 
-    switch(d->mPlayer.state())
+    switch(d->m_player.state())
     {
     case QMediaPlayer::State::StoppedState:
         Q_EMIT stopped();
@@ -216,7 +222,7 @@ void AudioManager::playerStateChanged()
 
 void AudioManager::playerVolumeChanged()
 {
-    qDebug() << "AudioManager::playerVolumeChanged" << d->mPlayer.volume();
+    qDebug() << "AudioManager::playerVolumeChanged" << d->m_player.volume();
 
     QTimer::singleShot(0, [this]() {Q_EMIT volumeChanged();});
 }

@@ -42,10 +42,10 @@ class AudioManager : public QObject
                WRITE setVolume
                NOTIFY volumeChanged)
 
-    Q_PROPERTY(QUrl source
+    /*Q_PROPERTY(QUrl source
                READ source
                WRITE setSource
-               NOTIFY sourceChanged)
+               NOTIFY sourceChanged)*/
 
     Q_PROPERTY(QMediaPlayer::MediaStatus status
                READ status
@@ -97,7 +97,7 @@ public:
 
     [[nodiscard]] qreal volume() const;
 
-    [[nodiscard]] QUrl source() const;
+    //[[nodiscard]] QUrl source() const;
 
     [[nodiscard]] QMediaPlayer::MediaStatus status() const;
 
@@ -123,7 +123,7 @@ Q_SIGNALS:
 
     void volumeChanged();
 
-    void sourceChanged();
+    //void sourceChanged();
 
     void statusChanged(QMediaPlayer::MediaStatus status);
 
@@ -155,7 +155,7 @@ public Q_SLOTS:
 
     void setVolume(qreal volume);
 
-    void setSource(const QUrl &source);
+    //void setSource(const QUrl &source);
 
     void setPosition(qint64 position);
 
