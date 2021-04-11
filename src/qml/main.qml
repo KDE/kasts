@@ -60,6 +60,12 @@ Kirigami.ApplicationWindow {
         ]
     }
 
+    AudioManager {
+        id: audio
+        playerOpen: false
+        source: entry ? (entry.enclosure ? "file://" + entry.enclosure.path : "") : ""
+    }
+
     Component {
         id: aboutPage
         Kirigami.AboutPage {
@@ -79,19 +85,34 @@ Kirigami.ApplicationWindow {
         id: queueList
     }
 
+    /*
     Audio {
         id: audio
 
         property var entry: SettingsManager.lastPlayingEntry !== "none" ? DataManager.getEntry(SettingsManager.lastPlayingEntry) : undefined
         property bool playerOpen: false
 
-        onEntryChanged: SettingsManager.lastPlayingEntry = entry.id
-        source: entry ? (entry.enclosure ? "file://" + entry.enclosure.path : "") : ""
+        onSourceChanged: {
+            if (entry !== undefined) {
+                console.log("Changed track")
+                SettingsManager.lastPlayingEntry = entry.id
+                console.log("Between pause and seek", entry.title)
+                seek(entry.enclosure.playPosition)
+            }
+        }
+        onPositionChanged: {
+            if (playbackState == Audio.PlayingState) {
+                entry.enclosure.playPosition = position
+            }
+            console.log(entry.title, position, playbackState)
+        }
+
+        //source: entry ? (entry.enclosure ? "file://" + entry.enclosure.path : "") : ""
         //source: entry.enclosure.url
         onError: console.debug(errorString)
-        //source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
+        source: "gst-pipeline: playbin uri=file://" + entry.enclosure.path + " audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\""
     }
-
+    */
 
     footer: Loader {
         active: (audio.entry !== undefined) && !audio.playerOpen

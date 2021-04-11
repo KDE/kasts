@@ -68,10 +68,12 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
         return SettingsManager::self();
     });
-    qmlRegisterSingletonType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+    /*qmlRegisterSingletonType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         engine->setObjectOwnership(&AudioManager::instance(), QQmlEngine::CppOwnership);
         return &AudioManager::instance();
-    });
+    });*/
+    qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
+
     qRegisterMetaType<Entry*>("const Entry*"); // "hack" to make qml understand Entry*
 
     QQmlApplicationEngine engine;
@@ -97,6 +99,8 @@ int main(int argc, char *argv[])
     Database::instance();
 
     DataManager::instance();
+
+    //AudioManager::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

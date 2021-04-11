@@ -22,7 +22,9 @@ class AudioManager : public QObject
     Q_OBJECT
 
     Q_PROPERTY(bool playerOpen
-               MEMBER playerOpen)
+               READ playerOpen
+               WRITE setPlayerOpen
+               NOTIFY playerOpenChanged)
 
     Q_PROPERTY(Entry* entry
                READ entry
@@ -71,6 +73,8 @@ class AudioManager : public QObject
 
 public:
 
+    explicit AudioManager(QObject *parent = nullptr);
+
     static AudioManager &instance()
     {
         static AudioManager _instance;
@@ -80,6 +84,8 @@ public:
     ~AudioManager() override;
 
     [[nodiscard]] Entry* entry() const;
+
+    [[nodiscard]] bool playerOpen() const;
 
     [[nodiscard]] bool muted() const;
 
@@ -100,6 +106,8 @@ public:
     [[nodiscard]] bool seekable() const;
 
 Q_SIGNALS:
+
+    void playerOpenChanged();
 
     void entryChanged();
 
@@ -131,6 +139,8 @@ public Q_SLOTS:
 
     void setEntry(Entry* entry);
 
+    void setPlayerOpen(bool state);
+
     void setMuted(bool muted);
 
     void setVolume(qreal volume);
@@ -159,12 +169,8 @@ private Q_SLOTS:
 
 private:
 
-    explicit AudioManager(QObject *parent = nullptr);
-
     friend class AudioManagerPrivate;
 
     std::unique_ptr<AudioManagerPrivate> d;
-
-    bool playerOpen;
 
 };

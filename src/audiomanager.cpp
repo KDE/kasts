@@ -20,6 +20,7 @@ private:
     QMediaPlayer mPlayer;
 
     Entry* entry = nullptr;
+    bool playerOpen = false;
 
     friend class AudioManager;
 
@@ -48,6 +49,11 @@ AudioManager::~AudioManager()
 Entry* AudioManager::entry () const
 {
     return d->entry;
+}
+
+bool AudioManager::playerOpen() const
+{
+    return d->playerOpen;
 }
 
 bool AudioManager::muted() const
@@ -106,6 +112,12 @@ void AudioManager::setEntry(Entry* entry)
 {
     d->entry = entry;
     Q_EMIT entryChanged();
+}
+
+void AudioManager::setPlayerOpen(bool state)
+{
+    d->playerOpen = state;
+    Q_EMIT playerOpenChanged();
 }
 
 void AudioManager::setMuted(bool muted)
