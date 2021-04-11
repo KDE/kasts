@@ -10,6 +10,7 @@
 
 #include <QTimer>
 #include <QAudio>
+#include <QEventLoop>
 
 class AudioManagerPrivate
 {
@@ -120,6 +121,30 @@ void AudioManager::setEntry(Entry* entry)
 {
     if (entry != nullptr) {
         d->m_entry = entry;
+        d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+
+        qint64 startingPosition = 0;
+        // What follows is a dirty hack to get the player positioned at the
+        // correct spot.  The audio only becomes seekable when the player is
+        // actually playing.  So we start the playback and then set a timer to
+        // wait until the stream becomes seekable; then switch position and
+        // immediately pause the playback.
+        // Unfortunately, this will produce an audible glitch with the current
+        // QMediaPlayer backend.
+        d->m_player.play();
+        if(!d->m_player.isSeekable()) {
+            QEventLoop loop;
+            QTimer timer;
+            timer.setSingleShot(true);
+            timer.setInterval(2000);
+            loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
+            loop.connect(&d->m_player, SIGNAL (seekableChanged(bool)), &loop, SLOT (quit()));
+            qDebug() << "Starting waiting loop";
+            loop.exec();
+        }
+        qDebug() << "Changing position";
+        if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
+        d->m_player.pause();
         Q_EMIT entryChanged(entry);
     }
 }
