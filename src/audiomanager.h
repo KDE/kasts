@@ -97,7 +97,7 @@ public:
 
     [[nodiscard]] qreal volume() const;
 
-    //[[nodiscard]] QUrl source() const;
+    [[nodiscard]] QUrl source() const;
 
     [[nodiscard]] QMediaPlayer::MediaStatus status() const;
 
@@ -113,6 +113,8 @@ public:
 
     [[nodiscard]] bool seekable() const;
 
+    [[nodiscard]] bool canPlay() const;
+
 Q_SIGNALS:
 
     void playerOpenChanged(bool state);
@@ -123,7 +125,7 @@ Q_SIGNALS:
 
     void volumeChanged();
 
-    //void sourceChanged();
+    void sourceChanged();
 
     void statusChanged(QMediaPlayer::MediaStatus status);
 
@@ -145,6 +147,8 @@ Q_SIGNALS:
 
     void stopped();
 
+    void playerCanPlayChanged();
+
 public Q_SLOTS:
 
     void setEntry(Entry* entry);
@@ -155,7 +159,7 @@ public Q_SLOTS:
 
     void setVolume(qreal volume);
 
-    //void setSource(const QUrl &source);
+    //void setSource(const QUrl &source);  //source should only be set by audiomanager itself
 
     void setPosition(qint64 position);
 
@@ -168,6 +172,10 @@ public Q_SLOTS:
     void stop();
 
     void seek(qint64 position);
+
+    void previous(); //TODO: implement canPrevious and canNext member functions and re-use them in MPRIS and playercontrol
+
+    void next();
 
 private Q_SLOTS:
 

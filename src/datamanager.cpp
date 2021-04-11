@@ -285,6 +285,11 @@ int DataManager::queueCount() const
     return m_queuemap.count();
 }
 
+QStringList DataManager::getQueue() const
+{
+    return m_queuemap;
+}
+
 bool DataManager::entryInQueue(const QString &feedurl, const QString &id) const
 {
     Q_UNUSED(feedurl);

@@ -199,7 +199,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: console.log("TODO")
+                        onClicked: audio.next()
                     }
                 }
             }

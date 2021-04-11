@@ -35,7 +35,7 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
 {
     connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
     connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
-    //connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
+    connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
     connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::statusChanged);
     connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
     connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
@@ -50,8 +50,6 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     // Check if an entry was playing when the program was shut down and restore it
     if (SettingsManager::self()->lastPlayingEntry() != QStringLiteral("none"))
         setEntry(DataManager::instance().getEntry(SettingsManager::self()->lastPlayingEntry()));
-    //SettingsManager.lastPlayingEntry !== "none" ? DataManager.getEntry(SettingsManager.lastPlayingEntry) : undefined
-
 }
 
 AudioManager::~AudioManager()
@@ -82,12 +80,10 @@ qreal AudioManager::volume() const
     return userVolume * 100.0;
 }
 
-/*
 QUrl AudioManager::source() const
 {
     return d->m_player.media().request().url();
 }
-*/
 
 QMediaPlayer::Error AudioManager::error() const
 {
@@ -111,6 +107,11 @@ qint64 AudioManager::position() const
 bool AudioManager::seekable() const
 {
     return d->m_player.isSeekable();
+}
+
+bool AudioManager::canPlay() const
+{
+    return (d->m_entry != nullptr);
 }
 
 QMediaPlayer::State AudioManager::playbackState() const
@@ -161,6 +162,7 @@ void AudioManager::setEntry(Entry* entry)
         d->m_player.pause();
         d->lockPositionSaving = false;
         Q_EMIT entryChanged(entry);
+        Q_EMIT playerCanPlayChanged();
     }
 }
 
@@ -234,6 +236,17 @@ void AudioManager::seek(qint64 position)
     d->m_player.setPosition(position);
 }
 
+void AudioManager::next()
+{
+    qDebug() << "Skip to next track";
+    // TODO: to be implemented
+}
+
+void AudioManager::previous()
+{
+    qDebug() << "Back to previous track";
+    // TODO: to be implemented
+}
 void AudioManager::mediaStatusChanged()
 {
     qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
