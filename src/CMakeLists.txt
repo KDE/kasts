@@ -11,13 +11,15 @@ add_executable(alligator
     enclosuredownloadjob.cpp
     queuemodel.cpp
     datamanager.cpp
+    audiomanager.cpp
+    powermanagementinterface.cpp
     resources.qrc
 )
 
 kconfig_add_kcfg_files(alligator settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(alligator PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
+target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia Qt5::DBus KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(alligator PRIVATE

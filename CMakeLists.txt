@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.14)
 
 project(Alligator)
 
+# be c++14 compliant
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 set(KF5_MIN_VERSION "5.75.0")
 set(QT_MIN_VERSION "5.15.0")
 
@@ -29,7 +34,7 @@ if (ANDROID)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
     find_package(OpenSSL REQUIRED)
 else()
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
 endif()
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII

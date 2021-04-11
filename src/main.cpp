@@ -30,6 +30,7 @@
 #include "fetcher.h"
 #include "queuemodel.h"
 #include "datamanager.h"
+#include "audiomanager.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -66,6 +67,10 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType<SettingsManager>("org.kde.alligator", 1, 0, "SettingsManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
         engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
         return SettingsManager::self();
+    });
+    qmlRegisterSingletonType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&AudioManager::instance(), QQmlEngine::CppOwnership);
+        return &AudioManager::instance();
     });
     qRegisterMetaType<Entry*>("const Entry*"); // "hack" to make qml understand Entry*
 
