@@ -35,6 +35,7 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     connect(&d->mPlayer, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
     connect(&d->mPlayer, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
     connect(&d->mPlayer, &QMediaPlayer::stateChanged, this, &AudioManager::playerStateChanged);
+    connect(&d->mPlayer, &QMediaPlayer::playbackRateChanged, this, &AudioManager::playbackRateChanged);
     connect(&d->mPlayer, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
     connect(&d->mPlayer, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
     connect(&d->mPlayer, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
@@ -103,6 +104,11 @@ QMediaPlayer::State AudioManager::playbackState() const
     return d->mPlayer.state();
 }
 
+qreal AudioManager::playbackRate() const
+{
+    return d->mPlayer.playbackRate();
+}
+
 QMediaPlayer::MediaStatus AudioManager::status() const
 {
     return d->mPlayer.mediaStatus();
@@ -111,13 +117,13 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry* entry)
 {
     d->entry = entry;
-    Q_EMIT entryChanged();
+    Q_EMIT entryChanged(entry);
 }
 
 void AudioManager::setPlayerOpen(bool state)
 {
     d->playerOpen = state;
-    Q_EMIT playerOpenChanged();
+    Q_EMIT playerOpenChanged(state);
 }
 
 void AudioManager::setMuted(bool muted)
@@ -138,6 +144,13 @@ void AudioManager::setSource(const QUrl &source)
     qDebug() << "AudioManager::setSource" << source;
 
     d->mPlayer.setMedia({source});
+}
+
+void AudioManager::setPlaybackRate(const qreal rate)
+{
+    qDebug() << "AudioManager::setPlaybackRate" << rate;
+
+    d->mPlayer.setPlaybackRate(rate);
 }
 
 void AudioManager::setPosition(qint64 position)

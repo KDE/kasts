@@ -54,6 +54,11 @@ class AudioManager : public QObject
                READ playbackState
                NOTIFY playbackStateChanged)
 
+    Q_PROPERTY(qreal playbackRate
+               READ playbackRate
+               WRITE setPlaybackRate
+               NOTIFY playbackRateChanged)
+
     Q_PROPERTY(QMediaPlayer::Error error
                READ error
                NOTIFY errorChanged)
@@ -97,6 +102,8 @@ public:
 
     [[nodiscard]] QMediaPlayer::State playbackState() const;
 
+    [[nodiscard]] qreal playbackRate() const;
+
     [[nodiscard]] QMediaPlayer::Error error() const;
 
     [[nodiscard]] qint64 duration() const;
@@ -107,9 +114,9 @@ public:
 
 Q_SIGNALS:
 
-    void playerOpenChanged();
+    void playerOpenChanged(bool state);
 
-    void entryChanged();
+    void entryChanged(Entry* entry);
 
     void mutedChanged(bool muted);
 
@@ -120,6 +127,8 @@ Q_SIGNALS:
     void statusChanged(QMediaPlayer::MediaStatus status);
 
     void playbackStateChanged(QMediaPlayer::State state);
+
+    void playbackRateChanged(qreal rate);
 
     void errorChanged(QMediaPlayer::Error error);
 
@@ -148,6 +157,8 @@ public Q_SLOTS:
     void setSource(const QUrl &source);
 
     void setPosition(qint64 position);
+
+    void setPlaybackRate(qreal rate);
 
     void play();
 
