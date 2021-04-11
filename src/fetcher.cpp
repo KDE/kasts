@@ -132,11 +132,12 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
 
-    qDebug() << "Updated feed title:" << feed->title();
+    qDebug() << "Updated feed:" << feed->title();
 
     Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 
     for (const auto &entry : feed->items()) {
+        QCoreApplication::processEvents(); // keep the main thread semi-responsive
         processEntry(entry, url, isNewFeed);
     }
 

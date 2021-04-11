@@ -19,11 +19,12 @@ Kirigami.ScrollablePage {
     property var lastFeed: ""
 
     supportsRefreshing: true
-    onRefreshingChanged:
+    onRefreshingChanged: {
         if(refreshing)  {
             Fetcher.fetchAll()
             refreshing = false
         }
+    }
 
     contextualActions: [
         Kirigami.Action {
