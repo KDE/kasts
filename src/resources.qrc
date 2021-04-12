@@ -5,6 +5,7 @@
         <file alias="FeedListPage.qml">qml/FeedListPage.qml</file>
         <file alias="EntryPage.qml">qml/EntryPage.qml</file>
         <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
+        <file alias="AboutPage.qml">qml/AboutPage.qml</file>
         <file alias="FeedDetailsPage.qml">qml/FeedDetailsPage.qml</file>
         <file alias="EntryListDelegate.qml">qml/EntryListDelegate.qml</file>
         <file alias="AddFeedSheet.qml">qml/AddFeedSheet.qml</file>

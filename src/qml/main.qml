@@ -20,49 +20,62 @@ Kirigami.ApplicationWindow {
 
     title: "Alligator"
 
-    pageStack.initialPage: SettingsManager.lastOpenedPage === "FeedListPage" ? feedList
-                            : SettingsManager.lastOpenedPage === "QueuePage" ? queueList
-                            : feedList
+    //pageStack.initialPage: SettingsManager.lastOpenedPage === "FeedListPage" ? feedList
+    //                        : SettingsManager.lastOpenedPage === "QueuePage" ? queueList
+    //                        : feedList
+    Kirigami.PagePool {
+        id: mainPagePool
+        cachePages: true
+    }
+
+    pageStack.initialPage: mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
+                                                 : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
+                                                 : "qrc:/FeedListPage.qml")
 
     globalDrawer: Kirigami.GlobalDrawer {
-        isMenu: true
+        isMenu: false
         actions: [
-            Kirigami.Action {
+            Kirigami.PagePoolAction {
                 text: i18n("Queue")
                 iconName: "source-playlist"
+                pagePool: mainPagePool
+                page: "qrc:/QueuePage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "QueuePage" // for persistency
-                    pageStack.clear()
-                    pageStack.push(queueList)
                 }
             },
-            Kirigami.Action {
+            Kirigami.PagePoolAction {
                 text: i18n("Subscriptions")
                 iconName: "rss"
+                pagePool: mainPagePool
+                page: "qrc:/FeedListPage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
-                    pageStack.clear()
-                    pageStack.push(feedList)
                 }
             },
-            Kirigami.Action {
+            Kirigami.PagePoolAction {
                 text: i18n("Settings")
                 iconName: "settings-configure"
-                onTriggered: pageStack.layers.push("qrc:/SettingsPage.qml")
-                enabled: pageStack.layers.currentItem.title !== i18n("Settings")
+                pagePool: mainPagePool
+                page: "qrc:/SettingsPage.qml"
+                useLayers: true
             },
-            Kirigami.Action {
+            Kirigami.PagePoolAction {
                 text: i18n("About")
                 iconName: "help-about-symbolic"
-                onTriggered: pageStack.layers.push(aboutPage)
-                enabled: pageStack.layers.currentItem.title !== i18n("About")
+                pagePool: mainPagePool
+                page: "qrc:/AboutPage.qml"
+                useLayers: true
+                //enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
     }
 
     Component {
         id: aboutPage
+
         Kirigami.AboutPage {
+            title: i18n("About")
             aboutData: _aboutData
         }
     }
@@ -71,13 +84,13 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
     }
 
-    FeedListPage  {
+    /*FeedListPage  {
         id: feedList
     }
 
     QueuePage {
         id: queueList
-    }
+    }*/
 
     AudioManager {
         id: audio
