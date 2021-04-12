@@ -13,10 +13,6 @@
 #include "datamanager.h"
 #include "audiomanager.h"
 
-#if defined KF5FileMetaData_FOUND && KF5FileMetaData_FOUND
-#include <KFileMetaData/EmbeddedImageData>
-#endif
-
 #include <QCryptographicHash>
 #include <QStringList>
 #include <QDBusMessage>
