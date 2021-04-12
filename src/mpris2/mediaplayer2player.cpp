@@ -55,6 +55,9 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
     signalPropertiesChange(QStringLiteral("Volume"), Volume());
 
     m_mediaPlayerPresent = 1;
+    if (m_audioPlayer->entry()) {
+        setCurrentTrack(DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id()));
+    }
 }
 
 MediaPlayer2Player::~MediaPlayer2Player()
