@@ -42,10 +42,14 @@ class AudioManager : public QObject
                WRITE setVolume
                NOTIFY volumeChanged)
 
-    /*Q_PROPERTY(QUrl source
+    /*
+    // The source should not be set directly, but rather through entry
+    // Hence this property is disabled so it cannot be used accidentally in qml
+    Q_PROPERTY(QUrl source
                READ source
                WRITE setSource
-               NOTIFY sourceChanged)*/
+               NOTIFY sourceChanged)
+    */
 
     Q_PROPERTY(QMediaPlayer::MediaStatus status
                READ status
@@ -105,6 +109,10 @@ public:
 
     [[nodiscard]] qreal playbackRate() const;
 
+    [[nodiscard]] qreal minimumPlaybackRate() const;
+
+    [[nodiscard]] qreal maximumPlaybackRate() const;
+
     [[nodiscard]] QMediaPlayer::Error error() const;
 
     [[nodiscard]] qint64 duration() const;
@@ -114,6 +122,12 @@ public:
     [[nodiscard]] bool seekable() const;
 
     [[nodiscard]] bool canPlay() const;
+
+    [[nodiscard]] bool canPause() const;
+
+    [[nodiscard]] bool canGoNext() const;
+
+    [[nodiscard]] bool canGoPrevious() const;
 
 Q_SIGNALS:
 
@@ -147,7 +161,13 @@ Q_SIGNALS:
 
     void stopped();
 
-    void playerCanPlayChanged();
+    void canPlayChanged();
+
+    void canPauseChanged();
+
+    void canGoNextChanged();
+
+    void canGoPreviousChanged();
 
 public Q_SLOTS:
 
@@ -169,11 +189,13 @@ public Q_SLOTS:
 
     void pause();
 
+    void playPause();
+
     void stop();
 
     void seek(qint64 position);
 
-    void previous(); //TODO: implement canPrevious and canNext member functions and re-use them in MPRIS and playercontrol
+    void previous();
 
     void next();
 

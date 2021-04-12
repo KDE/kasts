@@ -15,6 +15,10 @@
 #include "datamanager.h"
 #include "settingsmanager.h"
 
+static const double MAX_RATE = 1.0;
+static const double MIN_RATE = 2.5;
+static const qint64 SKIP_STEP = 10000;
+
 class AudioManagerPrivate
 {
 
@@ -25,8 +29,9 @@ private:
     QMediaPlayer m_player;
 
     Entry* m_entry = nullptr;
+    bool m_readyToPlay = false;
     bool playerOpen = false;
-    bool lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
+    bool m_lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
     friend class AudioManager;
 };
@@ -111,7 +116,22 @@ bool AudioManager::seekable() const
 
 bool AudioManager::canPlay() const
 {
-    return (d->m_entry != nullptr);
+    return (d->m_readyToPlay);
+}
+
+bool AudioManager::canPause() const
+{
+    return (d->m_readyToPlay);
+}
+
+bool AudioManager::canGoNext() const
+{
+    return (d->m_readyToPlay);
+}
+
+bool AudioManager::canGoPrevious() const
+{
+    return (d->m_readyToPlay);
 }
 
 QMediaPlayer::State AudioManager::playbackState() const
@@ -124,6 +144,16 @@ qreal AudioManager::playbackRate() const
     return d->m_player.playbackRate();
 }
 
+qreal AudioManager::minimumPlaybackRate() const
+{
+    return MIN_RATE;
+}
+
+qreal AudioManager::maximumPlaybackRate() const
+{
+    return MAX_RATE;
+}
+
 QMediaPlayer::MediaStatus AudioManager::status() const
 {
     return d->m_player.mediaStatus();
@@ -133,7 +163,7 @@ void AudioManager::setEntry(Entry* entry)
 {
     if (entry != nullptr) {
         qDebug() << "Going to change source";
-        d->lockPositionSaving = true;
+        d->m_lockPositionSaving = true;
         d->m_entry = entry;
         d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
         // save the current playing track in the settingsfile for restoring on startup
@@ -171,9 +201,19 @@ void AudioManager::setEntry(Entry* entry)
         }        qDebug() << "Changing position";
         if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
         d->m_player.pause();
-        d->lockPositionSaving = false;
+        d->m_lockPositionSaving = false;
+        d->m_readyToPlay = true;
         Q_EMIT entryChanged(entry);
-        Q_EMIT playerCanPlayChanged();
+        Q_EMIT canPlayChanged();
+        Q_EMIT canPauseChanged();
+        Q_EMIT canGoNextChanged();
+        Q_EMIT canGoPreviousChanged();
+    } else {
+        d->m_readyToPlay = false;
+        Q_EMIT canPlayChanged();
+        Q_EMIT canPauseChanged();
+        Q_EMIT canGoNextChanged();
+        Q_EMIT canGoPreviousChanged();
     }
 }
 
@@ -205,18 +245,18 @@ void AudioManager::setSource(const QUrl &source)
 }
 */
 
-void AudioManager::setPlaybackRate(const qreal rate)
-{
-    qDebug() << "AudioManager::setPlaybackRate" << rate;
-
-    d->m_player.setPlaybackRate(rate);
-}
-
 void AudioManager::setPosition(qint64 position)
 {
     qDebug() << "AudioManager::setPosition" << position;
 
     d->m_player.setPosition(position);
+}
+
+void AudioManager::setPlaybackRate(const qreal rate)
+{
+    qDebug() << "AudioManager::setPlaybackRate" << rate;
+
+    d->m_player.setPlaybackRate(rate);
 }
 
 void AudioManager::play()
@@ -231,6 +271,14 @@ void AudioManager::pause()
     qDebug() << "AudioManager::pause";
 
     d->m_player.pause();
+}
+
+void AudioManager::playPause()
+{
+    if (playbackState() == QMediaPlayer::State::PausedState)
+        play();
+    else if (playbackState() == QMediaPlayer::State::PlayingState)
+        pause();
 }
 
 void AudioManager::stop()
@@ -249,15 +297,22 @@ void AudioManager::seek(qint64 position)
 
 void AudioManager::next()
 {
-    qDebug() << "Skip to next track";
-    // TODO: to be implemented
+    qDebug() << "AudioManager::next";
+    if ((duration()-position()) > SKIP_STEP)
+        seek(position() + SKIP_STEP);
+    else
+        seek(duration());
 }
 
 void AudioManager::previous()
 {
-    qDebug() << "Back to previous track";
-    // TODO: to be implemented
+    qDebug() << "AudioManager::previous";
+    if (position() > SKIP_STEP)
+        seek(position() - SKIP_STEP);
+    else
+        seek(0);
 }
+
 void AudioManager::mediaStatusChanged()
 {
     qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
@@ -300,7 +355,7 @@ void AudioManager::playerMutedChanged()
 
 void AudioManager::savePlayPosition(qint64 position)
 {
-    if (!d->lockPositionSaving)
+    if (!d->m_lockPositionSaving)
         d->m_entry->enclosure()->setPlayPosition(position);
     qDebug() << d->m_player.mediaStatus();
 }

@@ -31,7 +31,7 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
 {
     connect(m_audioPlayer, &AudioManager::sourceChanged,
             this, &MediaPlayer2Player::playerSourceChanged, Qt::QueuedConnection);
-    connect(m_audioPlayer, &AudioManager::playerCanPlayChanged,
+    connect(m_audioPlayer, &AudioManager::canPlayChanged,
             this, &MediaPlayer2Player::playControlEnabledChanged);
     connect(m_audioPlayer, &AudioManager::sourceChanged,
             this, &MediaPlayer2Player::skipBackwardControlEnabledChanged);
