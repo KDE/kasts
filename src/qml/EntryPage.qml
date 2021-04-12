@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
     actions.left: Kirigami.Action {
         text: "Add to queue"
         icon.name: "media-playlist-append"
-        visible: entry.enclosure
+        visible: entry.enclosure && !entry.queueStatus
         onTriggered: { DataManager.addtoQueue(entry.feed.url, entry.id) }
     }
 }
