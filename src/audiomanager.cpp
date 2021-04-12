@@ -149,7 +149,7 @@ void AudioManager::setEntry(Entry* entry)
         // Unfortunately, this will produce an audible glitch with the current
         // QMediaPlayer backend.
         d->m_player.play();
-        if(!d->m_player.isSeekable()) {
+        if (!d->m_player.isSeekable()) {
             QEventLoop loop;
             QTimer timer;
             timer.setSingleShot(true);
@@ -159,7 +159,16 @@ void AudioManager::setEntry(Entry* entry)
             qDebug() << "Starting waiting loop";
             loop.exec();
         }
-        qDebug() << "Changing position";
+        if (d->m_player.mediaStatus() != QMediaPlayer::BufferedMedia) {
+            QEventLoop loop;
+            QTimer timer;
+            timer.setSingleShot(true);
+            timer.setInterval(2000);
+            loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
+            loop.connect(&d->m_player, SIGNAL (mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT (quit()));
+            qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
+            loop.exec();
+        }        qDebug() << "Changing position";
         if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
         d->m_player.pause();
         d->lockPositionSaving = false;
