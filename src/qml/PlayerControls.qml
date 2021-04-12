@@ -174,7 +174,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: audio.previous()
+                        onClicked: audio.skipBackward()
                     }
                     Controls.Button {
                         id: playButton
@@ -191,7 +191,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: audio.next()
+                        onClicked: audio.skipForward()
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"
@@ -199,7 +199,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: audio.next()
+                        onClicked: console.log("Next track to be implemented")
                     }
                 }
             }

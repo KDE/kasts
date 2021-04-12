@@ -104,7 +104,7 @@ void MediaPlayer2Player::Next()
     emit next();
 
     if (m_audioPlayer) {
-        m_audioPlayer->next();
+        m_audioPlayer->skipForward();
     }
 }
 
@@ -116,7 +116,11 @@ bool MediaPlayer2Player::CanGoPrevious() const
 
 void MediaPlayer2Player::Previous()
 {
-    // not implemented
+    emit previous();
+
+    if (m_audioPlayer) {
+        m_audioPlayer->skipBackward();
+    }
 }
 
 bool MediaPlayer2Player::CanPause() const

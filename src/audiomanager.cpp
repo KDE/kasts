@@ -125,12 +125,12 @@ bool AudioManager::canPause() const
     return (d->m_readyToPlay);
 }
 
-bool AudioManager::canGoNext() const
+bool AudioManager::canSkipForward() const
 {
     return (d->m_readyToPlay);
 }
 
-bool AudioManager::canGoPrevious() const
+bool AudioManager::canSkipBackward() const
 {
     return (d->m_readyToPlay);
 }
@@ -207,14 +207,14 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT entryChanged(entry);
         Q_EMIT canPlayChanged();
         Q_EMIT canPauseChanged();
-        Q_EMIT canGoNextChanged();
-        Q_EMIT canGoPreviousChanged();
+        Q_EMIT canSkipForwardChanged();
+        Q_EMIT canSkipBackwardChanged();
     } else {
         d->m_readyToPlay = false;
         Q_EMIT canPlayChanged();
         Q_EMIT canPauseChanged();
-        Q_EMIT canGoNextChanged();
-        Q_EMIT canGoPreviousChanged();
+        Q_EMIT canSkipForwardChanged();
+        Q_EMIT canSkipBackwardChanged();
     }
 }
 
@@ -296,15 +296,15 @@ void AudioManager::seek(qint64 position)
     d->m_player.setPosition(position);
 }
 
-void AudioManager::next()
+void AudioManager::skipForward()
 {
-    qDebug() << "AudioManager::next";
+    qDebug() << "AudioManager::skipForward";
     seek(std::min((position() + SKIP_STEP), duration()));
 }
 
-void AudioManager::previous()
+void AudioManager::skipBackward()
 {
-    qDebug() << "AudioManager::previous";
+    qDebug() << "AudioManager::skipBackward";
     seek(std::max((qint64)0, (position() - SKIP_STEP)));
 }
 

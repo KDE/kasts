@@ -125,9 +125,9 @@ public:
 
     [[nodiscard]] bool canPause() const;
 
-    [[nodiscard]] bool canGoNext() const;
+    [[nodiscard]] bool canSkipForward() const;
 
-    [[nodiscard]] bool canGoPrevious() const;
+    [[nodiscard]] bool canSkipBackward() const;
 
 Q_SIGNALS:
 
@@ -165,9 +165,9 @@ Q_SIGNALS:
 
     void canPauseChanged();
 
-    void canGoNextChanged();
+    void canSkipForwardChanged();
 
-    void canGoPreviousChanged();
+    void canSkipBackwardChanged();
 
 public Q_SLOTS:
 
@@ -195,9 +195,9 @@ public Q_SLOTS:
 
     void seek(qint64 position);
 
-    void previous();
+    void skipBackward();
 
-    void next();
+    void skipForward();
 
 private Q_SLOTS:
 
