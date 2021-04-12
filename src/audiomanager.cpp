@@ -7,6 +7,7 @@
 
 #include "audiomanager.h"
 
+#include <algorithm>
 #include <QTimer>
 #include <QAudio>
 #include <QEventLoop>
@@ -298,19 +299,13 @@ void AudioManager::seek(qint64 position)
 void AudioManager::next()
 {
     qDebug() << "AudioManager::next";
-    if ((duration()-position()) > SKIP_STEP)
-        seek(position() + SKIP_STEP);
-    else
-        seek(duration());
+    seek(std::min((position() + SKIP_STEP), duration()));
 }
 
 void AudioManager::previous()
 {
     qDebug() << "AudioManager::previous";
-    if (position() > SKIP_STEP)
-        seek(position() - SKIP_STEP);
-    else
-        seek(0);
+    seek(std::max((qint64)0, (position() - SKIP_STEP)));
 }
 
 void AudioManager::mediaStatusChanged()

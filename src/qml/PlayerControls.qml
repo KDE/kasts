@@ -174,7 +174,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: audio.seek(audio.position - 10000)
+                        onClicked: audio.previous()
                     }
                     Controls.Button {
                         id: playButton
@@ -191,7 +191,7 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: audio.seek(audio.position + 10000)
+                        onClicked: audio.next()
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"
