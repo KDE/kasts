@@ -82,8 +82,18 @@ Kirigami.ApplicationWindow {
     AudioManager {
         id: audio
         playerOpen: false
-        //onPositionChanged: console.log("position changed to", position)
-        //onSeekableChanged: console.log("seekable changed to", seekable)
+    }
+
+    Mpris2 {
+        id: mpris2Interface
+
+        playerName: 'alligator'
+        audioPlayer: audio
+
+        onRaisePlayer:
+        {
+            // TODO: implement
+        }
     }
 
     footer: Loader {

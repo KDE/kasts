@@ -31,6 +31,7 @@
 #include "queuemodel.h"
 #include "datamanager.h"
 #include "audiomanager.h"
+#include "mpris2/mpris2.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -73,6 +74,7 @@ int main(int argc, char *argv[])
         return &AudioManager::instance();
     });*/
     qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
+    qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
 
     qRegisterMetaType<Entry*>("const Entry*"); // "hack" to make qml understand Entry*
 

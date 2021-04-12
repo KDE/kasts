@@ -272,8 +272,8 @@ void MediaPlayer2Player::OpenUri(const QString &uri)
 
 void MediaPlayer2Player::playerSourceChanged()
 {
-    // TODO: do we need to implement this??
-    //setCurrentTrack(m_audioPlayer->playListPosition());
+    // TODO: refactor this; too complicated for this player
+    setCurrentTrack(DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id()));
 }
 
 void MediaPlayer2Player::playControlEnabledChanged()
