@@ -136,6 +136,8 @@ void AudioManager::setEntry(Entry* entry)
         d->lockPositionSaving = true;
         d->m_entry = entry;
         d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+        // save the current playing track in the settingsfile for restoring on startup
+        SettingsManager::self()->setLastPlayingEntry(d->m_entry->id());
         qDebug() << "Changed source to" << d->m_entry->title();
 
         qint64 startingPosition = d->m_entry->enclosure()->playPosition();
