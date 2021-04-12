@@ -165,51 +165,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
-
-        /* ColumnLayout {
-            width: parent.width
-            spacing: 0
-
-            Kirigami.InlineMessage {
-                type: Kirigami.MessageType.Error
-                Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.smallSpacing
-                text: i18n("Error (%1): %2", page.feed.errorId, page.feed.errorString)
-                visible: page.feed.errorId !== 0
-            }
-            RowLayout {
-                width: parent.width
-                height: root.height * 0.2
-
-                Image {
-                    source: page.feed.image === "" ? "rss" : "file://"+Fetcher.image(page.feed.image)
-                    property int size: Kirigami.Units.iconSizes.large
-                    Layout.minimumWidth: size
-                    Layout.minimumHeight: size
-                    Layout.maximumWidth: size
-                    Layout.maximumHeight: size
-                    asynchronous: true
-                }
-
-                ColumnLayout {
-                    Kirigami.Heading {
-                        text: page.feed.name
-                        wrapMode: Text.WordWrap
-                        Layout.fillWidth: true
-                    }
-                    Controls.Label {
-                        text: page.feed.description
-                        wrapMode: Text.WordWrap
-                        Layout.fillWidth: true
-                    }
-                    Controls.Label {
-                        text: page.feed.authors.length === 0 ? "" : " " + i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
-                        wrapMode: Text.WordWrap
-                        Layout.fillWidth: true
-                    }
-                }
-            }
-        }*/
     }
 }
