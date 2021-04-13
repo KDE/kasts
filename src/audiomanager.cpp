@@ -164,9 +164,22 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry* entry)
 {
     if (entry != nullptr) {
-        // TODO: here is a good spot to check if the previous track was (nearly) finished, so it can be removed if needed
-        qDebug() << "Going to change source";
         d->m_lockPositionSaving = true;
+        // First check if the previous track needs to be marked as read
+        // TODO: make grace time a setting in SettingsManager
+        if (d->m_entry) {
+            qDebug() << "Checking previous track";
+            qDebug() << "Left time" << (duration()-position());
+            qDebug() << "MediaStatus" << d->m_player.mediaStatus();
+            if (( (duration()-position()) < 15000)
+                  || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) ) {
+                qDebug() << "Mark as read:" << d->m_entry->title();
+                d->m_entry->setRead(true);
+                d->m_entry->enclosure()->setPlayPosition(0);
+            }
+        }
+
+        qDebug() << "Going to change source";
         d->m_entry = entry;
         d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
         // save the current playing track in the settingsfile for restoring on startup
@@ -324,6 +337,7 @@ void AudioManager::skipBackward()
 
 bool AudioManager::canGoNext() const
 {
+    // TODO: extend with streaming capability
     int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
     if (index >= 0) {
         // check if there is a next track
@@ -342,8 +356,6 @@ bool AudioManager::canGoNext() const
 void AudioManager::next()
 {
     QMediaPlayer::State currentState = playbackState();
-    // TODO: needs to be more complicated; what if track has not been downloaded and streaming is not allowed; probably needs a canGoNext routine
-    // go to next track in playlist
     int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
     if (canGoNext()) {
         setEntry(DataManager::instance().getEntry(DataManager::instance().getQueue()[index+1]));
@@ -359,7 +371,7 @@ void AudioManager::mediaStatusChanged()
 
     // File has reached the end and has stopped
     if (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) {
-
+        next();
     }
 }
 

@@ -145,7 +145,7 @@ void Enclosure::setPlayPosition(const qint64 &position)
     qDebug() << "save playPosition" << position << m_entry->title();
 
     // let's only save the play position to the database every 15 seconds
-    if (abs(m_playposition - m_playposition_dbsave) > 15000) {
+    if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
         qDebug() << "save playPosition to database" << position << m_entry->title();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));

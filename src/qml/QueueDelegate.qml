@@ -59,7 +59,7 @@ Kirigami.SwipeListItem {
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font.weight: Font.Normal
-                opacity: 1
+                opacity: (entry.read) ? 0.6 : 1
             }
             Loader {
                 sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : subtitle
