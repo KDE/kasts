@@ -99,13 +99,9 @@ Kirigami.SwipeListItem {
 
     actions: [
         Kirigami.Action {
-            iconName: "media-playback-start"
-            text: "Play"
-            onTriggered: {
-                audio.entry = entry
-                audio.play()
-            }
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            text: i18n("Remove from Queue")
+            icon.name: "list-remove"
+            onTriggered: { DataManager.removeQueueItem(entry) }
         },
         Kirigami.Action {
             text: i18n("Download")
@@ -126,9 +122,13 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
         },
         Kirigami.Action {
-            text: i18n("Remove from Queue")
-            icon.name: "list-remove"
-            onTriggered: { DataManager.removeQueueItem(entry) }
+            iconName: "media-playback-start"
+            text: "Play"
+            onTriggered: {
+                audio.entry = entry
+                audio.play()
+            }
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
         }
     ]
 }
