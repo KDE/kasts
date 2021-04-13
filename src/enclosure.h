@@ -27,6 +27,7 @@ class Enclosure : public QObject
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
+    Q_PROPERTY(qint64 duration MEMBER m_duration CONSTANT)
 
 public:
     Enclosure(Entry *entry);
@@ -58,7 +59,7 @@ private:
     void processDownloadedFile();
 
     Entry *m_entry;
-    int m_duration;
+    qint64 m_duration;
     int m_size;
     QString m_title;
     QString m_type;
