@@ -32,6 +32,7 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanPause READ CanPause NOTIFY canPauseChanged)
     Q_PROPERTY(bool CanControl READ CanControl NOTIFY canControlChanged)
     Q_PROPERTY(bool CanSeek READ CanSeek NOTIFY canSeekChanged)
+
     Q_PROPERTY(int currentTrack READ currentTrack WRITE setCurrentTrack NOTIFY currentTrackChanged)
     Q_PROPERTY(int mediaPlayerPresent READ mediaPlayerPresent WRITE setMediaPlayerPresent NOTIFY mediaPlayerPresentChanged)
 
@@ -56,7 +57,6 @@ public:
     bool CanControl() const;
     int currentTrack() const;
     int mediaPlayerPresent() const;
-
     bool showProgressOnTaskBar() const;
     void setShowProgressOnTaskBar(bool value);
 
@@ -94,23 +94,10 @@ public Q_SLOTS:
 private Q_SLOTS:
 
     void playerSourceChanged();
-
-    void playControlEnabledChanged();
-
-    void skipBackwardControlEnabledChanged();
-
-    void skipForwardControlEnabledChanged();
-
     void playerPlaybackStateChanged();
-
-    void playerIsSeekableChanged();
-
     void audioPositionChanged();
-
     void playerSeeked(qint64 position);
-
     void audioDurationChanged();
-
     void playerVolumeChanged();
 
 private:
@@ -127,14 +114,9 @@ private:
     QVariantMap m_metadata;
     QString m_currentTrack;
     QString m_currentTrackId;
-    double m_rate = 1.0;
     double m_volume = 0.0;
     int m_mediaPlayerPresent = 0;
-    bool m_canPlay = false;
-    bool m_canGoNext = false;
-    bool m_canGoPrevious = false;
     qlonglong m_position = 0;
-    bool m_playerIsSeekableChanged = false;
     AudioManager *m_audioPlayer = nullptr;
     mutable QDBusMessage mProgressIndicatorSignal;
     int mPreviousProgressPosition = 0;
