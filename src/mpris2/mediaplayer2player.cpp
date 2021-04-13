@@ -37,14 +37,6 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
     //        this, &MediaPlayer2Player::mimimumRateChanged);
     //connect(m_audioPlayer, &AudioManager::maximumRateChanged,
     //        this, &MediaPlayer2Player::maximumRateChanged);
-    connect(m_audioPlayer, &AudioManager::canSkipForwardChanged,
-            this, &MediaPlayer2Player::canGoNextChanged);
-    connect(m_audioPlayer, &AudioManager::canSkipBackwardChanged,
-            this, &MediaPlayer2Player::canGoPreviousChanged);
-    connect(m_audioPlayer, &AudioManager::canPlayChanged,
-            this, &MediaPlayer2Player::canPlayChanged);
-    connect(m_audioPlayer, &AudioManager::canPauseChanged,
-            this, &MediaPlayer2Player::canPauseChanged);
     connect(m_audioPlayer, &AudioManager::seekableChanged,
             this, &MediaPlayer2Player::canSeekChanged);
 
@@ -55,6 +47,16 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
             this, &MediaPlayer2Player::playerVolumeChanged);
     connect(m_audioPlayer, &AudioManager::positionChanged,
             this, &MediaPlayer2Player::playerSeeked);  // Implement Seeked signal
+    connect(m_audioPlayer, &AudioManager::canSkipForwardChanged,
+            this, &MediaPlayer2Player::playerCanGoNextChanged);
+    connect(m_audioPlayer, &AudioManager::canSkipBackwardChanged,
+            this, &MediaPlayer2Player::playerCanGoPreviousChanged);
+    connect(m_audioPlayer, &AudioManager::canPlayChanged,
+            this, &MediaPlayer2Player::playerCanPlayChanged);
+    connect(m_audioPlayer, &AudioManager::canPauseChanged,
+            this, &MediaPlayer2Player::playerCanPauseChanged);
+    connect(m_audioPlayer, &AudioManager::seekableChanged,
+            this, &MediaPlayer2Player::playerCanSeekChanged);
 
     // signals needed for progress indicator on taskbar
     connect(m_audioPlayer, &AudioManager::durationChanged,
@@ -287,6 +289,36 @@ void MediaPlayer2Player::playerVolumeChanged()
 {
     if (m_audioPlayer)
         setVolume(m_audioPlayer->volume() / 100.0);
+}
+
+void MediaPlayer2Player::playerCanPlayChanged()
+{
+    signalPropertiesChange(QStringLiteral("CanPlay"), CanPlay());
+    //Q_EMIT canPlayChanged();
+}
+
+void MediaPlayer2Player::playerCanPauseChanged()
+{
+    signalPropertiesChange(QStringLiteral("CanPause"), CanPause());
+    //Q_EMIT canPauseChanged();
+}
+
+void MediaPlayer2Player::playerCanGoNextChanged()
+{
+    signalPropertiesChange(QStringLiteral("CanGoNext"), CanGoNext());
+    //Q_EMIT canGoNextChanged();
+}
+
+void MediaPlayer2Player::playerCanGoPreviousChanged()
+{
+    signalPropertiesChange(QStringLiteral("CanGoPrevious"), CanGoNext());
+    //Q_EMIT canGoPreviousChanged();
+}
+
+void MediaPlayer2Player::playerCanSeekChanged()
+{
+    signalPropertiesChange(QStringLiteral("CanSeek"), CanSeek());
+    //Q_EMIT canSeekChanged();
 }
 
 void MediaPlayer2Player::setEntry(Entry* entry)

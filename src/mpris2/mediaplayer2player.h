@@ -92,6 +92,11 @@ private Q_SLOTS:
     void playerPlaybackStateChanged();
     void playerSeeked(qint64 position);
     void playerVolumeChanged();
+    void playerCanGoNextChanged();
+    void playerCanGoPreviousChanged();
+    void playerCanPlayChanged();
+    void playerCanPauseChanged();
+    void playerCanSeekChanged();
 
     // progress on taskbar
     void audioPositionChanged();
