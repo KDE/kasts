@@ -81,6 +81,10 @@ class AudioManager : public QObject
                READ seekable
                NOTIFY seekableChanged)
 
+    Q_PROPERTY(bool canGoNext
+               READ canGoNext
+               NOTIFY canGoNextChanged)
+
 public:
 
     explicit AudioManager(QObject *parent = nullptr);
@@ -129,6 +133,8 @@ public:
 
     [[nodiscard]] bool canSkipBackward() const;
 
+    [[nodiscard]] bool canGoNext() const;
+
 Q_SIGNALS:
 
     void playerOpenChanged(bool state);
@@ -169,6 +175,8 @@ Q_SIGNALS:
 
     void canSkipBackwardChanged();
 
+    void canGoNextChanged();
+
 public Q_SLOTS:
 
     void setEntry(Entry* entry);
@@ -198,6 +206,8 @@ public Q_SLOTS:
     void skipBackward();
 
     void skipForward();
+
+    void next();
 
 private Q_SLOTS:
 

@@ -23,7 +23,7 @@ class Enclosure : public QObject
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
     Q_PROPERTY(QString url MEMBER m_url CONSTANT)
-    Q_PROPERTY(Status status MEMBER m_status NOTIFY statusChanged)
+    Q_PROPERTY(Status status READ status NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
@@ -43,8 +43,8 @@ public:
     Q_INVOKABLE void deleteFile();
 
     QString path() const;
+    Status status() const;
     qint64 playPosition() const;
-
     void setPlayPosition(const qint64 &position);
 
 Q_SIGNALS:

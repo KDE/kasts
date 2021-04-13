@@ -199,7 +199,8 @@ Kirigami.Page {
                         icon.width: parent.buttonsize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
-                        onClicked: console.log("Next track to be implemented")
+                        onClicked: audio.next()
+                        enabled: audio.canGoNext
                     }
                 }
             }

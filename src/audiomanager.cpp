@@ -164,6 +164,7 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry* entry)
 {
     if (entry != nullptr) {
+        // TODO: here is a good spot to check if the previous track was (nearly) finished, so it can be removed if needed
         qDebug() << "Going to change source";
         d->m_lockPositionSaving = true;
         d->m_entry = entry;
@@ -210,6 +211,7 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT canPauseChanged();
         Q_EMIT canSkipForwardChanged();
         Q_EMIT canSkipBackwardChanged();
+        Q_EMIT canGoNextChanged();
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(true);
     } else {
@@ -218,6 +220,7 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT canPauseChanged();
         Q_EMIT canSkipForwardChanged();
         Q_EMIT canSkipBackwardChanged();
+        Q_EMIT canGoNextChanged();
         d->m_isSeekable = false;
         Q_EMIT seekableChanged(false);
     }
@@ -319,9 +322,45 @@ void AudioManager::skipBackward()
     seek(std::max((qint64)0, (position() - SKIP_STEP)));
 }
 
+bool AudioManager::canGoNext() const
+{
+    int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
+    if (index >= 0) {
+        // check if there is a next track
+        if (index < DataManager::instance().getQueue().count()-1) {
+            Entry* next_entry = DataManager::instance().getEntry(DataManager::instance().getQueue()[index+1]);
+            if (next_entry->enclosure()) {
+                if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+void AudioManager::next()
+{
+    QMediaPlayer::State currentState = playbackState();
+    // TODO: needs to be more complicated; what if track has not been downloaded and streaming is not allowed; probably needs a canGoNext routine
+    // go to next track in playlist
+    int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
+    if (canGoNext()) {
+        setEntry(DataManager::instance().getEntry(DataManager::instance().getQueue()[index+1]));
+        if (currentState == QMediaPlayer::PlayingState) play();
+    } else {
+        setEntry(nullptr);
+    }
+}
+
 void AudioManager::mediaStatusChanged()
 {
     qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
+
+    // File has reached the end and has stopped
+    if (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) {
+
+    }
 }
 
 void AudioManager::playerStateChanged()

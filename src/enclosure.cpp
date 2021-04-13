@@ -130,6 +130,11 @@ QString Enclosure::path() const
     return Fetcher::instance().enclosurePath(m_url);
 }
 
+Enclosure::Status Enclosure::status() const
+{
+    return m_status;
+}
+
 qint64 Enclosure::playPosition() const{
     return m_playposition;
 }
