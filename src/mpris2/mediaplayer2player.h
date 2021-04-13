@@ -13,6 +13,7 @@
 #include <QDBusMessage>
 
 class AudioManager;
+class Entry;
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {
@@ -33,8 +34,6 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanControl READ CanControl NOTIFY canControlChanged)
     Q_PROPERTY(bool CanSeek READ CanSeek NOTIFY canSeekChanged)
 
-    Q_PROPERTY(int currentTrack READ currentTrack WRITE setCurrentTrack NOTIFY currentTrackChanged)
-
 public:
     explicit MediaPlayer2Player(AudioManager *audioPlayer,
                                 bool showProgressOnTaskBar,
@@ -54,7 +53,6 @@ public:
     bool CanPause() const;
     bool CanSeek() const;
     bool CanControl() const;
-    int currentTrack() const;
     bool showProgressOnTaskBar() const;
     void setShowProgressOnTaskBar(bool value);
 
@@ -70,7 +68,6 @@ Q_SIGNALS:
     void canPauseChanged();
     void canControlChanged();
     void canSeekChanged();
-    void currentTrackChanged();
     void next();
     void previous();
     void playPause();
@@ -78,6 +75,8 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 
+    void setRate(double newRate);
+    void setVolume(double volume);
     void Next();
     void Previous();
     void Pause();
@@ -90,30 +89,32 @@ public Q_SLOTS:
 
 private Q_SLOTS:
 
-    void playerSourceChanged();
     void playerPlaybackStateChanged();
-    void audioPositionChanged();
     void playerSeeked(qint64 position);
-    void audioDurationChanged();
     void playerVolumeChanged();
+
+    // progress on taskbar
+    void audioPositionChanged();
+    void audioDurationChanged();
 
 private:
     void signalPropertiesChange(const QString &property, const QVariant &value);
 
-    void setRate(double newRate);
-    void setVolume(double volume);
-    void setPropertyPosition(int newPositionInMs);
-    void setCurrentTrack(int newTrackPosition);
+    void setEntry(Entry* entry);
 
     QVariantMap getMetadataOfCurrentTrack();
 
+    AudioManager *m_audioPlayer = nullptr;
     QVariantMap m_metadata;
-    QString m_currentTrack;
     QString m_currentTrackId;
     double m_volume = 0.0;
-    qlonglong m_position = 0;
-    AudioManager *m_audioPlayer = nullptr;
+
+
+    // progress on taskbar
+    void setPropertyPosition(int newPositionInMs);
+
     mutable QDBusMessage mProgressIndicatorSignal;
     int mPreviousProgressPosition = 0;
     bool mShowProgressOnTaskBar = true;
+    qlonglong m_position = 0;
 };

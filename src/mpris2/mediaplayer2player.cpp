@@ -25,10 +25,11 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
                                                           QStringLiteral("Update"))),
       mShowProgressOnTaskBar(showProgressOnTaskBar)
 {
-    // Signals from AudioManager which are directly forwarded
-    connect(m_audioPlayer, &AudioManager::sourceChanged,
-            this, &MediaPlayer2Player::playerSourceChanged, Qt::QueuedConnection);
+    // This will signal when the track is changed
+    connect(m_audioPlayer, &AudioManager::entryChanged,
+            this, &MediaPlayer2Player::setEntry);
 
+    // Signals from AudioManager which are directly forwarded
     connect(m_audioPlayer, &AudioManager::playbackRateChanged,
             this, &MediaPlayer2Player::rateChanged);
     // TODO: implement this in AudioManager, such that it can be forwarded
@@ -53,20 +54,20 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
     connect(m_audioPlayer, &AudioManager::volumeChanged,
             this, &MediaPlayer2Player::playerVolumeChanged);
     connect(m_audioPlayer, &AudioManager::positionChanged,
-            this, &MediaPlayer2Player::audioPositionChanged); // for progress indicator on taskbar
-    connect(m_audioPlayer, &AudioManager::positionChanged,
-            this, &MediaPlayer2Player::playerSeeked);  // Seeked signal
+            this, &MediaPlayer2Player::playerSeeked);  // Implement Seeked signal
 
-    // Custom signals not directly connected to AudioManager
+    // signals needed for progress indicator on taskbar
     connect(m_audioPlayer, &AudioManager::durationChanged,
-            this, &MediaPlayer2Player::audioDurationChanged); // for progress indicator on taskbar and to indicate a change of track
+            this, &MediaPlayer2Player::audioDurationChanged);
+    connect(m_audioPlayer, &AudioManager::positionChanged,
+            this, &MediaPlayer2Player::audioPositionChanged);
 
     if (m_audioPlayer) {
         m_volume = m_audioPlayer->volume() / 100;
         signalPropertiesChange(QStringLiteral("Volume"), Volume());
 
         if (m_audioPlayer->entry()) {
-            setCurrentTrack(DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id()));
+            setEntry(m_audioPlayer->entry());
         }
     }
 }
@@ -257,17 +258,6 @@ void MediaPlayer2Player::OpenUri(const QString &uri)
     Q_UNUSED(uri);
 }
 
-void MediaPlayer2Player::playerSourceChanged()
-{
-    // TODO: refactor setCurrentTrack; too complicated for this player
-    if (m_audioPlayer) {
-        if (m_audioPlayer->entry()) {
-            setCurrentTrack(DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id()));
-        }
-    }
-}
-
-
 void MediaPlayer2Player::playerPlaybackStateChanged()
 {
     signalPropertiesChange(QStringLiteral("PlaybackStatus"), PlaybackStatus());
@@ -289,9 +279,6 @@ void MediaPlayer2Player::audioPositionChanged()
 void MediaPlayer2Player::audioDurationChanged()
 {
     if (m_audioPlayer) {
-        m_metadata = getMetadataOfCurrentTrack();
-        signalPropertiesChange(QStringLiteral("Metadata"), Metadata());
-
         setPropertyPosition(static_cast<int>(m_audioPlayer->position()));
     }
 }
@@ -302,30 +289,18 @@ void MediaPlayer2Player::playerVolumeChanged()
         setVolume(m_audioPlayer->volume() / 100.0);
 }
 
-int MediaPlayer2Player::currentTrack() const
+void MediaPlayer2Player::setEntry(Entry* entry)
 {
     if (m_audioPlayer) {
         if (m_audioPlayer->entry()) {
-            return DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id());
-        } else {
-            return -1;
-        }
-    } else {
-        return -1;
-    }
-}
+            if (m_audioPlayer->entry() == entry) {
+                int queuenr = DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id());
+                qDebug() << "MPRIS2: Setting entry" << entry->title();
+                m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(queuenr)).path();
 
-void MediaPlayer2Player::setCurrentTrack(int newTrackPosition)
-{
-    if (m_audioPlayer) {
-        if (m_audioPlayer->entry()) {
-            m_currentTrack = m_audioPlayer->entry()->title();
-            m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(newTrackPosition)).path();
-
-            emit currentTrackChanged();
-
-            m_metadata = getMetadataOfCurrentTrack();
-            signalPropertiesChange(QStringLiteral("Metadata"), Metadata());
+                m_metadata = getMetadataOfCurrentTrack();
+                signalPropertiesChange(QStringLiteral("Metadata"), Metadata());
+            }
         }
     }
 }
