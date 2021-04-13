@@ -32,6 +32,7 @@ private:
     Entry* m_entry = nullptr;
     bool m_readyToPlay = false;
     bool playerOpen = false;
+    bool m_isSeekable = false;
     bool m_lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
     friend class AudioManager;
@@ -51,7 +52,7 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::savePlayPosition);
-    connect(&d->m_player, &QMediaPlayer::seekableChanged, this, &AudioManager::seekableChanged);
+    // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
 
     // Check if an entry was playing when the program was shut down and restore it
     if (SettingsManager::self()->lastPlayingEntry() != QStringLiteral("none"))
@@ -112,7 +113,7 @@ qint64 AudioManager::position() const
 
 bool AudioManager::seekable() const
 {
-    return d->m_player.isSeekable();
+    return d->m_isSeekable;
 }
 
 bool AudioManager::canPlay() const
@@ -209,12 +210,16 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT canPauseChanged();
         Q_EMIT canSkipForwardChanged();
         Q_EMIT canSkipBackwardChanged();
+        d->m_isSeekable = true;
+        Q_EMIT seekableChanged(true);
     } else {
         d->m_readyToPlay = false;
         Q_EMIT canPlayChanged();
         Q_EMIT canPauseChanged();
         Q_EMIT canSkipForwardChanged();
         Q_EMIT canSkipBackwardChanged();
+        d->m_isSeekable = false;
+        Q_EMIT seekableChanged(false);
     }
 }
 
@@ -265,12 +270,16 @@ void AudioManager::play()
     qDebug() << "AudioManager::play";
 
     d->m_player.play();
+    d->m_isSeekable = true;
+    Q_EMIT seekableChanged(d->m_isSeekable);
 }
 
 void AudioManager::pause()
 {
     qDebug() << "AudioManager::pause";
 
+    d->m_player.play();
+    d->m_isSeekable = true;
     d->m_player.pause();
 }
 
@@ -287,6 +296,8 @@ void AudioManager::stop()
     qDebug() << "AudioManager::stop";
 
     d->m_player.stop();
+    d->m_isSeekable = false;
+    Q_EMIT seekableChanged(d->m_isSeekable);
 }
 
 void AudioManager::seek(qint64 position)
