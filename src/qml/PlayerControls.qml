@@ -16,7 +16,7 @@ import org.kde.alligator 1.0
 Kirigami.Page {
     id: playercontrols
 
-    title: audio.entry.title
+    title: audio.entry ? audio.entry.title : "No track loaded"
     clip: true
     Layout.margins: 0
 
@@ -38,7 +38,7 @@ Kirigami.Page {
                 Image {
                     id: coverImage
                     asynchronous: true
-                    source: audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)
+                    source: audio.entry ? (audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)) : ""
                     fillMode: Image.PreserveAspectFit
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -54,13 +54,13 @@ Kirigami.Page {
                     anchors.right: parent.right
                     anchors.topMargin: parent.textMargin
                     Controls.Label {
-                        text: audio.entry.title
+                        text: audio.entry ? audio.entry.title : "No title"
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
                     }
                     Controls.Label {
-                        text: audio.entry.feed.name
+                        text: audio.entry ? audio.entry.feed.name : "No feed"
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
@@ -78,9 +78,9 @@ Kirigami.Page {
                     Controls.Label {
                         width: parent.width
                         id: text
-                        text: audio.entry.content
+                        text: audio.entry ? audio.entry.content : "No track loaded"
                         verticalAlignment: Text.AlignTop
-                        baseUrl: audio.entry.baseUrl
+                        baseUrl: audio.entry ? audio.entry.baseUrl : ""
                         textFormat: Text.RichText
                         wrapMode: Text.WordWrap
                         onLinkActivated: Qt.openUrlExternally(link)
@@ -112,6 +112,7 @@ Kirigami.Page {
                 anchors.right: parent.right
 
                 Controls.Slider {
+                    enabled: audio.entry
                     Layout.fillWidth: true
                     from: 0
                     to: audio.duration
@@ -175,6 +176,7 @@ Kirigami.Page {
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         onClicked: audio.skipBackward()
+                        enabled: audio.canSkipBackward
                     }
                     Controls.Button {
                         id: playButton
@@ -184,6 +186,7 @@ Kirigami.Page {
                         flat: true
                         onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
                         Layout.alignment: Qt.AlignHCenter
+                        enabled: audio.canPlay
                     }
                     Controls.Button {
                         icon.name: "media-seek-forward"
@@ -192,6 +195,7 @@ Kirigami.Page {
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         onClicked: audio.skipForward()
+                        enabled: audio.canSkipForward
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"

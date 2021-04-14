@@ -323,6 +323,9 @@ void MediaPlayer2Player::playerCanSeekChanged()
 
 void MediaPlayer2Player::setEntry(Entry* entry)
 {
+    if (entry == nullptr)
+        return;
+
     if (m_audioPlayer) {
         if (m_audioPlayer->entry()) {
             if (m_audioPlayer->entry() == entry) {

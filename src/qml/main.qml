@@ -110,8 +110,8 @@ Kirigami.ApplicationWindow {
     }
 
     footer: Loader {
-        active: (audio.entry != undefined) && !audio.playerOpen
-        visible: (audio.entry != undefined) && !audio.playerOpen
+        active: (audio.entry) && !audio.playerOpen
+        visible: (audio.entry) && !audio.playerOpen
         sourceComponent: MinimizedPlayerControls { }
     }
 

@@ -81,6 +81,18 @@ class AudioManager : public QObject
                READ seekable
                NOTIFY seekableChanged)
 
+    Q_PROPERTY(bool canPlay
+               READ canPlay
+               NOTIFY canPlayChanged)
+
+    Q_PROPERTY(bool canSkipForward
+               READ canSkipForward
+               NOTIFY canSkipForwardChanged)
+
+    Q_PROPERTY(bool canSkipBackward
+               READ canSkipBackward
+               NOTIFY canSkipBackwardChanged)
+
     Q_PROPERTY(bool canGoNext
                READ canGoNext
                NOTIFY canGoNextChanged)
