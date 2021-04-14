@@ -219,7 +219,6 @@ void AudioManager::setEntry(Entry* entry)
         if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
         d->m_player.pause();
         d->m_readyToPlay = true;
-        Q_EMIT entryChanged(d->m_entry);  // TODO: this is a hack to get MPRIS to show correct duration; should be split off into a separate signal
         Q_EMIT canPlayChanged();
         Q_EMIT canPauseChanged();
         Q_EMIT canSkipForwardChanged();

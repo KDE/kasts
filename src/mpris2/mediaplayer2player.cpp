@@ -280,6 +280,18 @@ void MediaPlayer2Player::audioPositionChanged()
 
 void MediaPlayer2Player::audioDurationChanged()
 {
+    qDebug() << "Signal change of audio duration through MPRIS2";
+    // We reset all metadata in case the audioDuration changed
+    // This is done because duration is not yet available when setEntry is
+    // called (this is before the QMediaPlayer has read the new track
+    if (m_audioPlayer) {
+        if (m_audioPlayer->entry()) {
+            m_metadata = getMetadataOfCurrentTrack();
+            signalPropertiesChange(QStringLiteral("Metadata"), Metadata());
+        }
+    }
+
+    // for progress indicator on taskbar
     if (m_audioPlayer) {
         setPropertyPosition(static_cast<int>(m_audioPlayer->position()));
     }
