@@ -89,6 +89,22 @@ QString MediaPlayer2Player::PlaybackStatus() const
         result = QStringLiteral("Paused");
     }
 
+    if (mShowProgressOnTaskBar) {
+        QVariantMap parameters;
+
+        if (m_audioPlayer->playbackState() == QMediaPlayer::StoppedState || m_audioPlayer->duration() == 0) {
+            parameters.insert(QStringLiteral("progress-visible"), false);
+            parameters.insert(QStringLiteral("progress"), 0);
+        } else {
+            parameters.insert(QStringLiteral("progress-visible"), true);
+            parameters.insert(QStringLiteral("progress"), qRound(static_cast<double>(m_position / m_audioPlayer->duration())) / 1000.0);
+        }
+
+        mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.alligator.desktop"), parameters});
+
+        QDBusConnection::sessionBus().send(mProgressIndicatorSignal);
+    }
+
     return result;
 }
 
