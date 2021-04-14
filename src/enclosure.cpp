@@ -38,12 +38,14 @@ Enclosure::Enclosure(Entry *entry)
     m_playposition_dbsave = m_playposition;
 
     QFile file(path());
-    if(file.size() == m_size) {
-        m_status = Downloaded;
-    } else {
-        if(file.exists()) {
+    if (file.exists()) {
+        if(file.size() == m_size) {
+            m_status = Downloaded;
+        } else {
             file.remove();
+            m_status = Downloadable;
         }
+    } else {
         m_status = Downloadable;
     }
 }
