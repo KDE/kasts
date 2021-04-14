@@ -11,7 +11,7 @@ import QtQuick.Layouts 1.14
 
 import QtMultimedia 5.15
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 
 import org.kde.alligator 1.0
 
@@ -31,6 +31,8 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
+        // make room at the bottom for miniplayer
+        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
         actions: [
             Kirigami.PagePoolAction {
                 text: i18n("Queue")
@@ -63,7 +65,6 @@ Kirigami.ApplicationWindow {
                 pagePool: mainPagePool
                 page: "qrc:/AboutPage.qml"
                 useLayers: true
-                //enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
     }
@@ -79,6 +80,8 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
+        // make room at the bottom for miniplayer
+        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
     }
 
     AudioManager {
@@ -113,13 +116,4 @@ Kirigami.ApplicationWindow {
         }
 
     }
-
-    // Doesn't look like this is needed at all:
-    // capture mouse events behind flickable when it is open
-    /*MouseArea {
-        visible: footerLoader.item.contentY != 0 // only capture when the mobile footer panel is open
-        anchors.fill: footerLoader
-        preventStealing: true
-        onClicked: mouse.accepted = true
-    }*/
 }
