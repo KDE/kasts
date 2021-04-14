@@ -22,11 +22,6 @@ class AudioManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool playerOpen
-               READ playerOpen
-               WRITE setPlayerOpen
-               NOTIFY playerOpenChanged)
-
     Q_PROPERTY(Entry* entry
                READ entry
                WRITE setEntry
@@ -111,8 +106,6 @@ public:
 
     [[nodiscard]] Entry* entry() const;
 
-    [[nodiscard]] bool playerOpen() const;
-
     [[nodiscard]] bool muted() const;
 
     [[nodiscard]] qreal volume() const;
@@ -148,8 +141,6 @@ public:
     [[nodiscard]] bool canGoNext() const;
 
 Q_SIGNALS:
-
-    void playerOpenChanged(bool state);
 
     void entryChanged(Entry* entry);
 
@@ -192,8 +183,6 @@ Q_SIGNALS:
 public Q_SLOTS:
 
     void setEntry(Entry* entry);
-
-    void setPlayerOpen(bool state);
 
     void setMuted(bool muted);
 

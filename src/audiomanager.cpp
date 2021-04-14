@@ -31,7 +31,6 @@ private:
 
     Entry* m_entry = nullptr;
     bool m_readyToPlay = false;
-    bool playerOpen = false;
     bool m_isSeekable = false;
     bool m_lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
@@ -67,11 +66,6 @@ AudioManager::~AudioManager()
 Entry* AudioManager::entry () const
 {
     return d->m_entry;
-}
-
-bool AudioManager::playerOpen() const
-{
-    return d->playerOpen;
 }
 
 bool AudioManager::muted() const
@@ -243,12 +237,6 @@ void AudioManager::setEntry(Entry* entry)
     }
     // Unlock the position saving lock
     d->m_lockPositionSaving = false;
-}
-
-void AudioManager::setPlayerOpen(bool state)
-{
-    d->playerOpen = state;
-    Q_EMIT playerOpenChanged(state);
 }
 
 void AudioManager::setMuted(bool muted)

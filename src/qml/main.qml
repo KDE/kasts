@@ -17,12 +17,9 @@ import org.kde.alligator 1.0
 
 Kirigami.ApplicationWindow {
     id: root
-
     title: "Alligator"
 
-    //pageStack.initialPage: SettingsManager.lastOpenedPage === "FeedListPage" ? feedList
-    //                        : SettingsManager.lastOpenedPage === "QueuePage" ? queueList
-    //                        : feedList
+    property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     Kirigami.PagePool {
         id: mainPagePool
         cachePages: true
@@ -84,17 +81,8 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
     }
 
-    /*FeedListPage  {
-        id: feedList
-    }
-
-    QueuePage {
-        id: queueList
-    }*/
-
     AudioManager {
         id: audio
-        playerOpen: false
     }
 
     Mpris2 {
@@ -109,20 +97,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    footer: Loader {
-        active: (audio.entry) && !audio.playerOpen
-        visible: (audio.entry) && !audio.playerOpen
-        sourceComponent: MinimizedPlayerControls { }
-    }
-
-    /*
+    // create space at the bottom to show miniplayer without it hiding stuff
+    // underneath
+    pageStack.anchors.bottomMargin: (audio.entry) ? miniplayerSize : 0
     Loader {
         id: footerLoader
 
-        property var minimizedSize: Kirigami.Units.gridUnit * 3.0
-
         anchors.fill: parent
-        active: (audio.entry == undefined) ? false : true
+        active: (audio.entry) ? true : false
         visible: active
         z: (!item || item.contentY == 0) ? -1 : 999
         sourceComponent: FooterBar {
@@ -132,18 +114,12 @@ Kirigami.ApplicationWindow {
 
     }
 
-    Item {
-        visible: (audio.entry !== undefined)
-        height: footerLoader.minimizedSize
-    }
-    */
-
-    /*Kirigami.OverlaySheet {
-        id: playeroverlay
-        sheetOpen: False
-        PlayerControls {
-            height: root.height*5.0/6.0
-            width: root.width*5.0/6.0;
-        }
+    // Doesn't look like this is needed at all:
+    // capture mouse events behind flickable when it is open
+    /*MouseArea {
+        visible: footerLoader.item.contentY != 0 // only capture when the mobile footer panel is open
+        anchors.fill: footerLoader
+        preventStealing: true
+        onClicked: mouse.accepted = true
     }*/
 }

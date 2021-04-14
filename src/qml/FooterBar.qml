@@ -87,14 +87,14 @@ Flickable {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: root.height + footerLoader.minimizedSize
+        height: root.height + root.miniplayerSize
         spacing: 0
 
         MinimizedPlayerControls {
             id: playControlItem
 
             Layout.fillWidth: true
-            Layout.minimumHeight: Kirigami.Units.gridUnit * 2.5
+            Layout.minimumHeight: root.miniplayerSize
             Layout.alignment: Qt.AlignTop
             focus: true
         }
