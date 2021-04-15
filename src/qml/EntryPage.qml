@@ -21,25 +21,19 @@ Kirigami.ScrollablePage {
 
     title: entry.title
 
-    /*Flickable {
-        anchors.fill: parent
 
-        clip: true
-        contentHeight: text.height
-*/
-        Controls.Label {
-            width: page.width - 30
-            id: text
-            text: page.entry.content
-            baseUrl: page.entry.baseUrl
-            textFormat: Text.RichText
-            wrapMode: Text.WordWrap
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            onLinkActivated: Qt.openUrlExternally(link)
-            //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
-        }
-    //}
+    Controls.Label {
+        width: page.width - 30
+        id: text
+        text: page.entry.content
+        baseUrl: page.entry.baseUrl
+        textFormat: Text.RichText
+        wrapMode: Text.WordWrap
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        onLinkActivated: Qt.openUrlExternally(link)
+        //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
+    }
     actions.main: Kirigami.Action {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
