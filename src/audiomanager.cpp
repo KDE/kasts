@@ -51,6 +51,7 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::durationChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::savePlayPosition);
+    connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, &AudioManager::canGoNextChanged);
     // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
 
     // Check if an entry was playing when the program was shut down and restore it
