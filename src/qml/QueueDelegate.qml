@@ -15,6 +15,7 @@ import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
     id: listItem
+    alwaysVisibleActions: true
 
     contentItem: RowLayout {
         Kirigami.ListItemDragHandle {
@@ -91,7 +92,6 @@ Kirigami.SwipeListItem {
                 RowLayout {
                     Controls.Label {
                         text: (Math.floor(entry.enclosure.playPosition/3600000) < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/3600000) + ":" + (Math.floor(entry.enclosure.playPosition/60000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/60000) % 60 + ":" + (Math.floor(entry.enclosure.playPosition/1000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/1000) % 60
-                        Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -104,7 +104,6 @@ Kirigami.SwipeListItem {
                     }
                     Controls.Label {
                         text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
-                        Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
