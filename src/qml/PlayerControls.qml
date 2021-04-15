@@ -22,13 +22,25 @@ Kirigami.Page {
 
     ColumnLayout {
         anchors.fill: parent
+        anchors.topMargin:0
+        Controls.Button {
+            id: swipeUpButton
+            property int swipeUpButtonSize: Kirigami.Units.gridUnit * 2
+            icon.name: "arrow-down"
+            icon.height: swipeUpButtonSize
+            icon.width: swipeUpButtonSize
+            flat: true
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 0
+            onClicked: toClose.restart()
+        }
         Controls.SwipeView {
             id: swipeView
 
             currentIndex: 0
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Layout.preferredWidth: parent.width
-            Layout.preferredHeight: parent.height - media.height - indicator.height
+            Layout.preferredHeight: parent.height - media.height - indicator.height - swipeUpButton.height
             Layout.margins: 0
             Item {
                 property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
