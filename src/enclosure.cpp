@@ -145,6 +145,7 @@ void Enclosure::setPlayPosition(const qint64 &position)
 {
     m_playposition = position;
     qDebug() << "save playPosition" << position << m_entry->title();
+    Q_EMIT playPositionChanged();
 
     // let's only save the play position to the database every 15 seconds
     if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
