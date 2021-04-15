@@ -162,7 +162,7 @@ Kirigami.Page {
                 RowLayout {
                     Layout.maximumWidth: Number.POSITIVE_INFINITY //TODO ?
                     Layout.fillWidth: true
-                    Layout.topMargin: Kirigami.Units.gridUnit * 2
+                    Layout.topMargin: Kirigami.Units.gridUnit
                     property int buttonsize: Kirigami.Units.gridUnit * 2
 
                     Controls.Button {
