@@ -42,7 +42,8 @@ public:
     int queueCount() const;
     QStringList getQueue() const;
     Q_INVOKABLE bool entryInQueue(const QString &feedurl, const QString &id) const;
-    Q_INVOKABLE void addtoQueue(const QString &feedurl, const QString &id);
+    Q_INVOKABLE void addToQueue(const Entry* entry);
+    Q_INVOKABLE void addToQueue(const QString &feedurl, const QString &id);
     Q_INVOKABLE void moveQueueItem(const int &from, const int &to);
     Q_INVOKABLE void removeQueueItem(const int &index);
     Q_INVOKABLE void removeQueueItem(const QString id);

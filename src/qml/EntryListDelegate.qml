@@ -126,7 +126,10 @@ Kirigami.SwipeListItem {
         Kirigami.Action {
             text: i18n("Download")
             icon.name: "download"
-            onTriggered: entry.enclosure.download()
+            onTriggered: {
+                DataManager.addToQueue(entry);
+                entry.enclosure.download();
+            }
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
         },
         Kirigami.Action {
@@ -140,12 +143,12 @@ Kirigami.SwipeListItem {
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        },
+        } /*,
         Kirigami.Action {
             text: i18n("Add to queue")
             icon.name: "media-playlist-append"
             visible: entry.enclosure  && !entry.queueStatus
-            onTriggered: { DataManager.addtoQueue(entry.feed.url, entry.id) }
-        }
+            onTriggered: { DataManager.addToQueue(entry) }
+        }*/
     ]
 }

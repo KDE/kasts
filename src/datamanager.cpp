@@ -63,7 +63,7 @@ DataManager::DataManager()
             Database::instance().execute(query);
             while (query.next()) {
                 QString const id = query.value(QStringLiteral("id")).toString();
-                addtoQueue(feedurl, id);
+                addToQueue(feedurl, id);
                 if (SettingsManager::self()->autoDownload()) {
                     if (getEntry(id)->hasEnclosure()) {
                         qDebug() << "Start downloading" << getEntry(id)->title();
@@ -296,7 +296,14 @@ bool DataManager::entryInQueue(const QString &feedurl, const QString &id) const
     return m_queuemap.contains(id);
 }
 
-void DataManager::addtoQueue(const QString &feedurl, const QString &id)
+void DataManager::addToQueue(const Entry* entry)
+{
+    if (entry != nullptr) {
+        return addToQueue(entry->feed()->url(), entry->id());
+    }
+}
+
+void DataManager::addToQueue(const QString &feedurl, const QString &id)
 {
     // If item is already in queue, then stop here
     if (m_queuemap.contains(id)) return;

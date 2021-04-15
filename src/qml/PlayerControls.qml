@@ -130,8 +130,6 @@ Kirigami.Page {
                 }
                 RowLayout {
                     id: controls
-                    //Layout.leftMargin: 0
-                    //Layout.rightMargin: 0
                     Layout.fillWidth: true
                     Controls.Label {
                         //anchor.left: parent.left
