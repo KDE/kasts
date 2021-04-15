@@ -122,11 +122,11 @@ Kirigami.SwipeListItem {
     }
 
     actions: [
-        Kirigami.Action {
+        /*Kirigami.Action {
             text: i18n("Remove from Queue")
             icon.name: "list-remove"
             onTriggered: { DataManager.removeQueueItem(entry) }
-        },
+        },*/
         Kirigami.Action {
             text: i18n("Download")
             icon.name: "download"
@@ -139,12 +139,12 @@ Kirigami.SwipeListItem {
             onTriggered: entry.enclosure.cancelDownload()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
-        Kirigami.Action {
+        /*Kirigami.Action {
             text: i18n("Delete download")
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        },
+        },*/
         Kirigami.Action {
             iconName: "media-playback-start"
             text: "Play"
