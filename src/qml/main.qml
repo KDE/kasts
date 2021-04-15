@@ -33,6 +33,7 @@ Kirigami.ApplicationWindow {
         isMenu: false
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
+        handleVisible: !audio.entry || footerLoader.item.contentY == 0
         actions: [
             Kirigami.PagePoolAction {
                 text: i18n("Queue")
@@ -82,6 +83,7 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
+        handleVisible: !audio.entry || footerLoader.item.contentY == 0
     }
 
     AudioManager {
