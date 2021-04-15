@@ -14,6 +14,7 @@ import org.kde.kirigami 2.13 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
+    alwaysVisibleActions: true
 
     contentItem: RowLayout {
         Image {
@@ -65,27 +66,50 @@ Kirigami.SwipeListItem {
                 opacity: (entry.read) ? 0.6 : 1
             }
             Loader {
-                sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : subtitle
+                sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ?playProgress : subtitle)
                 Layout.fillWidth: true
-                Component {
-                    id: subtitle
+            }
+            Component {
+                id: subtitle
+                Controls.Label {
+                    text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    font: Kirigami.Theme.smallFont
+                    opacity: 0.7
+                    visible: !downloadProgress.visible
+                }
+            }
+            Component {
+                id: downloadProgress
+                Controls.ProgressBar {
+                    from: 0
+                    to: 100
+                    value: entry.enclosure.downloadProgress
+                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+                    Layout.fillWidth: true
+                }
+            }
+            Component {
+                id: playProgress
+                RowLayout {
                     Controls.Label {
-                        text: entry.enclosure ? ((Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60) : ""
-                        Layout.fillWidth: true
+                        text: (Math.floor(entry.enclosure.playPosition/3600000) < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/3600000) + ":" + (Math.floor(entry.enclosure.playPosition/60000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/60000) % 60 + ":" + (Math.floor(entry.enclosure.playPosition/1000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/1000) % 60
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: (entry.read) ? 0.4 : 0.7
-                        visible: !downloadProgress.visible
+                        opacity: 0.7
                     }
-                }
-                Component {
-                    id: downloadProgress
                     Controls.ProgressBar {
                         from: 0
-                        to: 100
-                        value: entry.enclosure.downloadProgress
-                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+                        to: entry.enclosure.duration
+                        value: entry.enclosure.playPosition/1000
                         Layout.fillWidth: true
+                    }
+                    Controls.Label {
+                        text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
                     }
                 }
             }
