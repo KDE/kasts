@@ -83,16 +83,27 @@ Kirigami.Page {
                     anchors.leftMargin: 25
                     anchors.rightMargin: 25
                     clip: true
-                    contentHeight: text.height
-                    Controls.Label {
+                    contentHeight: description.height
+                    ColumnLayout {
+                        id: description
                         width: parent.width
-                        id: text
-                        text: audio.entry ? audio.entry.content : "No track loaded"
-                        verticalAlignment: Text.AlignTop
-                        baseUrl: audio.entry ? audio.entry.baseUrl : ""
-                        textFormat: Text.RichText
-                        wrapMode: Text.WordWrap
-                        onLinkActivated: Qt.openUrlExternally(link)
+                        Kirigami.Heading {
+                            text: audio.entry ? audio.entry.title : "No track title"
+                            level: 2
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                            Layout.bottomMargin: Kirigami.Units.largeSpacing
+                        }
+                        Controls.Label {
+                            id: text
+                            text: audio.entry ? audio.entry.content : "No track loaded"
+                            verticalAlignment: Text.AlignTop
+                            baseUrl: audio.entry ? audio.entry.baseUrl : ""
+                            textFormat: Text.RichText
+                            wrapMode: Text.WordWrap
+                            onLinkActivated: Qt.openUrlExternally(link)
+                            Layout.fillWidth: true
+                        }
                     }
                 }
             }
