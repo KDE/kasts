@@ -100,5 +100,32 @@ Kirigami.ScrollablePage {
         onTriggered: entry.enclosure.deleteFile()
         visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     }
+    contextualActions: [
+        Kirigami.Action {
+            text: i18n("Reset play position")
+            visible: entry.enclosure && entry.enclosure.playPosition > 1000
+            onTriggered: entry.enclosure.playPosition = 0
+        },
+        Kirigami.Action {
+            text: entry.read ? i18n("Unmark as Played") : i18n("Mark as Played")
+            onTriggered: {
+                if(entry.read) {
+                    entry.read = false
+                } else {
+                    entry.read = true
+                }
+            }
+        },
+        Kirigami.Action {
+            text: entry.new ? i18n("Unmark as New") : i18n("Mark as New")
+            onTriggered: {
+                if(entry.new) {
+                    entry.new = false
+                } else {
+                    entry.new = true
+                }
+            }
+        }
+    ]
 }
 
