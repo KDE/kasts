@@ -84,6 +84,13 @@ Kirigami.ScrollablePage {
                 entry.queueStatus = true
             } else {
                 entry.queueStatus = false
+                if (pageStack.depth > 1) {
+                    if (pageStack.get(0).lastEntry) {
+                        if (pageStack.get(0).lastEntry === entry.id) {
+                            pageStack.pop()
+                        }
+                    }
+                }
             }
         }
     }

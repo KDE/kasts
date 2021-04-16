@@ -121,7 +121,7 @@ Kirigami.SwipeListItem {
             entry.read = true;
             entry.new = false;
         }
-        lastEntry = entry;
+        lastEntry = entry.id;
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
     }
 
