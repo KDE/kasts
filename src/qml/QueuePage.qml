@@ -16,6 +16,8 @@ Kirigami.ScrollablePage {
     id: queuepage
     title: i18n("Queue")
 
+    property var lastEntry: ""
+
     supportsRefreshing: true
     onRefreshingChanged:
         if(refreshing)  {

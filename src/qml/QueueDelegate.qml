@@ -117,7 +117,11 @@ Kirigami.SwipeListItem {
         // only mark pure rss feeds as read + not new;
         // podcasts should only be marked read once they have been listened to, and only
         // marked as non-new once they've been downloaded
-        if (!entry.enclosure) { entry.read = true; entry.new = false;}
+        if (!entry.enclosure) {
+            entry.read = true;
+            entry.new = false;
+        }
+        lastEntry = entry;
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
     }
 
