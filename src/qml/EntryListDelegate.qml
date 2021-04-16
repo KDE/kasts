@@ -145,20 +145,19 @@ Kirigami.SwipeListItem {
                 audio.entry = entry;
                 audio.play();
             }
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus
-        }
-        /*,
+            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+        },
+        Kirigami.Action {
+            text: i18n("Add to queue")
+            icon.name: "media-playlist-append"
+            visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            onTriggered: { DataManager.addToQueue(entry) }
+        } /*,
         Kirigami.Action {
             text: i18n("Delete download")
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        },
-        Kirigami.Action {
-            text: i18n("Add to queue")
-            icon.name: "media-playlist-append"
-            visible: entry.enclosure  && !entry.queueStatus
-            onTriggered: { DataManager.addToQueue(entry) }
         }*/
     ]
 }
