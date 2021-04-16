@@ -21,6 +21,11 @@ Kirigami.ScrollablePage {
 
     title: entry.title
 
+    header: GenericListHeader {
+        image: entry.image
+        title: entry.title
+        subtitle: entry.feed.name
+    }
 
     Controls.Label {
         width: page.width - 30
