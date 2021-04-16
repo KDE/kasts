@@ -50,23 +50,48 @@ Kirigami.ScrollablePage {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
             entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
-            i18n("Delete downloaded file")
+            !entry.queueStatus ? i18("Add to Queue") :
+            (audio.entry === entry) && audio.playbackState === Audio.PlayingState ? i18n("Play") :
+            i18n("Pause")
         icon.name: !entry.enclosure ? "globe" :
             entry.enclosure.status === Enclosure.Downloadable ? "download" :
             entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
-            "delete"
+            !entry.queueStatus ? "media-playlist-append" :
+            (audio.entry === entry && audio.playbackState === Audio.PlayingState) ? "media-playback-pause" :
+            "media-playback-start"
         onTriggered: {
             if(!entry.enclosure) Qt.openUrlExternally(entry.link)
             else if(entry.enclosure.status === Enclosure.Downloadable) entry.enclosure.download()
             else if(entry.enclosure.status === Enclosure.Downloading) entry.enclosure.cancelDownload()
-            else entry.enclosure.deleteFile()
+            else if(entry.queueStatus) {
+                if(audio.entry === entry && audio.playbackState === Audio.PlayingState) {
+                    audio.pause()
+                } else {
+                    audio.entry = entry
+                    audio.play()
+                }
+            } else {
+                entry.queueStatus = true
+            }
         }
     }
     actions.left: Kirigami.Action {
-        text: "Add to queue"
-        icon.name: "media-playlist-append"
-        visible: entry.enclosure && !entry.queueStatus
-        onTriggered: entry.queueStatus = true
+        text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from Queue")
+        icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
+        visible: entry.enclosure
+        onTriggered: {
+            if(!entry.queueStatus) {
+                entry.queueStatus = true
+            } else {
+                entry.queueStatus = false
+            }
+        }
+    }
+    actions.right: Kirigami.Action {
+        text: i18n("Delete download")
+        icon.name: "delete"
+        onTriggered: entry.enclosure.deleteFile()
+        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     }
 }
 

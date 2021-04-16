@@ -8,9 +8,8 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-
 import org.kde.kirigami 2.13 as Kirigami
-
+import QtMultimedia 5.15
 import org.kde.alligator 1.0
 
 Kirigami.SwipeListItem {
@@ -118,7 +117,10 @@ Kirigami.SwipeListItem {
 
     onClicked: {
         // only mark pure rss feeds as read; podcasts should only be marked read once they have been listened to
-        if (!entry.enclosure) { entry.read = true; entry.new = false;}
+        if (!entry.enclosure) {
+            entry.read = true;
+            entry.new = false;
+        }
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
     }
 
@@ -139,20 +141,27 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
         Kirigami.Action {
-            text: "Play"
-            icon.name: "media-playback-start"
-            onTriggered: {
-                audio.entry = entry;
-                audio.play();
-            }
-            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        },
-        Kirigami.Action {
             text: i18n("Add to queue")
             icon.name: "media-playlist-append"
             visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
             onTriggered: entry.queueStatus = true
-        } /*,
+        },
+        Kirigami.Action {
+            text: i18n("Play")
+            icon.name: "media-playback-start"
+            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
+            onTriggered: {
+                audio.entry = entry
+                audio.play()
+            }
+        },
+        Kirigami.Action {
+            text: i18n("Pause")
+            icon.name: "media-playback-pause"
+            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
+            onTriggered: audio.pause()
+        }
+        /*,
         Kirigami.Action {
             text: i18n("Delete download")
             icon.name: "delete"

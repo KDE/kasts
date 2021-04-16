@@ -7,7 +7,7 @@
 // Includes relevant modules used by the QML
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
-import QtQuick.Layouts 1.2
+import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.13 as Kirigami
 import QtMultimedia 5.15
 import org.kde.alligator 1.0
@@ -150,13 +150,19 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
         },*/
         Kirigami.Action {
-            text: "Play"
+            text: i18n("Play")
             icon.name: "media-playback-start"
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
             onTriggered: {
                 audio.entry = entry
                 audio.play()
             }
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+        },
+        Kirigami.Action {
+            text: i18n("Pause")
+            icon.name: "media-playback-pause"
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
+            onTriggered: audio.pause()
         }
     ]
 }
