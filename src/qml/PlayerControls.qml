@@ -89,7 +89,7 @@ Kirigami.Page {
                         width: parent.width
                         Kirigami.Heading {
                             text: audio.entry ? audio.entry.title : "No track title"
-                            level: 2
+                            level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                             Layout.bottomMargin: Kirigami.Units.largeSpacing
