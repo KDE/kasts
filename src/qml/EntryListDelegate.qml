@@ -139,11 +139,21 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
         Kirigami.Action {
+            text: "Play"
+            icon.name: "media-playback-start"
+            onTriggered: {
+                audio.entry = entry;
+                audio.play();
+            }
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus
+        }
+        /*,
+        Kirigami.Action {
             text: i18n("Delete download")
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        } /*,
+        },
         Kirigami.Action {
             text: i18n("Add to queue")
             icon.name: "media-playlist-append"

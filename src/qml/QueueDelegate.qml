@@ -146,8 +146,8 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
         },*/
         Kirigami.Action {
-            iconName: "media-playback-start"
             text: "Play"
+            icon.name: "media-playback-start"
             onTriggered: {
                 audio.entry = entry
                 audio.play()
