@@ -290,6 +290,11 @@ QStringList DataManager::getQueue() const
     return m_queuemap;
 }
 
+bool DataManager::entryInQueue(const Entry* entry)
+{
+    return entryInQueue(entry->feed()->url(), entry->id());
+}
+
 bool DataManager::entryInQueue(const QString &feedurl, const QString &id) const
 {
     Q_UNUSED(feedurl);
@@ -325,7 +330,6 @@ void DataManager::addToQueue(const QString &feedurl, const QString &id)
 
     // Make sure that the QueueModel is aware of the changes
     Q_EMIT queueEntryAdded(index, id);
-    Q_EMIT getEntry(id)->queueStatusChanged(true);
 }
 
 void DataManager::moveQueueItem(const int &from, const int &to)
@@ -362,7 +366,6 @@ void DataManager::removeQueueItem(const int &index)
 
     // Make sure that the QueueModel is aware of the change so it can update
     Q_EMIT queueEntryRemoved(index, id);
-    Q_EMIT getEntry(id)->queueStatusChanged(false);
 }
 
 void DataManager::removeQueueItem(const QString id)

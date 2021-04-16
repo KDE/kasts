@@ -36,7 +36,7 @@ class Entry : public QObject
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT);
     Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT);
     Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
-    Q_PROPERTY(bool queueStatus READ queueStatus NOTIFY queueStatusChanged)
+    Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
 public:
     Entry(Feed *feed, QString id);
@@ -59,9 +59,10 @@ public:
 
     QString baseUrl() const;
 
-    void setRead(bool read);
-    void setNew(bool state);
+    void setRead(const bool read);
+    void setNew(const bool state);
     void setImage(const QString &url);
+    void setQueueStatus(const bool status);
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 

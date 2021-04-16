@@ -127,7 +127,7 @@ Kirigami.SwipeListItem {
             text: i18n("Download")
             icon.name: "download"
             onTriggered: {
-                DataManager.addToQueue(entry);
+                entry.queueStatus = true;
                 entry.enclosure.download();
             }
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
@@ -151,7 +151,7 @@ Kirigami.SwipeListItem {
             text: i18n("Add to queue")
             icon.name: "media-playlist-append"
             visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-            onTriggered: { DataManager.addToQueue(entry) }
+            onTriggered: entry.queueStatus = true
         } /*,
         Kirigami.Action {
             text: i18n("Delete download")

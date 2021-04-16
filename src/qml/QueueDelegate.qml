@@ -129,7 +129,7 @@ Kirigami.SwipeListItem {
         /*Kirigami.Action {
             text: i18n("Remove from Queue")
             icon.name: "list-remove"
-            onTriggered: { DataManager.removeQueueItem(entry) }
+            onTriggered: entry.queueStatus = false
         },*/
         Kirigami.Action {
             text: i18n("Download")

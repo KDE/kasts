@@ -122,7 +122,7 @@ QString Entry::baseUrl() const
     return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
 }
 
-void Entry::setRead(bool read)
+void Entry::setRead(const bool read)
 {
     m_read = read;
     Q_EMIT readChanged(m_read);
@@ -135,7 +135,7 @@ void Entry::setRead(bool read)
     Q_EMIT m_feed->unreadEntryCountChanged();
 }
 
-void Entry::setNew(bool state)
+void Entry::setNew(const bool state)
 {
     m_new = state;
     Q_EMIT newChanged(m_new);
@@ -203,7 +203,18 @@ QString Entry::image() const
 
 bool Entry::queueStatus() const
 {
-    return DataManager::instance().entryInQueue(m_feed->url(), m_id);
+    return DataManager::instance().entryInQueue(this);
+}
+
+void Entry::setQueueStatus(const bool state)
+{
+    if (state != DataManager::instance().entryInQueue(this)) {
+        if (state)
+            DataManager::instance().addToQueue(this);
+        else
+            DataManager::instance().removeQueueItem(this);
+        Q_EMIT queueStatusChanged(state);
+    }
 }
 
 void Entry::setImage(const QString &image)

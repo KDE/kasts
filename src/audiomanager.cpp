@@ -170,7 +170,7 @@ void AudioManager::setEntry(Entry* entry)
             qDebug() << "Mark as read:" << d->m_entry->title();
             d->m_entry->setRead(true);
             d->m_entry->enclosure()->setPlayPosition(0);
-            DataManager::instance().removeQueueItem(d->m_entry); //TODO: put this behind setting
+            d->m_entry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
         }
     }
     if (entry != nullptr) {
