@@ -161,12 +161,5 @@ Kirigami.SwipeListItem {
             visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
             onTriggered: audio.pause()
         }
-        /*,
-        Kirigami.Action {
-            text: i18n("Delete download")
-            icon.name: "delete"
-            onTriggered: entry.enclosure.deleteFile()
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        }*/
     ]
 }

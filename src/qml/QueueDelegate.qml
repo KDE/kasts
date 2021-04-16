@@ -143,12 +143,6 @@ Kirigami.SwipeListItem {
             onTriggered: entry.enclosure.cancelDownload()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
-        /*Kirigami.Action {
-            text: i18n("Delete download")
-            icon.name: "delete"
-            onTriggered: entry.enclosure.deleteFile()
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-        },*/
         Kirigami.Action {
             text: i18n("Play")
             icon.name: "media-playback-start"
