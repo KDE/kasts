@@ -21,24 +21,31 @@ Kirigami.ScrollablePage {
 
     title: entry.title
 
-    header: GenericListHeader {
-        image: entry.image
-        title: entry.title
-        subtitle: entry.feed.name
+    padding: 0  // needed to get the inline header to fill the page
+
+    ColumnLayout {
+        GenericListHeader {
+            id: infoHeader
+            Layout.fillWidth: true
+            image: entry.image
+            title: entry.title
+            subtitle: entry.feed.name
+        }
+
+        Controls.Label {
+            Layout.margins: Kirigami.Units.gridUnit
+            id: text
+            text: page.entry.content
+            baseUrl: page.entry.baseUrl
+            textFormat: Text.RichText
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            onLinkActivated: Qt.openUrlExternally(link)
+            //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
+        }
     }
 
-    Controls.Label {
-        width: page.width - 30
-        id: text
-        text: page.entry.content
-        baseUrl: page.entry.baseUrl
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        onLinkActivated: Qt.openUrlExternally(link)
-        //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
-    }
     actions.main: Kirigami.Action {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
@@ -62,3 +69,4 @@ Kirigami.ScrollablePage {
         onTriggered: { DataManager.addToQueue(entry) }
     }
 }
+

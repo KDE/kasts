@@ -19,10 +19,8 @@ Item {
     property string subtitle: ""
     property var headerHeight: Kirigami.Units.gridUnit * 8
 
-    //anchors.top: parent.top  // this seems to cause an anchor loop
-    anchors.right: parent.right
-    anchors.left: parent.left
-    height: headerHeight
+    implicitHeight: headerHeight
+    implicitWidth: parent.width
 
     Image {
         id: backgroundimage
