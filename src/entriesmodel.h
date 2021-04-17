@@ -8,11 +8,10 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QVariant>
 #include <QHash>
 #include <QObject>
-#include <QString>
 
-#include "entry.h"
 #include "feed.h"
 
 class EntriesModel : public QAbstractListModel

@@ -5,14 +5,11 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include <QAbstractListModel>
-#include <QVariant>
-#include <QVector>
+#include <QString>
 
-#include "database.h"
-#include "datamanager.h"
 #include "entriesmodel.h"
-#include "fetcher.h"
+#include "entry.h"
+#include "datamanager.h"
 
 EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)

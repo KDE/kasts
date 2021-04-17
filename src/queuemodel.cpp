@@ -4,16 +4,11 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include <QAbstractListModel>
-#include <QVariant>
-#include <QVector>
-#include <QSqlQuery>
-#include <QFile>
+#include <QString>
 
-#include "database.h"
-#include "datamanager.h"
 #include "queuemodel.h"
-#include "fetcher.h"
+#include "entry.h"
+#include "datamanager.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)

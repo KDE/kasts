@@ -9,9 +9,7 @@
 #include <QAbstractListModel>
 #include <QHash>
 #include <QObject>
-#include <QString>
-
-#include "entry.h"
+#include <QVariant>
 
 class QueueModel : public QAbstractListModel
 {
