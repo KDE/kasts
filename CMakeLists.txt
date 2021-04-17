@@ -30,7 +30,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Syndication Config I18n)
 
 if (ANDROID)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg DBus)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
     find_package(OpenSSL REQUIRED)
 else()
