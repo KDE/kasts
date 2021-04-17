@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
             entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
-            !entry.queueStatus ? i18("Add to Queue") :
+            !entry.queueStatus ? i18n("Add to Queue") :
             (audio.entry === entry) && audio.playbackState === Audio.PlayingState ? i18n("Play") :
             i18n("Pause")
         icon.name: !entry.enclosure ? "globe" :

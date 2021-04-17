@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
-
+import QtMultimedia 5.15
 import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.alligator 1.0
@@ -66,7 +66,47 @@ Kirigami.ScrollablePage {
 
     Component {
         id: entryListDelegate
-        EntryListDelegate { }
+        GenericEntryDelegate {
+            listView: entryList
+            entryActions: [  // TODO: put the actions back into GenericEntryDelegate
+                Kirigami.Action {
+                    text: i18n("Download")
+                    icon.name: "download"
+                    onTriggered: {
+                        entry.queueStatus = true;
+                        entry.enclosure.download();
+                    }
+                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
+                },
+                Kirigami.Action {
+                    text: i18n("Cancel download")
+                    icon.name: "edit-delete-remove"
+                    onTriggered: entry.enclosure.cancelDownload()
+                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+                },
+                Kirigami.Action {
+                    text: i18n("Add to queue")
+                    icon.name: "media-playlist-append"
+                    visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+                    onTriggered: entry.queueStatus = true
+                },
+                Kirigami.Action {
+                    text: i18n("Play")
+                    icon.name: "media-playback-start"
+                    visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
+                    onTriggered: {
+                        audio.entry = entry
+                        audio.play()
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Pause")
+                    icon.name: "media-playback-pause"
+                    visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
+                    onTriggered: audio.pause()
+                }
+            ]
+        }
     }
 
     ListView {

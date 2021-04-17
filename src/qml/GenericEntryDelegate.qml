@@ -1,10 +1,10 @@
 /**
- * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
- *
- * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
- */
+   SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
 
+   SPDX-License-Identifier: GPL-2.0-or-later
+*/
+
+// Includes relevant modules used by the QML
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
@@ -12,25 +12,81 @@ import org.kde.kirigami 2.13 as Kirigami
 import QtMultimedia 5.15
 import org.kde.alligator 1.0
 
+
 Kirigami.SwipeListItem {
+    id: listItem
     alwaysVisibleActions: true
 
+    property bool isQueue: false
+    property var listView: ""
+    property list<Controls.Action> entryActions
+    property list<Controls.Action> defaultActions: [
+        Kirigami.Action {
+            text: i18n("Download")
+            icon.name: "download"
+            onTriggered: {
+                entry.queueStatus = true;
+                entry.enclosure.download();
+            }
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
+        },
+        Kirigami.Action {
+            text: i18n("Cancel download")
+            icon.name: "edit-delete-remove"
+            onTriggered: entry.enclosure.cancelDownload()
+            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+        },
+        Kirigami.Action {
+            text: i18n("Add to queue")
+            icon.name: "media-playlist-append"
+            visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            onTriggered: entry.queueStatus = true
+        },
+        Kirigami.Action {
+            text: i18n("Play")
+            icon.name: "media-playback-start"
+            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
+            onTriggered: {
+                audio.entry = entry
+                audio.play()
+            }
+        },
+        Kirigami.Action {
+            text: i18n("Pause")
+            icon.name: "media-playback-pause"
+            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
+            onTriggered: audio.pause()
+        }
+    ]
+
     contentItem: RowLayout {
+        Loader {
+            property var loaderListView: listView
+            property var loaderListItem: listItem
+            sourceComponent: dragHandleComponent
+            active: isQueue
+        }
+        Component {
+            id: dragHandleComponent
+            Kirigami.ListItemDragHandle {
+                listItem: loaderListItem
+                listView: loaderListView
+                onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
+            }
+        }
         Image {
             asynchronous: true
             source: entry.image === "" ? "logo.png" : "file://"+Fetcher.image(entry.image)
             fillMode: Image.PreserveAspectFit
             property int size: Kirigami.Units.gridUnit * 3
-            Layout.maximumHeight: size
-            Layout.maximumWidth: size
-            height: size
-            width: size
             sourceSize.width: size
             sourceSize.height: size
-            Layout.rightMargin: Kirigami.Units.smallSpacing
+            Layout.maximumHeight: size
+            Layout.maximumWidth: size
+            Layout.rightMargin:Kirigami.Units.smallSpacing
         }
         ColumnLayout {
-            spacing: 0
+            spacing: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             RowLayout{
@@ -45,12 +101,12 @@ Kirigami.SwipeListItem {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "source-playlist"
-                    visible: entry.queueStatus
+                    visible: !isQueue && entry.queueStatus
                     opacity: (entry.read) ? 0.4 : 0.7
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
+                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -116,50 +172,25 @@ Kirigami.SwipeListItem {
     }
 
     onClicked: {
-        // only mark pure rss feeds as read; podcasts should only be marked read once they have been listened to
+        // only mark pure rss feeds as read + not new;
+        // podcasts should only be marked read once they have been listened to, and only
+        // marked as non-new once they've been downloaded
         if (!entry.enclosure) {
             entry.read = true;
             entry.new = false;
         }
+        if (isQueue) {
+            lastEntry = entry.id;
+        }
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
     }
 
-    actions: [
-        Kirigami.Action {
-            text: i18n("Download")
-            icon.name: "download"
-            onTriggered: {
-                entry.queueStatus = true;
-                entry.enclosure.download();
-            }
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
-        },
-        Kirigami.Action {
-            text: i18n("Cancel download")
-            icon.name: "edit-delete-remove"
-            onTriggered: entry.enclosure.cancelDownload()
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
-        },
-        Kirigami.Action {
-            text: i18n("Add to queue")
-            icon.name: "media-playlist-append"
-            visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-            onTriggered: entry.queueStatus = true
-        },
-        Kirigami.Action {
-            text: i18n("Play")
-            icon.name: "media-playback-start"
-            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
-            onTriggered: {
-                audio.entry = entry
-                audio.play()
-            }
-        },
-        Kirigami.Action {
-            text: i18n("Pause")
-            icon.name: "media-playback-pause"
-            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
-            onTriggered: audio.pause()
+    Component.onCompleted: {
+        if(entryActions) {
+            actions = entryActions;
+        } else {
+            actions = defaultActions;
         }
-    ]
+    }
 }
+
