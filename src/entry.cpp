@@ -133,6 +133,8 @@ void Entry::setRead(const bool read)
     query.bindValue(QStringLiteral(":read"), m_read);
     Database::instance().execute(query);
     Q_EMIT m_feed->unreadEntryCountChanged();
+    Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
+    //TODO: can one of the two slots be removed??
 }
 
 void Entry::setNew(const bool state)
@@ -146,6 +148,7 @@ void Entry::setNew(const bool state)
     query.bindValue(QStringLiteral(":new"), m_new);
     Database::instance().execute(query);
     // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
+    Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->url());
 }
 
 QString Entry::adjustedContent(int width, int fontSize)

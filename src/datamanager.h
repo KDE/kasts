@@ -8,6 +8,7 @@
 
 #include "feed.h"
 #include "entry.h"
+#include "episodemodel.h"
 
 class DataManager : public QObject
 {
@@ -24,10 +25,12 @@ public:
     Feed* getFeed(QString const feedurl) const;
     Entry* getEntry(int const feed_index, int const entry_index) const;
     Entry* getEntry(const Feed* feed, int const entry_index) const;
+    Entry* getEntry(const EpisodeModel::Type type, const int entry_index) const;
     Q_INVOKABLE Entry* getEntry(const QString id) const;
     int feedCount() const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed* feed) const;
+    int entryCount(const EpisodeModel::Type type) const;
     int unreadEntryCount(const Feed* feed) const;
     int newEntryCount(const Feed* feed) const;
     Q_INVOKABLE void addFeed(const QString &url);
@@ -65,6 +68,9 @@ Q_SIGNALS:
     void queueEntryAdded(const int &index, const QString &id);
     void queueEntryRemoved(const int &index, const QString &id);
     void queueEntryMoved(const int &from, const int &to);
+
+    void unreadEntryCountChanged(const QString &url);
+    void newEntryCountChanged(const QString &url);
 
 private:
     DataManager();

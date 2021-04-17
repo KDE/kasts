@@ -29,6 +29,7 @@
 #include "feedsmodel.h"
 #include "fetcher.h"
 #include "queuemodel.h"
+#include "episodemodel.h"
 #include "datamanager.h"
 #include "audiomanager.h"
 #include "mpris2/mpris2.h"
@@ -51,6 +52,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
     qmlRegisterType<QueueModel>("org.kde.alligator", 1, 0, "QueueModel");
+    qmlRegisterType<EpisodeModel>("org.kde.alligator", 1, 0, "EpisodeModel");
     qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.alligator", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
     qmlRegisterSingletonType<Fetcher>("org.kde.alligator", 1, 0, "Fetcher", [](QQmlEngine *engine, QJSEngine *) -> QObject * {

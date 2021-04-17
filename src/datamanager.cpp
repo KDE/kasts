@@ -138,6 +138,28 @@ Entry* DataManager::getEntry(QString id) const
     return m_entries[id];
 }
 
+Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_index) const
+{
+    QSqlQuery entryQuery;
+    if (type == EpisodeModel::All || type == EpisodeModel::New) {
+        if (type == EpisodeModel::New) {
+            entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE new=:new ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+            entryQuery.bindValue(QStringLiteral(":new"), true);
+        } else { // i.e. EpisodeModel::All
+            entryQuery.prepare(QStringLiteral("SELECT * FROM Entries ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+        }
+        entryQuery.bindValue(QStringLiteral(":index"), entry_index);
+        Database::instance().execute(entryQuery);
+        if (!entryQuery.next()) {
+            qWarning() << "No element with index" << entry_index << "found";
+            return nullptr;
+        }
+        QString id = entryQuery.value(QStringLiteral("id")).toString();
+        return getEntry(id);
+    }
+    return nullptr;
+}
+
 int DataManager::feedCount() const
 {
     return m_feedmap.count();
@@ -151,6 +173,24 @@ int DataManager::entryCount(const int feed_index) const
 int DataManager::entryCount(const Feed* feed) const
 {
     return m_entrymap[feed->url()].count();
+}
+
+int DataManager::entryCount(const EpisodeModel::Type type) const
+{
+    QSqlQuery query;
+    if (type == EpisodeModel::All || type == EpisodeModel::New) {
+        if (type == EpisodeModel::New) {
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE new=:new;"));
+            query.bindValue(QStringLiteral(":new"), true);
+        } else { // i.e. EpisodeModel::All
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries;"));
+        }
+        Database::instance().execute(query);
+        if (!query.next())
+            return -1;
+        return query.value(0).toInt();
+    }
+    return -1;
 }
 
 int DataManager::unreadEntryCount(const Feed* feed) const
