@@ -46,35 +46,6 @@ Kirigami.ScrollablePage {
         GenericEntryDelegate {
             isQueue: true
             listView: queueList
-            entryActions: [
-                Kirigami.Action {
-                    text: i18n("Download")
-                    icon.name: "download"
-                    onTriggered: entry.enclosure.download()
-                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
-                },
-                Kirigami.Action {
-                    text: i18n("Cancel download")
-                    icon.name: "edit-delete-remove"
-                    onTriggered: entry.enclosure.cancelDownload()
-                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
-                },
-                Kirigami.Action {
-                    text: i18n("Play")
-                    icon.name: "media-playback-start"
-                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
-                    onTriggered: {
-                        audio.entry = entry
-                        audio.play()
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Pause")
-                    icon.name: "media-playback-pause"
-                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
-                    onTriggered: audio.pause()
-                }
-            ]
         }
     }
 
