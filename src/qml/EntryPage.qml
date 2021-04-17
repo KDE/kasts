@@ -49,11 +49,12 @@ Kirigami.ScrollablePage {
     Connections {
         target: entry
         function onQueueStatusChanged() {
-            console.log(entry, entry.queueStatus, pageStack.get(0).lastEntry, entry.id)
             if (entry.queueStatus === false) {
+                // this entry has just been removed from the queue
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).lastEntry) {
                         if (pageStack.get(0).lastEntry === entry.id) {
+                            // if this EntryPage was open, then close it
                             pageStack.pop()
                         }
                     }
@@ -99,6 +100,10 @@ Kirigami.ScrollablePage {
             if(!entry.queueStatus) {
                 entry.queueStatus = true
             } else {
+                // first change to next track if this one is playing
+                if (entry === audio.entry) {
+                    audio.next()
+                }
                 entry.queueStatus = false
             }
         }
