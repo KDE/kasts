@@ -146,14 +146,6 @@ Kirigami.SwipeListItem {
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
     }
 
-    Component.onCompleted: {
-        if(entryActions) {
-            actions = entryActions;
-        } else {
-            actions = defaultActions;
-        }
-    }
-
     actions: [
         Kirigami.Action {
             text: i18n("Download")
