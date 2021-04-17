@@ -45,6 +45,7 @@ Kirigami.SwipeListItem {
             Layout.maximumHeight: size
             Layout.maximumWidth: size
             Layout.rightMargin:Kirigami.Units.smallSpacing
+            opacity: (entry.read) ? 0.5 : 1
         }
         ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
