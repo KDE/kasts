@@ -46,6 +46,22 @@ Kirigami.ScrollablePage {
         }
     }
 
+    Connections {
+        target: entry
+        function onQueueStatusChanged() {
+            console.log(entry, entry.queueStatus, pageStack.get(0).lastEntry, entry.id)
+            if (entry.queueStatus === false) {
+                if (pageStack.depth > 1) {
+                    if (pageStack.get(0).lastEntry) {
+                        if (pageStack.get(0).lastEntry === entry.id) {
+                            pageStack.pop()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     actions.main: Kirigami.Action {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
@@ -84,13 +100,6 @@ Kirigami.ScrollablePage {
                 entry.queueStatus = true
             } else {
                 entry.queueStatus = false
-                if (pageStack.depth > 1) {
-                    if (pageStack.get(0).lastEntry) {
-                        if (pageStack.get(0).lastEntry === entry.id) {
-                            pageStack.pop()
-                        }
-                    }
-                }
             }
         }
     }
