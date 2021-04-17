@@ -43,10 +43,6 @@
             <label>The top-level page that was open at shutdown</label>
             <default>FeedListPage</default>
         </entry>
-        <entry name="lastPlayingEntry" type="String">
-            <label>The entry that was being played at shutdown</label>
-            <default>none</default>
-        </entry>
         <entry name="showRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>

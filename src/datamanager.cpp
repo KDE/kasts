@@ -322,10 +322,11 @@ void DataManager::addToQueue(const QString &feedurl, const QString &id)
 
     // Add to Queue database
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Queue VALUES (:index, :feedurl, :id);"));
+    query.prepare(QStringLiteral("INSERT INTO Queue VALUES (:index, :feedurl, :id, :playing);"));
     query.bindValue(QStringLiteral(":index"), index);
     query.bindValue(QStringLiteral(":feedurl"), feedurl);
     query.bindValue(QStringLiteral(":id"), id);
+    query.bindValue(QStringLiteral(":playing"), false);
     Database::instance().execute(query);
 
     // Make sure that the QueueModel is aware of the changes
@@ -376,6 +377,31 @@ void DataManager::removeQueueItem(const QString id)
 void DataManager::removeQueueItem(Entry* entry)
 {
     removeQueueItem(m_queuemap.indexOf(entry->id()));
+}
+
+QString DataManager::lastPlayingEntry()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT id FROM Queue WHERE playing=:playing;"));
+    query.bindValue(QStringLiteral(":playing"), true);
+    Database::instance().execute(query);
+    if (!query.next()) return QStringLiteral("none");
+    return query.value(QStringLiteral("id")).toString();
+}
+
+void DataManager::setLastPlayingEntry(const QString& id)
+{
+    QSqlQuery query;
+    // First set playing to false for all Queue items
+    query.prepare(QStringLiteral("UPDATE Queue SET playing=:playing;"));
+    query.bindValue(QStringLiteral(":playing"), false);
+    Database::instance().execute(query);
+    // Now set the correct track to playing=true
+    query.prepare(QStringLiteral("UPDATE Queue SET playing=:playing WHERE id=:id;"));
+    query.bindValue(QStringLiteral(":playing"), true);
+    query.bindValue(QStringLiteral(":id"), id);
+    Database::instance().execute(query);
+
 }
 
 void DataManager::importFeeds(const QString &path)

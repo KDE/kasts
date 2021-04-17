@@ -58,8 +58,8 @@ AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_uniqu
     // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
 
     // Check if an entry was playing when the program was shut down and restore it
-    if (SettingsManager::self()->lastPlayingEntry() != QStringLiteral("none"))
-        setEntry(DataManager::instance().getEntry(SettingsManager::self()->lastPlayingEntry()));
+    if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none"))
+        setEntry(DataManager::instance().getEntry(DataManager::instance().lastPlayingEntry()));
 }
 
 AudioManager::~AudioManager()
@@ -182,7 +182,7 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT entryChanged(entry);
         d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
         // save the current playing track in the settingsfile for restoring on startup
-        SettingsManager::self()->setLastPlayingEntry(d->m_entry->id());
+        DataManager::instance().setLastPlayingEntry(d->m_entry->id());
         qDebug() << "Changed source to" << d->m_entry->title();
 
         qint64 startingPosition = d->m_entry->enclosure()->playPosition();
@@ -225,7 +225,7 @@ void AudioManager::setEntry(Entry* entry)
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(true);
     } else {
-        SettingsManager::self()->setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
         Q_EMIT entryChanged(nullptr);
         d->m_readyToPlay = false;

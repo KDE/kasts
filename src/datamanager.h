@@ -50,6 +50,9 @@ public:
     Q_INVOKABLE void removeQueueItem(const QString id);
     Q_INVOKABLE void removeQueueItem(Entry* entry);
 
+    Q_INVOKABLE QString lastPlayingEntry();
+    Q_INVOKABLE void setLastPlayingEntry(const QString& id);
+
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
 
