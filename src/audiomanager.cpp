@@ -224,6 +224,12 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT canGoNextChanged();
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(true);
+        qDebug() << "Duration" << d->m_player.duration()/1000 << d->m_entry->enclosure()->duration();
+        // Finally, check if duration mentioned in enclosure corresponds to real duration
+        if ((d->m_player.duration()/1000) != d->m_entry->enclosure()->duration()) {
+            d->m_entry->enclosure()->setDuration(d->m_player.duration()/1000);
+            qDebug() << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration()/1000;
+        }
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;

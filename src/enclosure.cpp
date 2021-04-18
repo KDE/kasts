@@ -176,8 +176,13 @@ Enclosure::Status Enclosure::status() const
 {
     return m_status;
 }
+
 qint64 Enclosure::playPosition() const{
     return m_playposition;
+}
+
+qint64 Enclosure::duration() const {
+    return m_duration;
 }
 
 void Enclosure::setPlayPosition(const qint64 &position)
@@ -197,4 +202,19 @@ void Enclosure::setPlayPosition(const qint64 &position)
         Database::instance().execute(query);
         m_playposition_dbsave = m_playposition;
     }
+}
+
+void Enclosure::setDuration(const qint64 &duration)
+{
+    m_duration = duration;
+    Q_EMIT durationChanged();
+
+    // also save to database
+    qDebug() << "updating entry duration" << duration << m_entry->title();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE id=:id AND feed=:feed"));
+    query.bindValue(QStringLiteral(":id"), m_entry->id());
+    query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+    query.bindValue(QStringLiteral(":duration"), m_duration);
+    Database::instance().execute(query);
 }

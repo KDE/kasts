@@ -27,7 +27,7 @@ class Enclosure : public QObject
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
-    Q_PROPERTY(qint64 duration MEMBER m_duration CONSTANT)
+    Q_PROPERTY(qint64 duration READ duration WRITE setDuration NOTIFY durationChanged)
 
 public:
     Enclosure(Entry *entry);
@@ -46,13 +46,17 @@ public:
     QString path() const;
     Status status() const;
     qint64 playPosition() const;
+    qint64 duration() const;
+
     void setPlayPosition(const qint64 &position);
+    void setDuration(const qint64 &duration);
 
 Q_SIGNALS:
     void statusChanged();
     void downloadProgressChanged();
     void cancelDownload();
     void playPositionChanged();
+    void durationChanged();
 
 private:
 
