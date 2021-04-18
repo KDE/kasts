@@ -19,7 +19,7 @@ class Enclosure : public QObject
     Q_OBJECT
 
     Q_PROPERTY(int duration MEMBER m_duration CONSTANT)
-    Q_PROPERTY(int size MEMBER m_size CONSTANT)
+    Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
     Q_PROPERTY(QString url MEMBER m_url CONSTANT)
@@ -47,9 +47,11 @@ public:
     Status status() const;
     qint64 playPosition() const;
     qint64 duration() const;
+    int size() const;
 
     void setPlayPosition(const qint64 &position);
     void setDuration(const qint64 &duration);
+    void setSize(const int &size);
 
 Q_SIGNALS:
     void statusChanged();
@@ -57,6 +59,7 @@ Q_SIGNALS:
     void cancelDownload();
     void playPositionChanged();
     void durationChanged();
+    void sizeChanged();
 
 private:
 

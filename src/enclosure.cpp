@@ -138,13 +138,7 @@ void Enclosure::processDownloadedFile() {
     QFile file(path());
     if(file.size() != m_size) {
         qDebug() << "enclosure file size mismatch" << m_entry->title();
-        m_size = file.size();
-        QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
-        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
-        query.bindValue(QStringLiteral(":size"), m_size);
-        Database::instance().execute(query);
+        setSize(file.size());
     }
     Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
 
@@ -185,6 +179,10 @@ qint64 Enclosure::duration() const {
     return m_duration;
 }
 
+int Enclosure::size() const {
+    return m_size;
+}
+
 void Enclosure::setPlayPosition(const qint64 &position)
 {
     m_playposition = position;
@@ -216,5 +214,19 @@ void Enclosure::setDuration(const qint64 &duration)
     query.bindValue(QStringLiteral(":id"), m_entry->id());
     query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
     query.bindValue(QStringLiteral(":duration"), m_duration);
+    Database::instance().execute(query);
+}
+
+void Enclosure::setSize(const int &size)
+{
+    m_size = size;
+    Q_EMIT sizeChanged();
+
+    // also save to database
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
+    query.bindValue(QStringLiteral(":id"), m_entry->id());
+    query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+    query.bindValue(QStringLiteral(":size"), m_size);
     Database::instance().execute(query);
 }
