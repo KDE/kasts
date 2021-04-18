@@ -28,6 +28,7 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
                                                  : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
                                                  : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
+                                                 : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
                                                  : "qrc:/FeedListPage.qml")
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -61,6 +62,15 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/FeedListPage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                }
+            },
+            Kirigami.PagePoolAction {
+                text: i18n("Downloads")
+                iconName: "download"
+                pagePool: mainPagePool
+                page: "qrc:/DownloadSwipePage.qml"
+                onTriggered: {
+                    SettingsManager.lastOpenedPage = "DownloadSwipePage" // for persistency
                 }
             },
             Kirigami.PagePoolAction {

@@ -255,9 +255,9 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.next();
 
     if (query.value(0).toInt() != 0)
-        query.prepare(QStringLiteral("UPDATE Enclosures SET feed=:feed, id=:id, duration=:duration, size=:size, title=:title, type=:type, url=:url, playposition=:playposition;"));
+        query.prepare(QStringLiteral("UPDATE Enclosures SET feed=:feed, id=:id, duration=:duration, size=:size, title=:title, type=:type, url=:url;"));
     else
-        query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition);"));
+        query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition, :downloaded);"));
 
     query.bindValue(QStringLiteral(":feed"), feedUrl);
     query.bindValue(QStringLiteral(":id"), entry->id());
@@ -267,6 +267,7 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.bindValue(QStringLiteral(":type"), enclosure->type());
     query.bindValue(QStringLiteral(":url"), enclosure->url());
     query.bindValue(QStringLiteral(":playposition"), 0);
+    query.bindValue(QStringLiteral(":downloaded"), false);
     Database::instance().execute(query);
 }
 
