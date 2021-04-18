@@ -45,6 +45,21 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("Material"));
 #else
     QApplication app(argc, argv);
+    if(qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
+#endif
+
+#ifdef Q_OS_WINDOWS
+    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
+
+    QApplication::setStyle(QStringLiteral("breeze"));
+    auto font = app.font();
+    font.setPointSize(10);
+    app.setFont(font);
 #endif
 
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
