@@ -19,6 +19,7 @@ public:
     enum Type {
         All,
         New,
+        Unread,
         Downloading,
         Downloaded,
     };

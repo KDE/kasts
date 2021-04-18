@@ -27,7 +27,7 @@ Kirigami.ApplicationWindow {
 
     pageStack.initialPage: mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
                                                  : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
-                                                 : SettingsManager.lastOpenedPage === "EpisodeListPage" ? "qrc:/EpisodeListPage.qml"
+                                                 : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
                                                  : "qrc:/FeedListPage.qml")
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -49,9 +49,9 @@ Kirigami.ApplicationWindow {
                 text: i18n("Episodes")
                 iconName: "rss"
                 pagePool: mainPagePool
-                page: "qrc:/EpisodeListPage.qml"
+                page: "qrc:/EpisodeSwipePage.qml"
                 onTriggered: {
-                    SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
+                    SettingsManager.lastOpenedPage = "EpisodeSwipePage" // for persistency
                 }
             },
             Kirigami.PagePoolAction {

@@ -10,14 +10,16 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
 import QtMultimedia 5.15
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.ScrollablePage {
-    id: page
 
-    title: i18n("Episode List")
+Kirigami.ScrollablePage {
+    //anchors.fill: parent
+
+    title: i18n("New Episodes")
+    property var episodeType: EpisodeModel.All
 
     supportsRefreshing: true
     onRefreshingChanged: {
@@ -25,13 +27,6 @@ Kirigami.ScrollablePage {
             Fetcher.fetchAll()
             refreshing = false
         }
-    }
-
-    actions.main: Kirigami.Action {
-        text: i18n("Refresh all feeds")
-        iconName: "view-refresh"
-        onTriggered: refreshing = true
-        visible: !Kirigami.Settings.isMobile
     }
 
     Kirigami.PlaceholderMessage {
@@ -42,22 +37,21 @@ Kirigami.ScrollablePage {
 
         text: i18n("No Entries available")
     }
-
     Component {
-        id: entryListDelegate
+        id: episodeListDelegate
         GenericEntryDelegate {
             listView: episodeList
         }
     }
-
     ListView {
+        anchors.fill: parent
         id: episodeList
         visible: count !== 0
-        model: EpisodeModel { type: EpisodeModel.All }
+        model: EpisodeModel { type: episodeType }
 
         delegate: Kirigami.DelegateRecycler {
             width: episodeList.width
-            sourceComponent: entryListDelegate
+            sourceComponent: episodeListDelegate
         }
     }
 }

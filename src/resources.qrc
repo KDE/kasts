@@ -14,6 +14,7 @@
         <file alias="FooterBar.qml">qml/FooterBar.qml</file>
         <file alias="QueuePage.qml">qml/QueuePage.qml</file>
         <file alias="EpisodeListPage.qml">qml/EpisodeListPage.qml</file>
+        <file alias="EpisodeSwipePage.qml">qml/EpisodeSwipePage.qml</file>
         <file alias="GenericListHeader.qml">qml/GenericListHeader.qml</file>
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
         <file alias="logo.png">../logo.png</file>
