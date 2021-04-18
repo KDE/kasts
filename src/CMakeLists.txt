@@ -33,12 +33,11 @@ if(ANDROID)
     )
 
     kirigami_package_breeze_icons(ICONS
-        bookmark-remove
-        bookmark-new
         delete
         settings-configure
         help-about-symbolic
         list-add
+        list-remove
         view-refresh
         alligator
         mail-sent
@@ -47,8 +46,17 @@ if(ANDROID)
         rss
         document-import
         document-export
+        document-open-folder
         edit-delete-remove
         download
+        media-playlist-append
+        media-seek-backward
+        media-seek-forward
+        media-skip-forward
+        media-playback-start
+        media-playback-pause
+        source-playlist
+        arrow-down
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
