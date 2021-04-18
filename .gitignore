@@ -4,3 +4,4 @@ CMakeLists.txt.user
 kasts.kdev4
 .vscode/
 .clang-format
+.cache/
