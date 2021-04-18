@@ -141,10 +141,13 @@ Entry* DataManager::getEntry(QString id) const
 Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_index) const
 {
     QSqlQuery entryQuery;
-    if (type == EpisodeModel::All || type == EpisodeModel::New) {
+    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread) {
         if (type == EpisodeModel::New) {
             entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE new=:new ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
             entryQuery.bindValue(QStringLiteral(":new"), true);
+        } else if (type == EpisodeModel::Unread) {
+            entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE read=:read ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+            entryQuery.bindValue(QStringLiteral(":read"), false);
         } else { // i.e. EpisodeModel::All
             entryQuery.prepare(QStringLiteral("SELECT * FROM Entries ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
         }
@@ -178,10 +181,13 @@ int DataManager::entryCount(const Feed* feed) const
 int DataManager::entryCount(const EpisodeModel::Type type) const
 {
     QSqlQuery query;
-    if (type == EpisodeModel::All || type == EpisodeModel::New) {
+    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread) {
         if (type == EpisodeModel::New) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE new=:new;"));
             query.bindValue(QStringLiteral(":new"), true);
+        } else if (type == EpisodeModel::Unread) {
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE read=:read;"));
+            query.bindValue(QStringLiteral(":read"), false);
         } else { // i.e. EpisodeModel::All
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries;"));
         }

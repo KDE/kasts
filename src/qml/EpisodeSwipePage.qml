@@ -20,22 +20,49 @@ Kirigami.Page {
     title: i18n("Episode List")
     padding: 0
 
-    header: Controls.TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
+    header: Loader {
+        id: headerLoader
+        active: !Kirigami.Settings.isMobile
+        sourceComponent: tabBarComponent
+        property var swipeViewItem: swipeView
+    }
 
-        Controls.TabButton {
-            text: "New Episodes"
-        }
-        Controls.TabButton {
-            text: "All Episodes"
+    footer: Loader {
+        id: footerLoader
+        active: Kirigami.Settings.isMobile
+        sourceComponent: tabBarComponent
+        property var swipeViewItem: swipeView
+    }
+
+    Component {
+        id: tabBarComponent
+        Controls.TabBar {
+            id: tabBar
+            position: Controls.TabBar.Footer
+            currentIndex: swipeViewItem.currentIndex
+
+            Controls.TabButton {
+                width: parent.parent.width/parent.count
+                height: Kirigami.Units.gridUnit * 2
+                text: i18n("New Episodes")
+            }
+            Controls.TabButton {
+                width: parent.parent.width/parent.count
+                height: Kirigami.Units.gridUnit * 2
+                text: i18n("Unread Episodes")
+            }
+            Controls.TabButton {
+                width: parent.parent.width/parent.count
+                height: Kirigami.Units.gridUnit * 2
+                text: i18n("All Episodes")
+            }
         }
     }
 
     Controls.SwipeView {
         id: swipeView
         anchors.fill: parent
-        currentIndex: tabBar.currentIndex
+        currentIndex: Kirigami.Settings.isMobile ? footerLoader.item.currentIndex : headerLoader.item.currentIndex
 
         EpisodeListPage {
             title: i18n("New Episodes")
@@ -43,15 +70,13 @@ Kirigami.Page {
         }
 
         EpisodeListPage {
+            title: i18n("Unread Episodes")
+            episodeType: EpisodeModel.Unread
+        }
+
+        EpisodeListPage {
             title: i18n("All Episodes")
             episodeType: EpisodeModel.All
         }
     }
-
-    /*actions.main: Kirigami.Action {
-        text: i18n("Refresh all feeds")
-        iconName: "view-refresh"
-        onTriggered: refreshing = true
-        visible: !Kirigami.Settings.isMobile
-    }*/
 }

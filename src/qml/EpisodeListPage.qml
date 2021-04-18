@@ -18,7 +18,6 @@ import org.kde.alligator 1.0
 Kirigami.ScrollablePage {
     //anchors.fill: parent
 
-    title: i18n("New Episodes")
     property var episodeType: EpisodeModel.All
 
     supportsRefreshing: true
@@ -35,7 +34,10 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("No Entries available")
+        text: i18n("No %1 available", episodeType === EpisodeModel.All ? i18n("episodes")
+                                      : episodeType === EpisodeModel.New ? i18n("new episodes")
+                                      : episodeType === EpisodeModel.Unread ? i18n("unread episodes")
+                                      : i18n("episodes"))
     }
     Component {
         id: episodeListDelegate
@@ -50,8 +52,14 @@ Kirigami.ScrollablePage {
         model: EpisodeModel { type: episodeType }
 
         delegate: Kirigami.DelegateRecycler {
-            width: episodeList.width
+             width: episodeList.width
             sourceComponent: episodeListDelegate
         }
+    }
+    actions.main: Kirigami.Action {
+        text: i18n("Refresh all feeds")
+        iconName: "view-refresh"
+        onTriggered: refreshing = true
+        visible: !Kirigami.Settings.isMobile
     }
 }
