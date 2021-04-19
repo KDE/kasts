@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     Kirigami.PagePool {
         id: mainPagePool
-        cachePages: true
+        cachePages: false
     }
 
     pageStack.initialPage: mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
