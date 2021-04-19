@@ -230,9 +230,10 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const
 void Fetcher::processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail)
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Authors WHERE feed=:feed AND id=:id;"));
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Authors WHERE feed=:feed AND id=:id AND name=:name;"));
     query.bindValue(QStringLiteral(":feed"), url);
     query.bindValue(QStringLiteral(":id"), entryId);
+    query.bindValue(QStringLiteral(":name"), authorName);
     Database::instance().execute(query);
     query.next();
 
