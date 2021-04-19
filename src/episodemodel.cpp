@@ -52,6 +52,7 @@ void EpisodeModel::setType(EpisodeModel::Type type)
     m_type = type;
     if (m_type == EpisodeModel::New) {
         connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const QString &url) {
+            Q_UNUSED(url)
             // we have to reset the entire model in case entries are removed or added
             // because we have no way of knowing where those entries will be added/removed
             beginResetModel();
@@ -59,6 +60,7 @@ void EpisodeModel::setType(EpisodeModel::Type type)
         });
     } else if (m_type == EpisodeModel::Unread) {
         connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [this](const QString &url) {
+            Q_UNUSED(url)
             // we have to reset the entire model in case entries are removed or added
             // because we have no way of knowing where those entries will be added/removed
             beginResetModel();
@@ -67,6 +69,7 @@ void EpisodeModel::setType(EpisodeModel::Type type)
     }
     else if (m_type == EpisodeModel::Downloaded) {  // TODO: this needs to be removed !!!!!!
         connect(&DataManager::instance(), &DataManager::downloadCountChanged, this, [this](const QString &url) {
+            Q_UNUSED(url)
             // we have to reset the entire model in case entries are removed or added
             // because we have no way of knowing where those entries will be added/removed
             beginResetModel();
