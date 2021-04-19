@@ -40,7 +40,7 @@ Feed::Feed(QString const feedurl)
     m_errorId = 0;
     m_errorString = QLatin1String("");
 
-    retrieveAuthors();
+    updateAuthors();
 
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
         if (url == m_url) {
@@ -78,21 +78,50 @@ Feed::~Feed()
 {
 }
 
-void Feed::retrieveAuthors()
+void Feed::updateAuthors()
 {
-    //qDebug() << "Start retrieving authors for" << m_name;
-    for (int i=0; i < m_authors.count(); i++) {
-        delete m_authors[i];
-    }
-    m_authors.clear();
+    QVector<Author *> newAuthors;
+    bool haveAuthorsChanged = false;
+
     QSqlQuery authorQuery;
     authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":feed"), m_url);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
-        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+        // check if author already exists, if so, then reuse
+        bool existingAuthor = false;
+        QString name = authorQuery.value(QStringLiteral("name")).toString();
+        QString email = authorQuery.value(QStringLiteral("email")).toString();
+        QString url = authorQuery.value(QStringLiteral("uri")).toString();
+        //qDebug() << name << email << url;
+        for (int i=0; i < m_authors.count(); i++) {
+            //qDebug() << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
+            if (m_authors[i] && m_authors[i]->name() == name
+                && m_authors[i]->email() == email
+                && m_authors[i]->url() == url) {
+                existingAuthor = true;
+                newAuthors += m_authors[i];
+            }
+        }
+        if (!existingAuthor) {
+            newAuthors += new Author(name, email, url, nullptr);
+            haveAuthorsChanged = true;
+        }
     }
-    Q_EMIT authorsChanged(m_authors);
+
+    // Finally check whether m_authors and newAuthors are identical
+    // if not, then delete the authors that were removed
+    for (int i=0; i < m_authors.count(); i++) {
+        if (!newAuthors.contains(m_authors[i])) {
+            delete m_authors[i];
+            haveAuthorsChanged = true;
+        }
+    }
+
+    m_authors = newAuthors;
+
+    if (haveAuthorsChanged) Q_EMIT authorsChanged(m_authors);
+    //qDebug() << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
 }
 
 QString Feed::url() const
@@ -182,26 +211,34 @@ QString Feed::errorString() const
 
 void Feed::setName(const QString &name)
 {
-    m_name = name;
-    Q_EMIT nameChanged(m_name);
+    if (name != m_name) {
+        m_name = name;
+        Q_EMIT nameChanged(m_name);
+    }
 }
 
 void Feed::setImage(const QString &image)
 {
-    m_image = image;
-    Q_EMIT imageChanged(m_image);
+    if (image != m_image) {
+        m_image = image;
+        Q_EMIT imageChanged(m_image);
+    }
 }
 
 void Feed::setLink(const QString &link)
 {
-    m_link = link;
-    Q_EMIT linkChanged(m_link);
+    if (link != m_link) {
+        m_link = link;
+        Q_EMIT linkChanged(m_link);
+    }
 }
 
 void Feed::setDescription(const QString &description)
 {
-    m_description = description;
-    Q_EMIT descriptionChanged(m_description);
+    if (description != m_description) {
+        m_description = description;
+        Q_EMIT descriptionChanged(m_description);
+    }
 }
 
 void Feed::setAuthors(const QVector<Author *> &authors)
@@ -228,32 +265,42 @@ void Feed::setDeleteAfterType(int type)
 
 void Feed::setLastUpdated(const QDateTime &lastUpdated)
 {
-    m_lastUpdated = lastUpdated;
-    Q_EMIT lastUpdatedChanged(m_lastUpdated);
+    if (lastUpdated != m_lastUpdated) {
+        m_lastUpdated = lastUpdated;
+        Q_EMIT lastUpdatedChanged(m_lastUpdated);
+    }
 }
 
 void Feed::setNotify(bool notify)
 {
-    m_notify = notify;
-    Q_EMIT notifyChanged(m_notify);
+    if (notify != m_notify) {
+        m_notify = notify;
+        Q_EMIT notifyChanged(m_notify);
+    }
 }
 
 void Feed::setRefreshing(bool refreshing)
 {
-    m_refreshing = refreshing;
-    Q_EMIT refreshingChanged(m_refreshing);
+    if (refreshing != m_refreshing) {
+        m_refreshing = refreshing;
+        Q_EMIT refreshingChanged(m_refreshing);
+    }
 }
 
 void Feed::setErrorId(int errorId)
 {
-    m_errorId = errorId;
-    Q_EMIT errorIdChanged(m_errorId);
+    if (errorId != m_errorId) {
+        m_errorId = errorId;
+        Q_EMIT errorIdChanged(m_errorId);
+    }
 }
 
 void Feed::setErrorString(const QString &errorString)
 {
-    m_errorString = errorString;
-    Q_EMIT errorStringChanged(m_errorString);
+    if (errorString != m_errorString) {
+        m_errorString = errorString;
+        Q_EMIT errorStringChanged(m_errorString);
+    }
 }
 
 void Feed::refresh()

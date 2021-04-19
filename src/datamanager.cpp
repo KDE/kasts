@@ -30,7 +30,7 @@ DataManager::DataManager()
             feed->setDescription(description);
             feed->setLastUpdated(lastUpdated);
             //qDebug() << "Retrieving authors";
-            feed->retrieveAuthors();
+            feed->updateAuthors();
             // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
         }
     });

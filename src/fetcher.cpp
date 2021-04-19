@@ -76,9 +76,13 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     query.prepare(QStringLiteral("SELECT new FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), url);
     Database::instance().execute(query);
-    if (query.next())
+    if (query.next()) {
         isNewFeed = query.value(QStringLiteral("new")).toBool();
-    qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
+    } else {
+        qDebug() << "Feed not found in database" << url;
+        return;
+    }
+    if (isNewFeed) qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
