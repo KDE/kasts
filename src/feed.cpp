@@ -49,7 +49,7 @@ Feed::Feed(QString const feedurl)
             setRefreshing(true);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &url) {
+    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         if (url == m_url) {
             setRefreshing(false);
             Q_EMIT entryCountChanged();
@@ -65,7 +65,11 @@ Feed::Feed(QString const feedurl)
             setRefreshing(false);
         }
     });
-
+    connect(&Fetcher::instance(), &Fetcher::feedUpdateFinished, this, [this](const QString &url) {
+        if(url == m_url) {
+            setRefreshing(false);
+        }
+    });
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if(url == m_image)
             Q_EMIT imageChanged(url);

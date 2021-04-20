@@ -140,9 +140,10 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
 
     Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 
+    bool updatedEntries = false;
     for (const auto &entry : feed->items()) {
         QCoreApplication::processEvents(); // keep the main thread semi-responsive
-        processEntry(entry, url, isNewFeed);
+        updatedEntries = updatedEntries || processEntry(entry, url, isNewFeed);
     }
 
     // Now mark the appropriate number of recent entries "new" and "read" only for new feeds
@@ -163,10 +164,11 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         }
     }
 
-    Q_EMIT feedUpdated(url);
+    if (updatedEntries || isNewFeed) Q_EMIT feedUpdated(url);
+    Q_EMIT feedUpdateFinished(url);
 }
 
-void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed)
+bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed)
 {
     qDebug() << "Processing" << entry->title();
 
@@ -180,7 +182,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const
     query.next();
 
     if (query.value(0).toInt() != 0)
-        return;
+        return false;  // entry already exists
 
     query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image);"));
     query.bindValue(QStringLiteral(":feed"), url);
@@ -225,6 +227,7 @@ void Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const
     }
 
     Q_EMIT entryAdded(url, entry->id());
+    return true; // this is a new entry
 }
 
 void Fetcher::processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail)
