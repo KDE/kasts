@@ -37,13 +37,19 @@ Kirigami.Page {
         id: tabBarComponent
         Controls.TabBar {
             id: tabBar
-            position: Controls.TabBar.Footer
+            position: Kirigami.Settings.isMobile ? Controls.TabBar.Footer : Controls.TabBar.Header
             currentIndex: swipeViewItem.currentIndex
+            contentHeight: tabBarHeight
 
             Controls.TabButton {
                 width: parent.parent.width/parent.count
-                height: Kirigami.Units.gridUnit * 2
-                text: i18n("Downloaded")
+                height: tabBarHeight
+                text: i18n("Running")
+            }
+            Controls.TabButton {
+                width: parent.parent.width/parent.count
+                height: tabBarHeight
+                text: i18n("Completed")
             }
         }
     }
@@ -54,7 +60,12 @@ Kirigami.Page {
         currentIndex: Kirigami.Settings.isMobile ? footerLoader.item.currentIndex : headerLoader.item.currentIndex
 
         EpisodeListPage {
-            title: i18n("Downloaded")
+            title: i18n("Running")
+            episodeType: EpisodeModel.Downloading
+        }
+
+        EpisodeListPage {
+            title: i18n("Completed")
             episodeType: EpisodeModel.Downloaded
         }
     }

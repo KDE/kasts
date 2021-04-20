@@ -1,5 +1,4 @@
 /**
- * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
  * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
@@ -25,6 +24,7 @@ Kirigami.Page {
         active: !Kirigami.Settings.isMobile
         sourceComponent: tabBarComponent
         property var swipeViewItem: swipeView
+        //height: tabBarHeight
     }
 
     footer: Loader {
@@ -38,22 +38,23 @@ Kirigami.Page {
         id: tabBarComponent
         Controls.TabBar {
             id: tabBar
-            position: Controls.TabBar.Footer
+            position: Kirigami.Settings.isMobile ? Controls.TabBar.Footer : Controls.TabBar.Header
             currentIndex: swipeViewItem.currentIndex
+            contentHeight: tabBarHeight
 
             Controls.TabButton {
                 width: parent.parent.width/parent.count
-                height: Kirigami.Units.gridUnit * 2
+                height: tabBarHeight
                 text: i18n("New Episodes")
             }
             Controls.TabButton {
                 width: parent.parent.width/parent.count
-                height: Kirigami.Units.gridUnit * 2
+                height: tabBarHeight
                 text: i18n("Unread Episodes")
             }
             Controls.TabButton {
                 width: parent.parent.width/parent.count
-                height: Kirigami.Units.gridUnit * 2
+                height: tabBarHeight
                 text: i18n("All Episodes")
             }
         }

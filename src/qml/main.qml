@@ -20,6 +20,9 @@ Kirigami.ApplicationWindow {
     title: "Alligator"
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
+    property int tabBarHeight: Kirigami.Units.gridUnit * 2
+    property int tabBarActive: 0
+
     Kirigami.PagePool {
         id: mainPagePool
         cachePages: false
@@ -34,7 +37,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
+        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
         handleVisible: !audio.entry || footerLoader.item.contentY == 0
         actions: [
             Kirigami.PagePoolAction {
@@ -44,6 +47,7 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/QueuePage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+                    tabBarActive = 0
                 }
             },
             Kirigami.PagePoolAction {
@@ -53,6 +57,7 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/EpisodeSwipePage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "EpisodeSwipePage" // for persistency
+                    tabBarActive = 1
                 }
             },
             Kirigami.PagePoolAction {
@@ -62,6 +67,7 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/FeedListPage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                    tabBarActive = 0
                 }
             },
             Kirigami.PagePoolAction {
@@ -71,6 +77,7 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/DownloadSwipePage.qml"
                 onTriggered: {
                     SettingsManager.lastOpenedPage = "DownloadSwipePage" // for persistency
+                    tabBarActive = 1
                 }
             },
             Kirigami.PagePoolAction {
@@ -102,7 +109,7 @@ Kirigami.ApplicationWindow {
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
+        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
         handleVisible: !audio.entry || footerLoader.item.contentY == 0
     }
 
@@ -125,6 +132,7 @@ Kirigami.ApplicationWindow {
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
     pageStack.anchors.bottomMargin: (audio.entry) ? miniplayerSize : 0
+
     Loader {
         id: footerLoader
 
