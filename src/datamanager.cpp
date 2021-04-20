@@ -292,7 +292,7 @@ void DataManager::removeFeed(const int &index)
     Q_EMIT feedRemoved(index);
 }
 
-void DataManager::addFeed(const QString &url)
+void DataManager::addFeed(const QString &url, bool fetch = true)
 {
     // This method will add the relevant internal data structures, and then add
     // a preliminary entry into the database.  Those details (as well as entries,
@@ -326,7 +326,17 @@ void DataManager::addFeed(const QString &url)
 
     Q_EMIT feedAdded(urlFromInput.toString());
 
-    Fetcher::instance().fetch(urlFromInput.toString());
+    if (fetch) Fetcher::instance().fetch(urlFromInput.toString());
+}
+
+void DataManager::addFeeds(const QStringList &urls)
+{
+    if (urls.count() == 0) return;
+
+    for (int i=0; i<urls.count(); i++) {
+        addFeed(urls[i], false);  // add preliminary feed entries, but do not fetch yet
+    }
+    Fetcher::instance().fetch(urls);
 }
 
 Entry* DataManager::getQueueEntry(int const &index) const
@@ -465,13 +475,16 @@ void DataManager::importFeeds(const QString &path)
 
     file.open(QIODevice::ReadOnly);
 
+    QStringList urls;
     QXmlStreamReader xmlReader(&file);
     while(!xmlReader.atEnd()) {
         xmlReader.readNext();
         if(xmlReader.tokenType() == 4 &&  xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
-            addFeed(xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString());
+            urls += xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString();
         }
     }
+    qDebug() << urls;
+    addFeeds(urls);
 }
 
 void DataManager::exportFeeds(const QString &path)
