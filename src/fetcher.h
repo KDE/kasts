@@ -15,6 +15,11 @@
 class Fetcher : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(int updateProgress MEMBER m_updateProgress NOTIFY updateProgressChanged)
+    Q_PROPERTY(int updateTotal MEMBER m_updateTotal NOTIFY updateTotalChanged)
+    Q_PROPERTY(bool updating MEMBER m_updating NOTIFY updatingChanged)
+
 public:
     static Fetcher &instance()
     {
@@ -30,6 +35,22 @@ public:
     QString imagePath(const QString &url) const;
     QString enclosurePath(const QString &url) const;
 
+Q_SIGNALS:
+    void startedFetchingFeed(const QString &url);
+    void feedUpdated(const QString &url);
+    void feedDetailsUpdated(const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated);
+    void feedUpdateFinished(const QString &url);
+    void error(const QString &url, int errorId, const QString &errorString);
+    void entryAdded(const QString &feedurl, const QString &id);
+    void downloadFinished(QString url) const;
+
+    void updateProgressChanged(int progress);
+    void updateTotalChanged(int nrOfFeeds);
+    void updatingChanged(bool state);
+
+private Q_SLOTS:
+    void updateMonitor(int progress);
+
 private:
     Fetcher();
 
@@ -40,13 +61,8 @@ private:
 
 
     QNetworkAccessManager *manager;
+    int m_updateProgress;
+    int m_updateTotal;
+    bool m_updating;
 
-Q_SIGNALS:
-    void startedFetchingFeed(const QString &url);
-    void feedUpdated(const QString &url);
-    void feedDetailsUpdated(const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated);
-    void feedUpdateFinished(const QString &url);
-    void error(const QString &url, int errorId, const QString &errorString);
-    void entryAdded(const QString &feedurl, const QString &id);
-    void downloadFinished(QString url) const;
 };

@@ -26,6 +26,10 @@
 
 Fetcher::Fetcher()
 {
+    m_updateProgress = -1;
+    m_updateTotal = -1;
+    m_updating = false;
+
     manager = new QNetworkAccessManager(this);
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
@@ -39,6 +43,7 @@ void Fetcher::fetch(const QString &url)
     Q_EMIT startedFetchingFeed(url);
 
     QNetworkRequest request((QUrl(url)));
+    request.setTransferTimeout();
     QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
         if(reply->error()) {
@@ -51,17 +56,50 @@ void Fetcher::fetch(const QString &url)
             Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
             processFeed(feed, url);
         }
+        m_updateProgress++;
+        Q_EMIT updateProgressChanged(m_updateProgress);
         delete reply;
     });
 }
 
 void Fetcher::fetchAll()
 {
+    if (m_updating) return; // update is already running, do nothing
+
     QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds;"));
+    Database::instance().execute(query);
+    query.next();
+    if (query.value(0).toInt() == 0)
+        return; // no feeds in database
+
+    m_updating = true;
+    m_updateProgress = 0;
+    m_updateTotal = query.value(0).toInt();
+    connect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
+    Q_EMIT updatingChanged(m_updating);
+    Q_EMIT updateProgressChanged(m_updateProgress);
+    Q_EMIT updateTotalChanged(m_updateTotal);
+
     query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
     Database::instance().execute(query);
     while (query.next()) {
         fetch(query.value(0).toString());
+    }
+}
+
+void Fetcher::updateMonitor(int progress)
+{
+    qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
+    // this method will watch for the end of the update process
+    if (progress > -1 && m_updateTotal > -1 && progress == m_updateTotal) {
+        m_updating = false;
+        m_updateProgress = -1;
+        m_updateTotal = -1;
+        disconnect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
+        Q_EMIT updatingChanged(m_updating);
+        Q_EMIT updateProgressChanged(m_updateProgress);
+        Q_EMIT updateTotalChanged(m_updateTotal);
     }
 }
 
