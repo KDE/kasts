@@ -18,6 +18,7 @@ Kirigami.SwipeListItem {
     alwaysVisibleActions: true
 
     property bool isQueue: false
+    property bool isDownloads: false
     property var listView: ""
 
     contentItem: RowLayout {
@@ -155,7 +156,7 @@ Kirigami.SwipeListItem {
                 entry.queueStatus = true;
                 entry.enclosure.download();
             }
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
+            visible: !isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
         },
         Kirigami.Action {
             text: i18n("Cancel download")
@@ -164,15 +165,21 @@ Kirigami.SwipeListItem {
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
         Kirigami.Action {
+            text: i18n("Delete download")
+            icon.name: "delete"
+            onTriggered: entry.enclosure.deleteFile()
+            visible: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+        },
+        Kirigami.Action {
             text: i18n("Add to queue")
             icon.name: "media-playlist-append"
-            visible: !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            visible: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
             onTriggered: entry.queueStatus = true
         },
         Kirigami.Action {
             text: i18n("Play")
             icon.name: "media-playback-start"
-            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
+            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
             onTriggered: {
                 audio.entry = entry
                 audio.play()
@@ -181,7 +188,7 @@ Kirigami.SwipeListItem {
         Kirigami.Action {
             text: i18n("Pause")
             icon.name: "media-playback-pause"
-            visible: entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
+            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
             onTriggered: audio.pause()
         }
     ]

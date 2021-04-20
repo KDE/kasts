@@ -43,6 +43,7 @@ Kirigami.ScrollablePage {
         id: episodeListDelegate
         GenericEntryDelegate {
             listView: episodeList
+            isDownloads: episodeType == EpisodeModel.Downloaded || episodeType == EpisodeModel.Downloading
         }
     }
     ListView {
