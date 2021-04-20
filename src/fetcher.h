@@ -27,6 +27,7 @@ public:
         return _instance;
     }
     Q_INVOKABLE void fetch(const QString &url);
+    Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url) const;
     void removeImage(const QString &url);

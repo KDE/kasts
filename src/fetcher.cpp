@@ -62,30 +62,37 @@ void Fetcher::fetch(const QString &url)
     });
 }
 
-void Fetcher::fetchAll()
+void Fetcher::fetch(const QStringList &urls)
 {
     if (m_updating) return; // update is already running, do nothing
 
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (url) FROM Feeds;"));
-    Database::instance().execute(query);
-    query.next();
-    if (query.value(0).toInt() == 0)
-        return; // no feeds in database
-
     m_updating = true;
     m_updateProgress = 0;
-    m_updateTotal = query.value(0).toInt();
+    m_updateTotal = urls.count();
     connect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
     Q_EMIT updatingChanged(m_updating);
     Q_EMIT updateProgressChanged(m_updateProgress);
     Q_EMIT updateTotalChanged(m_updateTotal);
 
+    for (int i=0; i<urls.count(); i++) {
+        fetch(urls[i]);
+    }
+}
+
+void Fetcher::fetchAll()
+{
+    QStringList urls;
+    QSqlQuery query;
     query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
     Database::instance().execute(query);
     while (query.next()) {
-        fetch(query.value(0).toString());
+        urls += query.value(0).toString();;
     }
+
+    if (urls.count() > 0)
+        fetch(urls);
+    else
+        return; // no feeds in database
 }
 
 void Fetcher::updateMonitor(int progress)
