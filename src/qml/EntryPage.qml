@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+ * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -7,7 +8,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-
 import QtMultimedia 5.15
 
 import org.kde.kirigami 2.14 as Kirigami
@@ -22,6 +22,23 @@ Kirigami.ScrollablePage {
     title: entry.title
 
     padding: 0  // needed to get the inline header to fill the page
+
+    Connections {
+        target: entry
+        function onQueueStatusChanged() {
+            if (entry.queueStatus === false) {
+                // this entry has just been removed from the queue
+                if (pageStack.depth > 1) {
+                    if (pageStack.get(0).lastEntry) {
+                        if (pageStack.get(0).lastEntry === entry.id) {
+                            // if this EntryPage was open, then close it
+                            pageStack.pop()
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     ColumnLayout {
         GenericListHeader {
@@ -43,23 +60,6 @@ Kirigami.ScrollablePage {
             Layout.fillHeight: true
             onLinkActivated: Qt.openUrlExternally(link)
             //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
-        }
-    }
-
-    Connections {
-        target: entry
-        function onQueueStatusChanged() {
-            if (entry.queueStatus === false) {
-                // this entry has just been removed from the queue
-                if (pageStack.depth > 1) {
-                    if (pageStack.get(0).lastEntry) {
-                        if (pageStack.get(0).lastEntry === entry.id) {
-                            // if this EntryPage was open, then close it
-                            pageStack.pop()
-                        }
-                    }
-                }
-            }
         }
     }
 
@@ -142,4 +142,3 @@ Kirigami.ScrollablePage {
         }
     ]
 }
-
