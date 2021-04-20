@@ -50,11 +50,6 @@ Kirigami.Page {
             Controls.TabButton {
                 width: parent.parent.width/parent.count
                 height: tabBarHeight
-                text: i18n("Unread Episodes")
-            }
-            Controls.TabButton {
-                width: parent.parent.width/parent.count
-                height: tabBarHeight
                 text: i18n("All Episodes")
             }
         }
@@ -68,11 +63,6 @@ Kirigami.Page {
         EpisodeListPage {
             title: i18n("New Episodes")
             episodeType: EpisodeModel.New
-        }
-
-        EpisodeListPage {
-            title: i18n("Unread Episodes")
-            episodeType: EpisodeModel.Unread
         }
 
         EpisodeListPage {
