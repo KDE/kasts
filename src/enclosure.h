@@ -18,7 +18,6 @@ class Enclosure : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int duration MEMBER m_duration CONSTANT)
     Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
