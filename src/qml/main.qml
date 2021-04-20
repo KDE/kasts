@@ -146,4 +146,14 @@ Kirigami.ApplicationWindow {
         }
 
     }
+    UpdateNotification {
+        z: 2
+        id: updateNotification
+
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+            bottomMargin: Kirigami.Units.largeSpacing * 9 + ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
+        }
+    }
 }

@@ -90,7 +90,7 @@ void Fetcher::fetchAll()
 
 void Fetcher::updateMonitor(int progress)
 {
-    qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
+    //qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
     // this method will watch for the end of the update process
     if (progress > -1 && m_updateTotal > -1 && progress == m_updateTotal) {
         m_updating = false;
@@ -98,8 +98,8 @@ void Fetcher::updateMonitor(int progress)
         m_updateTotal = -1;
         disconnect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
         Q_EMIT updatingChanged(m_updating);
-        Q_EMIT updateProgressChanged(m_updateProgress);
-        Q_EMIT updateTotalChanged(m_updateTotal);
+        //Q_EMIT updateProgressChanged(m_updateProgress);
+        //Q_EMIT updateTotalChanged(m_updateTotal);
     }
 }
 
