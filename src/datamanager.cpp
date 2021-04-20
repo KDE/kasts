@@ -21,7 +21,7 @@ DataManager::DataManager()
 {
     // connect signals to lambda slots
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-        qDebug() << "Start updating feed details" << m_feeds;
+        //qDebug() << "Start updating feed details" << m_feeds;
         Feed* feed = getFeed(url);
         if (feed != nullptr) {
             feed->setName(name);

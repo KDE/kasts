@@ -118,7 +118,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             }
         } else {
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-            qDebug() << "authorname" << authorname;
+            //qDebug() << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
     }
@@ -171,7 +171,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
 
 bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed)
 {
-    qDebug() << "Processing" << entry->title();
+    //qDebug() << "Processing" << entry->title();
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
