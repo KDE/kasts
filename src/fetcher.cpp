@@ -143,7 +143,8 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     bool updatedEntries = false;
     for (const auto &entry : feed->items()) {
         QCoreApplication::processEvents(); // keep the main thread semi-responsive
-        updatedEntries = updatedEntries || processEntry(entry, url, isNewFeed);
+        bool isNewEntry = processEntry(entry, url, isNewFeed);
+        updatedEntries = updatedEntries || isNewEntry;
     }
 
     // Now mark the appropriate number of recent entries "new" and "read" only for new feeds
