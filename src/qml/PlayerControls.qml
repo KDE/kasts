@@ -8,7 +8,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtMultimedia 5.15
-
+import QtGraphicalEffects 1.15
 import org.kde.kirigami 2.14 as Kirigami
 
 import org.kde.alligator 1.0
@@ -58,6 +58,19 @@ Kirigami.Page {
                     height: Math.min( Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)-(imageLabels.height+2*parent.textMargin),
                                     Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3))
                     width: height
+                    layer.enabled: true
+                    layer.effect: OpacityMask {
+                        maskSource: Item {
+                            width: coverImage.width
+                            height: coverImage.height
+                            Rectangle {
+                                anchors.centerIn: parent
+                                width: coverImage.adapt ? coverImage.width : Math.min(coverImage.width, coverImage.height)
+                                height: coverImage.adapt ? coverImage.height : width
+                                radius: Math.min(width, height)/20
+                            }
+                        }
+                    }
                 }
                 ColumnLayout {
                     id: imageLabels
