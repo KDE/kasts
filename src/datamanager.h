@@ -33,8 +33,9 @@ public:
     int entryCount(const EpisodeModel::Type type) const;
     int unreadEntryCount(const Feed* feed) const;
     int newEntryCount(const Feed* feed) const;
-    Q_INVOKABLE void addFeed(const QString &url, bool fetch);
-    Q_INVOKABLE void addFeeds(const QStringList &urls);
+    Q_INVOKABLE void addFeed(const QString &url);
+    void addFeed(const QString &url, const bool fetch);
+    void addFeeds(const QStringList &urls);
     Q_INVOKABLE void removeFeed(const Feed* feed);
     Q_INVOKABLE void removeFeed(const int &index);
 

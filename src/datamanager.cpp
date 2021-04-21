@@ -32,6 +32,7 @@ DataManager::DataManager()
             //qDebug() << "Retrieving authors";
             feed->updateAuthors();
             // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+            // quite sure that this is actually not needed
         }
     });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
@@ -292,7 +293,12 @@ void DataManager::removeFeed(const int &index)
     Q_EMIT feedRemoved(index);
 }
 
-void DataManager::addFeed(const QString &url, bool fetch = true)
+void DataManager::addFeed(const QString &url)
+{
+    addFeed(url, true);
+}
+
+void DataManager::addFeed(const QString &url, const bool fetch)
 {
     // This method will add the relevant internal data structures, and then add
     // a preliminary entry into the database.  Those details (as well as entries,
