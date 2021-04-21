@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Controls.CheckBox {
+        /*Controls.CheckBox {
             id: autoDownload
             checked: SettingsManager.autoDownload
             text: i18n("Automatically download new episodes")
@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
             text: i18n("Allow streaming of audio")
 
             onToggled: SettingsManager.allowStreaming = checked
-        }
+        }*/
 
     }
 }
