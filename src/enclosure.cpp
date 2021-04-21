@@ -16,11 +16,18 @@
 #include "enclosuredownloadjob.h"
 #include "entry.h"
 #include "fetcher.h"
+#include "downloadprogressmodel.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
+    // Set up signals to make DownloadProgressModel aware of ongoing downloads
+    connect(this, &Enclosure::statusChanged, this, [this]() {
+        Q_EMIT downloadStatusChanged(m_entry, m_status);
+    });
+    connect(this, &Enclosure::downloadStatusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
+
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
     query.bindValue(QStringLiteral(":id"), entry->id());

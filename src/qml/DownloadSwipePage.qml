@@ -44,7 +44,7 @@ Kirigami.Page {
             Controls.TabButton {
                 width: parent.parent.width/parent.count
                 height: tabBarHeight
-                text: i18n("Running")
+                text: i18n("In Progress")
             }
             Controls.TabButton {
                 width: parent.parent.width/parent.count
@@ -60,7 +60,7 @@ Kirigami.Page {
         currentIndex: Kirigami.Settings.isMobile ? footerLoader.item.currentIndex : headerLoader.item.currentIndex
 
         EpisodeListPage {
-            title: i18n("Running")
+            title: i18n("In Progress")
             episodeType: EpisodeModel.Downloading
         }
 

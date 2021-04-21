@@ -11,6 +11,7 @@ add_executable(alligator
     enclosuredownloadjob.cpp
     queuemodel.cpp
     episodemodel.cpp
+    downloadprogressmodel.cpp
     datamanager.cpp
     audiomanager.cpp
     powermanagementinterface.cpp

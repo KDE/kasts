@@ -30,6 +30,7 @@
 #include "fetcher.h"
 #include "queuemodel.h"
 #include "episodemodel.h"
+#include "downloadprogressmodel.h"
 #include "datamanager.h"
 #include "audiomanager.h"
 #include "mpris2/mpris2.h"
@@ -71,10 +72,10 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
         return SettingsManager::self();
     });
-    /*qmlRegisterSingletonType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&AudioManager::instance(), QQmlEngine::CppOwnership);
-        return &AudioManager::instance();
-    });*/
+    qmlRegisterSingletonType<DownloadProgressModel>("org.kde.alligator", 1, 0, "DownloadProgressModel", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&DownloadProgressModel::instance(), QQmlEngine::CppOwnership);
+        return &DownloadProgressModel::instance();
+    });
     qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
     qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
 
@@ -104,7 +105,7 @@ int main(int argc, char *argv[])
 
     DataManager::instance();
 
-    //AudioManager::instance();
+    DownloadProgressModel::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

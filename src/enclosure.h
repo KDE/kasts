@@ -59,6 +59,7 @@ Q_SIGNALS:
     void playPositionChanged();
     void durationChanged();
     void sizeChanged();
+    void downloadStatusChanged(Entry* entry, Status status);
 
 private:
 
