@@ -180,7 +180,9 @@ void AudioManager::setEntry(Entry* entry)
         //qDebug() << "Going to change source";
         d->m_entry = entry;
         Q_EMIT entryChanged(entry);
-        d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+        // the gst-pipeline is required to make sure that the pitch is not
+        // changed when speeding up the audio stream
+        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path() + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
         //qDebug() << "Changed source to" << d->m_entry->title();
