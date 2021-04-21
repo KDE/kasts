@@ -58,6 +58,8 @@ Item {
             source: image === "" ? "logo.png" : "file://"+Fetcher.image(image)
             Layout.maximumHeight: parent.size
             Layout.maximumWidth: parent.size
+            sourceSize.width: parent.size
+            sourceSize.height: parent.size
             asynchronous: true
         }
         ColumnLayout {

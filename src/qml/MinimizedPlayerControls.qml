@@ -57,6 +57,8 @@ Item {
                     fillMode: Image.PreserveAspectFit
                     Layout.fillHeight: true
                     Layout.maximumWidth: height
+                    sourceSize.width: miniplayerheight
+                    sourceSize.height: miniplayerheight
                 }
 
                 // track information
