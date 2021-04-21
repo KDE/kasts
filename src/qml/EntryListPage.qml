@@ -110,14 +110,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
-        MouseArea {
-            anchors.fill: page.headerImage
-            onClicked: {
-                while(pageStack.depth > 2)
-                    pageStack.pop()
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
-            }
-        }
     }
 }
