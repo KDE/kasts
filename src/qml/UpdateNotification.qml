@@ -67,7 +67,7 @@ Rectangle {
             color: Kirigami.Theme.textColor
 
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
             Layout.alignment: Qt.AlignVCenter
         }
     }
