@@ -20,6 +20,9 @@ Kirigami.Page {
     clip: true
     Layout.margins: 0
 
+    padding: 0
+    bottomPadding: Kirigami.Units.gridUnit
+
     ColumnLayout {
         anchors.fill: parent
         anchors.topMargin:0
@@ -122,6 +125,8 @@ Kirigami.Page {
             implicitHeight: mediaControls.height
             Layout.fillWidth: true
             Layout.margins: 0
+            Layout.leftMargin: Kirigami.Units.gridUnit
+            Layout.rightMargin: Kirigami.Units.gridUnit
 
             ColumnLayout {
                 id: mediaControls
