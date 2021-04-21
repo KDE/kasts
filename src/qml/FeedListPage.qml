@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+ * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -14,6 +15,7 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
+    id: subscriptionPage
     title: i18n("Subscriptions")
 
     property var lastFeed: ""
@@ -66,15 +68,25 @@ Kirigami.ScrollablePage {
         text: i18n("No Feeds added yet")
     }
 
-    ListView {
+    GridView {
         id: feedList
         visible: count !== 0
         anchors.fill: parent
+
+        property int cardSize: width/3 - cardMargin //Kirigami.Units.gridUnit * 10
+        property int cardMargin: Kirigami.Units.smallSpacing
+
+        cellWidth: cardSize + cardMargin
+        cellHeight: cardSize + cardMargin
+
         model: FeedsModel {
             id: feedsModel
         }
 
-        delegate: FeedListDelegate { }
+        delegate: FeedListDelegate {
+            cardSize: feedList.cardSize
+            cardMargin: feedList.cardMargin
+        }
     }
 
     FileDialog {

@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+ * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -7,32 +8,72 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
+import QtGraphicalEffects 1.15
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.alligator 1.0
 
-Kirigami.SwipeListItem {
+Item {
 
-    leftPadding: 0
-    rightPadding: 0
+    property int cardSize
+    property int cardMargin
 
-    contentItem: Kirigami.BasicListItem {
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        text: feed.name
-        icon: feed.refreshing ? "view-refresh" : feed.image === "" ? "rss" : Fetcher.image(feed.image)
-        iconSize: Kirigami.Units.iconSizes.medium
-        subtitle: i18np("%1 unread entry", "%1 unread entries", feed.unreadEntryCount)
+    Image {
+        id: img
+        asynchronous: true
+        source: feed.image === "" ? "logo.png" : "file://"+Fetcher.image(feed.image)
+        fillMode: Image.PreserveAspectFit
+        x: cardMargin
+        y: cardMargin
+        sourceSize.width: cardSize
+        sourceSize.height: cardSize
+        height: cardSize - cardMargin
+        width: cardSize - cardMargin
 
-        onClicked: {
-            lastFeed = feed.url
-
-            pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+        //layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Item {
+                width: img.width
+                height: img.height
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: img.adapt ? img.width : Math.min(img.width, img.height)
+                    height: img.adapt ? img.height : width
+                    radius: Math.min(width, height)/5
+                }
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                lastFeed = feed.url
+                pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+            }
         }
     }
 
-    actions: [
+    Rectangle {
+        id: rectangle
+        visible: feed.unreadEntryCount > 0
+        anchors.top: img.top
+        anchors.right: img.right
+        width: img.width/5
+        height: img.height/5
+        color: Kirigami.Theme.highlightColor
+    }
+
+    Controls.Label {
+        id: countLabel
+        visible: feed.unreadEntryCount > 0
+        anchors.centerIn: rectangle
+        anchors.margins: Kirigami.Units.smallSpacing
+        text: feed.unreadEntryCount
+        font.bold: true
+        color: Kirigami.Theme.highlightedTextColor
+    }
+
+    /*actions: [
         Kirigami.Action {
             icon.name: "delete"
             onTriggered: {
@@ -43,6 +84,6 @@ Kirigami.SwipeListItem {
             }
         }
 
-    ]
+    ]*/
 
 }
