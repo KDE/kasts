@@ -31,19 +31,6 @@ Item {
         height: cardSize - cardMargin
         width: cardSize - cardMargin
 
-        //layer.enabled: true
-        layer.effect: OpacityMask {
-            maskSource: Item {
-                width: img.width
-                height: img.height
-                Rectangle {
-                    anchors.centerIn: parent
-                    width: img.adapt ? img.width : Math.min(img.width, img.height)
-                    height: img.adapt ? img.height : width
-                    radius: Math.min(width, height)/5
-                }
-            }
-        }
         MouseArea {
             anchors.fill: parent
             onClicked: {

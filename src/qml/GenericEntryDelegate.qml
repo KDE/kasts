@@ -10,6 +10,7 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.14 as Kirigami
 import QtMultimedia 5.15
+import QtGraphicalEffects 1.15
 import org.kde.alligator 1.0
 
 
@@ -37,6 +38,7 @@ Kirigami.SwipeListItem {
             }
         }
         Image {
+            id: img
             asynchronous: true
             source: entry.image === "" ? "logo.png" : "file://"+Fetcher.image(entry.image)
             fillMode: Image.PreserveAspectFit
@@ -47,6 +49,19 @@ Kirigami.SwipeListItem {
             Layout.maximumWidth: size
             Layout.rightMargin:Kirigami.Units.smallSpacing
             opacity: (entry.read) ? 0.5 : 1
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                maskSource: Item {
+                    width: img.width
+                    height: img.height
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: img.adapt ? img.width : Math.min(img.width, img.height)
+                        height: img.adapt ? img.height : width
+                        radius: Math.min(width, height)/6
+                    }
+                }
+            }
         }
         ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
