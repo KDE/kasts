@@ -230,8 +230,10 @@ int DataManager::newEntryCount(const Feed* feed) const
     return query.value(0).toInt();
 }
 
-void DataManager::removeFeed(const Feed* feed)
+void DataManager::removeFeed(Feed* feed)
 {
+    qDebug() << feed->url();
+    qDebug() << "deleting feed with index" << m_feedmap.indexOf(feed->url());
     removeFeed(m_feedmap.indexOf(feed->url()));
 }
 
@@ -417,7 +419,7 @@ void DataManager::moveQueueItem(const int &from, const int &to)
 
 void DataManager::removeQueueItem(const int &index)
 {
-    qDebug() << m_queuemap;
+    //qDebug() << m_queuemap;
     // Unset "new" state
     getEntry(m_queuemap[index])->setNew(false);
     // TODO: Make sure to unset the pointer in the Audio class once it's been

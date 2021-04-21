@@ -36,8 +36,8 @@ public:
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
-    Q_INVOKABLE void removeFeed(const Feed* feed);
-    Q_INVOKABLE void removeFeed(const int &index);
+    Q_INVOKABLE void removeFeed(Feed* feed);
+    void removeFeed(const int &index);
 
     //Q_INVOKABLE void addEntry(const QString &url);  // TODO: implement these methods
     //Q_INVOKABLE void removeEntry(const QString &url);
@@ -65,7 +65,7 @@ Q_SIGNALS:
     void feedAdded(const QString &url);
     void feedRemoved(const int &index);
     void entryAdded(const QString &feedurl, const QString &id);
-    //void entryRemoved(const Feed*, const int &index); // TODO: implement this signal
+    //void entryRemoved(const Feed*, const int &index); // TODO: implement this signal, is this needed?
     void feedEntriesUpdated(const QString &url);
     void queueEntryAdded(const int &index, const QString &id);
     void queueEntryRemoved(const int &index, const QString &id);
