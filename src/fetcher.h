@@ -42,7 +42,7 @@ Q_SIGNALS:
     void feedUpdated(const QString &url);
     void feedDetailsUpdated(const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated);
     void feedUpdateFinished(const QString &url);
-    void error(const QString &url, QNetworkReply::NetworkError errorId, const QString &errorString);
+    void error(const QString &url, const QString &id, const int errorId, const QString &errorString);
     void entryAdded(const QString &feedurl, const QString &id);
     void downloadFinished(QString url) const;
 

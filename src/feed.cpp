@@ -58,7 +58,8 @@ Feed::Feed(QString const feedurl)
             setErrorString(QLatin1String(""));
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, int errorId, const QString &errorString) {
+    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, const QString &id, int errorId, const QString &errorString) {
+        Q_UNUSED(id)
         if(url == m_url) {
             setErrorId(errorId);
             setErrorString(errorString);

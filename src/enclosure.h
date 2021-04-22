@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef ENCLOSURE_H
-#define ENCLOSURE_H
+#pragma once
 
 #include <QDebug>
 #include <QObject>
@@ -60,6 +59,7 @@ Q_SIGNALS:
     void durationChanged();
     void sizeChanged();
     void downloadStatusChanged(Entry* entry, Status status);
+    void downloadError(const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 private:
 
@@ -76,5 +76,3 @@ private:
     double m_downloadProgress = 0;
     Status m_status;
 };
-
-#endif // ENCLOSURE_H

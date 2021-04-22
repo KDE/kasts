@@ -15,6 +15,8 @@ add_executable(alligator
     datamanager.cpp
     audiomanager.cpp
     powermanagementinterface.cpp
+    errorlogmodel.cpp
+    error.h
     mpris2/mpris2.cpp
     mpris2/mediaplayer2.cpp
     mpris2/mediaplayer2player.cpp

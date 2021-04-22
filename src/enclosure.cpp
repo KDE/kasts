@@ -17,6 +17,7 @@
 #include "entry.h"
 #include "fetcher.h"
 #include "downloadprogressmodel.h"
+#include "errorlogmodel.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
@@ -27,6 +28,7 @@ Enclosure::Enclosure(Entry *entry)
         Q_EMIT downloadStatusChanged(m_entry, m_status);
     });
     connect(this, &Enclosure::downloadStatusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
+    connect(this,&Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
@@ -105,6 +107,7 @@ void Enclosure::download()
             if(downloadJob->error() != QNetworkReply::OperationCanceledError) {
                 m_entry->feed()->setErrorId(downloadJob->error());
                 m_entry->feed()->setErrorString(downloadJob->errorString());
+                Q_EMIT downloadError(m_entry->feed()->url(), m_entry->id(), downloadJob->error(), downloadJob->errorString());
             }
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);

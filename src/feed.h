@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef FEED_H
-#define FEED_H
+#pragma once
 
 #include <QDateTime>
 #include <QObject>
@@ -116,5 +115,3 @@ private:
 
     bool m_refreshing = false;
 };
-
-#endif // FEED_H

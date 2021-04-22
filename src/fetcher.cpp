@@ -49,7 +49,7 @@ void Fetcher::fetch(const QString &url)
         if(reply->error()) {
             qWarning() << "Error fetching feed";
             qWarning() << reply->errorString();
-            Q_EMIT error(url, reply->error(), reply->errorString());
+            Q_EMIT error(url, QStringLiteral(""), reply->error(), reply->errorString());
         } else {
             QByteArray data = reply->readAll();
             Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
@@ -341,6 +341,7 @@ QString Fetcher::image(const QString& url) const
 QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
 {
     QNetworkRequest request((QUrl(url)));
+    request.setTransferTimeout();
     QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [=]() {
         if (reply->isOpen()) {

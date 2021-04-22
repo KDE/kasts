@@ -31,6 +31,7 @@
 #include "queuemodel.h"
 #include "episodemodel.h"
 #include "downloadprogressmodel.h"
+#include "errorlogmodel.h"
 #include "datamanager.h"
 #include "audiomanager.h"
 #include "mpris2/mpris2.h"
@@ -76,6 +77,10 @@ int main(int argc, char *argv[])
         engine->setObjectOwnership(&DownloadProgressModel::instance(), QQmlEngine::CppOwnership);
         return &DownloadProgressModel::instance();
     });
+    qmlRegisterSingletonType<ErrorLogModel>("org.kde.alligator", 1, 0, "ErrorLogModel", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        engine->setObjectOwnership(&ErrorLogModel::instance(), QQmlEngine::CppOwnership);
+        return &ErrorLogModel::instance();
+    });
     qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
     qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
 
@@ -102,10 +107,9 @@ int main(int argc, char *argv[])
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
 
     Database::instance();
-
     DataManager::instance();
-
     DownloadProgressModel::instance();
+    ErrorLogModel::instance();
 
     engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 

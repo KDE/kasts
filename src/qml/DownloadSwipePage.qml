@@ -51,6 +51,11 @@ Kirigami.Page {
                 height: tabBarHeight
                 text: i18n("Completed")
             }
+            Controls.TabButton {
+                width: parent.parent.width/parent.count
+                height: tabBarHeight
+                text: i18n("Errors")
+            }
         }
     }
 
@@ -67,6 +72,10 @@ Kirigami.Page {
         EpisodeListPage {
             title: i18n("Completed")
             episodeType: EpisodeModel.Downloaded
+        }
+
+        ErrorListPage {
+            title: i18n("Errors")
         }
     }
 }
