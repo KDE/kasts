@@ -34,8 +34,11 @@ private:
     bool m_isSeekable = false;
     bool m_lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
+    void prepareAudioStream();
+
     friend class AudioManager;
 };
+
 
 AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_unique<AudioManagerPrivate>())
 {
@@ -187,37 +190,7 @@ void AudioManager::setEntry(Entry* entry)
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
         //qDebug() << "Changed source to" << d->m_entry->title();
 
-        qint64 startingPosition = d->m_entry->enclosure()->playPosition();
-        // What follows is a dirty hack to get the player positioned at the
-        // correct spot.  The audio only becomes seekable when the player is
-        // actually playing.  So we start the playback and then set a timer to
-        // wait until the stream becomes seekable; then switch position and
-        // immediately pause the playback.
-        // Unfortunately, this will produce an audible glitch with the current
-        // QMediaPlayer backend.
-        d->m_player.play();
-        if (!d->m_player.isSeekable()) {
-            QEventLoop loop;
-            QTimer timer;
-            timer.setSingleShot(true);
-            timer.setInterval(2000);
-            loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
-            loop.connect(&d->m_player, SIGNAL (seekableChanged(bool)), &loop, SLOT (quit()));
-            //qDebug() << "Starting waiting loop";
-            loop.exec();
-        }
-        if (d->m_player.mediaStatus() != QMediaPlayer::BufferedMedia) {
-            QEventLoop loop;
-            QTimer timer;
-            timer.setSingleShot(true);
-            timer.setInterval(2000);
-            loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
-            loop.connect(&d->m_player, SIGNAL (mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT (quit()));
-            //qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
-            loop.exec();
-        }        //qDebug() << "Changing position";
-        if (startingPosition > 1000) d->m_player.setPosition(startingPosition);
-        d->m_player.pause();
+        d->prepareAudioStream();
         d->m_readyToPlay = true;
         Q_EMIT canPlayChanged();
         Q_EMIT canPauseChanged();
@@ -291,6 +264,7 @@ void AudioManager::play()
 {
     //qDebug() << "AudioManager::play";
 
+    d->prepareAudioStream();
     d->m_player.play();
     d->m_isSeekable = true;
     Q_EMIT seekableChanged(d->m_isSeekable);
@@ -431,4 +405,42 @@ void AudioManager::savePlayPosition(qint64 position)
         }
     }
     //qDebug() << d->m_player.mediaStatus();
+}
+
+void AudioManagerPrivate::prepareAudioStream()
+{
+    /**
+     * What follows is a dirty hack to get the player positioned at the
+     * correct spot.  The audio only becomes seekable when the player is
+     * actually playing and the stream is fully buffered.  So we start the
+     * playback and then set a timer to wait until the stream becomes
+     * seekable; then switch position and immediately pause the playback.
+     * Unfortunately, this will produce an audible glitch with the current
+     * QMediaPlayer backend.
+     */
+    qDebug() << "voodoo happening";
+    qint64 startingPosition = m_entry->enclosure()->playPosition();
+    m_player.play();
+    if (!m_player.isSeekable()) {
+        QEventLoop loop;
+        QTimer timer;
+        timer.setSingleShot(true);
+        timer.setInterval(2000);
+        loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
+        loop.connect(&m_player, SIGNAL (seekableChanged(bool)), &loop, SLOT (quit()));
+        //qDebug() << "Starting waiting loop";
+        loop.exec();
+    }
+    if (m_player.mediaStatus() != QMediaPlayer::BufferedMedia) {
+        QEventLoop loop;
+        QTimer timer;
+        timer.setSingleShot(true);
+        timer.setInterval(2000);
+        loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
+        loop.connect(&m_player, SIGNAL (mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT (quit()));
+        //qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
+        loop.exec();
+    }        //qDebug() << "Changing position";
+    if (startingPosition > 1000) m_player.setPosition(startingPosition);
+    m_player.pause();
 }
