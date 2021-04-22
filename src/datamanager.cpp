@@ -85,7 +85,7 @@ DataManager::DataManager()
     Database::instance().execute(query);
     while (query.next()) {
         m_feedmap += query.value(QStringLiteral("url")).toString();
-        m_feeds[query.value(QStringLiteral("url")).toString()] == nullptr;
+        m_feeds[query.value(QStringLiteral("url")).toString()] = nullptr;
     }
     //qDebug() << m_feedmap;
 
