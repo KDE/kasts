@@ -185,7 +185,14 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT entryChanged(entry);
         // the gst-pipeline is required to make sure that the pitch is not
         // changed when speeding up the audio stream
+        // TODO: find a solution for Android (GStreamer not available on android by default)
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+        //qDebug() << "use custom pipeline";
         d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path() + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
+#else
+        //qDebug() << "regular audio backend";
+        d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+#endif
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
         //qDebug() << "Changed source to" << d->m_entry->title();
