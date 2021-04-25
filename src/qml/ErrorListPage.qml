@@ -26,8 +26,14 @@ Kirigami.ScrollablePage {
     }
     Component {
         id: errorListDelegate
-        Controls.Label {
-            text: error.string + error.date + error.string
+        Kirigami.SwipeListItem {
+            contentItem: Kirigami.BasicListItem {
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                text: error.id ? DataManager.getEntry(error.id).title : DataManager.getFeed(error.url).title
+                icon: "data-error"
+                subtitle: error.string
+            }
         }
     }
 
