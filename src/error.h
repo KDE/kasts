@@ -9,6 +9,7 @@
 #include <QObject>
 #include <QString>
 #include <QDateTime>
+#include "datamanager.h"
 
 class Error : public QObject
 {
@@ -19,6 +20,7 @@ class Error : public QObject
     Q_PROPERTY(int code MEMBER code CONSTANT)
     Q_PROPERTY(QString string MEMBER string CONSTANT)
     Q_PROPERTY(QDateTime date MEMBER date CONSTANT)
+    Q_PROPERTY(QString title READ title CONSTANT)
 
 public:
     Error(const QString url, const QString id, const int code, const QString string, const QDateTime date): QObject(nullptr)
@@ -35,4 +37,16 @@ public:
     int code;
     QString string;
     QDateTime date;
+
+    QString title () {
+        QString title;
+        if (!id.isEmpty()) {
+            if (DataManager::instance().getEntry(id))
+                title = DataManager::instance().getEntry(id)->title();
+        } else if (!url.isEmpty()) {
+            if (DataManager::instance().getFeed(url))
+                title = DataManager::instance().getFeed(url)->name();
+        }
+        return title;
+    }
 };

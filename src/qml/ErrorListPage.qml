@@ -16,6 +16,8 @@ import org.kde.alligator 1.0
 
 Kirigami.ScrollablePage {
 
+    padding: 0
+
     Kirigami.PlaceholderMessage {
         visible: errorList.count === 0
 
@@ -27,12 +29,41 @@ Kirigami.ScrollablePage {
     Component {
         id: errorListDelegate
         Kirigami.SwipeListItem {
-            contentItem: Kirigami.BasicListItem {
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                text: error.id ? DataManager.getEntry(error.id).title : DataManager.getFeed(error.url).title
-                icon: "data-error"
-                subtitle: error.string
+            contentItem: RowLayout {
+                Kirigami.Icon {
+                    source: "data-error"
+                    property int size: Kirigami.Units.iconSizes.medium
+                    Layout.minimumHeight: size
+                    Layout.maximumHeight: size
+                    Layout.minimumWidth: size
+                    Layout.maximumWidth: size
+                }
+                ColumnLayout {
+                    spacing: Kirigami.Units.smallSpacing
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                    Controls.Label {
+                        text: ( (error.id) ? i18n("Media download") : i18n("Feed update error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
+                    Controls.Label {
+                        text: error.title
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        font.weight: Font.Normal
+                        opacity: 1
+                    }
+                    Controls.Label {
+                        text: i18n("Error code: ") + error.code + " ·  " + error.string
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
+                }
             }
         }
     }

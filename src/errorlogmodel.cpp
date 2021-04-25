@@ -10,6 +10,7 @@
 
 #include "fetcher.h"
 #include "database.h"
+#include "datamanager.h"
 
 
 ErrorLogModel::ErrorLogModel()
@@ -21,7 +22,10 @@ ErrorLogModel::ErrorLogModel()
     query.prepare(QStringLiteral("SELECT * FROM Errors ORDER BY date DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
-        Error* error = new Error(query.value(QStringLiteral("url")).toString(), query.value(QStringLiteral("id")).toString(), query.value(QStringLiteral("code")).toInt(), query.value(QStringLiteral("string")).toString(), QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()));
+        QString id = query.value(QStringLiteral("id")).toString();
+        QString url = query.value(QStringLiteral("url")).toString();
+
+        Error* error = new Error(url, id, query.value(QStringLiteral("code")).toInt(), query.value(QStringLiteral("string")).toString(), QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()));
         m_errors += error;
     }
 }
@@ -49,6 +53,8 @@ int ErrorLogModel::rowCount(const QModelIndex &parent) const
 void ErrorLogModel::monitorErrorMessages(const QString &url, const QString& id, const int errorCode, const QString& errorString)
 {
     qDebug() << "Error happened:" << url << id << errorCode << errorString;
+    QString title;
+
     Error* error = new Error(url, id, errorCode, errorString, QDateTime::currentDateTime());
     beginInsertRows(QModelIndex(), 0, 0);
     m_errors.prepend(error);
