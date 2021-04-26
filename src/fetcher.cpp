@@ -38,6 +38,45 @@ Fetcher::Fetcher()
 
 void Fetcher::fetch(const QString &url)
 {
+    QStringList urls(url);
+    fetch(urls);
+}
+
+void Fetcher::fetch(const QStringList &urls)
+{
+    if (m_updating) return; // update is already running, do nothing
+
+    m_updating = true;
+    m_updateProgress = 0;
+    m_updateTotal = urls.count();
+    connect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
+    Q_EMIT updatingChanged(m_updating);
+    Q_EMIT updateProgressChanged(m_updateProgress);
+    Q_EMIT updateTotalChanged(m_updateTotal);
+
+    for (int i=0; i<urls.count(); i++) {
+        retrieveFeed(urls[i]);
+    }
+}
+
+void Fetcher::fetchAll()
+{
+    QStringList urls;
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        urls += query.value(0).toString();;
+    }
+
+    if (urls.count() > 0)
+        fetch(urls);
+    else
+        return; // no feeds in database
+}
+
+void Fetcher::retrieveFeed(const QString &url)
+{
     qDebug() << "Starting to fetch" << url;
 
     Q_EMIT startedFetchingFeed(url);
@@ -60,39 +99,6 @@ void Fetcher::fetch(const QString &url)
         Q_EMIT updateProgressChanged(m_updateProgress);
         delete reply;
     });
-}
-
-void Fetcher::fetch(const QStringList &urls)
-{
-    if (m_updating) return; // update is already running, do nothing
-
-    m_updating = true;
-    m_updateProgress = 0;
-    m_updateTotal = urls.count();
-    connect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
-    Q_EMIT updatingChanged(m_updating);
-    Q_EMIT updateProgressChanged(m_updateProgress);
-    Q_EMIT updateTotalChanged(m_updateTotal);
-
-    for (int i=0; i<urls.count(); i++) {
-        fetch(urls[i]);
-    }
-}
-
-void Fetcher::fetchAll()
-{
-    QStringList urls;
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
-    Database::instance().execute(query);
-    while (query.next()) {
-        urls += query.value(0).toString();;
-    }
-
-    if (urls.count() > 0)
-        fetch(urls);
-    else
-        return; // no feeds in database
 }
 
 void Fetcher::updateMonitor(int progress)

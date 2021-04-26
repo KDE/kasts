@@ -27,6 +27,7 @@ public:
         static Fetcher _instance;
         return _instance;
     }
+
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
@@ -56,6 +57,7 @@ private Q_SLOTS:
 private:
     Fetcher();
 
+    void retrieveFeed(const QString &url);
     void processFeed(Syndication::FeedPtr feed, const QString &url);
     bool processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed);  // returns true if this is a new entry; false if it already existed
     void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
