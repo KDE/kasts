@@ -51,6 +51,7 @@ if(ANDROID)
         document-export
         document-open-folder
         edit-delete-remove
+        edit-clear-all
         download
         media-playlist-append
         media-seek-backward

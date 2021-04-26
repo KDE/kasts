@@ -26,6 +26,7 @@ Kirigami.ScrollablePage {
 
         text: i18n("No errors logged")
     }
+
     Component {
         id: errorListDelegate
         Kirigami.SwipeListItem {
@@ -82,6 +83,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         text: i18n("Clear all errors")
         iconName: "edit-clear-all"
+        visible: !(errorList.count === 0)
         onTriggered: ErrorLogModel.clearAll()
     }
 }
