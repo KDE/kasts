@@ -28,6 +28,13 @@ Kirigami.ScrollablePage {
         }
     }
 
+    actions.main: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh All Feeds")
+        onTriggered: refreshing = true
+        visible: !Kirigami.Settings.isMobile || episodeList.count === 0
+    }
+
     Kirigami.PlaceholderMessage {
         visible: episodeList.count === 0
 
@@ -65,11 +72,5 @@ Kirigami.ScrollablePage {
             width: episodeList.width
             sourceComponent: episodeListDelegate
         }
-    }
-    actions.main: Kirigami.Action {
-        text: i18n("Refresh all feeds")
-        iconName: "view-refresh"
-        onTriggered: refreshing = true
-        visible: !Kirigami.Settings.isMobile
     }
 }
