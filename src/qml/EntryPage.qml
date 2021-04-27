@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
         }
 
         Controls.Label {
-            id: text
+            id: textLabel
             Layout.margins: Kirigami.Units.gridUnit
             text: page.entry.content
             baseUrl: page.entry.baseUrl
@@ -62,7 +62,8 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.fillHeight: true
             onLinkActivated: Qt.openUrlExternally(link)
-            //onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
+            onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
+            font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Units.fontMetrics.font.pointSize
         }
     }
 

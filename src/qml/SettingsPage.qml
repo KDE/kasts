@@ -38,6 +38,7 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // TODO: implement this
         /*Controls.CheckBox {
             id: autoDownload
             checked: SettingsManager.autoDownload
@@ -47,5 +48,30 @@ Kirigami.ScrollablePage {
             onToggled: SettingsManager.autoDownload = checked
         }*/
 
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Article")
+        }
+
+        Controls.SpinBox {
+            id: articleFontSizeSpinBox
+
+            enabled: !useSystemFontCheckBox.checked
+            value: SettingsManager.articleFontSize
+            Kirigami.FormData.label: i18n("Font size:")
+            from: 6
+            to: 20
+
+            onValueModified: SettingsManager.articleFontSize = value
+
+        }
+
+        Controls.CheckBox {
+            id: useSystemFontCheckBox
+            checked: SettingsManager.articleFontUseSystem
+            text: i18n("Use system default")
+
+            onToggled: SettingsManager.articleFontUseSystem = checked
+        }
     }
 }
