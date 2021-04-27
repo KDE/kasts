@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
     Connections {
         target: entry
         function onQueueStatusChanged() {
-            if (entry.queueStatus === false) {
+            if (!entry.queueStatus) {
                 // this entry has just been removed from the queue
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).lastEntry) {
@@ -52,6 +52,7 @@ Kirigami.ScrollablePage {
         Controls.Label {
             Layout.margins: Kirigami.Units.gridUnit
             id: text
+            Layout.margins: Kirigami.Units.gridUnit
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText
@@ -123,21 +124,13 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: entry.read ? i18n("Unmark as Played") : i18n("Mark as Played")
             onTriggered: {
-                if(entry.read) {
-                    entry.read = false
-                } else {
-                    entry.read = true
-                }
+                entry.read = !entry.read
             }
         },
         Kirigami.Action {
             text: entry.new ? i18n("Unmark as New") : i18n("Mark as New")
             onTriggered: {
-                if(entry.new) {
-                    entry.new = false
-                } else {
-                    entry.new = true
-                }
+                entry.new = !entry.new
             }
         }
     ]

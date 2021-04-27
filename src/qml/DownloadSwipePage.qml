@@ -42,17 +42,17 @@ Kirigami.Page {
             contentHeight: tabBarHeight
 
             Controls.TabButton {
-                width: parent.parent.width/parent.count
+                width: parent.parent.width / parent.count
                 height: tabBarHeight
                 text: i18n("In Progress")
             }
             Controls.TabButton {
-                width: parent.parent.width/parent.count
+                width: parent.parent.width / parent.count
                 height: tabBarHeight
                 text: i18n("Completed")
             }
             Controls.TabButton {
-                width: parent.parent.width/parent.count
+                width: parent.parent.width / parent.count
                 height: tabBarHeight
                 text: i18n("Errors")
             }

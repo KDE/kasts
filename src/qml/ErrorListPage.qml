@@ -72,6 +72,7 @@ Kirigami.ScrollablePage {
     ListView {
         anchors.fill: parent
         id: errorList
+        anchors.fill: parent
         visible: count !== 0
         model: ErrorLogModel
 
@@ -83,7 +84,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         text: i18n("Clear all errors")
         iconName: "edit-clear-all"
-        visible: !(errorList.count === 0)
+        visible: errorList.count > 0
         onTriggered: ErrorLogModel.clearAll()
     }
 }

@@ -73,7 +73,7 @@ Kirigami.ScrollablePage {
         visible: count !== 0
         anchors.fill: parent
 
-        property int cardSize: width/3 - cardMargin //Kirigami.Units.gridUnit * 10
+        property int cardSize: width / 3 - cardMargin //Kirigami.Units.gridUnit * 10
         property int cardMargin: Kirigami.Units.smallSpacing
 
         cellWidth: cardSize + cardMargin

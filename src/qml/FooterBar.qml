@@ -16,9 +16,9 @@ import org.kde.alligator 1.0
 Flickable {
     id: footerBar
 
-    property bool portrait: (contentZone.height/contentZone.width) > 0.7
+    property bool portrait: (contentZone.height / contentZone.width) > 0.7
 
-    property bool isMaximized: contentY == contentHeight / 2
+    property bool isMaximized: contentY === contentHeight / 2
 
     boundsBehavior: Flickable.StopAtBounds
 

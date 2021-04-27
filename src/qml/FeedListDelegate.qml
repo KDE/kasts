@@ -22,7 +22,7 @@ Item {
     Image {
         id: img
         asynchronous: true
-        source: feed.image === "" ? "logo.png" : "file://"+Fetcher.image(feed.image)
+        source: feed.image === "" ? "logo.png" : "file://" + Fetcher.image(feed.image)
         fillMode: Image.PreserveAspectFit
         x: cardMargin
         y: cardMargin
@@ -45,8 +45,8 @@ Item {
         visible: feed.unreadEntryCount > 0
         anchors.top: img.top
         anchors.right: img.right
-        width: img.width/5
-        height: img.height/5
+        width: img.width / 5
+        height: img.height / 5
         color: Kirigami.Theme.highlightColor
     }
 
