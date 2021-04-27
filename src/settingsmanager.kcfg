@@ -13,6 +13,10 @@
             <label>Automatically add new episodes to queue</label>
             <default>true</default>
         </entry>
+        <entry name="toggleRemainingTime" type="Bool">
+            <label>Whether the player shows remaining track time instead of total track time</label>
+            <default>false</default>
+        </entry>
         <entry name="autoDownload" type="Bool">
             <label>Automatically download new episodes</label>
             <default>false</default>
@@ -42,10 +46,6 @@
         <entry name="lastOpenedPage" type="String">
             <label>The top-level page that was open at shutdown</label>
             <default>FeedListPage</default>
-        </entry>
-        <entry name="toggleRemainingTime" type="Bool">
-            <label>Whether the player shows remaining track time instead of total track time</label>
-            <default>false</default>
         </entry>
     </group>
 </kcfg>
