@@ -24,15 +24,6 @@ Kirigami.ScrollablePage {
             text: i18n("Queue Settings")
         }
 
-        Controls.SpinBox {
-            id: numberNewEpisodes
-
-            Kirigami.FormData.label: i18n("# of episodes to label as new when adding a new subscription:")
-            value: SettingsManager.numberNewEpisodes
-
-            onValueModified: SettingsManager.numberNewEpisodes = value
-        }
-
         Controls.CheckBox {
             id: autoQueue
             checked: SettingsManager.autoQueue
@@ -54,14 +45,6 @@ Kirigami.ScrollablePage {
 
             enabled: autoQueue.checked
             onToggled: SettingsManager.autoDownload = checked
-        }
-
-        Controls.CheckBox {
-            id: allowStreaming
-            checked: SettingsManager.allowStreaming
-            text: i18n("Allow streaming of audio")
-
-            onToggled: SettingsManager.allowStreaming = checked
         }*/
 
     }

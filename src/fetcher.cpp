@@ -202,11 +202,11 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (isNewFeed) {
         query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT :recentNew;"));
         query.bindValue(QStringLiteral(":feed"), url);
-        query.bindValue(QStringLiteral(":recentNew"), SettingsManager::self()->numberNewEpisodes());
+        query.bindValue(QStringLiteral(":recentNew"), 1); // hardcode to marking one episode as new
         Database::instance().execute(query);
         QSqlQuery updateQuery;
         while (query.next()) {
-            qDebug() << "Marked as new:" << query.value(QStringLiteral("id")).toString();
+            //qDebug() << "Marked as new:" << query.value(QStringLiteral("id")).toString();
             updateQuery.prepare(QStringLiteral("UPDATE Entries SET read=:read, new=:new WHERE id=:id AND feed=:feed;"));
             updateQuery.bindValue(QStringLiteral(":read"), false);
             updateQuery.bindValue(QStringLiteral(":new"), true);
