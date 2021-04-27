@@ -70,7 +70,6 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        anchors.fill: parent
         id: errorList
         anchors.fill: parent
         visible: count !== 0

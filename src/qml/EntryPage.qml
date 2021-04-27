@@ -23,6 +23,9 @@ Kirigami.ScrollablePage {
 
     padding: 0  // needed to get the inline header to fill the page
 
+    // This function is needed to close the EntryPage if it is opened over the
+    // QueuePage when the episode is removed from the queue (e.g. when the
+    // episode finishes).
     Connections {
         target: entry
         function onQueueStatusChanged() {
@@ -41,7 +44,7 @@ Kirigami.ScrollablePage {
     }
 
     ColumnLayout {
-        GenericListHeader {
+        GenericHeader {
             id: infoHeader
             Layout.fillWidth: true
             image: entry.image
@@ -50,7 +53,6 @@ Kirigami.ScrollablePage {
         }
 
         Controls.Label {
-            Layout.margins: Kirigami.Units.gridUnit
             id: text
             Layout.margins: Kirigami.Units.gridUnit
             text: page.entry.content

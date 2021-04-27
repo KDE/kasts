@@ -94,7 +94,7 @@ Kirigami.ScrollablePage {
         //onOriginYChanged: contentY = originY // Why is this needed?
 
         //headerPositioning: ListView.OverlayHeader  // seems broken
-        header: GenericListHeader {
+        header: GenericHeader {
             id: headerImage
 
             image: feed.image

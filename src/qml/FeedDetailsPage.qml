@@ -21,7 +21,7 @@ Kirigami.ScrollablePage {
 
     title: i18nc("<Feed Name> - Details", "%1 - Details", feed.name)
 
-    header: GenericListHeader {
+    header: GenericHeader {
         id: headerImage
 
         image: feed.image

@@ -23,15 +23,12 @@ Kirigami.Page {
         id: headerLoader
         active: !Kirigami.Settings.isMobile
         sourceComponent: tabBarComponent
-        property var swipeViewItem: swipeView
-        //height: tabBarHeight
     }
 
     footer: Loader {
         id: footerLoader
         active: Kirigami.Settings.isMobile
         sourceComponent: tabBarComponent
-        property var swipeViewItem: swipeView
     }
 
     Component {
@@ -39,7 +36,7 @@ Kirigami.Page {
         Controls.TabBar {
             id: tabBar
             position: Kirigami.Settings.isMobile ? Controls.TabBar.Footer : Controls.TabBar.Header
-            currentIndex: swipeViewItem.currentIndex
+            currentIndex: swipeView.currentIndex
             contentHeight: tabBarHeight
 
             Controls.TabButton {
