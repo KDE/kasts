@@ -43,7 +43,7 @@
             <label>The top-level page that was open at shutdown</label>
             <default>FeedListPage</default>
         </entry>
-        <entry name="showRemainingTime" type="Bool">
+        <entry name="toggleRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>
         </entry>

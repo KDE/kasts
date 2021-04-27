@@ -174,7 +174,7 @@ Kirigami.Page {
                             id: endLabel
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            text: (SettingsManager.showRemainingTime) ?
+                            text: (SettingsManager.toggleRemainingTime) ?
                                     ((Math.floor((audio.duration-audio.position)/3600000) < 10 ? "-0" : "-") + Math.floor((audio.duration-audio.position)/3600000) + ":" + (Math.floor((audio.duration-audio.position)/60000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/60000) % 60 + ":" + (Math.floor((audio.duration-audio.position)/1000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/1000) % 60)
                                     : ((Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60)
 
@@ -182,7 +182,7 @@ Kirigami.Page {
                         MouseArea {
                             anchors.fill: parent
                             hoverEnabled: true
-                            onClicked: SettingsManager.showRemainingTime = !SettingsManager.showRemainingTime
+                            onClicked: SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime
                         }
                     }
                 }
