@@ -1,4 +1,5 @@
 /**
+ * SPDX-FileCopyrightText: 2020 Devin Lin <espidev@gmail.com>
  * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
@@ -48,16 +49,30 @@ Flickable {
             toClose.stop();
             propagateComposedEvents = true;
         }
-        onReleased: footerBar.resetToBounds()
+        onReleased: footerBar.resetToBoundsOnFlick()
     }
 
-    function resetToBounds() {
-        if (!atYBeginning && !atYEnd) {
+    function resetToBoundsOnFlick() {
+        if (!atYBeginning || !atYEnd) {
             if (footerBar.verticalVelocity > 0) {
                 toOpen.restart();
             } else if (footerBar.verticalVelocity < 0) {
                 toClose.restart();
+            } else { // i.e. when verticalVelocity === 0
+                if (contentY > contentHeight / 4) {
+                    toOpen.restart();
+                } else  {
+                    toClose.restart();
+                }
             }
+        }
+    }
+
+    function resetToBoundsOnResize() {
+        if (contentY > contentHeight / 4) {
+            contentY = contentHeight / 2;
+        } else  {
+            contentY = 0;
         }
     }
 
@@ -65,8 +80,9 @@ Flickable {
         toOpen.stop();
         toClose.stop();
     }
-    onFlickStarted: resetToBounds()
-    onMovementEnded: resetToBounds()
+    onFlickStarted: resetToBoundsOnFlick()
+    onMovementEnded: resetToBoundsOnFlick()
+    onHeightChanged: resetToBoundsOnResize()
 
     Item {
         id: background
