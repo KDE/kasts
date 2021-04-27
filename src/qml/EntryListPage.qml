@@ -91,9 +91,8 @@ Kirigami.ScrollablePage {
             sourceComponent: entryListDelegate
         }
 
-        //onOriginYChanged: contentY = originY // Why is this needed?
-
-        //headerPositioning: ListView.OverlayHeader  // seems broken
+        // OverlayHeader looks nicer, but seems completely broken when flicking the list
+        // headerPositioning: ListView.OverlayHeader
         header: GenericHeader {
             id: headerImage
 
