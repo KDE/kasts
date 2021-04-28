@@ -18,6 +18,9 @@ Kirigami.ScrollablePage {
     id: subscriptionPage
     title: i18n("Subscriptions")
 
+    anchors.margins: 0
+    padding: 0
+
     property var lastFeed: ""
 
     supportsRefreshing: true
@@ -47,16 +50,16 @@ Kirigami.ScrollablePage {
         }
     ]
 
-    AddFeedSheet {
-        id: addSheet
-    }
-
     actions.main: Kirigami.Action {
         text: i18n("Add feed")
         iconName: "list-add"
         onTriggered: {
             addSheet.open()
         }
+    }
+
+        AddFeedSheet {
+        id: addSheet
     }
 
     Kirigami.PlaceholderMessage {
@@ -66,27 +69,6 @@ Kirigami.ScrollablePage {
         anchors.centerIn: parent
 
         text: i18n("No Feeds added yet")
-    }
-
-    GridView {
-        id: feedList
-        visible: count !== 0
-        anchors.fill: parent
-
-        property int cardSize: width / 3 - cardMargin //Kirigami.Units.gridUnit * 10
-        property int cardMargin: Kirigami.Units.smallSpacing
-
-        cellWidth: cardSize + cardMargin
-        cellHeight: cardSize + cardMargin
-
-        model: FeedsModel {
-            id: feedsModel
-        }
-
-        delegate: FeedListDelegate {
-            cardSize: feedList.cardSize
-            cardMargin: feedList.cardMargin
-        }
     }
 
     FileDialog {
@@ -104,5 +86,35 @@ Kirigami.ScrollablePage {
         nameFilters: [i18n("All Files")]
         onAccepted: DataManager.exportFeeds(file)
         fileMode: FileDialog.SaveFile
+    }
+
+
+    mainItem: GridView {
+        id: feedList
+        visible: count !== 0
+
+        property int minimumCardSize: 150
+        property int cardMargin: Kirigami.Units.largeSpacing
+
+        property int columns: Math.floor(width / (minimumCardSize + 2 * cardMargin))
+
+        cellWidth: width / columns
+        cellHeight: width / columns
+
+        model: FeedsModel {
+            id: feedsModel
+        }
+
+        Component {
+            id: feedListDelegate
+            FeedListDelegate {
+                cardSize: feedList.width / feedList.columns - 2 * feedList.cardMargin
+                cardMargin: feedList.cardMargin
+            }
+        }
+
+        delegate: Kirigami.DelegateRecycler {
+            sourceComponent: feedListDelegate
+        }
     }
 }
