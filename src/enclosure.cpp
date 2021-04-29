@@ -52,7 +52,7 @@ Enclosure::Enclosure(Entry *entry)
     // something changed on disk
     QFile file(path());
     if (file.exists()) {
-        if(file.size() == m_size) {
+        if(file.size() == m_size && file.size() > 0) {
             if (m_status == Downloadable) {
                 // file is on disk, but was not expected, write to database
                 // this should never happen
@@ -64,7 +64,7 @@ Enclosure::Enclosure(Entry *entry)
             }
         } else {
             if (m_status == Downloaded) {
-                // file was downloaded, but there is a size mismatch
+                // file was downloaded, but there is a size mismatch or file is empty
                 // delete file and update status in database
                 file.remove();
                 m_status = Downloadable;
@@ -133,6 +133,23 @@ void Enclosure::download()
 
 void Enclosure::processDownloadedFile() {
     // This will be run if the enclosure has been downloaded successfully
+
+    // First check if file size is larger than 0; otherwise something unexpected
+    // must have happened
+    QFile file(path());
+    if (file.size() == 0) {
+        deleteFile();
+        return;
+    }
+
+    // Check if reported filesize in rss feed corresponds to real file size
+    // if not, correct the filesize in the database
+    // otherwise the file will get deleted because of mismatch in signature
+    if(file.size() != m_size) {
+        qDebug() << "enclosure file size mismatch" << m_entry->title();
+        setSize(file.size());
+    }
+
     m_status = Downloaded;
     QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
@@ -142,16 +159,7 @@ void Enclosure::processDownloadedFile() {
     // Unset "new" status of item
     if (m_entry->getNew()) m_entry->setNew(false);
 
-    // Check if reported filesize in rss feed corresponds to real file size
-    // if not, correct the filesize in the database
-    // otherwise the file will get deleted because of mismatch in signature
-    QFile file(path());
-    if(file.size() != m_size) {
-        qDebug() << "enclosure file size mismatch" << m_entry->title();
-        setSize(file.size());
-    }
     Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
-
 }
 
 void Enclosure::deleteFile()
