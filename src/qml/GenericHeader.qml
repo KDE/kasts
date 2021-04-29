@@ -25,7 +25,7 @@ Item {
     ImageWithFallback {
         id: backgroundImage
         anchors.fill: parent
-        imageSource: image === "" ? "no-image" : Fetcher.image(image)
+        imageSource: image
     }
     GaussianBlur {
         id: blur
@@ -54,7 +54,7 @@ Item {
 
         ImageWithFallback {
             id: frontImage
-            imageSource: image === "" ? "no-image" : Fetcher.image(image)
+            imageSource: image
             Layout.maximumHeight: parent.size
             Layout.maximumWidth: parent.size
             Layout.minimumHeight: parent.size

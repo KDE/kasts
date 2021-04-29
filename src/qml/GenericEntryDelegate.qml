@@ -40,7 +40,7 @@ Kirigami.SwipeListItem {
 
         ImageWithFallback {
             id: img
-            imageSource: entry.image === "" ? "no-image" : Fetcher.image(entry.image)
+            imageSource: entry.cachedImage
             property int size: Kirigami.Units.gridUnit * 3
             Layout.preferredHeight: size
             Layout.preferredWidth: size

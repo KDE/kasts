@@ -54,54 +54,11 @@ Controls.ItemDelegate {
         implicitWidth:  cardSize - 2 * borderWidth
         implicitHeight: cardSize  - 2 * borderWidth
 
-        Loader {
+        ImageWithFallback {
             id: img
             anchors.fill: parent
-            sourceComponent: (feed.image === "") ? fallbackImg : realImg
-        }
-
-        Component {
-            id: realImg
-            Image {
-                //id: img
-                visible: feed.image !== ""
-                asynchronous: true
-                source: feed.image === "" ? "logo.png" : "file://" + Fetcher.image(feed.image)
-                fillMode: Image.PreserveAspectFit
-                sourceSize.width: cardSize - 2 * borderWidth
-                sourceSize.height: cardSize - 2 * borderWidth
-            }
-        }
-
-        Component {
-            id: fallbackImg
-            Item {
-                anchors.fill: img
-                Kirigami.Icon {
-                    visible: (feed.image === "")
-                    anchors.fill: parent
-                    source: "rss"
-                }
-
-                Rectangle {
-                    anchors.fill: header
-                    opacity: 0.5
-                    color: "black"
-                }
-
-                Kirigami.Heading {
-                    id: header
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    padding: 10
-                    text: feed.name
-                    level: 2
-                    color: "white"
-                    wrapMode: Text.Wrap
-                    elide: Text.ElideRight
-                }
-            }
+            imageSource: feed.cachedImage
+            imageTitle: feed.name
         }
 
         Rectangle {

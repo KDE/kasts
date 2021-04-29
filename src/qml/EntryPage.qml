@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
         GenericHeader {
             id: infoHeader
             Layout.fillWidth: true
-            image: entry.image
+            image: entry.cachedImage
             title: entry.title
             subtitle: entry.feed.name
         }

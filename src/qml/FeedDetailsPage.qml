@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
     header: GenericHeader {
         id: headerImage
 
-        image: feed.image
+        image: feed.cachedImage
         title: feed.name
         subtitle: page.feed.authors.length === 0 ? "" : i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
     }

@@ -19,6 +19,7 @@ Item {
     property real imageOpacity: 1
     property int absoluteRadius: 0
     property real fractionalRadius: 0.0
+    property string imageTitle: ""
 
     Loader {
         id: imageLoader
@@ -45,8 +46,7 @@ Item {
         id: realImg
         Image {
             anchors.fill: parent
-            //visible: root.imageSource !== ""
-            source: "file://" + root.imageSource
+            source: root.imageSource
             fillMode: Image.PreserveAspectCrop
             sourceSize.width: width
             sourceSize.height: height
@@ -57,7 +57,6 @@ Item {
     Component {
         id: fallbackImg
         Item {
-            //visible: imageSource === ""
             anchors.fill: parent
             // Add white background color in order to use coloroverlay later on
             Rectangle {
@@ -65,9 +64,38 @@ Item {
                 color: "white"
             }
             Kirigami.Icon {
-                width: parent.width
-                height: parent.height
+                anchors.fill: parent
                 source: "rss"
+            }
+
+            Component {
+                id: imageText
+                Item {
+                    Rectangle {
+                        anchors.fill: header
+                        opacity: 0.5
+                        color: "black"
+                    }
+
+                    Kirigami.Heading {
+                        id: header
+                        anchors.bottom: parent.bottom
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        padding: 10
+                        text: root.imageTitle
+                        level: 2
+                        color: "white"
+                        wrapMode: Text.Wrap
+                        elide: Text.ElideRight
+                    }
+                }
+            }
+
+            Loader {
+                anchors.fill: parent
+                active: root.imageTitle !== ""
+                sourceComponent: imageText
             }
         }
     }
