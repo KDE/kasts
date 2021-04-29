@@ -99,13 +99,13 @@ Kirigami.ScrollablePage {
     actions.left: Kirigami.Action {
         text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from Queue")
         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
-        visible: entry.enclosure
+        visible: entry.enclosure || entry.queueStatus
         onTriggered: {
             if(!entry.queueStatus) {
                 entry.queueStatus = true
             } else {
                 // first change to next track if this one is playing
-                if (entry === audio.entry) {
+                if (entry.hasEnclosure && entry === audio.entry) {
                     audio.next()
                 }
                 entry.queueStatus = false

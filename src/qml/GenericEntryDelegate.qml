@@ -163,6 +163,14 @@ Kirigami.SwipeListItem {
 
     actions: [
         Kirigami.Action {
+            text: i18n("Remove from Queue")
+            icon.name: "list-remove"
+            onTriggered: {
+                entry.queueStatus = false;
+            }
+            visible: !entry.enclosure && entry.queueStatus
+        },
+        Kirigami.Action {
             text: i18n("Download")
             icon.name: "download"
             onTriggered: {
