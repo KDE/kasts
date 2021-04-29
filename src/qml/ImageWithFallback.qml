@@ -24,7 +24,7 @@ Item {
         id: imageLoader
         anchors.fill: parent
         asynchronous: true
-        sourceComponent: imageSource === "" ? fallbackImg : realImg
+        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "" ? fallbackImg : realImg )
         opacity: root.imageOpacity
         layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
         layer.effect: OpacityMask {
@@ -46,8 +46,7 @@ Item {
         Image {
             anchors.fill: parent
             //visible: root.imageSource !== ""
-            source: "file://" + Fetcher.image(root.imageSource)
-            //root.imageSource === "" ? "logo.png" : "file://" + Fetcher.image(root.imageSource)
+            source: "file://" + root.imageSource
             fillMode: Image.PreserveAspectCrop
             sourceSize.width: width
             sourceSize.height: height
