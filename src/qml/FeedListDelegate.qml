@@ -97,8 +97,6 @@ Controls.ItemDelegate {
                     elide: Text.ElideRight
                 }
             }
-
-
         }
 
         MouseArea {
@@ -133,7 +131,6 @@ Controls.ItemDelegate {
 
         Rectangle {
             id: actionsRectangle
-            visible: false  //TODO: temporary hack
             anchors.fill: actionsButton
             color: "black"
             opacity: 0.5
@@ -142,7 +139,6 @@ Controls.ItemDelegate {
 
         Controls.Button {
             id: actionsButton
-            visible: false  //TODO: temporary hack
             anchors.right: img.right
             anchors.bottom: img.bottom
             anchors.margins: 0
@@ -150,26 +146,7 @@ Controls.ItemDelegate {
             flat: true
             icon.name: "overflow-menu"
             icon.color: "white"
-        }
-
-        Kirigami.ActionToolBar {
-            anchors.right: img.right
-            anchors.left: img.left
-            anchors.bottom: img.bottom
-            anchors.margins: 0
-            padding: 0
-            actions: [
-                Kirigami.Action {
-                    icon.name: "delete"
-                    displayHint: Kirigami.Action.DisplayHint.AlwaysHide
-                    onTriggered: {
-                        if(pageStack.depth > 1 && feed.url === lastFeed)
-                            while(pageStack.depth > 1)
-                                pageStack.pop()
-                        feedsModel.removeFeed(index)
-                    }
-                }
-            ]
+            onClicked: actionOverlay.open()
         }
 
         // Rounded edges
@@ -188,17 +165,40 @@ Controls.ItemDelegate {
         }
     }
 
-    /*actions: [
-        Kirigami.Action {
-            icon.name: "delete"
-            onTriggered: {
-                if(pageStack.depth > 1 && feed.url === lastFeed)
-                    while(pageStack.depth > 1)
-                        pageStack.pop()
-                feedsModel.removeFeed(index)
-            }
+    Kirigami.OverlaySheet {
+        id: actionOverlay
+        parent: applicationWindow().overlay
+        showCloseButton: true
+
+        header: Kirigami.Heading {
+            text: feed.name
+            level: 2
+            wrapMode: Text.Wrap
         }
 
-    ]*/
+        contentItem: ColumnLayout {
+            RowLayout {
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 20
+                spacing: 0
 
+                Kirigami.BasicListItem {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                    iconSize: Kirigami.Units.gridUnit
+                    leftPadding: Kirigami.Units.smallSpacing
+                    rightPadding: 0
+                    onClicked: {
+                        if(pageStack.depth > 1 && feed.url === lastFeed)
+                            while(pageStack.depth > 1)
+                                pageStack.pop()
+                        DataManager.removeFeed(feed)
+                        actionOverlay.close();
+                    }
+                    icon: "delete"
+                    text: i18n("Remove feed")
+                }
+            }
+
+        }
+    }
 }

@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-        AddFeedSheet {
+    AddFeedSheet {
         id: addSheet
     }
 

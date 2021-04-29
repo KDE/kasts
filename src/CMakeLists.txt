@@ -61,6 +61,7 @@ if(ANDROID)
         media-playback-pause
         source-playlist
         arrow-down
+        overflow-menu
     )
 else()
     target_link_libraries(alligator PRIVATE Qt5::Widgets)
