@@ -96,7 +96,10 @@ QUrl AudioManager::source() const
 QMediaPlayer::Error AudioManager::error() const
 {
     if (d->m_player.error() != QMediaPlayer::NoError) {
-        //qDebug() << "AudioManager::error" << d->m_player.errorString();
+        qDebug() << "AudioManager::error" << d->m_player.errorString();
+        // Some error occured: probably best to unset the lastPlayingEntry to
+        // avoid a deadlock when starting up again.
+        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
     }
 
     return d->m_player.error();
@@ -165,6 +168,7 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry* entry)
 {
     d->m_lockPositionSaving = true;
+
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
     if (d->m_entry) {
@@ -179,7 +183,11 @@ void AudioManager::setEntry(Entry* entry)
             d->m_entry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
         }
     }
-    if (entry != nullptr) {
+
+    //qDebug() << entry->hasEnclosure() << entry->enclosure() << entry->enclosure()->status();
+
+    // do some checks on the new entry to see whether it's valid and not corrupted
+    if (entry != nullptr && entry->hasEnclosure() && entry->enclosure() && entry->enclosure()->status() == Enclosure::Downloaded) {
         //qDebug() << "Going to change source";
         d->m_entry = entry;
         Q_EMIT entryChanged(entry);
