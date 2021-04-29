@@ -59,6 +59,7 @@ Controls.ItemDelegate {
             anchors.fill: parent
             imageSource: feed.cachedImage
             imageTitle: feed.name
+            isLoading: feed.refreshing
         }
 
         Rectangle {
@@ -69,7 +70,6 @@ Controls.ItemDelegate {
             width: actionsButton.width
             height: actionsButton.height
             color: Kirigami.Theme.highlightColor
-            opacity: 0.8
             radius: Kirigami.Units.smallSpacing - 2 * borderWidth
         }
 

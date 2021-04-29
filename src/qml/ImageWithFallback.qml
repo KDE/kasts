@@ -20,12 +20,14 @@ Item {
     property int absoluteRadius: 0
     property real fractionalRadius: 0.0
     property string imageTitle: ""
+    property bool isLoading: false
 
     Loader {
+        //active: !isLoading
         id: imageLoader
         anchors.fill: parent
         asynchronous: true
-        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "" ? fallbackImg : realImg )
+        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "" ? loaderSymbol : realImg )
         opacity: root.imageOpacity
         layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
         layer.effect: OpacityMask {
@@ -84,7 +86,7 @@ Item {
                         anchors.right: parent.right
                         padding: 10
                         text: root.imageTitle
-                        level: 2
+                        level: 3
                         color: "white"
                         wrapMode: Text.Wrap
                         elide: Text.ElideRight
@@ -98,5 +100,29 @@ Item {
                 sourceComponent: imageText
             }
         }
+    }
+
+    Component {
+        id: loaderSymbol
+        Item {
+            anchors.fill: parent
+            Rectangle {
+                color: "white"
+                opacity: 0.5
+                anchors.fill: parent
+            }
+            Controls.BusyIndicator {
+                anchors.centerIn: parent
+                width: parent.width / 2
+                height: parent.height / 2
+            }
+        }
+    }
+
+    Loader {
+        active: isLoading
+        sourceComponent: loaderSymbol
+        anchors.fill: parent
+        //anchors.centerIn: parent
     }
 }
