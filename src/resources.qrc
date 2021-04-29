@@ -19,6 +19,7 @@
         <file alias="DownloadSwipePage.qml">qml/DownloadSwipePage.qml</file>
         <file alias="GenericHeader.qml">qml/GenericHeader.qml</file>
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
+        <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
         <file alias="logo.png">../logo.png</file>
         <file>qtquickcontrols2.conf</file>

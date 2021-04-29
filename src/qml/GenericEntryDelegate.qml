@@ -21,12 +21,14 @@ Kirigami.SwipeListItem {
     property var listView: ""
 
     contentItem: RowLayout {
+
         Loader {
             property var loaderListView: listView
             property var loaderListItem: listItem
             sourceComponent: dragHandleComponent
             active: isQueue
         }
+
         Component {
             id: dragHandleComponent
             Kirigami.ListItemDragHandle {
@@ -35,32 +37,18 @@ Kirigami.SwipeListItem {
                 onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
             }
         }
-        Image {
+
+        ImageWithFallback {
             id: img
-            asynchronous: true
-            source: entry.image === "" ? "logo.png" : "file://"+Fetcher.image(entry.image)
-            fillMode: Image.PreserveAspectFit
+            imageSource: entry.image
             property int size: Kirigami.Units.gridUnit * 3
-            sourceSize.width: size
-            sourceSize.height: size
-            Layout.maximumHeight: size
-            Layout.maximumWidth: size
+            Layout.preferredHeight: size
+            Layout.preferredWidth: size
             Layout.rightMargin:Kirigami.Units.smallSpacing
-            opacity: (entry.read) ? 0.5 : 1
-            layer.enabled: true
-            layer.effect: OpacityMask {
-                maskSource: Item {
-                    width: img.width
-                    height: img.height
-                    Rectangle {
-                        anchors.centerIn: parent
-                        width: img.adapt ? img.width : Math.min(img.width, img.height)
-                        height: img.adapt ? img.height : width
-                        radius: Math.min(width, height)/6
-                    }
-                }
-            }
+            imageOpacity: (entry.read) ? 0.5 : 1
+            fractionalRadius: 1.0 / 8.0
         }
+
         ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
             Layout.fillWidth: true

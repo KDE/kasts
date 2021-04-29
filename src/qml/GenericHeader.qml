@@ -22,17 +22,15 @@ Item {
     implicitHeight: headerHeight
     implicitWidth: parent.width
 
-    Image {
-        id: backgroundimage
-        source: image === "" ? "logo.png" : "file://"+Fetcher.image(image)
-        fillMode: Image.PreserveAspectCrop
+    ImageWithFallback {
+        id: backgroundImage
         anchors.fill: parent
-        asynchronous: true
+        imageSource: image
     }
     GaussianBlur {
         id: blur
-        anchors.fill: backgroundimage
-        source: backgroundimage
+        anchors.fill: backgroundImage
+        source: backgroundImage
         radius: 12
         samples: 16
         deviation: 6
@@ -42,6 +40,7 @@ Item {
         source: blur
         color:"#87000000"  //RGBA, but first value is actually the alpha channel
     }
+
     RowLayout {
         property int size: Kirigami.Units.gridUnit * 6
         property int margin: Kirigami.Units.gridUnit * 1
@@ -53,14 +52,14 @@ Item {
         anchors.rightMargin: margin
         anchors.bottomMargin: margin
 
-        Image {
-            id: frontimage
-            source: image === "" ? "logo.png" : "file://"+Fetcher.image(image)
+        ImageWithFallback {
+            id: frontImage
+            imageSource: image
             Layout.maximumHeight: parent.size
             Layout.maximumWidth: parent.size
-            sourceSize.width: parent.size
-            sourceSize.height: parent.size
-            asynchronous: true
+            Layout.minimumHeight: parent.size
+            Layout.minimumWidth: parent.size
+            absoluteRadius: Kirigami.Units.smallSpacing
         }
         ColumnLayout {
             Layout.fillWidth: true
