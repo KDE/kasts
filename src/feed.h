@@ -21,6 +21,7 @@ class Feed : public QObject
     Q_PROPERTY(QString url READ url CONSTANT)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
+    Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(QString link READ link WRITE setLink NOTIFY linkChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
@@ -47,6 +48,7 @@ public:
     QString url() const;
     QString name() const;
     QString image() const;
+    QString cachedImage() const;
     QString link() const;
     QString description() const;
     QVector<Author *> authors() const;
@@ -82,6 +84,7 @@ public:
 Q_SIGNALS:
     void nameChanged(const QString &name);
     void imageChanged(const QString &image);
+    void cachedImageChanged(const QString &imagePath);
     void linkChanged(const QString &link);
     void descriptionChanged(const QString &description);
     void authorsChanged(const QVector<Author *> &authors);

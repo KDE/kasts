@@ -20,8 +20,13 @@ Entry::Entry(Feed *feed, QString id)
     , m_feed(feed)
 {
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if(url == m_image)
+        if(url == m_image) {
             Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        } else if (m_image.isEmpty() && url == m_feed->image()) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
     });
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &index, const QString &id) {
         Q_UNUSED(index)
@@ -204,6 +209,25 @@ QString Entry::image() const
     }
 }
 
+QString Entry::cachedImage() const
+{
+    // First check for the feed image as fallback
+    QString image = m_image;
+    if (image.isEmpty())
+        image = m_feed->image();
+
+    if (image.isEmpty()) { // this will only happen if the feed also doesn't have an image
+        return QStringLiteral("no-image");
+    } else {
+        QString imagePath = Fetcher::instance().image(image);
+        if (imagePath.isEmpty()) {
+            return imagePath;
+        } else {
+            return QStringLiteral("file://") + imagePath;
+        }
+    }
+}
+
 bool Entry::queueStatus() const
 {
     return DataManager::instance().entryInQueue(this);
@@ -224,6 +248,7 @@ void Entry::setImage(const QString &image)
 {
     m_image = image;
     Q_EMIT imageChanged(m_image);
+    Q_EMIT cachedImageChanged(cachedImage());
 }
 
 Feed *Entry::feed() const

@@ -72,8 +72,10 @@ Feed::Feed(QString const feedurl)
         }
     });
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if(url == m_image)
+        if(url == m_image) {
             Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
     });
 
     m_entries = new EntriesModel(this);
@@ -142,6 +144,20 @@ QString Feed::name() const
 QString Feed::image() const
 {
     return m_image;
+}
+
+QString Feed::cachedImage() const
+{
+    if (m_image.isEmpty()) {
+        return QStringLiteral("no-image");
+    } else {
+        QString imagePath = Fetcher::instance().image(m_image);
+        if (imagePath.isEmpty()) {
+            return imagePath;
+        } else {
+            return QStringLiteral("file://") + imagePath;
+        }
+    }
 }
 
 QString Feed::link() const
@@ -227,6 +243,7 @@ void Feed::setImage(const QString &image)
     if (image != m_image) {
         m_image = image;
         Q_EMIT imageChanged(m_image);
+        Q_EMIT cachedImageChanged(cachedImage());
     }
 }
 
