@@ -25,6 +25,11 @@ Controls.ItemDelegate {
     implicitWidth: cardSize + 2 * cardMargin
     implicitHeight: cardSize + 2 * cardMargin
 
+    onClicked: {
+        lastFeed = feed.url
+        pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+    }
+
     background: Kirigami.ShadowedRectangle {
         anchors.fill: parent
         anchors.margins: cardMargin
@@ -96,14 +101,6 @@ Controls.ItemDelegate {
                     wrapMode: Text.Wrap
                     elide: Text.ElideRight
                 }
-            }
-        }
-
-        MouseArea {
-            anchors.fill: img
-            onClicked: {
-                lastFeed = feed.url
-                pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
             }
         }
 

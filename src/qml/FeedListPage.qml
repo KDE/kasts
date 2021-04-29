@@ -105,6 +105,7 @@ Kirigami.ScrollablePage {
             id: feedsModel
         }
 
+
         Component {
             id: feedListDelegate
             FeedListDelegate {
