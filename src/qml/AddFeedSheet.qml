@@ -15,6 +15,8 @@ import org.kde.alligator 1.0
 Kirigami.OverlaySheet {
     id: addSheet
     parent: applicationWindow().overlay
+    showCloseButton: true
+
     header: Kirigami.Heading {
         text: i18n("Add new Feed")
     }
