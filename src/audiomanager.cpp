@@ -373,6 +373,21 @@ void AudioManager::mediaStatusChanged()
     if (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) {
         next();
     }
+
+    // if there is a problem with the current track, make sure that it's not
+    // loaded again when the application is restarted, skip to next track and
+    // delete the enclosure
+    if (d->m_player.mediaStatus() == QMediaPlayer::InvalidMedia) {
+        // save pointer to this bad entry to allow
+        // us to delete the enclosure after the track has been unloaded
+        Entry* badEntry = d->m_entry;
+        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        stop();
+        next();
+        if (badEntry && badEntry->enclosure())
+            badEntry->enclosure()->deleteFile();
+        // TODO: show error overlay?
+    }
 }
 
 void AudioManager::playerStateChanged()
