@@ -36,6 +36,7 @@ if(ANDROID)
     )
 
     kirigami_package_breeze_icons(ICONS
+        dialog-close
         delete
         settings-configure
         help-about-symbolic
