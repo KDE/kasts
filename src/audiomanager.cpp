@@ -283,15 +283,16 @@ void AudioManager::play()
     d->m_player.play();
     d->m_isSeekable = true;
     Q_EMIT seekableChanged(d->m_isSeekable);
+    d->mPowerInterface.setPreventSleep(true);
 }
 
 void AudioManager::pause()
 {
     //qDebug() << "AudioManager::pause";
 
-    d->m_player.play();
     d->m_isSeekable = true;
     d->m_player.pause();
+    d->mPowerInterface.setPreventSleep(false);
 }
 
 void AudioManager::playPause()
@@ -309,6 +310,7 @@ void AudioManager::stop()
     d->m_player.stop();
     d->m_isSeekable = false;
     Q_EMIT seekableChanged(d->m_isSeekable);
+    d->mPowerInterface.setPreventSleep(false);
 }
 
 void AudioManager::seek(qint64 position)
@@ -401,12 +403,14 @@ void AudioManager::playerStateChanged()
         d->mPowerInterface.setPreventSleep(false);
         break;
     case QMediaPlayer::State::PlayingState:
+        // setPreventSleep is set in play() to avoid it toggling too rapidly
+        // see d->prepareAudioStream() for details
         Q_EMIT playing();
-        d->mPowerInterface.setPreventSleep(true);
         break;
     case QMediaPlayer::State::PausedState:
+        // setPreventSleep is set in pause() to avoid it toggling too rapidly
+        // see d->prepareAudioStream() for details
         Q_EMIT paused();
-        d->mPowerInterface.setPreventSleep(false);
         break;
     }
 }
