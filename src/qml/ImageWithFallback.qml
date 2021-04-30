@@ -26,7 +26,6 @@ Item {
         //active: !isLoading
         id: imageLoader
         anchors.fill: parent
-        asynchronous: true
         sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "" ? loaderSymbol : realImg )
         opacity: root.imageOpacity
         layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
