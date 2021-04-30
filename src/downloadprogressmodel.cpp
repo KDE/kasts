@@ -36,16 +36,16 @@ int DownloadProgressModel::rowCount(const QModelIndex &parent) const
 
 void DownloadProgressModel::monitorDownloadProgress(Entry* entry, Enclosure::Status status)
 {
-    qDebug() << "download status changed:" << entry->title() << status;
+    //qDebug() << "download status changed:" << entry->title() << status;
     if (status == Enclosure::Downloading && !m_entries.contains(entry->id())) {
-        qDebug() << "inserting dowloading entry" << entry->id() << "in position" << m_entries.count();
+        //qDebug() << "inserting dowloading entry" << entry->id() << "in position" << m_entries.count();
         beginInsertRows(QModelIndex(), m_entries.count(), m_entries.count());
         m_entries += entry->id();
         endInsertRows();
     }
     if (status != Enclosure::Downloading && m_entries.contains(entry->id())) {
         int index = m_entries.indexOf(entry->id());
-        qDebug() << "removing dowloading entry" << entry->id() << "in position" << index;
+        //qDebug() << "removing dowloading entry" << entry->id() << "in position" << index;
         beginRemoveRows(QModelIndex(), index, index);
         m_entries.removeAt(index);
         endRemoveRows();

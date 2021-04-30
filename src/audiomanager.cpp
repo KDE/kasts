@@ -448,7 +448,7 @@ void AudioManagerPrivate::prepareAudioStream()
      * Unfortunately, this will produce an audible glitch with the current
      * QMediaPlayer backend.
      */
-    qDebug() << "voodoo happening";
+    //qDebug() << "voodoo happening";
     qint64 startingPosition = m_entry->enclosure()->playPosition();
     m_player.play();
     if (!m_player.isSeekable()) {

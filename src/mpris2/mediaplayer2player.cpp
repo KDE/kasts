@@ -296,7 +296,7 @@ void MediaPlayer2Player::audioPositionChanged()
 
 void MediaPlayer2Player::audioDurationChanged()
 {
-    qDebug() << "Signal change of audio duration through MPRIS2";
+    //qDebug() << "Signal change of audio duration through MPRIS2";
     // We reset all metadata in case the audioDuration changed
     // This is done because duration is not yet available when setEntry is
     // called (this is before the QMediaPlayer has read the new track
@@ -358,7 +358,7 @@ void MediaPlayer2Player::setEntry(Entry* entry)
         if (m_audioPlayer->entry()) {
             if (m_audioPlayer->entry() == entry) {
                 int queuenr = DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id());
-                qDebug() << "MPRIS2: Setting entry" << entry->title();
+                //qDebug() << "MPRIS2: Setting entry" << entry->title();
                 m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(queuenr)).path();
 
                 m_metadata = getMetadataOfCurrentTrack();

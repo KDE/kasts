@@ -121,7 +121,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace(QDBusPen
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        //qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -138,7 +138,7 @@ void PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace(QDBusPendin
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<uint> reply = *aWatcher;
     if (reply.isError()) {
-        qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
+        //qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
     } else {
         d->mInhibitSleepCookie = reply.argumentAt<0>();
         d->mInhibitedSleep = true;
@@ -156,7 +156,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        //qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
