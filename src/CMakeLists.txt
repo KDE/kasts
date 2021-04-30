@@ -1,4 +1,5 @@
-add_executable(alligator
+
+set(SRCS_alligator
     main.cpp
     feedsmodel.cpp
     entriesmodel.cpp
@@ -22,6 +23,12 @@ add_executable(alligator
     mpris2/mediaplayer2player.cpp
     resources.qrc
 )
+
+
+qt5_add_dbus_interface(SRCS_alligator dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
+qt5_add_dbus_interface(SRCS_alligator dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+
+add_executable(alligator ${SRCS_alligator})
 
 kconfig_add_kcfg_files(alligator settingsmanager.kcfgc GENERATE_MOC)
 

@@ -11,11 +11,8 @@
 
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 #include <QDBusConnection>
-#include <QDBusMessage>
-#include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QDBusUnixFileDescriptor>
 #endif
 
 #if defined Q_OS_WIN
@@ -26,6 +23,9 @@
 #include <QString>
 #include <QDebug>
 #include <QCoreApplication>
+
+#include "inhibitinterface.h"
+#include "gnomesessioninterface.h"
 
 
 class PowerManagementInterfacePrivate
@@ -38,8 +38,11 @@ public:
 
     uint mInhibitSleepCookie = 0;
 
+    uint mGnomeSleepCookie = 0;
+
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    QDBusUnixFileDescriptor mInhibitSleepFileDescriptor;
+    OrgFreedesktopPowerManagementInhibitInterface* mInhibitInterface;
+    OrgGnomeSessionManagerInterface* mGnomeInterface;
 #endif
 
 };
@@ -47,16 +50,22 @@ public:
 PowerManagementInterface::PowerManagementInterface(QObject *parent) : QObject(parent), d(std::make_unique<PowerManagementInterfacePrivate>())
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto sessionBus = QDBusConnection::sessionBus();
+    d->mInhibitInterface = new OrgFreedesktopPowerManagementInhibitInterface(QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
+                                                  QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
+                                                  QDBusConnection::sessionBus(),
+                                                  this);
 
-    sessionBus.connect(QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                       QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
-                       QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                       QStringLiteral("HasInhibitChanged"), this, SLOT(hostSleepInhibitChanged()));
+    d->mGnomeInterface = new OrgGnomeSessionManagerInterface(QStringLiteral("org.gnome.SessionManager"),
+                                    QStringLiteral("/org/gnome/SessionManager"),
+                                    QDBusConnection::sessionBus(),
+                                    this);
 #endif
 }
 
-PowerManagementInterface::~PowerManagementInterface() = default;
+PowerManagementInterface::~PowerManagementInterface()
+{
+    delete d->mInhibitInterface;
+};
 
 bool PowerManagementInterface::preventSleep() const
 {
@@ -140,7 +149,7 @@ void PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace(QDBusPendin
     if (reply.isError()) {
         //qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
     } else {
-        d->mInhibitSleepCookie = reply.argumentAt<0>();
+        d->mGnomeSleepCookie = reply.argumentAt<0>();
         d->mInhibitedSleep = true;
 
         Q_EMIT sleepInhibitedChanged();
@@ -171,16 +180,8 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 void PowerManagementInterface::inhibitSleepPlasmaWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto sessionBus = QDBusConnection::sessionBus();
-
-    auto inhibitCall = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                      QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
-                                                      QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                      QStringLiteral("Inhibit"));
-
-    inhibitCall.setArguments({{QCoreApplication::applicationName()}, {i18nc("explanation for sleep inhibit during play of music", "Playing Music")}});
-
-    auto asyncReply = sessionBus.asyncCall(inhibitCall);
+    auto asyncReply = d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(),
+                                                    i18nc("explanation for sleep inhibit during play of music", "Playing Music"));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
@@ -192,16 +193,7 @@ void PowerManagementInterface::inhibitSleepPlasmaWorkspace()
 void PowerManagementInterface::uninhibitSleepPlasmaWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto sessionBus = QDBusConnection::sessionBus();
-
-    auto uninhibitCall = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                      QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
-                                                      QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                      QStringLiteral("UnInhibit"));
-
-    uninhibitCall.setArguments({{d->mInhibitSleepCookie}});
-
-    auto asyncReply = sessionBus.asyncCall(uninhibitCall);
+    auto asyncReply = d->mInhibitInterface->UnInhibit(d->mInhibitSleepCookie);
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
@@ -213,17 +205,10 @@ void PowerManagementInterface::uninhibitSleepPlasmaWorkspace()
 void PowerManagementInterface::inhibitSleepGnomeWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto sessionBus = QDBusConnection::sessionBus();
-
-    auto inhibitCall = QDBusMessage::createMethodCall(QStringLiteral("org.gnome.SessionManager"),
-                                                      QStringLiteral("/org/gnome/SessionManager"),
-                                                      QStringLiteral("org.gnome.SessionManager"),
-                                                      QStringLiteral("Inhibit"));
-
-    inhibitCall.setArguments({{QCoreApplication::applicationName()}, {uint(0)},
-                              {i18nc("explanation for sleep inhibit during play of music", "Playing Music")}, {uint(8)}});
-
-    auto asyncReply = sessionBus.asyncCall(inhibitCall);
+    auto asyncReply = d->mGnomeInterface->Inhibit(QCoreApplication::applicationName(),
+                                                  uint(0),
+                                                  i18nc("explanation for sleep inhibit during play of music", "Playing Music"),
+                                                  uint(8));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
@@ -235,16 +220,7 @@ void PowerManagementInterface::inhibitSleepGnomeWorkspace()
 void PowerManagementInterface::uninhibitSleepGnomeWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto sessionBus = QDBusConnection::sessionBus();
-
-    auto uninhibitCall = QDBusMessage::createMethodCall(QStringLiteral("org.gnome.SessionManager"),
-                                                        QStringLiteral("/org/gnome/SessionManager"),
-                                                        QStringLiteral("org.gnome.SessionManager"),
-                                                        QStringLiteral("UnInhibit"));
-
-    uninhibitCall.setArguments({{d->mInhibitSleepCookie}});
-
-    auto asyncReply = sessionBus.asyncCall(uninhibitCall);
+    auto asyncReply = d->mGnomeInterface->Uninhibit(d->mGnomeSleepCookie);
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
