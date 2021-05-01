@@ -26,7 +26,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
-    Feed* feed() const;
+    Feed *feed() const;
 
 private:
     Feed *m_feed;

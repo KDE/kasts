@@ -18,7 +18,6 @@ Kirigami.ScrollablePage {
 
     property QtObject feed;
 
-
     title: i18nc("<Feed Name> - Details", "%1 - Details", feed.name)
 
     header: GenericHeader {

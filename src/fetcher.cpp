@@ -69,10 +69,9 @@ void Fetcher::fetchAll()
         urls += query.value(0).toString();;
     }
 
-    if (urls.count() > 0)
+    if (urls.count() > 0) {
         fetch(urls);
-    else
-        return; // no feeds in database
+    }
 }
 
 void Fetcher::retrieveFeed(const QString &url)
@@ -88,7 +87,7 @@ void Fetcher::retrieveFeed(const QString &url)
         if(reply->error()) {
             qWarning() << "Error fetching feed";
             qWarning() << reply->errorString();
-            Q_EMIT error(url, QStringLiteral(""), reply->error(), reply->errorString());
+            Q_EMIT error(url, QString(), reply->error(), reply->errorString());
         } else {
             QByteArray data = reply->readAll();
             Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);
@@ -160,7 +159,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         // First try the "itunes:owner" tag, if that doesn't succeed, then try the "itunes:author" tag
         if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdowner")).hasChildNodes()) {
             QDomNodeList nodelist = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdowner")).childNodes();
-            for (int i=0; i < nodelist.length(); i++) {
+            for (int i = 0; i < nodelist.length(); i++) {
                 if (nodelist.item(i).nodeName() == QStringLiteral("itunes:name")) {
                     authorname = nodelist.item(i).toElement().text();
                 } else if (nodelist.item(i).nodeName() == QStringLiteral("itunes:email")) {
@@ -171,7 +170,9 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
             //qDebug() << "authorname" << authorname;
         }
-        if (!authorname.isEmpty()) processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
+        if (!authorname.isEmpty()) {
+            processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
+        }
     }
 
 
@@ -244,8 +245,8 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const
     query.bindValue(QStringLiteral(":updated"), static_cast<int>(entry->dateUpdated()));
     query.bindValue(QStringLiteral(":link"), entry->link());
     query.bindValue(QStringLiteral(":hasEnclosure"), entry->enclosures().length() == 0 ? 0 : 1);
-    query.bindValue(QStringLiteral(":read"), isNewFeed);  // if new feed, then mark all as read
-    query.bindValue(QStringLiteral(":new"), !isNewFeed);  // if new feed, then mark none as new
+    query.bindValue(QStringLiteral(":read"), isNewFeed); // if new feed, then mark all as read
+    query.bindValue(QStringLiteral(":new"), !isNewFeed); // if new feed, then mark none as new
 
     if (!entry->content().isEmpty())
         query.bindValue(QStringLiteral(":content"), entry->content());

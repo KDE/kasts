@@ -138,11 +138,10 @@ Controls.ItemDelegate {
                 Kirigami.BasicListItem {
                     Layout.fillWidth: true
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                    iconSize: Kirigami.Units.gridUnit
                     leftPadding: Kirigami.Units.smallSpacing
                     rightPadding: 0
                     onClicked: {
-                        if(pageStack.depth > 1 && feed.url === lastFeed)
+                        if(feed.url === lastFeed)
                             while(pageStack.depth > 1)
                                 pageStack.pop()
                         DataManager.removeFeed(feed)

@@ -37,8 +37,8 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
-        handleVisible: !audio.entry || footerLoader.item.contentY == 0
+        handle.anchors.bottomMargin: (audio.entry ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handleVisible: !audio.entry || footerLoader.item.contentY === 0
         actions: [
             Kirigami.PagePoolAction {
                 text: i18n("Queue")
@@ -101,7 +101,6 @@ Kirigami.ApplicationWindow {
         id: aboutPage
 
         Kirigami.AboutPage {
-            title: i18n("About")
             aboutData: _aboutData
         }
     }
@@ -137,9 +136,9 @@ Kirigami.ApplicationWindow {
         id: footerLoader
 
         anchors.fill: parent
-        active: (audio.entry) ? true : false
+        active: audio.entry
         visible: active
-        z: (!item || item.contentY == 0) ? -1 : 999
+        z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
             contentHeight: root.height * 2
             focus: true

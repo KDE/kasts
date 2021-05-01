@@ -38,7 +38,8 @@ public:
     QString string;
     QDateTime date;
 
-    QString title () {
+    QString title() const
+    {
         QString title;
         if (!id.isEmpty()) {
             if (DataManager::instance().getEntry(id))

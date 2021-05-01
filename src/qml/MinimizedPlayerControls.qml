@@ -20,7 +20,7 @@ Item {
     property int buttonsize: Kirigami.Units.gridUnit * 2
     height: miniplayerheight + progressbarheight
 
-    visible: (audio.entry)
+    visible: audio.entry
 
     // Set background
     Rectangle {
@@ -53,7 +53,7 @@ Item {
 
                 Image {
                     asynchronous: true
-                    source: audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)
+                    source: audio.entry.image === "" ? "logo.png" : "file://" + Fetcher.image(audio.entry.image)
                     fillMode: Image.PreserveAspectFit
                     Layout.fillHeight: true
                     Layout.maximumWidth: height
@@ -114,5 +114,4 @@ Item {
         }
     }
 }
-
 

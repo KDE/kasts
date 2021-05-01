@@ -88,7 +88,6 @@ Kirigami.ScrollablePage {
         fileMode: FileDialog.SaveFile
     }
 
-
     mainItem: GridView {
         id: feedList
         visible: count !== 0
@@ -104,7 +103,6 @@ Kirigami.ScrollablePage {
         model: FeedsModel {
             id: feedsModel
         }
-
 
         Component {
             id: feedListDelegate

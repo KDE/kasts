@@ -19,7 +19,6 @@
 
 DataManager::DataManager()
 {
-    // connect signals to lambda slots
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
         //qDebug() << "Start updating feed details" << m_feeds;
         Feed* feed = getFeed(url);
@@ -72,7 +71,6 @@ DataManager::DataManager()
                     }
                 }
             }
-
         }
 
         Q_EMIT feedEntriesUpdated(feedurl);
@@ -121,7 +119,6 @@ Feed* DataManager::getFeed(QString const feedurl) const
     return m_feeds[feedurl];
 }
 
-
 Entry* DataManager::getEntry(int const feed_index, int const entry_index) const
 {
     return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
@@ -143,7 +140,6 @@ Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
 {
     QSqlQuery entryQuery;
     if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloaded) {
-
         if (type == EpisodeModel::New) {
             entryQuery.prepare(QStringLiteral("SELECT id FROM Entries WHERE new=:new ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
             entryQuery.bindValue(QStringLiteral(":new"), true);
@@ -164,7 +160,6 @@ Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
         }
         QString id = entryQuery.value(QStringLiteral("id")).toString();
         return getEntry(id);
-
     }
     return nullptr;
 }
@@ -473,7 +468,6 @@ void DataManager::setLastPlayingEntry(const QString& id)
     query.bindValue(QStringLiteral(":playing"), true);
     query.bindValue(QStringLiteral(":id"), id);
     Database::instance().execute(query);
-
 }
 
 void DataManager::importFeeds(const QString &path)
@@ -519,7 +513,6 @@ void DataManager::exportFeeds(const QString &path)
     xmlWriter.writeEndElement();
     xmlWriter.writeEndElement();
     xmlWriter.writeEndDocument();
-
 }
 
 void DataManager::loadFeed(const QString feedurl) const
@@ -537,7 +530,7 @@ void DataManager::loadEntry(const QString id) const
         if (i.value().contains(id))
             feed = getFeed(i.key());
     }
-    if (feed == nullptr) {
+    if (!feed) {
         qDebug() << "Failed to find feed belonging to entry" << id;
         return;
     }

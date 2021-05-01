@@ -53,5 +53,3 @@ bool EnclosureDownloadJob::doKill()
         return true;
 }
 
-
-

@@ -14,9 +14,7 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.alligator 1.0
 
-
 Kirigami.ScrollablePage {
-    //anchors.fill: parent
 
     property var episodeType: EpisodeModel.All
 
@@ -48,6 +46,7 @@ Kirigami.ScrollablePage {
                  : episodeType === EpisodeModel.Downloading ? i18n("No downloads in progress")
                  : i18n("No episodes available"))
     }
+
     Component {
         id: episodeListDelegate
         GenericEntryDelegate {

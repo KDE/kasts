@@ -53,7 +53,7 @@ Rectangle {
         anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
 
-        Controls.BusyIndicator{
+        Controls.BusyIndicator {
             id: indicator
             Layout.alignment: Qt.AlignVCenter
         }

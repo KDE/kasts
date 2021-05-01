@@ -189,15 +189,18 @@ Enclosure::Status Enclosure::status() const
     return m_status;
 }
 
-qint64 Enclosure::playPosition() const{
+qint64 Enclosure::playPosition() const
+{
     return m_playposition;
 }
 
-qint64 Enclosure::duration() const {
+qint64 Enclosure::duration() const
+{
     return m_duration;
 }
 
-int Enclosure::size() const {
+int Enclosure::size() const
+{
     return m_size;
 }
 

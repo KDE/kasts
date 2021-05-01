@@ -45,7 +45,7 @@ Feed::Feed(QString const feedurl)
     connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
         if (url == m_url) {
             m_errorId = 0;
-            m_errorString = QLatin1String("");
+            m_errorString = QString();
             setRefreshing(true);
         }
     });

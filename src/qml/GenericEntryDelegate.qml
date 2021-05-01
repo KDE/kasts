@@ -59,14 +59,14 @@ Kirigami.SwipeListItem {
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
                     visible: entry.new
-                    opacity: (entry.read) ? 0.4 : 0.7
+                    opacity: entry.read ? 0.4 : 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "source-playlist"
                     visible: !isQueue && entry.queueStatus
-                    opacity: (entry.read) ? 0.4 : 0.7
+                    opacity: entry.read ? 0.4 : 0.7
                 }
                 Controls.Label {
                     id: supertitle
@@ -74,7 +74,7 @@ Kirigami.SwipeListItem {
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
-                    opacity: (entry.read) ? 0.4 : 0.7
+                    opacity: entry.read ? 0.4 : 0.7
                 }
             }
             Controls.Label {
@@ -82,10 +82,10 @@ Kirigami.SwipeListItem {
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font.weight: Font.Normal
-                opacity: (entry.read) ? 0.6 : 1
+                opacity: entry.read ? 0.6 : 1
             }
             Loader {
-                sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ?playProgress : subtitle)
+                sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {

@@ -71,7 +71,7 @@ Flickable {
     function resetToBoundsOnResize() {
         if (contentY > contentHeight / 4) {
             contentY = contentHeight / 2;
-        } else  {
+        } else {
             contentY = 0;
         }
     }
@@ -94,7 +94,6 @@ Flickable {
             color: Kirigami.Theme.backgroundColor
             anchors.fill: parent
         }
-
     }
 
     ColumnLayout {

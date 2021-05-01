@@ -50,12 +50,12 @@ Kirigami.Page {
                 Image {
                     id: coverImage
                     asynchronous: true
-                    source: audio.entry ? (audio.entry.image === "" ? "logo.png" : "file://"+Fetcher.image(audio.entry.image)) : ""
+                    source: audio.entry ? (audio.entry.image === "" ? "logo.png" : "file://" + Fetcher.image(audio.entry.image)) : ""
                     fillMode: Image.PreserveAspectFit
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: Math.max(0, parent.height - (height + imageLabels.height + 2*parent.textMargin))/2
-                    height: Math.min( Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3)-(imageLabels.height+2*parent.textMargin),
+                    height: Math.min(Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3) - (imageLabels.height + 2 * parent.textMargin),
                                     Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3))
                     width: height
                     layer.enabled: true
@@ -67,7 +67,7 @@ Kirigami.Page {
                                 anchors.centerIn: parent
                                 width: coverImage.adapt ? coverImage.width : Math.min(coverImage.width, coverImage.height)
                                 height: coverImage.adapt ? coverImage.height : width
-                                radius: Math.min(width, height)/20
+                                radius: Math.min(width, height) / 20
                             }
                         }
                     }
@@ -128,7 +128,7 @@ Kirigami.Page {
         Controls.PageIndicator {
             id: indicator
 
-            count:swipeView.count
+            count: swipeView.count
             currentIndex: swipeView.currentIndex
             Layout.alignment: Qt.AlignHCenter
         }
