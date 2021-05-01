@@ -6,9 +6,9 @@
 
 #include <QString>
 
-#include "queuemodel.h"
-#include "entry.h"
 #include "datamanager.h"
+#include "entry.h"
+#include "queuemodel.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -17,19 +17,19 @@ QueueModel::QueueModel(QObject *parent)
         int to = (from < to_orig) ? to_orig + 1 : to_orig;
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
         endMoveRows();
-        //qDebug() << "Moved entry" << from << "to" << to;
+        // qDebug() << "Moved entry" << from << "to" << to;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int pos, const QString &id) {
         Q_UNUSED(id)
         beginInsertRows(QModelIndex(), pos, pos);
         endInsertRows();
-        //qDebug() << "Added entry at pos" << pos;
+        // qDebug() << "Added entry at pos" << pos;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int pos, const QString &id) {
         Q_UNUSED(id)
         beginRemoveRows(QModelIndex(), pos, pos);
         endRemoveRows();
-        //qDebug() << "Removed entry at pos" << pos;
+        // qDebug() << "Removed entry at pos" << pos;
     });
 }
 
@@ -37,7 +37,7 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    //qDebug() << "return entry" << DataManager::instance().getQueueEntry(index.row());
+    // qDebug() << "return entry" << DataManager::instance().getQueueEntry(index.row());
     return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
 }
 
@@ -51,6 +51,6 @@ QHash<int, QByteArray> QueueModel::roleNames() const
 int QueueModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    //qDebug() << "queueCount is" << DataManager::instance().queueCount();
+    // qDebug() << "queueCount is" << DataManager::instance().queueCount();
     return DataManager::instance().queueCount();
 }

@@ -12,7 +12,7 @@
 #include "enclosuredownloadjob.h"
 #include "fetcher.h"
 
-EnclosureDownloadJob::EnclosureDownloadJob(const QString& url, const QString& filename, const QString& title, QObject *parent)
+EnclosureDownloadJob::EnclosureDownloadJob(const QString &url, const QString &filename, const QString &title, QObject *parent)
     : KJob(parent)
     , m_url(url)
     , m_filename(filename)
@@ -49,7 +49,6 @@ void EnclosureDownloadJob::startDownload()
 
 bool EnclosureDownloadJob::doKill()
 {
-        m_reply->abort();
-        return true;
+    m_reply->abort();
+    return true;
 }
-

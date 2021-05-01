@@ -11,7 +11,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QStringList>
 
-
 class MediaPlayer2 : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -20,15 +19,13 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanQuit READ CanQuit CONSTANT)
     Q_PROPERTY(bool CanRaise READ CanRaise CONSTANT)
     Q_PROPERTY(bool HasTrackList READ HasTrackList CONSTANT)
-
     Q_PROPERTY(QString Identity READ Identity CONSTANT)
     Q_PROPERTY(QString DesktopEntry READ DesktopEntry CONSTANT)
-
     Q_PROPERTY(QStringList SupportedUriSchemes READ SupportedUriSchemes CONSTANT)
     Q_PROPERTY(QStringList SupportedMimeTypes READ SupportedMimeTypes CONSTANT)
 
 public:
-    explicit MediaPlayer2(QObject* parent = nullptr);
+    explicit MediaPlayer2(QObject *parent = nullptr);
     ~MediaPlayer2() override;
 
     [[nodiscard]] bool CanQuit() const;
@@ -47,5 +44,4 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void raisePlayer();
-
 };

@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include <QObject>
-#include <QUrl>
 #include <QMediaPlayer>
+#include <QObject>
 #include <QString>
+#include <QUrl>
 
 #include <memory>
 
@@ -22,69 +22,22 @@ class AudioManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Entry* entry
-               READ entry
-               WRITE setEntry
-               NOTIFY entryChanged)
-
-    Q_PROPERTY(bool muted
-               READ muted
-               WRITE setMuted
-               NOTIFY mutedChanged)
-
-    Q_PROPERTY(qreal volume
-               READ volume
-               WRITE setVolume
-               NOTIFY volumeChanged)
-
-    Q_PROPERTY(QMediaPlayer::MediaStatus status
-               READ status
-               NOTIFY statusChanged)
-
-    Q_PROPERTY(QMediaPlayer::State playbackState
-               READ playbackState
-               NOTIFY playbackStateChanged)
-
-    Q_PROPERTY(qreal playbackRate
-               READ playbackRate
-               WRITE setPlaybackRate
-               NOTIFY playbackRateChanged)
-
-    Q_PROPERTY(QMediaPlayer::Error error
-               READ error
-               NOTIFY errorChanged)
-
-    Q_PROPERTY(qint64 duration
-               READ duration
-               NOTIFY durationChanged)
-
-    Q_PROPERTY(qint64 position
-               READ position
-               WRITE setPosition
-               NOTIFY positionChanged)
-
-    Q_PROPERTY(bool seekable
-               READ seekable
-               NOTIFY seekableChanged)
-
-    Q_PROPERTY(bool canPlay
-               READ canPlay
-               NOTIFY canPlayChanged)
-
-    Q_PROPERTY(bool canSkipForward
-               READ canSkipForward
-               NOTIFY canSkipForwardChanged)
-
-    Q_PROPERTY(bool canSkipBackward
-               READ canSkipBackward
-               NOTIFY canSkipBackwardChanged)
-
-    Q_PROPERTY(bool canGoNext
-               READ canGoNext
-               NOTIFY canGoNextChanged)
+    Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
+    Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
+    Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
+    Q_PROPERTY(QMediaPlayer::MediaStatus status READ status NOTIFY statusChanged)
+    Q_PROPERTY(QMediaPlayer::State playbackState READ playbackState NOTIFY playbackStateChanged)
+    Q_PROPERTY(qreal playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
+    Q_PROPERTY(QMediaPlayer::Error error READ error NOTIFY errorChanged)
+    Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
+    Q_PROPERTY(qint64 position READ position WRITE setPosition NOTIFY positionChanged)
+    Q_PROPERTY(bool seekable READ seekable NOTIFY seekableChanged)
+    Q_PROPERTY(bool canPlay READ canPlay NOTIFY canPlayChanged)
+    Q_PROPERTY(bool canSkipForward READ canSkipForward NOTIFY canSkipForwardChanged)
+    Q_PROPERTY(bool canSkipBackward READ canSkipBackward NOTIFY canSkipBackwardChanged)
+    Q_PROPERTY(bool canGoNext READ canGoNext NOTIFY canGoNextChanged)
 
 public:
-
     explicit AudioManager(QObject *parent = nullptr);
 
     static AudioManager &instance()
@@ -95,7 +48,7 @@ public:
 
     ~AudioManager() override;
 
-    [[nodiscard]] Entry* entry() const;
+    [[nodiscard]] Entry *entry() const;
 
     [[nodiscard]] bool muted() const;
 
@@ -133,7 +86,7 @@ public:
 
 Q_SIGNALS:
 
-    void entryChanged(Entry* entry);
+    void entryChanged(Entry *entry);
 
     void mutedChanged(bool muted);
 
@@ -173,13 +126,13 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 
-    void setEntry(Entry* entry);
+    void setEntry(Entry *entry);
 
     void setMuted(bool muted);
 
     void setVolume(qreal volume);
 
-    //void setSource(const QUrl &source);  //source should only be set by audiomanager itself
+    // void setSource(const QUrl &source);  //source should only be set by audiomanager itself
 
     void setPosition(qint64 position);
 
@@ -214,9 +167,7 @@ private Q_SLOTS:
     void savePlayPosition(qint64 position);
 
 private:
-
     friend class AudioManagerPrivate;
 
     std::unique_ptr<AudioManagerPrivate> d;
-
 };

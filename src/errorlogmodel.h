@@ -7,10 +7,10 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QDateTime>
 #include <QHash>
 #include <QObject>
 #include <QVariant>
-#include <QDateTime>
 
 #include "error.h"
 
@@ -37,5 +37,5 @@ public:
 private:
     explicit ErrorLogModel();
 
-    QList<Error*> m_errors;
+    QList<Error *> m_errors;
 };

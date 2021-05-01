@@ -11,8 +11,8 @@
 #include <QObject>
 #include <QVariant>
 
-#include "entry.h"
 #include "enclosure.h"
+#include "entry.h"
 
 class DownloadProgressModel : public QAbstractListModel
 {
@@ -30,7 +30,7 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
 public Q_SLOTS:
-    void monitorDownloadProgress(Entry* entry, Enclosure::Status status);
+    void monitorDownloadProgress(Entry *entry, Enclosure::Status status);
 
 private:
     explicit DownloadProgressModel();

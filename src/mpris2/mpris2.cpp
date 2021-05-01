@@ -7,12 +7,11 @@
  */
 
 #include "mpris2.h"
+#include "audiomanager.h"
 #include "mediaplayer2.h"
 #include "mediaplayer2player.h"
-#include "audiomanager.h"
 
 #include <QDBusConnection>
-
 
 #if defined Q_OS_WIN
 #include <Windows.h>
@@ -20,7 +19,7 @@
 #include <unistd.h>
 #endif
 
-Mpris2::Mpris2(QObject* parent)
+Mpris2::Mpris2(QObject *parent)
     : QObject(parent)
 {
 }
@@ -52,8 +51,7 @@ void Mpris2::initDBusService()
     }
 }
 
-Mpris2::~Mpris2()
-= default;
+Mpris2::~Mpris2() = default;
 
 QString Mpris2::playerName() const
 {

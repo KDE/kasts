@@ -5,12 +5,11 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-
 #include <QCommandLineParser>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include <QQuickView>
 #include <QQuickStyle>
+#include <QQuickView>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -23,18 +22,18 @@
 #include <KLocalizedString>
 
 #include "alligator-version.h"
-#include "settingsmanager.h"
+#include "audiomanager.h"
 #include "database.h"
+#include "datamanager.h"
+#include "downloadprogressmodel.h"
 #include "entriesmodel.h"
+#include "episodemodel.h"
+#include "errorlogmodel.h"
 #include "feedsmodel.h"
 #include "fetcher.h"
-#include "queuemodel.h"
-#include "episodemodel.h"
-#include "downloadprogressmodel.h"
-#include "errorlogmodel.h"
-#include "datamanager.h"
-#include "audiomanager.h"
 #include "mpris2/mpris2.h"
+#include "queuemodel.h"
+#include "settingsmanager.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -84,7 +83,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
     qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
 
-    qRegisterMetaType<Entry*>("const Entry*"); // "hack" to make qml understand Entry*
+    qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
@@ -93,7 +92,12 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("RSS/Atom Feed Reader"));
 
-    KAboutData about(QStringLiteral("alligator"), i18n("Alligator"), QStringLiteral(ALLIGATOR_VERSION_STRING), i18n("Feed Reader"), KAboutLicense::GPL, i18n("© 2020-2021 KDE Community"));
+    KAboutData about(QStringLiteral("alligator"),
+                     i18n("Alligator"),
+                     QStringLiteral(ALLIGATOR_VERSION_STRING),
+                     i18n("Feed Reader"),
+                     KAboutLicense::GPL,
+                     i18n("© 2020-2021 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     KAboutData::setApplicationData(about);

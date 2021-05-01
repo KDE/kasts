@@ -16,22 +16,20 @@
 #endif
 
 #if defined Q_OS_WIN
-#include <windows.h>
 #include <winbase.h>
+#include <windows.h>
 #endif
 
-#include <QString>
-#include <QDebug>
 #include <QCoreApplication>
+#include <QDebug>
+#include <QString>
 
-#include "inhibitinterface.h"
 #include "gnomesessioninterface.h"
-
+#include "inhibitinterface.h"
 
 class PowerManagementInterfacePrivate
 {
 public:
-
     bool mPreventSleep = false;
 
     bool mInhibitedSleep = false;
@@ -41,24 +39,25 @@ public:
     uint mGnomeSleepCookie = 0;
 
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    OrgFreedesktopPowerManagementInhibitInterface* mInhibitInterface;
-    OrgGnomeSessionManagerInterface* mGnomeInterface;
+    OrgFreedesktopPowerManagementInhibitInterface *mInhibitInterface;
+    OrgGnomeSessionManagerInterface *mGnomeInterface;
 #endif
-
 };
 
-PowerManagementInterface::PowerManagementInterface(QObject *parent) : QObject(parent), d(std::make_unique<PowerManagementInterfacePrivate>())
+PowerManagementInterface::PowerManagementInterface(QObject *parent)
+    : QObject(parent)
+    , d(std::make_unique<PowerManagementInterfacePrivate>())
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     d->mInhibitInterface = new OrgFreedesktopPowerManagementInhibitInterface(QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                  QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
-                                                  QDBusConnection::sessionBus(),
-                                                  this);
+                                                                             QStringLiteral("/org/freedesktop/PowerManagement/Inhibit"),
+                                                                             QDBusConnection::sessionBus(),
+                                                                             this);
 
     d->mGnomeInterface = new OrgGnomeSessionManagerInterface(QStringLiteral("org.gnome.SessionManager"),
-                                    QStringLiteral("/org/gnome/SessionManager"),
-                                    QDBusConnection::sessionBus(),
-                                    this);
+                                                             QStringLiteral("/org/gnome/SessionManager"),
+                                                             QDBusConnection::sessionBus(),
+                                                             this);
 #endif
 }
 
@@ -133,7 +132,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace(QDBusPen
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        //qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        // qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -150,7 +149,7 @@ void PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace(QDBusPendin
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<uint> reply = *aWatcher;
     if (reply.isError()) {
-        //qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
+        // qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
     } else {
         d->mGnomeSleepCookie = reply.argumentAt<0>();
         d->mInhibitedSleep = true;
@@ -168,7 +167,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        //qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        // qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -183,13 +182,12 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 void PowerManagementInterface::inhibitSleepPlasmaWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    auto asyncReply = d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(),
-                                                    i18nc("explanation for sleep inhibit during play of music", "Playing Music"));
+    auto asyncReply =
+        d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(), i18nc("explanation for sleep inhibit during play of music", "Playing Music"));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
-    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished,
-                     this, &PowerManagementInterface::inhibitDBusCallFinishedPlasmaWorkspace);
+    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished, this, &PowerManagementInterface::inhibitDBusCallFinishedPlasmaWorkspace);
 #endif
 }
 
@@ -200,8 +198,7 @@ void PowerManagementInterface::uninhibitSleepPlasmaWorkspace()
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
-    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished,
-                     this, &PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace);
+    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished, this, &PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace);
 #endif
 }
 
@@ -215,8 +212,7 @@ void PowerManagementInterface::inhibitSleepGnomeWorkspace()
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
-    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished,
-                     this, &PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace);
+    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished, this, &PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace);
 #endif
 }
 
@@ -227,8 +223,7 @@ void PowerManagementInterface::uninhibitSleepGnomeWorkspace()
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
-    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished,
-                     this, &PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace);
+    QObject::connect(replyWatcher, &QDBusPendingCallWatcher::finished, this, &PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace);
 #endif
 }
 

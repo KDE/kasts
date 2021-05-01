@@ -12,13 +12,12 @@
 
 #include <KCoreAddons/KAboutData>
 
-MediaPlayer2::MediaPlayer2(QObject* parent)
+MediaPlayer2::MediaPlayer2(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
 }
 
-MediaPlayer2::~MediaPlayer2()
-= default;
+MediaPlayer2::~MediaPlayer2() = default;
 
 bool MediaPlayer2::CanQuit() const
 {
@@ -61,11 +60,11 @@ QStringList MediaPlayer2::SupportedUriSchemes() const
 
 QStringList MediaPlayer2::SupportedMimeTypes() const
 {
-//    KService::Ptr app = KService::serviceByDesktopName(KCmdLineArgs::aboutData()->appName());
+    //    KService::Ptr app = KService::serviceByDesktopName(KCmdLineArgs::aboutData()->appName());
 
-//    if (app) {
-//        return app->mimeTypes();
-//    }
+    //    if (app) {
+    //        return app->mimeTypes();
+    //    }
 
     return QStringList();
 }

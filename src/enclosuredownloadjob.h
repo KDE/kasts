@@ -11,7 +11,6 @@
 
 class EnclosureDownloadJob : public KJob
 {
-
 public:
     explicit EnclosureDownloadJob(const QString &url, const QString &filename, const QString &title, QObject *parent = nullptr);
 

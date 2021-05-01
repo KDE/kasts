@@ -56,7 +56,7 @@ void FeedsModel::removeFeed(int index)
 
 void FeedsModel::refreshAll()
 {
-//    for (auto &feed : m_feeds) {
-//        feed->refresh();
-//    }
+    //    for (auto &feed : m_feeds) {
+    //        feed->refresh();
+    //    }
 }

@@ -20,28 +20,17 @@ class Mpris2 : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString playerName
-               READ playerName
-               WRITE setPlayerName
-               NOTIFY playerNameChanged)
-
-    Q_PROPERTY(AudioManager* audioPlayer
-               READ audioPlayer
-               WRITE setAudioPlayer
-               NOTIFY audioPlayerChanged)
-
-    Q_PROPERTY(bool showProgressOnTaskBar
-               READ showProgressOnTaskBar
-               WRITE setShowProgressOnTaskBar
-               NOTIFY showProgressOnTaskBarChanged)
+    Q_PROPERTY(QString playerName READ playerName WRITE setPlayerName NOTIFY playerNameChanged)
+    Q_PROPERTY(AudioManager *audioPlayer READ audioPlayer WRITE setAudioPlayer NOTIFY audioPlayerChanged)
+    Q_PROPERTY(bool showProgressOnTaskBar READ showProgressOnTaskBar WRITE setShowProgressOnTaskBar NOTIFY showProgressOnTaskBarChanged)
 
 public:
-    explicit Mpris2(QObject* parent = nullptr);
+    explicit Mpris2(QObject *parent = nullptr);
     ~Mpris2() override;
 
     [[nodiscard]] QString playerName() const;
 
-    [[nodiscard]] AudioManager* audioPlayer() const;
+    [[nodiscard]] AudioManager *audioPlayer() const;
 
     [[nodiscard]] bool showProgressOnTaskBar() const;
 
@@ -49,7 +38,7 @@ public Q_SLOTS:
 
     void setPlayerName(const QString &playerName);
 
-    void setAudioPlayer(AudioManager* audioPlayer);
+    void setAudioPlayer(AudioManager *audioPlayer);
 
     void setShowProgressOnTaskBar(bool value);
 
@@ -63,12 +52,11 @@ Q_SIGNALS:
     void showProgressOnTaskBarChanged();
 
 private:
-
     void initDBusService();
 
     std::unique_ptr<MediaPlayer2> m_mp2;
     std::unique_ptr<MediaPlayer2Player> m_mp2p;
     QString m_playerName;
-    AudioManager* m_audioPlayer = nullptr;
+    AudioManager *m_audioPlayer = nullptr;
     bool mShowProgressOnTaskBar = true;
 };

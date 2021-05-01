@@ -8,9 +8,9 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QVariant>
 #include <QHash>
 #include <QObject>
+#include <QVariant>
 
 #include "feed.h"
 

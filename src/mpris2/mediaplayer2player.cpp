@@ -9,60 +9,47 @@
 #include "mediaplayer2player.h"
 #include "mpris2.h"
 
-#include "fetcher.h"
-#include "datamanager.h"
 #include "audiomanager.h"
+#include "datamanager.h"
+#include "fetcher.h"
 
 #include <QCryptographicHash>
-#include <QStringList>
-#include <QDBusMessage>
 #include <QDBusConnection>
+#include <QDBusMessage>
+#include <QStringList>
 
-MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgressOnTaskBar, QObject* parent)
-    : QDBusAbstractAdaptor(parent), m_audioPlayer(audioPlayer),
-      mProgressIndicatorSignal(QDBusMessage::createSignal(QStringLiteral("/org/kde/alligator"),
-                                                          QStringLiteral("com.canonical.Unity.LauncherEntry"),
-                                                          QStringLiteral("Update"))),
-      mShowProgressOnTaskBar(showProgressOnTaskBar)
+MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgressOnTaskBar, QObject *parent)
+    : QDBusAbstractAdaptor(parent)
+    , m_audioPlayer(audioPlayer)
+    , mProgressIndicatorSignal(
+          QDBusMessage::createSignal(QStringLiteral("/org/kde/alligator"), QStringLiteral("com.canonical.Unity.LauncherEntry"), QStringLiteral("Update")))
+    , mShowProgressOnTaskBar(showProgressOnTaskBar)
 {
     // This will signal when the track is changed
-    connect(m_audioPlayer, &AudioManager::entryChanged,
-            this, &MediaPlayer2Player::setEntry);
+    connect(m_audioPlayer, &AudioManager::entryChanged, this, &MediaPlayer2Player::setEntry);
 
     // Signals from AudioManager which are directly forwarded
-    connect(m_audioPlayer, &AudioManager::playbackRateChanged,
-            this, &MediaPlayer2Player::rateChanged);
+    connect(m_audioPlayer, &AudioManager::playbackRateChanged, this, &MediaPlayer2Player::rateChanged);
     // TODO: implement this in AudioManager, such that it can be forwarded
-    //connect(m_audioPlayer, &AudioManager::minimumRateChanged,
+    // connect(m_audioPlayer, &AudioManager::minimumRateChanged,
     //        this, &MediaPlayer2Player::mimimumRateChanged);
-    //connect(m_audioPlayer, &AudioManager::maximumRateChanged,
+    // connect(m_audioPlayer, &AudioManager::maximumRateChanged,
     //        this, &MediaPlayer2Player::maximumRateChanged);
-    connect(m_audioPlayer, &AudioManager::seekableChanged,
-            this, &MediaPlayer2Player::canSeekChanged);
+    connect(m_audioPlayer, &AudioManager::seekableChanged, this, &MediaPlayer2Player::canSeekChanged);
 
     // Signals which are semi-wrapped signals from AudioManager
-    connect(m_audioPlayer, &AudioManager::playbackStateChanged,
-            this, &MediaPlayer2Player::playerPlaybackStateChanged);
-    connect(m_audioPlayer, &AudioManager::volumeChanged,
-            this, &MediaPlayer2Player::playerVolumeChanged);
-    connect(m_audioPlayer, &AudioManager::positionChanged,
-            this, &MediaPlayer2Player::playerSeeked);  // Implement Seeked signal
-    connect(m_audioPlayer, &AudioManager::canSkipForwardChanged,
-            this, &MediaPlayer2Player::playerCanGoNextChanged);
-    connect(m_audioPlayer, &AudioManager::canSkipBackwardChanged,
-            this, &MediaPlayer2Player::playerCanGoPreviousChanged);
-    connect(m_audioPlayer, &AudioManager::canPlayChanged,
-            this, &MediaPlayer2Player::playerCanPlayChanged);
-    connect(m_audioPlayer, &AudioManager::canPauseChanged,
-            this, &MediaPlayer2Player::playerCanPauseChanged);
-    connect(m_audioPlayer, &AudioManager::seekableChanged,
-            this, &MediaPlayer2Player::playerCanSeekChanged);
+    connect(m_audioPlayer, &AudioManager::playbackStateChanged, this, &MediaPlayer2Player::playerPlaybackStateChanged);
+    connect(m_audioPlayer, &AudioManager::volumeChanged, this, &MediaPlayer2Player::playerVolumeChanged);
+    connect(m_audioPlayer, &AudioManager::positionChanged, this, &MediaPlayer2Player::playerSeeked); // Implement Seeked signal
+    connect(m_audioPlayer, &AudioManager::canSkipForwardChanged, this, &MediaPlayer2Player::playerCanGoNextChanged);
+    connect(m_audioPlayer, &AudioManager::canSkipBackwardChanged, this, &MediaPlayer2Player::playerCanGoPreviousChanged);
+    connect(m_audioPlayer, &AudioManager::canPlayChanged, this, &MediaPlayer2Player::playerCanPlayChanged);
+    connect(m_audioPlayer, &AudioManager::canPauseChanged, this, &MediaPlayer2Player::playerCanPauseChanged);
+    connect(m_audioPlayer, &AudioManager::seekableChanged, this, &MediaPlayer2Player::playerCanSeekChanged);
 
     // signals needed for progress indicator on taskbar
-    connect(m_audioPlayer, &AudioManager::durationChanged,
-            this, &MediaPlayer2Player::audioDurationChanged);
-    connect(m_audioPlayer, &AudioManager::positionChanged,
-            this, &MediaPlayer2Player::audioPositionChanged);
+    connect(m_audioPlayer, &AudioManager::durationChanged, this, &MediaPlayer2Player::audioDurationChanged);
+    connect(m_audioPlayer, &AudioManager::positionChanged, this, &MediaPlayer2Player::audioPositionChanged);
 
     if (m_audioPlayer) {
         m_volume = m_audioPlayer->volume() / 100;
@@ -74,8 +61,7 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
     }
 }
 
-MediaPlayer2Player::~MediaPlayer2Player()
-= default;
+MediaPlayer2Player::~MediaPlayer2Player() = default;
 
 QString MediaPlayer2Player::PlaybackStatus() const
 {
@@ -129,7 +115,6 @@ bool MediaPlayer2Player::CanGoPrevious() const
     else
         return false;
 }
-
 
 void MediaPlayer2Player::Previous()
 {
@@ -187,10 +172,10 @@ double MediaPlayer2Player::Volume() const
 void MediaPlayer2Player::setVolume(double volume)
 {
     if (m_audioPlayer) {
-        m_volume= qBound(0.0, volume, 1.0);
+        m_volume = qBound(0.0, volume, 1.0);
         emit volumeChanged(m_volume);
 
-            m_audioPlayer->setVolume(100 * m_volume);
+        m_audioPlayer->setVolume(100 * m_volume);
 
         signalPropertiesChange(QStringLiteral("Volume"), Volume());
     }
@@ -296,7 +281,7 @@ void MediaPlayer2Player::audioPositionChanged()
 
 void MediaPlayer2Player::audioDurationChanged()
 {
-    //qDebug() << "Signal change of audio duration through MPRIS2";
+    // qDebug() << "Signal change of audio duration through MPRIS2";
     // We reset all metadata in case the audioDuration changed
     // This is done because duration is not yet available when setEntry is
     // called (this is before the QMediaPlayer has read the new track
@@ -322,34 +307,34 @@ void MediaPlayer2Player::playerVolumeChanged()
 void MediaPlayer2Player::playerCanPlayChanged()
 {
     signalPropertiesChange(QStringLiteral("CanPlay"), CanPlay());
-    //Q_EMIT canPlayChanged();
+    // Q_EMIT canPlayChanged();
 }
 
 void MediaPlayer2Player::playerCanPauseChanged()
 {
     signalPropertiesChange(QStringLiteral("CanPause"), CanPause());
-    //Q_EMIT canPauseChanged();
+    // Q_EMIT canPauseChanged();
 }
 
 void MediaPlayer2Player::playerCanGoNextChanged()
 {
     signalPropertiesChange(QStringLiteral("CanGoNext"), CanGoNext());
-    //Q_EMIT canGoNextChanged();
+    // Q_EMIT canGoNextChanged();
 }
 
 void MediaPlayer2Player::playerCanGoPreviousChanged()
 {
     signalPropertiesChange(QStringLiteral("CanGoPrevious"), CanGoNext());
-    //Q_EMIT canGoPreviousChanged();
+    // Q_EMIT canGoPreviousChanged();
 }
 
 void MediaPlayer2Player::playerCanSeekChanged()
 {
     signalPropertiesChange(QStringLiteral("CanSeek"), CanSeek());
-    //Q_EMIT canSeekChanged();
+    // Q_EMIT canSeekChanged();
 }
 
-void MediaPlayer2Player::setEntry(Entry* entry)
+void MediaPlayer2Player::setEntry(Entry *entry)
 {
     if (entry == nullptr)
         return;
@@ -358,7 +343,7 @@ void MediaPlayer2Player::setEntry(Entry* entry)
         if (m_audioPlayer->entry()) {
             if (m_audioPlayer->entry() == entry) {
                 int queuenr = DataManager::instance().queue().indexOf(m_audioPlayer->entry()->id());
-                //qDebug() << "MPRIS2: Setting entry" << entry->title();
+                // qDebug() << "MPRIS2: Setting entry" << entry->title();
                 m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(queuenr)).path();
 
                 m_metadata = getMetadataOfCurrentTrack();
@@ -384,11 +369,11 @@ QVariantMap MediaPlayer2Player::getMetadataOfCurrentTrack()
         return {};
     }
 
-    Entry* entry = m_audioPlayer->entry();
+    Entry *entry = m_audioPlayer->entry();
 
     result[QStringLiteral("mpris:trackid")] = QVariant::fromValue<QDBusObjectPath>(QDBusObjectPath(m_currentTrackId));
     result[QStringLiteral("mpris:length")] = qlonglong(m_audioPlayer->duration()) * 1000;
-    //convert milli-seconds into micro-seconds
+    // convert milli-seconds into micro-seconds
     if (!entry->title().isEmpty()) {
         result[QStringLiteral("xesam:title")] = entry->title();
     }
@@ -398,7 +383,8 @@ QVariantMap MediaPlayer2Player::getMetadataOfCurrentTrack()
     }
     if (entry->authors().count() > 0) {
         QStringList authors;
-        for (auto &author : entry->authors()) authors.append(author->name());
+        for (auto &author : entry->authors())
+            authors.append(author->name());
         result[QStringLiteral("xesam:artist")] = authors;
     }
     if (!entry->image().isEmpty()) {
@@ -417,8 +403,7 @@ void MediaPlayer2Player::setPropertyPosition(int newPositionInMs)
      * to limit DBus traffic
      */
     const auto incrementalProgress = static_cast<double>(newPositionInMs - mPreviousProgressPosition) / m_audioPlayer->duration();
-    if (mShowProgressOnTaskBar && (incrementalProgress > 0.01 || incrementalProgress < 0))
-    {
+    if (mShowProgressOnTaskBar && (incrementalProgress > 0.01 || incrementalProgress < 0)) {
         mPreviousProgressPosition = newPositionInMs;
         QVariantMap parameters;
         parameters.insert(QStringLiteral("progress-visible"), true);
@@ -436,7 +421,8 @@ void MediaPlayer2Player::signalPropertiesChange(const QString &property, const Q
     properties[property] = value;
     const int ifaceIndex = metaObject()->indexOfClassInfo("D-Bus Interface");
     QDBusMessage msg = QDBusMessage::createSignal(QStringLiteral("/org/mpris/MediaPlayer2"),
-                                                  QStringLiteral("org.freedesktop.DBus.Properties"), QStringLiteral("PropertiesChanged"));
+                                                  QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                  QStringLiteral("PropertiesChanged"));
 
     msg << QLatin1String(metaObject()->classInfo(ifaceIndex).value());
     msg << properties;

@@ -16,7 +16,6 @@
 Feed::Feed(const QString &feedurl)
     : QObject(nullptr)
 {
-
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:feedurl;"));
     query.bindValue(QStringLiteral(":feedurl"), feedurl);
@@ -60,19 +59,19 @@ Feed::Feed(const QString &feedurl)
     });
     connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, const QString &id, int errorId, const QString &errorString) {
         Q_UNUSED(id)
-        if(url == m_url) {
+        if (url == m_url) {
             setErrorId(errorId);
             setErrorString(errorString);
             setRefreshing(false);
         }
     });
     connect(&Fetcher::instance(), &Fetcher::feedUpdateFinished, this, [this](const QString &url) {
-        if(url == m_url) {
+        if (url == m_url) {
             setRefreshing(false);
         }
     });
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if(url == m_image) {
+        if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());
         }
@@ -100,12 +99,10 @@ void Feed::updateAuthors()
         QString name = authorQuery.value(QStringLiteral("name")).toString();
         QString email = authorQuery.value(QStringLiteral("email")).toString();
         QString url = authorQuery.value(QStringLiteral("uri")).toString();
-        //qDebug() << name << email << url;
-        for (int i=0; i < m_authors.count(); i++) {
-            //qDebug() << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
-            if (m_authors[i] && m_authors[i]->name() == name
-                && m_authors[i]->email() == email
-                && m_authors[i]->url() == url) {
+        // qDebug() << name << email << url;
+        for (int i = 0; i < m_authors.count(); i++) {
+            // qDebug() << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
+            if (m_authors[i] && m_authors[i]->name() == name && m_authors[i]->email() == email && m_authors[i]->url() == url) {
                 existingAuthor = true;
                 newAuthors += m_authors[i];
             }
@@ -118,7 +115,7 @@ void Feed::updateAuthors()
 
     // Finally check whether m_authors and newAuthors are identical
     // if not, then delete the authors that were removed
-    for (int i=0; i < m_authors.count(); i++) {
+    for (int i = 0; i < m_authors.count(); i++) {
         if (!newAuthors.contains(m_authors[i])) {
             delete m_authors[i];
             haveAuthorsChanged = true;
@@ -127,8 +124,9 @@ void Feed::updateAuthors()
 
     m_authors = newAuthors;
 
-    if (haveAuthorsChanged) Q_EMIT authorsChanged(m_authors);
-    //qDebug() << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
+    if (haveAuthorsChanged)
+        Q_EMIT authorsChanged(m_authors);
+    // qDebug() << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
 }
 
 QString Feed::url() const
@@ -265,7 +263,7 @@ void Feed::setDescription(const QString &description)
 
 void Feed::setAuthors(const QVector<Author *> &authors)
 {
-    for (auto& author : m_authors) {
+    for (auto &author : m_authors) {
         delete author;
     }
     m_authors.clear();

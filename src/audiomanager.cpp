@@ -7,13 +7,13 @@
 
 #include "audiomanager.h"
 
-#include <algorithm>
-#include <QTimer>
 #include <QAudio>
 #include <QEventLoop>
+#include <QTimer>
+#include <algorithm>
 
-#include "powermanagementinterface.h"
 #include "datamanager.h"
+#include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
 static const double MAX_RATE = 1.0;
@@ -22,25 +22,25 @@ static const qint64 SKIP_STEP = 10000;
 
 class AudioManagerPrivate
 {
-
 private:
-
     PowerManagementInterface mPowerInterface;
 
     QMediaPlayer m_player;
 
-    Entry* m_entry = nullptr;
+    Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
     bool m_isSeekable = false;
-    bool m_lockPositionSaving = false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
+    bool m_lockPositionSaving =
+        false; // sort of lock mutex to prevent updating the player position while changing sources (which will emit lots of playerPositionChanged signals)
 
     void prepareAudioStream();
 
     friend class AudioManager;
 };
 
-
-AudioManager::AudioManager(QObject *parent) : QObject(parent), d(std::make_unique<AudioManagerPrivate>())
+AudioManager::AudioManager(QObject *parent)
+    : QObject(parent)
+    , d(std::make_unique<AudioManagerPrivate>())
 {
     connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
     connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
@@ -70,7 +70,7 @@ AudioManager::~AudioManager()
     d->mPowerInterface.setPreventSleep(false);
 }
 
-Entry* AudioManager::entry () const
+Entry *AudioManager::entry() const
 {
     return d->m_entry;
 }
@@ -165,45 +165,45 @@ QMediaPlayer::MediaStatus AudioManager::status() const
     return d->m_player.mediaStatus();
 }
 
-void AudioManager::setEntry(Entry* entry)
+void AudioManager::setEntry(Entry *entry)
 {
     d->m_lockPositionSaving = true;
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
     if (d->m_entry) {
-        //qDebug() << "Checking previous track";
-        //qDebug() << "Left time" << (duration()-position());
-        //qDebug() << "MediaStatus" << d->m_player.mediaStatus();
-        if (( (duration()-position()) < 15000)
-               || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) ) {
-            //qDebug() << "Mark as read:" << d->m_entry->title();
+        // qDebug() << "Checking previous track";
+        // qDebug() << "Left time" << (duration()-position());
+        // qDebug() << "MediaStatus" << d->m_player.mediaStatus();
+        if (((duration() - position()) < 15000) || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia)) {
+            // qDebug() << "Mark as read:" << d->m_entry->title();
             d->m_entry->setRead(true);
             d->m_entry->enclosure()->setPlayPosition(0);
             d->m_entry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
         }
     }
 
-    //qDebug() << entry->hasEnclosure() << entry->enclosure() << entry->enclosure()->status();
+    // qDebug() << entry->hasEnclosure() << entry->enclosure() << entry->enclosure()->status();
 
     // do some checks on the new entry to see whether it's valid and not corrupted
     if (entry != nullptr && entry->hasEnclosure() && entry->enclosure() && entry->enclosure()->status() == Enclosure::Downloaded) {
-        //qDebug() << "Going to change source";
+        // qDebug() << "Going to change source";
         d->m_entry = entry;
         Q_EMIT entryChanged(entry);
         // the gst-pipeline is required to make sure that the pitch is not
         // changed when speeding up the audio stream
         // TODO: find a solution for Android (GStreamer not available on android by default)
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-        //qDebug() << "use custom pipeline";
-        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path() + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
+        // qDebug() << "use custom pipeline";
+        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path()
+                                  + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
 #else
-        //qDebug() << "regular audio backend";
-        d->m_player.setMedia(QUrl(QStringLiteral("file://")+d->m_entry->enclosure()->path()));
+        // qDebug() << "regular audio backend";
+        d->m_player.setMedia(QUrl(QStringLiteral("file://") + d->m_entry->enclosure()->path()));
 #endif
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
-        //qDebug() << "Changed source to" << d->m_entry->title();
+        // qDebug() << "Changed source to" << d->m_entry->title();
 
         d->prepareAudioStream();
         d->m_readyToPlay = true;
@@ -214,11 +214,11 @@ void AudioManager::setEntry(Entry* entry)
         Q_EMIT canGoNextChanged();
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(true);
-        //qDebug() << "Duration" << d->m_player.duration()/1000 << d->m_entry->enclosure()->duration();
+        // qDebug() << "Duration" << d->m_player.duration()/1000 << d->m_entry->enclosure()->duration();
         // Finally, check if duration mentioned in enclosure corresponds to real duration
-        if ((d->m_player.duration()/1000) != d->m_entry->enclosure()->duration()) {
-            d->m_entry->enclosure()->setDuration(d->m_player.duration()/1000);
-            //qDebug() << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration()/1000;
+        if ((d->m_player.duration() / 1000) != d->m_entry->enclosure()->duration()) {
+            d->m_entry->enclosure()->setDuration(d->m_player.duration() / 1000);
+            // qDebug() << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration()/1000;
         }
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
@@ -246,7 +246,7 @@ void AudioManager::setMuted(bool muted)
 
 void AudioManager::setVolume(qreal volume)
 {
-    //qDebug() << "AudioManager::setVolume" << volume;
+    // qDebug() << "AudioManager::setVolume" << volume;
 
     auto realVolume = static_cast<qreal>(QAudio::convertVolume(volume / 100.0, QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale));
     d->m_player.setVolume(qRound(realVolume * 100));
@@ -263,21 +263,21 @@ void AudioManager::setSource(const QUrl &source)
 
 void AudioManager::setPosition(qint64 position)
 {
-    //qDebug() << "AudioManager::setPosition" << position;
+    // qDebug() << "AudioManager::setPosition" << position;
 
     d->m_player.setPosition(position);
 }
 
 void AudioManager::setPlaybackRate(const qreal rate)
 {
-    //qDebug() << "AudioManager::setPlaybackRate" << rate;
+    // qDebug() << "AudioManager::setPlaybackRate" << rate;
 
     d->m_player.setPlaybackRate(rate);
 }
 
 void AudioManager::play()
 {
-    //qDebug() << "AudioManager::play";
+    // qDebug() << "AudioManager::play";
 
     d->prepareAudioStream();
     d->m_player.play();
@@ -288,7 +288,7 @@ void AudioManager::play()
 
 void AudioManager::pause()
 {
-    //qDebug() << "AudioManager::pause";
+    // qDebug() << "AudioManager::pause";
 
     d->m_isSeekable = true;
     d->m_player.pause();
@@ -305,7 +305,7 @@ void AudioManager::playPause()
 
 void AudioManager::stop()
 {
-    //qDebug() << "AudioManager::stop";
+    // qDebug() << "AudioManager::stop";
 
     d->m_player.stop();
     d->m_isSeekable = false;
@@ -315,20 +315,20 @@ void AudioManager::stop()
 
 void AudioManager::seek(qint64 position)
 {
-    //qDebug() << "AudioManager::seek" << position;
+    // qDebug() << "AudioManager::seek" << position;
 
     d->m_player.setPosition(position);
 }
 
 void AudioManager::skipForward()
 {
-    //qDebug() << "AudioManager::skipForward";
+    // qDebug() << "AudioManager::skipForward";
     seek(std::min((position() + SKIP_STEP), duration()));
 }
 
 void AudioManager::skipBackward()
 {
-    //qDebug() << "AudioManager::skipBackward";
+    // qDebug() << "AudioManager::skipBackward";
     seek(std::max((qint64)0, (position() - SKIP_STEP)));
 }
 
@@ -339,10 +339,10 @@ bool AudioManager::canGoNext() const
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         if (index >= 0) {
             // check if there is a next track
-            if (index < DataManager::instance().queue().count()-1) {
-                Entry* next_entry = DataManager::instance().getEntry(DataManager::instance().queue()[index+1]);
+            if (index < DataManager::instance().queue().count() - 1) {
+                Entry *next_entry = DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]);
                 if (next_entry->enclosure()) {
-                    //qDebug() << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
+                    // qDebug() << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
                         return true;
                     }
@@ -358,18 +358,19 @@ void AudioManager::next()
     if (canGoNext()) {
         QMediaPlayer::State previousTrackState = playbackState();
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
-        //qDebug() << "Skipping to" << DataManager::instance().queue()[index+1];
-        setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index+1]));
-        if (previousTrackState == QMediaPlayer::PlayingState) play();
+        // qDebug() << "Skipping to" << DataManager::instance().queue()[index+1];
+        setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]));
+        if (previousTrackState == QMediaPlayer::PlayingState)
+            play();
     } else {
-        //qDebug() << "Next track cannot be played, changing entry to nullptr";
+        // qDebug() << "Next track cannot be played, changing entry to nullptr";
         setEntry(nullptr);
     }
 }
 
 void AudioManager::mediaStatusChanged()
 {
-    //qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
+    // qDebug() << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
 
     // File has reached the end and has stopped
     if (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) {
@@ -382,7 +383,7 @@ void AudioManager::mediaStatusChanged()
     if (d->m_player.mediaStatus() == QMediaPlayer::InvalidMedia) {
         // save pointer to this bad entry to allow
         // us to delete the enclosure after the track has been unloaded
-        Entry* badEntry = d->m_entry;
+        Entry *badEntry = d->m_entry;
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         stop();
         next();
@@ -394,10 +395,9 @@ void AudioManager::mediaStatusChanged()
 
 void AudioManager::playerStateChanged()
 {
-    //qDebug() << "AudioManager::playerStateChanged" << d->m_player.state();
+    // qDebug() << "AudioManager::playerStateChanged" << d->m_player.state();
 
-    switch(d->m_player.state())
-    {
+    switch (d->m_player.state()) {
     case QMediaPlayer::State::StoppedState:
         Q_EMIT stopped();
         d->mPowerInterface.setPreventSleep(false);
@@ -417,16 +417,20 @@ void AudioManager::playerStateChanged()
 
 void AudioManager::playerVolumeChanged()
 {
-    //qDebug() << "AudioManager::playerVolumeChanged" << d->m_player.volume();
+    // qDebug() << "AudioManager::playerVolumeChanged" << d->m_player.volume();
 
-    QTimer::singleShot(0, [this]() {Q_EMIT volumeChanged();});
+    QTimer::singleShot(0, [this]() {
+        Q_EMIT volumeChanged();
+    });
 }
 
 void AudioManager::playerMutedChanged()
 {
-    //qDebug() << "AudioManager::playerMutedChanged";
+    // qDebug() << "AudioManager::playerMutedChanged";
 
-    QTimer::singleShot(0, [this]() {Q_EMIT mutedChanged(muted());});
+    QTimer::singleShot(0, [this]() {
+        Q_EMIT mutedChanged(muted());
+    });
 }
 
 void AudioManager::savePlayPosition(qint64 position)
@@ -438,7 +442,7 @@ void AudioManager::savePlayPosition(qint64 position)
             }
         }
     }
-    //qDebug() << d->m_player.mediaStatus();
+    // qDebug() << d->m_player.mediaStatus();
 }
 
 void AudioManagerPrivate::prepareAudioStream()
@@ -452,7 +456,7 @@ void AudioManagerPrivate::prepareAudioStream()
      * Unfortunately, this will produce an audible glitch with the current
      * QMediaPlayer backend.
      */
-    //qDebug() << "voodoo happening";
+    // qDebug() << "voodoo happening";
     qint64 startingPosition = m_entry->enclosure()->playPosition();
     m_player.play();
     if (!m_player.isSeekable()) {
@@ -460,9 +464,9 @@ void AudioManagerPrivate::prepareAudioStream()
         QTimer timer;
         timer.setSingleShot(true);
         timer.setInterval(2000);
-        loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
-        loop.connect(&m_player, SIGNAL (seekableChanged(bool)), &loop, SLOT (quit()));
-        //qDebug() << "Starting waiting loop";
+        loop.connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
+        loop.connect(&m_player, SIGNAL(seekableChanged(bool)), &loop, SLOT(quit()));
+        // qDebug() << "Starting waiting loop";
         loop.exec();
     }
     if (m_player.mediaStatus() != QMediaPlayer::BufferedMedia) {
@@ -470,11 +474,12 @@ void AudioManagerPrivate::prepareAudioStream()
         QTimer timer;
         timer.setSingleShot(true);
         timer.setInterval(2000);
-        loop.connect(&timer, SIGNAL (timeout()), &loop, SLOT (quit()) );
-        loop.connect(&m_player, SIGNAL (mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT (quit()));
-        //qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
+        loop.connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
+        loop.connect(&m_player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT(quit()));
+        // qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
         loop.exec();
-    }        //qDebug() << "Changing position";
-    if (startingPosition > 1000) m_player.setPosition(startingPosition);
+    } // qDebug() << "Changing position";
+    if (startingPosition > 1000)
+        m_player.setPosition(startingPosition);
     m_player.pause();
 }

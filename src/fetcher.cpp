@@ -8,15 +8,15 @@
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QDebug>
+#include <QDir>
+#include <QDomElement>
 #include <QFile>
 #include <QFileInfo>
-#include <QDir>
+#include <QMultiMap>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QStandardPaths>
 #include <QTextDocumentFragment>
-#include <QDomElement>
-#include <QMultiMap>
 
 #include <Syndication/Syndication>
 
@@ -44,7 +44,8 @@ void Fetcher::fetch(const QString &url)
 
 void Fetcher::fetch(const QStringList &urls)
 {
-    if (m_updating) return; // update is already running, do nothing
+    if (m_updating)
+        return; // update is already running, do nothing
 
     m_updating = true;
     m_updateProgress = 0;
@@ -54,7 +55,7 @@ void Fetcher::fetch(const QStringList &urls)
     Q_EMIT updateProgressChanged(m_updateProgress);
     Q_EMIT updateTotalChanged(m_updateTotal);
 
-    for (int i=0; i<urls.count(); i++) {
+    for (int i = 0; i < urls.count(); i++) {
         retrieveFeed(urls[i]);
     }
 }
@@ -66,7 +67,8 @@ void Fetcher::fetchAll()
     query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
     Database::instance().execute(query);
     while (query.next()) {
-        urls += query.value(0).toString();;
+        urls += query.value(0).toString();
+        ;
     }
 
     if (urls.count() > 0) {
@@ -84,7 +86,7 @@ void Fetcher::retrieveFeed(const QString &url)
     request.setTransferTimeout();
     QNetworkReply *reply = get(request);
     connect(reply, &QNetworkReply::finished, this, [this, url, reply]() {
-        if(reply->error()) {
+        if (reply->error()) {
             qWarning() << "Error fetching feed";
             qWarning() << reply->errorString();
             Q_EMIT error(url, QString(), reply->error(), reply->errorString());
@@ -102,7 +104,7 @@ void Fetcher::retrieveFeed(const QString &url)
 
 void Fetcher::updateMonitor(int progress)
 {
-    //qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
+    // qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
     // this method will watch for the end of the update process
     if (progress > -1 && m_updateTotal > -1 && progress == m_updateTotal) {
         m_updating = false;
@@ -110,8 +112,8 @@ void Fetcher::updateMonitor(int progress)
         m_updateTotal = -1;
         disconnect(this, &Fetcher::updateProgressChanged, this, &Fetcher::updateMonitor);
         Q_EMIT updatingChanged(m_updating);
-        //Q_EMIT updateProgressChanged(m_updateProgress);
-        //Q_EMIT updateTotalChanged(m_updateTotal);
+        // Q_EMIT updateProgressChanged(m_updateProgress);
+        // Q_EMIT updateTotalChanged(m_updateTotal);
     }
 }
 
@@ -132,12 +134,14 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         qDebug() << "Feed not found in database" << url;
         return;
     }
-    if (isNewFeed) qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
+    if (isNewFeed)
+        qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
-    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, new=:new WHERE url=:url;"));
+    query.prepare(
+        QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, new=:new WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":link"), feed->link());
@@ -168,13 +172,12 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             }
         } else {
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-            //qDebug() << "authorname" << authorname;
+            // qDebug() << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
             processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
         }
     }
-
 
     QString image = feed->image()->url();
     // If there is no regular image tag, then try the itunes tags
@@ -207,7 +210,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         Database::instance().execute(query);
         QSqlQuery updateQuery;
         while (query.next()) {
-            //qDebug() << "Marked as new:" << query.value(QStringLiteral("id")).toString();
+            // qDebug() << "Marked as new:" << query.value(QStringLiteral("id")).toString();
             updateQuery.prepare(QStringLiteral("UPDATE Entries SET read=:read, new=:new WHERE id=:id AND feed=:feed;"));
             updateQuery.bindValue(QStringLiteral(":read"), false);
             updateQuery.bindValue(QStringLiteral(":new"), true);
@@ -217,13 +220,14 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         }
     }
 
-    if (updatedEntries || isNewFeed) Q_EMIT feedUpdated(url);
+    if (updatedEntries || isNewFeed)
+        Q_EMIT feedUpdated(url);
     Q_EMIT feedUpdateFinished(url);
 }
 
 bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed)
 {
-    //qDebug() << "Processing" << entry->title();
+    // qDebug() << "Processing" << entry->title();
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
@@ -235,7 +239,7 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
     query.next();
 
     if (query.value(0).toInt() != 0)
-        return false;  // entry already exists
+        return false; // entry already exists
 
     query.prepare(QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image);"));
     query.bindValue(QStringLiteral(":feed"), url);
@@ -261,7 +265,7 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
     if (image.startsWith(QStringLiteral("/")))
         image = QUrl(url).adjusted(QUrl::RemovePath).toString() + image;
     query.bindValue(QStringLiteral(":image"), image);
-    //qDebug() << "Entry image found" << image;
+    // qDebug() << "Entry image found" << image;
 
     Database::instance().execute(query);
 
@@ -272,7 +276,8 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
     } else {
         // As fallback, check if there is itunes "author" information
         QString authorName = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-        if (!authorName.isEmpty()) processAuthor(url, entry->id(), authorName, QLatin1String(""), QLatin1String(""));
+        if (!authorName.isEmpty())
+            processAuthor(url, entry->id(), authorName, QLatin1String(""), QLatin1String(""));
     }
 
     for (const auto &enclosure : entry->enclosures()) {
@@ -332,11 +337,11 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     Database::instance().execute(query);
 }
 
-QString Fetcher::image(const QString& url) const
+QString Fetcher::image(const QString &url) const
 {
     QString path = imagePath(url);
     if (QFileInfo::exists(path)) {
-        if (QFileInfo(path).size() != 0 )
+        if (QFileInfo(path).size() != 0)
             return path;
     }
 
@@ -379,7 +384,6 @@ QString Fetcher::imagePath(const QString &url) const
     QFileInfo().absoluteDir().mkpath(path);
     return path + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }
-
 
 QString Fetcher::enclosurePath(const QString &url) const
 {

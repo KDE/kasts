@@ -9,8 +9,8 @@
 #pragma once
 
 #include <QDBusAbstractAdaptor>
-#include <QDBusObjectPath>
 #include <QDBusMessage>
+#include <QDBusObjectPath>
 
 class AudioManager;
 class Entry;
@@ -35,9 +35,7 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanSeek READ CanSeek NOTIFY canSeekChanged)
 
 public:
-    explicit MediaPlayer2Player(AudioManager *audioPlayer,
-                                bool showProgressOnTaskBar,
-                                QObject* parent = nullptr);
+    explicit MediaPlayer2Player(AudioManager *audioPlayer, bool showProgressOnTaskBar, QObject *parent = nullptr);
     ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
@@ -105,7 +103,7 @@ private Q_SLOTS:
 private:
     void signalPropertiesChange(const QString &property, const QVariant &value);
 
-    void setEntry(Entry* entry);
+    void setEntry(Entry *entry);
 
     QVariantMap getMetadataOfCurrentTrack();
 
@@ -113,7 +111,6 @@ private:
     QVariantMap m_metadata;
     QString m_currentTrackId;
     double m_volume = 0.0;
-
 
     // progress on taskbar
     void setPropertyPosition(int newPositionInMs);

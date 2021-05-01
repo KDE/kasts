@@ -6,10 +6,10 @@
 
 #pragma once
 
+#include "datamanager.h"
+#include <QDateTime>
 #include <QObject>
 #include <QString>
-#include <QDateTime>
-#include "datamanager.h"
 
 class Error : public QObject
 {
@@ -23,7 +23,8 @@ class Error : public QObject
     Q_PROPERTY(QString title READ title CONSTANT)
 
 public:
-    Error(const QString url, const QString id, const int code, const QString message, const QDateTime date): QObject(nullptr)
+    Error(const QString url, const QString id, const int code, const QString message, const QDateTime date)
+        : QObject(nullptr)
     {
         this->url = url;
         this->id = id;

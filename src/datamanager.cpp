@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "datamanager.h"
+#include "database.h"
+#include "fetcher.h"
+#include "settingsmanager.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSqlDatabase>
@@ -12,28 +16,28 @@
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include "datamanager.h"
-#include "fetcher.h"
-#include "database.h"
-#include "settingsmanager.h"
 
 DataManager::DataManager()
 {
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-        //qDebug() << "Start updating feed details" << m_feeds;
-        Feed* feed = getFeed(url);
-        if (feed != nullptr) {
-            feed->setName(name);
-            feed->setImage(image);
-            feed->setLink(link);
-            feed->setDescription(description);
-            feed->setLastUpdated(lastUpdated);
-            //qDebug() << "Retrieving authors";
-            feed->updateAuthors();
-            // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
-            // quite sure that this is actually not needed
-        }
-    });
+    connect(
+        &Fetcher::instance(),
+        &Fetcher::feedDetailsUpdated,
+        this,
+        [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
+            // qDebug() << "Start updating feed details" << m_feeds;
+            Feed *feed = getFeed(url);
+            if (feed != nullptr) {
+                feed->setName(name);
+                feed->setImage(image);
+                feed->setLink(link);
+                feed->setDescription(description);
+                feed->setLastUpdated(lastUpdated);
+                // qDebug() << "Retrieving authors";
+                feed->updateAuthors();
+                // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+                // quite sure that this is actually not needed
+            }
+        });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
         // Only add the new entry to m_entries
         // we will repopulate m_entrymap once all new entries have been added,
@@ -52,7 +56,7 @@ DataManager::DataManager()
         Database::instance().execute(query);
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
-            //qDebug() << m_entrymap[feedurl];
+            // qDebug() << m_entrymap[feedurl];
         }
 
         // Check for "new" entries
@@ -85,7 +89,7 @@ DataManager::DataManager()
         m_feedmap += query.value(QStringLiteral("url")).toString();
         m_feeds[query.value(QStringLiteral("url")).toString()] = nullptr;
     }
-    //qDebug() << m_feedmap;
+    // qDebug() << m_feedmap;
 
     for (auto &feedurl : m_feedmap) {
         query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
@@ -94,49 +98,49 @@ DataManager::DataManager()
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
             m_entries[query.value(QStringLiteral("id")).toString()] = nullptr;
-            //qDebug() << m_entrymap[feedurl];
+            // qDebug() << m_entrymap[feedurl];
         }
     }
-    //qDebug() << m_entrymap;
+    // qDebug() << m_entrymap;
 
     query.prepare(QStringLiteral("SELECT id FROM Queue ORDER BY listnr;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_queuemap += query.value(QStringLiteral("id")).toString();
     }
-    //qDebug() << m_queuemap;
+    // qDebug() << m_queuemap;
 }
 
-Feed* DataManager::getFeed(const int index) const
+Feed *DataManager::getFeed(const int index) const
 {
     return getFeed(m_feedmap[index]);
 }
 
-Feed* DataManager::getFeed(const QString &feedurl) const
+Feed *DataManager::getFeed(const QString &feedurl) const
 {
     if (m_feeds[feedurl] == nullptr)
         loadFeed(feedurl);
     return m_feeds[feedurl];
 }
 
-Entry* DataManager::getEntry(const int feed_index, const int entry_index) const
+Entry *DataManager::getEntry(const int feed_index, const int entry_index) const
 {
     return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
 }
 
-Entry* DataManager::getEntry(const Feed* feed, const int entry_index) const
+Entry *DataManager::getEntry(const Feed *feed, const int entry_index) const
 {
     return getEntry(m_entrymap[feed->url()][entry_index]);
 }
 
-Entry* DataManager::getEntry(const QString &id) const
+Entry *DataManager::getEntry(const QString &id) const
 {
     if (m_entries[id] == nullptr)
         loadEntry(id);
     return m_entries[id];
 }
 
-Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_index) const
+Entry *DataManager::getEntry(const EpisodeModel::Type type, const int entry_index) const
 {
     QSqlQuery entryQuery;
     if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloaded) {
@@ -149,7 +153,9 @@ Entry* DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
         } else if (type == EpisodeModel::All) {
             entryQuery.prepare(QStringLiteral("SELECT id FROM Entries ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
         } else { // i.e. EpisodeModel::Downloaded
-            entryQuery.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+            entryQuery.prepare(
+                QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
+                               "LIMIT 1 OFFSET :index;"));
             entryQuery.bindValue(QStringLiteral(":downloaded"), true);
         }
         entryQuery.bindValue(QStringLiteral(":index"), entry_index);
@@ -174,7 +180,7 @@ int DataManager::entryCount(const int feed_index) const
     return m_entrymap[m_feedmap[feed_index]].count();
 }
 
-int DataManager::entryCount(const Feed* feed) const
+int DataManager::entryCount(const Feed *feed) const
 {
     return m_entrymap[feed->url()].count();
 }
@@ -203,7 +209,7 @@ int DataManager::entryCount(const EpisodeModel::Type type) const
     return -1;
 }
 
-int DataManager::unreadEntryCount(const Feed* feed) const
+int DataManager::unreadEntryCount(const Feed *feed) const
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
@@ -214,7 +220,7 @@ int DataManager::unreadEntryCount(const Feed* feed) const
     return query.value(0).toInt();
 }
 
-int DataManager::newEntryCount(const Feed* feed) const
+int DataManager::newEntryCount(const Feed *feed) const
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
@@ -225,7 +231,7 @@ int DataManager::newEntryCount(const Feed* feed) const
     return query.value(0).toInt();
 }
 
-void DataManager::removeFeed(Feed* feed)
+void DataManager::removeFeed(Feed *feed)
 {
     qDebug() << feed->url();
     qDebug() << "deleting feed with index" << m_feedmap.indexOf(feed->url());
@@ -235,13 +241,13 @@ void DataManager::removeFeed(Feed* feed)
 void DataManager::removeFeed(const int index)
 {
     // Get feed pointer
-    Feed* feed = getFeed(m_feedmap[index]);
+    Feed *feed = getFeed(m_feedmap[index]);
     const QString feedurl = feed->url();
 
     // Delete the object instances and mappings
     // First delete entries in Queue
     qDebug() << "delete queueentries of" << feedurl;
-    for (auto& id : m_queuemap) {
+    for (auto &id : m_queuemap) {
         if (getEntry(id)->feed()->url() == feedurl) {
             removeQueueItem(id);
         }
@@ -249,16 +255,19 @@ void DataManager::removeFeed(const int index)
 
     // Delete entries themselves
     qDebug() << "delete entries of" << feedurl;
-    for (auto& id : m_entrymap[feedurl]) {
-        if (getEntry(id)->hasEnclosure()) getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
-        if (!getEntry(id)->image().isEmpty()) Fetcher::instance().removeImage(getEntry(id)->image()); // delete entry images
+    for (auto &id : m_entrymap[feedurl]) {
+        if (getEntry(id)->hasEnclosure())
+            getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
+        if (!getEntry(id)->image().isEmpty())
+            Fetcher::instance().removeImage(getEntry(id)->image()); // delete entry images
         delete m_entries[id]; // delete pointer
         m_entries.remove(id); // delete the hash key
     }
     m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
 
     qDebug() << "Remove feed image" << feed->image() << "for feed" << feedurl;
-    if (!feed->image().isEmpty()) Fetcher::instance().removeImage(feed->image());
+    if (!feed->image().isEmpty())
+        Fetcher::instance().removeImage(feed->image());
     m_feeds.remove(m_feedmap[index]); // remove from m_feeds
     m_feedmap.removeAt(index); // remove from m_feedmap
     delete feed; // remove the pointer
@@ -310,7 +319,8 @@ void DataManager::addFeed(const QString &url, const bool fetch)
 
     QUrl urlFromInput = QUrl::fromUserInput(url);
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :new, :notify);"));
+    query.prepare(QStringLiteral(
+        "INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :new, :notify);"));
     query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
     query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -329,20 +339,22 @@ void DataManager::addFeed(const QString &url, const bool fetch)
 
     Q_EMIT feedAdded(urlFromInput.toString());
 
-    if (fetch) Fetcher::instance().fetch(urlFromInput.toString());
+    if (fetch)
+        Fetcher::instance().fetch(urlFromInput.toString());
 }
 
 void DataManager::addFeeds(const QStringList &urls)
 {
-    if (urls.count() == 0) return;
+    if (urls.count() == 0)
+        return;
 
-    for (int i=0; i<urls.count(); i++) {
-        addFeed(urls[i], false);  // add preliminary feed entries, but do not fetch yet
+    for (int i = 0; i < urls.count(); i++) {
+        addFeed(urls[i], false); // add preliminary feed entries, but do not fetch yet
     }
     Fetcher::instance().fetch(urls);
 }
 
-Entry* DataManager::getQueueEntry(int index) const
+Entry *DataManager::getQueueEntry(int index) const
 {
     return getEntry(m_queuemap[index]);
 }
@@ -357,7 +369,7 @@ QStringList DataManager::queue() const
     return m_queuemap;
 }
 
-bool DataManager::entryInQueue(const Entry* entry)
+bool DataManager::entryInQueue(const Entry *entry)
 {
     return entryInQueue(entry->feed()->url(), entry->id());
 }
@@ -368,7 +380,7 @@ bool DataManager::entryInQueue(const QString &feedurl, const QString &id) const
     return m_queuemap.contains(id);
 }
 
-void DataManager::addToQueue(const Entry* entry)
+void DataManager::addToQueue(const Entry *entry)
 {
     if (entry != nullptr) {
         return addToQueue(entry->feed()->url(), entry->id());
@@ -378,11 +390,12 @@ void DataManager::addToQueue(const Entry* entry)
 void DataManager::addToQueue(const QString &feedurl, const QString &id)
 {
     // If item is already in queue, then stop here
-    if (m_queuemap.contains(id)) return;
+    if (m_queuemap.contains(id))
+        return;
 
     // Add to internal queuemap data structure
     m_queuemap += id;
-    //qDebug() << m_queuemap;
+    // qDebug() << m_queuemap;
 
     // Get index of this entry
     const int index = m_queuemap.indexOf(id); // add new entry to end of queue
@@ -414,7 +427,7 @@ void DataManager::moveQueueItem(const int from, const int to)
 
 void DataManager::removeQueueItem(const int index)
 {
-    //qDebug() << m_queuemap;
+    // qDebug() << m_queuemap;
     // Unset "new" state
     getEntry(m_queuemap[index])->setNew(false);
     // TODO: Make sure to unset the pointer in the Audio class once it's been
@@ -441,7 +454,7 @@ void DataManager::removeQueueItem(const QString id)
     removeQueueItem(m_queuemap.indexOf(id));
 }
 
-void DataManager::removeQueueItem(Entry* entry)
+void DataManager::removeQueueItem(Entry *entry)
 {
     removeQueueItem(m_queuemap.indexOf(entry->id()));
 }
@@ -452,11 +465,12 @@ QString DataManager::lastPlayingEntry()
     query.prepare(QStringLiteral("SELECT id FROM Queue WHERE playing=:playing;"));
     query.bindValue(QStringLiteral(":playing"), true);
     Database::instance().execute(query);
-    if (!query.next()) return QStringLiteral("none");
+    if (!query.next())
+        return QStringLiteral("none");
     return query.value(QStringLiteral("id")).toString();
 }
 
-void DataManager::setLastPlayingEntry(const QString& id)
+void DataManager::setLastPlayingEntry(const QString &id)
 {
     QSqlQuery query;
     // First set playing to false for all Queue items
@@ -479,9 +493,9 @@ void DataManager::importFeeds(const QString &path)
 
     QStringList urls;
     QXmlStreamReader xmlReader(&file);
-    while(!xmlReader.atEnd()) {
+    while (!xmlReader.atEnd()) {
         xmlReader.readNext();
-        if(xmlReader.tokenType() == 4 &&  xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
+        if (xmlReader.tokenType() == 4 && xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
             urls += xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString();
         }
     }
@@ -505,7 +519,7 @@ void DataManager::exportFeeds(const QString &path)
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT url, name FROM Feeds;"));
     Database::instance().execute(query);
-    while(query.next()) {
+    while (query.next()) {
         xmlWriter.writeEmptyElement(QStringLiteral("outline"));
         xmlWriter.writeAttribute(QStringLiteral("xmlUrl"), query.value(0).toString());
         xmlWriter.writeAttribute(QStringLiteral("title"), query.value(1).toString());
@@ -523,7 +537,7 @@ void DataManager::loadFeed(const QString feedurl) const
 void DataManager::loadEntry(const QString id) const
 {
     // First find the feed that this entry belongs to
-    Feed* feed = nullptr;
+    Feed *feed = nullptr;
     QHashIterator<QString, QStringList> i(m_entrymap);
     while (i.hasNext()) {
         i.next();
@@ -545,7 +559,7 @@ bool DataManager::feedExists(const QString &url)
 void DataManager::updateQueueListnrs() const
 {
     QSqlQuery query;
-    for (int i=0; i<m_queuemap.count(); i++) {
+    for (int i = 0; i < m_queuemap.count(); i++) {
         query.prepare(QStringLiteral("UPDATE Queue SET listnr=:i WHERE id=:id;"));
         query.bindValue(QStringLiteral(":i"), i);
         query.bindValue(QStringLiteral(":id"), m_queuemap[i]);

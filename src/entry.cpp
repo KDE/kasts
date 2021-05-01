@@ -20,7 +20,7 @@ Entry::Entry(Feed *feed, const QString &id)
     , m_feed(feed)
 {
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if(url == m_image) {
+        if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());
         } else if (m_image.isEmpty() && url == m_feed->image()) {
@@ -30,12 +30,12 @@ Entry::Entry(Feed *feed, const QString &id)
     });
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &index, const QString &id) {
         Q_UNUSED(index)
-        if(id == m_id)
+        if (id == m_id)
             Q_EMIT queueStatusChanged(queueStatus());
     });
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int &index, const QString &id) {
         Q_UNUSED(index)
-        if(id == m_id)
+        if (id == m_id)
             Q_EMIT queueStatusChanged(queueStatus());
     });
     QSqlQuery entryQuery;
@@ -52,7 +52,10 @@ Entry::Entry(Feed *feed, const QString &id)
     Database::instance().execute(authorQuery);
 
     while (authorQuery.next()) {
-        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(), authorQuery.value(QStringLiteral("email")).toString(), authorQuery.value(QStringLiteral("uri")).toString(), nullptr);
+        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(),
+                                authorQuery.value(QStringLiteral("email")).toString(),
+                                authorQuery.value(QStringLiteral("uri")).toString(),
+                                nullptr);
     }
 
     m_created.setSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt());
@@ -139,7 +142,7 @@ void Entry::setRead(bool read)
     Database::instance().execute(query);
     Q_EMIT m_feed->unreadEntryCountChanged();
     Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
-    //TODO: can one of the two slots be removed??
+    // TODO: can one of the two slots be removed??
 }
 
 void Entry::setNew(bool state)

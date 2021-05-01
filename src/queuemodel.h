@@ -16,7 +16,7 @@ class QueueModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    explicit QueueModel(QObject* = nullptr);
+    explicit QueueModel(QObject * = nullptr);
     //~QueueModel() override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;

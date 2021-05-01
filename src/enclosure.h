@@ -58,11 +58,10 @@ Q_SIGNALS:
     void playPositionChanged();
     void durationChanged();
     void sizeChanged();
-    void downloadStatusChanged(Entry* entry, Status status);
+    void downloadStatusChanged(Entry *entry, Status status);
     void downloadError(const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 private:
-
     void processDownloadedFile();
 
     Entry *m_entry;

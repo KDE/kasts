@@ -7,9 +7,9 @@
 
 #include <QString>
 
+#include "datamanager.h"
 #include "entriesmodel.h"
 #include "entry.h"
-#include "datamanager.h"
 
 EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)
@@ -30,7 +30,7 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    //qDebug() << "fetching item" << index.row();
+    // qDebug() << "fetching item" << index.row();
     return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
 }
 
@@ -47,7 +47,7 @@ int EntriesModel::rowCount(const QModelIndex &parent) const
     return DataManager::instance().entryCount(m_feed);
 }
 
-Feed* EntriesModel::feed() const
+Feed *EntriesModel::feed() const
 {
     return m_feed;
 }
