@@ -21,12 +21,12 @@ public:
         return _instance;
     }
 
-    Feed* getFeed(int const index) const;
-    Feed* getFeed(QString const feedurl) const;
-    Entry* getEntry(int const feed_index, int const entry_index) const;
-    Entry* getEntry(const Feed* feed, int const entry_index) const;
+    Feed* getFeed(const int index) const;
+    Feed* getFeed(const QString &feedurl) const;
+    Entry* getEntry(const int feed_index, const int entry_index) const;
+    Entry* getEntry(const Feed* feed, const int entry_index) const;
     Entry* getEntry(const EpisodeModel::Type type, const int entry_index) const;
-    Q_INVOKABLE Entry* getEntry(const QString id) const;
+    Q_INVOKABLE Entry* getEntry(const QString &id) const;
     int feedCount() const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed* feed) const;
@@ -37,21 +37,21 @@ public:
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
     Q_INVOKABLE void removeFeed(Feed* feed);
-    void removeFeed(const int &index);
+    void removeFeed(const int index);
 
     //Q_INVOKABLE void addEntry(const QString &url);  // TODO: implement these methods
     //Q_INVOKABLE void removeEntry(const QString &url);
     //Q_INVOKABLE void removeEntry(const Feed* feed, const int &index);
 
-    Entry* getQueueEntry(int const &index) const;
+    Entry* getQueueEntry(int index) const;
     int queueCount() const;
-    QStringList getQueue() const;
+    QStringList queue() const;
     Q_INVOKABLE bool entryInQueue(const Entry* entry);
     Q_INVOKABLE bool entryInQueue(const QString &feedurl, const QString &id) const;
     Q_INVOKABLE void addToQueue(const Entry* entry);
     Q_INVOKABLE void addToQueue(const QString &feedurl, const QString &id);
-    Q_INVOKABLE void moveQueueItem(const int &from, const int &to);
-    Q_INVOKABLE void removeQueueItem(const int &index);
+    Q_INVOKABLE void moveQueueItem(const int from, const int to);
+    Q_INVOKABLE void removeQueueItem(const int index);
     Q_INVOKABLE void removeQueueItem(const QString id);
     Q_INVOKABLE void removeQueueItem(Entry* entry);
 

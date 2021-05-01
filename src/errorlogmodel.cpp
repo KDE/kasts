@@ -25,15 +25,16 @@ ErrorLogModel::ErrorLogModel()
         QString id = query.value(QStringLiteral("id")).toString();
         QString url = query.value(QStringLiteral("url")).toString();
 
-        Error* error = new Error(url, id, query.value(QStringLiteral("code")).toInt(), query.value(QStringLiteral("string")).toString(), QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()));
+        Error* error = new Error(url, id, query.value(QStringLiteral("code")).toInt(), query.value(QStringLiteral("message")).toString(), QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()));
         m_errors += error;
     }
 }
 
 QVariant ErrorLogModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
+    if (role != 0) {
         return QVariant();
+    }
     return QVariant::fromValue(m_errors[index.row()]);
 }
 
@@ -66,7 +67,7 @@ void ErrorLogModel::monitorErrorMessages(const QString &url, const QString& id, 
     query.bindValue(QStringLiteral(":url"), error->url);
     query.bindValue(QStringLiteral(":id"), error->id);
     query.bindValue(QStringLiteral(":code"), error->code);
-    query.bindValue(QStringLiteral(":string"), error->string);
+    query.bindValue(QStringLiteral(":message"), error->message);
     query.bindValue(QStringLiteral(":date"), error->date.toSecsSinceEpoch());
     Database::instance().execute(query);
 }

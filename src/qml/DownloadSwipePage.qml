@@ -52,7 +52,7 @@ Kirigami.Page {
             Controls.TabButton {
                 width: parent.parent.width / parent.count
                 height: tabBarHeight
-                text: i18n("Errors")
+                text: i18n("Error Log")
             }
         }
     }
@@ -73,7 +73,7 @@ Kirigami.Page {
         }
 
         ErrorListPage {
-            title: i18n("Errors")
+            title: i18n("Error Log")
         }
     }
 }

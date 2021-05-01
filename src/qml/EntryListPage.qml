@@ -49,9 +49,8 @@ Kirigami.ScrollablePage {
             iconName: "delete"
             text: i18n("Remove feed")
             onTriggered: {
-                if(pageStack.depth > 1)
-                    while(pageStack.depth > 1)
-                        pageStack.pop()
+                while(pageStack.depth > 1)
+                    pageStack.pop()
                 DataManager.removeFeed(feed)
             }
         }

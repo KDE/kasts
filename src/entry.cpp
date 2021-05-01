@@ -15,7 +15,7 @@
 #include "datamanager.h"
 #include "fetcher.h"
 
-Entry::Entry(Feed *feed, QString id)
+Entry::Entry(Feed *feed, const QString &id)
     : QObject(nullptr)
     , m_feed(feed)
 {
@@ -127,7 +127,7 @@ QString Entry::baseUrl() const
     return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
 }
 
-void Entry::setRead(const bool read)
+void Entry::setRead(bool read)
 {
     m_read = read;
     Q_EMIT readChanged(m_read);
@@ -142,7 +142,7 @@ void Entry::setRead(const bool read)
     //TODO: can one of the two slots be removed??
 }
 
-void Entry::setNew(const bool state)
+void Entry::setNew(bool state)
 {
     m_new = state;
     Q_EMIT newChanged(m_new);
@@ -213,15 +213,16 @@ QString Entry::cachedImage() const
 {
     // First check for the feed image as fallback
     QString image = m_image;
-    if (image.isEmpty())
+    if (image.isEmpty()) {
         image = m_feed->image();
+    }
 
     if (image.isEmpty()) { // this will only happen if the feed also doesn't have an image
         return QStringLiteral("no-image");
     } else {
         QString imagePath = Fetcher::instance().image(image);
         if (imagePath.isEmpty()) {
-            return imagePath;
+            return QStringLiteral("fetching");
         } else {
             return QStringLiteral("file://") + imagePath;
         }
@@ -233,7 +234,7 @@ bool Entry::queueStatus() const
     return DataManager::instance().entryInQueue(this);
 }
 
-void Entry::setQueueStatus(const bool state)
+void Entry::setQueueStatus(bool state)
 {
     if (state != DataManager::instance().entryInQueue(this)) {
         if (state)

@@ -13,7 +13,7 @@
 #include "feed.h"
 #include "fetcher.h"
 
-Feed::Feed(QString const feedurl)
+Feed::Feed(const QString &feedurl)
     : QObject(nullptr)
 {
 
@@ -153,7 +153,7 @@ QString Feed::cachedImage() const
     } else {
         QString imagePath = Fetcher::instance().image(m_image);
         if (imagePath.isEmpty()) {
-            return imagePath;
+            return QStringLiteral("fetching");
         } else {
             return QStringLiteral("file://") + imagePath;
         }

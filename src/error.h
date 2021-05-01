@@ -18,24 +18,24 @@ class Error : public QObject
     Q_PROPERTY(QString url MEMBER url CONSTANT)
     Q_PROPERTY(QString id MEMBER id CONSTANT)
     Q_PROPERTY(int code MEMBER code CONSTANT)
-    Q_PROPERTY(QString string MEMBER string CONSTANT)
+    Q_PROPERTY(QString message MEMBER message CONSTANT)
     Q_PROPERTY(QDateTime date MEMBER date CONSTANT)
     Q_PROPERTY(QString title READ title CONSTANT)
 
 public:
-    Error(const QString url, const QString id, const int code, const QString string, const QDateTime date): QObject(nullptr)
+    Error(const QString url, const QString id, const int code, const QString message, const QDateTime date): QObject(nullptr)
     {
         this->url = url;
         this->id = id;
         this->code = code;
-        this->string = string;
+        this->message = message;
         this->date = date;
     };
 
     QString url;
     QString id;
     int code;
-    QString string;
+    QString message;
     QDateTime date;
 
     QString title() const

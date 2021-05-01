@@ -336,11 +336,11 @@ bool AudioManager::canGoNext() const
 {
     // TODO: extend with streaming capability
     if (d->m_entry) {
-        int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
+        int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         if (index >= 0) {
             // check if there is a next track
-            if (index < DataManager::instance().getQueue().count()-1) {
-                Entry* next_entry = DataManager::instance().getEntry(DataManager::instance().getQueue()[index+1]);
+            if (index < DataManager::instance().queue().count()-1) {
+                Entry* next_entry = DataManager::instance().getEntry(DataManager::instance().queue()[index+1]);
                 if (next_entry->enclosure()) {
                     //qDebug() << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
@@ -357,9 +357,9 @@ void AudioManager::next()
 {
     if (canGoNext()) {
         QMediaPlayer::State previousTrackState = playbackState();
-        int index = DataManager::instance().getQueue().indexOf(d->m_entry->id());
-        //qDebug() << "Skipping to" << DataManager::instance().getQueue()[index+1];
-        setEntry(DataManager::instance().getEntry(DataManager::instance().getQueue()[index+1]));
+        int index = DataManager::instance().queue().indexOf(d->m_entry->id());
+        //qDebug() << "Skipping to" << DataManager::instance().queue()[index+1];
+        setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index+1]));
         if (previousTrackState == QMediaPlayer::PlayingState) play();
     } else {
         //qDebug() << "Next track cannot be played, changing entry to nullptr";

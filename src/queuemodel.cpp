@@ -13,19 +13,19 @@
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, [this](const int &from, const int &to_orig) {
+    connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, [this](const int from, const int to_orig) {
         int to = (from < to_orig) ? to_orig + 1 : to_orig;
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
         endMoveRows();
         //qDebug() << "Moved entry" << from << "to" << to;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &pos, const QString &id) {
+    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int pos, const QString &id) {
         Q_UNUSED(id)
         beginInsertRows(QModelIndex(), pos, pos);
         endInsertRows();
         //qDebug() << "Added entry at pos" << pos;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int &pos, const QString &id) {
+    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int pos, const QString &id) {
         Q_UNUSED(id)
         beginRemoveRows(QModelIndex(), pos, pos);
         endRemoveRows();

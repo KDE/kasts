@@ -62,7 +62,7 @@ DataManager::DataManager()
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
             while (query.next()) {
-                QString const id = query.value(QStringLiteral("id")).toString();
+                QString id = query.value(QStringLiteral("id")).toString();
                 addToQueue(feedurl, id);
                 if (SettingsManager::self()->autoDownload()) {
                     if (getEntry(id)->hasEnclosure()) {
@@ -107,29 +107,29 @@ DataManager::DataManager()
     //qDebug() << m_queuemap;
 }
 
-Feed* DataManager::getFeed(int const index) const
+Feed* DataManager::getFeed(const int index) const
 {
     return getFeed(m_feedmap[index]);
 }
 
-Feed* DataManager::getFeed(QString const feedurl) const
+Feed* DataManager::getFeed(const QString &feedurl) const
 {
     if (m_feeds[feedurl] == nullptr)
         loadFeed(feedurl);
     return m_feeds[feedurl];
 }
 
-Entry* DataManager::getEntry(int const feed_index, int const entry_index) const
+Entry* DataManager::getEntry(const int feed_index, const int entry_index) const
 {
     return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
 }
 
-Entry* DataManager::getEntry(const Feed* feed, int const entry_index) const
+Entry* DataManager::getEntry(const Feed* feed, const int entry_index) const
 {
     return getEntry(m_entrymap[feed->url()][entry_index]);
 }
 
-Entry* DataManager::getEntry(QString id) const
+Entry* DataManager::getEntry(const QString &id) const
 {
     if (m_entries[id] == nullptr)
         loadEntry(id);
@@ -232,7 +232,7 @@ void DataManager::removeFeed(Feed* feed)
     removeFeed(m_feedmap.indexOf(feed->url()));
 }
 
-void DataManager::removeFeed(const int &index)
+void DataManager::removeFeed(const int index)
 {
     // Get feed pointer
     Feed* feed = getFeed(m_feedmap[index]);
@@ -342,7 +342,7 @@ void DataManager::addFeeds(const QStringList &urls)
     Fetcher::instance().fetch(urls);
 }
 
-Entry* DataManager::getQueueEntry(int const &index) const
+Entry* DataManager::getQueueEntry(int index) const
 {
     return getEntry(m_queuemap[index]);
 }
@@ -352,7 +352,7 @@ int DataManager::queueCount() const
     return m_queuemap.count();
 }
 
-QStringList DataManager::getQueue() const
+QStringList DataManager::queue() const
 {
     return m_queuemap;
 }
@@ -400,7 +400,7 @@ void DataManager::addToQueue(const QString &feedurl, const QString &id)
     Q_EMIT queueEntryAdded(index, id);
 }
 
-void DataManager::moveQueueItem(const int &from, const int &to)
+void DataManager::moveQueueItem(const int from, const int to)
 {
     // First move the items in the internal data structure
     m_queuemap.move(from, to);
@@ -412,7 +412,7 @@ void DataManager::moveQueueItem(const int &from, const int &to)
     Q_EMIT queueEntryMoved(from, to);
 }
 
-void DataManager::removeQueueItem(const int &index)
+void DataManager::removeQueueItem(const int index)
 {
     //qDebug() << m_queuemap;
     // Unset "new" state

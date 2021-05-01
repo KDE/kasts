@@ -16,8 +16,6 @@ EpisodeModel::EpisodeModel()
     // maybe even items have been removed.
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         Q_UNUSED(url)
-        // we have to reset the entire model in case entries are removed or added
-        // because we have no way of knowing where those entries will be added/removed
         beginResetModel();
         endResetModel();
     });

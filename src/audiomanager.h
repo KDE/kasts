@@ -37,15 +37,6 @@ class AudioManager : public QObject
                WRITE setVolume
                NOTIFY volumeChanged)
 
-    /*
-    // The source should not be set directly, but rather through entry
-    // Hence this property is disabled so it cannot be used accidentally in qml
-    Q_PROPERTY(QUrl source
-               READ source
-               WRITE setSource
-               NOTIFY sourceChanged)
-    */
-
     Q_PROPERTY(QMediaPlayer::MediaStatus status
                READ status
                NOTIFY statusChanged)

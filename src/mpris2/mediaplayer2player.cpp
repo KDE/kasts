@@ -357,7 +357,7 @@ void MediaPlayer2Player::setEntry(Entry* entry)
     if (m_audioPlayer) {
         if (m_audioPlayer->entry()) {
             if (m_audioPlayer->entry() == entry) {
-                int queuenr = DataManager::instance().getQueue().indexOf(m_audioPlayer->entry()->id());
+                int queuenr = DataManager::instance().queue().indexOf(m_audioPlayer->entry()->id());
                 //qDebug() << "MPRIS2: Setting entry" << entry->title();
                 m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(queuenr)).path();
 

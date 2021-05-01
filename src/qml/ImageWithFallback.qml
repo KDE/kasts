@@ -23,10 +23,9 @@ Item {
     property bool isLoading: false
 
     Loader {
-        //active: !isLoading
         id: imageLoader
         anchors.fill: parent
-        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "" ? loaderSymbol : realImg )
+        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "fetching" ? loaderSymbol : realImg )
         opacity: root.imageOpacity
         layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
         layer.effect: OpacityMask {
@@ -122,6 +121,5 @@ Item {
         active: isLoading
         sourceComponent: loaderSymbol
         anchors.fill: parent
-        //anchors.centerIn: parent
     }
 }

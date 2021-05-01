@@ -221,7 +221,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     Q_EMIT feedUpdateFinished(url);
 }
 
-bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, const bool &isNewFeed)
+bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed)
 {
     //qDebug() << "Processing" << entry->title();
 

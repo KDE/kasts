@@ -33,10 +33,8 @@ Kirigami.ScrollablePage {
                 Kirigami.Icon {
                     source: "data-error"
                     property int size: Kirigami.Units.iconSizes.medium
-                    Layout.minimumHeight: size
-                    Layout.maximumHeight: size
-                    Layout.minimumWidth: size
-                    Layout.maximumWidth: size
+                    Layout.preferredHeight: size
+                    Layout.preferredWidth: size
                 }
                 ColumnLayout {
                     spacing: Kirigami.Units.smallSpacing
@@ -57,7 +55,7 @@ Kirigami.ScrollablePage {
                         opacity: 1
                     }
                     Controls.Label {
-                        text: i18n("Error code: ") + error.code + " ·  " + error.string
+                        text: i18n("Error code: ") + error.code + " ·  " + error.message
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

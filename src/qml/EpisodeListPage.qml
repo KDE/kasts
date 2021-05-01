@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
 
         text: i18n(episodeType === EpisodeModel.All ? i18n("No episodes available")
                  : episodeType === EpisodeModel.New ? i18n("No new episodes")
-                 : episodeType === EpisodeModel.Unread ? i18n("No unread episodes")
+                 : episodeType === EpisodeModel.Unread ? i18n("No unplayed episodes")
                  : episodeType === EpisodeModel.Downloaded ? i18n("No downloaded episodes")
                  : episodeType === EpisodeModel.Downloading ? i18n("No downloads in progress")
                  : i18n("No episodes available"))
@@ -61,8 +61,8 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        anchors.fill: parent
         id: episodeList
+        anchors.fill: parent
         visible: count !== 0
         model: episodeType === EpisodeModel.Downloading ? DownloadProgressModel
                                                         : episodeModel

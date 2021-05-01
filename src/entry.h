@@ -40,7 +40,7 @@ class Entry : public QObject
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
 public:
-    Entry(Feed *feed, QString id);
+    Entry(Feed *feed, const QString &id);
     ~Entry();
 
     QString id() const;
@@ -61,10 +61,10 @@ public:
 
     QString baseUrl() const;
 
-    void setRead(const bool read);
-    void setNew(const bool state);
+    void setRead(bool read);
+    void setNew(bool state);
     void setImage(const QString &url);
-    void setQueueStatus(const bool status);
+    void setQueueStatus(bool status);
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 

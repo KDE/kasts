@@ -31,7 +31,7 @@ public:
 
     Q_INVOKABLE void clearAll();
 
-public Q_SLOTS:
+public:
     void monitorErrorMessages(const QString &url, const QString &id, const int errorCode, const QString &errorString);
 
 private:

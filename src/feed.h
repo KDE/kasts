@@ -39,7 +39,7 @@ class Feed : public QObject
     Q_PROPERTY(EntriesModel *entries MEMBER m_entries CONSTANT)
 
 public:
-    Feed(QString const feedurl);
+    Feed(const QString &feedurl);
 
     ~Feed();
 
