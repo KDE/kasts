@@ -64,8 +64,11 @@ PowerManagementInterface::PowerManagementInterface(QObject *parent) : QObject(pa
 
 PowerManagementInterface::~PowerManagementInterface()
 {
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     delete d->mInhibitInterface;
-};
+    delete d->mGnomeInterface;
+#endif
+}
 
 bool PowerManagementInterface::preventSleep() const
 {
