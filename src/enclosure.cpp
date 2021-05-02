@@ -23,11 +23,7 @@ Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
-    // Set up signals to make DownloadProgressModel aware of ongoing downloads
-    connect(this, &Enclosure::statusChanged, this, [this]() {
-        Q_EMIT downloadStatusChanged(m_entry, m_status);
-    });
-    connect(this, &Enclosure::downloadStatusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
+    connect(this, &Enclosure::statusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     QSqlQuery query;
@@ -111,13 +107,13 @@ void Enclosure::download()
             }
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
-        Q_EMIT statusChanged();
+        Q_EMIT statusChanged(m_entry, m_status);
     });
 
     connect(this, &Enclosure::cancelDownload, this, [this, downloadJob]() {
         downloadJob->doKill();
         m_status = Downloadable;
-        Q_EMIT statusChanged();
+        Q_EMIT statusChanged(m_entry, m_status);
         Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
@@ -128,7 +124,7 @@ void Enclosure::download()
     });
 
     m_status = Downloading;
-    Q_EMIT statusChanged();
+    Q_EMIT statusChanged(m_entry, m_status);
 }
 
 void Enclosure::processDownloadedFile()
@@ -177,7 +173,7 @@ void Enclosure::deleteFile()
     query.bindValue(QStringLiteral(":id"), m_entry->id());
     query.bindValue(QStringLiteral(":downloaded"), false);
     Database::instance().execute(query);
-    Q_EMIT statusChanged();
+    Q_EMIT statusChanged(m_entry, m_status);
     Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
 }
 

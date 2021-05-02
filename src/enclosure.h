@@ -52,13 +52,12 @@ public:
     void setSize(const int &size);
 
 Q_SIGNALS:
-    void statusChanged();
+    void statusChanged(Entry *entry, Status status);
     void downloadProgressChanged();
     void cancelDownload();
     void playPositionChanged();
     void durationChanged();
     void sizeChanged();
-    void downloadStatusChanged(Entry *entry, Status status);
     void downloadError(const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 private:
