@@ -91,7 +91,7 @@ Kirigami.SwipeListItem {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
+                    text: audio.timeString(entry.enclosure.duration * 1000)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -113,7 +113,7 @@ Kirigami.SwipeListItem {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: (Math.floor(entry.enclosure.playPosition/3600000) < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/3600000) + ":" + (Math.floor(entry.enclosure.playPosition/60000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/60000) % 60 + ":" + (Math.floor(entry.enclosure.playPosition/1000) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.playPosition/1000) % 60
+                        text: audio.timeString(entry.enclosure.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -121,11 +121,11 @@ Kirigami.SwipeListItem {
                     Controls.ProgressBar {
                         from: 0
                         to: entry.enclosure.duration
-                        value: entry.enclosure.playPosition/1000
+                        value: entry.enclosure.playPosition / 1000
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: (Math.floor(entry.enclosure.duration/3600) < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/3600) + ":" + (Math.floor(entry.enclosure.duration/60) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration/60) % 60 + ":" + (Math.floor(entry.enclosure.duration) % 60 < 10 ? "0" : "") + Math.floor(entry.enclosure.duration) % 60
+                        text: audio.timeString(entry.enclosure.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7

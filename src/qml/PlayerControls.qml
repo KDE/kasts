@@ -162,7 +162,7 @@ Kirigami.Page {
                     Layout.fillWidth: true
                     Controls.Label {
                         //anchor.left: parent.left
-                        text: (Math.floor(audio.position/3600000) < 10 ? "0" : "") + Math.floor(audio.position/3600000) + ":" + (Math.floor(audio.position/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/60000) % 60 + ":" + (Math.floor(audio.position/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.position/1000) % 60
+                        text: audio.timeString(audio.position)
                     }
                     Item {
                         Layout.fillWidth: true
@@ -175,8 +175,8 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             text: (SettingsManager.toggleRemainingTime) ?
-                                    ((Math.floor((audio.duration-audio.position)/3600000) < 10 ? "-0" : "-") + Math.floor((audio.duration-audio.position)/3600000) + ":" + (Math.floor((audio.duration-audio.position)/60000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/60000) % 60 + ":" + (Math.floor((audio.duration-audio.position)/1000) % 60 < 10 ? "0" : "") + Math.floor((audio.duration-audio.position)/1000) % 60)
-                                    : ((Math.floor(audio.duration/3600000) < 10 ? "0" : "") + Math.floor(audio.duration/3600000) + ":" + (Math.floor(audio.duration/60000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/60000) % 60 + ":" + (Math.floor(audio.duration/1000) % 60 < 10 ? "0" : "") + Math.floor(audio.duration/1000) % 60)
+                                    "-" + audio.timeString(audio.duration-audio.position)
+                                    : audio.timeString(audio.duration)
 
                         }
                         MouseArea {

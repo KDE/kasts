@@ -48,6 +48,8 @@ public:
 
     ~AudioManager() override;
 
+    Q_INVOKABLE static QString timeString(qint64 timeInMicroSeconds);
+
     [[nodiscard]] Entry *entry() const;
 
     [[nodiscard]] bool muted() const;

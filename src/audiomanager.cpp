@@ -10,6 +10,7 @@
 #include <QAudio>
 #include <QEventLoop>
 #include <QTimer>
+#include <QtMath>
 #include <algorithm>
 
 #include "datamanager.h"
@@ -68,6 +69,18 @@ AudioManager::AudioManager(QObject *parent)
 AudioManager::~AudioManager()
 {
     d->mPowerInterface.setPreventSleep(false);
+}
+
+QString AudioManager::timeString(qint64 timeInMicroSeconds)
+{
+    QString outputString;
+    outputString += qFloor(timeInMicroSeconds / 3600000) < 10 ? QStringLiteral("0") : QStringLiteral("");
+    outputString += QString::number(qFloor(timeInMicroSeconds / 3600000)) + QStringLiteral(":");
+    outputString += qFloor(timeInMicroSeconds / 60000) % 60 < 10 ? QStringLiteral("0") : QStringLiteral("");
+    outputString += QString::number(qFloor(timeInMicroSeconds / 60000) % 60) + QStringLiteral(":");
+    outputString += qFloor(timeInMicroSeconds / 1000) % 60 < 10 ? QStringLiteral("0") : QStringLiteral("");
+    outputString += QString::number(qFloor(timeInMicroSeconds / 1000) % 60);
+    return outputString;
 }
 
 Entry *AudioManager::entry() const
