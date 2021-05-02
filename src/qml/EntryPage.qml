@@ -71,33 +71,33 @@ Kirigami.ScrollablePage {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
             entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
-            !entry.queueStatus ? i18n("Add to Queue") :
+            !entry.queueStatus ? i18n("Delete download") :
             (audio.entry === entry && audio.playbackState === Audio.PlayingState) ? i18n("Pause") :
             i18n("Play")
         icon.name: !entry.enclosure ? "globe" :
             entry.enclosure.status === Enclosure.Downloadable ? "download" :
             entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
-            !entry.queueStatus ? "media-playlist-append" :
+            !entry.queueStatus ? "delete" :
             (audio.entry === entry && audio.playbackState === Audio.PlayingState) ? "media-playback-pause" :
             "media-playback-start"
         onTriggered: {
             if(!entry.enclosure) Qt.openUrlExternally(entry.link)
             else if(entry.enclosure.status === Enclosure.Downloadable) entry.enclosure.download()
             else if(entry.enclosure.status === Enclosure.Downloading) entry.enclosure.cancelDownload()
-            else if(entry.queueStatus) {
+            else if(!entry.queueStatus) {
+                entry.enclosure.deleteFile()
+            } else {
                 if(audio.entry === entry && audio.playbackState === Audio.PlayingState) {
                     audio.pause()
                 } else {
                     audio.entry = entry
                     audio.play()
                 }
-            } else {
-                entry.queueStatus = true
             }
         }
     }
     actions.left: Kirigami.Action {
-        text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from Queue")
+        text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from queue")
         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
         visible: entry.enclosure || entry.queueStatus
         onTriggered: {
@@ -116,7 +116,7 @@ Kirigami.ScrollablePage {
         text: i18n("Delete download")
         icon.name: "delete"
         onTriggered: entry.enclosure.deleteFile()
-        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus
     }
     contextualActions: [
         Kirigami.Action {
@@ -125,13 +125,13 @@ Kirigami.ScrollablePage {
             onTriggered: entry.enclosure.playPosition = 0
         },
         Kirigami.Action {
-            text: entry.read ? i18n("Unmark as Played") : i18n("Mark as Played")
+            text: entry.read ? i18n("Mark as unplayed") : i18n("Mark as played")
             onTriggered: {
                 entry.read = !entry.read
             }
         },
         Kirigami.Action {
-            text: entry.new ? i18n("Unmark as New") : i18n("Mark as New")
+            text: entry.new ? i18n("Remove \"new\" label") : i18n("Label as new")
             onTriggered: {
                 entry.new = !entry.new
             }
