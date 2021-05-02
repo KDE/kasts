@@ -51,40 +51,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
 
-    qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
-    qmlRegisterType<QueueModel>("org.kde.alligator", 1, 0, "QueueModel");
-    qmlRegisterType<EpisodeModel>("org.kde.alligator", 1, 0, "EpisodeModel");
-    qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
-    qmlRegisterUncreatableType<Enclosure>("org.kde.alligator", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
-    qmlRegisterSingletonType<Fetcher>("org.kde.alligator", 1, 0, "Fetcher", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&Fetcher::instance(), QQmlEngine::CppOwnership);
-        return &Fetcher::instance();
-    });
-    qmlRegisterSingletonType<Database>("org.kde.alligator", 1, 0, "Database", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&Database::instance(), QQmlEngine::CppOwnership);
-        return &Database::instance();
-    });
-    qmlRegisterSingletonType<DataManager>("org.kde.alligator", 1, 0, "DataManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&DataManager::instance(), QQmlEngine::CppOwnership);
-        return &DataManager::instance();
-    });
-    qmlRegisterSingletonType<SettingsManager>("org.kde.alligator", 1, 0, "SettingsManager", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(SettingsManager::self(), QQmlEngine::CppOwnership);
-        return SettingsManager::self();
-    });
-    qmlRegisterSingletonType<DownloadProgressModel>("org.kde.alligator", 1, 0, "DownloadProgressModel", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&DownloadProgressModel::instance(), QQmlEngine::CppOwnership);
-        return &DownloadProgressModel::instance();
-    });
-    qmlRegisterSingletonType<ErrorLogModel>("org.kde.alligator", 1, 0, "ErrorLogModel", [](QQmlEngine *engine, QJSEngine *) -> QObject * {
-        engine->setObjectOwnership(&ErrorLogModel::instance(), QQmlEngine::CppOwnership);
-        return &ErrorLogModel::instance();
-    });
-    qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
-    qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
-
-    qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
-
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("alligator");
@@ -107,6 +73,24 @@ int main(int argc, char *argv[])
     about.processCommandLine(&parser);
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
+
+    qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
+    qmlRegisterType<QueueModel>("org.kde.alligator", 1, 0, "QueueModel");
+    qmlRegisterType<EpisodeModel>("org.kde.alligator", 1, 0, "EpisodeModel");
+    qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
+    qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
+
+    qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
+    qmlRegisterUncreatableType<Enclosure>("org.kde.alligator", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
+
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "Fetcher", &Fetcher::instance());
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "Database", &Database::instance());
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "DataManager", &DataManager::instance());
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "SettingsManager", SettingsManager::self());
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
+    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
+
+    qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
 
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
