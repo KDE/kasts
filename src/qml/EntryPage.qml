@@ -96,6 +96,7 @@ Kirigami.ScrollablePage {
             }
         }
     }
+
     actions.left: Kirigami.Action {
         text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from queue")
         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
@@ -112,12 +113,14 @@ Kirigami.ScrollablePage {
             }
         }
     }
+
     actions.right: Kirigami.Action {
         text: i18n("Delete download")
         icon.name: "delete"
         onTriggered: entry.enclosure.deleteFile()
         visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus
     }
+
     contextualActions: [
         Kirigami.Action {
             text: i18n("Reset play position")
@@ -131,7 +134,7 @@ Kirigami.ScrollablePage {
             }
         },
         Kirigami.Action {
-            text: entry.new ? i18n("Remove \"new\" label") : i18n("Label as new")
+            text: entry.new ? i18n("Remove \"new\" label") : i18n("Label as \"new\"")
             onTriggered: {
                 entry.new = !entry.new
             }
