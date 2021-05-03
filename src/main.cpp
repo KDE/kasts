@@ -21,7 +21,7 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
-#include "alligator-version.h"
+#include "kasts-version.h"
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
@@ -49,18 +49,18 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QCoreApplication::setApplicationName(QStringLiteral("Alligator"));
+    QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    KLocalizedString::setApplicationDomain("alligator");
+    KLocalizedString::setApplicationDomain("kasts");
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("RSS/Atom Feed Reader"));
+    parser.setApplicationDescription(i18n("Podcast application"));
 
-    KAboutData about(QStringLiteral("alligator"),
-                     i18n("Alligator"),
-                     QStringLiteral(ALLIGATOR_VERSION_STRING),
+    KAboutData about(QStringLiteral("kasts"),
+                     i18n("Kasts"),
+                     QStringLiteral(KASTS_VERSION_STRING),
                      i18n("Feed Reader"),
                      KAboutLicense::GPL,
                      i18n("© 2020-2021 KDE Community"));
@@ -74,21 +74,21 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
 
-    qmlRegisterType<FeedsModel>("org.kde.alligator", 1, 0, "FeedsModel");
-    qmlRegisterType<QueueModel>("org.kde.alligator", 1, 0, "QueueModel");
-    qmlRegisterType<EpisodeModel>("org.kde.alligator", 1, 0, "EpisodeModel");
-    qmlRegisterType<AudioManager>("org.kde.alligator", 1, 0, "AudioManager");
-    qmlRegisterType<Mpris2>("org.kde.alligator", 1, 0, "Mpris2");
+    qmlRegisterType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel");
+    qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
+    qmlRegisterType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel");
+    qmlRegisterType<AudioManager>("org.kde.kasts", 1, 0, "AudioManager");
+    qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
 
-    qmlRegisterUncreatableType<EntriesModel>("org.kde.alligator", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
-    qmlRegisterUncreatableType<Enclosure>("org.kde.alligator", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
+    qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
+    qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
 
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "Fetcher", &Fetcher::instance());
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "Database", &Database::instance());
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "DataManager", &DataManager::instance());
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "SettingsManager", SettingsManager::self());
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
-    qmlRegisterSingletonInstance("org.kde.alligator", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
 

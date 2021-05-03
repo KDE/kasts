@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
-$XGETTEXT `find -name \*.cpp -o -name \*.qml -o -name \*.js` -o $podir/alligator.pot
+$XGETTEXT `find -name \*.cpp -o -name \*.qml -o -name \*.js` -o $podir/kasts.pot
 

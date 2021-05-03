@@ -5,7 +5,7 @@
   - SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
  -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.kde.alligator"
+          package="org.kde.kasts"
           android:versionName="0.0.1"
           android:versionCode="1588098483"
           android:installLocation="auto">
@@ -14,10 +14,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Alligator" android:icon="@mipmap/ic_launcher">
+    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Kasts" android:icon="@mipmap/ic_launcher">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
-                  android:label="Alligator"
+                  android:label="Kasts"
                   android:windowSoftInputMode="adjustResize"
                   android:launchMode="singleTop">
 
@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <meta-data android:name="android.app.lib_name" android:value="alligator"/>
+            <meta-data android:name="android.app.lib_name" android:value="kasts"/>
             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
             <meta-data android:name="android.app.repository" android:value="default"/>
             <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>

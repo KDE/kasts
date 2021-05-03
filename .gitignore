@@ -1,6 +1,6 @@
 build/
 .kdev4/
 CMakeLists.txt.user
-alligator.kdev4
+kasts.kdev4
 .vscode/
 .clang-format

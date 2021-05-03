@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Kasts
+Comment=Mobile Podcast Application
+GenericName=Podcast Application
+Icon=kasts
+Exec=kasts
+Type=Application
+Categories=Network;Qt;KDE;Feed;
+Terminal=false
+InitialPreference=10

@@ -34,15 +34,15 @@ else()
     qt5_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
 endif()
 
-add_executable(alligator ${SRCS})
+add_executable(kasts ${SRCS})
 
-kconfig_add_kcfg_files(alligator settingsmanager.kcfgc GENERATE_MOC)
+kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
-target_include_directories(alligator PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
+target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
+target_link_libraries(kasts PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
 
 if(ANDROID)
-    target_link_libraries(alligator PRIVATE
+    target_link_libraries(kasts PRIVATE
         KF5::Kirigami2
         Qt5::Svg
         OpenSSL::SSL
@@ -56,7 +56,7 @@ if(ANDROID)
         list-add
         list-remove
         view-refresh
-        alligator
+        kasts
         mail-sent
         globe
         data-error
@@ -78,7 +78,7 @@ if(ANDROID)
         overflow-menu
     )
 else()
-    target_link_libraries(alligator PRIVATE Qt5::Widgets Qt5::DBus)
+    target_link_libraries(kasts PRIVATE Qt5::Widgets Qt5::DBus)
 endif()
 
-install(TARGETS alligator ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kasts ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})

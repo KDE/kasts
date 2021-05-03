@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(Alligator)
+project(Kasts)
 
 # be c++17 compliant
 set(CMAKE_CXX_STANDARD 17)
@@ -22,8 +22,8 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
 ecm_setup_version(0.1.0
-    VARIABLE_PREFIX ALLIGATOR
-    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/alligator-version.h
+    VARIABLE_PREFIX KASTS
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia)
@@ -45,9 +45,9 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_DISABLE_DEPRECATED_BEFORE=0x050d00
 )
 
-install(PROGRAMS org.kde.alligator.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES org.kde.alligator.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES alligator.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES kasts.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
 add_subdirectory(src)
 

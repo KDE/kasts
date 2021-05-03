@@ -11,7 +11,7 @@ import QtGraphicalEffects 1.15
 import QtMultimedia 5.15
 import org.kde.kirigami 2.15 as Kirigami
 
-import org.kde.alligator 1.0
+import org.kde.kasts 1.0
 
 Kirigami.Page {
     id: page

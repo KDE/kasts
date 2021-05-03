@@ -395,6 +395,6 @@ QString Fetcher::enclosurePath(const QString &url) const
 
 QNetworkReply *Fetcher::get(QNetworkRequest &request) const
 {
-    request.setRawHeader("User-Agent", "Alligator/0.1; Syndication");
+    request.setRawHeader("User-Agent", "Kasts/0.1; Syndication");
     return manager->get(request);
 }

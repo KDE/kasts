@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
-import org.kde.alligator 1.0
+import org.kde.kasts 1.0
 
 Kirigami.AboutPage {
     title: i18n("About")

@@ -22,7 +22,7 @@ MediaPlayer2Player::MediaPlayer2Player(AudioManager *audioPlayer, bool showProgr
     : QDBusAbstractAdaptor(parent)
     , m_audioPlayer(audioPlayer)
     , mProgressIndicatorSignal(
-          QDBusMessage::createSignal(QStringLiteral("/org/kde/alligator"), QStringLiteral("com.canonical.Unity.LauncherEntry"), QStringLiteral("Update")))
+          QDBusMessage::createSignal(QStringLiteral("/org/kde/kasts"), QStringLiteral("com.canonical.Unity.LauncherEntry"), QStringLiteral("Update")))
     , mShowProgressOnTaskBar(showProgressOnTaskBar)
 {
     // This will signal when the track is changed
@@ -86,7 +86,7 @@ QString MediaPlayer2Player::PlaybackStatus() const
             parameters.insert(QStringLiteral("progress"), qRound(static_cast<double>(m_position / m_audioPlayer->duration())) / 1000.0);
         }
 
-        mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.alligator.desktop"), parameters});
+        mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.kasts.desktop"), parameters});
 
         QDBusConnection::sessionBus().send(mProgressIndicatorSignal);
     }
@@ -344,7 +344,7 @@ void MediaPlayer2Player::setEntry(Entry *entry)
             if (m_audioPlayer->entry() == entry) {
                 int queuenr = DataManager::instance().queue().indexOf(m_audioPlayer->entry()->id());
                 // qDebug() << "MPRIS2: Setting entry" << entry->title();
-                m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/alligator/playlist/") + QString::number(queuenr)).path();
+                m_currentTrackId = QDBusObjectPath(QLatin1String("/org/kde/kasts/playlist/") + QString::number(queuenr)).path();
 
                 m_metadata = getMetadataOfCurrentTrack();
                 signalPropertiesChange(QStringLiteral("Metadata"), Metadata());
@@ -409,7 +409,7 @@ void MediaPlayer2Player::setPropertyPosition(int newPositionInMs)
         parameters.insert(QStringLiteral("progress-visible"), true);
         parameters.insert(QStringLiteral("progress"), static_cast<double>(newPositionInMs) / m_audioPlayer->duration());
 
-        mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.alligator.desktop"), parameters});
+        mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.kasts.desktop"), parameters});
 
         QDBusConnection::sessionBus().send(mProgressIndicatorSignal);
     }
@@ -450,7 +450,7 @@ void MediaPlayer2Player::setShowProgressOnTaskBar(bool value)
         parameters.insert(QStringLiteral("progress"), qRound(static_cast<double>(m_position / m_audioPlayer->duration())) / 1000.0);
     }
 
-    mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.alligator.desktop"), parameters});
+    mProgressIndicatorSignal.setArguments({QStringLiteral("application://org.kde.kasts.desktop"), parameters});
 
     QDBusConnection::sessionBus().send(mProgressIndicatorSignal);
 }

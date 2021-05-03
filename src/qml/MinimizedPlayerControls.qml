@@ -12,7 +12,7 @@ import QtMultimedia 5.15
 
 import org.kde.kirigami 2.12 as Kirigami
 
-import org.kde.alligator 1.0
+import org.kde.kasts 1.0
 
 Item {
     property int miniplayerheight: Kirigami.Units.gridUnit * 3

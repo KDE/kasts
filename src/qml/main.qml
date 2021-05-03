@@ -13,11 +13,11 @@ import QtMultimedia 5.15
 
 import org.kde.kirigami 2.14 as Kirigami
 
-import org.kde.alligator 1.0
+import org.kde.kasts 1.0
 
 Kirigami.ApplicationWindow {
     id: root
-    title: "Alligator"
+    title: "Kasts"
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
@@ -119,7 +119,7 @@ Kirigami.ApplicationWindow {
     Mpris2 {
         id: mpris2Interface
 
-        playerName: 'alligator'
+        playerName: 'kasts'
         audioPlayer: audio
 
         onRaisePlayer:
