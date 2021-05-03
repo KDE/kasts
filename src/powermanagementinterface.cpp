@@ -24,8 +24,10 @@
 #include <QDebug>
 #include <QString>
 
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 #include "gnomesessioninterface.h"
 #include "inhibitinterface.h"
+#endif
 
 class PowerManagementInterfacePrivate
 {

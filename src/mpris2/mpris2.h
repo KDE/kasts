@@ -12,8 +12,10 @@
 #include <QSharedPointer>
 #include <memory>
 
+#if !defined Q_OS_ANDROID
 class MediaPlayer2Player;
 class MediaPlayer2;
+#endif
 class AudioManager;
 
 class Mpris2 : public QObject
@@ -54,8 +56,11 @@ Q_SIGNALS:
 private:
     void initDBusService();
 
+#if !defined Q_OS_ANDROID
     std::unique_ptr<MediaPlayer2> m_mp2;
     std::unique_ptr<MediaPlayer2Player> m_mp2p;
+#endif
+
     QString m_playerName;
     AudioManager *m_audioPlayer = nullptr;
     bool mShowProgressOnTaskBar = true;

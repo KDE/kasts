@@ -8,10 +8,14 @@
 
 #include "mpris2.h"
 #include "audiomanager.h"
+#if !defined Q_OS_ANDROID
 #include "mediaplayer2.h"
 #include "mediaplayer2player.h"
+#endif
 
+#if !defined Q_OS_ANDROID
 #include <QDBusConnection>
+#endif
 
 #if defined Q_OS_WIN
 #include <Windows.h>
@@ -26,6 +30,7 @@ Mpris2::Mpris2(QObject *parent)
 
 void Mpris2::initDBusService()
 {
+#if !defined Q_OS_ANDROID
     QString mspris2Name(QStringLiteral("org.mpris.MediaPlayer2.") + m_playerName);
 
     bool success = QDBusConnection::sessionBus().registerService(mspris2Name);
@@ -49,6 +54,7 @@ void Mpris2::initDBusService()
 
         connect(m_mp2.get(), &MediaPlayer2::raisePlayer, this, &Mpris2::raisePlayer);
     }
+#endif
 }
 
 Mpris2::~Mpris2() = default;
@@ -76,11 +82,13 @@ void Mpris2::setPlayerName(const QString &playerName)
 
     m_playerName = playerName;
 
+#if !defined Q_OS_ANDROID
     if (m_audioPlayer && !m_playerName.isEmpty()) {
         if (!m_mp2) {
             initDBusService();
         }
     }
+#endif
 
     emit playerNameChanged();
 }
@@ -92,18 +100,22 @@ void Mpris2::setAudioPlayer(AudioManager *audioPlayer)
 
     m_audioPlayer = audioPlayer;
 
+#if !defined Q_OS_ANDROID
     if (m_audioPlayer && !m_playerName.isEmpty()) {
         if (!m_mp2) {
             initDBusService();
         }
     }
+#endif
 
     emit audioPlayerChanged();
 }
 
 void Mpris2::setShowProgressOnTaskBar(bool value)
 {
+#if !defined Q_OS_ANDROID
     m_mp2p->setShowProgressOnTaskBar(value);
+#endif
     mShowProgressOnTaskBar = value;
     Q_EMIT showProgressOnTaskBarChanged();
 }

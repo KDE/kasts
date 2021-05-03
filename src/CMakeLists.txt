@@ -1,5 +1,5 @@
 
-set(SRCS_alligator
+set(SRCS_base
     main.cpp
     feedsmodel.cpp
     entriesmodel.cpp
@@ -19,21 +19,27 @@ set(SRCS_alligator
     errorlogmodel.cpp
     error.h
     mpris2/mpris2.cpp
-    mpris2/mediaplayer2.cpp
-    mpris2/mediaplayer2player.cpp
     resources.qrc
 )
 
+if(ANDROID)
+    set (SRCS ${SRCS_base})
+else()
+    set (SRCS ${SRCS_base}
+         mpris2/mediaplayer2.cpp
+         mpris2/mediaplayer2player.cpp
+    )
 
-qt5_add_dbus_interface(SRCS_alligator dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
-qt5_add_dbus_interface(SRCS_alligator dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+    qt5_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
+    qt5_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+endif()
 
-add_executable(alligator ${SRCS_alligator})
+add_executable(alligator ${SRCS})
 
 kconfig_add_kcfg_files(alligator settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(alligator PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia Qt5::DBus KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
+target_link_libraries(alligator PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(alligator PRIVATE
@@ -72,7 +78,7 @@ if(ANDROID)
         overflow-menu
     )
 else()
-    target_link_libraries(alligator PRIVATE Qt5::Widgets)
+    target_link_libraries(alligator PRIVATE Qt5::Widgets Qt5::DBus)
 endif()
 
 install(TARGETS alligator ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
