@@ -47,30 +47,16 @@ Kirigami.Page {
             Layout.margins: 0
             Item {
                 property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
-                Image {
+                ImageWithFallback {
                     id: coverImage
-                    asynchronous: true
-                    source: audio.entry ? (audio.entry.image === "" ? "logo.png" : "file://" + Fetcher.image(audio.entry.image)) : ""
-                    fillMode: Image.PreserveAspectFit
+                    imageSource: audio.entry ? audio.entry.cachedImage : "no-image"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: Math.max(0, parent.height - (height + imageLabels.height + 2*parent.textMargin))/2
                     height: Math.min(Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3) - (imageLabels.height + 2 * parent.textMargin),
                                     Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3))
                     width: height
-                    layer.enabled: true
-                    layer.effect: OpacityMask {
-                        maskSource: Item {
-                            width: coverImage.width
-                            height: coverImage.height
-                            Rectangle {
-                                anchors.centerIn: parent
-                                width: coverImage.adapt ? coverImage.width : Math.min(coverImage.width, coverImage.height)
-                                height: coverImage.adapt ? coverImage.height : width
-                                radius: Math.min(width, height) / 20
-                            }
-                        }
-                    }
+                    fractionalRadius: 1 / 20
                 }
                 ColumnLayout {
                     id: imageLabels

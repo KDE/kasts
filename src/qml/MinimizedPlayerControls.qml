@@ -51,14 +51,10 @@ Item {
             RowLayout {
                 anchors.fill: parent
 
-                Image {
-                    asynchronous: true
-                    source: audio.entry.image === "" ? "logo.png" : "file://" + Fetcher.image(audio.entry.image)
-                    fillMode: Image.PreserveAspectFit
-                    Layout.fillHeight: true
-                    Layout.maximumWidth: height
-                    sourceSize.width: miniplayerheight
-                    sourceSize.height: miniplayerheight
+                ImageWithFallback {
+                    imageSource: audio.entry.cachedImage
+                    Layout.preferredHeight: miniplayerheight
+                    Layout.preferredWidth: miniplayerheight
                 }
 
                 // track information
