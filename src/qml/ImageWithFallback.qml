@@ -21,6 +21,7 @@ Item {
     property real fractionalRadius: 0.0
     property string imageTitle: ""
     property bool isLoading: false
+    property int imageFillMode: Image.PreserveAspectCrop
 
     Loader {
         id: imageLoader
@@ -47,7 +48,7 @@ Item {
         Image {
             anchors.fill: parent
             source: root.imageSource
-            fillMode: Image.PreserveAspectCrop
+            fillMode: root.imageFillMode
             sourceSize.width: width
             sourceSize.height: height
             asynchronous: true
