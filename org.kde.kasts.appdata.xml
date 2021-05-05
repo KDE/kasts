@@ -5,14 +5,14 @@
   <summary>Podcast application for mobile devices</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
-  <developer_name>KDE Community</developer_name>
+  <developer_name>The KDE Community</developer_name>
   <description>
     <p>Kasts is a mobile podcast application</p>
   </description>
   <provides>
     <binary>kasts</binary>
   </provides>
-  <developer_name>The KDE Community</developer_name>
+  <!-- Commenting out screenshots as this has not been done yet
   <screenshots>
     <screenshot type="default">
       <caption>Kasts feed list on the desktop</caption>
@@ -23,5 +23,6 @@
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile.png</image>
     </screenshot>
   </screenshots>
+  -->
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
 </component>
