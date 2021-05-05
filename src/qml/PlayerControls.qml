@@ -50,7 +50,7 @@ Kirigami.Page {
                 ImageWithFallback {
                     id: coverImage
                     imageSource: audio.entry ? audio.entry.cachedImage : "no-image"
-                    imageFillMode: Image.PreserveAspectFill
+                    imageFillMode: Image.PreserveAspectCrop
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: Math.max(0, parent.height - (height + imageLabels.height + 2*parent.textMargin))/2
