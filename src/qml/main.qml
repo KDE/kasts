@@ -28,11 +28,13 @@ Kirigami.ApplicationWindow {
         cachePages: false
     }
 
-    pageStack.initialPage: mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
-                                                 : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
-                                                 : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
-                                                 : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
-                                                 : "qrc:/FeedListPage.qml")
+    Component.onCompleted: {
+        pageStack.initialPage = mainPagePool.loadPageWithProperties(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
+                                                    : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
+                                                    : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
+                                                    : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
+                                                    : "qrc:/FeedListPage.qml")
+    }
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
