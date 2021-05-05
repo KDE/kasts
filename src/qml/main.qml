@@ -29,7 +29,12 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        pageStack.initialPage = mainPagePool.loadPageWithProperties(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
+        tabBarActive = SettingsManager.lastOpenedPage === "FeedListPage" ? 0
+                     : SettingsManager.lastOpenedPage === "QueuePage" ? 0
+                     : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? 1
+                     : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? 1
+                     : 0
+        pageStack.initialPage = mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
                                                     : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
                                                     : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
                                                     : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
