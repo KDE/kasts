@@ -100,29 +100,5 @@ int Database::version()
 
 void Database::cleanup()
 {
-    int count = SettingsManager::self()->deleteAfterCount();
-    int type = SettingsManager::self()->deleteAfterType();
-
-    if (type == 0) { // Never delete Entries
-        return;
-    }
-
-    if (type == 1) { // Delete after <count> posts per feed
-                     // TODO
-    } else {
-        QDateTime dateTime = QDateTime::currentDateTime();
-        if (type == 2)
-            dateTime = dateTime.addDays(-count);
-        else if (type == 3)
-            dateTime = dateTime.addDays(-7 * count);
-        else if (type == 4)
-            dateTime = dateTime.addMonths(-count);
-        qint64 sinceEpoch = dateTime.toSecsSinceEpoch();
-
-        QSqlQuery query;
-        query.prepare(QStringLiteral("DELETE FROM Entries WHERE updated < :sinceEpoch;"));
-        query.bindValue(QStringLiteral(":sinceEpoch"), sinceEpoch);
-        execute(query);
-        // TODO: also delete enclosures and authors(?)
-    }
+    // TODO: create database sanity checks, or, alternatively, create database scrub routine
 }

@@ -17,10 +17,6 @@
             <label>Automatically download new episodes</label>
             <default>false</default>
         </entry>
-        <entry name="deleteAfterCount" type="Int">
-            <label>Delete after count</label>
-            <default>0</default>
-        </entry>
         <entry name="articleFontSize" type="Int">
             <label>Article font size</label>
             <default>10</default>
@@ -28,10 +24,6 @@
         <entry name="articleFontUseSystem" type="Bool">
             <label>Use default system font</label>
             <default>true</default>
-        </entry>
-        <entry name="deleteAfterType" type="Int">
-            <label>Delete after type</label>
-            <default>0</default>
         </entry>
     </group>
     <group name="Persistency">
