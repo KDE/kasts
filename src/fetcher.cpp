@@ -206,7 +206,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (isNewFeed) {
         query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed ORDER BY updated DESC LIMIT :recentNew;"));
         query.bindValue(QStringLiteral(":feed"), url);
-        query.bindValue(QStringLiteral(":recentNew"), 1); // hardcode to marking one episode as new
+        query.bindValue(QStringLiteral(":recentNew"), 0); // hardcode to marking no episode as new on a new feed
         Database::instance().execute(query);
         QSqlQuery updateQuery;
         while (query.next()) {
