@@ -53,15 +53,30 @@ Kirigami.ScrollablePage {
     ListView {
         id: queueList
         visible: count !== 0
+        anchors.fill: parent
+
+        header: ColumnLayout {
+            anchors.right: parent.right
+            anchors.left: parent.left
+            Controls.Label {
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                text: i18np("1 episode", "%1 episodes", queueModel.rowCount()) + " ·  " + i18n("Time left") + ": " + audio.timeString(queueModel.timeLeft)
+            }
+            Kirigami.Separator {
+                Layout.fillWidth: true
+            }
+        }
 
         model: QueueModel {
             id: queueModel
+            audioManager: audio
         }
+
         delegate: Kirigami.DelegateRecycler {
             width: queueList.width
             sourceComponent: delegateComponent
         }
-        anchors.fill: parent
 
         moveDisplaced: Transition {
             YAnimator {
@@ -71,4 +86,3 @@ Kirigami.ScrollablePage {
         }
     }
 }
-
