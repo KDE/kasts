@@ -25,6 +25,13 @@ Kirigami.ScrollablePage {
         }
 
         Controls.CheckBox {
+            id: refreshOnStartup
+            checked: SettingsManager.refreshOnStartup
+            text: i18n("Automatically fetch feed updates on startup")
+            onToggled: SettingsManager.refreshOnStartup = checked
+        }
+
+        Controls.CheckBox {
             id: autoQueue
             checked: SettingsManager.autoQueue
             text: i18n("Automatically queue new episodes")

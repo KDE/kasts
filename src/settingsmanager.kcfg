@@ -5,16 +5,20 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kastsrc" />
     <group name="General">
+        <entry name="refreshOnStartup" type="Bool">
+            <label>Automatically fetch feed updates on startup</label>
+            <default>false</default>
+        </entry>
         <entry name="autoQueue" type="Bool">
             <label>Automatically add new episodes to queue</label>
             <default>true</default>
         </entry>
-        <entry name="toggleRemainingTime" type="Bool">
-            <label>Whether the player shows remaining track time instead of total track time</label>
-            <default>false</default>
-        </entry>
         <entry name="autoDownload" type="Bool">
             <label>Automatically download new episodes</label>
+            <default>false</default>
+        </entry>
+        <entry name="toggleRemainingTime" type="Bool">
+            <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>
         </entry>
         <entry name="articleFontSize" type="Int">

@@ -39,6 +39,7 @@ Kirigami.ApplicationWindow {
                                                     : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
                                                     : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
                                                     : "qrc:/FeedListPage.qml")
+        if (SettingsManager.refreshOnStartup) Fetcher.fetchAll();
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
