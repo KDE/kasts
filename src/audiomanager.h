@@ -40,12 +40,6 @@ class AudioManager : public QObject
 public:
     explicit AudioManager(QObject *parent = nullptr);
 
-    static AudioManager &instance()
-    {
-        static AudioManager _instance;
-        return _instance;
-    }
-
     ~AudioManager() override;
 
     Q_INVOKABLE static QString timeString(qint64 timeInMicroSeconds);
