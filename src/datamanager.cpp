@@ -69,7 +69,7 @@ DataManager::DataManager()
                 QString id = query.value(QStringLiteral("id")).toString();
                 addToQueue(feedurl, id);
                 if (SettingsManager::self()->autoDownload()) {
-                    if (getEntry(id)->hasEnclosure()) {
+                    if (getEntry(id) && getEntry(id)->hasEnclosure() && getEntry(id)->enclosure()) {
                         qDebug() << "Start downloading" << getEntry(id)->title();
                         getEntry(id)->enclosure()->download();
                     }

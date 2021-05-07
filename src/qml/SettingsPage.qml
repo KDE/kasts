@@ -38,15 +38,14 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // TODO: implement this
-        /*Controls.CheckBox {
+        Controls.CheckBox {
             id: autoDownload
             checked: SettingsManager.autoDownload
             text: i18n("Automatically download new episodes")
 
             enabled: autoQueue.checked
             onToggled: SettingsManager.autoDownload = checked
-        }*/
+        }
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
@@ -63,7 +62,6 @@ Kirigami.ScrollablePage {
             to: 20
 
             onValueModified: SettingsManager.articleFontSize = value
-
         }
 
         Controls.CheckBox {
