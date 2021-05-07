@@ -140,13 +140,11 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
-    query.prepare(
-        QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, new=:new WHERE url=:url;"));
+    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":link"), feed->link());
     query.bindValue(QStringLiteral(":description"), feed->description());
-    query.bindValue(QStringLiteral(":new"), false); // set "new" to false now that new feed is being processed
 
     QDateTime current = QDateTime::currentDateTime();
     query.bindValue(QStringLiteral(":lastUpdated"), current.toSecsSinceEpoch());
@@ -218,6 +216,13 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             updateQuery.bindValue(QStringLiteral(":id"), query.value(QStringLiteral("id")).toString());
             Database::instance().execute(updateQuery);
         }
+        // Finally, reset the new flag to false now that the new feed has been fully processed
+        // If we would reset the flag sooner, then too many episodes will get flagged as new if
+        // the initial import gets interrupted somehow.
+        query.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), url);
+        query.bindValue(QStringLiteral(":new"), false);
+        Database::instance().execute(query);
     }
 
     if (updatedEntries || isNewFeed)
