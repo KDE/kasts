@@ -189,7 +189,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
 
-    qDebug() << "Updated feed:" << feed->title();
+    qDebug() << "Updated feed details:" << feed->title();
 
     Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 

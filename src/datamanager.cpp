@@ -34,8 +34,11 @@ DataManager::DataManager()
                 feed->setLastUpdated(lastUpdated);
                 // qDebug() << "Retrieving authors";
                 feed->updateAuthors();
-                // TODO: signal feedmodel: Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
-                // quite sure that this is actually not needed
+                // For feeds that have just been added, this is probably the point
+                // where the Feed object gets created; let's set refreshing to
+                // true in order to show user feedback that the feed is still
+                // being fetched
+                feed->setRefreshing(true);
             }
         });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {

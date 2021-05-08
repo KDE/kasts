@@ -50,7 +50,6 @@ Feed::Feed(const QString &feedurl)
     });
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         if (url == m_url) {
-            setRefreshing(false);
             Q_EMIT entryCountChanged();
             Q_EMIT unreadEntryCountChanged();
             setErrorId(0);
