@@ -53,12 +53,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18n("last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat))
+            text: i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat))
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18n("%1 posts, %2 unread", feed.entryCount, feed.unreadEntryCount)
+            text: i18np("1 episode", "%1 episodes", feed.entryCount) + ", " + i18np("1 unplayed", "%1 unplayed", feed.unreadEntryCount)
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
