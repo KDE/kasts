@@ -81,6 +81,7 @@ Item {
             }
             Controls.Label {
                 Layout.fillWidth: true
+                visible: subtitle !== ""
                 text: subtitle
                 fontSizeMode: Text.Fit
                 font.pointSize: 12
