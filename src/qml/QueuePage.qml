@@ -61,7 +61,7 @@ Kirigami.ScrollablePage {
             Controls.Label {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
-                text: i18np("1 episode", "%1 episodes", queueModel.rowCount()) + " ·  " + i18n("Time left") + ": " + audio.timeString(queueModel.timeLeft)
+                text: i18np("1 episode", "%1 episodes", queueModel.rowCount()) + "  ·  " + i18n("Time left") + ": " + audio.timeString(queueModel.timeLeft)
             }
             Kirigami.Separator {
                 Layout.fillWidth: true

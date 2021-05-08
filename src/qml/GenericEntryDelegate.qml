@@ -70,7 +70,7 @@ Kirigami.SwipeListItem {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? " ·  " + Math.floor(entry.enclosure.size/(1024*1024)) + "MB" : "") : "" )
+                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + Math.floor(entry.enclosure.size / (1024 * 1024)) + "MB" : "") : "" )
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -95,7 +95,7 @@ Kirigami.SwipeListItem {
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
-                    opacity: 0.7
+                    opacity: entry.read ? 0.4 : 0.7
                     visible: !downloadProgress.visible
                 }
             }
@@ -116,19 +116,20 @@ Kirigami.SwipeListItem {
                         text: audio.timeString(entry.enclosure.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: 0.7
+                        opacity: entry.read ? 0.4 : 0.7
                     }
                     Controls.ProgressBar {
                         from: 0
                         to: entry.enclosure.duration
                         value: entry.enclosure.playPosition / 1000
                         Layout.fillWidth: true
+                        opacity: entry.read ? 0.6 : 1
                     }
                     Controls.Label {
                         text: audio.timeString(entry.enclosure.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: 0.7
+                        opacity: entry.read ? 0.4 : 0.7
                     }
                 }
             }

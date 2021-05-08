@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                         opacity: 1
                     }
                     Controls.Label {
-                        text: i18n("Error code: ") + error.code + " ·  " + error.message
+                        text: i18n("Error code: ") + error.code + (error.message ? " ·  " + error.message : "")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
