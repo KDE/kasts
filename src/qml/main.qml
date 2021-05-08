@@ -169,7 +169,6 @@ Kirigami.ApplicationWindow {
     Kirigami.InlineMessage {
         id: inlineMessage
         anchors {
-            horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
             right: parent.right
             left: parent.left
