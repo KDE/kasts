@@ -21,6 +21,7 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
+    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9 + ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
     property int tabBarActive: 0
 
     Kirigami.PagePool {
@@ -153,6 +154,7 @@ Kirigami.ApplicationWindow {
         }
 
     }
+
     UpdateNotification {
         z: 2
         id: updateNotification
@@ -160,7 +162,29 @@ Kirigami.ApplicationWindow {
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
-            bottomMargin: Kirigami.Units.largeSpacing * 9 + ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
+            bottomMargin: bottomMessageSpacing
+        }
+    }
+
+    Kirigami.InlineMessage {
+        id: inlineMessage
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+            right: parent.right
+            left: parent.left
+            margins: Kirigami.Units.gridUnit
+            bottomMargin: bottomMessageSpacing + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 )
+        }
+        type: Kirigami.MessageType.Error
+        showCloseButton: true
+
+        Connections {
+            target: ErrorLogModel
+            function onNewErrorLogged(error) {
+                inlineMessage.text = error.id ? i18n("Media download error") : i18n("Feed update error") + "\n" + i18n("Check Error Log tab (under Downloads) for more details.");
+                inlineMessage.visible = true;
+            }
         }
     }
 }

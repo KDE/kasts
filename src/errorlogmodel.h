@@ -34,6 +34,9 @@ public:
 public:
     void monitorErrorMessages(const QString &url, const QString &id, const int errorCode, const QString &errorString);
 
+Q_SIGNALS:
+    void newErrorLogged(Error *error);
+
 private:
     explicit ErrorLogModel();
 

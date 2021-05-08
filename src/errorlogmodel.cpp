@@ -73,6 +73,9 @@ void ErrorLogModel::monitorErrorMessages(const QString &url, const QString &id, 
     query.bindValue(QStringLiteral(":message"), error->message);
     query.bindValue(QStringLiteral(":date"), error->date.toSecsSinceEpoch());
     Database::instance().execute(query);
+
+    // Send signal to display inline error message
+    Q_EMIT newErrorLogged(error);
 }
 
 void ErrorLogModel::clearAll()
