@@ -6,14 +6,16 @@
   <name xml:lang="de">Kasts</name>
   <name xml:lang="es">Kasts</name>
   <name xml:lang="nl">Kasts</name>
+  <name xml:lang="pt">Kasts</name>
   <name xml:lang="sv">Kasts</name>
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="x-test">xxKastsxx</name>
   <summary>Podcast application for mobile devices</summary>
   <summary xml:lang="ca">Aplicació de podcast per a dispositius mòbils</summary>
-  <summary xml:lang="de">Podcast-App für Mobilgeräte</summary>
-  <summary xml:lang="es">Aplicación de podcast para dispositivos móviles</summary>
+  <summary xml:lang="de">Podcast-Anwendung für Mobilgeräte</summary>
+  <summary xml:lang="es">Aplicación de pódcast para dispositivos móviles</summary>
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
+  <summary xml:lang="pt">Aplicação de 'podcasts' para dispositivos móveis</summary>
   <summary xml:lang="sv">Poddradioprogram för mobilapparater</summary>
   <summary xml:lang="uk">Програма для прослуховування подкастів на мобільних пристроях</summary>
   <summary xml:lang="x-test">xxPodcast application for mobile devicesxx</summary>
@@ -24,15 +26,17 @@
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="es">La Comunidad KDE</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
+  <developer_name xml:lang="pt">A Comunidade do KDE</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxThe KDE Communityxx</developer_name>
   <description>
     <p>Kasts is a mobile podcast application</p>
     <p xml:lang="ca">El Kasts és una aplicació de podcast per a mòbil</p>
-    <p xml:lang="de">Kasts ist eine Podcast-App für Mobilgeräte</p>
-    <p xml:lang="es">Kasts es una aplicación de podcast para móviles</p>
+    <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
+    <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
+    <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
     <p xml:lang="sv">Kasts är ett mobilt poddradioprogram</p>
     <p xml:lang="uk">Kasts — програма для прослуховування подкастів на мобільних пристроях</p>
     <p xml:lang="x-test">xxKasts is a mobile podcast applicationxx</p>
