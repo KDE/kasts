@@ -14,7 +14,7 @@ import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts 1.0
 
 Kirigami.Page {
-    id: playercontrols
+    id: playerControls
 
     title: audio.entry ? audio.entry.title : "No track loaded"
     clip: true
@@ -24,6 +24,7 @@ Kirigami.Page {
     bottomPadding: Kirigami.Units.gridUnit
 
     ColumnLayout {
+        id: playerControlsColumn
         anchors.fill: parent
         anchors.topMargin:0
         Controls.Button {
@@ -83,8 +84,6 @@ Kirigami.Page {
             Item {
                 Flickable {
                     anchors.fill: parent
-                    anchors.leftMargin: 25
-                    anchors.rightMargin: 25
                     clip: true
                     contentHeight: description.height
                     ColumnLayout {
@@ -125,8 +124,6 @@ Kirigami.Page {
             implicitHeight: mediaControls.height
             Layout.fillWidth: true
             Layout.margins: 0
-            Layout.leftMargin: Kirigami.Units.gridUnit
-            Layout.rightMargin: Kirigami.Units.gridUnit
 
             ColumnLayout {
                 id: mediaControls
@@ -135,10 +132,13 @@ Kirigami.Page {
 
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.margins: 0
 
                 Controls.Slider {
                     enabled: audio.entry
                     Layout.fillWidth: true
+                    Layout.margins: 0
+                    padding: 0
                     from: 0
                     to: audio.duration
                     value: audio.position
@@ -146,19 +146,21 @@ Kirigami.Page {
                 }
                 RowLayout {
                     id: controls
+                    Layout.margins: 0
                     Layout.fillWidth: true
                     Controls.Label {
-                        //anchor.left: parent.left
+                        padding: Kirigami.Units.largeSpacing
                         text: audio.timeString(audio.position)
                     }
                     Item {
                         Layout.fillWidth: true
                     }
                     Item {
-                        Layout.preferredHeight: endLabel.implicitHeight + Kirigami.Units.gridUnit
-                        Layout.preferredWidth: endLabel.implicitWidth + Kirigami.Units.gridUnit
+                        Layout.preferredHeight: endLabel.implicitHeight
+                        Layout.preferredWidth: endLabel.implicitWidth
                         Controls.Label {
                             id: endLabel
+                            padding: Kirigami.Units.largeSpacing
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             text: (SettingsManager.toggleRemainingTime) ?
@@ -176,11 +178,21 @@ Kirigami.Page {
                 RowLayout {
                     Layout.maximumWidth: Number.POSITIVE_INFINITY //TODO ?
                     Layout.fillWidth: true
-                    Layout.topMargin: Kirigami.Units.gridUnit
-                    property int buttonsize: Kirigami.Units.gridUnit * 2
+                    Layout.margins: 0
+                    Layout.topMargin: Kirigami.Units.largeSpacing
+
+                    // Make button width scale properly on narrow windows instead of overflowing
+                    property int buttonSize: Math.min(playButton.implicitWidth, ((playerControlsColumn.width - 4 * spacing) / 5 - playButton.leftPadding - playButton.rightPadding))
+                    property int iconSize: Kirigami.Units.gridUnit * 2
 
                     Controls.Button {
-                        text: audio.playbackRate + "x"
+                        // Use contentItem and a Label because using plain "text"
+                        // does not rescale automatically if the text changes
+                        contentItem: Controls.Label {
+                            text: audio.playbackRate + "x"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                         onClicked: {
                             if(audio.playbackRate === 2.5)
                                 audio.playbackRate = 1
@@ -189,43 +201,48 @@ Kirigami.Page {
                         }
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
+                        padding: 0
                         implicitWidth: playButton.width
                         implicitHeight: playButton.height
                     }
                     Controls.Button {
                         icon.name: "media-seek-backward"
-                        icon.height: parent.buttonsize
-                        icon.width: parent.buttonsize
+                        icon.height: parent.iconSize
+                        icon.width: parent.iconSize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: parent.buttonSize
                         onClicked: audio.skipBackward()
                         enabled: audio.canSkipBackward
                     }
                     Controls.Button {
                         id: playButton
                         icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-                        icon.height: parent.buttonsize
-                        icon.width: parent.buttonsize
+                        icon.height: parent.iconSize
+                        icon.width: parent.iconSize
                         flat: true
-                        onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: parent.buttonSize
+                        onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
                         enabled: audio.canPlay
                     }
                     Controls.Button {
                         icon.name: "media-seek-forward"
-                        icon.height: parent.buttonsize
-                        icon.width: parent.buttonsize
+                        icon.height: parent.iconSize
+                        icon.width: parent.iconSize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: parent.buttonSize
                         onClicked: audio.skipForward()
                         enabled: audio.canSkipForward
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"
-                        icon.height: parent.buttonsize
-                        icon.width: parent.buttonsize
+                        icon.height: parent.iconSize
+                        icon.width: parent.iconSize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: parent.buttonSize
                         onClicked: audio.next()
                         enabled: audio.canGoNext
                     }
