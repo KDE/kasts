@@ -148,7 +148,7 @@ Controls.ItemDelegate {
                         actionOverlay.close();
                     }
                     icon: "delete"
-                    text: i18n("Remove feed")
+                    text: i18n("Remove Podcast")
                 }
             }
 

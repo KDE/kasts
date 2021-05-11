@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
                     Controls.Label {
-                        text: ( (error.id) ? i18n("Media download error") : i18n("Feed update error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                        text: ( (error.id) ? i18n("Media download error") : i18n("Podcast update error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

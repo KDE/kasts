@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
         Controls.CheckBox {
             id: refreshOnStartup
             checked: SettingsManager.refreshOnStartup
-            text: i18n("Automatically fetch feed updates on startup")
+            text: i18n("Automatically fetch podcast updates on startup")
             onToggled: SettingsManager.refreshOnStartup = checked
         }
 

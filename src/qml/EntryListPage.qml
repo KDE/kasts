@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
         },
         Kirigami.Action {
             iconName: "delete"
-            text: i18n("Remove feed")
+            text: i18n("Remove Podcast")
             onTriggered: {
                 while(pageStack.depth > 1)
                     pageStack.pop()
@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
 
     actions.main: Kirigami.Action {
         iconName: "view-refresh"
-        text: i18n("Refresh Feed")
+        text: i18n("Refresh Podcast")
         onTriggered: page.refreshing = true
         visible: !Kirigami.Settings.isMobile || entryList.count === 0
     }
@@ -69,7 +69,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: feed.errorId === 0 ? i18n("No Entries available") : i18n("Error (%1): %2", feed.errorId, feed.errorString)
+        text: feed.errorId === 0 ? i18n("No Episodes available") : i18n("Error (%1): %2", feed.errorId, feed.errorString)
         icon.name: feed.errorId === 0 ? "" : "data-error"
     }
 

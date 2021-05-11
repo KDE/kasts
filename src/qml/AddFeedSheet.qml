@@ -18,7 +18,7 @@ Kirigami.OverlaySheet {
     showCloseButton: true
 
     header: Kirigami.Heading {
-        text: i18n("Add new Feed")
+        text: i18n("Add new Podcast")
     }
 
     contentItem: ColumnLayout {
@@ -33,7 +33,7 @@ Kirigami.OverlaySheet {
     }
 
     footer: Controls.Button {
-        text: i18n("Add Feed")
+        text: i18n("Add Podcast")
         enabled: urlField.text
         onClicked: {
             DataManager.addFeed(urlField.text)

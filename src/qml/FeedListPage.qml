@@ -33,25 +33,25 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
-            text: i18n("Refresh all feeds")
+            text: i18n("Refresh all Podcasts")
             iconName: "view-refresh"
             onTriggered: refreshing = true
             visible: !Kirigami.Settings.isMobile
         },
         Kirigami.Action {
-            text: i18n("Import Feeds...")
+            text: i18n("Import Podcasts...")
             iconName: "document-import"
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
-            text: i18n("Export Feeds...")
+            text: i18n("Export Podcasts...")
             iconName: "document-export"
             onTriggered: exportDialog.open()
         }
     ]
 
     actions.main: Kirigami.Action {
-        text: i18n("Add feed")
+        text: i18n("Add Podcast")
         iconName: "list-add"
         onTriggered: {
             addSheet.open()
@@ -68,12 +68,12 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("No Feeds added yet")
+        text: i18n("No Podcasts added yet")
     }
 
     FileDialog {
         id: importDialog
-        title: i18n("Import Feeds")
+        title: i18n("Import Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
         nameFilters: [i18n("All Files (*)"), i18n("XML Files (*.xml)"), i18n("OPML Files (*.opml)")]
         onAccepted: DataManager.importFeeds(file)
@@ -81,7 +81,7 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: exportDialog
-        title: i18n("Export Feeds")
+        title: i18n("Export Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
         nameFilters: [i18n("All Files")]
         onAccepted: DataManager.exportFeeds(file)
