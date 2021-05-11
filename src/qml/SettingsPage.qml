@@ -56,6 +56,18 @@ Kirigami.ScrollablePage {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
+            text: i18n("Appearance")
+        }
+
+        Controls.CheckBox {
+            id: alwaysShowFeedTitles
+            checked: SettingsManager.alwaysShowFeedTitles
+            text: i18n("Always show feed titles in subscription view")
+            onToggled: SettingsManager.alwaysShowFeedTitles = checked
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
             text: i18n("Article")
         }
 

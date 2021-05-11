@@ -17,6 +17,10 @@
             <label>Automatically download new episodes</label>
             <default>false</default>
         </entry>
+        <entry name="alwaysShowFeedTitles" type="Bool">
+            <label>Always show the title of podcast feeds in subscription view</label>
+            <default>false</default>
+        </entry>
         <entry name="toggleRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>

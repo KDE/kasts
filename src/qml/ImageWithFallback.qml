@@ -68,37 +68,38 @@ Item {
                 anchors.fill: parent
                 source: "rss"
             }
+        }
+    }
 
-            Component {
-                id: imageText
-                Item {
-                    Rectangle {
-                        anchors.fill: header
-                        opacity: 0.5
-                        color: "black"
-                    }
-
-                    Kirigami.Heading {
-                        id: header
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        padding: 10
-                        text: root.imageTitle
-                        level: 3
-                        color: "white"
-                        wrapMode: Text.Wrap
-                        elide: Text.ElideRight
-                    }
-                }
+    Component {
+        id: imageText
+        Item {
+            Rectangle {
+                anchors.fill: header
+                opacity: 0.5
+                color: "black"
             }
 
-            Loader {
-                anchors.fill: parent
-                active: root.imageTitle !== ""
-                sourceComponent: imageText
+            Kirigami.Heading {
+                id: header
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
+                padding: 10
+                text: root.imageTitle
+                level: 3
+                font.bold: true
+                color: "white"
+                wrapMode: Text.Wrap
+                elide: Text.ElideRight
             }
         }
+    }
+
+    Loader {
+        anchors.fill: parent
+        active: root.imageTitle !== "" && (SettingsManager.alwaysShowFeedTitles ? true : (imageSource === "no-image" || imageSource === "fetching"))
+        sourceComponent: imageText
     }
 
     Component {
