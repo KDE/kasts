@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
         Controls.CheckBox {
             id: alwaysShowFeedTitles
             checked: SettingsManager.alwaysShowFeedTitles
-            text: i18n("Always show feed titles in subscription view")
+            text: i18n("Always show podcast titles in subscription view")
             onToggled: SettingsManager.alwaysShowFeedTitles = checked
         }
 
