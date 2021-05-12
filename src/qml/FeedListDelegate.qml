@@ -25,6 +25,12 @@ Controls.ItemDelegate {
     implicitWidth: cardSize + 2 * cardMargin
     implicitHeight: cardSize + 2 * cardMargin
 
+    Accessible.role: Accessible.Button
+    Accessible.name: feed.name
+    Accessible.onPressAction: {
+         feedDelegate.click()
+    }
+
     onClicked: {
         lastFeed = feed.url
         pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})

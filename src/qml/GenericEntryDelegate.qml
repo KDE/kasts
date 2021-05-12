@@ -20,6 +20,12 @@ Kirigami.SwipeListItem {
     property bool isDownloads: false
     property var listView: ""
 
+    Accessible.role: Accessible.Button
+    Accessible.name: entry.title
+    Accessible.onPressAction: {
+         listItem.click()
+    }
+
     contentItem: RowLayout {
 
         Loader {
