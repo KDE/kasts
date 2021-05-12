@@ -175,9 +175,10 @@ QString Entry::adjustedContent(int width, int fontSize)
         QString widthParameter = match.captured(4);
 
         if (widthParameter.length() != 0) {
-            if (widthParameter.toInt() > width)
+            if (widthParameter.toInt() > width) {
                 imgTag.replace(match.captured(3), QStringLiteral("width=\"%1\"").arg(width));
                 imgTag.replace(QRegularExpression(QStringLiteral("height=\"([0-9]+)(px)?\"")), QString());
+            }
         } else {
             imgTag.insert(4, QStringLiteral(" width=\"%1\"").arg(width));
         }
