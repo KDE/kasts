@@ -19,7 +19,7 @@ set(SRCS_base
     audiomanager.cpp
     powermanagementinterface.cpp
     errorlogmodel.cpp
-    error.h
+    error.cpp
     mpris2/mpris2.cpp
     resources.qrc
 )

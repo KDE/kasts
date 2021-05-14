@@ -14,6 +14,8 @@
 #include <QUrl>
 #include <Syndication/Syndication>
 
+#include "error.h"
+
 class Fetcher : public QObject
 {
     Q_OBJECT
@@ -35,6 +37,7 @@ public:
     Q_INVOKABLE QString image(const QString &url) const;
     void removeImage(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
+
     QString imagePath(const QString &url) const;
     QString enclosurePath(const QString &url) const;
 
@@ -48,7 +51,7 @@ Q_SIGNALS:
                             const QString &description,
                             const QDateTime &lastUpdated);
     void feedUpdateFinished(const QString &url);
-    void error(const QString &url, const QString &id, const int errorId, const QString &errorString);
+    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
     void entryAdded(const QString &feedurl, const QString &id);
     void downloadFinished(QString url) const;
     void downloadFileSizeUpdated(QString url, int fileSize) const;

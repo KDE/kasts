@@ -10,6 +10,7 @@
 #include "datamanager.h"
 #include "entriesmodel.h"
 #include "entry.h"
+#include "feed.h"
 
 EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)

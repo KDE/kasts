@@ -90,7 +90,7 @@ void Fetcher::retrieveFeed(const QString &url)
         if (reply->error()) {
             qWarning() << "Error fetching feed";
             qWarning() << reply->errorString();
-            Q_EMIT error(url, QString(), reply->error(), reply->errorString());
+            Q_EMIT error(Error::Type::FeedUpdate, url, QString(), reply->error(), reply->errorString());
         } else {
             QByteArray data = reply->readAll();
             Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);

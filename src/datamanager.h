@@ -6,9 +6,10 @@
 
 #pragma once
 
-#include "entry.h"
 #include "episodemodel.h"
-#include "feed.h"
+
+class Entry;
+class Feed;
 
 class DataManager : public QObject
 {

@@ -13,6 +13,8 @@
 
 #include <KFormat>
 
+#include "error.h"
+
 class Entry;
 
 class Enclosure : public QObject
@@ -66,7 +68,7 @@ Q_SIGNALS:
     void playPositionChanged();
     void durationChanged();
     void sizeChanged();
-    void downloadError(const QString &url, const QString &id, const int errorId, const QString &errorString);
+    void downloadError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 private:
     void processDownloadedFile();

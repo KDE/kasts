@@ -8,6 +8,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
+
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.kasts 1.0
@@ -40,7 +41,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
                     Controls.Label {
-                        text: ( (error.id) ? i18n("Media Download Error") : i18n("Podcast Update Error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                        text: error.description  + "  ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
@@ -54,7 +55,7 @@ Kirigami.ScrollablePage {
                         opacity: 1
                     }
                     Controls.Label {
-                        text: i18n("Error Code: ") + error.code + (error.message ? " ·  " + error.message : "")
+                        text: i18n("Error Code: ") + error.code + (error.message ? "  ·  " + error.message : "")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

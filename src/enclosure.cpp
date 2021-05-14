@@ -17,6 +17,7 @@
 #include "downloadprogressmodel.h"
 #include "enclosuredownloadjob.h"
 #include "entry.h"
+#include "error.h"
 #include "errorlogmodel.h"
 #include "fetcher.h"
 
@@ -110,7 +111,7 @@ void Enclosure::download()
             if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
                 m_entry->feed()->setErrorId(downloadJob->error());
                 m_entry->feed()->setErrorString(downloadJob->errorString());
-                Q_EMIT downloadError(m_entry->feed()->url(), m_entry->id(), downloadJob->error(), downloadJob->errorString());
+                Q_EMIT downloadError(Error::Type::MediaDownload, m_entry->feed()->url(), m_entry->id(), downloadJob->error(), downloadJob->errorString());
             }
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);

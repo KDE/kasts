@@ -203,7 +203,7 @@ Kirigami.ApplicationWindow {
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
-            bottomMargin: bottomMessageSpacing
+            bottomMargin: bottomMessageSpacing + ( inlineMessage.visible ? inlineMessage.height + Kirigami.Units.largeSpacing : 0 )
         }
     }
 
@@ -214,7 +214,7 @@ Kirigami.ApplicationWindow {
             right: parent.right
             left: parent.left
             margins: Kirigami.Units.gridUnit
-            bottomMargin: bottomMessageSpacing + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 )
+            bottomMargin: bottomMessageSpacing
         }
         type: Kirigami.MessageType.Error
         showCloseButton: true
@@ -222,7 +222,7 @@ Kirigami.ApplicationWindow {
         Connections {
             target: ErrorLogModel
             function onNewErrorLogged(error) {
-                inlineMessage.text = error.id ? i18n("Media Download Error") : i18n("Podcast Update Error") + "\n" + i18n("Check Error Log Tab (under Downloads) for more details.");
+                inlineMessage.text = error.description + "\n" + i18n("Check Error Log Tab (under Downloads) for more details");
                 inlineMessage.visible = true;
             }
         }

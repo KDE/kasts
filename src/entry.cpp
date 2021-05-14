@@ -13,6 +13,7 @@
 
 #include "database.h"
 #include "datamanager.h"
+#include "feed.h"
 #include "fetcher.h"
 
 Entry::Entry(Feed *feed, const QString &id)

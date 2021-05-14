@@ -7,9 +7,11 @@
 
 #include <QVariant>
 
+#include "author.h"
 #include "database.h"
 #include "datamanager.h"
 #include "entriesmodel.h"
+#include "error.h"
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
@@ -57,14 +59,18 @@ Feed::Feed(const QString &feedurl)
             setErrorString(QLatin1String(""));
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const QString &url, const QString &id, int errorId, const QString &errorString) {
-        Q_UNUSED(id)
-        if (url == m_url) {
-            setErrorId(errorId);
-            setErrorString(errorString);
-            setRefreshing(false);
-        }
-    });
+    connect(&Fetcher::instance(),
+            &Fetcher::error,
+            this,
+            [this](const Error::Type type, const QString &url, const QString &id, int errorId, const QString &errorString) {
+                Q_UNUSED(type)
+                Q_UNUSED(id)
+                if (url == m_url) {
+                    setErrorId(errorId);
+                    setErrorString(errorString);
+                    setRefreshing(false);
+                }
+            });
     connect(&Fetcher::instance(), &Fetcher::feedUpdateFinished, this, [this](const QString &url) {
         if (url == m_url) {
             setRefreshing(false);

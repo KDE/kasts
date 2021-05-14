@@ -6,6 +6,7 @@
 
 #include "episodemodel.h"
 #include "datamanager.h"
+#include "entry.h"
 
 EpisodeModel::EpisodeModel()
     : QAbstractListModel(nullptr)

@@ -12,7 +12,7 @@
 #include <QObject>
 #include <QVariant>
 
-#include "feed.h"
+class Feed;
 
 class EntriesModel : public QAbstractListModel
 {

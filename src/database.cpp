@@ -39,8 +39,11 @@ Database::Database()
 
 bool Database::migrate()
 {
-    if (version() < 1)
+    int dbversion = version();
+    if (dbversion < 1)
         TRUE_OR_RETURN(migrateTo1());
+    if (dbversion < 2)
+        TRUE_OR_RETURN(migrateTo2());
     return true;
 }
 
@@ -56,10 +59,19 @@ bool Database::migrateTo1()
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Authors (feed TEXT, id TEXT, name TEXT, uri TEXT, email TEXT);")));
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosures (feed TEXT, id TEXT, duration INTEGER, size INTEGER, title TEXT, type TEXT, url TEXT, "
-                               "playposition INTEGER, downloaded BOOL);"))); //, filename TEXT);")));
+                               "playposition INTEGER, downloaded BOOL);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Queue (listnr INTEGER, feed TEXT, id TEXT, playing BOOL);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 1;")));
+    return true;
+}
+
+bool Database::migrateTo2()
+{
+    qDebug() << "Migrating database to version 2";
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 2;")));
     return true;
 }
 

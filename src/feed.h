@@ -9,6 +9,8 @@
 
 #include <QDateTime>
 #include <QObject>
+#include <QString>
+#include <QVector>
 
 #include "author.h"
 

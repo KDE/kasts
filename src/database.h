@@ -28,5 +28,6 @@ private:
 
     bool migrate();
     bool migrateTo1();
+    bool migrateTo2();
     void cleanup();
 };

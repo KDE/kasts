@@ -16,7 +16,8 @@
 
 #include "author.h"
 #include "enclosure.h"
-#include "feed.h"
+
+class Feed;
 
 class Entry : public QObject
 {

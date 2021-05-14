@@ -11,6 +11,7 @@
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+
 #include <QQuickStyle>
 #include <QQuickView>
 #include <QString>
@@ -35,8 +36,10 @@
 #include "datamanager.h"
 #include "downloadprogressmodel.h"
 #include "entriesmodel.h"
+#include "entry.h"
 #include "episodemodel.h"
 #include "errorlogmodel.h"
+#include "feed.h"
 #include "feedsmodel.h"
 #include "fetcher.h"
 #include "kasts-version.h"
@@ -129,6 +132,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
+    qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*
 
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
