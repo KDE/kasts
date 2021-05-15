@@ -7,6 +7,7 @@
   <name xml:lang="cs">Kasts</name>
   <name xml:lang="de">Kasts</name>
   <name xml:lang="es">Kasts</name>
+  <name xml:lang="fr">Kasts</name>
   <name xml:lang="nl">Kasts</name>
   <name xml:lang="pl">Kasts</name>
   <name xml:lang="pt">Kasts</name>
@@ -19,6 +20,7 @@
   <summary xml:lang="ca-valencia">Aplicació de podcast per a dispositius mòbils</summary>
   <summary xml:lang="de">Podcast-Anwendung für Mobilgeräte</summary>
   <summary xml:lang="es">Aplicación de pódcast para dispositivos móviles</summary>
+  <summary xml:lang="fr">Application de podcasts pour appareils mobiles</summary>
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
   <summary xml:lang="pl">Aplikacja do podkastów dla urządzeń przenośnych</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts' para dispositivos móveis</summary>
@@ -34,6 +36,7 @@
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="es">La Comunidad KDE</developer_name>
+  <developer_name xml:lang="fr">La communauté KDE</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">A Comunidade do KDE</developer_name>
@@ -47,6 +50,7 @@
     <p xml:lang="ca-valencia">El Kasts és una aplicació de podcast per a mòbil</p>
     <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
     <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
+    <p xml:lang="fr">Kasts est une application mobile pour podcast.</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
     <p xml:lang="pl">Kasts jest przenośną aplikacja do podkastów</p>
     <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
