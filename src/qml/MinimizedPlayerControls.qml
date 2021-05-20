@@ -20,7 +20,7 @@ Item {
     property int buttonsize: Kirigami.Units.gridUnit * 2
     height: miniplayerheight + progressbarheight
 
-    visible: audio.entry
+    visible: AudioManager.entry
 
     // Set background
     Rectangle {
@@ -36,7 +36,7 @@ Item {
         anchors.left: parent.left
         height: parent.progressbarheight
         color: Kirigami.Theme.highlightColor
-        width: parent.width * audio.position / audio.duration
+        width: parent.width * AudioManager.position / AudioManager.duration
         visible: true
     }
 
@@ -52,7 +52,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: audio.entry.cachedImage
+                    imageSource: AudioManager.entry.cachedImage
                     Layout.preferredHeight: miniplayerheight
                     Layout.preferredWidth: miniplayerheight
                 }
@@ -64,7 +64,7 @@ Item {
                     Layout.leftMargin: Kirigami.Units.smallSpacing
                     Controls.Label {
                         id: mainLabel
-                        text: audio.entry.title
+                        text: AudioManager.entry.title
                         wrapMode: Text.Wrap
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                         Layout.fillWidth: true
@@ -77,7 +77,7 @@ Item {
 
                     Controls.Label {
                         id: feedLabel
-                        text: audio.entry.feed.name
+                        text: AudioManager.entry.feed.name
                         wrapMode: Text.Wrap
                         Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
                         Layout.fillWidth: true
@@ -98,14 +98,14 @@ Item {
         }
         Controls.Button {
             id: playButton
-            icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+            icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
             icon.height: parent.parent.buttonsize
             icon.width: parent.parent.buttonsize
             flat: true
             Layout.fillHeight: true
             Layout.maximumHeight: parent.parent.miniplayerheight
             Layout.maximumWidth: height
-            onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
+            onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
             Layout.alignment: Qt.AlignVCenter
         }
     }

@@ -97,7 +97,7 @@ Kirigami.SwipeListItem {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: audio.timeString(entry.enclosure.duration * 1000)
+                    text: AudioManager.timeString(entry.enclosure.duration * 1000)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -119,7 +119,7 @@ Kirigami.SwipeListItem {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: audio.timeString(entry.enclosure.playPosition)
+                        text: AudioManager.timeString(entry.enclosure.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: entry.read ? 0.4 : 0.7
@@ -132,7 +132,7 @@ Kirigami.SwipeListItem {
                         opacity: entry.read ? 0.6 : 1
                     }
                     Controls.Label {
-                        text: audio.timeString(entry.enclosure.duration * 1000)
+                        text: AudioManager.timeString(entry.enclosure.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: entry.read ? 0.4 : 0.7
@@ -195,17 +195,17 @@ Kirigami.SwipeListItem {
         Kirigami.Action {
             text: i18n("Play")
             icon.name: "media-playback-start"
-            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (audio.entry !== entry || audio.playbackState !== Audio.PlayingState)
+            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
             onTriggered: {
-                audio.entry = entry
-                audio.play()
+                AudioManager.entry = entry
+                AudioManager.play()
             }
         },
         Kirigami.Action {
             text: i18n("Pause")
             icon.name: "media-playback-pause"
-            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && audio.entry === entry && audio.playbackState === Audio.PlayingState
-            onTriggered: audio.pause()
+            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState
+            onTriggered: AudioManager.pause()
         }
     ]
 }

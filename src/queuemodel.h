@@ -18,7 +18,6 @@ class QueueModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY(int timeLeft READ timeLeft NOTIFY timeLeftChanged)
-    Q_PROPERTY(AudioManager *audioManager READ audioManager WRITE setAudioManager)
 
 public:
     static QueueModel &instance()
@@ -32,9 +31,6 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
     int timeLeft() const;
-
-    AudioManager *audioManager();
-    void setAudioManager(AudioManager *audio);
 
 Q_SIGNALS:
     void timeLeftChanged();

@@ -38,7 +38,11 @@ class AudioManager : public QObject
     Q_PROPERTY(bool canGoNext READ canGoNext NOTIFY canGoNextChanged)
 
 public:
-    explicit AudioManager(QObject *parent = nullptr);
+    static AudioManager &instance()
+    {
+        static AudioManager _instance;
+        return _instance;
+    }
 
     ~AudioManager() override;
 
@@ -163,6 +167,8 @@ private Q_SLOTS:
     void savePlayPosition(qint64 position);
 
 private:
+    explicit AudioManager(QObject *parent = nullptr);
+
     friend class AudioManagerPrivate;
 
     std::unique_ptr<AudioManagerPrivate> d;

@@ -21,7 +21,7 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
-    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9 + ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
+    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
     property int tabBarActive: 0
 
     Kirigami.PagePool {
@@ -46,8 +46,8 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: (audio.entry ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
-        handleVisible: !audio.entry || footerLoader.item.contentY === 0
+        handle.anchors.bottomMargin: (AudioManager.entry ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handleVisible: !AudioManager.entry || footerLoader.item.contentY === 0
         actions: [
             Kirigami.PagePoolAction {
                 text: i18n("Queue")
@@ -117,19 +117,15 @@ Kirigami.ApplicationWindow {
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( audio.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
-        handleVisible: !audio.entry || footerLoader.item.contentY == 0
-    }
-
-    AudioManager {
-        id: audio
+        handle.anchors.bottomMargin: ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handleVisible: !AudioManager.entry || footerLoader.item.contentY == 0
     }
 
     Mpris2 {
         id: mpris2Interface
 
         playerName: 'kasts'
-        audioPlayer: audio
+        audioPlayer: AudioManager
 
         onRaisePlayer:
         {
@@ -139,13 +135,13 @@ Kirigami.ApplicationWindow {
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (audio.entry) ? miniplayerSize : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entry) ? miniplayerSize : 0
 
     Loader {
         id: footerLoader
 
         anchors.fill: parent
-        active: audio.entry
+        active: AudioManager.entry
         visible: active
         z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {

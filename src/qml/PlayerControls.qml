@@ -16,7 +16,7 @@ import org.kde.kasts 1.0
 Kirigami.Page {
     id: playerControls
 
-    title: audio.entry ? audio.entry.title : "No track loaded"
+    title: AudioManager.entry ? AudioManager.entry.title : "No track loaded"
     clip: true
     Layout.margins: 0
 
@@ -50,7 +50,7 @@ Kirigami.Page {
                 property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
                 ImageWithFallback {
                     id: coverImage
-                    imageSource: audio.entry ? audio.entry.cachedImage : "no-image"
+                    imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
                     imageFillMode: Image.PreserveAspectCrop
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -67,13 +67,13 @@ Kirigami.Page {
                     anchors.right: parent.right
                     anchors.topMargin: parent.textMargin
                     Controls.Label {
-                        text: audio.entry ? audio.entry.title : "No title"
+                        text: AudioManager.entry ? AudioManager.entry.title : "No title"
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
                     }
                     Controls.Label {
-                        text: audio.entry ? audio.entry.feed.name : "No feed"
+                        text: AudioManager.entry ? AudioManager.entry.feed.name : "No feed"
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
@@ -90,7 +90,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: audio.entry ? audio.entry.title : "No track title"
+                            text: AudioManager.entry ? AudioManager.entry.title : "No track title"
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -98,9 +98,9 @@ Kirigami.Page {
                         }
                         Controls.Label {
                             id: text
-                            text: audio.entry ? audio.entry.content : "No track loaded"
+                            text: AudioManager.entry ? AudioManager.entry.content : "No track loaded"
                             verticalAlignment: Text.AlignTop
-                            baseUrl: audio.entry ? audio.entry.baseUrl : ""
+                            baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
                             wrapMode: Text.WordWrap
                             onLinkActivated: Qt.openUrlExternally(link)
@@ -135,14 +135,14 @@ Kirigami.Page {
                 anchors.margins: 0
 
                 Controls.Slider {
-                    enabled: audio.entry
+                    enabled: AudioManager.entry
                     Layout.fillWidth: true
                     Layout.margins: 0
                     padding: 0
                     from: 0
-                    to: audio.duration
-                    value: audio.position
-                    onMoved: audio.seek(value)
+                    to: AudioManager.duration
+                    value: AudioManager.position
+                    onMoved: AudioManager.seek(value)
                 }
                 RowLayout {
                     id: controls
@@ -150,7 +150,7 @@ Kirigami.Page {
                     Layout.fillWidth: true
                     Controls.Label {
                         padding: Kirigami.Units.largeSpacing
-                        text: audio.timeString(audio.position)
+                        text: AudioManager.timeString(AudioManager.position)
                     }
                     Item {
                         Layout.fillWidth: true
@@ -164,8 +164,8 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             text: (SettingsManager.toggleRemainingTime) ?
-                                    "-" + audio.timeString(audio.duration-audio.position)
-                                    : audio.timeString(audio.duration)
+                                    "-" + AudioManager.timeString(AudioManager.duration-AudioManager.position)
+                                    : AudioManager.timeString(AudioManager.duration)
 
                         }
                         MouseArea {
@@ -189,15 +189,15 @@ Kirigami.Page {
                         // Use contentItem and a Label because using plain "text"
                         // does not rescale automatically if the text changes
                         contentItem: Controls.Label {
-                            text: audio.playbackRate + "x"
+                            text: AudioManager.playbackRate + "x"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
                         onClicked: {
-                            if(audio.playbackRate === 2.5)
-                                audio.playbackRate = 1
+                            if(AudioManager.playbackRate === 2.5)
+                                AudioManager.playbackRate = 1
                             else
-                                audio.playbackRate = audio.playbackRate + 0.25
+                                AudioManager.playbackRate = AudioManager.playbackRate + 0.25
                         }
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
@@ -212,19 +212,19 @@ Kirigami.Page {
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
-                        onClicked: audio.skipBackward()
-                        enabled: audio.canSkipBackward
+                        onClicked: AudioManager.skipBackward()
+                        enabled: AudioManager.canSkipBackward
                     }
                     Controls.Button {
                         id: playButton
-                        icon.name: audio.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+                        icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
-                        onClicked: audio.playbackState === Audio.PlayingState ? audio.pause() : audio.play()
-                        enabled: audio.canPlay
+                        onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
+                        enabled: AudioManager.canPlay
                     }
                     Controls.Button {
                         icon.name: "media-seek-forward"
@@ -233,8 +233,8 @@ Kirigami.Page {
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
-                        onClicked: audio.skipForward()
-                        enabled: audio.canSkipForward
+                        onClicked: AudioManager.skipForward()
+                        enabled: AudioManager.canSkipForward
                     }
                     Controls.Button {
                         icon.name: "media-skip-forward"
@@ -243,8 +243,8 @@ Kirigami.Page {
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
-                        onClicked: audio.next()
-                        enabled: audio.canGoNext
+                        onClicked: AudioManager.next()
+                        enabled: AudioManager.canGoNext
                     }
                 }
             }

@@ -72,13 +72,13 @@ Kirigami.ScrollablePage {
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
             entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
             !entry.queueStatus ? i18n("Delete download") :
-            (audio.entry === entry && audio.playbackState === Audio.PlayingState) ? i18n("Pause") :
+            (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? i18n("Pause") :
             i18n("Play")
         icon.name: !entry.enclosure ? "globe" :
             entry.enclosure.status === Enclosure.Downloadable ? "download" :
             entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
             !entry.queueStatus ? "delete" :
-            (audio.entry === entry && audio.playbackState === Audio.PlayingState) ? "media-playback-pause" :
+            (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? "media-playback-pause" :
             "media-playback-start"
         onTriggered: {
             if(!entry.enclosure) Qt.openUrlExternally(entry.link)
@@ -87,11 +87,11 @@ Kirigami.ScrollablePage {
             else if(!entry.queueStatus) {
                 entry.enclosure.deleteFile()
             } else {
-                if(audio.entry === entry && audio.playbackState === Audio.PlayingState) {
-                    audio.pause()
+                if(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) {
+                    AudioManager.pause()
                 } else {
-                    audio.entry = entry
-                    audio.play()
+                    AudioManager.entry = entry
+                    AudioManager.play()
                 }
             }
         }
@@ -106,8 +106,8 @@ Kirigami.ScrollablePage {
                 entry.queueStatus = true
             } else {
                 // first change to next track if this one is playing
-                if (entry.hasEnclosure && entry === audio.entry) {
-                    audio.next()
+                if (entry.hasEnclosure && entry === AudioManager.entry) {
+                    AudioManager.next()
                 }
                 entry.queueStatus = false
             }

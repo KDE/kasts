@@ -107,7 +107,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel");
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel");
-    qmlRegisterType<AudioManager>("org.kde.kasts", 1, 0, "AudioManager");
     qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
 
     qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
@@ -119,6 +118,8 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
+
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
 

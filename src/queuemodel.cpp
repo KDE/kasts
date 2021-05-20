@@ -35,6 +35,12 @@ QueueModel::QueueModel(QObject *parent)
         Q_EMIT timeLeftChanged();
         // qDebug() << "Removed entry at pos" << pos;
     });
+    // Connect positionChanged to make sure that the remaining playing time in
+    // the queue header is up-to-date
+    connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](qint64 position) {
+        Q_UNUSED(position)
+        Q_EMIT timeLeftChanged();
+    });
 }
 
 QVariant QueueModel::data(const QModelIndex &index, int role) const
@@ -71,20 +77,4 @@ int QueueModel::timeLeft() const
     }
     // qDebug() << "timeLeft is" << result;
     return result;
-}
-
-AudioManager *QueueModel::audioManager()
-{
-    return m_audio;
-}
-
-void QueueModel::setAudioManager(AudioManager *audio)
-{
-    // AudioManager is qml-owned; we need the pointer to the instance
-    // in order to connect to the positionChanged signal
-    m_audio = audio;
-    connect(m_audio, &AudioManager::positionChanged, this, [this](qint64 position) {
-        Q_UNUSED(position)
-        Q_EMIT timeLeftChanged();
-    });
 }
