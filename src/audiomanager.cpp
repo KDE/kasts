@@ -237,6 +237,8 @@ void AudioManager::setEntry(Entry *entry)
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
         Q_EMIT entryChanged(nullptr);
+        d->m_player.stop();
+        d->m_player.setMedia(nullptr);
         d->m_readyToPlay = false;
         Q_EMIT durationChanged(0);
         Q_EMIT positionChanged(0);
