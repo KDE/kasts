@@ -5,6 +5,14 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kastsrc" />
     <group name="General">
+        <entry name="alwaysShowFeedTitles" type="Bool">
+            <label>Always show the title of podcast feeds in subscription view</label>
+            <default>false</default>
+        </entry>
+        <entry name="continuePlayingNextEntry" type="Bool">
+            <label>Continue playing next episode after current one finishes</label>
+            <default>true</default>
+        </entry>
         <entry name="refreshOnStartup" type="Bool">
             <label>Automatically fetch feed updates on startup</label>
             <default>false</default>
@@ -15,10 +23,6 @@
         </entry>
         <entry name="autoDownload" type="Bool">
             <label>Automatically download new episodes</label>
-            <default>false</default>
-        </entry>
-        <entry name="alwaysShowFeedTitles" type="Bool">
-            <label>Always show the title of podcast feeds in subscription view</label>
             <default>false</default>
         </entry>
         <entry name="toggleRemainingTime" type="Bool">

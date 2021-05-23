@@ -21,6 +21,19 @@ Kirigami.ScrollablePage {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
+
+            text: i18n("Play Settings")
+        }
+
+        Controls.CheckBox {
+            id: continuePlayingNextEntry
+            checked: SettingsManager.continuePlayingNextEntry
+            text: i18n("Continue playing next episode after current one finishes")
+            onToggled: SettingsManager.continuePlayingNextEntry = checked
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
             text: i18n("Queue Settings")
         }
 
@@ -58,6 +71,7 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.isSection: true
             text: i18n("Appearance")
         }
+
 
         Controls.CheckBox {
             id: alwaysShowFeedTitles

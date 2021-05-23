@@ -181,6 +181,7 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 void AudioManager::setEntry(Entry *entry)
 {
     d->m_lockPositionSaving = true;
+    bool continuePlayback = false;
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
@@ -193,6 +194,7 @@ void AudioManager::setEntry(Entry *entry)
             d->m_entry->setRead(true);
             d->m_entry->enclosure()->setPlayPosition(0);
             d->m_entry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
+            continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
         }
     }
 
@@ -233,6 +235,7 @@ void AudioManager::setEntry(Entry *entry)
             d->m_entry->enclosure()->setDuration(d->m_player.duration() / 1000);
             // qDebug() << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration()/1000;
         }
+        if (continuePlayback) play();
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
