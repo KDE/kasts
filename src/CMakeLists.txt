@@ -42,12 +42,12 @@ add_executable(kasts ${SRCS})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt5::Core Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Sql Qt5::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n)
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
         KF5::Kirigami2
-        Qt5::Svg
+        Qt::Svg
         OpenSSL::SSL
     )
 
@@ -81,7 +81,7 @@ if(ANDROID)
         overflow-menu
     )
 else()
-    target_link_libraries(kasts PRIVATE Qt5::Widgets Qt5::DBus)
+    target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
 endif()
 
 install(TARGETS kasts ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
