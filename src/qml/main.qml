@@ -99,14 +99,12 @@ Kirigami.ApplicationWindow {
                 iconName: "settings-configure"
                 pagePool: mainPagePool
                 page: "qrc:/SettingsPage.qml"
-                useLayers: true
             },
             Kirigami.PagePoolAction {
                 text: i18n("About")
                 iconName: "help-about-symbolic"
                 pagePool: mainPagePool
                 page: "qrc:/AboutPage.qml"
-                useLayers: true
             }
         ]
     }
