@@ -70,7 +70,6 @@
   <provides>
     <binary>kasts</binary>
   </provides>
-  <!-- Commenting out screenshots as this has not been done yet
   <screenshots>
     <screenshot type="default">
       <caption>Kasts feed list on the desktop</caption>
@@ -81,6 +80,5 @@
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile.png</image>
     </screenshot>
   </screenshots>
-  -->
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
 </component>
