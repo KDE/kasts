@@ -45,9 +45,9 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
-        modal: !wideScreen || Kirigami.Settings.isMobile
+        modal: Kirigami.Settings.isMobile
         header: Kirigami.AbstractApplicationHeader {
-            visible: wideScreen && !Kirigami.Settings.isMobile
+            visible: !Kirigami.Settings.isMobile
         }
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: (AudioManager.entry ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
