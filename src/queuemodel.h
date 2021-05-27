@@ -34,7 +34,4 @@ public:
 
 Q_SIGNALS:
     void timeLeftChanged();
-
-private:
-    AudioManager *m_audio;
 };
