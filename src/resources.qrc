@@ -23,6 +23,7 @@
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
+        <file alias="HeaderBar.qml">qml/HeaderBar.qml</file>
         <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>
