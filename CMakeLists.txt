@@ -5,6 +5,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(Kasts)
+set(PROJECT_VERSION "0.1.0")
 
 # be c++17 compliant
 set(CMAKE_CXX_STANDARD 17)
@@ -25,7 +26,7 @@ include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-ecm_setup_version(0.1.0
+ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX KASTS
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
