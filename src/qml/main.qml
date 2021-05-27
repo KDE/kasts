@@ -46,6 +46,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
         modal: Kirigami.Settings.isMobile
+        width: Kirigami.Settings.isMobile ? Layout.implicitWidth : Kirigami.Units.gridUnit * 10
         header: Kirigami.AbstractApplicationHeader {
             visible: !Kirigami.Settings.isMobile
         }
