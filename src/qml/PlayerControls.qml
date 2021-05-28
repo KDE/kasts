@@ -9,7 +9,9 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
+
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kcoreaddons 1.0 as KCoreAddons
 
 import org.kde.kasts 1.0
 
@@ -150,7 +152,7 @@ Kirigami.Page {
                     Layout.fillWidth: true
                     Controls.Label {
                         padding: Kirigami.Units.largeSpacing
-                        text: AudioManager.timeString(AudioManager.position)
+                        text: KCoreAddons.Format.formatDuration(AudioManager.position)
                     }
                     Item {
                         Layout.fillWidth: true
@@ -164,8 +166,8 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             text: (SettingsManager.toggleRemainingTime) ?
-                                    "-" + AudioManager.timeString(AudioManager.duration-AudioManager.position)
-                                    : AudioManager.timeString(AudioManager.duration)
+                                    "-" + KCoreAddons.Format.formatDuration(AudioManager.duration-AudioManager.position)
+                                    : KCoreAddons.Format.formatDuration(AudioManager.duration)
 
                         }
                         MouseArea {

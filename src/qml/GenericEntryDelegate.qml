@@ -7,9 +7,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.14 as Kirigami
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
+
+import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kcoreaddons 1.0 as KCoreAddons
+
 import org.kde.kasts 1.0
 
 Kirigami.SwipeListItem {
@@ -76,7 +79,7 @@ Kirigami.SwipeListItem {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + Math.floor(entry.enclosure.size / (1024 * 1024)) + "MB" : "") : "" )
+                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + KCoreAddons.Format.formatByteSize(entry.enclosure.size) : "") : "" )
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -97,7 +100,7 @@ Kirigami.SwipeListItem {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: AudioManager.timeString(entry.enclosure.duration * 1000)
+                    text: KCoreAddons.Format.formatDuration(entry.enclosure.duration * 1000)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -119,7 +122,7 @@ Kirigami.SwipeListItem {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: AudioManager.timeString(entry.enclosure.playPosition)
+                        text: KCoreAddons.Format.formatDuration(entry.enclosure.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: entry.read ? 0.4 : 0.7
@@ -132,7 +135,7 @@ Kirigami.SwipeListItem {
                         opacity: entry.read ? 0.6 : 1
                     }
                     Controls.Label {
-                        text: AudioManager.timeString(entry.enclosure.duration * 1000)
+                        text: KCoreAddons.Format.formatDuration(entry.enclosure.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: entry.read ? 0.4 : 0.7
