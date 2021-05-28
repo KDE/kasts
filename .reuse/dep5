@@ -6,7 +6,7 @@ Files: src/qtquickcontrols2.conf README.md
 Copyright: 2020 Tobias Fella <fella@posteo.de>
 License: CC0-1.0
 
-Files: src/settingsmanager.kcfgc
+Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg
 Copyright: 2021 Bart De Vries <bart@mogwai.be>
 License: CC0-1.0
 
@@ -17,3 +17,7 @@ License: BSD-2-Clause
 Files: kasts.svg kasts-android-square.svg logo.png android/ic_launcher-playstore.png android/res/drawable/kasts.png android/res/drawable-v24/ic_launcher_background.xml android/res/drawable-v24/ic_launcher_foreground.xml android/res/mipmap-hdpi/ic_launcher.png android/res/mipmap-mdpi/ic_launcher.png android/res/mipmap-xhdpi/ic_launcher.png android/res/mipmap-xxhdpi/ic_launcher.png android/res/mipmap-xxxhdpi/ic_launcher.png
 Copyright: 2021 Mathis Brüchert <mbblp@protonmail.ch>
 License: CC-BY-SA-4.0
+
+Files: android/res/mipmap-anydpi-v26/ic_launcher.xml
+Copyright: None
+License: CC0-1.0
