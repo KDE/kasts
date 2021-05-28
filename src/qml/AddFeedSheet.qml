@@ -18,7 +18,7 @@ Kirigami.OverlaySheet {
     showCloseButton: true
 
     header: Kirigami.Heading {
-        text: i18n("Add new Podcast")
+        text: i18n("Add New Podcast")
     }
 
     contentItem: ColumnLayout {
@@ -28,7 +28,7 @@ Kirigami.OverlaySheet {
         Controls.TextField {
             id: urlField
             Layout.fillWidth: true
-            text: "https://planet.kde.org/global/atom.xml"
+            text: "https://"
         }
     }
 

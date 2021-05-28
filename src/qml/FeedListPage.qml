@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
-            text: i18n("Refresh all Podcasts")
+            text: i18n("Refresh All Podcasts")
             iconName: "view-refresh"
             onTriggered: refreshing = true
             visible: !Kirigami.Settings.isMobile
@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("No Podcasts added yet")
+        text: i18n("No Podcasts Added Yet")
     }
 
     FileDialog {

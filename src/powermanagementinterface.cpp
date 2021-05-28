@@ -185,7 +185,7 @@ void PowerManagementInterface::inhibitSleepPlasmaWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     auto asyncReply =
-        d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(), i18nc("explanation for sleep inhibit during play of music", "Playing Music"));
+        d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(), i18nc("Explanation for sleep inhibit during play of music", "Playing Music"));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
@@ -209,7 +209,7 @@ void PowerManagementInterface::inhibitSleepGnomeWorkspace()
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     auto asyncReply = d->mGnomeInterface->Inhibit(QCoreApplication::applicationName(),
                                                   uint(0),
-                                                  i18nc("explanation for sleep inhibit during play of music", "Playing Music"),
+                                                  i18nc("Explanation for sleep inhibit during play of music", "Playing Music"),
                                                   uint(8));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);

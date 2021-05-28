@@ -76,10 +76,10 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("kasts");
 
     QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("Podcast application"));
+    parser.setApplicationDescription(i18n("Podcast Application"));
     QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add")
                                    , i18n("Adds a new podcast to subscriptions.")
-                                   , i18n("podcast URL")
+                                   , i18n("Podcast URL")
                                    , QStringLiteral("none"));
     parser.addOption(addFeedOption);
 

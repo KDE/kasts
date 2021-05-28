@@ -64,7 +64,7 @@ Kirigami.SwipeListItem {
             Layout.alignment: Qt.AlignVCenter
             RowLayout{
                 Controls.Label {
-                    text: entry.new ? i18n("new") + "  ·" : ""
+                    text: entry.new ? i18n("New") + "  ·" : ""
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
                     visible: entry.new
@@ -178,19 +178,19 @@ Kirigami.SwipeListItem {
             visible: !isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
         },
         Kirigami.Action {
-            text: i18n("Cancel download")
+            text: i18n("Cancel Download")
             icon.name: "edit-delete-remove"
             onTriggered: entry.enclosure.cancelDownload()
             visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
         },
         Kirigami.Action {
-            text: i18n("Delete download")
+            text: i18n("Delete Download")
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
             visible: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
         },
         Kirigami.Action {
-            text: i18n("Add to queue")
+            text: i18n("Add to Queue")
             icon.name: "media-playlist-append"
             visible: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
             onTriggered: entry.queueStatus = true

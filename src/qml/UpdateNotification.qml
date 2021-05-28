@@ -60,10 +60,11 @@ Rectangle {
 
         Controls.Label {
             id: feedUpdateCountLabel
-            text: i18ncp("number of updated podcasts",
-                         "Updated %2 of %1 podcast",
-                         "Updated %2 of %1 podcasts",
-                              Fetcher.updateTotal, Fetcher.updateProgress)
+            text: i18ncp("Number of Updated Podcasts",
+                         "Updated %2 of %1 Podcast",
+                         "Updated %2 of %1 Podcasts",
+                         Fetcher.updateTotal,
+                         Fetcher.updateProgress)
             color: Kirigami.Theme.textColor
 
             Layout.fillWidth: true
@@ -75,10 +76,11 @@ Rectangle {
     TextMetrics {
         id: labelWidth
 
-        text: i18ncp("number of updated podcasts",
-                     "Updated %2 of %1 podcast",
-                     "Updated %2 of %1 podcasts",
-                     999, 999)
+        text: i18ncp("Number of Updated Podcasts",
+                     "Updated %2 of %1 Podcast",
+                     "Updated %2 of %1 Podcasts",
+                     999,
+                     999)
     }
 
     Timer {

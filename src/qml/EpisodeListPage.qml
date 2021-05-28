@@ -39,12 +39,12 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n(episodeType === EpisodeModel.All ? i18n("No episodes available")
-                 : episodeType === EpisodeModel.New ? i18n("No new episodes")
-                 : episodeType === EpisodeModel.Unread ? i18n("No unplayed episodes")
-                 : episodeType === EpisodeModel.Downloaded ? i18n("No downloaded episodes")
-                 : episodeType === EpisodeModel.Downloading ? i18n("No downloads in progress")
-                 : i18n("No episodes available"))
+        text: episodeType === EpisodeModel.All ? i18n("No Episodes Available")
+              : episodeType === EpisodeModel.New ? i18n("No New Episodes")
+              : episodeType === EpisodeModel.Unread ? i18n("No Unplayed Episodes")
+              : episodeType === EpisodeModel.Downloaded ? i18n("No Downloaded Episodes")
+              : episodeType === EpisodeModel.Downloading ? i18n("No Downloads in Progress")
+              : i18n("No Episodes Available"))
     }
 
     Component {

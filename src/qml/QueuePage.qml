@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("Nothing added to the queue yet")
+        text: i18n("Nothing Added to the Queue Yet")
     }
 
     Component {
@@ -64,7 +64,7 @@ Kirigami.ScrollablePage {
             Controls.Label {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
-                text: i18np("1 episode", "%1 episodes", queueModel.rowCount()) + "  ·  " + i18n("Time left") + ": " + KCoreAddons.Format.formatDuration(queueModel.timeLeft)
+                text: i18np("1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18n("Time Left") + ": " + KCoreAddons.Format.formatDuration(queueModel.timeLeft)
             }
             Kirigami.Separator {
                 Layout.fillWidth: true

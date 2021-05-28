@@ -70,8 +70,8 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         text: !entry.enclosure ? i18n("Open in Browser") :
             entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
-            entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel download") :
-            !entry.queueStatus ? i18n("Delete download") :
+            entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel Download") :
+            !entry.queueStatus ? i18n("Delete Download") :
             (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? i18n("Pause") :
             i18n("Play")
         icon.name: !entry.enclosure ? "globe" :
@@ -98,7 +98,7 @@ Kirigami.ScrollablePage {
     }
 
     actions.left: Kirigami.Action {
-        text: !entry.queueStatus ? i18n("Add to queue") : i18n("Remove from queue")
+        text: !entry.queueStatus ? i18n("Add to Queue") : i18n("Remove from Queue")
         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
         visible: entry.enclosure || entry.queueStatus
         onTriggered: {
@@ -115,7 +115,7 @@ Kirigami.ScrollablePage {
     }
 
     actions.right: Kirigami.Action {
-        text: i18n("Delete download")
+        text: i18n("Delete Download")
         icon.name: "delete"
         onTriggered: entry.enclosure.deleteFile()
         visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus
@@ -123,18 +123,18 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
-            text: i18n("Reset play position")
+            text: i18n("Reset Play Position")
             visible: entry.enclosure && entry.enclosure.playPosition > 1000
             onTriggered: entry.enclosure.playPosition = 0
         },
         Kirigami.Action {
-            text: entry.read ? i18n("Mark as unplayed") : i18n("Mark as played")
+            text: entry.read ? i18n("Mark as Unplayed") : i18n("Mark as Played")
             onTriggered: {
                 entry.read = !entry.read
             }
         },
         Kirigami.Action {
-            text: entry.new ? i18n("Remove \"new\" label") : i18n("Label as \"new\"")
+            text: entry.new ? i18n("Remove \"New\" Label") : i18n("Label as \"New\"")
             onTriggered: {
                 entry.new = !entry.new
             }

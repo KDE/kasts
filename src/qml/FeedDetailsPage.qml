@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
 
         image: feed.cachedImage
         title: feed.name
-        subtitle: page.feed.authors.length === 0 ? "" : i18nc("by <author(s)>", "by %1", page.feed.authors[0].name)
+        subtitle: page.feed.authors.length === 0 ? "" : i18nc("by <Author(s)>", "by %1", page.feed.authors[0].name)
     }
 
     ColumnLayout {
@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18nc("by <author(s)>", "by %1", feed.authors[0].name)
+            text: i18nc("by <Author(s)>", "by %1", feed.authors[0].name)
             visible: feed.authors.length !== 0
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
@@ -53,12 +53,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat))
+            text: i18n("Last Updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat))
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18np("1 episode", "%1 episodes", feed.entryCount) + ", " + i18np("1 unplayed", "%1 unplayed", feed.unreadEntryCount)
+            text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }

@@ -18,7 +18,7 @@ import org.kde.kasts 1.0
 Kirigami.Page {
     id: playerControls
 
-    title: AudioManager.entry ? AudioManager.entry.title : i18n("No track loaded")
+    title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Loaded")
     clip: true
     Layout.margins: 0
 
@@ -69,13 +69,13 @@ Kirigami.Page {
                     anchors.right: parent.right
                     anchors.topMargin: parent.textMargin
                     Controls.Label {
-                        text: AudioManager.entry ? AudioManager.entry.title : i18n("No title")
+                        text: AudioManager.entry ? AudioManager.entry.title : i18n("No Title")
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
                     }
                     Controls.Label {
-                        text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No feed")
+                        text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Podcast Title")
                         elide: Text.ElideRight
                         Layout.alignment: Qt.AlignHCenter
                         Layout.maximumWidth: parent.width
@@ -92,7 +92,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No track title")
+                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -100,7 +100,7 @@ Kirigami.Page {
                         }
                         Controls.Label {
                             id: text
-                            text: AudioManager.entry ? AudioManager.entry.content : i18n("No track loaded")
+                            text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText

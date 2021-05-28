@@ -183,7 +183,7 @@ Kirigami.ApplicationWindow {
         Connections {
             target: ErrorLogModel
             function onNewErrorLogged(error) {
-                inlineMessage.text = error.id ? i18n("Media download error") : i18n("Podcast update error") + "\n" + i18n("Check Error Log tab (under Downloads) for more details.");
+                inlineMessage.text = error.id ? i18n("Media Download Error") : i18n("Podcast Update Error") + "\n" + i18n("Check Error Log Tab (under Downloads) for more details.");
                 inlineMessage.visible = true;
             }
         }

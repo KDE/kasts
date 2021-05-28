@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("No errors logged")
+        text: i18n("No Errors Logged")
     }
 
     Component {
@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignVCenter
                     Controls.Label {
-                        text: ( (error.id) ? i18n("Media download error") : i18n("Podcast update error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                        text: ( (error.id) ? i18n("Media Download Error") : i18n("Podcast Update Error") )  + " ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + " ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                         opacity: 1
                     }
                     Controls.Label {
-                        text: i18n("Error code: ") + error.code + (error.message ? " ·  " + error.message : "")
+                        text: i18n("Error Code: ") + error.code + (error.message ? " ·  " + error.message : "")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
         }
     }
     actions.main: Kirigami.Action {
-        text: i18n("Clear all errors")
+        text: i18n("Clear All Errors")
         iconName: "edit-clear-all"
         visible: errorList.count > 0
         onTriggered: ErrorLogModel.clearAll()
