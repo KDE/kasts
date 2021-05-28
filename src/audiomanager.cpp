@@ -188,7 +188,7 @@ void AudioManager::setEntry(Entry *entry)
     // TODO: make grace time a setting in SettingsManager
     if (d->m_entry) {
         qCDebug(kastsAudio) << "Checking previous track";
-        qCDebug(kastsAudio) << "Left time" << (duration()-position());
+        qCDebug(kastsAudio) << "Left time" << (duration() - position());
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
         if (((duration() - position()) < 15000) || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia)) {
             qCDebug(kastsAudio) << "Mark as read:" << d->m_entry->title();
@@ -230,13 +230,14 @@ void AudioManager::setEntry(Entry *entry)
         Q_EMIT canGoNextChanged();
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(true);
-        qCDebug(kastsAudio) << "Duration" << d->m_player.duration()/1000 << d->m_entry->enclosure()->duration();
+        qCDebug(kastsAudio) << "Duration" << d->m_player.duration() / 1000 << d->m_entry->enclosure()->duration();
         // Finally, check if duration mentioned in enclosure corresponds to real duration
         if ((d->m_player.duration() / 1000) != d->m_entry->enclosure()->duration()) {
             d->m_entry->enclosure()->setDuration(d->m_player.duration() / 1000);
-            qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration()/1000;
+            qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << d->m_player.duration() / 1000;
         }
-        if (continuePlayback) play();
+        if (continuePlayback)
+            play();
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
@@ -377,7 +378,7 @@ void AudioManager::next()
     if (canGoNext()) {
         QMediaPlayer::State previousTrackState = playbackState();
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
-        qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index+1];
+        qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
         setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]));
         if (previousTrackState == QMediaPlayer::PlayingState)
             play();
@@ -497,7 +498,8 @@ void AudioManagerPrivate::prepareAudioStream()
         loop.connect(&m_player, &QMediaPlayer::mediaStatusChanged, &loop, &QEventLoop::quit);
         qCDebug(kastsAudio) << "Starting waiting loop on media status" << m_player.mediaStatus();
         loop.exec();
-    } qCDebug(kastsAudio) << "Changing position";
+    }
+    qCDebug(kastsAudio) << "Changing position";
     if (startingPosition > 1000)
         m_player.setPosition(startingPosition);
     m_player.pause();

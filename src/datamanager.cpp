@@ -5,10 +5,10 @@
  */
 
 #include "datamanager.h"
+#include "audiomanager.h"
 #include "database.h"
 #include "fetcher.h"
 #include "settingsmanager.h"
-#include "audiomanager.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSqlDatabase>
@@ -253,7 +253,7 @@ void DataManager::removeFeed(const int index)
     qDebug() << "delete queueentries of" << feedurl;
     for (auto &id : m_queuemap) {
         if (getEntry(id)->feed()->url() == feedurl) {
-            if(AudioManager::instance().entry() == getEntry(id)) {
+            if (AudioManager::instance().entry() == getEntry(id)) {
                 AudioManager::instance().next();
             }
             removeQueueItem(id);

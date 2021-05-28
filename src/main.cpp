@@ -25,7 +25,6 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
-#include "kasts-version.h"
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
@@ -35,6 +34,7 @@
 #include "errorlogmodel.h"
 #include "feedsmodel.h"
 #include "fetcher.h"
+#include "kasts-version.h"
 #include "mpris2/mpris2.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle(QStringLiteral("Material"));
 #else
     QApplication app(argc, argv);
-    if(qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 #endif
@@ -77,10 +77,10 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Podcast Application"));
-    QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add")
-                                   , i18n("Adds a new podcast to subscriptions.")
-                                   , i18n("Podcast URL")
-                                   , QStringLiteral("none"));
+    QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add"),
+                                     i18n("Adds a new podcast to subscriptions."),
+                                     i18n("Podcast URL"),
+                                     QStringLiteral("none"));
     parser.addOption(addFeedOption);
 
     KAboutData about(QStringLiteral("kasts"),
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     about.setupCommandLine(&parser);
     parser.process(app);
     QString feedURL = parser.value(addFeedOption);
-    if(feedURL != QStringLiteral("none")) {
+    if (feedURL != QStringLiteral("none")) {
         Database::instance();
         DataManager::instance().addFeed(feedURL);
     }
@@ -119,7 +119,6 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
-
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
 
