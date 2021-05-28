@@ -482,8 +482,8 @@ void AudioManagerPrivate::prepareAudioStream()
         QTimer timer;
         timer.setSingleShot(true);
         timer.setInterval(2000);
-        loop.connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
-        loop.connect(&m_player, SIGNAL(seekableChanged(bool)), &loop, SLOT(quit()));
+        loop.connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+        loop.connect(&m_player, &QMediaPlayer::seekableChanged, &loop, &QEventLoop::quit);
         // qDebug() << "Starting waiting loop";
         loop.exec();
     }
@@ -492,8 +492,8 @@ void AudioManagerPrivate::prepareAudioStream()
         QTimer timer;
         timer.setSingleShot(true);
         timer.setInterval(2000);
-        loop.connect(&timer, SIGNAL(timeout()), &loop, SLOT(quit()));
-        loop.connect(&m_player, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)), &loop, SLOT(quit()));
+        loop.connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+        loop.connect(&m_player, &QMediaPlayer::mediaStatusChanged, &loop, &QEventLoop::quit);
         // qDebug() << "Starting waiting loop on media status" << d->m_player.mediaStatus();
         loop.exec();
     } // qDebug() << "Changing position";
