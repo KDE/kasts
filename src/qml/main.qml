@@ -21,6 +21,10 @@ Kirigami.ApplicationWindow {
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
     property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9 + ( ( AudioManager.entry && Kirigami.Settings.isMobile ) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
     property int tabBarActive: 0
+    property int originalWidth: Kirigami.Units.gridUnit * 10
+
+    property bool isWidescreen: root.width >= root.height
+    onIsWidescreenChanged: changeNavigation(!isWidescreen);
 
     Kirigami.PagePool {
         id: mainPagePool
@@ -44,13 +48,13 @@ Kirigami.ApplicationWindow {
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: false
         modal: Kirigami.Settings.isMobile
-        width: Kirigami.Settings.isMobile ? Layout.implicitWidth : Kirigami.Units.gridUnit * 10
+        collapsible: !Kirigami.Settings.isMobile
         header: Kirigami.AbstractApplicationHeader {
             visible: !Kirigami.Settings.isMobile
         }
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
-        handleVisible: !(AudioManager.entry && Kirigami.Settings.isMobile) || footerLoader.item.contentY === 0
+        showHeaderWhenCollapsed: true
         actions: [
             Kirigami.PagePoolAction {
                 text: i18n("Queue")
@@ -105,6 +109,17 @@ Kirigami.ApplicationWindow {
                 page: "qrc:/AboutPage.qml"
             }
         ]
+    }
+
+    function changeNavigation(isNarrow) {
+        if(isNarrow) {
+            globalDrawer.collapsed = true
+            globalDrawer.width = Layout.implicitWidth
+        }
+        else {
+            globalDrawer.collapsed = false
+            globalDrawer.width = originalWidth
+        }
     }
 
     Component {
