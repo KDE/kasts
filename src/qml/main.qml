@@ -132,7 +132,10 @@ Kirigami.ApplicationWindow {
 
         onRaisePlayer:
         {
-            // TODO: implement
+            root.visible = true
+            root.show()
+            root.raise()
+            root.requestActivate()
         }
     }
 
