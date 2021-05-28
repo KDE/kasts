@@ -437,7 +437,7 @@ void AudioManager::playerVolumeChanged()
 {
     // qDebug() << "AudioManager::playerVolumeChanged" << d->m_player.volume();
 
-    QTimer::singleShot(0, [this]() {
+    QTimer::singleShot(0, this, [this]() {
         Q_EMIT volumeChanged();
     });
 }
@@ -446,7 +446,7 @@ void AudioManager::playerMutedChanged()
 {
     // qDebug() << "AudioManager::playerMutedChanged";
 
-    QTimer::singleShot(0, [this]() {
+    QTimer::singleShot(0, this, [this]() {
         Q_EMIT mutedChanged(muted());
     });
 }
