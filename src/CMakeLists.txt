@@ -25,6 +25,13 @@ set(SRCS_base
     resources.qrc
 )
 
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "audiologging.h"
+    IDENTIFIER "kastsAudio"
+    CATEGORY_NAME "org.kde.kasts.audio"
+    DEFAULT_SEVERITY Info
+)
+
 if(ANDROID)
     set (SRCS ${SRCS_base})
 else()

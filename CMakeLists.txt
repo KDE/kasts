@@ -21,10 +21,12 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 include(KDEInstallDirs)
 include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX KASTS
