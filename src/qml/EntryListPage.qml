@@ -97,7 +97,7 @@ Kirigami.ScrollablePage {
 
             image: feed.cachedImage
             title: feed.name
-            subtitle: page.feed.authors.length === 0 ? "" : i18nc("by <author(s)>", "by") + " " + page.feed.authors[0].name
+            subtitle: page.feed.authors.length === 0 ? "" : i18nc("by <author(s)>", "by %1", page.feed.authors[0].name)
 
             MouseArea {
                 anchors.fill: parent
