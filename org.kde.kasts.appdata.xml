@@ -77,10 +77,24 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts feed list on the desktop</caption>
+      <caption xml:lang="ca">Llista de fonts del Kasts a l'escriptori</caption>
+      <caption xml:lang="de">Kasts mit der Liste der Nachrichtenquellen auf der Arbeitsfläche</caption>
+      <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
+      <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
+      <caption xml:lang="sv">Kasts kanallista på skrivbordet</caption>
+      <caption xml:lang="uk">Список подач Kasts на стільниці</caption>
+      <caption xml:lang="x-test">xxKasts feed list on the desktopxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Kasts on a phone</caption>
+      <caption xml:lang="ca">Kasts a un telèfon</caption>
+      <caption xml:lang="de">Kasts auf einem Mobiltelefon</caption>
+      <caption xml:lang="es">Kasts en un teléfono</caption>
+      <caption xml:lang="nl">Kasts op een telefoon</caption>
+      <caption xml:lang="sv">Kasts på en telefon</caption>
+      <caption xml:lang="uk">Kasts на телефоні</caption>
+      <caption xml:lang="x-test">xxKasts on a phonexx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile.png</image>
     </screenshot>
   </screenshots>
