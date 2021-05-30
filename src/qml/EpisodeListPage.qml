@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
               : episodeType === EpisodeModel.Unread ? i18n("No Unplayed Episodes")
               : episodeType === EpisodeModel.Downloaded ? i18n("No Downloaded Episodes")
               : episodeType === EpisodeModel.Downloading ? i18n("No Downloads in Progress")
-              : i18n("No Episodes Available"))
+              : i18n("No Episodes Available")
     }
 
     Component {
