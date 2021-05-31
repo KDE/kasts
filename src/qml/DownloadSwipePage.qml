@@ -19,6 +19,13 @@ Kirigami.Page {
     title: i18n("Downloads")
     padding: 0
 
+    actions.main: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh All Podcasts")
+        visible: !Kirigami.Settings.isMobile
+        onTriggered: Fetcher.fetchAll()
+    }
+
     header: Loader {
         id: headerLoader
         active: !Kirigami.Settings.isMobile
@@ -57,9 +64,16 @@ Kirigami.Page {
         }
     }
 
-    Controls.SwipeView {
+    contentItem: Controls.SwipeView {
         id: swipeView
-        anchors.fill: parent
+
+        anchors {
+            top: page.header.bottom
+            right: page.right
+            left: page.left
+            bottom: page.footer.top
+        }
+
         currentIndex: Kirigami.Settings.isMobile ? footerLoader.item.currentIndex : headerLoader.item.currentIndex
 
         EpisodeListPage {
