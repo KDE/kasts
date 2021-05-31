@@ -8,7 +8,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.2
-import QtMultimedia 5.15
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kcoreaddons 1.0 as KCoreAddons
