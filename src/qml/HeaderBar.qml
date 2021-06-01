@@ -48,6 +48,7 @@ Rectangle {
                         horizontalAlignment: Text.AlignLeft
                         level: 2
                         wrapMode: Text.Wrap
+                        maximumLineCount: 2
                         font.bold: true
                     }
                     Label {
