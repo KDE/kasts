@@ -94,11 +94,17 @@ Kirigami.ScrollablePage {
 
         property int minimumCardSize: 150
         property int cardMargin: Kirigami.Units.largeSpacing
+        // In order to account for the scrollbar popping up and creating a
+        // binding loop, we calculate the number of columns and card width based
+        // on the total width of the page itself rather than the width left for
+        // the GridView, and then subtract some space
+        property int availableWidth: subscriptionPage.width - !Kirigami.Settings.isMobile * Kirigami.Units.gridUnit * 1.3
+        // TODO: get proper width for scrollbar rather than hardcoding it
 
-        property int columns: Math.floor(width / (minimumCardSize + 2 * cardMargin))
+        property int columns: Math.max(1, Math.floor(availableWidth / (minimumCardSize + 2 * cardMargin)))
 
-        cellWidth: width / columns
-        cellHeight: width / columns
+        cellWidth: availableWidth / columns
+        cellHeight: availableWidth / columns
 
         model: FeedsModel {
             id: feedsModel
@@ -107,7 +113,7 @@ Kirigami.ScrollablePage {
         Component {
             id: feedListDelegate
             FeedListDelegate {
-                cardSize: feedList.width / feedList.columns - 2 * feedList.cardMargin
+                cardSize: feedList.availableWidth / feedList.columns - 2 * feedList.cardMargin
                 cardMargin: feedList.cardMargin
             }
         }
