@@ -5,6 +5,7 @@
  -->
 <component type="desktop-application">
   <id>org.kde.kasts</id>
+  <content_rating type="oars-1.1"/>
   <name>Kasts</name>
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
@@ -37,7 +38,7 @@
   <summary xml:lang="uk">Програма для прослуховування подкастів на мобільних пристроях</summary>
   <summary xml:lang="x-test">xxPodcast application for mobile devicesxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-2.0+</project_license>
+  <project_license>GPL-2.0-or-later</project_license>
   <url type="bugtracker">https://invent.kde.org/plasma-mobile/kasts/-/issues</url>
   <developer_name>The KDE Community</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
@@ -72,6 +73,11 @@
     <p xml:lang="uk">Kasts — програма для прослуховування подкастів на мобільних пристроях</p>
     <p xml:lang="x-test">xxKasts is a mobile podcast applicationxx</p>
   </description>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
   <provides>
     <binary>kasts</binary>
   </provides>
