@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
@@ -5,13 +8,19 @@ import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kcoreaddons 1.0 as KCoreAddons
 
 import org.kde.kasts 1.0
 
 Rectangle {
     id: headerBar
     anchors.fill: parent
+
+    //set background color
+    Kirigami.Theme.inherit: false
+    Kirigami.Theme.colorSet: Kirigami.Theme.Header
     color: Kirigami.Theme.backgroundColor
+
     RowLayout {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -116,17 +125,41 @@ Rectangle {
                     }
                 }
             }
-            Slider {
-                id: durationSlider
-                enabled: AudioManager.entry
+            RowLayout {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
-                Layout.rightMargin: Kirigami.Units.largeSpacing
-                padding: 0
-                from: 0
-                to: AudioManager.duration
-                value: AudioManager.position
-                onMoved: AudioManager.seek(value)
+                Label {
+                    text: KCoreAddons.Format.formatDuration(AudioManager.position)
+                }
+                Slider {
+                    id: durationSlider
+                    enabled: AudioManager.entry
+                    Layout.fillWidth: true
+                    padding: 0
+                    from: 0
+                    to: AudioManager.duration
+                    value: AudioManager.position
+                    onMoved: AudioManager.seek(value)
+                }
+
+                Item {
+                    Layout.preferredHeight: endLabel.implicitHeight
+                    Layout.preferredWidth: endLabel.implicitWidth
+                    Layout.rightMargin: Kirigami.Units.largeSpacing
+                    Label {
+                        id: endLabel
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: (SettingsManager.toggleRemainingTime) ?
+                                "-" + KCoreAddons.Format.formatDuration(AudioManager.duration-AudioManager.position)
+                                : KCoreAddons.Format.formatDuration(AudioManager.duration)
+
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onClicked: SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime
+                    }
+                }
             }
         }
     }

@@ -19,7 +19,7 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
-    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9 + ( ( AudioManager.entry && Kirigami.Settings.isMobile ) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight
+    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9
     property int tabBarActive: 0
     property int originalWidth: Kirigami.Units.gridUnit * 10
 
@@ -54,6 +54,7 @@ Kirigami.ApplicationWindow {
         }
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
         showHeaderWhenCollapsed: true
         actions: [
             Kirigami.PagePoolAction {
@@ -134,7 +135,7 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: ( (AudioManager.entry && Kirigami.Settings.isMobile) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
-        handleVisible: !( AudioManager.entry && Kirigami.Settings.isMobile) || footerLoader.item.contentY == 0
+        handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
     }
 
     Mpris2 {
