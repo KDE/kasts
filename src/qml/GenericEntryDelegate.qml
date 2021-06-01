@@ -54,7 +54,6 @@ Kirigami.SwipeListItem {
             Layout.preferredHeight: size
             Layout.preferredWidth: size
             Layout.rightMargin:Kirigami.Units.smallSpacing
-            imageOpacity: (entry.read) ? 0.5 : 1
             fractionalRadius: 1.0 / 8.0
         }
 
@@ -63,19 +62,32 @@ Kirigami.SwipeListItem {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             RowLayout{
+                Kirigami.Icon {
+                    Layout.maximumHeight: playedLabel.implicitHeight
+                    Layout.maximumWidth:  playedLabel.implicitHeight
+                    source: "checkbox"
+                    visible: entry.read
+                }
+                Controls.Label {
+                    id: playedLabel
+                    text: (entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
+                    font: Kirigami.Theme.smallFont
+                    visible: entry.read
+                    opacity: 0.7
+                }
                 Controls.Label {
                     text: entry.new ? i18n("New") + "  ·" : ""
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
                     visible: entry.new
-                    opacity: entry.read ? 0.4 : 0.7
+                    opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "source-playlist"
                     visible: !isQueue && entry.queueStatus
-                    opacity: entry.read ? 0.4 : 0.7
+                    opacity: 0.7
                 }
                 Controls.Label {
                     id: supertitle
@@ -83,7 +95,7 @@ Kirigami.SwipeListItem {
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
-                    opacity: entry.read ? 0.4 : 0.7
+                    opacity: 0.7
                 }
             }
             Controls.Label {
@@ -91,7 +103,6 @@ Kirigami.SwipeListItem {
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font.weight: Font.Normal
-                opacity: entry.read ? 0.6 : 1
             }
             Loader {
                 sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
@@ -104,7 +115,7 @@ Kirigami.SwipeListItem {
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
-                    opacity: entry.read ? 0.4 : 0.7
+                    opacity: 0.7
                     visible: !downloadProgress.visible
                 }
             }
@@ -125,20 +136,19 @@ Kirigami.SwipeListItem {
                         text: KCoreAddons.Format.formatDuration(entry.enclosure.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: entry.read ? 0.4 : 0.7
+                        opacity: 0.7
                     }
                     Controls.ProgressBar {
                         from: 0
                         to: entry.enclosure.duration
                         value: entry.enclosure.playPosition / 1000
                         Layout.fillWidth: true
-                        opacity: entry.read ? 0.6 : 1
                     }
                     Controls.Label {
                         text: KCoreAddons.Format.formatDuration(entry.enclosure.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: entry.read ? 0.4 : 0.7
+                        opacity: 0.7
                     }
                 }
             }
