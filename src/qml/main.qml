@@ -19,7 +19,7 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
-    property int bottomMessageSpacing: Kirigami.Units.largeSpacing * 9
+    property int bottomMessageSpacing: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight : Kirigami.Units.largeSpacing * 2
     property int tabBarActive: 0
     property int originalWidth: Kirigami.Units.gridUnit * 10
 
