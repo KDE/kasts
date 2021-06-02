@@ -1,5 +1,8 @@
-// SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
-// SPDX-License-Identifier: GPL-2.0-or-later
+/**
+ * SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14
@@ -14,7 +17,8 @@ import org.kde.kasts 1.0
 
 Rectangle {
     id: headerBar
-    anchors.fill: parent
+    implicitHeight: headerRowLayout.implicitHeight
+    implicitWidth: headerRowLayout.implicitWidth
 
     //set background color
     Kirigami.Theme.inherit: false
@@ -22,10 +26,9 @@ Rectangle {
     color: Kirigami.Theme.backgroundColor
 
     RowLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
+        id: headerRowLayout
+        anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
-        anchors.verticalCenter: parent.verticalCenter
         ImageWithFallback {
             id: mainImage
             imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
@@ -37,7 +40,6 @@ Rectangle {
         ColumnLayout {
             id: controlsLayout
             Layout.fillWidth: true
-            Layout.fillHeight: true
             RowLayout {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 ColumnLayout {
@@ -46,7 +48,7 @@ Rectangle {
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         horizontalAlignment: Text.AlignLeft
-                        level: 2
+                        level: 3
                         wrapMode: Text.Wrap
                         maximumLineCount: 2
                         font.bold: true
@@ -56,7 +58,7 @@ Rectangle {
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         opacity: 0.6
-                        Layout.bottomMargin: 10
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing
                     }
                 }
                 Item {

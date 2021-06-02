@@ -155,10 +155,9 @@ Kirigami.ApplicationWindow {
 
     header: Loader {
         id: headerLoader
-        height: root.height * 0.12 + Kirigami.Units.gridUnit
         active: !Kirigami.Settings.isMobile
         visible: active
-        Layout.fillWidth: true
+
         sourceComponent: HeaderBar {
             focus: true
         }
