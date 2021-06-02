@@ -49,6 +49,8 @@ Kirigami.ApplicationWindow {
         isMenu: false
         modal: Kirigami.Settings.isMobile
         collapsible: !Kirigami.Settings.isMobile
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
         header: Kirigami.AbstractApplicationHeader {
             visible: !Kirigami.Settings.isMobile
         }
