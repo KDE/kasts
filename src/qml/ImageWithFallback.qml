@@ -67,6 +67,8 @@ Item {
             Kirigami.Icon {
                 anchors.fill: parent
                 source: "rss"
+                isMask: true
+                color: "black"
             }
         }
     }
