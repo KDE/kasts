@@ -49,8 +49,8 @@ Rectangle {
                         elide: Text.ElideRight
                         horizontalAlignment: Text.AlignLeft
                         level: 3
-                        wrapMode: Text.Wrap
-                        maximumLineCount: 2
+                        // wrapMode: Text.Wrap
+                        // maximumLineCount: 2
                         font.bold: true
                     }
                     Label {
