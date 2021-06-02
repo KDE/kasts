@@ -55,8 +55,11 @@ Rectangle {
                     }
                     Label {
                         text: AudioManager.entry ? AudioManager.entry.feed.name : "No feed"
+                        Layout.fillWidth: true
                         elide: Text.ElideRight
-                        wrapMode: Text.Wrap
+                        //wrapMode: Text.Wrap
+                        //maximumLineCount: 1
+                        horizontalAlignment: Text.AlignLeft
                         opacity: 0.6
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
                     }
