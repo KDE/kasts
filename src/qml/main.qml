@@ -17,8 +17,8 @@ Kirigami.ApplicationWindow {
     id: root
     title: "Kasts"
 
-    minimumWidth: Kirigami.Settings.isMobile ? 320 : 620
-    minimumHeight: 480
+    minimumWidth: Kirigami.Units.gridUnit * 17
+    minimumHeight: Kirigami.Units.gridUnit * 20
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int tabBarHeight: Kirigami.Units.gridUnit * 2
