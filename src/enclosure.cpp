@@ -249,3 +249,18 @@ void Enclosure::setSize(const int &size)
     query.bindValue(QStringLiteral(":size"), m_size);
     Database::instance().execute(query);
 }
+
+QString Enclosure::formattedSize() const
+{
+    return m_kformat.formatByteSize(m_size);
+}
+
+QString Enclosure::formattedDuration() const
+{
+    return m_kformat.formatDuration(m_duration * 1000);
+}
+
+QString Enclosure::formattedPlayPosition() const
+{
+    return m_kformat.formatDuration(m_playposition);
+}

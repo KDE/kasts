@@ -11,7 +11,6 @@ import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.kcoreaddons 1.0 as KCoreAddons
 
 import org.kde.kasts 1.0
 
@@ -91,7 +90,7 @@ Kirigami.SwipeListItem {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + KCoreAddons.Format.formatByteSize(entry.enclosure.size) : "") : "" )
+                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -111,7 +110,7 @@ Kirigami.SwipeListItem {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: KCoreAddons.Format.formatDuration(entry.enclosure.duration * 1000)
+                    text: entry.enclosure.formattedDuration
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -133,7 +132,7 @@ Kirigami.SwipeListItem {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: KCoreAddons.Format.formatDuration(entry.enclosure.playPosition)
+                        text: entry.enclosure.formattedPlayPosition
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -145,7 +144,7 @@ Kirigami.SwipeListItem {
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: KCoreAddons.Format.formatDuration(entry.enclosure.duration * 1000)
+                        text: entry.enclosure.formattedDuration
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7

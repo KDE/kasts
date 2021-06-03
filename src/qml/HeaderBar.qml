@@ -11,7 +11,6 @@ import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.kcoreaddons 1.0 as KCoreAddons
 
 import org.kde.kasts 1.0
 
@@ -134,7 +133,7 @@ Rectangle {
             RowLayout {
                 Layout.fillWidth: true
                 Label {
-                    text: KCoreAddons.Format.formatDuration(AudioManager.position)
+                    text: AudioManager.formattedPosition
                 }
                 Slider {
                     id: durationSlider
@@ -156,8 +155,8 @@ Rectangle {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         text: (SettingsManager.toggleRemainingTime) ?
-                                "-" + KCoreAddons.Format.formatDuration(AudioManager.duration-AudioManager.position)
-                                : KCoreAddons.Format.formatDuration(AudioManager.duration)
+                                "-" + AudioManager.formattedLeftDuration
+                                : AudioManager.formattedDuration
 
                     }
                     MouseArea {

@@ -78,3 +78,9 @@ int QueueModel::timeLeft() const
     // qDebug() << "timeLeft is" << result;
     return result;
 }
+
+QString QueueModel::formattedTimeLeft() const
+{
+    static KFormat format;
+    return format.formatDuration(timeLeft());
+}

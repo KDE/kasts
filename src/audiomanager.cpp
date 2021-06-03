@@ -504,3 +504,18 @@ void AudioManagerPrivate::prepareAudioStream()
         m_player.setPosition(startingPosition);
     m_player.pause();
 }
+
+QString AudioManager::formattedDuration() const
+{
+    return m_kformat.formatDuration(d->m_player.duration());
+}
+
+QString AudioManager::formattedLeftDuration() const
+{
+    return m_kformat.formatDuration(d->m_player.duration() - d->m_player.position());
+}
+
+QString AudioManager::formattedPosition() const
+{
+    return m_kformat.formatDuration(d->m_player.position());
+}

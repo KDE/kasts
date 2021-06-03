@@ -12,6 +12,8 @@
 #include <QString>
 #include <QUrl>
 
+#include <KFormat>
+
 #include <memory>
 
 #include "entry.h"
@@ -36,6 +38,9 @@ class AudioManager : public QObject
     Q_PROPERTY(bool canSkipForward READ canSkipForward NOTIFY canSkipForwardChanged)
     Q_PROPERTY(bool canSkipBackward READ canSkipBackward NOTIFY canSkipBackwardChanged)
     Q_PROPERTY(bool canGoNext READ canGoNext NOTIFY canGoNextChanged)
+    Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY positionChanged)
+    Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
+    Q_PROPERTY(QString formattedPosition READ formattedPosition NOTIFY positionChanged)
 
 public:
     static AudioManager &instance()
@@ -83,6 +88,10 @@ public:
     [[nodiscard]] bool canSkipBackward() const;
 
     [[nodiscard]] bool canGoNext() const;
+
+    QString formattedDuration() const;
+    QString formattedLeftDuration() const;
+    QString formattedPosition() const;
 
 Q_SIGNALS:
 
@@ -172,4 +181,5 @@ private:
     friend class AudioManagerPrivate;
 
     std::unique_ptr<AudioManagerPrivate> d;
+    KFormat m_kformat;
 };

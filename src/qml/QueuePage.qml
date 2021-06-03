@@ -9,7 +9,6 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.2
 
 import org.kde.kirigami 2.13 as Kirigami
-import org.kde.kcoreaddons 1.0 as KCoreAddons
 
 import org.kde.kasts 1.0
 
@@ -62,7 +61,7 @@ Kirigami.ScrollablePage {
             Controls.Label {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
-                text: i18np("1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18n("Time Left") + ": " + KCoreAddons.Format.formatDuration(queueModel.timeLeft)
+                text: i18np("1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18n("Time Left") + ": " + queueModel.formattedTimeLeft
             }
             Kirigami.Separator {
                 Layout.fillWidth: true

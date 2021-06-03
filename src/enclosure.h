@@ -11,6 +11,8 @@
 #include <QObject>
 #include <QString>
 
+#include <KFormat>
+
 class Entry;
 
 class Enclosure : public QObject
@@ -18,6 +20,7 @@ class Enclosure : public QObject
     Q_OBJECT
 
     Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
+    Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
     Q_PROPERTY(QString url MEMBER m_url CONSTANT)
@@ -25,7 +28,9 @@ class Enclosure : public QObject
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
+    Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged);
     Q_PROPERTY(qint64 duration READ duration WRITE setDuration NOTIFY durationChanged)
+    Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
 
 public:
     Enclosure(Entry *entry);
@@ -46,6 +51,9 @@ public:
     qint64 playPosition() const;
     qint64 duration() const;
     int size() const;
+    QString formattedSize() const;
+    QString formattedDuration() const;
+    QString formattedPlayPosition() const;
 
     void setPlayPosition(const qint64 &position);
     void setDuration(const qint64 &duration);
@@ -73,4 +81,5 @@ private:
     qint64 m_playposition_dbsave;
     double m_downloadProgress = 0;
     Status m_status;
+    KFormat m_kformat;
 };

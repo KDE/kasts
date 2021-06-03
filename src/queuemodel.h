@@ -11,6 +11,8 @@
 #include <QObject>
 #include <QVariant>
 
+#include <KFormat>
+
 #include "audiomanager.h"
 
 class QueueModel : public QAbstractListModel
@@ -18,6 +20,7 @@ class QueueModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY(int timeLeft READ timeLeft NOTIFY timeLeftChanged)
+    Q_PROPERTY(QString formattedTimeLeft READ formattedTimeLeft NOTIFY timeLeftChanged)
 
 public:
     static QueueModel &instance()
@@ -31,6 +34,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
     int timeLeft() const;
+    QString formattedTimeLeft() const;
 
 Q_SIGNALS:
     void timeLeftChanged();
