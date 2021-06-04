@@ -86,6 +86,7 @@ if(ANDROID)
         source-playlist
         arrow-down
         overflow-menu
+        checkbox
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
