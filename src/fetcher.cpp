@@ -364,19 +364,19 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     QFile *file = new QFile(filePath);
     if (file->exists() && file->size() > 0) {
         // try to resume download
-        qDebug() << "Resuming download at" << file->size() << "bytes";
+        qCDebug(kastsFetcher) << "Resuming download at" << file->size() << "bytes";
         QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(file->size()) + QByteArray("-");
         request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
         file->open(QIODevice::WriteOnly | QIODevice::Append);
     } else {
-        qDebug() << "Starting new download";
+        qCDebug(kastsFetcher) << "Starting new download";
         file->open(QIODevice::WriteOnly);
     }
 
     QNetworkReply *headerReply = head(request);
     connect(headerReply, &QNetworkReply::finished, this, [=]() {
         if (headerReply->isOpen()) {
-            qDebug() << "size" << headerReply->header(QNetworkRequest::ContentLengthHeader);
+            qCDebug(kastsFetcher) << "size" << headerReply->header(QNetworkRequest::ContentLengthHeader);
             int fileSize = headerReply->header(QNetworkRequest::ContentLengthHeader).toInt();
 
             Q_EMIT downloadFileSizeUpdated(url, fileSize);
