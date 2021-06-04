@@ -27,7 +27,11 @@ Kirigami.ApplicationWindow {
     property int originalWidth: Kirigami.Units.gridUnit * 10
 
     property bool isWidescreen: root.width >= root.height
-    onIsWidescreenChanged: changeNavigation(!isWidescreen);
+    onIsWidescreenChanged: {
+        if (!Kirigami.Settings.isMobile) {
+            changeNavigation(!isWidescreen);
+        }
+    }
 
     Kirigami.PagePool {
         id: mainPagePool
@@ -52,11 +56,17 @@ Kirigami.ApplicationWindow {
         isMenu: false
         modal: Kirigami.Settings.isMobile
         collapsible: !Kirigami.Settings.isMobile
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.Theme.inherit: false
         header: Kirigami.AbstractApplicationHeader {
             visible: !Kirigami.Settings.isMobile
         }
+
+        Component.onCompleted: {
+            if (!Kirigami.Settings.isMobile) {
+                Kirigami.Theme.colorSet = Kirigami.Theme.Window;
+                Kirigami.Theme.inherit = false;
+            }
+        }
+
         // make room at the bottom for miniplayer
         handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
         handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
