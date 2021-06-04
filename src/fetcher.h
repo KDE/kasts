@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <QFile>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QObject>

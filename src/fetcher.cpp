@@ -360,16 +360,43 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
 {
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
+
+    QFile *file = new QFile(filePath);
+    if (file->exists() && file->size() > 0) {
+        // try to resume download
+        qDebug() << "Resuming download at" << file->size() << "bytes";
+        QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(file->size()) + QByteArray("-");
+        request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
+        file->open(QIODevice::WriteOnly | QIODevice::Append);
+    } else {
+        qDebug() << "Starting new download";
+        file->open(QIODevice::WriteOnly);
+    }
+
     QNetworkReply *reply = get(request);
-    connect(reply, &QNetworkReply::finished, this, [=]() {
-        if (reply->isOpen()) {
+
+    connect(reply, &QNetworkReply::readyRead, this, [=]() {
+        if (reply->isOpen() && file) {
             QByteArray data = reply->readAll();
-            QFile file(filePath);
-            file.open(QIODevice::WriteOnly);
-            file.write(data);
-            file.close();
+            file->write(data);
+        }
+    });
+
+    connect(reply, &QNetworkReply::finished, this, [=]() {
+        if (reply->isOpen() && file) {
+            QByteArray data = reply->readAll();
+            file->write(data);
+            file->close();
 
             Q_EMIT downloadFinished(url);
+        }
+
+        // clean up; close file if still open in case something has gone wrong
+        if (file) {
+            if (file->isOpen()) {
+                file->close();
+            }
+            delete file;
         }
         reply->deleteLater();
     });
