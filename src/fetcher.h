@@ -35,7 +35,6 @@ public:
     Q_INVOKABLE QString image(const QString &url) const;
     void removeImage(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
-    QNetworkReply *get(QNetworkRequest &request) const;
     QString imagePath(const QString &url) const;
     QString enclosurePath(const QString &url) const;
 
@@ -52,6 +51,7 @@ Q_SIGNALS:
     void error(const QString &url, const QString &id, const int errorId, const QString &errorString);
     void entryAdded(const QString &feedurl, const QString &id);
     void downloadFinished(QString url) const;
+    void downloadFileSizeUpdated(QString url, int fileSize) const;
 
     void updateProgressChanged(int progress);
     void updateTotalChanged(int nrOfFeeds);
@@ -68,6 +68,10 @@ private:
     bool processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed); // returns true if this is a new entry; false if it already existed
     void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
+
+    QNetworkReply *get(QNetworkRequest &request) const;
+    QNetworkReply *head(QNetworkRequest &request) const;
+    void setHeader(QNetworkRequest &request) const;
 
     QNetworkAccessManager *manager;
     int m_updateProgress;

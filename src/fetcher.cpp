@@ -373,6 +373,17 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
         file->open(QIODevice::WriteOnly);
     }
 
+    QNetworkReply *headerReply = head(request);
+    connect(headerReply, &QNetworkReply::finished, this, [=]() {
+        if (headerReply->isOpen()) {
+            qDebug() << "size" << headerReply->header(QNetworkRequest::ContentLengthHeader);
+            int fileSize = headerReply->header(QNetworkRequest::ContentLengthHeader).toInt();
+
+            Q_EMIT downloadFileSizeUpdated(url, fileSize);
+        }
+        headerReply->deleteLater();
+    });
+
     QNetworkReply *reply = get(request);
 
     connect(reply, &QNetworkReply::readyRead, this, [=]() {
@@ -428,6 +439,17 @@ QString Fetcher::enclosurePath(const QString &url) const
 
 QNetworkReply *Fetcher::get(QNetworkRequest &request) const
 {
-    request.setRawHeader("User-Agent", "Kasts/0.1; Syndication");
+    setHeader(request);
     return manager->get(request);
+}
+
+QNetworkReply *Fetcher::head(QNetworkRequest &request) const
+{
+    setHeader(request);
+    return manager->head(request);
+}
+
+void Fetcher::setHeader(QNetworkRequest &request) const
+{
+    request.setRawHeader("User-Agent", "Kasts/0.1; Syndication");
 }

@@ -26,6 +26,12 @@ Enclosure::Enclosure(Entry *entry)
 {
     connect(this, &Enclosure::statusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+    connect(&Fetcher::instance(), &Fetcher::downloadFileSizeUpdated, this, [this](QString url, int fileSize) {
+        if ((url == m_url) && (fileSize != m_size)) {
+            qDebug() << "Correct filesize for enclosure" << url << "to" << fileSize;
+            setSize(fileSize);
+        }
+    });
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
