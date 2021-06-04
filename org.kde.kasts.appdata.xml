@@ -88,6 +88,7 @@
       <caption xml:lang="ca-valencia">Llista de fonts del Kasts a l'escriptori</caption>
       <caption xml:lang="de">Kasts mit der Liste der Nachrichtenquellen auf der Arbeitsfläche</caption>
       <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
+      <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
       <caption xml:lang="sl">Seznam podcastov na namizju</caption>
       <caption xml:lang="sv">Kasts kanallista på skrivbordet</caption>
@@ -101,6 +102,7 @@
       <caption xml:lang="ca-valencia">Kasts a un telèfon</caption>
       <caption xml:lang="de">Kasts auf einem Mobiltelefon</caption>
       <caption xml:lang="es">Kasts en un teléfono</caption>
+      <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
