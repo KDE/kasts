@@ -112,4 +112,7 @@
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
+  <releases>
+    <release version="21.06" date="2021-06-10"/>
+  </releases>
 </component>
