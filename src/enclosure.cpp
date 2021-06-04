@@ -58,7 +58,7 @@ Enclosure::Enclosure(Entry *entry)
         if (file.size() == m_size && file.size() > 0) {
             if (m_status == Downloadable) {
                 // file is on disk, but was not expected, write to database
-                // this should never happen
+                // this should, in principle, never happen unless the db was deleted
                 m_status = Downloaded;
                 query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
                 query.bindValue(QStringLiteral(":id"), entry->id());
@@ -68,8 +68,8 @@ Enclosure::Enclosure(Entry *entry)
         } else {
             if (m_status == Downloaded) {
                 // file was downloaded, but there is a size mismatch or file is empty
-                // delete file and update status in database
-                file.remove();
+                // update status in database
+                // don't actually delete the file such that the download can be resumed
                 m_status = Downloadable;
                 query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
                 query.bindValue(QStringLiteral(":id"), entry->id());
