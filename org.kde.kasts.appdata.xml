@@ -17,6 +17,7 @@
   <name xml:lang="nl">Kasts</name>
   <name xml:lang="pl">Kasts</name>
   <name xml:lang="pt">Kasts</name>
+  <name xml:lang="pt-BR">Kasts</name>
   <name xml:lang="sk">Kasts</name>
   <name xml:lang="sl">Kasts</name>
   <name xml:lang="sv">Kasts</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
   <summary xml:lang="pl">Aplikacja do podkastów dla urządzeń przenośnych</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts' para dispositivos móveis</summary>
+  <summary xml:lang="pt-BR">Aplicativo de podcast para dispositivos móveis</summary>
   <summary xml:lang="sk">Podcastová aplikácia pre mobilné zariadenia</summary>
   <summary xml:lang="sl">Aplikacija podcastov za mobilne naprave</summary>
   <summary xml:lang="sv">Poddradioprogram för mobilapparater</summary>
@@ -51,6 +53,7 @@
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">A Comunidade do KDE</developer_name>
+  <developer_name xml:lang="pt-BR">A comunidade KDE</developer_name>
   <developer_name xml:lang="sk">KDE Komunita</developer_name>
   <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
@@ -67,6 +70,7 @@
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
     <p xml:lang="pl">Kasts jest przenośną aplikacja do podkastów</p>
     <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
+    <p xml:lang="pt-BR">O Kast é um aplicativo de podcast móvel</p>
     <p xml:lang="sk">Kasts je mobilná podcastová aplikácia</p>
     <p xml:lang="sl">Kasts je mobilna aplikacija za podcaste</p>
     <p xml:lang="sv">Kasts är ett mobilt poddradioprogram</p>
@@ -90,6 +94,7 @@
       <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
       <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
+      <caption xml:lang="pt-BR">A lista do Kasts no computador</caption>
       <caption xml:lang="sl">Seznam podcastov na namizju</caption>
       <caption xml:lang="sv">Kasts kanallista på skrivbordet</caption>
       <caption xml:lang="uk">Список подач Kasts на стільниці</caption>
@@ -104,6 +109,7 @@
       <caption xml:lang="es">Kasts en un teléfono</caption>
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
+      <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
       <caption xml:lang="uk">Kasts на телефоні</caption>
