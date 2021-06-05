@@ -22,6 +22,7 @@
 
 #include "database.h"
 #include "fetcher.h"
+#include "fetcherlogging.h"
 #include "settingsmanager.h"
 
 Fetcher::Fetcher()
@@ -78,7 +79,7 @@ void Fetcher::fetchAll()
 
 void Fetcher::retrieveFeed(const QString &url)
 {
-    qDebug() << "Starting to fetch" << url;
+    qCDebug(kastsFetcher) << "Starting to fetch" << url;
 
     Q_EMIT startedFetchingFeed(url);
 
@@ -104,7 +105,7 @@ void Fetcher::retrieveFeed(const QString &url)
 
 void Fetcher::updateMonitor(int progress)
 {
-    // qDebug() << "Update monitor" << progress << "/" << m_updateTotal;
+    qCDebug(kastsFetcher) << "Update monitor" << progress << "/" << m_updateTotal;
     // this method will watch for the end of the update process
     if (progress > -1 && m_updateTotal > -1 && progress == m_updateTotal) {
         m_updating = false;
@@ -131,11 +132,11 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     if (query.next()) {
         isNewFeed = query.value(QStringLiteral("new")).toBool();
     } else {
-        qDebug() << "Feed not found in database" << url;
+        qCDebug(kastsFetcher) << "Feed not found in database" << url;
         return;
     }
     if (isNewFeed)
-        qDebug() << "New feed" << feed->title() << ":" << isNewFeed;
+        qCDebug(kastsFetcher) << "New feed" << feed->title() << ":" << isNewFeed;
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
@@ -170,7 +171,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
             }
         } else {
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-            // qDebug() << "authorname" << authorname;
+            qCDebug(kastsFetcher) << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
             processAuthor(url, QLatin1String(""), authorname, QLatin1String(""), authoremail);
@@ -189,7 +190,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
     query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
 
-    qDebug() << "Updated feed details:" << feed->title();
+    qCDebug(kastsFetcher) << "Updated feed details:" << feed->title();
 
     Q_EMIT feedDetailsUpdated(url, feed->title(), image, feed->link(), feed->description(), current);
 
@@ -208,7 +209,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
         Database::instance().execute(query);
         QSqlQuery updateQuery;
         while (query.next()) {
-            // qDebug() << "Marked as new:" << query.value(QStringLiteral("id")).toString();
+            qCDebug(kastsFetcher) << "Marked as new:" << query.value(QStringLiteral("id")).toString();
             updateQuery.prepare(QStringLiteral("UPDATE Entries SET read=:read, new=:new WHERE id=:id AND feed=:feed;"));
             updateQuery.bindValue(QStringLiteral(":read"), false);
             updateQuery.bindValue(QStringLiteral(":new"), true);
@@ -232,7 +233,7 @@ void Fetcher::processFeed(Syndication::FeedPtr feed, const QString &url)
 
 bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed)
 {
-    // qDebug() << "Processing" << entry->title();
+    qCDebug(kastsFetcher) << "Processing" << entry->title();
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
@@ -270,7 +271,7 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
     if (image.startsWith(QStringLiteral("/")))
         image = QUrl(url).adjusted(QUrl::RemovePath).toString() + image;
     query.bindValue(QStringLiteral(":image"), image);
-    // qDebug() << "Entry image found" << image;
+    qCDebug(kastsFetcher) << "Entry image found" << image;
 
     Database::instance().execute(query);
 
@@ -378,7 +379,7 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
 
 void Fetcher::removeImage(const QString &url)
 {
-    qDebug() << imagePath(url);
+    qCDebug(kastsFetcher) << "Removing image" << imagePath(url);
     QFile(imagePath(url)).remove();
 }
 

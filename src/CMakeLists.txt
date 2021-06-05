@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
 # SPDX-License-Identifier: BSD-2-Clause
 
-
 set(SRCS_base
     main.cpp
     feedsmodel.cpp
@@ -29,6 +28,55 @@ ecm_qt_declare_logging_category(SRCS_base
     HEADER "audiologging.h"
     IDENTIFIER "kastsAudio"
     CATEGORY_NAME "org.kde.kasts.audio"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "datamanagerlogging.h"
+    IDENTIFIER "kastsDataManager"
+    CATEGORY_NAME "org.kde.kasts.datamanager"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "downloadprogressmodellogging.h"
+    IDENTIFIER "kastsDownloadProgressModel"
+    CATEGORY_NAME "org.kde.kasts.downloadprogressmodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "enclosurelogging.h"
+    IDENTIFIER "kastsEnclosure"
+    CATEGORY_NAME "org.kde.kasts.enclosure"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "feedlogging.h"
+    IDENTIFIER "kastsFeed"
+    CATEGORY_NAME "org.kde.kasts.feed"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "fetcherlogging.h"
+    IDENTIFIER "kastsFetcher"
+    CATEGORY_NAME "org.kde.kasts.fetcher"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "powermanagementinterfacelogging.h"
+    IDENTIFIER "kastsPowerManagementInterface"
+    CATEGORY_NAME "org.kde.kasts.powermanagementinterface"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "queuemodellogging.h"
+    IDENTIFIER "kastsQueueModel"
+    CATEGORY_NAME "org.kde.kasts.queuemodel"
     DEFAULT_SEVERITY Info
 )
 

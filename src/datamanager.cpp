@@ -5,6 +5,7 @@
  */
 
 #include "datamanager.h"
+#include "datamanagerlogging.h"
 #include "audiomanager.h"
 #include "database.h"
 #include "fetcher.h"
@@ -25,7 +26,7 @@ DataManager::DataManager()
         &Fetcher::feedDetailsUpdated,
         this,
         [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-            // qDebug() << "Start updating feed details" << m_feeds;
+            qCDebug(kastsDataManager) << "Start updating feed details" << m_feeds;
             Feed *feed = getFeed(url);
             if (feed != nullptr) {
                 feed->setName(name);
@@ -33,7 +34,7 @@ DataManager::DataManager()
                 feed->setLink(link);
                 feed->setDescription(description);
                 feed->setLastUpdated(lastUpdated);
-                // qDebug() << "Retrieving authors";
+                qCDebug(kastsDataManager) << "Retrieving authors";
                 feed->updateAuthors();
                 // For feeds that have just been added, this is probably the point
                 // where the Feed object gets created; let's set refreshing to
@@ -60,7 +61,6 @@ DataManager::DataManager()
         Database::instance().execute(query);
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
-            // qDebug() << m_entrymap[feedurl];
         }
 
         // Check for "new" entries
@@ -74,7 +74,7 @@ DataManager::DataManager()
                 addToQueue(feedurl, id);
                 if (SettingsManager::self()->autoDownload()) {
                     if (getEntry(id) && getEntry(id)->hasEnclosure() && getEntry(id)->enclosure()) {
-                        qDebug() << "Start downloading" << getEntry(id)->title();
+                        qCDebug(kastsDataManager) << "Start downloading" << getEntry(id)->title();
                         getEntry(id)->enclosure()->download();
                     }
                 }
@@ -93,7 +93,6 @@ DataManager::DataManager()
         m_feedmap += query.value(QStringLiteral("url")).toString();
         m_feeds[query.value(QStringLiteral("url")).toString()] = nullptr;
     }
-    // qDebug() << m_feedmap;
 
     for (auto &feedurl : m_feedmap) {
         query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed ORDER BY updated DESC;"));
@@ -102,17 +101,16 @@ DataManager::DataManager()
         while (query.next()) {
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
             m_entries[query.value(QStringLiteral("id")).toString()] = nullptr;
-            // qDebug() << m_entrymap[feedurl];
         }
     }
-    // qDebug() << m_entrymap;
+    // qCDebug(kastsDataManager) << "entrymap contains:" << m_entrymap;
 
     query.prepare(QStringLiteral("SELECT id FROM Queue ORDER BY listnr;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_queuemap += query.value(QStringLiteral("id")).toString();
     }
-    // qDebug() << m_queuemap;
+    qCDebug(kastsDataManager) << "Queuemap contains:" << m_queuemap;
 }
 
 Feed *DataManager::getFeed(const int index) const
@@ -237,8 +235,7 @@ int DataManager::newEntryCount(const Feed *feed) const
 
 void DataManager::removeFeed(Feed *feed)
 {
-    qDebug() << feed->url();
-    qDebug() << "deleting feed with index" << m_feedmap.indexOf(feed->url());
+    qCDebug(kastsDataManager) << "deleting feed" << feed->url() << "with index" << m_feedmap.indexOf(feed->url());
     removeFeed(m_feedmap.indexOf(feed->url()));
 }
 
@@ -250,7 +247,7 @@ void DataManager::removeFeed(const int index)
 
     // Delete the object instances and mappings
     // First delete entries in Queue
-    qDebug() << "delete queueentries of" << feedurl;
+    qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
     for (auto &id : m_queuemap) {
         if (getEntry(id)->feed()->url() == feedurl) {
             if (AudioManager::instance().entry() == getEntry(id)) {
@@ -261,7 +258,7 @@ void DataManager::removeFeed(const int index)
     }
 
     // Delete entries themselves
-    qDebug() << "delete entries of" << feedurl;
+    qCDebug(kastsDataManager) << "delete entries of" << feedurl;
     for (auto &id : m_entrymap[feedurl]) {
         if (getEntry(id)->hasEnclosure())
             getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
@@ -272,7 +269,7 @@ void DataManager::removeFeed(const int index)
     }
     m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
 
-    qDebug() << "Remove feed image" << feed->image() << "for feed" << feedurl;
+    qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
     if (!feed->image().isEmpty())
         Fetcher::instance().removeImage(feed->image());
     m_feeds.remove(m_feedmap[index]); // remove from m_feeds
@@ -280,7 +277,7 @@ void DataManager::removeFeed(const int index)
     delete feed; // remove the pointer
 
     // Then delete everything from the database
-    qDebug() << "delete database part of" << feedurl;
+    qCDebug(kastsDataManager) << "delete database part of" << feedurl;
 
     // Delete Authors
     QSqlQuery query;
@@ -317,12 +314,12 @@ void DataManager::addFeed(const QString &url, const bool fetch)
     // a preliminary entry into the database.  Those details (as well as entries,
     // authors and enclosures) will be updated by calling Fetcher::fetch() which
     // will trigger a full update of the feed and all related items.
-    qDebug() << "Adding feed";
+    qCDebug(kastsDataManager) << "Adding feed";
     if (feedExists(url)) {
-        qDebug() << "Feed already exists";
+        qCDebug(kastsDataManager) << "Feed already exists";
         return;
     }
-    qDebug() << "Feed does not yet exist";
+    qCDebug(kastsDataManager) << "Feed does not yet exist";
 
     QUrl urlFromInput = QUrl::fromUserInput(url);
     QSqlQuery query;
@@ -402,7 +399,7 @@ void DataManager::addToQueue(const QString &feedurl, const QString &id)
 
     // Add to internal queuemap data structure
     m_queuemap += id;
-    // qDebug() << m_queuemap;
+    qCDebug(kastsDataManager) << "Queue mapping is now:" << m_queuemap;
 
     // Get index of this entry
     const int index = m_queuemap.indexOf(id); // add new entry to end of queue
@@ -434,7 +431,7 @@ void DataManager::moveQueueItem(const int from, const int to)
 
 void DataManager::removeQueueItem(const int index)
 {
-    // qDebug() << m_queuemap;
+    qCDebug(kastsDataManager) << "Queuemap is now:" << m_queuemap;
     // Unset "new" state
     getEntry(m_queuemap[index])->setNew(false);
     // TODO: Make sure to unset the pointer in the Audio class once it's been
@@ -506,7 +503,7 @@ void DataManager::importFeeds(const QString &path)
             urls += xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString();
         }
     }
-    qDebug() << urls;
+    qCDebug(kastsDataManager) << "Start importing urls:" << urls;
     addFeeds(urls);
 }
 
@@ -552,7 +549,7 @@ void DataManager::loadEntry(const QString id) const
             feed = getFeed(i.key());
     }
     if (!feed) {
-        qDebug() << "Failed to find feed belonging to entry" << id;
+        qCDebug(kastsDataManager) << "Failed to find feed belonging to entry" << id;
         return;
     }
     m_entries[id] = new Entry(feed, id);

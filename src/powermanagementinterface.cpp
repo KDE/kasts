@@ -6,6 +6,7 @@
  */
 
 #include "powermanagementinterface.h"
+#include "powermanagementinterfacelogging.h"
 
 #include <KLocalizedString>
 
@@ -134,7 +135,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace(QDBusPen
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        // qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -151,7 +152,7 @@ void PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace(QDBusPendin
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<uint> reply = *aWatcher;
     if (reply.isError()) {
-        // qDebug() << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
+        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
     } else {
         d->mGnomeSleepCookie = reply.argumentAt<0>();
         d->mInhibitedSleep = true;
@@ -169,7 +170,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        // qDebug() << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 

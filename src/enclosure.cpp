@@ -6,6 +6,7 @@
  */
 
 #include "enclosure.h"
+#include "enclosurelogging.h"
 
 #include <QFile>
 #include <QNetworkReply>
@@ -143,7 +144,7 @@ void Enclosure::processDownloadedFile()
     // if not, correct the filesize in the database
     // otherwise the file will get deleted because of mismatch in signature
     if (file.size() != m_size) {
-        qDebug() << "enclosure file size mismatch" << m_entry->title();
+        qCDebug(kastsEnclosure) << "enclosure file size mismatch" << m_entry->title();
         setSize(file.size());
     }
 
@@ -162,7 +163,7 @@ void Enclosure::processDownloadedFile()
 
 void Enclosure::deleteFile()
 {
-    // qDebug() << "Trying to delete enclosure file" << path();
+    qCDebug(kastsEnclosure) << "Trying to delete enclosure file" << path();
     // First check if file still exists; you never know what has happened
     if (QFile(path()).exists())
         QFile(path()).remove();
@@ -205,12 +206,12 @@ int Enclosure::size() const
 void Enclosure::setPlayPosition(const qint64 &position)
 {
     m_playposition = position;
-    // qDebug() << "save playPosition" << position << m_entry->title();
+    qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
     Q_EMIT playPositionChanged();
 
     // let's only save the play position to the database every 15 seconds
     if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
-        // qDebug() << "save playPosition to database" << position << m_entry->title();
+        qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));
         query.bindValue(QStringLiteral(":id"), m_entry->id());
@@ -227,7 +228,7 @@ void Enclosure::setDuration(const qint64 &duration)
     Q_EMIT durationChanged();
 
     // also save to database
-    // qDebug() << "updating entry duration" << duration << m_entry->title();
+    qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
     QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE id=:id AND feed=:feed"));
     query.bindValue(QStringLiteral(":id"), m_entry->id());

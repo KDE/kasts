@@ -11,6 +11,7 @@
 #include "datamanager.h"
 #include "entriesmodel.h"
 #include "feed.h"
+#include "feedlogging.h"
 #include "fetcher.h"
 
 Feed::Feed(const QString &feedurl)
@@ -98,9 +99,9 @@ void Feed::updateAuthors()
         QString name = authorQuery.value(QStringLiteral("name")).toString();
         QString email = authorQuery.value(QStringLiteral("email")).toString();
         QString url = authorQuery.value(QStringLiteral("uri")).toString();
-        // qDebug() << name << email << url;
+        qCDebug(kastsFeed) << name << email << url;
         for (int i = 0; i < m_authors.count(); i++) {
-            // qDebug() << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
+            qCDebug(kastsFeed) << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
             if (m_authors[i] && m_authors[i]->name() == name && m_authors[i]->email() == email && m_authors[i]->url() == url) {
                 existingAuthor = true;
                 newAuthors += m_authors[i];
@@ -125,7 +126,7 @@ void Feed::updateAuthors()
 
     if (haveAuthorsChanged)
         Q_EMIT authorsChanged(m_authors);
-    // qDebug() << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
+    qCDebug(kastsFeed) << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
 }
 
 QString Feed::url() const

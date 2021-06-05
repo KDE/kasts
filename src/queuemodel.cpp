@@ -11,6 +11,7 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "queuemodel.h"
+#include "queuemodellogging.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -19,21 +20,21 @@ QueueModel::QueueModel(QObject *parent)
         int to = (from < to_orig) ? to_orig + 1 : to_orig;
         beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
         endMoveRows();
-        // qDebug() << "Moved entry" << from << "to" << to;
+        qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](int pos, const QString &id) {
         Q_UNUSED(id)
         beginInsertRows(QModelIndex(), pos, pos);
         endInsertRows();
         Q_EMIT timeLeftChanged();
-        // qDebug() << "Added entry at pos" << pos;
+        qCDebug(kastsQueueModel) << "Added entry at pos" << pos;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](int pos, const QString &id) {
         Q_UNUSED(id)
         beginRemoveRows(QModelIndex(), pos, pos);
         endRemoveRows();
         Q_EMIT timeLeftChanged();
-        // qDebug() << "Removed entry at pos" << pos;
+        qCDebug(kastsQueueModel) << "Removed entry at pos" << pos;
     });
     // Connect positionChanged to make sure that the remaining playing time in
     // the queue header is up-to-date
@@ -47,7 +48,7 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    // qDebug() << "return entry" << DataManager::instance().getQueueEntry(index.row());
+    qCDebug(kastsQueueModel) << "return entry" << DataManager::instance().getQueueEntry(index.row());
     return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
 }
 
@@ -61,7 +62,7 @@ QHash<int, QByteArray> QueueModel::roleNames() const
 int QueueModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    // qDebug() << "queueCount is" << DataManager::instance().queueCount();
+    qCDebug(kastsQueueModel) << "queueCount is" << DataManager::instance().queueCount();
     return DataManager::instance().queueCount();
 }
 
@@ -75,7 +76,7 @@ int QueueModel::timeLeft() const
             result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();
         }
     }
-    // qDebug() << "timeLeft is" << result;
+    qCDebug(kastsQueueModel) << "timeLeft is" << result;
     return result;
 }
 
