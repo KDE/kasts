@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14
+import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
@@ -52,7 +52,7 @@ Rectangle {
                         // maximumLineCount: 2
                         font.bold: true
                     }
-                    Label {
+                    Controls.Label {
                         text: AudioManager.entry ? AudioManager.entry.feed.name : "No feed"
                         Layout.fillWidth: true
                         elide: Text.ElideRight
@@ -69,8 +69,8 @@ Rectangle {
                 RowLayout {
                     property int iconSize: Kirigami.Units.gridUnit
                     property int buttonSize: playButton.implicitWidth
-                    Button {
-                        contentItem: Label {
+                    Controls.Button {
+                        contentItem: Controls.Label {
                             text: AudioManager.playbackRate + "x"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
@@ -87,7 +87,7 @@ Rectangle {
                         implicitWidth: playButton.width * 2
                         implicitHeight: playButton.height
                     }
-                    Button {
+                    Controls.Button {
                         icon.name: "media-seek-backward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
@@ -97,7 +97,7 @@ Rectangle {
                         onClicked: AudioManager.skipBackward()
                         enabled: AudioManager.canSkipBackward
                     }
-                    Button {
+                    Controls.Button {
                         id: playButton
                         icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
                         icon.height: parent.iconSize
@@ -108,7 +108,7 @@ Rectangle {
                         onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
                         enabled: AudioManager.canPlay
                     }
-                    Button {
+                    Controls.Button {
                         icon.name: "media-seek-forward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
@@ -118,7 +118,7 @@ Rectangle {
                         onClicked: AudioManager.skipForward()
                         enabled: AudioManager.canSkipForward
                     }
-                    Button {
+                    Controls.Button {
                         icon.name: "media-skip-forward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
@@ -132,10 +132,10 @@ Rectangle {
             }
             RowLayout {
                 Layout.fillWidth: true
-                Label {
+                Controls.Label {
                     text: AudioManager.formattedPosition
                 }
-                Slider {
+                Controls.Slider {
                     id: durationSlider
                     enabled: AudioManager.entry
                     Layout.fillWidth: true
@@ -150,7 +150,7 @@ Rectangle {
                     Layout.preferredHeight: endLabel.implicitHeight
                     Layout.preferredWidth: endLabel.implicitWidth
                     Layout.rightMargin: Kirigami.Units.largeSpacing
-                    Label {
+                    Controls.Label {
                         id: endLabel
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
