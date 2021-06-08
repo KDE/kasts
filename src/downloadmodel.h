@@ -14,14 +14,14 @@
 #include "enclosure.h"
 #include "entry.h"
 
-class DownloadProgressModel : public QAbstractListModel
+class DownloadModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    static DownloadProgressModel &instance()
+    static DownloadModel &instance()
     {
-        static DownloadProgressModel _instance;
+        static DownloadModel _instance;
         return _instance;
     }
 
@@ -30,9 +30,11 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
 public Q_SLOTS:
-    void monitorDownloadProgress(Entry *entry, Enclosure::Status status);
+    void monitorDownloadStatus();
 
 private:
-    explicit DownloadProgressModel();
-    QStringList m_entries;
+    explicit DownloadModel();
+    int m_downloadingCount = 0;
+    int m_partiallyDownloadedCount = 0;
+    int m_downloadedCount = 0;
 };

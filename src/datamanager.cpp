@@ -148,7 +148,8 @@ Entry *DataManager::getEntry(const QString &id) const
 Entry *DataManager::getEntry(const EpisodeModel::Type type, const int entry_index) const
 {
     QSqlQuery entryQuery;
-    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloaded) {
+    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloading
+        || type == EpisodeModel::PartiallyDownloaded || type == EpisodeModel::Downloaded) {
         if (type == EpisodeModel::New) {
             entryQuery.prepare(QStringLiteral("SELECT id FROM Entries WHERE new=:new ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
             entryQuery.bindValue(QStringLiteral(":new"), true);
@@ -157,16 +158,24 @@ Entry *DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
             entryQuery.bindValue(QStringLiteral(":read"), false);
         } else if (type == EpisodeModel::All) {
             entryQuery.prepare(QStringLiteral("SELECT id FROM Entries ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
+        } else if (type == EpisodeModel::Downloading) {
+            entryQuery.prepare(
+                QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
+                               "LIMIT 1 OFFSET :index;"));
+            entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
+        } else if (type == EpisodeModel::PartiallyDownloaded) {
+            entryQuery.prepare(
+                QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
+                               "LIMIT 1 OFFSET :index;"));
+            entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
         } else if (type == EpisodeModel::Downloaded) {
             entryQuery.prepare(
                 QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
                                "LIMIT 1 OFFSET :index;"));
             entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
-        } else { // i.e. EpisodeModel::PartiallyDownloaded
-            entryQuery.prepare(
-                QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
-                               "LIMIT 1 OFFSET :index;"));
-            entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
+        } else {
+            // this should not happen
+            qWarning() << "Cannot find entry type" << type << "in getEntry for entry index" << entry_index;
         }
         entryQuery.bindValue(QStringLiteral(":index"), entry_index);
         Database::instance().execute(entryQuery);
@@ -177,6 +186,7 @@ Entry *DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
         QString id = entryQuery.value(QStringLiteral("id")).toString();
         return getEntry(id);
     }
+    qWarning() << "Cannot find entry type" << type << "in getEntry for entry index" << entry_index;
     return nullptr;
 }
 
@@ -198,7 +208,8 @@ int DataManager::entryCount(const Feed *feed) const
 int DataManager::entryCount(const EpisodeModel::Type type) const
 {
     QSqlQuery query;
-    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloaded) {
+    if (type == EpisodeModel::All || type == EpisodeModel::New || type == EpisodeModel::Unread || type == EpisodeModel::Downloading
+        || type == EpisodeModel::PartiallyDownloaded || type == EpisodeModel::Downloaded) {
         if (type == EpisodeModel::New) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE new=:new;"));
             query.bindValue(QStringLiteral(":new"), true);
@@ -207,18 +218,25 @@ int DataManager::entryCount(const EpisodeModel::Type type) const
             query.bindValue(QStringLiteral(":read"), false);
         } else if (type == EpisodeModel::All) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries;"));
+        } else if (type == EpisodeModel::Downloading) {
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
+            query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
+        } else if (type == EpisodeModel::PartiallyDownloaded) {
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
+            query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
         } else if (type == EpisodeModel::Downloaded) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
             query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
-        } else { // i.e. EpisodeModel::PartiallyDownloaded
-            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
-            query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
+        } else {
+            // this should not happen
+            qWarning() << "Cannot find entry type" << type << "in entryCount";
         }
         Database::instance().execute(query);
         if (!query.next())
             return -1;
         return query.value(0).toInt();
     }
+    qWarning() << "Cannot find entry type" << type << "in entryCount";
     return -1;
 }
 

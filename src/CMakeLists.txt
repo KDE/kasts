@@ -14,7 +14,7 @@ set(SRCS_base
     enclosuredownloadjob.cpp
     queuemodel.cpp
     episodemodel.cpp
-    downloadprogressmodel.cpp
+    downloadmodel.cpp
     datamanager.cpp
     audiomanager.cpp
     powermanagementinterface.cpp
@@ -39,9 +39,9 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
-    HEADER "downloadprogressmodellogging.h"
-    IDENTIFIER "kastsDownloadProgressModel"
-    CATEGORY_NAME "org.kde.kasts.downloadprogressmodel"
+    HEADER "downloadmodellogging.h"
+    IDENTIFIER "kastsDownloadModel"
+    CATEGORY_NAME "org.kde.kasts.downloadmodel"
     DEFAULT_SEVERITY Info
 )
 

@@ -12,9 +12,10 @@
 #include <QNetworkReply>
 #include <QSqlQuery>
 
+#include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "downloadprogressmodel.h"
+#include "downloadmodel.h"
 #include "enclosuredownloadjob.h"
 #include "entry.h"
 #include "error.h"
@@ -25,7 +26,7 @@ Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
-    connect(this, &Enclosure::statusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
+    connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
     connect(&Fetcher::instance(), &Fetcher::downloadFileSizeUpdated, this, [this](QString url, int fileSize, int resumedAt) {
         if ((url == m_url) && ((m_size != fileSize) && (m_size != fileSize + resumedAt)) && (fileSize > 1000)) {
@@ -193,6 +194,10 @@ void Enclosure::processDownloadedFile()
 void Enclosure::deleteFile()
 {
     qCDebug(kastsEnclosure) << "Trying to delete enclosure file" << path();
+    if (AudioManager::instance().entry() && (m_entry == AudioManager::instance().entry())) {
+        qCDebug(kastsEnclosure) << "Track is still playing; let's unload it before deleting";
+        AudioManager::instance().setEntry(nullptr);
+    }
     // First check if file still exists; you never know what has happened
     if (QFile(path()).exists())
         QFile(path()).remove();

@@ -34,7 +34,7 @@
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "downloadprogressmodel.h"
+#include "downloadmodel.h"
 #include "entriesmodel.h"
 #include "entry.h"
 #include "episodemodel.h"
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadProgressModel", &DownloadProgressModel::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadModel", &DownloadModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
 

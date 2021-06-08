@@ -42,12 +42,12 @@ Kirigami.ApplicationWindow {
         tabBarActive = SettingsManager.lastOpenedPage === "FeedListPage" ? 0
                      : SettingsManager.lastOpenedPage === "QueuePage" ? 0
                      : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? 1
-                     : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? 1
+                     : SettingsManager.lastOpenedPage === "DownloadListPage" ? 0
                      : 0
         pageStack.initialPage = mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
                                                     : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
                                                     : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
-                                                    : SettingsManager.lastOpenedPage === "DownloadSwipePage" ? "qrc:/DownloadSwipePage.qml"
+                                                    : SettingsManager.lastOpenedPage === "DownloadListPage" ? "qrc:/DownloadListPage.qml"
                                                     : "qrc:/FeedListPage.qml")
         if (SettingsManager.refreshOnStartup) Fetcher.fetchAll();
     }
@@ -106,10 +106,10 @@ Kirigami.ApplicationWindow {
                 text: i18n("Downloads")
                 iconName: "download"
                 pagePool: mainPagePool
-                page: "qrc:/DownloadSwipePage.qml"
+                page: "qrc:/DownloadListPage.qml"
                 onTriggered: {
-                    SettingsManager.lastOpenedPage = "DownloadSwipePage" // for persistency
-                    tabBarActive = 1
+                    SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+                    tabBarActive = 0
                 }
             },
             Kirigami.PagePoolAction {
