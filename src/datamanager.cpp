@@ -413,6 +413,11 @@ void DataManager::addToQueue(const QString &feedurl, const QString &id)
     query.bindValue(QStringLiteral(":playing"), false);
     Database::instance().execute(query);
 
+    // Set status to unplayed/unread when adding item to the queue
+    if (getEntry(id)) {
+        getEntry(id)->setRead(false);
+    }
+
     // Make sure that the QueueModel is aware of the changes
     Q_EMIT queueEntryAdded(index, id);
 }
