@@ -185,12 +185,6 @@ QString Entry::adjustedContent(int width, int fontSize)
         ret.replace(match.captured(), imgTag);
     }
 
-    ret.replace(QRegularExpression(QStringLiteral("<ul[^>]*>")), QLatin1String(""));
-    ret.replace(QRegularExpression(QStringLiteral("</ul>")), QLatin1String(""));
-
-    ret.replace(QRegularExpression(QStringLiteral("<li[^>]*>")), QLatin1String(""));
-    ret.replace(QRegularExpression(QStringLiteral("</li>")), QLatin1String(""));
-
     ret.replace(QStringLiteral("<img"), QStringLiteral("<br /> <img"));
     return ret;
 }
