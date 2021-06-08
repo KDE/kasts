@@ -121,6 +121,16 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
-    <release version="21.06" date="2021-06-10"/>
+    <release version="21.06" date="2021-06-10">
+      <description>
+        <p>First release of Kasts, a Kirigami-based convergent podcast player.  Released as part of Plasma Mobile Gear 21.06.  It features:</p>
+        <ul>
+          <li>a play queue</li>
+          <li>notification panel and lockscreen media controls</li>
+          <li>inhibits systemd suspend while listening to podcasts</li>
+          <li>convergent UI; looks good on mobile and desktop</li>
+        </ul>
+      </description>
+    </release>
   </releases>
 </component>
