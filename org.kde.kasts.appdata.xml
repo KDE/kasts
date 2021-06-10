@@ -5,7 +5,7 @@
  -->
 <component type="desktop-application">
   <id>org.kde.kasts</id>
-  <content_rating type="oars-1.1"/>
+  <content_rating type="oars-1.1" />
   <name>Kasts</name>
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
@@ -133,6 +133,7 @@
           <li>convergent UI; looks good on mobile and desktop</li>
         </ul>
       </description>
+      <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
     </release>
   </releases>
 </component>
