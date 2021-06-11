@@ -5,7 +5,7 @@
  -->
 <component type="desktop-application">
   <id>org.kde.kasts</id>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
   <name>Kasts</name>
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
