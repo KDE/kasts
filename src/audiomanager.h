@@ -167,11 +167,17 @@ private Q_SLOTS:
 
     void playerStateChanged();
 
+    void playerDurationChanged(qint64 duration);
+
     void playerMutedChanged();
 
     void playerVolumeChanged();
 
-    void savePlayPosition(qint64 position);
+    void savePlayPosition();
+
+    void prepareAudio();
+
+    void checkForPendingSeek();
 
 private:
     explicit AudioManager(QObject *parent = nullptr);
