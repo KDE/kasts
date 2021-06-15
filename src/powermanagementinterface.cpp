@@ -208,10 +208,12 @@ void PowerManagementInterface::uninhibitSleepPlasmaWorkspace()
 void PowerManagementInterface::inhibitSleepGnomeWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    // flags are: 4 = "Inhibit suspending the session or computer"
+    //            8 = "Inhibit the session being marked as idle"
     auto asyncReply = d->mGnomeInterface->Inhibit(QCoreApplication::applicationName(),
                                                   uint(0),
                                                   i18nc("Explanation for sleep inhibit during play of music", "Playing Music"),
-                                                  uint(8));
+                                                  uint(12));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
