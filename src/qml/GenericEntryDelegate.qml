@@ -110,7 +110,7 @@ Kirigami.SwipeListItem {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: entry.enclosure.formattedDuration
+                    text: entry.enclosure ? entry.enclosure.formattedDuration : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
