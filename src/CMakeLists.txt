@@ -81,7 +81,8 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 if(ANDROID)
-    set (SRCS ${SRCS_base})
+    set (SRCS ${SRCS_base}
+         androidlogging.h)
 else()
     set (SRCS ${SRCS_base}
          mpris2/mediaplayer2.cpp
@@ -104,6 +105,7 @@ if(ANDROID)
         KF5::Kirigami2
         Qt::Svg
         OpenSSL::SSL
+        log
     )
 
     kirigami_package_breeze_icons(ICONS

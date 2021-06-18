@@ -8,6 +8,7 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QIcon>
+#include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
@@ -26,6 +27,9 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#ifdef Q_OS_ANDROID
+#include "androidlogging.h"
+#endif
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
@@ -48,6 +52,8 @@ int main(int argc, char *argv[])
 {
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
+    qInstallMessageHandler(myMessageHandler);
+    QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
     QQuickStyle::setStyle(QStringLiteral("Material"));
 #else
     QApplication app(argc, argv);
