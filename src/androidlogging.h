@@ -6,11 +6,16 @@
 
 #pragma once
 
+#include <QByteArray>
+#include <QString>
+
 #include <android/log.h>
 
 const char *applicationName = "org.kde.kasts";
 void myMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
+    Q_UNUSED(context)
+
     QByteArray localMsg = msg.toLocal8Bit();
     // const char *file = context.file ? context.file : "";
     // const char *function = context.function ? context.function : "";
