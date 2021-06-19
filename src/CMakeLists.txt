@@ -91,6 +91,7 @@ else()
 
     qt5_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
     qt5_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+    qt5_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.NetworkManager.xml NMinterface)
 endif()
 
 add_executable(kasts ${SRCS})

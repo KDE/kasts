@@ -20,7 +20,18 @@ Kirigami.ScrollablePage {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
+            text: i18n("Appearance")
+        }
 
+        Controls.CheckBox {
+            id: alwaysShowFeedTitles
+            checked: SettingsManager.alwaysShowFeedTitles
+            text: i18n("Always show podcast titles in subscription view")
+            onToggled: SettingsManager.alwaysShowFeedTitles = checked
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
             text: i18n("Play Settings")
         }
 
@@ -68,15 +79,32 @@ Kirigami.ScrollablePage {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
-            text: i18n("Appearance")
+            text: i18n("Network")
         }
 
+        Controls.CheckBox {
+            id: allowMeteredFeedUpdates
+            checked: SettingsManager.allowMeteredFeedUpdates || !Fetcher.canCheckNetworkStatus()
+            Kirigami.FormData.label: i18n("On metered connections:")
+            text: i18n("Allow podcast updates")
+            onToggled: SettingsManager.allowMeteredFeedUpdates = checked
+            enabled: Fetcher.canCheckNetworkStatus()
+        }
 
         Controls.CheckBox {
-            id: alwaysShowFeedTitles
-            checked: SettingsManager.alwaysShowFeedTitles
-            text: i18n("Always show podcast titles in subscription view")
-            onToggled: SettingsManager.alwaysShowFeedTitles = checked
+            id: allowMeteredEpisodeDownloads
+            checked: SettingsManager.allowMeteredEpisodeDownloads || !Fetcher.canCheckNetworkStatus()
+            text: i18n("Allow episode downloads")
+            onToggled: SettingsManager.allowMeteredEpisodeDownloads = checked
+            enabled: Fetcher.canCheckNetworkStatus()
+        }
+
+        Controls.CheckBox {
+            id: allowMeteredImageDownloads
+            checked: SettingsManager.allowMeteredImageDownloads || !Fetcher.canCheckNetworkStatus()
+            text: i18n("Allow image downloads")
+            onToggled: SettingsManager.allowMeteredImageDownloads = checked
+            enabled: Fetcher.canCheckNetworkStatus()
         }
 
         Kirigami.Heading {

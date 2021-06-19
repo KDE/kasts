@@ -194,8 +194,8 @@ Kirigami.SwipeListItem {
             text: i18n("Download")
             icon.name: "download"
             onTriggered: {
-                entry.queueStatus = true;
-                entry.enclosure.download();
+                downloadOverlay.entry = entry;
+                downloadOverlay.run();
             }
             visible: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded)
         },

@@ -16,6 +16,10 @@
 
 #include "error.h"
 
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+#include "NMinterface.h"
+#endif
+
 class Fetcher : public QObject
 {
     Q_OBJECT
@@ -40,6 +44,11 @@ public:
 
     QString imagePath(const QString &url) const;
     QString enclosurePath(const QString &url) const;
+
+    // Network status related methods
+    Q_INVOKABLE bool canCheckNetworkStatus() const;
+    bool networkConnected() const;
+    Q_INVOKABLE bool isMeteredConnection() const;
 
 Q_SIGNALS:
     void startedFetchingFeed(const QString &url);
@@ -79,4 +88,8 @@ private:
     int m_updateProgress;
     int m_updateTotal;
     bool m_updating;
+
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    OrgFreedesktopNetworkManagerInterface *m_nmInterface;
+#endif
 };

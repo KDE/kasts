@@ -21,11 +21,26 @@ Kirigami.ScrollablePage {
     title: feed.name
     supportsRefreshing: true
 
-    onRefreshingChanged:
+    onRefreshingChanged: {
         if(refreshing) {
+            updateFeed.run()
+        }
+    }
+
+    // Overlay dialog box showing options what to do on metered connections
+    ConnectionCheckAction {
+        id: updateFeed
+
+        function action() {
             feed.refresh()
         }
 
+        function abortAction() {
+            page.refreshing = false
+        }
+    }
+
+    // Make sure that this feed is also showing as "refreshing" on FeedListPage
     Connections {
         target: feed
         function onRefreshingChanged(refreshing) {

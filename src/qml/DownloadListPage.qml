@@ -21,16 +21,16 @@ Kirigami.ScrollablePage {
     supportsRefreshing: true
     onRefreshingChanged: {
         if(refreshing) {
-            Fetcher.fetchAll()
-            refreshing = false
+            updateAllFeeds.run();
+            refreshing = false;
         }
     }
 
     actions.main: Kirigami.Action {
         iconName: "view-refresh"
         text: i18n("Refresh All Podcasts")
+        onTriggered: refreshing = true
         visible: !Kirigami.Settings.isMobile
-        onTriggered: Fetcher.fetchAll()
     }
 
     Kirigami.PlaceholderMessage {

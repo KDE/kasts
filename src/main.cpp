@@ -32,6 +32,7 @@
 #include "androidlogging.h"
 #endif
 #include "audiomanager.h"
+#include "author.h"
 #include "database.h"
 #include "datamanager.h"
 #include "downloadmodel.h"

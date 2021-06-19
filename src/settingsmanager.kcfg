@@ -38,6 +38,20 @@
             <default>true</default>
         </entry>
     </group>
+    <group name="Network">
+        <entry name="allowMeteredFeedUpdates" type="Bool">
+            <label>Allow podcast updates on metered connections</label>
+            <default>false</default>
+        </entry>
+        <entry name="allowMeteredEpisodeDownloads" type="Bool">
+            <label>Allow podcast downloads on metered connections</label>
+            <default>false</default>
+        </entry>
+        <entry name="allowMeteredImageDownloads" type="Bool">
+            <label>Allow image downloads on metered connections</label>
+            <default>false</default>
+        </entry>
+    </group>
     <group name="Persistency">
         <entry name="lastOpenedPage" type="String">
             <label>The top-level page that was open at shutdown</label>

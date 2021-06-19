@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freedesktop.NetworkManager">
+    <method name="state">
+      <arg name="state" type="u" direction="out"/>
+    </method>
+    <property name="Metered" type="u" access="read"/>
+  </interface>
+</node>

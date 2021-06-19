@@ -22,7 +22,7 @@ Kirigami.Page {
         iconName: "view-refresh"
         text: i18n("Refresh All Podcasts")
         visible: !Kirigami.Settings.isMobile
-        onTriggered: Fetcher.fetchAll()
+        onTriggered: updateAllFeeds.run()
     }
 
     header: Loader {

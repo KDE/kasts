@@ -217,16 +217,7 @@ QString Entry::cachedImage() const
         image = m_feed->image();
     }
 
-    if (image.isEmpty()) { // this will only happen if the feed also doesn't have an image
-        return QStringLiteral("no-image");
-    } else {
-        QString imagePath = Fetcher::instance().image(image);
-        if (imagePath.isEmpty()) {
-            return QStringLiteral("fetching");
-        } else {
-            return QStringLiteral("file://") + imagePath;
-        }
-    }
+    return Fetcher::instance().image(image);
 }
 
 bool Entry::queueStatus() const

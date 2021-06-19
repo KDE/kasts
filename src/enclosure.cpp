@@ -8,6 +8,7 @@
 #include "enclosure.h"
 #include "enclosurelogging.h"
 
+#include <KLocalizedString>
 #include <QFile>
 #include <QNetworkReply>
 #include <QSqlQuery>
@@ -21,6 +22,7 @@
 #include "error.h"
 #include "errorlogmodel.h"
 #include "fetcher.h"
+#include "settingsmanager.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
@@ -84,6 +86,15 @@ Enclosure::Status Enclosure::dbToStatus(int value)
 
 void Enclosure::download()
 {
+    if (Fetcher::instance().isMeteredConnection() && !SettingsManager::self()->allowMeteredEpisodeDownloads()) {
+        Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
+                             m_entry->feed()->url(),
+                             m_entry->id(),
+                             0,
+                             i18n("Podcast downloads not allowed due to user setting"));
+        return;
+    }
+
     checkSizeOnDisk();
     EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, path(), m_entry->title());
     downloadJob->start();

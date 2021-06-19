@@ -20,8 +20,8 @@ Kirigami.ScrollablePage {
     supportsRefreshing: true
     onRefreshingChanged: {
         if(refreshing) {
-            Fetcher.fetchAll()
-            refreshing = false
+            updateAllFeeds.run();
+            refreshing = false;
         }
     }
 

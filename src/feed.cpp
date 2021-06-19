@@ -152,16 +152,7 @@ QString Feed::image() const
 
 QString Feed::cachedImage() const
 {
-    if (m_image.isEmpty()) {
-        return QStringLiteral("no-image");
-    } else {
-        QString imagePath = Fetcher::instance().image(m_image);
-        if (imagePath.isEmpty()) {
-            return QStringLiteral("fetching");
-        } else {
-            return QStringLiteral("file://") + imagePath;
-        }
-    }
+    return Fetcher::instance().image(m_image);
 }
 
 QString Feed::link() const

@@ -58,7 +58,13 @@ Kirigami.ApplicationWindow {
                      : 0
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
-        if (SettingsManager.refreshOnStartup) Fetcher.fetchAll();
+
+        // Refresh feeds on startup if allowed
+        if (SettingsManager.refreshOnStartup) {
+            if (SettingsManager.allowMeteredFeedUpdates || !Fetcher.isMeteredConnection()) {
+                Fetcher.fetchAll();
+            }
+        }
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -211,6 +217,9 @@ Kirigami.ApplicationWindow {
 
     }
 
+    // Notification that shows the progress of feed updates
+    // It mimicks the behaviour of an InlineMessage, because InlineMessage does
+    // not allow to add a BusyIndicator
     UpdateNotification {
         z: 2
         id: updateNotification
@@ -222,6 +231,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    // This InlineMessage is used for displaying error messages
     ErrorNotification {
         id: errorNotification
     }
@@ -229,5 +239,36 @@ Kirigami.ApplicationWindow {
     // overlay with log of all errors that have happened
     ErrorListOverlay {
         id: errorOverlay
+    }
+
+    // This item can be used to trigger an update of all feeds; it will open an
+    // overlay with options in case the operation is not allowed by the settings
+    ConnectionCheckAction {
+        id: updateAllFeeds
+    }
+
+    // Overlay with options what to do when metered downloads are not allowed
+    ConnectionCheckAction {
+        id: downloadOverlay
+
+        headingText: i18n("Podcast downloads are currently not allowed on metered connections")
+        condition: SettingsManager.allowMeteredEpisodeDownloads
+        property var entry: undefined
+
+        function action() {
+            entry.queueStatus = true;
+            entry.enclosure.download();
+        }
+
+        function allowOnceAction() {
+            SettingsManager.allowMeteredEpisodeDownloads = true;
+            action();
+            SettingsManager.allowMeteredEpisodeDownloads = false;
+        }
+
+        function alwaysAllowAction() {
+            SettingsManager.allowMeteredEpisodeDownloads = true;
+            action();
+        }
     }
 }

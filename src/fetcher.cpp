@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include <KLocalizedString>
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QDebug>
@@ -36,6 +37,13 @@ Fetcher::Fetcher()
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
     manager->enableStrictTransportSecurityStore(true);
+
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    m_nmInterface = new OrgFreedesktopNetworkManagerInterface(QStringLiteral("org.freedesktop.NetworkManager"),
+                                                              QStringLiteral("/org/freedesktop/NetworkManager"),
+                                                              QDBusConnection::systemBus(),
+                                                              this);
+#endif
 }
 
 void Fetcher::fetch(const QString &url)
@@ -80,6 +88,13 @@ void Fetcher::fetchAll()
 
 void Fetcher::retrieveFeed(const QString &url)
 {
+    if (isMeteredConnection() && !SettingsManager::self()->allowMeteredFeedUpdates()) {
+        Q_EMIT error(Error::Type::MeteredNotAllowed, url, QString(), 0, i18n("Podcast updates not allowed due to user setting"));
+        m_updateProgress++;
+        Q_EMIT updateProgressChanged(m_updateProgress);
+        return;
+    }
+
     qCDebug(kastsFetcher) << "Starting to fetch" << url;
 
     Q_EMIT startedFetchingFeed(url);
@@ -346,15 +361,31 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
 
 QString Fetcher::image(const QString &url) const
 {
-    QString path = imagePath(url);
-    if (QFileInfo::exists(path)) {
-        if (QFileInfo(path).size() != 0)
-            return path;
+    if (url.isEmpty()) {
+        return QLatin1String("no-image");
     }
 
-    download(url, path);
+    // if image is already cached, then return the path
+    QString path = imagePath(url);
+    if (QFileInfo::exists(path)) {
+        if (QFileInfo(path).size() != 0) {
+            return QStringLiteral("file://") + path;
+        }
+    }
 
-    return QLatin1String("");
+    // if image has not yet been cached, then check for network connectivity if
+    // possible; and download the image
+    if (canCheckNetworkStatus()) {
+        if (networkConnected() && (!isMeteredConnection() || SettingsManager::self()->allowMeteredImageDownloads())) {
+            download(url, path);
+        } else {
+            return QLatin1String("no-image");
+        }
+    } else {
+        download(url, path);
+    }
+
+    return QLatin1String("fetching");
 }
 
 QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
@@ -455,4 +486,44 @@ QNetworkReply *Fetcher::head(QNetworkRequest &request) const
 void Fetcher::setHeader(QNetworkRequest &request) const
 {
     request.setRawHeader("User-Agent", "Kasts/0.1; Syndication");
+}
+
+bool Fetcher::canCheckNetworkStatus() const
+{
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    qCDebug(kastsFetcher) << "Can NetworkManager be reached?" << m_nmInterface->isValid();
+    return (m_nmInterface && m_nmInterface->isValid());
+#else
+    return false;
+#endif
+}
+
+bool Fetcher::networkConnected() const
+{
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    qCDebug(kastsFetcher) << "Network connected?" << (m_nmInterface->state() >= 70) << m_nmInterface->state();
+    return (m_nmInterface && m_nmInterface->state() >= 70);
+#else
+    return true;
+#endif
+}
+
+bool Fetcher::isMeteredConnection() const
+{
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
+    if (canCheckNetworkStatus()) {
+        // Get network connection status through DBus (NetworkManager)
+        // state == 1: explicitly configured as metered
+        // state == 3: connection guessed as metered
+        uint state = m_nmInterface->metered();
+        qCDebug(kastsFetcher) << "Network Status:" << state;
+        qCDebug(kastsFetcher) << "Connection is metered?" << (state == 1 || state == 3);
+        return (state == 1 || state == 3);
+    } else {
+        return false;
+    }
+#else
+    // TODO: get network connection type for Android and windows
+    return false;
+#endif
 }

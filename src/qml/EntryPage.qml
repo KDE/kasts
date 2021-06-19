@@ -105,7 +105,8 @@ Kirigami.ScrollablePage {
             if (!entry.enclosure) {
                 Qt.openUrlExternally(entry.link)
             } else if (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) {
-                entry.enclosure.download()
+                downloadOverlay.entry = entry;
+                downloadOverlay.run();
             } else if (entry.enclosure.status === Enclosure.Downloading) {
                 entry.enclosure.cancelDownload()
             } else if (!entry.queueStatus) {

@@ -30,13 +30,22 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
             text: "https://"
         }
+
+        // This item can be used to trigger the addition of a feed; it will open an
+        // overlay with options in case the operation is not allowed by the settings
+        ConnectionCheckAction {
+            id: addFeed
+            function action() {
+                DataManager.addFeed(urlField.text)
+            }
+        }
     }
 
     footer: Controls.Button {
         text: i18n("Add Podcast")
         enabled: urlField.text
         onClicked: {
-            DataManager.addFeed(urlField.text)
+            addFeed.run()
             addSheet.close()
         }
     }
