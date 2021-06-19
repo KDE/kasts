@@ -5,8 +5,8 @@
  */
 
 #include "downloadprogressmodel.h"
-#include "downloadprogressmodellogging.h"
 #include "datamanager.h"
+#include "downloadprogressmodellogging.h"
 
 DownloadProgressModel::DownloadProgressModel()
     : QAbstractListModel(nullptr)
