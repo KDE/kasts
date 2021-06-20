@@ -2,6 +2,8 @@
 
 Kasts is a convergent podcast application.
 
+<a href='https://flathub.org/apps/details/org.kde.kasts'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
+
 # Get it
 
 Nightly Android APKs are available at [KDE's Binary Factory](https://binary-factory.kde.org/view/Android/job/Kasts_android/).
