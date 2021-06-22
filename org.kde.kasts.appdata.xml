@@ -15,6 +15,7 @@
   <name xml:lang="fr">Kasts</name>
   <name xml:lang="ko">Kasts</name>
   <name xml:lang="nl">Kasts</name>
+  <name xml:lang="pa">ਕਾਸਟਸ</name>
   <name xml:lang="pl">Kasts</name>
   <name xml:lang="pt">Kasts</name>
   <name xml:lang="pt-BR">Kasts</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="fr">Application de podcasts pour appareils mobiles</summary>
   <summary xml:lang="ko">모바일 장치용 팟캐스트 프로그램</summary>
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
+  <summary xml:lang="pa">ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ</summary>
   <summary xml:lang="pl">Aplikacja do podkastów dla urządzeń przenośnych</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts' para dispositivos móveis</summary>
   <summary xml:lang="pt-BR">Aplicativo de podcast para dispositivos móveis</summary>
@@ -52,6 +54,7 @@
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
+  <developer_name xml:lang="pa">ਕੇਡੀਈ ਕਮਿਊਨਟੀ</developer_name>
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">A Comunidade do KDE</developer_name>
   <developer_name xml:lang="pt-BR">A comunidade KDE</developer_name>
@@ -69,6 +72,7 @@
     <p xml:lang="fr">Kasts est une application mobile pour podcast.</p>
     <p xml:lang="ko">Kasts는 모바일 팟캐스트 프로그램입니다</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
+    <p xml:lang="pa">ਕਾਸਟਸ ਮੋਬਾਈਲ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ ਹੈ</p>
     <p xml:lang="pl">Kasts jest przenośną aplikacja do podkastów</p>
     <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
     <p xml:lang="pt-BR">O Kast é um aplicativo de podcast móvel</p>
@@ -97,6 +101,7 @@
       <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
       <caption xml:lang="ko">데스크톱에서의 Kasts 피드 목록</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
+      <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕਾਸਟਸ ਫੀਡ ਸੂਚੀ</caption>
       <caption xml:lang="pt">Lista de fontes do Kasts no computador</caption>
       <caption xml:lang="pt-BR">A lista do Kasts no computador</caption>
       <caption xml:lang="sl">Seznam podcastov na namizju</caption>
@@ -115,6 +120,7 @@
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="ko">휴대폰에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
+      <caption xml:lang="pa">ਫ਼ੋਨ ਉੱਤੇ ਕਾਸਟਸ</caption>
       <caption xml:lang="pt">O Kasts num telemóvel</caption>
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
