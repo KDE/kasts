@@ -137,6 +137,7 @@ if(ANDROID)
         arrow-down
         overflow-menu
         checkbox
+        error
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)

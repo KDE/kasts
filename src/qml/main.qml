@@ -203,28 +203,16 @@ Kirigami.ApplicationWindow {
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
-            bottomMargin: bottomMessageSpacing + ( inlineMessage.visible ? inlineMessage.height + Kirigami.Units.largeSpacing : 0 )
+            bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 )
         }
     }
 
-    Kirigami.InlineMessage {
-        id: inlineMessage
-        anchors {
-            bottom: parent.bottom
-            right: parent.right
-            left: parent.left
-            margins: Kirigami.Units.gridUnit
-            bottomMargin: bottomMessageSpacing
-        }
-        type: Kirigami.MessageType.Error
-        showCloseButton: true
+    ErrorNotification {
+        id: errorNotification
+    }
 
-        Connections {
-            target: ErrorLogModel
-            function onNewErrorLogged(error) {
-                inlineMessage.text = error.description + "\n" + i18n("Check Error Log Tab (under Downloads) for more details");
-                inlineMessage.visible = true;
-            }
-        }
+    // overlay with log of all errors that have happened
+    ErrorListOverlay {
+        id: errorOverlay
     }
 }

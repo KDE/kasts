@@ -16,7 +16,7 @@
         <file alias="FooterBar.qml">qml/FooterBar.qml</file>
         <file alias="QueuePage.qml">qml/QueuePage.qml</file>
         <file alias="EpisodeListPage.qml">qml/EpisodeListPage.qml</file>
-        <file alias="ErrorListPage.qml">qml/ErrorListPage.qml</file>
+        <file alias="ErrorListOverlay.qml">qml/ErrorListOverlay.qml</file>
         <file alias="EpisodeSwipePage.qml">qml/EpisodeSwipePage.qml</file>
         <file alias="DownloadSwipePage.qml">qml/DownloadSwipePage.qml</file>
         <file alias="GenericHeader.qml">qml/GenericHeader.qml</file>
@@ -24,6 +24,7 @@
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
         <file alias="HeaderBar.qml">qml/HeaderBar.qml</file>
+        <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
     </qresource>

@@ -10,12 +10,11 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
+
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Settings")
-
-    // TODO: Remove old kasts settings from the kcfg and the qml code
 
     Kirigami.FormLayout {
 
@@ -103,6 +102,17 @@ Kirigami.ScrollablePage {
             text: i18n("Use system default")
 
             onToggled: SettingsManager.articleFontUseSystem = checked
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Errors")
+        }
+
+        Controls.Button {
+            icon.name: "error"
+            text: i18n("Show Error Log")
+            onClicked: errorOverlay.open()
         }
     }
 }
