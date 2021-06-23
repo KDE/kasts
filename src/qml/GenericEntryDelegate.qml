@@ -184,7 +184,7 @@ Kirigami.SwipeListItem {
                 entry.queueStatus = true;
                 entry.enclosure.download();
             }
-            visible: !isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloadable
+            visible: !isDownloads && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded)
         },
         Kirigami.Action {
             text: i18n("Cancel Download")

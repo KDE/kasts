@@ -157,11 +157,16 @@ Entry *DataManager::getEntry(const EpisodeModel::Type type, const int entry_inde
             entryQuery.bindValue(QStringLiteral(":read"), false);
         } else if (type == EpisodeModel::All) {
             entryQuery.prepare(QStringLiteral("SELECT id FROM Entries ORDER BY updated DESC LIMIT 1 OFFSET :index;"));
-        } else { // i.e. EpisodeModel::Downloaded
+        } else if (type == EpisodeModel::Downloaded) {
             entryQuery.prepare(
                 QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
                                "LIMIT 1 OFFSET :index;"));
-            entryQuery.bindValue(QStringLiteral(":downloaded"), true);
+            entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
+        } else { // i.e. EpisodeModel::PartiallyDownloaded
+            entryQuery.prepare(
+                QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC "
+                               "LIMIT 1 OFFSET :index;"));
+            entryQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
         }
         entryQuery.bindValue(QStringLiteral(":index"), entry_index);
         Database::instance().execute(entryQuery);
@@ -202,9 +207,12 @@ int DataManager::entryCount(const EpisodeModel::Type type) const
             query.bindValue(QStringLiteral(":read"), false);
         } else if (type == EpisodeModel::All) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries;"));
-        } else { // i.e. EpisodeModel::Downloaded
+        } else if (type == EpisodeModel::Downloaded) {
             query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
-            query.bindValue(QStringLiteral(":downloaded"), true);
+            query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
+        } else { // i.e. EpisodeModel::PartiallyDownloaded
+            query.prepare(QStringLiteral("SELECT COUNT (id) FROM Enclosures WHERE downloaded=:downloaded;"));
+            query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
         }
         Database::instance().execute(query);
         if (!query.next())

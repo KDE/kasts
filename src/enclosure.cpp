@@ -33,6 +33,9 @@ Enclosure::Enclosure(Entry *entry)
             // reported.  Other times only the remaining part.
             // Sometimes the value is rubbish (e.g. 2)
             // We assume that the value when starting a new download is correct.
+            if (fileSize < resumedAt) {
+                fileSize += resumedAt;
+            }
             qDebug() << "Correct filesize for enclosure" << url << "from" << m_size << "to" << fileSize;
             setSize(fileSize);
         }
@@ -53,7 +56,7 @@ Enclosure::Enclosure(Entry *entry)
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
     m_playposition = query.value(QStringLiteral("playposition")).toLongLong();
-    m_status = query.value(QStringLiteral("downloaded")).toBool() ? Downloaded : Downloadable;
+    m_status = dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
     m_playposition_dbsave = m_playposition;
 
     // In principle the database contains this status, we check anyway in case
@@ -61,38 +64,53 @@ Enclosure::Enclosure(Entry *entry)
     QFile file(path());
     if (file.exists()) {
         if (file.size() == m_size && file.size() > 0) {
-            if (m_status == Downloadable) {
-                // file is on disk, but was not expected, write to database
-                // this should, in principle, never happen unless the db was deleted
-                m_status = Downloaded;
-                query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
-                query.bindValue(QStringLiteral(":id"), entry->id());
-                query.bindValue(QStringLiteral(":downloaded"), true);
-                Database::instance().execute(query);
-            }
+            // file is on disk and has correct size, write to database if it
+            // wasn't already registered so
+            // this should, in principle, never happen unless the db was deleted
+            setStatus(Downloaded);
+        } else if (file.size() > 0) {
+            // file was downloaded, but there is a size mismatch
+            // set to PartiallyDownloaded such that download can be resumed
+            setStatus(PartiallyDownloaded);
         } else {
-            if (m_status == Downloaded) {
-                // file was downloaded, but there is a size mismatch or file is empty
-                // update status in database
-                // don't actually delete the file such that the download can be resumed
-                m_status = Downloadable;
-                query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
-                query.bindValue(QStringLiteral(":id"), entry->id());
-                query.bindValue(QStringLiteral(":downloaded"), false);
-                Database::instance().execute(query);
-            }
+            // file is empty
+            setStatus(Downloadable);
         }
     } else {
-        if (m_status == Downloaded) {
-            // file was supposed to be on disk, but isn't there
-            // update status and write to the database
-            file.remove();
-            m_status = Downloadable;
-            query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
-            query.bindValue(QStringLiteral(":id"), entry->id());
-            query.bindValue(QStringLiteral(":downloaded"), false);
-            Database::instance().execute(query);
-        }
+        // file does not exist
+        setStatus(Downloadable);
+    }
+}
+
+int Enclosure::statusToDb(Enclosure::Status status)
+{
+    switch (status) {
+    case Enclosure::Status::Downloadable:
+        return 0;
+    case Enclosure::Status::Downloading:
+        return 1;
+    case Enclosure::Status::PartiallyDownloaded:
+        return 2;
+    case Enclosure::Status::Downloaded:
+        return 3;
+    default:
+        return -1;
+    }
+}
+
+Enclosure::Status Enclosure::dbToStatus(int value)
+{
+    switch (value) {
+    case 0:
+        return Enclosure::Status::Downloadable;
+    case 1:
+        return Enclosure::Status::Downloading;
+    case 2:
+        return Enclosure::Status::PartiallyDownloaded;
+    case 3:
+        return Enclosure::Status::Downloaded;
+    default:
+        return Enclosure::Status::Error;
     }
 }
 
@@ -111,7 +129,12 @@ void Enclosure::download()
         if (downloadJob->error() == 0) {
             processDownloadedFile();
         } else {
-            m_status = Downloadable;
+            QFile file(path());
+            if (file.exists() && file.size() > 0) {
+                setStatus(PartiallyDownloaded);
+            } else {
+                setStatus(Downloadable);
+            }
             if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
                 m_entry->feed()->setErrorId(downloadJob->error());
                 m_entry->feed()->setErrorString(downloadJob->errorString());
@@ -124,9 +147,12 @@ void Enclosure::download()
 
     connect(this, &Enclosure::cancelDownload, this, [this, downloadJob]() {
         downloadJob->doKill();
-        m_status = Downloadable;
-        Q_EMIT statusChanged(m_entry, m_status);
-        Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
+        QFile file(path());
+        if (file.exists() && file.size() > 0) {
+            setStatus(PartiallyDownloaded);
+        } else {
+            setStatus(Downloadable);
+        }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
 
@@ -135,8 +161,7 @@ void Enclosure::download()
         Q_EMIT downloadProgressChanged();
     });
 
-    m_status = Downloading;
-    Q_EMIT statusChanged(m_entry, m_status);
+    setStatus(Downloading);
 }
 
 void Enclosure::processDownloadedFile()
@@ -159,17 +184,10 @@ void Enclosure::processDownloadedFile()
         setSize(file.size());
     }
 
-    m_status = Downloaded;
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
-    query.bindValue(QStringLiteral(":id"), m_entry->id());
-    query.bindValue(QStringLiteral(":downloaded"), true);
-    Database::instance().execute(query);
+    setStatus(Downloaded);
     // Unset "new" status of item
     if (m_entry->getNew())
         m_entry->setNew(false);
-
-    Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
 }
 
 void Enclosure::deleteFile()
@@ -179,14 +197,7 @@ void Enclosure::deleteFile()
     if (QFile(path()).exists())
         QFile(path()).remove();
     // If file disappeared unexpectedly, then still change status to downloadable
-    m_status = Downloadable;
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id;"));
-    query.bindValue(QStringLiteral(":id"), m_entry->id());
-    query.bindValue(QStringLiteral(":downloaded"), false);
-    Database::instance().execute(query);
-    Q_EMIT statusChanged(m_entry, m_status);
-    Q_EMIT DataManager::instance().downloadCountChanged(m_entry->feed()->url());
+    setStatus(Downloadable);
 }
 
 QString Enclosure::path() const
@@ -214,52 +225,77 @@ int Enclosure::size() const
     return m_size;
 }
 
-void Enclosure::setPlayPosition(const qint64 &position)
+void Enclosure::setStatus(Enclosure::Status status)
 {
-    m_playposition = position;
-    qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
-    Q_EMIT playPositionChanged();
+    if (m_status != status) {
+        m_status = status;
 
-    // let's only save the play position to the database every 15 seconds
-    if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
-        qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));
+        query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id AND feed=:feed;"));
         query.bindValue(QStringLiteral(":id"), m_entry->id());
         query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
-        query.bindValue(QStringLiteral(":playposition"), m_playposition);
+        query.bindValue(QStringLiteral(":downloaded"), statusToDb(m_status));
         Database::instance().execute(query);
-        m_playposition_dbsave = m_playposition;
+
+        Q_EMIT statusChanged(m_entry, m_status);
+    }
+}
+
+void Enclosure::setPlayPosition(const qint64 &position)
+{
+    if (m_playposition != position) {
+        m_playposition = position;
+        qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
+
+        // let's only save the play position to the database every 15 seconds
+        if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
+            qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
+            QSqlQuery query;
+            query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));
+            query.bindValue(QStringLiteral(":id"), m_entry->id());
+            query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+            query.bindValue(QStringLiteral(":playposition"), m_playposition);
+            Database::instance().execute(query);
+            m_playposition_dbsave = m_playposition;
+        }
+
+        Q_EMIT playPositionChanged();
     }
 }
 
 void Enclosure::setDuration(const qint64 &duration)
 {
-    m_duration = duration;
-    Q_EMIT durationChanged();
+    if (m_duration != duration) {
+        m_duration = duration;
 
-    // also save to database
-    qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE id=:id AND feed=:feed"));
-    query.bindValue(QStringLiteral(":id"), m_entry->id());
-    query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
-    query.bindValue(QStringLiteral(":duration"), m_duration);
-    Database::instance().execute(query);
+        // also save to database
+        qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE id=:id AND feed=:feed"));
+        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.bindValue(QStringLiteral(":duration"), m_duration);
+        Database::instance().execute(query);
+
+        Q_EMIT durationChanged();
+    }
 }
 
 void Enclosure::setSize(const int &size)
 {
-    m_size = size;
-    Q_EMIT sizeChanged();
+    if (m_size != size) {
+        m_size = size;
 
-    // also save to database
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
-    query.bindValue(QStringLiteral(":id"), m_entry->id());
-    query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
-    query.bindValue(QStringLiteral(":size"), m_size);
-    Database::instance().execute(query);
+        // also save to database
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
+        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.bindValue(QStringLiteral(":size"), m_size);
+        Database::instance().execute(query);
+
+        Q_EMIT sizeChanged();
+    }
 }
 
 QString Enclosure::formattedSize() const

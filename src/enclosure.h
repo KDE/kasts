@@ -26,7 +26,7 @@ class Enclosure : public QObject
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
     Q_PROPERTY(QString url MEMBER m_url CONSTANT)
-    Q_PROPERTY(Status status READ status NOTIFY statusChanged)
+    Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
@@ -40,10 +40,14 @@ public:
     enum Status {
         Downloadable,
         Downloading,
+        PartiallyDownloaded,
         Downloaded,
         Error,
     };
     Q_ENUM(Status)
+
+    static int statusToDb(Status status); // needed to translate Enclosure::Status values to int for sqlite
+    static Status dbToStatus(int value); // needed to translate from int to Enclosure::Status values for sqlite
 
     Q_INVOKABLE void download();
     Q_INVOKABLE void deleteFile();
@@ -57,6 +61,7 @@ public:
     QString formattedDuration() const;
     QString formattedPlayPosition() const;
 
+    void setStatus(Status status);
     void setPlayPosition(const qint64 &position);
     void setDuration(const qint64 &duration);
     void setSize(const int &size);

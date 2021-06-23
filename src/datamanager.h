@@ -74,7 +74,6 @@ Q_SIGNALS:
 
     void unreadEntryCountChanged(const QString &url);
     void newEntryCountChanged(const QString &url);
-    void downloadCountChanged(const QString &url);
 
 private:
     DataManager();

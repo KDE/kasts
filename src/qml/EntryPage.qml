@@ -69,22 +69,25 @@ Kirigami.ScrollablePage {
 
     actions.main: Kirigami.Action {
         text: !entry.enclosure ? i18n("Open in Browser") :
-            entry.enclosure.status === Enclosure.Downloadable ? i18n("Download") :
+            (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) ? i18n("Download") :
             entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel Download") :
             !entry.queueStatus ? i18n("Delete Download") :
             (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? i18n("Pause") :
             i18n("Play")
         icon.name: !entry.enclosure ? "globe" :
-            entry.enclosure.status === Enclosure.Downloadable ? "download" :
+            (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) ? "download" :
             entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
             !entry.queueStatus ? "delete" :
             (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? "media-playback-pause" :
             "media-playback-start"
         onTriggered: {
-            if(!entry.enclosure) Qt.openUrlExternally(entry.link)
-            else if(entry.enclosure.status === Enclosure.Downloadable) entry.enclosure.download()
-            else if(entry.enclosure.status === Enclosure.Downloading) entry.enclosure.cancelDownload()
-            else if(!entry.queueStatus) {
+            if (!entry.enclosure) {
+                Qt.openUrlExternally(entry.link)
+            } else if (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) {
+                entry.enclosure.download()
+            } else if (entry.enclosure.status === Enclosure.Downloading) {
+                entry.enclosure.cancelDownload()
+            } else if (!entry.queueStatus) {
                 entry.enclosure.deleteFile()
             } else {
                 if(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) {

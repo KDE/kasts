@@ -44,6 +44,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo1());
     if (dbversion < 2)
         TRUE_OR_RETURN(migrateTo2());
+    if (dbversion < 3)
+        TRUE_OR_RETURN(migrateTo3());
     return true;
 }
 
@@ -72,6 +74,17 @@ bool Database::migrateTo2()
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 2;")));
+    return true;
+}
+
+bool Database::migrateTo3()
+{
+    qDebug() << "Migrating database to version 3";
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures RENAME COLUMN downloaded TO downloaded_temp;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded INTEGER DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=3 where downloaded_temp=1;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN downloaded_temp;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 3;")));
     return true;
 }
 

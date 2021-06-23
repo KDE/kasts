@@ -65,13 +65,5 @@ void EpisodeModel::setType(EpisodeModel::Type type)
             beginResetModel();
             endResetModel();
         });
-    } else if (m_type == EpisodeModel::Downloaded) { // TODO: this needs to be removed !!!!!!
-        connect(&DataManager::instance(), &DataManager::downloadCountChanged, this, [this](const QString &url) {
-            Q_UNUSED(url)
-            // we have to reset the entire model in case entries are removed or added
-            // because we have no way of knowing where those entries will be added/removed
-            beginResetModel();
-            endResetModel();
-        });
     }
 }

@@ -21,6 +21,7 @@
 #include <Syndication/Syndication>
 
 #include "database.h"
+#include "enclosure.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
 #include "settingsmanager.h"
@@ -339,7 +340,7 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.bindValue(QStringLiteral(":type"), enclosure->type());
     query.bindValue(QStringLiteral(":url"), enclosure->url());
     query.bindValue(QStringLiteral(":playposition"), 0);
-    query.bindValue(QStringLiteral(":downloaded"), false);
+    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloadable));
     Database::instance().execute(query);
 }
 

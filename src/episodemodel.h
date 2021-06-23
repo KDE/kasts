@@ -22,6 +22,7 @@ public:
         Unread,
         Downloading,
         Downloaded,
+        PartiallyDownloaded,
     };
     Q_ENUM(Type)
 
