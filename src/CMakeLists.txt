@@ -109,7 +109,8 @@ if(ANDROID)
     )
 
     kirigami_package_breeze_icons(ICONS
-        dialog-close
+        window-close
+        window-close-symbolic
         delete
         settings-configure
         help-about-symbolic
