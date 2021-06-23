@@ -54,7 +54,7 @@ Q_SIGNALS:
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
     void entryAdded(const QString &feedurl, const QString &id);
     void downloadFinished(QString url) const;
-    void downloadFileSizeUpdated(QString url, int fileSize) const;
+    void downloadFileSizeUpdated(QString url, int fileSize, int resumedAt) const;
 
     void updateProgressChanged(int progress);
     void updateTotalChanged(int nrOfFeeds);

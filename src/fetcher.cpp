@@ -362,10 +362,12 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     request.setTransferTimeout();
 
     QFile *file = new QFile(filePath);
+    int resumedAt = 0;
     if (file->exists() && file->size() > 0) {
         // try to resume download
-        qCDebug(kastsFetcher) << "Resuming download at" << file->size() << "bytes";
-        QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(file->size()) + QByteArray("-");
+        resumedAt = file->size();
+        qCDebug(kastsFetcher) << "Resuming download at" << resumedAt << "bytes";
+        QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(resumedAt) + QByteArray("-");
         request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
         file->open(QIODevice::WriteOnly | QIODevice::Append);
     } else {
@@ -376,10 +378,9 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     QNetworkReply *headerReply = head(request);
     connect(headerReply, &QNetworkReply::finished, this, [=]() {
         if (headerReply->isOpen()) {
-            qCDebug(kastsFetcher) << "size" << headerReply->header(QNetworkRequest::ContentLengthHeader);
             int fileSize = headerReply->header(QNetworkRequest::ContentLengthHeader).toInt();
-
-            Q_EMIT downloadFileSizeUpdated(url, fileSize);
+            qCDebug(kastsFetcher) << "Reported download size" << fileSize;
+            Q_EMIT downloadFileSizeUpdated(url, fileSize, resumedAt);
         }
         headerReply->deleteLater();
     });

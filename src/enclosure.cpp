@@ -27,9 +27,13 @@ Enclosure::Enclosure(Entry *entry)
 {
     connect(this, &Enclosure::statusChanged, &DownloadProgressModel::instance(), &DownloadProgressModel::monitorDownloadProgress);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-    connect(&Fetcher::instance(), &Fetcher::downloadFileSizeUpdated, this, [this](QString url, int fileSize) {
-        if ((url == m_url) && (fileSize != m_size)) {
-            qDebug() << "Correct filesize for enclosure" << url << "to" << fileSize;
+    connect(&Fetcher::instance(), &Fetcher::downloadFileSizeUpdated, this, [this](QString url, int fileSize, int resumedAt) {
+        if ((url == m_url) && ((m_size != fileSize) && (m_size != fileSize + resumedAt)) && (fileSize > 1000)) {
+            // Sometimes, when resuming a download, the complete file size is
+            // reported.  Other times only the remaining part.
+            // Sometimes the value is rubbish (e.g. 2)
+            // We assume that the value when starting a new download is correct.
+            qDebug() << "Correct filesize for enclosure" << url << "from" << m_size << "to" << fileSize;
             setSize(fileSize);
         }
     });
@@ -151,7 +155,7 @@ void Enclosure::processDownloadedFile()
     // if not, correct the filesize in the database
     // otherwise the file will get deleted because of mismatch in signature
     if (file.size() != m_size) {
-        qCDebug(kastsEnclosure) << "enclosure file size mismatch" << m_entry->title();
+        qCDebug(kastsEnclosure) << "enclosure file size mismatch" << m_entry->title() << "from" << m_size << "to" << file.size();
         setSize(file.size());
     }
 
