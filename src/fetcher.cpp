@@ -376,15 +376,16 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
         file->open(QIODevice::WriteOnly);
     }
 
+    /*
     QNetworkReply *headerReply = head(request);
     connect(headerReply, &QNetworkReply::finished, this, [=]() {
         if (headerReply->isOpen()) {
             int fileSize = headerReply->header(QNetworkRequest::ContentLengthHeader).toInt();
             qCDebug(kastsFetcher) << "Reported download size" << fileSize;
-            Q_EMIT downloadFileSizeUpdated(url, fileSize, resumedAt);
         }
         headerReply->deleteLater();
     });
+    */
 
     QNetworkReply *reply = get(request);
 

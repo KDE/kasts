@@ -21,13 +21,15 @@ class Enclosure : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(int size READ size WRITE setSize NOTIFY sizeChanged)
+    Q_PROPERTY(qint64 size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)
+    Q_PROPERTY(qint64 sizeOnDisk READ sizeOnDisk NOTIFY sizeOnDiskChanged)
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
     Q_PROPERTY(QString url MEMBER m_url CONSTANT)
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
+    Q_PROPERTY(QString formattedDownloadSize READ formattedDownloadSize NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
     Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged);
@@ -56,15 +58,18 @@ public:
     Status status() const;
     qint64 playPosition() const;
     qint64 duration() const;
-    int size() const;
+    qint64 size() const;
+    qint64 sizeOnDisk() const;
     QString formattedSize() const;
     QString formattedDuration() const;
     QString formattedPlayPosition() const;
+    QString formattedDownloadSize() const;
 
     void setStatus(Status status);
     void setPlayPosition(const qint64 &position);
     void setDuration(const qint64 &duration);
-    void setSize(const int &size);
+    void setSize(const qint64 &size);
+    void checkSizeOnDisk();
 
 Q_SIGNALS:
     void statusChanged(Entry *entry, Status status);
@@ -73,6 +78,7 @@ Q_SIGNALS:
     void playPositionChanged();
     void durationChanged();
     void sizeChanged();
+    void sizeOnDiskChanged();
     void downloadError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 private:
@@ -80,13 +86,15 @@ private:
 
     Entry *m_entry;
     qint64 m_duration;
-    int m_size;
+    qint64 m_size = 0;
+    qint64 m_sizeOnDisk;
     QString m_title;
     QString m_type;
     QString m_url;
     qint64 m_playposition;
     qint64 m_playposition_dbsave;
     double m_downloadProgress = 0;
+    qint64 m_downloadSize = 0;
     Status m_status;
     KFormat m_kformat;
 };

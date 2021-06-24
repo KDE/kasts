@@ -28,19 +28,6 @@ Enclosure::Enclosure(Entry *entry)
 {
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-    connect(&Fetcher::instance(), &Fetcher::downloadFileSizeUpdated, this, [this](QString url, int fileSize, int resumedAt) {
-        if ((url == m_url) && ((m_size != fileSize) && (m_size != fileSize + resumedAt)) && (fileSize > 1000)) {
-            // Sometimes, when resuming a download, the complete file size is
-            // reported.  Other times only the remaining part.
-            // Sometimes the value is rubbish (e.g. 2)
-            // We assume that the value when starting a new download is correct.
-            if (fileSize < resumedAt) {
-                fileSize += resumedAt;
-            }
-            qDebug() << "Correct filesize for enclosure" << url << "from" << m_size << "to" << fileSize;
-            setSize(fileSize);
-        }
-    });
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
@@ -60,27 +47,7 @@ Enclosure::Enclosure(Entry *entry)
     m_status = dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
     m_playposition_dbsave = m_playposition;
 
-    // In principle the database contains this status, we check anyway in case
-    // something changed on disk
-    QFile file(path());
-    if (file.exists()) {
-        if (file.size() == m_size && file.size() > 0) {
-            // file is on disk and has correct size, write to database if it
-            // wasn't already registered so
-            // this should, in principle, never happen unless the db was deleted
-            setStatus(Downloaded);
-        } else if (file.size() > 0) {
-            // file was downloaded, but there is a size mismatch
-            // set to PartiallyDownloaded such that download can be resumed
-            setStatus(PartiallyDownloaded);
-        } else {
-            // file is empty
-            setStatus(Downloadable);
-        }
-    } else {
-        // file does not exist
-        setStatus(Downloadable);
-    }
+    checkSizeOnDisk();
 }
 
 int Enclosure::statusToDb(Enclosure::Status status)
@@ -117,9 +84,11 @@ Enclosure::Status Enclosure::dbToStatus(int value)
 
 void Enclosure::download()
 {
+    checkSizeOnDisk();
     EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, path(), m_entry->title());
     downloadJob->start();
 
+    qint64 resumedAt = m_sizeOnDisk;
     m_downloadProgress = 0;
     Q_EMIT downloadProgressChanged();
 
@@ -127,6 +96,7 @@ void Enclosure::download()
     m_entry->feed()->setErrorString(QString());
 
     connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
+        checkSizeOnDisk();
         if (downloadJob->error() == 0) {
             processDownloadedFile();
         } else {
@@ -148,6 +118,7 @@ void Enclosure::download()
 
     connect(this, &Enclosure::cancelDownload, this, [this, downloadJob]() {
         downloadJob->doKill();
+        checkSizeOnDisk();
         QFile file(path());
         if (file.exists() && file.size() > 0) {
             setStatus(PartiallyDownloaded);
@@ -157,9 +128,24 @@ void Enclosure::download()
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
 
-    connect(downloadJob, &KJob::percentChanged, this, [=](KJob *, unsigned long percent) {
-        m_downloadProgress = percent;
+    connect(downloadJob, &KJob::processedAmountChanged, this, [=](KJob *kjob, KJob::Unit unit, qulonglong amount) {
+        Q_ASSERT(unit == KJob::Unit::Bytes);
+
+        qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));
+        qint64 currentSize = static_cast<qint64>(amount);
+
+        if ((totalSize > 0) && (m_size != totalSize + resumedAt)) {
+            qCDebug(kastsEnclosure) << "Correct filesize for enclosure" << m_entry->title() << "from" << m_size << "to" << totalSize + resumedAt;
+            setSize(totalSize + resumedAt);
+        }
+
+        m_downloadSize = currentSize + resumedAt;
+        m_downloadProgress = static_cast<double>(m_downloadSize) / static_cast<double>(m_size);
         Q_EMIT downloadProgressChanged();
+
+        qCDebug(kastsEnclosure) << "m_downloadSize" << m_downloadSize;
+        qCDebug(kastsEnclosure) << "m_downloadProgress" << m_downloadProgress;
+        qCDebug(kastsEnclosure) << "m_size" << m_size;
     });
 
     setStatus(Downloading);
@@ -171,8 +157,8 @@ void Enclosure::processDownloadedFile()
 
     // First check if file size is larger than 0; otherwise something unexpected
     // must have happened
-    QFile file(path());
-    if (file.size() == 0) {
+    checkSizeOnDisk();
+    if (m_sizeOnDisk == 0) {
         deleteFile();
         return;
     }
@@ -180,15 +166,16 @@ void Enclosure::processDownloadedFile()
     // Check if reported filesize in rss feed corresponds to real file size
     // if not, correct the filesize in the database
     // otherwise the file will get deleted because of mismatch in signature
-    if (file.size() != m_size) {
-        qCDebug(kastsEnclosure) << "enclosure file size mismatch" << m_entry->title() << "from" << m_size << "to" << file.size();
-        setSize(file.size());
+    if (m_sizeOnDisk != size()) {
+        qCDebug(kastsEnclosure) << "Correcting enclosure file size mismatch" << m_entry->title() << "from" << size() << "to" << m_sizeOnDisk;
+        setSize(m_sizeOnDisk);
+        setStatus(Downloaded);
     }
 
-    setStatus(Downloaded);
     // Unset "new" status of item
-    if (m_entry->getNew())
+    if (m_entry->getNew()) {
         m_entry->setNew(false);
+    }
 }
 
 void Enclosure::deleteFile()
@@ -198,11 +185,16 @@ void Enclosure::deleteFile()
         qCDebug(kastsEnclosure) << "Track is still playing; let's unload it before deleting";
         AudioManager::instance().setEntry(nullptr);
     }
+
     // First check if file still exists; you never know what has happened
-    if (QFile(path()).exists())
+    if (QFile(path()).exists()) {
         QFile(path()).remove();
+    }
+
     // If file disappeared unexpectedly, then still change status to downloadable
     setStatus(Downloadable);
+    m_sizeOnDisk = 0;
+    Q_EMIT sizeOnDiskChanged();
 }
 
 QString Enclosure::path() const
@@ -225,9 +217,14 @@ qint64 Enclosure::duration() const
     return m_duration;
 }
 
-int Enclosure::size() const
+qint64 Enclosure::size() const
 {
     return m_size;
+}
+
+qint64 Enclosure::sizeOnDisk() const
+{
+    return m_sizeOnDisk;
 }
 
 void Enclosure::setStatus(Enclosure::Status status)
@@ -286,7 +283,7 @@ void Enclosure::setDuration(const qint64 &duration)
     }
 }
 
-void Enclosure::setSize(const int &size)
+void Enclosure::setSize(const qint64 &size)
 {
     if (m_size != size) {
         m_size = size;
@@ -303,9 +300,51 @@ void Enclosure::setSize(const int &size)
     }
 }
 
+void Enclosure::checkSizeOnDisk()
+{
+    // In principle the database contains this status, we check anyway in case
+    // something changed on disk
+    QFile file(path());
+    if (file.exists()) {
+        if (file.size() == m_size && file.size() > 0) {
+            // file is on disk and has correct size, write to database if it
+            // wasn't already registered so
+            // this should, in principle, never happen unless the db was deleted
+            setStatus(Downloaded);
+        } else if (file.size() > 0) {
+            // file was downloaded, but there is a size mismatch
+            // set to PartiallyDownloaded such that download can be resumed
+            setStatus(PartiallyDownloaded);
+        } else {
+            // file is empty
+            setStatus(Downloadable);
+        }
+        if (file.size() != m_sizeOnDisk) {
+            m_sizeOnDisk = file.size();
+            m_downloadSize = m_sizeOnDisk;
+            m_downloadProgress = (m_size == 0) ? 0.0 : static_cast<double>(m_sizeOnDisk) / static_cast<double>(m_size);
+            Q_EMIT sizeOnDiskChanged();
+        }
+    } else {
+        // file does not exist
+        setStatus(Downloadable);
+        if (m_sizeOnDisk != 0) {
+            m_sizeOnDisk = 0;
+            m_downloadSize = 0;
+            m_downloadProgress = 0.0;
+            Q_EMIT sizeOnDiskChanged();
+        }
+    }
+}
+
 QString Enclosure::formattedSize() const
 {
     return m_kformat.formatByteSize(m_size);
+}
+
+QString Enclosure::formattedDownloadSize() const
+{
+    return m_kformat.formatByteSize(m_downloadSize);
 }
 
 QString Enclosure::formattedDuration() const

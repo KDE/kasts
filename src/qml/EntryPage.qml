@@ -121,7 +121,7 @@ Kirigami.ScrollablePage {
         text: i18n("Delete Download")
         icon.name: "delete"
         onTriggered: entry.enclosure.deleteFile();
-        visible: entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.queueStatus
+        visible: entry.enclosure && ((entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus) || entry.enclosure.status === Enclosure.PartiallyDownloaded)
     }
 
     contextualActions: [

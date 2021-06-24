@@ -104,7 +104,7 @@ Kirigami.SwipeListItem {
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: entry.enclosure && entry.enclosure.status === Enclosure.Downloading ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
@@ -120,12 +120,25 @@ Kirigami.SwipeListItem {
             }
             Component {
                 id: downloadProgress
-                Controls.ProgressBar {
-                    from: 0
-                    to: 100
-                    value: entry.enclosure.downloadProgress
-                    visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
-                    Layout.fillWidth: true
+                RowLayout {
+                    Controls.Label {
+                        text: entry.enclosure.formattedDownloadSize
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
+                    Controls.ProgressBar {
+                        from: 0
+                        to: 1
+                        value: entry.enclosure.downloadProgress
+                        Layout.fillWidth: true
+                    }
+                    Controls.Label {
+                        text: entry.enclosure.formattedSize
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
                 }
             }
             Component {
