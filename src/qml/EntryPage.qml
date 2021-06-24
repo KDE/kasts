@@ -32,10 +32,31 @@ Kirigami.ScrollablePage {
             if (!entry.queueStatus) {
                 // this entry has just been removed from the queue
                 if (pageStack.depth > 1) {
-                    if (pageStack.get(0).lastEntry) {
-                        if (pageStack.get(0).lastEntry === entry.id) {
-                            // if this EntryPage was open, then close it
-                            pageStack.pop()
+                    if (pageStack.get(0).pageName === "queuepage") {
+                        if (pageStack.get(0).lastEntry) {
+                            if (pageStack.get(0).lastEntry === entry.id) {
+                                // if this EntryPage was open, then close it
+                                pageStack.pop()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Connections {
+        target: entry.enclosure
+        function onStatusChanged() {
+            if (entry.enclosure.status === Enclosure.Downloadable) {
+                // this entry has just been deleted on the downloadpage
+                if (pageStack.depth > 1) {
+                    if (pageStack.get(0).pageName === "downloadpage") {
+                        if (pageStack.get(0).lastEntry) {
+                            if (pageStack.get(0).lastEntry === entry.id) {
+                                // if this EntryPage was open, then close it
+                                pageStack.pop()
+                            }
                         }
                     }
                 }

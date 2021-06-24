@@ -175,7 +175,7 @@ Kirigami.SwipeListItem {
             entry.read = true;
             entry.new = false;
         }
-        if (isQueue) {
+        if (isQueue || isDownloads) {
             lastEntry = entry.id;
         }
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry})

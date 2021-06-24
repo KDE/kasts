@@ -13,8 +13,10 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
-
     title: i18n("Downloads")
+
+    property var lastEntry: ""
+    property string pageName: "downloadpage"
 
     supportsRefreshing: true
     onRefreshingChanged: {
