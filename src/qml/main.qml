@@ -25,6 +25,8 @@ Kirigami.ApplicationWindow {
     property int bottomMessageSpacing: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight : Kirigami.Units.largeSpacing * 2
     property int tabBarActive: 0
     property int originalWidth: Kirigami.Units.gridUnit * 10
+    property var lastFeed: ""
+    property string currentPage: ""
 
     property bool isWidescreen: root.width >= root.height
     onIsWidescreenChanged: {
@@ -32,10 +34,20 @@ Kirigami.ApplicationWindow {
             changeNavigation(!isWidescreen);
         }
     }
-
-    Kirigami.PagePool {
-        id: mainPagePool
-        cachePages: false
+    function getPage(page) {
+        switch (page) {
+            case "QueuePage": return "qrc:/QueuePage.qml";
+            case "EpisodeSwipePage": return "qrc:/EpisodeSwipePage.qml";
+            case "FeedListPage": return "qrc:/FeedListPage.qml";
+            case "DownloadListPage": return "qrc:/DownloadListPage.qml";
+            case "SettingsPage": return "qrc:/SettingsPage.qml";
+            case "AboutPage": return "qrc:/AboutPage.qml";
+        }
+    }
+    function pushPage(page) {
+        pageStack.clear()
+        pageStack.push(getPage(page))
+        currentPage = page
     }
 
     Component.onCompleted: {
@@ -44,11 +56,8 @@ Kirigami.ApplicationWindow {
                      : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? 1
                      : SettingsManager.lastOpenedPage === "DownloadListPage" ? 0
                      : 0
-        pageStack.initialPage = mainPagePool.loadPage(SettingsManager.lastOpenedPage === "FeedListPage" ? "qrc:/FeedListPage.qml"
-                                                    : SettingsManager.lastOpenedPage === "QueuePage" ? "qrc:/QueuePage.qml"
-                                                    : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? "qrc:/EpisodeSwipePage.qml"
-                                                    : SettingsManager.lastOpenedPage === "DownloadListPage" ? "qrc:/DownloadListPage.qml"
-                                                    : "qrc:/FeedListPage.qml")
+        currentPage = SettingsManager.lastOpenedPage
+        pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
         if (SettingsManager.refreshOnStartup) Fetcher.fetchAll();
     }
 
@@ -72,57 +81,61 @@ Kirigami.ApplicationWindow {
         handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
         showHeaderWhenCollapsed: true
         actions: [
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("Queue")
                 iconName: "source-playlist"
-                pagePool: mainPagePool
-                page: "qrc:/QueuePage.qml"
+                checked: currentPage == "QueuePage"
                 onTriggered: {
+                    pushPage("QueuePage")
                     SettingsManager.lastOpenedPage = "QueuePage" // for persistency
                     tabBarActive = 0
                 }
             },
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("Episodes")
                 iconName: "rss"
-                pagePool: mainPagePool
-                page: "qrc:/EpisodeSwipePage.qml"
+                checked: currentPage == "EpisodeSwipePage"
                 onTriggered: {
+                    pushPage("EpisodeSwipePage")
                     SettingsManager.lastOpenedPage = "EpisodeSwipePage" // for persistency
                     tabBarActive = 1
                 }
             },
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("Subscriptions")
                 iconName: "document-open-folder"
-                pagePool: mainPagePool
-                page: "qrc:/FeedListPage.qml"
+                checked: currentPage == "FeedListPage"
                 onTriggered: {
+                    pushPage("FeedListPage")
                     SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
                     tabBarActive = 0
                 }
             },
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("Downloads")
                 iconName: "download"
-                pagePool: mainPagePool
-                page: "qrc:/DownloadListPage.qml"
+                checked: currentPage == "DownloadListPage"
                 onTriggered: {
+                    pushPage("DownloadListPage")
                     SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
                     tabBarActive = 0
                 }
             },
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("Settings")
                 iconName: "settings-configure"
-                pagePool: mainPagePool
-                page: "qrc:/SettingsPage.qml"
+                checked: currentPage == "SettingsPage"
+                onTriggered: {
+                    pushPage("SettingsPage")
+                }
             },
-            Kirigami.PagePoolAction {
+            Kirigami.Action {
                 text: i18n("About")
                 iconName: "help-about-symbolic"
-                pagePool: mainPagePool
-                page: "qrc:/AboutPage.qml"
+                checked: currentPage == "AboutPage"
+                onTriggered: {
+                    pushPage("AboutPage")
+                }
             }
         ]
     }
