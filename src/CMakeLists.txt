@@ -20,6 +20,7 @@ set(SRCS_base
     powermanagementinterface.cpp
     errorlogmodel.cpp
     error.cpp
+    podcastsearchmodel.cpp
     mpris2/mpris2.cpp
     resources.qrc
 )

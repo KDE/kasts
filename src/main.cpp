@@ -45,6 +45,7 @@
 #include "fetcher.h"
 #include "kasts-version.h"
 #include "mpris2/mpris2.h"
+#include "podcastsearchmodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 
@@ -120,6 +121,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel");
     qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
+    qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
 
     qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));

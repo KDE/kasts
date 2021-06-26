@@ -44,6 +44,7 @@ public:
 
     QString imagePath(const QString &url) const;
     QString enclosurePath(const QString &url) const;
+    QNetworkReply *get(QNetworkRequest &request) const;
 
     // Network status related methods
     Q_INVOKABLE bool canCheckNetworkStatus() const;
@@ -80,7 +81,6 @@ private:
     void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
 
-    QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *head(QNetworkRequest &request) const;
     void setHeader(QNetworkRequest &request) const;
 
