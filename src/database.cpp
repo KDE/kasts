@@ -80,9 +80,11 @@ bool Database::migrateTo2()
 bool Database::migrateTo3()
 {
     qDebug() << "Migrating database to version 3";
-    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures RENAME COLUMN downloaded TO downloaded_temp;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded_temp BOOL DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded_temp=1 WHERE downloaded=1;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN downloaded;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded INTEGER DEFAULT 0;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=3 where downloaded_temp=1;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=3 WHERE downloaded_temp=1;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN downloaded_temp;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 3;")));
     return true;
