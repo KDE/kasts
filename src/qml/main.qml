@@ -127,6 +127,7 @@ Kirigami.ApplicationWindow {
                 checked: currentPage == "SettingsPage"
                 onTriggered: {
                     pushPage("SettingsPage")
+                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
@@ -135,6 +136,7 @@ Kirigami.ApplicationWindow {
                 checked: currentPage == "AboutPage"
                 onTriggered: {
                     pushPage("AboutPage")
+                    tabBarActive = 0
                 }
             }
         ]
