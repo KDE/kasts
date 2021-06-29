@@ -80,13 +80,18 @@ bool Database::migrateTo2()
 bool Database::migrateTo3()
 {
     qDebug() << "Migrating database to version 3";
-    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded_temp BOOL DEFAULT 0;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded_temp=1 WHERE downloaded=1;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN downloaded;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded INTEGER DEFAULT 0;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=3 WHERE downloaded_temp=1;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN downloaded_temp;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosurestemp (feed TEXT, id TEXT, duration INTEGER, size INTEGER, title TEXT, type TEXT, url "
+                               "TEXT, playposition INTEGER, downloaded INTEGER);")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Enclosurestemp (feed, id, duration, size, title, type, url, playposition, downloaded) SELECT feed, id, duration, "
+                               "size, title, type, url, playposition, downloaded FROM Enclosures;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosurestemp SET downloaded=3 WHERE downloaded=1;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 3;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
     return true;
 }
 
