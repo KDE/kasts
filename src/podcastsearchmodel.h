@@ -17,10 +17,34 @@
 class PodcastSearchModel : public QAbstractListModel
 {
     Q_OBJECT
-
 public:
     enum Roles {
+        Id,
         Title,
+        Url,
+        OriginalUrl,
+        Link,
+        Description,
+        Author,
+        OwnerName,
+        Image,
+        Artwork,
+        LastUpdateTime,
+        LastCrawlTime,
+        LastParseTime,
+        LastGoodHttpStatusTime,
+        LastHttpStatus,
+        ContentType,
+        ItunesId,
+        Generator,
+        Language,
+        Type,
+        Dead,
+        CrawlErrors,
+        ParseErrors,
+        Categories,
+        Locked,
+        ImageUrlHash,
     };
     explicit PodcastSearchModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

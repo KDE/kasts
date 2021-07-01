@@ -38,6 +38,7 @@ Kirigami.ApplicationWindow {
         switch (page) {
             case "QueuePage": return "qrc:/QueuePage.qml";
             case "EpisodeSwipePage": return "qrc:/EpisodeSwipePage.qml";
+            case "DiscoverPage": return "qrc:/DiscoverPage.qml";
             case "FeedListPage": return "qrc:/FeedListPage.qml";
             case "DownloadListPage": return "qrc:/DownloadListPage.qml";
             case "SettingsPage": return "qrc:/SettingsPage.qml";
@@ -56,6 +57,7 @@ Kirigami.ApplicationWindow {
                      : SettingsManager.lastOpenedPage === "QueuePage" ? 0
                      : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? 1
                      : SettingsManager.lastOpenedPage === "DownloadListPage" ? 0
+                     : SettingsManager.lastOpenedPage === "DiscoverPage" ? 0
                      : 0
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
@@ -100,6 +102,16 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pushPage("QueuePage")
                     SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+                    tabBarActive = 0
+                }
+            },
+            Kirigami.Action {
+                text: i18n("Discover")
+                iconName: "search"
+                checked: currentPage == "DiscoverPage"
+                onTriggered: {
+                    pushPage("DiscoverPage")
+                    SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
                     tabBarActive = 0
                 }
             },

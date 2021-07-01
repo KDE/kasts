@@ -626,3 +626,8 @@ void DataManager::updateQueueListnrs() const
         Database::instance().execute(query);
     }
 }
+
+bool DataManager::isFeedExists(const QString &url)
+{
+    return m_feeds.contains(url);
+}

@@ -59,6 +59,7 @@ public:
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
+    Q_INVOKABLE bool isFeedExists(const QString &url);
 
 Q_SIGNALS:
     void feedAdded(const QString &url);

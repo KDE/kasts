@@ -141,6 +141,8 @@ if(ANDROID)
         overflow-menu
         checkbox
         error
+        search
+        kt-add-feeds
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)

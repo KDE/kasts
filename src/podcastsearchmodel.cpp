@@ -30,15 +30,95 @@ QVariant PodcastSearchModel::data(const QModelIndex &index, int role) const
         // invalid index
         return QVariant::fromValue(QStringLiteral("DEADBEEF"));
     }
-    if (role == Title) {
+    switch (role) {
+    case Id:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("id")].toInt();
+    case Title:
         return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("title")].toString();
+    case Url:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("url")].toString();
+    case OriginalUrl:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("originalUrl")].toString();
+    case Link:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("link")].toString();
+    case Description:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("description")].toString();
+    case Author:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("author")].toString();
+    case OwnerName:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("ownerName")].toString();
+    case Image:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("image")].toString();
+    case Artwork:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("artwork")].toString();
+    case LastUpdateTime:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastUpdateTime")].toInt();
+    case LastCrawlTime:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastCrawlTime")].toInt();
+    case LastParseTime:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastParseTime")].toInt();
+    case LastGoodHttpStatusTime:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastGoodHttpStatusTime")].toInt();
+    case LastHttpStatus:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastHttpStatus")].toInt();
+    case ContentType:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("contentType")].toString();
+    case ItunesId:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("itunesId")].toInt();
+    case Generator:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("generator")].toString();
+    case Language:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("language")].toString();
+    case Type:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("type")].toInt();
+    case Dead:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("dead")].toInt();
+    case CrawlErrors:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("crawlErrors")].toInt();
+    case ParseErrors:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("parseErrors")].toInt();
+    case Categories: {
+        // TODO: Implement this function to add to the list of categories.
     }
-    return QVariant();
+    case Locked:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("locked")].toInt();
+    case ImageUrlHash:
+        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("imageUrlHash")].toInt();
+    default:
+        return QVariant();
+    }
 }
 
 QHash<int, QByteArray> PodcastSearchModel::roleNames() const
 {
-    return {{Title, "title"}};
+    return {
+        {Id, "id"},
+        {Title, "title"},
+        {Url, "url"},
+        {OriginalUrl, "originalUrl"},
+        {Link, "link"},
+        {Description, "description"},
+        {Author, "author"},
+        {OwnerName, "ownerName"},
+        {Image, "image"},
+        {Artwork, "artwork"},
+        {LastUpdateTime, "lastUpdateTime"},
+        {LastCrawlTime, "lastCrawlTime"},
+        {LastParseTime, "lastParseTime"},
+        {LastGoodHttpStatusTime, "lastGoodHttpStatusTime"},
+        {LastHttpStatus, "lastHttpStatus"},
+        {ContentType, "contentType"},
+        {ItunesId, "itunesId"},
+        {Generator, "generator"},
+        {Language, "language"},
+        {Type, "type"},
+        {Dead, "dead"},
+        {CrawlErrors, "crawlErrors"},
+        {ParseErrors, "parseErrors"},
+        {Categories, "categories"},
+        {Locked, "locked"},
+        {ImageUrlHash, "imageUrlHash"},
+    };
 }
 
 int PodcastSearchModel::rowCount(const QModelIndex &parent) const
@@ -47,7 +127,8 @@ int PodcastSearchModel::rowCount(const QModelIndex &parent) const
     if (m_data.isEmpty()) {
         return 0;
     }
-    return m_data[QStringLiteral("feeds")].toArray().size();
+        return m_data[QStringLiteral("feeds")].toArray().size();
+
 }
 
 void PodcastSearchModel::search(const QString &text)

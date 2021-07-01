@@ -21,6 +21,7 @@
         <file alias="EpisodeSwipePage.qml">qml/EpisodeSwipePage.qml</file>
         <file alias="GenericHeader.qml">qml/GenericHeader.qml</file>
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
+        <file alias="DiscoverPage.qml">qml/DiscoverPage.qml</file>
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
         <file alias="HeaderBar.qml">qml/HeaderBar.qml</file>
