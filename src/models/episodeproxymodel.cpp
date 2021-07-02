@@ -6,6 +6,8 @@
 
 #include "models/episodeproxymodel.h"
 
+#include <KLocalizedString>
+
 EpisodeProxyModel::EpisodeProxyModel()
     : QSortFilterProxyModel(nullptr)
 {
@@ -46,6 +48,37 @@ EpisodeProxyModel::FilterType EpisodeProxyModel::filterType() const
 
 void EpisodeProxyModel::setFilterType(FilterType type)
 {
-    m_currentFilter = type;
-    Q_EMIT filterTypeChanged(m_currentFilter);
+    if (type != m_currentFilter) {
+        beginResetModel();
+        // TODO: Connect to signals to capture new and read updates in case those
+        // filters are active.  Also disconnect from signals if the filters are
+        // removed
+        m_currentFilter = type;
+        m_episodeModel->updateInternalState();
+        endResetModel();
+        Q_EMIT filterTypeChanged();
+    }
+}
+
+QString EpisodeProxyModel::filterName() const
+{
+    return getFilterName(m_currentFilter);
+}
+
+QString EpisodeProxyModel::getFilterName(FilterType type) const
+{
+    switch (type) {
+    case NoFilter:
+        return i18n("No Filter");
+    case ReadFilter:
+        return i18n("Played Episodes");
+    case NotReadFilter:
+        return i18n("Unplayed Episodes");
+    case NewFilter:
+        return i18n("Episodes marked as \"New\"");
+    case NotNewFilter:
+        return i18n("Episodes not marked as \"New\"");
+    default:
+        return QString();
+    }
 }

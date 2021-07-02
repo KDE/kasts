@@ -25,13 +25,84 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions {
-        main: Kirigami.Action {
-            iconName: "view-refresh"
-            text: i18n("Refresh All Podcasts")
-            onTriggered: refreshing = true
-            visible: !Kirigami.Settings.isMobile || episodeList.count === 0
+    actions.main: Kirigami.Action {
+        iconName: "view-filter"
+        text: i18n("Filter")
+        onTriggered: filterTypeOverlay.open();
+    }
+
+    actions.left: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh All Podcasts")
+        onTriggered: refreshing = true
+        visible: !Kirigami.Settings.isMobile || (episodeList.count === 0 && episodeProxyModel.filterType == EpisodeProxyModel.NoFilter)
+    }
+
+    Kirigami.OverlaySheet {
+        id: filterTypeOverlay
+
+        header: Kirigami.Heading {
+            text: i18n("Select Filter")
         }
+
+        ListView {
+            // TODO: fix automatic width
+            implicitWidth: Kirigami.Units.gridUnit * 12
+            clip: true
+
+            model: ListModel {
+                id: filterModel
+                // have to use script because i18n doesn't work within ListElement
+                Component.onCompleted: {
+                    var filterList = [EpisodeProxyModel.NoFilter,
+                                      EpisodeProxyModel.ReadFilter,
+                                      EpisodeProxyModel.NotReadFilter,
+                                      EpisodeProxyModel.NewFilter,
+                                      EpisodeProxyModel.NotNewFilter]
+                    for (var i in filterList) {
+                        filterModel.append({"name": episodeProxyModel.getFilterName(filterList[i]),
+                                            "filterType": filterList[i]});
+                    }
+                }
+            }
+
+            delegate: Kirigami.BasicListItem {
+                id: swipeDelegate
+                highlighted: filterType === episodeProxyModel.filterType
+                text: name
+                onClicked: {
+                    episodeProxyModel.filterType = filterType;
+                    filterTypeOverlay.close();
+                }
+            }
+        }
+    }
+
+    Kirigami.InlineMessage {
+        z: 2
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            bottom: parent.bottom
+            bottomMargin: (Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 : Kirigami.Units.largeSpacing * 2) + (errorNotification.visible ? errorNotification.height : 0)
+        }
+        type: Kirigami.MessageType.Information
+        visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter
+        TextMetrics {
+            id: textMetrics
+            text: i18n("Filter Active: ") + episodeProxyModel.filterName
+        }
+        text: textMetrics.text
+        width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width)
+        actions: [
+            Kirigami.Action {
+                id: resetButton
+                icon.name: "edit-delete-remove"
+                text: i18n("Reset")
+                onTriggered: {
+                    episodeProxyModel.filterType = EpisodeProxyModel.NoFilter;
+                }
+            }
+        ]
     }
 
     Kirigami.PlaceholderMessage {

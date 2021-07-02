@@ -136,6 +136,7 @@ if(ANDROID)
         list-add
         list-remove
         view-refresh
+        view-filter
         kasts
         mail-sent
         globe

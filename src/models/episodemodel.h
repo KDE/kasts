@@ -28,9 +28,10 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
-private:
+public Q_SLOTS:
     void updateInternalState();
 
+private:
     QStringList m_entryIds;
     QVector<bool> m_read;
     QVector<bool> m_new;

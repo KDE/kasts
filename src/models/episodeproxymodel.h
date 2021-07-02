@@ -25,6 +25,7 @@ public:
     Q_ENUM(FilterType)
 
     Q_PROPERTY(FilterType filterType READ filterType WRITE setFilterType NOTIFY filterTypeChanged)
+    Q_PROPERTY(QString filterName READ filterName NOTIFY filterTypeChanged)
 
     explicit EpisodeProxyModel();
     ~EpisodeProxyModel();
@@ -32,10 +33,13 @@ public:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
     FilterType filterType() const;
+    QString filterName() const;
     void setFilterType(FilterType type);
 
+    Q_INVOKABLE QString getFilterName(FilterType type) const;
+
 Q_SIGNALS:
-    void filterTypeChanged(FilterType filter);
+    void filterTypeChanged();
 
 private:
     EpisodeModel *m_episodeModel;
