@@ -21,9 +21,7 @@ Kirigami.ApplicationWindow {
     minimumHeight: Kirigami.Units.gridUnit * 20
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
-    property int tabBarHeight: Kirigami.Units.gridUnit * 2
-    property int bottomMessageSpacing: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + tabBarActive * tabBarHeight : Kirigami.Units.largeSpacing * 2
-    property int tabBarActive: 0
+    property int bottomMessageSpacing: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) : Kirigami.Units.largeSpacing * 2
     property int originalWidth: Kirigami.Units.gridUnit * 10
     property var lastFeed: ""
     property string currentPage: ""
@@ -37,7 +35,7 @@ Kirigami.ApplicationWindow {
     function getPage(page) {
         switch (page) {
             case "QueuePage": return "qrc:/QueuePage.qml";
-            case "EpisodeSwipePage": return "qrc:/EpisodeSwipePage.qml";
+            case "EpisodeListPage": return "qrc:/EpisodeListPage.qml";
             case "DiscoverPage": return "qrc:/DiscoverPage.qml";
             case "FeedListPage": return "qrc:/FeedListPage.qml";
             case "DownloadListPage": return "qrc:/DownloadListPage.qml";
@@ -53,12 +51,6 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        tabBarActive = SettingsManager.lastOpenedPage === "FeedListPage" ? 0
-                     : SettingsManager.lastOpenedPage === "QueuePage" ? 0
-                     : SettingsManager.lastOpenedPage === "EpisodeSwipePage" ? 1
-                     : SettingsManager.lastOpenedPage === "DownloadListPage" ? 0
-                     : SettingsManager.lastOpenedPage === "DiscoverPage" ? 0
-                     : 0
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
 
@@ -94,7 +86,7 @@ Kirigami.ApplicationWindow {
         }
 
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing
         handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
         showHeaderWhenCollapsed: true
         actions: [
@@ -105,7 +97,6 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pushPage("QueuePage")
                     SettingsManager.lastOpenedPage = "QueuePage" // for persistency
-                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
@@ -115,17 +106,15 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pushPage("DiscoverPage")
                     SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
-                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
                 text: i18n("Episodes")
                 iconName: "rss"
-                checked: currentPage == "EpisodeSwipePage"
+                checked: currentPage == "EpisodeListPage"
                 onTriggered: {
-                    pushPage("EpisodeSwipePage")
-                    SettingsManager.lastOpenedPage = "EpisodeSwipePage" // for persistency
-                    tabBarActive = 1
+                    pushPage("EpisodeListPage")
+                    SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
                 }
             },
             Kirigami.Action {
@@ -135,7 +124,6 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pushPage("FeedListPage")
                     SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
-                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
@@ -145,7 +133,6 @@ Kirigami.ApplicationWindow {
                 onTriggered: {
                     pushPage("DownloadListPage")
                     SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
-                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
@@ -154,7 +141,6 @@ Kirigami.ApplicationWindow {
                 checked: currentPage == "SettingsPage"
                 onTriggered: {
                     pushPage("SettingsPage")
-                    tabBarActive = 0
                 }
             },
             Kirigami.Action {
@@ -163,7 +149,6 @@ Kirigami.ApplicationWindow {
                 checked: currentPage == "AboutPage"
                 onTriggered: {
                     pushPage("AboutPage")
-                    tabBarActive = 0
                 }
             }
         ]
@@ -191,7 +176,7 @@ Kirigami.ApplicationWindow {
     contextDrawer: Kirigami.ContextDrawer {
         id: contextDrawer
         // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( (AudioManager.entry && Kirigami.Settings.isMobile) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing + tabBarActive * tabBarHeight
+        handle.anchors.bottomMargin: ( (AudioManager.entry && Kirigami.Settings.isMobile) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
         handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
     }
 

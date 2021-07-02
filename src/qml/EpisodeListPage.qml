@@ -15,6 +15,8 @@ import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
 
+    title: i18n("Episode List")
+
     property var episodeType: EpisodeModel.All
 
     supportsRefreshing: true
@@ -25,11 +27,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions.main: Kirigami.Action {
-        iconName: "view-refresh"
-        text: i18n("Refresh All Podcasts")
-        onTriggered: refreshing = true
-        visible: Kirigami.Settings.isMobile && episodeList.count === 0
+    actions {
+        main: Kirigami.Action {
+            iconName: "view-refresh"
+            text: i18n("Refresh All Podcasts")
+            onTriggered: refreshing = true
+            visible: !Kirigami.Settings.isMobile || episodeList.count === 0
+        }
     }
 
     Kirigami.PlaceholderMessage {
