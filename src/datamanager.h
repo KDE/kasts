@@ -40,10 +40,6 @@ public:
     Q_INVOKABLE void removeFeed(Feed *feed);
     void removeFeed(const int index);
 
-    // Q_INVOKABLE void addEntry(const QString &url);  // TODO: implement these methods
-    // Q_INVOKABLE void removeEntry(const QString &url);
-    // Q_INVOKABLE void removeEntry(const Feed* feed, const int &index);
-
     Entry *getQueueEntry(int index) const;
     int queueCount() const;
     QStringList queue() const;
@@ -58,6 +54,8 @@ public:
 
     Q_INVOKABLE QString lastPlayingEntry();
     Q_INVOKABLE void setLastPlayingEntry(const QString &id);
+
+    Q_INVOKABLE void deletePlayedEnclosures();
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);

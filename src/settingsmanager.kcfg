@@ -25,6 +25,21 @@
             <label>Automatically download new episodes</label>
             <default>false</default>
         </entry>
+        <entry name="autoDelete" type="Enum">
+            <label>Setting to select if or when to delete played episode</label>
+            <choices>
+                <choice name="Disabled">
+                    <label>Disabled</label>
+                </choice>
+                <choice name="Immediately">
+                    <label>Immediately</label>
+                </choice>
+                <choice name="OnNextStartup">
+                    <label>On Next Startup</label>
+                </choice>
+            </choices>
+            <default>OnNextStartup</default>
+        </entry>
         <entry name="toggleRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>

@@ -15,6 +15,7 @@
 #include "datamanager.h"
 #include "feed.h"
 #include "fetcher.h"
+#include "settingsmanager.h"
 
 Entry::Entry(Feed *feed, const QString &id)
     : QObject(nullptr)
@@ -144,6 +145,14 @@ void Entry::setRead(bool read)
     Q_EMIT m_feed->unreadEntryCountChanged();
     Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
     // TODO: can one of the two slots be removed??
+
+    // Follow up actions
+    if (read && hasEnclosure()) {
+        // 1) Delete episode if that setting is set
+        if (SettingsManager::self()->autoDelete() == 1) {
+            m_enclosure->deleteFile();
+        }
+    }
 }
 
 void Entry::setNew(bool state)

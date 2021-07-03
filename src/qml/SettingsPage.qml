@@ -56,8 +56,9 @@ Kirigami.ScrollablePage {
 
         Controls.CheckBox {
             id: autoQueue
+            Kirigami.FormData.label: i18n("New Episodes:")
             checked: SettingsManager.autoQueue
-            text: i18n("Automatically queue new episodes")
+            text: i18n("Automatically Queue")
 
             onToggled: {
                 SettingsManager.autoQueue = checked
@@ -71,10 +72,24 @@ Kirigami.ScrollablePage {
         Controls.CheckBox {
             id: autoDownload
             checked: SettingsManager.autoDownload
-            text: i18n("Automatically download new episodes")
+            text: i18n("Automatically Download")
 
             enabled: autoQueue.checked
             onToggled: SettingsManager.autoDownload = checked
+        }
+
+        Controls.ComboBox {
+            Kirigami.FormData.label: i18n("Played Episodes:")
+            Layout.alignment: Qt.AlignHCenter
+            textRole: "text"
+            valueRole: "value"
+            model: [{"text": i18n("Do Not Delete"), "value": 0},
+                    {"text": i18n("Delete Immediately"), "value": 1},
+                    {"text": i18n("Delete at Next Startup"), "value": 2}]
+            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDelete)
+            onActivated: {
+                SettingsManager.autoDelete = currentValue;
+            }
         }
 
         Kirigami.Heading {

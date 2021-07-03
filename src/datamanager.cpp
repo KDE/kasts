@@ -526,6 +526,24 @@ void DataManager::setLastPlayingEntry(const QString &id)
     Database::instance().execute(query);
 }
 
+void DataManager::deletePlayedEnclosures()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded AND read=:read;"));
+    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
+    query.bindValue(QStringLiteral(":read"), true);
+    Database::instance().execute(query);
+    while (query.next()) {
+        QString feed = query.value(QStringLiteral("feed")).toString();
+        QString id = query.value(QStringLiteral("id")).toString();
+        qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:" << id;
+        Entry *entry = getEntry(id);
+        if (entry->hasEnclosure()) {
+            entry->enclosure()->deleteFile();
+        }
+    }
+}
+
 void DataManager::importFeeds(const QString &path)
 {
     QUrl url(path);

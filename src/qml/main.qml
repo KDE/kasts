@@ -60,6 +60,11 @@ Kirigami.ApplicationWindow {
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
 
+        // Delete played enclosures if set in settings
+        if (SettingsManager.autoDelete == 2) {
+            DataManager.deletePlayedEnclosures();
+        }
+
         // Refresh feeds on startup if allowed
         if (SettingsManager.refreshOnStartup) {
             if (SettingsManager.allowMeteredFeedUpdates || !Fetcher.isMeteredConnection()) {

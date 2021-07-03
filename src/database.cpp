@@ -6,6 +6,7 @@
  */
 
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -15,8 +16,6 @@
 #include <QXmlStreamWriter>
 
 #include "database.h"
-#include "fetcher.h"
-#include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
     if (!x)                                                                                                                                                    \
