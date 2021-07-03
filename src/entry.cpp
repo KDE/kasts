@@ -148,8 +148,21 @@ void Entry::setRead(bool read)
 
     // Follow up actions
     if (read && hasEnclosure()) {
-        // 1) Delete episode if that setting is set
-        if (SettingsManager::self()->autoDelete() == 1) {
+        // 1) Reset play position
+        if (SettingsManager::self()->resetPositionOnPlayed()) {
+            m_enclosure->setPlayPosition(0);
+        }
+
+        // 2) Remove item from queue
+        if (SettingsManager::self()->removeFromQueueOnPlayed()) {
+            setQueueStatus(false);
+        }
+
+        // 3) Remove "new" label
+        setNew(false);
+
+        // 4) Delete episode if that setting is set
+        if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
             m_enclosure->deleteFile();
         }
     }

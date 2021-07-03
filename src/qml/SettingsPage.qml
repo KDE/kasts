@@ -86,11 +86,24 @@ Kirigami.ScrollablePage {
             model: [{"text": i18n("Do Not Delete"), "value": 0},
                     {"text": i18n("Delete Immediately"), "value": 1},
                     {"text": i18n("Delete at Next Startup"), "value": 2}]
-            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDelete)
+            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
             onActivated: {
-                SettingsManager.autoDelete = currentValue;
+                SettingsManager.autoDeleteOnPlayed = currentValue;
             }
         }
+
+        Controls.CheckBox {
+            checked: SettingsManager.removeFromQueueOnPlayed
+            text: i18n("Remove from Queue")
+            onToggled: SettingsManager.removeFromQueueOnPlayed = checked
+        }
+
+        Controls.CheckBox {
+            checked: SettingsManager.resetPositionOnPlayed
+            text: i18n("Reset Play Position")
+            onToggled: SettingsManager.resetPositionOnPlayed = checked
+        }
+
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true

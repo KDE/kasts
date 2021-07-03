@@ -61,7 +61,7 @@ Kirigami.ApplicationWindow {
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
 
         // Delete played enclosures if set in settings
-        if (SettingsManager.autoDelete == 2) {
+        if (SettingsManager.autoDeleteOnPlayed == 2) {
             DataManager.deletePlayedEnclosures();
         }
 

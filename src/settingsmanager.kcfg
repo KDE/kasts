@@ -25,7 +25,7 @@
             <label>Automatically download new episodes</label>
             <default>false</default>
         </entry>
-        <entry name="autoDelete" type="Enum">
+        <entry name="autoDeleteOnPlayed" type="Enum">
             <label>Setting to select if or when to delete played episode</label>
             <choices>
                 <choice name="Disabled">
@@ -39,6 +39,14 @@
                 </choice>
             </choices>
             <default>OnNextStartup</default>
+        </entry>
+        <entry name="removeFromQueueOnPlayed" type="Bool">
+            <label>Remove episode from queue when marked as played</label>
+            <default>true</default>
+        </entry>
+        <entry name="resetPositionOnPlayed" type="Bool">
+            <label>Reset play position when episode is marked as played</label>
+            <default>true</default>
         </entry>
         <entry name="toggleRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
