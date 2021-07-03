@@ -468,11 +468,15 @@ void DataManager::removeQueueItem(const int index)
     qCDebug(kastsDataManager) << "Queuemap is now:" << m_queuemap;
     // Unset "new" state
     getEntry(m_queuemap[index])->setNew(false);
-    // TODO: Make sure to unset the pointer in the Audio class once it's been
-    // ported to c++
+
+    const QString id = m_queuemap[index];
+
+    // Unload track from AudioManager if it's currently playing
+    if (AudioManager::instance().entry() == getEntry(id)) {
+        AudioManager::instance().setEntry(nullptr);
+    }
 
     // Remove the item from the internal data structure
-    const QString id = m_queuemap[index];
     m_queuemap.removeAt(index);
 
     // Then make sure that the database Queue table reflects these changes
