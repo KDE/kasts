@@ -216,7 +216,6 @@ void AudioManager::setEntry(Entry *entry)
             qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
             oldEntry->setRead(true);
             oldEntry->enclosure()->setPlayPosition(0);
-            oldEntry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
             d->m_continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
         }
     }
