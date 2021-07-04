@@ -16,7 +16,7 @@
 
     <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Kasts" android:icon="@mipmap/ic_launcher">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
-                  android:name="org.qtproject.qt5.android.bindings.QtActivity"
+                  android:name="org.kde.kasts.Activity"
                   android:label="Kasts"
                   android:windowSoftInputMode="adjustResize"
                   android:launchMode="singleTop">
