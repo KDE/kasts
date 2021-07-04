@@ -277,4 +277,7 @@ Kirigami.ApplicationWindow {
             action();
         }
     }
+    Playback {
+        id: playbackDialog
+    }
 }

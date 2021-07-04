@@ -75,12 +75,7 @@ Rectangle {
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
-                        onClicked: {
-                            if(AudioManager.playbackRate === 2.5)
-                                AudioManager.playbackRate = 1
-                            else
-                                AudioManager.playbackRate = AudioManager.playbackRate + 0.25
-                        }
+                        onClicked: playbackDialog.open()
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         padding: 0

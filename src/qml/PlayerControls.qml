@@ -195,10 +195,7 @@ Kirigami.Page {
                             verticalAlignment: Text.AlignVCenter
                         }
                         onClicked: {
-                            if(AudioManager.playbackRate === 2.5)
-                                AudioManager.playbackRate = 1
-                            else
-                                AudioManager.playbackRate = AudioManager.playbackRate + 0.25
+                            playbackDialog.open()
                         }
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
