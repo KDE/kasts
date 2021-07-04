@@ -17,6 +17,7 @@
 #include <memory>
 
 #include "entry.h"
+#include "error.h"
 
 class AudioManagerPrivate;
 
@@ -130,6 +131,8 @@ Q_SIGNALS:
     void canSkipBackwardChanged();
 
     void canGoNextChanged();
+
+    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
 
 public Q_SLOTS:
 

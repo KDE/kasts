@@ -13,8 +13,11 @@
 #include <QtMath>
 #include <algorithm>
 
+#include <KLocalizedString>
+
 #include "audiologging.h"
 #include "datamanager.h"
+#include "feed.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
@@ -417,9 +420,10 @@ void AudioManager::mediaStatusChanged()
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         stop();
         next();
-        if (badEntry && badEntry->enclosure())
+        if (badEntry && badEntry->enclosure()) {
             badEntry->enclosure()->deleteFile();
-        // TODO: show error overlay?
+            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), QMediaPlayer::InvalidMedia, i18n("Invalid Media"));
+        }
     }
 }
 

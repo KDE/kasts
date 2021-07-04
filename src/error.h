@@ -20,6 +20,7 @@ public:
         FeedUpdate,
         MediaDownload,
         MeteredNotAllowed,
+        InvalidMedia,
     };
     Q_ENUM(Type)
 
