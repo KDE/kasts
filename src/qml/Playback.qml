@@ -62,7 +62,7 @@ Loader {
         Kirigami.OverlaySheet {
             id: listViewSheet
             header: Kirigami.Heading {
-                text: qsTr("Set Playback Rate")
+                text: i18n("Set Playback Rate")
             }
             contentItem: ListView {
                 id: playbackRateList
