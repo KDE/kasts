@@ -112,20 +112,18 @@ Loader {
                     Layout.alignment: Qt.AlignHCenter
                     Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                 }
-                Controls.ScrollView {
+                ListView {
+                    id: playbackRateList
+                    model: playbackRateModel
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    ListView {
-                        id: playbackRateList
-                        model: playbackRateModel
-                        delegate: Kirigami.SwipeListItem {
-                            contentItem: Controls.Label {
-                                text: model.name
-                            }
-                            onClicked: {
-                                AudioManager.playbackRate = value;
-                                close();
-                            }
+                    delegate: Kirigami.BasicListItem {
+                        contentItem: Controls.Label {
+                            text: model.name
+                        }
+                        onClicked: {
+                            AudioManager.playbackRate = value;
+                            close();
                         }
                     }
                 }
