@@ -64,10 +64,11 @@ Loader {
             header: Kirigami.Heading {
                 text: qsTr("Set Playback Rate")
             }
-            ListView {
+            contentItem: ListView {
                 id: playbackRateList
                 model: playbackRateModel
                 implicitWidth: Kirigami.Units.gridUnit * 12
+                clip: true
                 delegate: Kirigami.SwipeListItem {
                     id: swipeDelegate
                     Controls.Label {
@@ -117,6 +118,7 @@ Loader {
                     model: playbackRateModel
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    clip: true
                     delegate: Kirigami.BasicListItem {
                         contentItem: Controls.Label {
                             text: model.name
