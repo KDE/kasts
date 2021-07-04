@@ -5,8 +5,9 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "fetcher.h"
+
 #include <KLocalizedString>
-#include <QCryptographicHash>
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
@@ -16,17 +17,16 @@
 #include <QMultiMap>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QStandardPaths>
 #include <QTextDocumentFragment>
 
 #include <Syndication/Syndication>
 
 #include "database.h"
 #include "enclosure.h"
-#include "fetcher.h"
 #include "fetcherlogging.h"
 #include "kasts-version.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
 
 Fetcher::Fetcher()
 {
@@ -367,10 +367,10 @@ QString Fetcher::image(const QString &url) const
     }
 
     // if image is already cached, then return the path
-    QString path = imagePath(url);
+    QString path = StorageManager::instance().imagePath(url);
     if (QFileInfo::exists(path)) {
         if (QFileInfo(path).size() != 0) {
-            return QStringLiteral("file://") + path;
+            return QUrl::fromLocalFile(path).toString();
         }
     }
 
@@ -448,28 +448,6 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     });
 
     return reply;
-}
-
-void Fetcher::removeImage(const QString &url)
-{
-    qCDebug(kastsFetcher) << "Removing image" << imagePath(url);
-    QFile(imagePath(url)).remove();
-}
-
-QString Fetcher::imagePath(const QString &url) const
-{
-    QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/images/");
-    // Create path in cache if it doesn't exist yet
-    QFileInfo().absoluteDir().mkpath(path);
-    return path + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
-}
-
-QString Fetcher::enclosurePath(const QString &url) const
-{
-    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/enclosures/");
-    // Create path in cache if it doesn't exist yet
-    QFileInfo().absoluteDir().mkpath(path);
-    return path + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }
 
 QNetworkReply *Fetcher::get(QNetworkRequest &request) const

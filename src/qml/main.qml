@@ -239,13 +239,47 @@ Kirigami.ApplicationWindow {
     // It mimicks the behaviour of an InlineMessage, because InlineMessage does
     // not allow to add a BusyIndicator
     UpdateNotification {
-        z: 2
         id: updateNotification
+        text: i18ncp("Number of Updated Podcasts",
+                     "Updated %2 of %1 Podcast",
+                     "Updated %2 of %1 Podcasts",
+                     Fetcher.updateTotal,
+                     Fetcher.updateProgress)
 
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            bottom: parent.bottom
-            bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 )
+        Connections {
+            target: Fetcher
+            function onUpdatingChanged() {
+                if (Fetcher.updating) {
+                    updateNotification.open()
+                } else {
+                    updateNotification.close()
+                }
+            }
+        }
+    }
+
+    // Notification to show progress of copying enclosure and images to new location
+    UpdateNotification {
+        id: moveStorageNotification
+        text: i18ncp("Number of Moved Files",
+                     "Moved %2 of %1 File",
+                     "Moved %2 of %1 Files",
+                     StorageManager.storageMoveTotal,
+                     StorageManager.storageMoveProgress)
+        showAbortButton: true
+
+        function abortAction() {
+            StorageManager.cancelStorageMove();
+        }
+
+        Connections {
+            target: StorageManager
+            function onStorageMoveStarted() {
+                moveStorageNotification.open()
+            }
+            function onStorageMoveFinished() {
+                moveStorageNotification.close()
+            }
         }
     }
 

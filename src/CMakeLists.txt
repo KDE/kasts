@@ -21,6 +21,8 @@ set(SRCS_base
     errorlogmodel.cpp
     error.cpp
     podcastsearchmodel.cpp
+    storagemanager.cpp
+    storagemovejob.cpp
     mpris2/mpris2.cpp
     resources.qrc
 )
@@ -54,6 +56,13 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
+    HEADER "storagemovejoblogging.h"
+    IDENTIFIER "kastsStorageMoveJob"
+    CATEGORY_NAME "org.kde.kasts.storagemovejob"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
     HEADER "feedlogging.h"
     IDENTIFIER "kastsFeed"
     CATEGORY_NAME "org.kde.kasts.feed"
@@ -78,6 +87,13 @@ ecm_qt_declare_logging_category(SRCS_base
     HEADER "queuemodellogging.h"
     IDENTIFIER "kastsQueueModel"
     CATEGORY_NAME "org.kde.kasts.queuemodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "storagemanagerlogging.h"
+    IDENTIFIER "kastsStorageManager"
+    CATEGORY_NAME "org.kde.kasts.storagemanager"
     DEFAULT_SEVERITY Info
 )
 

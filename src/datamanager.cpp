@@ -6,13 +6,6 @@
 
 #include "datamanager.h"
 
-#include "audiomanager.h"
-#include "database.h"
-#include "datamanagerlogging.h"
-#include "entry.h"
-#include "feed.h"
-#include "fetcher.h"
-#include "settingsmanager.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSqlDatabase>
@@ -21,6 +14,15 @@
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
+
+#include "audiomanager.h"
+#include "database.h"
+#include "datamanagerlogging.h"
+#include "entry.h"
+#include "feed.h"
+#include "fetcher.h"
+#include "settingsmanager.h"
+#include "storagemanager.h"
 
 DataManager::DataManager()
 {
@@ -292,7 +294,7 @@ void DataManager::removeFeed(const int index)
         if (getEntry(id)->hasEnclosure())
             getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
         if (!getEntry(id)->image().isEmpty())
-            Fetcher::instance().removeImage(getEntry(id)->image()); // delete entry images
+            StorageManager::instance().removeImage(getEntry(id)->image()); // delete entry images
         delete m_entries[id]; // delete pointer
         m_entries.remove(id); // delete the hash key
     }
@@ -300,7 +302,7 @@ void DataManager::removeFeed(const int index)
 
     qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
     if (!feed->image().isEmpty())
-        Fetcher::instance().removeImage(feed->image());
+        StorageManager::instance().removeImage(feed->image());
     m_feeds.remove(m_feedmap[index]); // remove from m_feeds
     m_feedmap.removeAt(index); // remove from m_feedmap
     delete feed; // remove the pointer

@@ -11,7 +11,9 @@
 
 #include "audiomanager.h"
 #include "datamanager.h"
-#include "fetcher.h"
+#include "entry.h"
+#include "feed.h"
+#include "storagemanager.h"
 
 #include <QCryptographicHash>
 #include <QDBusConnection>
@@ -388,7 +390,7 @@ QVariantMap MediaPlayer2Player::getMetadataOfCurrentTrack()
         result[QStringLiteral("xesam:artist")] = authors;
     }
     if (!entry->image().isEmpty()) {
-        result[QStringLiteral("mpris:artUrl")] = Fetcher::instance().imagePath(entry->image());
+        result[QStringLiteral("mpris:artUrl")] = StorageManager::instance().imagePath(entry->image());
     }
 
     return result;

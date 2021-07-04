@@ -14,6 +14,7 @@
 
 class AudioManager;
 class Entry;
+class Feed;
 
 class MediaPlayer2Player : public QDBusAbstractAdaptor
 {

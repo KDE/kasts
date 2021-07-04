@@ -22,6 +22,7 @@ public:
         MeteredNotAllowed,
         InvalidMedia,
         DiscoverError,
+        StorageMoveError,
     };
     Q_ENUM(Type)
 

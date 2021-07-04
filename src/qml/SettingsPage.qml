@@ -5,8 +5,9 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
+import Qt.labs.platform 1.1
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
@@ -151,6 +152,68 @@ Kirigami.ScrollablePage {
             text: i18n("Use system default")
 
             onToggled: SettingsManager.articleFontUseSystem = checked
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Storage")
+        }
+
+        RowLayout {
+            visible: Qt.platform.os !== "android" // not functional on android
+            Kirigami.FormData.label: i18n("Storage path:")
+
+            Layout.fillWidth: true
+            Controls.TextField {
+                Layout.fillWidth: true
+                readOnly: true
+                text: StorageManager.storagePath
+                enabled: !defaultStoragePath.checked
+            }
+            Controls.Button {
+                icon.name: "document-open-folder"
+                text: i18n("Select folder...")
+                enabled: !defaultStoragePath.checked
+                onClicked: storagePathDialog.open()
+            }
+            FolderDialog {
+                id: storagePathDialog
+                title: i18n("Select Storage Path")
+                currentFolder: "file://" + StorageManager.storagePath
+                options: FolderDialog.ShowDirsOnly
+                onAccepted: {
+                    StorageManager.setStoragePath(folder);
+                }
+            }
+        }
+
+        Controls.CheckBox {
+            id: defaultStoragePath
+            visible: Qt.platform.os !== "android" // not functional on android
+            checked: SettingsManager.storagePath == ""
+            text: i18n("Use default path")
+            onToggled: {
+                if (checked) {
+                    StorageManager.setStoragePath("");
+                }
+            }
+        }
+
+        Controls.Label {
+            Kirigami.FormData.label: i18n("Podcast Downloads:")
+            text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Image Cache:")
+            Controls.Label {
+                text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+            }
+            Controls.Button {
+                icon.name: "edit-clear-all"
+                text: i18n("Clear Cache")
+                onClicked: StorageManager.clearImageCache();
+            }
         }
 
         Kirigami.Heading {

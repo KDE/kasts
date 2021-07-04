@@ -56,6 +56,10 @@
             <label>Use default system font</label>
             <default>true</default>
         </entry>
+        <entry name="StoragePath" type="Url">
+            <label>Custom path to store enclosures and images</label>
+            <default></default>
+        </entry>
     </group>
     <group name="Network">
         <entry name="allowMeteredFeedUpdates" type="Bool">

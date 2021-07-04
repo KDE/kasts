@@ -54,6 +54,8 @@ QString Error::description() const
         return i18n("Invalid Media File");
     case Error::Type::DiscoverError:
         return i18n("Nothing Found");
+    case Error::Type::StorageMoveError:
+        return i18n("Error moving storage path");
     default:
         return QString();
     }
@@ -72,6 +74,8 @@ int Error::typeToDb(Error::Type type)
         return 3;
     case Error::Type::DiscoverError:
         return 4;
+    case Error::Type::StorageMoveError:
+        return 5;
     default:
         return -1;
     }
@@ -90,6 +94,8 @@ Error::Type Error::dbToType(int value)
         return Error::Type::InvalidMedia;
     case 4:
         return Error::Type::DiscoverError;
+    case 5:
+        return Error::Type::StorageMoveError;
     default:
         return Error::Type::Unknown;
     }

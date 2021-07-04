@@ -39,11 +39,8 @@ public:
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url) const;
-    void removeImage(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
 
-    QString imagePath(const QString &url) const;
-    QString enclosurePath(const QString &url) const;
     QNetworkReply *get(QNetworkRequest &request) const;
 
     // Network status related methods

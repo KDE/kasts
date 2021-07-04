@@ -20,10 +20,21 @@ import org.kde.kasts 1.0
 Rectangle {
     id: rootComponent
 
+    required property string text
+    property bool showAbortButton: false
+
+    z: 2
+
+    anchors {
+        horizontalCenter: parent.horizontalCenter
+        bottom: parent.bottom
+        bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height : 0 )
+    }
+
     color: Kirigami.Theme.activeTextColor
 
-    width: (labelWidth.boundingRect.width - labelWidth.boundingRect.x) + 3 * Kirigami.Units.largeSpacing +
-           indicator.width
+    width: feedUpdateCountLabel.width + 3 * Kirigami.Units.largeSpacing +
+           indicator.width + (showAbortButton ? abortButton.implicitWidth + Kirigami.Units.largeSpacing : 0)
     height: indicator.height
 
     visible: opacity > 0
@@ -60,27 +71,25 @@ Rectangle {
 
         Controls.Label {
             id: feedUpdateCountLabel
-            text: i18ncp("Number of Updated Podcasts",
-                         "Updated %2 of %1 Podcast",
-                         "Updated %2 of %1 Podcasts",
-                         Fetcher.updateTotal,
-                         Fetcher.updateProgress)
+            text: rootComponent.text
             color: Kirigami.Theme.textColor
 
             Layout.fillWidth: true
-            //Layout.fillHeight: true
             Layout.alignment: Qt.AlignVCenter
         }
-    }
 
-    TextMetrics {
-        id: labelWidth
-
-        text: i18ncp("Number of Updated Podcasts",
-                     "Updated %2 of %1 Podcast",
-                     "Updated %2 of %1 Podcasts",
-                     999,
-                     999)
+        Controls.Button {
+            id: abortButton
+            Layout.alignment: Qt.AlignVCenter
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            visible: showAbortButton
+            Controls.ToolTip.visible: hovered
+            Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            Controls.ToolTip.text: i18n("Abort")
+            text: i18n("Abort")
+            icon.name: "edit-delete-remove"
+            onClicked: abortAction();
+        }
     }
 
     Timer {
@@ -102,15 +111,17 @@ Rectangle {
         }
     }
 
-    Connections {
-        target: Fetcher
-        function onUpdatingChanged() {
-            if (Fetcher.updating) {
-                hideTimer.stop()
-                opacity = 1
-            } else {
-                hideTimer.start()
-            }
-        }
+    function open() {
+        hideTimer.stop();
+        opacity = 1;
     }
+
+    function close() {
+        hideTimer.start();
+    }
+
+    // if the abort button is enabled (showAbortButton = true), this function
+    // needs to be implemented/overriden to call the correct underlying
+    // method/function
+    function abortAction() {}
 }

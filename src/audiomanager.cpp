@@ -234,7 +234,7 @@ void AudioManager::setEntry(Entry *entry)
                                   + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
 #else
         qCDebug(kastsAudio) << "regular audio backend";
-        d->m_player.setMedia(QUrl(QStringLiteral("file://") + d->m_entry->enclosure()->path()));
+        d->m_player.setMedia(QUrl::fromLocalFile(d->m_entry->enclosure()->path()));
 #endif
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());

@@ -11,11 +11,13 @@
 #include "database.h"
 #include "datamanager.h"
 #include "fetcher.h"
+#include "storagemanager.h"
 
 ErrorLogModel::ErrorLogModel()
     : QAbstractListModel(nullptr)
 {
     connect(&Fetcher::instance(), &Fetcher::error, this, &ErrorLogModel::monitorErrorMessages);
+    connect(&StorageManager::instance(), &StorageManager::error, this, &ErrorLogModel::monitorErrorMessages);
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Errors ORDER BY date DESC;"));

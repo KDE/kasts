@@ -48,6 +48,7 @@
 #include "podcastsearchmodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -133,6 +134,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadModel", &DownloadModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "StorageManager", &StorageManager::instance());
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
     qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*

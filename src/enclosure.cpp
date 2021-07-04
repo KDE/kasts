@@ -23,6 +23,7 @@
 #include "errorlogmodel.h"
 #include "fetcher.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
@@ -216,7 +217,7 @@ void Enclosure::deleteFile()
 
 QString Enclosure::path() const
 {
-    return Fetcher::instance().enclosurePath(m_url);
+    return StorageManager::instance().enclosurePath(m_url);
 }
 
 Enclosure::Status Enclosure::status() const
