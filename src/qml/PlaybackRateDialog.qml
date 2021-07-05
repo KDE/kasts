@@ -110,7 +110,7 @@ Loader {
 
                 Kirigami.Heading {
                     level: 3
-                    text: i18n("<b>Set Playback Rate</b>")
+                    text: i18n("Set Playback Rate")
                     Layout.alignment: Qt.AlignHCenter
                     Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                 }
