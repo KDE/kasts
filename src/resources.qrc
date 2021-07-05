@@ -24,7 +24,7 @@
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
         <file alias="HeaderBar.qml">qml/HeaderBar.qml</file>
-        <file alias="Playback.qml">qml/Playback.qml</file>
+        <file alias="PlaybackRateDialog.qml">qml/PlaybackRateDialog.qml</file>
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
         <file>qtquickcontrols2.conf</file>
