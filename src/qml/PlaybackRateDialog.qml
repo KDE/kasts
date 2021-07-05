@@ -100,14 +100,6 @@ Loader {
                 id: contents
                 spacing: 0
 
-                Kirigami.Icon {
-                    Layout.margins: Kirigami.Units.smallSpacing
-                    source: "arrow-down"
-                    implicitWidth: Kirigami.Units.gridUnit
-                    implicitHeight: Kirigami.Units.gridUnit
-                    Layout.alignment: Qt.AlignHCenter
-                }
-
                 Kirigami.Heading {
                     level: 3
                     text: i18n("Set Playback Rate")
