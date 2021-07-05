@@ -75,7 +75,7 @@ Rectangle {
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
-                        onClicked: playbackDialog.open()
+                        onClicked: playbackRateDialog.open()
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
                         padding: 0

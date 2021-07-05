@@ -278,6 +278,6 @@ Kirigami.ApplicationWindow {
         }
     }
     PlaybackRateDialog {
-        id: playbackDialog
+        id: playbackRateDialog
     }
 }

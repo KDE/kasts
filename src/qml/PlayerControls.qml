@@ -195,7 +195,7 @@ Kirigami.Page {
                             verticalAlignment: Text.AlignVCenter
                         }
                         onClicked: {
-                            playbackDialog.open()
+                            playbackRateDialog.open()
                         }
                         flat: true
                         Layout.alignment: Qt.AlignHCenter
