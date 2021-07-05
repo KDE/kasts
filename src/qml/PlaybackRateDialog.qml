@@ -71,6 +71,7 @@ Loader {
                 clip: true
                 delegate: Kirigami.SwipeListItem {
                     id: swipeDelegate
+                    highlighted: value == AudioManager.playbackRate
                     Controls.Label {
                         text: name
                     }
@@ -120,9 +121,8 @@ Loader {
                     Layout.fillHeight: true
                     clip: true
                     delegate: Kirigami.BasicListItem {
-                        contentItem: Controls.Label {
-                            text: model.name
-                        }
+                        highlighted: value == AudioManager.playbackRate
+                        label: model.name
                         onClicked: {
                             AudioManager.playbackRate = value;
                             close();
