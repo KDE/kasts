@@ -71,9 +71,11 @@ bool Database::migrateTo1()
 bool Database::migrateTo2()
 {
     qDebug() << "Migrating database to version 2";
+    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 2;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
     return true;
 }
 
@@ -121,7 +123,7 @@ int Database::version()
     if (query.next()) {
         bool ok;
         int value = query.value(0).toInt(&ok);
-        qDebug() << "Database version " << value;
+        qDebug() << "Database version" << value;
         if (ok)
             return value;
     } else {
