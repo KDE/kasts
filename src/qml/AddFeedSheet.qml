@@ -29,7 +29,7 @@ Kirigami.OverlaySheet {
             id: urlField
             Layout.fillWidth: true
             text: "https://"
-            focus: true
+            focus: addSheet.sheetOpen
             Keys.onReturnPressed: addFeedButton.clicked();
         }
 
