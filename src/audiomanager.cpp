@@ -17,6 +17,7 @@
 
 #include "audiologging.h"
 #include "datamanager.h"
+#include "errorlogmodel.h"
 #include "feed.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
@@ -72,6 +73,8 @@ AudioManager::AudioManager(QObject *parent)
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, &AudioManager::canGoNextChanged);
     // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
+
+    connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     // Check if an entry was playing when the program was shut down and restore it
     if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {
