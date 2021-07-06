@@ -196,6 +196,11 @@ QMediaPlayer::MediaStatus AudioManager::status() const
 
 void AudioManager::setEntry(Entry *entry)
 {
+    // First unset current track, such that any signal that fires doesn't
+    // operate on the wrong track
+    Entry *oldEntry = d->m_entry;
+    d->m_entry = nullptr;
+
     // reset any pending seek action, lock position saving and notify interval
     d->m_pendingSeek = -1;
     d->m_lockPositionSaving = true;
@@ -203,15 +208,15 @@ void AudioManager::setEntry(Entry *entry)
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
-    if (d->m_entry) {
+    if (oldEntry) {
         qCDebug(kastsAudio) << "Checking previous track";
         qCDebug(kastsAudio) << "Left time" << (duration() - position());
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
         if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SKIP_TRACK_END)) || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia)) {
-            qCDebug(kastsAudio) << "Mark as read:" << d->m_entry->title();
-            d->m_entry->setRead(true);
-            d->m_entry->enclosure()->setPlayPosition(0);
-            d->m_entry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
+            qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
+            oldEntry->setRead(true);
+            oldEntry->enclosure()->setPlayPosition(0);
+            oldEntry->setQueueStatus(false); // i.e. remove from queue TODO: make this a choice in settings
             d->m_continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
         }
     }
