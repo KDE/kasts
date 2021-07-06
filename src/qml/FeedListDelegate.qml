@@ -28,7 +28,7 @@ Controls.ItemDelegate {
     Accessible.role: Accessible.Button
     Accessible.name: feed.name
     Accessible.onPressAction: {
-         feedDelegate.click()
+         feedDelegate.clicked();
     }
 
     onClicked: {

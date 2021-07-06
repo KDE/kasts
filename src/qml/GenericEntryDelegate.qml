@@ -25,7 +25,7 @@ Kirigami.SwipeListItem {
     Accessible.role: Accessible.Button
     Accessible.name: entry.title
     Accessible.onPressAction: {
-         listItem.click()
+         listItem.clicked();
     }
 
     contentItem: RowLayout {
