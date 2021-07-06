@@ -29,6 +29,8 @@ Kirigami.OverlaySheet {
             id: urlField
             Layout.fillWidth: true
             text: "https://"
+            focus: true
+            Keys.onReturnPressed: addFeedButton.clicked();
         }
 
         // This item can be used to trigger the addition of a feed; it will open an
@@ -36,17 +38,18 @@ Kirigami.OverlaySheet {
         ConnectionCheckAction {
             id: addFeed
             function action() {
-                DataManager.addFeed(urlField.text)
+                DataManager.addFeed(urlField.text);
             }
         }
     }
 
     footer: Controls.Button {
+        id: addFeedButton
         text: i18n("Add Podcast")
         enabled: urlField.text
         onClicked: {
-            addFeed.run()
-            addSheet.close()
+            addSheet.close();
+            addFeed.run();
         }
     }
 }
