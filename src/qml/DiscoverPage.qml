@@ -23,6 +23,9 @@ Kirigami.ScrollablePage {
             placeholderText: i18n("Search podcastindex.org")
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.smallSpacing
+            Keys.onReturnPressed: {
+                searchButton.clicked()
+            }
         }
         Controls.Button {
             id: searchButton
@@ -41,6 +44,7 @@ Kirigami.ScrollablePage {
         id: delegateComponent
         Kirigami.SwipeListItem {
             id: listItem
+            alwaysVisibleActions: true
             contentItem: RowLayout {
                 Kirigami.Icon {
                     source: model.image
@@ -67,8 +71,7 @@ Kirigami.ScrollablePage {
                 }
             ]
             onClicked: {
-                feedModel = model
-                detailDrawer.open();
+                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": model, isSubscribed: false})
             }
         }
     }
@@ -82,38 +85,6 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.DelegateRecycler {
             width: parent ? parent.width : implicitWidth
             sourceComponent: delegateComponent
-        }
-    }
-    Kirigami.OverlaySheet {
-        id: detailDrawer
-        showCloseButton: true
-        contentItem: ColumnLayout {
-            Layout.preferredWidth:  Kirigami.Units.gridUnit * 25
-            GenericHeader {
-                image: feedModel.image
-                title: feedModel.title
-                subtitle: feedModel.author
-                Controls.Button {
-                    text: enabled ? "Subscribe" : "Subscribed"
-                    icon.name: "kt-add-feeds"
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    anchors.rightMargin: Kirigami.Units.largeSpacing
-                    anchors.topMargin: Kirigami.Units.largeSpacing
-                    onClicked: {
-                        DataManager.addFeed(feedModel.url)
-                    }
-                    enabled: !DataManager.isFeedExists(feedModel.url)
-                }
-            }
-            Controls.Label {
-                text: i18n("%1 \n\nAuthor: %2 \nOwner: %3", feedModel.description, feedModel.author,  feedModel.ownerName)
-                Layout.margins: Kirigami.Units.gridUnit
-                wrapMode: Text.WordWrap
-                Layout.fillWidth: true
-                onLinkActivated: Qt.openUrlExternally(link)
-                font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Units.fontMetrics.font.pointSize
-            }
         }
     }
 }
