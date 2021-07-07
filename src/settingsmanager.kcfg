@@ -40,10 +40,6 @@
             </choices>
             <default>OnNextStartup</default>
         </entry>
-        <entry name="removeFromQueueOnPlayed" type="Bool">
-            <label>Remove episode from queue when marked as played</label>
-            <default>true</default>
-        </entry>
         <entry name="resetPositionOnPlayed" type="Bool">
             <label>Reset play position when episode is marked as played</label>
             <default>true</default>

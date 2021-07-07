@@ -154,9 +154,7 @@ void Entry::setRead(bool read)
         }
 
         // 2) Remove item from queue
-        if (SettingsManager::self()->removeFromQueueOnPlayed()) {
-            setQueueStatus(false);
-        }
+        setQueueStatus(false);
 
         // 3) Remove "new" label
         setNew(false);

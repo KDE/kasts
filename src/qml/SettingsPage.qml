@@ -93,17 +93,10 @@ Kirigami.ScrollablePage {
         }
 
         Controls.CheckBox {
-            checked: SettingsManager.removeFromQueueOnPlayed
-            text: i18n("Remove from Queue")
-            onToggled: SettingsManager.removeFromQueueOnPlayed = checked
-        }
-
-        Controls.CheckBox {
             checked: SettingsManager.resetPositionOnPlayed
             text: i18n("Reset Play Position")
             onToggled: SettingsManager.resetPositionOnPlayed = checked
         }
-
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
