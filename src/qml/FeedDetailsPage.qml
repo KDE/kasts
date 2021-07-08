@@ -19,6 +19,7 @@ Kirigami.ScrollablePage {
     property QtObject feed;
     property bool isSubscribed: true
 
+    property string author: isSubscribed ? (page.feed.authors.length === 0 ? "" : page.feed.authors[0].name) : feed.author
     title: i18nc("<Podcast Name> - Details", "%1 - Details", isSubscribed ? feed.name : feed.title)
 
     header: GenericHeader {
@@ -26,7 +27,7 @@ Kirigami.ScrollablePage {
 
         image: isSubscribed ? feed.cachedImage : feed.image
         title: isSubscribed ? feed.name : feed.title
-        subtitle: isSubscribed ? (page.feed.authors.length === 0 ? "" : i18nc("by <Author(s)>", "by %1", page.feed.authors[0].name)) : feed.author
+        subtitle: author !== "" ? i18nc("by <Author(s)>", "by %1", author) : ""
         Controls.Button {
             text: enabled ? i18n("Subscribe") : i18n("Subscribed")
             icon.name: "kt-add-feeds"
@@ -50,8 +51,8 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
         }
         Controls.Label {
-            text: i18nc("by <Author(s)>", "by %1", isSubscribed ? feed.authors[0].name : feed.author)
-            visible: isSubscribed ? feed.authors.length !== 0 : feed.author !== ""
+            text: i18nc("by <Author(s)>", "by %1", author)
+            visible: author !== ""
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
