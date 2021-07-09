@@ -49,6 +49,7 @@
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "searchhistorymodel.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -126,6 +127,10 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
+
+    qmlRegisterSingletonType<SearchHistoryModel>("org.kde.kasts", 1, 0, "SearchHistoryModel", [](QQmlEngine *, QJSEngine *) -> QObject * {
+        return SearchHistoryModel::instance();
+    });
 
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
