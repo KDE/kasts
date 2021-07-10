@@ -7,10 +7,10 @@
 #ifndef SEARCHHISTORYMODEL_H
 #define SEARCHHISTORYMODEL_H
 
+#include <QObject>
 #include <QAbstractListModel>
 #include <QCoreApplication>
 #include <QJsonObject>
-#include <QObject>
 #include <QSettings>
 
 class SearchHistory : public QObject
@@ -77,5 +77,6 @@ private:
     QSettings *m_settings;
     QList<SearchHistory *> m_searches;
 };
+
 #endif // SEARCHHISTORYMODEL_H
 

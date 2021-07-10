@@ -18,7 +18,7 @@ SearchHistory::SearchHistory(QObject *parent, const QString &searchTerm)
 }
 
 SearchHistory::SearchHistory(const QJsonObject &obj)
-    : m_searchTerm(obj["searchTerm"].toString())
+    : m_searchTerm(obj[QStringLiteral("searchTerm")].toString())
 {
 }
 
@@ -29,7 +29,7 @@ SearchHistory::~SearchHistory()
 QJsonObject SearchHistory::toJson() const
 {
     QJsonObject obj;
-    obj["searchTerm"] = m_searchTerm;
+    obj[QStringLiteral("searchTerm")] = m_searchTerm;
     return obj;
 }
 
@@ -75,7 +75,7 @@ void SearchHistoryModel::save()
         return QJsonValue(search->toJson());
     });
 
-    m_settings->setValue(QStringLiteral("searches"), QString(QJsonDocument(arr).toJson(QJsonDocument::Compact)));
+    m_settings->setValue(QStringLiteral("searches"), QString::fromUtf8(QJsonDocument(arr).toJson(QJsonDocument::Compact)));
 }
 
 QHash<int, QByteArray> SearchHistoryModel::roleNames() const
