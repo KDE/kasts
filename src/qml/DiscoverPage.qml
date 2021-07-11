@@ -33,10 +33,7 @@ Kirigami.ScrollablePage {
                 y: parent.height + Kirigami.Units.smallSpacing
                 width: parent.width
                 visible: view.count > 0 && textField.activeFocus
-                topPadding: 0
-                leftPadding: 0
-                bottomPadding: 0
-                rightPadding: 0
+                padding: Kirigami.Units.smallSpacing
                 height: Math.min(Kirigami.Units.gridUnit * 10, view.contentHeight)
                 contentItem: Controls.ScrollView {
                     Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
