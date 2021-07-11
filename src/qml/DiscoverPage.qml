@@ -20,12 +20,42 @@ Kirigami.ScrollablePage {
         anchors.topMargin: Kirigami.Units.smallSpacing
         Kirigami.SearchField {
             id: textField
+
             placeholderText: i18n("Search podcastindex.org")
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Keys.onReturnPressed: {
                 searchButton.clicked()
             }
+            Controls.Popup {
+                id: historyPopup
+                x: 0
+                y: parent.height + Kirigami.Units.smallSpacing
+                width: parent.width
+                visible: view.count > 0 && textField.activeFocus
+                topPadding: 0
+                leftPadding: 0
+                bottomPadding: 0
+                rightPadding: 0
+                height: Math.min(Kirigami.Units.gridUnit * 10, view.contentHeight)
+                contentItem: Controls.ScrollView {
+                    Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+                    ListView {
+                        id: view
+                        currentIndex: 0
+                        keyNavigationWraps: true
+                        model: SearchHistoryModel
+                        delegate: Kirigami.BasicListItem {
+                            text: search.searchTerm
+                            onClicked: {
+                                textField.text = text;
+                            }
+                        }
+                    }
+                }
+            }
+            Keys.onUpPressed: view.decrementCurrentIndex()
+            Keys.onDownPressed: view.incrementCurrentIndex()
         }
         Controls.Button {
             id: searchButton
@@ -33,7 +63,11 @@ Kirigami.ScrollablePage {
             icon.name: "search"
             Layout.rightMargin: Kirigami.Units.smallSpacing
             onClicked: {
-                podcastSearchModel.search(textField.text);
+                if(textField.text.length > 0) {
+                    podcastSearchModel.search(textField.text);
+                    SearchHistoryModel.insertSearchResult(textField.text);
+                    historyPopup.close();
+                }
             }
         }
     }
