@@ -125,6 +125,12 @@ Controls.ItemDelegate {
         }
     }
 
+    Controls.ToolTip {
+        text: feed.name
+        delay: Qt.styleHints.mousePressAndHoldInterval
+        y: cardSize + cardMargin
+    }
+
     Kirigami.OverlaySheet {
         id: actionOverlay
         parent: applicationWindow().overlay

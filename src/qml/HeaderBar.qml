@@ -69,39 +69,51 @@ Rectangle {
                 RowLayout {
                     property int iconSize: Kirigami.Units.gridUnit
                     property int buttonSize: playButton.implicitWidth
-                    Controls.Button {
+                    Controls.ToolButton {
                         contentItem: Controls.Label {
                             text: AudioManager.playbackRate + "x"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
                         onClicked: playbackRateDialog.open()
-                        flat: true
                         Layout.alignment: Qt.AlignHCenter
                         padding: 0
                         implicitWidth: playButton.width * 2
                         implicitHeight: playButton.height
+
+                        Controls.ToolTip.visible: hovered
+                        Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                        Controls.ToolTip.text: i18n("Playback Rate: ") + AudioManager.playbackRate + "x"
+
                     }
-                    Controls.Button {
+                    Controls.ToolButton {
                         icon.name: "media-seek-backward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
-                        flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
                         onClicked: AudioManager.skipBackward()
                         enabled: AudioManager.canSkipBackward
+
+                        Controls.ToolTip.visible: hovered
+                        Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                        Controls.ToolTip.text: i18n("Seek Backward")
+
                     }
-                    Controls.Button {
+                    Controls.ToolButton {
                         id: playButton
                         icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
-                        flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
                         onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
                         enabled: AudioManager.canPlay
+
+                        Controls.ToolTip.visible: hovered
+                        Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                        Controls.ToolTip.text: AudioManager.playbackState === Audio.PlayingState ? i18n("Pause") : i18n("Play")
+
                     }
                     Controls.Button {
                         icon.name: "media-seek-forward"
@@ -112,16 +124,24 @@ Rectangle {
                         Layout.preferredWidth: parent.buttonSize
                         onClicked: AudioManager.skipForward()
                         enabled: AudioManager.canSkipForward
+
+                        Controls.ToolTip.visible: hovered
+                        Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                        Controls.ToolTip.text: i18n("Seek Forward")
                     }
-                    Controls.Button {
+                    Controls.ToolButton {
                         icon.name: "media-skip-forward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
-                        flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
                         onClicked: AudioManager.next()
                         enabled: AudioManager.canGoNext
+
+                        Controls.ToolTip.visible: hovered
+                        Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                        Controls.ToolTip.text: i18n("Skip Forward")
+
                     }
                 }
             }
