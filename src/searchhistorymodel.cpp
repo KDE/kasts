@@ -117,3 +117,16 @@ void SearchHistoryModel::deleteSearchResult(const int index)
 
     save();
 }
+
+void SearchHistoryModel::deleteSearchHistory()
+{
+    beginResetModel();
+    for(auto &search : m_searches) {
+        delete search;
+    }
+    m_searches.clear();
+    endResetModel();
+    qDebug() << "Success! Search history cleared.";
+
+    save();
+}

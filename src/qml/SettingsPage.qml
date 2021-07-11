@@ -45,6 +45,17 @@ Kirigami.ScrollablePage {
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
+            text: i18n("Search History")
+        }
+
+        Controls.Button {
+            icon.name: "search"
+            text: i18n("Clear search history")
+            onClicked: SearchHistoryModel.deleteSearchHistory();
+        }
+
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
             text: i18n("Queue Settings")
         }
 

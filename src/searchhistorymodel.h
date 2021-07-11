@@ -69,6 +69,7 @@ public:
 
     Q_INVOKABLE void insertSearchResult(QString searchTerm);
     Q_INVOKABLE void deleteSearchResult(const int index);
+    Q_INVOKABLE void deleteSearchHistory();
 
 private:
     explicit SearchHistoryModel(QObject *parent = nullptr);
