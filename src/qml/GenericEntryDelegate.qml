@@ -28,6 +28,8 @@ Kirigami.SwipeListItem {
          listItem.clicked();
     }
 
+    Keys.onReturnPressed: clicked()
+
     contentItem: RowLayout {
 
         Loader {

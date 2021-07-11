@@ -35,6 +35,7 @@ Controls.ItemDelegate {
         lastFeed = feed.url
         pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
     }
+    Keys.onReturnPressed: clicked()
 
     background: Kirigami.ShadowedRectangle {
         anchors.fill: parent

@@ -292,4 +292,16 @@ Kirigami.ApplicationWindow {
     PlaybackRateDialog {
         id: playbackRateDialog
     }
+
+    //Global Shortcuts
+    Shortcut {
+        sequence:  "space"
+        enabled: AudioManager.canPlay
+        onActivated: AudioManager.playPause()
+    }
+    Shortcut {
+        sequence:  "n"
+        enabled: AudioManager.canGoNext
+        onActivated: AudioManager.next()
+    }
 }
