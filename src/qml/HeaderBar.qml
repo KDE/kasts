@@ -43,7 +43,7 @@ Rectangle {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 ColumnLayout {
                     Kirigami.Heading {
-                        text: AudioManager.entry ? AudioManager.entry.title : "No track title"
+                        text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         horizontalAlignment: Text.AlignLeft
@@ -53,7 +53,7 @@ Rectangle {
                         font.bold: true
                     }
                     Controls.Label {
-                        text: AudioManager.entry ? AudioManager.entry.feed.name : "No feed"
+                        text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Track Loaded")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         //wrapMode: Text.Wrap
@@ -115,11 +115,10 @@ Rectangle {
                         Controls.ToolTip.text: AudioManager.playbackState === Audio.PlayingState ? i18n("Pause") : i18n("Play")
 
                     }
-                    Controls.Button {
+                    Controls.ToolButton {
                         icon.name: "media-seek-forward"
                         icon.height: parent.iconSize
                         icon.width: parent.iconSize
-                        flat: true
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: parent.buttonSize
                         onClicked: AudioManager.skipForward()
