@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Keys.onReturnPressed: {
-                searchButton.clicked()
+                initiateSearch(textField.text)
             }
             Controls.Popup {
                 id: historyPopup
@@ -34,7 +34,7 @@ Kirigami.ScrollablePage {
                 width: parent.width
                 visible: view.count > 0 && textField.activeFocus
                 padding: Kirigami.Units.smallSpacing
-                height: Math.min(Kirigami.Units.gridUnit * 10, view.contentHeight)
+                height: Math.min(Kirigami.Units.gridUnit * 10, view.contentHeight + 2 * Kirigami.Units.smallSpacing)
                 contentItem: Controls.ScrollView {
                     Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
                     ListView {
@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
                         delegate: Kirigami.BasicListItem {
                             text: search.searchTerm
                             onClicked: {
-                                textField.text = text;
+                                initiateSearch(text);
                             }
                         }
                     }
@@ -61,12 +61,19 @@ Kirigami.ScrollablePage {
             Layout.rightMargin: Kirigami.Units.smallSpacing
             onClicked: {
                 if(textField.text.length > 0) {
-                    podcastSearchModel.search(textField.text);
-                    SearchHistoryModel.insertSearchResult(textField.text);
-                    historyPopup.close();
+                    initiateSearch(textField.text);
+                }
+                else {
+                    console.log("ERROR! Enter a search term!");
                 }
             }
         }
+    }
+    function initiateSearch(term) {
+        textField.text = term;
+        historyPopup.close();
+        podcastSearchModel.search(term);
+        SearchHistoryModel.insertSearchResult(term);
     }
     Component.onCompleted: {
         textField.forceActiveFocus();
