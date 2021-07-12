@@ -46,11 +46,12 @@ Kirigami.ScrollablePage {
             id: listItem
             alwaysVisibleActions: true
             contentItem: RowLayout {
-                Kirigami.Icon {
-                    source: model.image
+                ImageWithFallback {
+                    imageSource: model.image
                     Layout.fillHeight: true
                     Layout.maximumHeight: Kirigami.Units.iconSizes.huge
                     Layout.preferredWidth: height
+                    fractionalRadius: 1.0 / 8.0
                 }
                 Controls.Label {
                     Layout.fillWidth: true

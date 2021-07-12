@@ -127,8 +127,7 @@ int PodcastSearchModel::rowCount(const QModelIndex &parent) const
     if (m_data.isEmpty()) {
         return 0;
     }
-        return m_data[QStringLiteral("feeds")].toArray().size();
-
+    return m_data[QStringLiteral("feeds")].toArray().size();
 }
 
 void PodcastSearchModel::search(const QString &text)
