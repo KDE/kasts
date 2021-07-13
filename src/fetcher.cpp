@@ -25,6 +25,7 @@
 #include "enclosure.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
+#include "kasts-version.h"
 #include "settingsmanager.h"
 
 Fetcher::Fetcher()
@@ -485,7 +486,7 @@ QNetworkReply *Fetcher::head(QNetworkRequest &request) const
 
 void Fetcher::setHeader(QNetworkRequest &request) const
 {
-    request.setRawHeader("User-Agent", "Kasts/0.1; Syndication");
+    request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray("; Syndication"));
 }
 
 bool Fetcher::canCheckNetworkStatus() const
