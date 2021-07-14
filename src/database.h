@@ -30,5 +30,6 @@ private:
     bool migrateTo1();
     bool migrateTo2();
     bool migrateTo3();
+    bool migrateTo4();
     void cleanup();
 };

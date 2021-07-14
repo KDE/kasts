@@ -61,7 +61,7 @@ Q_SIGNALS:
                             const QString &description,
                             const QDateTime &lastUpdated);
     void feedUpdateFinished(const QString &url);
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
+    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
     void entryAdded(const QString &feedurl, const QString &id);
     void downloadFinished(QString url) const;
 

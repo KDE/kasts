@@ -32,7 +32,8 @@ public:
     Q_INVOKABLE void clearAll();
 
 public:
-    void monitorErrorMessages(const Error::Type type, const QString &url, const QString &id, const int errorCode, const QString &errorString);
+    void
+    monitorErrorMessages(const Error::Type type, const QString &url, const QString &id, const int errorCode, const QString &errorString, const QString &title);
 
 Q_SIGNALS:
     void newErrorLogged(Error *error);

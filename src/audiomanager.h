@@ -132,7 +132,7 @@ Q_SIGNALS:
 
     void canGoNextChanged();
 
-    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
+    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 public Q_SLOTS:
 

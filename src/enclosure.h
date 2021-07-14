@@ -81,7 +81,7 @@ Q_SIGNALS:
     void durationChanged();
     void sizeChanged();
     void sizeOnDiskChanged();
-    void downloadError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString);
+    void downloadError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
     void processDownloadedFile();

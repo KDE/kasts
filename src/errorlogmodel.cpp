@@ -27,7 +27,8 @@ ErrorLogModel::ErrorLogModel()
 
                                  query.value(QStringLiteral("code")).toInt(),
                                  query.value(QStringLiteral("message")).toString(),
-                                 QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()));
+                                 QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()),
+                                 query.value(QStringLiteral("title")).toString());
         m_errors += error;
     }
 }
@@ -53,25 +54,30 @@ int ErrorLogModel::rowCount(const QModelIndex &parent) const
     return m_errors.count();
 }
 
-void ErrorLogModel::monitorErrorMessages(const Error::Type type, const QString &url, const QString &id, const int errorCode, const QString &errorString)
+void ErrorLogModel::monitorErrorMessages(const Error::Type type,
+                                         const QString &url,
+                                         const QString &id,
+                                         const int errorCode,
+                                         const QString &errorString,
+                                         const QString &title)
 {
     qDebug() << "Error happened:" << type << url << id << errorCode << errorString;
-    QString title;
 
-    Error *error = new Error(type, url, id, errorCode, errorString, QDateTime::currentDateTime());
+    Error *error = new Error(type, url, id, errorCode, errorString, QDateTime::currentDateTime(), title);
     beginInsertRows(QModelIndex(), 0, 0);
     m_errors.prepend(error);
     endInsertRows();
 
     // Also add error to database
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Errors VALUES (:type, :url, :id, :code, :message, :date);"));
-    query.bindValue(QStringLiteral(":type"), Error::typeToDb(error->type));
-    query.bindValue(QStringLiteral(":url"), error->url);
-    query.bindValue(QStringLiteral(":id"), error->id);
-    query.bindValue(QStringLiteral(":code"), error->code);
-    query.bindValue(QStringLiteral(":message"), error->message);
+    query.prepare(QStringLiteral("INSERT INTO Errors VALUES (:type, :url, :id, :code, :message, :date, :title);"));
+    query.bindValue(QStringLiteral(":type"), Error::typeToDb(type));
+    query.bindValue(QStringLiteral(":url"), url);
+    query.bindValue(QStringLiteral(":id"), id);
+    query.bindValue(QStringLiteral(":code"), errorCode);
+    query.bindValue(QStringLiteral(":message"), errorString);
     query.bindValue(QStringLiteral(":date"), error->date.toSecsSinceEpoch());
+    query.bindValue(QStringLiteral(":title"), title);
     Database::instance().execute(query);
 
     // Send signal to display inline error message

@@ -429,7 +429,7 @@ void AudioManager::mediaStatusChanged()
         next();
         if (badEntry && badEntry->enclosure()) {
             badEntry->enclosure()->deleteFile();
-            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), QMediaPlayer::InvalidMedia, i18n("Invalid Media"));
+            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), QMediaPlayer::InvalidMedia, i18n("Invalid Media"), QString());
         }
     }
 }

@@ -45,6 +45,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo2());
     if (dbversion < 3)
         TRUE_OR_RETURN(migrateTo3());
+    if (dbversion < 4)
+        TRUE_OR_RETURN(migrateTo4());
     return true;
 }
 
@@ -92,6 +94,18 @@ bool Database::migrateTo3()
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 3;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    return true;
+}
+
+bool Database::migrateTo4()
+{
+    qDebug() << "Migrating database to version 4";
+    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER, title TEXT);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 4;")));
     TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
     return true;
 }

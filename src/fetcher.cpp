@@ -90,7 +90,7 @@ void Fetcher::fetchAll()
 void Fetcher::retrieveFeed(const QString &url)
 {
     if (isMeteredConnection() && !SettingsManager::self()->allowMeteredFeedUpdates()) {
-        Q_EMIT error(Error::Type::MeteredNotAllowed, url, QString(), 0, i18n("Podcast updates not allowed due to user setting"));
+        Q_EMIT error(Error::Type::MeteredNotAllowed, url, QString(), 0, i18n("Podcast updates not allowed due to user setting"), QString());
         m_updateProgress++;
         Q_EMIT updateProgressChanged(m_updateProgress);
         return;
@@ -107,7 +107,7 @@ void Fetcher::retrieveFeed(const QString &url)
         if (reply->error()) {
             qWarning() << "Error fetching feed";
             qWarning() << reply->errorString();
-            Q_EMIT error(Error::Type::FeedUpdate, url, QString(), reply->error(), reply->errorString());
+            Q_EMIT error(Error::Type::FeedUpdate, url, QString(), reply->error(), reply->errorString(), QString());
         } else {
             QByteArray data = reply->readAll();
             Syndication::DocumentSource *document = new Syndication::DocumentSource(data, url);

@@ -91,7 +91,8 @@ void Enclosure::download()
                              m_entry->feed()->url(),
                              m_entry->id(),
                              0,
-                             i18n("Podcast downloads not allowed due to user setting"));
+                             i18n("Podcast downloads not allowed due to user setting"),
+                             QString());
         return;
     }
 
@@ -120,7 +121,12 @@ void Enclosure::download()
             if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
                 m_entry->feed()->setErrorId(downloadJob->error());
                 m_entry->feed()->setErrorString(downloadJob->errorString());
-                Q_EMIT downloadError(Error::Type::MediaDownload, m_entry->feed()->url(), m_entry->id(), downloadJob->error(), downloadJob->errorString());
+                Q_EMIT downloadError(Error::Type::MediaDownload,
+                                     m_entry->feed()->url(),
+                                     m_entry->id(),
+                                     downloadJob->error(),
+                                     downloadJob->errorString(),
+                                     QString());
             }
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
