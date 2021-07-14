@@ -35,7 +35,13 @@ public:
     Q_PROPERTY(QString title READ title CONSTANT)
     Q_PROPERTY(QString description READ description CONSTANT)
 
-    Error(Type type, const QString url, const QString id, const int code, const QString message, const QDateTime date);
+    Error(Type type,
+          const QString url,
+          const QString id,
+          const int code,
+          const QString message,
+          const QDateTime date,
+          const QString title = QStringLiteral(""));
 
     QString title() const;
     QString description() const;
@@ -46,4 +52,7 @@ public:
     int code;
     QString message;
     QDateTime date;
+
+private:
+    QString m_title;
 };

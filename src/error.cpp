@@ -14,7 +14,7 @@
 #include "error.h"
 #include "feed.h"
 
-Error::Error(const Type type, const QString url, const QString id, const int code, const QString message, const QDateTime date)
+Error::Error(const Type type, const QString url, const QString id, const int code, const QString message, const QDateTime date, const QString title)
     : QObject(nullptr)
 {
     this->type = type;
@@ -23,17 +23,20 @@ Error::Error(const Type type, const QString url, const QString id, const int cod
     this->code = code;
     this->message = message;
     this->date = date;
-};
+    this->m_title = title;
+}
 
 QString Error::title() const
 {
-    QString title;
-    if (!id.isEmpty()) {
-        if (DataManager::instance().getEntry(id))
-            title = DataManager::instance().getEntry(id)->title();
-    } else if (!url.isEmpty()) {
-        if (DataManager::instance().getFeed(url))
-            title = DataManager::instance().getFeed(url)->name();
+    QString title = m_title;
+    if (title.isEmpty()) {
+        if (!id.isEmpty()) {
+            if (DataManager::instance().getEntry(id))
+                title = DataManager::instance().getEntry(id)->title();
+        } else if (!url.isEmpty()) {
+            if (DataManager::instance().getFeed(url))
+                title = DataManager::instance().getFeed(url)->name();
+        }
     }
     return title;
 }
