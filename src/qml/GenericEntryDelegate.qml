@@ -159,7 +159,9 @@ Kirigami.SwipeListItem {
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: entry.enclosure.formattedDuration
+                        text: (SettingsManager.toggleRemainingTime)
+                                ? "-" + entry.enclosure.formattedLeftDuration
+                                : entry.enclosure.formattedDuration
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7

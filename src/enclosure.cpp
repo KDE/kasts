@@ -363,6 +363,11 @@ QString Enclosure::formattedDuration() const
     return m_kformat.formatDuration(m_duration * 1000);
 }
 
+QString Enclosure::formattedLeftDuration() const
+{
+    return m_kformat.formatDuration(duration() * 1000 - playPosition());
+}
+
 QString Enclosure::formattedPlayPosition() const
 {
     return m_kformat.formatDuration(m_playposition);
