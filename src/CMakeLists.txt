@@ -124,6 +124,7 @@ if(ANDROID)
         globe
         data-error
         rss
+        bookmarks
         document-import
         document-export
         document-open-folder

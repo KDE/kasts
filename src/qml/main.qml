@@ -127,7 +127,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: i18n("Subscriptions")
-                iconName: "document-open-folder"
+                iconName: "bookmarks"
                 checked: currentPage == "FeedListPage"
                 onTriggered: {
                     pushPage("FeedListPage")
