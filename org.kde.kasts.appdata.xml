@@ -77,7 +77,7 @@
     <p xml:lang="ko">Kasts는 모바일 팟캐스트 프로그램입니다</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
     <p xml:lang="pa">ਕਾਸਟਸ ਮੋਬਾਈਲ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ ਹੈ</p>
-    <p xml:lang="pl">Kasts jest przenośną aplikacja do podkastów</p>
+    <p xml:lang="pl">Kasts jest przenośną aplikacją do podkastów</p>
     <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
     <p xml:lang="pt-BR">O Kast é um aplicativo de podcast móvel</p>
     <p xml:lang="sk">Kasts je mobilná podcastová aplikácia</p>
@@ -107,6 +107,7 @@
       <caption xml:lang="ko">데스크톱에서의 Kasts 피드 목록</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
       <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕਾਸਟਸ ਫੀਡ ਸੂਚੀ</caption>
+      <caption xml:lang="pl">Lista kanałów Kasts na komputerze</caption>
       <caption xml:lang="pt">Lista de fontes do Kasts no computador</caption>
       <caption xml:lang="pt-BR">A lista do Kasts no computador</caption>
       <caption xml:lang="sl">Seznam podcastov na namizju</caption>
@@ -127,6 +128,7 @@
       <caption xml:lang="ko">휴대폰에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
       <caption xml:lang="pa">ਫ਼ੋਨ ਉੱਤੇ ਕਾਸਟਸ</caption>
+      <caption xml:lang="pl">Kasts na telefonie</caption>
       <caption xml:lang="pt">O Kasts num telemóvel</caption>
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
