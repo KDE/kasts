@@ -144,13 +144,13 @@
       <description>
         <p>New features in this release:</p>
         <ul>
-            <li>Discover page to search for podcasts on podcastindex.org</li>
-            <li>Podcast downloads can now be resumed.</li>
-            <li>Updated playback speed settings dialog.</li>
-            <li>Settings to allow/disallow network access on metered connections.</li>
-            <li>More descriptive error notifications from which the complete list of errors can be opened.</li>
-            <li>Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
-            <li>Several bugfixes.</li>
+          <li>Discover page to search for podcasts on podcastindex.org</li>
+          <li>Podcast downloads can now be resumed.</li>
+          <li>Updated playback speed settings dialog.</li>
+          <li>Settings to allow/disallow network access on metered connections.</li>
+          <li>More descriptive error notifications from which the complete list of errors can be opened.</li>
+          <li>Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
+          <li>Several bugfixes.</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/07/20/plasma-mobile-gear-21-07/</url>
