@@ -148,11 +148,9 @@ void PodcastSearchModel::search(const QString &text)
     request.setRawHeader("Authorization", hash.toHex());
     auto reply = Fetcher::instance().get(request);
     connect(reply, &QNetworkReply::finished, this, [=]() {
-        if(reply->error())
-        {
+        if (reply->error()) {
             ErrorLogModel::instance().monitorErrorMessages(Error::Type::DiscoverError, url, QString(), reply->error(), reply->errorString(), url);
-        }
-        else {
+        } else {
             beginResetModel();
             m_data = QJsonDocument::fromJson(reply->readAll()).object();
             endResetModel();
