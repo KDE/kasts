@@ -52,6 +52,8 @@ QString Error::description() const
         return i18n("Update Not Allowed on Metered Connection");
     case Error::Type::InvalidMedia:
         return i18n("Invalid Media File");
+    case Error::Type::DiscoverError:
+        return i18n("Nothing Found");
     default:
         return QString();
     }
@@ -68,6 +70,8 @@ int Error::typeToDb(Error::Type type)
         return 2;
     case Error::Type::InvalidMedia:
         return 3;
+    case Error::Type::DiscoverError:
+        return 4;
     default:
         return -1;
     }
@@ -84,6 +88,8 @@ Error::Type Error::dbToType(int value)
         return Error::Type::MeteredNotAllowed;
     case 3:
         return Error::Type::InvalidMedia;
+    case 4:
+        return Error::Type::DiscoverError;
     default:
         return Error::Type::Unknown;
     }

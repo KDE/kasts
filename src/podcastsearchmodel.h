@@ -13,6 +13,7 @@
 #include <QVariant>
 
 #include "feed.h"
+#include "errorlogmodel.h"
 
 class PodcastSearchModel : public QAbstractListModel
 {

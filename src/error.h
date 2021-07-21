@@ -21,6 +21,7 @@ public:
         MediaDownload,
         MeteredNotAllowed,
         InvalidMedia,
+        DiscoverError,
     };
     Q_ENUM(Type)
 

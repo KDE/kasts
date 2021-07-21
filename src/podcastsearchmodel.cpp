@@ -136,6 +136,7 @@ void PodcastSearchModel::search(const QString &text)
     // TODO: Make this more urlsafe
     safeText.replace(QLatin1Char(' '), QLatin1Char('+'));
     QNetworkRequest request(QUrl(QStringLiteral("https://api.podcastindex.org/api/1.0/search/byterm?q=%1").arg(text)));
+    QString url = QStringLiteral("https://api.podcastindex.org/api/1.0/search/byterm?q=%1").arg(text);
     request.setRawHeader("X-Auth-Key", "BLVCJJSWUJGD3WJQSZ56");
     auto time = QDateTime::currentDateTime().toSecsSinceEpoch();
     request.setRawHeader("X-Auth-Date", QString::number(time).toLatin1());
@@ -146,10 +147,15 @@ void PodcastSearchModel::search(const QString &text)
     auto hash = QCryptographicHash::hash(hashString.toLatin1(), QCryptographicHash::Sha1);
     request.setRawHeader("Authorization", hash.toHex());
     auto reply = Fetcher::instance().get(request);
-    // TODO: error handling
     connect(reply, &QNetworkReply::finished, this, [=]() {
-        beginResetModel();
-        m_data = QJsonDocument::fromJson(reply->readAll()).object();
-        endResetModel();
+        if(reply->error())
+        {
+            ErrorLogModel::instance().monitorErrorMessages(Error::Type::DiscoverError, url, QString(), reply->error(), reply->errorString(), url);
+        }
+        else {
+            beginResetModel();
+            m_data = QJsonDocument::fromJson(reply->readAll()).object();
+            endResetModel();
+        }
     });
 }

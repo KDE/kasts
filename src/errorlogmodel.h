@@ -40,6 +40,5 @@ Q_SIGNALS:
 
 private:
     explicit ErrorLogModel();
-
     QList<Error *> m_errors;
 };
