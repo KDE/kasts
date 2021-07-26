@@ -40,13 +40,13 @@ Kirigami.ApplicationWindow {
             case "DiscoverPage": return "qrc:/DiscoverPage.qml";
             case "FeedListPage": return "qrc:/FeedListPage.qml";
             case "DownloadListPage": return "qrc:/DownloadListPage.qml";
-            case "SettingsPage": return "qrc:/SettingsPage.qml";
-            case "AboutPage": return "qrc:/AboutPage.qml";
+            case "SettingsPage": return "qrc:/Settings/SettingsPage.qml";
             default: return "qrc:/FeedListPage.qml";
         }
     }
     function pushPage(page) {
         pageStack.clear()
+        pageStack.layers.clear()
         pageStack.push(getPage(page))
         currentPage = page
     }
@@ -141,15 +141,10 @@ Kirigami.ApplicationWindow {
                 iconName: "settings-configure"
                 checked: currentPage == "SettingsPage"
                 onTriggered: {
-                    pushPage("SettingsPage")
-                }
-            },
-            Kirigami.Action {
-                text: i18n("About")
-                iconName: "help-about-symbolic"
-                checked: currentPage == "AboutPage"
-                onTriggered: {
-                    pushPage("AboutPage")
+                    root.pageStack.layers.clear()
+                    root.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
+                        title: i18n("Settings")
+                    })
                 }
             }
         ]
@@ -163,14 +158,6 @@ Kirigami.ApplicationWindow {
         else {
             globalDrawer.collapsed = false
             globalDrawer.width = originalWidth
-        }
-    }
-
-    Component {
-        id: aboutPage
-
-        Kirigami.AboutPage {
-            aboutData: _aboutData
         }
     }
 

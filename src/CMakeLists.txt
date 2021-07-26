@@ -180,6 +180,8 @@ if(ANDROID)
         error
         search
         kt-add-feeds
+        network-connect
+        drive-harddisk-symbolic
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)

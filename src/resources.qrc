@@ -6,8 +6,7 @@
         <file alias="EntryListPage.qml">qml/EntryListPage.qml</file>
         <file alias="FeedListPage.qml">qml/FeedListPage.qml</file>
         <file alias="EntryPage.qml">qml/EntryPage.qml</file>
-        <file alias="SettingsPage.qml">qml/SettingsPage.qml</file>
-        <file alias="AboutPage.qml">qml/AboutPage.qml</file>
+        <file alias="AboutPage.qml">qml/Settings/AboutPage.qml</file>
         <file alias="FeedDetailsPage.qml">qml/FeedDetailsPage.qml</file>
         <file alias="AddFeedSheet.qml">qml/AddFeedSheet.qml</file>
         <file alias="FeedListDelegate.qml">qml/FeedListDelegate.qml</file>
@@ -29,6 +28,10 @@
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
         <file alias="ChapterListDelegate.qml">qml/ChapterListDelegate.qml</file>
+        <file alias="SettingsPage.qml">qml/Settings/SettingsPage.qml</file>
+        <file alias="GeneralSettingsPage.qml">qml/Settings/GeneralSettingsPage.qml</file>
+        <file alias="NetworkSettingsPage.qml">qml/Settings/NetworkSettingsPage.qml</file>
+        <file alias="StorageSettingsPage.qml">qml/Settings/StorageSettingsPage.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
     </qresource>
