@@ -62,3 +62,4 @@ Type=Application
 Categories=Network;Qt;KDE;Feed;
 Terminal=false
 InitialPreference=10
+X-KDE-FormFactor=desktop;tablet;handset;
