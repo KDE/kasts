@@ -114,7 +114,7 @@ QMediaPlayer::Error AudioManager::error() const
 {
     if (d->m_player.error() != QMediaPlayer::NoError) {
         qCDebug(kastsAudio) << "AudioManager::error" << d->m_player.errorString();
-        // Some error occured: probably best to unset the lastPlayingEntry to
+        // Some error occurred: probably best to unset the lastPlayingEntry to
         // avoid a deadlock when starting up again.
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
     }

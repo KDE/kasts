@@ -102,7 +102,7 @@ void StorageMoveJob::moveFiles()
         }
     } else {
         setError(2);
-        setErrorText(i18n("An error occured while copying data"));
+        setErrorText(i18n("An error occurred while copying data"));
     }
 
     emitResult();
