@@ -28,6 +28,7 @@ def timestamp = (int)(new Date().getTime()/1000)
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'com.android.support:support-v4:28.0.0'
 }
 
 android {
