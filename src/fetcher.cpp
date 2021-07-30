@@ -344,7 +344,10 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.next();
 
     if (query.value(0).toInt() != 0)
-        query.prepare(QStringLiteral("UPDATE Enclosures SET feed=:feed, id=:id, duration=:duration, size=:size, title=:title, type=:type, url=:url;"));
+        query.prepare(QStringLiteral(
+            "UPDATE Enclosures SET feed=:feed, id=:id, duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE feed=:feed AND id=:id;"));
+    // NOTE: In case more than one enclosure is present per episode, only
+    // the last one will end up in the database
     else
         query.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition, :downloaded);"));
 
