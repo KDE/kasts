@@ -303,8 +303,11 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
             processAuthor(url, entry->id(), authorName, QLatin1String(""), QLatin1String(""));
     }
 
-    for (const auto &enclosure : entry->enclosures()) {
-        processEnclosure(enclosure, entry, url);
+    // only process first enclosure if there are multiple (e.g. mp3 and ogg);
+    // the first one is probably the podcast author's preferred version
+    // TODO: handle more than one enclosure?
+    if (entry->enclosures().count() > 0) {
+        processEnclosure(entry->enclosures()[0], entry, url);
     }
 
     Q_EMIT entryAdded(url, entry->id());
