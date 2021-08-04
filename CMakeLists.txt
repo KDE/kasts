@@ -53,6 +53,13 @@ else()
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
 endif()
 
+if (ANDROID)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG QUIET OPTIONAL_COMPONENTS AndroidExtras)
+    set_package_properties(Qt5AndroidExtras PROPERTIES
+        DESCRIPTION "Qt5 AndroidExtras is needed to provide the Android integration."
+        TYPE REQUIRED)
+endif()
+
 add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_CAST_TO_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING
@@ -60,6 +67,7 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_USE_QSTRINGBUILDER
                 -DQT_DISABLE_DEPRECATED_BEFORE=0x050d00
 )
+
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

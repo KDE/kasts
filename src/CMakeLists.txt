@@ -140,6 +140,11 @@ if(ANDROID)
         target_link_libraries(kasts PRIVATE ZLIB::ZLIB)
     endif()
 
+    target_link_libraries(kasts
+        LINK_PUBLIC
+        Qt5::AndroidExtras
+    )
+
     kirigami_package_breeze_icons(ICONS
         window-close
         window-close-symbolic
