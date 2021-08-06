@@ -19,10 +19,10 @@ import android.util.Log;
 public class MediaService extends Service {
     public static final String TAG = "MediaService";
 
-    private MediaSessionCompat mSession;
-    private PlaybackStateCompat.Builder mPBuilder;
+    private static MediaSessionCompat mSession;
+    private static PlaybackStateCompat.Builder mPBuilder;
 
-    public void setSessionState(int state)
+    public static void setSessionState(int state)
     {
         switch(state) {
             case 0: {
