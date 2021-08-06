@@ -38,7 +38,6 @@ public class MediaService extends Service {
                 mSession.setPlaybackState(mPBuilder.build());
             }
             case 2: {
-                mPBuilder.setActions(PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_STOP);
                 mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED,
                         0, 1.0f);
                 mSession.setPlaybackState(mPBuilder.build());
