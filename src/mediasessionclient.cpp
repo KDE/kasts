@@ -8,7 +8,7 @@
 #include "audiomanager.h"
 
 #include <QtAndroid>
-#include <qDebug>
+#include <QDebug>
 
 MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
     : QObject(parent)
@@ -19,7 +19,7 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
 
 void MediaSessionClient::setState()
 {
-    QDebug() << m_audioPlayer->playbackState();
+    qDebug() << m_audioPlayer->playbackState();
     switch(m_audioPlayer->playbackState()) {
         case QMediaPlayer::StoppedState :
             QAndroidJniObject::callStaticMethod<jint>
