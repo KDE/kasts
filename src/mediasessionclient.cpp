@@ -21,23 +21,29 @@ void MediaSessionClient::setState()
 {
     qDebug() << m_audioPlayer->playbackState();
     switch(m_audioPlayer->playbackState()) {
-        case QMediaPlayer::StoppedState :
+        case QMediaPlayer::StoppedState : {
             QAndroidJniObject::callStaticMethod<jint>
                                 ("org/kde/kasts/MediaService"
                                 , "setSessionState"
                                 , "(I)I"
                                 , 2);
-        case QMediaPlayer::PausedState :
+            break;
+        }
+        case QMediaPlayer::PausedState : {
             QAndroidJniObject::callStaticMethod<jint>
                                 ("org/kde/kasts/MediaService"
                                 , "setSessionState"
                                 , "(I)I"
                                 , 1);
-        case QMediaPlayer::PlayingState :
+            break;
+        }
+        case QMediaPlayer::PlayingState : {
             QAndroidJniObject::callStaticMethod<jint>
                                 ("org/kde/kasts/MediaService"
                                 , "setSessionState"
                                 , "(I)I"
                                 , 0);
+            break;
+        }
     }
 }
