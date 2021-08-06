@@ -6,8 +6,18 @@
 
 #pragma once
 
-class MediaSessionClient
+#include <QObject>
+
+class AudioManager;
+
+class MediaSessionClient : public QObject
 {
 public:
-    explicit MediaSessionClient(QObject *parent = nullptr);
+    explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
+
+private Q_SLOTS:
+    void setState();
+
+private:
+    AudioManager *m_audioPlayer = nullptr;
 };

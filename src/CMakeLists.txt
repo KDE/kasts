@@ -30,6 +30,7 @@ set(SRCS_base
     models/downloadmodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
+    mediasessionclient.cpp
     mpris2/mpris2.cpp
     powermanagementinterface.cpp
     resources.qrc
