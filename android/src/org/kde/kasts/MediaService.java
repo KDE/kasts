@@ -18,7 +18,33 @@ import android.util.Log;
 
 public class MediaService extends Service {
     public static final String TAG = "MediaService";
+
     private MediaSessionCompat mSession;
+    private PlaybackStateCompat.Builder mPBuilder;
+
+    public void setSessionState(int state)
+    {
+        switch(state) {
+            case 0: {
+                mPBuilder.setActions(PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_STOP);
+                mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING,
+                        0, 1.0f);
+                mSession.setPlaybackState(mPBuilder.build());
+            }
+            case 1: {
+                mPBuilder.setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_STOP);
+                mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED,
+                        0, 1.0f);
+                mSession.setPlaybackState(mPBuilder.build());
+            }
+            case 2: {
+                mPBuilder.setActions(PlaybackStateCompat.ACTION_PAUSE | PlaybackStateCompat.ACTION_STOP);
+                mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED,
+                        0, 1.0f);
+                mSession.setPlaybackState(mPBuilder.build());
+            }
+        }
+    }
 
     private class MediaSessionCallback extends MediaSessionCompat.Callback {
         private Context mContext;
@@ -66,6 +92,7 @@ public class MediaService extends Service {
                 MediaSessionCompat.FLAG_HANDLES_QUEUE_COMMANDS |
                 MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
         mSession.setCallback(new MediaSessionCallback(this));
+        mPBuilder = new PlaybackStateCompat.Builder();
     }
 
     @Override

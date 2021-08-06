@@ -23,6 +23,7 @@
 #include "models/errorlogmodel.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
+#include "mediasessionclient.h"
 
 class AudioManagerPrivate
 {
@@ -72,6 +73,8 @@ AudioManager::AudioManager(QObject *parent)
     // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
 
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+
+    MediaSessionClient mClient(this);
 
     // Check if an entry was playing when the program was shut down and restore it
     if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {

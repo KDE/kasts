@@ -8,9 +8,36 @@
 #include "audiomanager.h"
 
 #include <QtAndroid>
+#include <qDebug>
 
-MediaSessionClient::MediaSessionClient(QObject *parent)
+MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
     : QObject(parent)
+    , m_audioPlayer(audioPlayer)
 {
-    //connections to be added here.
+    connect(m_audioPlayer, &AudioManager::playbackStateChanged, this, &MediaSessionClient::setState);
+}
+
+void MediaSessionClient::setState()
+{
+    QDebug() << m_audioPlayer->playbackState();
+    switch(m_audioPlayer->playbackState()) {
+        case QMediaPlayer::StoppedState :
+            QAndroidJniObject::callStaticMethod<jint>
+                                ("org/kde/kasts/MediaService"
+                                , "setSessionState"
+                                , "(I)I"
+                                , 2);
+        case QMediaPlayer::PausedState :
+            QAndroidJniObject::callStaticMethod<jint>
+                                ("org/kde/kasts/MediaService"
+                                , "setSessionState"
+                                , "(I)I"
+                                , 1);
+        case QMediaPlayer::PlayingState :
+            QAndroidJniObject::callStaticMethod<jint>
+                                ("org/kde/kasts/MediaService"
+                                , "setSessionState"
+                                , "(I)I"
+                                , 0);
+    }
 }
