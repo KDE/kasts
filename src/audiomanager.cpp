@@ -79,7 +79,7 @@ AudioManager::AudioManager(QObject *parent)
 
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
-    MediaSessionClient mClient(this);
+    new MediaSessionClient(this);
 
     // Check if an entry was playing when the program was shut down and restore it
     if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {
