@@ -59,8 +59,9 @@ void MediaSessionClient::setSessionMetadata()
     QString authorString = QStringLiteral("");
     if (entry->authors().count() > 0) {
         for (auto &author : entry->authors()) {
-            authorString.append(QStringLiteral(", "));
             authorString.append(author->name());
+            (entry->authors().count > 1)
+                authorString.append(QStringLiteral(", "));
         }
     }
     QAndroidJniObject title = QAndroidJniObject::fromString(entry->title());
