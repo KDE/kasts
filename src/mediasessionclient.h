@@ -23,9 +23,6 @@ private Q_SLOTS:
     void setPlaybackRate();
     void setDuration();
     void setPosition();
-    void setPlaying();
-    void setPaused();
-    void setStopped();
 
 private:
     AudioManager *m_audioPlayer = nullptr;
