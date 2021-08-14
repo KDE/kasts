@@ -226,15 +226,21 @@ public class KastsActivity extends QtActivity
     public static void setPlaybackSpeed(int rate)
     {
         mediaData.playbackSpeed = rate;
+
+        activity.updateNotification();
     }
 
     public static void setDuration(int duration)
     {
         mediaData.duration = duration;
+
+        activity.updateNotification();
     }
 
     public static void setPosition(int position)
     {
         mediaData.position = position;
+
+        activity.updateNotification();
     }
 }
