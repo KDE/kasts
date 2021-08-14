@@ -36,8 +36,11 @@ public class KastsActivity extends QtActivity
 
     class MediaData {
         public String title;
-        public long length;
+        public String author;
+        public String album;
         public long position;
+        public long duration;
+        public float playbackSpeed;
         // add more variables here
     }
 
@@ -62,7 +65,7 @@ public class KastsActivity extends QtActivity
         //TODO Image
         mSession.setMetadata(metadata.build());
 
-        mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, 100000, 1.0f);
+        mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, 100000, 1.0f); //TODO:Logically we should remove this statement??
 
         Intent iPlay = new Intent(this, MediaSessionCallback.class);
         iPlay.setAction("ACTION_PLAY");
@@ -145,13 +148,6 @@ public class KastsActivity extends QtActivity
         mSession.release();
     }
 
-    public static void setSessionState(int state)
-    {
-        //TODO: set state in mediadata
-        activity.updateNotification();
-
-    }
-
     private class MediaSessionCallback extends MediaSessionCompat.Callback {
         private Context mContext;
 
@@ -191,4 +187,49 @@ public class KastsActivity extends QtActivity
         }
     }
 
+    /*
+    * JNI METHODS
+    */
+
+    public static void setSessionState(int state)
+    {
+        //TODO: set state in mediadata
+        switch(state)
+        {
+            case 0:
+                mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, mediaData.position, mediaData.playbackSpeed);
+            case 1:
+                mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED, mediaData.position, mediaData.playbackSpeed);
+            case 2:
+                mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
+        }
+        activity.updateNotification();
+    }
+
+    public static void setMetadata(String title, String author, String album, long position, long duration, float rate)
+    {
+        mediaData.title = title;
+        mediaData.author = author;
+        mediaData.album = album;
+        mediaData.position = position;
+        mediaData.duration = duration;
+        mediaData.playbackSpeed = rate;
+
+        activity.updateNotification();
+    }
+
+    public static void setPlaybackSpeed(int rate)
+    {
+        mediaData.playbackSpeed = rate;
+    }
+
+    public static void setDuration(int duration)
+    {
+        mediaData.duration = duration;
+    }
+
+    public static void setPosition(int position)
+    {
+        mediaData.position = position;
+    }
 }
