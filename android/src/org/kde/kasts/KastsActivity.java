@@ -175,6 +175,8 @@ public class KastsActivity extends QtActivity
 
             mSession.setActive(true);
 
+            play();
+
             //Update variables of mediaData;
             activity.updateNotification();
 
@@ -196,6 +198,13 @@ public class KastsActivity extends QtActivity
 
             //JNI call to audiomanager stop
             mSession.setActive(false);
+        }
+
+        @Override
+        public void onSkipToNext() {
+            super.onPause();
+
+            //JNI to audiomanager next
         }
     }
 
@@ -249,4 +258,10 @@ public class KastsActivity extends QtActivity
 
         activity.updateNotification();
     }
+
+    private static native void play();
+    private static native void pause();
+    private static native void stop();
+    private static native void next();
+    private static native void seek(long position);
 }
