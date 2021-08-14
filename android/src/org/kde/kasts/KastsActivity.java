@@ -41,6 +41,7 @@ public class KastsActivity extends QtActivity
         public long position;
         public long duration;
         public float playbackSpeed;
+        public int state = 2;
         // add more variables here
     }
 
@@ -56,6 +57,16 @@ public class KastsActivity extends QtActivity
         // add other required values
 
         MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
+
+        switch(mediaData.state)
+        {
+            case 0:
+                mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, mediaData.position, mediaData.playbackSpeed);
+            case 1:
+                mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED, mediaData.position, mediaData.playbackSpeed);
+            case 2:
+                mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
+        }
 
         metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, "The title");
         metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, "Author");
@@ -194,15 +205,9 @@ public class KastsActivity extends QtActivity
     public static void setSessionState(int state)
     {
         //TODO: set state in mediadata
-        switch(state)
-        {
-            case 0:
-                mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, mediaData.position, mediaData.playbackSpeed);
-            case 1:
-                mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED, mediaData.position, mediaData.playbackSpeed);
-            case 2:
-                mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
-        }
+
+        mediaData.state = state;
+
         activity.updateNotification();
     }
 
