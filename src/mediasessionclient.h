@@ -7,8 +7,10 @@
 #pragma once
 
 #include <QObject>
+#include <QtAndroid>
 
 class AudioManager;
+class Entry;
 
 class MediaSessionClient : public QObject
 {
@@ -16,7 +18,14 @@ public:
     explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
 
 private Q_SLOTS:
-    void setState();
+    void setSessionPlaybackState();
+    void setSessionMetadata();
+    void setSessionRate();
+    void setSessionDuration();
+    void setSessionPosition();
+    void setPlaying();
+    void setPaused();
+    void setStopped();
 
 private:
     AudioManager *m_audioPlayer = nullptr;
