@@ -41,20 +41,30 @@ static void seek(JNIEnv *env, jobject thiz, jlong position)
     Q_UNUSED(thiz)
     // implement seek
 }
-void registerNativeMethods() {
-    JNINativeMethod methods[] {{"play", "()V", reinterpret_cast<void *>(play)},
+static const JNINativeMethod methods[] {{"play", "()V", reinterpret_cast<void *>(play)},
     {"pause", "()V", reinterpret_cast<void *>(pause)},
     {"stop", "()V", reinterpret_cast<void *>(stop)},
     {"next", "()V", reinterpret_cast<void *>(next)},
     {"seek", "(J)V", reinterpret_cast<void *>(seek)}};
 
-    QAndroidJniObject javaClass("org/kde/kasts/KastsActivity");
-    QAndroidJniEnvironment env;
-    jclass objectClass = env->GetObjectClass(javaClass.object<jobject>());
-    env->RegisterNatives(objectClass,
-                         methods,
-                         sizeof(methods) / sizeof(methods[0]));
-    env->DeleteLocalRef(objectClass);
+Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
+{
+    static bool initialized = false;
+    if (initialized)
+        return JNI_VERSION_1_6;
+    initialized = true;
+
+    JNIEnv *env = nullptr;
+    if (vm->GetEnv((void **)&env, JNI_VERSION_1_4) != JNI_OK) {
+        qWarning() << "Failed to get JNI environment.";
+        return -1;
+    }
+    jclass theclass = env->FindClass("org/kde/kasts/KastsActivity");
+    if (env->RegisterNatives(theclass, methods, sizeof(methods) / sizeof(JNINativeMethod)) < 0) {
+        qWarning() << "Failed to register native functions.";
+        return -1;
+    }
+    return JNI_VERSION_1_4;
 }
 
 MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
