@@ -243,7 +243,7 @@ public class KastsActivity extends QtActivity
         activity.updateNotification();
     }
 
-    public static void setDuration(int duration)
+    public static void setDuration(long duration)
     {
         Log.d(TAG, "JAVA setDuration called.");
         mediaData.duration = duration;
@@ -251,7 +251,7 @@ public class KastsActivity extends QtActivity
         activity.updateNotification();
     }
 
-    public static void setPosition(int position)
+    public static void setPosition(long position)
     {
         Log.d(TAG, "JAVA setPosition called.");
         mediaData.position = position;
