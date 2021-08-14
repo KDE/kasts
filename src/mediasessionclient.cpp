@@ -23,11 +23,11 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Sets the playback duration metadata.
     connect(m_audioPlayer, &AudioManager::positionChanged, this, &MediaSessionClient::setPosition);
     // Sets the playback position metadata.
-    connect(m_audioPlayer, &AudioManager::playing, this, &MediaSessionClient::setPlaying);
+    connect(m_audioPlayer, &AudioManager::playing, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to playing.
-    connect(m_audioPlayer, &AudioManager::paused, this, &MediaSessionClient::setPaused);
+    connect(m_audioPlayer, &AudioManager::paused, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to paused.
-    connect(m_audioPlayer, &AudioManager::stopped, this, &MediaSessionClient::setStopped);
+    connect(m_audioPlayer, &AudioManager::stopped, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to stopped.
 }
 
@@ -104,25 +104,4 @@ void MediaSessionClient::setPosition()
      */
     qint64 position = qint64(m_audioPlayer->position()) * 1000;
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setPosition", "(I)V", position);
-}
-
-void MediaSessionClient::setPlaying()
-{
-    /*
-     * Sets the media session's current playback state to playing.
-     */
-}
-
-void MediaSessionClient::setPaused()
-{
-    /*
-     * Sets the media session's current playback state to paused.
-     */
-}
-
-void MediaSessionClient::setStopped()
-{
-    /*
-     * Sets the media session's current playback state to stopped.
-     */
 }
