@@ -17,11 +17,11 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Sets the current playback state.
     connect(m_audioPlayer, &AudioManager::entryChanged, this, &MediaSessionClient::setSessionMetadata);
     // Updates the android session's metadata.
-    connect(m_audioPlayer, &AudioManager::playbackRateChanged, this, &MediaSessionClient::setSessionRate);
+    connect(m_audioPlayer, &AudioManager::playbackRateChanged, this, &MediaSessionClient::setPlaybackRate);
     // Sets the rate of the media playback.
-    connect(m_audioPlayer, &AudioManager::durationChanged, this, &MediaSessionClient::setSessionDuration);
+    connect(m_audioPlayer, &AudioManager::durationChanged, this, &MediaSessionClient::setDuration);
     // Sets the playback duration metadata.
-    connect(m_audioPlayer, &AudioManager::positionChanged, this, &MediaSessionClient::setSessionPosition);
+    connect(m_audioPlayer, &AudioManager::positionChanged, this, &MediaSessionClient::setPosition);
     // Sets the playback position metadata.
     connect(m_audioPlayer, &AudioManager::playing, this, &MediaSessionClient::setPlaying);
     // Sets the playback to playing.
@@ -79,7 +79,7 @@ void MediaSessionClient::setSessionMetadata()
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setMetadata","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J;J;F)V",title.object<jstring>(), author.object<jstring>(), album.object<jstring>(), position, duration, rate);
 }
 
-void MediaSessionClient::setSessionRate()
+void MediaSessionClient::setPlaybackRate()
 {
     /*
      * Sets the media session's rate metadata.
@@ -88,7 +88,7 @@ void MediaSessionClient::setSessionRate()
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setPlaybackSpeed", "(I)V", rate);
 }
 
-void MediaSessionClient::setSessionDuration()
+void MediaSessionClient::setDuration()
 {
     /*
      * Sets the media session's playback duration.
@@ -97,7 +97,7 @@ void MediaSessionClient::setSessionDuration()
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setDuration", "(I)V", duration);
 }
 
-void MediaSessionClient::setSessionPosition()
+void MediaSessionClient::setPosition()
 {
     /*
      * Sets the media session's current playback position.

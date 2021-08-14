@@ -20,9 +20,9 @@ public:
 private Q_SLOTS:
     void setSessionPlaybackState();
     void setSessionMetadata();
-    void setSessionRate();
-    void setSessionDuration();
-    void setSessionPosition();
+    void setPlaybackRate();
+    void setDuration();
+    void setPosition();
     void setPlaying();
     void setPaused();
     void setStopped();
