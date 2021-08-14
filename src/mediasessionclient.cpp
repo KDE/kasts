@@ -118,9 +118,9 @@ void MediaSessionClient::setSessionMetadata()
     // Author string
     QAndroidJniObject album = QAndroidJniObject::fromString(QStringLiteral("Album"));
     // Author string
-    qint64 duration = qint64(m_audioPlayer->duration()) * 1000;
+    qint64 duration = qint64(m_audioPlayer->duration());
     // Playback duration
-    qint64 position = qint64(m_audioPlayer->position()) * 1000;
+    qint64 position = qint64(m_audioPlayer->position());
     // Playback position
     int rate = m_audioPlayer->playbackRate();
     // Playback rate
@@ -142,7 +142,7 @@ void MediaSessionClient::setDuration()
     /*
      * Sets the media session's playback duration.
      */
-    qint64 duration = qint64(m_audioPlayer->duration()) * 1000;
+    qint64 duration = qint64(m_audioPlayer->duration());
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setDuration", "(I)V", duration);
 }
 
@@ -151,6 +151,6 @@ void MediaSessionClient::setPosition()
     /*
      * Sets the media session's current playback position.
      */
-    qint64 position = qint64(m_audioPlayer->position()) * 1000;
+    qint64 position = qint64(m_audioPlayer->position());
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setPosition", "(I)V", position);
 }
