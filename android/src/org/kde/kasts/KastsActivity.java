@@ -115,7 +115,10 @@ public class KastsActivity extends QtActivity
             .setContentText("some random text");
 
         notification.addAction(aPrevious.build());
-        notification.addAction(aPause.build());
+        if(mediaData.state == 0)
+            notification.addAction(aPause.build());
+        else
+            notification.addAction(aPlay.build());
         notification.addAction(aNext.build());
         mSession.setPlaybackState(mPBuilder.build());
         MediaStyle mediaStyle = new MediaStyle();
