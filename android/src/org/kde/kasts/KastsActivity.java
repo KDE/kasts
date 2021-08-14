@@ -68,15 +68,13 @@ public class KastsActivity extends QtActivity
                 mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
         }
 
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, "The title");
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, "Author");
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, "Author");
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_ALBUM, "The album");
-        metadata.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, 1000000);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, mediaData.title);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, mediaData.author);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, mediaData.author);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_ALBUM, mediaData.album);
+        metadata.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, mediaData.duration);
         //TODO Image
         mSession.setMetadata(metadata.build());
-
-        mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, 100000, 1.0f); //TODO:Logically we should remove this statement??
 
         Intent iPlay = new Intent(this, MediaSessionCallback.class);
         iPlay.setAction("ACTION_PLAY");
@@ -110,10 +108,10 @@ public class KastsActivity extends QtActivity
             .setAutoCancel(false)
             .setShowWhen(false)
             .setVisibility(androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC)
-            .setSubText("foobar")
-            .setContentTitle("Foo's title")
+            .setSubText(mediaData.author)
+            .setContentTitle(mediaData.title)
             .setSmallIcon(this.getApplicationInfo().icon)
-            .setChannelId("org.kde.neochat.channel")
+            .setChannelId("org.kde.kasts.channel")
             .setContentText("some random text");
 
         notification.addAction(aPrevious.build());
@@ -127,7 +125,7 @@ public class KastsActivity extends QtActivity
         notification.setGroup("MprisMediaSession");
         mSession.setActive(true);
         NotificationManager nm = ContextCompat.getSystemService(this, NotificationManager.class);
-        NotificationChannel channel = new NotificationChannel("org.kde.neochat.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
+        NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription("The notification channel");
         channel.enableLights(false);
         channel.enableVibration(false);
@@ -207,12 +205,14 @@ public class KastsActivity extends QtActivity
         //TODO: set state in mediadata
 
         mediaData.state = state;
+        Log.d(TAG, "JAVA setSessionState called.");
 
         activity.updateNotification();
     }
 
     public static void setMetadata(String title, String author, String album, long position, long duration, float rate)
     {
+        Log.d(TAG, "JAVA setMetadata called.");
         mediaData.title = title;
         mediaData.author = author;
         mediaData.album = album;
@@ -225,6 +225,7 @@ public class KastsActivity extends QtActivity
 
     public static void setPlaybackSpeed(int rate)
     {
+        Log.d(TAG, "JAVA setPlaybackSpeed called.");
         mediaData.playbackSpeed = rate;
 
         activity.updateNotification();
@@ -232,6 +233,7 @@ public class KastsActivity extends QtActivity
 
     public static void setDuration(int duration)
     {
+        Log.d(TAG, "JAVA setDuration called.");
         mediaData.duration = duration;
 
         activity.updateNotification();
@@ -239,6 +241,7 @@ public class KastsActivity extends QtActivity
 
     public static void setPosition(int position)
     {
+        Log.d(TAG, "JAVA setPosition called.");
         mediaData.position = position;
 
         activity.updateNotification();
