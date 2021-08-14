@@ -76,7 +76,7 @@ void MediaSessionClient::setSessionMetadata()
     int rate = m_audioPlayer->playbackRate();
     // Playback rate
 
-    QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setMetadata","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J;J;F)V",title.object<jstring>(), author.object<jstring>(), album.object<jstring>(), position, duration, rate);
+    QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setMetadata","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJF)V",title.object<jstring>(), author.object<jstring>(), album.object<jstring>(), position, duration, rate);
 }
 
 void MediaSessionClient::setPlaybackRate()
