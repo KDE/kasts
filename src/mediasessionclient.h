@@ -6,7 +6,10 @@
 #pragma once
 
 #include <QObject>
+
+#ifdef Q_OS_ANDROID
 #include <QtAndroid>
+#endif
 
 class AudioManager;
 class Entry;

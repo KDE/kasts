@@ -12,8 +12,6 @@
 #include <QTimer>
 #include <QtMath>
 #include <algorithm>
-#include <QtAndroid>
-#include <QAndroidJniObject>
 
 #include <KLocalizedString>
 
