@@ -34,6 +34,12 @@ public class KastsActivity extends QtActivity
 {
     private static final String TAG = "org.kde.kasts.mediasession";
 
+    private static native void playerPlay();
+    private static native void playerPause();
+    private static native void playerStop();
+    private static native void playerNext();
+    private static native void playerSeek(long position);
+
     class MediaData {
         public String title;
         public String author;
@@ -175,7 +181,7 @@ public class KastsActivity extends QtActivity
 
             mSession.setActive(true);
 
-            play();
+            playerPlay();
 
             //Update variables of mediaData;
             activity.updateNotification();
@@ -258,10 +264,4 @@ public class KastsActivity extends QtActivity
 
         activity.updateNotification();
     }
-
-    private static native void play();
-    private static native void pause();
-    private static native void stop();
-    private static native void next();
-    private static native void seek(long position);
 }

@@ -15,37 +15,42 @@ static void play(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
+    qDebug() << "JAVA play() working.";
     // audio manager play
 }
 static void pause(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
+    qDebug() << "JAVA pause() working.";
     // audio manager pause
 }
 static void stop(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
+    qDebug() << "JAVA stop() working.";
     //audio manager previous
 }
 static void next(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
+    qDebug() << "JAVA next() working.";
     // audio manager next
 }
 static void seek(JNIEnv *env, jobject thiz, jlong position)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
+    qDebug() << "JAVA seek() working.";
     // implement seek
 }
-static const JNINativeMethod methods[] {{"play", "()V", reinterpret_cast<void *>(play)},
-    {"pause", "()V", reinterpret_cast<void *>(pause)},
-    {"stop", "()V", reinterpret_cast<void *>(stop)},
-    {"next", "()V", reinterpret_cast<void *>(next)},
-    {"seek", "(J)V", reinterpret_cast<void *>(seek)}};
+static const JNINativeMethod methods[] {{"playerPlay", "()V", reinterpret_cast<void *>(play)},
+    {"playerPause", "()V", reinterpret_cast<void *>(pause)},
+    {"playerStop", "()V", reinterpret_cast<void *>(stop)},
+    {"playerNext", "()V", reinterpret_cast<void *>(next)},
+    {"playerSeek", "(J)V", reinterpret_cast<void *>(seek)}};
 
 Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
 {
@@ -67,10 +72,13 @@ Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
     return JNI_VERSION_1_4;
 }
 
+MediaSessionClient* MediaSessionClient::s_instance = nullptr;
+
 MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
     : QObject(parent)
     , m_audioPlayer(audioPlayer)
 {
+    s_instance = this;
     connect(m_audioPlayer, &AudioManager::playbackStateChanged, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the current playback state.
     connect(m_audioPlayer, &AudioManager::entryChanged, this, &MediaSessionClient::setSessionMetadata);
@@ -87,6 +95,11 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Sets the playback to paused.
     connect(m_audioPlayer, &AudioManager::stopped, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to stopped.
+}
+
+MediaSessionClient* MediaSessionClient::instance()
+{
+    return s_instance;
 }
 
 void MediaSessionClient::setSessionPlaybackState()
