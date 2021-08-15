@@ -166,7 +166,7 @@ public class KastsActivity extends QtActivity
         mSession.release();
     }
 
-    private class MediaSessionCallback extends MediaSessionCompat.Callback {
+    private final class MediaSessionCallback extends MediaSessionCompat.Callback {
         private Context mContext;
 
         public MediaSessionCallback(Context context) {
@@ -179,7 +179,9 @@ public class KastsActivity extends QtActivity
         public void onPlay() {
             super.onPlay();
 
-            mSession.setActive(true);
+            if (!mSession.isActive()) {
+                mSession.setActive(true);
+            }
 
             playerPlay();
 
