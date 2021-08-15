@@ -16,6 +16,10 @@ class MediaSessionClient : public QObject
 {
 public:
     explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
+    static MediaSessionClient* instance();
+
+Q_SIGNALS:
+    void play();
 
 private Q_SLOTS:
     void setSessionPlaybackState();
@@ -26,4 +30,5 @@ private Q_SLOTS:
 
 private:
     AudioManager *m_audioPlayer = nullptr;
+    static MediaSessionClient *s_instance;
 };
