@@ -13,6 +13,7 @@
   <name xml:lang="de">Kasts</name>
   <name xml:lang="en-GB">Kasts</name>
   <name xml:lang="es">Kasts</name>
+  <name xml:lang="fi">Kasts</name>
   <name xml:lang="fr">Kasts</name>
   <name xml:lang="ko">Kasts</name>
   <name xml:lang="nl">Kasts</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="de">Podcast-Anwendung für Mobilgeräte</summary>
   <summary xml:lang="en-GB">Podcast application for mobile devices</summary>
   <summary xml:lang="es">Aplicación de pódcast para dispositivos móviles</summary>
+  <summary xml:lang="fi">Podcast-sovellus mobiililaitteille</summary>
   <summary xml:lang="fr">Application de podcasts pour appareils mobiles</summary>
   <summary xml:lang="ko">모바일 장치용 팟캐스트 프로그램</summary>
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
@@ -54,6 +56,7 @@
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="en-GB">The KDE Community</developer_name>
   <developer_name xml:lang="es">La Comunidad KDE</developer_name>
+  <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
@@ -73,6 +76,7 @@
     <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
     <p xml:lang="en-GB">Kasts is a mobile podcast application</p>
     <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
+    <p xml:lang="fi">Kasts on podcast-mobiilisovellus</p>
     <p xml:lang="fr">Kasts est une application mobile pour podcast.</p>
     <p xml:lang="ko">Kasts는 모바일 팟캐스트 프로그램입니다</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
@@ -103,6 +107,7 @@
       <caption xml:lang="de">Kasts mit der Liste der Nachrichtenquellen auf der Arbeitsfläche</caption>
       <caption xml:lang="en-GB">Kasts feed list on the desktop</caption>
       <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
+      <caption xml:lang="fi">Kastsin syöteluettelo työpöydällä</caption>
       <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
       <caption xml:lang="ko">데스크톱에서의 Kasts 피드 목록</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
@@ -124,6 +129,7 @@
       <caption xml:lang="de">Kasts auf einem Mobiltelefon</caption>
       <caption xml:lang="en-GB">Kasts on a phone</caption>
       <caption xml:lang="es">Kasts en un teléfono</caption>
+      <caption xml:lang="fi">Kasts puhelimessa</caption>
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="ko">휴대폰에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
