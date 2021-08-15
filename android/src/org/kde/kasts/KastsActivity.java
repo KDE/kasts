@@ -41,12 +41,12 @@ public class KastsActivity extends QtActivity
     private static native void playerSeek(long position);
 
     class MediaData {
-        public String title;
-        public String author;
-        public String album;
-        public long position;
-        public long duration;
-        public float playbackSpeed;
+        public String title = "Unknown Media";
+        public String author = "Unknown Artist";
+        public String album = "Unknown Album";
+        public long position = 0;
+        public long duration = 0;
+        public float playbackSpeed = 1;
         public int state = 2;
         // add more variables here
     }
@@ -118,7 +118,7 @@ public class KastsActivity extends QtActivity
             .setContentTitle(mediaData.title)
             .setSmallIcon(this.getApplicationInfo().icon)
             .setChannelId("org.kde.kasts.channel")
-            .setContentText("some random text");
+            .setContentText("Unknown");
 
         notification.addAction(aPrevious.build());
         if(mediaData.state == 0)
@@ -135,7 +135,7 @@ public class KastsActivity extends QtActivity
         mSession.setActive(true);
         NotificationManager nm = ContextCompat.getSystemService(this, NotificationManager.class);
         NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
-        channel.setDescription("The notification channel");
+        channel.setDescription("No Media Loaded");
         channel.enableLights(false);
         channel.enableVibration(false);
         nm.createNotificationChannel(channel);
