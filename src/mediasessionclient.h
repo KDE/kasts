@@ -16,12 +16,15 @@ class Entry;
 
 class MediaSessionClient : public QObject
 {
+    Q_OBJECT
 public:
     explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
     static MediaSessionClient* instance();
 
 Q_SIGNALS:
     void play();
+    void pause();
+    void next();
 
 private Q_SLOTS:
     void setSessionPlaybackState();
