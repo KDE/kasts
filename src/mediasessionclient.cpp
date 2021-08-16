@@ -17,28 +17,21 @@ static void play(JNIEnv *env, jobject thiz)
     Q_UNUSED(env)
     Q_UNUSED(thiz)
     qDebug() << "JAVA play() working.";
-    // audio manager play
+    emit MediaSessionClient::instance()->play();
 }
 static void pause(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
     qDebug() << "JAVA pause() working.";
-    // audio manager pause
-}
-static void stop(JNIEnv *env, jobject thiz)
-{
-    Q_UNUSED(env)
-    Q_UNUSED(thiz)
-    qDebug() << "JAVA stop() working.";
-    //audio manager previous
+    emit MediaSessionClient::instance()->pause();
 }
 static void next(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
     qDebug() << "JAVA next() working.";
-    // audio manager next
+    emit MediaSessionClient::instance()->next();
 }
 static void seek(JNIEnv *env, jobject thiz, jlong position)
 {
@@ -46,11 +39,9 @@ static void seek(JNIEnv *env, jobject thiz, jlong position)
     Q_UNUSED(thiz)
     Q_UNUSED(position)
     qDebug() << "JAVA seek() working.";
-    // implement seek
 }
 static const JNINativeMethod methods[] {{"playerPlay", "()V", reinterpret_cast<void *>(play)},
     {"playerPause", "()V", reinterpret_cast<void *>(pause)},
-    {"playerStop", "()V", reinterpret_cast<void *>(stop)},
     {"playerNext", "()V", reinterpret_cast<void *>(next)},
     {"playerSeek", "(J)V", reinterpret_cast<void *>(seek)}};
 
@@ -66,7 +57,7 @@ Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
         qWarning() << "Failed to get JNI environment.";
         return -1;
     }
-    jclass theclass = env->FindClass("org/kde/kasts/KastsActivity");
+    jclass theclass = env->FindClass("org/kde/kasts/Receiver");
     if (env->RegisterNatives(theclass, methods, sizeof(methods) / sizeof(JNINativeMethod)) < 0) {
         qWarning() << "Failed to register native functions.";
         return -1;
@@ -98,6 +89,12 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Sets the playback to paused.
     connect(m_audioPlayer, &AudioManager::stopped, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to stopped.
+    connect(s_instance, &MediaSessionClient::play, m_audioPlayer, &AudioManager::play);
+    // Connect android notification's play action to play the media.
+    connect(s_instance, &MediaSessionClient::pause, m_audioPlayer, &AudioManager::pause);
+    // Connect android notification's play action to pause the media.
+    connect(s_instance, &MediaSessionClient::next, m_audioPlayer, &AudioManager::next);
+    // Connect android notification's play action to skip to next media.
 }
 
 MediaSessionClient* MediaSessionClient::instance()

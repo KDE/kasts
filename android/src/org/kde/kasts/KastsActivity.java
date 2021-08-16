@@ -34,12 +34,6 @@ public class KastsActivity extends QtActivity
 {
     private static final String TAG = "org.kde.kasts.mediasession";
 
-    private static native void playerPlay();
-    private static native void playerPause();
-    private static native void playerStop();
-    private static native void playerNext();
-    private static native void playerSeek(long position);
-
     class MediaData {
         public String title = "Unknown Media";
         public String author = "Unknown Artist";
@@ -182,8 +176,6 @@ public class KastsActivity extends QtActivity
             if (!mSession.isActive()) {
                 mSession.setActive(true);
             }
-
-            playerPlay();
         }
 
         @Override
