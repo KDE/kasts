@@ -53,7 +53,7 @@ public class KastsActivity extends QtActivity
 
     static MediaData mediaData;
 
-    private static MediaSessionCompat mSession;
+    static MediaSessionCompat mSession;
     private static PlaybackStateCompat.Builder mPBuilder;
     private static KastsActivity activity;
 
@@ -82,32 +82,31 @@ public class KastsActivity extends QtActivity
         //TODO Image
         mSession.setMetadata(metadata.build());
 
-        Intent iPlay = new Intent(this, MediaSessionCallback.class);
+        Intent iPlay = new Intent(this, Receiver.class);
         iPlay.setAction("ACTION_PLAY");
         PendingIntent piPlay = PendingIntent.getBroadcast(this, 0, iPlay, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action.Builder aPlay = new NotificationCompat.Action.Builder(
                 R.drawable.ic_play_white, "Play", piPlay);
 
-        Intent iPause = new Intent(this, MediaSessionCallback.class);
+        Intent iPause = new Intent(this, Receiver.class);
         iPause.setAction("ACTION_PAUSE");
         PendingIntent piPause = PendingIntent.getBroadcast(this, 0, iPause, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action.Builder aPause = new NotificationCompat.Action.Builder(
                 R.drawable.ic_pause_white, "Pause", piPause);
 
-        Intent iPrevious = new Intent(this, MediaSessionCallback.class);
+        Intent iPrevious = new Intent(this, Receiver.class);
         iPrevious.setAction("ACTION_PREVIOUS");
         PendingIntent piPrevious = PendingIntent.getBroadcast(this, 0, iPrevious, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action.Builder aPrevious = new NotificationCompat.Action.Builder(
                 R.drawable.ic_previous_white, "Previous", piPrevious);
 
-        Intent iNext = new Intent(this, MediaSessionCallback.class);
+        Intent iNext = new Intent(this, Receiver.class);
         iNext.setAction("ACTION_NEXT");
         PendingIntent piNext = PendingIntent.getBroadcast(this, 0, iNext, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Action.Builder aNext = new NotificationCompat.Action.Builder(
                 R.drawable.ic_next_white, "Next", piNext);
 
         Intent iOpenActivity = new Intent(this, KastsActivity.class);
-        iOpenActivity.putExtra("deviceId", "device");
 
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this, "media_control");
         notification
@@ -118,7 +117,8 @@ public class KastsActivity extends QtActivity
             .setContentTitle(mediaData.title)
             .setSmallIcon(this.getApplicationInfo().icon)
             .setChannelId("org.kde.kasts.channel")
-            .setContentText("Unknown");
+            .setContentText("Unknown")
+            .setContentIntent(PendingIntent.getActivity(this, 0, iOpenActivity, 0));
 
         notification.addAction(aPrevious.build());
         if(mediaData.state == 0)
@@ -184,12 +184,6 @@ public class KastsActivity extends QtActivity
             }
 
             playerPlay();
-
-            //Update variables of mediaData;
-            activity.updateNotification();
-
-            //JNI to audiomanager play
-            //setPlaybackState for mSession
         }
 
         @Override
