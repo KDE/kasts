@@ -11,6 +11,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+const QString SEARCHHISTORY_CFG_GROUP = QStringLiteral("General"), SEARCHHISTORY_CFG_KEY = QStringLiteral("searches");
+
 SearchHistory::SearchHistory(QObject *parent, const QString &searchTerm)
     : QObject(parent)
     , m_searchTerm(searchTerm)
@@ -39,26 +41,24 @@ void SearchHistory::setSearchTerm(const QString &searchTerm)
     emit propertyChanged();
 }
 
-//////////////// MODEL ///////////////////////////
-
 SearchHistoryModel::SearchHistoryModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    m_settings = new QSettings(parent);
     load();
 }
 
 SearchHistoryModel::~SearchHistoryModel()
 {
     save();
-    delete m_settings;
 
     qDeleteAll(m_searches);
 }
 
 void SearchHistoryModel::load()
 {
-    QJsonDocument doc = QJsonDocument::fromJson(m_settings->value(QStringLiteral("searches")).toString().toUtf8());
+    auto config = KSharedConfig::openConfig();
+    KConfigGroup group = config->group(SEARCHHISTORY_CFG_GROUP);
+    QJsonDocument doc = QJsonDocument::fromJson(group.readEntry(SEARCHHISTORY_CFG_KEY, "{}").toUtf8());
 
     const auto array = doc.array();
     std::transform(array.begin(), array.end(), std::back_inserter(m_searches), [](const QJsonValue &ser) {
@@ -75,7 +75,11 @@ void SearchHistoryModel::save()
         return QJsonValue(search->toJson());
     });
 
-    m_settings->setValue(QStringLiteral("searches"), QString::fromUtf8(QJsonDocument(arr).toJson(QJsonDocument::Compact)));
+    auto config = KSharedConfig::openConfig();
+    KConfigGroup group = config->group(SEARCHHISTORY_CFG_GROUP);
+    group.writeEntry(SEARCHHISTORY_CFG_KEY, QJsonDocument(arr).toJson(QJsonDocument::Compact));
+
+    group.sync();
 }
 
 QHash<int, QByteArray> SearchHistoryModel::roleNames() const

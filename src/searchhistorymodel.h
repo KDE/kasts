@@ -11,7 +11,10 @@
 #include <QAbstractListModel>
 #include <QCoreApplication>
 #include <QJsonObject>
-#include <QSettings>
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
 class SearchHistory : public QObject
 {
@@ -75,7 +78,6 @@ private:
     explicit SearchHistoryModel(QObject *parent = nullptr);
     ~SearchHistoryModel();
 
-    QSettings *m_settings;
     QList<SearchHistory *> m_searches;
 };
 
