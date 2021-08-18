@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+// SPDX-License-Identifier: LGPL-2.0-or-later
+
 package org.kde.kasts;
 
 import android.content.Intent;
