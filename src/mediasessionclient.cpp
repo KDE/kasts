@@ -1,7 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
  * SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
-*/
+ */
 
 #include "mediasessionclient.h"
 #include "audiomanager.h"
@@ -9,8 +9,8 @@
 #include <QDebug>
 
 #ifdef Q_OS_ANDROID
-#include <QAndroidJniObject>
 #include <QAndroidJniEnvironment>
+#include <QAndroidJniObject>
 
 static void play(JNIEnv *env, jobject thiz)
 {
@@ -40,10 +40,10 @@ static void seek(JNIEnv *env, jobject thiz, jlong position)
     Q_UNUSED(position)
     qWarning() << "JAVA seek() working.";
 }
-static const JNINativeMethod methods[] {{"playerPlay", "()V", reinterpret_cast<void *>(play)},
-    {"playerPause", "()V", reinterpret_cast<void *>(pause)},
-    {"playerNext", "()V", reinterpret_cast<void *>(next)},
-    {"playerSeek", "(J)V", reinterpret_cast<void *>(seek)}};
+static const JNINativeMethod methods[]{{"playerPlay", "()V", reinterpret_cast<void *>(play)},
+                                       {"playerPause", "()V", reinterpret_cast<void *>(pause)},
+                                       {"playerNext", "()V", reinterpret_cast<void *>(next)},
+                                       {"playerSeek", "(J)V", reinterpret_cast<void *>(seek)}};
 
 Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
 {
@@ -66,7 +66,7 @@ Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
 }
 #endif
 
-MediaSessionClient* MediaSessionClient::s_instance = nullptr;
+MediaSessionClient *MediaSessionClient::s_instance = nullptr;
 
 MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
     : QObject(parent)
@@ -97,7 +97,7 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Connect android notification's play action to skip to next media.
 }
 
-MediaSessionClient* MediaSessionClient::instance()
+MediaSessionClient *MediaSessionClient::instance()
 {
     return s_instance;
 }
@@ -106,7 +106,7 @@ void MediaSessionClient::setSessionPlaybackState()
 {
     qWarning() << "MediaSessionClient::setSessionPlaybackState called with state value = " << m_audioPlayer->playbackState();
     int status = -1;
-    switch(m_audioPlayer->playbackState()) {
+    switch (m_audioPlayer->playbackState()) {
     case QMediaPlayer::PlayingState:
         status = 0;
         break;
@@ -135,7 +135,7 @@ void MediaSessionClient::setSessionMetadata()
     if (entry->authors().count() > 0) {
         for (auto &author : entry->authors()) {
             authorString.append(author->name());
-            if(entry->authors().count() > 1)
+            if (entry->authors().count() > 1)
                 authorString.append(QStringLiteral(", "));
         }
     }
@@ -153,7 +153,15 @@ void MediaSessionClient::setSessionMetadata()
     int rate = m_audioPlayer->playbackRate();
     // Playback rate
 
-    QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setMetadata","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJF)V",title.object<jstring>(), author.object<jstring>(), album.object<jstring>(), (jlong)position, (jlong)duration, (jfloat)rate);
+    QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity",
+                                              "setMetadata",
+                                              "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJF)V",
+                                              title.object<jstring>(),
+                                              author.object<jstring>(),
+                                              album.object<jstring>(),
+                                              (jlong)position,
+                                              (jlong)duration,
+                                              (jfloat)rate);
 #endif
 }
 

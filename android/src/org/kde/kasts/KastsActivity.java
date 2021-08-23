@@ -94,6 +94,8 @@ public class KastsActivity extends QtActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d(TAG, "JAVA onCreate of MediaSession called.");
+
         mediaSession = new MediaSessionCompat(this, TAG);
         mediaSession.setFlags(
                 MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
@@ -111,6 +113,8 @@ public class KastsActivity extends QtActivity
     public void onDestroy() {
         super.onDestroy();
 
+        Log.d(TAG, "JAVA onDestroy of MediaSession called.");
+        
         mediaSession.release();
     }
 
@@ -127,6 +131,8 @@ public class KastsActivity extends QtActivity
         public void onPlay() {
             super.onPlay();
 
+            Log.d(TAG, "JAVA onDestroy of onPlay callback called.");
+
             if (!mediaSession.isActive()) {
                 mediaSession.setActive(true);
             }
@@ -136,6 +142,8 @@ public class KastsActivity extends QtActivity
         public void onPause() {
             super.onPause();
 
+            Log.d(TAG, "JAVA onDestroy of onPause callback called.");
+
             //JNI to audiomanager pause
             //setPlaybackState for mediaSession
         }
@@ -144,6 +152,8 @@ public class KastsActivity extends QtActivity
         public void onStop() {
             super.onStop();
 
+            Log.d(TAG, "JAVA onDestroy of onStop callback called.");
+
             //JNI call to audiomanager stop
             mediaSession.setActive(false);
         }
@@ -151,6 +161,8 @@ public class KastsActivity extends QtActivity
         @Override
         public void onSkipToNext() {
             super.onPause();
+
+            Log.d(TAG, "JAVA onDestroy of onSkipToNext callback called.");
 
             //JNI to audiomanager next
         }

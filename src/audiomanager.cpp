@@ -18,10 +18,10 @@
 #include "audiologging.h"
 #include "datamanager.h"
 #include "feed.h"
+#include "mediasessionclient.h"
 #include "models/errorlogmodel.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
-#include "mediasessionclient.h"
 
 class AudioManagerPrivate
 {

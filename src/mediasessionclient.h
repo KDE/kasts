@@ -1,7 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
  * SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
-*/
+ */
 
 #pragma once
 
@@ -19,7 +19,7 @@ class MediaSessionClient : public QObject
     Q_OBJECT
 public:
     explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
-    static MediaSessionClient* instance();
+    static MediaSessionClient *instance();
 
 Q_SIGNALS:
     void play();
