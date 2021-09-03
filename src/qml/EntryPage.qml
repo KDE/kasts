@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
 
     property QtObject entry
 
-    title: entry.title
+    title: i18n("Episode Details")
 
     padding: 0  // needed to get the inline header to fill the page
 

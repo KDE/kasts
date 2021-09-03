@@ -20,7 +20,7 @@ Kirigami.ScrollablePage {
     property bool isSubscribed: true
 
     property string author: isSubscribed ? (page.feed.authors.length === 0 ? "" : page.feed.authors[0].name) : feed.author
-    title: i18nc("<Podcast Name> - Details", "%1 - Details", isSubscribed ? feed.name : feed.title)
+    title: i18n("Podcast Details")
 
     header: GenericHeader {
         id: headerImage

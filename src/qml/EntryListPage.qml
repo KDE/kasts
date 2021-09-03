@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
 
     property var feed
 
-    title: feed.name
+    title: i18n("Episode List")
     supportsRefreshing: true
 
     onRefreshingChanged: {
