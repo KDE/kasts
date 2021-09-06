@@ -87,6 +87,10 @@ Enclosure::Status Enclosure::dbToStatus(int value)
 
 void Enclosure::download()
 {
+    if (m_status == Downloaded) {
+        return;
+    }
+
     if (Fetcher::instance().isMeteredConnection() && !SettingsManager::self()->allowMeteredEpisodeDownloads()) {
         Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
                              m_entry->feed()->url(),

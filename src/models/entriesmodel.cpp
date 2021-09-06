@@ -12,6 +12,7 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "feed.h"
+#include "models/episodemodel.h"
 
 EntriesModel::EntriesModel(Feed *feed)
     : QAbstractListModel(feed)
@@ -30,17 +31,24 @@ EntriesModel::EntriesModel(Feed *feed)
 
 QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
+    switch (role) {
+    case EpisodeModel::Roles::EntryRole:
+        return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
+    case EpisodeModel::Roles::IdRole:
+        return QVariant::fromValue(DataManager::instance().getIdList(m_feed)[index.row()]);
+    default:
         return QVariant();
-    // qDebug() << "fetching item" << index.row();
-    return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
+    }
 }
 
 QHash<int, QByteArray> EntriesModel::roleNames() const
 {
-    QHash<int, QByteArray> roleNames;
-    roleNames[0] = "entry";
-    return roleNames;
+    return {
+        {EpisodeModel::Roles::EntryRole, "entry"},
+        {EpisodeModel::Roles::IdRole, "id"},
+        {EpisodeModel::Roles::ReadRole, "read"},
+        {EpisodeModel::Roles::NewRole, "new"},
+    };
 }
 
 int EntriesModel::rowCount(const QModelIndex &parent) const
@@ -52,4 +60,10 @@ int EntriesModel::rowCount(const QModelIndex &parent) const
 Feed *EntriesModel::feed() const
 {
     return m_feed;
+}
+
+// Hack to get a QItemSelection in QML
+QItemSelection EntriesModel::createSelection(int rowa, int rowb)
+{
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

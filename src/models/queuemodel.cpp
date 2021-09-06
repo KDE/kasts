@@ -13,6 +13,7 @@
 #include "audiomanager.h"
 #include "datamanager.h"
 #include "entry.h"
+#include "models/episodemodel.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -47,17 +48,24 @@ QueueModel::QueueModel(QObject *parent)
 
 QVariant QueueModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
+    switch (role) {
+    case EpisodeModel::Roles::EntryRole:
+        return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
+    case EpisodeModel::Roles::IdRole:
+        return QVariant::fromValue(DataManager::instance().queue()[index.row()]);
+    default:
         return QVariant();
-    qCDebug(kastsQueueModel) << "return entry" << DataManager::instance().getQueueEntry(index.row());
-    return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
+    }
 }
 
 QHash<int, QByteArray> QueueModel::roleNames() const
 {
-    QHash<int, QByteArray> roleNames;
-    roleNames[0] = "entry";
-    return roleNames;
+    return {
+        {EpisodeModel::Roles::EntryRole, "entry"},
+        {EpisodeModel::Roles::IdRole, "id"},
+        {EpisodeModel::Roles::ReadRole, "read"},
+        {EpisodeModel::Roles::NewRole, "new"},
+    };
 }
 
 int QueueModel::rowCount(const QModelIndex &parent) const
@@ -85,4 +93,10 @@ QString QueueModel::formattedTimeLeft() const
 {
     static KFormat format;
     return format.formatDuration(timeLeft());
+}
+
+// Hack to get a QItemSelection in QML
+QItemSelection QueueModel::createSelection(int rowa, int rowb)
+{
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

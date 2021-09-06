@@ -18,7 +18,7 @@
 #include "settingsmanager.h"
 
 Entry::Entry(Feed *feed, const QString &id)
-    : QObject(nullptr)
+    : QObject(&DataManager::instance())
     , m_feed(feed)
 {
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
@@ -30,16 +30,7 @@ Entry::Entry(Feed *feed, const QString &id)
             Q_EMIT cachedImageChanged(cachedImage());
         }
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](const int &index, const QString &id) {
-        Q_UNUSED(index)
-        if (id == m_id)
-            Q_EMIT queueStatusChanged(queueStatus());
-    });
-    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](const int &index, const QString &id) {
-        Q_UNUSED(index)
-        if (id == m_id)
-            Q_EMIT queueStatusChanged(queueStatus());
-    });
+
     QSqlQuery entryQuery;
     entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
     entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
@@ -134,50 +125,83 @@ QString Entry::baseUrl() const
 
 void Entry::setRead(bool read)
 {
-    m_read = read;
-    Q_EMIT readChanged(m_read);
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE id=:id AND feed=:feed"));
-    query.bindValue(QStringLiteral(":id"), m_id);
-    query.bindValue(QStringLiteral(":feed"), m_feed->url());
-    query.bindValue(QStringLiteral(":read"), m_read);
-    Database::instance().execute(query);
-    Q_EMIT m_feed->unreadEntryCountChanged();
-    Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
-    // TODO: can one of the two slots be removed??
+    if (read != m_read) {
+        // Making a detour through DataManager to make bulk operations more
+        // performant.  DataManager will call setReadInternal on every item to
+        // be marked read/unread.  So implement features there.
+        DataManager::instance().bulkMarkRead(read, QStringList(m_id));
+    }
+}
 
-    // Follow up actions
-    if (read && hasEnclosure()) {
-        // 1) Reset play position
-        if (SettingsManager::self()->resetPositionOnPlayed()) {
-            m_enclosure->setPlayPosition(0);
-        }
+void Entry::setReadInternal(bool read)
+{
+    if (read != m_read) {
+        // Make sure that operations done here can be wrapped inside an sqlite
+        // transaction.  I.e. no calls that trigger a SELECT operation.
+        m_read = read;
+        Q_EMIT readChanged(m_read);
 
-        // 2) Remove item from queue
-        setQueueStatus(false);
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE id=:id AND feed=:feed"));
+        query.bindValue(QStringLiteral(":id"), m_id);
+        query.bindValue(QStringLiteral(":feed"), m_feed->url());
+        query.bindValue(QStringLiteral(":read"), m_read);
+        Database::instance().execute(query);
 
-        // 3) Remove "new" label
-        setNew(false);
+        Q_EMIT m_feed->unreadEntryCountChanged();
+        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
+        // TODO: can one of the two slots be removed??
 
-        // 4) Delete episode if that setting is set
-        if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
-            m_enclosure->deleteFile();
+        // Follow up actions
+        if (read) {
+            // 1) Remove item from queue
+            setQueueStatusInternal(false);
+
+            // 2) Remove "new" label
+            setNewInternal(false);
+
+            if (hasEnclosure()) {
+                // 3) Reset play position
+                if (SettingsManager::self()->resetPositionOnPlayed()) {
+                    m_enclosure->setPlayPosition(0);
+                }
+
+                // 4) Delete episode if that setting is set
+                if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
+                    m_enclosure->deleteFile();
+                }
+            }
         }
     }
 }
 
 void Entry::setNew(bool state)
 {
-    m_new = state;
-    Q_EMIT newChanged(m_new);
-    QSqlQuery query;
-    query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE id=:id AND feed=:feed"));
-    query.bindValue(QStringLiteral(":id"), m_id);
-    query.bindValue(QStringLiteral(":feed"), m_feed->url());
-    query.bindValue(QStringLiteral(":new"), m_new);
-    Database::instance().execute(query);
-    // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
-    Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->url());
+    if (state != m_new) {
+        // Making a detour through DataManager to make bulk operations more
+        // performant.  DataManager will call setNewInternal on every item to
+        // be marked new/not new.  So implement features there.
+        DataManager::instance().bulkMarkNew(state, QStringList(m_id));
+    }
+}
+
+void Entry::setNewInternal(bool state)
+{
+    if (state != m_new) {
+        // Make sure that operations done here can be wrapped inside an sqlite
+        // transaction.  I.e. no calls that trigger a SELECT operation.
+        m_new = state;
+        Q_EMIT newChanged(m_new);
+
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE id=:id;"));
+        query.bindValue(QStringLiteral(":id"), m_id);
+        query.bindValue(QStringLiteral(":new"), m_new);
+        Database::instance().execute(query);
+
+        // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
+        Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->url());
+    }
 }
 
 QString Entry::adjustedContent(int width, int fontSize)
@@ -248,12 +272,28 @@ bool Entry::queueStatus() const
 void Entry::setQueueStatus(bool state)
 {
     if (state != DataManager::instance().entryInQueue(this)) {
-        if (state)
-            DataManager::instance().addToQueue(this);
-        else
-            DataManager::instance().removeQueueItem(this);
-        Q_EMIT queueStatusChanged(state);
+        // Making a detour through DataManager to make bulk operations more
+        // performant.  DataManager will call setQueueStatusInternal on every
+        // item to be processed.  So implement features there.
+        DataManager::instance().bulkQueueStatus(state, QStringList(m_id));
     }
+}
+
+void Entry::setQueueStatusInternal(bool state)
+{
+    // Make sure that operations done here can be wrapped inside an sqlite
+    // transaction.  I.e. no calls that trigger a SELECT operation.
+    if (state) {
+        DataManager::instance().addToQueue(m_id);
+        // Set status to unplayed/unread when adding item to the queue
+        setReadInternal(false);
+    } else {
+        DataManager::instance().removeFromQueue(m_id);
+        // Unset "new" state
+        setNewInternal(false);
+    }
+
+    Q_EMIT queueStatusChanged(state);
 }
 
 void Entry::setImage(const QString &image)

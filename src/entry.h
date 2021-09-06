@@ -69,6 +69,10 @@ public:
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 
+    void setNewInternal(bool state);
+    void setReadInternal(bool read);
+    void setQueueStatusInternal(bool state);
+
 Q_SIGNALS:
     void readChanged(bool read);
     void newChanged(bool state);

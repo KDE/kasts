@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
+import QtQuick 2.15
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.14 as Kirigami
 
@@ -20,7 +21,12 @@ Kirigami.SwipeListItem {
 
     property bool isQueue: false
     property bool isDownloads: false
-    property var listView: ""
+    property QtObject listView: undefined
+    property bool selected: false
+    property int row: model ? model.row : -1
+
+    highlighted: selected
+    activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
 
     Accessible.role: Accessible.Button
     Accessible.name: entry.title
@@ -30,143 +36,223 @@ Kirigami.SwipeListItem {
 
     Keys.onReturnPressed: clicked()
 
-    contentItem: RowLayout {
+    // We need to update the "selected" status:
+    // - if the selected indexes changes
+    // - if our delegate moves
+    // - if the model moves and the delegate stays in the same place
+    function updateIsSelected() {
+        selected = listView.selectionModel.rowIntersectsSelection(row);
+    }
 
-        Loader {
-            property var loaderListView: listView
-            property var loaderListItem: listItem
-            sourceComponent: dragHandleComponent
-            active: isQueue
-        }
+    onRowChanged: {
+        updateIsSelected();
+    }
 
-        Component {
-            id: dragHandleComponent
-            Kirigami.ListItemDragHandle {
-                listItem: loaderListItem
-                listView: loaderListView
-                onMoveRequested: DataManager.moveQueueItem(oldIndex, newIndex)
+    Component.onCompleted: {
+        updateIsSelected();
+    }
+
+    contentItem: MouseArea {
+        id: mouseArea
+        implicitHeight: rowLayout.implicitHeight
+        implicitWidth: rowLayout.implicitWidth
+
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: {
+            // Keep track of (currently) selected items
+            var modelIndex = listItem.listView.model.index(index, 0);
+
+            if (listView.selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
+                listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
+            } else if (mouse.modifiers & Qt.ShiftModifier) {
+                // Have to take a detour through c++ since selecting large sets
+                // in QML is extremely slow
+                listView.selectionModel.select(listView.model.createSelection(modelIndex.row, listView.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+            } else if (mouse.modifiers & Qt.ControlModifier) {
+                listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+            } else if (mouse.button == Qt.LeftButton) {
+                listView.currentIndex = index;
+                listView.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                listItem.clicked();
+            } else if (mouse.button == Qt.RightButton) {
+                // This item is right-clicked, but isn't selected
+                listView.selectionForContextMenu = [modelIndex];
+                listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
             }
         }
 
-        ImageWithFallback {
-            id: img
-            imageSource: entry.cachedImage
-            property int size: Kirigami.Units.gridUnit * 3
-            Layout.preferredHeight: size
-            Layout.preferredWidth: size
-            Layout.rightMargin:Kirigami.Units.smallSpacing
-            fractionalRadius: 1.0 / 8.0
+        onPressAndHold: {
+            var modelIndex = listItem.listView.model.index(index, 0);
+            listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
 
-        ColumnLayout {
-            spacing: Kirigami.Units.smallSpacing
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter
-            RowLayout{
-                Kirigami.Icon {
-                    Layout.maximumHeight: playedLabel.implicitHeight
-                    Layout.maximumWidth:  playedLabel.implicitHeight
-                    source: "checkbox"
-                    visible: entry.read
-                }
-                Controls.Label {
-                    id: playedLabel
-                    text: (entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
-                    font: Kirigami.Theme.smallFont
-                    visible: entry.read
-                    opacity: 0.7
-                }
-                Controls.Label {
-                    text: entry.new ? i18n("New") + "  ·" : ""
-                    font.capitalization: Font.AllUppercase
-                    color: Kirigami.Theme.highlightColor
-                    visible: entry.new
-                    opacity: 0.7
-                }
-                Kirigami.Icon {
-                    Layout.maximumHeight: 0.8 * supertitle.implicitHeight
-                    Layout.maximumWidth:  0.8 * supertitle.implicitHeight
-                    source: "source-playlist"
-                    visible: !isQueue && entry.queueStatus
-                    opacity: 0.7
-                }
-                Controls.Label {
-                    id: supertitle
-                    text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                    font: Kirigami.Theme.smallFont
-                    opacity: 0.7
-                }
+        Connections {
+            target: listView.selectionModel
+            function onSelectionChanged() {
+                updateIsSelected();
             }
-            Controls.Label {
-                text: entry.title
-                Layout.fillWidth: true
-                elide: Text.ElideRight
-                font.weight: Font.Normal
+        }
+
+        Connections {
+            target: listView.model
+            function onLayoutChanged() {
+                updateIsSelected();
             }
+        }
+
+        RowLayout {
+            id: rowLayout
+            anchors.fill: parent
+
             Loader {
-                sourceComponent: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
-                Layout.fillWidth: true
+                property var loaderListView: listView
+                property var loaderListItem: listItem
+                sourceComponent: dragHandleComponent
+                active: isQueue
             }
+
             Component {
-                id: subtitle
+                id: dragHandleComponent
+                Kirigami.ListItemDragHandle {
+                    listItem: loaderListItem
+                    listView: loaderListView
+                    onMoveRequested: {
+                        DataManager.moveQueueItem(oldIndex, newIndex);
+                        // reset current selection when moving items
+                        var modelIndex = listItem.listView.model.index(newIndex, 0);
+                        listView.currentIndex = newIndex;
+                        listView.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                    }
+                }
+            }
+
+            ImageWithFallback {
+                id: img
+                imageSource: entry.cachedImage
+                property int size: Kirigami.Units.gridUnit * 3
+                Layout.preferredHeight: size
+                Layout.preferredWidth: size
+                Layout.rightMargin: Kirigami.Units.smallSpacing
+                fractionalRadius: 1.0 / 8.0
+            }
+
+            ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                RowLayout{
+                    Kirigami.Icon {
+                        Layout.maximumHeight: playedLabel.implicitHeight
+                        Layout.maximumWidth:  playedLabel.implicitHeight
+                        source: "checkbox"
+                        visible: entry.read
+                    }
+                    Controls.Label {
+                        id: playedLabel
+                        text: (entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
+                        font: Kirigami.Theme.smallFont
+                        visible: entry.read
+                        opacity: 0.7
+                    }
+                    Controls.Label {
+                        text: entry.new ? i18n("New") + "  ·" : ""
+                        font.capitalization: Font.AllUppercase
+                        color: Kirigami.Theme.highlightColor
+                        visible: entry.new
+                        opacity: 0.7
+                    }
+                    Kirigami.Icon {
+                        Layout.maximumHeight: 0.8 * supertitle.implicitHeight
+                        Layout.maximumWidth:  0.8 * supertitle.implicitHeight
+                        source: "source-playlist"
+                        visible: !isQueue && entry.queueStatus
+                        opacity: 0.7
+                    }
+                    Controls.Label {
+                        id: supertitle
+                        text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
+                }
                 Controls.Label {
-                    text: entry.enclosure ? entry.enclosure.formattedDuration : ""
+                    text: entry.title
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    font: Kirigami.Theme.smallFont
-                    opacity: 0.7
-                    visible: !downloadProgress.visible
+                    font.weight: Font.Normal
+                }
+                Loader {
+                    sourceComponent: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                    Layout.fillWidth: true
+                }
+                Component {
+                    id: subtitle
+                    Controls.Label {
+                        text: entry.enclosure ? entry.enclosure.formattedDuration : ""
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                        visible: !downloadProgress.visible
+                    }
+                }
+                Component {
+                    id: downloadProgress
+                    RowLayout {
+                        Controls.Label {
+                            text: entry.enclosure.formattedDownloadSize
+                            elide: Text.ElideRight
+                            font: Kirigami.Theme.smallFont
+                            opacity: 0.7
+                        }
+                        Controls.ProgressBar {
+                            from: 0
+                            to: 1
+                            value: entry.enclosure.downloadProgress
+                            Layout.fillWidth: true
+                        }
+                        Controls.Label {
+                            text: entry.enclosure.formattedSize
+                            elide: Text.ElideRight
+                            font: Kirigami.Theme.smallFont
+                            opacity: 0.7
+                        }
+                    }
+                }
+                Component {
+                    id: playProgress
+                    RowLayout {
+                        Controls.Label {
+                            text: entry.enclosure.formattedPlayPosition
+                            elide: Text.ElideRight
+                            font: Kirigami.Theme.smallFont
+                            opacity: 0.7
+                        }
+                        Controls.ProgressBar {
+                            from: 0
+                            to: entry.enclosure.duration
+                            value: entry.enclosure.playPosition / 1000
+                            Layout.fillWidth: true
+                        }
+                        Controls.Label {
+                            text: (SettingsManager.toggleRemainingTime)
+                                    ? "-" + entry.enclosure.formattedLeftDuration
+                                    : entry.enclosure.formattedDuration
+                            elide: Text.ElideRight
+                            font: Kirigami.Theme.smallFont
+                            opacity: 0.7
+                        }
+                    }
                 }
             }
-            Component {
-                id: downloadProgress
-                RowLayout {
-                    Controls.Label {
-                        text: entry.enclosure.formattedDownloadSize
-                        elide: Text.ElideRight
-                        font: Kirigami.Theme.smallFont
-                        opacity: 0.7
-                    }
-                    Controls.ProgressBar {
-                        from: 0
-                        to: 1
-                        value: entry.enclosure.downloadProgress
-                        Layout.fillWidth: true
-                    }
-                    Controls.Label {
-                        text: entry.enclosure.formattedSize
-                        elide: Text.ElideRight
-                        font: Kirigami.Theme.smallFont
-                        opacity: 0.7
-                    }
-                }
-            }
-            Component {
-                id: playProgress
-                RowLayout {
-                    Controls.Label {
-                        text: entry.enclosure.formattedPlayPosition
-                        elide: Text.ElideRight
-                        font: Kirigami.Theme.smallFont
-                        opacity: 0.7
-                    }
-                    Controls.ProgressBar {
-                        from: 0
-                        to: entry.enclosure.duration
-                        value: entry.enclosure.playPosition / 1000
-                        Layout.fillWidth: true
-                    }
-                    Controls.Label {
-                        text: (SettingsManager.toggleRemainingTime)
-                                ? "-" + entry.enclosure.formattedLeftDuration
-                                : entry.enclosure.formattedDuration
-                        elide: Text.ElideRight
-                        font: Kirigami.Theme.smallFont
-                        opacity: 0.7
-                    }
-                }
+        }
+        Controls.Menu {
+            id: contextMenu
+
+            Controls.MenuItem {
+                action: listView.addToQueueAction
             }
         }
     }

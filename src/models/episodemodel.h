@@ -19,9 +19,11 @@ class EpisodeModel : public QAbstractListModel
 public:
     enum Roles {
         EntryRole = Qt::UserRole,
+        IdRole,
         ReadRole,
         NewRole,
     };
+    Q_ENUM(Roles)
 
     explicit EpisodeModel();
     QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;

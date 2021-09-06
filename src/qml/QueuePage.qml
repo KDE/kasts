@@ -4,9 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
+import QtQuick 2.15
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.2
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.13 as Kirigami
 
@@ -34,6 +35,8 @@ Kirigami.ScrollablePage {
         visible: !Kirigami.Settings.isMobile || queueList.count === 0
     }
 
+    contextualActions: queueList.defaultActionList
+
     Kirigami.PlaceholderMessage {
         visible: queueList.count === 0
 
@@ -51,8 +54,9 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ListView {
+    GenericEntryListView {
         id: queueList
+        isQueue: true
         visible: count !== 0
         anchors.fill: parent
 

@@ -6,9 +6,12 @@
 
 #pragma once
 
+#include <QItemSelection>
 #include <QSortFilterProxyModel>
 
 #include "models/episodemodel.h"
+
+class Entry;
 
 class EpisodeProxyModel : public QSortFilterProxyModel
 {
@@ -37,6 +40,8 @@ public:
     void setFilterType(FilterType type);
 
     Q_INVOKABLE QString getFilterName(FilterType type) const;
+
+    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 
 Q_SIGNALS:
     void filterTypeChanged();

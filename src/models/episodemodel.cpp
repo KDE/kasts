@@ -33,6 +33,8 @@ QVariant EpisodeModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case EntryRole:
         return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
+    case IdRole:
+        return QVariant::fromValue(m_entryIds[index.row()]);
     case ReadRole:
         return QVariant::fromValue(m_read[index.row()]);
     case NewRole:
@@ -46,6 +48,7 @@ QHash<int, QByteArray> EpisodeModel::roleNames() const
 {
     return {
         {EntryRole, "entry"},
+        {IdRole, "id"},
         {ReadRole, "read"},
         {NewRole, "new"},
     };

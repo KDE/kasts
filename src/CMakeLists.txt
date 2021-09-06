@@ -149,6 +149,8 @@ if(ANDROID)
         document-open-folder
         edit-delete-remove
         edit-clear-all
+        edit-select-all
+        edit-select-none
         download
         media-playlist-append
         media-seek-backward

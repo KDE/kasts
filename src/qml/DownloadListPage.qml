@@ -33,6 +33,8 @@ Kirigami.ScrollablePage {
         visible: !Kirigami.Settings.isMobile
     }
 
+    contextualActions: episodeList.defaultActionList
+
     Kirigami.PlaceholderMessage {
         visible: episodeList.count === 0
 
@@ -50,10 +52,14 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ListView {
+    GenericEntryListView {
         id: episodeList
         visible: count !== 0
+        isDownloads: true
+        reuseItems: true
+
         model: DownloadModel
+        delegate: episodeListDelegate
 
         section {
             delegate: Kirigami.ListSectionHeader {
@@ -64,11 +70,6 @@ Kirigami.ScrollablePage {
                        ""
             }
             property: "entry.enclosure.status"
-        }
-
-        delegate: Kirigami.DelegateRecycler {
-            width: episodeList.width
-            sourceComponent: episodeListDelegate
         }
     }
 }

@@ -11,6 +11,7 @@
 
 #include "database.h"
 #include "datamanager.h"
+#include "models/episodemodel.h"
 
 DownloadModel::DownloadModel()
     : QAbstractListModel(nullptr)
@@ -20,32 +21,30 @@ DownloadModel::DownloadModel()
 
 QVariant DownloadModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
-        return QVariant();
-    if (index.row() < m_downloadingCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(m_downloadingIds[index.row()]));
-    } else if (index.row() < m_downloadingCount + m_partiallyDownloadedCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(m_partiallyDownloadedIds[index.row() - m_downloadingCount]));
-    } else if (index.row() < m_downloadingCount + m_partiallyDownloadedCount + m_downloadedCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(m_downloadedIds[index.row() - m_downloadingCount - m_partiallyDownloadedCount]));
-    } else {
-        qWarning() << "Trying to fetch DownloadModel item outside of valid range; this should never happen";
+    switch (role) {
+    case EpisodeModel::Roles::EntryRole:
+        return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
+    case EpisodeModel::Roles::IdRole:
+        return QVariant::fromValue(m_entryIds[index.row()]);
+    default:
         return QVariant();
     }
 }
 
 QHash<int, QByteArray> DownloadModel::roleNames() const
 {
-    QHash<int, QByteArray> roleNames;
-    roleNames[0] = "entry";
-    return roleNames;
+    return {
+        {EpisodeModel::Roles::EntryRole, "entry"},
+        {EpisodeModel::Roles::IdRole, "id"},
+        {EpisodeModel::Roles::ReadRole, "read"},
+        {EpisodeModel::Roles::NewRole, "new"},
+    };
 }
 
 int DownloadModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-
-    return m_downloadingCount + m_partiallyDownloadedCount + m_downloadedCount;
+    return m_entryIds.count();
 }
 
 void DownloadModel::monitorDownloadStatus()
@@ -57,9 +56,7 @@ void DownloadModel::monitorDownloadStatus()
 
 void DownloadModel::updateInternalState()
 {
-    m_downloadingIds.clear();
-    m_partiallyDownloadedIds.clear();
-    m_downloadedIds.clear();
+    m_entryIds.clear();
 
     QSqlQuery query;
     query.prepare(
@@ -68,22 +65,24 @@ void DownloadModel::updateInternalState()
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
     Database::instance().execute(query);
     while (query.next()) {
-        m_downloadingIds += query.value(QStringLiteral("id")).toString();
+        m_entryIds += query.value(QStringLiteral("id")).toString();
     }
 
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
     Database::instance().execute(query);
     while (query.next()) {
-        m_partiallyDownloadedIds += query.value(QStringLiteral("id")).toString();
+        m_entryIds += query.value(QStringLiteral("id")).toString();
     }
 
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
     Database::instance().execute(query);
     while (query.next()) {
-        m_downloadedIds += query.value(QStringLiteral("id")).toString();
+        m_entryIds += query.value(QStringLiteral("id")).toString();
     }
+}
 
-    m_downloadingCount = m_downloadingIds.count();
-    m_partiallyDownloadedCount = m_partiallyDownloadedIds.count();
-    m_downloadedCount = m_downloadedIds.count();
+// Hack to get a QItemSelection in QML
+QItemSelection DownloadModel::createSelection(int rowa, int rowb)
+{
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

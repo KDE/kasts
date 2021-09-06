@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
+import QtQuick 2.15
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
@@ -49,6 +49,13 @@ Kirigami.ScrollablePage {
         }
     }
 
+    actions.main: Kirigami.Action {
+        iconName: "view-refresh"
+        text: i18n("Refresh Podcast")
+        onTriggered: page.refreshing = true
+        visible: !Kirigami.Settings.isMobile || entryList.count === 0
+    }
+
     contextualActions: [
         Kirigami.Action {
             iconName: "help-about-symbolic"
@@ -70,11 +77,12 @@ Kirigami.ScrollablePage {
         }
     ]
 
-    actions.main: Kirigami.Action {
-        iconName: "view-refresh"
-        text: i18n("Refresh Podcast")
-        onTriggered: page.refreshing = true
-        visible: !Kirigami.Settings.isMobile || entryList.count === 0
+    // add the default actions through onCompleted to add them to the ones
+    // defined above
+    Component.onCompleted: {
+        for (var i in entryList.defaultActionList) {
+            contextualActions.push(entryList.defaultActionList[i]);
+        }
     }
 
     Kirigami.PlaceholderMessage {
@@ -94,15 +102,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    ListView {
+    GenericEntryListView {
         id: entryList
         visible: count !== 0
-        model: page.feed.entries
+        reuseItems: true
 
-        delegate: Kirigami.DelegateRecycler {
-            width: entryList.width
-            sourceComponent: entryListDelegate
-        }
+        model: page.feed.entries
+        delegate: entryListDelegate
 
         // OverlayHeader looks nicer, but seems completely broken when flicking the list
         // headerPositioning: ListView.OverlayHeader

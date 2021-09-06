@@ -8,6 +8,9 @@
 
 #include <KLocalizedString>
 
+#include "datamanager.h"
+#include "entry.h"
+
 EpisodeProxyModel::EpisodeProxyModel()
     : QSortFilterProxyModel(nullptr)
 {
@@ -49,13 +52,29 @@ EpisodeProxyModel::FilterType EpisodeProxyModel::filterType() const
 void EpisodeProxyModel::setFilterType(FilterType type)
 {
     if (type != m_currentFilter) {
+        disconnect(&DataManager::instance(), &DataManager::bulkReadStatusActionFinished, this, nullptr);
+        disconnect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, nullptr);
+
         beginResetModel();
-        // TODO: Connect to signals to capture new and read updates in case those
-        // filters are active.  Also disconnect from signals if the filters are
-        // removed
         m_currentFilter = type;
         m_episodeModel->updateInternalState();
         endResetModel();
+
+        // connect to signals which indicate that read/new statuses have been updated
+        if (type == ReadFilter || type == NotReadFilter) {
+            connect(&DataManager::instance(), &DataManager::bulkReadStatusActionFinished, this, [this]() {
+                beginResetModel();
+                m_episodeModel->updateInternalState();
+                endResetModel();
+            });
+        } else if (type == NewFilter || type == NotNewFilter) {
+            connect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, [this]() {
+                beginResetModel();
+                m_episodeModel->updateInternalState();
+                endResetModel();
+            });
+        }
+
         Q_EMIT filterTypeChanged();
     }
 }
@@ -81,4 +100,10 @@ QString EpisodeProxyModel::getFilterName(FilterType type) const
     default:
         return QString();
     }
+}
+
+// Hack to get a QItemSelection in QML
+QItemSelection EpisodeProxyModel::createSelection(int rowa, int rowb)
+{
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

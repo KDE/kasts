@@ -8,6 +8,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QItemSelection>
 #include <QObject>
 #include <QVariant>
 
@@ -29,6 +30,8 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
+    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
+
 public Q_SLOTS:
     void monitorDownloadStatus();
 
@@ -40,8 +43,10 @@ private:
     QStringList m_downloadingIds;
     QStringList m_partiallyDownloadedIds;
     QStringList m_downloadedIds;
+    QStringList m_entryIds;
 
     int m_downloadingCount = 0;
     int m_partiallyDownloadedCount = 0;
     int m_downloadedCount = 0;
+    int m_entryCount = 0;
 };

@@ -9,6 +9,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QItemSelection>
 #include <QObject>
 #include <QVariant>
 
@@ -27,6 +28,8 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
     Feed *feed() const;
+
+    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 
 private:
     Feed *m_feed;

@@ -41,6 +41,7 @@
 #include "kasts-version.h"
 #include "models/downloadmodel.h"
 #include "models/entriesmodel.h"
+#include "models/episodemodel.h"
 #include "models/episodeproxymodel.h"
 #include "models/errorlogmodel.h"
 #include "models/feedsmodel.h"
@@ -126,6 +127,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
+    qmlRegisterUncreatableType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel", QStringLiteral("Only for enums"));
 
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());

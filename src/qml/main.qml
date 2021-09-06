@@ -294,10 +294,17 @@ Kirigami.ApplicationWindow {
         headingText: i18n("Podcast downloads are currently not allowed on metered connections")
         condition: SettingsManager.allowMeteredEpisodeDownloads
         property var entry: undefined
+        property var selection: undefined
 
         function action() {
-            entry.queueStatus = true;
-            entry.enclosure.download();
+            if (selection) {
+                DataManager.bulkDownloadEnclosuresByIndex(selection);
+            } else if (entry) {
+                entry.queueStatus = true;
+                entry.enclosure.download();
+            }
+            selection = undefined;
+            entry = undefined;
         }
 
         function allowOnceAction() {

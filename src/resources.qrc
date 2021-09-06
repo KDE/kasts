@@ -20,6 +20,7 @@
         <file alias="ErrorListOverlay.qml">qml/ErrorListOverlay.qml</file>
         <file alias="GenericHeader.qml">qml/GenericHeader.qml</file>
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
+        <file alias="GenericEntryListView.qml">qml/GenericEntryListView.qml</file>
         <file alias="DiscoverPage.qml">qml/DiscoverPage.qml</file>
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>

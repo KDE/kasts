@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
 
         ListView {
             // TODO: fix automatic width
-            implicitWidth: Kirigami.Units.gridUnit * 12
+            implicitWidth: Kirigami.Units.gridUnit * 15
             clip: true
 
             model: ListModel {
@@ -105,6 +105,8 @@ Kirigami.ScrollablePage {
         ]
     }
 
+    contextualActions: episodeList.defaultActionList
+
     Kirigami.PlaceholderMessage {
         visible: episodeList.count === 0
 
@@ -125,12 +127,14 @@ Kirigami.ScrollablePage {
         id: episodeProxyModel
     }
 
-    ListView {
+    GenericEntryListView {
         id: episodeList
         anchors.fill: parent
         visible: count !== 0
         model: episodeProxyModel
 
+        // TODO: seems like reuseItems is way too slow; using DelegateRecycler
+        // for now; still have to find out why...
         delegate: Kirigami.DelegateRecycler {
             width: episodeList.width
             sourceComponent: episodeListDelegate

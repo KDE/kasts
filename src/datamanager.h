@@ -33,6 +33,7 @@ public:
     Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
     int feedCount() const;
+    QStringList getIdList(const Feed *feed) const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed *feed) const;
     int unreadEntryCount(const Feed *feed) const;
@@ -46,14 +47,11 @@ public:
     Entry *getQueueEntry(int index) const;
     int queueCount() const;
     QStringList queue() const;
-    Q_INVOKABLE bool entryInQueue(const Entry *entry);
-    Q_INVOKABLE bool entryInQueue(const QString &feedurl, const QString &id) const;
-    Q_INVOKABLE void addToQueue(const Entry *entry);
-    Q_INVOKABLE void addToQueue(const QString &feedurl, const QString &id);
+    bool entryInQueue(const Entry *entry);
+    bool entryInQueue(const QString &id) const;
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
-    Q_INVOKABLE void removeQueueItem(const int index);
-    Q_INVOKABLE void removeQueueItem(const QString id);
-    Q_INVOKABLE void removeQueueItem(Entry *entry);
+    void addToQueue(const QString &id);
+    void removeFromQueue(const QString &id);
 
     Q_INVOKABLE QString lastPlayingEntry();
     Q_INVOKABLE void setLastPlayingEntry(const QString &id);
@@ -63,6 +61,18 @@ public:
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool isFeedExists(const QString &url);
+
+    Q_INVOKABLE void bulkMarkRead(bool state, QStringList list);
+    Q_INVOKABLE void bulkMarkNew(bool state, QStringList list);
+    Q_INVOKABLE void bulkQueueStatus(bool state, QStringList list);
+    Q_INVOKABLE void bulkDownloadEnclosures(QStringList list);
+    Q_INVOKABLE void bulkDeleteEnclosures(QStringList list);
+
+    Q_INVOKABLE void bulkMarkReadByIndex(bool state, QModelIndexList list);
+    Q_INVOKABLE void bulkMarkNewByIndex(bool state, QModelIndexList list);
+    Q_INVOKABLE void bulkQueueStatusByIndex(bool state, QModelIndexList list);
+    Q_INVOKABLE void bulkDownloadEnclosuresByIndex(QModelIndexList list);
+    Q_INVOKABLE void bulkDeleteEnclosuresByIndex(QModelIndexList list);
 
 Q_SIGNALS:
     void feedAdded(const QString &url);
@@ -77,12 +87,17 @@ Q_SIGNALS:
     void unreadEntryCountChanged(const QString &url);
     void newEntryCountChanged(const QString &url);
 
+    void bulkReadStatusActionFinished();
+    void bulkNewStatusActionFinished();
+
 private:
     DataManager();
     void loadFeed(QString feedurl) const;
     void loadEntry(QString id) const;
     bool feedExists(const QString &url);
     void updateQueueListnrs() const;
+
+    QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
 
     mutable QHash<QString, Feed *> m_feeds; // hash of pointers to all feeds in db, key = url (lazy loading)
     mutable QHash<QString, Entry *> m_entries; // hash of pointers to all entries in db, key = id (lazy loading)
