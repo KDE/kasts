@@ -33,6 +33,8 @@ Controls.ItemDelegate {
 
     onClicked: {
         lastFeed = feed.url
+        if (pageStack.depth >  1)
+            pageStack.pop();
         pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
     }
     Keys.onReturnPressed: clicked()

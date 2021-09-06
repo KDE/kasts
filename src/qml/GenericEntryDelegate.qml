@@ -182,7 +182,9 @@ Kirigami.SwipeListItem {
         if (isQueue || isDownloads) {
             lastEntry = entry.id;
         }
-        pageStack.push("qrc:/EntryPage.qml", {"entry": entry})
+        if (pageStack.depth > (currentPage === "FeedListPage" ? 2 : 1))
+            pageStack.pop();
+        pageStack.push("qrc:/EntryPage.qml", {"entry": entry});
     }
 
     actions: [
