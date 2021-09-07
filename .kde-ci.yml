@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
+# SPDX-License-Identifier: BSD-2-Clause
+
 Dependencies:
 - 'on': ['@all']
   'require':
