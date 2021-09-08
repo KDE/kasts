@@ -7,16 +7,15 @@
 #include "models/downloadmodel.h"
 #include "models/downloadmodellogging.h"
 
+#include <QSqlQuery>
+
+#include "database.h"
 #include "datamanager.h"
-#include "episodemodel.h"
 
 DownloadModel::DownloadModel()
     : QAbstractListModel(nullptr)
 {
-    // initialize item counters
-    m_downloadingCount = DataManager::instance().entryCount(EpisodeModel::Downloading);
-    m_partiallyDownloadedCount = DataManager::instance().entryCount(EpisodeModel::PartiallyDownloaded);
-    m_downloadedCount = DataManager::instance().entryCount(EpisodeModel::Downloaded);
+    updateInternalState();
 }
 
 QVariant DownloadModel::data(const QModelIndex &index, int role) const
@@ -24,11 +23,11 @@ QVariant DownloadModel::data(const QModelIndex &index, int role) const
     if (role != 0)
         return QVariant();
     if (index.row() < m_downloadingCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(EpisodeModel::Downloading, index.row()));
+        return QVariant::fromValue(DataManager::instance().getEntry(m_downloadingIds[index.row()]));
     } else if (index.row() < m_downloadingCount + m_partiallyDownloadedCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(EpisodeModel::PartiallyDownloaded, index.row() - m_downloadingCount));
+        return QVariant::fromValue(DataManager::instance().getEntry(m_partiallyDownloadedIds[index.row() - m_downloadingCount]));
     } else if (index.row() < m_downloadingCount + m_partiallyDownloadedCount + m_downloadedCount) {
-        return QVariant::fromValue(DataManager::instance().getEntry(EpisodeModel::Downloaded, index.row() - m_downloadingCount - m_partiallyDownloadedCount));
+        return QVariant::fromValue(DataManager::instance().getEntry(m_downloadedIds[index.row() - m_downloadingCount - m_partiallyDownloadedCount]));
     } else {
         qWarning() << "Trying to fetch DownloadModel item outside of valid range; this should never happen";
         return QVariant();
@@ -52,10 +51,39 @@ int DownloadModel::rowCount(const QModelIndex &parent) const
 void DownloadModel::monitorDownloadStatus()
 {
     beginResetModel();
-
-    m_downloadingCount = DataManager::instance().entryCount(EpisodeModel::Downloading);
-    m_partiallyDownloadedCount = DataManager::instance().entryCount(EpisodeModel::PartiallyDownloaded);
-    m_downloadedCount = DataManager::instance().entryCount(EpisodeModel::Downloaded);
-
+    updateInternalState();
     endResetModel();
+}
+
+void DownloadModel::updateInternalState()
+{
+    m_downloadingIds.clear();
+    m_partiallyDownloadedIds.clear();
+    m_downloadedIds.clear();
+
+    QSqlQuery query;
+    query.prepare(
+        QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC;"));
+
+    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_downloadingIds += query.value(QStringLiteral("id")).toString();
+    }
+
+    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_partiallyDownloadedIds += query.value(QStringLiteral("id")).toString();
+    }
+
+    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_downloadedIds += query.value(QStringLiteral("id")).toString();
+    }
+
+    m_downloadingCount = m_downloadingIds.count();
+    m_partiallyDownloadedCount = m_partiallyDownloadedIds.count();
+    m_downloadedCount = m_downloadedIds.count();
 }

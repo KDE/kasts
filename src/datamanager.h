@@ -31,12 +31,10 @@ public:
     Feed *getFeed(const QString &feedurl) const;
     Entry *getEntry(const int feed_index, const int entry_index) const;
     Entry *getEntry(const Feed *feed, const int entry_index) const;
-    Entry *getEntry(const EpisodeModel::Type type, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
     int feedCount() const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed *feed) const;
-    int entryCount(const EpisodeModel::Type type) const;
     int unreadEntryCount(const Feed *feed) const;
     int newEntryCount(const Feed *feed) const;
     Q_INVOKABLE void addFeed(const QString &url);

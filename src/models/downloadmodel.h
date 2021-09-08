@@ -34,6 +34,13 @@ public Q_SLOTS:
 
 private:
     explicit DownloadModel();
+
+    void updateInternalState();
+
+    QStringList m_downloadingIds;
+    QStringList m_partiallyDownloadedIds;
+    QStringList m_downloadedIds;
+
     int m_downloadingCount = 0;
     int m_partiallyDownloadedCount = 0;
     int m_downloadedCount = 0;

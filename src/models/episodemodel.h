@@ -16,28 +16,13 @@ class EpisodeModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    enum Type {
-        All,
-        New,
-        Unread,
-        Downloading,
-        Downloaded,
-        PartiallyDownloaded,
-    };
-    Q_ENUM(Type)
-
-    Q_PROPERTY(Type type READ type WRITE setType)
-
     explicit EpisodeModel();
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
-    Type type() const;
-
-public Q_SLOTS:
-    void setType(Type type);
-
 private:
-    Type m_type = Type::All;
+    void updateInternalState();
+
+    QStringList m_entryIds;
 };

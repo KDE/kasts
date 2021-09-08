@@ -6,6 +6,9 @@
 
 #include "models/episodemodel.h"
 
+#include <QSqlQuery>
+
+#include "database.h"
 #include "datamanager.h"
 #include "entry.h"
 
@@ -18,15 +21,18 @@ EpisodeModel::EpisodeModel()
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         Q_UNUSED(url)
         beginResetModel();
+        updateInternalState();
         endResetModel();
     });
+
+    updateInternalState();
 }
 
 QVariant EpisodeModel::data(const QModelIndex &index, int role) const
 {
     if (role != 0)
         return QVariant();
-    return QVariant::fromValue(DataManager::instance().getEntry(m_type, index.row()));
+    return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
 }
 
 QHash<int, QByteArray> EpisodeModel::roleNames() const
@@ -39,32 +45,16 @@ QHash<int, QByteArray> EpisodeModel::roleNames() const
 int EpisodeModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return DataManager::instance().entryCount(m_type);
+    return m_entryIds.count();
 }
 
-EpisodeModel::Type EpisodeModel::type() const
+void EpisodeModel::updateInternalState()
 {
-    return m_type;
-}
-
-void EpisodeModel::setType(EpisodeModel::Type type)
-{
-    m_type = type;
-    if (m_type == EpisodeModel::New) {
-        connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const QString &url) {
-            Q_UNUSED(url)
-            // we have to reset the entire model in case entries are removed or added
-            // because we have no way of knowing where those entries will be added/removed
-            beginResetModel();
-            endResetModel();
-        });
-    } else if (m_type == EpisodeModel::Unread) {
-        connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [this](const QString &url) {
-            Q_UNUSED(url)
-            // we have to reset the entire model in case entries are removed or added
-            // because we have no way of knowing where those entries will be added/removed
-            beginResetModel();
-            endResetModel();
-        });
+    m_entryIds.clear();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT id FROM Entries ORDER BY updated DESC;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_entryIds += query.value(QStringLiteral("id")).toString();
     }
 }
