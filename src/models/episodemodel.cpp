@@ -30,16 +30,25 @@ EpisodeModel::EpisodeModel()
 
 QVariant EpisodeModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
+    switch (role) {
+    case EntryRole:
+        return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
+    case ReadRole:
+        return QVariant::fromValue(m_read[index.row()]);
+    case NewRole:
+        return QVariant::fromValue(m_new[index.row()]);
+    default:
         return QVariant();
-    return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
+    }
 }
 
 QHash<int, QByteArray> EpisodeModel::roleNames() const
 {
-    QHash<int, QByteArray> roleNames;
-    roleNames[0] = "entry";
-    return roleNames;
+    return {
+        {EntryRole, "entry"},
+        {ReadRole, "read"},
+        {NewRole, "new"},
+    };
 }
 
 int EpisodeModel::rowCount(const QModelIndex &parent) const
@@ -51,10 +60,14 @@ int EpisodeModel::rowCount(const QModelIndex &parent) const
 void EpisodeModel::updateInternalState()
 {
     m_entryIds.clear();
+    m_read.clear();
+    m_new.clear();
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT id FROM Entries ORDER BY updated DESC;"));
+    query.prepare(QStringLiteral("SELECT id, read, new FROM Entries ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_entryIds += query.value(QStringLiteral("id")).toString();
+        m_read += query.value(QStringLiteral("read")).toBool();
+        m_new += query.value(QStringLiteral("new")).toBool();
     }
 }

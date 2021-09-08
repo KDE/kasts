@@ -10,14 +10,21 @@
 #include <QHash>
 #include <QObject>
 #include <QVariant>
+#include <QVector>
 
 class EpisodeModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
+    enum Roles {
+        EntryRole = Qt::UserRole,
+        ReadRole,
+        NewRole,
+    };
+
     explicit EpisodeModel();
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
@@ -25,4 +32,6 @@ private:
     void updateInternalState();
 
     QStringList m_entryIds;
+    QVector<bool> m_read;
+    QVector<bool> m_new;
 };
