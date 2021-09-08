@@ -6,6 +6,7 @@
  */
 
 #include "fetcher.h"
+#include "fetcherlogging.h"
 
 #include <KLocalizedString>
 #include <QDateTime>
@@ -23,7 +24,6 @@
 
 #include "database.h"
 #include "enclosure.h"
-#include "fetcherlogging.h"
 #include "kasts-version.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"

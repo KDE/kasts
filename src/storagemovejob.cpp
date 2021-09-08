@@ -4,14 +4,15 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "storagemovejob.h"
+#include "storagemovejoblogging.h"
+
 #include <QDir>
 #include <QFile>
 #include <QTimer>
 
 #include <KLocalizedString>
 
-#include "storagemovejob.h"
-#include "storagemovejoblogging.h"
 
 StorageMoveJob::StorageMoveJob(const QString &from, const QString &to, QStringList &list, QObject *parent)
     : KJob(parent)

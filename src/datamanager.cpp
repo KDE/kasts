@@ -5,6 +5,7 @@
  */
 
 #include "datamanager.h"
+#include "datamanagerlogging.h"
 
 #include <QDateTime>
 #include <QDir>
@@ -17,7 +18,6 @@
 
 #include "audiomanager.h"
 #include "database.h"
-#include "datamanagerlogging.h"
 #include "entry.h"
 #include "feed.h"
 #include "fetcher.h"

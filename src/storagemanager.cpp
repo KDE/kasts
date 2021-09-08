@@ -5,6 +5,7 @@
  */
 
 #include "storagemanager.h"
+#include "storagemanagerlogging.h"
 
 #include <KLocalizedString>
 #include <QCryptographicHash>
@@ -17,7 +18,6 @@
 
 #include "enclosure.h"
 #include "settingsmanager.h"
-#include "storagemanagerlogging.h"
 #include "storagemovejob.h"
 
 StorageManager::StorageManager()

@@ -4,14 +4,15 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "models/queuemodel.h"
+#include "models/queuemodellogging.h"
+
 #include <QString>
 #include <QThread>
 
 #include "audiomanager.h"
 #include "datamanager.h"
 #include "entry.h"
-#include "queuemodel.h"
-#include "queuemodellogging.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)

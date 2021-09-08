@@ -17,8 +17,8 @@
 
 #include "audiologging.h"
 #include "datamanager.h"
-#include "errorlogmodel.h"
 #include "feed.h"
+#include "models/errorlogmodel.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
 

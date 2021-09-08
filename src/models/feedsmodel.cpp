@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "models/feedsmodel.h"
+
 #include <QDebug>
 #include <QModelIndex>
 #include <QSqlQuery>
@@ -13,7 +15,6 @@
 
 #include "database.h"
 #include "datamanager.h"
-#include "feedsmodel.h"
 #include "fetcher.h"
 
 FeedsModel::FeedsModel(QObject *parent)

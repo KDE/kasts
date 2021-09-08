@@ -6,7 +6,12 @@
 
 #pragma once
 
-#include "episodemodel.h"
+#include <QHash>
+#include <QObject>
+#include <QString>
+#include <QStringList>
+
+#include "models/episodemodel.h"
 
 class Entry;
 class Feed;

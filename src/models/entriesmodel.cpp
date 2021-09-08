@@ -5,10 +5,11 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "models/entriesmodel.h"
+
 #include <QString>
 
 #include "datamanager.h"
-#include "entriesmodel.h"
 #include "entry.h"
 #include "feed.h"
 

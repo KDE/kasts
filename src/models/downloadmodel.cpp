@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "downloadmodel.h"
+#include "models/downloadmodel.h"
+#include "models/downloadmodellogging.h"
 
 #include "datamanager.h"
-#include "downloadmodellogging.h"
 #include "episodemodel.h"
 
 DownloadModel::DownloadModel()

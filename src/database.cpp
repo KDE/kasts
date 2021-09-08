@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include "database.h"
+
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
@@ -14,8 +16,6 @@
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-
-#include "database.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
     if (!x)                                                                                                                                                    \

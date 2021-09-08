@@ -12,8 +12,8 @@
 #include <QObject>
 #include <QVariant>
 
-#include "errorlogmodel.h"
 #include "feed.h"
+#include "models/errorlogmodel.h"
 
 class PodcastSearchModel : public QAbstractListModel
 {

@@ -42,10 +42,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: episodeType === EpisodeModel.All ? i18n("No Episodes Available")
-              : episodeType === EpisodeModel.New ? i18n("No New Episodes")
-              : episodeType === EpisodeModel.Unread ? i18n("No Unplayed Episodes")
-              : i18n("No Episodes Available")
+        text: i18n("No Episodes Available")
     }
 
     Component {
@@ -57,7 +54,6 @@ Kirigami.ScrollablePage {
 
     EpisodeModel {
         id: episodeModel
-        type: episodeType
     }
 
     ListView {

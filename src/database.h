@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <QObject>
 #include <QSqlQuery>
 
 class Database : public QObject

@@ -10,11 +10,11 @@
 #include "author.h"
 #include "database.h"
 #include "datamanager.h"
-#include "entriesmodel.h"
 #include "error.h"
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
+#include "models/entriesmodel.h"
 
 Feed::Feed(const QString &feedurl)
     : QObject(nullptr)

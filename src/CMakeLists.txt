@@ -3,27 +3,27 @@
 
 set(SRCS_base
     main.cpp
-    feedsmodel.cpp
-    entriesmodel.cpp
     fetcher.cpp
     database.cpp
     entry.cpp
     feed.cpp
     author.cpp
     enclosure.cpp
-    enclosuredownloadjob.cpp
-    queuemodel.cpp
-    episodemodel.cpp
-    downloadmodel.cpp
     datamanager.cpp
     audiomanager.cpp
-    powermanagementinterface.cpp
-    errorlogmodel.cpp
     error.cpp
-    podcastsearchmodel.cpp
+    enclosuredownloadjob.cpp
     storagemanager.cpp
     storagemovejob.cpp
+    models/feedsmodel.cpp
+    models/entriesmodel.cpp
+    models/queuemodel.cpp
+    models/episodemodel.cpp
+    models/downloadmodel.cpp
+    models/errorlogmodel.cpp
+    models/podcastsearchmodel.cpp
     mpris2/mpris2.cpp
+    powermanagementinterface.cpp
     resources.qrc
 )
 
@@ -42,23 +42,9 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
-    HEADER "downloadmodellogging.h"
-    IDENTIFIER "kastsDownloadModel"
-    CATEGORY_NAME "org.kde.kasts.downloadmodel"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(SRCS_base
     HEADER "enclosurelogging.h"
     IDENTIFIER "kastsEnclosure"
     CATEGORY_NAME "org.kde.kasts.enclosure"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(SRCS_base
-    HEADER "storagemovejoblogging.h"
-    IDENTIFIER "kastsStorageMoveJob"
-    CATEGORY_NAME "org.kde.kasts.storagemovejob"
     DEFAULT_SEVERITY Info
 )
 
@@ -77,6 +63,20 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
+    HEADER "models/downloadmodellogging.h"
+    IDENTIFIER "kastsDownloadModel"
+    CATEGORY_NAME "org.kde.kasts.downloadmodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "models/queuemodellogging.h"
+    IDENTIFIER "kastsQueueModel"
+    CATEGORY_NAME "org.kde.kasts.queuemodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
     HEADER "powermanagementinterfacelogging.h"
     IDENTIFIER "kastsPowerManagementInterface"
     CATEGORY_NAME "org.kde.kasts.powermanagementinterface"
@@ -84,16 +84,16 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
-    HEADER "queuemodellogging.h"
-    IDENTIFIER "kastsQueueModel"
-    CATEGORY_NAME "org.kde.kasts.queuemodel"
+    HEADER "storagemanagerlogging.h"
+    IDENTIFIER "kastsStorageManager"
+    CATEGORY_NAME "org.kde.kasts.storagemanager"
     DEFAULT_SEVERITY Info
 )
 
 ecm_qt_declare_logging_category(SRCS_base
-    HEADER "storagemanagerlogging.h"
-    IDENTIFIER "kastsStorageManager"
-    CATEGORY_NAME "org.kde.kasts.storagemanager"
+    HEADER "storagemovejoblogging.h"
+    IDENTIFIER "kastsStorageMoveJob"
+    CATEGORY_NAME "org.kde.kasts.storagemovejob"
     DEFAULT_SEVERITY Info
 )
 

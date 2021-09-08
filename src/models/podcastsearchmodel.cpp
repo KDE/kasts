@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "podcastsearchmodel.h"
+#include "models/podcastsearchmodel.h"
 
 #include <QCryptographicHash>
 #include <QDateTime>
