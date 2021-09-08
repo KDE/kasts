@@ -20,7 +20,7 @@ class PodcastSearchModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum Roles {
-        Id,
+        Id = Qt::UserRole,
         Title,
         Url,
         OriginalUrl,
