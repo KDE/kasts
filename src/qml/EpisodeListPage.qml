@@ -17,8 +17,6 @@ Kirigami.ScrollablePage {
 
     title: i18n("Episode List")
 
-    property var episodeType: EpisodeModel.All
-
     supportsRefreshing: true
     onRefreshingChanged: {
         if(refreshing) {
@@ -52,15 +50,15 @@ Kirigami.ScrollablePage {
         }
     }
 
-    EpisodeModel {
-        id: episodeModel
+    EpisodeProxyModel {
+        id: episodeProxyModel
     }
 
     ListView {
         id: episodeList
         anchors.fill: parent
         visible: count !== 0
-        model: episodeModel
+        model: episodeProxyModel
 
         delegate: Kirigami.DelegateRecycler {
             width: episodeList.width

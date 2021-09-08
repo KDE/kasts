@@ -41,7 +41,7 @@
 #include "kasts-version.h"
 #include "models/downloadmodel.h"
 #include "models/entriesmodel.h"
-#include "models/episodemodel.h"
+#include "models/episodeproxymodel.h"
 #include "models/errorlogmodel.h"
 #include "models/feedsmodel.h"
 #include "models/podcastsearchmodel.h"
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel");
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
-    qmlRegisterType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel");
+    qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
     qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
     qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
 

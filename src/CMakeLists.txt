@@ -19,6 +19,7 @@ set(SRCS_base
     models/entriesmodel.cpp
     models/queuemodel.cpp
     models/episodemodel.cpp
+    models/episodeproxymodel.cpp
     models/downloadmodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
