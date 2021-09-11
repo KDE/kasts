@@ -62,6 +62,9 @@ Kirigami.ApplicationWindow {
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
 
+        // move mobile handles to toolbar
+        pageStack.globalToolBar.canContainHandles = true;
+
         // Delete played enclosures if set in settings
         if (SettingsManager.autoDeleteOnPlayed == 2) {
             DataManager.deletePlayedEnclosures();
