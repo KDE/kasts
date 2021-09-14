@@ -6,7 +6,7 @@ Kasts is a convergent podcast application.
 
 # Get it
 
-Nightly Android APKs are available at [KDE's Binary Factory](https://binary-factory.kde.org/view/Android/job/Kasts_android/).
+Nightly Android APKs are available at [KDE's Binary Factory](https://binary-factory.kde.org/view/Android/job/Kasts_Nightly_android-arm64/).
 
 # Building
 
