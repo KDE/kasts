@@ -110,6 +110,8 @@ Controls.ItemDelegate {
             icon.name: "overflow-menu"
             icon.color: "white"
             onClicked: actionOverlay.open()
+            Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
+            Kirigami.Theme.inherit: false
         }
 
         // Rounded edges
