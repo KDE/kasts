@@ -20,7 +20,7 @@ Controls.ItemDelegate {
     required property int cardSize
     required property int cardMargin
 
-    property int borderWidth: Kirigami.Units.devicePixelRatio
+    property int borderWidth: 1
 
     implicitWidth: cardSize + 2 * cardMargin
     implicitHeight: cardSize + 2 * cardMargin
