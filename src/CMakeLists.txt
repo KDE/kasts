@@ -133,6 +133,7 @@ if(ANDROID)
         delete
         settings-configure
         help-about-symbolic
+        tools-report-bug
         list-add
         list-remove
         view-refresh
