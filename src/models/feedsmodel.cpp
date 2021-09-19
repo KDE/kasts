@@ -32,9 +32,12 @@ FeedsModel::FeedsModel(QObject *parent)
 
 QHash<int, QByteArray> FeedsModel::roleNames() const
 {
-    QHash<int, QByteArray> roleNames;
-    roleNames[0] = "feed";
-    return roleNames;
+    return {
+        {FeedRole, "feed"},
+        {UrlRole, "url"},
+        {TitleRole, "title"},
+        {UnreadCountRole, "unreadCount"},
+    };
 }
 
 int FeedsModel::rowCount(const QModelIndex &parent) const
@@ -45,19 +48,22 @@ int FeedsModel::rowCount(const QModelIndex &parent) const
 
 QVariant FeedsModel::data(const QModelIndex &index, int role) const
 {
-    if (role != 0)
+    switch (role) {
+    case FeedRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row()));
+    case UrlRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->url());
+    case TitleRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->name());
+    case UnreadCountRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->unreadEntryCount());
+    default:
         return QVariant();
-    return QVariant::fromValue(DataManager::instance().getFeed(index.row()));
+    }
 }
 
-void FeedsModel::removeFeed(int index)
+// Hack to get a QItemSelection in QML
+QItemSelection FeedsModel::createSelection(int rowa, int rowb)
 {
-    DataManager::instance().removeFeed(index);
-}
-
-void FeedsModel::refreshAll()
-{
-    //    for (auto &feed : m_feeds) {
-    //        feed->refresh();
-    //    }
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

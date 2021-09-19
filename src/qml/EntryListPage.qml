@@ -59,13 +59,17 @@ Kirigami.ScrollablePage {
     contextualActions: [
         Kirigami.Action {
             iconName: "help-about-symbolic"
-            text: i18n("Details")
+            text: i18n("Podcast Details")
             onTriggered: {
                 while(pageStack.depth > 2)
                     pageStack.pop()
                 pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
             }
-        },
+        }
+        /* Remove this action for now; there are already actions on the FeedListPage
+         * and through context menus; it's confusing to mix it with actions on
+         * entries.
+        ,
         Kirigami.Action {
             iconName: "delete"
             text: i18n("Remove Podcast")
@@ -74,7 +78,7 @@ Kirigami.ScrollablePage {
                     pageStack.pop()
                 DataManager.removeFeed(feed)
             }
-        }
+        }*/
     ]
 
     // add the default actions through onCompleted to add them to the ones

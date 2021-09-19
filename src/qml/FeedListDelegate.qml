@@ -9,6 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.12 as Kirigami
 
@@ -19,49 +20,125 @@ Controls.ItemDelegate {
 
     required property int cardSize
     required property int cardMargin
-
     property int borderWidth: 1
-
     implicitWidth: cardSize + 2 * cardMargin
     implicitHeight: cardSize + 2 * cardMargin
+
+    property QtObject listView: undefined
+    property bool selected: false
+    property int row: model ? model.row : -1
+    property var activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
+    highlighted: selected
 
     Accessible.role: Accessible.Button
     Accessible.name: feed.name
     Accessible.onPressAction: {
-         feedDelegate.clicked();
-    }
-
-    onClicked: {
-        lastFeed = feed.url
-        if (pageStack.depth >  1)
-            pageStack.pop();
-        pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+         clicked();
     }
     Keys.onReturnPressed: clicked()
 
-    background: Kirigami.ShadowedRectangle {
-        anchors.fill: parent
-        anchors.margins: cardMargin
-        anchors.leftMargin: cardMargin
-        color: Kirigami.Theme.backgroundColor
-
-        radius: Kirigami.Units.smallSpacing
-
-        shadow.size: Kirigami.Units.largeSpacing
-        shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.15)
-        shadow.yOffset: borderWidth * 2
-
-        border.width: borderWidth
-        border.color: Qt.tint(Kirigami.Theme.textColor,
-                            Qt.rgba(color.r, color.g, color.b, 0.6))
+    // We need to update the "selected" status:
+    // - if the selected indexes changes
+    // - if our delegate moves
+    // - if the model moves and the delegate stays in the same place
+    function updateIsSelected() {
+        selected = listView.selectionModel.rowIntersectsSelection(row);
     }
 
-    contentItem: Item {
+    onRowChanged: {
+        updateIsSelected();
+    }
+
+    Component.onCompleted: {
+        updateIsSelected();
+    }
+
+    background: Rectangle {
+        // Background for highlighted / hovered / active items
+        Rectangle {
+            id: background
+            anchors.fill: parent
+            color: feedDelegate.checked || feedDelegate.highlighted || (feedDelegate.supportsMouseEvents && feedDelegate.pressed)
+                ? feedDelegate.activeBackgroundColor
+                : Kirigami.Theme.backgroundColor
+
+            Rectangle {
+                id: internal
+                property bool indicateActiveFocus: feedDelegate.pressed || Kirigami.Settings.tabletMode || feedDelegate.activeFocus || (feedDelegate.ListView.view ? feedDelegate.ListView.view.activeFocus : false)
+                anchors.fill: parent
+                visible: !Kirigami.Settings.tabletMode && feedDelegate.hoverEnabled
+                color: feedDelegate.activeBackgroundColor
+                opacity: (feedDelegate.hovered || feedDelegate.highlighted || feedDelegate.activeFocus) && !feedDelegate.pressed ? 0.5 : 0
+            }
+        }
+
+        Kirigami.ShadowedRectangle {
+            anchors.fill: parent
+            anchors.margins: cardMargin
+            anchors.leftMargin: cardMargin
+            color: Kirigami.Theme.backgroundColor
+
+            radius: Kirigami.Units.smallSpacing
+
+            shadow.size: Kirigami.Units.largeSpacing
+            shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.15)
+            shadow.yOffset: borderWidth * 2
+
+            border.width: borderWidth
+            border.color: Qt.tint(Kirigami.Theme.textColor, Qt.rgba(color.r, color.g, color.b, 0.6))
+        }
+    }
+
+    contentItem: MouseArea {
+        id: mouseArea
         anchors.fill: parent
         anchors.margins: cardMargin + borderWidth
         anchors.leftMargin: cardMargin + borderWidth
         implicitWidth:  cardSize - 2 * borderWidth
         implicitHeight: cardSize  - 2 * borderWidth
+
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: {
+            // Keep track of (currently) selected items
+            var modelIndex = feedDelegate.listView.model.index(index, 0);
+
+            if (feedDelegate.listView.selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
+                feedDelegate.listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
+            } else if (mouse.modifiers & Qt.ShiftModifier) {
+                // Have to take a detour through c++ since selecting large sets
+                // in QML is extremely slow
+                feedDelegate.listView.selectionModel.select(feedDelegate.listView.model.createSelection(modelIndex.row, feedDelegate.listView.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+            } else if (mouse.modifiers & Qt.ControlModifier) {
+                feedDelegate.listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+            } else if (mouse.button == Qt.LeftButton) {
+                feedDelegate.listView.currentIndex = index;
+                feedDelegate.listView.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                feedDelegate.clicked();
+            } else if (mouse.button == Qt.RightButton) {
+                // This item is right-clicked, but isn't selected
+                feedDelegate.listView.selectionForContextMenu = [modelIndex];
+                feedDelegate.listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
+            }
+        }
+
+        onPressAndHold: {
+            var modelIndex = feedDelegate.listView.model.index(index, 0);
+            feedDelegate.listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+        }
+
+        Connections {
+            target: listView.selectionModel
+            function onSelectionChanged() {
+                updateIsSelected();
+            }
+        }
+
+        Connections {
+            target: listView.model
+            function onLayoutChanged() {
+                updateIsSelected();
+            }
+        }
 
         ImageWithFallback {
             id: img
@@ -78,7 +155,7 @@ Controls.ItemDelegate {
             anchors.right: img.right
             width: actionsButton.width
             height: actionsButton.height
-            color: Kirigami.Theme.highlightColor
+            color: feedDelegate.activeBackgroundColor
             radius: Kirigami.Units.smallSpacing - 2 * borderWidth
         }
 
@@ -126,6 +203,13 @@ Controls.ItemDelegate {
                 }
             }
         }
+    }
+
+    onClicked: {
+        lastFeed = feed.url
+        if (pageStack.depth >  1)
+            pageStack.pop();
+        pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
     }
 
     Controls.ToolTip {

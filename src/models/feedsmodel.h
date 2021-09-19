@@ -9,6 +9,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QItemSelection>
 #include <QSqlTableModel>
 #include <QUrl>
 
@@ -19,10 +20,18 @@ class FeedsModel : public QAbstractListModel
     Q_OBJECT
 
 public:
+    enum Roles {
+        FeedRole = Qt::UserRole,
+        UrlRole,
+        TitleRole,
+        UnreadCountRole,
+    };
+    Q_ENUM(Roles)
+
     explicit FeedsModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
-    Q_INVOKABLE void removeFeed(int index);
-    Q_INVOKABLE void refreshAll();
+
+    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 };

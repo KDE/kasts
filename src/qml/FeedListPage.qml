@@ -9,6 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import Qt.labs.platform 1.1
 import QtQuick.Layouts 1.14
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.12 as Kirigami
 
@@ -31,6 +32,14 @@ Kirigami.ScrollablePage {
         }
     }
 
+    actions.main: Kirigami.Action {
+        text: i18n("Add Podcast")
+        iconName: "list-add"
+        onTriggered: {
+            addSheet.open()
+        }
+    }
+
     contextualActions: [
         Kirigami.Action {
             text: i18n("Refresh All Podcasts")
@@ -50,11 +59,11 @@ Kirigami.ScrollablePage {
         }
     ]
 
-    actions.main: Kirigami.Action {
-        text: i18n("Add Podcast")
-        iconName: "list-add"
-        onTriggered: {
-            addSheet.open()
+    // add the default actions through onCompleted to add them to the ones
+    // defined above
+    Component.onCompleted: {
+        for (var i in feedList.contextualActionList) {
+            contextualActions.push(feedList.contextualActionList[i]);
         }
     }
 
@@ -115,11 +124,156 @@ Kirigami.ScrollablePage {
             FeedListDelegate {
                 cardSize: feedList.availableWidth / feedList.columns - 2 * feedList.cardMargin
                 cardMargin: feedList.cardMargin
+                listView: feedList
             }
         }
 
         delegate: Kirigami.DelegateRecycler {
             sourceComponent: feedListDelegate
+        }
+
+        property var selectionForContextMenu: []
+        property ItemSelectionModel selectionModel: ItemSelectionModel {
+            id: selectionModel
+            model: feedList.model
+            onSelectionChanged: {
+                feedList.selectionForContextMenu = selectedIndexes;
+            }
+        }
+
+        // The selection is not updated when the model is reset, so we have to take
+        // this into account manually.
+        // TODO: Fix the fact that the current item is not highlighted after reset
+        Connections {
+            target: feedList.model
+            function onModelAboutToBeReset() {
+                selectionForContextMenu = [];
+                feedList.selectionModel.clear();
+                feedList.selectionModel.setCurrentIndex(model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
+                currentIndex = 0;
+            }
+        }
+        Keys.onPressed: {
+            if (event.matches(StandardKey.SelectAll)) {
+                feedList.selectionModel.select(model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
+                return;
+            }
+            switch (event.key) {
+                case Qt.Key_Left:
+                    selectRelative(-1, event.modifiers == Qt.ShiftModifier);
+                    return;
+                case Qt.Key_Right:
+                    selectRelative(1, event.modifiers == Qt.ShiftModifier);
+                    return;
+                case Qt.Key_Up:
+                    selectRelative(-columns, event.modifiers == Qt.ShiftModifier);
+                    return;
+                case Qt.Key_Down:
+                    selectRelative(columns, event.modifiers == Qt.ShiftModifier);
+                    return;
+                case Qt.Key_PageUp:
+                    if (!atYBeginning) {
+                        if ((contentY - feedList.height) < 0) {
+                            contentY = 0
+                        } else {
+                            contentY -= feedList.height
+                        }
+                        returnToBounds()
+                    }
+                    return;
+                case Qt.Key_PageDown:
+                    if (!atYEnd) {
+                        if ((contentY + feedList.height) > contentHeight - height) {
+                            contentY = contentHeight - height
+                        } else {
+                            contentY += feedList.height
+                        }
+                        returnToBounds()
+                    }
+                    return;
+                case Qt.Key_Home:
+                    if (!atYBeginning) {
+                        contentY = 0
+                        returnToBounds()
+                    }
+                    return;
+                case Qt.Key_End:
+                    if (!atYEnd) {
+                        contentY = contentHeight - height
+                        returnToBounds()
+                    }
+                    return;
+                default:
+                    break;
+            }
+        }
+
+        onActiveFocusChanged: {
+            if (activeFocus && !selectionModel.hasSelection) {
+                selectionModel.clear();
+                selectionModel.setCurrentIndex(model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
+            }
+        }
+
+        function selectRelative(delta, append) {
+            var nextRow = feedList.currentIndex + delta;
+            if (nextRow < 0) {
+                nextRow = feedList.currentIndex;
+            }
+            if (nextRow >= feedList.count) {
+                nextRow = feedList.currentIndex;
+            }
+            if (append) {
+                feedList.selectionModel.select(feedList.model.createSelection(nextRow, feedList.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+            } else {
+                feedList.selectionModel.setCurrentIndex(model.index(nextRow, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+            }
+        }
+
+        // For lack of a better place, we put generic entry list actions here so
+        // they can be re-used across the different ListViews.
+        property var deleteFeedAction: Kirigami.Action {
+            iconName: "delete"
+            text: i18n("Remove Podcast")
+            visible: feedList.selectionModel.hasSelection
+            onTriggered: {
+                for (var i in feedList.selectionForContextMenu) {
+                    DataManager.removeFeed(feedList.model.data(feedList.selectionForContextMenu[i], FeedsModel.FeedRole));
+                }
+            }
+        }
+
+        property var feedDetailsAction: Kirigami.Action {
+            iconName: "help-about-symbolic"
+            text: i18n("Podcast Details")
+            visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
+            onTriggered: {
+                while(pageStack.depth > 1)
+                    pageStack.pop()
+                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)})
+            }
+        }
+
+        property var contextualActionList: [feedDetailsAction,
+                                            deleteFeedAction]
+
+        property Controls.Menu contextMenu: Controls.Menu {
+            id: contextMenu
+
+            Controls.MenuItem {
+                action: feedList.feedDetailsAction
+                visible: (feedList.selectionForContextMenu.length == 1)
+                height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
+            }
+            Controls.MenuItem {
+                action: feedList.deleteFeedAction
+                visible: true
+                height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
+            }
+            onClosed: {
+                // reset to normal selection if this context menu is closed
+                feedList.selectionForContextMenu = feedList.selectionModel.selectedIndexes;
+            }
         }
     }
 }

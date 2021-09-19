@@ -17,7 +17,7 @@
 #include "models/entriesmodel.h"
 
 Feed::Feed(const QString &feedurl)
-    : QObject(nullptr)
+    : QObject(&DataManager::instance())
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:feedurl;"));
