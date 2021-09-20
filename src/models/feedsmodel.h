@@ -9,7 +9,6 @@
 
 #include <QAbstractListModel>
 #include <QHash>
-#include <QItemSelection>
 #include <QSqlTableModel>
 #include <QUrl>
 
@@ -32,6 +31,4 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
-
-    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 };

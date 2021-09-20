@@ -18,14 +18,16 @@ import org.kde.kasts 1.0
 Controls.ItemDelegate {
     id: feedDelegate
 
-    required property int cardSize
-    required property int cardMargin
+    property int cardSize: 0
+    property int cardMargin: 0
     property int borderWidth: 1
     implicitWidth: cardSize + 2 * cardMargin
     implicitHeight: cardSize + 2 * cardMargin
 
     property QtObject listView: undefined
     property bool selected: false
+    property bool isCurrentItem: false // to restore currentItem when model is resorted
+    property string currentItemUrl: ""
     property int row: model ? model.row : -1
     property var activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
     highlighted: selected
@@ -135,8 +137,26 @@ Controls.ItemDelegate {
 
         Connections {
             target: listView.model
+            function onLayoutAboutToBeChanged() {
+                if (feedList.currentItem === feedDelegate) {
+                    isCurrentItem = true;
+                    currentItemUrl = feed.url;
+                } else {
+                    isCurrentItem = false;
+                    currentItemUrl = "";
+                }
+            }
             function onLayoutChanged() {
                 updateIsSelected();
+                if (isCurrentItem) {
+                    // yet another hack because "index" is still giving the old
+                    // value here; so we have to manually find the new index.
+                    for (var i = 0; i < feedList.model.rowCount(); i++) {
+                        if (feedList.model.data(feedList.model.index(i, 0), FeedsModel.UrlRole) == currentItemUrl) {
+                            feedList.currentIndex = i;
+                        }
+                    }
+                }
             }
         }
 

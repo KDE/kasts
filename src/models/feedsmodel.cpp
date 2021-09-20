@@ -28,6 +28,14 @@ FeedsModel::FeedsModel(QObject *parent)
         beginRemoveRows(QModelIndex(), index, index);
         endRemoveRows();
     });
+    connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [=](const QString &url) {
+        for (int i = 0; i < rowCount(QModelIndex()); i++) {
+            if (data(index(i, 0), UrlRole).toString() == url) {
+                Q_EMIT dataChanged(index(i, 0), index(i, 0));
+                return;
+            }
+        }
+    });
 }
 
 QHash<int, QByteArray> FeedsModel::roleNames() const
@@ -60,10 +68,4 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
     default:
         return QVariant();
     }
-}
-
-// Hack to get a QItemSelection in QML
-QItemSelection FeedsModel::createSelection(int rowa, int rowb)
-{
-    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

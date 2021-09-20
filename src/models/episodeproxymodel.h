@@ -30,8 +30,7 @@ public:
     Q_PROPERTY(FilterType filterType READ filterType WRITE setFilterType NOTIFY filterTypeChanged)
     Q_PROPERTY(QString filterName READ filterName NOTIFY filterTypeChanged)
 
-    explicit EpisodeProxyModel();
-    ~EpisodeProxyModel();
+    explicit EpisodeProxyModel(QObject *parent = nullptr);
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 

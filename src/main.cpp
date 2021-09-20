@@ -45,7 +45,7 @@
 #include "models/episodemodel.h"
 #include "models/episodeproxymodel.h"
 #include "models/errorlogmodel.h"
-#include "models/feedsmodel.h"
+#include "models/feedsproxymodel.h"
 #include "models/podcastsearchmodel.h"
 #include "models/queuemodel.h"
 #include "mpris2/mpris2.h"
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
 
-    qmlRegisterType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel");
+    qmlRegisterType<FeedsProxyModel>("org.kde.kasts", 1, 0, "FeedsProxyModel");
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
     qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
@@ -130,6 +130,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
     qmlRegisterUncreatableType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel", QStringLiteral("Only for enums"));
+    qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
 
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());

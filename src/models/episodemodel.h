@@ -25,7 +25,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    explicit EpisodeModel();
+    explicit EpisodeModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;

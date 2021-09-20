@@ -115,21 +115,14 @@ Kirigami.ScrollablePage {
         cellWidth: availableWidth / columns
         cellHeight: availableWidth / columns
 
-        model: FeedsModel {
+        model: FeedsProxyModel {
             id: feedsModel
         }
 
-        Component {
-            id: feedListDelegate
-            FeedListDelegate {
-                cardSize: feedList.availableWidth / feedList.columns - 2 * feedList.cardMargin
-                cardMargin: feedList.cardMargin
-                listView: feedList
-            }
-        }
-
-        delegate: Kirigami.DelegateRecycler {
-            sourceComponent: feedListDelegate
+        delegate: FeedListDelegate {
+            cardSize: feedList.availableWidth / feedList.columns - 2 * feedList.cardMargin
+            cardMargin: feedList.cardMargin
+            listView: feedList
         }
 
         property var selectionForContextMenu: []
@@ -153,6 +146,7 @@ Kirigami.ScrollablePage {
                 currentIndex = 0;
             }
         }
+
         Keys.onPressed: {
             if (event.matches(StandardKey.SelectAll)) {
                 feedList.selectionModel.select(model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);

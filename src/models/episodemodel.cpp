@@ -12,8 +12,8 @@
 #include "datamanager.h"
 #include "entry.h"
 
-EpisodeModel::EpisodeModel()
-    : QAbstractListModel(nullptr)
+EpisodeModel::EpisodeModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
     // When feed is updated, the entire model needs to be reset because we
     // cannot know where the new entries will be inserted into the list (or that

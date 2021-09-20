@@ -11,17 +11,12 @@
 #include "datamanager.h"
 #include "entry.h"
 
-EpisodeProxyModel::EpisodeProxyModel()
-    : QSortFilterProxyModel(nullptr)
+EpisodeProxyModel::EpisodeProxyModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
     m_currentFilter = NoFilter;
-    m_episodeModel = new EpisodeModel();
+    m_episodeModel = new EpisodeModel(this);
     setSourceModel(m_episodeModel);
-}
-
-EpisodeProxyModel::~EpisodeProxyModel()
-{
-    delete m_episodeModel;
 }
 
 bool EpisodeProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const

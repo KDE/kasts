@@ -17,6 +17,7 @@ set(SRCS_base
     storagemovejob.cpp
     models/chaptermodel.cpp
     models/feedsmodel.cpp
+    models/feedsproxymodel.cpp
     models/entriesmodel.cpp
     models/queuemodel.cpp
     models/episodemodel.cpp
