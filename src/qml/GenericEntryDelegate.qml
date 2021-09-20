@@ -248,13 +248,6 @@ Kirigami.SwipeListItem {
                 }
             }
         }
-        Controls.Menu {
-            id: contextMenu
-
-            Controls.MenuItem {
-                action: listView.addToQueueAction
-            }
-        }
     }
 
     onClicked: {

@@ -43,7 +43,6 @@ ListView {
     Connections {
         target: listView.model
         function onModelAboutToBeReset() {
-            startOfSelection = -1;
             selectionForContextMenu = [];
             listView.selectionModel.clear();
             listView.selectionModel.setCurrentIndex(model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
@@ -230,34 +229,42 @@ ListView {
         Controls.MenuItem {
             action: listView.addToQueueAction
             visible: !listView.isQueue && (singleSelectedEntry ? !singleSelectedEntry.queueStatus : true)
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.removeFromQueueAction
             visible: singleSelectedEntry ? singleSelectedEntry.queueStatus : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.markPlayedAction
             visible: singleSelectedEntry ? !singleSelectedEntry.read : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.markNotPlayedAction
             visible: singleSelectedEntry ? singleSelectedEntry.read : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.markNewAction
             visible: singleSelectedEntry ? !singleSelectedEntry.new : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.markNotNewAction
             visible: singleSelectedEntry ? singleSelectedEntry.new : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
          }
         Controls.MenuItem {
             action: listView.downloadEnclosureAction
             visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: listView.deleteEnclosureAction
             visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         onClosed: {
             // reset to normal selection if this context menu is closed
