@@ -243,6 +243,11 @@ void DataManager::removeFeed(const int index)
     query.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(query);
 
+    // Delete Chapters
+    query.prepare(QStringLiteral("DELETE FROM Chapters WHERE feed=:feed;"));
+    query.bindValue(QStringLiteral(":feed"), feedurl);
+    Database::instance().execute(query);
+
     // Delete Entries
     query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), feedurl);

@@ -110,6 +110,28 @@ Kirigami.Page {
                     }
                 }
             }
+            Item {
+                Kirigami.PlaceholderMessage {
+                    visible: chapterList.count === 0
+
+                    width: parent.width
+                    anchors.centerIn: parent
+
+                    text: i18n("No chapter marks found.")
+                }
+                ListView {
+                    id: chapterList
+                    model: ChapterModel {
+                        enclosureId: AudioManager.entry.id
+                    }
+                    clip: true
+                    visible: chapterList.count !== 0
+                    anchors.fill: parent
+                    delegate: ChapterListDelegate {
+                        entry: AudioManager.entry
+                    }
+                }
+            }
         }
 
         Controls.PageIndicator {
@@ -248,5 +270,4 @@ Kirigami.Page {
             }
         }
     }
-
 }

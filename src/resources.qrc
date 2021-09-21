@@ -28,6 +28,7 @@
         <file alias="PlaybackRateDialog.qml">qml/PlaybackRateDialog.qml</file>
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
+        <file alias="ChapterListDelegate.qml">qml/ChapterListDelegate.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
     </qresource>

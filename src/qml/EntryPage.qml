@@ -86,6 +86,20 @@ Kirigami.ScrollablePage {
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
         }
+        ListView {
+            Layout.fillWidth: true
+            height: contentHeight
+            interactive: false
+            Layout.leftMargin: Kirigami.Units.gridUnit
+            Layout.rightMargin: Kirigami.Units.gridUnit
+            Layout.bottomMargin: Kirigami.Units.gridUnit
+            model: ChapterModel {
+                enclosureId: entry.id
+            }
+            delegate: ChapterListDelegate {
+                entry: page.entry
+            }
+        }
     }
 
     actions.main: Kirigami.Action {

@@ -47,6 +47,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo3());
     if (dbversion < 4)
         TRUE_OR_RETURN(migrateTo4());
+    if (dbversion < 5)
+        TRUE_OR_RETURN(migrateTo5());
     return true;
 }
 
@@ -110,6 +112,15 @@ bool Database::migrateTo4()
     return true;
 }
 
+bool Database::migrateTo5()
+{
+    qDebug() << "Migrating database to version 5";
+    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Chapters (feed TEXT, id TEXT, start INTEGER, title TEXT, link TEXT, image TEXT);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 5;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    return true;
+}
 bool Database::execute(const QString &query)
 {
     QSqlQuery q;

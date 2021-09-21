@@ -77,6 +77,7 @@ private:
     bool processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed); // returns true if this is a new entry; false if it already existed
     void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
     void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
+    void processChapter(const QString &url, const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
 
     QNetworkReply *head(QNetworkRequest &request) const;
     void setHeader(QNetworkRequest &request) const;

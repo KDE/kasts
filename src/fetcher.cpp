@@ -19,7 +19,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QTextDocumentFragment>
-
+#include <QTime>
 #include <Syndication/Syndication>
 
 #include "database.h"
@@ -303,6 +303,22 @@ bool Fetcher::processEntry(Syndication::ItemPtr entry, const QString &url, bool 
             processAuthor(url, entry->id(), authorName, QLatin1String(""), QLatin1String(""));
     }
 
+    /* Process chapters */
+    if (otherItems.value(QStringLiteral("http://podlove.org/simple-chapterschapters")).hasChildNodes()) {
+        QDomNodeList nodelist = otherItems.value(QStringLiteral("http://podlove.org/simple-chapterschapters")).childNodes();
+        for (int i = 0; i < nodelist.length(); i++) {
+            if (nodelist.item(i).nodeName() == QStringLiteral("psc:chapter")) {
+                QDomElement element = nodelist.at(i).toElement();
+                QString title = element.attribute(QStringLiteral("title"));
+                QString start = element.attribute(QStringLiteral("start"));
+                QTime startString = QTime::fromString(start, QStringLiteral("hh:mm:ss.zzz"));
+                int startInt = startString.hour() * 60 * 60 + startString.minute() * 60 + startString.second();
+                QString images = element.attribute(QStringLiteral("image"));
+                processChapter(url, entry->id(), startInt, title, entry->link(), images);
+            }
+        }
+    }
+
     // only process first enclosure if there are multiple (e.g. mp3 and ogg);
     // the first one is probably the podcast author's preferred version
     // TODO: handle more than one enclosure?
@@ -363,6 +379,25 @@ void Fetcher::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication:
     query.bindValue(QStringLiteral(":url"), enclosure->url());
     query.bindValue(QStringLiteral(":playposition"), 0);
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloadable));
+    Database::instance().execute(query);
+}
+
+void Fetcher::processChapter(const QString &url,
+                             const QString &entryId,
+                             const int &start,
+                             const QString &chapterTitle,
+                             const QString &link,
+                             const QString &image)
+{
+    QSqlQuery query;
+
+    query.prepare(QStringLiteral("INSERT INTO Chapters VALUES(:feed, :id, :start, :title, :link, :image);"));
+    query.bindValue(QStringLiteral(":feed"), url);
+    query.bindValue(QStringLiteral(":id"), entryId);
+    query.bindValue(QStringLiteral(":start"), start);
+    query.bindValue(QStringLiteral(":title"), chapterTitle);
+    query.bindValue(QStringLiteral(":link"), link);
+    query.bindValue(QStringLiteral(":image"), image);
     Database::instance().execute(query);
 }
 

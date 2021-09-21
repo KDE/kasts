@@ -15,6 +15,7 @@ set(SRCS_base
     enclosuredownloadjob.cpp
     storagemanager.cpp
     storagemovejob.cpp
+    models/chaptermodel.cpp
     models/feedsmodel.cpp
     models/entriesmodel.cpp
     models/queuemodel.cpp
