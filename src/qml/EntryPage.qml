@@ -84,7 +84,7 @@ Kirigami.ScrollablePage {
             Layout.fillHeight: true
             onLinkActivated: Qt.openUrlExternally(link)
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
-            font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Units.fontMetrics.font.pointSize
+            font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
         }
     }
 
