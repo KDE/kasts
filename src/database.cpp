@@ -55,6 +55,7 @@ bool Database::migrate()
 bool Database::migrateTo1()
 {
     qDebug() << "Migrating database to version 1";
+    TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feeds (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT, deleteAfterCount INTEGER, "
                                "deleteAfterType INTEGER, subscribed INTEGER, lastUpdated INTEGER, new BOOL, notify BOOL);")));
@@ -68,24 +69,25 @@ bool Database::migrateTo1()
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Queue (listnr INTEGER, feed TEXT, id TEXT, playing BOOL);")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 1;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
 
 bool Database::migrateTo2()
 {
     qDebug() << "Migrating database to version 2";
-    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 2;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
 
 bool Database::migrateTo3()
 {
     qDebug() << "Migrating database to version 3";
-    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosurestemp (feed TEXT, id TEXT, duration INTEGER, size INTEGER, title TEXT, type TEXT, url "
                                "TEXT, playposition INTEGER, downloaded INTEGER);")));
@@ -96,31 +98,32 @@ bool Database::migrateTo3()
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 3;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
 
 bool Database::migrateTo4()
 {
     qDebug() << "Migrating database to version 4";
-    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errors (type INTEGER, url TEXT, id TEXT, code INTEGER, message TEXT, date INTEGER, title TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 4;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
 
 bool Database::migrateTo5()
 {
     qDebug() << "Migrating database to version 5";
-    TRUE_OR_RETURN(execute(QStringLiteral("BEGIN TRANSACTION;")));
+    TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Chapters (feed TEXT, id TEXT, start INTEGER, title TEXT, link TEXT, image TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 5;")));
-    TRUE_OR_RETURN(execute(QStringLiteral("COMMIT;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
+
 bool Database::execute(const QString &query)
 {
     QSqlQuery q;
@@ -137,6 +140,16 @@ bool Database::execute(QSqlQuery &query)
         return false;
     }
     return true;
+}
+
+bool Database::transaction()
+{
+    return QSqlDatabase::database().transaction();
+}
+
+bool Database::commit()
+{
+    return QSqlDatabase::database().commit();
 }
 
 int Database::version()

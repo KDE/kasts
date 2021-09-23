@@ -17,11 +17,13 @@
 #include <QStandardPaths>
 
 #include "enclosure.h"
+#include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "storagemovejob.h"
 
 StorageManager::StorageManager()
 {
+    connect(this, &StorageManager::error, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 }
 
 QString StorageManager::storagePath() const

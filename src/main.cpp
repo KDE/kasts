@@ -132,8 +132,8 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
 
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AboutType", &AboutType::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadModel", &DownloadModel::instance());

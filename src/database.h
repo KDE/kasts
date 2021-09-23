@@ -9,6 +9,7 @@
 
 #include <QObject>
 #include <QSqlQuery>
+#include <QString>
 
 class Database : public QObject
 {
@@ -22,6 +23,9 @@ public:
     }
     bool execute(QSqlQuery &query);
     bool execute(const QString &query);
+
+    bool transaction();
+    bool commit();
 
 private:
     Database();

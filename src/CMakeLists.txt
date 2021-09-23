@@ -16,6 +16,8 @@ set(SRCS_base
     enclosuredownloadjob.cpp
     storagemanager.cpp
     storagemovejob.cpp
+    updatefeedjob.cpp
+    fetchfeedsjob.cpp
     models/chaptermodel.cpp
     models/feedsmodel.cpp
     models/feedsproxymodel.cpp

@@ -44,11 +44,9 @@ Feed::Feed(const QString &feedurl)
 
     updateAuthors();
 
-    connect(&Fetcher::instance(), &Fetcher::startedFetchingFeed, this, [this](const QString &url) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const QString &url, bool status) {
         if (url == m_url) {
-            m_errorId = 0;
-            m_errorString = QString();
-            setRefreshing(true);
+            setRefreshing(status);
         }
     });
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
@@ -71,11 +69,6 @@ Feed::Feed(const QString &feedurl)
                     setRefreshing(false);
                 }
             });
-    connect(&Fetcher::instance(), &Fetcher::feedUpdateFinished, this, [this](const QString &url) {
-        if (url == m_url) {
-            setRefreshing(false);
-        }
-    });
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
@@ -300,6 +293,10 @@ void Feed::setRefreshing(bool refreshing)
 {
     if (refreshing != m_refreshing) {
         m_refreshing = refreshing;
+        if (!m_refreshing) {
+            m_errorId = 0;
+            m_errorString = QString();
+        }
         Q_EMIT refreshingChanged(m_refreshing);
     }
 }

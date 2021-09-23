@@ -49,11 +49,11 @@ DataManager::DataManager()
             }
         });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
+        Q_UNUSED(feedurl)
         // Only add the new entry to m_entries
         // we will repopulate m_entrymap once all new entries have been added,
         // such that m_entrymap will show all new entries in the correct order
         m_entries[id] = nullptr;
-        Q_EMIT entryAdded(feedurl, id);
     });
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &feedurl) {
         // Update m_entrymap for feedurl, such that the new and old entries show
@@ -563,7 +563,7 @@ void DataManager::bulkMarkReadByIndex(bool state, QModelIndexList list)
 
 void DataManager::bulkMarkRead(bool state, QStringList list)
 {
-    Database::instance().execute(QStringLiteral("BEGIN TRANSACTION;"));
+    Database::instance().transaction();
 
     if (state) { // Mark as read
         // This needs special attention as the DB operations are very intensive.
@@ -577,7 +577,7 @@ void DataManager::bulkMarkRead(bool state, QStringList list)
             getEntry(id)->setReadInternal(state);
         }
     }
-    Database::instance().execute(QStringLiteral("COMMIT;"));
+    Database::instance().commit();
 
     Q_EMIT bulkReadStatusActionFinished();
 }
@@ -589,11 +589,11 @@ void DataManager::bulkMarkNewByIndex(bool state, QModelIndexList list)
 
 void DataManager::bulkMarkNew(bool state, QStringList list)
 {
-    Database::instance().execute(QStringLiteral("BEGIN TRANSACTION;"));
+    Database::instance().transaction();
     for (QString id : list) {
         getEntry(id)->setNewInternal(state);
     }
-    Database::instance().execute(QStringLiteral("COMMIT;"));
+    Database::instance().commit();
 
     Q_EMIT bulkNewStatusActionFinished();
 }
@@ -605,7 +605,7 @@ void DataManager::bulkQueueStatusByIndex(bool state, QModelIndexList list)
 
 void DataManager::bulkQueueStatus(bool state, QStringList list)
 {
-    Database::instance().execute(QStringLiteral("BEGIN TRANSACTION;"));
+    Database::instance().transaction();
     if (state) { // i.e. add to queue
         for (QString id : list) {
             getEntry(id)->setQueueStatusInternal(state);
@@ -619,7 +619,7 @@ void DataManager::bulkQueueStatus(bool state, QStringList list)
         }
         updateQueueListnrs();
     }
-    Database::instance().execute(QStringLiteral("COMMIT;"));
+    Database::instance().commit();
 
     Q_EMIT bulkReadStatusActionFinished();
     Q_EMIT bulkNewStatusActionFinished();
@@ -647,13 +647,13 @@ void DataManager::bulkDeleteEnclosuresByIndex(QModelIndexList list)
 
 void DataManager::bulkDeleteEnclosures(QStringList list)
 {
-    Database::instance().execute(QStringLiteral("BEGIN TRANSACTION;"));
+    Database::instance().transaction();
     for (QString id : list) {
         if (getEntry(id)->hasEnclosure()) {
             getEntry(id)->enclosure()->deleteFile();
         }
     }
-    Database::instance().execute(QStringLiteral("COMMIT;"));
+    Database::instance().commit();
 }
 
 QStringList DataManager::getIdsFromModelIndexList(const QModelIndexList &list) const

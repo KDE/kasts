@@ -234,6 +234,12 @@ Kirigami.ApplicationWindow {
                      Fetcher.updateTotal,
                      Fetcher.updateProgress)
 
+        showAbortButton: true
+
+        function abortAction() {
+            Fetcher.cancelFetching();
+        }
+
         Connections {
             target: Fetcher
             function onUpdatingChanged() {

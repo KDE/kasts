@@ -14,6 +14,7 @@
 #include <QUrl>
 #include <Syndication/Syndication>
 
+#include "enclosure.h"
 #include "error.h"
 
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
@@ -49,7 +50,7 @@ public:
     Q_INVOKABLE bool isMeteredConnection() const;
 
 Q_SIGNALS:
-    void startedFetchingFeed(const QString &url);
+    void entryAdded(const QString &feedurl, const QString &id);
     void feedUpdated(const QString &url);
     void feedDetailsUpdated(const QString &url,
                             const QString &name,
@@ -57,27 +58,18 @@ Q_SIGNALS:
                             const QString &link,
                             const QString &description,
                             const QDateTime &lastUpdated);
-    void feedUpdateFinished(const QString &url);
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
-    void entryAdded(const QString &feedurl, const QString &id);
-    void downloadFinished(QString url) const;
+    void feedUpdateStatusChanged(const QString &url, bool status);
+    void cancelFetching();
 
     void updateProgressChanged(int progress);
     void updateTotalChanged(int nrOfFeeds);
     void updatingChanged(bool state);
 
-private Q_SLOTS:
-    void updateMonitor(int progress);
+    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void downloadFinished(QString url) const;
 
 private:
     Fetcher();
-
-    void retrieveFeed(const QString &url);
-    void processFeed(Syndication::FeedPtr feed, const QString &url);
-    bool processEntry(Syndication::ItemPtr entry, const QString &url, bool isNewFeed); // returns true if this is a new entry; false if it already existed
-    void processAuthor(const QString &url, const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
-    void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry, const QString &feedUrl);
-    void processChapter(const QString &url, const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
 
     QNetworkReply *head(QNetworkRequest &request) const;
     void setHeader(QNetworkRequest &request) const;
