@@ -621,7 +621,9 @@ void DataManager::bulkDownloadEnclosures(QStringList list)
 {
     bulkQueueStatus(true, list);
     for (QString id : list) {
-        getEntry(id)->enclosure()->download();
+        if (getEntry(id)->hasEnclosure()) {
+            getEntry(id)->enclosure()->download();
+        }
     }
 }
 
@@ -634,7 +636,9 @@ void DataManager::bulkDeleteEnclosures(QStringList list)
 {
     Database::instance().execute(QStringLiteral("BEGIN TRANSACTION;"));
     for (QString id : list) {
-        getEntry(id)->enclosure()->deleteFile();
+        if (getEntry(id)->hasEnclosure()) {
+            getEntry(id)->enclosure()->deleteFile();
+        }
     }
     Database::instance().execute(QStringLiteral("COMMIT;"));
 }
