@@ -231,8 +231,22 @@ Kirigami.ScrollablePage {
             text: i18n("Remove Podcast")
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
+                // First get an array of pointers to the feeds to be deleted
+                // because the selected QModelIndexes will no longer be valid
+                // after we start deleting feeds.
+                var feeds = [];
                 for (var i in feedList.selectionForContextMenu) {
-                    DataManager.removeFeed(feedList.model.data(feedList.selectionForContextMenu[i], FeedsModel.FeedRole));
+                    feeds[i] = feedList.model.data(feedList.selectionForContextMenu[i], FeedsModel.FeedRole);
+                }
+                for (var i in feeds) {
+                    console.log(lastFeed);
+                    console.log(feeds[i].url);
+                    if (lastFeed === feeds[i].url) {
+                        while (pageStack.depth > 1) {
+                            pageStack.pop();
+                        }
+                    }
+                    DataManager.removeFeed(feeds[i]);
                 }
             }
         }
