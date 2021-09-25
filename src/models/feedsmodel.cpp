@@ -36,6 +36,14 @@ FeedsModel::FeedsModel(QObject *parent)
             }
         }
     });
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [=](const QString &url) {
+        for (int i = 0; i < rowCount(QModelIndex()); i++) {
+            if (data(index(i, 0), UrlRole).toString() == url) {
+                Q_EMIT dataChanged(index(i, 0), index(i, 0));
+                return;
+            }
+        }
+    });
 }
 
 QHash<int, QByteArray> FeedsModel::roleNames() const

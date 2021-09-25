@@ -239,8 +239,6 @@ Kirigami.ScrollablePage {
                     feeds[i] = feedList.model.data(feedList.selectionForContextMenu[i], FeedsModel.FeedRole);
                 }
                 for (var i in feeds) {
-                    console.log(lastFeed);
-                    console.log(feeds[i].url);
                     if (lastFeed === feeds[i].url) {
                         while (pageStack.depth > 1) {
                             pageStack.pop();
