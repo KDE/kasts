@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
+import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.14
 
@@ -78,14 +78,13 @@ Kirigami.ScrollablePage {
     }
     ListView {
         anchors.fill: parent
+        reuseItems: true
+
         model: PodcastSearchModel {
             id: podcastSearchModel
         }
         spacing: 5
         clip: true
-        delegate: Kirigami.DelegateRecycler {
-            width: parent ? parent.width : implicitWidth
-            sourceComponent: delegateComponent
-        }
+        delegate: delegateComponent
     }
 }

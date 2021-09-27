@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
 
@@ -45,6 +45,8 @@ Kirigami.OverlaySheet {
         id: errorList
         visible: errorList.count > 0
         implicitWidth: Kirigami.Units.gridUnit * 20
+        reuseItems: true
+
         model: ErrorLogModel
 
         Component {
@@ -89,10 +91,7 @@ Kirigami.OverlaySheet {
             }
         }
 
-        delegate: Kirigami.DelegateRecycler {
-            width: errorList.width
-            sourceComponent: errorListDelegate
-        }
+        delegate: errorListDelegate
     }
 
     contentItem: errorList.count > 0 ? errorList : placeholder

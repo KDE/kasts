@@ -131,13 +131,9 @@ Kirigami.ScrollablePage {
         id: episodeList
         anchors.fill: parent
         visible: count !== 0
-        model: episodeProxyModel
+        reuseItems: true
 
-        // TODO: seems like reuseItems is way too slow; using DelegateRecycler
-        // for now; still have to find out why...
-        delegate: Kirigami.DelegateRecycler {
-            width: episodeList.width
-            sourceComponent: episodeListDelegate
-        }
+        model: episodeProxyModel
+        delegate: episodeListDelegate
     }
 }
