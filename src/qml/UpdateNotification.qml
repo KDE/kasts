@@ -33,9 +33,8 @@ Rectangle {
 
     color: Kirigami.Theme.activeTextColor
 
-    width: feedUpdateCountLabel.width + 3 * Kirigami.Units.largeSpacing +
-           indicator.width + (showAbortButton ? abortButton.implicitWidth + Kirigami.Units.largeSpacing : 0)
-    height: indicator.height
+    implicitWidth: feedUpdateCountLabel.implicitWidth + 3 * Kirigami.Units.largeSpacing + indicator.implicitWidth + (showAbortButton ? abortButton.implicitWidth + Kirigami.Units.largeSpacing : 0)
+    implicitHeight: Math.max(Math.max(indicator.implicitHeight, feedUpdateCountLabel.implicitHeight), showAbortButton ? abortButton.implicitHeight + Kirigami.Units.largeSpacing : 0)
 
     visible: opacity > 0
     opacity: 0
