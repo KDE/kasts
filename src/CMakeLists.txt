@@ -3,6 +3,7 @@
 
 set(SRCS_base
     main.cpp
+    about.cpp
     fetcher.cpp
     database.cpp
     entry.cpp

@@ -31,6 +31,7 @@
 #ifdef Q_OS_ANDROID
 #include "androidlogging.h"
 #endif
+#include "about.h"
 #include "audiomanager.h"
 #include "author.h"
 #include "database.h"
@@ -118,8 +119,6 @@ int main(int argc, char *argv[])
     }
     about.processCommandLine(&parser);
 
-    engine.rootContext()->setContextProperty(QStringLiteral("_aboutData"), QVariant::fromValue(about));
-
     qmlRegisterType<FeedsProxyModel>("org.kde.kasts", 1, 0, "FeedsProxyModel");
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
@@ -132,6 +131,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel", QStringLiteral("Only for enums"));
     qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
 
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AboutType", &AboutType::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
