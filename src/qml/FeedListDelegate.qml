@@ -246,17 +246,26 @@ Controls.ItemDelegate {
         header: Kirigami.Heading {
             text: feed.name
             level: 2
-            wrapMode: Text.Wrap
+            elide: Text.ElideRight
         }
 
         contentItem: ColumnLayout {
-            RowLayout {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 20
-                spacing: 0
+                Kirigami.BasicListItem {
+                    Layout.fillWidth: true
+                    leftPadding: Kirigami.Units.smallSpacing
+                    rightPadding: 0
+                    onClicked: {
+                        while(pageStack.depth > 1)
+                            pageStack.pop()
+                        pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
+                        actionOverlay.close();
+                    }
+                    icon: "help-about-symbolic"
+                    text: i18n("Podcast Details")
+                }
 
                 Kirigami.BasicListItem {
                     Layout.fillWidth: true
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                     leftPadding: Kirigami.Units.smallSpacing
                     rightPadding: 0
                     onClicked: {
@@ -269,7 +278,6 @@ Controls.ItemDelegate {
                     icon: "delete"
                     text: i18n("Remove Podcast")
                 }
-            }
 
         }
     }

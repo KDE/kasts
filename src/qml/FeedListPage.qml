@@ -226,9 +226,27 @@ Kirigami.ScrollablePage {
 
         // For lack of a better place, we put generic entry list actions here so
         // they can be re-used across the different ListViews.
+        property var selectAllAction: Kirigami.Action {
+            iconName: "edit-select-all"
+            text: i18n("Select All")
+            visible: true
+            onTriggered: {
+                feedList.selectionModel.select(feedList.model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
+            }
+        }
+
+        property var selectNoneAction: Kirigami.Action {
+            iconName: "edit-select-none"
+            text: i18n("Deselect All")
+            visible: feedList.selectionModel.hasSelection
+            onTriggered: {
+                feedList.selectionModel.clearSelection();
+            }
+        }
+
         property var deleteFeedAction: Kirigami.Action {
             iconName: "delete"
-            text: i18n("Remove Podcast")
+            text: i18np("Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 // First get an array of pointers to the feeds to be deleted
@@ -255,13 +273,15 @@ Kirigami.ScrollablePage {
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {
                 while(pageStack.depth > 1)
-                    pageStack.pop()
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)})
+                    pageStack.pop();
+                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)});
             }
         }
 
         property var contextualActionList: [feedDetailsAction,
-                                            deleteFeedAction]
+                                            deleteFeedAction,
+                                            selectAllAction,
+                                            selectNoneAction]
 
         property Controls.Menu contextMenu: Controls.Menu {
             id: contextMenu
