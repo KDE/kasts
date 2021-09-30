@@ -246,7 +246,7 @@ Kirigami.ScrollablePage {
 
         property var deleteFeedAction: Kirigami.Action {
             iconName: "delete"
-            text: i18np("Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
+            text: i18ncp("context menu action", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 // First get an array of pointers to the feeds to be deleted

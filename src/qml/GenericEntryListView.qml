@@ -204,7 +204,7 @@ ListView {
     }
 
     property var deleteEnclosureAction: Kirigami.Action {
-        text: i18np("Delete Download", "Delete Downloads", selectionForContextMenu.length)
+        text: i18ncp("context menu action", "Delete Download", "Delete Downloads", selectionForContextMenu.length)
         icon.name: "delete"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true)
         onTriggered: {
