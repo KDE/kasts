@@ -237,8 +237,13 @@ void DataManager::removeFeed(const int index)
     // Then delete everything from the database
     qCDebug(kastsDataManager) << "delete database part of" << feedurl;
 
-    // Delete Authors
+    // Delete related Errors
     QSqlQuery query;
+    query.prepare(QStringLiteral("DELETE FROM Errors WHERE url=:url;"));
+    query.bindValue(QStringLiteral(":url"), feedurl);
+    Database::instance().execute(query);
+
+    // Delete Authors
     query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), feedurl);
     Database::instance().execute(query);
@@ -502,7 +507,15 @@ void DataManager::exportFeeds(const QString &path)
 
 void DataManager::loadFeed(const QString feedurl) const
 {
-    m_feeds[feedurl] = new Feed(feedurl);
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT url FROM Feeds WHERE url=:feedurl;"));
+    query.bindValue(QStringLiteral(":feedurl"), feedurl);
+    Database::instance().execute(query);
+    if (!query.next()) {
+        qWarning() << "Failed to load feed" << feedurl;
+    } else {
+        m_feeds[feedurl] = new Feed(feedurl);
+    }
 }
 
 void DataManager::loadEntry(const QString id) const
