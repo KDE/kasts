@@ -44,37 +44,63 @@ Kirigami.ScrollablePage {
     }
 
     ColumnLayout {
-        Kirigami.Heading {
-            text: feed.description;
-            level: 3
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
+            text: feed.description
+            font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.2)
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        Controls.Label {
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
             text: i18nc("by <Author(s)>", "by %1", author)
             visible: author !== ""
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        Controls.Label {
-            text: "<a href='%1'>%1</a>".arg(feed.link)
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
+            text: i18n("Podcast URL") + ": <a href='%1'>%1</a>".arg(feed.url)
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+        }
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
+            text: i18n("Weblink") + ": <a href='%1'>%1</a>".arg(feed.link)
             onLinkActivated: Qt.openUrlExternally(link)
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        Controls.Label {
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
             text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
             visible: isSubscribed
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        Controls.Label {
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
             text: isSubscribed ? i18n("Last Updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
             visible: isSubscribed
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        Controls.Label {
+        TextEdit {
+            readOnly: true
+            selectByMouse: true
+            textFormat:TextEdit.RichText
             text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
             visible: isSubscribed
             wrapMode: Text.WordWrap

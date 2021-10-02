@@ -73,9 +73,11 @@ Kirigami.ScrollablePage {
             subtitle: entry.feed.name
         }
 
-        Controls.Label {
+        TextEdit {
             id: textLabel
             Layout.margins: Kirigami.Units.gridUnit
+            readOnly: true
+            selectByMouse: true
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText
