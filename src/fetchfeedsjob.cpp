@@ -35,12 +35,14 @@ void FetchFeedsJob::start()
 
 void FetchFeedsJob::fetch()
 {
+    /* We remove this because otherwise 'Allow Once' would not work ...
     if (Fetcher::instance().isMeteredConnection() && !SettingsManager::self()->allowMeteredFeedUpdates()) {
         setError(0);
         setErrorText(i18n("Podcast updates not allowed due to user setting"));
         emitResult();
         return;
     }
+    */
 
     setTotalAmount(KJob::Unit::Items, m_urls.count());
     setProcessedAmount(KJob::Unit::Items, 0);

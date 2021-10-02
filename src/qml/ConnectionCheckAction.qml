@@ -30,9 +30,7 @@ Kirigami.OverlaySheet {
 
     // This function will be executed when the "Allow once" action is chosen; can be overloaded
     function allowOnceAction() {
-        SettingsManager.allowMeteredFeedUpdates = true;
         action()
-        SettingsManager.allowMeteredFeedUpdates = false;
     }
 
     // This function will be executed when the "Always allow" action is chosed; can be overloaded
