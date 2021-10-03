@@ -40,7 +40,7 @@ void MediaPlayer2::Quit()
 
 void MediaPlayer2::Raise()
 {
-    emit raisePlayer();
+    Q_EMIT raisePlayer();
 }
 
 QString MediaPlayer2::Identity() const

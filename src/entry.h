@@ -32,10 +32,10 @@ class Entry : public QObject
     Q_PROPERTY(QDateTime updated READ updated CONSTANT)
     Q_PROPERTY(QString link READ link CONSTANT)
     Q_PROPERTY(QString baseUrl READ baseUrl CONSTANT)
-    Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged);
-    Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged);
-    Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT);
-    Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT);
+    Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged)
+    Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged)
+    Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT)
+    Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT)
     Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
     Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)

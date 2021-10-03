@@ -90,7 +90,7 @@ void Mpris2::setPlayerName(const QString &playerName)
     }
 #endif
 
-    emit playerNameChanged();
+    Q_EMIT playerNameChanged();
 }
 
 void Mpris2::setAudioPlayer(AudioManager *audioPlayer)
@@ -108,7 +108,7 @@ void Mpris2::setAudioPlayer(AudioManager *audioPlayer)
     }
 #endif
 
-    emit audioPlayerChanged();
+    Q_EMIT audioPlayerChanged();
 }
 
 void Mpris2::setShowProgressOnTaskBar(bool value)

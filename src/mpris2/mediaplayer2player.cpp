@@ -175,7 +175,7 @@ void MediaPlayer2Player::setVolume(double volume)
 {
     if (m_audioPlayer) {
         m_volume = qBound(0.0, volume, 1.0);
-        emit volumeChanged(m_volume);
+        Q_EMIT volumeChanged(m_volume);
 
         m_audioPlayer->setVolume(100 * m_volume);
 
@@ -266,7 +266,7 @@ void MediaPlayer2Player::OpenUri(const QString &uri)
 void MediaPlayer2Player::playerPlaybackStateChanged()
 {
     signalPropertiesChange(QStringLiteral("PlaybackStatus"), PlaybackStatus());
-    emit playbackStatusChanged();
+    Q_EMIT playbackStatusChanged();
 }
 
 void MediaPlayer2Player::playerSeeked(qint64 position)

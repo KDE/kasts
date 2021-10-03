@@ -33,7 +33,7 @@ class Enclosure : public QObject
     Q_PROPERTY(QString path READ path CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
     Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY playPositionChanged)
-    Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged);
+    Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged)
     Q_PROPERTY(qint64 duration READ duration WRITE setDuration NOTIFY durationChanged)
     Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
 
