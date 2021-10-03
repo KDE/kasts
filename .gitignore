@@ -8,3 +8,4 @@ kasts.kdev4
 .vscode/
 .clang-format
 .cache/
+compile_commands.json
