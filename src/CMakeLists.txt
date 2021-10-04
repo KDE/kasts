@@ -129,6 +129,7 @@ if(ANDROID)
         KF5::Kirigami2
         Qt::Svg
         OpenSSL::SSL
+        SQLite::SQLite3
         log
     )
 
