@@ -17,7 +17,6 @@
 #endif
 
 #if defined Q_OS_WIN
-#include <winbase.h>
 #include <windows.h>
 #endif
 
