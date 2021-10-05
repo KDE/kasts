@@ -18,6 +18,7 @@ Note: When using versions of kasts built from git-master, it's possible that the
  - KConfig
  - Kirigami
  - Syndication
+ - TagLib
 
 ## Linux
 

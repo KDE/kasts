@@ -7,8 +7,11 @@
 #include "models/chaptermodel.h"
 
 #include <QDebug>
+#include <QMimeDatabase>
 #include <QObject>
 #include <QSqlQuery>
+
+#include <taglib/chapterframe.h>
 
 #include "database.h"
 
@@ -69,15 +72,24 @@ QString ChapterModel::enclosureId() const
 void ChapterModel::setEnclosureId(QString newEnclosureId)
 {
     m_enclosureId = newEnclosureId;
-    loadFromDatabase();
+    load();
     Q_EMIT enclosureIdChanged();
 }
 
-void ChapterModel::loadFromDatabase()
+void ChapterModel::load()
 {
     beginResetModel();
 
     m_chapters = {};
+    loadFromDatabase();
+    if (m_chapters.isEmpty()) {
+        loadChaptersFromFile();
+    }
+    endResetModel();
+}
+
+void ChapterModel::loadFromDatabase()
+{
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE id=:id"));
     query.bindValue(QStringLiteral(":id"), enclosureId());
@@ -90,6 +102,48 @@ void ChapterModel::loadFromDatabase()
         chapter.start = query.value(QStringLiteral("start")).toInt();
         m_chapters << chapter;
     }
+}
 
-    endResetModel();
+void ChapterModel::loadMPEGChapters(TagLib::MPEG::File &f)
+{
+    if (!f.hasID3v2Tag()) {
+        return;
+    }
+    for (const auto &frame : f.ID3v2Tag()->frameListMap()["CHAP"]) {
+        auto chapterFrame = dynamic_cast<TagLib::ID3v2::ChapterFrame *>(frame);
+
+        ChapterEntry chapter{};
+        chapter.title = QString::fromStdString(chapterFrame->embeddedFrameListMap()["TIT2"].front()->toString().to8Bit(true));
+        chapter.link = QString();
+        chapter.image = QString();
+        chapter.start = chapterFrame->startTime() / 1000;
+        m_chapters << chapter;
+    }
+    std::sort(m_chapters.begin(), m_chapters.end(), [](const ChapterEntry &a, const ChapterEntry &b) {
+        return a.start < b.start;
+    });
+}
+
+void ChapterModel::loadChaptersFromFile()
+{
+    if (m_enclosurePath.isEmpty()) {
+        return;
+    }
+    const auto mime = QMimeDatabase().mimeTypeForFile(m_enclosurePath).name();
+    if (mime == QStringLiteral("audio/mpeg")) {
+        TagLib::MPEG::File f(m_enclosurePath.toLatin1().data());
+        loadMPEGChapters(f);
+    } // TODO else...
+}
+
+void ChapterModel::setEnclosurePath(const QString &enclosurePath)
+{
+    m_enclosurePath = enclosurePath;
+    Q_EMIT enclosureIdChanged();
+    load();
+}
+
+QString ChapterModel::enclosurePath() const
+{
+    return m_enclosurePath;
 }

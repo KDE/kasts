@@ -123,6 +123,7 @@ Kirigami.Page {
                     id: chapterList
                     model: ChapterModel {
                         enclosureId: AudioManager.entry.id
+                        enclosurePath: AudioManager.entry.enclosure.path
                     }
                     clip: true
                     visible: chapterList.count !== 0

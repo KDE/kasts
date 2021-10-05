@@ -9,6 +9,8 @@
 #include <KFormat>
 #include <QAbstractListModel>
 
+#include <taglib/mpegfile.h>
+
 struct ChapterEntry {
     QString title;
     QString link;
@@ -21,6 +23,7 @@ class ChapterModel : public QAbstractListModel
     Q_OBJECT
 
     Q_PROPERTY(QString enclosureId READ enclosureId WRITE setEnclosureId NOTIFY enclosureIdChanged)
+    Q_PROPERTY(QString enclosurePath READ enclosurePath WRITE setEnclosurePath NOTIFY enclosurePathChanged)
 
 public:
     enum RoleNames {
@@ -40,13 +43,21 @@ public:
     void setEnclosureId(QString newEnclosureId);
     QString enclosureId() const;
 
+    void setEnclosurePath(const QString &enclosurePath);
+    QString enclosurePath() const;
+
 Q_SIGNALS:
     void enclosureIdChanged();
+    void enclosurePathChanged();
 
 private:
+    void load();
     void loadFromDatabase();
+    void loadChaptersFromFile();
+    void loadMPEGChapters(TagLib::MPEG::File &f);
 
     QString m_enclosureId;
     QVector<ChapterEntry> m_chapters;
     KFormat m_kformat;
+    QString m_enclosurePath;
 };
