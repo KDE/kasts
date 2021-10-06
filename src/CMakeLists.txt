@@ -129,9 +129,11 @@ if(ANDROID)
         KF5::Kirigami2
         Qt::Svg
         OpenSSL::SSL
-        SQLite::SQLite3
         log
     )
+    if(SQLite3_FOUND)
+        target_link_libraries(kasts PRIVATE SQLite::SQLite3)
+    endif()
 
     kirigami_package_breeze_icons(ICONS
         window-close
