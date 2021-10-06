@@ -109,7 +109,7 @@ void Fetcher::fetch(const QStringList &urls)
     qCDebug(kastsFetcher) << "end of Fetcher::fetch";
 }
 
-QString Fetcher::image(const QString &url) const
+QString Fetcher::image(const QString &url)
 {
     if (url.isEmpty()) {
         return QLatin1String("no-image");
@@ -123,18 +123,35 @@ QString Fetcher::image(const QString &url) const
         }
     }
 
+    // avoid restarting an image download if it's already running
+    if (m_ongoingImageDownloads.contains(url)) {
+        return QLatin1String("fetching");
+    }
+
     // if image has not yet been cached, then check for network connectivity if
     // possible; and download the image
     if (canCheckNetworkStatus()) {
-        if (networkConnected() && (!isMeteredConnection() || SettingsManager::self()->allowMeteredImageDownloads())) {
-            download(url, path);
-        } else {
+        if (!networkConnected() || (isMeteredConnection() && !SettingsManager::self()->allowMeteredImageDownloads())) {
             return QLatin1String("no-image");
         }
-    } else {
-        download(url, path);
     }
 
+    m_ongoingImageDownloads.insert(url);
+    QNetworkRequest request((QUrl(url)));
+    request.setTransferTimeout();
+    QNetworkReply *reply = get(request);
+    connect(reply, &QNetworkReply::finished, this, [=]() {
+        if (reply->isOpen() && !reply->error()) {
+            QByteArray data = reply->readAll();
+            QFile file(path);
+            file.open(QIODevice::WriteOnly);
+            file.write(data);
+            file.close();
+            Q_EMIT downloadFinished(url);
+        }
+        m_ongoingImageDownloads.remove(url);
+        reply->deleteLater();
+    });
     return QLatin1String("fetching");
 }
 

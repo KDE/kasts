@@ -39,7 +39,7 @@ public:
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
-    Q_INVOKABLE QString image(const QString &url) const;
+    Q_INVOKABLE QString image(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
 
     QNetworkReply *get(QNetworkRequest &request) const;
@@ -73,6 +73,8 @@ private:
 
     QNetworkReply *head(QNetworkRequest &request) const;
     void setHeader(QNetworkRequest &request) const;
+
+    QSet<QString> m_ongoingImageDownloads;
 
     QNetworkAccessManager *manager;
     int m_updateProgress;
