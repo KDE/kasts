@@ -22,6 +22,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(FeatureSummary)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
+include(ECMGenerateExportHeader)
 include(KDEInstallDirs)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
@@ -38,12 +39,15 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Syndication Config I18n)
 find_package(Taglib REQUIRED)
 
+find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
+
 if (ANDROID)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg AndroidExtras)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
     find_package(OpenSSL REQUIRED)
     find_package(SQLite3)
     find_package(ZLIB)
+    find_package(Gradle)
 else()
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
 endif()
@@ -66,6 +70,8 @@ feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAG
 
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
+message(asdf ${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 if (NOT ANDROID)
     # inside if-statement to work around problems with gitlab Android CI

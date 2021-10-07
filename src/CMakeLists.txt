@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
 # SPDX-License-Identifier: BSD-2-Clause
 
+add_subdirectory(solidextras)
+
 set(SRCS_base
     main.cpp
     about.cpp
@@ -114,7 +116,6 @@ else()
 
     qt5_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
     qt5_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
-    qt5_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.NetworkManager.xml NMinterface)
 endif()
 
 add_executable(kasts ${SRCS})
@@ -122,7 +123,7 @@ add_executable(kasts ${SRCS})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib SolidExtras)
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE

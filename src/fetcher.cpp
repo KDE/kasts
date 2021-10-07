@@ -30,6 +30,8 @@
 #include "settingsmanager.h"
 #include "storagemanager.h"
 
+#include <solidextras/networkstatus.h>
+
 Fetcher::Fetcher()
 {
     connect(this, &Fetcher::error, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
@@ -42,13 +44,6 @@ Fetcher::Fetcher()
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
     manager->enableStrictTransportSecurityStore(true);
-
-#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    m_nmInterface = new OrgFreedesktopNetworkManagerInterface(QStringLiteral("org.freedesktop.NetworkManager"),
-                                                              QStringLiteral("/org/freedesktop/NetworkManager"),
-                                                              QDBusConnection::systemBus(),
-                                                              this);
-#endif
 }
 
 void Fetcher::fetch(const QString &url)
@@ -130,10 +125,9 @@ QString Fetcher::image(const QString &url)
 
     // if image has not yet been cached, then check for network connectivity if
     // possible; and download the image
-    if (canCheckNetworkStatus()) {
-        if (!networkConnected() || (isMeteredConnection() && !SettingsManager::self()->allowMeteredImageDownloads())) {
-            return QLatin1String("no-image");
-        }
+    SolidExtras::NetworkStatus networkStatus;
+    if (networkStatus.connectivity() == SolidExtras::NetworkStatus::No  || (networkStatus.metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredImageDownloads())) {
+        return QLatin1String("no-image");
     }
 
     m_ongoingImageDownloads.insert(url);
@@ -220,44 +214,4 @@ QNetworkReply *Fetcher::head(QNetworkRequest &request) const
 void Fetcher::setHeader(QNetworkRequest &request) const
 {
     request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray("; Syndication"));
-}
-
-bool Fetcher::canCheckNetworkStatus() const
-{
-#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    qCDebug(kastsFetcher) << "Can NetworkManager be reached?" << m_nmInterface->isValid();
-    return (m_nmInterface && m_nmInterface->isValid());
-#else
-    return false;
-#endif
-}
-
-bool Fetcher::networkConnected() const
-{
-#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    qCDebug(kastsFetcher) << "Network connected?" << (m_nmInterface->state() >= 70) << m_nmInterface->state();
-    return (m_nmInterface && m_nmInterface->state() >= 70);
-#else
-    return true;
-#endif
-}
-
-bool Fetcher::isMeteredConnection() const
-{
-#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-    if (canCheckNetworkStatus()) {
-        // Get network connection status through DBus (NetworkManager)
-        // state == 1: explicitly configured as metered
-        // state == 3: connection guessed as metered
-        uint state = m_nmInterface->metered();
-        qCDebug(kastsFetcher) << "Network Status:" << state;
-        qCDebug(kastsFetcher) << "Connection is metered?" << (state == 1 || state == 3);
-        return (state == 1 || state == 3);
-    } else {
-        return false;
-    }
-#else
-    // TODO: get network connection type for Android and windows
-    return false;
-#endif
 }
