@@ -91,7 +91,7 @@ void ChapterModel::load()
 void ChapterModel::loadFromDatabase()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE id=:id"));
+    query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE id=:id ORDER BY start ASC;"));
     query.bindValue(QStringLiteral(":id"), enclosureId());
     Database::instance().execute(query);
     while (query.next()) {
