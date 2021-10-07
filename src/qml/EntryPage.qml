@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
             id: textLabel
             Layout.margins: Kirigami.Units.gridUnit
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText

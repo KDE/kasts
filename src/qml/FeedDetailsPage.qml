@@ -46,7 +46,7 @@ Kirigami.ScrollablePage {
     ColumnLayout {
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: feed.description
             font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.2)
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
         }
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: i18nc("by <Author(s)>", "by %1", author)
             visible: author !== ""
@@ -72,7 +72,7 @@ Kirigami.ScrollablePage {
         }
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: i18n("Weblink") + ": <a href='%1'>%1</a>".arg(feed.link)
             onLinkActivated: Qt.openUrlExternally(link)
@@ -81,7 +81,7 @@ Kirigami.ScrollablePage {
         }
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
             visible: isSubscribed
@@ -90,7 +90,7 @@ Kirigami.ScrollablePage {
         }
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: isSubscribed ? i18n("Last Updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
             visible: isSubscribed
@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
         }
         TextEdit {
             readOnly: true
-            selectByMouse: true
+            selectByMouse: !Kirigami.Settings.isMobile
             textFormat:TextEdit.RichText
             text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
             visible: isSubscribed
