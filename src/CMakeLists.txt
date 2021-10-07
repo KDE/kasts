@@ -135,6 +135,10 @@ if(ANDROID)
         target_link_libraries(kasts PRIVATE SQLite::SQLite3)
     endif()
 
+    if(ZLIB_FOUND)
+        target_link_libraries(kasts PRIVATE ZLIB::ZLIB)
+    endif()
+
     kirigami_package_breeze_icons(ICONS
         window-close
         window-close-symbolic
