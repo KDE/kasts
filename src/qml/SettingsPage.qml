@@ -106,27 +106,24 @@ Kirigami.ScrollablePage {
 
         Controls.CheckBox {
             id: allowMeteredFeedUpdates
-            checked: SettingsManager.allowMeteredFeedUpdates || !Fetcher.canCheckNetworkStatus()
+            checked: SettingsManager.allowMeteredFeedUpdates
             Kirigami.FormData.label: i18n("On metered connections:")
             text: i18n("Allow podcast updates")
             onToggled: SettingsManager.allowMeteredFeedUpdates = checked
-            enabled: Fetcher.canCheckNetworkStatus()
         }
 
         Controls.CheckBox {
             id: allowMeteredEpisodeDownloads
-            checked: SettingsManager.allowMeteredEpisodeDownloads || !Fetcher.canCheckNetworkStatus()
+            checked: SettingsManager.allowMeteredEpisodeDownloads
             text: i18n("Allow episode downloads")
             onToggled: SettingsManager.allowMeteredEpisodeDownloads = checked
-            enabled: Fetcher.canCheckNetworkStatus()
         }
 
         Controls.CheckBox {
             id: allowMeteredImageDownloads
-            checked: SettingsManager.allowMeteredImageDownloads || !Fetcher.canCheckNetworkStatus()
+            checked: SettingsManager.allowMeteredImageDownloads
             text: i18n("Allow image downloads")
             onToggled: SettingsManager.allowMeteredImageDownloads = checked
-            enabled: Fetcher.canCheckNetworkStatus()
         }
 
         Kirigami.Heading {
