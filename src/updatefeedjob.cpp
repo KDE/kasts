@@ -276,8 +276,15 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
                 QDomElement element = nodelist.at(i).toElement();
                 QString title = element.attribute(QStringLiteral("title"));
                 QString start = element.attribute(QStringLiteral("start"));
-                QTime startString = QTime::fromString(start, QStringLiteral("hh:mm:ss.zzz"));
-                int startInt = startString.hour() * 60 * 60 + startString.minute() * 60 + startString.second();
+                QStringList startParts = start.split(QStringLiteral(":"));
+                // Some podcasts use colon for milliseconds as well
+                while (startParts.count() > 3) {
+                    startParts.removeLast();
+                }
+                int startInt = 0;
+                for (QString part : startParts) {
+                    startInt = part.toInt() + startInt * 60;
+                }
                 QString images = element.attribute(QStringLiteral("image"));
                 processChapter(entry->id(), startInt, title, entry->link(), images);
             }
