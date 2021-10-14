@@ -9,7 +9,7 @@
 #include <KFormat>
 #include <QAbstractListModel>
 
-#include <taglib/mpegfile.h>
+#include <mpegfile.h>
 
 struct ChapterEntry {
     QString title;

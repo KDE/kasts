@@ -11,7 +11,7 @@
 #include <QObject>
 #include <QSqlQuery>
 
-#include <taglib/chapterframe.h>
+#include <chapterframe.h>
 
 #include "database.h"
 
