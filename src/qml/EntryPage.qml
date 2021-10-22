@@ -89,6 +89,7 @@ Kirigami.ScrollablePage {
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
         }
         ListView {
+            visible: count !== 0
             Layout.fillWidth: true
             height: contentHeight
             interactive: false
@@ -101,6 +102,36 @@ Kirigami.ScrollablePage {
             }
             delegate: ChapterListDelegate {
                 entry: page.entry
+            }
+        }
+        RowLayout {
+            Layout.leftMargin: Kirigami.Units.gridUnit
+            Layout.rightMargin: Kirigami.Units.gridUnit
+            Layout.bottomMargin: Kirigami.Units.gridUnit
+            visible: entry.hasEnclosure
+            spacing: Kirigami.Units.smallSpacing
+            TextEdit {
+                readOnly: true
+                textFormat:TextEdit.RichText
+                text: i18n("Episode Download URL:")
+                wrapMode: TextEdit.Wrap
+            }
+            TextEdit {
+                id: enclosureUrl
+                visible: false
+                readOnly: true
+                textFormat:TextEdit.RichText
+                text: entry.hasEnclosure ? entry.enclosure.url : ""
+            }
+            Controls.Button {
+                height: enclosureUrl.height
+                width: enclosureUrl.height
+                icon.name: "edit-copy"
+                onClicked: {
+                    enclosureUrl.selectAll();
+                    enclosureUrl.copy();
+                    enclosureUrl.deselect();
+                }
             }
         }
     }

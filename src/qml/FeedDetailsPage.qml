@@ -44,6 +44,7 @@ Kirigami.ScrollablePage {
     }
 
     ColumnLayout {
+        width: parent.width
         TextEdit {
             readOnly: true
             selectByMouse: !Kirigami.Settings.isMobile
@@ -62,22 +63,66 @@ Kirigami.ScrollablePage {
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
         }
-        TextEdit {
-            readOnly: true
-            selectByMouse: true
-            textFormat:TextEdit.RichText
-            text: i18n("Podcast URL") + ": <a href='%1'>%1</a>".arg(feed.url)
-            wrapMode: Text.WordWrap
+        Item {
             Layout.fillWidth: true
+            Layout.preferredHeight: Math.max(feedUrlLayout.height, feedUrlCopyButton.width)
+            RowLayout {
+                id: feedUrlLayout
+                anchors.left: parent.left
+                anchors.right: feedUrlCopyButton.left
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Kirigami.Units.smallSpacing
+                TextEdit {
+                    Layout.alignment: Qt.AlignTop
+                    readOnly: true
+                    textFormat:TextEdit.RichText
+                    text: i18n("Podcast URL:")
+                    wrapMode: TextEdit.Wrap
+                }
+                TextEdit {
+                    id: feedUrl
+                    Layout.alignment: Qt.AlignTop
+                    readOnly: true
+                    selectByMouse: !Kirigami.Settings.isMobile
+                    textFormat:TextEdit.RichText
+                    text: "<a href='%1'>%1</a>".arg(feed.url)
+                    wrapMode: TextEdit.Wrap
+                    Layout.fillWidth: true
+                }
+            }
+            Controls.Button {
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                id: feedUrlCopyButton
+                icon.name: "edit-copy"
+                onClicked: {
+                    feedUrl.selectAll();
+                    feedUrl.copy();
+                    feedUrl.deselect();
+                }
+            }
         }
-        TextEdit {
-            readOnly: true
-            selectByMouse: !Kirigami.Settings.isMobile
-            textFormat:TextEdit.RichText
-            text: i18n("Weblink") + ": <a href='%1'>%1</a>".arg(feed.link)
-            onLinkActivated: Qt.openUrlExternally(link)
-            wrapMode: Text.WordWrap
-            Layout.fillWidth: true
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            TextEdit {
+                Layout.alignment: Qt.AlignTop
+                readOnly: true
+                textFormat:TextEdit.RichText
+                text: i18n("Weblink:")
+                wrapMode: TextEdit.Wrap
+            }
+
+            TextEdit {
+                readOnly: true
+                Layout.alignment: Qt.AlignTop
+                selectByMouse: !Kirigami.Settings.isMobile
+                textFormat:TextEdit.RichText
+                text: "<a href='%1'>%1</a>".arg(feed.link)
+                onLinkActivated: Qt.openUrlExternally(link)
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+            }
         }
         TextEdit {
             readOnly: true

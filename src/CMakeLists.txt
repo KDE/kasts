@@ -164,6 +164,7 @@ if(ANDROID)
         edit-clear-all
         edit-select-all
         edit-select-none
+        edit-copy
         download
         media-playlist-append
         media-seek-backward
