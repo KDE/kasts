@@ -21,7 +21,7 @@ using namespace SolidExtras;
 
 void SolidExtrasQmlPlugin::registerTypes(const char*)
 {
-    qmlRegisterSingletonType<NetworkStatus>("org.kde.solidextras", 1, 0, "NetworkStatus", [](QQmlEngine*, QJSEngine*) -> QObject* {
+    qmlRegisterSingletonType<NetworkStatus>("org.kde.kasts.solidextras", 1, 0, "NetworkStatus", [](QQmlEngine *, QJSEngine *) -> QObject * {
         return new NetworkStatus;
     });
 }

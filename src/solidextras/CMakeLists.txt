@@ -19,7 +19,7 @@ else()
     qt_add_dbus_interface(solidextras_srcs org.freedesktop.portal.NetworkMonitor.xml portalnetworkmonitor)
 endif()
 
-add_library(SolidExtras ${solidextras_srcs})
+add_library(SolidExtras STATIC ${solidextras_srcs})
 generate_export_header(SolidExtras BASE_NAME SolidExtras)
 
 if (TARGET KF5::NetworkManagerQt)
@@ -38,5 +38,3 @@ else ()
         target_link_libraries(SolidExtras PRIVATE KF5::NetworkManagerQt)
     endif()
 endif()
-
-install(TARGETS SolidExtras ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
