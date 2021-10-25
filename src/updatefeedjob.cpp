@@ -283,8 +283,10 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
                 }
                 int startInt = 0;
                 for (QString part : startParts) {
-                    startInt = part.toInt() + startInt * 60;
+                    // strip off decimal point if it's present
+                    startInt = part.split(QStringLiteral("."))[0].toInt() + startInt * 60;
                 }
+                qCDebug(kastsFetcher) << "Found chapter mark:" << start << "; in seconds:" << startInt;
                 QString images = element.attribute(QStringLiteral("image"));
                 processChapter(entry->id(), startInt, title, entry->link(), images);
             }
