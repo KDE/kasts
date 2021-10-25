@@ -45,7 +45,7 @@ public class KastsActivity extends QtActivity
     }
 
     private static MediaData mediaData;
-    private static MediaSessionCompat mSession;
+    static MediaSessionCompat mSession;
     private static PlaybackStateCompat.Builder mPBuilder;
     private static KastsActivity activity;
     private static MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
@@ -135,7 +135,6 @@ public class KastsActivity extends QtActivity
                 MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
                 MediaSessionCompat.FLAG_HANDLES_QUEUE_COMMANDS |
                 MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
-        mSession.setCallback(new MediaSessionCallback(this));
         mPBuilder = new PlaybackStateCompat.Builder();
         activity = this;
         mediaData = new MediaData();
