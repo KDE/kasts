@@ -30,7 +30,6 @@ set(SRCS_base
     models/downloadmodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
-    mediasessionclient.cpp
     mpris2/mpris2.cpp
     powermanagementinterface.cpp
     resources.qrc
@@ -108,7 +107,9 @@ ecm_qt_declare_logging_category(SRCS_base
 
 if(ANDROID)
     set (SRCS ${SRCS_base}
-         androidlogging.h)
+         androidlogging.h
+         android/mediasessionclient.cpp
+    )
 else()
     set (SRCS ${SRCS_base}
          mpris2/mediaplayer2.cpp

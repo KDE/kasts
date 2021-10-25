@@ -21,7 +21,6 @@
 #include "models/errorlogmodel.h"
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
-#include "mediasessionclient.h"
 
 static const double MAX_RATE = 1.0;
 static const double MIN_RATE = 2.5;
@@ -76,8 +75,6 @@ AudioManager::AudioManager(QObject *parent)
     // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
 
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-
-    new MediaSessionClient(this);
 
     // Check if an entry was playing when the program was shut down and restore it
     if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {

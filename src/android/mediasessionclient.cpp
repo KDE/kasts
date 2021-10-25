@@ -8,7 +8,6 @@
 
 #include <QDebug>
 
-#ifdef Q_OS_ANDROID
 #include <QAndroidJniObject>
 #include <QAndroidJniEnvironment>
 
@@ -16,29 +15,25 @@ static void play(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA play() working.";
-    emit MediaSessionClient::instance()->play();
+    Q_EMIT MediaSessionClient::instance().play();
 }
 static void pause(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA pause() working.";
-    emit MediaSessionClient::instance()->pause();
+    emit MediaSessionClient::instance().pause();
 }
 static void next(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA next() working.";
-    emit MediaSessionClient::instance()->next();
+    emit MediaSessionClient::instance().next();
 }
 static void seek(JNIEnv *env, jobject thiz, jlong position)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
     Q_UNUSED(position)
-    qDebug() << "JAVA seek() working.";
 }
 static const JNINativeMethod methods[] {{"playerPlay", "()V", reinterpret_cast<void *>(play)},
     {"playerPause", "()V", reinterpret_cast<void *>(pause)},
@@ -64,15 +59,11 @@ Q_DECL_EXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *)
     }
     return JNI_VERSION_1_4;
 }
-#endif
 
-MediaSessionClient* MediaSessionClient::s_instance = nullptr;
-
-MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *parent)
-    : QObject(parent)
-    , m_audioPlayer(audioPlayer)
+MediaSessionClient::MediaSessionClient()
+    : QObject()
+    , m_audioPlayer(&AudioManager::instance())
 {
-    s_instance = this;
     connect(m_audioPlayer, &AudioManager::playbackStateChanged, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the current playback state.
     connect(m_audioPlayer, &AudioManager::entryChanged, this, &MediaSessionClient::setSessionMetadata);
@@ -89,17 +80,12 @@ MediaSessionClient::MediaSessionClient(AudioManager *audioPlayer, QObject *paren
     // Sets the playback to paused.
     connect(m_audioPlayer, &AudioManager::stopped, this, &MediaSessionClient::setSessionPlaybackState);
     // Sets the playback to stopped.
-    connect(s_instance, &MediaSessionClient::play, m_audioPlayer, &AudioManager::play);
+    connect(this, &MediaSessionClient::play, m_audioPlayer, &AudioManager::play);
     // Connect android notification's play action to play the media.
-    connect(s_instance, &MediaSessionClient::pause, m_audioPlayer, &AudioManager::pause);
+    connect(this, &MediaSessionClient::pause, m_audioPlayer, &AudioManager::pause);
     // Connect android notification's play action to pause the media.
-    connect(s_instance, &MediaSessionClient::next, m_audioPlayer, &AudioManager::next);
+    connect(this, &MediaSessionClient::next, m_audioPlayer, &AudioManager::next);
     // Connect android notification's play action to skip to next media.
-}
-
-MediaSessionClient* MediaSessionClient::instance()
-{
-    return s_instance;
 }
 
 void MediaSessionClient::setSessionPlaybackState()
@@ -117,90 +103,46 @@ void MediaSessionClient::setSessionPlaybackState()
             status = 2;
             break;
     }
-#ifndef Q_OS_ANDROID
-    Q_UNUSED(status)
-#endif
 
-#ifdef Q_OS_ANDROID
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setSessionState", "(I)V", status);
-#endif
 }
 
 void MediaSessionClient::setSessionMetadata()
 {
-    /*
-     * Sets the media session's metadata. This will be triggered every time there is state change ie. next, previous, etc.
-     */
     Entry *entry = m_audioPlayer->entry();
 
     QString authorString = QStringLiteral("");
-    if (entry->authors().count() > 0) {
-        for (auto &author : entry->authors()) {
-            authorString.append(author->name());
-            if(entry->authors().count() > 1)
-                authorString.append(QStringLiteral(", "));
+    for (int i = 0; i < entry->authors().size(); i++) {
+        authorString += entry->authors()[i]->name();
+        if (i < entry->authors().size() - 1) {
+            authorString += QStringLiteral(", ");
         }
     }
-#ifdef Q_OS_ANDROID
-    QAndroidJniObject title = QAndroidJniObject::fromString(entry->title());
-    // Title string
-    QAndroidJniObject author = QAndroidJniObject::fromString(authorString);
-    // Author string
-    QAndroidJniObject album = QAndroidJniObject::fromString(QStringLiteral("Album"));
-    // Author string
-    qint64 duration = qint64(m_audioPlayer->duration());
-    // Playback duration
-    qint64 position = qint64(m_audioPlayer->position());
-    // Playback position
-    int rate = m_audioPlayer->playbackRate();
-    // Playback rate
+
+    const auto title = QAndroidJniObject::fromString(entry->title());
+    const auto author = QAndroidJniObject::fromString(authorString);
+    const auto album = QAndroidJniObject::fromString(QStringLiteral("Album"));
+    const auto duration = qint64(m_audioPlayer->duration());
+    const auto position = qint64(m_audioPlayer->position());
+    const auto rate = m_audioPlayer->playbackRate();
 
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setMetadata","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJF)V",title.object<jstring>(), author.object<jstring>(), album.object<jstring>(), (jlong)position, (jlong)duration, (jfloat)rate);
-#endif
 }
 
 void MediaSessionClient::setPlaybackRate()
 {
-    /*
-     * Sets the media session's rate metadata.
-     */
     int rate = m_audioPlayer->playbackRate();
-#ifndef Q_OS_ANDROID
-    Q_UNUSED(rate)
-#endif
-
-#ifdef Q_OS_ANDROID
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setPlaybackSpeed", "(I)V", rate);
-#endif
 }
 
 void MediaSessionClient::setDuration()
 {
-    /*
-     * Sets the media session's playback duration.
-     */
     qint64 duration = qint64(m_audioPlayer->duration());
-#ifndef Q_OS_ANDROID
-    Q_UNUSED(duration)
-#endif
-
-#ifdef Q_OS_ANDROID
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setDuration", "(J)V", (jlong)duration);
-#endif
 }
 
 void MediaSessionClient::setPosition()
 {
-    /*
-     * Sets the media session's current playback position.
-     */
     qint64 position = qint64(m_audioPlayer->position());
-
-#ifndef Q_OS_ANDROID
-    Q_UNUSED(position)
-#endif
-
-#ifdef Q_OS_ANDROID
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setPosition", "(J)V", (jlong)position);
-#endif
 }

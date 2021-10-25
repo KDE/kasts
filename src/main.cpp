@@ -30,6 +30,7 @@
 
 #ifdef Q_OS_ANDROID
 #include "androidlogging.h"
+#include "android/mediasessionclient.h"
 #endif
 #include "about.h"
 #include "audiomanager.h"
@@ -143,6 +144,10 @@ int main(int argc, char *argv[])
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
     qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*
+
+#ifdef Q_OS_ANDROID
+    MediaSessionClient::instance();
+#endif
 
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);

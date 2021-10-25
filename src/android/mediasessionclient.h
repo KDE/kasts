@@ -18,8 +18,11 @@ class MediaSessionClient : public QObject
 {
     Q_OBJECT
 public:
-    explicit MediaSessionClient(AudioManager *audioPlayer, QObject *parent = nullptr);
-    static MediaSessionClient* instance();
+    explicit MediaSessionClient();
+    static MediaSessionClient &instance() {
+        static MediaSessionClient _instance;
+        return _instance;
+    }
 
 Q_SIGNALS:
     void play();

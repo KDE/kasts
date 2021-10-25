@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2018 Volker Krause <vkrause@kde.org>
+// SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+// SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 package org.kde.kasts;
@@ -25,7 +27,6 @@ import androidx.media.app.NotificationCompat.MediaStyle;
 
 import androidx.core.content.ContextCompat;
 
-
 import java.io.*;
 import java.util.*;
 
@@ -41,35 +42,33 @@ public class KastsActivity extends QtActivity
         public long duration = 0;
         public float playbackSpeed = 1;
         public int state = 2;
-        // add more variables here
     }
 
-    static MediaData mediaData;
-
-    static MediaSessionCompat mSession;
+    private static MediaData mediaData;
+    private static MediaSessionCompat mSession;
     private static PlaybackStateCompat.Builder mPBuilder;
     private static KastsActivity activity;
+    private static MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
+    private NotificationCompat.Builder notification = new NotificationCompat.Builder(this, "mediaControl");
 
     void updateNotification() {
-
-        // TODO: Change all of these variables to the values in mediaData
-        // add other required values
-
-        MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
-
-        switch(mediaData.state)
-        {
+        switch(mediaData.state) {
             case 0:
                 mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, mediaData.position, mediaData.playbackSpeed);
+                break;
             case 1:
                 mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED, mediaData.position, mediaData.playbackSpeed);
+                break;
             case 2:
                 mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
+                break;
+            default:
+                Log.e("Notification", "Invalid state: " + mediaData.state);
         }
 
         metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, mediaData.title);
         metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, mediaData.author);
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, mediaData.author);
+        //metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, mediaData.author);
         metadata.putString(MediaMetadataCompat.METADATA_KEY_ALBUM, mediaData.album);
         metadata.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, mediaData.duration);
         //TODO Image
@@ -95,7 +94,6 @@ public class KastsActivity extends QtActivity
 
         Intent iOpenActivity = new Intent(this, KastsActivity.class);
 
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(this, "media_control");
         notification
             .setAutoCancel(false)
             .setShowWhen(false)
@@ -103,7 +101,7 @@ public class KastsActivity extends QtActivity
             .setSubText(mediaData.author)
             .setContentTitle(mediaData.title)
             .setSmallIcon(this.getApplicationInfo().icon)
-            .setChannelId("org.kde.kasts.channel")
+            .setChannelId("org.kde.kasts.mediaNotification")
             .setContentText("Unknown")
             .setContentIntent(PendingIntent.getActivity(this, 0, iOpenActivity, 0));
 
@@ -115,12 +113,12 @@ public class KastsActivity extends QtActivity
         mSession.setPlaybackState(mPBuilder.build());
         MediaStyle mediaStyle = new MediaStyle();
         mediaStyle.setMediaSession(mSession.getSessionToken());
-        mediaStyle.setShowActionsInCompactView(0, 1, 2);
+        mediaStyle.setShowActionsInCompactView(0, 1);
         notification.setStyle(mediaStyle);
-        notification.setGroup("MprisMediaSession");
+        notification.setGroup("MediaNotification");
         mSession.setActive(true);
         NotificationManager nm = ContextCompat.getSystemService(this, NotificationManager.class);
-        NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
+        NotificationChannel channel = new NotificationChannel("org.kde.kasts.mediaNotification", "Media Notification", NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription("No Media Loaded");
         channel.enableLights(false);
         channel.enableVibration(false);
@@ -152,65 +150,17 @@ public class KastsActivity extends QtActivity
         mSession.release();
     }
 
-    private final class MediaSessionCallback extends MediaSessionCompat.Callback {
-        private Context mContext;
-
-        public MediaSessionCallback(Context context) {
-            super();
-
-            mContext = context;
-        }
-
-        @Override
-        public void onPlay() {
-            super.onPlay();
-
-            if (!mSession.isActive()) {
-                mSession.setActive(true);
-            }
-        }
-
-        @Override
-        public void onPause() {
-            super.onPause();
-
-            //JNI to audiomanager pause
-            //setPlaybackState for mSession
-        }
-
-        @Override
-        public void onStop() {
-            super.onStop();
-
-            //JNI call to audiomanager stop
-            mSession.setActive(false);
-        }
-
-        @Override
-        public void onSkipToNext() {
-            super.onPause();
-
-            //JNI to audiomanager next
-        }
-    }
-
     /*
     * JNI METHODS
     */
-
     public static void setSessionState(int state)
     {
-        //TODO: set state in mediadata
-
         mediaData.state = state;
-        Log.d(TAG, "JAVA setSessionState called.");
-
         activity.updateNotification();
     }
 
     public static void setMetadata(String title, String author, String album, long position, long duration, float rate)
     {
-        Log.d(TAG, "JAVA setMetadata called.");
         mediaData.title = title;
         mediaData.author = author;
         mediaData.album = album;
@@ -223,25 +173,19 @@ public class KastsActivity extends QtActivity
 
     public static void setPlaybackSpeed(int rate)
     {
-        Log.d(TAG, "JAVA setPlaybackSpeed called.");
         mediaData.playbackSpeed = rate;
-
         activity.updateNotification();
     }
 
     public static void setDuration(long duration)
     {
-        Log.d(TAG, "JAVA setDuration called.");
         mediaData.duration = duration;
-
         activity.updateNotification();
     }
 
     public static void setPosition(long position)
     {
-        Log.d(TAG, "JAVA setPosition called.");
         mediaData.position = position;
-
         activity.updateNotification();
     }
 }
