@@ -89,7 +89,7 @@ private:
     Entry *m_entry;
     qint64 m_duration;
     qint64 m_size = 0;
-    qint64 m_sizeOnDisk;
+    qint64 m_sizeOnDisk = 0;
     QString m_title;
     QString m_type;
     QString m_url;
