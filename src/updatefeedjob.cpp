@@ -39,8 +39,10 @@ void UpdateFeedJob::start()
 
 void UpdateFeedJob::retrieveFeed()
 {
-    if (m_abort)
+    if (m_abort) {
+        emitResult();
         return;
+    }
 
     qCDebug(kastsFetcher) << "Starting to fetch" << m_url;
     Q_EMIT feedUpdateStatusChanged(m_url, true);
@@ -58,8 +60,8 @@ void UpdateFeedJob::retrieveFeed()
             setErrorText(m_reply->errorString());
         } else {
             QByteArray data = m_reply->readAll();
-            Syndication::DocumentSource *document = new Syndication::DocumentSource(data, m_url);
-            Syndication::FeedPtr feed = Syndication::parserCollection()->parse(*document, QStringLiteral("Atom"));
+            Syndication::DocumentSource document(data, m_url);
+            Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
             processFeed(feed);
         }
         Q_EMIT feedUpdateStatusChanged(m_url, false);
