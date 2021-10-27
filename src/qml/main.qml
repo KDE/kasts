@@ -65,7 +65,7 @@ Kirigami.ApplicationWindow {
 
         // Refresh feeds on startup if allowed
         if (SettingsManager.refreshOnStartup) {
-            if (SettingsManager.allowMeteredFeedUpdates || NetworkStatus.metered === NetworkStatus.No) {
+            if (SettingsManager.allowMeteredFeedUpdates || NetworkStatus.metered !== NetworkStatus.Yes) {
                 Fetcher.fetchAll();
             }
         }
