@@ -31,11 +31,17 @@ QString Error::title() const
     QString title = m_title;
     if (title.isEmpty()) {
         if (!id.isEmpty()) {
-            if (DataManager::instance().getEntry(id))
+            if (DataManager::instance().getEntry(id)) {
                 title = DataManager::instance().getEntry(id)->title();
+            } else {
+                title = id;
+            }
         } else if (!url.isEmpty()) {
-            if (DataManager::instance().getFeed(url))
+            if (DataManager::instance().getFeed(url)) {
                 title = DataManager::instance().getFeed(url)->name();
+            } else {
+                title = url;
+            }
         }
     }
     return title;

@@ -30,6 +30,7 @@ public:
 
     static bool transaction(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
     static bool commit(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+    static bool rollback(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
 
 private:
     Database();

@@ -179,6 +179,11 @@ bool Database::commit(const QString &connectionName)
     return QSqlDatabase::database(connectionName).commit();
 }
 
+bool Database::rollback(const QString &connectionName)
+{
+    return QSqlDatabase::database(connectionName).rollback();
+}
+
 int Database::version()
 {
     QSqlQuery query;

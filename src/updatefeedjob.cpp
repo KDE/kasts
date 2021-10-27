@@ -10,6 +10,7 @@
 #include <QDomElement>
 #include <QMultiMap>
 #include <QNetworkReply>
+#include <QSqlError>
 #include <QSqlQuery>
 #include <QTextDocumentFragment>
 #include <QTimer>
@@ -18,6 +19,7 @@
 #include <ThreadWeaver/Thread>
 
 #include "database.h"
+#include "datamanager.h"
 #include "enclosure.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
@@ -46,7 +48,7 @@ UpdateFeedJob::~UpdateFeedJob()
 
 void UpdateFeedJob::run(JobPointer, Thread *)
 {
-    if (m_abort) {
+    if (m_abort || error()) {
         Q_EMIT finished();
         return;
     }
@@ -209,13 +211,13 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     // TODO: Only emit signal if the details have really changed
     Q_EMIT feedDetailsUpdated(m_url, feed->title(), image, feed->link(), feed->description(), current);
 
-    if (m_abort)
+    if (m_abort || error())
         return;
 
     // Now deal with the entries, enclosures, entry authors and chapter marks
     bool updatedEntries = false;
     for (const auto &entry : feed->items()) {
-        if (m_abort)
+        if (m_abort || error())
             return;
 
         bool isNewEntry = processEntry(entry);
@@ -223,6 +225,9 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
 
     writeToDatabase();
+
+    if (m_abort || error())
+        return;
 
     if (m_isNewFeed) {
         // Finally, reset the new flag to false now that the new feed has been
@@ -479,6 +484,7 @@ bool UpdateFeedJob::processChapter(const QString &entryId, const int &start, con
 
 void UpdateFeedJob::writeToDatabase()
 {
+    bool success = true;
     QSqlQuery writeQuery(QSqlDatabase::database(m_url));
 
     Database::transaction(m_url);
@@ -498,7 +504,11 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
         writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
-        Database::execute(writeQuery);
+        success = Database::execute(writeQuery) && success;
+        if (!success && !error()) {
+            setError(writeQuery.lastError().type());
+            setErrorText(writeQuery.lastError().text());
+        }
     }
 
     // update entries
@@ -526,7 +536,11 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        Database::execute(writeQuery);
+        success = Database::execute(writeQuery) && success;
+        if (!success && !error()) {
+            setError(writeQuery.lastError().type());
+            setErrorText(writeQuery.lastError().text());
+        }
     }
 
     // update authors
@@ -552,7 +566,11 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
         writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
         writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
-        Database::execute(writeQuery);
+        success = Database::execute(writeQuery) && success;
+        if (!success && !error()) {
+            setError(writeQuery.lastError().type());
+            setErrorText(writeQuery.lastError().text());
+        }
     }
 
     // update enclosures
@@ -577,7 +595,11 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        Database::execute(writeQuery);
+        success = Database::execute(writeQuery) && success;
+        if (!success && !error()) {
+            setError(writeQuery.lastError().type());
+            setErrorText(writeQuery.lastError().text());
+        }
     }
 
     // update chapters
@@ -590,48 +612,58 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
         Database::execute(writeQuery);
+
     }
 
-    if (Database::commit(m_url)) {
-        QStringList newIds, updateIds;
+    if (success) {
+        if (Database::commit(m_url)) {
+            QStringList newIds, updateIds;
 
-        // emit signals for new entries
-        for (const EntryDetails &entryDetails : m_newEntries) {
-            if (!newIds.contains(entryDetails.id)) {
-                newIds += entryDetails.id;
+            // emit signals for new entries
+            for (const EntryDetails &entryDetails : m_newEntries) {
+                if (!newIds.contains(entryDetails.id)) {
+                    newIds += entryDetails.id;
+                }
             }
-        }
 
-        for (const QString &id : newIds) {
-            Q_EMIT entryAdded(m_url, id);
-        }
+            for (const QString &id : newIds) {
+                Q_EMIT entryAdded(m_url, id);
+            }
 
-        // emit signals for updated entries or entries with new/updated authors,
-        // enclosures or chapters
-        for (const EntryDetails &entryDetails : m_updateEntries) {
-            if (!updateIds.contains(entryDetails.id) && !newIds.contains(entryDetails.id)) {
-                updateIds += entryDetails.id;
+            // emit signals for updated entries or entries with new/updated authors,
+            // enclosures or chapters
+            for (const EntryDetails &entryDetails : m_updateEntries) {
+                if (!updateIds.contains(entryDetails.id) && !newIds.contains(entryDetails.id)) {
+                    updateIds += entryDetails.id;
+                }
             }
-        }
-        for (const EnclosureDetails &enclosureDetails : (m_newEnclosures + m_updateEnclosures)) {
-            if (!updateIds.contains(enclosureDetails.id) && !newIds.contains(enclosureDetails.id)) {
-                updateIds += enclosureDetails.id;
+            for (const EnclosureDetails &enclosureDetails : (m_newEnclosures + m_updateEnclosures)) {
+                if (!updateIds.contains(enclosureDetails.id) && !newIds.contains(enclosureDetails.id)) {
+                    updateIds += enclosureDetails.id;
+                }
             }
-        }
-        for (const AuthorDetails &authorDetails : (m_newAuthors + m_updateAuthors)) {
-            if (!updateIds.contains(authorDetails.id) && !newIds.contains(authorDetails.id)) {
-                updateIds += authorDetails.id;
+            for (const AuthorDetails &authorDetails : (m_newAuthors + m_updateAuthors)) {
+                if (!updateIds.contains(authorDetails.id) && !newIds.contains(authorDetails.id)) {
+                    updateIds += authorDetails.id;
+                }
             }
-        }
-        for (const ChapterDetails &chapterDetails : (m_newChapters + m_updateChapters)) {
-            if (!updateIds.contains(chapterDetails.id) && !newIds.contains(chapterDetails.id)) {
-                updateIds += chapterDetails.id;
+            for (const ChapterDetails &chapterDetails : (m_newChapters + m_updateChapters)) {
+                if (!updateIds.contains(chapterDetails.id) && !newIds.contains(chapterDetails.id)) {
+                    updateIds += chapterDetails.id;
+                }
             }
-        }
 
-        for (const QString &id : updateIds) {
-            qCDebug(kastsFetcher) << "updated episode" << id;
-            Q_EMIT entryUpdated(m_url, id);
+            for (const QString &id : updateIds) {
+                qCDebug(kastsFetcher) << "updated episode" << id;
+                Q_EMIT entryUpdated(m_url, id);
+            }
+        }
+    } else {
+        Database::rollback(m_url);
+        qWarning() << "Error adding updates to database; rolling back changes:" << m_url;
+        if (m_isNewFeed) {
+            DataManager::instance().removeFeed(DataManager::instance().getFeed(m_url));
+            qWarning() << "Error adding new feed to database; removing" << m_url;
         }
     }
 }
