@@ -340,19 +340,16 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         QUrl urlFromInput = QUrl::fromUserInput(url);
         QSqlQuery query;
         query.prepare(
-            QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
-                           ":lastUpdated, :new, :notify);"));
+        QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :subscribed, :lastUpdated, :new, :allowInsecureDownload);"));
         query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
         query.bindValue(QStringLiteral(":link"), QLatin1String(""));
         query.bindValue(QStringLiteral(":description"), QLatin1String(""));
-        query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
-        query.bindValue(QStringLiteral(":deleteAfterType"), 0);
         query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
         query.bindValue(QStringLiteral(":lastUpdated"), 0);
         query.bindValue(QStringLiteral(":new"), true);
-        query.bindValue(QStringLiteral(":notify"), false);
+        query.bindValue(QStringLiteral(":allowInsecureDownload"), false);
         Database::instance().execute(query);
 
         m_feeds[urlFromInput.toString()] = nullptr;

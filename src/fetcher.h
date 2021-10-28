@@ -36,7 +36,7 @@ public:
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
-    Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
+    Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName, const QString &feedurl) const;
 
     QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;

@@ -12,7 +12,7 @@
 class EnclosureDownloadJob : public KJob
 {
 public:
-    explicit EnclosureDownloadJob(const QString &url, const QString &filename, const QString &title, QObject *parent = nullptr);
+    explicit EnclosureDownloadJob(const QString &url, const QString &filename, const QString &title, const QString &feedurl, QObject *parent = nullptr);
 
     void start() override;
     bool doKill() override;
@@ -21,6 +21,7 @@ private:
     QString m_url;
     QString m_filename;
     QString m_title;
+    QString m_feedurl;
     QNetworkReply *m_reply = nullptr;
 
     void startDownload();

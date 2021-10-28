@@ -60,6 +60,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo5());
     if (dbversion < 6)
         TRUE_OR_RETURN(migrateTo6());
+    if (dbversion < 7)
+        TRUE_OR_RETURN(migrateTo7());
     return true;
 }
 
@@ -145,6 +147,24 @@ bool Database::migrateTo6()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActions (podcast TEXT, url TEXT, id TEXT, action TEXT, started INTEGER, position INTEGER, "
                                "total INTEGER, timestamp INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 6;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo7()
+{
+    qDebug() << "Migrating database to version 7";
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feedstemp (name TEXT, url TEXT, image TEXT, link TEXT, description TEXT, subscribed INTEGER, "
+                               "lastUpdated INTEGER, new BOOL, allowInsecureDownload BOOL);")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Feedstemp (name, url, image, link, description, subscribed, lastUpdated, new) SELECT name, url, image, link, "
+                               "description, subscribed, lastUpdated, new FROM Feeds;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Feedstemp SET allowInsecureDownload=0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Feeds;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feedstemp RENAME TO Feeds;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 7;")));
     TRUE_OR_RETURN(commit());
     return true;
 }

@@ -42,6 +42,7 @@ private:
     bool migrateTo4();
     bool migrateTo5();
     bool migrateTo6();
+    bool migrateTo7();
     void cleanup();
 
     inline static const QString m_dbName = QStringLiteral("database.db3");

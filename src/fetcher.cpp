@@ -23,6 +23,7 @@
 #include <Syndication/Syndication>
 
 #include "database.h"
+#include "datamanager.h"
 #include "enclosure.h"
 #include "fetchfeedsjob.h"
 #include "kasts-version.h"
@@ -43,8 +44,8 @@ Fetcher::Fetcher()
 
     manager = new QNetworkAccessManager(this);
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-    manager->setStrictTransportSecurityEnabled(true);
-    manager->enableStrictTransportSecurityStore(true);
+    manager->setStrictTransportSecurityEnabled(false);
+    manager->enableStrictTransportSecurityStore(false);
 }
 
 void Fetcher::fetch(const QString &url)
@@ -155,10 +156,20 @@ QString Fetcher::image(const QString &url)
     return QLatin1String("fetching");
 }
 
-QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
+QNetworkReply *Fetcher::download(const QString &url, const QString &filePath, const QString &feedurl) const
 {
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
+    qDebug() << "allowed redirects" << request.maximumRedirectsAllowed();
+    Feed *feed = DataManager::instance().getFeed(feedurl);
+    bool allowInsecureRedirect = false;
+    if (feed) {
+        allowInsecureRedirect = feed->allowInsecureDownload();
+        qDebug() << feed << allowInsecureRedirect;
+        if (allowInsecureRedirect) {
+            request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::UserVerifiedRedirectPolicy);
+        }
+    }
 
     QFile *file = new QFile(filePath);
     if (file->exists() && file->size() > 0) {
@@ -176,6 +187,7 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     QNetworkReply *reply = get(request);
 
     connect(reply, &QNetworkReply::readyRead, this, [=]() {
+        qDebug() << "reading";
         if (reply->isOpen() && file) {
             QByteArray data = reply->readAll();
             file->write(data);
@@ -183,6 +195,7 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     });
 
     connect(reply, &QNetworkReply::finished, this, [=]() {
+        qDebug() << "done";
         if (reply->isOpen() && file) {
             QByteArray data = reply->readAll();
             file->write(data);
@@ -199,6 +212,20 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
             delete file;
         }
         reply->deleteLater();
+    });
+
+    if (allowInsecureRedirect) {
+        connect(reply, &QNetworkReply::redirected, this, [=](const QUrl &url) {
+            qDebug() << "checking for redirect" << url;
+            if (allowInsecureRedirect) {
+                qDebug() << "allowed";
+                Q_EMIT reply->redirectAllowed();
+            }
+        });
+    }
+
+    connect(reply, &QNetworkReply::sslErrors, this, [=](const QList<QSslError> &errors) {
+        qDebug() << "ssl errors";
     });
 
     return reply;

@@ -27,11 +27,9 @@ class Feed : public QObject
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
-    Q_PROPERTY(int deleteAfterCount READ deleteAfterCount WRITE setDeleteAfterCount NOTIFY deleteAfterCountChanged)
-    Q_PROPERTY(int deleteAfterType READ deleteAfterType WRITE setDeleteAfterType NOTIFY deleteAfterTypeChanged)
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
-    Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
+    Q_PROPERTY(bool allowInsecureDownload READ allowInsecureDownload WRITE setAllowInsecureDownload NOTIFY allowInsecureDownloadChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount WRITE setUnreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
@@ -53,11 +51,9 @@ public:
     QString link() const;
     QString description() const;
     QVector<Author *> authors() const;
-    int deleteAfterCount() const;
-    int deleteAfterType() const;
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
-    bool notify() const;
+    bool allowInsecureDownload() const;
     int entryCount() const;
     int unreadEntryCount() const;
     int newEntryCount() const;
@@ -72,10 +68,8 @@ public:
     void setLink(const QString &link);
     void setDescription(const QString &description);
     void setAuthors(const QVector<Author *> &authors);
-    void setDeleteAfterCount(int count);
-    void setDeleteAfterType(int type);
     void setLastUpdated(const QDateTime &lastUpdated);
-    void setNotify(bool notify);
+    void setAllowInsecureDownload(bool allow);
     void setUnreadEntryCount(const int count);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
@@ -90,10 +84,8 @@ Q_SIGNALS:
     void linkChanged(const QString &link);
     void descriptionChanged(const QString &description);
     void authorsChanged(const QVector<Author *> &authors);
-    void deleteAfterCountChanged(int count);
-    void deleteAfterTypeChanged(int type);
     void lastUpdatedChanged(const QDateTime &lastUpdated);
-    void notifyChanged(bool notify);
+    void allowInsecureDownloadChanged(bool allow);
     void entryCountChanged();
     void unreadEntryCountChanged();
     void newEntryCountChanged();
@@ -111,11 +103,9 @@ private:
     QString m_link;
     QString m_description;
     QVector<Author *> m_authors;
-    int m_deleteAfterCount;
-    int m_deleteAfterType;
     QDateTime m_subscribed;
     QDateTime m_lastUpdated;
-    bool m_notify;
+    bool m_allowInsecureDownload;
     int m_errorId;
     QString m_errorString;
     int m_unreadEntryCount = -1;

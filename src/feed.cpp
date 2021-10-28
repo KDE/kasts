@@ -35,9 +35,7 @@ Feed::Feed(const QString &feedurl)
     m_image = query.value(QStringLiteral("image")).toString();
     m_link = query.value(QStringLiteral("link")).toString();
     m_description = query.value(QStringLiteral("description")).toString();
-    m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
-    m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
-    m_notify = query.value(QStringLiteral("notify")).toBool();
+    m_allowInsecureDownload = query.value(QStringLiteral("allowInsecureDownload")).toBool();
 
     m_errorId = 0;
     m_errorString = QLatin1String("");
@@ -176,16 +174,6 @@ QVector<Author *> Feed::authors() const
     return m_authors;
 }
 
-int Feed::deleteAfterCount() const
-{
-    return m_deleteAfterCount;
-}
-
-int Feed::deleteAfterType() const
-{
-    return m_deleteAfterType;
-}
-
 QDateTime Feed::subscribed() const
 {
     return m_subscribed;
@@ -196,9 +184,9 @@ QDateTime Feed::lastUpdated() const
     return m_lastUpdated;
 }
 
-bool Feed::notify() const
+bool Feed::allowInsecureDownload() const
 {
-    return m_notify;
+    return m_allowInsecureDownload;
 }
 
 int Feed::entryCount() const
@@ -274,18 +262,6 @@ void Feed::setAuthors(const QVector<Author *> &authors)
     Q_EMIT authorsChanged(m_authors);
 }
 
-void Feed::setDeleteAfterCount(int count)
-{
-    m_deleteAfterCount = count;
-    Q_EMIT deleteAfterCountChanged(m_deleteAfterCount);
-}
-
-void Feed::setDeleteAfterType(int type)
-{
-    m_deleteAfterType = type;
-    Q_EMIT deleteAfterTypeChanged(m_deleteAfterType);
-}
-
 void Feed::setLastUpdated(const QDateTime &lastUpdated)
 {
     if (lastUpdated != m_lastUpdated) {
@@ -294,11 +270,18 @@ void Feed::setLastUpdated(const QDateTime &lastUpdated)
     }
 }
 
-void Feed::setNotify(bool notify)
+void Feed::setAllowInsecureDownload(bool allow)
 {
-    if (notify != m_notify) {
-        m_notify = notify;
-        Q_EMIT notifyChanged(m_notify);
+    if (allow != m_allowInsecureDownload) {
+        m_allowInsecureDownload = allow;
+
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Feeds SET allowInsecureDownload=:allowInsecureDownload WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), m_url);
+        query.bindValue(QStringLiteral(":allowInsecureDownload"), m_allowInsecureDownload);
+        Database::instance().execute(query);
+
+        Q_EMIT allowInsecureDownloadChanged(m_allowInsecureDownload);
     }
 }
 
