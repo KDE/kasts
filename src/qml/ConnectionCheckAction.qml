@@ -43,7 +43,7 @@ Kirigami.OverlaySheet {
     // this is the function that should be called if the action should be
     // triggered conditionally (on the basis that the condition is passed)
     function run() {
-        if (NetworkStatus.metered === NetworkStatus.No || condition) {
+        if (NetworkStatus.metered !== NetworkStatus.Yes || condition) {
             action();
         } else {
             overlay.open();
