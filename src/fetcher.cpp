@@ -168,8 +168,11 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath, co
         qDebug() << feed << allowInsecureRedirect;
         if (allowInsecureRedirect) {
             request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::UserVerifiedRedirectPolicy);
+            request.setAttribute(QNetworkRequest::Http2AllowedAttribute, true);
         }
     }
+
+    qDebug() << request.rawHeaderList();
 
     QFile *file = new QFile(filePath);
     if (file->exists() && file->size() > 0) {
@@ -186,6 +189,14 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath, co
 
     QNetworkReply *reply = get(request);
 
+    connect(reply, &QNetworkReply::errorOccurred, this, [=]() {
+        qDebug() << "network error" << reply->errorString();
+    });
+
+    connect(reply, &QNetworkReply::metaDataChanged, this, [=]() {
+        qDebug() << "metadata" << reply->rawHeaderPairs();
+    });
+
     connect(reply, &QNetworkReply::readyRead, this, [=]() {
         qDebug() << "reading";
         if (reply->isOpen() && file) {
@@ -197,6 +208,11 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath, co
     connect(reply, &QNetworkReply::finished, this, [=]() {
         qDebug() << "done";
         if (reply->isOpen() && file) {
+            qDebug() << "reading end";
+            qDebug() << "metadata" << reply->rawHeaderPairs();
+            qDebug() << reply->operation();
+            qDebug() << reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+            qDebug() << reply->attribute(QNetworkRequest::QNetworkRequest::HttpStatusCodeAttribute);
             QByteArray data = reply->readAll();
             file->write(data);
             file->close();
@@ -217,16 +233,13 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath, co
     if (allowInsecureRedirect) {
         connect(reply, &QNetworkReply::redirected, this, [=](const QUrl &url) {
             qDebug() << "checking for redirect" << url;
+            qDebug() << reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
             if (allowInsecureRedirect) {
                 qDebug() << "allowed";
                 Q_EMIT reply->redirectAllowed();
             }
         });
     }
-
-    connect(reply, &QNetworkReply::sslErrors, this, [=](const QList<QSslError> &errors) {
-        qDebug() << "ssl errors";
-    });
 
     return reply;
 }
