@@ -81,4 +81,38 @@
             <default>FeedListPage</default>
         </entry>
     </group>
+    <group name="Synchronization">
+        <entry name="syncEnabled" type="Bool">
+            <label>Whether or not sync is active</label>
+            <default>false</default>
+        </entry>
+        <entry name="syncWhenUpdatingFeeds" type="Bool">
+            <label>Whether to sync when a feed update is triggered</label>
+            <default>true</default>
+        </entry>
+        <entry name="syncWhenPlayerstateChanges" type="Bool">
+            <label>Whether to do a quick sync when the audio player state changes</label>
+            <default>true</default>
+        </entry>
+        <entry name="syncProvider" type="Int">
+            <label>Which service to sync to; see enum Sync::Provider</label>
+            <default>0</default>
+        </entry>
+        <entry name="syncHostname" type="String">
+            <label>Hostname for sync service</label>
+            <default></default>
+        </entry>
+        <entry name="syncUsername" type="String">
+            <label>Username to log into sync service</label>
+            <default></default>
+        </entry>
+        <entry name="syncDevice" type="String">
+            <label>Device id with which to log into sync service</label>
+            <default></default>
+        </entry>
+        <entry name="syncDeviceName" type="String">
+            <label>Device name (caption) with which to log into sync service</label>
+            <default></default>
+        </entry>
+    </group>
 </kcfg>

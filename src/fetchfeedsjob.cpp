@@ -35,14 +35,10 @@ void FetchFeedsJob::start()
 
 void FetchFeedsJob::fetch()
 {
-    /* We remove this because otherwise 'Allow Once' would not work ...
-    if (Fetcher::instance().isMeteredConnection() && !SettingsManager::self()->allowMeteredFeedUpdates()) {
-        setError(0);
-        setErrorText(i18n("Podcast updates not allowed due to user setting"));
+    if (m_urls.count() == 0) {
         emitResult();
         return;
     }
-    */
 
     setTotalAmount(KJob::Unit::Items, m_urls.count());
     setProcessedAmount(KJob::Unit::Items, 0);
@@ -52,7 +48,7 @@ void FetchFeedsJob::fetch()
 
         UpdateFeedJob *updateFeedJob = new UpdateFeedJob(url, this);
         m_feedjobs[i] = updateFeedJob;
-        connect(this, &FetchFeedsJob::abort, updateFeedJob, &UpdateFeedJob::abort);
+        connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
         connect(updateFeedJob, &UpdateFeedJob::result, this, [this, url, updateFeedJob]() {
             if (updateFeedJob->error()) {
                 Q_EMIT logError(Error::Type::FeedUpdate, url, QString(), updateFeedJob->error(), updateFeedJob->errorString(), QString());
@@ -70,4 +66,16 @@ void FetchFeedsJob::monitorProgress()
     if (processedAmount(KJob::Unit::Items) == totalAmount(KJob::Unit::Items)) {
         emitResult();
     }
+}
+
+bool FetchFeedsJob::aborted()
+{
+    return m_abort;
+}
+
+void FetchFeedsJob::abort()
+{
+    qCDebug(kastsFetcher) << "Fetching aborted";
+    m_abort = true;
+    Q_EMIT aborting();
 }

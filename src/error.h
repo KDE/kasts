@@ -23,6 +23,7 @@ public:
         InvalidMedia,
         DiscoverError,
         StorageMoveError,
+        SyncError,
     };
     Q_ENUM(Type)
 

@@ -240,7 +240,7 @@ Controls.ItemDelegate {
 
     Kirigami.OverlaySheet {
         id: actionOverlay
-        parent: applicationWindow().overlay
+        // parent: applicationWindow().overlay
         showCloseButton: true
 
         header: Kirigami.Heading {

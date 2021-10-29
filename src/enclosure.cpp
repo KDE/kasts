@@ -24,6 +24,7 @@
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "sync/sync.h"
 
 #include <solidextras/networkstatus.h>
 
@@ -221,6 +222,11 @@ void Enclosure::deleteFile()
     Q_EMIT sizeOnDiskChanged();
 }
 
+QString Enclosure::url() const
+{
+    return m_url;
+}
+
 QString Enclosure::path() const
 {
     return StorageManager::instance().enclosurePath(m_url);
@@ -283,6 +289,10 @@ void Enclosure::setPlayPosition(const qint64 &position)
             query.bindValue(QStringLiteral(":playposition"), m_playposition);
             Database::instance().execute(query);
             m_playposition_dbsave = m_playposition;
+
+            // Also store position change to make sure that it can be synced to
+            // e.g. gpodder
+            Sync::instance().storePlayEpisodeAction(m_entry->id(), m_playposition_dbsave, m_playposition);
         }
 
         Q_EMIT playPositionChanged();

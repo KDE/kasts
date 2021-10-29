@@ -28,10 +28,12 @@
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
         <file alias="ChapterListDelegate.qml">qml/ChapterListDelegate.qml</file>
+        <file alias="SyncPasswordOverlay.qml">qml/SyncPasswordOverlay.qml</file>
         <file alias="SettingsPage.qml">qml/Settings/SettingsPage.qml</file>
         <file alias="GeneralSettingsPage.qml">qml/Settings/GeneralSettingsPage.qml</file>
         <file alias="NetworkSettingsPage.qml">qml/Settings/NetworkSettingsPage.qml</file>
         <file alias="StorageSettingsPage.qml">qml/Settings/StorageSettingsPage.qml</file>
+        <file alias="SynchronizationSettingsPage.qml">qml/Settings/SynchronizationSettingsPage.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
     </qresource>

@@ -38,6 +38,11 @@ ecm_setup_version(${PROJECT_VERSION}
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Syndication Config I18n)
 find_package(Taglib REQUIRED)
+find_package(Qt5Keychain)
+set_package_properties(Qt5Keychain PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Secure storage of account secrets"
+)
 
 find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
 

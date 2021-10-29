@@ -22,11 +22,6 @@
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
-static const double MAX_RATE = 1.0;
-static const double MIN_RATE = 2.5;
-static const qint64 SKIP_STEP = 10000;
-static const qint64 SKIP_TRACK_END = 15000;
-
 class AudioManagerPrivate
 {
 private:
@@ -214,8 +209,8 @@ void AudioManager::setEntry(Entry *entry)
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
         if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SKIP_TRACK_END)) || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia)) {
             qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
-            oldEntry->setRead(true);
             oldEntry->enclosure()->setPlayPosition(0);
+            oldEntry->setRead(true);
             d->m_continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
         }
     }

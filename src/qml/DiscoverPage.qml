@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     text: enabled ? i18n("Subscribe") : i18n("Subscribed")
                     icon.name: "kt-add-feeds"
-                    enabled: !DataManager.isFeedExists(model.url)
+                    enabled: !DataManager.feedExists(model.url)
                     onTriggered: {
                         DataManager.addFeed(model.url)
                     }

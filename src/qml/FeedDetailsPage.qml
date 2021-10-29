@@ -39,7 +39,7 @@ Kirigami.ScrollablePage {
             onClicked: {
                 DataManager.addFeed(feed.url)
             }
-            enabled: !DataManager.isFeedExists(feed.url)
+            enabled: !DataManager.feedExists(feed.url)
         }
     }
 

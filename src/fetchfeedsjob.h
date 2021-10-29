@@ -20,9 +20,11 @@ public:
     explicit FetchFeedsJob(const QStringList &urls, QObject *parent = nullptr);
 
     void start() override;
+    bool aborted();
+    void abort();
 
 Q_SIGNALS:
-    void abort();
+    void aborting();
     void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
@@ -31,6 +33,6 @@ private:
     void fetch();
     void monitorProgress();
 
-    bool m_abort = false;
     QVector<UpdateFeedJob *> m_feedjobs;
+    bool m_abort = false;
 };

@@ -18,7 +18,7 @@ Kirigami.InlineMessage {
         bottom: parent.bottom
         right: parent.right
         left: parent.left
-        margins: Kirigami.Units.gridUnit
+        margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
         bottomMargin: bottomMessageSpacing
     }
     type: Kirigami.MessageType.Error

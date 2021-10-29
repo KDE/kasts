@@ -19,6 +19,7 @@ Note: When using versions of kasts built from git-master, it's possible that the
  - Kirigami
  - Syndication
  - TagLib
+ - QtKeychain
 
 ## Linux
 

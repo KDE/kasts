@@ -16,6 +16,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "settingsmanager.h"
+#include "sync/sync.h"
 
 Entry::Entry(Feed *feed, const QString &id)
     : QObject(&DataManager::instance())
@@ -171,6 +172,8 @@ void Entry::setReadInternal(bool read)
                     m_enclosure->deleteFile();
                 }
             }
+            // 5) Log a sync action to sync this state with (gpodder) server
+            Sync::instance().storePlayedEpisodeAction(m_id);
         }
     }
 }

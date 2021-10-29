@@ -51,6 +51,8 @@ public:
     void removeImage(const QString &url);
     Q_INVOKABLE void clearImageCache();
 
+    QString passwordFilePath(const QString &username) const;
+
 Q_SIGNALS:
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 

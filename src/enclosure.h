@@ -26,7 +26,7 @@ class Enclosure : public QObject
     Q_PROPERTY(qint64 sizeOnDisk READ sizeOnDisk NOTIFY sizeOnDiskChanged)
     Q_PROPERTY(QString title MEMBER m_title CONSTANT)
     Q_PROPERTY(QString type MEMBER m_type CONSTANT)
-    Q_PROPERTY(QString url MEMBER m_url CONSTANT)
+    Q_PROPERTY(QString url READ url CONSTANT)
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString formattedDownloadSize READ formattedDownloadSize NOTIFY downloadProgressChanged)
@@ -56,6 +56,7 @@ public:
     Q_INVOKABLE void deleteFile();
 
     QString path() const;
+    QString url() const;
     Status status() const;
     qint64 playPosition() const;
     qint64 duration() const;

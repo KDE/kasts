@@ -49,6 +49,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo4());
     if (dbversion < 5)
         TRUE_OR_RETURN(migrateTo5());
+    if (dbversion < 6)
+        TRUE_OR_RETURN(migrateTo6());
     return true;
 }
 
@@ -120,6 +122,20 @@ bool Database::migrateTo5()
     TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Chapters (feed TEXT, id TEXT, start INTEGER, title TEXT, link TEXT, image TEXT);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 5;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo6()
+{
+    qDebug() << "Migrating database to version 6";
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS SyncTimestamps (syncservice TEXT, timestamp INTEGER);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS FeedActions (url TEXT, action TEXT, timestamp INTEGER);")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActions (podcast TEXT, url TEXT, id TEXT, action TEXT, started INTEGER, position INTEGER, "
+                               "total INTEGER, timestamp INTEGER);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 6;")));
     TRUE_OR_RETURN(commit());
     return true;
 }

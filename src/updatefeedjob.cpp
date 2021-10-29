@@ -54,10 +54,12 @@ void UpdateFeedJob::retrieveFeed()
     connect(m_reply, &QNetworkReply::finished, this, [this]() {
         qCDebug(kastsFetcher) << "got networkreply for" << m_reply;
         if (m_reply->error()) {
-            qWarning() << "Error fetching feed";
-            qWarning() << m_reply->errorString();
-            setError(m_reply->error());
-            setErrorText(m_reply->errorString());
+            if (!m_abort) {
+                qWarning() << "Error fetching feed";
+                qWarning() << m_reply->errorString();
+                setError(m_reply->error());
+                setErrorText(m_reply->errorString());
+            }
         } else {
             QByteArray data = m_reply->readAll();
             Syndication::DocumentSource document(data, m_url);

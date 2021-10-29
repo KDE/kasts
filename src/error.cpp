@@ -56,6 +56,8 @@ QString Error::description() const
         return i18n("Nothing Found");
     case Error::Type::StorageMoveError:
         return i18n("Error moving storage path");
+    case Error::Type::SyncError:
+        return i18n("Error Syncing Feed and/or Episode Status");
     default:
         return QString();
     }
@@ -76,6 +78,8 @@ int Error::typeToDb(Error::Type type)
         return 4;
     case Error::Type::StorageMoveError:
         return 5;
+    case Error::Type::SyncError:
+        return 6;
     default:
         return -1;
     }
@@ -96,6 +100,8 @@ Error::Type Error::dbToType(int value)
         return Error::Type::DiscoverError;
     case 5:
         return Error::Type::StorageMoveError;
+    case 6:
+        return Error::Type::SyncError;
     default:
         return Error::Type::Unknown;
     }

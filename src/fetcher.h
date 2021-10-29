@@ -39,6 +39,7 @@ public:
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
 
     QNetworkReply *get(QNetworkRequest &request) const;
+    QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;
 
 Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);

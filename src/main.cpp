@@ -52,6 +52,8 @@
 #include "mpris2/mpris2.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "sync/sync.h"
+#include "sync/syncutils.h"
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -140,9 +142,13 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "StorageManager", &StorageManager::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Sync", &Sync::instance());
+
+    qmlRegisterUncreatableMetaObject(SyncUtils::staticMetaObject, "org.kde.kasts", 1, 0, "SyncUtils", QStringLiteral("Error: only enums and structs"));
 
     qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
     qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*
+    qRegisterMetaType<QVector<SyncUtils::Device>>("QVector<SyncUtils::Device>"); // "hack" to make qml understand QVector of SyncUtils::Device
 
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);

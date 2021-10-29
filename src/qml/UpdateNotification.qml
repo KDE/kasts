@@ -26,8 +26,10 @@ Rectangle {
     z: 2
 
     anchors {
-        horizontalCenter: parent.horizontalCenter
         bottom: parent.bottom
+        left: parent.left
+        right: parent.right
+        margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
         bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height : 0 )
     }
 
@@ -72,6 +74,7 @@ Rectangle {
             id: feedUpdateCountLabel
             text: rootComponent.text
             color: Kirigami.Theme.textColor
+            wrapMode: Text.WordWrap
 
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter

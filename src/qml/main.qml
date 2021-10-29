@@ -64,8 +64,10 @@ Kirigami.ApplicationWindow {
         }
 
         // Refresh feeds on startup if allowed
-        if (SettingsManager.refreshOnStartup) {
-            if (SettingsManager.allowMeteredFeedUpdates || NetworkStatus.metered !== NetworkStatus.Yes) {
+        // NOTE: refresh+sync on startup is handled in Sync and not here, since it
+        // requires credentials to be loaded before starting a refresh+sync
+        if (NetworkStatus.connectivity != NetworkStatus.No && (SettingsManager.allowMeteredFeedUpdates || NetworkStatus.metered !== NetworkStatus.Yes)) {
+            if (SettingsManager.refreshOnStartup && !(SettingsManager.syncEnabled && SettingsManager.syncWhenUpdatingFeeds)) {
                 Fetcher.fetchAll();
             }
         }
@@ -232,9 +234,9 @@ Kirigami.ApplicationWindow {
             target: Fetcher
             function onUpdatingChanged() {
                 if (Fetcher.updating) {
-                    updateNotification.open()
+                    updateNotification.open();
                 } else {
-                    updateNotification.close()
+                    updateNotification.close();
                 }
             }
         }
@@ -264,6 +266,29 @@ Kirigami.ApplicationWindow {
             }
         }
     }
+
+    // Notification that shows the progress of feed and episode syncing
+    UpdateNotification {
+        id: updateSyncNotification
+        text: Sync.syncProgressText
+        showAbortButton: true
+
+        function abortAction() {
+            Sync.abortSync();
+        }
+
+        Connections {
+            target: Sync
+            function onSyncProgressChanged() {
+                if (Sync.syncStatus != SyncUtils.NoSync && Sync.syncProgress === 0) {
+                    updateSyncNotification.open();
+                } else if (Sync.syncStatus === SyncUtils.NoSync) {
+                    updateSyncNotification.close();
+                }
+            }
+        }
+    }
+
 
     // This InlineMessage is used for displaying error messages
     ErrorNotification {
@@ -312,8 +337,20 @@ Kirigami.ApplicationWindow {
             action();
         }
     }
+
     PlaybackRateDialog {
         id: playbackRateDialog
+    }
+
+    Connections {
+        target: Sync
+        function onPasswordInputRequired() {
+            syncPasswordOverlay.open();
+        }
+    }
+
+    SyncPasswordOverlay {
+        id: syncPasswordOverlay
     }
 
     //Global Shortcuts

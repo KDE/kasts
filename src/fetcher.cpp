@@ -29,6 +29,7 @@
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "sync/sync.h"
 
 #include <solidextras/networkstatus.h>
 
@@ -54,16 +55,20 @@ void Fetcher::fetch(const QString &url)
 
 void Fetcher::fetchAll()
 {
-    QStringList urls;
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
-    Database::instance().execute(query);
-    while (query.next()) {
-        urls += query.value(0).toString();
-    }
+    if (Sync::instance().syncEnabled() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
+        Sync::instance().doRegularSync(true);
+    } else {
+        QStringList urls;
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+        Database::instance().execute(query);
+        while (query.next()) {
+            urls += query.value(0).toString();
+        }
 
-    if (urls.count() > 0) {
-        fetch(urls);
+        if (urls.count() > 0) {
+            fetch(urls);
+        }
     }
 }
 
@@ -91,7 +96,7 @@ void Fetcher::fetch(const QStringList &urls)
     });
     connect(fetchFeedsJob, &FetchFeedsJob::result, this, [this, fetchFeedsJob]() {
         qCDebug(kastsFetcher) << "result slot of FetchFeedsJob";
-        if (fetchFeedsJob->error()) {
+        if (fetchFeedsJob->error() && !fetchFeedsJob->aborted()) {
             Q_EMIT error(Error::Type::FeedUpdate, QString(), QString(), fetchFeedsJob->error(), fetchFeedsJob->errorString(), QString());
         }
         if (m_updating) {
@@ -126,7 +131,8 @@ QString Fetcher::image(const QString &url)
     // if image has not yet been cached, then check for network connectivity if
     // possible; and download the image
     SolidExtras::NetworkStatus networkStatus;
-    if (networkStatus.connectivity() == SolidExtras::NetworkStatus::No  || (networkStatus.metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredImageDownloads())) {
+    if (networkStatus.connectivity() == SolidExtras::NetworkStatus::No
+        || (networkStatus.metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredImageDownloads())) {
         return QLatin1String("no-image");
     }
 
@@ -155,10 +161,9 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     request.setTransferTimeout();
 
     QFile *file = new QFile(filePath);
-    int resumedAt = 0;
     if (file->exists() && file->size() > 0) {
         // try to resume download
-        resumedAt = file->size();
+        int resumedAt = file->size();
         qCDebug(kastsFetcher) << "Resuming download at" << resumedAt << "bytes";
         QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(resumedAt) + QByteArray("-");
         request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
@@ -203,6 +208,13 @@ QNetworkReply *Fetcher::get(QNetworkRequest &request) const
 {
     setHeader(request);
     return manager->get(request);
+}
+
+QNetworkReply *Fetcher::post(QNetworkRequest &request, const QByteArray &data) const
+{
+    setHeader(request);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/json"));
+    return manager->post(request, data);
 }
 
 QNetworkReply *Fetcher::head(QNetworkRequest &request) const

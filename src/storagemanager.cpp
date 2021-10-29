@@ -174,3 +174,8 @@ QString StorageManager::formattedImageDirSize() const
 {
     return m_kformat.formatByteSize(imageDirSize());
 }
+
+QString StorageManager::passwordFilePath(const QString &username) const
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + username;
+}

@@ -262,8 +262,8 @@ Kirigami.ScrollablePage {
                             pageStack.pop();
                         }
                     }
-                    DataManager.removeFeed(feeds[i]);
                 }
+                DataManager.removeFeeds(feeds);
             }
         }
 

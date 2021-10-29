@@ -33,7 +33,6 @@ Kirigami.OverlaySheet {
         }
     }
 
-
     Kirigami.PlaceholderMessage {
         id: placeholder
         visible: errorList.count == 0

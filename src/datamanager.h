@@ -41,8 +41,12 @@ public:
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
+    void addFeeds(const QStringList &urls, const bool fetch);
     Q_INVOKABLE void removeFeed(Feed *feed);
     void removeFeed(const int index);
+    void removeFeeds(const QStringList &feedurls);
+    Q_INVOKABLE void removeFeeds(const QVariantList feedsVariantList);
+    void removeFeeds(const QList<Feed *> &feeds);
 
     Entry *getQueueEntry(int index) const;
     int queueCount() const;
@@ -60,7 +64,7 @@ public:
 
     Q_INVOKABLE void importFeeds(const QString &path);
     Q_INVOKABLE void exportFeeds(const QString &path);
-    Q_INVOKABLE bool isFeedExists(const QString &url);
+    Q_INVOKABLE bool feedExists(const QString &url);
 
     Q_INVOKABLE void bulkMarkRead(bool state, QStringList list);
     Q_INVOKABLE void bulkMarkNew(bool state, QStringList list);
@@ -90,9 +94,8 @@ Q_SIGNALS:
 
 private:
     DataManager();
-    void loadFeed(QString feedurl) const;
+    void loadFeed(const QString &feedurl) const;
     void loadEntry(QString id) const;
-    bool feedExists(const QString &url);
     void updateQueueListnrs() const;
 
     QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;

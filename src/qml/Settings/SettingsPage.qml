@@ -28,6 +28,11 @@ Kirigami.CategorizedSettings {
             page: "qrc:/NetworkSettingsPage.qml"
         },
         Kirigami.SettingAction {
+            text: i18n("Synchronization")
+            icon.name: "state-sync"
+            page: "qrc:/SynchronizationSettingsPage.qml"
+        },
+        Kirigami.SettingAction {
             text: i18n("About")
             icon.name: "help-about-symbolic"
             page: "qrc:/AboutPage.qml"

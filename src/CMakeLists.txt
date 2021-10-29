@@ -32,6 +32,21 @@ set(SRCS_base
     models/podcastsearchmodel.cpp
     mpris2/mpris2.cpp
     powermanagementinterface.cpp
+    sync/sync.cpp
+    sync/syncjob.cpp
+    sync/syncutils.cpp
+    sync/gpodder/gpodder.cpp
+    sync/gpodder/genericrequest.cpp
+    sync/gpodder/loginrequest.cpp
+    sync/gpodder/logoutrequest.cpp
+    sync/gpodder/devicerequest.cpp
+    sync/gpodder/syncrequest.cpp
+    sync/gpodder/updatesyncrequest.cpp
+    sync/gpodder/updatedevicerequest.cpp
+    sync/gpodder/subscriptionrequest.cpp
+    sync/gpodder/uploadsubscriptionrequest.cpp
+    sync/gpodder/episodeactionrequest.cpp
+    sync/gpodder/uploadepisodeactionrequest.cpp
     resources.qrc
 )
 
@@ -67,6 +82,13 @@ ecm_qt_declare_logging_category(SRCS_base
     HEADER "fetcherlogging.h"
     IDENTIFIER "kastsFetcher"
     CATEGORY_NAME "org.kde.kasts.fetcher"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
+    HEADER "synclogging.h"
+    IDENTIFIER "kastsSync"
+    CATEGORY_NAME "org.kde.kasts.sync"
     DEFAULT_SEVERITY Info
 )
 
@@ -123,7 +145,7 @@ add_executable(kasts ${SRCS})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib SolidExtras)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib SolidExtras ${QTKEYCHAIN_LIBRARIES})
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
@@ -175,13 +197,22 @@ if(ANDROID)
         view-media-playlist
         source-playlist
         arrow-down
+        go-next
         overflow-menu
         checkbox
         error
         search
         kt-add-feeds
+        state-sync
         network-connect
         drive-harddisk-symbolic
+        dialog-ok
+        dialog-cancel
+        computer
+        computer-laptop
+        network-server-database
+        smartphone
+        emblem-music-symbolic
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)

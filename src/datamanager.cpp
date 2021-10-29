@@ -23,6 +23,7 @@
 #include "fetcher.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "sync/sync.h"
 
 DataManager::DataManager()
 {
@@ -191,84 +192,122 @@ int DataManager::newEntryCount(const Feed *feed) const
 
 void DataManager::removeFeed(Feed *feed)
 {
-    qCDebug(kastsDataManager) << "deleting feed" << feed->url() << "with index" << m_feedmap.indexOf(feed->url());
-    removeFeed(m_feedmap.indexOf(feed->url()));
+    QList<Feed *> feeds;
+    feeds << feed;
+    removeFeeds(feeds);
 }
 
 void DataManager::removeFeed(const int index)
 {
     // Get feed pointer
     Feed *feed = getFeed(m_feedmap[index]);
-    const QString feedurl = feed->url();
+    removeFeed(feed);
+}
 
-    // Delete the object instances and mappings
-    // First delete entries in Queue
-    qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
-    QStringList removeFromQueueList;
-    for (auto &id : m_queuemap) {
-        if (getEntry(id)->feed()->url() == feedurl) {
-            if (AudioManager::instance().entry() == getEntry(id)) {
-                AudioManager::instance().next();
-            }
-            removeFromQueueList += id;
+void DataManager::removeFeeds(const QStringList &feedurls)
+{
+    QList<Feed *> feeds;
+    for (QString feedurl : feedurls) {
+        feeds << getFeed(feedurl);
+    }
+    removeFeeds(feeds);
+}
+
+void DataManager::removeFeeds(const QVariantList feedVariantList)
+{
+    QList<Feed *> feeds;
+    for (QVariant feedVariant : feedVariantList) {
+        if (feedVariant.canConvert<Feed *>()) {
+            feeds << feedVariant.value<Feed *>();
         }
     }
-    bulkQueueStatus(false, removeFromQueueList);
+    removeFeeds(feeds);
+}
 
-    // Delete entries themselves
-    qCDebug(kastsDataManager) << "delete entries of" << feedurl;
-    for (auto &id : m_entrymap[feedurl]) {
-        if (getEntry(id)->hasEnclosure())
-            getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
-        if (!getEntry(id)->image().isEmpty())
-            StorageManager::instance().removeImage(getEntry(id)->image()); // delete entry images
-        delete m_entries[id]; // delete pointer
-        m_entries.remove(id); // delete the hash key
+void DataManager::removeFeeds(const QList<Feed *> &feeds)
+{
+    for (Feed *feed : feeds) {
+        const QString feedurl = feed->url();
+        int index = m_feedmap.indexOf(feedurl);
+
+        qCDebug(kastsDataManager) << "deleting feed" << feedurl << "with index" << index;
+
+        // Delete the object instances and mappings
+        // First delete entries in Queue
+        qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
+        QStringList removeFromQueueList;
+        for (auto &id : m_queuemap) {
+            if (getEntry(id)->feed()->url() == feedurl) {
+                if (AudioManager::instance().entry() == getEntry(id)) {
+                    AudioManager::instance().next();
+                }
+                removeFromQueueList += id;
+            }
+        }
+        bulkQueueStatus(false, removeFromQueueList);
+
+        // Delete entries themselves
+        qCDebug(kastsDataManager) << "delete entries of" << feedurl;
+        for (auto &id : m_entrymap[feedurl]) {
+            if (getEntry(id)->hasEnclosure())
+                getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
+            if (!getEntry(id)->image().isEmpty())
+                StorageManager::instance().removeImage(getEntry(id)->image()); // delete entry images
+            delete m_entries[id]; // delete pointer
+            m_entries.remove(id); // delete the hash key
+        }
+        m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
+
+        qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
+        if (!feed->image().isEmpty())
+            StorageManager::instance().removeImage(feed->image());
+        m_feeds.remove(m_feedmap[index]); // remove from m_feeds
+        m_feedmap.removeAt(index); // remove from m_feedmap
+        delete feed; // remove the pointer
+
+        // Then delete everything from the database
+        qCDebug(kastsDataManager) << "delete database part of" << feedurl;
+
+        // Delete related Errors
+        QSqlQuery query;
+        query.prepare(QStringLiteral("DELETE FROM Errors WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), feedurl);
+        Database::instance().execute(query);
+
+        // Delete Authors
+        query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
+        query.bindValue(QStringLiteral(":feed"), feedurl);
+        Database::instance().execute(query);
+
+        // Delete Chapters
+        query.prepare(QStringLiteral("DELETE FROM Chapters WHERE feed=:feed;"));
+        query.bindValue(QStringLiteral(":feed"), feedurl);
+        Database::instance().execute(query);
+
+        // Delete Entries
+        query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
+        query.bindValue(QStringLiteral(":feed"), feedurl);
+        Database::instance().execute(query);
+
+        // Delete Enclosures
+        query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
+        query.bindValue(QStringLiteral(":feed"), feedurl);
+        Database::instance().execute(query);
+
+        // Delete Feed
+        query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), feedurl);
+        Database::instance().execute(query);
+
+        // Save this action to the database (including timestamp) in order to be
+        // able to sync with remote services
+        Sync::instance().storeRemoveFeedAction(feedurl);
+
+        Q_EMIT feedRemoved(index);
     }
-    m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
 
-    qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
-    if (!feed->image().isEmpty())
-        StorageManager::instance().removeImage(feed->image());
-    m_feeds.remove(m_feedmap[index]); // remove from m_feeds
-    m_feedmap.removeAt(index); // remove from m_feedmap
-    delete feed; // remove the pointer
-
-    // Then delete everything from the database
-    qCDebug(kastsDataManager) << "delete database part of" << feedurl;
-
-    // Delete related Errors
-    QSqlQuery query;
-    query.prepare(QStringLiteral("DELETE FROM Errors WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), feedurl);
-    Database::instance().execute(query);
-
-    // Delete Authors
-    query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feedurl);
-    Database::instance().execute(query);
-
-    // Delete Chapters
-    query.prepare(QStringLiteral("DELETE FROM Chapters WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feedurl);
-    Database::instance().execute(query);
-
-    // Delete Entries
-    query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feedurl);
-    Database::instance().execute(query);
-
-    // Delete Enclosures
-    query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), feedurl);
-    Database::instance().execute(query);
-
-    // Delete Feed
-    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), feedurl);
-    Database::instance().execute(query);
-
-    Q_EMIT feedRemoved(index);
+    // if settings allow, then upload these changes immediately to sync server
+    Sync::instance().doQuickSync();
 }
 
 void DataManager::addFeed(const QString &url)
@@ -278,52 +317,65 @@ void DataManager::addFeed(const QString &url)
 
 void DataManager::addFeed(const QString &url, const bool fetch)
 {
-    // This method will add the relevant internal data structures, and then add
-    // a preliminary entry into the database.  Those details (as well as entries,
-    // authors and enclosures) will be updated by calling Fetcher::fetch() which
-    // will trigger a full update of the feed and all related items.
-    qCDebug(kastsDataManager) << "Adding feed";
-    if (feedExists(url)) {
-        qCDebug(kastsDataManager) << "Feed already exists";
-        return;
-    }
-    qCDebug(kastsDataManager) << "Feed does not yet exist";
-
-    QUrl urlFromInput = QUrl::fromUserInput(url);
-    QSqlQuery query;
-    query.prepare(QStringLiteral(
-        "INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, :lastUpdated, :new, :notify);"));
-    query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
-    query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
-    query.bindValue(QStringLiteral(":image"), QLatin1String(""));
-    query.bindValue(QStringLiteral(":link"), QLatin1String(""));
-    query.bindValue(QStringLiteral(":description"), QLatin1String(""));
-    query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
-    query.bindValue(QStringLiteral(":deleteAfterType"), 0);
-    query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
-    query.bindValue(QStringLiteral(":lastUpdated"), 0);
-    query.bindValue(QStringLiteral(":new"), true);
-    query.bindValue(QStringLiteral(":notify"), false);
-    Database::instance().execute(query);
-
-    m_feeds[urlFromInput.toString()] = nullptr;
-    m_feedmap.append(urlFromInput.toString());
-
-    Q_EMIT feedAdded(urlFromInput.toString());
-
-    if (fetch)
-        Fetcher::instance().fetch(urlFromInput.toString());
+    addFeeds(QStringList(url), fetch);
 }
 
 void DataManager::addFeeds(const QStringList &urls)
 {
+    addFeeds(urls, true);
+}
+
+void DataManager::addFeeds(const QStringList &urls, const bool fetch)
+{
     if (urls.count() == 0)
         return;
 
-    for (int i = 0; i < urls.count(); i++) {
-        addFeed(urls[i], false); // add preliminary feed entries, but do not fetch yet
+    // This method will add the relevant internal data structures, and then add
+    // a preliminary entry into the database.  Those details (as well as entries,
+    // authors and enclosures) will be updated by calling Fetcher::fetch() which
+    // will trigger a full update of the feed and all related items.
+    for (QString url : urls) {
+        qCDebug(kastsDataManager) << "Adding feed";
+        if (feedExists(url)) {
+            qCDebug(kastsDataManager) << "Feed already exists";
+            return;
+        }
+        qCDebug(kastsDataManager) << "Feed does not yet exist";
+
+        QUrl urlFromInput = QUrl::fromUserInput(url);
+        QSqlQuery query;
+        query.prepare(
+            QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
+                           ":lastUpdated, :new, :notify);"));
+        query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
+        query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
+        query.bindValue(QStringLiteral(":image"), QLatin1String(""));
+        query.bindValue(QStringLiteral(":link"), QLatin1String(""));
+        query.bindValue(QStringLiteral(":description"), QLatin1String(""));
+        query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
+        query.bindValue(QStringLiteral(":deleteAfterType"), 0);
+        query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
+        query.bindValue(QStringLiteral(":lastUpdated"), 0);
+        query.bindValue(QStringLiteral(":new"), true);
+        query.bindValue(QStringLiteral(":notify"), false);
+        Database::instance().execute(query);
+
+        m_feeds[urlFromInput.toString()] = nullptr;
+        m_feedmap.append(urlFromInput.toString());
+
+        // Save this action to the database (including timestamp) in order to be
+        // able to sync with remote services
+        Sync::instance().storeAddFeedAction(urlFromInput.toString());
+
+        Q_EMIT feedAdded(urlFromInput.toString());
     }
-    Fetcher::instance().fetch(urls);
+
+    if (fetch) {
+        Fetcher::instance().fetch(urls);
+    }
+
+    // if settings allow, upload these changes immediately to sync servers
+    Sync::instance().doQuickSync();
 }
 
 Entry *DataManager::getQueueEntry(int index) const
@@ -505,7 +557,7 @@ void DataManager::exportFeeds(const QString &path)
     xmlWriter.writeEndDocument();
 }
 
-void DataManager::loadFeed(const QString feedurl) const
+void DataManager::loadFeed(const QString &feedurl) const
 {
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT url FROM Feeds WHERE url=:feedurl;"));
@@ -537,7 +589,17 @@ void DataManager::loadEntry(const QString id) const
 
 bool DataManager::feedExists(const QString &url)
 {
-    return m_feeds.contains(url);
+    // Try to account for some common cases where the URL is different but is
+    // actually pointing to the same data.  Currently covering:
+    // - http vs https
+    // - encoded vs non-encoded URLs
+    QString cleanUrl = QUrl(url).authority() + QUrl(url).path(QUrl::FullyDecoded);
+    for (QString listUrl : m_feedmap) {
+        if (cleanUrl == (QUrl(listUrl).authority() + QUrl(listUrl).path(QUrl::FullyDecoded))) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void DataManager::updateQueueListnrs() const
@@ -549,11 +611,6 @@ void DataManager::updateQueueListnrs() const
         query.bindValue(QStringLiteral(":id"), m_queuemap[i]);
         Database::instance().execute(query);
     }
-}
-
-bool DataManager::isFeedExists(const QString &url)
-{
-    return m_feeds.contains(url);
 }
 
 void DataManager::bulkMarkReadByIndex(bool state, QModelIndexList list)
@@ -580,6 +637,11 @@ void DataManager::bulkMarkRead(bool state, QStringList list)
     Database::instance().commit();
 
     Q_EMIT bulkReadStatusActionFinished();
+
+    // if settings allow, upload these changes immediately to sync servers
+    if (state) {
+        Sync::instance().doQuickSync();
+    }
 }
 
 void DataManager::bulkMarkNewByIndex(bool state, QModelIndexList list)
