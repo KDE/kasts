@@ -14,19 +14,25 @@ import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts 1.0
 
 Kirigami.SwipeListItem {
+    id: root
     alwaysVisibleActions: true
 
     property var entry: undefined
+    property var overlay: undefined
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         Controls.Label {
+            Layout.fillWidth: true
             text: title
+            elide: Text.ElideRight
         }
         Controls.Label {
+            Layout.fillWidth: true
             opacity: 0.7
             font: Kirigami.Theme.smallFont
             text: formattedStart
-        }
+            elide: Text.ElideRight
+         }
     }
 
     actions: [
@@ -42,11 +48,10 @@ Kirigami.SwipeListItem {
                     AudioManager.play();
                 }
                 AudioManager.position = start * 1000;
+                if (overlay != undefined) {
+                    overlay.close();
+                }
             }
         }
     ]
-
-    //onClicked: {
-    //    AudioManager.position = start * 1000;
-    //}
 }

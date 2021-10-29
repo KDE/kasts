@@ -19,6 +19,7 @@ Kirigami.ScrollablePage {
 
     property var lastEntry: ""
     property string pageName: "queuepage"
+    property alias queueList: queueList
 
     supportsRefreshing: true
     onRefreshingChanged: {

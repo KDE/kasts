@@ -172,6 +172,7 @@ if(ANDROID)
         media-skip-forward
         media-playback-start
         media-playback-pause
+        view-media-playlist
         source-playlist
         arrow-down
         overflow-menu
