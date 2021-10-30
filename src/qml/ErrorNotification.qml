@@ -27,7 +27,7 @@ Kirigami.InlineMessage {
     actions: [
         Kirigami.Action {
             icon.name: "error"
-            text: "Show Error Log"
+            text: i18n("Show Error Log")
             onTriggered: errorOverlay.open()
         }
     ]
