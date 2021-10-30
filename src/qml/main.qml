@@ -125,21 +125,21 @@ Kirigami.ApplicationWindow {
                     }
                 },
                 Kirigami.Action {
-                    text: i18n("Episodes")
-                    iconName: "rss"
-                    checked: currentPage == "EpisodeListPage"
-                    onTriggered: {
-                        pushPage("EpisodeListPage")
-                        SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
-                    }
-                },
-                Kirigami.Action {
                     text: i18n("Subscriptions")
                     iconName: "bookmarks"
                     checked: currentPage == "FeedListPage"
                     onTriggered: {
                         pushPage("FeedListPage")
                         SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Episodes")
+                    iconName: "rss"
+                    checked: currentPage == "EpisodeListPage"
+                    onTriggered: {
+                        pushPage("EpisodeListPage")
+                        SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
                     }
                 },
                 Kirigami.Action {
