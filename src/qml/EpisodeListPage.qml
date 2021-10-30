@@ -26,12 +26,21 @@ Kirigami.ScrollablePage {
     }
 
     actions.main: Kirigami.Action {
+        iconName: "download"
+        text: i18n("Downloads")
+        onTriggered: {
+            pushPage("DownloadListPage")
+            SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+        }
+    }
+
+    actions.left: Kirigami.Action {
         iconName: "view-filter"
         text: i18n("Filter")
         onTriggered: filterTypeOverlay.open();
     }
 
-    actions.left: Kirigami.Action {
+    actions.right: Kirigami.Action {
         iconName: "view-refresh"
         text: i18n("Refresh All Podcasts")
         onTriggered: refreshing = true

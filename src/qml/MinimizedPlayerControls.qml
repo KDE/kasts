@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021 Devin Lin <devin@kde.org>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -8,24 +9,19 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtMultimedia 5.15
+import QtGraphicalEffects 1.0
 
 import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.kasts 1.0
 
 Item {
-    property int miniplayerheight: Kirigami.Units.gridUnit * 3
+    property int miniplayerheight: Math.round(Kirigami.Units.gridUnit * 3)
     property int progressbarheight: Kirigami.Units.gridUnit / 6
-    property int buttonsize: Kirigami.Units.gridUnit * 2
-    height: miniplayerheight + progressbarheight
+    property int buttonsize: Kirigami.Units.gridUnit * 1.5
+    height: miniplayerheight
 
     visible: AudioManager.entry
-
-    // Set background
-    Rectangle {
-        anchors.fill: parent
-        color: Kirigami.Theme.backgroundColor
-    }
 
     // progress bar for limited width (phones)
     Rectangle {
@@ -41,44 +37,50 @@ Item {
 
     RowLayout {
         id: footerrowlayout
-        anchors.topMargin: miniprogressbar.height
         anchors.fill: parent
-        Item {
+        spacing: 0
+
+        Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            // press feedback
+            color: (trackClick.pressed || trackClick.containsMouse) ? Qt.rgba(0, 0, 0, 0.05) : "transparent"
 
             RowLayout {
                 anchors.fill: parent
 
                 ImageWithFallback {
                     imageSource: AudioManager.entry.cachedImage
-                    Layout.preferredHeight: miniplayerheight
-                    Layout.preferredWidth: miniplayerheight
+                    Layout.fillHeight: true
+                    Layout.preferredWidth: height
                 }
 
                 // track information
                 ColumnLayout {
-                    Layout.fillHeight: true
+                    Layout.maximumHeight: parent.height
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.smallSpacing
+                    spacing: Kirigami.Units.smallSpacing
+
                     Controls.Label {
                         id: mainLabel
                         text: AudioManager.entry.title
                         wrapMode: Text.Wrap
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignLeft
                         elide: Text.ElideRight
                         maximumLineCount: 1
-                        //font.weight: Font.Bold
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1
+                        font.weight: Font.Medium
                     }
 
                     Controls.Label {
                         id: feedLabel
                         text: AudioManager.entry.feed.name
                         wrapMode: Text.Wrap
-                        Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignLeft
                         elide: Text.ElideRight
@@ -101,9 +103,10 @@ Item {
             icon.height: parent.parent.buttonsize
             icon.width: parent.parent.buttonsize
             flat: true
-            Layout.fillHeight: true
-            Layout.maximumHeight: parent.parent.miniplayerheight
-            Layout.maximumWidth: height
+            Layout.preferredHeight: parent.parent.miniplayerheight - Kirigami.Units.smallSpacing * 2
+            Layout.preferredWidth: height
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.smallSpacing
             onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
             Layout.alignment: Qt.AlignVCenter
         }

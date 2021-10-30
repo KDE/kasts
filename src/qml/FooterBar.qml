@@ -8,6 +8,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
+import QtGraphicalEffects 1.0
 
 import org.kde.kirigami 2.14 as Kirigami
 
@@ -19,6 +20,8 @@ Flickable {
     property bool portrait: (contentZone.height / contentZone.width) > 0.7
 
     property bool isMaximized: contentY === contentHeight / 2
+
+    property int contentToPlayerSpacing: 0
 
     boundsBehavior: Flickable.StopAtBounds
 
@@ -49,6 +52,10 @@ Flickable {
             propagateComposedEvents = true;
         }
         onReleased: footerBar.resetToBoundsOnFlick()
+    }
+
+    function close() {
+        toClose.restart();
     }
 
     function resetToBoundsOnFlick() {
@@ -90,8 +97,11 @@ Flickable {
         // a cover for content underneath the panel
         Rectangle {
             id: coverUnderneath
-            color: Kirigami.Theme.backgroundColor
             anchors.fill: parent
+
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: false
+            color: Kirigami.Theme.backgroundColor
         }
     }
 
@@ -101,23 +111,52 @@ Flickable {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: root.height + root.miniplayerSize
+        height: root.height + root.miniplayerSize + contentToPlayerSpacing
         spacing: 0
 
-        MinimizedPlayerControls {
-            id: playControlItem
-
+        Controls.Control {
+            implicitHeight: root.miniplayerSize + contentToPlayerSpacing
             Layout.fillWidth: true
-            Layout.minimumHeight: root.miniplayerSize
-            Layout.alignment: Qt.AlignTop
-            focus: true
+            padding: 0
+
+            background: Image {
+                opacity: 0.2
+                source: AudioManager.entry.cachedImage
+                asynchronous: true
+
+                anchors.fill: parent
+                fillMode: Image.PreserveAspectCrop
+
+                layer.enabled: true
+                layer.effect: HueSaturation {
+                    cached: true
+
+                    lightness: 0.7
+                    saturation: 0.9
+
+                    layer.enabled: true
+                    layer.effect: FastBlur {
+                        cached: true
+                        radius: 64
+                        transparentBorder: false
+                    }
+                }
+            }
+
+            MinimizedPlayerControls {
+                id: playControlItem
+                height: root.miniplayerSize
+                focus: true
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+            }
         }
 
         PlayerControls {
             id: mobileTrackPlayer
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: Kirigami.Units.largeSpacing * 2
         }
     }
 }

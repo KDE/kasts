@@ -33,14 +33,22 @@ Kirigami.ScrollablePage {
     }
 
     actions.main: Kirigami.Action {
-        text: i18n("Add Podcast")
-        iconName: "list-add"
+        visible: Kirigami.Settings.isMobile
+        text: i18n("Discover")
+        iconName: "search"
         onTriggered: {
-            addSheet.open()
+            applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
         }
     }
 
     contextualActions: [
+        Kirigami.Action {
+            text: i18n("Add Podcast")
+            iconName: "list-add"
+            onTriggered: {
+                addSheet.open()
+            }
+        },
         Kirigami.Action {
             text: i18n("Refresh All Podcasts")
             iconName: "view-refresh"

@@ -8,6 +8,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
+import QtGraphicalEffects 1.12
 
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts.solidextras 1.0
@@ -21,18 +22,33 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
-    property int bottomMessageSpacing: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) : Kirigami.Units.largeSpacing * 2
+    property var miniplayerSize: Math.round(Kirigami.Units.gridUnit * 3) + Kirigami.Units.gridUnit / 6
+    property int bottomMessageSpacing: {
+        if (Kirigami.Settings.isMobile) {
+            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + (root.footer.height);
+        } else {
+            return Kirigami.Units.largeSpacing * 2;
+        }
+    }
     property int originalWidth: Kirigami.Units.gridUnit * 10
     property var lastFeed: ""
     property string currentPage: ""
 
     property bool isWidescreen: root.width >= root.height
     onIsWidescreenChanged: {
-        if (!Kirigami.Settings.isMobile) {
-            changeNavigation(!isWidescreen);
+        changeNavigation(!isWidescreen);
+    }
+
+    function changeNavigation(isNarrow) {
+        if (isNarrow) {
+            globalDrawer.collapsed = true
+            globalDrawer.width = Layout.implicitWidth
+        } else {
+            globalDrawer.collapsed = false
+            globalDrawer.width = originalWidth
         }
     }
+
     function getPage(page) {
         switch (page) {
             case "QueuePage": return "qrc:/QueuePage.qml";
@@ -55,8 +71,10 @@ Kirigami.ApplicationWindow {
         currentPage = SettingsManager.lastOpenedPage
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
 
-        // move mobile handles to toolbar
-        pageStack.globalToolBar.canContainHandles = true;
+        if (Kirigami.Settings.isMobile) {
+            pageStack.globalToolBar.style = Kirigami.ApplicationHeaderStyle.ToolBar;
+            pageStack.globalToolBar.showNavigationButtons = Kirigami.ApplicationHeaderStyle.ShowBackButton;
+        }
 
         // Delete played enclosures if set in settings
         if (SettingsManager.autoDeleteOnPlayed == 2) {
@@ -73,93 +91,78 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    globalDrawer: Kirigami.GlobalDrawer {
-        isMenu: false
-        modal: Kirigami.Settings.isMobile
-        collapsible: !Kirigami.Settings.isMobile
-        header: Kirigami.AbstractApplicationHeader {
-            visible: !Kirigami.Settings.isMobile
-        }
+    globalDrawer: sidebar.item
+    Loader {
+        id: sidebar
+        active: !Kirigami.Settings.isMobile || root.isWidescreen
+        sourceComponent: Kirigami.GlobalDrawer {
+            width: 200
+            modal: false
+            isMenu: false
+            collapsible: !Kirigami.Settings.isMobile
+            header: Kirigami.AbstractApplicationHeader {}
 
-        Component.onCompleted: {
-            if (!Kirigami.Settings.isMobile) {
-                Kirigami.Theme.colorSet = Kirigami.Theme.Window;
-                Kirigami.Theme.inherit = false;
-            }
-        }
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
 
-        // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: (( AudioManager.entry && Kirigami.Settings.isMobile ) ? (footerLoader.item.contentY == 0 ? miniplayerSize : 0) : 0) + Kirigami.Units.smallSpacing
-        handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
-        showHeaderWhenCollapsed: true
-        actions: [
-            Kirigami.Action {
-                text: i18n("Queue")
-                iconName: "source-playlist"
-                checked: currentPage == "QueuePage"
-                onTriggered: {
-                    pushPage("QueuePage")
-                    SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+            actions: [
+                Kirigami.Action {
+                    text: i18n("Queue")
+                    iconName: "source-playlist"
+                    checked: currentPage == "QueuePage"
+                    onTriggered: {
+                        pushPage("QueuePage")
+                        SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Discover")
+                    iconName: "search"
+                    checked: currentPage == "DiscoverPage"
+                    onTriggered: {
+                        pushPage("DiscoverPage")
+                        SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Episodes")
+                    iconName: "rss"
+                    checked: currentPage == "EpisodeListPage"
+                    onTriggered: {
+                        pushPage("EpisodeListPage")
+                        SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Subscriptions")
+                    iconName: "bookmarks"
+                    checked: currentPage == "FeedListPage"
+                    onTriggered: {
+                        pushPage("FeedListPage")
+                        SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Downloads")
+                    iconName: "download"
+                    checked: currentPage == "DownloadListPage"
+                    onTriggered: {
+                        pushPage("DownloadListPage")
+                        SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Settings")
+                    iconName: "settings-configure"
+                    checked: currentPage == "SettingsPage"
+                    onTriggered: {
+                        root.pageStack.layers.clear()
+                        root.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
+                            title: i18n("Settings")
+                        })
+                    }
                 }
-            },
-            Kirigami.Action {
-                text: i18n("Discover")
-                iconName: "search"
-                checked: currentPage == "DiscoverPage"
-                onTriggered: {
-                    pushPage("DiscoverPage")
-                    SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Episodes")
-                iconName: "rss"
-                checked: currentPage == "EpisodeListPage"
-                onTriggered: {
-                    pushPage("EpisodeListPage")
-                    SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Subscriptions")
-                iconName: "bookmarks"
-                checked: currentPage == "FeedListPage"
-                onTriggered: {
-                    pushPage("FeedListPage")
-                    SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Downloads")
-                iconName: "download"
-                checked: currentPage == "DownloadListPage"
-                onTriggered: {
-                    pushPage("DownloadListPage")
-                    SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
-                }
-            },
-            Kirigami.Action {
-                text: i18n("Settings")
-                iconName: "settings-configure"
-                checked: currentPage == "SettingsPage"
-                onTriggered: {
-                    root.pageStack.layers.clear()
-                    root.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
-                        title: i18n("Settings")
-                    })
-                }
-            }
-        ]
-    }
-
-    function changeNavigation(isNarrow) {
-        if(isNarrow) {
-            globalDrawer.collapsed = true
-            globalDrawer.width = Layout.implicitWidth
-        }
-        else {
-            globalDrawer.collapsed = false
-            globalDrawer.width = originalWidth
+            ]
         }
     }
 
@@ -190,9 +193,7 @@ Kirigami.ApplicationWindow {
         active: !Kirigami.Settings.isMobile
         visible: active
 
-        sourceComponent: HeaderBar {
-            focus: true
-        }
+        sourceComponent: HeaderBar { focus: true }
     }
 
     // create space at the bottom to show miniplayer without it hiding stuff
@@ -209,8 +210,32 @@ Kirigami.ApplicationWindow {
         sourceComponent: FooterBar {
             contentHeight: root.height * 2
             focus: true
+            contentToPlayerSpacing: footer.active ? footer.item.height + 1 : 0
         }
+    }
 
+    Loader {
+        id: footerShadowLoader
+        active: footer.active && !footerLoader.active
+        anchors.fill: footer
+
+        sourceComponent: RectangularGlow {
+            glowRadius: 5
+            spread: 0.3
+            color: Qt.rgba(0.0, 0.0, 0.0, 0.1)
+        }
+    }
+
+    footer: Loader {
+        visible: active
+        active: Kirigami.Settings.isMobile && !root.isWidescreen
+        sourceComponent: BottomToolbar {
+            transparentBackground: footerLoader.active
+            opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
+            Behavior on opacity {
+                NumberAnimation { duration: Kirigami.Units.shortDuration }
+            }
+        }
     }
 
     // Notification that shows the progress of feed updates
