@@ -25,7 +25,7 @@ Kirigami.ApplicationWindow {
     property var miniplayerSize: Math.round(Kirigami.Units.gridUnit * 3) + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
         if (Kirigami.Settings.isMobile) {
-            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + (root.footer.height);
+            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
         } else {
             return Kirigami.Units.largeSpacing * 2;
         }
