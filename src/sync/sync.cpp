@@ -703,19 +703,19 @@ void Sync::linkUpAllDevices()
                     }
                     if (syncDevices.count() == ++m_deviceResponses) {
                         // We have now received all responses for all devices
-                        for (const QString &device : syncDevices) {
+                        for (const QString &syncdevice : syncDevices) {
                             if (!m_gpodder) {
                                 return;
                             }
-                            UploadSubscriptionRequest *upSubRequest = m_gpodder->uploadSubscriptionChanges(m_syncUpAllSubscriptions, QStringList(), device);
-                            connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [=]() {
+                            UploadSubscriptionRequest *upSubRequest = m_gpodder->uploadSubscriptionChanges(m_syncUpAllSubscriptions, QStringList(), syncdevice);
+                            connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [this, upSubRequest, syncdevice]() {
                                 if (upSubRequest->error()) {
                                     Q_EMIT error(Error::Type::SyncError,
                                                  QStringLiteral(""),
                                                  QStringLiteral(""),
                                                  upSubRequest->error(),
                                                  upSubRequest->errorString(),
-                                                 i18n("Could not upload subscriptions for device %1", device));
+                                                 i18n("Could not upload subscriptions for device %1", syncdevice));
                                 }
                                 upSubRequest->deleteLater();
                             });
