@@ -5,7 +5,7 @@
 -->
 <rules>
     <dependencies>
-        <lib name="SolidExtras">
+        <lib name="KastsSolidExtras">
             <depends>
                 <jar bundling="1" file="jar/SolidExtras.aar"/>
             </depends>
