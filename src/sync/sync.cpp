@@ -839,8 +839,10 @@ void Sync::applyEpisodeActionsLocally(const QHash<QString, QHash<QString, Episod
             if (action.action == QStringLiteral("play")) {
                 Entry *entry = DataManager::instance().getEntry(action.id);
                 if (entry && entry->hasEnclosure()) {
-                    if ((action.position >= action.total - AudioManager::instance().SKIP_TRACK_END
-                         || static_cast<qint64>(action.position) >= entry->enclosure()->duration() - AudioManager::instance().SKIP_TRACK_END)
+                    qCDebug(kastsSync) << action.position << action.total << static_cast<qint64>(action.position) << entry->enclosure()->duration()
+                                       << AudioManager::instance().SKIP_TRACK_END / 1000;
+                    if ((action.position >= action.total - AudioManager::instance().SKIP_TRACK_END / 1000
+                         || static_cast<qint64>(action.position) >= entry->enclosure()->duration() - AudioManager::instance().SKIP_TRACK_END / 1000)
                         && action.total > 0) {
                         // Episode has been played
                         qCDebug(kastsSync) << "mark as played:" << entry->title();
