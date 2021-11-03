@@ -7,14 +7,14 @@
 #ifndef SOLIDEXTRAS_NETWORKSTATUS_H
 #define SOLIDEXTRAS_NETWORKSTATUS_H
 
-#include "solidextras_export.h"
+#include "kastssolidextras_export.h"
 
 #include <QObject>
 
 namespace SolidExtras {
 
 /** Basic information about the network status (connectivity, metering). */
-class SOLIDEXTRAS_EXPORT NetworkStatus : public QObject
+class KASTSSOLIDEXTRAS_EXPORT NetworkStatus : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(State connectivity READ connectivity NOTIFY connectivityChanged)

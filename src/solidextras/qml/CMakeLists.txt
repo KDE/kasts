@@ -4,7 +4,7 @@
 add_library(kasts-solidextrasqmlplugin solidextrasqmlplugin.cpp)
 target_link_libraries(kasts-solidextrasqmlplugin
     Qt::Qml
-    SolidExtras
+    KastsSolidExtras
 )
 
 # make examples work without installation
