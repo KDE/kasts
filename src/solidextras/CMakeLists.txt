@@ -19,7 +19,7 @@ else()
     qt_add_dbus_interface(solidextras_srcs org.freedesktop.portal.NetworkMonitor.xml portalnetworkmonitor)
 endif()
 
-add_library(SolidExtras STATIC ${solidextras_srcs})
+add_library(SolidExtras ${solidextras_srcs})
 generate_export_header(SolidExtras BASE_NAME SolidExtras)
 
 if (TARGET KF5::NetworkManagerQt)
