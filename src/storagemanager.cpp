@@ -90,7 +90,7 @@ void StorageManager::setStoragePath(QUrl url)
             SettingsManager::self()->save();
             disconnect(this, &StorageManager::cancelStorageMove, this, nullptr);
         });
-        connect(this, &StorageManager::cancelStorageMove, this, [this, moveJob]() {
+        connect(this, &StorageManager::cancelStorageMove, this, [moveJob]() {
             moveJob->doKill();
         });
         Q_EMIT storageMoveStarted();

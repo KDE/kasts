@@ -14,7 +14,7 @@ Kirigami.CategorizedSettings {
     actions: [
         Kirigami.SettingAction {
             text: i18n("General")
-            icon.name: "kasts"
+            icon.name: ":/logo.svg"
             page: "qrc:/GeneralSettingsPage.qml"
         },
         Kirigami.SettingAction {
