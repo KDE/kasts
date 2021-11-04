@@ -7,7 +7,7 @@
     <dependencies>
         <lib name="KastsSolidExtras">
             <depends>
-                <jar bundling="1" file="jar/SolidExtras.aar"/>
+                <jar bundling="1" file="jar/KastsSolidExtras.aar"/>
             </depends>
         </lib>
     </dependencies>
