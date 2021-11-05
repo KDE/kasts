@@ -81,12 +81,14 @@ Kirigami.Page {
             Layout.preferredHeight: parent.height - media.height - indicator.height - indicator.Layout.bottomMargin - swipeUpButton.height
             Layout.margins: 0
 
-            Controls.Control {
-                leftPadding: Kirigami.Units.largeSpacing * 2
-                rightPadding: Kirigami.Units.largeSpacing * 2
-
-                contentItem: Item {
+            // we are unable to use Controls.Control here to set padding since it seems to eat touch events on the parent flickable
+            Item {
+                Item {
                     property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
+                    anchors.fill: parent
+                    anchors.leftMargin: Kirigami.Units.largeSpacing * 2
+                    anchors.rightMargin: Kirigami.Units.largeSpacing * 2
+
                     ImageWithFallback {
                         id: coverImage
                         imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
@@ -123,46 +125,43 @@ Kirigami.Page {
                 }
             }
 
-            Controls.Control {
-                leftPadding: Kirigami.Units.largeSpacing * 2
-                rightPadding: Kirigami.Units.largeSpacing * 2
-
-                contentItem: Item {
-                    Flickable {
-                        anchors.fill: parent
-                        anchors.leftMargin: playerControlsColumn.anchors.margins
-                        clip: true
-                        contentHeight: description.height
-                        ColumnLayout {
-                            id: description
-                            width: parent.width
-                            Kirigami.Heading {
-                                text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
-                                level: 3
-                                wrapMode: Text.WordWrap
-                                Layout.fillWidth: true
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing
-                            }
-                            Controls.Label {
-                                id: text
-                                text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
-                                verticalAlignment: Text.AlignTop
-                                baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
-                                textFormat: Text.RichText
-                                wrapMode: Text.WordWrap
-                                onLinkActivated: Qt.openUrlExternally(link)
-                                Layout.fillWidth: true
-                            }
+            Item {
+                Flickable {
+                    anchors.fill: parent
+                    anchors.leftMargin: Kirigami.Units.largeSpacing * 2 + playerControlsColumn.anchors.margins
+                    anchors.rightMargin: Kirigami.Units.largeSpacing * 2
+                    clip: true
+                    contentHeight: description.height
+                    ColumnLayout {
+                        id: description
+                        width: parent.width
+                        Kirigami.Heading {
+                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
+                            level: 3
+                            wrapMode: Text.WordWrap
+                            Layout.fillWidth: true
+                            Layout.bottomMargin: Kirigami.Units.largeSpacing
+                        }
+                        Controls.Label {
+                            id: text
+                            text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
+                            verticalAlignment: Text.AlignTop
+                            baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
+                            textFormat: Text.RichText
+                            wrapMode: Text.WordWrap
+                            onLinkActivated: Qt.openUrlExternally(link)
+                            Layout.fillWidth: true
                         }
                     }
                 }
             }
 
-            Controls.Control {
-                leftPadding: Kirigami.Units.largeSpacing * 2
-                rightPadding: Kirigami.Units.largeSpacing * 2
+            Item {
+                Item {
+                    anchors.fill: parent
+                    anchors.leftMargin: Kirigami.Units.largeSpacing * 2
+                    anchors.rightMargin: Kirigami.Units.largeSpacing * 2
 
-                contentItem: Item {
                     Kirigami.PlaceholderMessage {
                         visible: chapterList.count === 0
 
