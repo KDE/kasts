@@ -61,4 +61,4 @@ public:
     Q_PROPERTY(QString type MEMBER type)
     Q_PROPERTY(int subscriptions MEMBER subscriptions)
 };
-};
+}
