@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 20
 
-    property var miniplayerSize: Math.round(Kirigami.Units.gridUnit * 3) + Kirigami.Units.gridUnit / 6
+    property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
         if (Kirigami.Settings.isMobile) {
             return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
@@ -198,7 +198,7 @@ Kirigami.ApplicationWindow {
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (AudioManager.entry && Kirigami.Settings.isMobile) ? miniplayerSize : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entry && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
 
     Loader {
         id: footerLoader

@@ -16,10 +16,10 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kasts 1.0
 
 Item {
-    property int miniplayerheight: Math.round(Kirigami.Units.gridUnit * 3)
+    property int miniplayerheight: Kirigami.Units.gridUnit * 3
     property int progressbarheight: Kirigami.Units.gridUnit / 6
     property int buttonsize: Kirigami.Units.gridUnit * 1.5
-    height: miniplayerheight
+    height: miniplayerheight + progressbarheight
 
     visible: AudioManager.entry
 
