@@ -140,7 +140,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         text: Sync.username
                         Keys.onReturnPressed: credentialsButtons.accepted();
-                        focus: syncLoginOverlay.sheetOpen
+                        // focus: syncLoginOverlay.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                     }
                     Controls.Label {
                         Layout.alignment: Qt.AlignRight
@@ -222,7 +222,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         text: Sync.suggestedDevice
                         Keys.onReturnPressed: createDeviceButton.clicked();
-                        focus: syncDeviceOverlay.sheetOpen
+                        // focus: syncDeviceOverlay.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                     }
                     Controls.Label {
                         text: i18n("Device Description:")

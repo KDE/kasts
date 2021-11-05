@@ -29,7 +29,7 @@ Kirigami.OverlaySheet {
             id: urlField
             Layout.fillWidth: true
             text: "https://"
-            focus: addSheet.sheetOpen
+            // focus: addSheet.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
             Keys.onReturnPressed: addFeedButton.clicked();
         }
 
