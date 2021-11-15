@@ -224,6 +224,11 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
 
+    for (QString key : otherItems.uniqueKeys()) {
+        qCDebug(kastsFetcher) << "other elements";
+        qCDebug(kastsFetcher) << key << otherItems.value(key).tagName();
+    }
+
     // check against existing entries in database
     if (m_existingEntryIds.contains(entry->id()))
         return false;
@@ -253,9 +258,12 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     // Look for image in itunes tags
     if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
         entryDetails.image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+    } else if (otherItems.contains(QStringLiteral("http://search.yahoo.com/mrss/thumbnail"))) {
+        entryDetails.image = otherItems.value(QStringLiteral("http://search.yahoo.com/mrss/thumbnail")).attribute(QStringLiteral("url"));
     }
-    if (entryDetails.image.startsWith(QStringLiteral("/")))
+    if (entryDetails.image.startsWith(QStringLiteral("/"))) {
         entryDetails.image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + entryDetails.image;
+    }
     qCDebug(kastsFetcher) << "Entry image found" << entryDetails.image;
 
     m_entries += entryDetails;
