@@ -92,12 +92,23 @@ void EpisodeActionRequest::processResults()
                     query.prepare(QStringLiteral("SELECT id, feed FROM Enclosures WHERE url=:url;"));
                     query.bindValue(QStringLiteral(":url"), episodeAction.url);
                     Database::instance().execute(query);
-                    if (!query.next()) {
-                        qCDebug(kastsSync) << "cannot find episode with url:" << episodeAction.url;
-                        continue;
-                    } else {
+                    if (query.next()) {
                         episodeAction.id = query.value(QStringLiteral("id")).toString();
                         episodeAction.podcast = query.value(QStringLiteral("feed")).toString();
+                    } else {
+                        // try again with percent DEcoded URL
+                        QSqlQuery query;
+                        query.prepare(QStringLiteral("SELECT id, feed FROM Enclosures WHERE url=:url;"));
+                        query.bindValue(QStringLiteral(":url"), cleanupUrl(episodeAction.url));
+                        Database::instance().execute(query);
+                        if (query.next()) {
+                            episodeAction.url = cleanupUrl(episodeAction.url);
+                            episodeAction.id = query.value(QStringLiteral("id")).toString();
+                            episodeAction.podcast = query.value(QStringLiteral("feed")).toString();
+                        } else {
+                            qCDebug(kastsSync) << "cannot find episode with url:" << episodeAction.url;
+                            continue;
+                        }
                     }
                 }
                 m_episodeActions += episodeAction;
