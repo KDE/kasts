@@ -338,7 +338,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         qCDebug(kastsDataManager) << "Adding feed";
         if (feedExists(url)) {
             qCDebug(kastsDataManager) << "Feed already exists";
-            return;
+            continue;
         }
         qCDebug(kastsDataManager) << "Feed does not yet exist";
 
