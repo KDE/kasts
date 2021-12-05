@@ -152,6 +152,20 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="21.12" date="2021-12-07">
+      <description>
+        <p>New features in this release:</p>
+        <ul>
+          <li>Support for chapters, both RSS feed and MP3 tags encoded chapters are supported</li>
+          <li>Several improvements in user interface</li>
+          <li>Optimization and improvements for backend</li>
+          <li>Reworked settings page</li>
+          <li>Support for syncing subscriptions and episode play position using gpodder.net or nextcloud-gpodder app</li>
+          <li>Several bugfixes.</li>
+        </ul>
+      </description>
+      <url>https://www.plasma-mobile.org/2021/12/07/plasma-mobile-gear-21-12/</url>
+    </release>
     <release version="21.08" date="2021-08-31">
       <description>
         <p>Next to some minor bugfixes, it is now possible to change the location where the downloaded podcast episodes and cached images are saved. These files can take up a lot of disk space, so it's nice to be able to store them elsewhere on systems with limited home folder disk space. The related settings now show the disk space used by episodes and images, and allow to clear the image cache.</p>
