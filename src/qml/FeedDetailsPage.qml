@@ -53,6 +53,7 @@ Kirigami.ScrollablePage {
             font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.2)
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            color: Kirigami.Theme.textColor
         }
         TextEdit {
             readOnly: true
@@ -62,6 +63,7 @@ Kirigami.ScrollablePage {
             visible: author !== ""
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            color: Kirigami.Theme.textColor
         }
         Item {
             Layout.fillWidth: true
@@ -78,6 +80,7 @@ Kirigami.ScrollablePage {
                     textFormat:TextEdit.RichText
                     text: i18n("Podcast URL:")
                     wrapMode: TextEdit.Wrap
+                    color: Kirigami.Theme.textColor
                 }
                 TextEdit {
                     id: feedUrl
@@ -88,6 +91,7 @@ Kirigami.ScrollablePage {
                     text: "<a href='%1'>%1</a>".arg(feed.url)
                     wrapMode: TextEdit.Wrap
                     Layout.fillWidth: true
+                    color: Kirigami.Theme.textColor
                 }
             }
             Controls.Button {
@@ -111,6 +115,7 @@ Kirigami.ScrollablePage {
                 textFormat:TextEdit.RichText
                 text: i18n("Weblink:")
                 wrapMode: TextEdit.Wrap
+                color: Kirigami.Theme.textColor
             }
 
             TextEdit {
@@ -122,6 +127,7 @@ Kirigami.ScrollablePage {
                 onLinkActivated: Qt.openUrlExternally(link)
                 wrapMode: Text.WordWrap
                 Layout.fillWidth: true
+                color: Kirigami.Theme.textColor
             }
         }
         TextEdit {
@@ -132,6 +138,7 @@ Kirigami.ScrollablePage {
             visible: isSubscribed
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            color: Kirigami.Theme.textColor
         }
         TextEdit {
             readOnly: true
@@ -141,6 +148,7 @@ Kirigami.ScrollablePage {
             visible: isSubscribed
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            color: Kirigami.Theme.textColor
         }
         TextEdit {
             readOnly: true
@@ -150,6 +158,7 @@ Kirigami.ScrollablePage {
             visible: isSubscribed
             wrapMode: Text.WordWrap
             Layout.fillWidth: true
+            color: Kirigami.Theme.textColor
         }
     }
 }

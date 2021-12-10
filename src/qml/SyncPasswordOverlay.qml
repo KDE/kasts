@@ -43,6 +43,7 @@ Kirigami.OverlaySheet {
                 text: Sync.provider === Sync.GPodderNextcloud ?
                         i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) :
                         i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
+                color: Kirigami.Theme.textColor
             }
         }
         RowLayout {

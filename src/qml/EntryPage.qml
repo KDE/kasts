@@ -87,6 +87,7 @@ Kirigami.ScrollablePage {
             onLinkActivated: Qt.openUrlExternally(link)
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
+            color: Kirigami.Theme.textColor
         }
         ListView {
             visible: count !== 0
@@ -115,6 +116,7 @@ Kirigami.ScrollablePage {
                 textFormat:TextEdit.RichText
                 text: i18n("Episode Download URL:")
                 wrapMode: TextEdit.Wrap
+                color: Kirigami.Theme.textColor
             }
             TextEdit {
                 id: enclosureUrl
@@ -122,6 +124,7 @@ Kirigami.ScrollablePage {
                 readOnly: true
                 textFormat:TextEdit.RichText
                 text: entry.hasEnclosure ? entry.enclosure.url : ""
+                color: Kirigami.Theme.textColor
             }
             Controls.Button {
                 height: enclosureUrl.height

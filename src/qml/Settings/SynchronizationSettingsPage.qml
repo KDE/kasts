@@ -123,6 +123,7 @@ Kirigami.ScrollablePage {
                             text: Sync.provider === Sync.GPodderNextcloud ?
                                   i18nc("argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials." , "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") :
                                   i18nc("argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
+                            color: Kirigami.Theme.textColor
                         }
                     }
                 }
@@ -331,6 +332,7 @@ Kirigami.ScrollablePage {
                     readOnly: true
                     wrapMode: Text.WordWrap
                     text: i18n("Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
+                    color: Kirigami.Theme.textColor
                 }
             }
 
@@ -378,6 +380,7 @@ Kirigami.ScrollablePage {
                     readOnly: true
                     wrapMode: Text.WordWrap
                     text: i18n("Perform a first sync now?")
+                    color: Kirigami.Theme.textColor
                 }
             }
 
