@@ -15,6 +15,7 @@
   <name xml:lang="es">Kasts</name>
   <name xml:lang="fi">Kasts</name>
   <name xml:lang="fr">Kasts</name>
+  <name xml:lang="it">Kasts</name>
   <name xml:lang="ko">Kasts</name>
   <name xml:lang="nl">Kasts</name>
   <name xml:lang="pa">ਕਾਸਟਸ</name>
@@ -35,6 +36,7 @@
   <summary xml:lang="es">Aplicación de pódcast para dispositivos móviles</summary>
   <summary xml:lang="fi">Podcast-sovellus mobiililaitteille</summary>
   <summary xml:lang="fr">Application de podcasts pour appareils mobiles</summary>
+  <summary xml:lang="it">Applicazione per podcast per dispositivi mobili</summary>
   <summary xml:lang="ko">모바일 장치용 팟캐스트 프로그램</summary>
   <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
   <summary xml:lang="pa">ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ</summary>
@@ -60,6 +62,7 @@
   <developer_name xml:lang="es">La Comunidad KDE</developer_name>
   <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
+  <developer_name xml:lang="it">La comunità KDE</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
   <developer_name xml:lang="pa">ਕੇਡੀਈ ਕਮਿਊਨਟੀ</developer_name>
@@ -81,6 +84,7 @@
     <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
     <p xml:lang="fi">Kasts on podcast-mobiilisovellus</p>
     <p xml:lang="fr">Kasts est une application mobile pour podcast.</p>
+    <p xml:lang="it">Kasts è un'applicazione mobile per podcast</p>
     <p xml:lang="ko">Kasts는 모바일 팟캐스트 프로그램입니다</p>
     <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
     <p xml:lang="pa">ਕਾਸਟਸ ਮੋਬਾਈਲ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ ਹੈ</p>
@@ -113,6 +117,7 @@
       <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
       <caption xml:lang="fi">Kastsin syöteluettelo työpöydällä</caption>
       <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
+      <caption xml:lang="it">L'elenco delle fonti di Kasts sul desktop</caption>
       <caption xml:lang="ko">데스크톱에서의 Kasts 피드 목록</caption>
       <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
       <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕਾਸਟਸ ਫੀਡ ਸੂਚੀ</caption>
@@ -136,6 +141,7 @@
       <caption xml:lang="es">Kasts en un teléfono</caption>
       <caption xml:lang="fi">Kasts puhelimessa</caption>
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
+      <caption xml:lang="it">Kasts su un telefono</caption>
       <caption xml:lang="ko">휴대폰에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
       <caption xml:lang="pa">ਫ਼ੋਨ ਉੱਤੇ ਕਾਸਟਸ</caption>
