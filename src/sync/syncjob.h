@@ -6,7 +6,9 @@
 
 #pragma once
 
+#include <QHash>
 #include <QObject>
+#include <QStringList>
 
 #include <KJob>
 
@@ -33,6 +35,7 @@ public:
         SubscriptionDownload,
         SubscriptionUpload,
         EpisodeDownload,
+        ApplyEpisodeActions,
         EpisodeUpload,
         SubscriptionFetch,
         Finished,
@@ -61,6 +64,7 @@ private:
     void syncSubscriptions();
     void uploadSubscriptions(const QStringList &localAddFeedUrlList, const QStringList &localRemoveFeedUrlList);
     void fetchModifiedSubscriptions();
+    void fetchRemoteEpisodeActions();
     void syncEpisodeStates();
     void uploadEpisodeActions(const QVector<SyncUtils::EpisodeAction> &episodeActions);
     void uploadEpisodeActionsPartial(const QVector<SyncUtils::EpisodeAction> &episodeActionList, const int startIndex);
@@ -93,6 +97,7 @@ private:
     int m_feedUpdateTotal = 0;
     QPair<QStringList, QStringList> m_localSubscriptionChanges;
     QVector<SyncUtils::EpisodeAction> m_localEpisodeActions;
+    QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> m_remoteEpisodeActionHash;
 
     // needed for UI notifications
     QString getProgressMessage(SyncJobStatus status) const;
