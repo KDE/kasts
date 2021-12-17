@@ -40,12 +40,14 @@ Kirigami.ApplicationWindow {
     }
 
     function changeNavigation(isNarrow) {
-        if (isNarrow) {
-            globalDrawer.collapsed = true
-            globalDrawer.width = Layout.implicitWidth
-        } else {
-            globalDrawer.collapsed = false
-            globalDrawer.width = originalWidth
+        if (globalDrawer) {
+            if (isNarrow) {
+                globalDrawer.collapsed = true
+                globalDrawer.width = Layout.implicitWidth
+            } else {
+                globalDrawer.collapsed = false
+                globalDrawer.width = originalWidth
+            }
         }
     }
 
