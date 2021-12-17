@@ -89,37 +89,60 @@ Kirigami.Page {
                     anchors.leftMargin: Kirigami.Units.largeSpacing * 2
                     anchors.rightMargin: Kirigami.Units.largeSpacing * 2
 
-                    ImageWithFallback {
+                    Item {
                         id: coverImage
-                        imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
-                        imageFillMode: Image.PreserveAspectCrop
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.top: parent.top
-                        anchors.topMargin: Math.max(0, parent.height - (height + imageLabels.height + 2*parent.textMargin))/2
-                        height: Math.min(Math.min(parent.height, Kirigami.Units.iconSizes.enormous * 3) - (imageLabels.height + 2 * parent.textMargin),
-                                        Math.min(parent.width, Kirigami.Units.iconSizes.enormous * 3))
-                        width: height
-                        fractionalRadius: 1 / 20
-                    }
-                    ColumnLayout {
-                        id: imageLabels
-                        anchors.top: coverImage.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.topMargin: parent.textMargin
-                        Controls.Label {
-                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Title")
-                            elide: Text.ElideRight
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.maximumWidth: parent.width
-                            font.weight: Font.Medium
+                        anchors {
+                            top: parent.top
+                            bottom: root.isWidescreen ? parent.bottom : undefined
+                            left: parent.left
+                            right: root.isWidescreen ? undefined : parent.right
+                            margins: 0
+                            topMargin: root.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
                         }
-                        Controls.Label {
-                            text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Podcast Title")
-                            elide: Text.ElideRight
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.maximumWidth: parent.width
-                            opacity: 0.6
+                        height: Math.min(parent.height - (root.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
+                        width: root.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
+
+                        ImageWithFallback {
+                            imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
+                            imageFillMode: Image.PreserveAspectCrop
+                            anchors.centerIn: parent
+                            anchors.margins: 0
+                            width: Math.min(parent.width, parent.height)
+                            height: Math.min(parent.height, parent.width)
+                            fractionalRadius: 1 / 20
+                        }
+                    }
+
+                    Item {
+                        anchors {
+                            top: root.isWidescreen ? parent.top : coverImage.bottom
+                            bottom: parent.bottom
+                            left: root.isWidescreen ? coverImage.right : parent.left
+                            right: parent.right
+                            leftMargin: root.isWidescreen ? parent.textMargin : 0
+                            topMargin: root.isWidescreen ? 0 : parent.textMargin
+                            bottomMargin: root.isWidescreen ? 0 : parent.textMargin
+                        }
+
+                        ColumnLayout {
+                            id: imageLabels
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            Controls.Label {
+                                text: AudioManager.entry ? AudioManager.entry.title : i18n("No Title")
+                                elide: Text.ElideRight
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+                                font.weight: Font.Medium
+                            }
+                            Controls.Label {
+                                text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Podcast Title")
+                                elide: Text.ElideRight
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+                                opacity: 0.6
+                            }
                         }
                     }
                 }

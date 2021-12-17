@@ -20,7 +20,7 @@ Kirigami.ApplicationWindow {
     title: "Kasts"
 
     minimumWidth: Kirigami.Units.gridUnit * 17
-    minimumHeight: Kirigami.Units.gridUnit * 20
+    minimumHeight: Kirigami.Units.gridUnit * 18
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
