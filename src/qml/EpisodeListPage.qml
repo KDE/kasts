@@ -93,7 +93,7 @@ Kirigami.ScrollablePage {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
             margins: Kirigami.Units.largeSpacing
-            bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 )
+            bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0 )
         }
         type: Kirigami.MessageType.Information
         visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter
@@ -102,7 +102,7 @@ Kirigami.ScrollablePage {
             text: i18n("Filter Active: ") + episodeProxyModel.filterName
         }
         text: textMetrics.text
-        width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width)
+        width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width - anchors.leftMargin - anchors.rightMargin)
         actions: [
             Kirigami.Action {
                 id: resetButton
