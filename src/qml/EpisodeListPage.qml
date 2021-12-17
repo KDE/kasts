@@ -92,7 +92,8 @@ Kirigami.ScrollablePage {
         anchors {
             horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
-            bottomMargin: (Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 9 : Kirigami.Units.largeSpacing * 2) + (errorNotification.visible ? errorNotification.height : 0)
+            margins: Kirigami.Units.largeSpacing
+            bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 )
         }
         type: Kirigami.MessageType.Information
         visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter

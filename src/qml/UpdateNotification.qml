@@ -30,7 +30,7 @@ Rectangle {
         left: parent.left
         right: parent.right
         margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
-        bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height : 0 )
+        bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 )
     }
 
     color: Kirigami.Theme.activeTextColor

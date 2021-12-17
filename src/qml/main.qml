@@ -27,7 +27,7 @@ Kirigami.ApplicationWindow {
         if (Kirigami.Settings.isMobile) {
             return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
         } else {
-            return Kirigami.Units.largeSpacing * 2;
+            return Kirigami.Units.largeSpacing;
         }
     }
     property int originalWidth: Kirigami.Units.gridUnit * 10
