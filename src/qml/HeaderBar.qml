@@ -219,9 +219,9 @@ Rectangle {
                     Layout.fillWidth: true
                     padding: 0
                     from: 0
-                    to: AudioManager.duration
-                    value: AudioManager.position
-                    onMoved: AudioManager.seek(value)
+                    to: AudioManager.duration / 1000
+                    value: AudioManager.position / 1000
+                    onMoved: AudioManager.seek(value * 1000)
                 }
 
                 Item {
