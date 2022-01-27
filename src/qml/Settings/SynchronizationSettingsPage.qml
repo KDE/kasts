@@ -60,14 +60,13 @@ Kirigami.ScrollablePage {
                 Component.onCompleted: {
                     providerModel.append({"name": i18n("gpodder.net"),
                                           "subtitle": i18n("Synchronize with official gpodder.net server"),
-                                          //"icon": "qrc:/gpoddernet.svg",
+                                          "icon": "gpodder",
                                           "provider": Sync.GPodderNet});
                     providerModel.append({"name": i18n("GPodder Nextcloud"),
                                           "subtitle": i18n("Synchronize with GPodder Nextcloud app"),
-                                          //"icon": "qrc:/nextcloud-icon.svg",
+                                          "icon": "kaccounts-nextcloud",
                                           "provider": Sync.GPodderNextcloud});
                 }
-
                 delegate: Kirigami.BasicListItem {
                     label: model.name
                     subtitle: model.subtitle
@@ -99,13 +98,11 @@ Kirigami.ScrollablePage {
                 RowLayout {
                     width: parent.width
                     spacing: Kirigami.Units.largeSpacing
-                    // Disable images until licensing has been sorted out
-                    // Image {
-                    //     sourceSize.height: Kirigami.Units.gridUnit * 4
-                    //     sourceSize.width: Kirigami.Units.gridUnit * 4
-                    //     fillMode: Image.PreserveAspectFit
-                    //     source: Sync.provider === Sync.GPodderNextcloud ? "qrc:/nextcloud-icon.svg" : "qrc:/gpoddernet.svg"
-                    // }
+                    Kirigami.Icon {
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                        source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                    }
                     ColumnLayout {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -319,13 +316,11 @@ Kirigami.ScrollablePage {
             contentItem:  RowLayout {
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 25
                 spacing: Kirigami.Units.largeSpacing
-                // Disable images until licensing has been sorted out
-                // Image {
-                //     sourceSize.height: Kirigami.Units.gridUnit * 4
-                //     sourceSize.width: Kirigami.Units.gridUnit * 4
-                //     fillMode: Image.PreserveAspectFit
-                //     source: "qrc:/gpoddernet.svg"
-                // }
+                Kirigami.Icon {
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                    source: "gpodder"
+                }
                 TextEdit {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -367,13 +362,11 @@ Kirigami.ScrollablePage {
             contentItem:  RowLayout {
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                 spacing: Kirigami.Units.largeSpacing
-                // Disable images until licensing has been sorted out
-                // Image {
-                //     sourceSize.height: Kirigami.Units.gridUnit * 4
-                //     sourceSize.width: Kirigami.Units.gridUnit * 4
-                //     fillMode: Image.PreserveAspectFit
-                //     source: Sync.provider === Sync.GPodderNextcloud ? "qrc:/nextcloud-icon.svg" : "qrc:/gpoddernet.svg"
-                // }
+                Kirigami.Icon {
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                    source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                }
                 TextEdit {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
