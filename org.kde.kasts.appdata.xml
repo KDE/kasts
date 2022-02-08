@@ -158,6 +158,16 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="22.02" date="2021-02-09">
+      <url>https://www.plasma-mobile.org/2022/02/09/plasma-mobile-gear-22-02/</url>
+      <description>
+        <ul>
+          <li>Various User interface improvements</li>
+          <li>Keep fetching episode actions until we get the current timestamp</li>
+          <li>Re-enable icons for gpodder and nextcloud</li>
+        </ul>
+      </description>
+    </release>
     <release version="21.12" date="2021-12-07">
       <description>
         <p>New features in this release:</p>
