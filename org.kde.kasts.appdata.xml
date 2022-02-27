@@ -96,7 +96,7 @@
     <p xml:lang="sv">Kasts är ett mobilt poddradioprogram</p>
     <p xml:lang="uk">Kasts — програма для прослуховування подкастів на мобільних пристроях</p>
     <p xml:lang="x-test">xxKasts is a mobile podcast applicationxx</p>
-    <p xml:lang="zh-CN">Kasts 是一个移动播客应用程序</p>
+    <p xml:lang="zh-CN">Kasts 是一款为移动设备设计的播客应用程序</p>
   </description>
   <recommends>
     <control>pointing</control>
@@ -128,7 +128,7 @@
       <caption xml:lang="sv">Kasts kanallista på skrivbordet</caption>
       <caption xml:lang="uk">Список подач Kasts на стільниці</caption>
       <caption xml:lang="x-test">xxKasts feed list on the desktopxx</caption>
-      <caption xml:lang="zh-CN">在桌面上运行的 Kasts 订阅列表</caption>
+      <caption xml:lang="zh-CN">桌面模式下的 Kasts 订阅列表</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot type="default">
