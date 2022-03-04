@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
@@ -42,58 +42,73 @@ Kirigami.ScrollablePage {
             onClicked: syncProviderOverlay.open()
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: syncProviderOverlay
+            preferredWidth: Kirigami.Units.gridUnit * 20
+            standardButtons: Kirigami.Dialog.NoButton
+
             showCloseButton: true
-            header: Kirigami.Heading {
-                text: i18n("Select Sync Provider")
-                elide: Text.ElideRight
-            }
 
-            contentItem: ListView {
-                focus: syncProviderOverlay.sheetOpen
-                implicitWidth: Math.max(contentItem.childrenRect.width, Kirigami.Units.gridUnit * 20)
+            title: i18n("Select Sync Provider")
 
-                model: ListModel {
-                    id: providerModel
-                }
-                Component.onCompleted: {
-                    providerModel.append({"name": i18n("gpodder.net"),
-                                          "subtitle": i18n("Synchronize with official gpodder.net server"),
-                                          "icon": "gpodder",
-                                          "provider": Sync.GPodderNet});
-                    providerModel.append({"name": i18n("GPodder Nextcloud"),
-                                          "subtitle": i18n("Synchronize with GPodder Nextcloud app"),
-                                          "icon": "kaccounts-nextcloud",
-                                          "provider": Sync.GPodderNextcloud});
-                }
-                delegate: Kirigami.BasicListItem {
-                    label: model.name
-                    subtitle: model.subtitle
-                    icon: model.icon
-                    //highlighted: false
-                    iconSize: Kirigami.Units.gridUnit * 3
-                    Keys.onReturnPressed: clicked()
-                    onClicked: {
-                        Sync.provider = model.provider;
-                        syncProviderOverlay.close();
-                        syncLoginOverlay.open();
+            ColumnLayout {
+                spacing: 0
+
+                Repeater {
+                    focus: syncProviderOverlay.visible
+
+                    model: ListModel {
+                        id: providerModel
+                    }
+                    Component.onCompleted: {
+                        providerModel.append({"name": i18n("gpodder.net"),
+                                              "subtitle": i18n("Synchronize with official gpodder.net server"),
+                                              "icon": "gpodder",
+                                              "provider": Sync.GPodderNet});
+                        providerModel.append({"name": i18n("GPodder Nextcloud"),
+                                              "subtitle": i18n("Synchronize with GPodder Nextcloud app"),
+                                              "icon": "kaccounts-nextcloud",
+                                              "provider": Sync.GPodderNextcloud});
+                    }
+                    delegate: Kirigami.BasicListItem {
+                        Layout.fillWidth: true
+                        label: model.name
+                        subtitle: model.subtitle
+                        icon: model.icon
+                        //highlighted: false
+                        iconSize: Kirigami.Units.gridUnit * 3
+                        Keys.onReturnPressed: clicked()
+                        onClicked: {
+                            Sync.provider = model.provider;
+                            syncProviderOverlay.close();
+                            syncLoginOverlay.open();
+                        }
                     }
                 }
             }
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: syncLoginOverlay
+            preferredWidth: Kirigami.Units.gridUnit * 25
+            padding: Kirigami.Units.largeSpacing
+
             showCloseButton: true
+            standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
+            closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-            header: Kirigami.Heading {
-                text: i18n("Sync Login Credentials")
-                elide: Text.ElideRight
+            title: i18n("Sync Login Credentials")
+
+            onAccepted: {
+                if (Sync.provider === Sync.GPodderNextcloud) {
+                    Sync.hostname = hostnameField.text;
+                }
+                Sync.login(usernameField.text, passwordField.text);
+                syncLoginOverlay.close();
             }
+            onRejected: syncLoginOverlay.close();
 
-            contentItem: Column {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 25
+            Column {
                 spacing: Kirigami.Units.largeSpacing
                 RowLayout {
                     width: parent.width
@@ -137,8 +152,8 @@ Kirigami.ScrollablePage {
                         id: usernameField
                         Layout.fillWidth: true
                         text: Sync.username
-                        Keys.onReturnPressed: credentialsButtons.accepted();
-                        // focus: syncLoginOverlay.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
+                        Keys.onReturnPressed: syncLoginOverlay.accepted();
+                        // focus: syncLoginOverlay.visible // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                     }
                     Controls.Label {
                         Layout.alignment: Qt.AlignRight
@@ -149,7 +164,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         echoMode: TextInput.Password
                         text: Sync.password
-                        Keys.onReturnPressed: credentialsButtons.accepted();
+                        Keys.onReturnPressed: syncLoginOverlay.accepted();
                     }
                     Controls.Label {
                         visible: Sync.provider === Sync.GPodderNextcloud
@@ -162,22 +177,9 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         placeholderText: "https://nextcloud.mydomain.org"
                         text: Sync.hostname
-                        Keys.onReturnPressed: credentialsButtons.accepted();
+                        Keys.onReturnPressed: syncLoginOverlay.accepted();
                     }
                 }
-            }
-
-            footer: Controls.DialogButtonBox {
-                id: credentialsButtons
-                standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
-                onAccepted: {
-                    if (Sync.provider === Sync.GPodderNextcloud) {
-                        Sync.hostname = hostnameField.text;
-                    }
-                    Sync.login(usernameField.text, passwordField.text);
-                    syncLoginOverlay.close();
-                }
-                onRejected: syncLoginOverlay.close();
             }
         }
 
@@ -194,16 +196,16 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: syncDeviceOverlay
+            preferredWidth: Kirigami.Units.gridUnit * 25
+            padding: Kirigami.Units.largeSpacing
+
             showCloseButton: true
 
-            header: Kirigami.Heading {
-                text: i18n("Sync Device Settings")
-                elide: Text.ElideRight
-            }
-            contentItem: Column {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 25
+            title: i18n("Sync Device Settings")
+
+            Column {
                 spacing: Kirigami.Units.largeSpacing * 2
                 Kirigami.Heading {
                     level: 2
@@ -220,7 +222,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         text: Sync.suggestedDevice
                         Keys.onReturnPressed: createDeviceButton.clicked();
-                        // focus: syncDeviceOverlay.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
+                        // focus: syncDeviceOverlay.visible // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                     }
                     Controls.Label {
                         text: i18n("Device Description:")
@@ -305,16 +307,26 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: syncGroupOverlay
-            showCloseButton: true
+            preferredWidth: Kirigami.Units.gridUnit * 25
+            padding: Kirigami.Units.largeSpacing
 
-            header: Kirigami.Heading {
-                text: i18n("Device Sync Settings")
-                elide: Text.ElideRight
+            showCloseButton: true
+            standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
+            closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
+
+            title: i18n("Device Sync Settings")
+
+            onAccepted: {
+                Sync.linkUpAllDevices();
+                syncGroupOverlay.close();
             }
-            contentItem:  RowLayout {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 25
+            onRejected: {
+                syncGroupOverlay.close();
+            }
+
+            RowLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 4
@@ -328,39 +340,35 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.WordWrap
                     text: i18n("Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
                     color: Kirigami.Theme.textColor
+                    Keys.onReturnPressed: accepted();
                 }
             }
 
-            footer: Controls.DialogButtonBox {
-                standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
-                focus: syncGroupOverlay.sheetOpen
-                Keys.onReturnPressed: accepted();
-                onAccepted: {
-                    Sync.linkUpAllDevices();
-                    syncGroupOverlay.close();
-                }
-                onRejected: {
-                    syncGroupOverlay.close();
-                }
-            }
-
-            onSheetOpenChanged: {
-                if (!sheetOpen) {
+            onVisibleChanged: {
+                if (!visible) {
                     firstSyncOverlay.open();
                 }
             }
         }
 
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: firstSyncOverlay
-            showCloseButton: true
+            preferredWidth: Kirigami.Units.gridUnit * 16
+            padding: Kirigami.Units.largeSpacing
 
-            header: Kirigami.Heading {
-                text: i18n("Sync Now?")
-                elide: Text.ElideRight
+            showCloseButton: true
+            standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
+            closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
+
+            title: i18n("Sync Now?")
+
+            onAccepted: {
+                firstSyncOverlay.close();
+                Sync.doRegularSync();
             }
-            contentItem:  RowLayout {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+            onRejected: firstSyncOverlay.close();
+
+            RowLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 4
@@ -374,18 +382,8 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.WordWrap
                     text: i18n("Perform a first sync now?")
                     color: Kirigami.Theme.textColor
+                    Keys.onReturnPressed: accepted();
                 }
-            }
-
-            footer: Controls.DialogButtonBox {
-                standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
-                focus: firstSyncOverlay.sheetOpen
-                Keys.onReturnPressed: accepted();
-                onAccepted: {
-                    firstSyncOverlay.close();
-                    Sync.doRegularSync();
-                }
-                onRejected: firstSyncOverlay.close();
             }
         }
 

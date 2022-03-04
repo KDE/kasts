@@ -8,7 +8,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kasts 1.0
 
 Loader {
@@ -59,25 +59,31 @@ Loader {
 
     Component {
         id: widescreenComponent
-        Kirigami.OverlaySheet {
+        Kirigami.Dialog {
             id: listViewSheet
-            header: Kirigami.Heading {
-                text: i18n("Set Playback Rate")
-            }
-            contentItem: ListView {
+            title: i18n("Set Playback Rate")
+            padding: 0
+            preferredWidth: Kirigami.Units.gridUnit * 16
+
+            ColumnLayout {
                 id: playbackRateList
-                model: playbackRateModel
-                implicitWidth: Kirigami.Units.gridUnit * 12
-                clip: true
-                delegate: Kirigami.SwipeListItem {
-                    id: swipeDelegate
-                    highlighted: value == AudioManager.playbackRate
-                    Controls.Label {
+                spacing: 0
+
+                Repeater {
+                    model: playbackRateModel
+                    delegate: Controls.RadioDelegate {
+                        id: swipeDelegate
+
+                        Layout.fillWidth: true
+                        topPadding: Kirigami.Units.smallSpacing * 2
+                        bottomPadding: Kirigami.Units.smallSpacing * 2
+
+                        checked: value == AudioManager.playbackRate
                         text: name
-                    }
-                    onClicked: {
-                        AudioManager.playbackRate = value;
-                        close();
+                        onCheckedChanged: {
+                            AudioManager.playbackRate = value;
+                            close();
+                        }
                     }
                 }
             }

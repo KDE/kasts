@@ -11,7 +11,7 @@ import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
@@ -238,47 +238,35 @@ Controls.ItemDelegate {
         y: cardSize + cardMargin
     }
 
-    Kirigami.OverlaySheet {
+    Kirigami.MenuDialog {
         id: actionOverlay
         // parent: applicationWindow().overlay
         showCloseButton: true
 
-        header: Kirigami.Heading {
-            text: feed.name
-            level: 2
-            elide: Text.ElideRight
-        }
+        title: feed.name
 
-        contentItem: ColumnLayout {
-                Kirigami.BasicListItem {
-                    Layout.fillWidth: true
-                    leftPadding: Kirigami.Units.smallSpacing
-                    rightPadding: 0
-                    onClicked: {
+        actions: [
+            Kirigami.Action {
+                onTriggered: {
+                    while (pageStack.depth > 1)
+                        pageStack.pop()
+                    pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
+                    actionOverlay.close();
+                }
+                iconName: "help-about-symbolic"
+                text: i18n("Podcast Details")
+            },
+            Kirigami.Action {
+                onTriggered: {
+                    if (feed.url === lastFeed)
                         while(pageStack.depth > 1)
                             pageStack.pop()
-                        pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
-                        actionOverlay.close();
-                    }
-                    icon: "help-about-symbolic"
-                    text: i18n("Podcast Details")
+                    DataManager.removeFeed(feed)
+                    actionOverlay.close();
                 }
-
-                Kirigami.BasicListItem {
-                    Layout.fillWidth: true
-                    leftPadding: Kirigami.Units.smallSpacing
-                    rightPadding: 0
-                    onClicked: {
-                        if(feed.url === lastFeed)
-                            while(pageStack.depth > 1)
-                                pageStack.pop()
-                        DataManager.removeFeed(feed)
-                        actionOverlay.close();
-                    }
-                    icon: "delete"
-                    text: i18n("Remove Podcast")
-                }
-
-        }
+                iconName: "delete"
+                text: i18n("Remove Podcast")
+            }
+        ]
     }
 }

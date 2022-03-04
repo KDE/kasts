@@ -9,44 +9,40 @@ import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: errorOverlay
+    preferredWidth: Kirigami.Units.gridUnit * 20
+    preferredHeight: Kirigami.Units.gridUnit * 16
 
     showCloseButton: true
 
-    header: Kirigami.Heading {
-        text: i18n("Error Log")
-        level: 2
-        wrapMode: Text.Wrap
-    }
+    title: i18n("Error Log")
+    standardButtons: Kirigami.Dialog.NoButton
 
-    footer: Controls.DialogButtonBox {
-        Controls.Button {
-            text: i18n("Clear All Errors")
-            icon.name: "edit-clear-all"
-            onClicked: ErrorLogModel.clearAll()
-            enabled: errorList.count > 0
-        }
-    }
-
-    Kirigami.PlaceholderMessage {
-        id: placeholder
-        visible: errorList.count == 0
-
-        text: i18n("No Errors Logged")
+    customFooterActions: Kirigami.Action {
+        text: i18n("Clear All Errors")
+        iconName: "edit-clear-all"
+        onTriggered: ErrorLogModel.clearAll()
+        enabled: errorList.count > 0
     }
 
     ListView {
         id: errorList
-        visible: errorList.count > 0
-        implicitWidth: Kirigami.Units.gridUnit * 20
         reuseItems: true
 
         model: ErrorLogModel
+
+        Kirigami.PlaceholderMessage {
+            id: placeholder
+            visible: errorList.count == 0
+            anchors.centerIn: parent
+
+            text: i18n("No Errors Logged")
+        }
 
         Component {
             id: errorListDelegate
@@ -92,6 +88,4 @@ Kirigami.OverlaySheet {
 
         delegate: errorListDelegate
     }
-
-    contentItem: errorList.count > 0 ? errorList : placeholder
 }

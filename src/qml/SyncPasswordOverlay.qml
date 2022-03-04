@@ -8,22 +8,27 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: syncPasswordOverlay
+    preferredWidth: Kirigami.Units.gridUnit * 20
     parent: applicationWindow().overlay
+
     showCloseButton: true
+    standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
 
-    header: Kirigami.Heading {
-        text: i18n("Sync Password Required")
-        elide: Text.ElideRight
+    title: i18n("Sync Password Required")
+
+    onAccepted: {
+        Sync.password = passwordField2.text;
+        syncPasswordOverlay.close();
     }
+    onRejected: syncPasswordOverlay.close();
 
-    contentItem: Column {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 20
+    Column {
         spacing: Kirigami.Units.largeSpacing
         RowLayout {
             width: parent.width
@@ -54,21 +59,11 @@ Kirigami.OverlaySheet {
             Controls.TextField {
                 id: passwordField2
                 Layout.fillWidth: true
-                Keys.onReturnPressed: passwordButtons.accepted();
-                focus: syncPasswordOverlay.sheetOpen
+                Keys.onReturnPressed: syncPasswordOverlay.accepted();
+                focus: syncPasswordOverlay.visible
                 echoMode: TextInput.Password
                 text: Sync.password
             }
         }
-    }
-
-    footer: Controls.DialogButtonBox {
-        id: passwordButtons
-        standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
-        onAccepted: {
-            Sync.password = passwordField2.text;
-            syncPasswordOverlay.close();
-        }
-        onRejected: syncPasswordOverlay.close();
     }
 }

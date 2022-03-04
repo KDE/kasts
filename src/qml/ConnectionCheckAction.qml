@@ -8,14 +8,15 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: overlay
     parent: applicationWindow().overlay
+    closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
     property string headingText: i18n("Podcast updates are currently not allowed on metered connections")
     property bool condition: SettingsManager.allowMeteredFeedUpdates
@@ -50,23 +51,33 @@ Kirigami.OverlaySheet {
         }
     }
 
-    header: Kirigami.Heading {
-        text: overlay.headingText
-        level: 2
-        wrapMode: Text.Wrap
-        elide: Text.ElideRight
-        maximumLineCount: 3
-    }
+    title: i18n("Select Option")
 
-    contentItem: ColumnLayout {
-
+    ColumnLayout {
         spacing: 0
+
+        Controls.Label {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            Layout.fillWidth: true
+            text: headingText
+            wrapMode: Text.Wrap
+            color: Kirigami.Theme.disabledTextColor
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+            opacity: 0.5
+        }
 
         Kirigami.BasicListItem {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-            leftPadding: Kirigami.Units.smallSpacing
-            rightPadding: 0
+            leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+
             text: i18n("Don't Allow")
             onClicked: {
                 abortAction();
@@ -77,8 +88,9 @@ Kirigami.OverlaySheet {
         Kirigami.BasicListItem {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-            leftPadding: Kirigami.Units.smallSpacing
-            rightPadding: 0
+            leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+
             text: i18n("Allow Once")
             onClicked: {
                 allowOnceAction();
@@ -89,8 +101,9 @@ Kirigami.OverlaySheet {
         Kirigami.BasicListItem {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-            leftPadding: Kirigami.Units.smallSpacing
-            rightPadding: 0
+            leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+
             text: i18n("Always Allow")
             onClicked: {
                 alwaysAllowAction();

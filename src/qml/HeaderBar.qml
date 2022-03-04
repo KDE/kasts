@@ -11,7 +11,7 @@ import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
@@ -247,29 +247,21 @@ Rectangle {
         }
     }
 
-    Kirigami.OverlaySheet {
-        id:  chapterOverlay
+    Kirigami.Dialog {
+        id: chapterOverlay
+        preferredWidth: Kirigami.Units.gridUnit * 20
+        preferredHeight: Kirigami.Units.gridUnit * 16
 
         showCloseButton: true
 
-        header: Kirigami.Heading {
-            text: i18n("Chapters")
-            level: 2
-            wrapMode: Text.Wrap
-        }
+        title: i18n("Chapters")
 
         ListView {
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 25
             id: chapterList
-            width: parent.width
-            height: contentItem.childrenRect.height
             model: ChapterModel {
                 enclosureId: AudioManager.entry ? AudioManager.entry.id : ""
                 enclosurePath: AudioManager.entry ? AudioManager.entry.enclosure.path : ""
             }
-            clip: true
-            visible: chapterList.count !== 0
-            anchors.fill: parent
             delegate: ChapterListDelegate {
                 id: chapterDelegate
                 width: chapterList.width
@@ -279,20 +271,17 @@ Rectangle {
         }
     }
 
-    Kirigami.OverlaySheet {
-        id:  entryDetailsOverlay
+    Kirigami.Dialog {
+        id: entryDetailsOverlay
+        preferredWidth: Kirigami.Units.gridUnit * 25
 
         showCloseButton: true
 
-        header: Kirigami.Heading {
-            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
-            level: 2
-            elide: Text.ElideRight
-        }
+        title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
+        padding: Kirigami.Units.largeSpacing
 
-        contentItem: Controls.Label {
+        Controls.Label {
             id: text
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 25
             text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""

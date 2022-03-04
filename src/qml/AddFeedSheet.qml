@@ -8,20 +8,21 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: addSheet
     parent: applicationWindow().overlay
     showCloseButton: true
+    standardButtons: Kirigami.Dialog.NoButton
 
-    header: Kirigami.Heading {
-        text: i18n("Add New Podcast")
-    }
+    title: i18n("Add New Podcast")
+    padding: Kirigami.Units.largeSpacing
+    preferredWidth: Kirigami.Units.gridUnit * 20
 
-    contentItem: ColumnLayout {
+    ColumnLayout {
         Controls.Label {
             text: i18n("Url:")
         }
@@ -30,7 +31,7 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
             text: "https://"
             // focus: addSheet.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
-            Keys.onReturnPressed: addFeedButton.clicked();
+            Keys.onReturnPressed: addFeedAction.triggered();
         }
 
         // This item can be used to trigger the addition of a feed; it will open an
@@ -43,11 +44,11 @@ Kirigami.OverlaySheet {
         }
     }
 
-    footer: Controls.Button {
-        id: addFeedButton
+    customFooterActions: Kirigami.Action {
+        id: addFeedAction
         text: i18n("Add Podcast")
         enabled: urlField.text
-        onClicked: {
+        onTriggered: {
             addSheet.close();
             addFeed.run();
         }

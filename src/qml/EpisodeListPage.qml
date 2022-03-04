@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
@@ -47,41 +47,41 @@ Kirigami.ScrollablePage {
         visible: !Kirigami.Settings.isMobile || (episodeList.count === 0 && episodeProxyModel.filterType == EpisodeProxyModel.NoFilter)
     }
 
-    Kirigami.OverlaySheet {
+    Kirigami.Dialog {
         id: filterTypeOverlay
 
-        header: Kirigami.Heading {
-            text: i18n("Select Filter")
-        }
+        title: i18n("Select Filter")
+        preferredWidth: Kirigami.Units.gridUnit * 16
 
-        ListView {
-            // TODO: fix automatic width
-            implicitWidth: Kirigami.Units.gridUnit * 15
-            clip: true
+        ColumnLayout {
+            spacing: 0
 
-            model: ListModel {
-                id: filterModel
-                // have to use script because i18n doesn't work within ListElement
-                Component.onCompleted: {
-                    var filterList = [EpisodeProxyModel.NoFilter,
-                                      EpisodeProxyModel.ReadFilter,
-                                      EpisodeProxyModel.NotReadFilter,
-                                      EpisodeProxyModel.NewFilter,
-                                      EpisodeProxyModel.NotNewFilter]
-                    for (var i in filterList) {
-                        filterModel.append({"name": episodeProxyModel.getFilterName(filterList[i]),
-                                            "filterType": filterList[i]});
+            Repeater {
+                model: ListModel {
+                    id: filterModel
+                    // have to use script because i18n doesn't work within ListElement
+                    Component.onCompleted: {
+                        var filterList = [EpisodeProxyModel.NoFilter,
+                                        EpisodeProxyModel.ReadFilter,
+                                        EpisodeProxyModel.NotReadFilter,
+                                        EpisodeProxyModel.NewFilter,
+                                        EpisodeProxyModel.NotNewFilter]
+                        for (var i in filterList) {
+                            filterModel.append({"name": episodeProxyModel.getFilterName(filterList[i]),
+                                                "filterType": filterList[i]});
+                        }
                     }
                 }
-            }
 
-            delegate: Kirigami.BasicListItem {
-                id: swipeDelegate
-                highlighted: filterType === episodeProxyModel.filterType
-                text: name
-                onClicked: {
-                    episodeProxyModel.filterType = filterType;
-                    filterTypeOverlay.close();
+                delegate: Kirigami.BasicListItem {
+                    id: swipeDelegate
+                    Layout.fillWidth: true
+                    highlighted: filterType === episodeProxyModel.filterType
+                    text: name
+                    onClicked: {
+                        episodeProxyModel.filterType = filterType;
+                        filterTypeOverlay.close();
+                    }
                 }
             }
         }
