@@ -43,6 +43,7 @@ Feed::Feed(const QString &feedurl)
     m_errorString = QLatin1String("");
 
     updateAuthors();
+    updateUnreadEntryCountFromDB();
 
     connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const QString &url, bool status) {
         if (url == m_url) {
@@ -52,6 +53,7 @@ Feed::Feed(const QString &feedurl)
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         if (url == m_url) {
             Q_EMIT entryCountChanged();
+            updateUnreadEntryCountFromDB();
             Q_EMIT unreadEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
@@ -128,6 +130,17 @@ void Feed::updateAuthors()
     qCDebug(kastsFeed) << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
 }
 
+void Feed::updateUnreadEntryCountFromDB()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
+    query.bindValue(QStringLiteral(":feed"), m_url);
+    Database::instance().execute(query);
+    if (!query.next())
+        m_unreadEntryCount = -1;
+    m_unreadEntryCount = query.value(0).toInt();
+}
+
 QString Feed::url() const
 {
     return m_url;
@@ -195,7 +208,7 @@ int Feed::entryCount() const
 
 int Feed::unreadEntryCount() const
 {
-    return DataManager::instance().unreadEntryCount(this);
+    return m_unreadEntryCount;
 }
 
 int Feed::newEntryCount() const
@@ -286,6 +299,16 @@ void Feed::setNotify(bool notify)
     if (notify != m_notify) {
         m_notify = notify;
         Q_EMIT notifyChanged(m_notify);
+    }
+}
+
+void Feed::setUnreadEntryCount(const int count)
+{
+    if (count != m_unreadEntryCount) {
+        m_unreadEntryCount = count;
+        Q_EMIT unreadEntryCountChanged();
+        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+        // TODO: can one of the two slots be removed??
     }
 }
 

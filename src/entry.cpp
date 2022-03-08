@@ -149,9 +149,7 @@ void Entry::setReadInternal(bool read)
         query.bindValue(QStringLiteral(":read"), m_read);
         Database::instance().execute(query);
 
-        Q_EMIT m_feed->unreadEntryCountChanged();
-        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feed->url());
-        // TODO: can one of the two slots be removed??
+        m_feed->setUnreadEntryCount(m_feed->unreadEntryCount() + (read ? -1 : 1));
 
         // Follow up actions
         if (read) {

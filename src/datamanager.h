@@ -36,7 +36,6 @@ public:
     QStringList getIdList(const Feed *feed) const;
     int entryCount(const int feed_index) const;
     int entryCount(const Feed *feed) const;
-    int unreadEntryCount(const Feed *feed) const;
     int newEntryCount(const Feed *feed) const;
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);

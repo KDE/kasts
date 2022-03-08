@@ -34,7 +34,7 @@ class Feed : public QObject
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
     Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
-    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
+    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount WRITE setUnreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
     Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
@@ -77,6 +77,7 @@ public:
     void setDeleteAfterType(int type);
     void setLastUpdated(const QDateTime &lastUpdated);
     void setNotify(bool notify);
+    void setUnreadEntryCount(const int count);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
     void setErrorString(const QString &errorString);
@@ -103,6 +104,8 @@ Q_SIGNALS:
     void refreshingChanged(bool refreshing);
 
 private:
+    void updateUnreadEntryCountFromDB();
+
     QString m_url;
     QString m_name;
     QString m_image;
@@ -116,6 +119,8 @@ private:
     bool m_notify;
     int m_errorId;
     QString m_errorString;
+    int m_unreadEntryCount = -1;
+
     EntriesModel *m_entries;
 
     bool m_refreshing = false;
