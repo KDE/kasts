@@ -61,6 +61,10 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
+    if (qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
+    }
+
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);
