@@ -78,7 +78,7 @@
   <description>
     <p>Kasts is a mobile podcast application</p>
     <p xml:lang="ca">El Kasts és una aplicació de podcast per a mòbil</p>
-    <p xml:lang="ca-valencia">El Kasts és una aplicació de podcast per a mòbil</p>
+    <p xml:lang="ca-valencia">Kasts és una aplicació de podcast per a mòbil</p>
     <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
     <p xml:lang="en-GB">Kasts is a mobile podcast application</p>
     <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
@@ -110,7 +110,7 @@
     <screenshot type="default">
       <caption>Kasts feed list on the desktop</caption>
       <caption xml:lang="ca">Llista de fonts del Kasts a l'escriptori</caption>
-      <caption xml:lang="ca-valencia">Llista de fonts del Kasts a l'escriptori</caption>
+      <caption xml:lang="ca-valencia">Llista de fonts de Kasts a l'escriptori</caption>
       <caption xml:lang="cs">Seznam kanálů Kasts na počítači</caption>
       <caption xml:lang="de">Kasts mit der Liste der Nachrichtenquellen auf der Arbeitsfläche</caption>
       <caption xml:lang="en-GB">Kasts feed list on the desktop</caption>
