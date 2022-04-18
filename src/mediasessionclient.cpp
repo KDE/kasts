@@ -16,29 +16,29 @@ static void play(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA play() working.";
-    emit MediaSessionClient::instance()->play();
+    qWarning() << "JAVA play() working.";
+    Q_EMIT MediaSessionClient::instance()->play();
 }
 static void pause(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA pause() working.";
-    emit MediaSessionClient::instance()->pause();
+    qWarning() << "JAVA pause() working.";
+    Q_EMIT MediaSessionClient::instance()->pause();
 }
 static void next(JNIEnv *env, jobject thiz)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
-    qDebug() << "JAVA next() working.";
-    emit MediaSessionClient::instance()->next();
+    qWarning() << "JAVA next() working.";
+    Q_EMIT MediaSessionClient::instance()->next();
 }
 static void seek(JNIEnv *env, jobject thiz, jlong position)
 {
     Q_UNUSED(env)
     Q_UNUSED(thiz)
     Q_UNUSED(position)
-    qDebug() << "JAVA seek() working.";
+    qWarning() << "JAVA seek() working.";
 }
 static const JNINativeMethod methods[] {{"playerPlay", "()V", reinterpret_cast<void *>(play)},
     {"playerPause", "()V", reinterpret_cast<void *>(pause)},
@@ -104,25 +104,23 @@ MediaSessionClient* MediaSessionClient::instance()
 
 void MediaSessionClient::setSessionPlaybackState()
 {
-    qDebug() << "MediaSessionClient::setSessionPlaybackState called with state value = " << m_audioPlayer->playbackState();
+    qWarning() << "MediaSessionClient::setSessionPlaybackState called with state value = " << m_audioPlayer->playbackState();
     int status = -1;
     switch(m_audioPlayer->playbackState()) {
-        case QMediaPlayer::PlayingState :
-            status = 0;
-            break;
-        case QMediaPlayer::PausedState :
-            status = 1;
-            break;
-        case QMediaPlayer::StoppedState :
-            status = 2;
-            break;
+    case QMediaPlayer::PlayingState:
+        status = 0;
+        break;
+    case QMediaPlayer::PausedState:
+        status = 1;
+        break;
+    case QMediaPlayer::StoppedState:
+        status = 2;
+        break;
     }
-#ifndef Q_OS_ANDROID
-    Q_UNUSED(status)
-#endif
-
 #ifdef Q_OS_ANDROID
     QAndroidJniObject::callStaticMethod<void>("org/kde/kasts/KastsActivity", "setSessionState", "(I)V", status);
+#else
+    Q_UNUSED(status)
 #endif
 }
 

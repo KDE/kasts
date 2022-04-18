@@ -74,6 +74,7 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_DISABLE_DEPRECATED_BEFORE=0x050d00
 )
 
+ki18n_install(po)
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

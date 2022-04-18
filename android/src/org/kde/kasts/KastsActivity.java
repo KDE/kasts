@@ -25,7 +25,6 @@ import androidx.media.app.NotificationCompat.MediaStyle;
 
 import androidx.core.content.ContextCompat;
 
-
 import java.io.*;
 import java.util.*;
 
@@ -33,98 +32,61 @@ public class KastsActivity extends QtActivity
 {
     private static final String TAG = "org.kde.kasts.mediasession";
 
-    class MediaData {
-        public String title = "Unknown Media";
-        public String author = "Unknown Artist";
-        public String album = "Unknown Album";
-        public long position = 0;
-        public long duration = 0;
-        public float playbackSpeed = 1;
-        public int state = 2;
-        // add more variables here
-    }
-
-    static MediaData mediaData;
-
-    static MediaSessionCompat mSession;
-    private static PlaybackStateCompat.Builder mPBuilder;
     private static KastsActivity activity;
 
-    void updateNotification() {
+    private static MediaData mediaData;
+    private static MediaSessionCompat mediaSession;
+    private static PlaybackStateCompat.Builder mediaPlayback;
 
-        // TODO: Change all of these variables to the values in mediaData
-        // add other required values
+    private static NotificatiooCompat.Builder notification;
 
-        MediaMetadataCompat.Builder metadata = new MediaMetadataCompat.Builder();
+    private static NotificationCompat.Action.Builder play;
+    private static NotificationCompat.Action.Builder pause;
+    private static NotificationCompat.Action.Builder next;
+    private static MediaStyle mediaStyle;
+    private static NotificationManager notificationManager;
 
-        switch(mediaData.state)
-        {
-            case 0:
-                mPBuilder.setState(PlaybackStateCompat.STATE_PLAYING, mediaData.position, mediaData.playbackSpeed);
-            case 1:
-                mPBuilder.setState(PlaybackStateCompat.STATE_PAUSED, mediaData.position, mediaData.playbackSpeed);
-            case 2:
-                mPBuilder.setState(PlaybackStateCompat.STATE_STOPPED, mediaData.position, mediaData.playbackSpeed);
-        }
-
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, mediaData.title);
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, mediaData.author);
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, mediaData.author);
-        metadata.putString(MediaMetadataCompat.METADATA_KEY_ALBUM, mediaData.album);
-        metadata.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, mediaData.duration);
-        //TODO Image
-        mSession.setMetadata(metadata.build());
-
+    void initNotification() {
         Intent iPlay = new Intent(this, Receiver.class);
         iPlay.setAction("ACTION_PLAY");
         PendingIntent piPlay = PendingIntent.getBroadcast(this, 0, iPlay, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Action.Builder aPlay = new NotificationCompat.Action.Builder(
-                R.drawable.ic_play_white, "Play", piPlay);
+        play = new NotificationCompat.Action.Builder(R.drawable.ic_play_white, "Play", piPlay);
 
         Intent iPause = new Intent(this, Receiver.class);
         iPause.setAction("ACTION_PAUSE");
         PendingIntent piPause = PendingIntent.getBroadcast(this, 0, iPause, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Action.Builder aPause = new NotificationCompat.Action.Builder(
-                R.drawable.ic_pause_white, "Pause", piPause);
+        pause = new NotificationCompat.Action.Builder(R.drawable.ic_pause_white, "Pause", piPause);
 
         Intent iNext = new Intent(this, Receiver.class);
         iNext.setAction("ACTION_NEXT");
         PendingIntent piNext = PendingIntent.getBroadcast(this, 0, iNext, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Action.Builder aNext = new NotificationCompat.Action.Builder(
-                R.drawable.ic_next_white, "Next", piNext);
+        next = new NotificationCompat.Action.Builder(R.drawable.ic_next_white, "Next", piNext);
 
-        Intent iOpenActivity = new Intent(this, KastsActivity.class);
-
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(this, "media_control");
-        notification
-            .setAutoCancel(false)
+        Intent iOpenActivity = new Intent(activity, KastsActivity.class);
+        notification = new NotificationCompat.Builder(activity, "media_control");
+        notification.setAutoCancel(false)
             .setShowWhen(false)
             .setVisibility(androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC)
-            .setSubText(mediaData.author)
-            .setContentTitle(mediaData.title)
             .setSmallIcon(this.getApplicationInfo().icon)
             .setChannelId("org.kde.kasts.channel")
             .setContentText("Unknown")
             .setContentIntent(PendingIntent.getActivity(this, 0, iOpenActivity, 0));
 
-        if(mediaData.state == 0)
-            notification.addAction(aPause.build());
-        else
-            notification.addAction(aPlay.build());
-        notification.addAction(aNext.build());
-        mSession.setPlaybackState(mPBuilder.build());
-        MediaStyle mediaStyle = new MediaStyle();
-        mediaStyle.setMediaSession(mSession.getSessionToken());
+        mediaStyle = new MediaStyle();
+        mediaStyle.setMediaSession(mediaSession.getSessionToken());
         mediaStyle.setShowActionsInCompactView(0, 1, 2);
         notification.setStyle(mediaStyle);
+        mediaSession.setActive(true);
         notification.setGroup("MprisMediaSession");
-        mSession.setActive(true);
         NotificationManager nm = ContextCompat.getSystemService(this, NotificationManager.class);
         NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription("No Media Loaded");
         channel.enableLights(false);
         channel.enableVibration(false);
-        nm.createNotificationChannel(channel);
+        notificationManager.createNotificationChannel(channel);
+    }
+
+    void updateNotification() {
         nm.notify(0x487671, notification.build());
     }
 
@@ -132,24 +94,24 @@ public class KastsActivity extends QtActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mSession = new MediaSessionCompat(this, TAG);
-        mSession.setFlags(
+        mediaSession = new MediaSessionCompat(this, TAG);
+        mediaSession.setFlags(
                 MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
                 MediaSessionCompat.FLAG_HANDLES_QUEUE_COMMANDS |
                 MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
-        mSession.setCallback(new MediaSessionCallback(this));
-        mPBuilder = new PlaybackStateCompat.Builder();
+        mediaSession.setCallback(new MediaSessionCallback(this));
+        mediaPlayback = new PlaybackStateCompat.Builder();
         activity = this;
         mediaData = new MediaData();
 
-        updateNotification();
+        initNotification();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
 
-        mSession.release();
+        mediaSession.release();
     }
 
     private final class MediaSessionCallback extends MediaSessionCompat.Callback {
@@ -165,8 +127,8 @@ public class KastsActivity extends QtActivity
         public void onPlay() {
             super.onPlay();
 
-            if (!mSession.isActive()) {
-                mSession.setActive(true);
+            if (!mediaSession.isActive()) {
+                mediaSession.setActive(true);
             }
         }
 
@@ -175,7 +137,7 @@ public class KastsActivity extends QtActivity
             super.onPause();
 
             //JNI to audiomanager pause
-            //setPlaybackState for mSession
+            //setPlaybackState for mediaSession
         }
 
         @Override
@@ -183,7 +145,7 @@ public class KastsActivity extends QtActivity
             super.onStop();
 
             //JNI call to audiomanager stop
-            mSession.setActive(false);
+            mediaSession.setActive(false);
         }
 
         @Override
@@ -194,53 +156,45 @@ public class KastsActivity extends QtActivity
         }
     }
 
-    /*
-    * JNI METHODS
-    */
-
-    public static void setSessionState(int state)
+    public static void setSessionState(int state, float speed, long position)
     {
-        //TODO: set state in mediadata
+        Log.e(TAG, "Updating session state");
+        notification.clearActions();
+        switch(state) {
+            case 0:
+                mediaPlayback.setState(MediaPlaybackCompat.PLAYING, position, playbackSpeed);
+                notification.addAction(pause.build());
+                notification.addAction(next.build());
+                break;
+                case 1:
+                mediaPlayback.setState(MediaPlaybackCompat.PAUSED, position, playbackSpeed);
+                notification.addAction(play.build());
+                notification.addAction(next.build());
+                break;
+            case 2:
+                mediaPlayback.setState(MediaPlaybackCompat.STOPPED, position, playbackSpeed);
+                notification.addAction(play.build());
+                notification.addAction(next.build());
+                break;
+        }
 
-        mediaData.state = state;
-        Log.d(TAG, "JAVA setSessionState called.");
-
+        mediaSession.setPlaybackState(mediaPlayback.build());
         activity.updateNotification();
     }
 
     public static void setMetadata(String title, String author, String album, long position, long duration, float rate)
     {
-        Log.d(TAG, "JAVA setMetadata called.");
-        mediaData.title = title;
-        mediaData.author = author;
-        mediaData.album = album;
-        mediaData.position = position;
-        mediaData.duration = duration;
-        mediaData.playbackSpeed = rate;
+        Log.e(TAG, "Handling metadata");
 
-        activity.updateNotification();
-    }
+        var metadata = new MediaMetadataCompat.Builder();
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_TITLE, title);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_AUTHOR, author);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, author);
+        metadata.putString(MediaMetadataCompat.METADATA_KEY_ALBUM, album);
+        metadata.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, duration);
 
-    public static void setPlaybackSpeed(int rate)
-    {
-        Log.d(TAG, "JAVA setPlaybackSpeed called.");
-        mediaData.playbackSpeed = rate;
-
-        activity.updateNotification();
-    }
-
-    public static void setDuration(long duration)
-    {
-        Log.d(TAG, "JAVA setDuration called.");
-        mediaData.duration = duration;
-
-        activity.updateNotification();
-    }
-
-    public static void setPosition(long position)
-    {
-        Log.d(TAG, "JAVA setPosition called.");
-        mediaData.position = position;
+        notification.setSubText(author).setContentTitle(title);
+        mediaSession.setMetadata(metadata.build());
 
         activity.updateNotification();
     }
