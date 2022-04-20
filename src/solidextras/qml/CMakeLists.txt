@@ -15,5 +15,5 @@ else()
     message(WARNING "CMake is too old, cannot setup QML plugins to work without installation")
 endif()
 
-install(TARGETS kasts-solidextrasqmlplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kasts/solidextras)
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kasts/solidextras)
+install(TARGETS kasts-solidextrasqmlplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kasts/solidextras)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kasts/solidextras)
