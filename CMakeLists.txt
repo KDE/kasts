@@ -36,11 +36,11 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Syndication Config I18n)
 find_package(Taglib REQUIRED)
-find_package(Qt5Keychain)
-set_package_properties(Qt5Keychain PROPERTIES
+find_package(Qt${QT_MAJOR_VERSION}Keychain)
+set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
     TYPE REQUIRED
     PURPOSE "Secure storage of account secrets"
 )
@@ -48,14 +48,14 @@ set_package_properties(Qt5Keychain PROPERTIES
 find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
 
 if (ANDROID)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg AndroidExtras)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg AndroidExtras)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2)
     find_package(OpenSSL REQUIRED)
     find_package(SQLite3)
     find_package(ZLIB)
     find_package(Gradle)
 else()
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
 endif()
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII
