@@ -13,8 +13,7 @@
 #include <QVector>
 
 #include "author.h"
-
-class EntriesModel;
+#include "models/entriesmodel.h"
 
 class Feed : public QObject
 {
