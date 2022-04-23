@@ -164,6 +164,14 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="22.04" date="2022-04-26">
+      <url>https://www.plasma-mobile.org/2022/04/26/plasma-mobile-gear-22-04/</url>
+      <description>
+        <ul>
+          <li>General code quality improvements and bugfixes</li>
+        </ul>
+      </description>
+    </release>
     <release version="22.02" date="2022-02-09">
       <url>https://www.plasma-mobile.org/2022/02/09/plasma-mobile-gear-22-02/</url>
       <description>
