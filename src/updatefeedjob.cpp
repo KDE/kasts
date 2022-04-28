@@ -221,14 +221,6 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
 {
     qCDebug(kastsFetcher) << "Processing" << entry->title();
 
-    // Retrieve "other" fields; this will include the "itunes" tags
-    QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
-
-    for (QString key : otherItems.uniqueKeys()) {
-        qCDebug(kastsFetcher) << "other elements";
-        qCDebug(kastsFetcher) << key << otherItems.value(key).tagName();
-    }
-
     // check against existing entries in database
     if (m_existingEntryIds.contains(entry->id()))
         return false;
@@ -237,6 +229,14 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     for (EntryDetails entryDetails : m_entries) {
         if (entryDetails.id == entry->id())
             return false; // entry already exists
+    }
+
+    // Retrieve "other" fields; this will include the "itunes" tags
+    QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
+
+    for (QString key : otherItems.uniqueKeys()) {
+        qCDebug(kastsFetcher) << "other elements";
+        qCDebug(kastsFetcher) << key << otherItems.value(key).tagName();
     }
 
     EntryDetails entryDetails;
