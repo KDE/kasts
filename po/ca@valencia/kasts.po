@@ -970,7 +970,7 @@ msgstr "Tipus de dispositiu:"
 #: qml/Settings/SynchronizationSettingsPage.qml:244
 #, kde-format
 msgid "other"
-msgstr "Altres"
+msgstr "Atres"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
