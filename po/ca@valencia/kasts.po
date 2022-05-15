@@ -38,8 +38,7 @@ msgstr "Suport no vàlid"
 #: enclosure.cpp:102
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
-"Baixades de podcasts no permeses a causa de la configuració de l'usuari"
+msgstr "Baixades de podcast no permeses a causa de la configuració de l'usuari"
 
 #: enclosuredownloadjob.cpp:33
 #, kde-format
@@ -255,7 +254,7 @@ msgstr "Baixades"
 #: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Torna a carregar tots els podcasts"
+msgstr "Torna a carregar tots els podcast"
 
 #: qml/DownloadListPage.qml:44
 #, kde-format
@@ -285,7 +284,7 @@ msgstr "Llista de capítols"
 #: qml/EntryListPage.qml:54
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Refresca els podcasts"
+msgstr "Refresca els podcast"
 
 #: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
 #: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
@@ -475,12 +474,12 @@ msgstr "Elimina el podcast"
 #: qml/FeedListPage.qml:59
 #, kde-format
 msgid "Import Podcasts..."
-msgstr "Importa alguns podcasts..."
+msgstr "Importa alguns podcast..."
 
 #: qml/FeedListPage.qml:64
 #, kde-format
 msgid "Export Podcasts..."
-msgstr "Exporta els podcasts..."
+msgstr "Exporta els podcast..."
 
 #: qml/FeedListPage.qml:88
 #, kde-format
@@ -490,7 +489,7 @@ msgstr "Encara no s'ha afegit cap podcast"
 #: qml/FeedListPage.qml:93
 #, kde-format
 msgid "Import Podcasts"
-msgstr "Importa alguns podcasts"
+msgstr "Importa alguns podcast"
 
 #: qml/FeedListPage.qml:95
 #, kde-format
@@ -510,7 +509,7 @@ msgstr "Fitxers OPML (*.opml)"
 #: qml/FeedListPage.qml:101
 #, kde-format
 msgid "Export Podcasts"
-msgstr "Exporta els podcasts"
+msgstr "Exporta els podcast"
 
 #: qml/FeedListPage.qml:103
 #, kde-format
@@ -533,7 +532,7 @@ msgctxt "context menu action"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Elimina el podcast"
-msgstr[1] "Elimina els podcasts"
+msgstr[1] "Elimina els podcast"
 
 #: qml/GenericEntryDelegate.qml:152
 #, kde-format
@@ -599,8 +598,8 @@ msgstr "Salta cap avant"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] "%2 actualitzat de %1 podcasts"
-msgstr[1] "%2 actualitzats de %1 podcasts"
+msgstr[0] "%2 actualitzat de %1 podcast"
+msgstr[1] "%2 actualitzats de %1 podcast"
 
 #: qml/main.qml:276
 #, kde-format
@@ -613,7 +612,7 @@ msgstr[1] "S'han mogut %2 de %1 fitxers"
 #: qml/main.qml:340
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr "Baixades de podcasts no permeses amb la connexió d'ús mesurat"
+msgstr "Baixades de podcast no permeses amb la connexió d'ús mesurat"
 
 #: qml/PlaybackRateDialog.qml:64 qml/PlaybackRateDialog.qml:111
 #, kde-format
@@ -663,7 +662,7 @@ msgstr "Aparença"
 #: qml/Settings/GeneralSettingsPage.qml:29
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Mostra sempre els títols dels podcasts a la vista de subscripcions"
+msgstr "Mostra sempre els títols dels podcast a la vista de subscripcions"
 
 #: qml/Settings/GeneralSettingsPage.qml:35
 #, kde-format
@@ -683,7 +682,7 @@ msgstr "Configuració de la cua"
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr "Obtín automàticament a l'inici les actualitzacions dels podcasts"
+msgstr "Obtín automàticament a l'inici les actualitzacions dels podcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
@@ -813,14 +812,14 @@ msgstr "Utilitza el camí predeterminat"
 #: qml/Settings/StorageSettingsPage.qml:62
 #, kde-format
 msgid "Podcast Downloads:"
-msgstr "Baixades de podcasts:"
+msgstr "Baixades de podcast:"
 
 #: qml/Settings/StorageSettingsPage.qml:63
 #: qml/Settings/StorageSettingsPage.qml:69
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr "S'està usant %1 de l'espai en disc"
+msgstr "S'està utilitzant %1 de l'espai en disc"
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
@@ -1014,7 +1013,7 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
-"Totes les subscripcions de podcasts en este compte de gpodder.net s'han de "
+"Totes les subscripcions de podcast en este compte de gpodder.net s'han de "
 "sincronitzar en tots els dispositius?\n"
 "Si no sabeu el que açò significa, probablement hauríeu de seleccionar "
 "«D'acord»."
@@ -1047,7 +1046,7 @@ msgstr "Fes una sincronització completa en iniciar"
 #: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr "Fes una sincronització completa quan se cerquin podcasts"
+msgstr "Fes una sincronització completa quan se cerquin podcast"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:416
 #, kde-format
@@ -1223,8 +1222,8 @@ msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
-msgstr[0] "(Pas %3 de %4) actualitzat %2 de %1 podcasts"
-msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcasts"
+msgstr[0] "(Pas %3 de %4) actualitzat %2 de %1 podcast"
+msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcast"
 
 #: sync/syncjob.cpp:878
 #, kde-format
