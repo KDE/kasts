@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(KASTS_VERSION_STRING),
                      i18n("Podcast Player"),
                      KAboutLicense::GPL,
-                     i18n("© 2020-2021 KDE Community"));
+                     i18n("© 2020-2022 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     about.setProgramLogo(QVariant(QIcon(QStringLiteral(":/logo.svg"))));
