@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-04-03 00:52+0000\n"
+"POT-Creation-Date: 2022-05-17 00:47+0000\n"
 "PO-Revision-Date: 2022-05-15 15:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -105,8 +105,9 @@ msgid "Podcast Player"
 msgstr "播客播放器"
 
 #: main.cpp:116
-#, kde-format
-msgid "© 2020-2021 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2020-2021 KDE Community"
+msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2021 KDE Community"
 
 #: main.cpp:117

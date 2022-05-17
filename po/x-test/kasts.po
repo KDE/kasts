@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-04-03 00:52+0000\n"
-"PO-Revision-Date: 2022-03-05 01:51+0000\n"
+"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"PO-Revision-Date: 2022-05-17 01:49+0000\n"
 "Last-Translator: transxx.py program <null@kde.org>\n"
 "Language-Team: KDE Test Language <kde-i18n-doc@kde.org>\n"
 "Language: x-test\n"
@@ -104,8 +104,8 @@ msgstr "xxPodcast Playerxx"
 
 #: main.cpp:116
 #, kde-format
-msgid "© 2020-2021 KDE Community"
-msgstr "xx© 2020-2021 KDE Communityxx"
+msgid "© 2020-2022 KDE Community"
+msgstr "xx© 2020-2022 KDE Communityxx"
 
 #: main.cpp:117
 #, kde-format
