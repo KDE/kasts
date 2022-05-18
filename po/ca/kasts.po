@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-05-17 00:47+0000\n"
-"PO-Revision-Date: 2022-04-20 15:35+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2022-05-17 08:38+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -107,10 +107,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de podcast"
 
 #: main.cpp:116
-#, fuzzy, kde-format
-#| msgid "© 2020-2021 KDE Community"
+#, kde-format
 msgid "© 2020-2022 KDE Community"
-msgstr "© 2020-2021 La comunitat KDE"
+msgstr "© 2020-2022 La comunitat KDE"
 
 #: main.cpp:117
 #, kde-format
@@ -1260,72 +1259,3 @@ msgstr "Sincronització interrompuda"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
-
-#~ msgid "Podcast updates not allowed due to user setting"
-#~ msgstr ""
-#~ "Actualitzacions de podcast no permeses a causa de la configuració de "
-#~ "l'usuari"
-
-#~ msgid "Details"
-#~ msgstr "Detalls"
-
-#~ msgid "No New Episodes"
-#~ msgstr "No hi ha cap capítol nou"
-
-#~ msgid "New Episodes"
-#~ msgstr "Capítols nous"
-
-#~ msgid "All Episodes"
-#~ msgstr "Tots els capítols"
-
-#~ msgctxt "<Podcast Name> - Details"
-#~ msgid "%1 - Details"
-#~ msgstr "%1 - Detalls"
-
-#~ msgid "In Progress"
-#~ msgstr "En curs"
-
-#~ msgid "Completed"
-#~ msgstr "Completada"
-
-#~ msgid "No Downloaded Episodes"
-#~ msgstr "No hi ha cap capítol descarregat"
-
-#~ msgid "No Downloads in Progress"
-#~ msgstr "No hi ha cap baixada en curs"
-
-#~ msgid "Check Error Log Tab (under Downloads) for more details"
-#~ msgstr ""
-#~ "Per a més detalls, comproveu la pestanya Registre d'errors (a Baixades)"
-
-#~ msgctxt "by <author(s)>"
-#~ msgid "by"
-#~ msgstr "per"
-
-#~ msgid "Remove from queue"
-#~ msgstr "Elimina de la cua"
-
-#~ msgid "No episodes available"
-#~ msgstr "No hi ha cap episodi disponible"
-
-#~ msgid "No new episodes"
-#~ msgstr "No hi ha cap episodi nou"
-
-#~ msgid "Refresh all Podcasts"
-#~ msgstr "Recarrega tots els podcast"
-
-#~| msgid "Add feed"
-#~ msgid "No feed"
-#~ msgstr "No hi ha cap font"
-
-#~ msgid "Feed Reader"
-#~ msgstr "Lector de fonts"
-
-#~ msgid "Add Feed"
-#~ msgstr "Afegeix una font"
-
-#~ msgid "No Entries available"
-#~ msgstr "No hi ha cap entrada disponible"
-
-#~ msgid "%1 posts, %2 unread"
-#~ msgstr "%1 publicacions, %2 sense llegir"
