@@ -31,6 +31,7 @@ class Enclosure : public QObject
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString formattedDownloadSize READ formattedDownloadSize NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path CONSTANT)
+    Q_PROPERTY(QString cachedEmbeddedImage READ cachedEmbeddedImage CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
     Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY playPositionChanged)
     Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged)
@@ -58,6 +59,7 @@ public:
     QString path() const;
     QString url() const;
     Status status() const;
+    QString cachedEmbeddedImage() const;
     qint64 playPosition() const;
     qint64 duration() const;
     qint64 size() const;

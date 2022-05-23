@@ -10,8 +10,15 @@
 
 #include <KLocalizedString>
 #include <QFile>
+#include <QFileInfo>
+#include <QMimeDatabase>
 #include <QNetworkReply>
 #include <QSqlQuery>
+
+#include <attachedpictureframe.h>
+#include <id3v2frame.h>
+#include <id3v2tag.h>
+#include <mpegfile.h>
 
 #include "audiomanager.h"
 #include "database.h"
@@ -235,6 +242,50 @@ QString Enclosure::path() const
 Enclosure::Status Enclosure::status() const
 {
     return m_status;
+}
+
+QString Enclosure::cachedEmbeddedImage() const
+{
+    // if image is already cached, then return the path
+    QString cachedpath = StorageManager::instance().imagePath(path());
+    if (QFileInfo::exists(cachedpath)) {
+        if (QFileInfo(cachedpath).size() != 0) {
+            return QUrl::fromLocalFile(cachedpath).toString();
+        }
+    }
+
+    if (m_status != Downloaded || path().isEmpty()) {
+        return QStringLiteral("");
+    }
+
+    const auto mime = QMimeDatabase().mimeTypeForFile(path()).name();
+    if (mime != QStringLiteral("audio/mpeg")) {
+        return QStringLiteral("");
+    }
+
+    TagLib::MPEG::File f(path().toLatin1().data());
+    if (!f.hasID3v2Tag()) {
+        return QStringLiteral("");
+    }
+
+    bool imageFound = false;
+    for (const auto &frame : f.ID3v2Tag()->frameListMap()["APIC"]) {
+        auto pictureFrame = dynamic_cast<TagLib::ID3v2::AttachedPictureFrame *>(frame);
+        QByteArray data(pictureFrame->picture().data(), pictureFrame->picture().size());
+        if (!data.isEmpty()) {
+            QFile file(cachedpath);
+            file.open(QIODevice::WriteOnly);
+            file.write(data);
+            file.close();
+            imageFound = true;
+        }
+    }
+
+    if (imageFound) {
+        return cachedpath;
+    } else {
+        return QUrl::fromLocalFile(cachedpath).toString();
+    }
 }
 
 qint64 Enclosure::playPosition() const
