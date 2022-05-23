@@ -33,7 +33,6 @@ Kirigami.ScrollablePage {
         iconName: "view-refresh"
         text: i18n("Refresh All Podcasts")
         onTriggered: refreshing = true
-        visible: !Kirigami.Settings.isMobile || queueList.count === 0
     }
 
     contextualActions: queueList.defaultActionList

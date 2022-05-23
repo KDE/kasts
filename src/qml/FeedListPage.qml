@@ -43,17 +43,16 @@ Kirigami.ScrollablePage {
 
     contextualActions: [
         Kirigami.Action {
+            text: i18n("Refresh All Podcasts")
+            iconName: "view-refresh"
+            onTriggered: refreshing = true
+        },
+        Kirigami.Action {
             text: i18n("Add Podcast")
             iconName: "list-add"
             onTriggered: {
                 addSheet.open()
             }
-        },
-        Kirigami.Action {
-            text: i18n("Refresh All Podcasts")
-            iconName: "view-refresh"
-            onTriggered: refreshing = true
-            visible: !Kirigami.Settings.isMobile
         },
         Kirigami.Action {
             text: i18n("Import Podcasts...")

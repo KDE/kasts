@@ -53,7 +53,6 @@ Kirigami.ScrollablePage {
         iconName: "view-refresh"
         text: i18n("Refresh Podcast")
         onTriggered: page.refreshing = true
-        visible: !Kirigami.Settings.isMobile || entryList.count === 0
     }
 
     contextualActions: [
@@ -66,19 +65,6 @@ Kirigami.ScrollablePage {
                 pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
             }
         }
-        /* Remove this action for now; there are already actions on the FeedListPage
-         * and through context menus; it's confusing to mix it with actions on
-         * entries.
-        ,
-        Kirigami.Action {
-            iconName: "delete"
-            text: i18n("Remove Podcast")
-            onTriggered: {
-                while(pageStack.depth > 1)
-                    pageStack.pop()
-                DataManager.removeFeed(feed)
-            }
-        }*/
     ]
 
     // add the default actions through onCompleted to add them to the ones
