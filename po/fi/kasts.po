@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"POT-Creation-Date: 2022-05-24 00:46+0000\n"
 "PO-Revision-Date: 2022-02-13 19:49+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "translator@legisign.org"
 msgid "Invalid Media"
 msgstr "Virheellinen media"
 
-#: enclosure.cpp:102
+#: enclosure.cpp:109
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Käyttäjäasetus ei salli podcastien latausta"
@@ -159,7 +159,7 @@ msgstr "Lisää uusi podcast"
 msgid "Url:"
 msgstr "Verkko-osoite:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:46
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
 msgstr "Lisää podcast"
@@ -250,27 +250,27 @@ msgid "Downloads"
 msgstr "Lataukset"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
 
-#: qml/DownloadListPage.qml:44
+#: qml/DownloadListPage.qml:43
 #, kde-format
 msgid "No Downloads"
 msgstr "Ei latauksia"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloading"
 msgstr "Ladataan"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:67
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Kesken olevat lataukset"
 
-#: qml/DownloadListPage.qml:69
+#: qml/DownloadListPage.qml:68
 #, kde-format
 msgid "Downloaded"
 msgstr "Ladattu"
@@ -285,23 +285,23 @@ msgstr "Jaksoluettelo"
 msgid "Refresh Podcast"
 msgstr "Virkistä podcast"
 
-#: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
-#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
+#: qml/EntryListPage.qml:61 qml/FeedDetailsPage.qml:23
+#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:279
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcastin tiedot"
 
-#: qml/EntryListPage.qml:98 qml/EpisodeListPage.qml:126
+#: qml/EntryListPage.qml:84 qml/EpisodeListPage.qml:126
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Ei jaksoja saatavilla"
 
-#: qml/EntryListPage.qml:98
+#: qml/EntryListPage.qml:84
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Virhe (%1): %2"
 
-#: qml/EntryListPage.qml:124
+#: qml/EntryListPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
@@ -451,7 +451,7 @@ msgstr "Tilattu: %1 alkaen"
 msgid "Last Updated: %1"
 msgstr "Viimeksi virkistetty: %1"
 
-#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:70
+#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:69
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -470,62 +470,62 @@ msgstr[1] "%1 kuuntelematta"
 msgid "Remove Podcast"
 msgstr "Poista podcast"
 
-#: qml/FeedListPage.qml:59
+#: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "Tuo podcasteja…"
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:63
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "Vie podcasteja…"
 
-#: qml/FeedListPage.qml:88
+#: qml/FeedListPage.qml:87
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "Podcasteja ei ole vielä lisätty"
 
-#: qml/FeedListPage.qml:93
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "Import Podcasts"
 msgstr "Tuo podcasteja"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
 msgstr "Kaikki tiedostot (*)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "XML-tiedostot (*.xml)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "OPML-tiedostot (*.opml)"
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgid "Export Podcasts"
 msgstr "Vie podcasteja"
 
-#: qml/FeedListPage.qml:103
+#: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
 msgstr "Kaikki tiedostot"
 
-#: qml/FeedListPage.qml:239 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: qml/FeedListPage.qml:248 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Poista kaikki valinnat"
 
-#: qml/FeedListPage.qml:257
+#: qml/FeedListPage.qml:256
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -635,12 +635,12 @@ msgstr "Podcastilla ei ole otsikkoa"
 msgid "No chapters found."
 msgstr "Lukuja ei löytynyt."
 
-#: qml/QueuePage.qml:47
+#: qml/QueuePage.qml:46
 #, kde-format
 msgid "Nothing Added to the Queue Yet"
 msgstr "Jonoon ei ole vielä lisätty mitään"
 
-#: qml/QueuePage.qml:70
+#: qml/QueuePage.qml:69
 #, kde-format
 msgid "Time Left"
 msgstr "Aikaa jäljellä"

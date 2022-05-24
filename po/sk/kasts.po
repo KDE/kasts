@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"POT-Creation-Date: 2022-05-24 00:46+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -31,7 +31,7 @@ msgstr "wizzardsk@gmail.com"
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:102
+#: enclosure.cpp:109
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr ""
@@ -164,7 +164,7 @@ msgstr "Pridať Podcast"
 msgid "Url:"
 msgstr "Url:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:46
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
 msgstr "Pridať Podcast"
@@ -254,30 +254,30 @@ msgid "Downloads"
 msgstr "Sťahovania"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Obnoviť všetky Podcast položky"
 
-#: qml/DownloadListPage.qml:44
+#: qml/DownloadListPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "No Downloads"
 msgstr "Sťahovania"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:66
 #, fuzzy, kde-format
 #| msgid "Downloading %1"
 msgid "Downloading"
 msgstr "Preberá sa %1"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:67
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Incomplete Downloads"
 msgstr "Stiahnuť"
 
-#: qml/DownloadListPage.qml:69
+#: qml/DownloadListPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Downloaded"
@@ -293,24 +293,24 @@ msgstr ""
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
-#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
+#: qml/EntryListPage.qml:61 qml/FeedDetailsPage.qml:23
+#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Podcast Details"
 msgstr "Sťahovania"
 
-#: qml/EntryListPage.qml:98 qml/EpisodeListPage.qml:126
+#: qml/EntryListPage.qml:84 qml/EpisodeListPage.qml:126
 #, kde-format
 msgid "No Episodes Available"
 msgstr ""
 
-#: qml/EntryListPage.qml:98
+#: qml/EntryListPage.qml:84
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
 
-#: qml/EntryListPage.qml:124
+#: qml/EntryListPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizované: %1"
 
-#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:70
+#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:69
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -494,62 +494,62 @@ msgstr[2] ""
 msgid "Remove Podcast"
 msgstr ""
 
-#: qml/FeedListPage.qml:59
+#: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
 msgstr ""
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:63
 #, kde-format
 msgid "Export Podcasts..."
 msgstr ""
 
-#: qml/FeedListPage.qml:88
+#: qml/FeedListPage.qml:87
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr ""
 
-#: qml/FeedListPage.qml:93
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "Import Podcasts"
 msgstr ""
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
 msgstr "Všetky súbory (*)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "XML súbory (*.xml)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr ""
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgid "Export Podcasts"
 msgstr ""
 
-#: qml/FeedListPage.qml:103
+#: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
 msgstr "Všetky súbory"
 
-#: qml/FeedListPage.qml:239 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr ""
 
-#: qml/FeedListPage.qml:248 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr ""
 
-#: qml/FeedListPage.qml:257
+#: qml/FeedListPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Refresh All Podcasts"
 msgctxt "context menu action"
@@ -665,12 +665,12 @@ msgstr ""
 msgid "No chapters found."
 msgstr ""
 
-#: qml/QueuePage.qml:47
+#: qml/QueuePage.qml:46
 #, kde-format
 msgid "Nothing Added to the Queue Yet"
 msgstr ""
 
-#: qml/QueuePage.qml:70
+#: qml/QueuePage.qml:69
 #, fuzzy, kde-format
 #| msgid "Time left"
 msgid "Time Left"

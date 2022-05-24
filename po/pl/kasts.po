@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"POT-Creation-Date: 2022-05-24 00:46+0000\n"
 "PO-Revision-Date: 2022-03-13 11:10+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "lukasz.wojnilowicz@gmail.com, ignacy.kajdan@gmail.com"
 msgid "Invalid Media"
 msgstr "Nieprawidłowa treść"
 
-#: enclosure.cpp:102
+#: enclosure.cpp:109
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Pobieranie podkastów niedozwolone ze względu na ustawienia użytkownika"
@@ -161,7 +161,7 @@ msgstr "Dodaj nowy podkast"
 msgid "Url:"
 msgstr "URL:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:46
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
 msgstr "Dodaj podkast"
@@ -250,27 +250,27 @@ msgid "Downloads"
 msgstr "Pobierane"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Odśwież wszystkie podkasty"
 
-#: qml/DownloadListPage.qml:44
+#: qml/DownloadListPage.qml:43
 #, kde-format
 msgid "No Downloads"
 msgstr "Brak pobieranych"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloading"
 msgstr "Pobieranie"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:67
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Niekompletne pobrania"
 
-#: qml/DownloadListPage.qml:69
+#: qml/DownloadListPage.qml:68
 #, kde-format
 msgid "Downloaded"
 msgstr "Pobrane"
@@ -285,23 +285,23 @@ msgstr "Spis odcinków"
 msgid "Refresh Podcast"
 msgstr "Odśwież podkast"
 
-#: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
-#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
+#: qml/EntryListPage.qml:61 qml/FeedDetailsPage.qml:23
+#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:279
 #, kde-format
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
 
-#: qml/EntryListPage.qml:98 qml/EpisodeListPage.qml:126
+#: qml/EntryListPage.qml:84 qml/EpisodeListPage.qml:126
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Brak dostępnych odcinków"
 
-#: qml/EntryListPage.qml:98
+#: qml/EntryListPage.qml:84
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Błąd (%1): %2"
 
-#: qml/EntryListPage.qml:124
+#: qml/EntryListPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
@@ -451,7 +451,7 @@ msgstr "Zasubskrybowane od: %1"
 msgid "Last Updated: %1"
 msgstr "Ostatnio uaktualnione: %1"
 
-#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:70
+#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:69
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -472,62 +472,62 @@ msgstr[2] "%1 nieodtworzonych"
 msgid "Remove Podcast"
 msgstr "Usuń podkast"
 
-#: qml/FeedListPage.qml:59
+#: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "Zaimportuj podkasty..."
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:63
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "Wyeksportuj podkasty..."
 
-#: qml/FeedListPage.qml:88
+#: qml/FeedListPage.qml:87
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "Jeszcze nie dodano żadnych podkastów"
 
-#: qml/FeedListPage.qml:93
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "Import Podcasts"
 msgstr "Zaimportuj podkasty"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
 msgstr "Wszystkie pliki (*)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "Pliki XML (*.xml)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "Pliki OPML (*.opml)"
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgid "Export Podcasts"
 msgstr "Wyeksportuj podkasty"
 
-#: qml/FeedListPage.qml:103
+#: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
 msgstr "Wszystkie pliki"
 
-#: qml/FeedListPage.qml:239 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Zaznacz wszystkie"
 
-#: qml/FeedListPage.qml:248 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Odznacz wszystkie"
 
-#: qml/FeedListPage.qml:257
+#: qml/FeedListPage.qml:256
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -640,12 +640,12 @@ msgstr "Brak tytułu podkastu"
 msgid "No chapters found."
 msgstr "Nie znaleziono żadnych rozdziałów."
 
-#: qml/QueuePage.qml:47
+#: qml/QueuePage.qml:46
 #, kde-format
 msgid "Nothing Added to the Queue Yet"
 msgstr "Nie dodano jeszcze niczego do kolejki"
 
-#: qml/QueuePage.qml:70
+#: qml/QueuePage.qml:69
 #, kde-format
 msgid "Time Left"
 msgstr "Pozostały czas"

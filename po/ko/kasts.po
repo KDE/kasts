@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"POT-Creation-Date: 2022-05-24 00:46+0000\n"
 "PO-Revision-Date: 2022-04-15 22:57+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "kde@peremen.name"
 msgid "Invalid Media"
 msgstr "잘못된 미디어"
 
-#: enclosure.cpp:102
+#: enclosure.cpp:109
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "사용자 설정 때문에 팟캐스트 다운로드가 허용되지 않음"
@@ -159,7 +159,7 @@ msgstr "새 팟캐스트 추가"
 msgid "Url:"
 msgstr "URL:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:46
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
 msgstr "팟캐스트 추가"
@@ -247,27 +247,27 @@ msgid "Downloads"
 msgstr "다운로드"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "모든 팟캐스트 새로 고침"
 
-#: qml/DownloadListPage.qml:44
+#: qml/DownloadListPage.qml:43
 #, kde-format
 msgid "No Downloads"
 msgstr "다운로드 없음"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:67
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "불완전 다운로드"
 
-#: qml/DownloadListPage.qml:69
+#: qml/DownloadListPage.qml:68
 #, kde-format
 msgid "Downloaded"
 msgstr "다운로드됨"
@@ -282,23 +282,23 @@ msgstr "에피소드 목록"
 msgid "Refresh Podcast"
 msgstr "팟캐스트 새로 고침"
 
-#: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
-#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
+#: qml/EntryListPage.qml:61 qml/FeedDetailsPage.qml:23
+#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:279
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
 
-#: qml/EntryListPage.qml:98 qml/EpisodeListPage.qml:126
+#: qml/EntryListPage.qml:84 qml/EpisodeListPage.qml:126
 #, kde-format
 msgid "No Episodes Available"
 msgstr "에피소드 없음"
 
-#: qml/EntryListPage.qml:98
+#: qml/EntryListPage.qml:84
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
 
-#: qml/EntryListPage.qml:124
+#: qml/EntryListPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
@@ -448,7 +448,7 @@ msgstr "구독 시작: %1"
 msgid "Last Updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:70
+#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:69
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -465,62 +465,62 @@ msgstr[0] "%1개 재생하지 않음"
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
 
-#: qml/FeedListPage.qml:59
+#: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "팟캐스트 가져오기..."
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:63
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "팟캐스트 내보내기..."
 
-#: qml/FeedListPage.qml:88
+#: qml/FeedListPage.qml:87
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "추가한 팟캐스트 없음"
 
-#: qml/FeedListPage.qml:93
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "Import Podcasts"
 msgstr "팟캐스트 가져오기"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
 msgstr "모든 파일 (*)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "XML 파일 (*.xml)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "OPML 파일 (*.opml)"
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgid "Export Podcasts"
 msgstr "팟캐스트 내보내기"
 
-#: qml/FeedListPage.qml:103
+#: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
 msgstr "모든 파일"
 
-#: qml/FeedListPage.qml:239 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "모두 선택"
 
-#: qml/FeedListPage.qml:248 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "모두 선택 해제"
 
-#: qml/FeedListPage.qml:257
+#: qml/FeedListPage.qml:256
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -624,12 +624,12 @@ msgstr "팟캐스트 재생기"
 msgid "No chapters found."
 msgstr "챕터를 찾을 수 없습니다."
 
-#: qml/QueuePage.qml:47
+#: qml/QueuePage.qml:46
 #, kde-format
 msgid "Nothing Added to the Queue Yet"
 msgstr "대기열에 추가한 항목 없음"
 
-#: qml/QueuePage.qml:70
+#: qml/QueuePage.qml:69
 #, kde-format
 msgid "Time Left"
 msgstr "남은 시간"

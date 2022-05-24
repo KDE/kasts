@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-17 00:47+0000\n"
+"POT-Creation-Date: 2022-05-24 00:46+0000\n"
 "PO-Revision-Date: 2022-05-15 15:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Invalid Media"
 msgstr "媒体无效"
 
-#: enclosure.cpp:102
+#: enclosure.cpp:109
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "按照用户设置的条件，不允许下载播客"
@@ -161,7 +161,7 @@ msgstr "添加新播客"
 msgid "Url:"
 msgstr "URL："
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:46
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
 msgstr "添加播客"
@@ -249,27 +249,27 @@ msgid "Downloads"
 msgstr "下载"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:53 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "刷新所有播客"
 
-#: qml/DownloadListPage.qml:44
+#: qml/DownloadListPage.qml:43
 #, kde-format
 msgid "No Downloads"
 msgstr "无下载任务"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloading"
 msgstr "正在下载"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:67
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "未完成的下载任务"
 
-#: qml/DownloadListPage.qml:69
+#: qml/DownloadListPage.qml:68
 #, kde-format
 msgid "Downloaded"
 msgstr "已下载"
@@ -284,23 +284,23 @@ msgstr "剧集列表"
 msgid "Refresh Podcast"
 msgstr "刷新播客"
 
-#: qml/EntryListPage.qml:62 qml/FeedDetailsPage.qml:23
-#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:280
+#: qml/EntryListPage.qml:61 qml/FeedDetailsPage.qml:23
+#: qml/FeedListDelegate.qml:257 qml/FeedListPage.qml:279
 #, kde-format
 msgid "Podcast Details"
 msgstr "播客详情"
 
-#: qml/EntryListPage.qml:98 qml/EpisodeListPage.qml:126
+#: qml/EntryListPage.qml:84 qml/EpisodeListPage.qml:126
 #, kde-format
 msgid "No Episodes Available"
 msgstr "无可播放剧集"
 
-#: qml/EntryListPage.qml:98
+#: qml/EntryListPage.qml:84
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "错误 (%1)：%2"
 
-#: qml/EntryListPage.qml:124
+#: qml/EntryListPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
@@ -450,7 +450,7 @@ msgstr "订阅开始时间：%1"
 msgid "Last Updated: %1"
 msgstr "上次更新：%1"
 
-#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:70
+#: qml/FeedDetailsPage.qml:157 qml/QueuePage.qml:69
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -467,62 +467,62 @@ msgstr[0] "%1 条未播放"
 msgid "Remove Podcast"
 msgstr "移除播客"
 
-#: qml/FeedListPage.qml:59
+#: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "导入播客..."
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:63
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "导出播客..."
 
-#: qml/FeedListPage.qml:88
+#: qml/FeedListPage.qml:87
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "尚未添加播客"
 
-#: qml/FeedListPage.qml:93
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "Import Podcasts"
 msgstr "导入播客"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
 msgstr "所有文件 (*)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "XML 文件 (*.xml)"
 
-#: qml/FeedListPage.qml:95
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "OPML 文件 (*.opml)"
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgid "Export Podcasts"
 msgstr "导出播客"
 
-#: qml/FeedListPage.qml:103
+#: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
 
-#: qml/FeedListPage.qml:239 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "全部选中"
 
-#: qml/FeedListPage.qml:248 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "全部不选"
 
-#: qml/FeedListPage.qml:257
+#: qml/FeedListPage.qml:256
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -626,12 +626,12 @@ msgstr "无播客标题"
 msgid "No chapters found."
 msgstr "未找到章节。"
 
-#: qml/QueuePage.qml:47
+#: qml/QueuePage.qml:46
 #, kde-format
 msgid "Nothing Added to the Queue Yet"
 msgstr "未添加内容到队列"
 
-#: qml/QueuePage.qml:70
+#: qml/QueuePage.qml:69
 #, kde-format
 msgid "Time Left"
 msgstr "剩余时间"
