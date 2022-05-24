@@ -71,7 +71,7 @@ DataManager::DataManager()
 
         // Check for "new" entries
         if (SettingsManager::self()->autoQueue()) {
-            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new;"));
+            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new ORDER BY updated ASC;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
