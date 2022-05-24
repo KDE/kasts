@@ -20,6 +20,7 @@ Note: When using versions of kasts built from git-master, it's possible that the
  - Syndication
  - TagLib
  - QtKeychain
+ - ThreadWeaver
 
 ### On debian
 
@@ -28,7 +29,7 @@ Note: When using versions of kasts built from git-master, it's possible that the
     qtdeclarative5-dev qtquickcontrols2-5-dev qtmultimedia5-dev \
     libkf5syndication-dev libkf5config-dev libkf5i18n-dev \
     libkf5coreaddons-dev libtag1-dev qtkeychain-qt5-dev \
-    libkf5networkmanagerqt-dev
+    libkf5networkmanagerqt-dev libkf5threadweaver-dev
 ```
 
 ## Linux

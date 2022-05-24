@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -32,7 +32,7 @@ DataManager::DataManager()
         &Fetcher::feedDetailsUpdated,
         this,
         [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-            qCDebug(kastsDataManager) << "Start updating feed details" << m_feeds;
+            qCDebug(kastsDataManager) << "Start updating feed details for" << url;
             Feed *feed = getFeed(url);
             if (feed != nullptr) {
                 feed->setName(name);

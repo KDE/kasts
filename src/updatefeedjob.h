@@ -1,27 +1,30 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
 #pragma once
 
-#include <KJob>
+#include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QString>
 
 #include <Syndication/Syndication>
+#include <ThreadWeaver/Job>
 
 #include "enclosure.h"
 
-class UpdateFeedJob : public KJob
+class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 {
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const QString &url, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent = nullptr);
+    ~UpdateFeedJob();
 
-    void start() override;
+    void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
 
     struct EntryDetails {
@@ -78,9 +81,9 @@ Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);
     void feedUpdateStatusChanged(const QString &url, bool status);
     void aborting();
+    void finished();
 
 private:
-    void retrieveFeed();
     void processFeed(Syndication::FeedPtr feed);
     bool processEntry(Syndication::ItemPtr entry);
     void processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
@@ -91,7 +94,7 @@ private:
     bool m_abort = false;
 
     QString m_url;
-    QNetworkReply *m_reply = nullptr;
+    QByteArray m_data;
 
     bool m_isNewFeed;
     QVector<EntryDetails> m_entries;

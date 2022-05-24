@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -21,11 +21,15 @@ public:
         static Database _instance;
         return _instance;
     }
-    bool execute(QSqlQuery &query);
-    bool execute(const QString &query);
 
-    bool transaction();
-    bool commit();
+    static void openDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+    static void closeDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+
+    static bool execute(QSqlQuery &query);
+    static bool execute(const QString &query, const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+
+    static bool transaction(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+    static bool commit(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
 
 private:
     Database();
@@ -39,4 +43,6 @@ private:
     bool migrateTo5();
     bool migrateTo6();
     void cleanup();
+
+    inline static const QString m_dbName = QStringLiteral("database.db3");
 };

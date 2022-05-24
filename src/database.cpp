@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -14,8 +14,6 @@
 #include <QSqlError>
 #include <QStandardPaths>
 #include <QUrl>
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
     if (!x)                                                                                                                                                    \
@@ -23,17 +21,28 @@
 
 Database::Database()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"));
-    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    QDir(databasePath).mkpath(databasePath);
-    db.setDatabaseName(databasePath + QStringLiteral("/database.db3"));
-    db.open();
+    Database::openDatabase();
 
     if (!migrate()) {
         qCritical() << "Failed to migrate the database";
     }
 
     cleanup();
+}
+
+void Database::openDatabase(const QString &connectionName)
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), connectionName);
+    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QDir(databasePath).mkpath(databasePath);
+    db.setDatabaseName(databasePath + QStringLiteral("/") + m_dbName);
+    db.open();
+}
+
+void Database::closeDatabase(const QString &connectionName)
+{
+    QSqlDatabase::database(connectionName).close();
+    QSqlDatabase::removeDatabase(connectionName);
 }
 
 bool Database::migrate()
@@ -140,15 +149,17 @@ bool Database::migrateTo6()
     return true;
 }
 
-bool Database::execute(const QString &query)
+bool Database::execute(const QString &query, const QString &connectionName)
 {
-    QSqlQuery q;
+    QSqlQuery q(connectionName);
     q.prepare(query);
     return execute(q);
 }
 
 bool Database::execute(QSqlQuery &query)
 {
+    // NOTE that this will execute the query on the database that was specified
+    // when the QSqlQuery was created.  There is no way to change that later on.
     if (!query.exec()) {
         qWarning() << "Failed to execute SQL Query";
         qWarning() << query.lastQuery();
@@ -158,14 +169,14 @@ bool Database::execute(QSqlQuery &query)
     return true;
 }
 
-bool Database::transaction()
+bool Database::transaction(const QString &connectionName)
 {
-    return QSqlDatabase::database().transaction();
+    return QSqlDatabase::database(connectionName).transaction();
 }
 
-bool Database::commit()
+bool Database::commit(const QString &connectionName)
 {
-    return QSqlDatabase::database().commit();
+    return QSqlDatabase::database(connectionName).commit();
 }
 
 int Database::version()

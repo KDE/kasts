@@ -1,11 +1,12 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
 #include "updatefeedjob.h"
 
+#include <QDir>
 #include <QDomElement>
 #include <QMultiMap>
 #include <QNetworkReply>
@@ -14,16 +15,21 @@
 #include <QTimer>
 
 #include <KLocalizedString>
+#include <ThreadWeaver/Thread>
 
 #include "database.h"
 #include "enclosure.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
+#include "kasts-version.h"
 #include "settingsmanager.h"
 
-UpdateFeedJob::UpdateFeedJob(const QString &url, QObject *parent)
-    : KJob(parent)
+using namespace ThreadWeaver;
+
+UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent)
+    : QObject(parent)
     , m_url(url)
+    , m_data(data)
 {
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
@@ -32,45 +38,27 @@ UpdateFeedJob::UpdateFeedJob(const QString &url, QObject *parent)
     connect(this, &UpdateFeedJob::feedUpdateStatusChanged, &Fetcher::instance(), &Fetcher::feedUpdateStatusChanged);
 }
 
-void UpdateFeedJob::start()
+UpdateFeedJob::~UpdateFeedJob()
 {
-    QTimer::singleShot(0, this, &UpdateFeedJob::retrieveFeed);
+    qCDebug(kastsFetcher) << "destroyed UpdateFeedJob for" << m_url;
 }
 
-void UpdateFeedJob::retrieveFeed()
+void UpdateFeedJob::run(JobPointer, Thread *)
 {
     if (m_abort) {
-        emitResult();
+        Q_EMIT finished();
         return;
     }
 
-    qCDebug(kastsFetcher) << "Starting to fetch" << m_url;
-    Q_EMIT feedUpdateStatusChanged(m_url, true);
+    Database::openDatabase(m_url);
 
-    QNetworkRequest request((QUrl(m_url)));
-    request.setTransferTimeout();
-    m_reply = Fetcher::instance().get(request);
-    connect(this, &UpdateFeedJob::aborting, m_reply, &QNetworkReply::abort);
-    connect(m_reply, &QNetworkReply::finished, this, [this]() {
-        qCDebug(kastsFetcher) << "got networkreply for" << m_reply;
-        if (m_reply->error()) {
-            if (!m_abort) {
-                qWarning() << "Error fetching feed";
-                qWarning() << m_reply->errorString();
-                setError(m_reply->error());
-                setErrorText(m_reply->errorString());
-            }
-        } else {
-            QByteArray data = m_reply->readAll();
-            Syndication::DocumentSource document(data, m_url);
-            Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
-            processFeed(feed);
-        }
-        Q_EMIT feedUpdateStatusChanged(m_url, false);
-        m_reply->deleteLater();
-        emitResult();
-    });
-    qCDebug(kastsFetcher) << "End of retrieveFeed for" << m_url;
+    Syndication::DocumentSource document(m_data, m_url);
+    Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+    processFeed(feed);
+
+    Database::closeDatabase(m_url);
+
+    Q_EMIT finished();
 }
 
 void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
@@ -82,10 +70,10 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // First check if this is a newly added feed
     m_isNewFeed = false;
-    QSqlQuery query;
+    QSqlQuery query(QSqlDatabase::database(m_url));
     query.prepare(QStringLiteral("SELECT new FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), m_url);
-    Database::instance().execute(query);
+    Database::execute(query);
     if (query.next()) {
         m_isNewFeed = query.value(QStringLiteral("new")).toBool();
     } else {
@@ -119,7 +107,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     query.bindValue(QStringLiteral(":image"), image);
 
     // Do the actual database UPDATE of this feed
-    Database::instance().execute(query);
+    Database::execute(query);
 
     // Now that we have the feed details, we make vectors of the data that's
     // already in the database relating to this feed
@@ -127,28 +115,28 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     // we can't check for duplicates and we'll keep adding more of the same!
     query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
+    Database::execute(query);
     while (query.next()) {
         m_existingEntryIds += query.value(QStringLiteral("id")).toString();
     }
 
     query.prepare(QStringLiteral("SELECT id, url FROM Enclosures WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
+    Database::execute(query);
     while (query.next()) {
         m_existingEnclosures += qMakePair(query.value(QStringLiteral("id")).toString(), query.value(QStringLiteral("url")).toString());
     }
 
     query.prepare(QStringLiteral("SELECT id, name FROM Authors WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
+    Database::execute(query);
     while (query.next()) {
         m_existingAuthors += qMakePair(query.value(QStringLiteral("id")).toString(), query.value(QStringLiteral("name")).toString());
     }
 
     query.prepare(QStringLiteral("SELECT id, start FROM Chapters WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::instance().execute(query);
+    Database::execute(query);
     while (query.next()) {
         m_existingChapters += qMakePair(query.value(QStringLiteral("id")).toString(), query.value(QStringLiteral("start")).toInt());
     }
@@ -194,7 +182,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     for (const auto &entry : feed->items()) {
         if (m_abort)
             return;
-        QCoreApplication::processEvents(); // keep the main thread semi-responsive
+
         bool isNewEntry = processEntry(entry);
         updatedEntries = updatedEntries || isNewEntry;
     }
@@ -209,7 +197,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         query.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), m_url);
         query.bindValue(QStringLiteral(":new"), false);
-        Database::instance().execute(query);
+        Database::execute(query);
     }
 
     if (updatedEntries || m_isNewFeed)
@@ -370,9 +358,9 @@ void UpdateFeedJob::processChapter(const QString &entryId, const int &start, con
 
 void UpdateFeedJob::writeToDatabase()
 {
-    QSqlQuery writeQuery;
+    QSqlQuery writeQuery(QSqlDatabase::database(m_url));
 
-    Database::instance().transaction();
+    Database::transaction(m_url);
 
     // Entries
     writeQuery.prepare(
@@ -389,7 +377,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
         writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
-        Database::instance().execute(writeQuery);
+        Database::execute(writeQuery);
     }
 
     // Authors
@@ -400,7 +388,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        Database::instance().execute(writeQuery);
+        Database::execute(writeQuery);
     }
 
     // Enclosures
@@ -415,7 +403,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
         writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
         writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
-        Database::instance().execute(writeQuery);
+        Database::execute(writeQuery);
     }
 
     // Chapters
@@ -427,10 +415,10 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        Database::instance().execute(writeQuery);
+        Database::execute(writeQuery);
     }
 
-    if (Database::instance().commit()) {
+    if (Database::commit(m_url)) {
         for (EntryDetails entryDetails : m_entries) {
             Q_EMIT entryAdded(m_url, entryDetails.id);
         }

@@ -10,3 +10,4 @@ Dependencies:
     'frameworks/syndication': '@stable'
     'frameworks/ki18n': '@stable'
     'frameworks/kconfig': '@stable'
+    'frameworks/threadweaver': '@stable'
