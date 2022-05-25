@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -24,18 +24,18 @@ class Entry : public QObject
 
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
     Q_PROPERTY(QString id READ id CONSTANT)
-    Q_PROPERTY(QString title READ title CONSTANT)
-    Q_PROPERTY(QString content READ content CONSTANT)
-    Q_PROPERTY(QVector<Author *> authors READ authors CONSTANT)
-    Q_PROPERTY(QDateTime created READ created CONSTANT)
-    Q_PROPERTY(QDateTime updated READ updated CONSTANT)
-    Q_PROPERTY(QString link READ link CONSTANT)
-    Q_PROPERTY(QString baseUrl READ baseUrl CONSTANT)
+    Q_PROPERTY(QString title READ title NOTIFY titleChanged)
+    Q_PROPERTY(QString content READ content NOTIFY contentChanged)
+    Q_PROPERTY(QVector<Author *> authors READ authors NOTIFY authorsChanged)
+    Q_PROPERTY(QDateTime created READ created NOTIFY createdChanged)
+    Q_PROPERTY(QDateTime updated READ updated NOTIFY updatedChanged)
+    Q_PROPERTY(QString link READ link NOTIFY linkChanged)
+    Q_PROPERTY(QString baseUrl READ baseUrl NOTIFY baseUrlChanged)
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged)
     Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged)
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT)
-    Q_PROPERTY(bool hasEnclosure READ hasEnclosure CONSTANT)
-    Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
+    Q_PROPERTY(bool hasEnclosure READ hasEnclosure NOTIFY hasEnclosureChanged)
+    Q_PROPERTY(QString image READ image NOTIFY imageChanged)
     Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
@@ -63,7 +63,6 @@ public:
 
     void setRead(bool read);
     void setNew(bool state);
-    void setImage(const QString &url);
     void setQueueStatus(bool status);
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
@@ -73,13 +72,31 @@ public:
     void setQueueStatusInternal(bool state);
 
 Q_SIGNALS:
+    void titleChanged(const QString &title);
+    void contentChanged(const QString &content);
+    void authorsChanged(const QVector<Author *> &authors);
+    void createdChanged(const QDateTime &created);
+    void updatedChanged(const QDateTime &updated);
+    void linkChanged(const QString &link);
+    void baseUrlChanged(const QString &baseUrl);
     void readChanged(bool read);
     void newChanged(bool state);
+    void hasEnclosureChanged(bool hasEnclosure);
     void imageChanged(const QString &url);
     void cachedImageChanged(const QString &imagePath);
     void queueStatusChanged(bool queueStatus);
 
 private:
+    void updateFromDb(bool emitSignals = true);
+    void updateAuthors(bool emitSignals = true);
+    void setTitle(const QString &title, bool emitSignal = true);
+    void setContent(const QString &content, bool emitSignal = true);
+    void setCreated(const QDateTime &created, bool emitSignal = true);
+    void setUpdated(const QDateTime &updated, bool emitSignal = true);
+    void setLink(const QString &link, bool emitSignal = true);
+    void setHasEnclosure(bool hasEnclosure, bool emitSignal = true);
+    void setImage(const QString &url, bool emitSignal = true);
+
     Feed *m_feed;
     QString m_id;
     QString m_title;

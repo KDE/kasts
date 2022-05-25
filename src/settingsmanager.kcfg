@@ -17,6 +17,10 @@
             <label>Automatically fetch feed updates on startup</label>
             <default>false</default>
         </entry>
+        <entry name="doFullUpdate" type="Bool">
+            <label>Update existing entries on feed update</label>
+            <default>true</default>
+        </entry>
         <entry name="autoQueue" type="Bool">
             <label>Automatically add new episodes to queue</label>
             <default>true</default>

@@ -1,11 +1,12 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
 #include "entry.h"
+#include "entrylogging.h"
 
 #include <QRegularExpression>
 #include <QSqlQuery>
@@ -21,6 +22,7 @@
 Entry::Entry(Feed *feed, const QString &id)
     : QObject(&DataManager::instance())
     , m_feed(feed)
+    , m_id(id)
 {
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if (url == m_image) {
@@ -31,47 +33,98 @@ Entry::Entry(Feed *feed, const QString &id)
             Q_EMIT cachedImageChanged(cachedImage());
         }
     });
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
+        if ((m_feed->url() == url) && (m_id == id)) {
+            updateFromDb();
+        }
+    });
 
-    QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
-    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
-    entryQuery.bindValue(QStringLiteral(":id"), id);
-    Database::instance().execute(entryQuery);
-    if (!entryQuery.next())
-        qWarning() << "No element with index" << id << "found in feed" << m_feed->url();
-
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id"));
-    authorQuery.bindValue(QStringLiteral(":id"), entryQuery.value(QStringLiteral("id")).toString());
-    Database::instance().execute(authorQuery);
-
-    while (authorQuery.next()) {
-        m_authors += new Author(authorQuery.value(QStringLiteral("name")).toString(),
-                                authorQuery.value(QStringLiteral("email")).toString(),
-                                authorQuery.value(QStringLiteral("uri")).toString(),
-                                nullptr);
-    }
-
-    m_created.setSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt());
-    m_updated.setSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt());
-
-    m_id = entryQuery.value(QStringLiteral("id")).toString();
-    m_title = entryQuery.value(QStringLiteral("title")).toString();
-    m_content = entryQuery.value(QStringLiteral("content")).toString();
-    m_link = entryQuery.value(QStringLiteral("link")).toString();
-    m_read = entryQuery.value(QStringLiteral("read")).toBool();
-    m_new = entryQuery.value(QStringLiteral("new")).toBool();
-
-    if (entryQuery.value(QStringLiteral("hasEnclosure")).toBool()) {
-        m_hasenclosure = true;
-        m_enclosure = new Enclosure(this);
-    }
-    m_image = entryQuery.value(QStringLiteral("image")).toString();
+    updateFromDb(false);
 }
 
 Entry::~Entry()
 {
-    qDeleteAll(m_authors);
+}
+
+void Entry::updateFromDb(bool emitSignals)
+{
+    QSqlQuery entryQuery;
+    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
+    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    entryQuery.bindValue(QStringLiteral(":id"), m_id);
+    Database::instance().execute(entryQuery);
+    if (!entryQuery.next()) {
+        qWarning() << "No element with index" << m_id << "found in feed" << m_feed->url();
+        return;
+    }
+
+    setCreated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt()), emitSignals);
+    setUpdated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt()), emitSignals);
+    setTitle(entryQuery.value(QStringLiteral("title")).toString(), emitSignals);
+    setContent(entryQuery.value(QStringLiteral("content")).toString(), emitSignals);
+    setLink(entryQuery.value(QStringLiteral("link")).toString(), emitSignals);
+
+    if (m_read != entryQuery.value(QStringLiteral("read")).toBool()) {
+        m_read = entryQuery.value(QStringLiteral("read")).toBool();
+        Q_EMIT readChanged(m_read);
+    }
+    if (m_new != entryQuery.value(QStringLiteral("new")).toBool()) {
+        m_new = entryQuery.value(QStringLiteral("new")).toBool();
+        Q_EMIT newChanged(m_new);
+    }
+
+    setHasEnclosure(entryQuery.value(QStringLiteral("hasEnclosure")).toBool(), emitSignals);
+    setImage(entryQuery.value(QStringLiteral("image")).toString(), emitSignals);
+
+    updateAuthors(emitSignals);
+}
+
+void Entry::updateAuthors(bool emitSignals)
+{
+    QVector<Author *> newAuthors;
+    bool haveAuthorsChanged = false;
+
+    QSqlQuery authorQuery;
+    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id AND feed=:feed;"));
+    authorQuery.bindValue(QStringLiteral(":id"), m_id);
+    authorQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    Database::instance().execute(authorQuery);
+    while (authorQuery.next()) {
+        // check if author already exists, if so, then reuse
+        bool existingAuthor = false;
+        QString name = authorQuery.value(QStringLiteral("name")).toString();
+        QString email = authorQuery.value(QStringLiteral("email")).toString();
+        QString url = authorQuery.value(QStringLiteral("uri")).toString();
+        qCDebug(kastsEntry) << name << email << url;
+        for (Author *author : m_authors) {
+            if (author)
+                qCDebug(kastsEntry) << "old authors" << author->name() << author->email() << author->url();
+            if (author && author->name() == name && author->email() == email && author->url() == url) {
+                existingAuthor = true;
+                newAuthors += author;
+            }
+        }
+        if (!existingAuthor) {
+            newAuthors += new Author(name, email, url, this);
+            haveAuthorsChanged = true;
+        }
+    }
+
+    // Finally check whether m_authors and newAuthors are identical
+    // if not, then delete the authors that were removed
+    for (Author *author : m_authors) {
+        if (!newAuthors.contains(author)) {
+            delete author;
+            haveAuthorsChanged = true;
+        }
+    }
+
+    m_authors = newAuthors;
+
+    if (haveAuthorsChanged && emitSignals) {
+        Q_EMIT authorsChanged(m_authors);
+        qCDebug(kastsEntry) << "entry" << m_id << "authors have changed?" << haveAuthorsChanged;
+    }
 }
 
 QString Entry::id() const
@@ -122,6 +175,88 @@ bool Entry::getNew() const
 QString Entry::baseUrl() const
 {
     return QUrl(m_link).adjusted(QUrl::RemovePath).toString();
+}
+
+void Entry::setTitle(const QString &title, bool emitSignal)
+{
+    if (m_title != title) {
+        m_title = title;
+        if (emitSignal) {
+            Q_EMIT titleChanged(m_title);
+        }
+    }
+}
+
+void Entry::setContent(const QString &content, bool emitSignal)
+{
+    if (m_content != content) {
+        m_content = content;
+        if (emitSignal) {
+            Q_EMIT contentChanged(m_content);
+        }
+    }
+}
+
+void Entry::setCreated(const QDateTime &created, bool emitSignal)
+{
+    if (m_created != created) {
+        m_created = created;
+        if (emitSignal) {
+            Q_EMIT createdChanged(m_created);
+        }
+    }
+}
+
+void Entry::setUpdated(const QDateTime &updated, bool emitSignal)
+{
+    if (m_updated != updated) {
+        m_updated = updated;
+        if (emitSignal) {
+            Q_EMIT updatedChanged(m_updated);
+        }
+    }
+}
+
+void Entry::setLink(const QString &link, bool emitSignal)
+{
+    if (m_link != link) {
+        m_link = link;
+        if (emitSignal) {
+            Q_EMIT linkChanged(m_link);
+            Q_EMIT baseUrlChanged(baseUrl());
+        }
+    }
+}
+
+void Entry::setHasEnclosure(bool hasEnclosure, bool emitSignal)
+{
+    if (hasEnclosure) {
+        // if there is already an enclosure, it will be updated through separate
+        // signals if required
+        if (!m_enclosure) {
+            m_enclosure = new Enclosure(this);
+        }
+    } else {
+        delete m_enclosure;
+        m_enclosure = nullptr;
+    }
+    if (m_hasenclosure != hasEnclosure) {
+        m_hasenclosure = hasEnclosure;
+        if (emitSignal) {
+            Q_EMIT hasEnclosureChanged(m_hasenclosure);
+        }
+    }
+}
+
+void Entry::setImage(const QString &image, bool emitSignal)
+{
+    if (m_image != image) {
+        m_image = image;
+        if (emitSignal) {
+            Q_EMIT imageChanged(m_image);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
+    }
 }
 
 void Entry::setRead(bool read)
@@ -305,13 +440,6 @@ void Entry::setQueueStatusInternal(bool state)
     }
 
     Q_EMIT queueStatusChanged(state);
-}
-
-void Entry::setImage(const QString &image)
-{
-    m_image = image;
-    Q_EMIT imageChanged(m_image);
-    Q_EMIT cachedImageChanged(cachedImage());
 }
 
 Feed *Entry::feed() const

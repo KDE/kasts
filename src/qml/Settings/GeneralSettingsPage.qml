@@ -53,7 +53,12 @@ Kirigami.ScrollablePage {
             text: i18n("Automatically fetch podcast updates on startup")
             onToggled: SettingsManager.refreshOnStartup = checked
         }
-
+        Controls.CheckBox {
+            id: doFullUpdate
+            checked: SettingsManager.doFullUpdate
+            text: i18n("Update existing episode data on refresh (slower)")
+            onToggled: SettingsManager.doFullUpdate = checked
+        }
         Controls.CheckBox {
             id: autoQueue
             Kirigami.FormData.label: i18n("New Episodes:")

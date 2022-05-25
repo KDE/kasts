@@ -79,6 +79,7 @@ Q_SIGNALS:
                             const QDateTime &lastUpdated);
     void feedUpdated(const QString &url);
     void entryAdded(const QString &feedurl, const QString &id);
+    void entryUpdated(const QString &feedurl, const QString &id);
     void feedUpdateStatusChanged(const QString &url, bool status);
     void aborting();
     void finished();
@@ -86,9 +87,9 @@ Q_SIGNALS:
 private:
     void processFeed(Syndication::FeedPtr feed);
     bool processEntry(Syndication::ItemPtr entry);
-    void processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
-    void processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry);
-    void processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
+    bool processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
+    bool processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry);
+    bool processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
     void writeToDatabase();
 
     bool m_abort = false;
@@ -97,13 +98,8 @@ private:
     QByteArray m_data;
 
     bool m_isNewFeed;
-    QVector<EntryDetails> m_entries;
-    QVector<AuthorDetails> m_authors;
-    QVector<EnclosureDetails> m_enclosures;
-    QVector<ChapterDetails> m_chapters;
-
-    QStringList m_existingEntryIds;
-    QVector<QPair<QString, QString>> m_existingEnclosures;
-    QVector<QPair<QString, QString>> m_existingAuthors;
-    QVector<QPair<QString, int>> m_existingChapters;
+    QVector<EntryDetails> m_entries, m_newEntries, m_updateEntries;
+    QVector<AuthorDetails> m_authors, m_newAuthors, m_updateAuthors;
+    QVector<EnclosureDetails> m_enclosures, m_newEnclosures, m_updateEnclosures;
+    QVector<ChapterDetails> m_chapters, m_newChapters, m_updateChapters;
 };

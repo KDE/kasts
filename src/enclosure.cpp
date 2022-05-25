@@ -41,6 +41,11 @@ Enclosure::Enclosure(Entry *entry)
 {
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
+        if ((m_entry->feed()->url() == url) && (m_entry->id() == id)) {
+            updateFromDb();
+        }
+    });
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
@@ -61,6 +66,51 @@ Enclosure::Enclosure(Entry *entry)
     m_playposition_dbsave = m_playposition;
 
     checkSizeOnDisk();
+}
+
+void Enclosure::updateFromDb()
+{
+    // This method is used to update the most relevant fields from the RSS feed,
+    // most notably the download URL.  It's deliberatly only updating the
+    // duration and size if the URL has changed, since these values are
+    // notably untrustworthy.  We generally get them from the files themselves
+    // at the time they are downloaded.
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
+    query.bindValue(QStringLiteral(":id"), m_entry->id());
+    Database::instance().execute(query);
+
+    if (!query.next()) {
+        return;
+    }
+
+    if (m_url != query.value(QStringLiteral("url")).toString() && m_status != Downloaded) {
+        // this means that the audio file has changed, or at least its location
+        // let's only do something if the file isn't downloaded.
+        // try to delete the file first (it actually shouldn't exist)
+        deleteFile();
+
+        m_url = query.value(QStringLiteral("url")).toString();
+        Q_EMIT urlChanged(m_url);
+        Q_EMIT pathChanged(path());
+
+        if (m_duration != query.value(QStringLiteral("duration")).toInt()) {
+            m_duration = query.value(QStringLiteral("duration")).toInt();
+            Q_EMIT durationChanged();
+        }
+        if (m_size != query.value(QStringLiteral("size")).toInt()) {
+            m_size = query.value(QStringLiteral("size")).toInt();
+            Q_EMIT sizeChanged();
+        }
+        if (m_title != query.value(QStringLiteral("title")).toString()) {
+            m_title = query.value(QStringLiteral("title")).toString();
+            Q_EMIT titleChanged(m_title);
+        }
+        if (m_type != query.value(QStringLiteral("type")).toString()) {
+            m_type = query.value(QStringLiteral("type")).toString();
+            Q_EMIT typeChanged(m_type);
+        }
+    }
 }
 
 int Enclosure::statusToDb(Enclosure::Status status)

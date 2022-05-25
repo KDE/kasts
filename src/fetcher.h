@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -43,6 +43,7 @@ public:
 
 Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);
+    void entryUpdated(const QString &feedurl, const QString &id);
     void feedUpdated(const QString &url);
     void feedDetailsUpdated(const QString &url,
                             const QString &name,

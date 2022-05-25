@@ -72,6 +72,13 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 ecm_qt_declare_logging_category(SRCS_base
+    HEADER "entrylogging.h"
+    IDENTIFIER "kastsEntry"
+    CATEGORY_NAME "org.kde.kasts.entry"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(SRCS_base
     HEADER "feedlogging.h"
     IDENTIFIER "kastsFeed"
     CATEGORY_NAME "org.kde.kasts.feed"
