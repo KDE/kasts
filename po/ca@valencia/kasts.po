@@ -73,7 +73,7 @@ msgstr "No s'ha trobat res"
 #: error.cpp:58
 #, kde-format
 msgid "Error moving storage path"
-msgstr "S'ha produït un error en moure el camí d'emmagatzematge"
+msgstr "S'ha produït un error en moure el camí d'almagasenada"
 
 #: error.cpp:60
 #, kde-format
@@ -332,12 +332,12 @@ msgstr "Baixa"
 #: qml/EntryPage.qml:145 qml/GenericEntryDelegate.qml:288
 #, kde-format
 msgid "Cancel Download"
-msgstr "Cancel·la la baixada"
+msgstr "Cancela la baixada"
 
 #: qml/EntryPage.qml:146 qml/EntryPage.qml:194 qml/GenericEntryDelegate.qml:294
 #, kde-format
 msgid "Delete Download"
-msgstr "Suprimeix la baixada"
+msgstr "Suprimix la baixada"
 
 #: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:180
 #, kde-format
@@ -554,8 +554,8 @@ msgstr "Nou"
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
-msgstr[0] "Suprimeix la baixada"
-msgstr[1] "Suprimeix les baixades"
+msgstr[0] "Suprimix la baixada"
+msgstr[1] "Suprimix les baixades"
 
 #: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:162
 #, kde-format
@@ -682,7 +682,7 @@ msgstr "Configuració de la cua"
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr "Obtín automàticament a l'inici les actualitzacions dels podcast"
+msgstr "Obtin automàticament a l'inici les actualitzacions dels podcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
@@ -712,12 +712,12 @@ msgstr "No els suprimisques"
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Delete Immediately"
-msgstr "Suprimeix immediatament"
+msgstr "Suprimix immediatament"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgid "Delete at Next Startup"
-msgstr "Suprimeix-lo en l'inici següent"
+msgstr "Suprimix-lo en l'inici següent"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
 #, kde-format
@@ -732,7 +732,7 @@ msgstr "Mida del tipus de lletra:"
 #: qml/Settings/GeneralSettingsPage.qml:121
 #, kde-format
 msgid "Use system default"
-msgstr "Utilitza la predeterminada del sistema"
+msgstr "Utilisa la predeterminada del sistema"
 
 #: qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
@@ -742,7 +742,7 @@ msgstr "Errors"
 #: qml/Settings/NetworkSettingsPage.qml:17
 #, kde-format
 msgid "Network Settings"
-msgstr "Configuració de la xarxa"
+msgstr "Configuració de la ret"
 
 #: qml/Settings/NetworkSettingsPage.qml:23
 #, kde-format
@@ -772,12 +772,12 @@ msgstr "General"
 #: qml/Settings/SettingsPage.qml:21
 #, kde-format
 msgid "Storage"
-msgstr "Emmagatzematge"
+msgstr "Almagasenada"
 
 #: qml/Settings/SettingsPage.qml:26
 #, kde-format
 msgid "Network"
-msgstr "Xarxa"
+msgstr "Ret"
 
 #: qml/Settings/SettingsPage.qml:31
 #, kde-format
@@ -787,12 +787,12 @@ msgstr "Sincronització"
 #: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
-msgstr "Configuració de l'emmagatzematge"
+msgstr "Configuració de l'almagasenada"
 
 #: qml/Settings/StorageSettingsPage.qml:23
 #, kde-format
 msgid "Storage path:"
-msgstr "Camí d'emmagatzematge:"
+msgstr "Camí d'almagasenada:"
 
 #: qml/Settings/StorageSettingsPage.qml:34
 #, kde-format
@@ -802,12 +802,12 @@ msgstr "Selecciona una carpeta..."
 #: qml/Settings/StorageSettingsPage.qml:40
 #, kde-format
 msgid "Select Storage Path"
-msgstr "Seleccioneu el camí d'emmagatzematge"
+msgstr "Seleccioneu el camí d'almagasenada"
 
 #: qml/Settings/StorageSettingsPage.qml:53
 #, kde-format
 msgid "Use default path"
-msgstr "Utilitza el camí predeterminat"
+msgstr "Utilisa el camí predeterminat"
 
 #: qml/Settings/StorageSettingsPage.qml:62
 #, kde-format
@@ -819,7 +819,7 @@ msgstr "Baixades de podcast:"
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr "S'està utilitzant %1 de l'espai en disc"
+msgstr "S'està utilisant %1 de l'espai en disc"
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
@@ -914,7 +914,7 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
-"Sincronitza amb un servidor de Nextcloud que té instal·lada l'aplicació de "
+"Sincronitza amb un servidor de Nextcloud que té instalada l'aplicació de "
 "sincronització de GPodder: %1.<br/>Es recomana crear manualment una "
 "contrasenya d'aplicació per a Kasts a través de la interfície web i emprar "
 "estes credencials."
@@ -1015,7 +1015,7 @@ msgid ""
 msgstr ""
 "Totes les subscripcions de podcast en este compte de gpodder.net s'han de "
 "sincronitzar en tots els dispositius?\n"
-"Si no sabeu el que açò significa, probablement hauríeu de seleccionar "
+"Si no sabeu lo que açò significa, probablement hauríeu de seleccionar "
 "«D'acord»."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:363
@@ -1046,7 +1046,7 @@ msgstr "Fes una sincronització completa en iniciar"
 #: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr "Fes una sincronització completa quan se cerquin podcast"
+msgstr "Fes una sincronització completa quan es busquen podcast"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:416
 #, kde-format
@@ -1208,8 +1208,7 @@ msgstr "(Pas %1 de %2) Inici de la sincronització"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
-msgstr ""
-"(Pas %1 de %2) Sol·licitud remota de les actualitzacions de subscripció"
+msgstr "(Pas %1 de %2) Solicitut remota de les actualitzacions de subscripció"
 
 #: sync/syncjob.cpp:866
 #, kde-format
@@ -1229,7 +1228,7 @@ msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcast"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
-msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de capítols"
+msgstr "(Pas %1 de %2) Solicitut remota de les actualitzacions de capítols"
 
 #: sync/syncjob.cpp:881
 #, kde-format
