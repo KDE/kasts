@@ -214,6 +214,15 @@ Kirigami.ScrollablePage {
             onTriggered: {
                 entry.new = !entry.new
             }
+        },
+        Kirigami.Action {
+            text: i18n("Open Podcast")
+            onTriggered: {
+                pushPage("FeedListPage")
+                SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                lastFeed = entry.feed.url;
+                pageStack.push("qrc:/EntryListPage.qml", {"feed": entry.feed});
+            }
         }
     ]
 }
