@@ -64,6 +64,7 @@ AudioManager::AudioManager(QObject *parent)
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
     connect(this, &AudioManager::positionChanged, this, &AudioManager::savePlayPosition);
 
+    connect(this, &AudioManager::playbackRateChanged, &DataManager::instance(), &DataManager::playbackRateChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, &AudioManager::canGoNextChanged);
@@ -586,7 +587,13 @@ QString AudioManager::formattedDuration() const
 
 QString AudioManager::formattedLeftDuration() const
 {
-    return m_kformat.formatDuration(duration() - position());
+    qreal rate = 1.0;
+    if (SettingsManager::self()->adjustTimeLeft()) {
+        rate = playbackRate();
+        rate = (rate > 0.0) ? rate : 1.0;
+    }
+    qint64 diff = duration() - position();
+    return m_kformat.formatDuration(diff / rate);
 }
 
 QString AudioManager::formattedPosition() const

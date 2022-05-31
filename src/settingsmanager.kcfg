@@ -13,6 +13,10 @@
             <label>Continue playing next episode after current one finishes</label>
             <default>true</default>
         </entry>
+        <entry name="adjustTimeLeft" type="Bool">
+            <label>Adjust time left based on the current playback speed</label>
+            <default>false</default>
+        </entry>
         <entry name="refreshOnStartup" type="Bool">
             <label>Automatically fetch feed updates on startup</label>
             <default>false</default>

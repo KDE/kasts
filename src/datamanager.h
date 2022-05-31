@@ -91,6 +91,11 @@ Q_SIGNALS:
     void bulkReadStatusActionFinished();
     void bulkNewStatusActionFinished();
 
+    // this will relay the AudioManager::playbackRateChanged signal; this is
+    // required to avoid a dependency loop on startup
+    // TODO: find less hackish solution
+    void playbackRateChanged();
+
 private:
     DataManager();
     void loadFeed(const QString &feedurl) const;

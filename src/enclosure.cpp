@@ -39,6 +39,7 @@ Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
+    connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
     connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
@@ -46,6 +47,10 @@ Enclosure::Enclosure(Entry *entry)
             updateFromDb();
         }
     });
+
+    // we use the relayed signal from AudioManager::playbackRateChanged by
+    // DataManager; this is required to avoid a dependency loop on startup
+    connect(&DataManager::instance(), &DataManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
@@ -489,7 +494,13 @@ QString Enclosure::formattedDuration() const
 
 QString Enclosure::formattedLeftDuration() const
 {
-    return m_kformat.formatDuration(duration() * 1000 - playPosition());
+    qreal rate = 1.0;
+    if (SettingsManager::self()->adjustTimeLeft()) {
+        rate = AudioManager::instance().playbackRate();
+        rate = (rate > 0.0) ? rate : 1.0;
+    }
+    qint64 diff = duration() * 1000 - playPosition();
+    return m_kformat.formatDuration(diff / rate);
 }
 
 QString Enclosure::formattedPlayPosition() const

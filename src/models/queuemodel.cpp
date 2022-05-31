@@ -14,6 +14,7 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "models/episodemodel.h"
+#include "settingsmanager.h"
 
 QueueModel::QueueModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -91,8 +92,13 @@ int QueueModel::timeLeft() const
 
 QString QueueModel::formattedTimeLeft() const
 {
+    qreal rate = 1.0;
+    if (SettingsManager::self()->adjustTimeLeft()) {
+        rate = AudioManager::instance().playbackRate();
+        rate = (rate > 0.0) ? rate : 1.0;
+    }
     static KFormat format;
-    return format.formatDuration(timeLeft());
+    return format.formatDuration(timeLeft() / rate);
 }
 
 // Hack to get a QItemSelection in QML

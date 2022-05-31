@@ -41,6 +41,12 @@ Kirigami.ScrollablePage {
             text: i18n("Continue playing next episode after current one finishes")
             onToggled: SettingsManager.continuePlayingNextEntry = checked
         }
+        Controls.CheckBox {
+            id: adjustTimeLeft
+            checked: SettingsManager.adjustTimeLeft
+            text: i18n("Adjust time left based on current playback speed")
+            onToggled: SettingsManager.adjustTimeLeft = checked
+        }
 
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
