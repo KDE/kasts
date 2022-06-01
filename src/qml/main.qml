@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -35,21 +35,6 @@ Kirigami.ApplicationWindow {
     property string currentPage: ""
 
     property bool isWidescreen: root.width >= root.height
-    onIsWidescreenChanged: {
-        changeNavigation(!isWidescreen);
-    }
-
-    function changeNavigation(isNarrow) {
-        if (globalDrawer) {
-            if (isNarrow) {
-                globalDrawer.collapsed = true
-                globalDrawer.width = Layout.implicitWidth
-            } else {
-                globalDrawer.collapsed = false
-                globalDrawer.width = originalWidth
-            }
-        }
-    }
 
     function getPage(page) {
         switch (page) {
@@ -98,10 +83,11 @@ Kirigami.ApplicationWindow {
         id: sidebar
         active: !Kirigami.Settings.isMobile || root.isWidescreen
         sourceComponent: Kirigami.GlobalDrawer {
-            width: 200
             modal: false
             isMenu: false
             collapsible: !Kirigami.Settings.isMobile
+            collapsed: !root.isWidescreen
+            width: root.isWidescreen ? root.originalWidth : Layout.implicitWidth
             header: Kirigami.AbstractApplicationHeader {}
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window

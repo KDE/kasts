@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  * SPDX-FileCopyrightText: 2021 Devin Lin <devin@kde.org>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
@@ -30,6 +30,18 @@ Kirigami.Page {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
+    Component {
+        id: slider
+        Controls.Slider {
+            enabled: AudioManager.entry
+            padding: 0
+            from: 0
+            to: AudioManager.duration / 1000
+            value: AudioManager.position / 1000
+            onMoved: AudioManager.seek(value * 1000)
+        }
+    }
+
     background: Image {
         opacity: 0.2
         source: AudioManager.entry.cachedImage
@@ -58,7 +70,8 @@ Kirigami.Page {
         id: playerControlsColumn
         anchors.fill: parent
         anchors.topMargin: Kirigami.Units.largeSpacing * 2
-        anchors.bottomMargin: Kirigami.Units.largeSpacing * 2
+        anchors.bottomMargin: Kirigami.Units.largeSpacing
+        spacing: 0
 
         Controls.Button {
             id: swipeUpButton
@@ -69,6 +82,7 @@ Kirigami.Page {
             flat: true
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 0
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
             onClicked: toClose.restart()
         }
 
@@ -78,13 +92,13 @@ Kirigami.Page {
             currentIndex: 0
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Layout.preferredWidth: parent.width
-            Layout.preferredHeight: parent.height - media.height - indicator.height - indicator.Layout.bottomMargin - swipeUpButton.height
+            Layout.preferredHeight: parent.height - media.height - swipeUpButton.height
             Layout.margins: 0
 
             // we are unable to use Controls.Control here to set padding since it seems to eat touch events on the parent flickable
             Item {
                 Item {
-                    property int textMargin: Kirigami.Units.gridUnit // margin above and below the text below the image
+                    property int textMargin: Kirigami.Units.largeSpacing // margin above the text below the image
                     anchors.fill: parent
                     anchors.leftMargin: Kirigami.Units.largeSpacing * 2
                     anchors.rightMargin: Kirigami.Units.largeSpacing * 2
@@ -121,7 +135,7 @@ Kirigami.Page {
                             right: parent.right
                             leftMargin: root.isWidescreen ? parent.textMargin : 0
                             topMargin: root.isWidescreen ? 0 : parent.textMargin
-                            bottomMargin: root.isWidescreen ? 0 : parent.textMargin
+                            bottomMargin: 0
                         }
 
                         ColumnLayout {
@@ -129,6 +143,7 @@ Kirigami.Page {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
                             anchors.right: parent.right
+                            anchors.margins: 0
                             Controls.Label {
                                 text: AudioManager.entry ? AudioManager.entry.title : i18n("No Title")
                                 elide: Text.ElideRight
@@ -210,21 +225,14 @@ Kirigami.Page {
             }
         }
 
-        Controls.PageIndicator {
-            id: indicator
-
-            count: swipeView.count
-            currentIndex: swipeView.currentIndex
-            Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: Kirigami.Units.gridUnit
-        }
-
         Item {
             id: media
 
             implicitHeight: mediaControls.height
             Layout.leftMargin: Kirigami.Units.largeSpacing * 2
             Layout.rightMargin: Kirigami.Units.largeSpacing * 2
+            Layout.bottomMargin: 0
+            Layout.topMargin: 0
             Layout.fillWidth: true
 
             ColumnLayout {
@@ -232,19 +240,71 @@ Kirigami.Page {
 
                 anchors.left: parent.left
                 anchors.right: parent.right
+                anchors.bottom: parent.bottom
                 anchors.margins: 0
+                spacing: 0
 
-                Controls.Slider {
-                    enabled: AudioManager.entry
+                RowLayout {
+                    id: contextButtons
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                    Layout.leftMargin: Kirigami.Units.largeSpacing
+                    Layout.rightMargin: Kirigami.Units.largeSpacing
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    Layout.bottomMargin: Kirigami.Units.smallSpacing
+                    Layout.fillWidth: true
+                    property int iconSize: Math.floor(Kirigami.Units.gridUnit * 1.3)
+                    property int buttonSize: bottomRow.buttonSize
+
+                    Controls.ToolButton {
+                        visible: AudioManager.entry
+                        Layout.maximumHeight: parent.height
+                        Layout.preferredHeight: contextButtons.buttonSize
+                        Layout.maximumWidth: height
+                        Layout.preferredWidth: height
+                        icon.name: "viewimage"
+                        icon.width: contextButtons.iconSize
+                        icon.height: contextButtons.iconSize
+                        onClicked: {
+                            swipeView.currentIndex = 0;
+                        }
+                    }
+                    Controls.ToolButton {
+                        visible: AudioManager.entry
+                        Layout.maximumHeight: parent.height
+                        Layout.preferredHeight: contextButtons.buttonSize
+                        Layout.maximumWidth: height
+                        Layout.preferredWidth: height
+                        icon.name: "help-about-symbolic"
+                        icon.width: contextButtons.iconSize
+                        icon.height: contextButtons.iconSize
+                        onClicked: {
+                            swipeView.currentIndex = 1;
+                        }
+                    }
+                    Controls.ToolButton {
+                        visible: AudioManager.entry && chapterList.count !== 0
+                        Layout.maximumHeight: parent.height
+                        Layout.preferredHeight: contextButtons.buttonSize
+                        Layout.maximumWidth: height
+                        Layout.preferredWidth: height
+                        icon.name: "view-media-playlist"
+                        icon.width: contextButtons.iconSize
+                        icon.height: contextButtons.iconSize
+                        onClicked: {
+                            swipeView.currentIndex = 2;
+                        }
+                    }
+                }
+
+                Loader {
+                    active: !root.isWidescreen
+                    visible: !root.isWidescreen
+                    sourceComponent: slider
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
                     Layout.rightMargin: Kirigami.Units.largeSpacing
-                    padding: 0
-                    from: 0
-                    to: AudioManager.duration / 1000
-                    value: AudioManager.position / 1000
-                    onMoved: AudioManager.seek(value * 1000)
                 }
+
                 RowLayout {
                     id: controls
                     Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -256,8 +316,11 @@ Kirigami.Page {
                         text: AudioManager.formattedPosition
                         font: Kirigami.Theme.smallFont
                     }
-                    Item {
+                    Loader {
+                        active: root.isWidescreen
+                        sourceComponent: slider
                         Layout.fillWidth: true
+
                     }
                     Item {
                         Layout.alignment: Qt.AlignRight
@@ -288,8 +351,8 @@ Kirigami.Page {
                     Layout.rightMargin: Kirigami.Units.largeSpacing
                     Layout.maximumWidth: Number.POSITIVE_INFINITY //TODO ?
                     Layout.fillWidth: true
-                    Layout.margins: 0
-                    Layout.topMargin: Kirigami.Units.largeSpacing
+                    Layout.bottomMargin: 0
+                    Layout.topMargin: 0
 
                     // Make button width scale properly on narrow windows instead of overflowing
                     property int buttonSize: Math.min(playButton.implicitWidth, ((playerControlsColumn.width - 4 * spacing) / 5 - playButton.leftPadding - playButton.rightPadding))
