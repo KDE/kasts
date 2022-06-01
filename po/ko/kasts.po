@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2022-04-15 22:57+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "kde@peremen.name"
 msgid "Invalid Media"
 msgstr "잘못된 미디어"
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "사용자 설정 때문에 팟캐스트 다운로드가 허용되지 않음"
@@ -352,7 +352,7 @@ msgstr "대기열에서 삭제"
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
@@ -376,6 +376,12 @@ msgstr "\"새 항목\" 이름표 삭제"
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "팟캐스트 추가"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -417,7 +423,7 @@ msgstr "기록된 오류 없음"
 msgid "Error Code: "
 msgstr "오류 코드: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
@@ -676,55 +682,60 @@ msgstr "시작할 때 자동으로 팟캐스트 가져오기"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
+#, kde-format
 msgid "New Episodes:"
 msgstr "새 에피소드:"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr "자동으로 대기열에 추가"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Automatically Download"
 msgstr "자동으로 다운로드"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Played Episodes:"
 msgstr "재생한 에피소드:"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr "삭제 안 함"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr "즉시 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "다음에 시작할 때 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "글"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr "시스템 기본값 사용"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Errors"
 msgstr "오류"

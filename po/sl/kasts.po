@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2022-05-18 07:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -33,7 +33,7 @@ msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 msgid "Invalid Media"
 msgstr "Neveljavni medij"
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Nalaganje podcastov ni dovoljeno zaradi uporabnikovih nastavitev"
@@ -352,7 +352,7 @@ msgstr "Odstrani iz čakalne vrste"
 msgid "Add to Queue"
 msgstr "Dodaj v čakalno vrsto"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Ponastavi mesto predvajanja"
@@ -376,6 +376,12 @@ msgstr "Odstrani oznako \"novo\""
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Označi kot \"Novo\""
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "Dodaj podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -417,7 +423,7 @@ msgstr "Ni beleženja napak"
 msgid "Error Code: "
 msgstr "Koda napake: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Show Error Log"
 msgstr "Prikaži dnevnik napak"
@@ -694,55 +700,60 @@ msgstr "Samodejno poberi posodobitve podcastov ob zagonu"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
+#, kde-format
 msgid "New Episodes:"
 msgstr "Nove epizode:"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Samodejno se postavi v čakalno vrsto"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Automatically Download"
 msgstr "Samodejno prenesi"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Predvajane epizode:"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Ne zbriši"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Takoj zbriši"
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Zbriši ob naslednjem zagonu"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "Članek"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "Velikost pisave:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr "Uporabi sistemske privzete vrednosti"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Errors"
 msgstr "Napake"

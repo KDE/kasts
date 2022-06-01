@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -31,7 +31,7 @@ msgstr "wizzardsk@gmail.com"
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr ""
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr ""
@@ -392,6 +392,12 @@ msgstr ""
 #, kde-format
 msgid "Label as \"New\""
 msgstr ""
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "Pridať Podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -435,7 +441,7 @@ msgstr "Chybový záznam"
 msgid "Error Code: "
 msgstr "Kód chyby: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgid "Show Error Log"
@@ -719,59 +725,64 @@ msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:59
+#, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
 #, fuzzy, kde-format
 #| msgid "Episodes"
 msgid "New Episodes:"
 msgstr "Epizódy"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Automatically Download"
 msgstr "Stiahnuť"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, fuzzy, kde-format
 #| msgid "Episodes"
 msgid "Played Episodes:"
 msgstr "Epizódy"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "Odsek"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "Veľkosť písma:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgid "Errors"

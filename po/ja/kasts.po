@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr ""
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr ""
@@ -371,6 +371,11 @@ msgstr ""
 #: qml/EntryPage.qml:213 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
+msgstr ""
+
+#: qml/EntryPage.qml:219
+#, kde-format
+msgid "Open Podcast"
 msgstr ""
 
 #: qml/EpisodeListPage.qml:39
@@ -413,7 +418,7 @@ msgstr ""
 msgid "Error Code: "
 msgstr ""
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Show Error Log"
 msgstr ""
@@ -678,55 +683,60 @@ msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
+#, kde-format
 msgid "New Episodes:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Automatically Download"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Played Episodes:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Errors"
 msgstr ""

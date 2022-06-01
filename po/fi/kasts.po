@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2022-02-13 19:49+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "translator@legisign.org"
 msgid "Invalid Media"
 msgstr "Virheellinen media"
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Käyttäjäasetus ei salli podcastien latausta"
@@ -355,7 +355,7 @@ msgstr "Poista jonosta"
 msgid "Add to Queue"
 msgstr "Lisää jonoon"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Nollaa soittokohta"
@@ -379,6 +379,12 @@ msgstr "Poista ”Uusi”-nimiö"
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "Lisää podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -420,7 +426,7 @@ msgstr "Ei virheitä lokissa"
 msgid "Error Code: "
 msgstr "Virhekoodi: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Show Error Log"
 msgstr "Näytä virheloki"
@@ -687,55 +693,60 @@ msgstr "Virkistä podcastit automaattisesti käynnistettäessä"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
+#, kde-format
 msgid "New Episodes:"
 msgstr "Uudet jaksot:"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Lisää jonoon automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Automatically Download"
 msgstr "Lataa automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Kuunnellut jaksot:"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Älä poista"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Poista heti"
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Poista käynnistettäessä uudelleen"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "Artikkeli"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "Fonttikoko:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr "Käytä järjestelmän oletusta"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Errors"
 msgstr "Virheet"

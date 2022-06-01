@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2022-05-17 11:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "emir_sari@icloud.com"
 msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Kullanıcı ayarlarından dolayı podcast indirmelerine izin verilmiyor"
@@ -351,7 +351,7 @@ msgstr "Kuyruktan Kaldır"
 msgid "Add to Queue"
 msgstr "Kuyruğa Ekle"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Çalma Konumunu Sıfırla"
@@ -375,6 +375,12 @@ msgstr "\"Yeni\" Etiketini Kaldır"
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"Yeni\" Olarak İmle"
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "Podcast Ekle"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -416,7 +422,7 @@ msgstr "Günlüklenen Hata Yok"
 msgid "Error Code: "
 msgstr "Hata Kodu: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Show Error Log"
 msgstr "Hata Günlüğünü Göster"
@@ -682,55 +688,60 @@ msgstr "Başlangıçta podcast güncellemelerini kendiliğinden getir"
 
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
+#, kde-format
 msgid "New Episodes:"
 msgstr "Yeni Bölümler:"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Kendiliğinden Kuyruğa Ekle"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Automatically Download"
 msgstr "Kendiliğinden İndirilen"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Çalınan Bölümler:"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Silme"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Anında Sil"
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Bir Sonraki Başlangıçta Sil"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "Yazı"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "Yazıtipi boyutu:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Errors"
 msgstr "Hatalar"

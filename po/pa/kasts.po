@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-24 00:46+0000\n"
+"POT-Creation-Date: 2022-06-01 00:54+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -32,7 +32,7 @@ msgstr "alam yellow @gmail.com"
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:109
+#: enclosure.cpp:159
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr ""
@@ -362,7 +362,7 @@ msgstr "ਕਤਾਰ ਵਿੱਚੋਂ ਹਟਾਓ"
 msgid "Add to Queue"
 msgstr "ਕਤਾਰ ਵਿੱਚ ਜੋੜੋ"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:97
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
 #, kde-format
 msgid "Reset Play Position"
 msgstr ""
@@ -386,6 +386,12 @@ msgstr "\"ਨਵਾਂ\" ਲੇਬਲ ਹਟਾਓ"
 #, kde-format
 msgid "Label as \"New\""
 msgstr ""
+
+#: qml/EntryPage.qml:219
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgid "Open Podcast"
+msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -427,7 +433,7 @@ msgstr ""
 msgid "Error Code: "
 msgstr ""
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:133
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgid "Show Error Log"
@@ -697,59 +703,64 @@ msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:59
+#, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:64
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgid "New Episodes:"
 msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgid "Automatically Queue"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:80
 #, fuzzy, kde-format
 #| msgid "Cancel Download"
 msgid "Automatically Download"
 msgstr "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
 
-#: qml/Settings/GeneralSettingsPage.qml:82
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgid "Played Episodes:"
 msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:92
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:88
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Article"
 msgstr "ਲੇਖ"
 
-#: qml/Settings/GeneralSettingsPage.qml:111
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Font size:"
 msgstr "ਫੋਂਟ ਦਾ ਆਕਾਰ:"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
 msgid "Use system default"
 msgstr "ਸਿਸਟਮ ਦੇ ਮੂਲ ਵਰਤੋਂ"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgid "Errors"
