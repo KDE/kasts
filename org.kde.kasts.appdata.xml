@@ -164,6 +164,19 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="22.06" date="2022-06-07">
+      <url>https://www.plasma-mobile.org/2022/06/07/plasma-mobile-gear-22-06/</url>
+      <description>
+        <ul>
+          <li>The podcast update routine has been completely overhauled, solving several bugs.  It's now using multithreading, and it will also update existing episode information.</li>
+          <li>General improvements to make sure that the app fits well on small screens in both portrait and landscape mode.</li>
+          <li>Episode images will be retrieved from id3v2tag if available.</li>
+          <li>New episodes will be added to the queue in ascending chronological order per podcast.</li>
+          <li>A switch has been introduced to optionally adjust the time left on episodes based on the current playback rate.</li>
+          <li>The episode details pages now have a context action to go straight to the list of episodes of the podcast in question.</li>
+        </ul>
+      </description>
+    </release>
     <release version="22.04" date="2022-04-26">
       <url>https://www.plasma-mobile.org/2022/04/26/plasma-mobile-gear-22-04/</url>
       <description>
