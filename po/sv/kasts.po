@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-01 00:54+0000\n"
-"PO-Revision-Date: 2022-05-21 10:39+0200\n"
+"POT-Creation-Date: 2022-06-02 00:47+0000\n"
+"PO-Revision-Date: 2022-06-01 19:24+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -24,12 +24,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: audiomanager.cpp:427
+#: audiomanager.cpp:428
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ogiltigt media"
 
-#: enclosure.cpp:159
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr ""
@@ -351,7 +351,7 @@ msgstr "Ta bort från kö"
 msgid "Add to Queue"
 msgstr "Lägg till i kö"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Nollställ uppspelningsposition"
@@ -377,10 +377,9 @@ msgid "Label as \"New\""
 msgstr "Beteckna som \"ny\""
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Lägg till poddradioprogram"
+msgstr "Öppna poddradioprogram"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -422,7 +421,7 @@ msgstr "Inga fel loggade"
 msgid "Error Code: "
 msgstr "Felkod: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show Error Log"
 msgstr "Visa fellogg"
@@ -678,70 +677,75 @@ msgstr "Fortsätt att spela upp nästa avsnitt när det pågående är slut"
 
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
+msgid "Adjust time left based on current playback speed"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:53
+#, kde-format
 msgid "Queue Settings"
 msgstr "Köinställningar"
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Hämta automatiskt uppdateringar av poddradioprogram vid start"
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Uppdatera befintlig avsnittsinformation vid uppdatering (långsammare)"
 
-#: qml/Settings/GeneralSettingsPage.qml:64
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "New Episodes:"
 msgstr "Nya avsnitt:"
 
-#: qml/Settings/GeneralSettingsPage.qml:66
+#: qml/Settings/GeneralSettingsPage.qml:72
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Köa automatiskt"
 
-#: qml/Settings/GeneralSettingsPage.qml:80
+#: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Automatically Download"
 msgstr "Ladda ner automatiskt"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Spelade avsnitt:"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
+#: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Ta inte bort"
 
-#: qml/Settings/GeneralSettingsPage.qml:92
+#: qml/Settings/GeneralSettingsPage.qml:98
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Ta bort omedelbart"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:99
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Ta bort vid nästa start"
 
-#: qml/Settings/GeneralSettingsPage.qml:108
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Article"
 msgstr "Artikel"
 
-#: qml/Settings/GeneralSettingsPage.qml:116
+#: qml/Settings/GeneralSettingsPage.qml:122
 #, kde-format
 msgid "Font size:"
 msgstr "Teckenstorlek:"
 
-#: qml/Settings/GeneralSettingsPage.qml:126
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Use system default"
 msgstr "Använda systemstandard"
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, kde-format
 msgid "Errors"
 msgstr "Fel"

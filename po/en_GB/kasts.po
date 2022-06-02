@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-01 00:54+0000\n"
+"POT-Creation-Date: 2022-06-02 00:47+0000\n"
 "PO-Revision-Date: 2022-04-02 16:41+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "steve.allewell@gmail.com"
 
-#: audiomanager.cpp:427
+#: audiomanager.cpp:428
 #, kde-format
 msgid "Invalid Media"
 msgstr "Invalid Media"
 
-#: enclosure.cpp:159
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Podcast downloads not allowed due to user setting"
@@ -352,7 +352,7 @@ msgstr "Remove from Queue"
 msgid "Add to Queue"
 msgstr "Add to Queue"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Reset Play Position"
@@ -423,7 +423,7 @@ msgstr "No Errors Logged"
 msgid "Error Code: "
 msgstr "Error Code: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show Error Log"
 msgstr "Show Error Log"
@@ -678,70 +678,75 @@ msgstr "Continue playing next episode after current one finishes"
 
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
+msgid "Adjust time left based on current playback speed"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:53
+#, kde-format
 msgid "Queue Settings"
 msgstr "Queue Settings"
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Automatically fetch podcast updates on startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:64
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "New Episodes:"
 msgstr "New Episodes:"
 
-#: qml/Settings/GeneralSettingsPage.qml:66
+#: qml/Settings/GeneralSettingsPage.qml:72
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Automatically Queue"
 
-#: qml/Settings/GeneralSettingsPage.qml:80
+#: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Automatically Download"
 msgstr "Automatically Download"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Played Episodes:"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
+#: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Do Not Delete"
 
-#: qml/Settings/GeneralSettingsPage.qml:92
+#: qml/Settings/GeneralSettingsPage.qml:98
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Delete Immediately"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:99
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Delete at Next Startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:108
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Article"
 msgstr "Article"
 
-#: qml/Settings/GeneralSettingsPage.qml:116
+#: qml/Settings/GeneralSettingsPage.qml:122
 #, kde-format
 msgid "Font size:"
 msgstr "Font size:"
 
-#: qml/Settings/GeneralSettingsPage.qml:126
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Use system default"
 msgstr "Use system default"
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, kde-format
 msgid "Errors"
 msgstr "Errors"

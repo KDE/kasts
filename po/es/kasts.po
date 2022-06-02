@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-01 00:54+0000\n"
-"PO-Revision-Date: 2022-05-17 17:20+0200\n"
+"POT-Creation-Date: 2022-06-02 00:47+0000\n"
+"PO-Revision-Date: 2022-06-01 03:50+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -29,12 +29,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: audiomanager.cpp:427
+#: audiomanager.cpp:428
 #, kde-format
 msgid "Invalid Media"
 msgstr "Medio no válido"
 
-#: enclosure.cpp:159
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "No se pueden descargar pódcast por las preferencias del usuario"
@@ -355,7 +355,7 @@ msgstr "Eliminar de la cola"
 msgid "Add to Queue"
 msgstr "Añadir a la cola"
 
-#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:102
+#: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Reiniciar la posición de reproducción"
@@ -381,10 +381,9 @@ msgid "Label as \"New\""
 msgstr "Etiquetar como «Nuevo»"
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Añadir pódcast"
+msgstr "Abrir pódcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -426,7 +425,7 @@ msgstr "No se han registrado errores"
 msgid "Error Code: "
 msgstr "Código de error:"
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:138
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show Error Log"
 msgstr "Mostrar el registro de errores"
@@ -684,70 +683,76 @@ msgstr "Reproducir el siguiente episodio cuando termine el actual"
 
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
+msgid "Adjust time left based on current playback speed"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:53
+#, kde-format
 msgid "Queue Settings"
 msgstr "Preferencias de la cola"
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Descargar actualizaciones de pódcast durante el inicio"
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
+"Actualizar los datos de los episodios existentes al refrescar (más lento)"
 
-#: qml/Settings/GeneralSettingsPage.qml:64
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "New Episodes:"
 msgstr "Nuevos episodios:"
 
-#: qml/Settings/GeneralSettingsPage.qml:66
+#: qml/Settings/GeneralSettingsPage.qml:72
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Encolar automáticamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:80
+#: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Automatically Download"
 msgstr "Descargar automáticamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Episodios reproducidos:"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
+#: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgid "Do Not Delete"
 msgstr "No borrar"
 
-#: qml/Settings/GeneralSettingsPage.qml:92
+#: qml/Settings/GeneralSettingsPage.qml:98
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Borrar inmediatamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:99
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Borrar durante el próximo inicio"
 
-#: qml/Settings/GeneralSettingsPage.qml:108
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Article"
 msgstr "Artículo"
 
-#: qml/Settings/GeneralSettingsPage.qml:116
+#: qml/Settings/GeneralSettingsPage.qml:122
 #, kde-format
 msgid "Font size:"
 msgstr "Tamaño del texto:"
 
-#: qml/Settings/GeneralSettingsPage.qml:126
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Use system default"
 msgstr "Usar el predeterminado del sistema"
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, kde-format
 msgid "Errors"
 msgstr "Errores"
