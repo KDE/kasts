@@ -220,6 +220,8 @@ if(ANDROID)
         network-server-database
         smartphone
         emblem-music-symbolic
+        gpodder
+        kaccounts-nextcloud
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
