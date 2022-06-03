@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-06-01 09:26+0200\n"
+"PO-Revision-Date: 2022-06-02 11:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -682,6 +682,7 @@ msgstr "Continua reproduint el capítol següent una vegada finalitzi l'actual"
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
+"Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-06-01 13:33+0300\n"
+"PO-Revision-Date: 2022-06-02 12:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.0\n"
+"X-Generator: Lokalize 22.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -678,7 +678,7 @@ msgstr "Şu anda çalınan bittikten sonra sonraki bölümden çalmayı sürdür
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Kalan zamanı geçerli çalma hızına bağlı olarak ayarla"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format

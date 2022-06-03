@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-05-18 07:28+0200\n"
+"PO-Revision-Date: 2022-06-02 07:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
@@ -378,10 +378,9 @@ msgid "Label as \"New\""
 msgstr "Označi kot \"Novo\""
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Dodaj podcast"
+msgstr "Odpri podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -691,7 +690,7 @@ msgstr "Nadaljuj s predvajanjem naslednje epizode, ko se trenutna konča"
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Prilagodi preostali čas na osnovi hitrosti playbacka"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
