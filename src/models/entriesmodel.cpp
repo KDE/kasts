@@ -34,6 +34,7 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case EpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
+    case Qt::DisplayRole:
     case EpisodeModel::Roles::IdRole:
         return QVariant::fromValue(DataManager::instance().getIdList(m_feed)[index.row()]);
     default:

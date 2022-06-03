@@ -67,6 +67,7 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case FeedRole:
         return QVariant::fromValue(DataManager::instance().getFeed(index.row()));
+    case Qt::DisplayRole:
     case UrlRole:
         return QVariant::fromValue(DataManager::instance().getFeed(index.row())->url());
     case TitleRole:
