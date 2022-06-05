@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-03-13 11:10+0100\n"
+"PO-Revision-Date: 2022-06-04 10:26+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -105,10 +105,9 @@ msgid "Podcast Player"
 msgstr "Odtwarzacz podkastów"
 
 #: main.cpp:116
-#, fuzzy, kde-format
-#| msgid "© 2020-2021 KDE Community"
+#, kde-format
 msgid "© 2020-2022 KDE Community"
-msgstr "© 2020-2021 Społeczność KDE"
+msgstr "© 2020-2022 Społeczność KDE"
 
 #: main.cpp:117
 #, kde-format
@@ -381,10 +380,9 @@ msgid "Label as \"New\""
 msgstr "Dodaj etykietę „nowy”"
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Dodaj podkast"
+msgstr "Otwórz podkast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -689,7 +687,7 @@ msgstr "Kontynuuj odtwarzanie następnego odcinka po zakończeniu bieżącego"
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Dostosuj pozostały czas na podstawie bieżącej szybkości odtwarzania"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
@@ -704,7 +702,7 @@ msgstr "Samoczynnie uaktualnij podkasty po uruchomieniu"
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Uaktualnij dane istniejącego odcinka przy odświeżeniu (wolniejsze)"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
