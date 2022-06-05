@@ -104,7 +104,7 @@ Kirigami.ScrollablePage {
         fileMode: FileDialog.SaveFile
     }
 
-    mainItem: GridView {
+    GridView {
         id: feedList
         visible: count !== 0
 
