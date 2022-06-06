@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-05-17 19:39+0200\n"
+"PO-Revision-Date: 2022-06-04 18:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -380,10 +380,9 @@ msgid "Label as \"New\""
 msgstr "Étiqueter comme « Nouveau »"
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Ajouter un podcast"
+msgstr "Ouvrir un podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -683,7 +682,7 @@ msgstr "Continuer à lire l'épisode suivant à la fin de celui en cours"
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Ajuster le temps restant à partir de la vitesse courante de lecture"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
@@ -699,6 +698,8 @@ msgstr "Rechercher automatiquement des mises à jour de podcasts au démarrage"
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
+"Mettre à jour les données d'un épisode existant par rafraîchissement (Le "
+"plus lent)"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
