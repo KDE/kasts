@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-02 00:47+0000\n"
-"PO-Revision-Date: 2022-05-17 08:38+0200\n"
+"PO-Revision-Date: 2022-06-02 11:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -33,7 +33,7 @@ msgstr "antonibella5@yahoo.com"
 #: audiomanager.cpp:428
 #, kde-format
 msgid "Invalid Media"
-msgstr "Suport no vàlid"
+msgstr "Soport no vàlit"
 
 #: enclosure.cpp:164
 #, kde-format
@@ -53,7 +53,7 @@ msgstr "S'ha produït un error en actualisar el podcast"
 #: error.cpp:50
 #, kde-format
 msgid "Media Download Error"
-msgstr "S'ha produït un error en la baixada dels suports"
+msgstr "S'ha produït un error en la baixada dels soports"
 
 #: error.cpp:52
 #, kde-format
@@ -63,7 +63,7 @@ msgstr "Actualisació no permesa amb la connexió d'ús mesurat"
 #: error.cpp:54
 #, kde-format
 msgid "Invalid Media File"
-msgstr "Fitxer de suport no vàlid"
+msgstr "Ficher de soport no vàlit"
 
 #: error.cpp:56
 #, kde-format
@@ -192,7 +192,7 @@ msgstr "Configuració"
 #: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:180
 #, kde-format
 msgid "Play"
-msgstr "Reprodueix"
+msgstr "Reproduïx"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -381,10 +381,9 @@ msgid "Label as \"New\""
 msgstr "Etiqueta com a «Nou»"
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Afig un podcast"
+msgstr "Obri un podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -499,17 +498,17 @@ msgstr "Importa alguns podcast"
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
-msgstr "Tots els fitxers (*)"
+msgstr "Tots els fichers (*)"
 
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
-msgstr "Fitxers XML (*.xml)"
+msgstr "Fichers XML (*.xml)"
 
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
-msgstr "Fitxers OPML (*.opml)"
+msgstr "Fichers OPML (*.opml)"
 
 #: qml/FeedListPage.qml:100
 #, kde-format
@@ -519,7 +518,7 @@ msgstr "Exporta els podcast"
 #: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
-msgstr "Tots els fitxers"
+msgstr "Tots els fichers"
 
 #: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
@@ -611,8 +610,8 @@ msgstr[1] "%2 actualisats de %1 podcast"
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] "S'ha mogut %2 de %1 fitxers"
-msgstr[1] "S'han mogut %2 de %1 fitxers"
+msgstr[0] "S'ha mogut %2 de %1 fichers"
+msgstr[1] "S'han mogut %2 de %1 fichers"
 
 #: qml/main.qml:340
 #, kde-format
@@ -683,6 +682,7 @@ msgstr "Continua reproduint el capítol següent una vegada finalise l'actual"
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
+"Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
@@ -697,7 +697,7 @@ msgstr "Obtin automàticament a l'inici les actualisacions dels podcast"
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Actualisa les dades dels episodis existents en actualisar (més lent)"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
@@ -777,7 +777,7 @@ msgstr "Permet les baixades de capítols"
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "Allow image downloads"
-msgstr "Permet les baixades d'imatges"
+msgstr "Permet les baixades d'imàgens"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
@@ -839,7 +839,7 @@ msgstr "S'està utilisant %1 de l'espai en disc"
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Image Cache:"
-msgstr "Memòria cau de les imatges:"
+msgstr "Memòria cau de les imàgens:"
 
 #: qml/Settings/StorageSettingsPage.qml:73
 #, kde-format
@@ -1030,7 +1030,7 @@ msgid ""
 msgstr ""
 "Totes les subscripcions de podcast en este compte de gpodder.net s'han de "
 "sincronisar en tots els dispositius?\n"
-"Si no sabeu lo que açò significa, probablement hauríeu de seleccionar "
+"Si no sabeu el que açò significa, probablement hauríeu de seleccionar "
 "«D'acord»."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:363
@@ -1067,7 +1067,7 @@ msgstr "Fes una sincronisació completa quan es busquen podcast"
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
-"Puja les posicions de reproducció de l'episodi en alternar reprodueix/pausa"
+"Puja les posicions de reproducció de l'episodi en alternar reproduïx/pausa"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:421
 #, kde-format
@@ -1165,7 +1165,7 @@ msgstr "E/S denegada: no s'ha pogut guardar la contrasenya."
 #: sync/sync.cpp:549 sync/sync.cpp:550
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
-msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
+msgstr "E/S denegada: no s'ha pogut accedir al ficher de contrasenya."
 
 #: sync/sync.cpp:622
 #, kde-format
