@@ -63,7 +63,7 @@ msgstr "Actualisació no permesa amb la connexió d'ús mesurat"
 #: error.cpp:54
 #, kde-format
 msgid "Invalid Media File"
-msgstr "Ficher de soport no vàlit"
+msgstr "Fitxer de soport no vàlit"
 
 #: error.cpp:56
 #, kde-format
@@ -498,17 +498,17 @@ msgstr "Importa alguns podcast"
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "All Files (*)"
-msgstr "Tots els fichers (*)"
+msgstr "Tots els fitxers (*)"
 
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "XML Files (*.xml)"
-msgstr "Fichers XML (*.xml)"
+msgstr "Fitxers XML (*.xml)"
 
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "OPML Files (*.opml)"
-msgstr "Fichers OPML (*.opml)"
+msgstr "Fitxers OPML (*.opml)"
 
 #: qml/FeedListPage.qml:100
 #, kde-format
@@ -518,7 +518,7 @@ msgstr "Exporta els podcast"
 #: qml/FeedListPage.qml:102
 #, kde-format
 msgid "All Files"
-msgstr "Tots els fichers"
+msgstr "Tots els fitxers"
 
 #: qml/FeedListPage.qml:238 qml/GenericEntryListView.qml:128
 #, kde-format
@@ -610,8 +610,8 @@ msgstr[1] "%2 actualisats de %1 podcast"
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] "S'ha mogut %2 de %1 fichers"
-msgstr[1] "S'han mogut %2 de %1 fichers"
+msgstr[0] "S'ha mogut %2 de %1 fitxers"
+msgstr[1] "S'han mogut %2 de %1 fitxers"
 
 #: qml/main.qml:340
 #, kde-format
@@ -1165,7 +1165,7 @@ msgstr "E/S denegada: no s'ha pogut guardar la contrasenya."
 #: sync/sync.cpp:549 sync/sync.cpp:550
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
-msgstr "E/S denegada: no s'ha pogut accedir al ficher de contrasenya."
+msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
 
 #: sync/sync.cpp:622
 #, kde-format
