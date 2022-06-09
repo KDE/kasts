@@ -211,83 +211,107 @@ void SyncJob::syncSubscriptions()
         if (subRequest->error() || subRequest->aborted()) {
             if (subRequest->aborted()) {
                 Q_EMIT infoMessage(this, getProgressMessage(Aborted));
+                emitResult();
+                return;
             } else if (subRequest->error()) {
                 setError(SyncJobError::SubscriptionDownloadError);
                 setErrorText(subRequest->errorString());
                 Q_EMIT infoMessage(this, getProgressMessage(Error));
             }
-            emitResult();
-            return;
-        }
-        qCDebug(kastsSync) << "Finished device update request";
+            // If this is a force sync (i.e. processing all updates), then
+            // continue with fetching podcasts updates, otherwise it's not
+            // possible to update new episodes if the sync server happens to be
+            // down or is not reachable.
+            if (m_forceFetchAll) {
+                QSqlQuery query;
+                query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+                Database::instance().execute(query);
+                while (query.next()) {
+                    QString url = query.value(0).toString();
+                    if (!m_feedsToBeUpdatedSubs.contains(url)) {
+                        m_feedsToBeUpdatedSubs += url;
+                    }
+                }
+                m_feedUpdateTotal = m_feedsToBeUpdatedSubs.count();
+                setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 2); // skip upload step
+                Q_EMIT infoMessage(this, getProgressMessage(SubscriptionFetch));
 
-        qulonglong newSubscriptionTimestamp = subRequest->timestamp();
-        QStringList remoteAddFeedList, remoteRemoveFeedList;
-
-        removeSubscriptionChangeConflicts(remoteAddFeedList, remoteRemoveFeedList);
-
-        for (const QString &url : subRequest->addList()) {
-            qCDebug(kastsSync) << "Sync add feed:" << url;
-            if (DataManager::instance().feedExists(url)) {
-                qCDebug(kastsSync) << "this one we have; do nothing";
+                QTimer::singleShot(0, this, &SyncJob::fetchModifiedSubscriptions);
             } else {
-                qCDebug(kastsSync) << "this one we don't have; add this feed";
-                remoteAddFeedList << url;
+                emitResult();
+                return;
             }
-        }
+        } else {
+            qCDebug(kastsSync) << "Finished device update request";
 
-        for (const QString &url : subRequest->removeList()) {
-            qCDebug(kastsSync) << "Sync remove feed:" << url;
-            if (DataManager::instance().feedExists(url)) {
-                qCDebug(kastsSync) << "this one we have; needs to be removed";
-                remoteRemoveFeedList << url;
-            } else {
-                qCDebug(kastsSync) << "this one we don't have; it was already removed locally; do nothing";
+            qulonglong newSubscriptionTimestamp = subRequest->timestamp();
+            QStringList remoteAddFeedList, remoteRemoveFeedList;
+
+            removeSubscriptionChangeConflicts(remoteAddFeedList, remoteRemoveFeedList);
+
+            for (const QString &url : subRequest->addList()) {
+                qCDebug(kastsSync) << "Sync add feed:" << url;
+                if (DataManager::instance().feedExists(url)) {
+                    qCDebug(kastsSync) << "this one we have; do nothing";
+                } else {
+                    qCDebug(kastsSync) << "this one we don't have; add this feed";
+                    remoteAddFeedList << url;
+                }
             }
-        }
 
-        qCDebug(kastsSync) << "localAddFeedList" << localAddFeedList;
-        qCDebug(kastsSync) << "localRemoveFeedList" << localRemoveFeedList;
-        qCDebug(kastsSync) << "remoteAddFeedList" << remoteAddFeedList;
-        qCDebug(kastsSync) << "remoteRemoveFeedList" << remoteRemoveFeedList;
+            for (const QString &url : subRequest->removeList()) {
+                qCDebug(kastsSync) << "Sync remove feed:" << url;
+                if (DataManager::instance().feedExists(url)) {
+                    qCDebug(kastsSync) << "this one we have; needs to be removed";
+                    remoteRemoveFeedList << url;
+                } else {
+                    qCDebug(kastsSync) << "this one we don't have; it was already removed locally; do nothing";
+                }
+            }
 
-        // Now we apply the remote changes locally:
-        Sync::instance().applySubscriptionChangesLocally(remoteAddFeedList, remoteRemoveFeedList);
+            qCDebug(kastsSync) << "localAddFeedList" << localAddFeedList;
+            qCDebug(kastsSync) << "localRemoveFeedList" << localRemoveFeedList;
+            qCDebug(kastsSync) << "remoteAddFeedList" << remoteAddFeedList;
+            qCDebug(kastsSync) << "remoteRemoveFeedList" << remoteRemoveFeedList;
 
-        // We defer fetching the new feeds, since we will fetch them later on.
-        // if this is the first sync or a force sync, then add all local feeds to
-        // be updated
-        if (!subscriptionTimestampExists || m_forceFetchAll) {
-            QSqlQuery query;
-            query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
-            Database::instance().execute(query);
-            while (query.next()) {
-                QString url = query.value(0).toString();
-                if (!m_feedsToBeUpdatedSubs.contains(url)) {
+            // Now we apply the remote changes locally:
+            Sync::instance().applySubscriptionChangesLocally(remoteAddFeedList, remoteRemoveFeedList);
+
+            // We defer fetching the new feeds, since we will fetch them later on.
+            // if this is the first sync or a force sync, then add all local feeds to
+            // be updated
+            if (!subscriptionTimestampExists || m_forceFetchAll) {
+                QSqlQuery query;
+                query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+                Database::instance().execute(query);
+                while (query.next()) {
+                    QString url = query.value(0).toString();
+                    if (!m_feedsToBeUpdatedSubs.contains(url)) {
+                        m_feedsToBeUpdatedSubs += url;
+                    }
+                }
+            }
+
+            // Add the new feeds to the list of feeds that need to be refreshed.
+            // We check with feedExists to make sure not to add the same podcast
+            // with a slightly different url
+            for (const QString &url : remoteAddFeedList) {
+                if (!DataManager::instance().feedExists(url)) {
                     m_feedsToBeUpdatedSubs += url;
                 }
             }
+            m_feedUpdateTotal = m_feedsToBeUpdatedSubs.count();
+
+            qCDebug(kastsSync) << "newSubscriptionTimestamp" << newSubscriptionTimestamp;
+            updateDBTimestamp(newSubscriptionTimestamp, subscriptionTimestampLabel);
+
+            setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
+            Q_EMIT infoMessage(this, getProgressMessage(SubscriptionUpload));
+
+            QTimer::singleShot(0, this, [=]() {
+                uploadSubscriptions(localAddFeedList, localRemoveFeedList);
+            });
         }
-
-        // Add the new feeds to the list of feeds that need to be refreshed.
-        // We check with feedExists to make sure not to add the same podcast
-        // with a slightly different url
-        for (const QString &url : remoteAddFeedList) {
-            if (!DataManager::instance().feedExists(url)) {
-                m_feedsToBeUpdatedSubs += url;
-            }
-        }
-        m_feedUpdateTotal = m_feedsToBeUpdatedSubs.count();
-
-        qCDebug(kastsSync) << "newSubscriptionTimestamp" << newSubscriptionTimestamp;
-        updateDBTimestamp(newSubscriptionTimestamp, subscriptionTimestampLabel);
-
-        setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-        Q_EMIT infoMessage(this, getProgressMessage(SubscriptionUpload));
-
-        QTimer::singleShot(0, this, [=]() {
-            uploadSubscriptions(localAddFeedList, localRemoveFeedList);
-        });
     });
 }
 
