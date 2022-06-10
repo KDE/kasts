@@ -20,7 +20,7 @@ Kirigami.ScrollablePage {
 
         Controls.Label {
             Kirigami.FormData.label: i18n("Current Status:")
-            text: Sync.syncEnabled ? i18n("Logged into account \"%1\" on server \"%2\"", Sync.username, Sync.provider == SyncUtils.GPodderNet ? "gpodder.net" : Sync.hostname) : i18n("Syncing Disabled")
+            text: Sync.syncEnabled ? i18n("Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : i18n("Syncing Disabled")
             wrapMode: Text.WordWrap
         }
 
@@ -100,8 +100,10 @@ Kirigami.ScrollablePage {
             title: i18n("Sync Login Credentials")
 
             onAccepted: {
-                if (Sync.provider === Sync.GPodderNextcloud) {
+                if (Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked) {
                     Sync.hostname = hostnameField.text;
+                } else {
+                    Sync.hostname = ""
                 }
                 Sync.login(usernameField.text, passwordField.text);
                 syncLoginOverlay.close();
@@ -166,16 +168,24 @@ Kirigami.ScrollablePage {
                         text: Sync.password
                         Keys.onReturnPressed: syncLoginOverlay.accepted();
                     }
+                    Controls.CheckBox {
+                        id: customServerCheckBox
+                        Layout.row: 2
+                        Layout.column: 1
+                        visible: Sync.provider === Sync.GPodderNet
+                        checked: false
+                        text: i18n("Use custom server")
+                    }
                     Controls.Label {
-                        visible: Sync.provider === Sync.GPodderNextcloud
+                        visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
                         Layout.alignment: Qt.AlignRight
                         text: i18n("Hostname:")
                     }
                     Controls.TextField {
-                        visible: Sync.provider === Sync.GPodderNextcloud
+                        visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
                         id: hostnameField
                         Layout.fillWidth: true
-                        placeholderText: "https://nextcloud.mydomain.org"
+                        placeholderText: Sync.provider === Sync.GPodderNet ? "https://gpodder.net" : "https://nextcloud.mydomain.org"
                         text: Sync.hostname
                         Keys.onReturnPressed: syncLoginOverlay.accepted();
                     }

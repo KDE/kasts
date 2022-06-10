@@ -71,17 +71,20 @@ void Sync::retrieveCredentialsFromConfig()
             if (!password.isEmpty()) {
                 m_syncEnabled = SettingsManager::self()->syncEnabled();
                 m_password = password;
+                m_hostname = SettingsManager::self()->syncHostname();
 
                 if (m_provider == Provider::GPodderNet) {
                     m_device = SettingsManager::self()->syncDevice();
                     m_deviceName = SettingsManager::self()->syncDeviceName();
 
                     if (m_syncEnabled && !m_username.isEmpty() && !m_password.isEmpty() && !m_device.isEmpty()) {
-                        m_gpodder = new GPodder(m_username, m_password, this);
+                        if (m_hostname.isEmpty()) { // use default official server
+                            m_gpodder = new GPodder(m_username, m_password, this);
+                        } else { // i.e. custom gpodder host
+                            m_gpodder = new GPodder(m_username, m_password, m_hostname, m_provider, this);
+                        }
                     }
                 } else if (m_provider == Provider::GPodderNextcloud) {
-                    m_hostname = SettingsManager::self()->syncHostname();
-
                     if (m_syncEnabled && !m_username.isEmpty() && !m_password.isEmpty() && !m_hostname.isEmpty()) {
                         m_gpodder = new GPodder(m_username, m_password, m_hostname, m_provider, this);
                     }
@@ -239,19 +242,24 @@ void Sync::setDeviceName(const QString &deviceName)
 
 void Sync::setHostname(const QString &hostname)
 {
-    QString cleanedHostname = hostname;
-    QUrl hostUrl = QUrl(hostname);
+    if (hostname.isEmpty()) {
+        m_hostname.clear();
+    } else {
+        QString cleanedHostname = hostname;
+        QUrl hostUrl = QUrl(hostname);
 
-    if (hostUrl.scheme().isEmpty()) {
-        hostUrl.setScheme(QStringLiteral("https"));
-        if (hostUrl.authority().isEmpty() && !hostUrl.path().isEmpty()) {
-            hostUrl.setAuthority(hostUrl.path());
-            hostUrl.setPath(QStringLiteral(""));
+        if (hostUrl.scheme().isEmpty()) {
+            hostUrl.setScheme(QStringLiteral("https"));
+            if (hostUrl.authority().isEmpty() && !hostUrl.path().isEmpty()) {
+                hostUrl.setAuthority(hostUrl.path());
+                hostUrl.setPath(QStringLiteral(""));
+            }
+            cleanedHostname = hostUrl.toString();
         }
-        cleanedHostname = hostUrl.toString();
+
+        m_hostname = cleanedHostname;
     }
 
-    m_hostname = cleanedHostname;
     SettingsManager::self()->setSyncHostname(m_hostname);
     SettingsManager::self()->save();
     Q_EMIT hostnameChanged();
@@ -309,8 +317,12 @@ void Sync::login(const QString &username, const QString &password)
             }
             subRequest->deleteLater();
         });
-    } else { // official gpodder.net server
-        m_gpodder = new GPodder(username, password, this);
+    } else {
+        if (m_hostname.isEmpty()) { // official gpodder.net server
+            m_gpodder = new GPodder(username, password, this);
+        } else { // custom server
+            m_gpodder = new GPodder(username, password, m_hostname, Provider::GPodderNet, this);
+        }
 
         DeviceRequest *deviceRequest = m_gpodder->getDevices();
         connect(deviceRequest, &DeviceRequest::finished, this, [=]() {
@@ -422,6 +434,7 @@ void Sync::clearSettings()
     SettingsManager::self()->save();
 
     Q_EMIT credentialsChanged();
+    Q_EMIT hostnameChanged();
     Q_EMIT syncProgressChanged();
 }
 
