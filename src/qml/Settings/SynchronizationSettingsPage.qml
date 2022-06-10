@@ -446,8 +446,13 @@ Kirigami.ScrollablePage {
             }
         }
 
+        Kirigami.Heading {
+            Kirigami.FormData.isSection: true
+            text: i18n("Advanced Options")
+        }
+
         Controls.Button {
-            text: i18n("Force Sync Now")
+            text: i18n("Fetch all episode states from server")
             enabled: Sync.syncEnabled
             onClicked: {
                 forceSyncFeedsAndEpisodes.run();
@@ -463,5 +468,60 @@ Kirigami.ScrollablePage {
                 Sync.doForceSync();
             }
         }
+
+        Controls.Button {
+            enabled: Sync.syncEnabled
+            text: i18n("Push all local episode states to server")
+            onClicked: {
+                syncPushAllStatesDialog.open();
+            }
+        }
+
+        Kirigami.Dialog {
+            id: syncPushAllStatesDialog
+            preferredWidth: Kirigami.Units.gridUnit * 25
+            padding: Kirigami.Units.largeSpacing
+
+            showCloseButton: true
+            standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
+            closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
+
+            title: i18n("Push all local episode states to server?")
+
+            onAccepted: {
+                syncPushAllStatesDialog.close();
+                syncPushAllStates.run();
+            }
+            onRejected: syncPushAllStatesDialog.close();
+
+            RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 4
+                    source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                }
+                TextEdit {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    readOnly: true
+                    wrapMode: Text.WordWrap
+                    text: i18n("Please note that pushing the playback state of all local episodes to the server might take a very long time and/or might overload the server. Also note that this action will overwrite all existing episode states on the server.\n\nContinue?")
+                    color: Kirigami.Theme.textColor
+                    Keys.onReturnPressed: accepted();
+                }
+            }
+        }
+
+        // This item can be used to trigger a push of all episode states to the server;
+        // it will open an overlay with options in case the operation is not allowed by the settings
+        ConnectionCheckAction {
+            id: syncPushAllStates
+
+            function action() {
+                Sync.doSyncPushAll();
+            }
+        }
+
     }
 }

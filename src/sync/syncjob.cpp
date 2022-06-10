@@ -90,6 +90,7 @@ void SyncJob::doSync()
 {
     switch (m_syncStatus) {
     case SyncStatus::RegularSync:
+    case SyncStatus::PushAllSync:
         doRegularSync();
         break;
     case SyncStatus::ForceSync:

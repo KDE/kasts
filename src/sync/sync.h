@@ -77,6 +77,7 @@ public:
     void doSync(SyncUtils::SyncStatus status, bool forceFetchAll = false); // base method for syncing
     Q_INVOKABLE void doRegularSync(bool forceFetchAll = false); // regular sync; can be forced to update all feeds
     Q_INVOKABLE void doForceSync(); // force a full re-sync with the server; discarding local eposide acions
+    Q_INVOKABLE void doSyncPushAll(); // upload all local episode states to the server; this will likely overwrite all actions stored on the server
     Q_INVOKABLE void doQuickSync(); // only upload pending local episode actions; intended to be run directly after an episode action has been created
 
     // Next are some generic methods to store and apply local changes to be synced
@@ -116,6 +117,8 @@ private:
     void retrievePasswordFromKeyChain(const QString &username);
     QString retrievePasswordFromFile(const QString &username);
     void deletePasswordFromKeychain(const QString &username);
+
+    void retrieveAllLocalEpisodeStates();
 
     GPodder *m_gpodder = nullptr;
 

@@ -32,6 +32,7 @@ enum SyncStatus {
     RegularSync,
     ForceSync,
     UploadOnlySync,
+    PushAllSync,
 };
 
 Q_ENUM_NS(SyncStatus)

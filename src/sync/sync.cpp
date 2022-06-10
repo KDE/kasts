@@ -764,6 +764,10 @@ void Sync::doSync(SyncStatus status, bool forceFetchAll)
 
     m_syncStatus = status;
 
+    if (status == SyncUtils::SyncStatus::PushAllSync) {
+        retrieveAllLocalEpisodeStates();
+    }
+
     SyncJob *syncJob = new SyncJob(status, m_gpodder, m_device, forceFetchAll, this);
     connect(this, &Sync::abortSync, syncJob, &SyncJob::abort);
     connect(syncJob, &SyncJob::infoMessage, this, [this](KJob *job, const QString &message) {
@@ -790,6 +794,11 @@ void Sync::doRegularSync(bool forceFetchAll)
 void Sync::doForceSync()
 {
     doSync(SyncStatus::ForceSync, true);
+}
+
+void Sync::doSyncPushAll()
+{
+    doSync(SyncStatus::PushAllSync, false);
 }
 
 void Sync::doQuickSync()
@@ -931,7 +940,7 @@ void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, c
             const qulonglong started_sec = started / 1000; // convert to seconds
             const qulonglong position_sec = position / 1000; // convert to seconds
             const qulonglong total =
-                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
+                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // workaround for episodes with bad metadata on gpodder server
 
             QSqlQuery query;
             query.prepare(QStringLiteral("INSERT INTO EpisodeActions VALUES (:podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
@@ -960,4 +969,52 @@ void Sync::storePlayedEpisodeAction(const QString &id)
             storePlayEpisodeAction(id, duration * 1000, duration * 1000);
         }
     }
+}
+
+void Sync::retrieveAllLocalEpisodeStates()
+{
+    QVector<SyncUtils::EpisodeAction> actions;
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE Entries.hasEnclosure = 1;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        qulonglong position_sec = query.value(QStringLiteral("playposition")).toInt() / 1000;
+        qulonglong duration = query.value(QStringLiteral("duration")).toInt();
+        bool read = query.value(QStringLiteral("read")).toBool();
+        if (read) {
+            if (duration == 0)
+                duration = 1; // crazy workaround for episodes with bad metadata
+            position_sec = duration;
+        }
+        if (position_sec > 0 && duration > 0) {
+            SyncUtils::EpisodeAction action;
+            action.podcast = query.value(QStringLiteral("feed")).toString();
+            action.id = query.value(QStringLiteral("id")).toString();
+            action.url = query.value(QStringLiteral("url")).toString();
+            action.started = position_sec;
+            action.position = position_sec;
+            action.total = duration;
+
+            actions << action;
+
+            qCDebug(kastsSync) << "Logged an episode play action for" << action.id << "play position:" << position_sec << duration << read;
+        }
+    }
+
+    QSqlQuery writeQuery;
+    Database::instance().transaction();
+    for (SyncUtils::EpisodeAction &action : actions) {
+        writeQuery.prepare(QStringLiteral("INSERT INTO EpisodeActions VALUES (:podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
+        writeQuery.bindValue(QStringLiteral(":podcast"), action.podcast);
+        writeQuery.bindValue(QStringLiteral(":url"), action.url);
+        writeQuery.bindValue(QStringLiteral(":id"), action.id);
+        writeQuery.bindValue(QStringLiteral(":action"), QStringLiteral("play"));
+        writeQuery.bindValue(QStringLiteral(":started"), action.started);
+        writeQuery.bindValue(QStringLiteral(":position"), action.position);
+        writeQuery.bindValue(QStringLiteral(":total"), action.total);
+        writeQuery.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
+        Database::instance().execute(writeQuery);
+    }
+    Database::instance().commit();
 }
