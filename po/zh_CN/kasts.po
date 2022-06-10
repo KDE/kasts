@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-02 00:47+0000\n"
+"POT-Creation-Date: 2022-06-10 00:47+0000\n"
 "PO-Revision-Date: 2022-06-05 04:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1195,62 +1195,62 @@ msgstr "无法上传剧集更新到服务器"
 msgid "Internal data error"
 msgstr "内部数据错误"
 
-#: sync/syncjob.cpp:860
+#: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(第 %1 步，共 %2 步) 开始同步"
 
-#: sync/syncjob.cpp:863
+#: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(第 %1 步，共 %2 步) 请求远程订阅源更新"
 
-#: sync/syncjob.cpp:866
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(第 %1 步，共 %2 步) 上传本机订阅源更新"
 
-#: sync/syncjob.cpp:870
+#: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(第 %3 步，共 %4 步) 已更新 %2 个播客，共 %1 个"
 
-#: sync/syncjob.cpp:878
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(第 %1 步，共 %2 步) 请求远程剧集更新"
 
-#: sync/syncjob.cpp:881
+#: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(第 %1 步，共 %2 步) 应用远程剧集更改"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(第 %1 步，共 %2 步) 上传本机剧集更新"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(第 %1 步，共 %2 步) 完成同步"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "同步中止"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

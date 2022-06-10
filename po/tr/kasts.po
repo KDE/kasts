@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-02 00:47+0000\n"
+"POT-Creation-Date: 2022-06-10 00:47+0000\n"
 "PO-Revision-Date: 2022-06-02 12:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1203,25 +1203,25 @@ msgstr "Sunucuya bölüm değişiklikleri yüklenemedi"
 msgid "Internal data error"
 msgstr "İç veri hatası"
 
-#: sync/syncjob.cpp:860
+#: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Adım %1/%2) Eşzamanlamaya Başlanıyor"
 
-#: sync/syncjob.cpp:863
+#: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(Adım %1/%2) Uzak Konum Abonelik Güncellemeleri İsteniyor"
 
-#: sync/syncjob.cpp:866
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Adım %1/%2) Yerel Abonelik Güncellemeleri Yükleniyor"
 
-#: sync/syncjob.cpp:870
+#: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1229,37 +1229,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Adım %3/%4) %2/%1 Podcast Yükleniyor"
 msgstr[1] "(Adım %3/%4) %2/%1 Podcast Güncellendi"
 
-#: sync/syncjob.cpp:878
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Adım %1/%2) Uzak Konum Bölüm Güncellemeleri İsteniyor"
 
-#: sync/syncjob.cpp:881
+#: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Adım %1/%2) Uzak Konum Bölüm Güncellemeleri Uygulanıyor"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Adım %1/%2) Yerel Bölüm Güncellemeleri Yükleniyor"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Adım %1/%2) Eşzamanlama Bitti"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Eşzamanlama İptal Edildi"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-02 00:47+0000\n"
+"POT-Creation-Date: 2022-06-10 00:47+0000\n"
 "PO-Revision-Date: 2022-05-19 02:35+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1216,20 +1216,20 @@ msgstr "Impossibile caricare gli aggiornamenti degli episodi sul server"
 msgid "Internal data error"
 msgstr "Errore dati interno"
 
-#: sync/syncjob.cpp:860
+#: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Passaggio %1 di %2) Avvia la sincronizzazione"
 
-#: sync/syncjob.cpp:863
+#: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr ""
 "(Passaggio %1 di %2) Richiesta di aggiornamenti remoti delle sottoscrizioni"
 
-#: sync/syncjob.cpp:866
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
@@ -1237,7 +1237,7 @@ msgstr ""
 "(Passaggio %1 di %2) Caricamento degli aggiornamenti delle sottoscrizioni "
 "locali"
 
-#: sync/syncjob.cpp:870
+#: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1245,37 +1245,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Passaggio %3 di %4) Aggiornato %2 di %1 podcast"
 msgstr[1] "(Passaggio %3 di %4) Aggiornati %2 di %1 podcast"
 
-#: sync/syncjob.cpp:878
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Passaggio %1 di %2) Richiesta di aggiornamenti degli episodi remoti"
 
-#: sync/syncjob.cpp:881
+#: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Passaggio %1 di %2) Applicazione delle modifiche agli episodi remoti"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Passaggio %1 di %2) Caricamento aggiornamenti degli episodi locali"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Passaggio %1 di %2) Sincronizzazione terminata"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Sincronizzazione interrotta"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
