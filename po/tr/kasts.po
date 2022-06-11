@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-10 00:47+0000\n"
+"POT-Creation-Date: 2022-06-11 00:46+0000\n"
 "PO-Revision-Date: 2022-06-02 12:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -907,17 +907,17 @@ msgstr "GPodder Nextcloud uygulamasıyla eşzamanla"
 msgid "Sync Login Credentials"
 msgstr "Eşzamanlama Oturum Açma Bilgileri"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:127
+#: qml/Settings/SynchronizationSettingsPage.qml:129
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud uygulamasıyla eşzamanla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:127
+#: qml/Settings/SynchronizationSettingsPage.qml:129
 #, kde-format
 msgid "Sync with gpodder.net service"
 msgstr "gpodder.net hizmetiyle eşzamanla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:136
+#: qml/Settings/SynchronizationSettingsPage.qml:138
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -929,94 +929,99 @@ msgstr ""
 ">Web arabiriminden Kasts'a özel bir uygulama parolası oluturulması ve onun "
 "kullanılması önerilir."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:137
+#: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Eğer bir hesabınız yoksa %1 konumunda bir tane oluşturmalısınız"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:149
+#: qml/Settings/SynchronizationSettingsPage.qml:151
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:160
+#: qml/Settings/SynchronizationSettingsPage.qml:162
 #: qml/SyncPasswordOverlay.qml:57
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:172
+#: qml/Settings/SynchronizationSettingsPage.qml:177
+#, kde-format
+msgid "Use custom server"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
 msgid "Hostname:"
 msgstr "Makine adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:206
+#: qml/Settings/SynchronizationSettingsPage.qml:216
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Eşzamanlama Aygıt Ayarları"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:212
+#: qml/Settings/SynchronizationSettingsPage.qml:222
 #, kde-format
 msgid "Create a new device"
 msgstr "Yeni bir aygıt oluştur"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:218
+#: qml/Settings/SynchronizationSettingsPage.qml:228
 #, kde-format
 msgid "Device Name:"
 msgstr "Aygıt Adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:228
+#: qml/Settings/SynchronizationSettingsPage.qml:238
 #, kde-format
 msgid "Device Description:"
 msgstr "Aygıt Açıklaması:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:237
+#: qml/Settings/SynchronizationSettingsPage.qml:247
 #, kde-format
 msgid "Device Type:"
 msgstr "Aygıt Türü:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:244
+#: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgid "other"
 msgstr "diğer"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:245
+#: qml/Settings/SynchronizationSettingsPage.qml:255
 #, kde-format
 msgid "desktop"
 msgstr "masaüstü"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:246
+#: qml/Settings/SynchronizationSettingsPage.qml:256
 #, kde-format
 msgid "laptop"
 msgstr "dizüstü"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:247
+#: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
 msgid "server"
 msgstr "sunucu"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
 msgid "mobile"
 msgstr "taşınabilir"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:253
+#: qml/Settings/SynchronizationSettingsPage.qml:263
 #, kde-format
 msgid "Create Device"
 msgstr "Aygıt Oluştur"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:270
+#: qml/Settings/SynchronizationSettingsPage.qml:280
 #, kde-format
 msgid "or select an existing device"
 msgstr "veya var olan bir aygıtı seç"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:319
+#: qml/Settings/SynchronizationSettingsPage.qml:329
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Aygıt Eşzamanlama Ayarları"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:341
+#: qml/Settings/SynchronizationSettingsPage.qml:351
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1027,52 +1032,52 @@ msgstr ""
 "eşzamanlansın mı?\n"
 "Bunun ne anlama geldiğini bilmiyorsanız \"Tamam\"ı seçmeniz yararlı olabilir."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:363
+#: qml/Settings/SynchronizationSettingsPage.qml:373
 #, kde-format
 msgid "Sync Now?"
 msgstr "Şimdi Eşzamanla?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:383
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "İlk eşzamanlama gerçekleştirilsin mi?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:401
 #, kde-format
 msgid "Logout"
 msgstr "Çıkış Yap"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:399
+#: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgid "Automatic Syncing:"
 msgstr "Otomatik Eşzamanlama:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:402
+#: qml/Settings/SynchronizationSettingsPage.qml:412
 #, kde-format
 msgid "Do full sync on startup"
 msgstr "Başlangıçta tam eşzamanlama yapma"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:419
 #, kde-format
 msgid "Do full sync when fetching podcasts"
 msgstr "Podcast'leri getirirken tam eşzamanlama yap"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:416
+#: qml/Settings/SynchronizationSettingsPage.qml:426
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr "Çal/Duraklat düğmesine bölüm çalma konumlarını yükle"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:421
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "Manual Syncing:"
 msgstr "Elle Eşzamanlama:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "Sync Now"
 msgstr "Şimdi Eşzamanla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:440
+#: qml/Settings/SynchronizationSettingsPage.qml:450
 #, kde-format
 msgid "Force Sync Now"
 msgstr "Şimdi Eşzamanlamayı Zorla"
@@ -1125,12 +1130,12 @@ msgstr "İşlem kullanıcı tarafından iptal edildi"
 msgid "An error occurred while copying data"
 msgstr "Veri kopyalanırken bir hata oluştu"
 
-#: sync/sync.cpp:177
+#: sync/sync.cpp:180
 #, kde-format
 msgid "Never"
 msgstr "Asla"
 
-#: sync/sync.cpp:200
+#: sync/sync.cpp:203
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1138,42 +1143,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1 üzerinde Kasts"
 
-#: sync/sync.cpp:289
+#: sync/sync.cpp:297
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud sunucusuna giriş yapılamadı"
 
-#: sync/sync.cpp:324
+#: sync/sync.cpp:336
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder sunucusuna giriş yapılamadı"
 
-#: sync/sync.cpp:468 sync/sync.cpp:469
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "Girdi-Çıktı Reddedildi: Parola kaydedilemiyor."
 
-#: sync/sync.cpp:549 sync/sync.cpp:550
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "Girdi-Çıktı Reddedildi: Parola dosyasına erişilemiyor."
 
-#: sync/sync.cpp:622
+#: sync/sync.cpp:635
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder aygıtı oluşturulamadı"
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:661
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Eşzamanlanmış aygıt durumu alınamadı"
 
-#: sync/sync.cpp:699
+#: sync/sync.cpp:712
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 aygıtı için abonelikler alınamadı"
 
-#: sync/sync.cpp:718
+#: sync/sync.cpp:731
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 aygıtı için abonelikler yüklenemedi"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-10 00:47+0000\n"
+"POT-Creation-Date: 2022-06-11 00:46+0000\n"
 "PO-Revision-Date: 2022-06-02 09:05+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -923,17 +923,17 @@ msgstr "Синхронізувати за допомогою Nextcloud GPodder"
 msgid "Sync Login Credentials"
 msgstr "Реєстраційні дані для синхронізації"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:127
+#: qml/Settings/SynchronizationSettingsPage.qml:129
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Синхронізувати за допомогою програми Nextcloud GPodder"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:127
+#: qml/Settings/SynchronizationSettingsPage.qml:129
 #, kde-format
 msgid "Sync with gpodder.net service"
 msgstr "Синхронізувати за допомогою служби gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:136
+#: qml/Settings/SynchronizationSettingsPage.qml:138
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -946,95 +946,100 @@ msgstr ""
 "Kasts за допомогою вебінтерфейсу і скористатися визначеними реєстраційними "
 "даними."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:137
+#: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 "Якщо у вас ще немає облікового запису, вам слід спочатку його створити на %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:149
+#: qml/Settings/SynchronizationSettingsPage.qml:151
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:160
+#: qml/Settings/SynchronizationSettingsPage.qml:162
 #: qml/SyncPasswordOverlay.qml:57
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:172
+#: qml/Settings/SynchronizationSettingsPage.qml:177
+#, kde-format
+msgid "Use custom server"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
 msgid "Hostname:"
 msgstr "Назва вузла:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:206
+#: qml/Settings/SynchronizationSettingsPage.qml:216
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Параметри пристрою синхронізації"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:212
+#: qml/Settings/SynchronizationSettingsPage.qml:222
 #, kde-format
 msgid "Create a new device"
 msgstr "Створити запис пристрою"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:218
+#: qml/Settings/SynchronizationSettingsPage.qml:228
 #, kde-format
 msgid "Device Name:"
 msgstr "Назва пристрою:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:228
+#: qml/Settings/SynchronizationSettingsPage.qml:238
 #, kde-format
 msgid "Device Description:"
 msgstr "Опис пристрою:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:237
+#: qml/Settings/SynchronizationSettingsPage.qml:247
 #, kde-format
 msgid "Device Type:"
 msgstr "Тип пристрою:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:244
+#: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgid "other"
 msgstr "інше"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:245
+#: qml/Settings/SynchronizationSettingsPage.qml:255
 #, kde-format
 msgid "desktop"
 msgstr "робоча станція"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:246
+#: qml/Settings/SynchronizationSettingsPage.qml:256
 #, kde-format
 msgid "laptop"
 msgstr "ноутбук"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:247
+#: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
 msgid "server"
 msgstr "сервер"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
 msgid "mobile"
 msgstr "мобільний"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:253
+#: qml/Settings/SynchronizationSettingsPage.qml:263
 #, kde-format
 msgid "Create Device"
 msgstr "Створити пристрій"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:270
+#: qml/Settings/SynchronizationSettingsPage.qml:280
 #, kde-format
 msgid "or select an existing device"
 msgstr "або виберіть наявний пристрій"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:319
+#: qml/Settings/SynchronizationSettingsPage.qml:329
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Параметри синхронізації пристроїв"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:341
+#: qml/Settings/SynchronizationSettingsPage.qml:351
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1045,53 +1050,53 @@ msgstr ""
 "записі gpodder.net на усіх пристроях?\n"
 "Якщо ви маєте сумніви щодо цього, варто вибрати «Гаразд»."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:363
+#: qml/Settings/SynchronizationSettingsPage.qml:373
 #, kde-format
 msgid "Sync Now?"
 msgstr "Синхронізувати зараз?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:383
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Виконати першу синхронізацію зараз?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:401
 #, kde-format
 msgid "Logout"
 msgstr "Вийти"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:399
+#: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgid "Automatic Syncing:"
 msgstr "Автоматична синхронізація:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:402
+#: qml/Settings/SynchronizationSettingsPage.qml:412
 #, kde-format
 msgid "Do full sync on startup"
 msgstr "Виконувати повну синхронізацію під час запуску"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:419
 #, kde-format
 msgid "Do full sync when fetching podcasts"
 msgstr "Виконувати повну синхронізацію під час отримання трансляцій"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:416
+#: qml/Settings/SynchronizationSettingsPage.qml:426
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
 "Вивантажувати позиції відтворення епізодів при перемикання стану відтворення"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:421
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "Manual Syncing:"
 msgstr "Синхронізація вручну:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "Sync Now"
 msgstr "Синхронізувати"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:440
+#: qml/Settings/SynchronizationSettingsPage.qml:450
 #, kde-format
 msgid "Force Sync Now"
 msgstr "Примусово синхронізувати зараз"
@@ -1144,12 +1149,12 @@ msgstr "Дію перервано користувачем"
 msgid "An error occurred while copying data"
 msgstr "Під час копіювання даних сталася помилка"
 
-#: sync/sync.cpp:177
+#: sync/sync.cpp:180
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
 
-#: sync/sync.cpp:200
+#: sync/sync.cpp:203
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1157,43 +1162,43 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts на %1"
 
-#: sync/sync.cpp:289
+#: sync/sync.cpp:297
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Не вдалося увійти до облікового запису на сервері GPodder-nextcloud"
 
-#: sync/sync.cpp:324
+#: sync/sync.cpp:336
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Не вдалося увійти до сервера GPodder"
 
-#: sync/sync.cpp:468 sync/sync.cpp:469
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "Заборонено введення-виведення: не вдалося зберегти пароль."
 
-#: sync/sync.cpp:549 sync/sync.cpp:550
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr ""
 "Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
 
-#: sync/sync.cpp:622
+#: sync/sync.cpp:635
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Не вдалося створити пристрій GPodder"
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:661
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Не вдалося отримати стан синхронізованого пристрою"
 
-#: sync/sync.cpp:699
+#: sync/sync.cpp:712
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Не вдалося отримати підписки для пристрою %1"
 
-#: sync/sync.cpp:718
+#: sync/sync.cpp:731
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Не вдалося вивантажити підписки для пристрою %1"
