@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-06-02 16:37+0200\n"
+"PO-Revision-Date: 2022-06-11 10:50+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -951,7 +951,7 @@ msgstr "Wachtwoord:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Aangepaste server gebruiken"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format

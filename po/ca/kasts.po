@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-06-02 11:04+0200\n"
+"PO-Revision-Date: 2022-06-11 10:10+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -954,7 +954,7 @@ msgstr "Contrasenya:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Usa un servidor personalitzat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format

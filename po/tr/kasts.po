@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-06-02 12:26+0300\n"
+"PO-Revision-Date: 2022-06-11 10:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -949,7 +949,7 @@ msgstr "Parola:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Özel sunucu kullan"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format

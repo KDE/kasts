@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-05-19 02:35+0200\n"
+"PO-Revision-Date: 2022-06-11 23:25+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -382,10 +382,9 @@ msgid "Label as \"New\""
 msgstr "Etichetta come «Nuovo»"
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Aggiungi podcast"
+msgstr "Apri podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -687,6 +686,7 @@ msgstr ""
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
+"Regola il tempo rimanente in base alla velocità di riproduzione attuale"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
@@ -701,7 +701,7 @@ msgstr "Recupera automaticamente gli aggiornamenti dei podcast all'avvio"
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Aggiorna i dati degli episodi esistenti all'aggiornamento (più lento)"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
@@ -958,7 +958,7 @@ msgstr "Password:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Usa server personalizzato"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format

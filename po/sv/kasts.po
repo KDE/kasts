@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-06-03 20:05+0200\n"
+"PO-Revision-Date: 2022-06-11 17:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -950,7 +950,7 @@ msgstr "Lösenord:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Använd egen server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
