@@ -930,7 +930,8 @@ void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, c
         if (entry && entry->hasEnclosure()) {
             const qulonglong started_sec = started / 1000; // convert to seconds
             const qulonglong position_sec = position / 1000; // convert to seconds
-            const qulonglong total = entry->enclosure()->duration(); // is already in seconds
+            const qulonglong total =
+                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
 
             QSqlQuery query;
             query.prepare(QStringLiteral("INSERT INTO EpisodeActions VALUES (:podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
@@ -953,7 +954,9 @@ void Sync::storePlayedEpisodeAction(const QString &id)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         if (DataManager::instance().getEntry(id)->hasEnclosure()) {
-            const qulonglong duration = DataManager::instance().getEntry(id)->enclosure()->duration();
+            Entry *entry = DataManager::instance().getEntry(id);
+            const qulonglong duration =
+                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
             storePlayEpisodeAction(id, duration * 1000, duration * 1000);
         }
     }

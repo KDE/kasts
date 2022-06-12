@@ -67,51 +67,31 @@ void EpisodeActionRequest::processResults()
                     QDateTime::fromString(actionTimestamp.section(QStringLiteral("."), 0, 0), QStringLiteral("yyyy-MM-dd'T'hh:mm:ss")).toMSecsSinceEpoch()
                     / 1000);
 
-                // Finally we try to find the id for the entry based on the episode URL if
-                // no GUID is available.
+                // Now we try to find the id for the entry based on either the GUID
+                // or the episode download URL.  We also try to match with a percent-
+                // decoded version of the URL.
+                // There can be several hits (e.g. different entries pointing to the
+                // same download URL; we add all of them to make sure everything's
+                // consistent.
                 // We also retrieve the feedUrl from the database to avoid problems with
                 // different URLs pointing to the same feed (e.g. http vs https)
-                if (!episodeAction.id.isEmpty()) {
-                    // First check if the GUID we got from the service is in the DB
-                    QSqlQuery query;
-                    query.prepare(QStringLiteral("SELECT id, feed FROM Entries WHERE id=:id;"));
-                    query.bindValue(QStringLiteral(":id"), episodeAction.id);
-                    Database::instance().execute(query);
-                    if (!query.next()) {
-                        qCDebug(kastsSync) << "cannot find episode with id:" << episodeAction.id;
-                        episodeAction.id.clear();
-                    } else {
-                        episodeAction.podcast = query.value(QStringLiteral("feed")).toString();
-                    }
+                QSqlQuery query;
+                query.prepare(QStringLiteral("SELECT id, feed, url FROM Enclosures WHERE url=:url OR url=:decodeurl OR id=:id;"));
+                query.bindValue(QStringLiteral(":url"), episodeAction.url);
+                query.bindValue(QStringLiteral(":decodeurl"), cleanupUrl(episodeAction.url));
+                query.bindValue(QStringLiteral(":id"), episodeAction.id);
+                Database::instance().execute(query);
+                if (!query.next()) {
+                    qCDebug(kastsSync) << "cannot find episode with url:" << episodeAction.url;
+                    continue;
                 }
-
-                if (episodeAction.id.isEmpty()) {
-                    // There either was no GUID specified or we couldn't find it in the DB
-                    // Try to find the episode based on the enclosure URL
-                    QSqlQuery query;
-                    query.prepare(QStringLiteral("SELECT id, feed FROM Enclosures WHERE url=:url;"));
-                    query.bindValue(QStringLiteral(":url"), episodeAction.url);
-                    Database::instance().execute(query);
-                    if (query.next()) {
-                        episodeAction.id = query.value(QStringLiteral("id")).toString();
-                        episodeAction.podcast = query.value(QStringLiteral("feed")).toString();
-                    } else {
-                        // try again with percent DEcoded URL
-                        QSqlQuery query;
-                        query.prepare(QStringLiteral("SELECT id, feed FROM Enclosures WHERE url=:url;"));
-                        query.bindValue(QStringLiteral(":url"), cleanupUrl(episodeAction.url));
-                        Database::instance().execute(query);
-                        if (query.next()) {
-                            episodeAction.url = cleanupUrl(episodeAction.url);
-                            episodeAction.id = query.value(QStringLiteral("id")).toString();
-                            episodeAction.podcast = query.value(QStringLiteral("feed")).toString();
-                        } else {
-                            qCDebug(kastsSync) << "cannot find episode with url:" << episodeAction.url;
-                            continue;
-                        }
-                    }
-                }
-                m_episodeActions += episodeAction;
+                do {
+                    SyncUtils::EpisodeAction action = episodeAction;
+                    action.id = query.value(QStringLiteral("id")).toString();
+                    action.podcast = query.value(QStringLiteral("feed")).toString();
+                    action.url = query.value(QStringLiteral("url")).toString();
+                    m_episodeActions += action;
+                } while (query.next());
             }
             m_timestamp = data.object().value(QStringLiteral("timestamp")).toInt();
         }
