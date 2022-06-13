@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-11 00:46+0000\n"
+"POT-Creation-Date: 2022-06-13 01:10+0000\n"
 "PO-Revision-Date: 2022-06-11 08:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -164,23 +164,23 @@ msgstr "Адреса:"
 msgid "Add Podcast"
 msgstr "Додати трансляцію"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:112 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:98 qml/QueuePage.qml:18
 #, kde-format
 msgid "Queue"
 msgstr "Додати до черги"
 
-#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:130
+#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:116
 #, kde-format
 msgid "Subscriptions"
 msgstr "Підписки"
 
-#: qml/BottomToolbar.qml:43 qml/main.qml:139
+#: qml/BottomToolbar.qml:43 qml/main.qml:125
 #, kde-format
 msgid "Episodes"
 msgstr "Епізоди"
 
-#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:157
-#: qml/main.qml:163
+#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:143
+#: qml/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Параметри"
@@ -218,7 +218,7 @@ msgstr "Дозволити зараз"
 msgid "Always Allow"
 msgstr "Завжди дозволяти"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:121
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:107
 #, kde-format
 msgid "Discover"
 msgstr "Виявлення"
@@ -243,7 +243,7 @@ msgstr "Підписатися"
 msgid "Subscribed"
 msgstr "Підписаний"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:148
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:134
 #, kde-format
 msgid "Downloads"
 msgstr "Отримане"
@@ -568,13 +568,13 @@ msgstr[1] "Вилучити отримані дані"
 msgstr[2] "Вилучити отримані дані"
 msgstr[3] "Вилучити отримані дані"
 
-#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:162
+#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
 msgstr "Немає заголовка доріжки"
 
 #: qml/HeaderBar.qml:87 qml/HeaderBar.qml:285 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:170
+#: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Нічого не завантажено"
@@ -604,7 +604,7 @@ msgstr "Перемотати вперед"
 msgid "Skip Forward"
 msgstr "Гортати вперед"
 
-#: qml/main.qml:249
+#: qml/main.qml:235
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -614,7 +614,7 @@ msgstr[1] "Оновлено %2 з %1 трансляцій"
 msgstr[2] "Оновлено %2 з %1 трансляцій"
 msgstr[3] "Оновлено %2 з %1 трансляції"
 
-#: qml/main.qml:276
+#: qml/main.qml:262
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -624,7 +624,7 @@ msgstr[1] "Пересунуто %2 з %1 файлів"
 msgstr[2] "Пересунуто %2 з %1 файлів"
 msgstr[3] "Пересунуто %2 з %1 файла"
 
-#: qml/main.qml:340
+#: qml/main.qml:326
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -636,17 +636,17 @@ msgstr ""
 msgid "Set Playback Rate"
 msgstr "Встановити швидкість відтворення"
 
-#: qml/PlayerControls.qml:133
+#: qml/PlayerControls.qml:148
 #, kde-format
 msgid "No Title"
 msgstr "Немає заголовка"
 
-#: qml/PlayerControls.qml:140
+#: qml/PlayerControls.qml:155
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Немає заголовка трансляції"
 
-#: qml/PlayerControls.qml:194
+#: qml/PlayerControls.qml:209
 #, kde-format
 msgid "No chapters found."
 msgstr "Глав не знайдено."

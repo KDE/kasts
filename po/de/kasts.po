@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-11 00:46+0000\n"
+"POT-Creation-Date: 2022-06-13 01:10+0000\n"
 "PO-Revision-Date: 2022-05-27 00:26+0200\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -164,23 +164,23 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "Podcast hinzufügen"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:112 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:98 qml/QueuePage.qml:18
 #, kde-format
 msgid "Queue"
 msgstr "Warteschlange"
 
-#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:130
+#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:116
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonnements"
 
-#: qml/BottomToolbar.qml:43 qml/main.qml:139
+#: qml/BottomToolbar.qml:43 qml/main.qml:125
 #, kde-format
 msgid "Episodes"
 msgstr "Episoden"
 
-#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:157
-#: qml/main.qml:163
+#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:143
+#: qml/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Einstellungen"
@@ -216,7 +216,7 @@ msgstr "Einmal zulassen"
 msgid "Always Allow"
 msgstr "Immer zulassen"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:121
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:107
 #, kde-format
 msgid "Discover"
 msgstr "Entdecken"
@@ -241,7 +241,7 @@ msgstr "Abonnieren"
 msgid "Subscribed"
 msgstr "Abonniert"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:148
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:134
 #, kde-format
 msgid "Downloads"
 msgstr "Downloads"
@@ -559,13 +559,13 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Download löschen"
 msgstr[1] "Downloads löschen"
 
-#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:162
+#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
 msgstr "Kein Stücktitel"
 
 #: qml/HeaderBar.qml:87 qml/HeaderBar.qml:285 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:170
+#: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Kein Stück geladen"
@@ -595,7 +595,7 @@ msgstr "Vorwärts spulen"
 msgid "Skip Forward"
 msgstr "Vorwärts springen"
 
-#: qml/main.qml:249
+#: qml/main.qml:235
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -603,7 +603,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 von %1 Podcast aktualisiert"
 msgstr[1] "%2 von %1 Podcasts aktualisiert"
 
-#: qml/main.qml:276
+#: qml/main.qml:262
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -611,7 +611,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 von %1 Datei verschoben"
 msgstr[1] "%2 von %1 Dateien verschoben"
 
-#: qml/main.qml:340
+#: qml/main.qml:326
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
@@ -621,17 +621,17 @@ msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 msgid "Set Playback Rate"
 msgstr "Wiedergabegeschwindigkeit einstellen"
 
-#: qml/PlayerControls.qml:133
+#: qml/PlayerControls.qml:148
 #, kde-format
 msgid "No Title"
 msgstr "Kein Titel"
 
-#: qml/PlayerControls.qml:140
+#: qml/PlayerControls.qml:155
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Kein Podcast-Titel"
 
-#: qml/PlayerControls.qml:194
+#: qml/PlayerControls.qml:209
 #, kde-format
 msgid "No chapters found."
 msgstr "Keine Kapitel gefunden."

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-11 00:46+0000\n"
-"PO-Revision-Date: 2022-06-04 18:58+0200\n"
+"POT-Creation-Date: 2022-06-13 01:10+0000\n"
+"PO-Revision-Date: 2022-06-12 13:28+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -164,23 +164,23 @@ msgstr "URL :"
 msgid "Add Podcast"
 msgstr "Ajouter un podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:112 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:98 qml/QueuePage.qml:18
 #, kde-format
 msgid "Queue"
 msgstr "Mettre en file"
 
-#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:130
+#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:116
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonnements"
 
-#: qml/BottomToolbar.qml:43 qml/main.qml:139
+#: qml/BottomToolbar.qml:43 qml/main.qml:125
 #, kde-format
 msgid "Episodes"
 msgstr "Épisodes"
 
-#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:157
-#: qml/main.qml:163
+#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:143
+#: qml/main.qml:149
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
@@ -218,7 +218,7 @@ msgstr "Autoriser une fois"
 msgid "Always Allow"
 msgstr "Toujours autoriser"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:121
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:107
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -243,7 +243,7 @@ msgstr "S'abonner"
 msgid "Subscribed"
 msgstr "Abonné"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:148
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:134
 #, kde-format
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -560,13 +560,13 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Supprimer un téléchargement"
 msgstr[1] "Supprimer des téléchargements"
 
-#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:162
+#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
 msgstr "Aucun titre de piste"
 
 #: qml/HeaderBar.qml:87 qml/HeaderBar.qml:285 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:170
+#: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Aucune piste chargée"
@@ -596,7 +596,7 @@ msgstr "Rechercher en avant"
 msgid "Skip Forward"
 msgstr "Avancer"
 
-#: qml/main.qml:249
+#: qml/main.qml:235
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -604,7 +604,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 mis à jour du podcast %1"
 msgstr[1] "%2 mis à jour des %1 podcasts"
 
-#: qml/main.qml:276
+#: qml/main.qml:262
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -612,7 +612,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
-#: qml/main.qml:340
+#: qml/main.qml:326
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -624,17 +624,17 @@ msgstr ""
 msgid "Set Playback Rate"
 msgstr "Définir le taux de lecture"
 
-#: qml/PlayerControls.qml:133
+#: qml/PlayerControls.qml:148
 #, kde-format
 msgid "No Title"
 msgstr "Aucun titre"
 
-#: qml/PlayerControls.qml:140
+#: qml/PlayerControls.qml:155
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Aucun titre de podcast"
 
-#: qml/PlayerControls.qml:194
+#: qml/PlayerControls.qml:209
 #, kde-format
 msgid "No chapters found."
 msgstr "Aucune chapitre n'a été trouvé."
@@ -957,7 +957,7 @@ msgstr "Mot de passe :"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Utiliser un serveur personnalisé"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
