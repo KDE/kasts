@@ -223,7 +223,7 @@ msgstr "Permet sempre"
 #: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:107
 #, kde-format
 msgid "Discover"
-msgstr "Descobreix"
+msgstr "Descobrix"
 
 #: qml/DiscoverPage.qml:23
 #, kde-format
@@ -359,7 +359,7 @@ msgstr "Afig a la cua"
 #: qml/EntryPage.qml:202 qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Reset Play Position"
-msgstr "Restableix la posició de reproducció"
+msgstr "Restablix la posició de reproducció"
 
 #: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:173
 #, kde-format
@@ -404,7 +404,7 @@ msgstr "Filtre actiu: "
 #: qml/EpisodeListPage.qml:110
 #, kde-format
 msgid "Reset"
-msgstr "Restableix"
+msgstr "Restablix"
 
 #: qml/ErrorListOverlay.qml:23
 #, kde-format
