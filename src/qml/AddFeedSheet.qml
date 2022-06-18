@@ -29,7 +29,7 @@ Kirigami.Dialog {
         Controls.TextField {
             id: urlField
             Layout.fillWidth: true
-            text: "https://"
+            placeholderText: "https://example.com/podcast-feed.rss"
             // focus: addSheet.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
             Keys.onReturnPressed: addFeedAction.triggered();
         }
