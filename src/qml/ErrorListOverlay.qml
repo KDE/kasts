@@ -15,7 +15,7 @@ import org.kde.kasts 1.0
 
 Kirigami.Dialog {
     id: errorOverlay
-    preferredWidth: Kirigami.Units.gridUnit * 20
+    preferredWidth: Kirigami.Units.gridUnit * 25
     preferredHeight: Kirigami.Units.gridUnit * 16
 
     showCloseButton: true
