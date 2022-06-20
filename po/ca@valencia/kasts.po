@@ -1036,7 +1036,7 @@ msgid ""
 msgstr ""
 "Totes les subscripcions de podcast en este compte de gpodder.net s'han de "
 "sincronitzar en tots els dispositius?\n"
-"Si no sabeu el que això significa, probablement hauríeu de seleccionar "
+"Si no sabeu el que açò significa, probablement hauríeu de seleccionar "
 "«D'acord»."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:373
