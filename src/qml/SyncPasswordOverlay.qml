@@ -14,6 +14,7 @@ import org.kde.kasts 1.0
 
 Kirigami.Dialog {
     id: syncPasswordOverlay
+    padding: Kirigami.Units.largeSpacing
     preferredWidth: Kirigami.Units.gridUnit * 20
     parent: applicationWindow().overlay
 
@@ -33,10 +34,9 @@ Kirigami.Dialog {
         RowLayout {
             width: parent.width
             spacing: Kirigami.Units.largeSpacing
-            Image {
-                sourceSize.height: Kirigami.Units.gridUnit * 4
-                sourceSize.width: Kirigami.Units.gridUnit * 4
-                fillMode: Image.PreserveAspectFit
+            Kirigami.Icon {
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 4
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 4
                 source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
             }
             TextEdit {
