@@ -33,13 +33,12 @@ Kirigami.Dialog {
         RowLayout {
             width: parent.width
             spacing: Kirigami.Units.largeSpacing
-            // Disable images until licensing has been sorted out
-            // Image {
-            //     sourceSize.height: Kirigami.Units.gridUnit * 4
-            //     sourceSize.width: Kirigami.Units.gridUnit * 4
-            //     fillMode: Image.PreserveAspectFit
-            //     source: Sync.provider === Sync.GPodderNextcloud ? "qrc:/nextcloud-icon.svg" : "qrc:/gpoddernet.svg"
-            // }
+            Image {
+                sourceSize.height: Kirigami.Units.gridUnit * 4
+                sourceSize.width: Kirigami.Units.gridUnit * 4
+                fillMode: Image.PreserveAspectFit
+                source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+            }
             TextEdit {
                 id: passwordField
                 Layout.fillWidth: true
