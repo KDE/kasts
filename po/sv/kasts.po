@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-13 01:10+0000\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
 "PO-Revision-Date: 2022-06-11 17:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -942,7 +942,7 @@ msgid "Username:"
 msgstr "Användarnamn:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:162
-#: qml/SyncPasswordOverlay.qml:57
+#: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -1084,12 +1084,12 @@ msgstr "Synkronisera nu"
 msgid "Force Sync Now"
 msgstr "Tvinga synkronisering nu"
 
-#: qml/SyncPasswordOverlay.qml:23
+#: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
 msgstr "Lösenord krävs för synkronisering"
 
-#: qml/SyncPasswordOverlay.qml:49
+#: qml/SyncPasswordOverlay.qml:48
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
@@ -1098,7 +1098,7 @@ msgstr ""
 "Lösenordet för användaren \"%1\" på Nextcloud-servern \"%2\" kunde inte "
 "hämtas."
 
-#: qml/SyncPasswordOverlay.qml:50
+#: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr "Lösenordet för användaren \"%1\" på \"gpodder.net\" kunde inte hämtas."

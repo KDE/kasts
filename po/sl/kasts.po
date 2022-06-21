@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-13 01:10+0000\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
 "PO-Revision-Date: 2022-06-12 08:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -953,7 +953,7 @@ msgid "Username:"
 msgstr "Uporabniško ime:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:162
-#: qml/SyncPasswordOverlay.qml:57
+#: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
@@ -1094,12 +1094,12 @@ msgstr "Sinhroniziraj zdaj"
 msgid "Force Sync Now"
 msgstr "Prisilno sinhroniziraj zdaj"
 
-#: qml/SyncPasswordOverlay.qml:23
+#: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
 msgstr "Zahtevano geslo za sinhronizacijo"
 
-#: qml/SyncPasswordOverlay.qml:49
+#: qml/SyncPasswordOverlay.qml:48
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
@@ -1108,7 +1108,7 @@ msgstr ""
 "Gesla za uporabnika \"%1\" na strežniku Nextcloud \"%2\" ni bilo mogoče "
 "pridobiti."
 
-#: qml/SyncPasswordOverlay.qml:50
+#: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr ""

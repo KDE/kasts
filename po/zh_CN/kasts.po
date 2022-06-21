@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-13 01:10+0000\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
 "PO-Revision-Date: 2022-06-19 07:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -935,7 +935,7 @@ msgid "Username:"
 msgstr "用户名："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:162
-#: qml/SyncPasswordOverlay.qml:57
+#: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "密码："
@@ -1075,19 +1075,19 @@ msgstr "立即同步"
 msgid "Force Sync Now"
 msgstr "强制立即同步"
 
-#: qml/SyncPasswordOverlay.qml:23
+#: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
 msgstr "需要同步密码"
 
-#: qml/SyncPasswordOverlay.qml:49
+#: qml/SyncPasswordOverlay.qml:48
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr "无法获取 Nextcloud 服务器“%2”上用户“%1”的密码。"
 
-#: qml/SyncPasswordOverlay.qml:50
+#: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr "无法获取“gpodder.net”上的用户“%1”的密码。"

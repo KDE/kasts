@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-13 01:10+0000\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
 "PO-Revision-Date: 2022-06-11 10:10+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -946,7 +946,7 @@ msgid "Username:"
 msgstr "Nom d'usuari:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:162
-#: qml/SyncPasswordOverlay.qml:57
+#: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -1089,12 +1089,12 @@ msgstr "Sincronitza ara"
 msgid "Force Sync Now"
 msgstr "Força ara la sincronització"
 
-#: qml/SyncPasswordOverlay.qml:23
+#: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
 msgstr "Per a sincronitzar es necessita la contrasenya"
 
-#: qml/SyncPasswordOverlay.qml:49
+#: qml/SyncPasswordOverlay.qml:48
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
@@ -1103,7 +1103,7 @@ msgstr ""
 "No s'ha pogut recuperar la contrasenya per a l'usuari «%1» al servidor de "
 "Nextcloud «%2»."
 
-#: qml/SyncPasswordOverlay.qml:50
+#: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr ""
