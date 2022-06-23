@@ -55,6 +55,9 @@
   <project_license>GPL-2.0-or-later</project_license>
   <url type="homepage">https://apps.kde.org/kasts/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kasts</url>
+  <custom>
+    <value key="KDE::matrix">#kasts:kde.org</value>
+  </custom>
   <developer_name>The KDE Community</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
