@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-21 00:46+0000\n"
-"PO-Revision-Date: 2022-06-15 19:10+0100\n"
+"PO-Revision-Date: 2022-06-22 16:40+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -874,12 +874,12 @@ msgstr "Última sincronização completa com o servidor:"
 #: qml/Settings/SynchronizationSettingsPage.qml:34
 #, kde-format
 msgid "Last quick upload to sync server:"
-msgstr "Última envio rápido para o servidor:"
+msgstr "Último envio rápido para o servidor:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Login"
-msgstr "Iniciar"
+msgstr "Entrar"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:52
 #, kde-format
