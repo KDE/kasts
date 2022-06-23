@@ -164,8 +164,8 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
-    <release version="22.06" date="2022-06-18">
-      <url>https://www.plasma-mobile.org/2022/06/20/plasma-mobile-gear-22-06/</url>
+    <release version="22.06" date="2022-06-24">
+      <url>https://www.plasma-mobile.org/2022/06/28/plasma-mobile-gear-22-06/</url>
       <description>
         <ul>
           <li>The podcast update routine has been completely overhauled, solving several bugs.  It's now using multithreading, and it will also update existing episode information.</li>
