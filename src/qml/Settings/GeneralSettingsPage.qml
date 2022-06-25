@@ -109,6 +109,38 @@ Kirigami.ScrollablePage {
             onToggled: SettingsManager.resetPositionOnPlayed = checked
         }
 
+        Controls.RadioButton {
+            Kirigami.FormData.label: i18n("When adding new podcasts:")
+            checked: SettingsManager.markUnreadOnNewFeed === 0
+            text: i18n("Mark all episodes as played")
+            onToggled: SettingsManager.markUnreadOnNewFeed = 0
+        }
+
+        RowLayout {
+            Controls.RadioButton {
+                id: markCustomUnreadNumberButton
+                checked: SettingsManager.markUnreadOnNewFeed === 1
+                text: i18n("Mark most recent episodes as unplayed:")
+                onToggled: SettingsManager.markUnreadOnNewFeed = 1
+            }
+
+            Controls.SpinBox {
+                id: markCustomUnreadNumberSpinBox
+                enabled: markCustomUnreadNumberButton.checked
+                value: SettingsManager.markUnreadOnNewFeedCustomAmount
+                from: 0
+                to: 100
+
+                onValueModified: SettingsManager.markUnreadOnNewFeedCustomAmount = value
+            }
+        }
+
+        Controls.RadioButton {
+            checked: SettingsManager.markUnreadOnNewFeed === 2
+            text: i18n("Mark all episodes as unplayed")
+            onToggled: SettingsManager.markUnreadOnNewFeed = 2
+        }
+
         Kirigami.Heading {
             Kirigami.FormData.isSection: true
             text: i18n("Article")

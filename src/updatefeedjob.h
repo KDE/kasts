@@ -98,6 +98,7 @@ private:
     QByteArray m_data;
 
     bool m_isNewFeed;
+    bool m_markUnreadOnNewFeed;
     QVector<EntryDetails> m_entries, m_newEntries, m_updateEntries;
     QVector<AuthorDetails> m_authors, m_newAuthors, m_updateAuthors;
     QVector<EnclosureDetails> m_enclosures, m_newEnclosures, m_updateEnclosures;

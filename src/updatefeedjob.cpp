@@ -84,6 +84,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     if (m_isNewFeed)
         qCDebug(kastsFetcher) << "New feed" << feed->title();
 
+    m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
+
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
@@ -277,7 +279,7 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     entryDetails.updated = static_cast<int>(entry->dateUpdated());
     entryDetails.link = entry->link();
     entryDetails.hasEnclosure = (entry->enclosures().length() > 0);
-    entryDetails.read = m_isNewFeed; // if new feed, then mark all as read
+    entryDetails.read = m_isNewFeed ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
     entryDetails.isNew = !m_isNewFeed; // if new feed, then mark none as new
 
     if (!entry->content().isEmpty())
@@ -589,6 +591,17 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
+        Database::execute(writeQuery);
+    }
+
+    // set custom amount of episodes to unread/new if required
+    if (m_isNewFeed && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
+        writeQuery.prepare(QStringLiteral(
+            "UPDATE Entries SET read=:read, new=:new WHERE id in (SELECT id FROM Entries WHERE feed =:feed ORDER BY updated DESC LIMIT :recentUnread);"));
+        writeQuery.bindValue(QStringLiteral(":feed"), m_url);
+        writeQuery.bindValue(QStringLiteral(":read"), false);
+        writeQuery.bindValue(QStringLiteral(":new"), true);
+        writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
         Database::execute(writeQuery);
     }
 

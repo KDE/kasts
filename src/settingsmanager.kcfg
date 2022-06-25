@@ -52,6 +52,28 @@
             <label>Reset play position when episode is marked as played</label>
             <default>true</default>
         </entry>
+        <entry name="markUnreadOnNewFeed" type="Enum">
+            <label>How many episodes to mark as unread when adding a new feed</label>
+            <choices>
+                <choice name="None">
+                    <label>None</label>
+                    <value>0</value>
+                </choice>
+                <choice name="Custom">
+                    <label>Custom</label>
+                    <value>1</value>
+                </choice>
+                <choice name="All">
+                    <label>All</label>
+                    <value>2</value>
+                </choice>
+            </choices>
+            <default>None</default>
+        </entry>
+        <entry name="markUnreadOnNewFeedCustomAmount" type="Int">
+            <label>Custom number of episodes to mark as unread/unplayed when adding new feed</label>
+            <default>1</default>
+        </entry>
         <entry name="toggleRemainingTime" type="Bool">
             <label>Whether the player shows remaining track time instead of total track time</label>
             <default>false</default>
