@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   - SPDX-License-Identifier: CC0-1.0
-  - SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+  - SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  -->
 <component type="desktop-application">
   <id>org.kde.kasts</id>
@@ -29,7 +29,7 @@
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
-  <summary>Podcast application for mobile devices</summary>
+  <summary>Podcast application</summary>
   <summary xml:lang="ca">Aplicació de podcast per a dispositius mòbils</summary>
   <summary xml:lang="ca-valencia">Aplicació de podcast per a dispositius mòbils</summary>
   <summary xml:lang="de">Podcast-Anwendung für Mobilgeräte</summary>
@@ -82,7 +82,7 @@
   <developer_name xml:lang="x-test">xxThe KDE Communityxx</developer_name>
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
   <description>
-    <p>Kasts is a mobile podcast application</p>
+    <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="ca">El Kasts és una aplicació de podcast per a mòbil</p>
     <p xml:lang="ca-valencia">Kasts és una aplicació de podcast per a mòbil</p>
     <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
@@ -104,6 +104,14 @@
     <p xml:lang="uk">Kasts — програма для прослуховування подкастів на мобільних пристроях</p>
     <p xml:lang="x-test">xxKasts is a mobile podcast applicationxx</p>
     <p xml:lang="zh-CN">Kasts 是一款为移动设备设计的播客应用程序</p>
+    <p>Its main features are:</p>
+    <ul>
+        <li>Episode management through play queue</li>
+        <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
+        <li>Variable playback speed</li>
+        <li>Search for podcasts</li>
+        <li>Full system integration: e.g. inhibit system suspend while listening</li>
+    </ul>
   </description>
   <recommends>
     <control>pointing</control>
@@ -115,7 +123,7 @@
   </provides>
   <screenshots>
     <screenshot type="default">
-      <caption>Kasts feed list on the desktop</caption>
+      <caption>Kasts on the desktop</caption>
       <caption xml:lang="ca">Llista de fonts del Kasts a l'escriptori</caption>
       <caption xml:lang="ca-valencia">Llista de fonts de Kasts a l'escriptori</caption>
       <caption xml:lang="cs">Seznam kanálů Kasts na počítači</caption>
