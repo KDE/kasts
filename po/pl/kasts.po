@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-21 00:46+0000\n"
-"PO-Revision-Date: 2022-06-04 10:26+0200\n"
+"PO-Revision-Date: 2022-06-27 20:19+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -958,7 +958,7 @@ msgstr "Hasło:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Użyj własnego serwera"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
