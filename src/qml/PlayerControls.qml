@@ -294,6 +294,24 @@ Kirigami.Page {
                             swipeView.currentIndex = 2;
                         }
                     }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Controls.ToolButton {
+                        checkable: true
+                        checked: AudioManager.remainingSleepTime > 0
+                        Layout.maximumHeight: parent.height
+                        Layout.preferredHeight: contextButtons.buttonSize
+                        Layout.maximumWidth: height
+                        Layout.preferredWidth: height
+                        icon.name: "clock"
+                        icon.width: contextButtons.iconSize
+                        icon.height: contextButtons.iconSize
+                        onClicked: {
+                            toggle(); // only set the on/off state based on sleep timer state
+                            sleepTimerDialog.open()
+                        }
+                    }
                 }
 
                 Loader {

@@ -42,6 +42,9 @@ class AudioManager : public QObject
     Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY positionChanged)
     Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
     Q_PROPERTY(QString formattedPosition READ formattedPosition NOTIFY positionChanged)
+    Q_PROPERTY(qint64 sleepTime READ sleepTime WRITE setSleepTimer RESET stopSleepTimer NOTIFY sleepTimerChanged)
+    Q_PROPERTY(qint64 remainingSleepTime READ remainingSleepTime NOTIFY remainingSleepTimeChanged)
+    Q_PROPERTY(QString formattedRemainingSleepTime READ formattedRemainingSleepTime NOTIFY remainingSleepTimeChanged)
 
 public:
     const double MAX_RATE = 1.0;
@@ -58,133 +61,88 @@ public:
     ~AudioManager() override;
 
     [[nodiscard]] Entry *entry() const;
-
     [[nodiscard]] bool muted() const;
-
     [[nodiscard]] qreal volume() const;
-
     [[nodiscard]] QUrl source() const;
-
     [[nodiscard]] QMediaPlayer::MediaStatus status() const;
-
     [[nodiscard]] QMediaPlayer::State playbackState() const;
-
     [[nodiscard]] qreal playbackRate() const;
-
     [[nodiscard]] qreal minimumPlaybackRate() const;
-
     [[nodiscard]] qreal maximumPlaybackRate() const;
-
     [[nodiscard]] QMediaPlayer::Error error() const;
-
     [[nodiscard]] qint64 duration() const;
-
     [[nodiscard]] qint64 position() const;
-
     [[nodiscard]] bool seekable() const;
-
     [[nodiscard]] bool canPlay() const;
-
     [[nodiscard]] bool canPause() const;
-
     [[nodiscard]] bool canSkipForward() const;
-
     [[nodiscard]] bool canSkipBackward() const;
-
     [[nodiscard]] bool canGoNext() const;
 
     QString formattedDuration() const;
     QString formattedLeftDuration() const;
     QString formattedPosition() const;
 
+    qint64 sleepTime() const; // returns originally set sleep time
+    qint64 remainingSleepTime() const; // returns remaining sleep time
+    QString formattedRemainingSleepTime() const;
+
 Q_SIGNALS:
 
     void entryChanged(Entry *entry);
-
     void mutedChanged(bool muted);
-
     void volumeChanged();
-
     void sourceChanged();
-
     void statusChanged(QMediaPlayer::MediaStatus status);
-
     void playbackStateChanged(QMediaPlayer::State state);
-
     void playbackRateChanged(qreal rate);
-
     void errorChanged(QMediaPlayer::Error error);
-
     void durationChanged(qint64 duration);
-
     void positionChanged(qint64 position);
-
     void seekableChanged(bool seekable);
-
     void playing();
-
     void paused();
-
     void stopped();
-
     void canPlayChanged();
-
     void canPauseChanged();
-
     void canSkipForwardChanged();
-
     void canSkipBackwardChanged();
-
     void canGoNextChanged();
+
+    void sleepTimerChanged(qint64 duration);
+    void remainingSleepTimeChanged(qint64 duration);
 
     void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 public Q_SLOTS:
 
     void setEntry(Entry *entry);
-
     void setMuted(bool muted);
-
     void setVolume(qreal volume);
-
     // void setSource(const QUrl &source);  //source should only be set by audiomanager itself
-
     void setPosition(qint64 position);
-
     void setPlaybackRate(qreal rate);
-
     void play();
-
     void pause();
-
     void playPause();
-
     void stop();
-
     void seek(qint64 position);
-
     void skipBackward();
-
     void skipForward();
-
     void next();
+
+    void setSleepTimer(qint64 duration);
+    void stopSleepTimer();
 
 private Q_SLOTS:
 
     void mediaStatusChanged();
-
     void playerStateChanged();
-
     void playerDurationChanged(qint64 duration);
-
     void playerMutedChanged();
-
     void playerVolumeChanged();
-
     void savePlayPosition();
-
     void prepareAudio();
-
     void checkForPendingSeek();
 
 private:

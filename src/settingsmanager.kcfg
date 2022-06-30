@@ -88,6 +88,28 @@
             <label>The top-level page that was open at shutdown</label>
             <default>FeedListPage</default>
         </entry>
+        <entry name="sleepTimerValue" type="Int">
+            <label>The number of seconds/minutes/hours to set the sleep timer to</label>
+            <default>30</default>
+        </entry>
+        <entry name="sleepTimerUnits" type="Enum">
+            <label>The units for the sleepTimerValue</label>
+            <choices>
+                <choice name="Seconds">
+                    <label>Seconds</label>
+                    <value>0</value>
+                </choice>
+                <choice name="Minutes">
+                    <label>Minutes</label>
+                    <value>1</value>
+                </choice>
+                <choice name="Hours">
+                    <label>Hours</label>
+                    <value>2</value>
+                </choice>
+            </choices>
+            <default>Minutes</default>
+        </entry>
     </group>
     <group name="Synchronization">
         <entry name="syncEnabled" type="Bool">

@@ -110,7 +110,7 @@ Rectangle {
 
                     Controls.ToolButton {
                         id: chapterButton
-                        visible: AudioManager.entry && chapterList.count !== 0 && (titlesAndButtons.width > essentialButtons.width + infoButton.implicitWidth + implicitWidth + parent.optionalButtonCollapseWidth)
+                        visible: AudioManager.entry && chapterList.count !== 0 && (titlesAndButtons.width > essentialButtons.width + infoButton.implicitWidth + implicitWidth + 2 * infoButton.implicitWidth +  parent.optionalButtonCollapseWidth)
                         text: i18n("Chapters")
                         icon.name: "view-media-playlist"
                         icon.height: essentialButtons.iconSize
@@ -121,13 +121,28 @@ Rectangle {
                     }
                     Controls.ToolButton {
                         id: infoButton
-                        visible: AudioManager.entry && (titlesAndButtons.width > essentialButtons.width + implicitWidth + parent.optionalButtonCollapseWidth)
+                        visible: AudioManager.entry && (titlesAndButtons.width > essentialButtons.width + 2 * implicitWidth + parent.optionalButtonCollapseWidth)
                         icon.name: "help-about-symbolic"
                         icon.height: essentialButtons.iconSize
                         icon.width: essentialButtons.iconSize
                         Layout.alignment: Qt.AlignHCenter
                         Layout.preferredWidth: essentialButtons.buttonSize
                         onClicked: entryDetailsOverlay.open();
+                    }
+                    Controls.ToolButton {
+                        id: sleepButton
+                        checkable: true
+                        checked: AudioManager.remainingSleepTime > 0
+                        visible: titlesAndButtons.width > essentialButtons.width + implicitWidth + parent.optionalButtonCollapseWidth
+                        icon.name: "clock"
+                        icon.height: essentialButtons.iconSize
+                        icon.width: essentialButtons.iconSize
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: essentialButtons.buttonSize
+                        onClicked: {
+                            toggle(); // only set the on/off state based on sleep timer state
+                            sleepTimerDialog.open();
+                        }
                     }
                     RowLayout {
                         id: essentialButtons

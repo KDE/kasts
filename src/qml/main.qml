@@ -355,6 +355,10 @@ Kirigami.ApplicationWindow {
         id: playbackRateDialog
     }
 
+    SleepTimerDialog {
+        id: sleepTimerDialog
+    }
+
     Connections {
         target: Sync
         function onPasswordInputRequired() {

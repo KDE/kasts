@@ -222,6 +222,7 @@ if(ANDROID)
         emblem-music-symbolic
         gpodder
         kaccounts-nextcloud
+        clock
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)

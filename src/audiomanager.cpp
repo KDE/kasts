@@ -44,6 +44,10 @@ private:
     //     still pending
     qint64 m_pendingSeek = -1;
 
+    QTimer *m_sleepTimer = nullptr;
+    qint64 m_sleepTime = -1;
+    qint64 m_remainingSleepTime = -1;
+
     friend class AudioManager;
 };
 
@@ -599,4 +603,74 @@ QString AudioManager::formattedLeftDuration() const
 QString AudioManager::formattedPosition() const
 {
     return m_kformat.formatDuration(position());
+}
+
+qint64 AudioManager::sleepTime() const
+{
+    if (d->m_sleepTimer) {
+        return d->m_sleepTime;
+    } else {
+        return -1;
+    }
+}
+
+qint64 AudioManager::remainingSleepTime() const
+{
+    if (d->m_sleepTimer) {
+        return d->m_remainingSleepTime;
+    } else {
+        return -1;
+    }
+}
+
+void AudioManager::setSleepTimer(qint64 duration)
+{
+    if (duration > 0) {
+        if (d->m_sleepTimer) {
+            stopSleepTimer();
+        }
+
+        d->m_sleepTime = duration;
+        d->m_remainingSleepTime = duration;
+
+        d->m_sleepTimer = new QTimer(this);
+        connect(d->m_sleepTimer, &QTimer::timeout, this, [this]() {
+            (d->m_remainingSleepTime)--;
+            if (d->m_remainingSleepTime > 0) {
+                Q_EMIT remainingSleepTimeChanged(remainingSleepTime());
+            } else {
+                pause();
+                stopSleepTimer();
+            }
+        });
+        d->m_sleepTimer->start(1000);
+
+        Q_EMIT sleepTimerChanged(duration);
+        Q_EMIT remainingSleepTimeChanged(remainingSleepTime());
+    } else {
+        stopSleepTimer();
+    }
+}
+
+void AudioManager::stopSleepTimer()
+{
+    if (d->m_sleepTimer) {
+        d->m_sleepTime = -1;
+        d->m_remainingSleepTime = -1;
+
+        delete d->m_sleepTimer;
+        d->m_sleepTimer = nullptr;
+
+        Q_EMIT sleepTimerChanged(-1);
+        Q_EMIT remainingSleepTimeChanged(-1);
+    }
+}
+
+QString AudioManager::formattedRemainingSleepTime() const
+{
+    qint64 timeLeft = remainingSleepTime() * 1000;
+    if (timeLeft < 0) {
+        timeLeft = 0;
+    }
+    return m_kformat.formatDuration(timeLeft);
 }
