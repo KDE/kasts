@@ -147,6 +147,18 @@ else()
     qt_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
 endif()
 
+set(kasts_ICONS_PNG
+    ../icons/16-apps-kasts.png
+    ../icons/24-apps-kasts.png
+    ../icons/32-apps-kasts.png
+    ../icons/48-apps-kasts.png
+    ../icons/64-apps-kasts.png
+    ../icons/128-apps-kasts.png
+)
+
+# add icons to application sources, to have them bundled
+ecm_add_app_icon(SRCS ICONS ${kasts_ICONS_PNG})
+
 add_executable(kasts ${SRCS})
 
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
