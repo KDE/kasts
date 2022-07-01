@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2022-07-01 00:47+0000\n"
 "PO-Revision-Date: 2022-06-27 20:19+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lukasz.wojnilowicz@gmail.com, ignacy.kajdan@gmail.com"
 
-#: audiomanager.cpp:428
+#: audiomanager.cpp:432
 #, kde-format
 msgid "Invalid Media"
 msgstr "Nieprawidłowa treść"
@@ -187,7 +187,7 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 #: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:148
-#: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:180
+#: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"
 msgstr "Odtwórz"
@@ -337,7 +337,7 @@ msgstr "Anuluj pobieranie"
 msgid "Delete Download"
 msgstr "Usuń pobrane"
 
-#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:180
+#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "Wstrzymaj"
@@ -564,38 +564,38 @@ msgstr[0] "Usuń pobrane"
 msgstr[1] "Usuń pobrane"
 msgstr[2] "Usuń pobrane"
 
-#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:280 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:295 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
 msgstr "Brak tytułu ścieżki"
 
-#: qml/HeaderBar.qml:87 qml/HeaderBar.qml:285 qml/PlayerControls.qml:21
+#: qml/HeaderBar.qml:87 qml/HeaderBar.qml:300 qml/PlayerControls.qml:21
 #: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Nie załadowano ścieżki"
 
-#: qml/HeaderBar.qml:114 qml/HeaderBar.qml:257
+#: qml/HeaderBar.qml:114 qml/HeaderBar.qml:272
 #, kde-format
 msgid "Chapters"
 msgstr "Rozdziały"
 
-#: qml/HeaderBar.qml:153
+#: qml/HeaderBar.qml:168
 #, kde-format
 msgid "Playback Rate: "
 msgstr "Szybkość odtwarzania: "
 
-#: qml/HeaderBar.qml:166
+#: qml/HeaderBar.qml:181
 #, kde-format
 msgid "Seek Backward"
 msgstr "Przewiń wstecz"
 
-#: qml/HeaderBar.qml:193
+#: qml/HeaderBar.qml:208
 #, kde-format
 msgid "Seek Forward"
 msgstr "Przewiń w przód"
 
-#: qml/HeaderBar.qml:206
+#: qml/HeaderBar.qml:221
 #, kde-format
 msgid "Skip Forward"
 msgstr "Przejdź do przodu"
@@ -1092,6 +1092,51 @@ msgstr "Synchronizuj teraz"
 #, kde-format
 msgid "Force Sync Now"
 msgstr "Wymuś synchronizację teraz"
+
+#: qml/SleepTimerDialog.qml:16
+#, kde-format
+msgid "Sleep Timer"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:26
+#, kde-format
+msgid "Start"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:41
+#, kde-format
+msgid "Stop"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Active"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Inactive"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:59
+#, kde-format
+msgid "Remaining Time: %1"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:76
+#, kde-format
+msgid "Seconds"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:77
+#, kde-format
+msgid "Minutes"
+msgstr ""
+
+#: qml/SleepTimerDialog.qml:78
+#, kde-format
+msgid "Hours"
+msgstr ""
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
