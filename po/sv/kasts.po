@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-01 00:47+0000\n"
+"POT-Creation-Date: 2022-07-02 00:51+0000\n"
 "PO-Revision-Date: 2022-06-11 17:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -421,7 +421,7 @@ msgstr "Inga fel loggade"
 msgid "Error Code: "
 msgstr "Felkod: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:144
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:176
 #, kde-format
 msgid "Show Error Log"
 msgstr "Visa fellogg"
@@ -730,22 +730,45 @@ msgstr "Ta bort omedelbart"
 msgid "Delete at Next Startup"
 msgstr "Ta bort vid nästa start"
 
-#: qml/Settings/GeneralSettingsPage.qml:114
+#: qml/Settings/GeneralSettingsPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Add New Podcast"
+msgid "When adding new podcasts:"
+msgstr "Lägg till nytt poddradioprogram"
+
+#: qml/Settings/GeneralSettingsPage.qml:115
+#, fuzzy, kde-format
+#| msgid "Mark as Unplayed"
+msgid "Mark all episodes as played"
+msgstr "Markera som ospelad"
+
+#: qml/Settings/GeneralSettingsPage.qml:123
+#, kde-format
+msgid "Mark most recent episodes as unplayed:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:140
+#, fuzzy, kde-format
+#| msgid "Mark as Unplayed"
+msgid "Mark all episodes as unplayed"
+msgstr "Markera som ospelad"
+
+#: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
 msgid "Article"
 msgstr "Artikel"
 
-#: qml/Settings/GeneralSettingsPage.qml:122
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Font size:"
 msgstr "Teckenstorlek:"
 
-#: qml/Settings/GeneralSettingsPage.qml:132
+#: qml/Settings/GeneralSettingsPage.qml:164
 #, kde-format
 msgid "Use system default"
 msgstr "Använda systemstandard"
 
-#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Errors"
 msgstr "Fel"
@@ -1079,10 +1102,39 @@ msgstr "Manuell synkronisering:"
 msgid "Sync Now"
 msgstr "Synkronisera nu"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:450
+#: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
-msgid "Force Sync Now"
-msgstr "Tvinga synkronisering nu"
+msgid "Advanced Options"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:455
+#, fuzzy, kde-format
+#| msgid "Could not retrieve episode updates from server"
+msgid "Fetch all episode states from server"
+msgstr "Kunde inte hämta avsnittsuppdateringar från server"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:474
+#, fuzzy, kde-format
+#| msgid "Could not upload episode updates to server"
+msgid "Push all local episode states to server"
+msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:489
+#, fuzzy, kde-format
+#| msgid "Could not upload episode updates to server"
+msgid "Push all local episode states to server?"
+msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:509
+#, kde-format
+msgid ""
+"Please note that pushing the playback state of all local episodes to the "
+"server might take a very long time and/or might overload the server. Also "
+"note that this action will overwrite all existing episode states on the "
+"server.\n"
+"\n"
+"Continue?"
+msgstr ""
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
@@ -1256,25 +1308,25 @@ msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
 msgid "Internal data error"
 msgstr "Internt datafel"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:885
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Steg %1 av %2) Starta synkronisering"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:888
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(Steg %1 av %2) Begär uppdateringar av fjärrprenumeration"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:891
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Steg %1 av %2) Laddar upp lokala prenumerationsuppdateringar"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:895
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1282,41 +1334,44 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
 msgstr[1] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:903
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Steg %1 av %2) Begär uppdateringar av fjärravsnitt"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Steg %1 av %2) Verkställ uppdateringar av fjärravsnitt"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:909
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Steg %1 av %2) Laddar upp lokala avsnittsuppdateringar"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:912
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Steg %1 av %2) Avslutade synkronisering"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:915
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Synkronisering avbruten"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:919
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synkronisering avslutades med fel"
+
+#~ msgid "Force Sync Now"
+#~ msgstr "Tvinga synkronisering nu"
 
 #~ msgid "Podcast updates not allowed due to user setting"
 #~ msgstr ""

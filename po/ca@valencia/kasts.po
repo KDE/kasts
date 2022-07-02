@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-01 00:47+0000\n"
-"PO-Revision-Date: 2022-06-11 10:10+0200\n"
+"POT-Creation-Date: 2022-07-02 00:51+0000\n"
+"PO-Revision-Date: 2022-07-01 11:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -426,7 +426,7 @@ msgstr "Sense errors registrats"
 msgid "Error Code: "
 msgstr "Codi d'error:"
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:144
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:176
 #, kde-format
 msgid "Show Error Log"
 msgstr "Mostra el registre d'errors"
@@ -693,7 +693,7 @@ msgstr "Configuració de la cua"
 #: qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr "Obtin automàticament a l'inici les actualitzacions dels podcast"
+msgstr "Obtín automàticament a l'inici les actualitzacions dels podcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
@@ -735,22 +735,45 @@ msgstr "Suprimix immediatament"
 msgid "Delete at Next Startup"
 msgstr "Suprimix-lo en l'inici següent"
 
-#: qml/Settings/GeneralSettingsPage.qml:114
+#: qml/Settings/GeneralSettingsPage.qml:113
+#, fuzzy, kde-format
+#| msgid "Add New Podcast"
+msgid "When adding new podcasts:"
+msgstr "Afig un podcast nou"
+
+#: qml/Settings/GeneralSettingsPage.qml:115
+#, fuzzy, kde-format
+#| msgid "Mark as Unplayed"
+msgid "Mark all episodes as played"
+msgstr "Marca com a sense reproduir"
+
+#: qml/Settings/GeneralSettingsPage.qml:123
+#, kde-format
+msgid "Mark most recent episodes as unplayed:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:140
+#, fuzzy, kde-format
+#| msgid "Mark as Unplayed"
+msgid "Mark all episodes as unplayed"
+msgstr "Marca com a sense reproduir"
+
+#: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
 msgid "Article"
 msgstr "Article"
 
-#: qml/Settings/GeneralSettingsPage.qml:122
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Font size:"
 msgstr "Mida del tipus de lletra:"
 
-#: qml/Settings/GeneralSettingsPage.qml:132
+#: qml/Settings/GeneralSettingsPage.qml:164
 #, kde-format
 msgid "Use system default"
 msgstr "Utilitza la predeterminada del sistema"
 
-#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Errors"
 msgstr "Errors"
@@ -1085,55 +1108,84 @@ msgstr "Sincronització manual:"
 msgid "Sync Now"
 msgstr "Sincronitza ara"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:450
+#: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
-msgid "Force Sync Now"
-msgstr "Força ara la sincronització"
+msgid "Advanced Options"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:455
+#, fuzzy, kde-format
+#| msgid "Could not retrieve episode updates from server"
+msgid "Fetch all episode states from server"
+msgstr "No s'han pogut recuperar del servidor les actualitzacions de capítols"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:474
+#, fuzzy, kde-format
+#| msgid "Could not upload episode updates to server"
+msgid "Push all local episode states to server"
+msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:489
+#, fuzzy, kde-format
+#| msgid "Could not upload episode updates to server"
+msgid "Push all local episode states to server?"
+msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:509
+#, kde-format
+msgid ""
+"Please note that pushing the playback state of all local episodes to the "
+"server might take a very long time and/or might overload the server. Also "
+"note that this action will overwrite all existing episode states on the "
+"server.\n"
+"\n"
+"Continue?"
+msgstr ""
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Temporitzador per adormir-se"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Inicia"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Para"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Estat: Actiu"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Estat: Inactiu"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Temps restant: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Segons"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minuts"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Hores"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
@@ -1264,26 +1316,26 @@ msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
 msgid "Internal data error"
 msgstr "Error intern de dades"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:885
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Pas %1 de %2) Inici de la sincronització"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:888
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr ""
 "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:891
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:895
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1291,38 +1343,41 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Pas %3 de %4) actualitzat %2 de %1 podcast"
 msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcast"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:903
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de capítols"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Pas %1 de %2) S'apliquen els canvis remots dels episodis"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:909
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de capítols"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:912
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Pas %1 de %2) Sincronització finalitzada"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:915
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Sincronització interrompuda"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:919
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
+
+#~ msgid "Force Sync Now"
+#~ msgstr "Força ara la sincronització"
