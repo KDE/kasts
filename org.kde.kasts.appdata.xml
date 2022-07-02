@@ -30,27 +30,6 @@
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
   <summary>Podcast application</summary>
-  <summary xml:lang="ca">Aplicació de podcast per a dispositius mòbils</summary>
-  <summary xml:lang="ca-valencia">Aplicació de podcast per a dispositius mòbils</summary>
-  <summary xml:lang="de">Podcast-Anwendung für Mobilgeräte</summary>
-  <summary xml:lang="en-GB">Podcast application for mobile devices</summary>
-  <summary xml:lang="es">Aplicación de pódcast para dispositivos móviles</summary>
-  <summary xml:lang="fi">Podcast-sovellus mobiililaitteille</summary>
-  <summary xml:lang="fr">Application de podcasts pour appareils mobiles</summary>
-  <summary xml:lang="it">Applicazione per podcast per dispositivi mobili</summary>
-  <summary xml:lang="ko">모바일 장치용 팟캐스트 프로그램</summary>
-  <summary xml:lang="nl">Podcastprogramma voor mobiele apparaten</summary>
-  <summary xml:lang="pa">ਮੋਬਾਈਲ ਡਿਵਾਈਸਾਂ ਲਈ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ</summary>
-  <summary xml:lang="pl">Aplikacja do podkastów dla urządzeń przenośnych</summary>
-  <summary xml:lang="pt">Aplicação de 'podcasts' para dispositivos móveis</summary>
-  <summary xml:lang="pt-BR">Aplicativo de podcast para dispositivos móveis</summary>
-  <summary xml:lang="sk">Podcastová aplikácia pre mobilné zariadenia</summary>
-  <summary xml:lang="sl">Aplikacija podcastov za mobilne naprave</summary>
-  <summary xml:lang="sv">Poddradioprogram för mobilapparater</summary>
-  <summary xml:lang="tr">Taşınabilir aygıtlar için Podcast uygulaması</summary>
-  <summary xml:lang="uk">Програма для прослуховування подкастів на мобільних пристроях</summary>
-  <summary xml:lang="x-test">xxPodcast application for mobile devicesxx</summary>
-  <summary xml:lang="zh-CN">为移动设备打造的播客应用程序</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <url type="homepage">https://apps.kde.org/kasts/</url>
@@ -83,34 +62,13 @@
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
-    <p xml:lang="ca">El Kasts és una aplicació de podcast per a mòbil</p>
-    <p xml:lang="ca-valencia">Kasts és una aplicació de podcast per a mòbil</p>
-    <p xml:lang="de">Kasts ist eine Podcast-Anwendung für Mobilgeräte</p>
-    <p xml:lang="en-GB">Kasts is a mobile podcast application</p>
-    <p xml:lang="es">Kasts es una aplicación de pódcast para móviles</p>
-    <p xml:lang="fi">Kasts on podcast-mobiilisovellus</p>
-    <p xml:lang="fr">Kasts est une application mobile pour podcast.</p>
-    <p xml:lang="it">Kasts è un'applicazione mobile per podcast</p>
-    <p xml:lang="ko">Kasts는 모바일 팟캐스트 프로그램입니다</p>
-    <p xml:lang="nl">Kast is een podcastprogramma voor een mobiel</p>
-    <p xml:lang="pa">ਕਾਸਟਸ ਮੋਬਾਈਲ ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ ਹੈ</p>
-    <p xml:lang="pl">Kasts jest przenośną aplikacją do podkastów</p>
-    <p xml:lang="pt">O Kasts é um cliente de 'podcasts' para dispositivos móveis</p>
-    <p xml:lang="pt-BR">O Kast é um aplicativo de podcast móvel</p>
-    <p xml:lang="sk">Kasts je mobilná podcastová aplikácia</p>
-    <p xml:lang="sl">Kasts je mobilna aplikacija za podcaste</p>
-    <p xml:lang="sv">Kasts är ett mobilt poddradioprogram</p>
-    <p xml:lang="tr">Kasts, taşınabilir bir podcast uygulamasıdır</p>
-    <p xml:lang="uk">Kasts — програма для прослуховування подкастів на мобільних пристроях</p>
-    <p xml:lang="x-test">xxKasts is a mobile podcast applicationxx</p>
-    <p xml:lang="zh-CN">Kasts 是一款为移动设备设计的播客应用程序</p>
     <p>Its main features are:</p>
     <ul>
-        <li>Episode management through play queue</li>
-        <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
-        <li>Variable playback speed</li>
-        <li>Search for podcasts</li>
-        <li>Full system integration: e.g. inhibit system suspend while listening</li>
+      <li>Episode management through play queue</li>
+      <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
+      <li>Variable playback speed</li>
+      <li>Search for podcasts</li>
+      <li>Full system integration: e.g. inhibit system suspend while listening</li>
     </ul>
   </description>
   <recommends>
@@ -124,27 +82,6 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop</caption>
-      <caption xml:lang="ca">Llista de fonts del Kasts a l'escriptori</caption>
-      <caption xml:lang="ca-valencia">Llista de fonts de Kasts a l'escriptori</caption>
-      <caption xml:lang="cs">Seznam kanálů Kasts na počítači</caption>
-      <caption xml:lang="de">Kasts mit der Liste der Nachrichtenquellen auf der Arbeitsfläche</caption>
-      <caption xml:lang="en-GB">Kasts feed list on the desktop</caption>
-      <caption xml:lang="es">Lista de emisiones web de Kasts en el escritorio</caption>
-      <caption xml:lang="fi">Kastsin syöteluettelo työpöydällä</caption>
-      <caption xml:lang="fr">Liste de fils d'actualités sur le bureau</caption>
-      <caption xml:lang="it">L'elenco delle fonti di Kasts sul desktop</caption>
-      <caption xml:lang="ko">데스크톱에서의 Kasts 피드 목록</caption>
-      <caption xml:lang="nl">Feedlijst van Kasts op het bureaublad</caption>
-      <caption xml:lang="pa">ਡੈਸਕਟਾਪ ਉੱਤੇ ਕਾਸਟਸ ਫੀਡ ਸੂਚੀ</caption>
-      <caption xml:lang="pl">Lista kanałów Kasts na komputerze</caption>
-      <caption xml:lang="pt">Lista de fontes do Kasts no computador</caption>
-      <caption xml:lang="pt-BR">A lista do Kasts no computador</caption>
-      <caption xml:lang="sl">Seznam podcastov na namizju</caption>
-      <caption xml:lang="sv">Kasts kanallista på skrivbordet</caption>
-      <caption xml:lang="tr">Masaüstünde Kasts besleme listesi</caption>
-      <caption xml:lang="uk">Список подач Kasts на стільниці</caption>
-      <caption xml:lang="x-test">xxKasts feed list on the desktopxx</caption>
-      <caption xml:lang="zh-CN">桌面模式下的 Kasts 订阅列表</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot type="default">
