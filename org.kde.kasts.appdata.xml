@@ -30,6 +30,12 @@
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
   <summary>Podcast application</summary>
+  <summary xml:lang="ca">Aplicació de podcast</summary>
+  <summary xml:lang="ca-valencia">Aplicació de podcast</summary>
+  <summary xml:lang="nl">Podcastprogramma</summary>
+  <summary xml:lang="tr">Podcast uygulaması</summary>
+  <summary xml:lang="uk">Програма для трансляцій</summary>
+  <summary xml:lang="x-test">xxPodcast applicationxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <url type="homepage">https://apps.kde.org/kasts/</url>
@@ -62,13 +68,58 @@
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
+    <p xml:lang="ca">El Kasts és una aplicació convergent de podcast que funciona bé a l'escriptori i al mòbil.</p>
+    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé a l'escriptori i al mòbil.</p>
+    <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
+    <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
+    <p xml:lang="tr">Kasts, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir Podcast uygulamasıdır.</p>
+    <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
+    <p xml:lang="x-test">xxKasts is a convergent podcast application that looks good on desktop and mobile.xx</p>
     <p>Its main features are:</p>
+    <p xml:lang="ca">Les seves característiques principals són:</p>
+    <p xml:lang="ca-valencia">Les seues característiques principals són:</p>
+    <p xml:lang="nl">De hoofdkenmerken zijn:</p>
+    <p xml:lang="pt">As suas funcionalidades principais são:</p>
+    <p xml:lang="tr">Temel özellikleri:</p>
+    <p xml:lang="uk">Його основні можливості:</p>
+    <p xml:lang="x-test">xxIts main features are:xx</p>
     <ul>
       <li>Episode management through play queue</li>
+      <li xml:lang="ca">Gestió d'episodis a través de la cua de reproducció</li>
+      <li xml:lang="ca-valencia">Gestió d'episodis a través de la cua de reproducció</li>
+      <li xml:lang="nl">Beheer van episoden via afspeelwachtrij</li>
+      <li xml:lang="pt">Gestão de episódios através da fila de reprodução</li>
+      <li xml:lang="tr">Çalma kuyruğu üzerinden bölüm yönetimi</li>
+      <li xml:lang="uk">Керування епізодами за допомогою черги відтворення</li>
+      <li xml:lang="x-test">xxEpisode management through play queuexx</li>
       <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
+      <li xml:lang="ca">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
+      <li xml:lang="ca-valencia">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
+      <li xml:lang="nl">Afspeelposities synchroniseren met andere clients via gpodder.net of gpodder-nextcloud</li>
+      <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
+      <li xml:lang="uk">Синхронізація позицій відтворення із іншими клієнтами за допомогою gpodder.net або gpodder-nextcloud</li>
+      <li xml:lang="x-test">xxSync playback positions with other clients through gpodder.net or gpodder-nextcloudxx</li>
       <li>Variable playback speed</li>
+      <li xml:lang="ca">Velocitat de reproducció variable</li>
+      <li xml:lang="ca-valencia">Velocitat de reproducció variable</li>
+      <li xml:lang="nl">Variabele afspeelsnelheid</li>
+      <li xml:lang="tr">Değişken çalma hızı</li>
+      <li xml:lang="uk">Змінна швидкість відтворення</li>
+      <li xml:lang="x-test">xxVariable playback speedxx</li>
       <li>Search for podcasts</li>
+      <li xml:lang="ca">Cerca de podcasts</li>
+      <li xml:lang="ca-valencia">Busca de podcast</li>
+      <li xml:lang="nl">Zoeken naar podcasts</li>
+      <li xml:lang="tr">Podcast arama</li>
+      <li xml:lang="uk">Пошук подкастів</li>
+      <li xml:lang="x-test">xxSearch for podcastsxx</li>
       <li>Full system integration: e.g. inhibit system suspend while listening</li>
+      <li xml:lang="ca">Integració completa amb el sistema: p. ex. inhibeix la suspensió del sistema mentre s'està escoltant</li>
+      <li xml:lang="ca-valencia">Integració completa amb el sistema: p. ex. inhibix la suspensió del sistema mentre s'està escoltant</li>
+      <li xml:lang="nl">Volledige systeemintegratie: bijv. het systeem niet uitschakelen tijdens luisteren</li>
+      <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu ertele</li>
+      <li xml:lang="uk">Повна інтеграція із системою, зокрема заборона присипляння пристрою під час прослуховування</li>
+      <li xml:lang="x-test">xxFull system integration: e.g. inhibit system suspend while listeningxx</li>
     </ul>
   </description>
   <recommends>
@@ -82,11 +133,17 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop</caption>
+      <caption xml:lang="ca">El Kasts a l'escriptori</caption>
+      <caption xml:lang="ca-valencia">Kasts a l'escriptori</caption>
+      <caption xml:lang="nl">Kasts op het bureaublad</caption>
+      <caption xml:lang="tr">Masaüstünde Kasts</caption>
+      <caption xml:lang="uk">Kasts на стільниці</caption>
+      <caption xml:lang="x-test">xxKasts on the desktopxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Kasts on a phone</caption>
-      <caption xml:lang="ca">Kasts a un telèfon</caption>
+      <caption xml:lang="ca">El Kasts a un telèfon</caption>
       <caption xml:lang="ca-valencia">Kasts a un telèfon</caption>
       <caption xml:lang="cs">Kasts na telefonu</caption>
       <caption xml:lang="de">Kasts auf einem Mobiltelefon</caption>
