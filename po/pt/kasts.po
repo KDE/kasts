@@ -1108,7 +1108,7 @@ msgstr "Sincronizar Agora"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opções Avançadas"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
 #, fuzzy, kde-format
@@ -1152,7 +1152,7 @@ msgstr ""
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Parar"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
@@ -1172,17 +1172,17 @@ msgstr ""
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-07-01 20:58+0300\n"
+"PO-Revision-Date: 2022-07-02 13:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -731,27 +731,24 @@ msgid "Delete at Next Startup"
 msgstr "Bir Sonraki Başlangıçta Sil"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Yeni Podcast Ekle"
+msgstr "Yeni Podcast eklerken:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Çalınmamış Olarak İmle"
+msgstr "Tüm bölümleri çalınmış olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "En son bölümleri çalınmamış olarak imle:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Çalınmamış Olarak İmle"
+msgstr "Tüm bölümleri çalınmamış olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1103,25 +1100,22 @@ msgstr "Şimdi Eşzamanla"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Gelişmiş Seçenekler"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "Sunucudan bölüm güncellemeleri alınamadı"
+msgstr "Sunucudan tüm bölüm durumlarını getir"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Sunucuya bölüm değişiklikleri yüklenemedi"
+msgstr "Tüm yerel bölüm durumlarını sunucuya it"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Sunucuya bölüm değişiklikleri yüklenemedi"
+msgstr "Tüm bölüm durumları sunucuya itilsin mi?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1133,6 +1127,11 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Tüm yerel bölümlerin çalınma durumunu sunucuya yüklemek çok uzun zaman "
+"alabilir ve sunucuyu aşırı yükleyebilir. Bu işlem, sunucudaki bölümlerin "
+"çalınma durumunun da üzerine yazacaktır.\n"
+"\n"
+"Sürdürülsün mü?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format

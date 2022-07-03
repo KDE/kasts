@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-07-01 11:24+0200\n"
+"PO-Revision-Date: 2022-07-02 10:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -735,27 +735,24 @@ msgid "Delete at Next Startup"
 msgstr "Suprimeix-lo en l'inici següent"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Afegeix un podcast nou"
+msgstr "En afegir podcasts nous:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Marca com a sense reproduir"
+msgstr "Marca tots els episodis com a reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Marca els episodis més recents com a sense reproduir:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Marca com a sense reproduir"
+msgstr "Marca tots els episodis com a sense reproduir"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1110,25 +1107,22 @@ msgstr "Sincronitza ara"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opcions avançades"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "No s'han pogut recuperar del servidor les actualitzacions de capítols"
+msgstr "Recupera els estats de tots els episodis des del servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
+msgstr "Empeny els estats de tots els episodis al servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
+msgstr "Empenyo els estats de tots els episodis al servidor?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1140,6 +1134,12 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Tingueu en compte que empènyer l'estat de reproducció de tots els episodis "
+"locals al servidor pot trigar força estona o pot sobrecarregar el servidor. "
+"També cal tenir en compte que aquesta acció sobreescriurà l'estat de tots "
+"els episodis existents en el servidor.\n"
+"\n"
+"Continuo?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
@@ -1377,6 +1377,3 @@ msgstr "Sincronització interrompuda"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
-
-#~ msgid "Force Sync Now"
-#~ msgstr "Força ara la sincronització"

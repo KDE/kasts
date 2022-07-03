@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-07-01 14:05+0200\n"
+"PO-Revision-Date: 2022-07-02 07:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -731,27 +731,24 @@ msgid "Delete at Next Startup"
 msgstr "Bij volgende start verwijderen"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Nieuwe podcast toevoegen"
+msgstr "Bij toevoegen van nieuwe podcasts:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Als niet-afgespeeld markeren"
+msgstr "Alle episoden als afgespeeld markeren"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Meest recente episoden als niet-afgespeeld markeren:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Als niet-afgespeeld markeren"
+msgstr "Alle episoden als niet-afgespeeld markeren"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1106,25 +1103,22 @@ msgstr "Nu synchroniseren"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Geavanceerde opties"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "Kon episode-updates niet ophalen uit server"
+msgstr "Alle statussen van episodes ophalen uit server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Kon episode-updates niet uploaden naar server"
+msgstr "Alle lokale statussen van episodes naar server overbrengen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Kon episode-updates niet uploaden naar server"
+msgstr "Alle lokale statussen van episodes naar server overbrengen?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1136,6 +1130,11 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Merk op dat overbrengen van de afspeelstatus van alle lokale episodes naar "
+"de server erg lang kan duren en/of de server kan overladen. Merk ook op dat "
+"deze actie alle bestaande statussen van episodes op de server overschrijft.\n"
+"\n"
+"Doorgaan?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
