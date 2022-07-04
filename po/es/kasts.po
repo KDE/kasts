@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-06-13 00:49+0200\n"
+"PO-Revision-Date: 2022-07-03 13:15+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -738,27 +738,24 @@ msgid "Delete at Next Startup"
 msgstr "Borrar durante el próximo inicio"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Añadir nuevo pódcast"
+msgstr "Al añadir nuevos pódcast:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Marcar como no reproducido"
+msgstr "Marcar todos los episodios como reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Marcar los episodios más recientes como  no reproducidos:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Marcar como no reproducido"
+msgstr "Marcar todos los episodios como no reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1112,25 +1109,22 @@ msgstr "Sincronizar ahora"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opciones avanzadas"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "No se han podido obtener las actualizaciones de episodios del servidor"
+msgstr "Obtener el estado de todos los episodios del servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "No se han podido enviar las actualizaciones de episodios al servidor"
+msgstr "Enviar el estado de todos los episodios locales al servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "No se han podido enviar las actualizaciones de episodios al servidor"
+msgstr "¿Enviar el estado de todos los episodios locales al servidor?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1142,51 +1136,57 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Tenga en cuenta que el envío de del estado de reproducción de todos los "
+"episodios locales al servidor puede tardar bastante, e incluso podría "
+"sobrecargar el servidor. Observe también que esta acción sobrescribirá el "
+"estado de todos los episodios existentes en el servidor.\n"
+"\n"
+"¿Desea continuar?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Temporizador"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Iniciar"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Estado: Activo"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Estado: Inactivo"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Tiempo restante: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
