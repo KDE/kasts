@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-07-01 20:20+0200\n"
+"PO-Revision-Date: 2022-07-04 11:28+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -737,27 +737,24 @@ msgid "Delete at Next Startup"
 msgstr "Supprimer au démarrage"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Ajouter un nouveau podcast"
+msgstr "Lors de l'ajout de nouveaux podcasts :"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Marquer comme « Non joué »"
+msgstr "Marquer tous les épisodes comme lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Marquer les épisodes les plus récents comme non vus :"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Marquer comme « Non joué »"
+msgstr "Marquer tous les épisodes comme non lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1115,26 +1112,22 @@ msgstr "Synchroniser maintenant"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Options avancées"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr ""
-"Impossible de recevoir des mises à jour d'épisodes provenant du serveur"
+msgstr "Rechercher tous les états d'épisodes à partir du serveur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Impossible d'envoyer des mises à jour d'épisodes au serveur"
+msgstr "Envoyez tous les états locaux des épisodes vers le serveur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Impossible d'envoyer des mises à jour d'épisodes au serveur"
+msgstr "Envoyez tous les états locaux des épisodes vers le serveur ?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1146,6 +1139,12 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Veuillez noter que l'envoi de l'état de lecture de tous les épisodes sur le "
+"serveur peut prendre un temps très important et / ou peut surcharger le "
+"serveur. De plus, veuillez noter que cette action écrasera tous les états "
+"existants des épisodes.\n"
+"\n"
+"Voulez-vous vraiment continuer ?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format

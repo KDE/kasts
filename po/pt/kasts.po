@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-06-22 16:40+0100\n"
+"PO-Revision-Date: 2022-07-04 12:51+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -15,6 +15,8 @@ msgstr ""
 "X-POFile-SpellExtra: opml podcasts plafonds plafond Discover podcastindex\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: org gpodder net GPodder Nextcloud nextcloud GPOdder\n"
+"X-POFile-SpellExtra: peguntas pizzaria servior grandequantidade ocuprar\n"
+"X-POFile-SpellExtra: subtitiuir afecnionamemto dac akltito aparce min esó\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -735,27 +737,24 @@ msgid "Delete at Next Startup"
 msgstr "Apagar no Próximo Arranque"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Adicionar um Novo 'Podcast'"
+msgstr "Ao adicionar novos 'podcasts':"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Marcar como Não Reproduzido"
+msgstr "Marcar todos os episódios como reproduzidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Marcar os episódios mais recentes como não-reproduzidos:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Marcar como Não Reproduzido"
+msgstr "Marcar todos os episódios como não-reproduzidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1111,22 +1110,20 @@ msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "Não foi possível obter as actualizações dos episódios no servidor"
+msgstr "Obter todos dados de todas as peguntas do servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Não foi possível enviar as actualizações dos episódios para o servidor"
+msgstr ""
+"Enviar as actualizações dos estados dos episódios locais para o servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Não foi possível enviar as actualizações dos episódios para o servidor"
+msgstr "Enviar todos os eventos actualizados para o servidor da pizzaria."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1138,16 +1135,25 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Lembre-se por favor que mexer no estado de reprodução de todos os episódios "
+"locais para o servior, o que poderá ver  Estão cientes que passar o estado "
+"de reprodução de todas a biblioteca acrescia de uma grandequantidade para o "
+"servidor que poderão ocuprar um endereço para fazer exercício ou repare que "
+"este serviço irá subtitiuir o afecnionamemto dac cálculos   para o servidor "
+"de imagens pode parecer num akltito - como o servidor que aparce a 25 min do "
+"fim  esó me apotecia desligar todos os dados na servidor.\n"
+"\n"
+"Deseja continuar?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Alarme"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Iniciar"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
@@ -1157,17 +1163,17 @@ msgstr "Parar"
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Estado: Activo"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Estado: Inactivo"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Tempo em Falta: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
@@ -1374,6 +1380,3 @@ msgstr "Sincronização Interrompida"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronização Terminada com Erros"
-
-#~ msgid "Force Sync Now"
-#~ msgstr "Forçar uma Sincronização Agora"
