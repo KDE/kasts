@@ -594,8 +594,9 @@ void SyncJob::uploadEpisodeActionsPartial(const QVector<EpisodeAction> &episodeA
         return;
     }
 
-    qCDebug(kastsSync) << "Uploading episode actions" << startIndex << "to" << std::min(startIndex + maxAmountEpisodeUploads, episodeActionList.count()) << "of"
-                       << episodeActionList.count() << "total episode actions";
+    qCDebug(kastsSync) << "Uploading episode actions" << startIndex << "to"
+                       << std::min(startIndex + maxAmountEpisodeUploads, static_cast<int>(episodeActionList.count())) << "of" << episodeActionList.count()
+                       << "total episode actions";
 
     if (!m_gpodder) {
         setError(SyncJobError::InternalDataError);

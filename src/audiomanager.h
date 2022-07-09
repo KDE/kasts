@@ -29,7 +29,7 @@ class AudioManager : public QObject
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(QMediaPlayer::MediaStatus status READ status NOTIFY statusChanged)
-    Q_PROPERTY(QMediaPlayer::State playbackState READ playbackState NOTIFY playbackStateChanged)
+    Q_PROPERTY(QMediaPlayer::PlaybackState playbackState READ playbackState NOTIFY playbackStateChanged)
     Q_PROPERTY(qreal playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
     Q_PROPERTY(QMediaPlayer::Error error READ error NOTIFY errorChanged)
     Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
@@ -65,7 +65,7 @@ public:
     [[nodiscard]] qreal volume() const;
     [[nodiscard]] QUrl source() const;
     [[nodiscard]] QMediaPlayer::MediaStatus status() const;
-    [[nodiscard]] QMediaPlayer::State playbackState() const;
+    [[nodiscard]] QMediaPlayer::PlaybackState playbackState() const;
     [[nodiscard]] qreal playbackRate() const;
     [[nodiscard]] qreal minimumPlaybackRate() const;
     [[nodiscard]] qreal maximumPlaybackRate() const;
@@ -94,7 +94,7 @@ Q_SIGNALS:
     void volumeChanged();
     void sourceChanged();
     void statusChanged(QMediaPlayer::MediaStatus status);
-    void playbackStateChanged(QMediaPlayer::State state);
+    void playbackStateChanged(QMediaPlayer::PlaybackState state);
     void playbackRateChanged(qreal rate);
     void errorChanged(QMediaPlayer::Error error);
     void durationChanged(qint64 duration);

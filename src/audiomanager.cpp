@@ -22,6 +22,8 @@
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
+// TODO QAudioOutput
+
 class AudioManagerPrivate
 {
 private:
@@ -55,15 +57,15 @@ AudioManager::AudioManager(QObject *parent)
     : QObject(parent)
     , d(std::make_unique<AudioManagerPrivate>())
 {
-    connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
-    connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
-    connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
+    // connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
+    // connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
+    connect(&d->m_player, &QMediaPlayer::sourceChanged, this, &AudioManager::sourceChanged);
     connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::statusChanged);
     connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
-    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
-    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playerStateChanged);
+    connect(&d->m_player, &QMediaPlayer::playbackStateChanged, this, &AudioManager::playbackStateChanged);
+    connect(&d->m_player, &QMediaPlayer::playbackStateChanged, this, &AudioManager::playerStateChanged);
     connect(&d->m_player, &QMediaPlayer::playbackRateChanged, this, &AudioManager::playbackRateChanged);
-    connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
+    // connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::playerDurationChanged);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
     connect(this, &AudioManager::positionChanged, this, &AudioManager::savePlayPosition);
@@ -94,12 +96,13 @@ Entry *AudioManager::entry() const
 
 bool AudioManager::muted() const
 {
-    return d->m_player.isMuted();
+    // return d->m_player.isMuted();
+    return false;
 }
 
 qreal AudioManager::volume() const
 {
-    auto realVolume = static_cast<qreal>(d->m_player.volume() / 100.0);
+    auto realVolume = 1; // static_cast<qreal>(d->m_player.volume() / 100.0);
     auto userVolume = static_cast<qreal>(QAudio::convertVolume(realVolume, QAudio::LinearVolumeScale, QAudio::LogarithmicVolumeScale));
 
     return userVolume * 100.0;
@@ -107,7 +110,7 @@ qreal AudioManager::volume() const
 
 QUrl AudioManager::source() const
 {
-    return d->m_player.media().request().url();
+    return d->m_player.source();
 }
 
 QMediaPlayer::Error AudioManager::error() const
@@ -169,9 +172,9 @@ bool AudioManager::canSkipBackward() const
     return (d->m_readyToPlay);
 }
 
-QMediaPlayer::State AudioManager::playbackState() const
+QMediaPlayer::PlaybackState AudioManager::playbackState() const
 {
-    return d->m_player.state();
+    return d->m_player.playbackState();
 }
 
 qreal AudioManager::playbackRate() const
@@ -204,7 +207,7 @@ void AudioManager::setEntry(Entry *entry)
     // reset any pending seek action, lock position saving and notify interval
     d->m_pendingSeek = -1;
     d->m_lockPositionSaving = true;
-    d->m_player.setNotifyInterval(1000);
+    // d->m_player.setNotifyInterval(1000);
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
@@ -230,11 +233,11 @@ void AudioManager::setEntry(Entry *entry)
         // TODO: find a solution for Android (GStreamer not available on android by default)
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
         qCDebug(kastsAudio) << "use custom pipeline";
-        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path()
-                                  + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
+        d->m_player.setSource(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path()
+                                   + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
 #else
         qCDebug(kastsAudio) << "regular audio backend";
-        d->m_player.setMedia(QUrl::fromLocalFile(d->m_entry->enclosure()->path()));
+        d->m_player.setSource(QUrl::fromLocalFile(d->m_entry->enclosure()->path()));
 #endif
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
@@ -249,7 +252,7 @@ void AudioManager::setEntry(Entry *entry)
         d->m_entry = nullptr;
         Q_EMIT entryChanged(nullptr);
         d->m_player.stop();
-        d->m_player.setMedia(nullptr);
+        d->m_player.setSource(QUrl());
         d->m_readyToPlay = false;
         Q_EMIT durationChanged(0);
         Q_EMIT positionChanged(0);
@@ -265,7 +268,7 @@ void AudioManager::setEntry(Entry *entry)
 
 void AudioManager::setMuted(bool muted)
 {
-    d->m_player.setMuted(muted);
+    // d->m_player.setMuted(muted);
 }
 
 void AudioManager::setVolume(qreal volume)
@@ -273,7 +276,7 @@ void AudioManager::setVolume(qreal volume)
     qCDebug(kastsAudio) << "AudioManager::setVolume" << volume;
 
     auto realVolume = static_cast<qreal>(QAudio::convertVolume(volume / 100.0, QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale));
-    d->m_player.setVolume(qRound(realVolume * 100));
+    // d->m_player.setVolume(qRound(realVolume * 100));
 }
 
 /*
@@ -328,9 +331,9 @@ void AudioManager::pause()
 
 void AudioManager::playPause()
 {
-    if (playbackState() == QMediaPlayer::State::PausedState)
+    if (playbackState() == QMediaPlayer::PlaybackState::PausedState)
         play();
-    else if (playbackState() == QMediaPlayer::State::PlayingState)
+    else if (playbackState() == QMediaPlayer::PlaybackState::PlayingState)
         pause();
 }
 
@@ -397,7 +400,7 @@ void AudioManager::next()
 {
     if (canGoNext()) {
         qCDebug(kastsAudio) << "Current playbackStatus before next() is:" << playbackState();
-        d->m_continuePlayback = playbackState() == QMediaPlayer::State::PlayingState;
+        d->m_continuePlayback = playbackState() == QMediaPlayer::PlaybackState::PlayingState;
 
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
@@ -436,19 +439,19 @@ void AudioManager::mediaStatusChanged()
 
 void AudioManager::playerStateChanged()
 {
-    qCDebug(kastsAudio) << "AudioManager::playerStateChanged" << d->m_player.state();
+    qCDebug(kastsAudio) << "AudioManager::playerStateChanged" << d->m_player.playbackState();
 
-    switch (d->m_player.state()) {
-    case QMediaPlayer::State::StoppedState:
+    switch (d->m_player.playbackState()) {
+    case QMediaPlayer::PlaybackState::StoppedState:
         Q_EMIT stopped();
         d->mPowerInterface.setPreventSleep(false);
         break;
-    case QMediaPlayer::State::PlayingState:
+    case QMediaPlayer::PlaybackState::PlayingState:
         // setPreventSleep is set in play() to avoid it toggling too rapidly
         // see d->prepareAudioStream() for details
         Q_EMIT playing();
         break;
-    case QMediaPlayer::State::PausedState:
+    case QMediaPlayer::PlaybackState::PausedState:
         // setPreventSleep is set in pause() to avoid it toggling too rapidly
         // see d->prepareAudioStream() for details
         Q_EMIT paused();
@@ -474,7 +477,7 @@ void AudioManager::playerDurationChanged(qint64 duration)
 
 void AudioManager::playerVolumeChanged()
 {
-    qCDebug(kastsAudio) << "AudioManager::playerVolumeChanged" << d->m_player.volume();
+    // qCDebug(kastsAudio) << "AudioManager::playerVolumeChanged" << d->m_player.volume();
 
     QTimer::singleShot(0, this, [this]() {
         Q_EMIT volumeChanged();
@@ -519,7 +522,8 @@ void AudioManager::prepareAudio()
         d->m_pendingSeek = startingPosition;
         // Change notify interval temporarily.  This will help with reducing the
         // startup audio glitch to a minimum.
-        d->m_player.setNotifyInterval(50);
+        // TODO Qt6 ????
+        // d->m_player.setNotifyInterval(50);
         // do not call d->m_player.setPosition() here since it might start
         // sending signals with a.o. incorrect duration and position
     } else {
@@ -579,7 +583,6 @@ void AudioManager::checkForPendingSeek()
         } else {
             qCDebug(kastsAudio) << "Pending position seek has been executed; to position" << d->m_pendingSeek;
             d->m_pendingSeek = -1;
-            d->m_player.setNotifyInterval(1000);
         }
     }
 }

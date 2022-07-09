@@ -666,9 +666,9 @@ void Sync::linkUpAllDevices()
 
         QSet<QString> syncDevices;
         for (const QStringList &group : syncRequest->syncedDevices()) {
-            syncDevices += group.toSet();
+            syncDevices += QSet(group.begin(), group.end());
         }
-        syncDevices += syncRequest->unsyncedDevices().toSet();
+        syncDevices += QSet(syncRequest->unsyncedDevices().begin(), syncRequest->unsyncedDevices().end());
 
         QVector<QStringList> syncDeviceGroups;
         syncDeviceGroups += QStringList(syncDevices.values());
