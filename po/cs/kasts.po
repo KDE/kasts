@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-01-20 16:52+0100\n"
+"PO-Revision-Date: 2022-06-27 16:02+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 22.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -103,10 +103,9 @@ msgid "Podcast Player"
 msgstr "Přehrávač podcastů"
 
 #: main.cpp:116
-#, fuzzy, kde-format
-#| msgid "© 2020-2021 KDE Community"
+#, kde-format
 msgid "© 2020-2022 KDE Community"
-msgstr "© 2020-2021 Komunita KDE"
+msgstr "© 2020-2022 Komunita KDE"
 
 #: main.cpp:117
 #, kde-format
@@ -378,10 +377,9 @@ msgid "Label as \"New\""
 msgstr ""
 
 #: qml/EntryPage.qml:219
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Přidat podcast"
+msgstr "Otevřít podcast"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -738,16 +736,14 @@ msgid "Delete at Next Startup"
 msgstr "Smazat při následujícím spuštění"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Přidat nový podcast"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Označit jako nepřehrané"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
@@ -755,10 +751,9 @@ msgid "Mark most recent episodes as unplayed:"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Označit jako nepřehrané"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -976,7 +971,7 @@ msgstr "Heslo:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Použít vlastní server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
@@ -1104,7 +1099,7 @@ msgstr "Synchronizovat nyní"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Pokročilé možnosti"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
 #, kde-format
@@ -1140,12 +1135,12 @@ msgstr ""
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Spustit"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Zastavit"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
@@ -1160,22 +1155,22 @@ msgstr ""
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Zbývající čas: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Sekundy"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minuty"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Hodiny"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
@@ -1364,6 +1359,3 @@ msgstr "Synchronizace přerušena"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
-
-#~ msgid "Force Sync Now"
-#~ msgstr "Nyní vynutit synchronizaci"
