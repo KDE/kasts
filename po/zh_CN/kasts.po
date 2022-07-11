@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-07-02 11:00\n"
+"PO-Revision-Date: 2022-07-10 09:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -726,16 +726,14 @@ msgid "Delete at Next Startup"
 msgstr "下次启动时删除"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "添加新播客"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "标记为未播放"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
@@ -743,10 +741,9 @@ msgid "Mark most recent episodes as unplayed:"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "标记为未播放"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1099,22 +1096,19 @@ msgid "Advanced Options"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "无法从服务器获取剧集更新"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "无法上传剧集更新到服务器"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "无法上传剧集更新到服务器"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1357,6 +1351,3 @@ msgstr "同步中止"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
-
-#~ msgid "Force Sync Now"
-#~ msgstr "强制立即同步"
