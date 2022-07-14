@@ -76,7 +76,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
             text: i18n("Don't Allow")
             onClicked: {
@@ -89,7 +89,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
             text: i18n("Allow Once")
             onClicked: {
@@ -102,7 +102,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-            rightPadding: Kirigami.Units.largeSpacing + + Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
             text: i18n("Always Allow")
             onClicked: {
