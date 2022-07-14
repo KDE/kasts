@@ -71,6 +71,11 @@ DataManager::DataManager()
 
         // Check for "new" entries
         if (SettingsManager::self()->autoQueue()) {
+            // start an immediate transaction since this non-blocking read query
+            // can change into a blocking write query if the entry needs to be
+            // queued; this can create a deadlock with other concurrent write
+            // operations
+            Database::instance().transaction();
             query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new ORDER BY updated ASC;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             query.bindValue(QStringLiteral(":new"), true);
@@ -85,6 +90,7 @@ DataManager::DataManager()
                     }
                 }
             }
+            Database::instance().commit();
         }
 
         Q_EMIT feedEntriesUpdated(feedurl);

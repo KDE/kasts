@@ -171,7 +171,11 @@ bool Database::execute(QSqlQuery &query)
 
 bool Database::transaction(const QString &connectionName)
 {
-    return QSqlDatabase::database(connectionName).transaction();
+    // use IMMEDIATE transaction here to avoid deadlocks with writes happening
+    // in different threads
+    QSqlQuery query(QSqlDatabase::database(connectionName));
+    query.prepare(QStringLiteral("BEGIN IMMEDIATE TRANSACTION;"));
+    return execute(query);
 }
 
 bool Database::commit(const QString &connectionName)
