@@ -586,7 +586,7 @@ msgstr "Velocitat de reproducció: "
 #: qml/HeaderBar.qml:181
 #, kde-format
 msgid "Seek Backward"
-msgstr "Busca enrere"
+msgstr "Busca arrere"
 
 #: qml/HeaderBar.qml:208
 #, kde-format
