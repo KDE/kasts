@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-02 00:51+0000\n"
-"PO-Revision-Date: 2022-06-11 17:03+0200\n"
+"PO-Revision-Date: 2022-08-03 10:44+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -731,27 +731,24 @@ msgid "Delete at Next Startup"
 msgstr "Ta bort vid nästa start"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Lägg till nytt poddradioprogram"
+msgstr "När nya poddradioprogram läggs till:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Markera som ospelad"
+msgstr "Markera alla avsnitt som spelade"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Markera de senaste avsnitten som ospelade:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Markera som ospelad"
+msgstr "Markera alla avsnitten som ospelade"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -1105,25 +1102,22 @@ msgstr "Synkronisera nu"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Avancerade alternativ"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "Kunde inte hämta avsnittsuppdateringar från server"
+msgstr "Hämta alla avsnittstillstånd från server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
+msgstr "Skicka alla lokala avsnittstillstånd till server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
+msgstr "Skicka alla lokala avsnittstillstånd till server?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1135,51 +1129,56 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Observera att det kan ta mycket lång tid och/eller överlasta servern att "
+"skicka uppspelningsstatus för alla lokala avsnitt till den. Observera också "
+"att åtgärden skriver över status för alla befintliga avsnitt på servern.\n"
+"\n"
+"Fortsätt?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Sovtidtagare"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Starta"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Stoppa"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Status: aktiv"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Status: inaktiv"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Återstående tid: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunder"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minuter"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Timmar"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
