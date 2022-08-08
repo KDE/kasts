@@ -360,8 +360,6 @@ QString Entry::adjustedContent(int width, int fontSize)
                 imgTag.replace(match.captured(3), QStringLiteral("width=\"%1\"").arg(width));
                 imgTag.replace(QRegularExpression(QStringLiteral("height=\"([0-9]+)(px)?\"")), QString());
             }
-        } else {
-            imgTag.insert(4, QStringLiteral(" width=\"%1\"").arg(width));
         }
         ret.replace(match.captured(), imgTag);
     }
