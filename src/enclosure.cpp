@@ -339,7 +339,7 @@ QString Enclosure::cachedEmbeddedImage() const
     if (imageFound) {
         return cachedpath;
     } else {
-        return QUrl::fromLocalFile(cachedpath).toString();
+        return QStringLiteral("");
     }
 }
 
