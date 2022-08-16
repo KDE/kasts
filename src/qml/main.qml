@@ -87,6 +87,7 @@ Kirigami.ApplicationWindow {
             isMenu: false
             collapsible: !Kirigami.Settings.isMobile
             collapsed: !root.isWidescreen
+            collapseButtonVisible: false
             width: root.isWidescreen ? root.originalWidth : Layout.implicitWidth
             header: Kirigami.AbstractApplicationHeader {}
 
