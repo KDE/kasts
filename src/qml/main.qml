@@ -20,10 +20,15 @@ Kirigami.ApplicationWindow {
     id: root
     title: "Kasts"
 
-    pageStack.clip: true
-
     width: Kirigami.Settings.isMobile ? 360 : 800
     height: Kirigami.Settings.isMobile ? 660 : 600
+
+    pageStack.clip: true
+    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar;
+    pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton;
+
+    // only have a single page visible at any time
+    pageStack.columnView.columnResizeMode: Kirigami.ColumnView.SingleColumn
 
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 12
@@ -91,6 +96,26 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    // pop pages when not in use
+    Connections {
+        target: applicationWindow().pageStack
+        function onCurrentIndexChanged() {
+            // wait for animation to finish before popping pages
+            timer.restart();
+        }
+    }
+
+    Timer {
+        id: timer
+        interval: 300
+        onTriggered: {
+            let currentIndex = applicationWindow().pageStack.currentIndex;
+            while (applicationWindow().pageStack.depth > (currentIndex + 1) && currentIndex >= 0) {
+                applicationWindow().pageStack.pop();
+            }
+        }
+    }
+
     Component.onDestruction: {
         saveWindowLayout();
     }
@@ -99,11 +124,6 @@ Kirigami.ApplicationWindow {
         restoreWindowLayout();
         currentPage = SettingsManager.lastOpenedPage;
         pageStack.initialPage = getPage(SettingsManager.lastOpenedPage);
-
-        if (Kirigami.Settings.isMobile) {
-            pageStack.globalToolBar.style = Kirigami.ApplicationHeaderStyle.ToolBar;
-            pageStack.globalToolBar.showNavigationButtons = Kirigami.ApplicationHeaderStyle.ShowBackButton;
-        }
 
         // Delete played enclosures if set in settings
         if (SettingsManager.autoDeleteOnPlayed == 2) {
