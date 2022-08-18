@@ -9,6 +9,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.12
+import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts.solidextras 1.0
@@ -20,6 +21,9 @@ Kirigami.ApplicationWindow {
     title: "Kasts"
 
     pageStack.clip: true
+
+    width: Kirigami.Settings.isMobile ? 360 : 800
+    height: Kirigami.Settings.isMobile ? 660 : 600
 
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 12
@@ -50,15 +54,51 @@ Kirigami.ApplicationWindow {
         }
     }
     function pushPage(page) {
-        pageStack.clear()
-        pageStack.layers.clear()
-        pageStack.push(getPage(page))
-        currentPage = page
+        pageStack.clear();
+        pageStack.layers.clear();
+        pageStack.push(getPage(page));
+        currentPage = page;
+    }
+
+    Settings {
+        id: settings
+
+        property alias x: root.x
+        property alias y: root.y
+        property var mobileWidth
+        property var mobileHeight
+        property var desktopWidth
+        property var desktopHeight
+    }
+
+    function saveWindowLayout() {
+        if (Kirigami.Settings.isMobile) {
+            settings.mobileWidth = root.width;
+            settings.mobileHeight = root.height;
+        } else {
+            settings.desktopWidth = root.width;
+            settings.desktopHeight = root.height;
+        }
+    }
+
+    function restoreWindowLayout() {
+        if (Kirigami.Settings.isMobile) {
+            if (settings.mobileWidth) root.width = settings.mobileWidth;
+            if (settings.mobileHeight) root.height = settings.mobileHeight;
+        } else {
+            if (settings.desktopWidth) root.width = settings.desktopWidth;
+            if (settings.desktopHeight) root.height = settings.desktopHeight;
+        }
+    }
+
+    Component.onDestruction: {
+        saveWindowLayout();
     }
 
     Component.onCompleted: {
-        currentPage = SettingsManager.lastOpenedPage
-        pageStack.initialPage = getPage(SettingsManager.lastOpenedPage)
+        restoreWindowLayout();
+        currentPage = SettingsManager.lastOpenedPage;
+        pageStack.initialPage = getPage(SettingsManager.lastOpenedPage);
 
         if (Kirigami.Settings.isMobile) {
             pageStack.globalToolBar.style = Kirigami.ApplicationHeaderStyle.ToolBar;
