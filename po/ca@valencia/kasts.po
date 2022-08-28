@@ -667,7 +667,7 @@ msgstr "Aparença"
 #: qml/Settings/GeneralSettingsPage.qml:29
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Mostra sempre els títols dels podcast a la vista de subscripcions"
+msgstr "Mostra sempre els títols dels podcast en la vista de subscripcions"
 
 #: qml/Settings/GeneralSettingsPage.qml:35
 #, kde-format
