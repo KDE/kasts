@@ -10,7 +10,7 @@ Nightly Android APKs are available at [KDE's Binary Factory](https://binary-fact
 
 # Building
 
-Note: When using versions of kasts built from git-master, it's possible that the database format or the name of downloaded files change from one version to another without the necessary migrations to handle it. If you notice bugs after upgrading to a git-master version, export your feeds, delete `~/.local/share/KDE/kasts` and import the feeds again.
+Note: When using versions of Kasts built from git-master, it's possible that the database format or the name of downloaded files change from one version to another without the necessary migrations to handle it. If you notice bugs after upgrading to a git-master version, export your feeds, delete `~/.local/share/KDE/kasts` and import the feeds again.
 
 ## Requirements
  - KCoreAddons
@@ -37,7 +37,7 @@ Note: When using versions of kasts built from git-master, it's possible that the
 ```
 git clone https://invent.kde.org/plasma-mobile/kasts
 cd kasts
-mkdir build && cd  build
+mkdir build && cd build
 cmake .. -DCMAKE_PREFIX_PATH=/usr
 make
 sudo make install
