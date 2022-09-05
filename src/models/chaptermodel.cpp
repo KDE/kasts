@@ -70,6 +70,13 @@ QVariant ChapterModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue(m_kformat.formatDuration(m_chapters.at(row)->start() * 1000));
         case ChapterRole:
             return QVariant::fromValue(m_chapters.at(row));
+        case DurationRole:
+            if (m_chapters.size() > row + 1) {
+                return QVariant::fromValue(m_chapters.at(row + 1)->start() - m_chapters.at(row)->start());
+            } else {
+                return QVariant::fromValue(m_duration / 1000 - m_chapters.at(row)->start());
+            }
+
         default:
             return QVariant();
         }
@@ -96,6 +103,7 @@ QHash<int, QByteArray> ChapterModel::roleNames() const
         {StartTimeRole, "start"},
         {FormattedStartTimeRole, "formattedStart"},
         {ChapterRole, "chapter"},
+        {DurationRole, "duration"},
     };
 }
 
@@ -214,4 +222,15 @@ Chapter *ChapterModel::currentChapter() const
         }
     }
     return nullptr;
+}
+
+void ChapterModel::setDuration(int duration)
+{
+    m_duration = duration;
+    Q_EMIT durationChanged();
+}
+
+int ChapterModel::duration() const
+{
+    return m_duration;
 }

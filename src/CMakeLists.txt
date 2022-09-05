@@ -121,6 +121,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/GlobalSearchField.qml
         qml/SearchBar.qml
         qml/FilterInlineMessage.qml
+        qml/ChapterSlider.qml
     RESOURCES
         ../icons/media-playback-cloud.svg
         ../kasts.svg

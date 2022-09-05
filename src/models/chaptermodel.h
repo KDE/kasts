@@ -22,6 +22,7 @@ class ChapterModel : public QAbstractListModel
 
     Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
     Q_PROPERTY(Chapter *currentChapter READ currentChapter NOTIFY currentChapterChanged)
+    Q_PROPERTY(int duration READ duration WRITE setDuration NOTIFY durationChanged)
 
 public:
     enum RoleNames {
@@ -31,6 +32,7 @@ public:
         StartTimeRole,
         FormattedStartTimeRole,
         ChapterRole,
+        DurationRole,
     };
     Q_ENUM(RoleNames);
 
@@ -46,9 +48,13 @@ public:
 
     Chapter *currentChapter() const;
 
+    void setDuration(int duration);
+    int duration() const;
+
 Q_SIGNALS:
     void entryChanged();
     void currentChapterChanged();
+    void durationChanged();
 
 private:
     void load();
@@ -60,4 +66,5 @@ private:
     QVector<Chapter *> m_chapters;
     KFormat m_kformat;
     int m_currentChapter = 0;
+    int m_duration;
 };

@@ -177,17 +177,14 @@ FocusScope {
             Layout.alignment: Qt.AlignVCenter
         }
 
-        Controls.Slider {
+        ChapterSlider {
             id: durationSlider
+            model: chapterModel
             enabled: AudioManager.entry && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
-            padding: 0
-            from: 0
-            to: AudioManager.duration / 1000
             value: AudioManager.position / 1000
-            onMoved: AudioManager.seek(value * 1000)
-            handle.implicitWidth: implicitHeight // workaround to make slider handle position itself exactly at the location of the click
+            Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.gridUnit % 4
         }
 
         Item {
@@ -386,6 +383,7 @@ FocusScope {
     ChapterModel {
         id: chapterModel
         entry: AudioManager.entry ? AudioManager.entry : null
+        duration: AudioManager.duration
     }
 
     Kirigami.Dialog {
