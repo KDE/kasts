@@ -19,6 +19,8 @@ Kirigami.ApplicationWindow {
     id: root
     title: "Kasts"
 
+    pageStack.clip: true
+
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 12
 
