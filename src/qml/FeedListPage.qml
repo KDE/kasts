@@ -107,6 +107,7 @@ Kirigami.ScrollablePage {
     GridView {
         id: feedList
         visible: count !== 0
+        clip: true
 
         property int minimumCardSize: 150
         property int cardMargin: Kirigami.Units.largeSpacing
