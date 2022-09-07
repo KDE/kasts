@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2022-09-07 00:50+0000\n"
 "PO-Revision-Date: 2022-07-13 14:41+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -163,23 +163,23 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "팟캐스트 추가"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:99 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:101 qml/QueuePage.qml:18
 #, kde-format
 msgid "Queue"
 msgstr "대기열에 추가"
 
-#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:117
+#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:119
 #, kde-format
 msgid "Subscriptions"
 msgstr "구독"
 
-#: qml/BottomToolbar.qml:43 qml/main.qml:126
+#: qml/BottomToolbar.qml:43 qml/main.qml:128
 #, kde-format
 msgid "Episodes"
 msgstr "에피소드"
 
-#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:144
-#: qml/main.qml:150
+#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:146
+#: qml/main.qml:152
 #, kde-format
 msgid "Settings"
 msgstr "설정"
@@ -215,7 +215,7 @@ msgstr "한 번만 허용"
 msgid "Always Allow"
 msgstr "항상 허용"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:108
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:110
 #, kde-format
 msgid "Discover"
 msgstr "둘러보기"
@@ -240,7 +240,7 @@ msgstr "구독"
 msgid "Subscribed"
 msgstr "구독 중"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:135
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:137
 #, kde-format
 msgid "Downloads"
 msgstr "다운로드"
@@ -589,21 +589,21 @@ msgstr "빨리 감기"
 msgid "Skip Forward"
 msgstr "앞으로 건너뛰기"
 
-#: qml/main.qml:236
+#: qml/main.qml:238
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/main.qml:263
+#: qml/main.qml:265
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/main.qml:327
+#: qml/main.qml:329
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
