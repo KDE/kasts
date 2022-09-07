@@ -229,7 +229,7 @@ Controls.ItemDelegate {
         lastFeed = feed.url
         if (pageStack.depth >  1)
             pageStack.pop();
-        pageStack.push("qrc:/EntryListPage.qml", {"feed": feed})
+        pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
     }
 
     Controls.ToolTip {

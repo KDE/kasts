@@ -14,10 +14,15 @@ import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts 1.0
 
 Item {
+    id: root
     required property string image
     required property string title
+
     property string subtitle: ""
     property var headerHeight: Kirigami.Units.gridUnit * 8
+
+    property bool clickable: false
+    signal clicked()
 
     implicitHeight: headerHeight
     implicitWidth: parent.width
@@ -39,6 +44,15 @@ Item {
         anchors.fill: blur
         source: blur
         color:"#87000000"  //RGBA, but first value is actually the alpha channel
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            if (root.clickable) {
+                root.clicked();
+            }
+        }
     }
 
     RowLayout {

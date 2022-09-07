@@ -11,7 +11,7 @@ import Qt.labs.platform 1.1
 import QtQuick.Layouts 1.14
 import QtQml.Models 2.15
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
 
@@ -57,11 +57,13 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18n("Import Podcasts...")
             iconName: "document-import"
+            displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
             text: i18n("Export Podcasts...")
             iconName: "document-export"
+            displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: exportDialog.open()
         }
     ]
@@ -106,6 +108,7 @@ Kirigami.ScrollablePage {
 
     GridView {
         id: feedList
+        currentIndex: -1
         visible: count !== 0
         clip: true
 

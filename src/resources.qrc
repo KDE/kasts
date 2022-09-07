@@ -3,7 +3,6 @@
 <RCC>
     <qresource prefix="/">
         <file alias="main.qml">qml/main.qml</file>
-        <file alias="EntryListPage.qml">qml/EntryListPage.qml</file>
         <file alias="FeedListPage.qml">qml/FeedListPage.qml</file>
         <file alias="EntryPage.qml">qml/EntryPage.qml</file>
         <file alias="AboutPage.qml">qml/Settings/AboutPage.qml</file>
