@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-07-02 13:33+0300\n"
+"PO-Revision-Date: 2022-09-08 11:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -345,15 +345,14 @@ msgid "Open Podcast"
 msgstr "Podcast Aç"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "Bölüm İndirme URL'si:"
+msgstr "Bölüm İndirme URL'sini Kopyala"
 
 #: qml/EntryPage.qml:247
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Bağlantı kopyalandı"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
@@ -428,10 +427,9 @@ msgid "Refresh Podcast"
 msgstr "Podcast'i Yenile"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Podcast Ayrıntıları"
+msgstr "Ayrıntıları Göster"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format

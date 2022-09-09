@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-07-02 08:45+0300\n"
+"PO-Revision-Date: 2022-09-08 08:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -348,15 +348,14 @@ msgid "Open Podcast"
 msgstr "Відкрити трансляцію"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "Адреса отримання епізоду:"
+msgstr "Копіювати адресу отримання епізоду"
 
 #: qml/EntryPage.qml:247
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Посилання скопійовано"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
@@ -431,10 +430,9 @@ msgid "Refresh Podcast"
 msgstr "Оновити трансляцію"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Подробиці"
+msgstr "Показати подробиці"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format

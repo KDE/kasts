@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-07-02 07:42+0200\n"
+"PO-Revision-Date: 2022-09-08 10:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -346,15 +346,14 @@ msgid "Open Podcast"
 msgstr "Podcast openen"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "URL van downloaden van episode:"
+msgstr "URL van downloaden van episode kopiëren"
 
 #: qml/EntryPage.qml:247
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Koppeling gekopieerd"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
@@ -429,10 +428,9 @@ msgid "Refresh Podcast"
 msgstr "Podcast vernieuwen"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Details"
+msgstr "Details tonen"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format

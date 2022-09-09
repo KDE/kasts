@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-07-08 15:47+0200\n"
+"PO-Revision-Date: 2022-09-08 10:16+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -349,15 +349,14 @@ msgid "Open Podcast"
 msgstr "Obre un podcast"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "URL de baixada del capítol:"
+msgstr "Copia l'URL de baixada del capítol"
 
 #: qml/EntryPage.qml:247
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "S'ha copiat l'enllaç"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
@@ -432,10 +431,9 @@ msgid "Refresh Podcast"
 msgstr "Actualitza els podcasts"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Detalls del podcast"
+msgstr "Mostra els detalls"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format
@@ -1383,7 +1381,3 @@ msgstr "Sincronització interrompuda"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
-
-#~ msgctxt "by <Author(s)>"
-#~ msgid "by %1"
-#~ msgstr "per %1"

@@ -345,10 +345,9 @@ msgid "Open Podcast"
 msgstr "Otevřít podcast"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "URL pro stahování epizod:"
+msgstr ""
 
 #: qml/EntryPage.qml:247
 #, kde-format
@@ -428,10 +427,9 @@ msgid "Refresh Podcast"
 msgstr ""
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Podrobnosti podcastu"
+msgstr "Zobrazit podrobnosti"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format
@@ -1365,7 +1363,3 @@ msgstr "Synchronizace přerušena"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
-
-#~ msgctxt "by <Author(s)>"
-#~ msgid "by %1"
-#~ msgstr "od %1"
