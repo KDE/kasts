@@ -235,6 +235,7 @@ if(ANDROID)
         gpodder
         kaccounts-nextcloud
         clock
+        viewimage
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
