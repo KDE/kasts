@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-07-02 06:51+0200\n"
+"PO-Revision-Date: 2022-09-09 07:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -346,15 +346,14 @@ msgid "Open Podcast"
 msgstr "Odpri podcast"
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "Spletni naslov prenosa epizode:"
+msgstr "Spletni naslov prenosa epizode"
 
 #: qml/EntryPage.qml:247
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Povezava kopirana"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
@@ -429,10 +428,9 @@ msgid "Refresh Podcast"
 msgstr "Osveži podcast"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Podrobnosti podcasta"
+msgstr "Prikaži podrobnosti"
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format
