@@ -473,7 +473,7 @@ msgstr[1] "%1 sense reproduir"
 #: qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "Error (%1): %2"
-msgstr "Error (%1): %2"
+msgstr "S'ha produït un error (%1): %2"
 
 #: qml/FeedListDelegate.qml:268
 #, kde-format
@@ -1318,7 +1318,7 @@ msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
 #: sync/syncjob.cpp:81
 #, kde-format
 msgid "Internal data error"
-msgstr "Error intern de dades"
+msgstr "S'ha produït un error intern de dades"
 
 #: sync/syncjob.cpp:885
 #, kde-format
