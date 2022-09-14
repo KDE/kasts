@@ -238,6 +238,20 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="22.09" date="2021-09-20">
+      <url>https://www.plasma-mobile.org/2022/09/20/plasma-mobile-gear-22-09/</url>
+      <description>
+        <ul>
+          <li>The interface is simplified by only showing one page at a time instead of adding columns, and by combining the podcast page with the podcast episode list page.</li>
+          <li>The podcast and episode info pages are improved by adding a button toolbar (moving actions out of the app header) and by reworking the information layout.</li>
+          <li>A sleep timer has been implemented.</li>
+          <li>The app will now remember the position and size of its window.</li>
+          <li>Kasts now has the ability to push all local episode states to the sync server.</li>
+          <li>A setting has been added to tell Kasts how many recent episodes should be marked as unplayed when adding a new podcast.</li>
+          <li>Several small UI bugs and glitches were solved.</li>
+        </ul>
+      </description>
+    </release>
     <release version="22.06" date="2022-06-24">
       <url>https://www.plasma-mobile.org/2022/06/28/plasma-mobile-gear-22-06/</url>
       <description>
