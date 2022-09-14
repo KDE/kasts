@@ -72,17 +72,15 @@ public class KastsActivity extends QtActivity
             .setContentText("Unknown")
             .setContentIntent(PendingIntent.getActivity(this, 0, iOpenActivity, 0));
 
-        mediaStyle = new MediaStyle();
-        mediaStyle.setMediaSession(mediaSession.getSessionToken());
-        mediaStyle.setShowActionsInCompactView(0, 1, 2);
-        notification.setStyle(mediaStyle);
+        notification.setStyle(new MediaStyle()
+            .setMediaSession(mediaSession.getSessionToken())
+            .setShowActionsInCompactView(0, 1));
         mediaSession.setActive(true);
         notification.setGroup("MprisMediaSession");
         NotificationManager nm = ContextCompat.getSystemService(this, NotificationManager.class);
-        NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_HIGH);
+        NotificationChannel channel = new NotificationChannel("org.kde.kasts.channel", "KastsChannel", NotificationManager.IMPORTANCE_LOW);
         channel.setDescription("No Media Loaded");
-        channel.enableLights(false);
-        channel.enableVibration(false);
+        channel.setShowBadge(false);
         notificationManager.createNotificationChannel(channel);
     }
 
@@ -114,7 +112,7 @@ public class KastsActivity extends QtActivity
         super.onDestroy();
 
         Log.d(TAG, "JAVA onDestroy of MediaSession called.");
-        
+
         mediaSession.release();
     }
 
