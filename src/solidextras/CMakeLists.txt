@@ -39,4 +39,4 @@ else ()
     endif()
 endif()
 
-install(TARGETS KastsSolidExtras ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KastsSolidExtras ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

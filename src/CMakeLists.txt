@@ -241,4 +241,4 @@ else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
 endif()
 
-install(TARGETS kasts ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kasts ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
