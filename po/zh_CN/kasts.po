@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-08-20 14:18\n"
+"PO-Revision-Date: 2022-09-20 01:57\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -347,10 +347,9 @@ msgid "Open Podcast"
 msgstr ""
 
 #: qml/EntryPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "剧集下载 URL："
+msgstr ""
 
 #: qml/EntryPage.qml:247
 #, kde-format
@@ -430,10 +429,9 @@ msgid "Refresh Podcast"
 msgstr "刷新播客"
 
 #: qml/FeedDetailsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgid "Show Details"
-msgstr "播客详情"
+msgstr ""
 
 #: qml/FeedDetailsPage.qml:203
 #, kde-format
@@ -1357,7 +1355,3 @@ msgstr "同步中止"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
-
-#~ msgctxt "by <Author(s)>"
-#~ msgid "by %1"
-#~ msgstr "作者：%1"
