@@ -36,16 +36,25 @@ Kirigami.ScrollablePage {
         }
 
         Controls.CheckBox {
-            id: continuePlayingNextEntry
-            checked: SettingsManager.continuePlayingNextEntry
-            text: i18n("Continue playing next episode after current one finishes")
-            onToggled: SettingsManager.continuePlayingNextEntry = checked
+            id: showTimeLeft
+            Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play Time:")
+            checked: SettingsManager.toggleRemainingTime
+            text: i18n("Show time left instead of total track time")
+            onToggled: SettingsManager.toggleRemainingTime = checked
         }
         Controls.CheckBox {
             id: adjustTimeLeft
             checked: SettingsManager.adjustTimeLeft
+            enabled: SettingsManager.toggleRemainingTime
             text: i18n("Adjust time left based on current playback speed")
             onToggled: SettingsManager.adjustTimeLeft = checked
+        }
+        Controls.CheckBox {
+            id: prioritizeStreaming
+            Kirigami.FormData.label: i18nc("Label for settings related to streaming of episodes (as opposed to playing back locally downloaded files)", "Streaming:")
+            checked: SettingsManager.prioritizeStreaming
+            text: i18n("Prioritize streaming over downloading")
+            onToggled: SettingsManager.prioritizeStreaming = checked
         }
 
         Kirigami.Heading {
@@ -54,7 +63,14 @@ Kirigami.ScrollablePage {
         }
 
         Controls.CheckBox {
+            id: continuePlayingNextEntry
+            checked: SettingsManager.continuePlayingNextEntry
+            text: i18n("Continue playing next episode after current one finishes")
+            onToggled: SettingsManager.continuePlayingNextEntry = checked
+        }
+        Controls.CheckBox {
             id: refreshOnStartup
+            Kirigami.FormData.label: i18nc("Label for settings related to podcast updates", "Update Settings:")
             checked: SettingsManager.refreshOnStartup
             text: i18n("Automatically fetch podcast updates on startup")
             onToggled: SettingsManager.refreshOnStartup = checked
@@ -65,6 +81,7 @@ Kirigami.ScrollablePage {
             text: i18n("Update existing episode data on refresh (slower)")
             onToggled: SettingsManager.doFullUpdate = checked
         }
+
         Controls.CheckBox {
             id: autoQueue
             Kirigami.FormData.label: i18n("New Episodes:")

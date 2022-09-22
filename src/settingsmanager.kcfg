@@ -9,6 +9,10 @@
             <label>Always show the title of podcast feeds in subscription view</label>
             <default>false</default>
         </entry>
+        <entry name="prioritizeStreaming" type="Bool">
+            <label>Show streaming button instead of download button</label>
+            <default>false</default>
+        </entry>
         <entry name="continuePlayingNextEntry" type="Bool">
             <label>Continue playing next episode after current one finishes</label>
             <default>true</default>
@@ -102,6 +106,10 @@
         </entry>
         <entry name="allowMeteredImageDownloads" type="Bool">
             <label>Allow image downloads on metered connections</label>
+            <default>false</default>
+        </entry>
+        <entry name="allowMeteredStreaming" type="Bool">
+            <label>Allow streaming on metered connections</label>
             <default>false</default>
         </entry>
     </group>

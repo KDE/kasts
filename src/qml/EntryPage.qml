@@ -110,36 +110,62 @@ Kirigami.ScrollablePage {
 
                 actions: [
                     Kirigami.Action {
-                        text: !entry.enclosure ? i18n("Open in Browser") :
-                            (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) ? i18n("Download") :
-                            entry.enclosure.status === Enclosure.Downloading ? i18n("Cancel Download") :
-                            !entry.queueStatus ? i18n("Delete Download") :
-                            (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? i18n("Pause") :
-                            i18n("Play")
-                        icon.name: !entry.enclosure ? "globe" :
-                            (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) ? "download" :
-                            entry.enclosure.status === Enclosure.Downloading ? "edit-delete-remove" :
-                            !entry.queueStatus ? "delete" :
-                            (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) ? "media-playback-pause" :
-                            "media-playback-start"
+                        text: i18n("Open in Browser")
+                        visible: !entry.enclosure
+                        icon.name: "globe"
                         onTriggered: {
-                            if (!entry.enclosure) {
-                                Qt.openUrlExternally(entry.link)
-                            } else if (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) {
-                                downloadOverlay.entry = entry;
-                                downloadOverlay.run();
-                            } else if (entry.enclosure.status === Enclosure.Downloading) {
-                                entry.enclosure.cancelDownload()
-                            } else if (!entry.queueStatus) {
-                                entry.enclosure.deleteFile()
-                            } else {
-                                if(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState) {
-                                    AudioManager.pause()
-                                } else {
-                                    AudioManager.entry = entry
-                                    AudioManager.play()
-                                }
-                            }
+                            Qt.openUrlExternally(entry.link);
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Download")
+                        visible: entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded)
+                        icon.name: "download"
+                        onTriggered: {
+                            downloadOverlay.entry = entry;
+                            downloadOverlay.run();
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Cancel Download")
+                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+                        icon.name: "edit-delete-remove"
+                        onTriggered: {
+                            entry.enclosure.cancelDownload();
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Delete Download")
+                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && !entry.queueStatus
+                        icon.name: "delete"
+                        onTriggered: {
+                            entry.enclosure.deleteFile();
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Pause")
+                        visible: entry.enclosure && entry.queueStatus && (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+                        icon.name: "media-playback-pause"
+                        onTriggered: {
+                            AudioManager.pause();
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Play")
+                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+                        icon.name: "media-playback-start"
+                        onTriggered: {
+                            AudioManager.entry = entry;
+                            AudioManager.play();
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
+                        visible: entry.enclosure && entry.queueStatus && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+                        icon.name: ":/media-playback-start-cloud"
+                        onTriggered: {
+                            AudioManager.entry = entry;
+                            AudioManager.play()
                         }
                     },
                     Kirigami.Action {

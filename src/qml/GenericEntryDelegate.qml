@@ -12,6 +12,7 @@ import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
 
@@ -24,6 +25,18 @@ Kirigami.SwipeListItem {
     property QtObject listView: undefined
     property bool selected: false
     property int row: model ? model.row : -1
+
+    property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && SettingsManager.prioritizeStreaming && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
+
+    property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
+    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && !streamingAllowed && !(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+    property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+    property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+    property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+    property bool showStreamingPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+
 
     highlighted: selected
     activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
@@ -273,7 +286,7 @@ Kirigami.SwipeListItem {
             onTriggered: {
                 entry.queueStatus = false;
             }
-            visible: !entry.enclosure && entry.queueStatus
+            visible: showRemoveFromQueueButton
         },
         Kirigami.Action {
             text: i18n("Download")
@@ -282,30 +295,39 @@ Kirigami.SwipeListItem {
                 downloadOverlay.entry = entry;
                 downloadOverlay.run();
             }
-            visible: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded)
+            visible: showDownloadButton
         },
         Kirigami.Action {
             text: i18n("Cancel Download")
             icon.name: "edit-delete-remove"
             onTriggered: entry.enclosure.cancelDownload()
-            visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+            visible: showCancelDownloadButton
         },
         Kirigami.Action {
             text: i18n("Delete Download")
             icon.name: "delete"
             onTriggered: entry.enclosure.deleteFile()
-            visible: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            visible: showDeleteDownloadButton
         },
         Kirigami.Action {
             text: i18n("Add to Queue")
             icon.name: "media-playlist-append"
-            visible: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+            visible: showAddToQueueButton
             onTriggered: entry.queueStatus = true
         },
         Kirigami.Action {
             text: i18n("Play")
             icon.name: "media-playback-start"
-            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+            visible: showPlayButton
+            onTriggered: {
+                AudioManager.entry = entry
+                AudioManager.play()
+            }
+        },
+        Kirigami.Action {
+            text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
+            icon.name: ":/media-playback-start-cloud"
+            visible: showStreamingPlayButton
             onTriggered: {
                 AudioManager.entry = entry
                 AudioManager.play()
@@ -314,7 +336,7 @@ Kirigami.SwipeListItem {
         Kirigami.Action {
             text: i18n("Pause")
             icon.name: "media-playback-pause"
-            visible: !isDownloads && entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState
+            visible: showPauseButton
             onTriggered: AudioManager.pause()
         }
     ]

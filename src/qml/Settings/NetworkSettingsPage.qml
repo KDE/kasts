@@ -38,5 +38,12 @@ Kirigami.ScrollablePage {
             text: i18n("Allow image downloads")
             onToggled: SettingsManager.allowMeteredImageDownloads = checked
         }
+
+        Controls.CheckBox {
+            id: allowMeteredStreaming
+            checked: SettingsManager.allowMeteredStreaming
+            text: i18n("Allow streaming")
+            onToggled: SettingsManager.allowMeteredStreaming = checked
+        }
     }
 }

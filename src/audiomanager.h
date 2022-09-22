@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
@@ -45,6 +45,7 @@ class AudioManager : public QObject
     Q_PROPERTY(qint64 sleepTime READ sleepTime WRITE setSleepTimer RESET stopSleepTimer NOTIFY sleepTimerChanged)
     Q_PROPERTY(qint64 remainingSleepTime READ remainingSleepTime NOTIFY remainingSleepTimeChanged)
     Q_PROPERTY(QString formattedRemainingSleepTime READ formattedRemainingSleepTime NOTIFY remainingSleepTimeChanged)
+    Q_PROPERTY(bool isStreaming READ isStreaming NOTIFY isStreamingChanged)
 
 public:
     const double MAX_RATE = 1.0;
@@ -87,6 +88,8 @@ public:
     qint64 remainingSleepTime() const; // returns remaining sleep time
     QString formattedRemainingSleepTime() const;
 
+    bool isStreaming() const;
+
 Q_SIGNALS:
 
     void entryChanged(Entry *entry);
@@ -111,6 +114,8 @@ Q_SIGNALS:
 
     void sleepTimerChanged(qint64 duration);
     void remainingSleepTimeChanged(qint64 duration);
+
+    void isStreamingChanged();
 
     void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 

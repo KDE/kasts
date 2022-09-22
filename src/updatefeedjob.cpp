@@ -282,10 +282,10 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     entryDetails.read = m_isNewFeed ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
     entryDetails.isNew = !m_isNewFeed; // if new feed, then mark none as new
 
-    if (!entry->content().isEmpty())
-        entryDetails.content = entry->content();
-    else
+    if (!entry->description().isEmpty())
         entryDetails.content = entry->description();
+    else
+        entryDetails.content = entry->content();
 
     // Look for image in itunes tags
     if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {

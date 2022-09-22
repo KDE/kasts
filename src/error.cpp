@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -58,6 +58,8 @@ QString Error::description() const
         return i18n("Error moving storage path");
     case Error::Type::SyncError:
         return i18n("Error Syncing Feed and/or Episode Status");
+    case Error::Type::MeteredStreamingNotAllowed:
+        return i18n("No Connection or Streaming Not Allowed on Metered Connection");
     default:
         return QString();
     }
@@ -80,6 +82,8 @@ int Error::typeToDb(Error::Type type)
         return 5;
     case Error::Type::SyncError:
         return 6;
+    case Error::Type::MeteredStreamingNotAllowed:
+        return 7;
     default:
         return -1;
     }
@@ -102,6 +106,8 @@ Error::Type Error::dbToType(int value)
         return Error::Type::StorageMoveError;
     case 6:
         return Error::Type::SyncError;
+    case 7:
+        return Error::Type::MeteredStreamingNotAllowed;
     default:
         return Error::Type::Unknown;
     }

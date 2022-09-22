@@ -18,6 +18,10 @@ Files: kasts.svg kasts-android-square.svg logo.png android/ic_launcher-playstore
 Copyright: 2021 Mathis Brüchert <mbblp@protonmail.ch>
 License: CC-BY-SA-4.0
 
+Files: icons/media-playback-start-cloud.svg
+Copyright: 2022 Bart De Vries <bart@mogwai.be>
+License: CC-BY-SA-4.0
+
 Files: android/res/mipmap-anydpi-v26/ic_launcher.xml
 Copyright: None
 License: CC0-1.0

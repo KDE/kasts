@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
@@ -22,10 +22,14 @@
 #include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
+#include <solidextras/networkstatus.h>
+
 class AudioManagerPrivate
 {
 private:
     PowerManagementInterface mPowerInterface;
+
+    SolidExtras::NetworkStatus m_networkStatus;
 
     QMediaPlayer m_player;
 
@@ -47,6 +51,8 @@ private:
     QTimer *m_sleepTimer = nullptr;
     qint64 m_sleepTime = -1;
     qint64 m_remainingSleepTime = -1;
+
+    bool m_isStreaming = false;
 
     friend class AudioManager;
 };
@@ -189,6 +195,11 @@ qreal AudioManager::maximumPlaybackRate() const
     return MAX_RATE;
 }
 
+bool AudioManager::isStreaming() const
+{
+    return d->m_isStreaming;
+}
+
 QMediaPlayer::MediaStatus AudioManager::status() const
 {
     return d->m_player.mediaStatus();
@@ -221,20 +232,37 @@ void AudioManager::setEntry(Entry *entry)
     }
 
     // do some checks on the new entry to see whether it's valid and not corrupted
-    if (entry != nullptr && entry->hasEnclosure() && entry->enclosure() && entry->enclosure()->status() == Enclosure::Downloaded) {
+    if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
+        && (entry->enclosure()->status() == Enclosure::Downloaded
+            || (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
+                && (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming())))) {
         qCDebug(kastsAudio) << "Going to change source";
         d->m_entry = entry;
         Q_EMIT entryChanged(entry);
+        QUrl loadUrl;
+        if (entry->enclosure()->status() == Enclosure::Downloaded) {
+            loadUrl = QUrl::fromLocalFile(d->m_entry->enclosure()->path());
+            if (d->m_isStreaming) {
+                d->m_isStreaming = false;
+                Q_EMIT isStreamingChanged();
+            }
+        } else {
+            loadUrl = QUrl(d->m_entry->enclosure()->url());
+            if (!d->m_isStreaming) {
+                d->m_isStreaming = true;
+                Q_EMIT isStreamingChanged();
+            }
+        }
         // the gst-pipeline is required to make sure that the pitch is not
         // changed when speeding up the audio stream
         // TODO: find a solution for Android (GStreamer not available on android by default)
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
         qCDebug(kastsAudio) << "use custom pipeline";
-        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=file://") + d->m_entry->enclosure()->path()
+        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=") + loadUrl.toString()
                                   + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
 #else
         qCDebug(kastsAudio) << "regular audio backend";
-        d->m_player.setMedia(QUrl::fromLocalFile(d->m_entry->enclosure()->path()));
+        d->m_player.setMedia(loadUrl);
 #endif
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
@@ -302,6 +330,22 @@ void AudioManager::setPlaybackRate(const qreal rate)
 void AudioManager::play()
 {
     qCDebug(kastsAudio) << "AudioManager::play";
+
+    // if we're streaming, check that we're still connected and check for metered
+    // connection
+    if (isStreaming()) {
+        if (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::Yes
+            || (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::No && !SettingsManager::self()->allowMeteredStreaming())) {
+            qCDebug(kastsAudio) << "Refusing to play: no Connection or streaming on metered connection not allowed";
+            Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
+                            d->m_entry->feed()->url(),
+                            d->m_entry->id(),
+                            0,
+                            i18n("No connection or streaming on metered connection not allowed"),
+                            QString());
+            return;
+        }
+    }
 
     // setting m_continuePlayback will make sure that, if the audio stream is
     // still being prepared, that the playback will start once it's ready
@@ -374,7 +418,6 @@ void AudioManager::skipBackward()
 
 bool AudioManager::canGoNext() const
 {
-    // TODO: extend with streaming capability
     if (d->m_entry) {
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         if (index >= 0) {
@@ -385,6 +428,12 @@ bool AudioManager::canGoNext() const
                     qCDebug(kastsAudio) << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
                         return true;
+                    } else {
+                        SolidExtras::NetworkStatus networkStatus;
+                        if (networkStatus.connectivity() == SolidExtras::NetworkStatus::Yes
+                            && (networkStatus.metered() == SolidExtras::NetworkStatus::No || SettingsManager::self()->allowMeteredStreaming())) {
+                            return true;
+                        }
                     }
                 }
             }
