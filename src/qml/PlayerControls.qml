@@ -117,7 +117,7 @@ Kirigami.Page {
                         width: root.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
+                            imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
                             anchors.margins: 0
@@ -211,8 +211,8 @@ Kirigami.Page {
                     ListView {
                         id: chapterList
                         model: ChapterModel {
-                            enclosureId: AudioManager.entry.id
-                            enclosurePath: AudioManager.entry.enclosure.path
+                            id: chapterModel
+                            entry: AudioManager.entry ? AudioManager.entry : undefined
                         }
                         clip: true
                         visible: chapterList.count !== 0

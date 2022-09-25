@@ -35,6 +35,11 @@ Item {
         visible: true
     }
 
+    ChapterModel {
+        id: chapterModel
+        entry: AudioManager.entry ?? undefined
+    }
+
     RowLayout {
         id: footerrowlayout
         anchors.fill: parent
@@ -51,7 +56,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: AudioManager.entry.cachedImage
+                    imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
                     Layout.fillHeight: true
                     Layout.preferredWidth: height
                 }

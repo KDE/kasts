@@ -50,7 +50,7 @@ Rectangle {
         spacing: Kirigami.Units.largeSpacing
         ImageWithFallback {
             id: mainImage
-            imageSource: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
+            imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
             height: controlsLayout.height
             width: height
             absoluteRadius: 5
@@ -278,8 +278,8 @@ Rectangle {
         ListView {
             id: chapterList
             model: ChapterModel {
-                enclosureId: AudioManager.entry ? AudioManager.entry.id : ""
-                enclosurePath: AudioManager.entry ? AudioManager.entry.enclosure.path : ""
+                id: chapterModel
+                entry: AudioManager.entry ? AudioManager.entry : undefined
             }
             delegate: ChapterListDelegate {
                 id: chapterDelegate

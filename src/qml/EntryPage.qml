@@ -254,8 +254,7 @@ Kirigami.ScrollablePage {
             Layout.rightMargin: Kirigami.Units.gridUnit
             Layout.bottomMargin: Kirigami.Units.gridUnit
             model: ChapterModel {
-                enclosureId: entry.id
-                enclosurePath: entry.enclosure.path
+                entry: page.entry
             }
             delegate: ChapterListDelegate {
                 entry: page.entry

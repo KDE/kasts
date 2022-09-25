@@ -14,9 +14,8 @@ import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
 
-Kirigami.SwipeListItem {
+Kirigami.BasicListItem {
     id: root
-    alwaysVisibleActions: true
 
     property var entry: undefined
     property var overlay: undefined
@@ -24,41 +23,34 @@ Kirigami.SwipeListItem {
     property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
     property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
 
-    contentItem: ColumnLayout {
-        Controls.Label {
-            Layout.fillWidth: true
-            text: title
-            elide: Text.ElideRight
-        }
-        Controls.Label {
-            Layout.fillWidth: true
-            opacity: 0.7
-            font: Kirigami.Theme.smallFont
-            text: formattedStart
-            elide: Text.ElideRight
-         }
+    text: model.title
+    subtitle: model.formattedStart
+
+    leading: Kirigami.Icon {
+        width: height
+        height: parent.height
+        source: Fetcher.image(model.image.length > 0 ? model.image : root.entry.image)
     }
 
-    actions: [
-        Kirigami.Action {
-            text: i18n("Play")
-            icon.name: streamingButtonVisible ? ":/media-playback-start-cloud" : "media-playback-start"
-            enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
-            onTriggered: {
-                if (!entry.queueStatus) {
-                    entry.queueStatus = true;
-                }
-                if (AudioManager.entry != entry) {
-                    AudioManager.entry = entry;
-                }
-                if (AudioManager.playbackState !== Audio.PlayingState) {
-                    AudioManager.play();
-                }
-                AudioManager.position = start * 1000;
-                if (overlay != undefined) {
-                    overlay.close();
-                }
+    trailing: Controls.ToolButton {
+        icon.name: streamingButtonVisible ? ":/media-playback-start-cloud" : "media-playback-start"
+        text: i18n("Play")
+        enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
+        display: Controls.Button.IconOnly
+        onClicked: {
+            if (!entry.queueStatus) {
+                entry.queueStatus = true;
+            }
+            if (AudioManager.entry != entry) {
+                AudioManager.entry = entry;
+            }
+            if (AudioManager.playbackState !== Audio.PlayingState) {
+                AudioManager.play();
+            }
+            AudioManager.position = start * 1000;
+            if (overlay != undefined) {
+                overlay.close();
             }
         }
-    ]
+    }
 }

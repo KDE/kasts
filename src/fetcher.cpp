@@ -115,6 +115,10 @@ QString Fetcher::image(const QString &url)
         return QLatin1String("no-image");
     }
 
+    if (url.startsWith(QStringLiteral("/"))) {
+        return url;
+    }
+
     // if image is already cached, then return the path
     QString path = StorageManager::instance().imagePath(url);
     if (QFileInfo::exists(path)) {
