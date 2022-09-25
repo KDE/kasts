@@ -27,7 +27,7 @@ class ChapterModel : public QAbstractListModel
 
 public:
     enum RoleNames {
-        Title = Qt::UserRole,
+        Title = Qt::DisplayRole,
         Link,
         Image,
         StartTime,
