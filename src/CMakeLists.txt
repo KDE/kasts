@@ -164,12 +164,10 @@ add_executable(kasts ${SRCS})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia Qt::Svg KF5::Kirigami2 KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver)
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
-        KF5::Kirigami2
-        Qt::Svg
         OpenSSL::SSL
         log
     )
