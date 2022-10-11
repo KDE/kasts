@@ -17,6 +17,7 @@
   <name xml:lang="fr">Kasts</name>
   <name xml:lang="id">Kasts</name>
   <name xml:lang="it">Kasts</name>
+  <name xml:lang="ka">Kasts</name>
   <name xml:lang="ko">Kasts</name>
   <name xml:lang="nl">Kasts</name>
   <name xml:lang="pa">ਕਾਸਟਸ</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="fr">Application de podcasts</summary>
   <summary xml:lang="id">Aplikasi podcast</summary>
   <summary xml:lang="it">Applicazione per podcast</summary>
+  <summary xml:lang="ka">პოდკასტის აპლიკაცია</summary>
   <summary xml:lang="ko">팟캐스트 프로그램</summary>
   <summary xml:lang="nl">Podcastprogramma</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
@@ -64,6 +66,7 @@
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
   <developer_name xml:lang="id">KDE Community</developer_name>
   <developer_name xml:lang="it">La comunità KDE</developer_name>
+  <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
   <developer_name xml:lang="ko">KDE 커뮤니티</developer_name>
   <developer_name xml:lang="nl">De KDE gemeenschap</developer_name>
   <developer_name xml:lang="pa">ਕੇਡੀਈ ਕਮਿਊਨਟੀ</developer_name>
@@ -102,6 +105,7 @@
     <p xml:lang="fr">Ses principales fonctionnalités sont :</p>
     <p xml:lang="id">Fitur utamanya adalah:</p>
     <p xml:lang="it">Le sue funzionalità principali sono:</p>
+    <p xml:lang="ka">მთავარი ფუნქციები:</p>
     <p xml:lang="ko">주 기능:</p>
     <p xml:lang="nl">De hoofdkenmerken zijn:</p>
     <p xml:lang="pt">As suas funcionalidades principais são:</p>
@@ -151,6 +155,7 @@
       <li xml:lang="fr">Vitesse variable de lecture</li>
       <li xml:lang="id">Kecepatan pemutaran variabel</li>
       <li xml:lang="it">Velocità di riproduzione variabile</li>
+      <li xml:lang="ka">დაკვრის ცვლადი სიჩქარე</li>
       <li xml:lang="ko">가변 재생 속도</li>
       <li xml:lang="nl">Variabele afspeelsnelheid</li>
       <li xml:lang="pt">Velocidade de reprodução variável</li>
@@ -167,6 +172,7 @@
       <li xml:lang="fr">Recherche de podcasts</li>
       <li xml:lang="id">Pencarian podcasts</li>
       <li xml:lang="it">Ricerca dei podcast</li>
+      <li xml:lang="ka">პოდკასტების ძებნა</li>
       <li xml:lang="ko">팟캐스트 검색</li>
       <li xml:lang="nl">Zoeken naar podcasts</li>
       <li xml:lang="pt">Procurar por 'podcasts'</li>
@@ -211,6 +217,7 @@
       <caption xml:lang="fr">Kasts sur le bureau</caption>
       <caption xml:lang="id">Kasts di desktop</caption>
       <caption xml:lang="it">Kasts sul desktop</caption>
+      <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე</caption>
       <caption xml:lang="ko">데스크톱에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op het bureaublad</caption>
       <caption xml:lang="pt">Kasts no computador</caption>
@@ -233,6 +240,7 @@
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="id">Kasts di ponsel</caption>
       <caption xml:lang="it">Kasts su un telefono</caption>
+      <caption xml:lang="ka">Kasts ტელეფონზე</caption>
       <caption xml:lang="ko">휴대폰에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op een telefoon</caption>
       <caption xml:lang="pa">ਫ਼ੋਨ ਉੱਤੇ ਕਾਸਟਸ</caption>
