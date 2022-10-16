@@ -7,9 +7,9 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-08 00:50+0000\n"
-"PO-Revision-Date: 2022-06-17 20:24+0300\n"
+"PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language-Team: KDE\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -342,10 +342,9 @@ msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
 
 #: qml/EntryPage.qml:188
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgid "Open Podcast"
-msgstr "Lisää podcast"
+msgstr "Avaa podcast"
 
 #: qml/EntryPage.qml:241
 #, fuzzy, kde-format
@@ -688,7 +687,7 @@ msgstr "Jatka seuraavaan jaksoon, kun nykyinen on kuunneltu"
 #: qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Säädä jäljellä olevaa aikaa nykyisen toistonopeuden mukaan"
 
 #: qml/Settings/GeneralSettingsPage.qml:53
 #, kde-format
@@ -703,7 +702,7 @@ msgstr "Virkistä podcastit automaattisesti käynnistettäessä"
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Päivitä olemassa oleva jaksotieto virkistettäessä (hidas)"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
@@ -741,27 +740,24 @@ msgid "Delete at Next Startup"
 msgstr "Poista käynnistettäessä uudelleen"
 
 #: qml/Settings/GeneralSettingsPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts:"
-msgstr "Lisää uusi podcast"
+msgstr "Lisättäessä uusia podcasteja:"
 
 #: qml/Settings/GeneralSettingsPage.qml:115
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as played"
-msgstr "Merkitse kuuntelemattomaksi"
+msgstr "Merkitse kaikki jaksot kuunnelluiksi"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
-msgstr ""
+msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi:"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Merkitse kuuntelemattomaksi"
+msgstr "Merkitse kaikki jaksot kuuntelemattomiksi"
 
 #: qml/Settings/GeneralSettingsPage.qml:146
 #, kde-format
@@ -982,7 +978,7 @@ msgstr "Salasana:"
 #: qml/Settings/SynchronizationSettingsPage.qml:177
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Käytä mukautettua palvelinta"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:182
 #, kde-format
@@ -1113,25 +1109,22 @@ msgstr "Synkronoi nyt"
 #: qml/Settings/SynchronizationSettingsPage.qml:451
 #, kde-format
 msgid "Advanced Options"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:455
-#, fuzzy, kde-format
-#| msgid "Could not retrieve episode updates from server"
+#, kde-format
 msgid "Fetch all episode states from server"
-msgstr "Ei saatu jaksomuutoksia palvelimelta"
+msgstr "Nouda kaikkien jaksojen tila palvelimelta"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:474
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server"
-msgstr "Ei saatu lähetettyä jaksopäivityksiä palvelimeen"
+msgstr "Lähetä kaikkien paikallisten jaksojen tila palvelimeen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:489
-#, fuzzy, kde-format
-#| msgid "Could not upload episode updates to server"
+#, kde-format
 msgid "Push all local episode states to server?"
-msgstr "Ei saatu lähetettyä jaksopäivityksiä palvelimeen"
+msgstr "Lähetetäänkö kaikkien paikallisten jaksojen tila palvelimeen?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:509
 #, kde-format
@@ -1143,51 +1136,56 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Huomaa, että kaikkien paikallisten jaksojen toistotilan lähettäminen "
+"palvelimeen kestää pitkään ja saattaa ylikuormittaa palvelimen. Toimenpide "
+"myös korvaa kaiken palvelimella jo olevan jaksotiedon.\n"
+"\n"
+"Jatketaanko?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Uniajastin"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Käynnistä"
 
 #: qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Tila: Aktiivinen"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Tila: Passiivinen"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "Aikaa jäljellä: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunnit"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "Minuutit"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "Tunnit"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
