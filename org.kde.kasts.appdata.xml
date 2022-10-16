@@ -36,6 +36,7 @@
   <summary xml:lang="ca-valencia">Aplicació de podcast</summary>
   <summary xml:lang="en-GB">Podcast application</summary>
   <summary xml:lang="es">Aplicación de pódcast</summary>
+  <summary xml:lang="fi">Podcast-sovellus</summary>
   <summary xml:lang="fr">Application de podcasts</summary>
   <summary xml:lang="id">Aplikasi podcast</summary>
   <summary xml:lang="it">Applicazione per podcast</summary>
@@ -86,6 +87,7 @@
     <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé a l'escriptori i al mòbil.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="es">Kasts es una aplicación convergente de pódcast que se ve bien en el escritorio y en dispositivos móviles.</p>
+    <p xml:lang="fi">Kasts on mukautuva podcast-sovellus, joka näyttää hyvältä niin työpöydällä kuin mobiilissa.</p>
     <p xml:lang="fr">Kasts est une application unifiée pour podcast, fonctionnant bien sur ordinateurs et sur mobile.</p>
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
@@ -102,6 +104,7 @@
     <p xml:lang="ca-valencia">Les seues característiques principals són:</p>
     <p xml:lang="en-GB">Its main features are:</p>
     <p xml:lang="es">Sus funcionalidades principales son:</p>
+    <p xml:lang="fi">Sen pääominaisuuksia ovat:</p>
     <p xml:lang="fr">Ses principales fonctionnalités sont :</p>
     <p xml:lang="id">Fitur utamanya adalah:</p>
     <p xml:lang="it">Le sue funzionalità principali sono:</p>
@@ -120,6 +123,7 @@
       <li xml:lang="ca-valencia">Gestió d'episodis a través de la cua de reproducció</li>
       <li xml:lang="en-GB">Episode management through play queue</li>
       <li xml:lang="es">Gestión de episodios mediante cola de reproducción</li>
+      <li xml:lang="fi">Jaksohallinta toistojonon kauta</li>
       <li xml:lang="fr">Gestion des épisodes grâce à une file de lecture</li>
       <li xml:lang="id">Pengelolaan episode melalui antrean putar</li>
       <li xml:lang="it">Gestione degli episodi attraverso la coda di riproduzione</li>
@@ -136,6 +140,7 @@
       <li xml:lang="ca-valencia">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="en-GB">Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
       <li xml:lang="es">Sincronización de posiciones de reproducción con otros clientes mediante gpodder.net o gpodder-nextcloud</li>
+      <li xml:lang="fi">Toistosijainnin tahdistus eri asiakkailla gpodder.netin tai gpodder-nextcloudin avulla</li>
       <li xml:lang="fr">Synchroniser les positions de lecture avec d'autres client, grâce à « gpodder.net » ou « gpodder-nextcloud »</li>
       <li xml:lang="id">Sinkronkan posisi pemutaran dengan klien lain melalui gpodder.net atau gpodder-nextcloud</li>
       <li xml:lang="it">Sincronizza le posizioni di riproduzione con altri client tramite gpodder.net o gpodder-nextcloud</li>
@@ -152,6 +157,7 @@
       <li xml:lang="ca-valencia">Velocitat de reproducció variable</li>
       <li xml:lang="en-GB">Variable playback speed</li>
       <li xml:lang="es">Velocidad de reproducción variable</li>
+      <li xml:lang="fi">Muuntuva toistonopeus</li>
       <li xml:lang="fr">Vitesse variable de lecture</li>
       <li xml:lang="id">Kecepatan pemutaran variabel</li>
       <li xml:lang="it">Velocità di riproduzione variabile</li>
@@ -169,6 +175,7 @@
       <li xml:lang="ca-valencia">Busca de podcast</li>
       <li xml:lang="en-GB">Search for podcasts</li>
       <li xml:lang="es">Búsqueda de pódcast</li>
+      <li xml:lang="fi">Podcast-haku</li>
       <li xml:lang="fr">Recherche de podcasts</li>
       <li xml:lang="id">Pencarian podcasts</li>
       <li xml:lang="it">Ricerca dei podcast</li>
@@ -186,6 +193,7 @@
       <li xml:lang="ca-valencia">Integració completa amb el sistema: p. ex. inhibix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="en-GB">Full system integration: e.g. inhibit system suspend while listening</li>
       <li xml:lang="es">Completa integración con el sistema: por ejemplo, inhibición de la suspensión del sistema cuando se está reproduciendo</li>
+      <li xml:lang="fi">Täysi järjestelmäeheytys, esim. estää järjestelmän lepotilan kuunneltaessa</li>
       <li xml:lang="fr">Intégration totale avec le système : par exemple, inhibition de la mise en veille du système durant la lecture</li>
       <li xml:lang="id">Integrasi sistem penuh: mis. menghambat sistem suspensi saat mendengarkan</li>
       <li xml:lang="it">Integrazione completa del sistema: ad es. inibire la sospensione del sistema durante l'ascolto</li>
@@ -214,6 +222,7 @@
       <caption xml:lang="ca-valencia">Kasts a l'escriptori</caption>
       <caption xml:lang="en-GB">Kasts on the desktop</caption>
       <caption xml:lang="es">Kasts en el escritorio</caption>
+      <caption xml:lang="fi">Kasts työpöydällä</caption>
       <caption xml:lang="fr">Kasts sur le bureau</caption>
       <caption xml:lang="id">Kasts di desktop</caption>
       <caption xml:lang="it">Kasts sul desktop</caption>
