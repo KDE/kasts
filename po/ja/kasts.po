@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-08 00:50+0000\n"
+"POT-Creation-Date: 2022-10-20 00:53+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,7 +24,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:344
+#, kde-format
+msgid "No connection or streaming on metered connection not allowed"
+msgstr ""
+
+#: audiomanager.cpp:481
 #, kde-format
 msgid "Invalid Media"
 msgstr ""
@@ -72,6 +77,11 @@ msgstr ""
 #: error.cpp:60
 #, kde-format
 msgid "Error Syncing Feed and/or Episode Status"
+msgstr ""
+
+#: error.cpp:62
+#, kde-format
+msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr ""
 
 #: main.cpp:104
@@ -181,8 +191,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:118
-#: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:195
+#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:154
+#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"
 msgstr ""
@@ -278,75 +288,83 @@ msgstr ""
 msgid "Open in Browser"
 msgstr ""
 
-#: qml/EntryPage.qml:114 qml/GenericEntryDelegate.qml:279
+#: qml/EntryPage.qml:121 qml/GenericEntryDelegate.qml:292
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr ""
 
-#: qml/EntryPage.qml:115 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:130 qml/GenericEntryDelegate.qml:301
 #, kde-format
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/EntryPage.qml:116 qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:294
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr ""
 
-#: qml/EntryPage.qml:117 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr ""
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:271
+#: qml/EntryPage.qml:163 qml/GenericEntryDelegate.qml:328
+#, kde-format
+msgctxt ""
+"Action to start playback by streaming the episode rather than downloading it "
+"first"
+msgid "Stream"
+msgstr ""
+
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:300
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:168 qml/Settings/GeneralSettingsPage.qml:108
+#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr ""
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr ""
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr ""
 
-#: qml/EntryPage.qml:188
+#: qml/EntryPage.qml:214
 #, kde-format
 msgid "Open Podcast"
 msgstr ""
 
-#: qml/EntryPage.qml:241
+#: qml/EntryPage.qml:267
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr ""
 
-#: qml/EntryPage.qml:247
+#: qml/EntryPage.qml:273
 #, kde-format
 msgid "Link copied"
 msgstr ""
@@ -401,7 +419,7 @@ msgstr ""
 msgid "Error Code: "
 msgstr ""
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:176
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:193
 #, kde-format
 msgid "Show Error Log"
 msgstr ""
@@ -535,17 +553,17 @@ msgid_plural "Remove Podcasts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Played"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Read"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:158
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "New"
 msgstr ""
@@ -670,102 +688,134 @@ msgstr ""
 msgid "Play Settings"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:41
+#: qml/Settings/GeneralSettingsPage.qml:40
 #, kde-format
-msgid "Continue playing next episode after current one finishes"
+msgctxt ""
+"Label for settings related to the play time, e.g. whether the total track "
+"time is shown or a countdown of the remaining play time"
+msgid "Play Time:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:47
+#: qml/Settings/GeneralSettingsPage.qml:42
+#, kde-format
+msgid "Show time left instead of total track time"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:54
+#, kde-format
+msgctxt ""
+"Label for settings related to streaming of episodes (as opposed to playing "
+"back locally downloaded files)"
+msgid "Streaming:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:56
+#, kde-format
+msgid "Prioritize streaming over downloading"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Queue Settings"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:68
+#, kde-format
+msgid "Continue playing next episode after current one finishes"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:73
+#, kde-format
+msgctxt "Label for settings related to podcast updates"
+msgid "Update Settings:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:81
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:70
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "New Episodes:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:72
+#: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgid "Automatically Queue"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:103
 #, kde-format
 msgid "Automatically Download"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Played Episodes:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:97
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:98
+#: qml/Settings/GeneralSettingsPage.qml:115
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:99
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:113
+#: qml/Settings/GeneralSettingsPage.qml:130
 #, kde-format
 msgid "When adding new podcasts:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:115
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:140
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:140
+#: qml/Settings/GeneralSettingsPage.qml:157
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:146
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Article"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Font size:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:164
+#: qml/Settings/GeneralSettingsPage.qml:181
 #, kde-format
 msgid "Use system default"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
 msgid "Errors"
 msgstr ""
@@ -793,6 +843,11 @@ msgstr ""
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "Allow image downloads"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:45
+#, kde-format
+msgid "Allow streaming"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:16

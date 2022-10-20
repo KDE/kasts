@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-08 00:50+0000\n"
+"POT-Creation-Date: 2022-10-20 00:53+0000\n"
 "PO-Revision-Date: 2022-09-09 11:32+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,7 +29,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:344
+#, kde-format
+msgid "No connection or streaming on metered connection not allowed"
+msgstr ""
+
+#: audiomanager.cpp:481
 #, kde-format
 msgid "Invalid Media"
 msgstr "Medio no válido"
@@ -78,6 +83,12 @@ msgstr "Error al mover la ruta de almacenamiento"
 #, kde-format
 msgid "Error Syncing Feed and/or Episode Status"
 msgstr "Error al sincronizar la fuente y/o el estado de los episodios"
+
+#: error.cpp:62
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgstr "Actualizar «No disponible» en conexiones de uso medido"
 
 #: main.cpp:104
 #, kde-format
@@ -186,8 +197,8 @@ msgstr "Episodios"
 msgid "Settings"
 msgstr "Preferencias"
 
-#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:118
-#: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:195
+#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:154
+#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"
 msgstr "Reproducir"
@@ -285,75 +296,83 @@ msgstr "Detalles del episodio"
 msgid "Open in Browser"
 msgstr "Abrir en el navegador"
 
-#: qml/EntryPage.qml:114 qml/GenericEntryDelegate.qml:279
+#: qml/EntryPage.qml:121 qml/GenericEntryDelegate.qml:292
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr "Descargar"
 
-#: qml/EntryPage.qml:115 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:130 qml/GenericEntryDelegate.qml:301
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancelar descarga"
 
-#: qml/EntryPage.qml:116 qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:294
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "Borrar descarga"
 
-#: qml/EntryPage.qml:117 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "Pausar"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:271
+#: qml/EntryPage.qml:163 qml/GenericEntryDelegate.qml:328
+#, kde-format
+msgctxt ""
+"Action to start playback by streaming the episode rather than downloading it "
+"first"
+msgid "Stream"
+msgstr ""
+
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Eliminar de la cola"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:300
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "Añadir a la cola"
 
-#: qml/EntryPage.qml:168 qml/Settings/GeneralSettingsPage.qml:108
+#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Reiniciar la posición de reproducción"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marcar como no reproducido"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marcar como reproducido"
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Eliminar la etiqueta «Nuevo»"
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etiquetar como «Nuevo»"
 
-#: qml/EntryPage.qml:188
+#: qml/EntryPage.qml:214
 #, kde-format
 msgid "Open Podcast"
 msgstr "Abrir pódcast"
 
-#: qml/EntryPage.qml:241
+#: qml/EntryPage.qml:267
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Copiar URL de descarga del episodio"
 
-#: qml/EntryPage.qml:247
+#: qml/EntryPage.qml:273
 #, kde-format
 msgid "Link copied"
 msgstr "Enlace copiado"
@@ -408,7 +427,7 @@ msgstr "No se han registrado errores"
 msgid "Error Code: "
 msgstr "Código de error:"
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:176
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:193
 #, kde-format
 msgid "Show Error Log"
 msgstr "Mostrar el registro de errores"
@@ -542,17 +561,17 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Eliminar pódcast"
 msgstr[1] "Eliminar pódcast"
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Played"
 msgstr "Reproducido"
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Read"
 msgstr "Leer"
 
-#: qml/GenericEntryDelegate.qml:158
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "New"
 msgstr "Nuevo"
@@ -680,103 +699,137 @@ msgstr ""
 msgid "Play Settings"
 msgstr "Preferencias de reproducción"
 
-#: qml/Settings/GeneralSettingsPage.qml:41
-#, kde-format
-msgid "Continue playing next episode after current one finishes"
-msgstr "Reproducir el siguiente episodio cuando termine el actual"
+#: qml/Settings/GeneralSettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Played"
+msgctxt ""
+"Label for settings related to the play time, e.g. whether the total track "
+"time is shown or a countdown of the remaining play time"
+msgid "Play Time:"
+msgstr "Reproducido"
 
-#: qml/Settings/GeneralSettingsPage.qml:47
+#: qml/Settings/GeneralSettingsPage.qml:42
+#, kde-format
+msgid "Show time left instead of total track time"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Ajustar el tiempo restante según la velocidad de reproducción actual"
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:54
+#, kde-format
+msgctxt ""
+"Label for settings related to streaming of episodes (as opposed to playing "
+"back locally downloaded files)"
+msgid "Streaming:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:56
+#, kde-format
+msgid "Prioritize streaming over downloading"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Queue Settings"
 msgstr "Preferencias de la cola"
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:68
+#, kde-format
+msgid "Continue playing next episode after current one finishes"
+msgstr "Reproducir el siguiente episodio cuando termine el actual"
+
+#: qml/Settings/GeneralSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgid "Play Settings"
+msgctxt "Label for settings related to podcast updates"
+msgid "Update Settings:"
+msgstr "Preferencias de reproducción"
+
+#: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Descargar actualizaciones de pódcast durante el inicio"
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:81
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 "Actualizar los datos de los episodios existentes al refrescar (más lento)"
 
-#: qml/Settings/GeneralSettingsPage.qml:70
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "New Episodes:"
 msgstr "Nuevos episodios:"
 
-#: qml/Settings/GeneralSettingsPage.qml:72
+#: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgid "Automatically Queue"
 msgstr "Encolar automáticamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:103
 #, kde-format
 msgid "Automatically Download"
 msgstr "Descargar automáticamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Played Episodes:"
 msgstr "Episodios reproducidos:"
 
-#: qml/Settings/GeneralSettingsPage.qml:97
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Do Not Delete"
 msgstr "No borrar"
 
-#: qml/Settings/GeneralSettingsPage.qml:98
+#: qml/Settings/GeneralSettingsPage.qml:115
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Borrar inmediatamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:99
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Borrar durante el próximo inicio"
 
-#: qml/Settings/GeneralSettingsPage.qml:113
+#: qml/Settings/GeneralSettingsPage.qml:130
 #, kde-format
 msgid "When adding new podcasts:"
 msgstr "Al añadir nuevos pódcast:"
 
-#: qml/Settings/GeneralSettingsPage.qml:115
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Marcar todos los episodios como reproducidos"
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:140
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
 msgstr "Marcar los episodios más recientes como  no reproducidos:"
 
-#: qml/Settings/GeneralSettingsPage.qml:140
+#: qml/Settings/GeneralSettingsPage.qml:157
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Marcar todos los episodios como no reproducidos"
 
-#: qml/Settings/GeneralSettingsPage.qml:146
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Article"
 msgstr "Artículo"
 
-#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Font size:"
 msgstr "Tamaño del texto:"
 
-#: qml/Settings/GeneralSettingsPage.qml:164
+#: qml/Settings/GeneralSettingsPage.qml:181
 #, kde-format
 msgid "Use system default"
 msgstr "Usar el predeterminado del sistema"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
 msgid "Errors"
 msgstr "Errores"
@@ -805,6 +858,11 @@ msgstr "Permitir descarga de episodios"
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Permitir descarga de imágenes"
+
+#: qml/Settings/NetworkSettingsPage.qml:45
+#, kde-format
+msgid "Allow streaming"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-08 00:50+0000\n"
+"POT-Creation-Date: 2022-10-20 00:53+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:344
+#, kde-format
+msgid "No connection or streaming on metered connection not allowed"
+msgstr ""
+
+#: audiomanager.cpp:481
 #, kde-format
 msgid "Invalid Media"
 msgstr "잘못된 미디어"
@@ -76,6 +81,12 @@ msgstr "저장소 경로 이동 중 오류 발생"
 #, kde-format
 msgid "Error Syncing Feed and/or Episode Status"
 msgstr "피드 및 에피소드 상태 동기화 오류"
+
+#: error.cpp:62
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgstr "종량제 연결에서 업데이트가 허용되지 않음"
 
 #: main.cpp:104
 #, kde-format
@@ -184,8 +195,8 @@ msgstr "에피소드"
 msgid "Settings"
 msgstr "설정"
 
-#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:118
-#: qml/GenericEntryDelegate.qml:306 qml/HeaderBar.qml:195
+#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:154
+#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"
 msgstr "재생"
@@ -281,75 +292,83 @@ msgstr "에피소드 자세한 정보"
 msgid "Open in Browser"
 msgstr "브라우저로 열기"
 
-#: qml/EntryPage.qml:114 qml/GenericEntryDelegate.qml:279
+#: qml/EntryPage.qml:121 qml/GenericEntryDelegate.qml:292
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr "다운로드"
 
-#: qml/EntryPage.qml:115 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:130 qml/GenericEntryDelegate.qml:301
 #, kde-format
 msgid "Cancel Download"
 msgstr "다운로드 취소"
 
-#: qml/EntryPage.qml:116 qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:294
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "다운로드 삭제"
 
-#: qml/EntryPage.qml:117 qml/GenericEntryDelegate.qml:315 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "일시 정지"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:271
+#: qml/EntryPage.qml:163 qml/GenericEntryDelegate.qml:328
+#, kde-format
+msgctxt ""
+"Action to start playback by streaming the episode rather than downloading it "
+"first"
+msgid "Stream"
+msgstr ""
+
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:300
+#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/EntryPage.qml:168 qml/Settings/GeneralSettingsPage.qml:108
+#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/EntryPage.qml:181 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
 
-#: qml/EntryPage.qml:188
+#: qml/EntryPage.qml:214
 #, kde-format
 msgid "Open Podcast"
 msgstr "팟캐스트 열기"
 
-#: qml/EntryPage.qml:241
+#: qml/EntryPage.qml:267
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "에피소드 다운로드 URL 복사"
 
-#: qml/EntryPage.qml:247
+#: qml/EntryPage.qml:273
 #, kde-format
 msgid "Link copied"
 msgstr "링크 복사됨"
@@ -404,7 +423,7 @@ msgstr "기록된 오류 없음"
 msgid "Error Code: "
 msgstr "오류 코드: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:176
+#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:193
 #, kde-format
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
@@ -535,17 +554,17 @@ msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "팟캐스트 삭제"
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Played"
 msgstr "재생됨"
 
-#: qml/GenericEntryDelegate.qml:152
+#: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Read"
 msgstr "읽음"
 
-#: qml/GenericEntryDelegate.qml:158
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "New"
 msgstr "새로 만들기"
@@ -667,102 +686,136 @@ msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 msgid "Play Settings"
 msgstr "재생 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:41
-#, kde-format
-msgid "Continue playing next episode after current one finishes"
-msgstr "현재 에피소드 재생이 끝난 후 다음 에피소드 계속 재생"
+#: qml/Settings/GeneralSettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Played"
+msgctxt ""
+"Label for settings related to the play time, e.g. whether the total track "
+"time is shown or a countdown of the remaining play time"
+msgid "Play Time:"
+msgstr "재생됨"
 
-#: qml/Settings/GeneralSettingsPage.qml:47
+#: qml/Settings/GeneralSettingsPage.qml:42
+#, kde-format
+msgid "Show time left instead of total track time"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "현재 재생 속도에 맞춰서 남은 시간 조정"
 
-#: qml/Settings/GeneralSettingsPage.qml:53
+#: qml/Settings/GeneralSettingsPage.qml:54
+#, kde-format
+msgctxt ""
+"Label for settings related to streaming of episodes (as opposed to playing "
+"back locally downloaded files)"
+msgid "Streaming:"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:56
+#, kde-format
+msgid "Prioritize streaming over downloading"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Queue Settings"
 msgstr "대기열 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:59
+#: qml/Settings/GeneralSettingsPage.qml:68
+#, kde-format
+msgid "Continue playing next episode after current one finishes"
+msgstr "현재 에피소드 재생이 끝난 후 다음 에피소드 계속 재생"
+
+#: qml/Settings/GeneralSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgid "Play Settings"
+msgctxt "Label for settings related to podcast updates"
+msgid "Update Settings:"
+msgstr "재생 설정"
+
+#: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "시작할 때 자동으로 팟캐스트 가져오기"
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:81
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "새로 고칠 때 기존 에피소드 데이터 업데이트(느림)"
 
-#: qml/Settings/GeneralSettingsPage.qml:70
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "New Episodes:"
 msgstr "새 에피소드:"
 
-#: qml/Settings/GeneralSettingsPage.qml:72
+#: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgid "Automatically Queue"
 msgstr "자동으로 대기열에 추가"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:103
 #, kde-format
 msgid "Automatically Download"
 msgstr "자동으로 다운로드"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Played Episodes:"
 msgstr "재생한 에피소드:"
 
-#: qml/Settings/GeneralSettingsPage.qml:97
+#: qml/Settings/GeneralSettingsPage.qml:114
 #, kde-format
 msgid "Do Not Delete"
 msgstr "삭제 안 함"
 
-#: qml/Settings/GeneralSettingsPage.qml:98
+#: qml/Settings/GeneralSettingsPage.qml:115
 #, kde-format
 msgid "Delete Immediately"
 msgstr "즉시 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:99
+#: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "다음에 시작할 때 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:113
+#: qml/Settings/GeneralSettingsPage.qml:130
 #, kde-format
 msgid "When adding new podcasts:"
 msgstr "새 팟캐스트를 추가할 때:"
 
-#: qml/Settings/GeneralSettingsPage.qml:115
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "모든 에피소드를 재생한 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:140
 #, kde-format
 msgid "Mark most recent episodes as unplayed:"
 msgstr "최근 에피소드를 재생하지 않은 것으로 표시:"
 
-#: qml/Settings/GeneralSettingsPage.qml:140
+#: qml/Settings/GeneralSettingsPage.qml:157
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "모든 에피소드를 재생하지 않은 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:146
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Article"
 msgstr "글"
 
-#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:164
+#: qml/Settings/GeneralSettingsPage.qml:181
 #, kde-format
 msgid "Use system default"
 msgstr "시스템 기본값 사용"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
 msgid "Errors"
 msgstr "오류"
@@ -791,6 +844,11 @@ msgstr "에피소드 다운로드 허용"
 #, kde-format
 msgid "Allow image downloads"
 msgstr "그림 다운로드 허용"
+
+#: qml/Settings/NetworkSettingsPage.qml:45
+#, kde-format
+msgid "Allow streaming"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
