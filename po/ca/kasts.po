@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-09-08 10:16+0200\n"
+"PO-Revision-Date: 2022-10-20 14:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -34,6 +34,8 @@ msgstr "antonibella5@yahoo.com"
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
+"No hi ha connexió o no es permet la transmissió en continu amb una connexió "
+"d'ús mesurat"
 
 #: audiomanager.cpp:481
 #, kde-format
@@ -87,10 +89,11 @@ msgid "Error Syncing Feed and/or Episode Status"
 msgstr "Error de sincronització en l'estat de la font i/o de l'episodi"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Actualització no permesa amb la connexió d'ús mesurat"
+msgstr ""
+"No hi ha connexió o no es permet la transmissió en continu amb una connexió "
+"d'ús mesurat"
 
 #: main.cpp:104
 #, kde-format
@@ -323,7 +326,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Transmissió en continu"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -697,18 +700,17 @@ msgid "Play Settings"
 msgstr "Configuració de la reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Reproduït"
+msgstr "Temps de reproducció:"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Mostra el temps restant en lloc del temps total de la pista"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -722,12 +724,12 @@ msgctxt ""
 "Label for settings related to streaming of episodes (as opposed to playing "
 "back locally downloaded files)"
 msgid "Streaming:"
-msgstr ""
+msgstr "Transmissió en continu:"
 
 #: qml/Settings/GeneralSettingsPage.qml:56
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Prioritza la transmissió en continu sobre la baixada"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -740,11 +742,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Continua reproduint el capítol següent una vegada finalitzi l'actual"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Configuració de la reproducció"
+msgstr "Configuració de l'actualització:"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -859,7 +860,7 @@ msgstr "Permet les baixades d'imatges"
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Permet la transmissió en continu"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format

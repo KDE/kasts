@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-09-08 10:08+0200\n"
+"PO-Revision-Date: 2022-10-20 10:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,7 +30,7 @@ msgstr "freekdekruijf@kde.nl"
 #: audiomanager.cpp:344
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+msgstr "Geen verbinding of streaming op bemeterde verbinding toegestaan"
 
 #: audiomanager.cpp:481
 #, kde-format
@@ -84,10 +84,9 @@ msgid "Error Syncing Feed and/or Episode Status"
 msgstr "Fout bij synchroniseren van feed en/of status van episode"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Bijwerken is niet toegestaan op bemeterde verbinding"
+msgstr "Geen verbinding of streaming niet toegestaan op bemeterde verbinding"
 
 #: main.cpp:104
 #, kde-format
@@ -320,7 +319,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Stream"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -694,18 +693,17 @@ msgid "Play Settings"
 msgstr "Afspeelinstellingen"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Afgespeeld"
+msgstr "Afspeeltijd:"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Resterende tijd tonen in plaats van tijdduur track"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -718,12 +716,12 @@ msgctxt ""
 "Label for settings related to streaming of episodes (as opposed to playing "
 "back locally downloaded files)"
 msgid "Streaming:"
-msgstr ""
+msgstr "Streaming:"
 
 #: qml/Settings/GeneralSettingsPage.qml:56
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Streaming prioriteit geven boven downloaden"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -736,11 +734,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Doorgaan met afspelen van de volgende episode nadat de huidige eindigt"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Afspeelinstellingen"
+msgstr "Instellingen bijwerken:"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -855,7 +852,7 @@ msgstr "Downloaden van afbeeldingen is toegestaan"
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Streaming toestaan"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-09-09 11:32+0200\n"
+"PO-Revision-Date: 2022-10-20 18:31+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -323,7 +323,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Emisión"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -700,18 +700,17 @@ msgid "Play Settings"
 msgstr "Preferencias de reproducción"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Reproducido"
+msgstr "Tiempo de reproducción:"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Mostrar el tiempo que queda en lugar del tiempo total de la pista"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -724,12 +723,12 @@ msgctxt ""
 "Label for settings related to streaming of episodes (as opposed to playing "
 "back locally downloaded files)"
 msgid "Streaming:"
-msgstr ""
+msgstr "Emisión:"
 
 #: qml/Settings/GeneralSettingsPage.qml:56
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Priorizar la emisión sobre la descarga"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -742,11 +741,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Reproducir el siguiente episodio cuando termine el actual"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Preferencias de reproducción"
+msgstr "Preferencias de actualización:"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -862,7 +860,7 @@ msgstr "Permitir descarga de imágenes"
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Permitir emisión"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
