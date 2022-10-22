@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-09-09 17:50+0200\n"
+"PO-Revision-Date: 2022-10-21 07:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,6 +28,8 @@ msgstr "xavier.besnard@neuf.fr"
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
+"Aucune connexion ou lecture en flux n'est autorisée sur une connexion "
+"facturée."
 
 #: audiomanager.cpp:481
 #, kde-format
@@ -84,10 +86,11 @@ msgstr ""
 "épisodes"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Les mises à jour ne sont pas autorisées avec une connexion facturée"
+msgstr ""
+"Aucune connexion ou lecture en flux n'est autorisée sur une connexion "
+"facturée."
 
 #: main.cpp:104
 #, kde-format
@@ -322,7 +325,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Flux"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -698,18 +701,17 @@ msgid "Play Settings"
 msgstr "Configuration de lecture"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Écouté"
+msgstr "Durée de lecture :"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Afficher la durée à gauche plutôt que le temps total de la piste"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -722,12 +724,12 @@ msgctxt ""
 "Label for settings related to streaming of episodes (as opposed to playing "
 "back locally downloaded files)"
 msgid "Streaming:"
-msgstr ""
+msgstr "Lecture en flux :"
 
 #: qml/Settings/GeneralSettingsPage.qml:56
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Prioriser la lecture en flux par rapport au téléchargement"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -740,11 +742,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Continuer à lire l'épisode suivant à la fin de celui en cours"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Configuration de lecture"
+msgstr "Paramètres de mise à jour :"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -861,7 +862,7 @@ msgstr "Autoriser les téléchargements d'images"
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Autoriser la lecture en flux"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format

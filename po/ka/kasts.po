@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-10-10 09:24+0200\n"
+"PO-Revision-Date: 2022-10-21 06:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -51,12 +51,12 @@ msgstr "%1-ის გადმოწერა"
 #: error.cpp:48
 #, kde-format
 msgid "Podcast Update Error"
-msgstr ""
+msgstr "პოდკასტის განახლების შეცდომა"
 
 #: error.cpp:50
 #, kde-format
 msgid "Media Download Error"
-msgstr ""
+msgstr "მედიის გადმოწერის შეცდომა"
 
 #: error.cpp:52
 #, kde-format
@@ -66,7 +66,7 @@ msgstr ""
 #: error.cpp:54
 #, kde-format
 msgid "Invalid Media File"
-msgstr ""
+msgstr "არასწორი მედია ფაილი"
 
 #: error.cpp:56
 #, kde-format
@@ -76,7 +76,7 @@ msgstr "ვერაფერი მოიძებნა"
 #: error.cpp:58
 #, kde-format
 msgid "Error moving storage path"
-msgstr ""
+msgstr "საცავის ბილიკის გადატანის შეცდომა"
 
 #: error.cpp:60
 #, kde-format
@@ -96,12 +96,12 @@ msgstr "პოდკასტის აპლიკაცია"
 #: main.cpp:106
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr ""
+msgstr "გამოწერისთვის ახალი პოდკასტის დამატება."
 
 #: main.cpp:107
 #, kde-format
 msgid "Podcast URL"
-msgstr ""
+msgstr "პოდკასტის URL"
 
 #: main.cpp:112
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "Kasts"
 #: main.cpp:114
 #, kde-format
 msgid "Podcast Player"
-msgstr ""
+msgstr "პოდკასტის დამკვრელი"
 
 #: main.cpp:116
 #, kde-format
@@ -126,7 +126,7 @@ msgstr "Tobias Fella"
 #: main.cpp:118
 #, kde-format
 msgid "Bart De Vries"
-msgstr ""
+msgstr "Bart De Vries"
 
 #: models/episodeproxymodel.cpp:86
 #, kde-format
@@ -136,33 +136,33 @@ msgstr "ფილტრის გარეშე"
 #: models/episodeproxymodel.cpp:88
 #, kde-format
 msgid "Played Episodes"
-msgstr ""
+msgstr "დაკრული ეპიზოდები"
 
 #: models/episodeproxymodel.cpp:90
 #, kde-format
 msgid "Unplayed Episodes"
-msgstr ""
+msgstr "დაუკრავი ეპიზოდები"
 
 #: models/episodeproxymodel.cpp:92
 #, kde-format
 msgid "Episodes marked as \"New\""
-msgstr ""
+msgstr "ეპიზოდები, მონიშნულები, როგორც \"ახალი\""
 
 #: models/episodeproxymodel.cpp:94
 #, kde-format
 msgid "Episodes not marked as \"New\""
-msgstr ""
+msgstr "ეპიზოდები, არ მონიშნულები, როგორც \"ახალი\""
 
 #: powermanagementinterface.cpp:188 powermanagementinterface.cpp:214
 #, kde-format
 msgctxt "Explanation for sleep inhibit during play of music"
 msgid "Playing Music"
-msgstr ""
+msgstr "მუსიკის დაკვრა"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr ""
+msgstr "ახალი პოდკასტის დამატება"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "Url:"
 #: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
 #, kde-format
 msgid "Add Podcast"
-msgstr ""
+msgstr "პოდკასტის დამატება"
 
 #: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
 #, kde-format
@@ -234,7 +234,7 @@ msgstr "აღმოაჩინეთ"
 #: qml/DiscoverPage.qml:23
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr ""
+msgstr "Podcastindex.org-ზე ძებნა"
 
 #: qml/DiscoverPage.qml:32
 #, kde-format
@@ -260,7 +260,7 @@ msgstr "გადმოწერები"
 #: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr ""
+msgstr "ყველა პოდკასტის განახლება"
 
 #: qml/DownloadListPage.qml:43
 #, kde-format
@@ -319,7 +319,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "ნაკადი"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -341,27 +341,27 @@ msgstr ""
 #: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
-msgstr ""
+msgstr "დაუკრავად მონიშვნა"
 
 #: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
-msgstr ""
+msgstr "დაკრულად მონიშვნა"
 
 #: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
-msgstr ""
+msgstr "\"ახალი\" ჭდის მოხსნა"
 
 #: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
-msgstr ""
+msgstr "\"ახალი\" ჭდის დასმა"
 
 #: qml/EntryPage.qml:214
 #, kde-format
 msgid "Open Podcast"
-msgstr ""
+msgstr "პოდკასტის გახსნა"
 
 #: qml/EntryPage.qml:267
 #, kde-format
@@ -376,7 +376,7 @@ msgstr "ბმული დაკოპირებულია"
 #: qml/EpisodeListPage.qml:18
 #, kde-format
 msgid "Episode List"
-msgstr ""
+msgstr "ეპიზოდების სია"
 
 #: qml/EpisodeListPage.qml:39
 #, kde-format
@@ -386,12 +386,12 @@ msgstr "ფილტრი"
 #: qml/EpisodeListPage.qml:53
 #, kde-format
 msgid "Select Filter"
-msgstr ""
+msgstr "აირჩიეთ ფილტრი"
 
 #: qml/EpisodeListPage.qml:102
 #, kde-format
 msgid "Filter Active: "
-msgstr ""
+msgstr "აქტიური ფილტრი: "
 
 #: qml/EpisodeListPage.qml:110
 #, kde-format
@@ -401,7 +401,7 @@ msgstr "საწყის მნიშვნელობაზე დაბრ�
 #: qml/EpisodeListPage.qml:126 qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "No Episodes Available"
-msgstr ""
+msgstr "ეპიზოდების გარეშე"
 
 #: qml/ErrorListOverlay.qml:23
 #, kde-format
@@ -411,22 +411,22 @@ msgstr "შეცდომების ჟურნალი"
 #: qml/ErrorListOverlay.qml:27
 #, kde-format
 msgid "Clear All Errors"
-msgstr ""
+msgstr "ყველა შეცდომის გასუფთავება"
 
 #: qml/ErrorListOverlay.qml:44
 #, kde-format
 msgid "No Errors Logged"
-msgstr ""
+msgstr "ჟურნალში შეცდომები არაა"
 
 #: qml/ErrorListOverlay.qml:78
 #, kde-format
 msgid "Error Code: "
-msgstr ""
+msgstr "შეცდომის კოდი: "
 
 #: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:193
 #, kde-format
 msgid "Show Error Log"
-msgstr ""
+msgstr "შეცდომების ჟურნალის ჩვენება"
 
 #: qml/FeedDetailsPage.qml:25 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:283
@@ -458,7 +458,7 @@ msgstr ""
 #: qml/FeedDetailsPage.qml:243
 #, kde-format
 msgid "Weblink:"
-msgstr ""
+msgstr "ვებ ბმული:"
 
 #: qml/FeedDetailsPage.qml:269
 #, kde-format
@@ -474,15 +474,15 @@ msgstr ""
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ეპიზოდი"
+msgstr[1] "%1 ეპიზოდი"
 
 #: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 დაუკრავი"
+msgstr[1] "%1 დაუკრავი"
 
 #: qml/FeedDetailsPage.qml:317
 #, kde-format
@@ -492,17 +492,17 @@ msgstr "შეცდომა (%1): %2"
 #: qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Remove Podcast"
-msgstr ""
+msgstr "პოდკასტის წაშლა"
 
 #: qml/FeedListPage.qml:58
 #, kde-format
 msgid "Import Podcasts..."
-msgstr ""
+msgstr "პოდკასტების შემოტანა..."
 
 #: qml/FeedListPage.qml:64
 #, kde-format
 msgid "Export Podcasts..."
-msgstr ""
+msgstr "პოდკასტების გატანა..."
 
 #: qml/FeedListPage.qml:89
 #, kde-format
@@ -512,12 +512,12 @@ msgstr ""
 #: qml/FeedListPage.qml:94
 #, kde-format
 msgid "Import Podcasts"
-msgstr ""
+msgstr "პოდკასტების შემოტანა"
 
 #: qml/FeedListPage.qml:96
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "ყველა ფაილი (*)"
 
 #: qml/FeedListPage.qml:96
 #, kde-format
@@ -532,7 +532,7 @@ msgstr "OPML ფაილები (*.opml)"
 #: qml/FeedListPage.qml:102
 #, kde-format
 msgid "Export Podcasts"
-msgstr ""
+msgstr "პოდკასტების გატანა"
 
 #: qml/FeedListPage.qml:104
 #, kde-format
@@ -554,8 +554,8 @@ msgstr "მონიშვნის მოხსნა"
 msgctxt "context menu action"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "პოდკასტის წაშლა"
+msgstr[1] "პოდკასტების წაშლა"
 
 #: qml/GenericEntryDelegate.qml:165
 #, kde-format
@@ -645,7 +645,7 @@ msgstr ""
 #: qml/PlayerControls.qml:148
 #, kde-format
 msgid "No Title"
-msgstr ""
+msgstr "სათაურის გარეშე"
 
 #: qml/PlayerControls.qml:155
 #, kde-format
@@ -690,7 +690,7 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:35
 #, kde-format
 msgid "Play Settings"
-msgstr ""
+msgstr "დაკვრის მორგება"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
 #, kde-format
@@ -698,7 +698,7 @@ msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr ""
+msgstr "დაკვრის დრო:"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
@@ -734,11 +734,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "მორგება"
+msgstr "განახლების პარამეტრები:"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
