@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-10-19 13:23\n"
+"PO-Revision-Date: 2022-10-22 05:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -85,10 +85,9 @@ msgid "Error Syncing Feed and/or Episode Status"
 msgstr "同步订阅源和/或单集状态时出错"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "使用计费连接时不允许更新"
+msgstr ""
 
 #: main.cpp:104
 #, kde-format
@@ -689,13 +688,12 @@ msgid "Play Settings"
 msgstr "播放设置"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "已播放"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
@@ -731,11 +729,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "当前剧集播放完成后，继续播放下一剧集"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "播放设置"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
