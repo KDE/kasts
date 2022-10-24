@@ -11,3 +11,6 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/threadweaver': '@stable'
+
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]
