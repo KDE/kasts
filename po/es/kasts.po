@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-10-20 18:31+0200\n"
+"PO-Revision-Date: 2022-10-26 01:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -32,7 +32,7 @@ msgstr "ecuadra@eloihr.net"
 #: audiomanager.cpp:344
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+msgstr "No hay conexión o no se permite emitir en conexiones de uso medido"
 
 #: audiomanager.cpp:481
 #, kde-format
@@ -85,10 +85,9 @@ msgid "Error Syncing Feed and/or Episode Status"
 msgstr "Error al sincronizar la fuente y/o el estado de los episodios"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Actualizar «No disponible» en conexiones de uso medido"
+msgstr "No hay conexión o no se permite emitir en conexiones de uso medido"
 
 #: main.cpp:104
 #, kde-format
