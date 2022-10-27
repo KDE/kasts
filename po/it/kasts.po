@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:53+0000\n"
-"PO-Revision-Date: 2022-09-09 18:33+0200\n"
+"PO-Revision-Date: 2022-10-22 15:33+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,6 +31,7 @@ msgstr "smart2128vr@gmail.com"
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
+"Nessuna connessione o trasmissione non consentita sulla connessione a consumo"
 
 #: audiomanager.cpp:481
 #, kde-format
@@ -86,10 +87,10 @@ msgstr ""
 "Errore durante la sincronizzazione della fonte e/o dello stato dell'episodio"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Aggiornamento non consentito su connessione a consumo"
+msgstr ""
+"Nessuna connessione o trasmissione non consentita sulla connessione a consumo"
 
 #: main.cpp:104
 #, kde-format
@@ -324,7 +325,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Trasmetti"
 
 #: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
@@ -700,18 +701,17 @@ msgid "Play Settings"
 msgstr "Impostazioni di riproduzione"
 
 #: qml/Settings/GeneralSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Riprodotto"
+msgstr "Tempo di riproduzione:"
 
 #: qml/Settings/GeneralSettingsPage.qml:42
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Mostra il tempo rimasto invece del tempo totale della traccia"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -725,12 +725,12 @@ msgctxt ""
 "Label for settings related to streaming of episodes (as opposed to playing "
 "back locally downloaded files)"
 msgid "Streaming:"
-msgstr ""
+msgstr "Trasmissione:"
 
 #: qml/Settings/GeneralSettingsPage.qml:56
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Dai la priorità allo trasmissione rispetto allo scaricamento"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -744,11 +744,10 @@ msgstr ""
 "Continua a riprodurre il prossimo episodio al termine di quello attuale"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Impostazioni di riproduzione"
+msgstr "Aggiorna impostazioni:"
 
 #: qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -863,7 +862,7 @@ msgstr "Consenti gli scaricamenti delle immagini"
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Consenti la trasmissione"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
