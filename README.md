@@ -8,6 +8,10 @@ Kasts is a convergent podcast application.
 
 Nightly Android APKs are available at [KDE's Binary Factory](https://binary-factory.kde.org/view/Android/job/Kasts_Nightly_android-arm64/).
 
+# Bug reports
+
+Please don't use gitlab issues for reporting bugs, instead report them [here](https://bugs.kde.org/enter_bug.cgi?format=guided&product=kasts).
+
 # Building
 
 Note: When using versions of Kasts built from git-master, it's possible that the database format or the name of downloaded files change from one version to another without the necessary migrations to handle it. If you notice bugs after upgrading to a git-master version, export your feeds, delete `~/.local/share/KDE/kasts` and import the feeds again.
