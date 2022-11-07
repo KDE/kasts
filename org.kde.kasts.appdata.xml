@@ -84,7 +84,7 @@
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de podcast que funciona bé a l'escriptori i al mòbil.</p>
-    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé a l'escriptori i al mòbil.</p>
+    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé en l'escriptori i al mòbil.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="es">Kasts es una aplicación convergente de pódcast que se ve bien en el escritorio y en dispositivos móviles.</p>
     <p xml:lang="fi">Kasts on mukautuva podcast-sovellus, joka näyttää hyvältä niin työpöydällä kuin mobiilissa.</p>
@@ -219,7 +219,7 @@
     <screenshot type="default">
       <caption>Kasts on the desktop</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori</caption>
-      <caption xml:lang="ca-valencia">Kasts a l'escriptori</caption>
+      <caption xml:lang="ca-valencia">Kasts en l'escriptori</caption>
       <caption xml:lang="en-GB">Kasts on the desktop</caption>
       <caption xml:lang="es">Kasts en el escritorio</caption>
       <caption xml:lang="fi">Kasts työpöydällä</caption>
