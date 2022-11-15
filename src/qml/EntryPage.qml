@@ -161,9 +161,12 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
-                        visible: entry.enclosure && entry.queueStatus && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+                        visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
                         icon.name: ":/media-playback-start-cloud"
                         onTriggered: {
+                            if (!entry.queueStatus) {
+                                entry.queueStatus = true;
+                            }
                             AudioManager.entry = entry;
                             AudioManager.play()
                         }
@@ -174,7 +177,7 @@ Kirigami.ScrollablePage {
                         visible: entry.enclosure || entry.queueStatus
                         onTriggered: {
                             if(!entry.queueStatus) {
-                                entry.queueStatus = true
+                                entry.queueStatus = true;
                             } else {
                                 // first change to next track if this one is playing
                                 if (entry.hasEnclosure && entry === AudioManager.entry) {

@@ -29,12 +29,12 @@ Kirigami.SwipeListItem {
     property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && SettingsManager.prioritizeStreaming && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && !streamingAllowed && !(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
     property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
     property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
-    property bool showStreamingPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
     property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
 
 
@@ -320,8 +320,8 @@ Kirigami.SwipeListItem {
             icon.name: "media-playback-start"
             visible: showPlayButton
             onTriggered: {
-                AudioManager.entry = entry
-                AudioManager.play()
+                AudioManager.entry = entry;
+                AudioManager.play();
             }
         },
         Kirigami.Action {
@@ -329,8 +329,11 @@ Kirigami.SwipeListItem {
             icon.name: ":/media-playback-start-cloud"
             visible: showStreamingPlayButton
             onTriggered: {
-                AudioManager.entry = entry
-                AudioManager.play()
+                if (!entry.queueStatus) {
+                    entry.queueStatus = true;
+                }
+                AudioManager.entry = entry;
+                AudioManager.play();
             }
         },
         Kirigami.Action {
