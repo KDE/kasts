@@ -584,13 +584,10 @@ void DataManager::loadEntry(const QString id) const
 
 bool DataManager::feedExists(const QString &url)
 {
-    // Try to account for some common cases where the URL is different but is
-    // actually pointing to the same data.  Currently covering:
-    // - http vs https
-    // - encoded vs non-encoded URLs
-    QString cleanUrl = QUrl(url).authority() + QUrl(url).path(QUrl::FullyDecoded);
+    // using cleanUrl to do "fuzzy" check on the podcast URL
+    QString cleanedUrl = cleanUrl(url);
     for (QString listUrl : m_feedmap) {
-        if (cleanUrl == (QUrl(listUrl).authority() + QUrl(listUrl).path(QUrl::FullyDecoded))) {
+        if (cleanedUrl == cleanUrl(listUrl)) {
             return true;
         }
     }
@@ -721,4 +718,15 @@ QStringList DataManager::getIdsFromModelIndexList(const QModelIndexList &list) c
     }
     qCDebug(kastsDataManager) << "Ids of selection:" << ids;
     return ids;
+}
+
+QString DataManager::cleanUrl(const QString &url)
+{
+    // this is a method to create a "canonical" version of a podcast url which
+    // would account for some common cases where the URL is different but is
+    // actually pointing to the same data.  Currently covering:
+    // - http vs https (scheme is actually removed altogether!)
+    // - encoded vs non-encoded URLs
+    return QUrl(url).authority() + QUrl(url).path(QUrl::FullyDecoded)
+        + (QUrl(url).hasQuery() ? QStringLiteral("?") + QUrl(url).query(QUrl::FullyDecoded) : QStringLiteral(""));
 }

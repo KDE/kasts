@@ -102,6 +102,8 @@ private:
     void loadEntry(QString id) const;
     void updateQueueListnrs() const;
 
+    QString cleanUrl(const QString &url);
+
     QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
 
     mutable QHash<QString, Feed *> m_feeds; // hash of pointers to all feeds in db, key = url (lazy loading)
