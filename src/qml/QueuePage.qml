@@ -15,7 +15,7 @@ import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
     id: queuepage
-    title: i18n("Queue")
+    title: i18nc("@title:column Page showing the list queued items", "Queue")
 
     property var lastEntry: ""
     property string pageName: "queuepage"
@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
 
     actions.main: Kirigami.Action {
         iconName: "view-refresh"
-        text: i18n("Refresh All Podcasts")
+        text: i18nc("@action:intoolbar", "Refresh All Podcasts")
         onTriggered: refreshing = true
     }
 
@@ -43,7 +43,7 @@ Kirigami.ScrollablePage {
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
 
-        text: i18n("Nothing Added to the Queue Yet")
+        text: i18nc("@info", "Queue is empty")
     }
 
     Component {
@@ -66,7 +66,7 @@ Kirigami.ScrollablePage {
             Controls.Label {
                 Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
-                text: i18np("1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18n("Time Left") + ": " + queueModel.formattedTimeLeft
+                text: i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
             }
             Kirigami.Separator {
                 Layout.fillWidth: true
