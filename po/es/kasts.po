@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:53+0000\n"
+"POT-Creation-Date: 2022-11-16 00:49+0000\n"
 "PO-Revision-Date: 2022-10-26 01:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -306,12 +306,12 @@ msgstr "Descargar"
 msgid "Cancel Download"
 msgstr "Cancelar descarga"
 
-#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:191 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "Borrar descarga"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "Pausar"
@@ -324,54 +324,54 @@ msgctxt ""
 msgid "Stream"
 msgstr "Emisión"
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Eliminar de la cola"
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "Añadir a la cola"
 
-#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
+#: qml/EntryPage.qml:197 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Reiniciar la posición de reproducción"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marcar como no reproducido"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marcar como reproducido"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Eliminar la etiqueta «Nuevo»"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etiquetar como «Nuevo»"
 
-#: qml/EntryPage.qml:214
+#: qml/EntryPage.qml:217
 #, kde-format
 msgid "Open Podcast"
 msgstr "Abrir pódcast"
 
-#: qml/EntryPage.qml:267
+#: qml/EntryPage.qml:270
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Copiar URL de descarga del episodio"
 
-#: qml/EntryPage.qml:273
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr "Enlace copiado"

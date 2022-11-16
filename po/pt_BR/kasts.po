@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:53+0000\n"
+"POT-Creation-Date: 2022-11-16 00:49+0000\n"
 "PO-Revision-Date: 2021-06-04 15:07-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -308,12 +308,12 @@ msgstr ""
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:191 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr ""
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr ""
@@ -326,56 +326,56 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
+#: qml/EntryPage.qml:197 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr ""
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr ""
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr ""
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr ""
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr ""
 
-#: qml/EntryPage.qml:214
+#: qml/EntryPage.qml:217
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgid "Open Podcast"
 msgstr "Adicionar podcast"
 
-#: qml/EntryPage.qml:267
+#: qml/EntryPage.qml:270
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Copy Episode Download URL"
 msgstr "Downloads"
 
-#: qml/EntryPage.qml:273
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr ""

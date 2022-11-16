@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:53+0000\n"
+"POT-Creation-Date: 2022-11-16 00:49+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -303,12 +303,12 @@ msgstr "다운로드"
 msgid "Cancel Download"
 msgstr "다운로드 취소"
 
-#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:191 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "다운로드 삭제"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "일시 정지"
@@ -321,54 +321,54 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
+#: qml/EntryPage.qml:197 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
 
-#: qml/EntryPage.qml:214
+#: qml/EntryPage.qml:217
 #, kde-format
 msgid "Open Podcast"
 msgstr "팟캐스트 열기"
 
-#: qml/EntryPage.qml:267
+#: qml/EntryPage.qml:270
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "에피소드 다운로드 URL 복사"
 
-#: qml/EntryPage.qml:273
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr "링크 복사됨"

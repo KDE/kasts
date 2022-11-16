@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:53+0000\n"
+"POT-Creation-Date: 2022-11-16 00:49+0000\n"
 "PO-Revision-Date: 2022-10-20 16:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -309,12 +309,12 @@ msgstr "Отримати"
 msgid "Cancel Download"
 msgstr "Скасувати отримання"
 
-#: qml/EntryPage.qml:138 qml/EntryPage.qml:188 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:138 qml/EntryPage.qml:191 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "Вилучити отримані дані"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:337 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Pause"
 msgstr "Призупинити"
@@ -327,54 +327,54 @@ msgctxt ""
 msgid "Stream"
 msgstr "Трансляція"
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Вилучити з черги"
 
-#: qml/EntryPage.qml:172 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "Додати до черги відтворення"
 
-#: qml/EntryPage.qml:194 qml/Settings/GeneralSettingsPage.qml:125
+#: qml/EntryPage.qml:197 qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Скинути позицію відтворення"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Позначити як невідтворене"
 
-#: qml/EntryPage.qml:200 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "Позначити як відтворене"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Вилучити мітку «Нова»"
 
-#: qml/EntryPage.qml:207 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Позначити як «Нова»"
 
-#: qml/EntryPage.qml:214
+#: qml/EntryPage.qml:217
 #, kde-format
 msgid "Open Podcast"
 msgstr "Відкрити трансляцію"
 
-#: qml/EntryPage.qml:267
+#: qml/EntryPage.qml:270
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Копіювати адресу отримання епізоду"
 
-#: qml/EntryPage.qml:273
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr "Посилання скопійовано"
