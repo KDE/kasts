@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-10-21 06:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -174,7 +174,7 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "პოდკასტის დამატება"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "რიგი"
@@ -257,7 +257,7 @@ msgid "Downloads"
 msgstr "გადმოწერები"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
@@ -470,7 +470,7 @@ msgstr "გამოწერის საწყისი დრო: %1"
 msgid "Last Updated: %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -657,13 +657,39 @@ msgstr ""
 msgid "No chapters found."
 msgstr ""
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "რიგი"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "ყველა პოდკასტის განახლება"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
+msgctxt "@info"
+msgid "Queue is empty"
 msgstr ""
 
 #: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "1 ეპიზოდი"
+msgstr[1] "%1 ეპიზოდი"
+
+#: qml/QueuePage.qml:69
 #, kde-format
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr ""
 

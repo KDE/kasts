@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -174,7 +174,7 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "팟캐스트 추가"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "대기열에 추가"
@@ -257,7 +257,7 @@ msgid "Downloads"
 msgstr "다운로드"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "모든 팟캐스트 새로 고침"
@@ -470,7 +470,7 @@ msgstr "구독 시작: %1"
 msgid "Last Updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -651,13 +651,39 @@ msgstr "팟캐스트 재생기"
 msgid "No chapters found."
 msgstr "챕터를 찾을 수 없습니다."
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "대기열에 추가"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "모든 팟캐스트 새로 고침"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
-msgstr "대기열에 추가한 항목 없음"
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/QueuePage.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "에피소드 %1개"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "Time Left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "남은 시간"
 
@@ -1417,6 +1443,9 @@ msgstr "동기화 중단됨"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "동기화 완료됨, 오류 발생"
+
+#~ msgid "Nothing Added to the Queue Yet"
+#~ msgstr "대기열에 추가한 항목 없음"
 
 #~ msgctxt "by <Author(s)>"
 #~ msgid "by %1"

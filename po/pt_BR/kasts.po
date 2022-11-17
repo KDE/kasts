@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2021-06-04 15:07-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -174,7 +174,7 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Adicionar podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr ""
@@ -257,7 +257,7 @@ msgid "Downloads"
 msgstr "Downloads"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Atualizar todos os podcasts"
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Last Updated: %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -671,13 +671,36 @@ msgstr ""
 msgid "No chapters found."
 msgstr ""
 
+#: qml/QueuePage.qml:18
+#, kde-format
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr ""
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Atualizar todos os podcasts"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
+msgctxt "@info"
+msgid "Queue is empty"
 msgstr ""
 
 #: qml/QueuePage.qml:69
 #, kde-format
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/QueuePage.qml:69
+#, kde-format
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr ""
 

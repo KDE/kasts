@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -173,7 +173,7 @@ msgstr "Webbadress:"
 msgid "Add Podcast"
 msgstr "Lägg till poddradioprogram"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "Köa"
@@ -257,7 +257,7 @@ msgid "Downloads"
 msgstr "Nerladdningar"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Uppdatera alla poddradioprogram"
@@ -470,7 +470,7 @@ msgstr "Prenumerant sedan: %1"
 msgid "Last Updated: %1"
 msgstr "Senaste uppdatering: %1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -658,13 +658,40 @@ msgstr "Ingen poddradiotitel"
 msgid "No chapters found."
 msgstr "Inga kapitel hittades."
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "Köa"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Uppdatera alla poddradioprogram"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
-msgstr "Ingenting tillagt i kön ännu"
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/QueuePage.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "1 avsnitt"
+msgstr[1] "%1 avsnitt"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "Time Left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Återstående tid"
 
@@ -1430,6 +1457,9 @@ msgstr "Synkronisering avbruten"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synkronisering avslutades med fel"
+
+#~ msgid "Nothing Added to the Queue Yet"
+#~ msgstr "Ingenting tillagt i kön ännu"
 
 #~ msgctxt "by <Author(s)>"
 #~ msgid "by %1"

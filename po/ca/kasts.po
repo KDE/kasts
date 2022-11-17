@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-10-20 14:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -181,7 +181,7 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Afegeix un podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "A la cua"
@@ -264,7 +264,7 @@ msgid "Downloads"
 msgstr "Baixades"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Recarrega tots els podcasts"
@@ -477,7 +477,7 @@ msgstr "Subscrit des de: %1"
 msgid "Last Updated: %1"
 msgstr "Darrera actualització: %1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -664,13 +664,40 @@ msgstr "Sense títol de podcast"
 msgid "No chapters found."
 msgstr "No s'ha trobat cap capítol."
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "A la cua"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Recarrega tots els podcasts"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
-msgstr "Encara no s'ha afegit res a la cua"
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/QueuePage.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "1 capítol"
+msgstr[1] "%1 capítols"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "Time Left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Temps restant"
 
@@ -1440,3 +1467,6 @@ msgstr "Sincronització interrompuda"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
+
+#~ msgid "Nothing Added to the Queue Yet"
+#~ msgstr "Encara no s'ha afegit res a la cua"

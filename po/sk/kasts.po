@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -179,7 +179,7 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "Pridať Podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "Fronta"
@@ -264,7 +264,7 @@ msgid "Downloads"
 msgstr "Sťahovania"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Obnoviť všetky Podcast položky"
@@ -493,7 +493,7 @@ msgstr ""
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizované: %1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -692,14 +692,41 @@ msgstr ""
 msgid "No chapters found."
 msgstr ""
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "Fronta"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Obnoviť všetky Podcast položky"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
+msgctxt "@info"
+msgid "Queue is empty"
 msgstr ""
 
 #: qml/QueuePage.qml:69
 #, fuzzy, kde-format
+#| msgid "1 episode"
+#| msgid_plural "%1 episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "1 epizóda"
+msgstr[1] "%1 epizódy"
+msgstr[2] "%1 epizód"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
 #| msgid "Time left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Zostávajúci čas"
 

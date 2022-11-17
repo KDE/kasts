@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-10-21 07:33+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -178,7 +178,7 @@ msgstr "URL :"
 msgid "Add Podcast"
 msgstr "Ajouter un podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "Mettre en file"
@@ -263,7 +263,7 @@ msgid "Downloads"
 msgstr "Téléchargements"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Rafraîchir tous les podcasts"
@@ -476,7 +476,7 @@ msgstr "Abonné depuis : %1"
 msgid "Last Updated: %1"
 msgstr "Dernière mise à jour : %1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -665,13 +665,40 @@ msgstr "Aucun titre de podcast"
 msgid "No chapters found."
 msgstr "Aucune chapitre n'a été trouvé."
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "Mettre en file"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Rafraîchir tous les podcasts"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
-msgstr "Rien à ajouter pour l'instant dans la file d'attente"
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/QueuePage.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "Un épisode"
+msgstr[1] "%1 épisodes"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "Time Left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Temps écoulé"
 
@@ -1448,6 +1475,9 @@ msgstr "Synchronisation abandonnée"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronisation terminée avec des erreurs"
+
+#~ msgid "Nothing Added to the Queue Yet"
+#~ msgstr "Rien à ajouter pour l'instant dans la file d'attente"
 
 #~ msgctxt "by <Author(s)>"
 #~ msgid "by %1"

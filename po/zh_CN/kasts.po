@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:49+0000\n"
+"POT-Creation-Date: 2022-11-17 00:48+0000\n"
 "PO-Revision-Date: 2022-11-06 01:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -175,7 +175,7 @@ msgstr "URL："
 msgid "Add Podcast"
 msgstr "添加播客"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161 qml/QueuePage.qml:18
+#: qml/BottomToolbar.qml:25 qml/main.qml:161
 #, kde-format
 msgid "Queue"
 msgstr "加入队列"
@@ -258,7 +258,7 @@ msgid "Downloads"
 msgstr "下载"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
-#: qml/FeedListPage.qml:46 qml/QueuePage.qml:34
+#: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "刷新所有播客"
@@ -471,7 +471,7 @@ msgstr "订阅开始时间：%1"
 msgid "Last Updated: %1"
 msgstr "上次更新：%1"
 
-#: qml/FeedDetailsPage.qml:295 qml/QueuePage.qml:69
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -652,13 +652,39 @@ msgstr "无播客标题"
 msgid "No chapters found."
 msgstr "未找到章节。"
 
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "加入队列"
+
+#: qml/QueuePage.qml:34
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "刷新所有播客"
+
 #: qml/QueuePage.qml:46
 #, kde-format
-msgid "Nothing Added to the Queue Yet"
-msgstr "未添加内容到队列"
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/QueuePage.qml:69
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "%1 条剧集"
+
+#: qml/QueuePage.qml:69
+#, fuzzy, kde-format
+#| msgid "Time Left"
+msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "剩余时间"
 
@@ -1410,3 +1436,6 @@ msgstr "同步中止"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
+
+#~ msgid "Nothing Added to the Queue Yet"
+#~ msgstr "未添加内容到队列"
