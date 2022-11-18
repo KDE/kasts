@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:48+0000\n"
-"PO-Revision-Date: 2022-11-14 14:18+0300\n"
+"PO-Revision-Date: 2022-11-17 18:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -658,15 +658,13 @@ msgid "No chapters found."
 msgstr "Fasıl bulunamadı."
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Kuyruk"
 
 #: qml/QueuePage.qml:34
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Tüm Podcast'leri Yenile"
@@ -675,12 +673,10 @@ msgstr "Tüm Podcast'leri Yenile"
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "Kuyruk boş"
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -688,8 +684,7 @@ msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Time Left"
+#, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Kalan Süre"
