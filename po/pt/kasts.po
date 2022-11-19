@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:48+0000\n"
-"PO-Revision-Date: 2022-10-20 09:24+0100\n"
+"PO-Revision-Date: 2022-11-18 09:29+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -666,15 +666,13 @@ msgid "No chapters found."
 msgstr "Não foram encontrados capítulos."
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Fila"
 
 #: qml/QueuePage.qml:34
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Actualizar Todos os 'Podcasts'"
@@ -683,12 +681,10 @@ msgstr "Actualizar Todos os 'Podcasts'"
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "A fila está vazia"
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -696,8 +692,7 @@ msgstr[0] "1 Episódio"
 msgstr[1] "%1 Episódios"
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Time Left"
+#, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Tempo Restante"
@@ -1468,6 +1463,3 @@ msgstr "Sincronização Interrompida"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronização Terminada com Erros"
-
-#~ msgid "Nothing Added to the Queue Yet"
-#~ msgstr "Ainda não Foi Adicionado Nada à Fila"

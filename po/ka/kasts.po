@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:48+0000\n"
-"PO-Revision-Date: 2022-10-21 06:10+0200\n"
+"PO-Revision-Date: 2022-11-18 07:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -432,7 +432,7 @@ msgstr "შეცდომების ჟურნალის ჩვენე�
 #: qml/FeedListPage.qml:283
 #, kde-format
 msgid "Podcast Details"
-msgstr ""
+msgstr "პოდკასტის დეტალები"
 
 #: qml/FeedDetailsPage.qml:105
 #, kde-format
@@ -443,7 +443,7 @@ msgstr "ავტორი: %1"
 #: qml/FeedDetailsPage.qml:133
 #, kde-format
 msgid "Refresh Podcast"
-msgstr ""
+msgstr "პოდკასტის განახლება"
 
 #: qml/FeedDetailsPage.qml:145
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "დეტალების ჩვენება"
 #: qml/FeedDetailsPage.qml:203
 #, kde-format
 msgid "Podcast URL:"
-msgstr ""
+msgstr "პოდკასტის URL:"
 
 #: qml/FeedDetailsPage.qml:243
 #, kde-format
@@ -468,7 +468,7 @@ msgstr "გამოწერის საწყისი დრო: %1"
 #: qml/FeedDetailsPage.qml:282
 #, kde-format
 msgid "Last Updated: %1"
-msgstr ""
+msgstr "უკანასკნელი განახლება: %1"
 
 #: qml/FeedDetailsPage.qml:295
 #, kde-format
@@ -604,7 +604,7 @@ msgstr ""
 #: qml/HeaderBar.qml:181
 #, kde-format
 msgid "Seek Backward"
-msgstr ""
+msgstr "უკან გადახვევა"
 
 #: qml/HeaderBar.qml:208
 #, kde-format
@@ -640,7 +640,7 @@ msgstr ""
 #: qml/PlaybackRateDialog.qml:64 qml/PlaybackRateDialog.qml:111
 #, kde-format
 msgid "Set Playback Rate"
-msgstr ""
+msgstr "დაკვრის სიჩქარის მითითება"
 
 #: qml/PlayerControls.qml:148
 #, kde-format
@@ -650,7 +650,7 @@ msgstr "სათაურის გარეშე"
 #: qml/PlayerControls.qml:155
 #, kde-format
 msgid "No Podcast Title"
-msgstr ""
+msgstr "პოდკასტის სათაურის გარეშე"
 
 #: qml/PlayerControls.qml:209
 #, kde-format
@@ -658,15 +658,13 @@ msgid "No chapters found."
 msgstr ""
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "რიგი"
 
 #: qml/QueuePage.qml:34
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
@@ -675,12 +673,10 @@ msgstr "ყველა პოდკასტის განახლება"
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "რიგი ცარიელია"
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -691,7 +687,7 @@ msgstr[1] "%1 ეპიზოდი"
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr ""
+msgstr "დარჩენილი დრო"
 
 #: qml/Settings/AboutPage.qml:16 qml/Settings/SettingsPage.qml:36
 #, kde-format
@@ -752,7 +748,7 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Queue Settings"
-msgstr ""
+msgstr "რიგის პარამეტრები"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
@@ -778,7 +774,7 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "New Episodes:"
-msgstr ""
+msgstr "ახალი ეპიზოდები:"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
@@ -808,17 +804,17 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:116
 #, kde-format
 msgid "Delete at Next Startup"
-msgstr ""
+msgstr "წაშლა შემდეგი გაშვებისას"
 
 #: qml/Settings/GeneralSettingsPage.qml:130
 #, kde-format
 msgid "When adding new podcasts:"
-msgstr ""
+msgstr "ახალი პოდკასტების დამატებისას"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "მონიშნეთ ყველა ეპიზოდი, როგორც დაკრული"
 
 #: qml/Settings/GeneralSettingsPage.qml:140
 #, kde-format
@@ -863,22 +859,22 @@ msgstr ""
 #: qml/Settings/NetworkSettingsPage.qml:24
 #, kde-format
 msgid "Allow podcast updates"
-msgstr ""
+msgstr "პოდკასტების განახლების უფლება"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
 #, kde-format
 msgid "Allow episode downloads"
-msgstr ""
+msgstr "ეპიზოდების გადმოწერის უფლება"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "Allow image downloads"
-msgstr ""
+msgstr "გამოსახულებების გადმოწერის უფლება"
 
 #: qml/Settings/NetworkSettingsPage.qml:45
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "სტრიმინგის დაშვება"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
@@ -903,17 +899,17 @@ msgstr "სინქრონიზაცია"
 #: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
-msgstr ""
+msgstr "საცავის მორგება"
 
 #: qml/Settings/StorageSettingsPage.qml:23
 #, kde-format
 msgid "Storage path:"
-msgstr ""
+msgstr "საცავის ბილიკი:"
 
 #: qml/Settings/StorageSettingsPage.qml:34
 #, kde-format
 msgid "Select folder..."
-msgstr ""
+msgstr "აირჩიეთ საქაღალდე..."
 
 #: qml/Settings/StorageSettingsPage.qml:40
 #, kde-format
@@ -923,12 +919,12 @@ msgstr ""
 #: qml/Settings/StorageSettingsPage.qml:53
 #, kde-format
 msgid "Use default path"
-msgstr ""
+msgstr "ნაგულისხმები ბილიკის გამოყენება"
 
 #: qml/Settings/StorageSettingsPage.qml:62
 #, kde-format
 msgid "Podcast Downloads:"
-msgstr ""
+msgstr "პოდკასტის გადმოწერები:"
 
 #: qml/Settings/StorageSettingsPage.qml:63
 #: qml/Settings/StorageSettingsPage.qml:69
@@ -940,7 +936,7 @@ msgstr ""
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Image Cache:"
-msgstr ""
+msgstr "გამოსახულებების ქეში:"
 
 #: qml/Settings/StorageSettingsPage.qml:73
 #, kde-format
@@ -950,12 +946,12 @@ msgstr "ქეშის გასუფთავება"
 #: qml/Settings/SynchronizationSettingsPage.qml:17
 #, kde-format
 msgid "Synchronization Settings"
-msgstr ""
+msgstr "სინქრონიზაციის მორგება"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:22
 #, kde-format
 msgid "Current Status:"
-msgstr ""
+msgstr "მიმდინარე სტატუსი:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:23
 #, kde-format
