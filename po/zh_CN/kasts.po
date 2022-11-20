@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-17 00:48+0000\n"
-"PO-Revision-Date: 2022-11-06 01:07\n"
+"PO-Revision-Date: 2022-11-19 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -653,18 +653,16 @@ msgid "No chapters found."
 msgstr "未找到章节。"
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
-msgstr "加入队列"
+msgstr ""
 
 #: qml/QueuePage.qml:34
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "刷新所有播客"
+msgstr ""
 
 #: qml/QueuePage.qml:46
 #, kde-format
@@ -673,20 +671,17 @@ msgid "Queue is empty"
 msgstr ""
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] "%1 条剧集"
+msgstr[0] ""
 
 #: qml/QueuePage.qml:69
-#, fuzzy, kde-format
-#| msgid "Time Left"
+#, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr "剩余时间"
+msgstr ""
 
 #: qml/Settings/AboutPage.qml:16 qml/Settings/SettingsPage.qml:36
 #, kde-format
@@ -1436,6 +1431,3 @@ msgstr "同步中止"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
-
-#~ msgid "Nothing Added to the Queue Yet"
-#~ msgstr "未添加内容到队列"
