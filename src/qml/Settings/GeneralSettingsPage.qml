@@ -181,16 +181,13 @@ Kirigami.ScrollablePage {
                 }
 
 
-                RowLayout {
-                    Layout.fillWidth: true
-                    MobileForm.FormRadioDelegate {
-                        id: markCustomUnreadNumberButton
-                        checked: SettingsManager.markUnreadOnNewFeed === 1
-                        text: i18n("Mark most recent episodes as unplayed")
-                        onToggled: SettingsManager.markUnreadOnNewFeed = 1
-                    }
+                MobileForm.FormRadioDelegate {
+                    id: markCustomUnreadNumberButton
+                    checked: SettingsManager.markUnreadOnNewFeed === 1
+                    text: i18n("Mark most recent episodes as unplayed")
+                    onToggled: SettingsManager.markUnreadOnNewFeed = 1
 
-                    Controls.SpinBox {
+                    trailing: Controls.SpinBox {
                         Layout.rightMargin: Kirigami.Units.gridUnit
                         id: markCustomUnreadNumberSpinBox
                         enabled: markCustomUnreadNumberButton.checked
@@ -221,27 +218,20 @@ Kirigami.ScrollablePage {
                     title: i18n("Article")
                 }
 
-                MobileForm.AbstractFormDelegate {
+                MobileForm.FormTextDelegate {
                     id: fontSize
-                    background: Item {}
+                    text: i18n("Font size")
 
-                    contentItem: RowLayout {
-                        Controls.Label {
-                            Layout.fillWidth: true
-                            text: i18n("Font size")
-                        }
+                    trailing: Controls.SpinBox {
+                        id: articleFontSizeSpinBox
 
-                        Controls.SpinBox {
-                            id: articleFontSizeSpinBox
+                        enabled: !useSystemFontCheckBox.checked
+                        value: SettingsManager.articleFontSize
+                        Kirigami.FormData.label: i18n("Font size:")
+                        from: 6
+                        to: 20
 
-                            enabled: !useSystemFontCheckBox.checked
-                            value: SettingsManager.articleFontSize
-                            Kirigami.FormData.label: i18n("Font size:")
-                            from: 6
-                            to: 20
-
-                            onValueModified: SettingsManager.articleFontSize = value
-                        }
+                        onValueModified: SettingsManager.articleFontSize = value
                     }
                 }
 
@@ -268,19 +258,12 @@ Kirigami.ScrollablePage {
                     title: i18n("Errors")
                 }
 
-                MobileForm.AbstractFormDelegate {
-                    background: Item {}
-                    contentItem: RowLayout {
-                        Controls.Label {
-                            Layout.fillWidth: true
-                            text: i18n("Error log")
-                        }
-
-                        Controls.Button {
-                            icon.name: "error"
-                            text: i18n("Open Log")
-                            onClicked: settingsErrorOverlay.open()
-                        }
+                MobileForm.FormTextDelegate {
+                    text: i18n("Error log")
+                    trailing: Controls.Button {
+                        icon.name: "error"
+                        text: i18n("Open Log")
+                        onClicked: settingsErrorOverlay.open()
                     }
                 }
 

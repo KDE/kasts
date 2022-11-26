@@ -41,43 +41,27 @@ Kirigami.ScrollablePage {
                     title: i18n("Storage path")
                 }
 
-                MobileForm.AbstractFormDelegate {
+                MobileForm.FormTextDelegate {
                     id: storagePath
                     visible: Qt.platform.os !== "android" // not functional on android
-                    background: Item {}
+                    text: i18n("Storage path")
+                    description: StorageManager.storagePath
 
-                    contentItem: RowLayout {
-                        spacing: 0
-                        ColumnLayout {
-                            spacing: Kirigami.Units.smallSpacing
-                            Controls.Label {
-                                Layout.fillWidth: true
-                                elide: Text.ElideRight
-                                text: i18n("Storage path")
-                            }
-                            Controls.Label {
-                                Layout.fillWidth: true
-                                elide: Text.ElideRight
-                                color: Kirigami.Theme.disabledTextColor
-                                text: StorageManager.storagePath
-                            }
-                        }
+                    trailing: Controls.Button {
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        icon.name: "document-open-folder"
+                        text: i18n("Select folder...")
+                        enabled: !defaultStoragePath.checked
+                        onClicked: storagePathDialog.open()
+                    }
 
-                        Controls.Button {
-                            Layout.leftMargin: Kirigami.Units.largeSpacing
-                            icon.name: "document-open-folder"
-                            text: i18n("Select folder...")
-                            enabled: !defaultStoragePath.checked
-                            onClicked: storagePathDialog.open()
-                        }
-                        FileDialog {
-                            id: storagePathDialog
-                            title: i18n("Select Storage Path")
-                            selectFolder: true
-                            folder: "file://" + StorageManager.storagePath
-                            onAccepted: {
-                                StorageManager.setStoragePath(fileUrl);
-                            }
+                    FileDialog {
+                        id: storagePathDialog
+                        title: i18n("Select Storage Path")
+                        selectFolder: true
+                        folder: "file://" + StorageManager.storagePath
+                        onAccepted: {
+                            StorageManager.setStoragePath(fileUrl);
                         }
                     }
                 }
@@ -116,30 +100,14 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormDelegateSeparator {}
 
-                MobileForm.AbstractFormDelegate {
-                    background: Item {}
-                    contentItem: RowLayout {
-                        spacing: Kirigami.Units.largeSpacing
-                        ColumnLayout {
-                            spacing: Kirigami.Units.smallSpacing
-                            Controls.Label {
-                                Layout.fillWidth: true
-                                elide: Text.ElideRight
-                                text: i18n("Image cache")
-                            }
-                            Controls.Label {
-                                Layout.fillWidth: true
-                                elide: Text.ElideRight
-                                color: Kirigami.Theme.disabledTextColor
-                                text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
-                            }
-                        }
+                MobileForm.FormTextDelegate {
+                    text: i18n("Image cache")
+                    description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
 
-                        Controls.Button {
-                            icon.name: "edit-clear-all"
-                            text: i18n("Clear Cache")
-                            onClicked: StorageManager.clearImageCache();
-                        }
+                    trailing: Controls.Button {
+                        icon.name: "edit-clear-all"
+                        text: i18n("Clear Cache")
+                        onClicked: StorageManager.clearImageCache();
                     }
                 }
             }
