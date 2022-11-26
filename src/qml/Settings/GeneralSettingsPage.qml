@@ -10,192 +10,284 @@ import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
+    id: page
     title: i18n("General Settings")
 
-    Kirigami.FormLayout {
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: Kirigami.Units.gridUnit
+    bottomPadding: Kirigami.Units.gridUnit
 
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Appearance")
-        }
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
 
-        Controls.CheckBox {
-            id: alwaysShowFeedTitles
-            checked: SettingsManager.alwaysShowFeedTitles
-            text: i18n("Always show podcast titles in subscription view")
-            onToggled: SettingsManager.alwaysShowFeedTitles = checked
-        }
+    ColumnLayout {
+        spacing: 0
+        width: page.width
 
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Play Settings")
-        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
 
-        Controls.CheckBox {
-            id: showTimeLeft
-            Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play Time:")
-            checked: SettingsManager.toggleRemainingTime
-            text: i18n("Show time left instead of total track time")
-            onToggled: SettingsManager.toggleRemainingTime = checked
-        }
-        Controls.CheckBox {
-            id: adjustTimeLeft
-            checked: SettingsManager.adjustTimeLeft
-            enabled: SettingsManager.toggleRemainingTime
-            text: i18n("Adjust time left based on current playback speed")
-            onToggled: SettingsManager.adjustTimeLeft = checked
-        }
-        Controls.CheckBox {
-            id: prioritizeStreaming
-            Kirigami.FormData.label: i18nc("Label for settings related to streaming of episodes (as opposed to playing back locally downloaded files)", "Streaming:")
-            checked: SettingsManager.prioritizeStreaming
-            text: i18n("Prioritize streaming over downloading")
-            onToggled: SettingsManager.prioritizeStreaming = checked
-        }
+            contentItem: ColumnLayout {
+                spacing: 0
 
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Queue Settings")
-        }
+                MobileForm.FormCardHeader {
+                    title: i18n("Appearance")
+                }
 
-        Controls.CheckBox {
-            id: continuePlayingNextEntry
-            checked: SettingsManager.continuePlayingNextEntry
-            text: i18n("Continue playing next episode after current one finishes")
-            onToggled: SettingsManager.continuePlayingNextEntry = checked
-        }
-        Controls.CheckBox {
-            id: refreshOnStartup
-            Kirigami.FormData.label: i18nc("Label for settings related to podcast updates", "Update Settings:")
-            checked: SettingsManager.refreshOnStartup
-            text: i18n("Automatically fetch podcast updates on startup")
-            onToggled: SettingsManager.refreshOnStartup = checked
-        }
-        Controls.CheckBox {
-            id: doFullUpdate
-            checked: SettingsManager.doFullUpdate
-            text: i18n("Update existing episode data on refresh (slower)")
-            onToggled: SettingsManager.doFullUpdate = checked
-        }
-
-        Controls.CheckBox {
-            id: autoQueue
-            Kirigami.FormData.label: i18n("New Episodes:")
-            checked: SettingsManager.autoQueue
-            text: i18n("Automatically Queue")
-
-            onToggled: {
-                SettingsManager.autoQueue = checked
-                if (!checked) {
-                    autoDownload.checked = false
-                    SettingsManager.autoDownload = false
+                MobileForm.FormCheckDelegate {
+                    id: alwaysShowFeedTitles
+                    text: i18n("Always show podcast titles in subscription view")
+                    onToggled: SettingsManager.alwaysShowFeedTitles = checked
                 }
             }
         }
 
-        Controls.CheckBox {
-            id: autoDownload
-            checked: SettingsManager.autoDownload
-            text: i18n("Automatically Download")
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
 
-            enabled: autoQueue.checked
-            onToggled: SettingsManager.autoDownload = checked
-        }
+            contentItem: ColumnLayout {
+                spacing: 0
 
-        Controls.ComboBox {
-            Kirigami.FormData.label: i18n("Played Episodes:")
-            Layout.alignment: Qt.AlignHCenter
-            textRole: "text"
-            valueRole: "value"
-            model: [{"text": i18n("Do Not Delete"), "value": 0},
-                    {"text": i18n("Delete Immediately"), "value": 1},
-                    {"text": i18n("Delete at Next Startup"), "value": 2}]
-            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
-            onActivated: {
-                SettingsManager.autoDeleteOnPlayed = currentValue;
+                MobileForm.FormCardHeader {
+                    title: i18n("Playback settings")
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: showTimeLeft
+                    Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play Time:")
+                    checked: SettingsManager.toggleRemainingTime
+                    text: i18n("Show time left instead of total track time")
+                    onToggled: SettingsManager.toggleRemainingTime = checked
+                }
+                MobileForm.FormCheckDelegate {
+                    id: adjustTimeLeft
+                    checked: SettingsManager.adjustTimeLeft
+                    enabled: SettingsManager.toggleRemainingTime
+                    text: i18n("Adjust time left based on current playback speed")
+                    onToggled: SettingsManager.adjustTimeLeft = checked
+                }
+                MobileForm.FormCheckDelegate {
+                    id: prioritizeStreaming
+                    checked: SettingsManager.prioritizeStreaming
+                    text: i18n("Prioritize streaming over downloading")
+                    onToggled: SettingsManager.prioritizeStreaming = checked
+                }
             }
         }
 
-        Controls.CheckBox {
-            checked: SettingsManager.resetPositionOnPlayed
-            text: i18n("Reset Play Position")
-            onToggled: SettingsManager.resetPositionOnPlayed = checked
-        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
 
-        Controls.RadioButton {
-            Kirigami.FormData.label: i18n("When adding new podcasts:")
-            checked: SettingsManager.markUnreadOnNewFeed === 0
-            text: i18n("Mark all episodes as played")
-            onToggled: SettingsManager.markUnreadOnNewFeed = 0
-        }
+            contentItem: ColumnLayout {
+                spacing: 0
 
-        RowLayout {
-            Controls.RadioButton {
-                id: markCustomUnreadNumberButton
-                checked: SettingsManager.markUnreadOnNewFeed === 1
-                text: i18n("Mark most recent episodes as unplayed:")
-                onToggled: SettingsManager.markUnreadOnNewFeed = 1
+                MobileForm.FormCardHeader {
+                    title: i18n("Queue settings")
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: continuePlayingNextEntry
+                    checked: SettingsManager.continuePlayingNextEntry
+                    text: i18n("Continue playing next episode after current one finishes")
+                    onToggled: SettingsManager.continuePlayingNextEntry = checked
+                }
+                MobileForm.FormCheckDelegate {
+                    id: refreshOnStartup
+                    Kirigami.FormData.label: i18nc("Label for settings related to podcast updates", "Update Settings:")
+                    checked: SettingsManager.refreshOnStartup
+                    text: i18n("Automatically fetch podcast updates on startup")
+                    onToggled: SettingsManager.refreshOnStartup = checked
+                }
+                MobileForm.FormCheckDelegate {
+                    id: doFullUpdate
+                    checked: SettingsManager.doFullUpdate
+                    text: i18n("Update existing episode data on refresh (slower)")
+                    onToggled: SettingsManager.doFullUpdate = checked
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: autoQueue
+                    checked: SettingsManager.autoQueue
+                    text: i18n("Automatically queue new episodes")
+
+                    onToggled: {
+                        SettingsManager.autoQueue = checked
+                        if (!checked) {
+                            autoDownload.checked = false
+                            SettingsManager.autoDownload = false
+                        }
+                    }
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: autoDownload
+                    checked: SettingsManager.autoDownload
+                    text: i18n("Automatically download new episodes")
+
+                    enabled: autoQueue.checked
+                    onToggled: SettingsManager.autoDownload = checked
+                }
+
+                MobileForm.FormDelegateSeparator { above: autoDownload; below: episodeBehavior }
+
+                MobileForm.FormComboBoxDelegate {
+                    id: episodeBehavior
+                    text: i18n("Played episode behavior")
+                    textRole: "text"
+                    valueRole: "value"
+                    model: [{"text": i18n("Do Not Delete"), "value": 0},
+                            {"text": i18n("Delete Immediately"), "value": 1},
+                            {"text": i18n("Delete at Next Startup"), "value": 2}]
+                    Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
+                    onActivated: {
+                        SettingsManager.autoDeleteOnPlayed = currentValue;
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator { above: episodeBehavior; below: resetPositionOnPlayed }
+
+                MobileForm.FormCheckDelegate {
+                    id: resetPositionOnPlayed
+                    checked: SettingsManager.resetPositionOnPlayed
+                    text: i18n("Reset play position after an episode is played")
+                    onToggled: SettingsManager.resetPositionOnPlayed = checked
+                }
             }
+        }
 
-            Controls.SpinBox {
-                id: markCustomUnreadNumberSpinBox
-                enabled: markCustomUnreadNumberButton.checked
-                value: SettingsManager.markUnreadOnNewFeedCustomAmount
-                from: 0
-                to: 100
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
 
-                onValueModified: SettingsManager.markUnreadOnNewFeedCustomAmount = value
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                MobileForm.FormCardHeader {
+                    title: i18n("When adding new podcasts")
+                }
+
+                MobileForm.FormRadioDelegate {
+                    checked: SettingsManager.markUnreadOnNewFeed === 0
+                    text: i18n("Mark all episodes as played")
+                    onToggled: SettingsManager.markUnreadOnNewFeed = 0
+                }
+
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    MobileForm.FormRadioDelegate {
+                        id: markCustomUnreadNumberButton
+                        checked: SettingsManager.markUnreadOnNewFeed === 1
+                        text: i18n("Mark most recent episodes as unplayed")
+                        onToggled: SettingsManager.markUnreadOnNewFeed = 1
+                    }
+
+                    Controls.SpinBox {
+                        Layout.rightMargin: Kirigami.Units.gridUnit
+                        id: markCustomUnreadNumberSpinBox
+                        enabled: markCustomUnreadNumberButton.checked
+                        value: SettingsManager.markUnreadOnNewFeedCustomAmount
+                        from: 0
+                        to: 100
+
+                        onValueModified: SettingsManager.markUnreadOnNewFeedCustomAmount = value
+                    }
+                }
+
+                MobileForm.FormRadioDelegate {
+                    checked: SettingsManager.markUnreadOnNewFeed === 2
+                    text: i18n("Mark all episodes as unplayed")
+                    onToggled: SettingsManager.markUnreadOnNewFeed = 2
+                }
             }
         }
 
-        Controls.RadioButton {
-            checked: SettingsManager.markUnreadOnNewFeed === 2
-            text: i18n("Mark all episodes as unplayed")
-            onToggled: SettingsManager.markUnreadOnNewFeed = 2
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
+
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                MobileForm.FormCardHeader {
+                    title: i18n("Article")
+                }
+
+                MobileForm.AbstractFormDelegate {
+                    id: fontSize
+                    background: Item {}
+
+                    contentItem: RowLayout {
+                        Controls.Label {
+                            Layout.fillWidth: true
+                            text: i18n("Font size")
+                        }
+
+                        Controls.SpinBox {
+                            id: articleFontSizeSpinBox
+
+                            enabled: !useSystemFontCheckBox.checked
+                            value: SettingsManager.articleFontSize
+                            Kirigami.FormData.label: i18n("Font size:")
+                            from: 6
+                            to: 20
+
+                            onValueModified: SettingsManager.articleFontSize = value
+                        }
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator { above: fontSize; below: useSystemFontCheckBox }
+
+                MobileForm.FormCheckDelegate {
+                    id: useSystemFontCheckBox
+                    checked: SettingsManager.articleFontUseSystem
+                    text: i18n("Use system default")
+
+                    onToggled: SettingsManager.articleFontUseSystem = checked
+                }
+            }
         }
 
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Article")
-        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.largeSpacing
 
-        Controls.SpinBox {
-            id: articleFontSizeSpinBox
+            contentItem: ColumnLayout {
+                spacing: 0
 
-            enabled: !useSystemFontCheckBox.checked
-            value: SettingsManager.articleFontSize
-            Kirigami.FormData.label: i18n("Font size:")
-            from: 6
-            to: 20
+                MobileForm.FormCardHeader {
+                    title: i18n("Errors")
+                }
 
-            onValueModified: SettingsManager.articleFontSize = value
-        }
+                MobileForm.AbstractFormDelegate {
+                    background: Item {}
+                    contentItem: RowLayout {
+                        Controls.Label {
+                            Layout.fillWidth: true
+                            text: i18n("Error log")
+                        }
 
-        Controls.CheckBox {
-            id: useSystemFontCheckBox
-            checked: SettingsManager.articleFontUseSystem
-            text: i18n("Use system default")
+                        Controls.Button {
+                            icon.name: "error"
+                            text: i18n("Open Log")
+                            onClicked: settingsErrorOverlay.open()
+                        }
+                    }
+                }
 
-            onToggled: SettingsManager.articleFontUseSystem = checked
-        }
-
-        Kirigami.Heading {
-            Kirigami.FormData.isSection: true
-            text: i18n("Errors")
-        }
-
-        Controls.Button {
-            icon.name: "error"
-            text: i18n("Show Error Log")
-            onClicked: settingsErrorOverlay.open()
-        }
-
-        ErrorListOverlay {
-            id: settingsErrorOverlay
+                ErrorListOverlay {
+                    id: settingsErrorOverlay
+                }
+            }
         }
     }
 }

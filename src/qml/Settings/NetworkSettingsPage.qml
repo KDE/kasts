@@ -10,40 +10,64 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
+    id: page
     title: i18n("Network Settings")
 
-    Kirigami.FormLayout {
-        Controls.CheckBox {
-            id: allowMeteredFeedUpdates
-            checked: SettingsManager.allowMeteredFeedUpdates
-            Kirigami.FormData.label: i18n("On metered connections:")
-            text: i18n("Allow podcast updates")
-            onToggled: SettingsManager.allowMeteredFeedUpdates = checked
-        }
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: Kirigami.Units.gridUnit
+    bottomPadding: Kirigami.Units.gridUnit
 
-        Controls.CheckBox {
-            id: allowMeteredEpisodeDownloads
-            checked: SettingsManager.allowMeteredEpisodeDownloads
-            text: i18n("Allow episode downloads")
-            onToggled: SettingsManager.allowMeteredEpisodeDownloads = checked
-        }
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
 
-        Controls.CheckBox {
-            id: allowMeteredImageDownloads
-            checked: SettingsManager.allowMeteredImageDownloads
-            text: i18n("Allow image downloads")
-            onToggled: SettingsManager.allowMeteredImageDownloads = checked
-        }
+    ColumnLayout {
+        spacing: 0
+        width: page.width
 
-        Controls.CheckBox {
-            id: allowMeteredStreaming
-            checked: SettingsManager.allowMeteredStreaming
-            text: i18n("Allow streaming")
-            onToggled: SettingsManager.allowMeteredStreaming = checked
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                MobileForm.FormCardHeader {
+                    title: i18n("On metered connections")
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: allowMeteredFeedUpdates
+                    checked: SettingsManager.allowMeteredFeedUpdates
+                    text: i18n("Allow podcast updates")
+                    onToggled: SettingsManager.allowMeteredFeedUpdates = checked
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: allowMeteredEpisodeDownloads
+                    checked: SettingsManager.allowMeteredEpisodeDownloads
+                    text: i18n("Allow episode downloads")
+                    onToggled: SettingsManager.allowMeteredEpisodeDownloads = checked
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: allowMeteredImageDownloads
+                    checked: SettingsManager.allowMeteredImageDownloads
+                    text: i18n("Allow image downloads")
+                    onToggled: SettingsManager.allowMeteredImageDownloads = checked
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: allowMeteredStreaming
+                    checked: SettingsManager.allowMeteredStreaming
+                    text: i18n("Allow streaming")
+                    onToggled: SettingsManager.allowMeteredStreaming = checked
+                }
+            }
         }
     }
 }

@@ -25,6 +25,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMGenerateExportHeader)
 include(KDEInstallDirs)
 include(KDEGitCommitHooks)
+include(ECMFindQmlModule)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
@@ -67,6 +68,8 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
 )
 
 ki18n_install(po)
+
+ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 0.1)
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

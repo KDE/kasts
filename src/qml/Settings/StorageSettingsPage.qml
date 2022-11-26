@@ -11,67 +11,137 @@ import QtQuick.Layouts 1.14
 import QtQuick.Dialogs 1.3
 
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
+    id: page
     title: i18n("Storage Settings")
 
-    Kirigami.FormLayout {
-         RowLayout {
-            visible: Qt.platform.os !== "android" // not functional on android
-            Kirigami.FormData.label: i18n("Storage path:")
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: Kirigami.Units.gridUnit
+    bottomPadding: Kirigami.Units.gridUnit
 
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
+
+    ColumnLayout {
+        spacing: 0
+        width: page.width
+
+        MobileForm.FormCard {
             Layout.fillWidth: true
-            Controls.TextField {
-                Layout.fillWidth: true
-                readOnly: true
-                text: StorageManager.storagePath
-                enabled: !defaultStoragePath.checked
-            }
-            Controls.Button {
-                icon.name: "document-open-folder"
-                text: i18n("Select folder...")
-                enabled: !defaultStoragePath.checked
-                onClicked: storagePathDialog.open()
-            }
-            FileDialog {
-                id: storagePathDialog
-                title: i18n("Select Storage Path")
-                selectFolder: true
-                folder: "file://" + StorageManager.storagePath
-                onAccepted: {
-                    StorageManager.setStoragePath(fileUrl);
+
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                MobileForm.FormCardHeader {
+                    title: i18n("Storage path")
+                }
+
+                MobileForm.AbstractFormDelegate {
+                    id: storagePath
+                    visible: Qt.platform.os !== "android" // not functional on android
+                    background: Item {}
+
+                    contentItem: RowLayout {
+                        spacing: 0
+                        ColumnLayout {
+                            spacing: Kirigami.Units.smallSpacing
+                            Controls.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: i18n("Storage path")
+                            }
+                            Controls.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                color: Kirigami.Theme.disabledTextColor
+                                text: StorageManager.storagePath
+                            }
+                        }
+
+                        Controls.Button {
+                            Layout.leftMargin: Kirigami.Units.largeSpacing
+                            icon.name: "document-open-folder"
+                            text: i18n("Select folder...")
+                            enabled: !defaultStoragePath.checked
+                            onClicked: storagePathDialog.open()
+                        }
+                        FileDialog {
+                            id: storagePathDialog
+                            title: i18n("Select Storage Path")
+                            selectFolder: true
+                            folder: "file://" + StorageManager.storagePath
+                            onAccepted: {
+                                StorageManager.setStoragePath(fileUrl);
+                            }
+                        }
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
+
+                MobileForm.FormCheckDelegate {
+                    id: defaultStoragePath
+                    visible: Qt.platform.os !== "android" // not functional on android
+                    checked: SettingsManager.storagePath == ""
+                    text: i18n("Use default path")
+                    onToggled: {
+                        if (checked) {
+                            StorageManager.setStoragePath("");
+                        }
+                    }
                 }
             }
         }
 
-        Controls.CheckBox {
-            id: defaultStoragePath
-            visible: Qt.platform.os !== "android" // not functional on android
-            checked: SettingsManager.storagePath == ""
-            text: i18n("Use default path")
-            onToggled: {
-                if (checked) {
-                    StorageManager.setStoragePath("");
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                MobileForm.FormCardHeader {
+                    title: i18n("Information")
                 }
-            }
-        }
 
-        Controls.Label {
-            Kirigami.FormData.label: i18n("Podcast Downloads:")
-            text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
-        }
+                MobileForm.FormTextDelegate {
+                    text: i18n("Podcast downloads")
+                    description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
+                }
 
-        RowLayout {
-            Kirigami.FormData.label: i18n("Image Cache:")
-            Controls.Label {
-                text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
-            }
-            Controls.Button {
-                icon.name: "edit-clear-all"
-                text: i18n("Clear Cache")
-                onClicked: StorageManager.clearImageCache();
+                MobileForm.FormDelegateSeparator {}
+
+                MobileForm.AbstractFormDelegate {
+                    background: Item {}
+                    contentItem: RowLayout {
+                        spacing: Kirigami.Units.largeSpacing
+                        ColumnLayout {
+                            spacing: Kirigami.Units.smallSpacing
+                            Controls.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: i18n("Image cache")
+                            }
+                            Controls.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                color: Kirigami.Theme.disabledTextColor
+                                text: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+                            }
+                        }
+
+                        Controls.Button {
+                            icon.name: "edit-clear-all"
+                            text: i18n("Clear Cache")
+                            onClicked: StorageManager.clearImageCache();
+                        }
+                    }
+                }
             }
         }
     }
