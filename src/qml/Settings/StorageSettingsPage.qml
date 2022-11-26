@@ -16,7 +16,6 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
-    id: page
     title: i18n("Storage Settings")
 
     leftPadding: 0
@@ -29,7 +28,6 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         spacing: 0
-        width: page.width
 
         MobileForm.FormCard {
             Layout.fillWidth: true
