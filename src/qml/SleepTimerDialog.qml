@@ -49,11 +49,11 @@ Kirigami.Dialog {
 
     ColumnLayout {
         id: content
-        Text {
+        Controls.Label {
             text: (timerActive) ? i18n("Status: Active") : i18n("Status: Inactive")
         }
 
-        Text {
+        Controls.Label {
             opacity: (timerActive) ? 1 : 0.5
             Layout.bottomMargin: Kirigami.Units.largeSpacing
             text: i18n("Remaining Time: %1", AudioManager.formattedRemainingSleepTime)
