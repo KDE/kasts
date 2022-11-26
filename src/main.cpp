@@ -31,7 +31,6 @@
 #ifdef Q_OS_ANDROID
 #include "androidlogging.h"
 #endif
-#include "about.h"
 #include "audiomanager.h"
 #include "author.h"
 #include "database.h"
@@ -114,7 +113,7 @@ int main(int argc, char *argv[])
                      i18n("Podcast Player"),
                      KAboutLicense::GPL,
                      i18n("© 2020-2022 KDE Community"));
-    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     about.setProgramLogo(QVariant(QIcon(QStringLiteral(":/logo.svg"))));
     KAboutData::setApplicationData(about);
@@ -140,7 +139,9 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel", QStringLiteral("Only for enums"));
     qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
 
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AboutType", &AboutType::instance());
+    qmlRegisterSingletonType("org.kde.kasts", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
+        return engine->toScriptValue(KAboutData::applicationData());
+    });
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());

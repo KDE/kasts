@@ -14,5 +14,5 @@ import org.kde.kasts 1.0
 
 Kirigami.AboutPage {
     title: i18n("About")
-    aboutData: AboutType.aboutData
+    aboutData: About
 }
