@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:48+0000\n"
+"POT-Creation-Date: 2022-11-27 00:48+0000\n"
 "PO-Revision-Date: 2022-11-17 18:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -87,42 +87,42 @@ msgstr "Bölüm Durumu ve/veya Besleme Eşzamanlanırken Hata"
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "Kısıtlı Bağlantıda Bağlantıya veya Akışa İzin Verilmiyor"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast Uygulaması"
 
-#: main.cpp:106
+#: main.cpp:105
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Aboneliklere yeni bir podcast ekler."
 
-#: main.cpp:107
+#: main.cpp:106
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcast URL'si"
 
-#: main.cpp:112
+#: main.cpp:111
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:114
+#: main.cpp:113
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast Çalar"
 
-#: main.cpp:116
+#: main.cpp:115
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE Topluluğu"
 
-#: main.cpp:117
+#: main.cpp:116
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:118
+#: main.cpp:117
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:48+0000\n"
+"POT-Creation-Date: 2022-11-27 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -88,42 +88,42 @@ msgstr "피드 및 에피소드 상태 동기화 오류"
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "종량제 연결에서 업데이트가 허용되지 않음"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 프로그램"
 
-#: main.cpp:106
+#: main.cpp:105
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:107
+#: main.cpp:106
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:112
+#: main.cpp:111
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:114
+#: main.cpp:113
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:116
+#: main.cpp:115
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE Community"
 
-#: main.cpp:117
+#: main.cpp:116
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:118
+#: main.cpp:117
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"

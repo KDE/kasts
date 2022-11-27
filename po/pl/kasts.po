@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:48+0000\n"
+"POT-Creation-Date: 2022-11-27 00:48+0000\n"
 "PO-Revision-Date: 2022-10-09 10:14+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -90,42 +90,42 @@ msgstr "Błąd synchronizacji kanału i/lub stanu odcinka"
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "Uaktualnienia niedozwolone w połączeniach taryfowych"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplikacja do podkastów"
 
-#: main.cpp:106
+#: main.cpp:105
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Dodaje nowy podkast do zapisanych."
 
-#: main.cpp:107
+#: main.cpp:106
 #, kde-format
 msgid "Podcast URL"
 msgstr "Adres URL podkastu"
 
-#: main.cpp:112
+#: main.cpp:111
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:114
+#: main.cpp:113
 #, kde-format
 msgid "Podcast Player"
 msgstr "Odtwarzacz podkastów"
 
-#: main.cpp:116
+#: main.cpp:115
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 Społeczność KDE"
 
-#: main.cpp:117
+#: main.cpp:116
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:118
+#: main.cpp:117
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
