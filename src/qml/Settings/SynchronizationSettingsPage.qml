@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: accountStatus; below: manualSync }
+                MobileForm.FormDelegateSeparator {}
 
                 MobileForm.FormTextDelegate {
                     id: manualSync
@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: manualSync; below: lastFullSync }
+                MobileForm.FormDelegateSeparator {}
 
                 MobileForm.FormTextDelegate {
                     id: lastFullSync
@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
                     description: Sync.lastSuccessfulDownloadSync
                 }
 
-                MobileForm.FormDelegateSeparator { above: lastFullSync; below: lastQuickUpload }
+                MobileForm.FormDelegateSeparator {}
 
                 MobileForm.FormTextDelegate {
                     id: lastQuickUpload
@@ -138,7 +138,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: fetchAllEpisodeStates; below: fetchLocalEpisodeStates }
+                MobileForm.FormDelegateSeparator {}
 
                 MobileForm.FormTextDelegate {
                     id: fetchLocalEpisodeStates
