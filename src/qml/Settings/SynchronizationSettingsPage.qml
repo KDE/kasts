@@ -142,7 +142,7 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormTextDelegate {
                     id: fetchLocalEpisodeStates
-                    text: i18n("Fetch all local episode states from server")
+                    text: i18n("Push all local episode states to server")
 
                     trailing: Controls.Button {
                         enabled: Sync.syncEnabled
