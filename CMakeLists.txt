@@ -40,6 +40,7 @@ ecm_setup_version(${PROJECT_VERSION}
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia Svg)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Kirigami2 Syndication Config I18n ThreadWeaver)
+find_package(KF5KirigamiAddons 0.6 REQUIRED)
 find_package(Taglib REQUIRED)
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
@@ -68,8 +69,6 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
 )
 
 ki18n_install(po)
-
-ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 0.1)
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
