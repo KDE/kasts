@@ -6,7 +6,7 @@ Files: src/qtquickcontrols2.conf README.md
 Copyright: 2020 Tobias Fella <fella@posteo.de>
 License: CC0-1.0
 
-Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg
+Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg .flatpak-manifest.json
 Copyright: 2021 Bart De Vries <bart@mogwai.be>
 License: CC0-1.0
 

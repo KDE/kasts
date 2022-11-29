@@ -1,0 +1,97 @@
+{
+    "id": "org.kde.kasts",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-21.08",
+    "sdk": "org.kde.Sdk",
+    "command": "kasts",
+    "tags": ["nightly"],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--own-name=org.mpris.MediaPlayer2.kasts",
+        "--talk-name=org.freedesktop.secrets"
+    ],
+    "modules": [
+        {
+            "name": "taglib",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://taglib.github.io/releases/taglib-1.13.tar.gz",
+                    "sha256": "58f08b4db3dc31ed152c04896ee9172d22052bc7ef12888028c01d8b1d60ade0",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1982,
+                        "stable-only": true,
+                        "url-template": "https://taglib.github.io/releases/taglib-$version.tar.gz"
+                    }
+                }
+            ],
+            "config-opts": [
+                "-DBUILD_SHARED_LIBS=ON"
+            ]
+        },
+        {
+            "name": "libsecret",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dmanpage=false",
+                "-Dvapi=false",
+                "-Dgtk_doc=false",
+                "-Dintrospection=false",
+                "-Dgcrypt=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.5.tar.xz",
+                    "sha256": "3fb3ce340fcd7db54d87c893e69bfc2b1f6e4d4b279065ffe66dac9f0fd12b4d",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libsecret",
+                        "stable-only": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "qtkeychain",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/v0.13.2.tar.gz",
+                    "sha256": "20beeb32de7c4eb0af9039b21e18370faf847ac8697ab3045906076afbc4caa5",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 4138,
+                        "stable-only": true,
+                        "url-template": "https://github.com/frankosterfeld/qtkeychain/archive/v$version.tar.gz"
+                    }
+                }
+            ],
+            "config-opts": [
+                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
+                "-DLIB_INSTALL_DIR=/app/lib",
+                "-DBUILD_TRANSLATIONS=NO"
+            ]
+        },
+        {
+            "name": "kasts",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}
