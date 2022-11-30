@@ -361,6 +361,7 @@ Kirigami.Page {
                             onClicked: {
                                 SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime;
                                 SettingsManager.save();
+                            }
                         }
                     }
                 }
