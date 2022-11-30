@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(Kasts)
-set(PROJECT_VERSION "22.09")
+set(PROJECT_VERSION "22.11")
 
 # be c++17 compliant
 set(CMAKE_CXX_STANDARD 17)
