@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-11-18 07:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -195,7 +195,7 @@ msgstr "ეპიზოდები"
 msgid "Settings"
 msgstr "მორგება"
 
-#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:154
+#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:154
 #: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"

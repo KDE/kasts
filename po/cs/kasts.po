@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-06-27 16:02+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -194,7 +194,7 @@ msgstr "Epizody"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: qml/ChapterListDelegate.qml:40 qml/EntryPage.qml:154
+#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:154
 #: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
 #, kde-format
 msgid "Play"
