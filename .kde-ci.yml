@@ -11,7 +11,7 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kconfig': '@stable'
     'frameworks/threadweaver': '@stable'
-    'libraries/kirigami-addons': '@latest'
+    'libraries/kirigami-addons': '@stable'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]
