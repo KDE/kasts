@@ -41,7 +41,10 @@ Kirigami.ScrollablePage {
                 MobileForm.FormCheckDelegate {
                     id: alwaysShowFeedTitles
                     text: i18n("Always show podcast titles in subscription view")
-                    onToggled: SettingsManager.alwaysShowFeedTitles = checked
+                    onToggled: {
+                        SettingsManager.alwaysShowFeedTitles = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }
@@ -62,20 +65,29 @@ Kirigami.ScrollablePage {
                     Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play Time:")
                     checked: SettingsManager.toggleRemainingTime
                     text: i18n("Show time left instead of total track time")
-                    onToggled: SettingsManager.toggleRemainingTime = checked
+                    onToggled: {
+                        SettingsManager.toggleRemainingTime = checked;
+                        SettingsManager.save();
+                    }
                 }
                 MobileForm.FormCheckDelegate {
                     id: adjustTimeLeft
                     checked: SettingsManager.adjustTimeLeft
                     enabled: SettingsManager.toggleRemainingTime
                     text: i18n("Adjust time left based on current playback speed")
-                    onToggled: SettingsManager.adjustTimeLeft = checked
+                    onToggled: {
+                        SettingsManager.adjustTimeLeft = checked;
+                        SettingsManager.save();
+                    }
                 }
                 MobileForm.FormCheckDelegate {
                     id: prioritizeStreaming
                     checked: SettingsManager.prioritizeStreaming
                     text: i18n("Prioritize streaming over downloading")
-                    onToggled: SettingsManager.prioritizeStreaming = checked
+                    onToggled: {
+                        SettingsManager.prioritizeStreaming = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }
@@ -95,20 +107,29 @@ Kirigami.ScrollablePage {
                     id: continuePlayingNextEntry
                     checked: SettingsManager.continuePlayingNextEntry
                     text: i18n("Continue playing next episode after current one finishes")
-                    onToggled: SettingsManager.continuePlayingNextEntry = checked
+                    onToggled: {
+                        SettingsManager.continuePlayingNextEntry = checked;
+                        SettingsManager.save();
+                    }
                 }
                 MobileForm.FormCheckDelegate {
                     id: refreshOnStartup
                     Kirigami.FormData.label: i18nc("Label for settings related to podcast updates", "Update Settings:")
                     checked: SettingsManager.refreshOnStartup
                     text: i18n("Automatically fetch podcast updates on startup")
-                    onToggled: SettingsManager.refreshOnStartup = checked
+                    onToggled: {
+                        SettingsManager.refreshOnStartup = checked;
+                        SettingsManager.save();
+                    }
                 }
                 MobileForm.FormCheckDelegate {
                     id: doFullUpdate
                     checked: SettingsManager.doFullUpdate
                     text: i18n("Update existing episode data on refresh (slower)")
-                    onToggled: SettingsManager.doFullUpdate = checked
+                    onToggled: {
+                        SettingsManager.doFullUpdate = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
@@ -117,11 +138,12 @@ Kirigami.ScrollablePage {
                     text: i18n("Automatically queue new episodes")
 
                     onToggled: {
-                        SettingsManager.autoQueue = checked
+                        SettingsManager.autoQueue = checked;
                         if (!checked) {
-                            autoDownload.checked = false
-                            SettingsManager.autoDownload = false
+                            autoDownload.checked = false;
+                            SettingsManager.autoDownload = false;
                         }
+                        SettingsManager.save();
                     }
                 }
 
@@ -131,7 +153,10 @@ Kirigami.ScrollablePage {
                     text: i18n("Automatically download new episodes")
 
                     enabled: autoQueue.checked
-                    onToggled: SettingsManager.autoDownload = checked
+                    onToggled: {
+                        SettingsManager.autoDownload = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormDelegateSeparator { above: autoDownload; below: episodeBehavior }
@@ -147,6 +172,7 @@ Kirigami.ScrollablePage {
                     Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
                     onActivated: {
                         SettingsManager.autoDeleteOnPlayed = currentValue;
+                        SettingsManager.save();
                     }
                 }
 
@@ -156,7 +182,10 @@ Kirigami.ScrollablePage {
                     id: resetPositionOnPlayed
                     checked: SettingsManager.resetPositionOnPlayed
                     text: i18n("Reset play position after an episode is played")
-                    onToggled: SettingsManager.resetPositionOnPlayed = checked
+                    onToggled: {
+                        SettingsManager.resetPositionOnPlayed = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }
@@ -175,7 +204,10 @@ Kirigami.ScrollablePage {
                 MobileForm.FormRadioDelegate {
                     checked: SettingsManager.markUnreadOnNewFeed === 0
                     text: i18n("Mark all episodes as played")
-                    onToggled: SettingsManager.markUnreadOnNewFeed = 0
+                    onToggled: {
+                        SettingsManager.markUnreadOnNewFeed = 0;
+                        SettingsManager.save();
+                    }
                 }
 
 
@@ -183,7 +215,10 @@ Kirigami.ScrollablePage {
                     id: markCustomUnreadNumberButton
                     checked: SettingsManager.markUnreadOnNewFeed === 1
                     text: i18n("Mark most recent episodes as unplayed")
-                    onToggled: SettingsManager.markUnreadOnNewFeed = 1
+                    onToggled: {
+                        SettingsManager.markUnreadOnNewFeed = 1;
+                        SettingsManager.save();
+                    }
 
                     trailing: Controls.SpinBox {
                         Layout.rightMargin: Kirigami.Units.gridUnit
@@ -193,14 +228,20 @@ Kirigami.ScrollablePage {
                         from: 0
                         to: 100
 
-                        onValueModified: SettingsManager.markUnreadOnNewFeedCustomAmount = value
+                        onValueModified: {
+                            SettingsManager.markUnreadOnNewFeedCustomAmount = value;
+                            SettingsManager.save();
+                        }
                     }
                 }
 
                 MobileForm.FormRadioDelegate {
                     checked: SettingsManager.markUnreadOnNewFeed === 2
                     text: i18n("Mark all episodes as unplayed")
-                    onToggled: SettingsManager.markUnreadOnNewFeed = 2
+                    onToggled: {
+                        SettingsManager.markUnreadOnNewFeed = 2;
+                        SettingsManager.save();
+                    }
                 }
             }
         }
@@ -229,7 +270,10 @@ Kirigami.ScrollablePage {
                         from: 6
                         to: 20
 
-                        onValueModified: SettingsManager.articleFontSize = value
+                        onValueModified: {
+                            SettingsManager.articleFontSize = value;
+                            SettingsManager.save();
+                        }
                     }
                 }
 
@@ -240,7 +284,10 @@ Kirigami.ScrollablePage {
                     checked: SettingsManager.articleFontUseSystem
                     text: i18n("Use system default")
 
-                    onToggled: SettingsManager.articleFontUseSystem = checked
+                    onToggled: {
+                        SettingsManager.articleFontUseSystem = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }

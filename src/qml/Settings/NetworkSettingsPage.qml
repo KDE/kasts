@@ -42,28 +42,40 @@ Kirigami.ScrollablePage {
                     id: allowMeteredFeedUpdates
                     checked: SettingsManager.allowMeteredFeedUpdates
                     text: i18n("Allow podcast updates")
-                    onToggled: SettingsManager.allowMeteredFeedUpdates = checked
+                    onToggled: {
+                        SettingsManager.allowMeteredFeedUpdates = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
                     id: allowMeteredEpisodeDownloads
                     checked: SettingsManager.allowMeteredEpisodeDownloads
                     text: i18n("Allow episode downloads")
-                    onToggled: SettingsManager.allowMeteredEpisodeDownloads = checked
+                    onToggled: {
+                        SettingsManager.allowMeteredEpisodeDownloads = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
                     id: allowMeteredImageDownloads
                     checked: SettingsManager.allowMeteredImageDownloads
                     text: i18n("Allow image downloads")
-                    onToggled: SettingsManager.allowMeteredImageDownloads = checked
+                    onToggled: {
+                        SettingsManager.allowMeteredImageDownloads = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
                     id: allowMeteredStreaming
                     checked: SettingsManager.allowMeteredStreaming
                     text: i18n("Allow streaming")
-                    onToggled: SettingsManager.allowMeteredStreaming = checked
+                    onToggled: {
+                        SettingsManager.allowMeteredStreaming = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }

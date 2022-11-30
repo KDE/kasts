@@ -358,7 +358,9 @@ Kirigami.Page {
                         MouseArea {
                             anchors.fill: parent
                             hoverEnabled: true
-                            onClicked: SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime
+                            onClicked: {
+                                SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime;
+                                SettingsManager.save();
                         }
                     }
                 }

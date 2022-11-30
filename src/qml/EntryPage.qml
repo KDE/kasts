@@ -24,8 +24,9 @@ Kirigami.ScrollablePage {
     padding: 0  // needed to get the inline header to fill the page
 
     function openPodcast() {
-        pushPage("FeedListPage")
-        SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+        pushPage("FeedListPage");
+        SettingsManager.lastOpenedPage = "FeedListPage"; // for persistency
+        SettingsManager.save();
         lastFeed = entry.feed.url;
         pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": entry.feed});
     }

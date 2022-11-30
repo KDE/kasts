@@ -95,21 +95,30 @@ Kirigami.ScrollablePage {
                     enabled: Sync.syncEnabled
                     checked: SettingsManager.refreshOnStartup
                     text: i18n("Do full sync on startup")
-                    onToggled: SettingsManager.refreshOnStartup = checked
+                    onToggled: {
+                        SettingsManager.refreshOnStartup = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
                     enabled: Sync.syncEnabled
                     checked: SettingsManager.syncWhenUpdatingFeeds
                     text: i18n("Do full sync when fetching podcasts")
-                    onToggled: SettingsManager.syncWhenUpdatingFeeds = checked
+                    onToggled: {
+                        SettingsManager.syncWhenUpdatingFeeds = checked;
+                        SettingsManager.save();
+                    }
                 }
 
                 MobileForm.FormCheckDelegate {
                     enabled: Sync.syncEnabled
                     checked: SettingsManager.syncWhenPlayerstateChanges
                     text: i18n("Upload episode play positions on play/pause toggle")
-                    onToggled: SettingsManager.syncWhenPlayerstateChanges = checked
+                    onToggled: {
+                        SettingsManager.syncWhenPlayerstateChanges = checked;
+                        SettingsManager.save();
+                    }
                 }
             }
         }

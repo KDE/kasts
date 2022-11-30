@@ -38,6 +38,7 @@ Kirigami.Dialog {
     // This function will be executed when the "Always allow" action is chosed; can be overloaded
     function alwaysAllowAction() {
         SettingsManager.allowMeteredFeedUpdates = true;
+        SettingsManager.save();
         action()
     }
 

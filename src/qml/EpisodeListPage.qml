@@ -30,7 +30,8 @@ Kirigami.ScrollablePage {
         text: i18n("Downloads")
         onTriggered: {
             pushPage("DownloadListPage")
-            SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+            SettingsManager.lastOpenedPage = "DownloadListPage"; // for persistency
+            SettingsManager.save();
         }
     }
 

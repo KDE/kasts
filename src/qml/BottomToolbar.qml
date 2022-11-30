@@ -27,6 +27,7 @@ Kirigami.NavigationTabBar {
             onTriggered: {
                 pushPage("QueuePage");
                 SettingsManager.lastOpenedPage = "QueuePage"; // for persistency
+                SettingsManager.save();
             }
         },
         Kirigami.Action {
@@ -36,6 +37,7 @@ Kirigami.NavigationTabBar {
             onTriggered: {
                 pushPage("FeedListPage");
                 SettingsManager.lastOpenedPage = "FeedListPage"; // for persistency
+                SettingsManager.save();
             }
         },
         Kirigami.Action {
@@ -45,6 +47,7 @@ Kirigami.NavigationTabBar {
             onTriggered: {
                 pushPage("EpisodeListPage")
                 SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
+                SettingsManager.save();
             }
         },
         Kirigami.Action {

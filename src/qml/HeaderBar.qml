@@ -30,6 +30,7 @@ Rectangle {
             pushPage("QueuePage");
             pageStack.push("qrc:/EntryPage.qml", {"entry": AudioManager.entry});
             SettingsManager.lastOpenedPage = "QueuePage";
+            SettingsManager.save();
             pageStack.get(0).lastEntry = AudioManager.entry.id;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i <  model.rowCount(); i++) {
@@ -255,7 +256,10 @@ Rectangle {
                     MouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
-                        onClicked: SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime
+                        onClicked: {
+                            SettingsManager.toggleRemainingTime = !SettingsManager.toggleRemainingTime;
+                            SettingsManager.save();
+                        }
                     }
                 }
             }

@@ -164,6 +164,7 @@ Kirigami.ApplicationWindow {
                     onTriggered: {
                         pushPage("QueuePage")
                         SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+                        SettingsManager.save();
                     }
                 },
                 Kirigami.Action {
@@ -173,6 +174,7 @@ Kirigami.ApplicationWindow {
                     onTriggered: {
                         pushPage("DiscoverPage")
                         SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
+                        SettingsManager.save();
                     }
                 },
                 Kirigami.Action {
@@ -182,6 +184,7 @@ Kirigami.ApplicationWindow {
                     onTriggered: {
                         pushPage("FeedListPage")
                         SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                        SettingsManager.save();
                     }
                 },
                 Kirigami.Action {
@@ -191,6 +194,7 @@ Kirigami.ApplicationWindow {
                     onTriggered: {
                         pushPage("EpisodeListPage")
                         SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
+                        SettingsManager.save();
                     }
                 },
                 Kirigami.Action {
@@ -200,6 +204,7 @@ Kirigami.ApplicationWindow {
                     onTriggered: {
                         pushPage("DownloadListPage")
                         SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+                        SettingsManager.save();
                     }
                 },
                 Kirigami.Action {
@@ -410,6 +415,7 @@ Kirigami.ApplicationWindow {
 
         function alwaysAllowAction() {
             SettingsManager.allowMeteredEpisodeDownloads = true;
+            SettingsManager.save();
             action();
         }
     }
