@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2022-11-17 13:26+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -179,24 +179,24 @@ msgstr "Podcast toevoegen"
 msgid "Queue"
 msgstr "In wachtrij zetten"
 
-#: qml/BottomToolbar.qml:34 qml/FeedListPage.qml:20 qml/main.qml:179
+#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:181
 #, kde-format
 msgid "Subscriptions"
 msgstr "Inschrijvingen"
 
-#: qml/BottomToolbar.qml:43 qml/main.qml:188
+#: qml/BottomToolbar.qml:45 qml/main.qml:191
 #, kde-format
 msgid "Episodes"
 msgstr "Episoden"
 
-#: qml/BottomToolbar.qml:52 qml/BottomToolbar.qml:57 qml/main.qml:206
-#: qml/main.qml:212
+#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:211
+#: qml/main.qml:217
 #, kde-format
 msgid "Settings"
 msgstr "Instellingen"
 
-#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:154
-#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:195
+#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:155
+#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Play"
 msgstr "Afspelen"
@@ -206,27 +206,27 @@ msgstr "Afspelen"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Bijwerken van Podcast is nu niet toegestaan op bemeterde verbindingen"
 
-#: qml/ConnectionCheckAction.qml:54
+#: qml/ConnectionCheckAction.qml:55
 #, kde-format
 msgid "Select Option"
 msgstr "Optie selecteren"
 
-#: qml/ConnectionCheckAction.qml:81
+#: qml/ConnectionCheckAction.qml:82
 #, kde-format
 msgid "Don't Allow"
 msgstr "Niet toestaan"
 
-#: qml/ConnectionCheckAction.qml:94
+#: qml/ConnectionCheckAction.qml:95
 #, kde-format
 msgid "Allow Once"
 msgstr "Eenmalig toestaan"
 
-#: qml/ConnectionCheckAction.qml:107
+#: qml/ConnectionCheckAction.qml:108
 #, kde-format
 msgid "Always Allow"
 msgstr "Altijd toestaan"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:170
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:171
 #, kde-format
 msgid "Discover"
 msgstr "Ontdekken"
@@ -251,12 +251,12 @@ msgstr "Inschrijven"
 msgid "Subscribed"
 msgstr "Ingeschreven"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:197
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:201
 #, kde-format
 msgid "Downloads"
 msgstr "Downloads"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:45
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:46
 #: qml/FeedListPage.qml:46
 #, kde-format
 msgid "Refresh All Podcasts"
@@ -287,33 +287,33 @@ msgstr "Gedownload"
 msgid "Episode Details"
 msgstr "Episodedetails"
 
-#: qml/EntryPage.qml:113
+#: qml/EntryPage.qml:114
 #, kde-format
 msgid "Open in Browser"
 msgstr "In browser openen"
 
-#: qml/EntryPage.qml:121 qml/GenericEntryDelegate.qml:292
+#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:292
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr "Downloaden"
 
-#: qml/EntryPage.qml:130 qml/GenericEntryDelegate.qml:301
+#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:301
 #, kde-format
 msgid "Cancel Download"
 msgstr "Download annuleren"
 
-#: qml/EntryPage.qml:138 qml/EntryPage.qml:191 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Delete Download"
 msgstr "Download verwijderen"
 
-#: qml/EntryPage.qml:146 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:195
+#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Pause"
 msgstr "Pauzeren"
 
-#: qml/EntryPage.qml:163 qml/GenericEntryDelegate.qml:328
+#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -321,54 +321,54 @@ msgctxt ""
 msgid "Stream"
 msgstr "Stream"
 
-#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:284
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Uit wachtrij verwijderen"
 
-#: qml/EntryPage.qml:175 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:313
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
 msgstr "Aan wachtrij toevoegen"
 
-#: qml/EntryPage.qml:197 qml/Settings/GeneralSettingsPage.qml:125
+#: qml/EntryPage.qml:198
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Afspeelpositie resetten"
 
-#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Als niet-afgespeeld markeren"
 
-#: qml/EntryPage.qml:203 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:166
 #, kde-format
 msgid "Mark as Played"
 msgstr "Als afgespeeld markeren"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:190
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Label \"nieuw\" verwijderen"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:182
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Als \"nieuw\" labelen"
 
-#: qml/EntryPage.qml:217
+#: qml/EntryPage.qml:218
 #, kde-format
 msgid "Open Podcast"
 msgstr "Podcast openen"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:271
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "URL van downloaden van episode kopiëren"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:277
 #, kde-format
 msgid "Link copied"
 msgstr "Koppeling gekopieerd"
@@ -378,27 +378,27 @@ msgstr "Koppeling gekopieerd"
 msgid "Episode List"
 msgstr "Lijst met episoden"
 
-#: qml/EpisodeListPage.qml:39
+#: qml/EpisodeListPage.qml:40
 #, kde-format
 msgid "Filter"
 msgstr "Filter"
 
-#: qml/EpisodeListPage.qml:53
+#: qml/EpisodeListPage.qml:54
 #, kde-format
 msgid "Select Filter"
 msgstr "Filter selecteren"
 
-#: qml/EpisodeListPage.qml:102
+#: qml/EpisodeListPage.qml:103
 #, kde-format
 msgid "Filter Active: "
 msgstr "Actief filter: "
 
-#: qml/EpisodeListPage.qml:110
+#: qml/EpisodeListPage.qml:111
 #, kde-format
 msgid "Reset"
 msgstr "Reset"
 
-#: qml/EpisodeListPage.qml:126 qml/FeedDetailsPage.qml:317
+#: qml/EpisodeListPage.qml:127 qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Geen episoden beschikbaar"
@@ -423,7 +423,7 @@ msgstr "Geen gelogde fouten"
 msgid "Error Code: "
 msgstr "Foutcode: "
 
-#: qml/ErrorNotification.qml:30 qml/Settings/GeneralSettingsPage.qml:193
+#: qml/ErrorNotification.qml:30
 #, kde-format
 msgid "Show Error Log"
 msgstr "Foutenlog tonen"
@@ -580,43 +580,43 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Download verwijderen"
 msgstr[1] "Downloads verwijderen"
 
-#: qml/HeaderBar.qml:79 qml/HeaderBar.qml:295 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
 msgstr "Geen tracktitel"
 
-#: qml/HeaderBar.qml:87 qml/HeaderBar.qml:300 qml/PlayerControls.qml:21
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
 #: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Geen track geladen"
 
-#: qml/HeaderBar.qml:114 qml/HeaderBar.qml:272
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
 #, kde-format
 msgid "Chapters"
 msgstr "Hoofdstukken"
 
-#: qml/HeaderBar.qml:168
+#: qml/HeaderBar.qml:169
 #, kde-format
 msgid "Playback Rate: "
 msgstr "Afspeelsnelheid: "
 
-#: qml/HeaderBar.qml:181
+#: qml/HeaderBar.qml:182
 #, kde-format
 msgid "Seek Backward"
 msgstr "Achterwaarts zoeken"
 
-#: qml/HeaderBar.qml:208
+#: qml/HeaderBar.qml:209
 #, kde-format
 msgid "Seek Forward"
 msgstr "Voorwaarts zoeken"
 
-#: qml/HeaderBar.qml:221
+#: qml/HeaderBar.qml:222
 #, kde-format
 msgid "Skip Forward"
 msgstr "Ga vooruit"
 
-#: qml/main.qml:298
+#: qml/main.qml:303
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -624,7 +624,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 van %1 podcast bijgewerkt"
 msgstr[1] "%2 van %1 podcasts bijgewerkt"
 
-#: qml/main.qml:325
+#: qml/main.qml:330
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -632,7 +632,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Verplaatst %2 van %1 bestand"
 msgstr[1] "Verplaatst %2 van %1 bestanden"
 
-#: qml/main.qml:389
+#: qml/main.qml:394
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Downloaden van Podcast is nu niet toegestaan op bemeterde verbindingen"
@@ -689,32 +689,33 @@ msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Resterende tijd"
 
-#: qml/Settings/AboutPage.qml:16 qml/Settings/SettingsPage.qml:36
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "About"
 msgstr "Info over"
 
-#: qml/Settings/GeneralSettingsPage.qml:17
+#: qml/Settings/GeneralSettingsPage.qml:18
 #, kde-format
 msgid "General Settings"
 msgstr "Algemene instellingen"
 
-#: qml/Settings/GeneralSettingsPage.qml:23
+#: qml/Settings/GeneralSettingsPage.qml:38
 #, kde-format
 msgid "Appearance"
 msgstr "Uiterlijk"
 
-#: qml/Settings/GeneralSettingsPage.qml:29
+#: qml/Settings/GeneralSettingsPage.qml:43
 #, kde-format
 msgid "Always show podcast titles in subscription view"
 msgstr "Altijd podcasttitels in inschrijvingenweergave tonen"
 
-#: qml/Settings/GeneralSettingsPage.qml:35
-#, kde-format
-msgid "Play Settings"
+#: qml/Settings/GeneralSettingsPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Play Settings"
+msgid "Playback settings"
 msgstr "Afspeelinstellingen"
 
-#: qml/Settings/GeneralSettingsPage.qml:40
+#: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -722,156 +723,173 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Afspeeltijd:"
 
-#: qml/Settings/GeneralSettingsPage.qml:42
+#: qml/Settings/GeneralSettingsPage.qml:67
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Resterende tijd tonen in plaats van tijdduur track"
 
-#: qml/Settings/GeneralSettingsPage.qml:49
+#: qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "resterende tijd aanpassen op basis van de huidige afspeelsnelheid"
 
-#: qml/Settings/GeneralSettingsPage.qml:54
-#, kde-format
-msgctxt ""
-"Label for settings related to streaming of episodes (as opposed to playing "
-"back locally downloaded files)"
-msgid "Streaming:"
-msgstr "Streaming:"
-
-#: qml/Settings/GeneralSettingsPage.qml:56
+#: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Streaming prioriteit geven boven downloaden"
 
-#: qml/Settings/GeneralSettingsPage.qml:62
-#, kde-format
-msgid "Queue Settings"
+#: qml/Settings/GeneralSettingsPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Queue Settings"
+msgid "Queue settings"
 msgstr "Instellingen voor wachtrijen"
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Doorgaan met afspelen van de volgende episode nadat de huidige eindigt"
 
-#: qml/Settings/GeneralSettingsPage.qml:73
+#: qml/Settings/GeneralSettingsPage.qml:117
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Instellingen bijwerken:"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/GeneralSettingsPage.qml:119
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Automatisch bijgewerkte podcast bij opstarten ophalen"
 
-#: qml/Settings/GeneralSettingsPage.qml:81
+#: qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Bestaande gegevens over episode bijwerken bij hernieuwen (langzamer)"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
-#, kde-format
-msgid "New Episodes:"
-msgstr "Nieuwe episoden:"
-
-#: qml/Settings/GeneralSettingsPage.qml:89
-#, kde-format
-msgid "Automatically Queue"
+#: qml/Settings/GeneralSettingsPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Automatically Queue"
+msgid "Automatically queue new episodes"
 msgstr "Automatische wachtrij"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
-#, kde-format
-msgid "Automatically Download"
+#: qml/Settings/GeneralSettingsPage.qml:153
+#, fuzzy, kde-format
+#| msgid "Automatically Download"
+msgid "Automatically download new episodes"
 msgstr "Automatische download"
 
-#: qml/Settings/GeneralSettingsPage.qml:110
-#, kde-format
-msgid "Played Episodes:"
-msgstr "Afgespeelde episoden:"
+#: qml/Settings/GeneralSettingsPage.qml:166
+#, fuzzy, kde-format
+#| msgid "Played Episodes"
+msgid "Played episode behavior"
+msgstr "Afgespeelde episoden"
 
-#: qml/Settings/GeneralSettingsPage.qml:114
+#: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Niet verwijderen"
 
-#: qml/Settings/GeneralSettingsPage.qml:115
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Onmiddellijk verwijderen"
 
-#: qml/Settings/GeneralSettingsPage.qml:116
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Bij volgende start verwijderen"
 
-#: qml/Settings/GeneralSettingsPage.qml:130
+#: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
-msgid "When adding new podcasts:"
+msgid "Reset play position after an episode is played"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:201
+#, fuzzy, kde-format
+#| msgid "When adding new podcasts:"
+msgid "When adding new podcasts"
 msgstr "Bij toevoegen van nieuwe podcasts:"
 
-#: qml/Settings/GeneralSettingsPage.qml:132
+#: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Alle episoden als afgespeeld markeren"
 
-#: qml/Settings/GeneralSettingsPage.qml:140
-#, kde-format
-msgid "Mark most recent episodes as unplayed:"
+#: qml/Settings/GeneralSettingsPage.qml:217
+#, fuzzy, kde-format
+#| msgid "Mark most recent episodes as unplayed:"
+msgid "Mark most recent episodes as unplayed"
 msgstr "Meest recente episoden als niet-afgespeeld markeren:"
 
-#: qml/Settings/GeneralSettingsPage.qml:157
+#: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Alle episoden als niet-afgespeeld markeren"
 
-#: qml/Settings/GeneralSettingsPage.qml:163
+#: qml/Settings/GeneralSettingsPage.qml:257
 #, kde-format
 msgid "Article"
 msgstr "Artikel"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:262
+#, fuzzy, kde-format
+#| msgid "Font size:"
+msgid "Font size"
+msgstr "Tekengrootte:"
+
+#: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
 msgid "Font size:"
 msgstr "Tekengrootte:"
 
-#: qml/Settings/GeneralSettingsPage.qml:181
+#: qml/Settings/GeneralSettingsPage.qml:285
 #, kde-format
 msgid "Use system default"
 msgstr "Systeemstandaard gebruiken"
 
-#: qml/Settings/GeneralSettingsPage.qml:188
+#: qml/Settings/GeneralSettingsPage.qml:303
 #, kde-format
 msgid "Errors"
 msgstr "Fouten"
 
-#: qml/Settings/NetworkSettingsPage.qml:17
+#: qml/Settings/GeneralSettingsPage.qml:307
+#, fuzzy, kde-format
+#| msgid "Error Log"
+msgid "Error log"
+msgstr "Fouten log"
+
+#: qml/Settings/GeneralSettingsPage.qml:310
+#, fuzzy, kde-format
+#| msgid "Open Podcast"
+msgid "Open Log"
+msgstr "Podcast openen"
+
+#: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
 msgid "Network Settings"
 msgstr "Netwerkinstellingen"
 
-#: qml/Settings/NetworkSettingsPage.qml:23
-#, kde-format
-msgid "On metered connections:"
+#: qml/Settings/NetworkSettingsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "On metered connections:"
+msgid "On metered connections"
 msgstr "Op bemeterde verbindingen:"
 
-#: qml/Settings/NetworkSettingsPage.qml:24
+#: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Bijwerken van Podcast is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Downloaden van episode is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:38
+#: qml/Settings/NetworkSettingsPage.qml:64
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Downloaden van afbeeldingen is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:45
+#: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgid "Allow streaming"
 msgstr "Streaming toestaan"
@@ -896,312 +914,169 @@ msgstr "Netwerk"
 msgid "Synchronization"
 msgstr "Synchronisatie"
 
-#: qml/Settings/StorageSettingsPage.qml:18
+#: qml/Settings/StorageSettingsPage.qml:19
 #, kde-format
 msgid "Storage Settings"
 msgstr "Opslaginstellingen"
 
-#: qml/Settings/StorageSettingsPage.qml:23
-#, kde-format
-msgid "Storage path:"
+#: qml/Settings/StorageSettingsPage.qml:39
+#: qml/Settings/StorageSettingsPage.qml:45
+#, fuzzy, kde-format
+#| msgid "Storage path:"
+msgid "Storage path"
 msgstr "Opslagpad:"
 
-#: qml/Settings/StorageSettingsPage.qml:34
+#: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
 msgid "Select folder..."
 msgstr "Map selecteren..."
 
-#: qml/Settings/StorageSettingsPage.qml:40
+#: qml/Settings/StorageSettingsPage.qml:58
 #, kde-format
 msgid "Select Storage Path"
 msgstr "Opslagpad selecteren"
 
-#: qml/Settings/StorageSettingsPage.qml:53
+#: qml/Settings/StorageSettingsPage.qml:73
 #, kde-format
 msgid "Use default path"
 msgstr "Standaard pad gebruiken"
 
-#: qml/Settings/StorageSettingsPage.qml:62
+#: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
-msgid "Podcast Downloads:"
+msgid "Information"
+msgstr ""
+
+#: qml/Settings/StorageSettingsPage.qml:95
+#, fuzzy, kde-format
+#| msgid "Podcast Downloads:"
+msgid "Podcast downloads"
 msgstr "Downloads van podcast:"
 
-#: qml/Settings/StorageSettingsPage.qml:63
-#: qml/Settings/StorageSettingsPage.qml:69
+#: qml/Settings/StorageSettingsPage.qml:96
+#: qml/Settings/StorageSettingsPage.qml:103
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr "%1 van schijfruimte wordt gebruikt"
 
-#: qml/Settings/StorageSettingsPage.qml:67
-#, kde-format
-msgid "Image Cache:"
+#: qml/Settings/StorageSettingsPage.qml:102
+#, fuzzy, kde-format
+#| msgid "Image Cache:"
+msgid "Image cache"
 msgstr "Afbeeldingscache:"
 
-#: qml/Settings/StorageSettingsPage.qml:73
+#: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
 msgid "Clear Cache"
 msgstr "Cache wissen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:17
+#: qml/Settings/SynchronizationSettingsPage.qml:18
 #, kde-format
 msgid "Synchronization Settings"
 msgstr "Synchronisatie-instellingen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:22
+#: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
-msgid "Current Status:"
-msgstr "Huidige status:"
+msgid "Account"
+msgstr ""
 
-#: qml/Settings/SynchronizationSettingsPage.qml:23
+#: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Aangemeld met account \"%1\" op server \"%2\""
 
-#: qml/Settings/SynchronizationSettingsPage.qml:23
-#, kde-format
-msgid "Syncing Disabled"
+#: qml/Settings/SynchronizationSettingsPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Syncing Disabled"
+msgid "Syncing disabled"
 msgstr "Synchroniseren uitgeschakeld"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:28
-#, kde-format
-msgid "Last full sync with server:"
-msgstr "Laatste volledige synchronisatie met server:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:34
-#, kde-format
-msgid "Last quick upload to sync server:"
-msgstr "Laatste snelle upload naar synchronisatieserver:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:40
-#, kde-format
-msgid "Login"
-msgstr "Aanmelden"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:52
-#, kde-format
-msgid "Select Sync Provider"
-msgstr "Synchronisatieleverancier selecteren"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:64
-#, kde-format
-msgid "gpodder.net"
-msgstr "gpodder.net"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:65
-#, kde-format
-msgid "Synchronize with official gpodder.net server"
-msgstr "Synchroniseren met officiële server gpodder.net"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:68
-#, kde-format
-msgid "GPodder Nextcloud"
-msgstr "GPodder Nextcloud"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:69
-#, kde-format
-msgid "Synchronize with GPodder Nextcloud app"
-msgstr "Synchroniseren met GPodder Nextcloud-app"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:100
-#, kde-format
-msgid "Sync Login Credentials"
-msgstr "Aanmeldgegevens voor synchronisatie"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:129
-#, kde-format
-msgid "Sync with GPodder Nextcloud app"
-msgstr "Synchroniseren met GPodder Nextcloud-app"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:129
-#, kde-format
-msgid "Sync with gpodder.net service"
-msgstr "Synchroniseren met service gpodder.net"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:138
-#, kde-format
-msgctxt "argument is a weblink"
-msgid ""
-"Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
-">It is advised to manually create an app password for Kasts through the web "
-"interface and use those credentials."
-msgstr ""
-"Synchroniseren met een Nextcloud-server die de GPodder Synchronisatie-app "
-"heeft geïnstalleerd: %1.<br/>Het wordt geadviseerd om handmatig een app-"
-"wachtwoord voor Kasts aan te maken via het webinterface en deze "
-"aanmeldgegevens te gebruiken."
-
-#: qml/Settings/SynchronizationSettingsPage.qml:139
-#, kde-format
-msgctxt "argument is a weblink"
-msgid "If you don't already have an account, you should first create one at %1"
-msgstr ""
-"Als u niet al een account hebt, zou u er eerst een op %1 moeten aanmaken"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:151
-#, kde-format
-msgid "Username:"
-msgstr "Gebruikersnaam:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:162
-#: qml/SyncPasswordOverlay.qml:56
-#, kde-format
-msgid "Password:"
-msgstr "Wachtwoord:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:177
-#, kde-format
-msgid "Use custom server"
-msgstr "Aangepaste server gebruiken"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:182
-#, kde-format
-msgid "Hostname:"
-msgstr "Hostnaam:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:216
-#, kde-format
-msgid "Sync Device Settings"
-msgstr "Instellingen voor synchronisatie-apparaat"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:222
-#, kde-format
-msgid "Create a new device"
-msgstr "Een nieuw apparaat aanmaken"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:228
-#, kde-format
-msgid "Device Name:"
-msgstr "Apparaatnaam:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:238
-#, kde-format
-msgid "Device Description:"
-msgstr "Apparaatbeschrijving:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:247
-#, kde-format
-msgid "Device Type:"
-msgstr "Apparaattype:"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:254
-#, kde-format
-msgid "other"
-msgstr "overig"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:255
-#, kde-format
-msgid "desktop"
-msgstr "bureaublad"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:256
-#, kde-format
-msgid "laptop"
-msgstr "laptop"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:257
-#, kde-format
-msgid "server"
-msgstr "server"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:258
-#, kde-format
-msgid "mobile"
-msgstr "mobiel"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:263
-#, kde-format
-msgid "Create Device"
-msgstr "Apparaat aanmaken"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:280
-#, kde-format
-msgid "or select an existing device"
-msgstr "of een bestaand apparaat selecteren"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:329
-#, kde-format
-msgid "Device Sync Settings"
-msgstr "Instellingen voor apparaatsynchonisatie"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:351
-#, kde-format
-msgid ""
-"Should all podcast subscriptions on this gpodder.net account be synced "
-"across all devices?\n"
-"If you don't know what this means, you should probably select \"Ok\"."
-msgstr ""
-"Zouden alle podcast inschrijvingen op dit gpodder.net account "
-"gesynchroniseerd moeten worden over alle apparaten?\n"
-"Als u niet weet wat dat betekent, zult u waarschijnlijk \"Ok\" moeten "
-"selecteren."
-
-#: qml/Settings/SynchronizationSettingsPage.qml:373
-#, kde-format
-msgid "Sync Now?"
-msgstr "Nu synchroniseren?"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:393
-#, kde-format
-msgid "Perform a first sync now?"
-msgstr "Nu een eerste synchronisatie uitvoeren?"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:401
+#: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
 msgid "Logout"
 msgstr "Afmelden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
-msgid "Automatic Syncing:"
-msgstr "Automatische synchronisatie:"
+msgid "Login"
+msgstr "Aanmelden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:412
-#, kde-format
-msgid "Do full sync on startup"
-msgstr "Volledige synchronisatie bij opstarten doen"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:419
-#, kde-format
-msgid "Do full sync when fetching podcasts"
-msgstr "Volledige synchronisatie bij ophalen van podcasts doen"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:426
-#, kde-format
-msgid "Upload episode play positions on play/pause toggle"
-msgstr "Episode afspeelposities uploaden bij omschakelen van afspelen/pauzeren"
-
-#: qml/Settings/SynchronizationSettingsPage.qml:431
-#, kde-format
-msgid "Manual Syncing:"
+#: qml/Settings/SynchronizationSettingsPage.qml:54
+#, fuzzy, kde-format
+#| msgid "Manual Syncing:"
+msgid "Manually sync"
 msgstr "Handmatige synchronisatie:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:432
+#: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
 msgid "Sync Now"
 msgstr "Nu synchroniseren"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:451
+#: qml/Settings/SynchronizationSettingsPage.qml:69
+#, fuzzy, kde-format
+#| msgid "Last full sync with server:"
+msgid "Last full sync with server"
+msgstr "Laatste volledige synchronisatie met server:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:77
+#, fuzzy, kde-format
+#| msgid "Last quick upload to sync server:"
+msgid "Last quick upload to sync server"
+msgstr "Laatste snelle upload naar synchronisatieserver:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:91
+#, fuzzy, kde-format
+#| msgid "Automatic Syncing:"
+msgid "Automatic syncing"
+msgstr "Automatische synchronisatie:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
-msgid "Advanced Options"
+msgid "Do full sync on startup"
+msgstr "Volledige synchronisatie bij opstarten doen"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:107
+#, kde-format
+msgid "Do full sync when fetching podcasts"
+msgstr "Volledige synchronisatie bij ophalen van podcasts doen"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:117
+#, kde-format
+msgid "Upload episode play positions on play/pause toggle"
+msgstr "Episode afspeelposities uploaden bij omschakelen van afspelen/pauzeren"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:134
+#, fuzzy, kde-format
+#| msgid "Advanced Options"
+msgid "Advanced options"
 msgstr "Geavanceerde opties"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:455
+#: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Fetch all episode states from server"
 msgstr "Alle statussen van episodes ophalen uit server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:474
+#: qml/Settings/SynchronizationSettingsPage.qml:142
+#, kde-format
+msgid "Fetch"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
 msgid "Push all local episode states to server"
 msgstr "Alle lokale statussen van episodes naar server overbrengen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:489
+#: qml/Settings/SynchronizationSettingsPage.qml:158
+#, kde-format
+msgid "Push"
+msgstr ""
+
+#: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
 msgid "Push all local episode states to server?"
 msgstr "Alle lokale statussen van episodes naar server overbrengen?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:509
+#: qml/Settings/SynchronizationSettingsPage.qml:217
 #, kde-format
 msgid ""
 "Please note that pushing the playback state of all local episodes to the "
@@ -1216,6 +1091,174 @@ msgstr ""
 "deze actie alle bestaande statussen van episodes op de server overschrijft.\n"
 "\n"
 "Doorgaan?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:241
+#, kde-format
+msgid "Select Sync Provider"
+msgstr "Synchronisatieleverancier selecteren"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:253
+#, kde-format
+msgid "gpodder.net"
+msgstr "gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:254
+#, kde-format
+msgid "Synchronize with official gpodder.net server"
+msgstr "Synchroniseren met officiële server gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:257
+#, kde-format
+msgid "GPodder Nextcloud"
+msgstr "GPodder Nextcloud"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:258
+#, kde-format
+msgid "Synchronize with GPodder Nextcloud app"
+msgstr "Synchroniseren met GPodder Nextcloud-app"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:289
+#, kde-format
+msgid "Sync Login Credentials"
+msgstr "Aanmeldgegevens voor synchronisatie"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with GPodder Nextcloud app"
+msgstr "Synchroniseren met GPodder Nextcloud-app"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with gpodder.net service"
+msgstr "Synchroniseren met service gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:327
+#, kde-format
+msgctxt "argument is a weblink"
+msgid ""
+"Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
+">It is advised to manually create an app password for Kasts through the web "
+"interface and use those credentials."
+msgstr ""
+"Synchroniseren met een Nextcloud-server die de GPodder Synchronisatie-app "
+"heeft geïnstalleerd: %1.<br/>Het wordt geadviseerd om handmatig een app-"
+"wachtwoord voor Kasts aan te maken via het webinterface en deze "
+"aanmeldgegevens te gebruiken."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:328
+#, kde-format
+msgctxt "argument is a weblink"
+msgid "If you don't already have an account, you should first create one at %1"
+msgstr ""
+"Als u niet al een account hebt, zou u er eerst een op %1 moeten aanmaken"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:340
+#, kde-format
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:351
+#: qml/SyncPasswordOverlay.qml:56
+#, kde-format
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:366
+#, kde-format
+msgid "Use custom server"
+msgstr "Aangepaste server gebruiken"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:371
+#, kde-format
+msgid "Hostname:"
+msgstr "Hostnaam:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:405
+#, kde-format
+msgid "Sync Device Settings"
+msgstr "Instellingen voor synchronisatie-apparaat"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:411
+#, kde-format
+msgid "Create a new device"
+msgstr "Een nieuw apparaat aanmaken"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:417
+#, kde-format
+msgid "Device Name:"
+msgstr "Apparaatnaam:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:427
+#, kde-format
+msgid "Device Description:"
+msgstr "Apparaatbeschrijving:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:436
+#, kde-format
+msgid "Device Type:"
+msgstr "Apparaattype:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:443
+#, kde-format
+msgid "other"
+msgstr "overig"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:444
+#, kde-format
+msgid "desktop"
+msgstr "bureaublad"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:445
+#, kde-format
+msgid "laptop"
+msgstr "laptop"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:446
+#, kde-format
+msgid "server"
+msgstr "server"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:447
+#, kde-format
+msgid "mobile"
+msgstr "mobiel"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:452
+#, kde-format
+msgid "Create Device"
+msgstr "Apparaat aanmaken"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:469
+#, kde-format
+msgid "or select an existing device"
+msgstr "of een bestaand apparaat selecteren"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:518
+#, kde-format
+msgid "Device Sync Settings"
+msgstr "Instellingen voor apparaatsynchonisatie"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:540
+#, kde-format
+msgid ""
+"Should all podcast subscriptions on this gpodder.net account be synced "
+"across all devices?\n"
+"If you don't know what this means, you should probably select \"Ok\"."
+msgstr ""
+"Zouden alle podcast inschrijvingen op dit gpodder.net account "
+"gesynchroniseerd moeten worden over alle apparaten?\n"
+"Als u niet weet wat dat betekent, zult u waarschijnlijk \"Ok\" moeten "
+"selecteren."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:562
+#, kde-format
+msgid "Sync Now?"
+msgstr "Nu synchroniseren?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:582
+#, kde-format
+msgid "Perform a first sync now?"
+msgstr "Nu een eerste synchronisatie uitvoeren?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
@@ -1453,6 +1496,21 @@ msgstr "Synchronisatie afgebroken"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronisatie beëindigd met fout"
+
+#~ msgctxt ""
+#~ "Label for settings related to streaming of episodes (as opposed to "
+#~ "playing back locally downloaded files)"
+#~ msgid "Streaming:"
+#~ msgstr "Streaming:"
+
+#~ msgid "New Episodes:"
+#~ msgstr "Nieuwe episoden:"
+
+#~ msgid "Played Episodes:"
+#~ msgstr "Afgespeelde episoden:"
+
+#~ msgid "Current Status:"
+#~ msgstr "Huidige status:"
 
 #~ msgid "Nothing Added to the Queue Yet"
 #~ msgstr "Nog niets aan de wachtrij toegevoegd"
