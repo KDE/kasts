@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-19 23:23+0100\n"
+"PO-Revision-Date: 2022-12-01 16:26+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.11.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -716,8 +716,7 @@ msgstr ""
 "Mostrar siempre los títulos de los pódcast en la vista de suscripciones"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
 msgstr "Preferencias de reproducción"
 
@@ -745,8 +744,7 @@ msgid "Prioritize streaming over downloading"
 msgstr "Priorizar la emisión sobre la descarga"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Preferencias de la cola"
 
@@ -773,22 +771,19 @@ msgstr ""
 "Actualizar los datos de los episodios existentes al refrescar (más lento)"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Encolar automáticamente"
+msgstr "Encolar nuevos episodios automáticamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Descargar automáticamente"
+msgstr "Descargar nuevos episodios automáticamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Episodios reproducidos"
+msgstr "Comportamiento de los episodios reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -808,13 +803,12 @@ msgstr "Borrar durante el próximo inicio"
 #: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Reiniciar la posición de reproducción tras reproducir un episodio"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "Al añadir nuevos pódcast:"
+msgstr "Al añadir nuevos pódcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -822,10 +816,9 @@ msgid "Mark all episodes as played"
 msgstr "Marcar todos los episodios como reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Marcar los episodios más recientes como  no reproducidos:"
+msgstr "Marcar los episodios más recientes como no reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
@@ -838,10 +831,9 @@ msgid "Article"
 msgstr "Artículo"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Tamaño del texto:"
+msgstr "Tamaño del texto"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -859,16 +851,14 @@ msgid "Errors"
 msgstr "Errores"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
 msgstr "Registro de errores"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Abrir pódcast"
+msgstr "Abrir registro"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -876,10 +866,9 @@ msgid "Network Settings"
 msgstr "Preferencias de la red"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "En conexiones de uso medido:"
+msgstr "En conexiones de uso medido"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -928,10 +917,9 @@ msgstr "Preferencias de almacenamiento"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Ruta de almacenamiento:"
+msgstr "Ruta de almacenamiento"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -951,13 +939,12 @@ msgstr "Usar la ruta predeterminada"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Descargas de pódcast:"
+msgstr "Descargas de pódcast"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -967,10 +954,9 @@ msgid "Using %1 of disk space"
 msgstr "Usando %1 de espacio en disco"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Caché de imágenes:"
+msgstr "Caché de imágenes"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -985,7 +971,7 @@ msgstr "Preferencias de sincronización"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -993,8 +979,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Sesión iniciada en la cuenta «%1» en el servidor «%2»"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Sincronización desactivada"
 
@@ -1009,10 +994,9 @@ msgid "Login"
 msgstr "Inicio de sesión"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Sincronización manual:"
+msgstr "Sincronización manual"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1020,22 +1004,19 @@ msgid "Sync Now"
 msgstr "Sincronizar ahora"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Última sincronización completa con el servidor:"
+msgstr "Última sincronización completa con el servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Último envío rápido para sincronizar el servidor:"
+msgstr "Último envío rápido para sincronizar el servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Sincronización automática:"
+msgstr "Sincronización automática"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1055,8 +1036,7 @@ msgstr ""
 "pausar"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Opciones avanzadas"
 
@@ -1068,7 +1048,7 @@ msgstr "Obtener el estado de todos los episodios del servidor"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Extraer"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1078,7 +1058,7 @@ msgstr "Enviar el estado de todos los episodios locales al servidor"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Enviar"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-17 18:25+0300\n"
+"PO-Revision-Date: 2022-12-01 17:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -710,10 +710,9 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Abonelik görünümünde her zaman podcast başlıklarını göster"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
-msgstr "Çalma Ayarları"
+msgstr "Çalma ayarları"
 
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
@@ -739,10 +738,9 @@ msgid "Prioritize streaming over downloading"
 msgstr "İndirme yerine akışa öncelik ver"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
-msgstr "Kuyruk Ayarları"
+msgstr "Kuyruk ayarları"
 
 #: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
@@ -766,22 +764,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr "Yenilemede var olan bölüm verisini güncelle (daha yavaş)"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Kendiliğinden Kuyruğa Ekle"
+msgstr "Yeni bölümleri kendiliğinden kuyruğa ekle"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Kendiliğinden İndirilen"
+msgstr "Yeni bölümleri kendiliğinden indir"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Çalınan Bölümler"
+msgstr "Çalınan bölüm davranışı"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -801,13 +796,12 @@ msgstr "Bir Sonraki Başlangıçta Sil"
 #: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Bir bölüm çalındıktan sonra çalma konumunu sıfırla"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "Yeni Podcast eklerken:"
+msgstr "Yeni Podcast'ler eklerken"
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -815,10 +809,9 @@ msgid "Mark all episodes as played"
 msgstr "Tüm bölümleri çalınmış olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "En son bölümleri çalınmamış olarak imle:"
+msgstr "En son bölümleri çalınmamış olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
@@ -831,10 +824,9 @@ msgid "Article"
 msgstr "Yazı"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Yazıtipi boyutu:"
+msgstr "Yazıtipi boyutu"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -852,16 +844,14 @@ msgid "Errors"
 msgstr "Hatalar"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
-msgstr "Hata Günlüğü"
+msgstr "Hata günlüğü"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Podcast Aç"
+msgstr "Günlük Aç"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -869,10 +859,9 @@ msgid "Network Settings"
 msgstr "Ağ Ayarları"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "Kısıtlı bağlantılarda:"
+msgstr "Kısıtlı bağlantılarda"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -921,10 +910,9 @@ msgstr "Depolama Ayarları"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Depolama konumu:"
+msgstr "Depolama konumu"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -944,13 +932,12 @@ msgstr "Öntanımlı konumu kullan"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Bilgi"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Podcast İndirmeleri:"
+msgstr "Podcast indirmeleri"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -960,10 +947,9 @@ msgid "Using %1 of disk space"
 msgstr "%1 disk alanı kullanılıyor"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Görsel Önbelleği:"
+msgstr "Görsel önbelleği"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -978,7 +964,7 @@ msgstr "Eşzamanlama Ayarları"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Hesap"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -986,10 +972,9 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "\"%2\" sunucusunda \"%1\" olarak oturum açıldı"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
-msgstr "Eşzamanlama Devre Dışı"
+msgstr "Eşzamanlama devre dışı"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -1002,10 +987,9 @@ msgid "Login"
 msgstr "Giriş Yap"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Elle Eşzamanlama:"
+msgstr "Elle eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1013,22 +997,19 @@ msgid "Sync Now"
 msgstr "Şimdi Eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Sunucuyla son tam eşzamanlama:"
+msgstr "Sunucuyla son tam eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Eşzamanlama sunucusuna son hızlı yükleme:"
+msgstr "Eşzamanlama sunucusuna son hızlı yükleme"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Otomatik Eşzamanlama:"
+msgstr "Otomatik eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1046,10 +1027,9 @@ msgid "Upload episode play positions on play/pause toggle"
 msgstr "Çal/Duraklat düğmesine bölüm çalma konumlarını yükle"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
-msgstr "Gelişmiş Seçenekler"
+msgstr "Gelişmiş seçenekler"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
@@ -1059,7 +1039,7 @@ msgstr "Sunucudan tüm bölüm durumlarını getir"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Getir"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1069,7 +1049,7 @@ msgstr "Tüm yerel bölüm durumlarını sunucuya it"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "İt"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format

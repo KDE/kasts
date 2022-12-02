@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-17 04:13+0200\n"
+"PO-Revision-Date: 2022-12-01 10:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -732,8 +732,7 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Завжди показувати заголовки трансляцій на панелі підписок"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
 msgstr "Параметри відтворення"
 
@@ -761,8 +760,7 @@ msgid "Prioritize streaming over downloading"
 msgstr "Пріоритет потокового передавання над отриманням даних"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Параметри черги"
 
@@ -788,22 +786,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr "Оновлювати наявні дані епізодів при освіженні (повільніше)"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Автоматично додавати до черги"
+msgstr "Автоматично додавати до черги нові епізоди"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Отримувати автоматично"
+msgstr "Отримувати автоматично нові епізоди"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Відтворені епізоди"
+msgstr "Обробка відтворених епізодів"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -823,13 +818,12 @@ msgstr "Вилучити під час наступного запуску"
 #: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Відновлювати початкову позицію відтворення після відтворення епізоду"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "При додаванні нових епізодів:"
+msgstr "При додаванні нових епізодів"
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -837,10 +831,9 @@ msgid "Mark all episodes as played"
 msgstr "Позначити усі епізоди як відтворені"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Позначити найсвіжіші епізоди як невідтворені:"
+msgstr "Позначити найсвіжіші епізоди як невідтворені"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
@@ -853,10 +846,9 @@ msgid "Article"
 msgstr "Стаття"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Розмір шрифту:"
+msgstr "Розмір шрифту"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -874,16 +866,14 @@ msgid "Errors"
 msgstr "Помилки"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
 msgstr "Журнал помилок"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Відкрити трансляцію"
+msgstr "Відкрити журнал"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -891,10 +881,9 @@ msgid "Network Settings"
 msgstr "Параметри мережі"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "При вимірюваних з'єднаннях:"
+msgstr "При вимірюваних з'єднаннях"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -943,10 +932,9 @@ msgstr "Параметри сховища даних"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Шлях зберігання:"
+msgstr "Шлях зберігання"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -966,13 +954,12 @@ msgstr "Типовий шлях"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Відомості"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Отримання подкастів:"
+msgstr "Отримання подкастів"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -982,10 +969,9 @@ msgid "Using %1 of disk space"
 msgstr "Із використанням %1 місця на диску"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Кеш зображень:"
+msgstr "Кеш зображень"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -1000,7 +986,7 @@ msgstr "Параметри синхронізації"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Обліковий запис"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -1008,8 +994,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Здійснено вхід до облікового запису «%1» на сервері «%2»"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Синхронізацію вимкнено"
 
@@ -1024,10 +1009,9 @@ msgid "Login"
 msgstr "Увійти"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Синхронізація вручну:"
+msgstr "Синхронізація вручну"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1035,22 +1019,19 @@ msgid "Sync Now"
 msgstr "Синхронізувати"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Остання повна синхронізація з сервером:"
+msgstr "Остання повна синхронізація з сервером"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Останнє швидке вивантаження на сервер синхронізації:"
+msgstr "Останнє швидке вивантаження на сервер синхронізації"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Автоматична синхронізація:"
+msgstr "Автоматична синхронізація"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1069,8 +1050,7 @@ msgstr ""
 "Вивантажувати позиції відтворення епізодів при перемикання стану відтворення"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Додаткові параметри"
 
@@ -1082,7 +1062,7 @@ msgstr "Отримати усі стани епізодів з сервера"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Отримати"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1092,7 +1072,7 @@ msgstr "Надіслати стани усіх локальних епізоді
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Надіслати"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
