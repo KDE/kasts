@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-18 07:44+0100\n"
+"PO-Revision-Date: 2022-12-02 06:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -336,7 +336,7 @@ msgstr "რიგში ჩამატება"
 #: qml/EntryPage.qml:198
 #, kde-format
 msgid "Reset Play Position"
-msgstr ""
+msgstr "დაკვრის მდებარეობის საწყის მნიშვნელობაზე დაბრუნება"
 
 #: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
 #, kde-format
@@ -366,7 +366,7 @@ msgstr "პოდკასტის გახსნა"
 #: qml/EntryPage.qml:271
 #, kde-format
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "ეპიზოდის გადმოწერის ბმულის კოპირება"
 
 #: qml/EntryPage.qml:277
 #, kde-format
@@ -507,7 +507,7 @@ msgstr "პოდკასტების გატანა..."
 #: qml/FeedListPage.qml:89
 #, kde-format
 msgid "No Podcasts Added Yet"
-msgstr ""
+msgstr "ჯერ პოდკასტები არ დამატებულა"
 
 #: qml/FeedListPage.qml:94
 #, kde-format
@@ -560,7 +560,7 @@ msgstr[1] "პოდკასტების წაშლა"
 #: qml/GenericEntryDelegate.qml:165
 #, kde-format
 msgid "Played"
-msgstr ""
+msgstr "დაკრული"
 
 #: qml/GenericEntryDelegate.qml:165
 #, kde-format
@@ -583,23 +583,23 @@ msgstr[1] "გადმოწერების წაშლა"
 #: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
 #, kde-format
 msgid "No Track Title"
-msgstr ""
+msgstr "ტრეკის სათაურის გარეშე"
 
 #: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
 #: qml/PlayerControls.qml:185
 #, kde-format
 msgid "No Track Loaded"
-msgstr ""
+msgstr "ტრეკი ჩატვირთული არაა"
 
 #: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
 #, kde-format
 msgid "Chapters"
-msgstr ""
+msgstr "თავები"
 
 #: qml/HeaderBar.qml:169
 #, kde-format
 msgid "Playback Rate: "
-msgstr ""
+msgstr "დაკვრის სიჩქარე: "
 
 #: qml/HeaderBar.qml:182
 #, kde-format
@@ -621,16 +621,16 @@ msgstr "წინ გადახტომა"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ატვირთულია %2 პოდკასტი %1-დან"
+msgstr[1] "ატვირთულია %2 პოდკასტი %1-დან"
 
 #: qml/main.qml:330
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "გადატანილია %2 ფაილი %1-დან"
+msgstr[1] "გადატანილია %2 ფაილი %1-დან"
 
 #: qml/main.qml:394
 #, kde-format
@@ -655,7 +655,7 @@ msgstr "პოდკასტის სათაურის გარეშე"
 #: qml/PlayerControls.qml:209
 #, kde-format
 msgid "No chapters found."
-msgstr ""
+msgstr "თავები ვერ ვიპოვე."
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -710,8 +710,7 @@ msgid "Always show podcast titles in subscription view"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
 msgstr "დაკვრის მორგება"
 
@@ -739,10 +738,9 @@ msgid "Prioritize streaming over downloading"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
-msgstr "რიგის პარამეტრები"
+msgstr "რიგის მორგება"
 
 #: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
@@ -768,18 +766,17 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "ახალი ეპიზოდების ავტომატური ჩამატება"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "ახალი ეპიზოდების ავტომატური გადმოწერა"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "დაკრული ეპიზოდები"
+msgstr "დაკრული ეპიზოდის ქცევა"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -789,7 +786,7 @@ msgstr "არ წაშალო"
 #: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Delete Immediately"
-msgstr ""
+msgstr "დაუყოვნებლივი წაშლა"
 
 #: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
@@ -802,8 +799,7 @@ msgid "Reset play position after an episode is played"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
 msgstr "ახალი პოდკასტების დამატებისას"
 
@@ -813,15 +809,14 @@ msgid "Mark all episodes as played"
 msgstr "მონიშნეთ ყველა ეპიზოდი, როგორც დაკრული"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark all episodes as played"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "მონიშნეთ ყველა ეპიზოდი, როგორც დაკრული"
+msgstr "უახლესი ეპიზოდების, როგორც არასოდეს დაკრულის, მონიშვნა"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr ""
+msgstr "ყველა ეპიზოდის, როგორც არასოდეს დაკრულის, მონიშვნა"
 
 #: qml/Settings/GeneralSettingsPage.qml:257
 #, kde-format
@@ -829,10 +824,9 @@ msgid "Article"
 msgstr "სტატია"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "ფონტის ზომა:"
+msgstr "ფონტის ზომა"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -850,16 +844,14 @@ msgid "Errors"
 msgstr "შედომები"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
 msgstr "შეცდომების ჟურნალი"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "პოდკასტის გახსნა"
+msgstr "ჟურნალის გახსნა"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -918,10 +910,9 @@ msgstr "საცავის მორგება"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "საცავის ბილიკი:"
+msgstr "საცავის ბილიკი"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -931,7 +922,7 @@ msgstr "აირჩიეთ საქაღალდე..."
 #: qml/Settings/StorageSettingsPage.qml:58
 #, kde-format
 msgid "Select Storage Path"
-msgstr ""
+msgstr "აირჩიეთ საცავის ბილიკი"
 
 #: qml/Settings/StorageSettingsPage.qml:73
 #, kde-format
@@ -941,26 +932,24 @@ msgstr "ნაგულისხმები ბილიკის გამო�
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "ინფორმაცია"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "პოდკასტის გადმოწერები:"
+msgstr "პოდკასტის გადმოწერები"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr ""
+msgstr "დისკზე გამოყენებული ადგილია %1"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "გამოსახულებების ქეში:"
+msgstr "გამოსახულებების ქეში"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -975,17 +964,17 @@ msgstr "სინქრონიზაციის მორგება"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "ანგარიში"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr ""
+msgstr "შეხვედით ანგარიშში \"%1\" სერვერზე \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Syncing disabled"
-msgstr ""
+msgstr "სინქრონიზაცია გამორთულია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -1000,7 +989,7 @@ msgstr "შესვლა"
 #: qml/Settings/SynchronizationSettingsPage.qml:54
 #, kde-format
 msgid "Manually sync"
-msgstr ""
+msgstr "ხელით სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1010,27 +999,27 @@ msgstr "სინქრონიზაცია ახლავე"
 #: qml/Settings/SynchronizationSettingsPage.qml:69
 #, kde-format
 msgid "Last full sync with server"
-msgstr ""
+msgstr "ბოლო სინქი სერვერთან"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
 #, kde-format
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "ბოლო სწრაფი ატვირთვა სინქრონიზაციის სერვერზე"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
 msgid "Automatic syncing"
-msgstr ""
+msgstr "ავტომატური სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "სრული სინქრონიზაცია გაშვებისას"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:107
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr ""
+msgstr "სრული სინქრონიზაცია პოდკასტების გამოთხოვისას"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:117
 #, kde-format
@@ -1038,8 +1027,7 @@ msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "დამატებითი პარამეტრები"
 
@@ -1051,7 +1039,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "გამოთხოვა"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1061,7 +1049,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "გადაცემა"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
@@ -1082,7 +1070,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgid "Select Sync Provider"
-msgstr ""
+msgstr "აირჩიეთ სინქრონიზაციის მომწოდებელი"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:253
 #, kde-format
@@ -1097,7 +1085,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
 msgid "GPodder Nextcloud"
-msgstr ""
+msgstr "GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
@@ -1107,17 +1095,17 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
 msgid "Sync Login Credentials"
-msgstr ""
+msgstr "შესვლის ავტორიზაციის დეტალების სინრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
-msgstr ""
+msgstr "GPodder Nextcloud-ის აპთან სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with gpodder.net service"
-msgstr ""
+msgstr "GPodder.netის სერვისთან სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:327
 #, kde-format
@@ -1148,7 +1136,7 @@ msgstr "პაროლი:"
 #: qml/Settings/SynchronizationSettingsPage.qml:366
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "სერვერის ხელით მითითება"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:371
 #, kde-format
@@ -1158,7 +1146,7 @@ msgstr "ჰოსტის სახელი:"
 #: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Sync Device Settings"
-msgstr ""
+msgstr "მოწყობილობის პარამეტრების სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:411
 #, kde-format
@@ -1213,12 +1201,12 @@ msgstr "მოწყობილობის შექმნა"
 #: qml/Settings/SynchronizationSettingsPage.qml:469
 #, kde-format
 msgid "or select an existing device"
-msgstr ""
+msgstr "ან აირჩიეთ არსებული მოწყობილობა"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:518
 #, kde-format
 msgid "Device Sync Settings"
-msgstr ""
+msgstr "მოწყობილობის სინქრონიზაციის მორგება"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:540
 #, kde-format
@@ -1231,17 +1219,17 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:562
 #, kde-format
 msgid "Sync Now?"
-msgstr ""
+msgstr "დავასინქრონო ახლავე?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:582
 #, kde-format
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "გნებავთ პირველი სინქრონიზაციის ახლავე შესრულება?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "ძილის წამმზომი"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
@@ -1256,17 +1244,17 @@ msgstr "შეჩერება"
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "სტატუსი: აქტიური"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "სტატუსი: არააქტიური"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining Time: %1"
-msgstr ""
+msgstr "დარჩენილი დრო: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
@@ -1286,7 +1274,7 @@ msgstr "საათი"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr ""
+msgstr "პაროლის სინარონიზაცია სავალდებულოა"
 
 #: qml/SyncPasswordOverlay.qml:48
 #, kde-format
@@ -1308,27 +1296,27 @@ msgstr "შეწყვეტა"
 #: storagemanager.cpp:83
 #, kde-format
 msgid "Old location:"
-msgstr ""
+msgstr "ძველი მდებარეობა:"
 
 #: storagemanager.cpp:83
 #, kde-format
 msgid "New location:"
-msgstr ""
+msgstr "ახალი მდებარეობა:"
 
 #: storagemovejob.cpp:59
 #, kde-format
 msgid "Destination path not writable"
-msgstr ""
+msgstr "სამიზნე ბილიკი ჩაწერადი არაა"
 
 #: storagemovejob.cpp:76 storagemovejob.cpp:97
 #, kde-format
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
 
 #: storagemovejob.cpp:106
 #, kde-format
 msgid "An error occurred while copying data"
-msgstr ""
+msgstr "შეცდომა მონაცემების კოპირებისას"
 
 #: sync/sync.cpp:180
 #, kde-format
@@ -1341,67 +1329,67 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr ""
+msgstr "Kasts %1-ზე"
 
 #: sync/sync.cpp:297
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr ""
+msgstr "GPodder-nextcloud-ის სერვერზე შესვლის პრობლემა"
 
 #: sync/sync.cpp:336
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr ""
+msgstr "GPodder-ის სერვერზე შესვლის პრობლემა"
 
 #: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O Denied: Cannot save password."
-msgstr ""
+msgstr "შ/გ-ის შეცდომა: პაროლის შენახვა შეუძლებელია."
 
 #: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
-msgstr ""
+msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
 
 #: sync/sync.cpp:635
 #, kde-format
 msgid "Could not create GPodder device"
-msgstr ""
+msgstr "GPodder მოწყობილობის შექმნის შეცდომა"
 
 #: sync/sync.cpp:661
 #, kde-format
 msgid "Could not retrieve synced device status"
-msgstr ""
+msgstr "სინრქონიზებული მოწყობილობის მდგომარეობის მიღების შეცდომა"
 
 #: sync/sync.cpp:712
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr ""
+msgstr "მოწყობილობის (%1) გამოწერების მიღების შეცდომა"
 
 #: sync/sync.cpp:731
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr ""
+msgstr "მოწყობილობის (%1) გამოწერების ატვირთვის შეცდომა"
 
 #: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr ""
+msgstr "სერვერიდან გამოწერის განახლებების გამოთხოვის შეცდომა"
 
 #: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr ""
+msgstr "სერვერზე გამოწერის ცვლილებების ატვირთვის შეცდომა"
 
 #: sync/syncjob.cpp:75
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr ""
+msgstr "სერვერიდან ეპიზოდის განახლებების გამოთხოვის შეცდომა"
 
 #: sync/syncjob.cpp:78
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr ""
+msgstr "სერვერზე ეპიზოდის განახლებების ატვირთვის შეცდომა"
 
 #: sync/syncjob.cpp:81
 #, kde-format
@@ -1462,13 +1450,13 @@ msgstr ""
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
-msgstr ""
+msgstr "სინქრონიზაცია გაუქმდა"
 
 #: sync/syncjob.cpp:919
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
-msgstr ""
+msgstr "სინქრონიზაცია შეცდომით დასრულდა"
 
 #~ msgid "New Episodes:"
 #~ msgstr "ახალი ეპიზოდები:"

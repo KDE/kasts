@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-17 13:37+0100\n"
+"PO-Revision-Date: 2022-12-01 13:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -717,8 +717,7 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre els títols dels podcast en la vista de subscripcions"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
 msgstr "Configuració de la reproducció"
 
@@ -747,8 +746,7 @@ msgid "Prioritize streaming over downloading"
 msgstr "Prioritza la transmissió en continu sobre la baixada"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Configuració de la cua"
 
@@ -774,22 +772,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr "Actualitza les dades dels episodis existents en actualitzar (més lent)"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Posa automàticament a la cua"
+msgstr "Posa automàticament a la cua els capítols nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Baixa automàticament"
+msgstr "Baixa automàticament els capítols nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Capítols reproduïts"
+msgstr "Comportament dels capítols reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -809,13 +804,12 @@ msgstr "Suprimix-lo en l'inici següent"
 #: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Restablix la posició de reproducció després de reproduir un capítol"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "En afegir podcast nous:"
+msgstr "En afegir podcast nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -823,10 +817,9 @@ msgid "Mark all episodes as played"
 msgstr "Marca tots els episodis com a reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Marca els episodis més recents com a sense reproduir:"
+msgstr "Marca els capítols més recents com a sense reproduir"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
@@ -839,10 +832,9 @@ msgid "Article"
 msgstr "Article"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Mida del tipus de lletra:"
+msgstr "Mida del tipus de lletra"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -860,16 +852,14 @@ msgid "Errors"
 msgstr "Errors"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
 msgstr "Registre d'errors"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Obri un podcast"
+msgstr "Obri el registre"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -877,10 +867,9 @@ msgid "Network Settings"
 msgstr "Configuració de la xarxa"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "En les connexions d'ús mesurat:"
+msgstr "En les connexions d'ús mesurat"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -929,10 +918,9 @@ msgstr "Configuració de l'emmagatzematge"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Camí d'emmagatzematge:"
+msgstr "Camí d'emmagatzematge"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -952,13 +940,12 @@ msgstr "Utilitza el camí predeterminat"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informació"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Baixades de podcast:"
+msgstr "Baixades de podcast"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -968,10 +955,9 @@ msgid "Using %1 of disk space"
 msgstr "S'està utilitzant %1 de l'espai en disc"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Memòria cau de les imatges:"
+msgstr "Memòria cau de les imatges"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -986,7 +972,7 @@ msgstr "Configuració de la sincronització"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -994,8 +980,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "S'ha iniciat la sessió en el compte «%1» al servidor «%2»"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Sincronització desactivada"
 
@@ -1010,10 +995,9 @@ msgid "Login"
 msgstr "Inici de sessió"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Sincronització manual:"
+msgstr "Sincronitza manualment"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1021,22 +1005,19 @@ msgid "Sync Now"
 msgstr "Sincronitza ara"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Última sincronització completa amb el servidor:"
+msgstr "Última sincronització completa amb el servidor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Última pujada ràpida al servidor de sincronització:"
+msgstr "Última pujada ràpida al servidor de sincronització"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Sincronització automàtica:"
+msgstr "Sincronització automàtica"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1055,8 +1036,7 @@ msgstr ""
 "Puja les posicions de reproducció de l'episodi en alternar reproduïx/pausa"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Opcions avançades"
 
@@ -1068,7 +1048,7 @@ msgstr "Recupera els estats de tots els episodis des del servidor"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Recupera"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1078,7 +1058,7 @@ msgstr "Empeny els estats de tots els episodis al servidor"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Empeny"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
@@ -1505,18 +1485,3 @@ msgstr "Sincronització interrompuda"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sincronització acabada amb error"
-
-#~ msgctxt ""
-#~ "Label for settings related to streaming of episodes (as opposed to "
-#~ "playing back locally downloaded files)"
-#~ msgid "Streaming:"
-#~ msgstr "Transmissió en continu:"
-
-#~ msgid "New Episodes:"
-#~ msgstr "Capítols nous:"
-
-#~ msgid "Played Episodes:"
-#~ msgstr "Capítols reproduïts:"
-
-#~ msgid "Current Status:"
-#~ msgstr "Estat actual:"

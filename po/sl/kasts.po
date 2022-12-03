@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-18 08:12+0100\n"
+"PO-Revision-Date: 2022-12-02 06:33+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -724,10 +724,9 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Vedno pokaži naslov podcasta v pogledu naročil"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
-msgstr "Nastavitve predvajanja"
+msgstr "Nastavitve playbacka"
 
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
@@ -753,8 +752,7 @@ msgid "Prioritize streaming over downloading"
 msgstr "Daj prednost tokovni komunikaciji pred prenosi"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Nastavitve čakalne vrste"
 
@@ -780,22 +778,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr "Posodobi obstoječe podatke epizode ob osveževanju (počasnejše)"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Samodejno se postavi v čakalno vrsto"
+msgstr "Samodejno postavi nove epizode v čakalno vrsto"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Samodejno prenesi"
+msgstr "Samodejno prenesi nove epizode"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Predvajane epizode"
+msgstr "Predvajano obnašanje epizode"
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -815,13 +810,12 @@ msgstr "Zbriši ob naslednjem zagonu"
 #: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Ponastavi lokacijo predvajanja po predvajanju epizode"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "Kadar dodajate nove podcaste:"
+msgstr "Kadar se dodajajo novi podcasti"
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -829,10 +823,9 @@ msgid "Mark all episodes as played"
 msgstr "Označi kot vse epizode kot predvajane"
 
 #: qml/Settings/GeneralSettingsPage.qml:217
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Označi večino nedavnih epizod kot nepredvajane:"
+msgstr "Označi večino nedavnih epizod kot nepredvajane"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
@@ -845,10 +838,9 @@ msgid "Article"
 msgstr "Članek"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Velikost pisave:"
+msgstr "Velikost pisave"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -866,16 +858,14 @@ msgid "Errors"
 msgstr "Napake"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
 msgstr "Dnevnik napak"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Odpri podcast"
+msgstr "Odpri dnevnik"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -883,10 +873,9 @@ msgid "Network Settings"
 msgstr "Nastavitve omrežja"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "Pri merjenih povezavah:"
+msgstr "Pri merjenih povezavah"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -935,10 +924,9 @@ msgstr "Nastavitve hrambe"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Pot do hrambe:"
+msgstr "Pot do hrambe"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -958,13 +946,12 @@ msgstr "Uporabi privzeto pot"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informacije"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Prenosi podcastov:"
+msgstr "Prenosi podcastov"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -974,10 +961,9 @@ msgid "Using %1 of disk space"
 msgstr "Uporabljeno %1 diskovnega prostora"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Medpomnilnik slik:"
+msgstr "Medpomnilnik slik"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -992,7 +978,7 @@ msgstr "Nastavitve sinhronizacije"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Račun"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -1000,8 +986,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Prijavljen na račun \"%1\" na strežniku \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Sinhronizacija onemogočena"
 
@@ -1016,10 +1001,9 @@ msgid "Login"
 msgstr "Prijava"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Ročna sinhronizacija:"
+msgstr "Ročna sinhronizacija"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1027,22 +1011,19 @@ msgid "Sync Now"
 msgstr "Sinhroniziraj zdaj"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Zadnja polna sinhronizacija s strežnikom:"
+msgstr "Zadnja polna sinhronizacija s strežnikom"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Zadnji hiter prenos na strežnik sinhronizacije:"
+msgstr "Zadnji hiter prenos na strežnik sinhronizacije"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Samodejna sinhronizacija:"
+msgstr "Samodejna sinhronizacija"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1060,8 +1041,7 @@ msgid "Upload episode play positions on play/pause toggle"
 msgstr "Naloži položaje predvajanja epizode ob preklopu predvajanje/premor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Napredne možnosti"
 
@@ -1073,7 +1053,7 @@ msgstr "Pridobi stanje vseh epizod s strežnika"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Potegni"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1083,7 +1063,7 @@ msgstr "Porini vsa stanja lokalnih epizod na strežnik"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Porini"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
