@@ -91,6 +91,7 @@
     <p xml:lang="fr">Kasts est une application unifiée pour podcast, fonctionnant bien sur ordinateurs et sur mobile.</p>
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
+    <p xml:lang="ka">Kasts პოდკასტების კონვერგენტული აპლიკაციაა, რომელიც ორივე, კომპიუტერზე და მობილურზე, კარგად გამოიყურება.</p>
     <p xml:lang="ko">Kasts는 데스크톱과 모바일 양쪽에서 작동하는 팟캐스트 프로그램입니다.</p>
     <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
@@ -127,6 +128,7 @@
       <li xml:lang="fr">Gestion des épisodes grâce à une file de lecture</li>
       <li xml:lang="id">Pengelolaan episode melalui antrean putar</li>
       <li xml:lang="it">Gestione degli episodi attraverso la coda di riproduzione</li>
+      <li xml:lang="ka">ეპიზოდის მართვა დაკვრის რიგის საშუალებით</li>
       <li xml:lang="ko">재생 대기열을 통한 에피소드 관리</li>
       <li xml:lang="nl">Beheer van episoden via afspeelwachtrij</li>
       <li xml:lang="pt">Gestão de episódios através da fila de reprodução</li>
@@ -144,6 +146,7 @@
       <li xml:lang="fr">Synchroniser les positions de lecture avec d'autres client, grâce à « gpodder.net » ou « gpodder-nextcloud »</li>
       <li xml:lang="id">Sinkronkan posisi pemutaran dengan klien lain melalui gpodder.net atau gpodder-nextcloud</li>
       <li xml:lang="it">Sincronizza le posizioni di riproduzione con altri client tramite gpodder.net o gpodder-nextcloud</li>
+      <li xml:lang="ka">დაასინქრონეთ დაკვრის მდებარეობები სხვა კლიენტებთან gpodder.net ან gpodder-nextcloud-ის საშუალებით</li>
       <li xml:lang="ko">gpoddet.net이나 gpodder-nextcloud를 사용하여 다른 클라이언트와 재생 위치 동기화</li>
       <li xml:lang="nl">Afspeelposities synchroniseren met andere clients via gpodder.net of gpodder-nextcloud</li>
       <li xml:lang="pt">Sincronizar as posições de reprodução com outros clientes através do gpodder.net ou do gpodder-nextcloud</li>
@@ -197,6 +200,7 @@
       <li xml:lang="fr">Intégration totale avec le système : par exemple, inhibition de la mise en veille du système durant la lecture</li>
       <li xml:lang="id">Integrasi sistem penuh: mis. menghambat sistem suspensi saat mendengarkan</li>
       <li xml:lang="it">Integrazione completa del sistema: ad es. inibire la sospensione del sistema durante l'ascolto</li>
+      <li xml:lang="ka">სრული ინტეგრაცია სისტემასთან: მაგ: მოსმენისას სისტემის დაძინების აკრძალვა</li>
       <li xml:lang="ko">전체 시스템 통합: 재생 중에 시스템 대기 모드 진입 방지</li>
       <li xml:lang="nl">Volledige systeemintegratie: bijv. het systeem niet uitschakelen tijdens luisteren</li>
       <li xml:lang="pt">Integração total com o sistema: p.ex. inibir a suspensão do sistema enquanto escuta algo</li>
