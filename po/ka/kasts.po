@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-12-02 06:29+0100\n"
+"PO-Revision-Date: 2022-12-03 06:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -41,7 +41,7 @@ msgstr "არასწორი მედია"
 #: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
+msgstr "პოდკასტის გადმოწერა დაუშვებელია მომხმარებლის პარამეტრების გამო"
 
 #: enclosuredownloadjob.cpp:33
 #, kde-format
@@ -61,7 +61,7 @@ msgstr "მედიის გადმოწერის შეცდომა"
 #: error.cpp:52
 #, kde-format
 msgid "Update Not Allowed on Metered Connection"
-msgstr ""
+msgstr "განახლება გაზომვადი ქსელური შეერთების დროს აკრძალულია"
 
 #: error.cpp:54
 #, kde-format
@@ -81,7 +81,7 @@ msgstr "საცავის ბილიკის გადატანის 
 #: error.cpp:60
 #, kde-format
 msgid "Error Syncing Feed and/or Episode Status"
-msgstr ""
+msgstr "ლენტის ან/და ეპიზოდის სტატუსის სინქრონიზაციის შეცდომა"
 
 #: error.cpp:62
 #, kde-format
@@ -861,7 +861,7 @@ msgstr "ქსელის მორგება"
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "On metered connections"
-msgstr ""
+msgstr "გაზომვადი მიერთების დროს"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -1034,7 +1034,7 @@ msgstr "დამატებითი პარამეტრები"
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Fetch all episode states from server"
-msgstr ""
+msgstr "სერვერიდან ყველა ეპიზოდის მდგომარეობის გამოთხოვა"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
@@ -1044,7 +1044,7 @@ msgstr "გამოთხოვა"
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
 msgid "Push all local episode states to server"
-msgstr ""
+msgstr "ყველა ლოკალური ეპიზოდის მდგომარეობების სერვერზე ატვირთვა"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
@@ -1054,7 +1054,7 @@ msgstr "გადაცემა"
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
 msgid "Push all local episode states to server?"
-msgstr ""
+msgstr "ავტვრთო ყველა ლოკალური ეპიზოდის მდგომარეობა სერვერზე?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:217
 #, kde-format
@@ -1080,7 +1080,7 @@ msgstr "gpodder.net"
 #: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgid "Synchronize with official gpodder.net server"
-msgstr ""
+msgstr "Gpodder.net-ის ოფიციალურ სერვერთან სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
@@ -1090,7 +1090,7 @@ msgstr "GPodder Nextcloud"
 #: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr ""
+msgstr "Gpodder.net-ის Nextcloud-ის აპთან სინქრონიზაცია"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
@@ -1400,7 +1400,7 @@ msgstr "მონაცემების შიდა დინების შ
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
-msgstr ""
+msgstr "(ნაბიჯი %1 %2-დან) სინქრონიზების დასაწყისი"
 
 #: sync/syncjob.cpp:888
 #, kde-format
