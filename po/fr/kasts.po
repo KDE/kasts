@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-18 06:57+0100\n"
+"PO-Revision-Date: 2022-12-04 18:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 22.11.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -747,8 +747,7 @@ msgid "Prioritize streaming over downloading"
 msgstr "Prioriser la lecture en flux par rapport au téléchargement"
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Paramètres de files d'attente"
 
@@ -841,10 +840,9 @@ msgid "Article"
 msgstr "Article"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Taille de la police :"
+msgstr "Taille de police"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -862,16 +860,14 @@ msgid "Errors"
 msgstr "Erreurs"
 
 #: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgid "Error log"
-msgstr "Journal d'erreurs"
+msgstr "Journal des erreurs"
 
 #: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open Log"
-msgstr "Ouvrir un podcast"
+msgstr "Ouvrir un journal"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
@@ -879,10 +875,9 @@ msgid "Network Settings"
 msgstr "Configurations du réseau"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "Pour les connexions facturées :"
+msgstr "Pour les connexions facturées"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -931,10 +926,9 @@ msgstr "Configuration du stockage"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Dossier de stockage :"
+msgstr "Emplacement d'enregistrement"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -954,7 +948,7 @@ msgstr "Utiliser l'emplacement par défaut"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informations"
 
 #: qml/Settings/StorageSettingsPage.qml:95
 #, fuzzy, kde-format
@@ -970,10 +964,9 @@ msgid "Using %1 of disk space"
 msgstr "Utilisation de %1 d'espace disque"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Cache d'images :"
+msgstr "Cache d'images"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -988,7 +981,7 @@ msgstr "Configuration de la synchronisation"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -996,8 +989,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Connecté avec le compte « %1 » sur le serveur « %2 »"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Synchronisation désactivée"
 
@@ -1012,10 +1004,9 @@ msgid "Login"
 msgstr "Connexion"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Synchronisation manuelle :"
+msgstr "Synchronisation manuelle"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1023,10 +1014,9 @@ msgid "Sync Now"
 msgstr "Synchroniser maintenant"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Dernière synchronisation complète avec le serveur :"
+msgstr "Dernière synchronisation complète avec le serveur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
 #, fuzzy, kde-format
@@ -1035,10 +1025,9 @@ msgid "Last quick upload to sync server"
 msgstr "Dernier envoi rapide vers le serveur de synchronisation :"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Synchronisation automatique :"
+msgstr "Synchronisation automatique"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1059,8 +1048,7 @@ msgstr ""
 "« lecture / pause »"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Options avancées"
 
