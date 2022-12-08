@@ -117,7 +117,7 @@ Kirigami.Page {
                         width: root.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
+                            imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
                             anchors.margins: 0

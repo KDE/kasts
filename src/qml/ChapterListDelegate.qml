@@ -26,10 +26,11 @@ Kirigami.BasicListItem {
     text: model.title
     subtitle: model.formattedStart
 
-    leading: Kirigami.Icon {
-        width: height
+    leading: ImageWithFallback {
+        imageSource: model.chapter.cachedImage
         height: parent.height
-        source: Fetcher.image(model.image.length > 0 ? model.image : root.entry.image)
+        width: height
+        fractionalRadius: 1.0 / 8.0
     }
 
     trailing: Controls.ToolButton {

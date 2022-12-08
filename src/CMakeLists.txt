@@ -11,6 +11,7 @@ set(SRCS_base
     feed.cpp
     author.cpp
     enclosure.cpp
+    chapter.cpp
     datamanager.cpp
     audiomanager.cpp
     error.cpp

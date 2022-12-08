@@ -56,7 +56,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
+                    imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
                     Layout.fillHeight: true
                     Layout.preferredWidth: height
                 }

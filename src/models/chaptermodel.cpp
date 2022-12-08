@@ -29,17 +29,24 @@ ChapterModel::ChapterModel(QObject *parent)
         if (!m_entry || m_entry != AudioManager::instance().entry() || m_chapters.isEmpty()) {
             return;
         }
-        if (m_chapters[m_currentChapter].start > AudioManager::instance().position() / 1000
-            || (m_currentChapter < m_chapters.size() - 1 && m_chapters[m_currentChapter + 1].start < AudioManager::instance().position() / 1000)) {
+        if (m_chapters[m_currentChapter]
+            && (m_chapters[m_currentChapter]->start() > AudioManager::instance().position() / 1000
+                || (m_currentChapter < m_chapters.size() - 1 && m_chapters[m_currentChapter + 1]
+                    && m_chapters[m_currentChapter + 1]->start() < AudioManager::instance().position() / 1000))) {
             for (int i = 0; i < m_chapters.size(); i++) {
-                if (m_chapters[i].start < AudioManager::instance().position() / 1000
-                    && (i == m_chapters.size() - 1 || m_chapters[i + 1].start > AudioManager::instance().position() / 1000)) {
+                if (m_chapters[i]->start() < AudioManager::instance().position() / 1000
+                    && (i == m_chapters.size() - 1 || m_chapters[i + 1]->start() > AudioManager::instance().position() / 1000)) {
                     m_currentChapter = i;
                     Q_EMIT currentChapterChanged();
                 }
             }
         }
     });
+}
+
+ChapterModel::~ChapterModel()
+{
+    qDeleteAll(m_chapters.begin(), m_chapters.end());
 }
 
 QVariant ChapterModel::data(const QModelIndex &index, int role) const
@@ -49,19 +56,24 @@ QVariant ChapterModel::data(const QModelIndex &index, int role) const
     }
 
     int row = index.row();
-
-    switch (role) {
-    case Title:
-        return QVariant::fromValue(m_chapters.at(row).title);
-    case Link:
-        return QVariant::fromValue(m_chapters.at(row).link);
-    case Image:
-        return QVariant::fromValue(m_chapters.at(row).image);
-    case StartTime:
-        return QVariant::fromValue(m_chapters.at(row).start);
-    case FormattedStartTime:
-        return QVariant::fromValue(m_kformat.formatDuration(m_chapters.at(row).start * 1000));
-    default:
+    if (m_chapters.at(row)) {
+        switch (role) {
+        case TitleRole:
+            return QVariant::fromValue(m_chapters.at(row)->title());
+        case LinkRole:
+            return QVariant::fromValue(m_chapters.at(row)->link());
+        case ImageRole:
+            return QVariant::fromValue(m_chapters.at(row)->image());
+        case StartTimeRole:
+            return QVariant::fromValue(m_chapters.at(row)->start());
+        case FormattedStartTimeRole:
+            return QVariant::fromValue(m_kformat.formatDuration(m_chapters.at(row)->start() * 1000));
+        case ChapterRole:
+            return QVariant::fromValue(m_chapters.at(row));
+        default:
+            return QVariant();
+        }
+    } else {
         return QVariant();
     }
 }
@@ -78,11 +90,12 @@ int ChapterModel::rowCount(const QModelIndex &parent) const
 QHash<int, QByteArray> ChapterModel::roleNames() const
 {
     return {
-        {Title, "title"},
-        {Link, "link"},
-        {Image, "image"},
-        {StartTime, "start"},
-        {FormattedStartTime, "formattedStart"},
+        {TitleRole, "title"},
+        {LinkRole, "link"},
+        {ImageRole, "image"},
+        {StartTimeRole, "start"},
+        {FormattedStartTimeRole, "formattedStart"},
+        {ChapterRole, "chapter"},
     };
 }
 
@@ -96,6 +109,8 @@ void ChapterModel::setEntry(Entry *entry)
     if (entry) {
         m_entry = entry;
     } else {
+        qDeleteAll(m_chapters.begin(), m_chapters.end());
+        m_chapters.clear();
         m_entry = nullptr;
     }
     load();
@@ -105,11 +120,14 @@ void ChapterModel::setEntry(Entry *entry)
 void ChapterModel::load()
 {
     beginResetModel();
+    qDeleteAll(m_chapters.begin(), m_chapters.end());
     m_chapters = {};
     m_currentChapter = 0;
     if (m_entry) {
-        loadFromDatabase();
         loadChaptersFromFile();
+        if (m_chapters.isEmpty()) {
+            loadFromDatabase();
+        }
     }
     endResetModel();
     Q_EMIT currentChapterChanged();
@@ -123,11 +141,12 @@ void ChapterModel::loadFromDatabase()
         query.bindValue(QStringLiteral(":id"), m_entry->id());
         Database::instance().execute(query);
         while (query.next()) {
-            ChapterEntry chapter{};
-            chapter.title = query.value(QStringLiteral("title")).toString();
-            chapter.link = query.value(QStringLiteral("link")).toString();
-            chapter.image = query.value(QStringLiteral("image")).toString();
-            chapter.start = query.value(QStringLiteral("start")).toInt();
+            Chapter *chapter = new Chapter(m_entry,
+                                           query.value(QStringLiteral("title")).toString(),
+                                           query.value(QStringLiteral("link")).toString(),
+                                           query.value(QStringLiteral("image")).toString(),
+                                           query.value(QStringLiteral("start")).toInt(),
+                                           this);
             m_chapters << chapter;
         }
     }
@@ -141,10 +160,10 @@ void ChapterModel::loadMPEGChapters(TagLib::MPEG::File &f)
     for (const auto &frame : f.ID3v2Tag()->frameListMap()["CHAP"]) {
         auto chapterFrame = dynamic_cast<TagLib::ID3v2::ChapterFrame *>(frame);
 
-        ChapterEntry chapter{};
         const auto &apicList = chapterFrame->embeddedFrameListMap()["APIC"];
-        auto hash = QString::fromLatin1(
-            QCryptographicHash::hash(QStringLiteral("%1,%2").arg(m_entry->id(), chapterFrame->startTime()).toLatin1(), QCryptographicHash::Md5).toHex());
+        QString image = QStringLiteral("%1,%2").arg(m_entry->id()).arg(chapterFrame->startTime());
+        // TODO: get hashed filename from a method in Fetcher
+        auto hash = QString::fromLatin1(QCryptographicHash::hash(image.toLatin1(), QCryptographicHash::Md5).toHex());
         auto path = QStringLiteral("%1/images/%2").arg(StorageManager::instance().storagePath(), hash);
         if (!apicList.isEmpty()) {
             if (!QFileInfo(path).exists()) {
@@ -154,24 +173,23 @@ void ChapterModel::loadMPEGChapters(TagLib::MPEG::File &f)
                 file.write(QByteArray(apic.data(), apic.size()));
                 file.close();
             }
-            chapter.image = path;
         } else {
-            chapter.image = QString();
+            image = QString();
         }
-        chapter.title = QString::fromStdString(chapterFrame->embeddedFrameListMap()["TIT2"].front()->toString().to8Bit(true));
-        chapter.link = QString();
-        chapter.start = chapterFrame->startTime() / 1000;
+        QString title = QString::fromStdString(chapterFrame->embeddedFrameListMap()["TIT2"].front()->toString().to8Bit(true));
+        int start = chapterFrame->startTime() / 1000;
+        Chapter *chapter = new Chapter(m_entry, title, QString(), image, start, this);
         auto originalChapter = std::find_if(m_chapters.begin(), m_chapters.end(), [chapter](auto it) {
-            return chapter.start == it.start;
+            return chapter->start() == it->start();
         });
         if (originalChapter != m_chapters.end()) {
-            originalChapter->image = chapter.image;
+            (*originalChapter)->image() = chapter->image();
         } else {
             m_chapters << chapter;
         }
     }
-    std::sort(m_chapters.begin(), m_chapters.end(), [](const ChapterEntry &a, const ChapterEntry &b) {
-        return a.start < b.start;
+    std::sort(m_chapters.begin(), m_chapters.end(), [](const Chapter *a, const Chapter *b) {
+        return a->start() < b->start();
     });
 }
 
@@ -187,21 +205,13 @@ void ChapterModel::loadChaptersFromFile()
     } // TODO else...
 }
 
-int ChapterModel::currentChapter() const
+Chapter *ChapterModel::currentChapter() const
 {
     for (int i = 0; i < m_chapters.size(); i++) {
-        if (m_chapters[i].start < AudioManager::instance().position() / 1000
-            && (i == m_chapters.size() - 1 || m_chapters[i + 1].start > AudioManager::instance().position() / 1000)) {
-            return i;
+        if (m_chapters[i] && m_chapters[i]->start() < AudioManager::instance().position() / 1000
+            && (i == m_chapters.size() - 1 || m_chapters[i + 1]->start() > AudioManager::instance().position() / 1000)) {
+            return m_chapters[i];
         }
     }
-    return 0;
-}
-
-QString ChapterModel::currentChapterImage() const
-{
-    if (m_chapters.size() <= m_currentChapter) {
-        return {};
-    }
-    return m_chapters[m_currentChapter].image;
+    return nullptr;
 }

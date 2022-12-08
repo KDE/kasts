@@ -50,7 +50,7 @@ Rectangle {
         spacing: Kirigami.Units.largeSpacing
         ImageWithFallback {
             id: mainImage
-            imageSource: AudioManager.entry ? ((chapterModel.currentChapterImage && chapterModel.currentChapterImage !== "") ? "file://" + Fetcher.image(chapterModel.currentChapterImage) : AudioManager.entry.cachedImage) : "no-image"
+            imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
             height: controlsLayout.height
             width: height
             absoluteRadius: 5

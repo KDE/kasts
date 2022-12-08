@@ -11,34 +11,29 @@
 
 #include <mpegfile.h>
 
+#include "chapter.h"
 #include "entry.h"
-
-struct ChapterEntry {
-    QString title;
-    QString link;
-    QString image;
-    int start;
-};
 
 class ChapterModel : public QAbstractListModel
 {
     Q_OBJECT
 
     Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
-    Q_PROPERTY(int currentChapter READ currentChapter NOTIFY currentChapterChanged)
-    Q_PROPERTY(QString currentChapterImage READ currentChapterImage NOTIFY currentChapterChanged)
+    Q_PROPERTY(Chapter *currentChapter READ currentChapter NOTIFY currentChapterChanged)
 
 public:
     enum RoleNames {
-        Title = Qt::DisplayRole,
-        Link = Qt::UserRole + 1,
-        Image,
-        StartTime,
-        FormattedStartTime,
+        TitleRole = Qt::DisplayRole,
+        LinkRole = Qt::UserRole + 1,
+        ImageRole,
+        StartTimeRole,
+        FormattedStartTimeRole,
+        ChapterRole,
     };
     Q_ENUM(RoleNames);
 
     explicit ChapterModel(QObject *parent = nullptr);
+    ~ChapterModel();
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
@@ -47,8 +42,7 @@ public:
     void setEntry(Entry *entry);
     Entry *entry() const;
 
-    int currentChapter() const;
-    QString currentChapterImage() const;
+    Chapter *currentChapter() const;
 
 Q_SIGNALS:
     void entryChanged();
@@ -61,7 +55,7 @@ private:
     void loadMPEGChapters(TagLib::MPEG::File &f);
 
     Entry *m_entry = nullptr;
-    QVector<ChapterEntry> m_chapters;
+    QVector<Chapter *> m_chapters;
     KFormat m_kformat;
     int m_currentChapter = 0;
 };
