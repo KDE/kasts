@@ -12,6 +12,8 @@ Dependencies:
     'frameworks/kconfig': '@stable'
     'frameworks/threadweaver': '@stable'
     'libraries/kirigami-addons': '@stable'
+    'third-party/qtkeychain': '@latest'
+    'third-party/taglib': '@latest'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]
