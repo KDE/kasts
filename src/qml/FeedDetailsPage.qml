@@ -141,7 +141,7 @@ Kirigami.ScrollablePage {
                             onTriggered: DataManager.addFeed(feed.url)
                         },
                         Kirigami.Action {
-                            iconName: "help-about-symbolic"
+                            iconName: "documentinfo"
                             text: i18n("Show Details")
                             checkable: true
                             onCheckedChanged: {

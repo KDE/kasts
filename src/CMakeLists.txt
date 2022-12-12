@@ -183,7 +183,7 @@ if(ANDROID)
         window-close-symbolic
         delete
         settings-configure
-        help-about-symbolic
+        documentinfo
         tools-report-bug
         list-add
         list-remove

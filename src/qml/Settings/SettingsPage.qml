@@ -34,7 +34,7 @@ Kirigami.CategorizedSettings {
         },
         Kirigami.SettingAction {
             text: i18n("About")
-            icon.name: "help-about-symbolic"
+            icon.name: "documentinfo"
             page: "qrc:/AboutPage.qml"
         }
     ]

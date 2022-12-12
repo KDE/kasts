@@ -253,7 +253,7 @@ Controls.ItemDelegate {
                     pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
                     actionOverlay.close();
                 }
-                iconName: "help-about-symbolic"
+                iconName: "documentinfo"
                 text: i18n("Podcast Details")
             },
             Kirigami.Action {

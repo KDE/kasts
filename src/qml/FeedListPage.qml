@@ -279,7 +279,7 @@ Kirigami.ScrollablePage {
         }
 
         property var feedDetailsAction: Kirigami.Action {
-            iconName: "help-about-symbolic"
+            iconName: "documentinfo"
             text: i18n("Podcast Details")
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {

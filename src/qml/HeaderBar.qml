@@ -123,7 +123,7 @@ Rectangle {
                     Controls.ToolButton {
                         id: infoButton
                         visible: AudioManager.entry && (titlesAndButtons.width > essentialButtons.width + 2 * implicitWidth + parent.optionalButtonCollapseWidth)
-                        icon.name: "help-about-symbolic"
+                        icon.name: "documentinfo"
                         icon.height: essentialButtons.iconSize
                         icon.width: essentialButtons.iconSize
                         Layout.alignment: Qt.AlignHCenter

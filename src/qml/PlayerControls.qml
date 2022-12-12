@@ -274,7 +274,7 @@ Kirigami.Page {
                         Layout.preferredHeight: contextButtons.buttonSize
                         Layout.maximumWidth: height
                         Layout.preferredWidth: height
-                        icon.name: "help-about-symbolic"
+                        icon.name: "documentinfo"
                         icon.width: contextButtons.iconSize
                         icon.height: contextButtons.iconSize
                         onClicked: {
