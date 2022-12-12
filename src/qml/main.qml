@@ -11,7 +11,7 @@ import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.12
 import Qt.labs.settings 1.0
 
-import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
@@ -42,7 +42,7 @@ Kirigami.ApplicationWindow {
             return Kirigami.Units.largeSpacing;
         }
     }
-    property int originalWidth: Kirigami.Units.gridUnit * 10
+    property int originalWidth: Kirigami.Units.gridUnit * 6
     property var lastFeed: ""
     property string currentPage: ""
 
@@ -125,81 +125,123 @@ Kirigami.ApplicationWindow {
     Loader {
         id: sidebar
         active: !Kirigami.Settings.isMobile || root.isWidescreen
-        sourceComponent: Kirigami.GlobalDrawer {
+        sourceComponent: Kirigami.OverlayDrawer {
             modal: false
-            isMenu: false
-            collapsible: !Kirigami.Settings.isMobile
-            collapsed: !root.isWidescreen
-            collapseButtonVisible: false
             width: root.isWidescreen ? root.originalWidth : Layout.implicitWidth
-            header: Kirigami.AbstractApplicationHeader {}
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             Kirigami.Theme.inherit: false
 
-            actions: [
-                Kirigami.Action {
-                    text: i18n("Queue")
-                    iconName: "source-playlist"
-                    checked: currentPage == "QueuePage"
-                    onTriggered: {
-                        pushPage("QueuePage")
-                        SettingsManager.lastOpenedPage = "QueuePage" // for persistency
-                        SettingsManager.save();
+            leftPadding: 0
+            rightPadding: 0
+            topPadding: 0
+            bottomPadding: 0
+
+            contentItem: ColumnLayout {
+                spacing: 0
+
+                Kirigami.AbstractApplicationHeader { Layout.fillWidth: true }
+
+                Controls.ScrollView {
+                    id: scrollView
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    Controls.ScrollBar.vertical.policy: Controls.ScrollBar.AlwaysOff
+                    Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+                    contentWidth: -1 // disable horizontal scroll
+
+                    ColumnLayout {
+                        id: column
+                        width: scrollView.width
+                        spacing: 0
+
+                        Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            text: i18n("Queue")
+                            icon.name: "source-playlist"
+                            checked: currentPage == "QueuePage"
+                            onClicked: {
+                                pushPage("QueuePage")
+                                SettingsManager.lastOpenedPage = "QueuePage" // for persistency
+                                SettingsManager.save();
+                            }
+                        }
+                        Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            text: i18n("Discover")
+                            icon.name: "search"
+                            checked: currentPage == "DiscoverPage"
+                            onClicked: {
+                                pushPage("DiscoverPage")
+                                SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
+                                SettingsManager.save();
+                            }
+                        }
+                        Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            text: i18n("Subscriptions")
+                            icon.name: "bookmarks"
+                            checked: currentPage == "FeedListPage"
+                            onClicked: {
+                                pushPage("FeedListPage")
+                                SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
+                                SettingsManager.save();
+                            }
+                        }
+                        Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            text: i18n("Episodes")
+                            icon.name: "rss"
+                            checked: currentPage == "EpisodeListPage"
+                            onClicked: {
+                                pushPage("EpisodeListPage")
+                                SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
+                                SettingsManager.save();
+                            }
+                        }
+                        Kirigami.NavigationTabButton {
+                            Layout.fillWidth: true
+                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            text: i18n("Downloads")
+                            icon.name: "download"
+                            checked: currentPage == "DownloadListPage"
+                            onClicked: {
+                                pushPage("DownloadListPage")
+                                SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
+                                SettingsManager.save();
+                            }
+                        }
                     }
-                },
-                Kirigami.Action {
-                    text: i18n("Discover")
-                    iconName: "search"
-                    checked: currentPage == "DiscoverPage"
-                    onTriggered: {
-                        pushPage("DiscoverPage")
-                        SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
-                        SettingsManager.save();
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Subscriptions")
-                    iconName: "bookmarks"
-                    checked: currentPage == "FeedListPage"
-                    onTriggered: {
-                        pushPage("FeedListPage")
-                        SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
-                        SettingsManager.save();
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Episodes")
-                    iconName: "rss"
-                    checked: currentPage == "EpisodeListPage"
-                    onTriggered: {
-                        pushPage("EpisodeListPage")
-                        SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
-                        SettingsManager.save();
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Downloads")
-                    iconName: "download"
-                    checked: currentPage == "DownloadListPage"
-                    onTriggered: {
-                        pushPage("DownloadListPage")
-                        SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
-                        SettingsManager.save();
-                    }
-                },
-                Kirigami.Action {
+                }
+
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                    Layout.bottomMargin: Kirigami.Units.smallSpacing
+                    Layout.rightMargin: Kirigami.Units.smallSpacing
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
+                }
+
+                Kirigami.NavigationTabButton {
+                    Layout.fillWidth: true
+                    width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+
                     text: i18n("Settings")
-                    iconName: "settings-configure"
+                    icon.name: "settings-configure"
                     checked: currentPage == "SettingsPage"
-                    onTriggered: {
+                    onClicked: {
+                        checked = false;
                         root.pageStack.layers.clear()
                         root.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
                             title: i18n("Settings")
                         })
                     }
                 }
-            ]
+            }
         }
     }
 
