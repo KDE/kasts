@@ -1,4 +1,5 @@
 <!-- SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de> -->
+<!-- SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be> -->
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 <RCC>
     <qresource prefix="/">
@@ -15,6 +16,7 @@
         <file alias="QueuePage.qml">qml/QueuePage.qml</file>
         <file alias="EpisodeListPage.qml">qml/EpisodeListPage.qml</file>
         <file alias="DownloadListPage.qml">qml/DownloadListPage.qml</file>
+        <file alias="ErrorList.qml">qml/ErrorList.qml</file>
         <file alias="ErrorListOverlay.qml">qml/ErrorListOverlay.qml</file>
         <file alias="GenericHeader.qml">qml/GenericHeader.qml</file>
         <file alias="GenericEntryDelegate.qml">qml/GenericEntryDelegate.qml</file>
@@ -33,6 +35,7 @@
         <file alias="NetworkSettingsPage.qml">qml/Settings/NetworkSettingsPage.qml</file>
         <file alias="StorageSettingsPage.qml">qml/Settings/StorageSettingsPage.qml</file>
         <file alias="SynchronizationSettingsPage.qml">qml/Settings/SynchronizationSettingsPage.qml</file>
+        <file alias="ErrorListPage.qml">qml/Settings/ErrorListPage.qml</file>
         <file alias="BottomToolbar.qml">qml/BottomToolbar.qml</file>
         <file alias="SleepTimerDialog.qml">qml/SleepTimerDialog.qml</file>
         <file>qtquickcontrols2.conf</file>

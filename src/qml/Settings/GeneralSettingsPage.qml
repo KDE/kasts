@@ -291,31 +291,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
-        MobileForm.FormCard {
-            Layout.fillWidth: true
-            Layout.topMargin: Kirigami.Units.largeSpacing
-
-            contentItem: ColumnLayout {
-                spacing: 0
-
-                MobileForm.FormCardHeader {
-                    title: i18n("Errors")
-                }
-
-                MobileForm.FormTextDelegate {
-                    text: i18n("Error log")
-                    trailing: Controls.Button {
-                        icon.name: "error"
-                        text: i18n("Open Log")
-                        onClicked: settingsErrorOverlay.open()
-                    }
-                }
-
-                ErrorListOverlay {
-                    id: settingsErrorOverlay
-                }
-            }
-        }
     }
 }

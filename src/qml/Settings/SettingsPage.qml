@@ -33,6 +33,11 @@ Kirigami.CategorizedSettings {
             page: "qrc:/SynchronizationSettingsPage.qml"
         },
         Kirigami.SettingAction {
+            text: i18n("Error Log")
+            icon.name: "error"
+            page: "qrc:/ErrorListPage.qml"
+        },
+        Kirigami.SettingAction {
             text: i18n("About")
             icon.name: "documentinfo"
             page: "qrc:/AboutPage.qml"
