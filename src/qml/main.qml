@@ -45,7 +45,7 @@ Kirigami.ApplicationWindow {
     property var lastFeed: ""
     property string currentPage: ""
 
-    property bool isWidescreen: root.width >= root.height
+    property bool isWidescreen: root.width > root.height
 
     function getPage(page) {
         switch (page) {
