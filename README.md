@@ -10,7 +10,7 @@ Nightly Android APKs are available at [KDE's Binary Factory](https://binary-fact
 
 # Bug reports
 
-Please don't use gitlab issues for reporting bugs, instead report them [here](https://bugs.kde.org/enter_bug.cgi?format=guided&product=kasts).
+Please don't use GitLab issues for reporting bugs, instead report them [here](https://bugs.kde.org/enter_bug.cgi?format=guided&product=kasts).
 
 # Building
 
