@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:48+0000\n"
+"POT-Creation-Date: 2022-12-13 00:59+0000\n"
 "PO-Revision-Date: 2022-06-27 16:02+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Přidat nový podcast"
 msgid "Url:"
 msgstr "Url:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:54
 #, kde-format
 msgid "Add Podcast"
 msgstr "Přidat podcast"
@@ -194,8 +194,8 @@ msgstr "Epizody"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:155
-#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:196
+#: qml/ChapterListDelegate.qml:38 qml/EntryPage.qml:155
+#: qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Play"
 msgstr "Přehrát"
@@ -225,7 +225,7 @@ msgstr "Povolit jednou"
 msgid "Always Allow"
 msgstr "Vždy povolit"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:171
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:171
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -240,23 +240,23 @@ msgstr "Prohledávat podcastindex.org"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:138
+#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "Zaregistrovat"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:138
+#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "Přihlášen"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:201
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:201
 #, kde-format
 msgid "Downloads"
 msgstr "Stahování"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:46
-#: qml/FeedListPage.qml:46
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:49
+#: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Obnovit všechny podcasty"
@@ -291,28 +291,28 @@ msgstr "Podrobnosti epizody"
 msgid "Open in Browser"
 msgstr "Otevřít v prohlížeči"
 
-#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:292
+#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr "Stáhnout"
 
-#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:301
+#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:304
 #, kde-format
 msgid "Cancel Download"
 msgstr "Zrušit stahování"
 
-#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:310
 #, kde-format
 msgid "Delete Download"
 msgstr "Smazat stahování"
 
-#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:196
+#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:328
+#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:331
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -320,13 +320,13 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Odstranit z fronty"
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
@@ -362,12 +362,12 @@ msgstr ""
 msgid "Open Podcast"
 msgstr "Otevřít podcast"
 
-#: qml/EntryPage.qml:271
+#: qml/EntryPage.qml:270
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr ""
 
-#: qml/EntryPage.qml:277
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr ""
@@ -377,99 +377,104 @@ msgstr ""
 msgid "Episode List"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:40
+#: qml/EpisodeListPage.qml:43
 #, kde-format
 msgid "Filter"
 msgstr "Filtr"
 
-#: qml/EpisodeListPage.qml:54
+#: qml/EpisodeListPage.qml:57
 #, kde-format
 msgid "Select Filter"
 msgstr "Vybrat filtr"
 
-#: qml/EpisodeListPage.qml:103
+#: qml/EpisodeListPage.qml:106
 #, kde-format
 msgid "Filter Active: "
 msgstr ""
 
-#: qml/EpisodeListPage.qml:111
+#: qml/EpisodeListPage.qml:114
 #, kde-format
 msgid "Reset"
 msgstr "Obnovit"
 
-#: qml/EpisodeListPage.qml:127 qml/FeedDetailsPage.qml:317
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
 #, kde-format
 msgid "No Episodes Available"
 msgstr ""
 
-#: qml/ErrorListOverlay.qml:23
-#, kde-format
-msgid "Error Log"
-msgstr "Záznam o chybách"
-
-#: qml/ErrorListOverlay.qml:27
-#, kde-format
-msgid "Clear All Errors"
-msgstr "Smazat všechny chyby"
-
-#: qml/ErrorListOverlay.qml:44
+#: qml/ErrorList.qml:29
 #, kde-format
 msgid "No Errors Logged"
 msgstr ""
 
-#: qml/ErrorListOverlay.qml:78
+#: qml/ErrorList.qml:65
 #, kde-format
 msgid "Error Code: "
 msgstr "Kód chyby: "
+
+#: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
+#: qml/Settings/ErrorListPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Error Log"
+msgctxt "@title"
+msgid "Error Log"
+msgstr "Záznam o chybách"
+
+#: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Clear All Errors"
+msgctxt "@action:button"
+msgid "Clear All Errors"
+msgstr "Smazat všechny chyby"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
 msgid "Show Error Log"
 msgstr "Zobrazit záznam chyb"
 
-#: qml/FeedDetailsPage.qml:25 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:283
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
 
-#: qml/FeedDetailsPage.qml:105
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:133
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:145
+#: qml/FeedDetailsPage.qml:149
 #, kde-format
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: qml/FeedDetailsPage.qml:203
+#: qml/FeedDetailsPage.qml:207
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL podcastu:"
 
-#: qml/FeedDetailsPage.qml:243
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Weblink:"
 msgstr "Webový odkaz:"
 
-#: qml/FeedDetailsPage.qml:269
+#: qml/FeedDetailsPage.qml:273
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Přihlášen od: %1"
 
-#: qml/FeedDetailsPage.qml:282
+#: qml/FeedDetailsPage.qml:286
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizováno: %1"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -477,7 +482,7 @@ msgstr[0] "%1 epizoda"
 msgstr[1] "%1 epizody"
 msgstr[2] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -485,7 +490,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:317
+#: qml/FeedDetailsPage.qml:321
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
@@ -495,62 +500,62 @@ msgstr "Chyba (%1): %2"
 msgid "Remove Podcast"
 msgstr "Odstranit podcast"
 
-#: qml/FeedListPage.qml:58
+#: qml/FeedListPage.qml:61
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "Importovat podcasty..."
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:67
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "Exportovat podcasty..."
 
-#: qml/FeedListPage.qml:89
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "Zatím nebyly přidány žádné podcasty"
 
-#: qml/FeedListPage.qml:94
+#: qml/FeedListPage.qml:97
 #, kde-format
 msgid "Import Podcasts"
 msgstr "Importovat podcasty"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "All Files (*)"
 msgstr "Všechny soubory (*)"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "Soubory XML (*.xml)"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "Soubory OPML (*.opml)"
 
-#: qml/FeedListPage.qml:102
+#: qml/FeedListPage.qml:105
 #, kde-format
 msgid "Export Podcasts"
 msgstr "Exportovat podcasty"
 
-#: qml/FeedListPage.qml:104
+#: qml/FeedListPage.qml:107
 #, kde-format
 msgid "All Files"
 msgstr "Všechny soubory"
 
-#: qml/FeedListPage.qml:242 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
 #, kde-format
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: qml/FeedListPage.qml:251 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
 #, kde-format
 msgid "Deselect All"
 msgstr "Zrušit výběr"
 
-#: qml/FeedListPage.qml:260
+#: qml/FeedListPage.qml:263
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -559,17 +564,17 @@ msgstr[0] "Odstranit podcast"
 msgstr[1] "Odstranit podcasty"
 msgstr[2] "Odstranit podcasty"
 
-#: qml/GenericEntryDelegate.qml:165
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
 msgstr "Přehráno"
 
-#: qml/GenericEntryDelegate.qml:165
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Read"
 msgstr "Čtení"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:174
 #, kde-format
 msgid "New"
 msgstr "Nový"
@@ -669,20 +674,20 @@ msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Fronta"
 
-#: qml/QueuePage.qml:34
+#: qml/QueuePage.qml:37
 #, fuzzy, kde-format
 #| msgid "Refresh All Podcasts"
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Obnovit všechny podcasty"
 
-#: qml/QueuePage.qml:46
+#: qml/QueuePage.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/QueuePage.qml:69
+#: qml/QueuePage.qml:72
 #, fuzzy, kde-format
 #| msgid "1 Episode"
 #| msgid_plural "%1 Episodes"
@@ -693,14 +698,14 @@ msgstr[0] "%1 epizoda"
 msgstr[1] "%1 epizody"
 msgstr[2] "%1 epizod"
 
-#: qml/QueuePage.qml:69
+#: qml/QueuePage.qml:72
 #, fuzzy, kde-format
 #| msgid "Time Left"
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Zbývající čas"
 
-#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:36
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "About"
 msgstr "O aplikaci"
@@ -858,23 +863,6 @@ msgstr "Velikost písma:"
 msgid "Use system default"
 msgstr "Použít výchozí systémový"
 
-#: qml/Settings/GeneralSettingsPage.qml:303
-#, kde-format
-msgid "Errors"
-msgstr "Chyby"
-
-#: qml/Settings/GeneralSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "Error Log"
-msgid "Error log"
-msgstr "Záznam o chybách"
-
-#: qml/Settings/GeneralSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
-msgid "Open Log"
-msgstr "Otevřít podcast"
-
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
 msgid "Network Settings"
@@ -925,6 +913,11 @@ msgstr "Síť"
 #, kde-format
 msgid "Synchronization"
 msgstr "Synchronizace"
+
+#: qml/Settings/SettingsPage.qml:36
+#, kde-format
+msgid "Error Log"
+msgstr "Záznam o chybách"
 
 #: qml/Settings/StorageSettingsPage.qml:19
 #, kde-format
@@ -1489,6 +1482,19 @@ msgstr "Synchronizace přerušena"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
+
+#~ msgid "Errors"
+#~ msgstr "Chyby"
+
+#, fuzzy
+#~| msgid "Error Log"
+#~ msgid "Error log"
+#~ msgstr "Záznam o chybách"
+
+#, fuzzy
+#~| msgid "Open Podcast"
+#~ msgid "Open Log"
+#~ msgstr "Otevřít podcast"
 
 #~ msgid "New Episodes:"
 #~ msgstr "Nové epizody:"

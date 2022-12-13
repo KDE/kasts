@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:48+0000\n"
+"POT-Creation-Date: 2022-12-13 00:59+0000\n"
 "PO-Revision-Date: 2022-12-01 17:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -168,7 +168,7 @@ msgstr "Yeni Podcast Ekle"
 msgid "Url:"
 msgstr "URL:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:51
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:54
 #, kde-format
 msgid "Add Podcast"
 msgstr "Podcast Ekle"
@@ -194,8 +194,8 @@ msgstr "Bölümler"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: qml/ChapterListDelegate.qml:44 qml/EntryPage.qml:155
-#: qml/GenericEntryDelegate.qml:319 qml/HeaderBar.qml:196
+#: qml/ChapterListDelegate.qml:38 qml/EntryPage.qml:155
+#: qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Play"
 msgstr "Çal"
@@ -225,7 +225,7 @@ msgstr "Bir Kez İzin Ver"
 msgid "Always Allow"
 msgstr "Her Zaman İzin Ver"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:37 qml/main.qml:171
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:171
 #, kde-format
 msgid "Discover"
 msgstr "Keşfet"
@@ -240,23 +240,23 @@ msgstr "podcastindex.org aranıyor"
 msgid "Search"
 msgstr "Arama"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:138
+#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:138
+#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:30 qml/main.qml:201
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:201
 #, kde-format
 msgid "Downloads"
 msgstr "İndirmeler"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:46
-#: qml/FeedListPage.qml:46
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:49
+#: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Tüm Podcast'leri Yenile"
@@ -291,28 +291,28 @@ msgstr "Bölüm Ayrıntıları"
 msgid "Open in Browser"
 msgstr "Tarayıcıda Aç"
 
-#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:292
+#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
 #: qml/GenericEntryListView.qml:198
 #, kde-format
 msgid "Download"
 msgstr "İndir"
 
-#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:301
+#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:304
 #, kde-format
 msgid "Cancel Download"
 msgstr "İndirmeyi İptal Et"
 
-#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:310
 #, kde-format
 msgid "Delete Download"
 msgstr "İndirmeyi Sil"
 
-#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:340 qml/HeaderBar.qml:196
+#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:196
 #, kde-format
 msgid "Pause"
 msgstr "Duraklat"
 
-#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:328
+#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:331
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -320,13 +320,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "Akış"
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:284
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
 #: qml/GenericEntryListView.qml:156
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Kuyruktan Kaldır"
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
 #: qml/GenericEntryListView.qml:146
 #, kde-format
 msgid "Add to Queue"
@@ -362,12 +362,12 @@ msgstr "\"Yeni\" Olarak İmle"
 msgid "Open Podcast"
 msgstr "Podcast Aç"
 
-#: qml/EntryPage.qml:271
+#: qml/EntryPage.qml:270
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Bölüm İndirme URL'sini Kopyala"
 
-#: qml/EntryPage.qml:277
+#: qml/EntryPage.qml:276
 #, kde-format
 msgid "Link copied"
 msgstr "Bağlantı kopyalandı"
@@ -377,113 +377,118 @@ msgstr "Bağlantı kopyalandı"
 msgid "Episode List"
 msgstr "Bölüm Listesi"
 
-#: qml/EpisodeListPage.qml:40
+#: qml/EpisodeListPage.qml:43
 #, kde-format
 msgid "Filter"
 msgstr "Süzgeç"
 
-#: qml/EpisodeListPage.qml:54
+#: qml/EpisodeListPage.qml:57
 #, kde-format
 msgid "Select Filter"
 msgstr "Süzgeç Seç"
 
-#: qml/EpisodeListPage.qml:103
+#: qml/EpisodeListPage.qml:106
 #, kde-format
 msgid "Filter Active: "
 msgstr "Süzgeç Etkin: "
 
-#: qml/EpisodeListPage.qml:111
+#: qml/EpisodeListPage.qml:114
 #, kde-format
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: qml/EpisodeListPage.qml:127 qml/FeedDetailsPage.qml:317
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Bölüm Yok"
 
-#: qml/ErrorListOverlay.qml:23
-#, kde-format
-msgid "Error Log"
-msgstr "Hata Günlüğü"
-
-#: qml/ErrorListOverlay.qml:27
-#, kde-format
-msgid "Clear All Errors"
-msgstr "Tüm Hataları Temizle"
-
-#: qml/ErrorListOverlay.qml:44
+#: qml/ErrorList.qml:29
 #, kde-format
 msgid "No Errors Logged"
 msgstr "Günlüklenen Hata Yok"
 
-#: qml/ErrorListOverlay.qml:78
+#: qml/ErrorList.qml:65
 #, kde-format
 msgid "Error Code: "
 msgstr "Hata Kodu: "
+
+#: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
+#: qml/Settings/ErrorListPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Error Log"
+msgctxt "@title"
+msgid "Error Log"
+msgstr "Hata Günlüğü"
+
+#: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Clear All Errors"
+msgctxt "@action:button"
+msgid "Clear All Errors"
+msgstr "Tüm Hataları Temizle"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
 msgid "Show Error Log"
 msgstr "Hata Günlüğünü Göster"
 
-#: qml/FeedDetailsPage.qml:25 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:283
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast Ayrıntıları"
 
-#: qml/FeedDetailsPage.qml:105
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "%1 tarafından"
 
-#: qml/FeedDetailsPage.qml:133
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Podcast'i Yenile"
 
-#: qml/FeedDetailsPage.qml:145
+#: qml/FeedDetailsPage.qml:149
 #, kde-format
 msgid "Show Details"
 msgstr "Ayrıntıları Göster"
 
-#: qml/FeedDetailsPage.qml:203
+#: qml/FeedDetailsPage.qml:207
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast URL'si:"
 
-#: qml/FeedDetailsPage.qml:243
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Weblink:"
 msgstr "Web bağlantısı:"
 
-#: qml/FeedDetailsPage.qml:269
+#: qml/FeedDetailsPage.qml:273
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonelik tarihi: %1"
 
-#: qml/FeedDetailsPage.qml:282
+#: qml/FeedDetailsPage.qml:286
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Son Güncelleme: %1"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Çalınmamış"
 msgstr[1] "%1 Çalınmamış"
 
-#: qml/FeedDetailsPage.qml:317
+#: qml/FeedDetailsPage.qml:321
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Hata (%1): %2"
@@ -493,62 +498,62 @@ msgstr "Hata (%1): %2"
 msgid "Remove Podcast"
 msgstr "Podcast'i Kaldır"
 
-#: qml/FeedListPage.qml:58
+#: qml/FeedListPage.qml:61
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "Podcast'leri İçe Aktar..."
 
-#: qml/FeedListPage.qml:64
+#: qml/FeedListPage.qml:67
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "Podcast'leri Dışa Aktar..."
 
-#: qml/FeedListPage.qml:89
+#: qml/FeedListPage.qml:92
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "Henüz bir Podcast Eklenmedi"
 
-#: qml/FeedListPage.qml:94
+#: qml/FeedListPage.qml:97
 #, kde-format
 msgid "Import Podcasts"
 msgstr "Podcast'leri İçe Aktar"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "All Files (*)"
 msgstr "Tüm Dosyalar (*)"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "XML Dosyaları (*.xml"
 
-#: qml/FeedListPage.qml:96
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "OPML Dosyaları (*.opml)"
 
-#: qml/FeedListPage.qml:102
+#: qml/FeedListPage.qml:105
 #, kde-format
 msgid "Export Podcasts"
 msgstr "Podcast'leri Dışa Aktar"
 
-#: qml/FeedListPage.qml:104
+#: qml/FeedListPage.qml:107
 #, kde-format
 msgid "All Files"
 msgstr "Tüm Dosyalar"
 
-#: qml/FeedListPage.qml:242 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
 #, kde-format
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: qml/FeedListPage.qml:251 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
 #, kde-format
 msgid "Deselect All"
 msgstr "Tümünün Seçimini Kaldır"
 
-#: qml/FeedListPage.qml:260
+#: qml/FeedListPage.qml:263
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -556,17 +561,17 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Podcast'i Kaldır"
 msgstr[1] "Podcast'leri Kaldır"
 
-#: qml/GenericEntryDelegate.qml:165
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
 msgstr "Çalındı"
 
-#: qml/GenericEntryDelegate.qml:165
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Read"
 msgstr "Okundu"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:174
 #, kde-format
 msgid "New"
 msgstr "Yeni"
@@ -663,19 +668,19 @@ msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Kuyruk"
 
-#: qml/QueuePage.qml:34
+#: qml/QueuePage.qml:37
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Tüm Podcast'leri Yenile"
 
-#: qml/QueuePage.qml:46
+#: qml/QueuePage.qml:49
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "Kuyruk boş"
 
-#: qml/QueuePage.qml:69
+#: qml/QueuePage.qml:72
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -683,13 +688,13 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
-#: qml/QueuePage.qml:69
+#: qml/QueuePage.qml:72
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Kalan Süre"
 
-#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:36
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "About"
 msgstr "Hakkında"
@@ -838,21 +843,6 @@ msgstr "Yazıtipi boyutu:"
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
 
-#: qml/Settings/GeneralSettingsPage.qml:303
-#, kde-format
-msgid "Errors"
-msgstr "Hatalar"
-
-#: qml/Settings/GeneralSettingsPage.qml:307
-#, kde-format
-msgid "Error log"
-msgstr "Hata günlüğü"
-
-#: qml/Settings/GeneralSettingsPage.qml:310
-#, kde-format
-msgid "Open Log"
-msgstr "Günlük Aç"
-
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
 msgid "Network Settings"
@@ -902,6 +892,11 @@ msgstr "Ağ"
 #, kde-format
 msgid "Synchronization"
 msgstr "Eşzamanlama"
+
+#: qml/Settings/SettingsPage.qml:36
+#, kde-format
+msgid "Error Log"
+msgstr "Hata Günlüğü"
 
 #: qml/Settings/StorageSettingsPage.qml:19
 #, kde-format
@@ -1469,6 +1464,15 @@ msgstr "Eşzamanlama İptal Edildi"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Eşzamanlama, hatalarla bitti"
+
+#~ msgid "Errors"
+#~ msgstr "Hatalar"
+
+#~ msgid "Error log"
+#~ msgstr "Hata günlüğü"
+
+#~ msgid "Open Log"
+#~ msgstr "Günlük Aç"
 
 #~ msgctxt ""
 #~ "Label for settings related to streaming of episodes (as opposed to "
