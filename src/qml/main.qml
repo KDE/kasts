@@ -159,6 +159,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
                             width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
                             text: i18n("Queue")
                             icon.name: "source-playlist"
                             checked: currentPage == "QueuePage"
@@ -171,6 +172,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
                             width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
                             text: i18n("Discover")
                             icon.name: "search"
                             checked: currentPage == "DiscoverPage"
@@ -183,6 +185,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
                             width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
                             text: i18n("Subscriptions")
                             icon.name: "bookmarks"
                             checked: currentPage == "FeedListPage"
@@ -195,6 +198,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
                             width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
                             text: i18n("Episodes")
                             icon.name: "rss"
                             checked: currentPage == "EpisodeListPage"
@@ -207,6 +211,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
                             width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
                             text: i18n("Downloads")
                             icon.name: "download"
                             checked: currentPage == "DownloadListPage"
