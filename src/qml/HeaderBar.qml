@@ -268,8 +268,8 @@ Rectangle {
 
     Kirigami.Dialog {
         id: chapterOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 20
-        preferredHeight: Kirigami.Units.gridUnit * 16
+        preferredWidth: Kirigami.Units.gridUnit * 25
+        preferredHeight: Kirigami.Units.gridUnit * 20
 
         showCloseButton: true
 
