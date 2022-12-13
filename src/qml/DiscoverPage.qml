@@ -63,20 +63,23 @@ Kirigami.ScrollablePage {
             }
             actions: [
                 Kirigami.Action {
+                    id: subscribeAction
                     text: enabled ? i18n("Subscribe") : i18n("Subscribed")
                     icon.name: "kt-add-feeds"
                     enabled: !DataManager.feedExists(model.url)
                     onTriggered: {
-                        DataManager.addFeed(model.url)
+                        DataManager.addFeed(model.url);
+                        enabled = false;
                     }
                 }
             ]
             onClicked: {
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": model, isSubscribed: false})
+                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": subscribeAction.enabled ? model : DataManager.getFeed(model.url), "isSubscribed": !subscribeAction.enabled, "subscribeAction": subscribeAction})
             }
         }
     }
     ListView {
+        id: listView
         anchors.fill: parent
         reuseItems: true
 

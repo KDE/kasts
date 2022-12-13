@@ -28,7 +28,7 @@ public:
     }
 
     Feed *getFeed(const int index) const;
-    Feed *getFeed(const QString &feedurl) const;
+    Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
     Entry *getEntry(const int feed_index, const int entry_index) const;
     Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;

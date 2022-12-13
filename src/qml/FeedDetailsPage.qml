@@ -22,6 +22,7 @@ Kirigami.ScrollablePage {
 
     property QtObject feed;
     property bool isSubscribed: true
+    property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
 
     property string author: isSubscribed ? (page.feed.authors.length === 0 ? "" : page.feed.authors[0].name) : feed.author
     property bool showMoreInfo: false
@@ -142,7 +143,14 @@ Kirigami.ScrollablePage {
                             text: enabled ? i18n("Subscribe") : i18n("Subscribed")
                             enabled: !DataManager.feedExists(feed.url)
                             visible: !isSubscribed
-                            onTriggered: DataManager.addFeed(feed.url)
+                            onTriggered: {
+                                DataManager.addFeed(feed.url);
+                                enabled = false;
+                                // Also disable button on discoverpage
+                                if (subscribeAction !== undefined) {
+                                    subscribeAction.enabled = false;
+                                }
+                            }
                         },
                         Kirigami.Action {
                             iconName: "documentinfo"
