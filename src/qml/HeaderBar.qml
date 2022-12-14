@@ -279,12 +279,12 @@ Rectangle {
             id: chapterList
             model: ChapterModel {
                 id: chapterModel
-                entry: AudioManager.entry ? AudioManager.entry : undefined
+                entry: AudioManager.entry ? AudioManager.entry : null
             }
             delegate: ChapterListDelegate {
                 id: chapterDelegate
                 width: chapterList.width
-                entry: AudioManager.entry
+                entry: AudioManager.entry ? AudioManager.entry : null
                 overlay: chapterOverlay
             }
         }

@@ -212,13 +212,13 @@ Kirigami.Page {
                         id: chapterList
                         model: ChapterModel {
                             id: chapterModel
-                            entry: AudioManager.entry ? AudioManager.entry : undefined
+                            entry: AudioManager.entry ? AudioManager.entry : null
                         }
                         clip: true
                         visible: chapterList.count !== 0
                         anchors.fill: parent
                         delegate: ChapterListDelegate {
-                            entry: AudioManager.entry
+                            entry: AudioManager.entry ? AudioManager.entry : null
                         }
                     }
                 }
