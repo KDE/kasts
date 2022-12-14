@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -246,13 +246,13 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, fuzzy, kde-format
 #| msgid "Subscriptions"
 msgid "Subscribe"
 msgstr "Odbery"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, fuzzy, kde-format
 #| msgid "Subscriptions"
 msgid "Subscribed"
@@ -414,7 +414,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr ""
@@ -451,53 +451,53 @@ msgstr ""
 msgid "Show Error Log"
 msgstr "Chybový záznam"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Podcast Details"
 msgstr "Sťahovania"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, fuzzy, kde-format
 #| msgid "Details"
 msgid "Show Details"
 msgstr "Podrobnosti"
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgid "Podcast URL:"
 msgstr "Pridať Podcast"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, fuzzy, kde-format
 #| msgid "Last updated: %1"
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizované: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -507,7 +507,7 @@ msgstr[0] "1 epizóda"
 msgstr[1] "%1 epizódy"
 msgstr[2] "%1 epizód"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -515,7 +515,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"

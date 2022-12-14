@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2022-12-04 18:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -247,12 +247,12 @@ msgstr "Rechercher « podcastindex.org »"
 msgid "Search"
 msgstr "Rechercher"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribed"
 msgstr "Abonné"
@@ -404,7 +404,7 @@ msgstr "Filtre actif : "
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Aucun épisode disponible"
@@ -439,63 +439,63 @@ msgstr "Effacer toutes les erreurs"
 msgid "Show Error Log"
 msgstr "Afficher le journal d'erreurs"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Détails des podcasts"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "par %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Rafraîchir un podcast"
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Show Details"
 msgstr "Afficher les détails"
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL du podcast :"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr "Lien Internet :"
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonné depuis : %1"
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Dernière mise à jour : %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "Un épisode"
 msgstr[1] "%1 épisodes"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "Un morceau non joué"
 msgstr[1] "%1 morceaux non joués"
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Erreur (%1) : %2"

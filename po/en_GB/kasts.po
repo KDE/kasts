@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2022-09-10 10:53+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -241,12 +241,12 @@ msgstr "Search podcastindex.org"
 msgid "Search"
 msgstr "Search"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscribed"
@@ -398,7 +398,7 @@ msgstr "Filter Active: "
 msgid "Reset"
 msgstr "Reset"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr "No Episodes Available"
@@ -433,63 +433,63 @@ msgstr "Clear All Errors"
 msgid "Show Error Log"
 msgstr "Show Error Log"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast Details"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "by %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Refresh Podcast"
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Show Details"
 msgstr "Show Details"
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast URL:"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr "Weblink:"
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscribed since: %1"
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Last Updated: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Episode"
 msgstr[1] "%1 Episodes"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Unplayed"
 msgstr[1] "%1 Unplayed"
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"

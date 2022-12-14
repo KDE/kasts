@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
 "PO-Revision-Date: 2022-06-27 16:02+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -240,12 +240,12 @@ msgstr "Prohledávat podcastindex.org"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribe"
 msgstr "Zaregistrovat"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribed"
 msgstr "Přihlášen"
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Reset"
 msgstr "Obnovit"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr ""
@@ -432,49 +432,49 @@ msgstr "Smazat všechny chyby"
 msgid "Show Error Log"
 msgstr "Zobrazit záznam chyb"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL podcastu:"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr "Webový odkaz:"
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Přihlášen od: %1"
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizováno: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -482,7 +482,7 @@ msgstr[0] "%1 epizoda"
 msgstr[1] "%1 epizody"
 msgstr[2] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -490,7 +490,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
-"PO-Revision-Date: 2022-12-01 17:19+0300\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"PO-Revision-Date: 2022-12-13 19:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -240,12 +240,12 @@ msgstr "podcastindex.org aranıyor"
 msgid "Search"
 msgstr "Arama"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
@@ -397,7 +397,7 @@ msgstr "Süzgeç Etkin: "
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Bölüm Yok"
@@ -414,15 +414,13 @@ msgstr "Hata Kodu: "
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Hata Günlüğü"
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
 msgstr "Tüm Hataları Temizle"
@@ -432,63 +430,63 @@ msgstr "Tüm Hataları Temizle"
 msgid "Show Error Log"
 msgstr "Hata Günlüğünü Göster"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast Ayrıntıları"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "%1 tarafından"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Podcast'i Yenile"
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Show Details"
 msgstr "Ayrıntıları Göster"
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast URL'si:"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr "Web bağlantısı:"
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonelik tarihi: %1"
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Son Güncelleme: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Çalınmamış"
 msgstr[1] "%1 Çalınmamış"
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Hata (%1): %2"

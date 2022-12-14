@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:59+0000\n"
-"PO-Revision-Date: 2022-12-01 06:53\n"
+"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"PO-Revision-Date: 2022-12-13 12:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -242,12 +242,12 @@ msgstr "搜索 podcastindex.org"
 msgid "Search"
 msgstr "搜索"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribe"
 msgstr "订阅"
 
-#: qml/DiscoverPage.qml:66 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
 #, kde-format
 msgid "Subscribed"
 msgstr "已订阅"
@@ -399,7 +399,7 @@ msgstr "活动筛选条件："
 msgid "Reset"
 msgstr "重置"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:321
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "No Episodes Available"
 msgstr "无可播放剧集"
@@ -434,61 +434,61 @@ msgstr "清除所有错误"
 msgid "Show Error Log"
 msgstr "显示错误日志"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
 msgstr "播客详情"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:110
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "作者：%1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:138
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "刷新播客"
 
-#: qml/FeedDetailsPage.qml:149
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Show Details"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:207
+#: qml/FeedDetailsPage.qml:215
 #, kde-format
 msgid "Podcast URL:"
 msgstr "播客 URL："
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:255
 #, kde-format
 msgid "Weblink:"
 msgstr "网页链接："
 
-#: qml/FeedDetailsPage.qml:273
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "订阅开始时间：%1"
 
-#: qml/FeedDetailsPage.qml:286
+#: qml/FeedDetailsPage.qml:294
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "上次更新：%1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "%1 条剧集"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:307
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1 条未播放"
 
-#: qml/FeedDetailsPage.qml:321
+#: qml/FeedDetailsPage.qml:329
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "错误 (%1)：%2"
@@ -709,10 +709,9 @@ msgid "Always show podcast titles in subscription view"
 msgstr "订阅视图总是显示播客标题"
 
 #: qml/Settings/GeneralSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
-msgstr "播放设置"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:65
 #, kde-format
@@ -738,10 +737,9 @@ msgid "Prioritize streaming over downloading"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
-msgstr "队列设置"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
@@ -765,22 +763,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "自动加入队列"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "自动下载"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "已播放剧集"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
@@ -803,10 +798,9 @@ msgid "Reset play position after an episode is played"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "添加新播客"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:206
 #, kde-format
@@ -829,10 +823,9 @@ msgid "Article"
 msgstr "文章"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "字体大小："
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
@@ -850,10 +843,9 @@ msgid "Network Settings"
 msgstr "网络设置"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "使用计费连接时："
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -907,10 +899,9 @@ msgstr "存储设置"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "存储路径："
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -933,10 +924,9 @@ msgid "Information"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "播客下载："
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -946,10 +936,9 @@ msgid "Using %1 of disk space"
 msgstr "使用 %1 的磁盘空间"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "图像缓存："
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -972,10 +961,9 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "登录到服务器“%2”上的账户“%1”"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
-msgstr "同步已禁用"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -988,10 +976,9 @@ msgid "Login"
 msgstr "登录"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "手动同步："
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -999,22 +986,19 @@ msgid "Sync Now"
 msgstr "立即同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "上次与服务器完整同步："
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "上次快速上传到同步服务器："
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "自动同步："
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1468,17 +1452,3 @@ msgstr "同步完成，但发生了错误"
 
 #~ msgid "Errors"
 #~ msgstr "错误"
-
-#, fuzzy
-#~| msgid "Error Log"
-#~ msgid "Error log"
-#~ msgstr "错误日志"
-
-#~ msgid "New Episodes:"
-#~ msgstr "新剧集："
-
-#~ msgid "Played Episodes:"
-#~ msgstr "已播放剧集："
-
-#~ msgid "Current Status:"
-#~ msgstr "当前状态："
