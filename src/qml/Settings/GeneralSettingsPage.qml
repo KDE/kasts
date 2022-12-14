@@ -41,6 +41,7 @@ Kirigami.ScrollablePage {
                 MobileForm.FormCheckDelegate {
                     id: alwaysShowFeedTitles
                     text: i18n("Always show podcast titles in subscription view")
+                    checked: SettingsManager.alwaysShowFeedTitles
                     onToggled: {
                         SettingsManager.alwaysShowFeedTitles = checked;
                         SettingsManager.save();
