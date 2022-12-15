@@ -1,9 +1,11 @@
 # SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+# SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
 # SPDX-License-Identifier: BSD-2-Clause
 
+add_subdirectory(kmediasession)
 add_subdirectory(solidextras)
 
-set(SRCS_base
+set(kasts_srcs
     main.cpp
     fetcher.cpp
     database.cpp
@@ -30,8 +32,6 @@ set(SRCS_base
     models/downloadmodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
-    mpris2/mpris2.cpp
-    powermanagementinterface.cpp
     sync/sync.cpp
     sync/syncjob.cpp
     sync/syncutils.cpp
@@ -50,84 +50,77 @@ set(SRCS_base
     resources.qrc
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "audiologging.h"
     IDENTIFIER "kastsAudio"
     CATEGORY_NAME "org.kde.kasts.audio"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "datamanagerlogging.h"
     IDENTIFIER "kastsDataManager"
     CATEGORY_NAME "org.kde.kasts.datamanager"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "enclosurelogging.h"
     IDENTIFIER "kastsEnclosure"
     CATEGORY_NAME "org.kde.kasts.enclosure"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "entrylogging.h"
     IDENTIFIER "kastsEntry"
     CATEGORY_NAME "org.kde.kasts.entry"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "feedlogging.h"
     IDENTIFIER "kastsFeed"
     CATEGORY_NAME "org.kde.kasts.feed"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "fetcherlogging.h"
     IDENTIFIER "kastsFetcher"
     CATEGORY_NAME "org.kde.kasts.fetcher"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "synclogging.h"
     IDENTIFIER "kastsSync"
     CATEGORY_NAME "org.kde.kasts.sync"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "models/downloadmodellogging.h"
     IDENTIFIER "kastsDownloadModel"
     CATEGORY_NAME "org.kde.kasts.downloadmodel"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "models/queuemodellogging.h"
     IDENTIFIER "kastsQueueModel"
     CATEGORY_NAME "org.kde.kasts.queuemodel"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
-    HEADER "powermanagementinterfacelogging.h"
-    IDENTIFIER "kastsPowerManagementInterface"
-    CATEGORY_NAME "org.kde.kasts.powermanagementinterface"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "storagemanagerlogging.h"
     IDENTIFIER "kastsStorageManager"
     CATEGORY_NAME "org.kde.kasts.storagemanager"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(SRCS_base
+ecm_qt_declare_logging_category(kasts_srcs
     HEADER "storagemovejoblogging.h"
     IDENTIFIER "kastsStorageMoveJob"
     CATEGORY_NAME "org.kde.kasts.storagemovejob"
@@ -135,16 +128,8 @@ ecm_qt_declare_logging_category(SRCS_base
 )
 
 if(ANDROID)
-    set (SRCS ${SRCS_base}
+    list(APPEND kasts_srcs
          androidlogging.h)
-else()
-    set (SRCS ${SRCS_base}
-         mpris2/mediaplayer2.cpp
-         mpris2/mediaplayer2player.cpp
-    )
-
-    qt_add_dbus_interface(SRCS dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
-    qt_add_dbus_interface(SRCS dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
 endif()
 
 set(kasts_ICONS_PNG
@@ -157,14 +142,14 @@ set(kasts_ICONS_PNG
 )
 
 # add icons to application sources, to have them bundled
-ecm_add_app_icon(SRCS ICONS ${kasts_ICONS_PNG})
+ecm_add_app_icon(kasts_srcs ICONS ${kasts_ICONS_PNG})
 
-add_executable(kasts ${SRCS})
+add_executable(kasts ${kasts_srcs})
 
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Multimedia Qt::Svg KF5::Kirigami2 KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg KF5::Kirigami2 KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver KMediaSession)
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
@@ -237,7 +222,7 @@ if(ANDROID)
         media-playback-start-cloud
     )
 else()
-    target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
+    target_link_libraries(kasts PRIVATE Qt::Widgets)
 endif()
 
 install(TARGETS kasts ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -1,20 +1,20 @@
 /**
  * SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
 #pragma once
 
-#include <QMediaPlayer>
+#include <kmediasession/kmediasession.h>
+#include <memory>
+
 #include <QObject>
 #include <QString>
 #include <QUrl>
 
 #include <KFormat>
-
-#include <memory>
 
 #include "entry.h"
 #include "error.h"
@@ -25,13 +25,16 @@ class AudioManager : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(KMediaSession::MediaBackends currentBackend READ currentBackend WRITE setCurrentBackend NOTIFY currentBackendChanged)
+    Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)
+
     Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
-    Q_PROPERTY(QMediaPlayer::MediaStatus status READ status NOTIFY statusChanged)
-    Q_PROPERTY(QMediaPlayer::State playbackState READ playbackState NOTIFY playbackStateChanged)
+    Q_PROPERTY(KMediaSession::MediaStatus status READ status NOTIFY statusChanged)
+    Q_PROPERTY(KMediaSession::PlaybackState playbackState READ playbackState NOTIFY playbackStateChanged)
     Q_PROPERTY(qreal playbackRate READ playbackRate WRITE setPlaybackRate NOTIFY playbackRateChanged)
-    Q_PROPERTY(QMediaPlayer::Error error READ error NOTIFY errorChanged)
+    Q_PROPERTY(KMediaSession::Error error READ error NOTIFY errorChanged)
     Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
     Q_PROPERTY(qint64 position READ position WRITE setPosition NOTIFY positionChanged)
     Q_PROPERTY(bool seekable READ seekable NOTIFY seekableChanged)
@@ -61,16 +64,20 @@ public:
 
     ~AudioManager() override;
 
+    [[nodiscard]] Q_INVOKABLE QString backendName(KMediaSession::MediaBackends backend) const;
+    [[nodiscard]] KMediaSession::MediaBackends currentBackend() const;
+    [[nodiscard]] QList<KMediaSession::MediaBackends> availableBackends() const;
+
     [[nodiscard]] Entry *entry() const;
     [[nodiscard]] bool muted() const;
     [[nodiscard]] qreal volume() const;
     [[nodiscard]] QUrl source() const;
-    [[nodiscard]] QMediaPlayer::MediaStatus status() const;
-    [[nodiscard]] QMediaPlayer::State playbackState() const;
+    [[nodiscard]] KMediaSession::MediaStatus status() const;
+    [[nodiscard]] KMediaSession::PlaybackState playbackState() const;
     [[nodiscard]] qreal playbackRate() const;
     [[nodiscard]] qreal minimumPlaybackRate() const;
     [[nodiscard]] qreal maximumPlaybackRate() const;
-    [[nodiscard]] QMediaPlayer::Error error() const;
+    [[nodiscard]] KMediaSession::Error error() const;
     [[nodiscard]] qint64 duration() const;
     [[nodiscard]] qint64 position() const;
     [[nodiscard]] bool seekable() const;
@@ -91,21 +98,19 @@ public:
     bool isStreaming() const;
 
 Q_SIGNALS:
+    void currentBackendChanged(KMediaSession::MediaBackends backend);
 
     void entryChanged(Entry *entry);
     void mutedChanged(bool muted);
     void volumeChanged();
     void sourceChanged();
-    void statusChanged(QMediaPlayer::MediaStatus status);
-    void playbackStateChanged(QMediaPlayer::State state);
+    void statusChanged(KMediaSession::MediaStatus status);
+    void playbackStateChanged(KMediaSession::PlaybackState state);
     void playbackRateChanged(qreal rate);
-    void errorChanged(QMediaPlayer::Error error);
+    void errorChanged(KMediaSession::Error error);
     void durationChanged(qint64 duration);
     void positionChanged(qint64 position);
     void seekableChanged(bool seekable);
-    void playing();
-    void paused();
-    void stopped();
     void canPlayChanged();
     void canPauseChanged();
     void canSkipForwardChanged();
@@ -119,12 +124,16 @@ Q_SIGNALS:
 
     void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
+    // mpris2 signals
+    void raiseWindowRequested();
+    void quitRequested();
+
 public Q_SLOTS:
+    void setCurrentBackend(KMediaSession::MediaBackends backend);
 
     void setEntry(Entry *entry);
     void setMuted(bool muted);
     void setVolume(qreal volume);
-    // void setSource(const QUrl &source);  //source should only be set by audiomanager itself
     void setPosition(qint64 position);
     void setPlaybackRate(qreal rate);
     void play();
@@ -142,13 +151,13 @@ public Q_SLOTS:
 private Q_SLOTS:
 
     void mediaStatusChanged();
-    void playerStateChanged();
     void playerDurationChanged(qint64 duration);
     void playerMutedChanged();
     void playerVolumeChanged();
     void savePlayPosition();
     void prepareAudio();
     void checkForPendingSeek();
+    void updateMetaData();
 
 private:
     explicit AudioManager(QObject *parent = nullptr);

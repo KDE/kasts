@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -7,12 +7,12 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts.solidextras 1.0
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
 
@@ -32,13 +32,13 @@ Kirigami.SwipeListItem {
     property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && SettingsManager.prioritizeStreaming && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
     property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
     property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
-    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
-    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
 
 
     highlighted: selected

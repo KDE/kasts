@@ -19,6 +19,34 @@
     ],
     "modules": [
         {
+            "name": "libvlc",
+            "config-opts": [
+                "BUILDCC=gcc",
+                "--disable-lua",
+                "--disable-a52",
+                "--disable-qt",
+                "--disable-ncurses",
+                "--disable-udev"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://get.videolan.org/vlc/3.0.18/vlc-3.0.18.tar.xz",
+                    "sha256": "57094439c365d8aa8b9b41fa3080cc0eef2befe6025bb5cef722accc625aedec",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 6504,
+                        "stable-only": true,
+                        "url-template": "https://get.videolan.org/vlc/$version/vlc-$version.tar.xz"
+                    }
+                },
+                {
+                    "type": "patch",
+                    "path": "src/kmediasession/.patches/vlc-ignore-time-for-cache.patch"
+                }
+            ]
+        },
+        {
             "name": "taglib",
             "buildsystem": "cmake-ninja",
             "sources": [

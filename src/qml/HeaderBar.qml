@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -7,11 +8,11 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
 
@@ -183,17 +184,17 @@ Rectangle {
                         }
                         Controls.ToolButton {
                             id: playButton
-                            icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+                            icon.name: AudioManager.playbackState === KMediaSession.PlayingState ? "media-playback-pause" : "media-playback-start"
                             icon.height: parent.iconSize
                             icon.width: parent.iconSize
                             Layout.alignment: Qt.AlignHCenter
                             Layout.preferredWidth: parent.buttonSize
-                            onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
+                            onClicked: AudioManager.playbackState === KMediaSession.PlayingState ? AudioManager.pause() : AudioManager.play()
                             enabled: AudioManager.canPlay
 
                             Controls.ToolTip.visible: hovered
                             Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                            Controls.ToolTip.text: AudioManager.playbackState === Audio.PlayingState ? i18n("Pause") : i18n("Play")
+                            Controls.ToolTip.text: AudioManager.playbackState === KMediaSession.PlayingState ? i18n("Pause") : i18n("Play")
                         }
                         Controls.ToolButton {
                             icon.name: "media-seek-forward"

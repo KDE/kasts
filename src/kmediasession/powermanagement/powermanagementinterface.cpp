@@ -1,6 +1,6 @@
 /**
- * SPDX-FileCopyrightText: 2019 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2019 Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
@@ -134,7 +134,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedPlasmaWorkspace(QDBusPen
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        qCDebug(KMediaSessionPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -151,7 +151,7 @@ void PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace(QDBusPendin
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<uint> reply = *aWatcher;
     if (reply.isError()) {
-        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
+        qCDebug(KMediaSessionPowerManagementInterface) << "PowerManagementInterface::inhibitDBusCallFinishedGnomeWorkspace" << reply.error();
     } else {
         d->mGnomeSleepCookie = reply.argumentAt<0>();
         d->mInhibitedSleep = true;
@@ -169,7 +169,7 @@ void PowerManagementInterface::uninhibitDBusCallFinishedGnomeWorkspace(QDBusPend
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QDBusPendingReply<> reply = *aWatcher;
     if (reply.isError()) {
-        qCDebug(kastsPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
+        qCDebug(KMediaSessionPowerManagementInterface) << "PowerManagementInterface::uninhibitDBusCallFinished" << reply.error();
     } else {
         d->mInhibitedSleep = false;
 
@@ -185,7 +185,7 @@ void PowerManagementInterface::inhibitSleepPlasmaWorkspace()
 {
 #if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     auto asyncReply =
-        d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(), i18nc("Explanation for sleep inhibit during play of music", "Playing Music"));
+        d->mInhibitInterface->Inhibit(QCoreApplication::applicationName(), i18nc("Explanation for sleep inhibit during media playback", "Playing Media"));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);
 
@@ -211,7 +211,7 @@ void PowerManagementInterface::inhibitSleepGnomeWorkspace()
     //            8 = "Inhibit the session being marked as idle"
     auto asyncReply = d->mGnomeInterface->Inhibit(QCoreApplication::applicationName(),
                                                   uint(0),
-                                                  i18nc("Explanation for sleep inhibit during play of music", "Playing Music"),
+                                                  i18nc("Explanation for sleep inhibit during media playback", "Playing Media"),
                                                   uint(12));
 
     auto replyWatcher = new QDBusPendingCallWatcher(asyncReply, this);

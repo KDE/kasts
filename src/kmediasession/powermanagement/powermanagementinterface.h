@@ -1,6 +1,6 @@
 /**
- * SPDX-FileCopyrightText: 2019 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2019 Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */

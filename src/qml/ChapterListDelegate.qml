@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -7,12 +7,13 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.15
 
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.kasts.solidextras 1.0
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
+
 
 Kirigami.BasicListItem {
     id: root
@@ -45,7 +46,7 @@ Kirigami.BasicListItem {
             if (AudioManager.entry != entry) {
                 AudioManager.entry = entry;
             }
-            if (AudioManager.playbackState !== Audio.PlayingState) {
+            if (AudioManager.playbackState !== KMediaSession.PlayingState) {
                 AudioManager.play();
             }
             AudioManager.position = start * 1000;

@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2021 Swapnil Tripathi <swapnil06.st@gmail.com>
+ * SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -78,11 +79,13 @@ Loader {
                         topPadding: Kirigami.Units.smallSpacing * 2
                         bottomPadding: Kirigami.Units.smallSpacing * 2
 
-                        checked: value == AudioManager.playbackRate
                         text: name
+                        checked: value == AudioManager.playbackRate
                         onCheckedChanged: {
-                            AudioManager.playbackRate = value;
-                            close();
+                            if (checked) {
+                                AudioManager.playbackRate = value;
+                                close();
+                            }
                         }
                     }
                 }
@@ -122,8 +125,10 @@ Loader {
                         highlighted: value == AudioManager.playbackRate
                         label: model.name
                         onClicked: {
-                            AudioManager.playbackRate = value;
-                            close();
+                            if (checked) {
+                                AudioManager.playbackRate = value;
+                                close();
+                            }
                         }
                     }
                 }

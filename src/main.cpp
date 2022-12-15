@@ -48,7 +48,6 @@
 #include "models/feedsproxymodel.h"
 #include "models/podcastsearchmodel.h"
 #include "models/queuemodel.h"
-#include "mpris2/mpris2.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/sync.h"
@@ -130,7 +129,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<FeedsProxyModel>("org.kde.kasts", 1, 0, "FeedsProxyModel");
     qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
-    qmlRegisterType<Mpris2>("org.kde.kasts", 1, 0, "Mpris2");
     qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
     qmlRegisterType<ChapterModel>("org.kde.kasts", 1, 0, "ChapterModel");
 

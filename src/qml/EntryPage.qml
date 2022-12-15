@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -8,9 +8,9 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.15
 
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
 
@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18n("Pause")
-                        visible: entry.enclosure && entry.queueStatus && (AudioManager.entry === entry && AudioManager.playbackState === Audio.PlayingState)
+                        visible: entry.enclosure && entry.queueStatus && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
                         icon.name: "media-playback-pause"
                         onTriggered: {
                             AudioManager.pause();
@@ -153,7 +153,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18n("Play")
-                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-start"
                         onTriggered: {
                             AudioManager.entry = entry;
@@ -162,7 +162,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
-                        visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== Audio.PlayingState)
+                        visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: ":/media-playback-start-cloud"
                         onTriggered: {
                             if (!entry.queueStatus) {

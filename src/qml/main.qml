@@ -259,18 +259,20 @@ Kirigami.ApplicationWindow {
         handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
     }
 
-    Mpris2 {
-        id: mpris2Interface
-
-        playerName: 'kasts'
-        audioPlayer: AudioManager
-
-        onRaisePlayer:
-        {
-            root.visible = true
-            root.show()
-            root.raise()
-            root.requestActivate()
+    // Implement slots for MPRIS2 signals
+    Connections {
+        target: AudioManager
+        function onRaiseWindowRequested() {
+            root.visible = true;
+            root.show();
+            root.raise();
+            root.requestActivate();
+        }
+    }
+    Connections {
+        target: AudioManager
+        function onQuitRequested() {
+            root.close();
         }
     }
 

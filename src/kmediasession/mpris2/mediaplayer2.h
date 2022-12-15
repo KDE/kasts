@@ -1,7 +1,8 @@
 /**
- * SPDX-FileCopyrightText: 2014 (c) Sujith Haridasan <sujith.haridasan@kdemail.net>
- * SPDX-FileCopyrightText: 2014 (c) Ashish Madeti <ashishmadeti@gmail.com>
- * SPDX-FileCopyrightText: 2016 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2014 Sujith Haridasan <sujith.haridasan@kdemail.net>
+ * SPDX-FileCopyrightText: 2014 Ashish Madeti <ashishmadeti@gmail.com>
+ * SPDX-FileCopyrightText: 2016 Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -10,6 +11,8 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QStringList>
+
+#include "kmediasession.h"
 
 class MediaPlayer2 : public QDBusAbstractAdaptor
 {
@@ -25,7 +28,7 @@ class MediaPlayer2 : public QDBusAbstractAdaptor
     Q_PROPERTY(QStringList SupportedMimeTypes READ SupportedMimeTypes CONSTANT)
 
 public:
-    explicit MediaPlayer2(QObject *parent = nullptr);
+    explicit MediaPlayer2(KMediaSession *audioPlayer, QObject *parent = nullptr);
     ~MediaPlayer2() override;
 
     [[nodiscard]] bool CanQuit() const;
@@ -44,4 +47,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void raisePlayer();
+    void quitPlayer();
+
+private:
+    KMediaSession *m_audioPlayer = nullptr;
 };

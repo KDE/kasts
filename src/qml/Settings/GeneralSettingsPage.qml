@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -11,6 +11,7 @@ import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
 
@@ -60,6 +61,36 @@ Kirigami.ScrollablePage {
                 MobileForm.FormCardHeader {
                     title: i18n("Playback settings")
                 }
+
+                MobileForm.FormComboBoxDelegate {
+                    id: selectAudioBackend
+                    text: i18nc("Label for setting to select audio playback backend", "Select Audio Backend")
+
+                    textRole: "text"
+                    valueRole: "value"
+
+                    model: ListModel {
+                        id: backendModel
+                    }
+
+                    Component.onCompleted: {
+                        // have to use Number because QML doesn't know about enum names
+                        for (var index in AudioManager.availableBackends) {
+                            backendModel.append({"text": AudioManager.backendName(AudioManager.availableBackends[index]),
+                                                 "value": Number(AudioManager.availableBackends[index])});
+
+                            if (Number(AudioManager.availableBackends[index]) === AudioManager.currentBackend) {
+                                currentIndex = index;
+                            }
+                        }
+                    }
+
+                    onActivated: {
+                        AudioManager.currentBackend = currentValue;
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator {}
 
                 MobileForm.FormCheckDelegate {
                     id: showTimeLeft

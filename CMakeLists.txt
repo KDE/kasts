@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
 # SPDX-FileCopyrightText: 2020 Nicolas Fella <nicolas.fella@gmx.de>
+# SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
 # SPDX-License-Identifier: BSD-2-Clause
 
 cmake_minimum_required(VERSION 3.16)
@@ -38,7 +39,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Multimedia Svg)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Kirigami2 Syndication Config I18n ThreadWeaver)
 find_package(KF5KirigamiAddons 0.6 REQUIRED)
 find_package(Taglib REQUIRED)

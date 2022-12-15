@@ -1,7 +1,8 @@
 /**
- * SPDX-FileCopyrightText: 2014 (c) Sujith Haridasan <sujith.haridasan@kdemail.net>
- * SPDX-FileCopyrightText: 2014 (c) Ashish Madeti <ashishmadeti@gmail.com>
- * SPDX-FileCopyrightText: 2016 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2014 Sujith Haridasan <sujith.haridasan@kdemail.net>
+ * SPDX-FileCopyrightText: 2014 Ashish Madeti <ashishmadeti@gmail.com>
+ * SPDX-FileCopyrightText: 2016 Matthieu Gallien <matthieu_gallien@yahoo.fr>
+ * SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -12,7 +13,7 @@
 #include <QDBusMessage>
 #include <QDBusObjectPath>
 
-class AudioManager;
+class KMediaSession;
 class Entry;
 class Feed;
 
@@ -26,8 +27,6 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(QVariantMap Metadata READ Metadata NOTIFY playbackStatusChanged)
     Q_PROPERTY(double Volume READ Volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(qlonglong Position READ Position WRITE setPropertyPosition NOTIFY playbackStatusChanged)
-    Q_PROPERTY(double MinimumRate READ MinimumRate CONSTANT)
-    Q_PROPERTY(double MaximumRate READ MaximumRate CONSTANT)
     Q_PROPERTY(bool CanGoNext READ CanGoNext NOTIFY canGoNextChanged)
     Q_PROPERTY(bool CanGoPrevious READ CanGoPrevious NOTIFY canGoPreviousChanged)
     Q_PROPERTY(bool CanPlay READ CanPlay NOTIFY canPlayChanged)
@@ -36,7 +35,7 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
     Q_PROPERTY(bool CanSeek READ CanSeek NOTIFY canSeekChanged)
 
 public:
-    explicit MediaPlayer2Player(AudioManager *audioPlayer, bool showProgressOnTaskBar, QObject *parent = nullptr);
+    explicit MediaPlayer2Player(KMediaSession *audioPlayer, bool showProgressOnTaskBar, QObject *parent = nullptr);
     ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
@@ -44,8 +43,6 @@ public:
     QVariantMap Metadata() const;
     double Volume() const;
     qlonglong Position() const;
-    double MinimumRate() const;
-    double MaximumRate() const;
     bool CanGoNext() const;
     bool CanGoPrevious() const;
     bool CanPlay() const;
@@ -96,6 +93,7 @@ private Q_SLOTS:
     void playerCanPlayChanged();
     void playerCanPauseChanged();
     void playerCanSeekChanged();
+    void playerMetaDataChanged();
 
     // progress on taskbar
     void audioPositionChanged();
@@ -104,11 +102,11 @@ private Q_SLOTS:
 private:
     void signalPropertiesChange(const QString &property, const QVariant &value);
 
-    void setEntry(Entry *entry);
+    void setSource(const QUrl &source);
 
     QVariantMap getMetadataOfCurrentTrack();
 
-    AudioManager *m_audioPlayer = nullptr;
+    KMediaSession *m_audioPlayer = nullptr;
     QVariantMap m_metadata;
     QString m_currentTrackId;
     double m_volume = 0.0;

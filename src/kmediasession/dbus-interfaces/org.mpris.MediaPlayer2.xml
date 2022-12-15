@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: LGPL-2.1-or-later
+-->
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.mpris.MediaPlayer2">
+    <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="true"/>
+
+    <method name="Raise" tp:name-for-bindings="Raise"/>
+    <method name="Quit" tp:name-for-bindings="Quit"/>
+
+    <property name="CanQuit" type="b" tp:name-for-bindings="Can_Quit" access="read"/>
+    <property name="Fullscreen" type="b" tp:name-for-bindings="Fullscreen" access="readwrite">
+      <annotation name="org.mpris.MediaPlayer2.property.optional" value="true"/>
+    </property>
+    <property name="CanSetFullscreen" type="b" tp:name-for-bindings="Can_Set_Fullscreen" access="read">
+      <annotation name="org.mpris.MediaPlayer2.property.optional" value="true"/>
+    </property>
+    <property name="CanRaise" type="b" tp:name-for-bindings="Can_Raise" access="read"/>
+    <property name="HasTrackList" type="b" tp:name-for-bindings="Has_TrackList" access="read"/>
+    <property name="Identity" type="s" tp:name-for-bindings="Identity" access="read"/>
+    <property name="DesktopEntry" type="s" tp:name-for-bindings="Desktop_Entry" access="read">
+      <annotation name="org.mpris.MediaPlayer2.property.optional" value="true"/>
+    </property>
+    <property name="SupportedUriSchemes" type="as" tp:name-for-bindings="Supported_Uri_Schemes" access="read"/>
+    <property name="SupportedMimeTypes" type="as" tp:name-for-bindings="Supported_Mime_Types" access="read"/>
+  </interface>
+</node>
+<!-- vim:set sw=2 sts=2 et ft=xml: -->

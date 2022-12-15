@@ -1,13 +1,12 @@
 /**
  * SPDX-FileCopyrightText: 2017 (c) Matthieu Gallien <matthieu_gallien@yahoo.fr>
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
 #include "audiomanager.h"
 
-#include <QAudio>
 #include <QEventLoop>
 #include <QTimer>
 #include <QtMath>
@@ -19,7 +18,6 @@
 #include "datamanager.h"
 #include "feed.h"
 #include "models/errorlogmodel.h"
-#include "powermanagementinterface.h"
 #include "settingsmanager.h"
 
 #include <solidextras/networkstatus.h>
@@ -27,11 +25,9 @@
 class AudioManagerPrivate
 {
 private:
-    PowerManagementInterface mPowerInterface;
-
     SolidExtras::NetworkStatus m_networkStatus;
 
-    QMediaPlayer m_player;
+    KMediaSession m_player;
 
     Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
@@ -61,24 +57,40 @@ AudioManager::AudioManager(QObject *parent)
     : QObject(parent)
     , d(std::make_unique<AudioManagerPrivate>())
 {
-    connect(&d->m_player, &QMediaPlayer::mutedChanged, this, &AudioManager::playerMutedChanged);
-    connect(&d->m_player, &QMediaPlayer::volumeChanged, this, &AudioManager::playerVolumeChanged);
-    connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &AudioManager::sourceChanged);
-    connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::statusChanged);
-    connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
-    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playbackStateChanged);
-    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &AudioManager::playerStateChanged);
-    connect(&d->m_player, &QMediaPlayer::playbackRateChanged, this, &AudioManager::playbackRateChanged);
-    connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &AudioManager::errorChanged);
-    connect(&d->m_player, &QMediaPlayer::durationChanged, this, &AudioManager::playerDurationChanged);
-    connect(&d->m_player, &QMediaPlayer::positionChanged, this, &AudioManager::positionChanged);
+    d->m_player.setPlayerName(QStringLiteral("kasts"));
+    d->m_player.setDesktopEntryName(QStringLiteral("org.kde.kasts"));
+    d->m_player.setMpris2PauseInsteadOfStop(true);
+
+    connect(&d->m_player, &KMediaSession::currentBackendChanged, this, &AudioManager::currentBackendChanged);
+    connect(&d->m_player, &KMediaSession::mutedChanged, this, &AudioManager::playerMutedChanged);
+    connect(&d->m_player, &KMediaSession::volumeChanged, this, &AudioManager::playerVolumeChanged);
+    connect(&d->m_player, &KMediaSession::sourceChanged, this, &AudioManager::sourceChanged);
+    connect(&d->m_player, &KMediaSession::mediaStatusChanged, this, &AudioManager::statusChanged);
+    connect(&d->m_player, &KMediaSession::mediaStatusChanged, this, &AudioManager::mediaStatusChanged);
+    connect(&d->m_player, &KMediaSession::playbackStateChanged, this, &AudioManager::playbackStateChanged);
+    connect(&d->m_player, &KMediaSession::playbackRateChanged, this, &AudioManager::playbackRateChanged);
+    connect(&d->m_player, &KMediaSession::errorChanged, this, &AudioManager::errorChanged);
+    connect(&d->m_player, &KMediaSession::durationChanged, this, &AudioManager::playerDurationChanged);
+    connect(&d->m_player, &KMediaSession::positionChanged, this, &AudioManager::positionChanged);
     connect(this, &AudioManager::positionChanged, this, &AudioManager::savePlayPosition);
+
+    // connect signals for MPRIS2
+    connect(this, &AudioManager::canSkipForwardChanged, this, [this]() {
+        d->m_player.setCanGoNext(canSkipForward());
+    });
+    connect(this, &AudioManager::canSkipBackwardChanged, this, [this]() {
+        d->m_player.setCanGoPrevious(canSkipBackward());
+    });
+    connect(&d->m_player, &KMediaSession::nextRequested, this, &AudioManager::skipForward);
+    connect(&d->m_player, &KMediaSession::previousRequested, this, &AudioManager::skipBackward);
+    connect(&d->m_player, &KMediaSession::raiseWindowRequested, this, &AudioManager::raiseWindowRequested);
+    connect(&d->m_player, &KMediaSession::quitRequested, this, &AudioManager::quitRequested);
 
     connect(this, &AudioManager::playbackRateChanged, &DataManager::instance(), &DataManager::playbackRateChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, &AudioManager::canGoNextChanged);
-    // we'll send custom seekableChanged signal to work around QMediaPlayer glitches
+    // we'll send custom seekableChanged signal to work around possible backend glitches
 
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
@@ -90,7 +102,24 @@ AudioManager::AudioManager(QObject *parent)
 
 AudioManager::~AudioManager()
 {
-    d->mPowerInterface.setPreventSleep(false);
+}
+
+QString AudioManager::backendName(KMediaSession::MediaBackends backend) const
+{
+    qCDebug(kastsAudio) << "AudioManager::backendName()";
+    return d->m_player.backendName(backend);
+}
+
+KMediaSession::MediaBackends AudioManager::currentBackend() const
+{
+    qCDebug(kastsAudio) << "AudioManager::currentBackend()";
+    return d->m_player.currentBackend();
+}
+
+QList<KMediaSession::MediaBackends> AudioManager::availableBackends() const
+{
+    qCDebug(kastsAudio) << "AudioManager::availableBackends()";
+    return d->m_player.availableBackends();
 }
 
 Entry *AudioManager::entry() const
@@ -100,26 +129,23 @@ Entry *AudioManager::entry() const
 
 bool AudioManager::muted() const
 {
-    return d->m_player.isMuted();
+    return d->m_player.muted();
 }
 
 qreal AudioManager::volume() const
 {
-    auto realVolume = static_cast<qreal>(d->m_player.volume() / 100.0);
-    auto userVolume = static_cast<qreal>(QAudio::convertVolume(realVolume, QAudio::LinearVolumeScale, QAudio::LogarithmicVolumeScale));
-
-    return userVolume * 100.0;
+    return d->m_player.volume();
 }
 
 QUrl AudioManager::source() const
 {
-    return d->m_player.media().request().url();
+    return d->m_player.source();
 }
 
-QMediaPlayer::Error AudioManager::error() const
+KMediaSession::Error AudioManager::error() const
 {
-    if (d->m_player.error() != QMediaPlayer::NoError) {
-        qCDebug(kastsAudio) << "AudioManager::error" << d->m_player.errorString();
+    if (d->m_player.error() != KMediaSession::NoError) {
+        qCDebug(kastsAudio) << "AudioManager::error" << d->m_player.error();
         // Some error occurred: probably best to unset the lastPlayingEntry to
         // avoid a deadlock when starting up again.
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
@@ -175,9 +201,9 @@ bool AudioManager::canSkipBackward() const
     return (d->m_readyToPlay);
 }
 
-QMediaPlayer::State AudioManager::playbackState() const
+KMediaSession::PlaybackState AudioManager::playbackState() const
 {
-    return d->m_player.state();
+    return d->m_player.playbackState();
 }
 
 qreal AudioManager::playbackRate() const
@@ -200,9 +226,26 @@ bool AudioManager::isStreaming() const
     return d->m_isStreaming;
 }
 
-QMediaPlayer::MediaStatus AudioManager::status() const
+KMediaSession::MediaStatus AudioManager::status() const
 {
     return d->m_player.mediaStatus();
+}
+
+void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
+{
+    qCDebug(kastsAudio) << "AudioManager::setCurrentBackend(" << backend << ")";
+
+    KMediaSession::PlaybackState currentState = playbackState();
+    qint64 currentRate = playbackRate();
+
+    d->m_player.setCurrentBackend(backend);
+
+    setEntry(d->m_entry);
+    if (currentState == KMediaSession::PlaybackState::PlayingState) {
+        play();
+    }
+    // TODO: Fix restoring the current playback rate
+    setPlaybackRate(currentRate);
 }
 
 void AudioManager::setEntry(Entry *entry)
@@ -215,7 +258,7 @@ void AudioManager::setEntry(Entry *entry)
     // reset any pending seek action, lock position saving and notify interval
     d->m_pendingSeek = -1;
     d->m_lockPositionSaving = true;
-    d->m_player.setNotifyInterval(1000);
+    // d->m_player.setNotifyInterval(1000);
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
@@ -223,7 +266,8 @@ void AudioManager::setEntry(Entry *entry)
         qCDebug(kastsAudio) << "Checking previous track";
         qCDebug(kastsAudio) << "Left time" << (duration() - position());
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
-        if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SKIP_TRACK_END)) || (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia)) {
+        if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SKIP_TRACK_END))
+            || (d->m_player.mediaStatus() == KMediaSession::EndOfMedia)) {
             qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
             oldEntry->enclosure()->setPlayPosition(0);
             oldEntry->setRead(true);
@@ -253,17 +297,9 @@ void AudioManager::setEntry(Entry *entry)
                 Q_EMIT isStreamingChanged();
             }
         }
-        // the gst-pipeline is required to make sure that the pitch is not
-        // changed when speeding up the audio stream
-        // TODO: find a solution for Android (GStreamer not available on android by default)
-#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
-        qCDebug(kastsAudio) << "use custom pipeline";
-        d->m_player.setMedia(QUrl(QStringLiteral("gst-pipeline: playbin uri=") + loadUrl.toString()
-                                  + QStringLiteral(" audio_sink=\"scaletempo ! audioconvert ! audioresample ! autoaudiosink\" video_sink=\"fakevideosink\"")));
-#else
-        qCDebug(kastsAudio) << "regular audio backend";
-        d->m_player.setMedia(loadUrl);
-#endif
+
+        d->m_player.setSource(loadUrl);
+
         // save the current playing track in the settingsfile for restoring on startup
         DataManager::instance().setLastPlayingEntry(d->m_entry->id());
         qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
@@ -272,12 +308,15 @@ void AudioManager::setEntry(Entry *entry)
         // the previously save position and make sure that the duration and
         // position are reported correctly
         prepareAudio();
+
+        // set metadata for MPRIS2
+        updateMetaData();
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
         Q_EMIT entryChanged(nullptr);
         d->m_player.stop();
-        d->m_player.setMedia(nullptr);
+        d->m_player.setSource(QUrl());
         d->m_readyToPlay = false;
         Q_EMIT durationChanged(0);
         Q_EMIT positionChanged(0);
@@ -300,18 +339,8 @@ void AudioManager::setVolume(qreal volume)
 {
     qCDebug(kastsAudio) << "AudioManager::setVolume" << volume;
 
-    auto realVolume = static_cast<qreal>(QAudio::convertVolume(volume / 100.0, QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale));
-    d->m_player.setVolume(qRound(realVolume * 100));
+    d->m_player.setVolume(qRound(volume));
 }
-
-/*
-void AudioManager::setSource(const QUrl &source)
-{
-    //qCDebug(kastsAudio) << "AudioManager::setSource" << source;
-
-    d->m_player.setMedia({source});
-}
-*/
 
 void AudioManager::setPosition(qint64 position)
 {
@@ -336,7 +365,7 @@ void AudioManager::play()
     if (isStreaming()) {
         if (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::Yes
             || (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::No && !SettingsManager::self()->allowMeteredStreaming())) {
-            qCDebug(kastsAudio) << "Refusing to play: no Connection or streaming on metered connection not allowed";
+            qCDebug(kastsAudio) << "Refusing to play: no connection or streaming on metered connection not allowed";
             Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
                             d->m_entry->feed()->url(),
                             d->m_entry->id(),
@@ -354,7 +383,6 @@ void AudioManager::play()
     d->m_player.play();
     d->m_isSeekable = true;
     Q_EMIT seekableChanged(d->m_isSeekable);
-    d->mPowerInterface.setPreventSleep(true);
 }
 
 void AudioManager::pause()
@@ -367,14 +395,13 @@ void AudioManager::pause()
 
     d->m_isSeekable = true;
     d->m_player.pause();
-    d->mPowerInterface.setPreventSleep(false);
 }
 
 void AudioManager::playPause()
 {
-    if (playbackState() == QMediaPlayer::State::PausedState)
+    if (playbackState() == KMediaSession::PlaybackState::PausedState)
         play();
-    else if (playbackState() == QMediaPlayer::State::PlayingState)
+    else if (playbackState() == KMediaSession::PlaybackState::PlayingState)
         pause();
 }
 
@@ -386,7 +413,6 @@ void AudioManager::stop()
     d->m_continuePlayback = false;
     d->m_isSeekable = false;
     Q_EMIT seekableChanged(d->m_isSeekable);
-    d->mPowerInterface.setPreventSleep(false);
 }
 
 void AudioManager::seek(qint64 position)
@@ -446,7 +472,7 @@ void AudioManager::next()
 {
     if (canGoNext()) {
         qCDebug(kastsAudio) << "Current playbackStatus before next() is:" << playbackState();
-        d->m_continuePlayback = playbackState() == QMediaPlayer::State::PlayingState;
+        d->m_continuePlayback = playbackState() == KMediaSession::PlaybackState::PlayingState;
 
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
@@ -462,14 +488,14 @@ void AudioManager::mediaStatusChanged()
     qCDebug(kastsAudio) << "AudioManager::mediaStatusChanged" << d->m_player.mediaStatus();
 
     // File has reached the end and has stopped
-    if (d->m_player.mediaStatus() == QMediaPlayer::EndOfMedia) {
+    if (d->m_player.mediaStatus() == KMediaSession::EndOfMedia) {
         next();
     }
 
     // if there is a problem with the current track, make sure that it's not
     // loaded again when the application is restarted, skip to next track and
     // delete the enclosure
-    if (d->m_player.mediaStatus() == QMediaPlayer::InvalidMedia) {
+    if (d->m_player.mediaStatus() == KMediaSession::InvalidMedia) {
         // save pointer to this bad entry to allow
         // us to delete the enclosure after the track has been unloaded
         Entry *badEntry = d->m_entry;
@@ -478,30 +504,8 @@ void AudioManager::mediaStatusChanged()
         next();
         if (badEntry && badEntry->enclosure()) {
             badEntry->enclosure()->deleteFile();
-            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), QMediaPlayer::InvalidMedia, i18n("Invalid Media"), QString());
+            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), KMediaSession::InvalidMedia, i18n("Invalid Media"), QString());
         }
-    }
-}
-
-void AudioManager::playerStateChanged()
-{
-    qCDebug(kastsAudio) << "AudioManager::playerStateChanged" << d->m_player.state();
-
-    switch (d->m_player.state()) {
-    case QMediaPlayer::State::StoppedState:
-        Q_EMIT stopped();
-        d->mPowerInterface.setPreventSleep(false);
-        break;
-    case QMediaPlayer::State::PlayingState:
-        // setPreventSleep is set in play() to avoid it toggling too rapidly
-        // see d->prepareAudioStream() for details
-        Q_EMIT playing();
-        break;
-    case QMediaPlayer::State::PausedState:
-        // setPreventSleep is set in pause() to avoid it toggling too rapidly
-        // see d->prepareAudioStream() for details
-        Q_EMIT paused();
-        break;
     }
 }
 
@@ -566,11 +570,6 @@ void AudioManager::prepareAudio()
     qCDebug(kastsAudio) << "Changing position to" << startingPosition / 1000 << "sec";
     if (startingPosition <= newDuration) {
         d->m_pendingSeek = startingPosition;
-        // Change notify interval temporarily.  This will help with reducing the
-        // startup audio glitch to a minimum.
-        d->m_player.setNotifyInterval(50);
-        // do not call d->m_player.setPosition() here since it might start
-        // sending signals with a.o. incorrect duration and position
     } else {
         d->m_pendingSeek = -1;
     }
@@ -614,22 +613,45 @@ void AudioManager::checkForPendingSeek()
     qCDebug(kastsAudio) << "Current position" << position;
 
     // Check if we're supposed to skip to a new position
-    if (d->m_pendingSeek != -1 && d->m_player.mediaStatus() == QMediaPlayer::BufferedMedia && d->m_player.duration() > 0) {
+    if (d->m_pendingSeek != -1 && d->m_player.mediaStatus() == KMediaSession::BufferedMedia && d->m_player.duration() > 0) {
         if (abs(d->m_pendingSeek - position) > 2000) {
             qCDebug(kastsAudio) << "Position seek still pending to position" << d->m_pendingSeek;
             qCDebug(kastsAudio) << "Current reported position and duration" << d->m_player.position() << d->m_player.duration();
             // be very careful because this setPosition call will trigger
             // a positionChanged signal, which will be nested, so we call it in
             // a QTimer::singleShot
-            qint64 seekPosition = d->m_pendingSeek;
-            QTimer::singleShot(0, this, [this, seekPosition]() {
-                d->m_player.setPosition(seekPosition);
-            });
+            if (playbackState() == KMediaSession::PlaybackState::PlayingState) {
+                qint64 seekPosition = d->m_pendingSeek;
+                QTimer::singleShot(0, this, [this, seekPosition]() {
+                    d->m_player.setPosition(seekPosition);
+                });
+            }
         } else {
             qCDebug(kastsAudio) << "Pending position seek has been executed; to position" << d->m_pendingSeek;
             d->m_pendingSeek = -1;
-            d->m_player.setNotifyInterval(1000);
+            // d->m_player.setNotifyInterval(1000);
         }
+    }
+}
+
+void AudioManager::updateMetaData()
+{
+    // set metadata for MPRIS2
+    if (!d->m_entry->title().isEmpty()) {
+        d->m_player.metaData()->setTitle(d->m_entry->title());
+    }
+    // TODO: set URL??  d->m_entry->enclosure()->path();
+    if (!d->m_entry->feed()->name().isEmpty()) {
+        d->m_player.metaData()->setAlbum(d->m_entry->feed()->name());
+    }
+    if (d->m_entry->authors().count() > 0) {
+        QString authors;
+        for (auto &author : d->m_entry->authors())
+            authors.append(author->name());
+        d->m_player.metaData()->setArtist(authors);
+    }
+    if (!d->m_entry->image().isEmpty()) {
+        d->m_player.metaData()->setArtworkUrl(QUrl(d->m_entry->cachedImage()));
     }
 }
 

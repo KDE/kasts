@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  * SPDX-FileCopyrightText: 2021 Devin Lin <devin@kde.org>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
@@ -8,10 +8,10 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.15
 import QtGraphicalEffects 1.15
 
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
 
@@ -414,13 +414,13 @@ Kirigami.Page {
                         }
                         Controls.Button {
                             id: playButton
-                            icon.name: AudioManager.playbackState === Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+                            icon.name: AudioManager.playbackState === KMediaSession.PlayingState ? "media-playback-pause" : "media-playback-start"
                             icon.height: bottomRow.iconSize
                             icon.width: bottomRow.iconSize
                             flat: true
                             Layout.alignment: Qt.AlignHCenter
                             Layout.preferredWidth: bottomRow.buttonSize
-                            onClicked: AudioManager.playbackState === Audio.PlayingState ? AudioManager.pause() : AudioManager.play()
+                            onClicked: AudioManager.playbackState === KMediaSession.PlayingState ? AudioManager.pause() : AudioManager.play()
                             enabled: AudioManager.canPlay
                         }
                         Controls.Button {
