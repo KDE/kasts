@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"POT-Creation-Date: 2022-12-15 00:50+0000\n"
 "PO-Revision-Date: 2022-12-01 19:10+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -722,12 +722,12 @@ msgstr "Aspetto"
 msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre i titoli dei podcast nella vista delle sottoscrizioni"
 
-#: qml/Settings/GeneralSettingsPage.qml:60
+#: qml/Settings/GeneralSettingsPage.qml:61
 #, kde-format
 msgid "Playback settings"
 msgstr "Impostazioni di riproduzione"
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -735,121 +735,121 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Tempo di riproduzione:"
 
-#: qml/Settings/GeneralSettingsPage.qml:67
+#: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Mostra il tempo rimasto invece del tempo totale della traccia"
 
-#: qml/Settings/GeneralSettingsPage.qml:77
+#: qml/Settings/GeneralSettingsPage.qml:78
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 "Regola il tempo rimanente in base alla velocità di riproduzione attuale"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Dai la priorità allo trasmissione rispetto allo scaricamento"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:104
 #, kde-format
 msgid "Queue settings"
 msgstr "Impostazioni delle code"
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr ""
 "Continua a riprodurre il prossimo episodio al termine di quello attuale"
 
-#: qml/Settings/GeneralSettingsPage.qml:117
+#: qml/Settings/GeneralSettingsPage.qml:118
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Aggiorna impostazioni:"
 
-#: qml/Settings/GeneralSettingsPage.qml:119
+#: qml/Settings/GeneralSettingsPage.qml:120
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Recupera automaticamente gli aggiornamenti dei podcast all'avvio"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:129
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Aggiorna i dati degli episodi esistenti all'aggiornamento (più lento)"
 
-#: qml/Settings/GeneralSettingsPage.qml:138
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Accoda automaticamente i nuovi episodi"
 
-#: qml/Settings/GeneralSettingsPage.qml:153
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Scarica automaticamente i nuovi episodi"
 
-#: qml/Settings/GeneralSettingsPage.qml:166
+#: qml/Settings/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Comportamento per gli episodi riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:169
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Non eliminare"
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Elimina immediatamente"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:172
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Elimina al prossimo avvio"
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 "Ripristina la posizione di riproduzione dopo la riproduzione di un episodio"
 
-#: qml/Settings/GeneralSettingsPage.qml:201
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Quando si aggiungono nuovi podcast"
 
-#: qml/Settings/GeneralSettingsPage.qml:206
+#: qml/Settings/GeneralSettingsPage.qml:207
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Marca tutti gli episodi riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:217
+#: qml/Settings/GeneralSettingsPage.qml:218
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marca gli episodi più recenti come non riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Marca tutti gli episodi come non riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:258
 #, kde-format
 msgid "Article"
 msgstr "Articolo"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:263
 #, kde-format
 msgid "Font size"
 msgstr "Dimensione del carattere"
 
-#: qml/Settings/GeneralSettingsPage.qml:269
+#: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgid "Font size:"
 msgstr "Dimensione dei caratteri:"
 
-#: qml/Settings/GeneralSettingsPage.qml:285
+#: qml/Settings/GeneralSettingsPage.qml:286
 #, kde-format
 msgid "Use system default"
 msgstr "Usare i valori predefiniti di sistema"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"POT-Creation-Date: 2022-12-15 00:50+0000\n"
 "PO-Revision-Date: 2022-12-13 14:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -734,12 +734,12 @@ msgstr "Вигляд"
 msgid "Always show podcast titles in subscription view"
 msgstr "Завжди показувати заголовки трансляцій на панелі підписок"
 
-#: qml/Settings/GeneralSettingsPage.qml:60
+#: qml/Settings/GeneralSettingsPage.qml:61
 #, kde-format
 msgid "Playback settings"
 msgstr "Параметри відтворення"
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -747,118 +747,118 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Час відтворення:"
 
-#: qml/Settings/GeneralSettingsPage.qml:67
+#: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Показувати час, що лишився, а не загальну тривалість доріжки"
 
-#: qml/Settings/GeneralSettingsPage.qml:77
+#: qml/Settings/GeneralSettingsPage.qml:78
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Коригувати час, що залишився, на основі поточної швидкості відтворення"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Пріоритет потокового передавання над отриманням даних"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:104
 #, kde-format
 msgid "Queue settings"
 msgstr "Параметри черги"
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Продовжити відтворення з наступного епізоду після завершення поточного"
 
-#: qml/Settings/GeneralSettingsPage.qml:117
+#: qml/Settings/GeneralSettingsPage.qml:118
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Параметри оновлення:"
 
-#: qml/Settings/GeneralSettingsPage.qml:119
+#: qml/Settings/GeneralSettingsPage.qml:120
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Автоматично отримувати оновлення трансляцій під час запуску"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:129
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Оновлювати наявні дані епізодів при освіженні (повільніше)"
 
-#: qml/Settings/GeneralSettingsPage.qml:138
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Автоматично додавати до черги нові епізоди"
 
-#: qml/Settings/GeneralSettingsPage.qml:153
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Отримувати автоматично нові епізоди"
 
-#: qml/Settings/GeneralSettingsPage.qml:166
+#: qml/Settings/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Обробка відтворених епізодів"
 
-#: qml/Settings/GeneralSettingsPage.qml:169
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Не вилучати"
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Вилучити негайно"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:172
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Вилучити під час наступного запуску"
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Відновлювати початкову позицію відтворення після відтворення епізоду"
 
-#: qml/Settings/GeneralSettingsPage.qml:201
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "При додаванні нових епізодів"
 
-#: qml/Settings/GeneralSettingsPage.qml:206
+#: qml/Settings/GeneralSettingsPage.qml:207
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Позначити усі епізоди як відтворені"
 
-#: qml/Settings/GeneralSettingsPage.qml:217
+#: qml/Settings/GeneralSettingsPage.qml:218
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Позначити найсвіжіші епізоди як невідтворені"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Позначити усі епізоди як невідтворені"
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:258
 #, kde-format
 msgid "Article"
 msgstr "Стаття"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:263
 #, kde-format
 msgid "Font size"
 msgstr "Розмір шрифту"
 
-#: qml/Settings/GeneralSettingsPage.qml:269
+#: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgid "Font size:"
 msgstr "Розмір шрифту:"
 
-#: qml/Settings/GeneralSettingsPage.qml:285
+#: qml/Settings/GeneralSettingsPage.qml:286
 #, kde-format
 msgid "Use system default"
 msgstr "Типовий системний"

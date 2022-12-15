@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:49+0000\n"
+"POT-Creation-Date: 2022-12-15 00:50+0000\n"
 "PO-Revision-Date: 2022-12-04 18:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -722,13 +722,13 @@ msgstr "Apparence"
 msgid "Always show podcast titles in subscription view"
 msgstr "Toujours afficher les titres des podcast dans la vue des abonnements"
 
-#: qml/Settings/GeneralSettingsPage.qml:60
+#: qml/Settings/GeneralSettingsPage.qml:61
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgid "Playback settings"
 msgstr "Configuration de lecture"
 
-#: qml/Settings/GeneralSettingsPage.qml:65
+#: qml/Settings/GeneralSettingsPage.qml:66
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -736,125 +736,125 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Durée de lecture :"
 
-#: qml/Settings/GeneralSettingsPage.qml:67
+#: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Afficher la durée à gauche plutôt que le temps total de la piste"
 
-#: qml/Settings/GeneralSettingsPage.qml:77
+#: qml/Settings/GeneralSettingsPage.qml:78
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Ajuster le temps restant à partir de la vitesse courante de lecture"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Prioriser la lecture en flux par rapport au téléchargement"
 
-#: qml/Settings/GeneralSettingsPage.qml:103
+#: qml/Settings/GeneralSettingsPage.qml:104
 #, kde-format
 msgid "Queue settings"
 msgstr "Paramètres de files d'attente"
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Continuer à lire l'épisode suivant à la fin de celui en cours"
 
-#: qml/Settings/GeneralSettingsPage.qml:117
+#: qml/Settings/GeneralSettingsPage.qml:118
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Paramètres de mise à jour :"
 
-#: qml/Settings/GeneralSettingsPage.qml:119
+#: qml/Settings/GeneralSettingsPage.qml:120
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Rechercher automatiquement des mises à jour de podcasts au démarrage"
 
-#: qml/Settings/GeneralSettingsPage.qml:128
+#: qml/Settings/GeneralSettingsPage.qml:129
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 "Mettre à jour les données d'un épisode existant par rafraîchissement (Le "
 "plus lent)"
 
-#: qml/Settings/GeneralSettingsPage.qml:138
+#: qml/Settings/GeneralSettingsPage.qml:139
 #, fuzzy, kde-format
 #| msgid "Automatically Queue"
 msgid "Automatically queue new episodes"
 msgstr "Mettre automatiquement en file d'attente "
 
-#: qml/Settings/GeneralSettingsPage.qml:153
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, fuzzy, kde-format
 #| msgid "Automatically Download"
 msgid "Automatically download new episodes"
 msgstr "Télécharger automatiquement"
 
-#: qml/Settings/GeneralSettingsPage.qml:166
+#: qml/Settings/GeneralSettingsPage.qml:167
 #, fuzzy, kde-format
 #| msgid "Played Episodes"
 msgid "Played episode behavior"
 msgstr "Épisodes regardés"
 
-#: qml/Settings/GeneralSettingsPage.qml:169
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Ne pas supprimer"
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Supprimer immédiatement"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:172
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Supprimer au démarrage"
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:201
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, fuzzy, kde-format
 #| msgid "When adding new podcasts:"
 msgid "When adding new podcasts"
 msgstr "Lors de l'ajout de nouveaux podcasts :"
 
-#: qml/Settings/GeneralSettingsPage.qml:206
+#: qml/Settings/GeneralSettingsPage.qml:207
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Marquer tous les épisodes comme lus"
 
-#: qml/Settings/GeneralSettingsPage.qml:217
+#: qml/Settings/GeneralSettingsPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Mark most recent episodes as unplayed:"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marquer les épisodes les plus récents comme non vus :"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Marquer tous les épisodes comme non lus"
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:258
 #, kde-format
 msgid "Article"
 msgstr "Article"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:263
 #, kde-format
 msgid "Font size"
 msgstr "Taille de police"
 
-#: qml/Settings/GeneralSettingsPage.qml:269
+#: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgid "Font size:"
 msgstr "Taille de la police :"
 
-#: qml/Settings/GeneralSettingsPage.qml:285
+#: qml/Settings/GeneralSettingsPage.qml:286
 #, kde-format
 msgid "Use system default"
 msgstr "Utiliser les paramètres par défaut du système"
