@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:50+0000\n"
-"PO-Revision-Date: 2022-12-04 18:29+0100\n"
+"PO-Revision-Date: 2022-12-16 21:35+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.90\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -421,15 +421,13 @@ msgstr "Code d'erreur : "
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Journal d'erreurs"
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
 msgstr "Effacer toutes les erreurs"
@@ -723,8 +721,7 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Toujours afficher les titres des podcast dans la vue des abonnements"
 
 #: qml/Settings/GeneralSettingsPage.qml:61
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
 msgstr "Configuration de lecture"
 
@@ -780,22 +777,19 @@ msgstr ""
 "plus lent)"
 
 #: qml/Settings/GeneralSettingsPage.qml:139
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Mettre automatiquement en file d'attente "
+msgstr "Mettre automatiquement les nouveaux épisodes en file d'attente "
 
 #: qml/Settings/GeneralSettingsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Télécharger automatiquement"
+msgstr "Télécharger automatiquement les nouveaux épisodes"
 
 #: qml/Settings/GeneralSettingsPage.qml:167
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Épisodes regardés"
+msgstr "Comportement pour les épisodes lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
@@ -815,13 +809,12 @@ msgstr "Supprimer au démarrage"
 #: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Ré-initialiser la position de lecture après la lecture d'un épisode"
 
 #: qml/Settings/GeneralSettingsPage.qml:202
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "Lors de l'ajout de nouveaux podcasts :"
+msgstr "Lors de l'ajout de nouveaux podcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:207
 #, kde-format
@@ -829,10 +822,9 @@ msgid "Mark all episodes as played"
 msgstr "Marquer tous les épisodes comme lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Marquer les épisodes les plus récents comme non vus :"
+msgstr "Marquer les épisodes les plus récents comme non lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
@@ -946,10 +938,9 @@ msgid "Information"
 msgstr "Informations"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Téléchargements des podcasts :"
+msgstr "Téléchargements de podcasts"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -1014,10 +1005,9 @@ msgid "Last full sync with server"
 msgstr "Dernière synchronisation complète avec le serveur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Dernier envoi rapide vers le serveur de synchronisation :"
+msgstr "Dernier envoi rapide vers le serveur de synchronisation"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
@@ -1055,7 +1045,7 @@ msgstr "Rechercher tous les états d'épisodes à partir du serveur"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Aller chercher"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1065,7 +1055,7 @@ msgstr "Envoyez tous les états locaux des épisodes vers le serveur"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Pousser"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
