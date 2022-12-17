@@ -42,7 +42,6 @@ Kirigami.ApplicationWindow {
             return Kirigami.Units.largeSpacing;
         }
     }
-    property int originalWidth: Kirigami.Units.gridUnit * 6
     property var lastFeed: ""
     property string currentPage: ""
 
@@ -126,8 +125,17 @@ Kirigami.ApplicationWindow {
         id: sidebar
         active: !Kirigami.Settings.isMobile || root.isWidescreen
         sourceComponent: Kirigami.OverlayDrawer {
+            id: drawer
             modal: false
-            width: root.isWidescreen ? root.originalWidth : Layout.implicitWidth
+
+            readonly property real listViewThreshold: Kirigami.Units.gridUnit * 20
+
+            readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
+            readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
+            readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
+            readonly property int buttonDisplayMode: root.isWidescreen ? (root.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
+
+            width: root.isWidescreen ? (root.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             Kirigami.Theme.inherit: false
@@ -158,8 +166,7 @@ Kirigami.ApplicationWindow {
 
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
-                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
-                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
+                            display: drawer.buttonDisplayMode
                             text: i18n("Queue")
                             icon.name: "source-playlist"
                             checked: currentPage == "QueuePage"
@@ -171,8 +178,7 @@ Kirigami.ApplicationWindow {
                         }
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
-                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
-                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
+                            display: drawer.buttonDisplayMode
                             text: i18n("Discover")
                             icon.name: "search"
                             checked: currentPage == "DiscoverPage"
@@ -184,8 +190,7 @@ Kirigami.ApplicationWindow {
                         }
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
-                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
-                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
+                            display: drawer.buttonDisplayMode
                             text: i18n("Subscriptions")
                             icon.name: "bookmarks"
                             checked: currentPage == "FeedListPage"
@@ -197,8 +202,7 @@ Kirigami.ApplicationWindow {
                         }
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
-                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
-                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
+                            display: drawer.buttonDisplayMode
                             text: i18n("Episodes")
                             icon.name: "rss"
                             checked: currentPage == "EpisodeListPage"
@@ -210,8 +214,7 @@ Kirigami.ApplicationWindow {
                         }
                         Kirigami.NavigationTabButton {
                             Layout.fillWidth: true
-                            width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
-                            display: root.isWidescreen ? Kirigami.NavigationTabButton.TextUnderIcon : Kirigami.NavigationTabButton.IconOnly
+                            display: drawer.buttonDisplayMode
                             text: i18n("Downloads")
                             icon.name: "download"
                             checked: currentPage == "DownloadListPage"
@@ -226,14 +229,13 @@ Kirigami.ApplicationWindow {
 
                 Kirigami.Separator {
                     Layout.fillWidth: true
-                    Layout.bottomMargin: Kirigami.Units.smallSpacing
                     Layout.rightMargin: Kirigami.Units.smallSpacing
                     Layout.leftMargin: Kirigami.Units.smallSpacing
                 }
 
                 Kirigami.NavigationTabButton {
                     Layout.fillWidth: true
-                    width: column.width - column.Layout.leftMargin - column.Layout.rightMargin
+                    display: drawer.buttonDisplayMode
 
                     text: i18n("Settings")
                     icon.name: "settings-configure"
@@ -312,6 +314,7 @@ Kirigami.ApplicationWindow {
 
     footer: Loader {
         visible: active
+        height: visible ? implicitHeight : 0
         active: Kirigami.Settings.isMobile && !root.isWidescreen
         sourceComponent: BottomToolbar {
             transparentBackground: footerLoader.active
