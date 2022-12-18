@@ -128,7 +128,7 @@ Kirigami.ApplicationWindow {
             id: drawer
             modal: false
 
-            readonly property real listViewThreshold: Kirigami.Units.gridUnit * 20
+            readonly property real listViewThreshold: Kirigami.Units.gridUnit * 22
 
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
             readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
