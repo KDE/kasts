@@ -133,9 +133,9 @@ Kirigami.ApplicationWindow {
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
             readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
             readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-            readonly property int buttonDisplayMode: root.isWidescreen ? (root.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
+            readonly property int buttonDisplayMode: root.isWidescreen ? (drawer.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
 
-            width: root.isWidescreen ? (root.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
+            width: root.isWidescreen ? (drawer.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             Kirigami.Theme.inherit: false
