@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:50+0000\n"
+"POT-Creation-Date: 2022-12-19 00:48+0000\n"
 "PO-Revision-Date: 2022-10-09 10:14+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -176,23 +176,23 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Dodaj podkast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161
+#: qml/BottomToolbar.qml:25 qml/main.qml:170
 #, kde-format
 msgid "Queue"
 msgstr "Do kolejki"
 
-#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:181
+#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:194
 #, kde-format
 msgid "Subscriptions"
 msgstr "Subskrypcje"
 
-#: qml/BottomToolbar.qml:45 qml/main.qml:191
+#: qml/BottomToolbar.qml:45 qml/main.qml:206
 #, kde-format
 msgid "Episodes"
 msgstr "Odcinki"
 
-#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:211
-#: qml/main.qml:217
+#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:240
+#: qml/main.qml:247
 #, kde-format
 msgid "Settings"
 msgstr "Ustawienia"
@@ -229,7 +229,7 @@ msgstr "Pozwól raz"
 msgid "Always Allow"
 msgstr "Zawsze pozwalaj"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:171
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:182
 #, kde-format
 msgid "Discover"
 msgstr "Odkrywaj"
@@ -254,7 +254,7 @@ msgstr "Śledź"
 msgid "Subscribed"
 msgstr "Śledzone"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:201
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:218
 #, kde-format
 msgid "Downloads"
 msgstr "Pobierane"
@@ -628,7 +628,7 @@ msgstr "Przewiń w przód"
 msgid "Skip Forward"
 msgstr "Przejdź do przodu"
 
-#: qml/main.qml:303
+#: qml/main.qml:334
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -637,7 +637,7 @@ msgstr[0] "Uaktualniono %2 z %1 podkastu"
 msgstr[1] "Uaktualniono %2 z %1 podkastów"
 msgstr[2] "Uaktualniono %2 z %1 podkastów"
 
-#: qml/main.qml:330
+#: qml/main.qml:361
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -646,7 +646,7 @@ msgstr[0] "Przeniesiono %2 z %1 pliku"
 msgstr[1] "Przeniesiono %2 z %1 plików"
 msgstr[2] "Przeniesiono %2 z %1 plików"
 
-#: qml/main.qml:394
+#: qml/main.qml:425
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""

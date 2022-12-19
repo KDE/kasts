@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:50+0000\n"
+"POT-Creation-Date: 2022-12-19 00:48+0000\n"
 "PO-Revision-Date: 2021-06-04 15:07-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -174,23 +174,23 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Adicionar podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:161
+#: qml/BottomToolbar.qml:25 qml/main.qml:170
 #, kde-format
 msgid "Queue"
 msgstr ""
 
-#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:181
+#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:194
 #, kde-format
 msgid "Subscriptions"
 msgstr ""
 
-#: qml/BottomToolbar.qml:45 qml/main.qml:191
+#: qml/BottomToolbar.qml:45 qml/main.qml:206
 #, kde-format
 msgid "Episodes"
 msgstr ""
 
-#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:211
-#: qml/main.qml:217
+#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:240
+#: qml/main.qml:247
 #, kde-format
 msgid "Settings"
 msgstr ""
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Always Allow"
 msgstr ""
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:171
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:182
 #, kde-format
 msgid "Discover"
 msgstr ""
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Subscribed"
 msgstr ""
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:201
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:218
 #, kde-format
 msgid "Downloads"
 msgstr "Downloads"
@@ -634,7 +634,7 @@ msgstr ""
 msgid "Skip Forward"
 msgstr ""
 
-#: qml/main.qml:303
+#: qml/main.qml:334
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -642,7 +642,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/main.qml:330
+#: qml/main.qml:361
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -650,7 +650,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/main.qml:394
+#: qml/main.qml:425
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
