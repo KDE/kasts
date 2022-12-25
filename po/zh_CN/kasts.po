@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-19 00:48+0000\n"
-"PO-Revision-Date: 2022-12-13 12:22\n"
+"PO-Revision-Date: 2022-12-24 11:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -416,18 +416,16 @@ msgstr "错误代码："
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr "错误日志"
+msgstr ""
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr "清除所有错误"
+msgstr ""
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
@@ -1449,6 +1447,3 @@ msgstr "同步中止"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
-
-#~ msgid "Errors"
-#~ msgstr "错误"
