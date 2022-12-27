@@ -234,6 +234,7 @@ if(ANDROID)
         kaccounts-nextcloud
         clock
         viewimage
+        media-playback-start-cloud
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets Qt::DBus)
