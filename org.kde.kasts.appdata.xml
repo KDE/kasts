@@ -43,6 +43,7 @@
   <summary xml:lang="ka">პოდკასტის აპლიკაცია</summary>
   <summary xml:lang="ko">팟캐스트 프로그램</summary>
   <summary xml:lang="nl">Podcastprogramma</summary>
+  <summary xml:lang="pl">Aplikacja do podkastów</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
   <summary xml:lang="sl">Aplikacija podcastov</summary>
   <summary xml:lang="sv">Poddradioprogram</summary>
@@ -94,6 +95,7 @@
     <p xml:lang="ka">Kasts პოდკასტების კონვერგენტული აპლიკაციაა, რომელიც ორივე, კომპიუტერზე და მობილურზე, კარგად გამოიყურება.</p>
     <p xml:lang="ko">Kasts는 데스크톱과 모바일 양쪽에서 작동하는 팟캐스트 프로그램입니다.</p>
     <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
+    <p xml:lang="pl">Kasts jest dostosowującą się aplikacją do podkastów, która wygląda dobrze na urządzeniach biurkowych i przenośnych.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
     <p xml:lang="sl">Kasts je konvergentna aplikacija za podcaste za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
@@ -112,6 +114,7 @@
     <p xml:lang="ka">მთავარი ფუნქციები:</p>
     <p xml:lang="ko">주 기능:</p>
     <p xml:lang="nl">De hoofdkenmerken zijn:</p>
+    <p xml:lang="pl">Jego głównymi cechami są:</p>
     <p xml:lang="pt">As suas funcionalidades principais são:</p>
     <p xml:lang="sl">Njene glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
@@ -131,6 +134,7 @@
       <li xml:lang="ka">ეპიზოდის მართვა დაკვრის რიგის საშუალებით</li>
       <li xml:lang="ko">재생 대기열을 통한 에피소드 관리</li>
       <li xml:lang="nl">Beheer van episoden via afspeelwachtrij</li>
+      <li xml:lang="pl">Zarządzanie odcinkami poprzez kolejkę odtwarzania</li>
       <li xml:lang="pt">Gestão de episódios através da fila de reprodução</li>
       <li xml:lang="sl">Upravljanje z epizodami prek čakalne vrste predvajanj</li>
       <li xml:lang="sv">Avsnittshantering via uppspelningskö</li>
@@ -149,6 +153,7 @@
       <li xml:lang="ka">დაასინქრონეთ დაკვრის მდებარეობები სხვა კლიენტებთან gpodder.net ან gpodder-nextcloud-ის საშუალებით</li>
       <li xml:lang="ko">gpoddet.net이나 gpodder-nextcloud를 사용하여 다른 클라이언트와 재생 위치 동기화</li>
       <li xml:lang="nl">Afspeelposities synchroniseren met andere clients via gpodder.net of gpodder-nextcloud</li>
+      <li xml:lang="pl">Uwspólnianie postępu w odtwarzaniu z innymi programami przez gpodder.net lub gpodder-nextcloud</li>
       <li xml:lang="pt">Sincronizar as posições de reprodução com outros clientes através do gpodder.net ou do gpodder-nextcloud</li>
       <li xml:lang="sl">Sinhronizacija pozicij predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
@@ -167,6 +172,7 @@
       <li xml:lang="ka">დაკვრის ცვლადი სიჩქარე</li>
       <li xml:lang="ko">가변 재생 속도</li>
       <li xml:lang="nl">Variabele afspeelsnelheid</li>
+      <li xml:lang="pl">Zmienna szybkość odtwarzania</li>
       <li xml:lang="pt">Velocidade de reprodução variável</li>
       <li xml:lang="sl">Variabilna hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
@@ -185,6 +191,7 @@
       <li xml:lang="ka">პოდკასტების ძებნა</li>
       <li xml:lang="ko">팟캐스트 검색</li>
       <li xml:lang="nl">Zoeken naar podcasts</li>
+      <li xml:lang="pl">Poszukaj podkastów</li>
       <li xml:lang="pt">Procurar por 'podcasts'</li>
       <li xml:lang="sl">Iskanje podkastov</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
@@ -203,6 +210,7 @@
       <li xml:lang="ka">სრული ინტეგრაცია სისტემასთან: მაგ: მოსმენისას სისტემის დაძინების აკრძალვა</li>
       <li xml:lang="ko">전체 시스템 통합: 재생 중에 시스템 대기 모드 진입 방지</li>
       <li xml:lang="nl">Volledige systeemintegratie: bijv. het systeem niet uitschakelen tijdens luisteren</li>
+      <li xml:lang="pl">Pełna integracja z systemem, tj. nie usypianie systemu podczas słuchania</li>
       <li xml:lang="pt">Integração total com o sistema: p.ex. inibir a suspensão do sistema enquanto escuta algo</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
@@ -233,6 +241,7 @@
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე</caption>
       <caption xml:lang="ko">데스크톱에서의 Kasts</caption>
       <caption xml:lang="nl">Kasts op het bureaublad</caption>
+      <caption xml:lang="pl">Kasts na biurko</caption>
       <caption xml:lang="pt">Kasts no computador</caption>
       <caption xml:lang="sl">Kasts na namizju</caption>
       <caption xml:lang="sv">Kasts på skrivbordet</caption>
