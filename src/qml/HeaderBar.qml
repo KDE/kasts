@@ -238,6 +238,7 @@ Rectangle {
                     to: AudioManager.duration / 1000
                     value: AudioManager.position / 1000
                     onMoved: AudioManager.seek(value * 1000)
+                    handle.implicitWidth: implicitHeight // workaround to make slider handle position itself exactly at the location of the click
                 }
 
                 Item {
