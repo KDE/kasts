@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-12-14 07:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -583,18 +583,18 @@ msgid_plural "Delete Downloads"
 msgstr[0] "გადმოწერების წაშლა"
 msgstr[1] "გადმოწერების წაშლა"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "ტრეკის სათაურის გარეშე"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:185
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
 #, kde-format
 msgid "Chapters"
 msgstr "თავები"
@@ -645,17 +645,17 @@ msgstr "გაზომვად შეერთებებზე გადმ�
 msgid "Set Playback Rate"
 msgstr "დაკვრის სიჩქარის მითითება"
 
-#: qml/PlayerControls.qml:148
+#: qml/PlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "სათაურის გარეშე"
 
-#: qml/PlayerControls.qml:155
+#: qml/PlayerControls.qml:156
 #, kde-format
 msgid "No Podcast Title"
 msgstr "პოდკასტის სათაურის გარეშე"
 
-#: qml/PlayerControls.qml:209
+#: qml/PlayerControls.qml:210
 #, kde-format
 msgid "No chapters found."
 msgstr "თავები ვერ ვიპოვე."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -590,18 +590,18 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Poista lataus"
 msgstr[1] "Poista lataukset"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "Raidalla ei ole otsikkoa"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:185
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Ei ladattua raitaa"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
 #, kde-format
 msgid "Chapters"
 msgstr "Luvut"
@@ -653,17 +653,17 @@ msgstr ""
 msgid "Set Playback Rate"
 msgstr "Aseta soittonopeus"
 
-#: qml/PlayerControls.qml:148
+#: qml/PlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Ei otsikkoa"
 
-#: qml/PlayerControls.qml:155
+#: qml/PlayerControls.qml:156
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Podcastilla ei ole otsikkoa"
 
-#: qml/PlayerControls.qml:209
+#: qml/PlayerControls.qml:210
 #, kde-format
 msgid "No chapters found."
 msgstr "Lukuja ei löytynyt."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-12-24 11:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -580,18 +580,18 @@ msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "删除下载"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "无曲目标题"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:185
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "未加载曲目"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
 #, kde-format
 msgid "Chapters"
 msgstr "章节"
@@ -640,17 +640,17 @@ msgstr "使用计费连接时不允许下载播客"
 msgid "Set Playback Rate"
 msgstr "设置播放速度"
 
-#: qml/PlayerControls.qml:148
+#: qml/PlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "无标题"
 
-#: qml/PlayerControls.qml:155
+#: qml/PlayerControls.qml:156
 #, kde-format
 msgid "No Podcast Title"
 msgstr "无播客标题"
 
-#: qml/PlayerControls.qml:209
+#: qml/PlayerControls.qml:210
 #, kde-format
 msgid "No chapters found."
 msgstr "未找到章节。"

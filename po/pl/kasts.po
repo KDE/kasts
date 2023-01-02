@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-12-27 18:47+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -589,18 +589,18 @@ msgstr[0] "Usuń pobrane"
 msgstr[1] "Usuń pobrane"
 msgstr[2] "Usuń pobrane"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "Brak tytułu ścieżki"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:185
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Nie załadowano ścieżki"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
 #, kde-format
 msgid "Chapters"
 msgstr "Rozdziały"
@@ -654,17 +654,17 @@ msgstr ""
 msgid "Set Playback Rate"
 msgstr "Ustaw szybkość odtwarzania"
 
-#: qml/PlayerControls.qml:148
+#: qml/PlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Nienazwane"
 
-#: qml/PlayerControls.qml:155
+#: qml/PlayerControls.qml:156
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Brak tytułu podkastu"
 
-#: qml/PlayerControls.qml:209
+#: qml/PlayerControls.qml:210
 #, kde-format
 msgid "No chapters found."
 msgstr "Nie znaleziono żadnych rozdziałów."

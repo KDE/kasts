@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:48+0000\n"
+"POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-06-10 00:23+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -588,18 +588,18 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Download löschen"
 msgstr[1] "Downloads löschen"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:299 qml/PlayerControls.qml:177
+#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "Kein Stücktitel"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:304 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:185
+#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Kein Stück geladen"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:276
+#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
 #, kde-format
 msgid "Chapters"
 msgstr "Kapitel"
@@ -650,17 +650,17 @@ msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 msgid "Set Playback Rate"
 msgstr "Wiedergabegeschwindigkeit einstellen"
 
-#: qml/PlayerControls.qml:148
+#: qml/PlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Kein Titel"
 
-#: qml/PlayerControls.qml:155
+#: qml/PlayerControls.qml:156
 #, kde-format
 msgid "No Podcast Title"
 msgstr "Kein Podcast-Titel"
 
-#: qml/PlayerControls.qml:209
+#: qml/PlayerControls.qml:210
 #, kde-format
 msgid "No chapters found."
 msgstr "Keine Kapitel gefunden."
