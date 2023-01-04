@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# Vit Pelcak <vpelcak@suse.cz>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
 #
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-02 01:06+0000\n"
 "PO-Revision-Date: 2022-06-27 16:02+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -414,18 +414,16 @@ msgstr "Kód chyby: "
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr "Záznam o chybách"
+msgstr ""
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr "Smazat všechny chyby"
+msgstr ""
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
@@ -668,18 +666,16 @@ msgid "No chapters found."
 msgstr "Nebyly nalezeny žádné kapitoly."
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
-msgstr "Fronta"
+msgstr ""
 
 #: qml/QueuePage.qml:37
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Obnovit všechny podcasty"
+msgstr ""
 
 #: qml/QueuePage.qml:49
 #, kde-format
@@ -688,22 +684,19 @@ msgid "Queue is empty"
 msgstr ""
 
 #: qml/QueuePage.qml:72
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] "%1 epizoda"
-msgstr[1] "%1 epizody"
-msgstr[2] "%1 epizod"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: qml/QueuePage.qml:72
-#, fuzzy, kde-format
-#| msgid "Time Left"
+#, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr "Zbývající čas"
+msgstr ""
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -726,19 +719,17 @@ msgid "Always show podcast titles in subscription view"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:61
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
-msgstr "Nastavení &přehrávání"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Přehráno"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
@@ -756,10 +747,9 @@ msgid "Prioritize streaming over downloading"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
-msgstr "Nastavení fronty"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:110
 #, kde-format
@@ -767,11 +757,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Pokračovat v přehrávání následující epizody po přehrání současné"
 
 #: qml/Settings/GeneralSettingsPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Nastavení &přehrávání"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:120
 #, kde-format
@@ -784,22 +773,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:139
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Automaticky řadit"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Automaticky stahovat"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:167
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Přehrané epizody"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
@@ -822,10 +808,9 @@ msgid "Reset play position after an episode is played"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:202
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgid "When adding new podcasts"
-msgstr "Přidat nový podcast"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:207
 #, kde-format
@@ -848,10 +833,9 @@ msgid "Article"
 msgstr "Článek"
 
 #: qml/Settings/GeneralSettingsPage.qml:263
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Velikost písma:"
+msgstr "Velikost písma"
 
 #: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
@@ -869,10 +853,9 @@ msgid "Network Settings"
 msgstr "Nastavení sítě"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "Na měřených spojeních:"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -926,10 +909,9 @@ msgstr "Nastavení úložiště"
 
 #: qml/Settings/StorageSettingsPage.qml:39
 #: qml/Settings/StorageSettingsPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Cesta úložišti:"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -949,13 +931,12 @@ msgstr "Použít výchozí cestu"
 #: qml/Settings/StorageSettingsPage.qml:91
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informace"
 
 #: qml/Settings/StorageSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Stahování podcastů:"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -965,10 +946,9 @@ msgid "Using %1 of disk space"
 msgstr "Používá %1 místa na disku"
 
 #: qml/Settings/StorageSettingsPage.qml:102
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Mezipaměť obrázků:"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -983,7 +963,7 @@ msgstr "Nastavení synchronizace"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Účet"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -991,10 +971,9 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
-msgstr "Synchronizace byla vypnuta"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -1007,10 +986,9 @@ msgid "Login"
 msgstr "Přihlášení"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Ruční synchronizace:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1018,16 +996,14 @@ msgid "Sync Now"
 msgstr "Synchronizovat nyní"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Poslední plná synchronizace se serverem:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Poslední plná synchronizace se serverem:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
@@ -1050,10 +1026,9 @@ msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
-msgstr "Pokročilé možnosti"
+msgstr "Rozšířené možnosti"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
@@ -1063,7 +1038,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Stáhnout"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1073,7 +1048,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Odeslat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
@@ -1482,25 +1457,3 @@ msgstr "Synchronizace přerušena"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
-
-#~ msgid "Errors"
-#~ msgstr "Chyby"
-
-#, fuzzy
-#~| msgid "Error Log"
-#~ msgid "Error log"
-#~ msgstr "Záznam o chybách"
-
-#, fuzzy
-#~| msgid "Open Podcast"
-#~ msgid "Open Log"
-#~ msgstr "Otevřít podcast"
-
-#~ msgid "New Episodes:"
-#~ msgstr "Nové epizody:"
-
-#~ msgid "Played Episodes:"
-#~ msgstr "Přehrané epizody:"
-
-#~ msgid "Current Status:"
-#~ msgstr "Aktuální stav:"
