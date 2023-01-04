@@ -4,8 +4,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef SOLIDEXTRAS_NETWORKSTATUS_H
-#define SOLIDEXTRAS_NETWORKSTATUS_H
+#pragma once
 
 #include "kastssolidextras_export.h"
 
@@ -39,5 +38,3 @@ Q_SIGNALS:
 };
 
 }
-
-#endif // SOLIDEXTRAS_NETWORKSTATUS_H

@@ -1,12 +1,11 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef ENTRY_H
-#define ENTRY_H
+#pragma once
 
 #include <QDateTime>
 #include <QDebug>
@@ -111,5 +110,3 @@ private:
     QString m_image;
     bool m_hasenclosure = false;
 };
-
-#endif // ENTRY_H
