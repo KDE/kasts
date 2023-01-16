@@ -7,7 +7,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="org.kde.kasts"
           android:versionName="${versionName}"
-          android:versionCode="${versionCode}"
+          android:versionCode="1"
           android:installLocation="auto">
 
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
@@ -19,7 +19,8 @@
                   android:name="org.qtproject.qt5.android.bindings.QtActivity"
                   android:label="Kasts"
                   android:windowSoftInputMode="adjustResize"
-                  android:launchMode="singleTop">
+                  android:launchMode="singleTop"
+                  android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

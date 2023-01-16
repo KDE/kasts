@@ -2,6 +2,7 @@
     SPDX-FileCopyrightText: 2018-2020 Volker Krause <vkrause@kde.org>
     SPDX-FileCopyrightText: 2019 Nicolas Fella <nicolas.fella@gmx.de>
     SPDX-FileCopyrightText: 2020 Gabriel Souza Franco <gabrielfrancosouza@gmail.com>
+    SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
     SPDX-License-Identifier: BSD-3-Clause
 */
 
@@ -12,7 +13,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:7.0.2'
     }
 }
 
@@ -89,7 +90,7 @@ android {
     aaptOptions {
         // different syntax than above
         // see https://android.googlesource.com/platform/frameworks/base/+/refs/heads/pie-release/tools/aapt2/util/Files.h#90
-        ignoreAssetsPattern '!<dir>ECM:!<dir>aclocal:!<dir>doc:!<dir>gtk-doc:!<dir>iso-codes:!<dir>man:!<dir>mime:!<dir>pkgconfig:!<dir>qlogging-categories5:!<file>iso_15924.mo:!<file>iso_3166-2.mo:!<file>iso_3166-3.mo:!<file>iso_4217.mo:!<file>iso_639-2.mo:!<file>iso_639-3.mo:!<file>iso_639-5.mo:!<file>kcodecs5_qt.qm:!<file>kde5_xml_mimetypes.qm'
+        ignoreAssetsPattern '!<dir>ECM:!<dir>aclocal:!<dir>doc:!<dir>gtk-doc:!<dir>man:!<dir>mime:!<dir>pkgconfig:!<dir>qlogging-categories5:!<file>iso_15924.mo:!<file>iso_3166.mo:!<file>iso_3166_2.mo:<file>iso_3166-3.mo:!<file>iso_4217.mo:!<file>iso_639.mo:!<file>iso_639-2.mo:!<file>iso_639-3.mo:!<file>iso_639_3.mo:!<file>iso_639-5.mo:!<file>iso_639_5.mo:!<file>kcodecs5_qt.qm:!<file>kde5_xml_mimetypes.qm:!<file>knotifications5_qt.qm:!<file>libkholidays5_qt.qm:!<file>libkmime5.mo:!<file>iso_15924.json:!<file>iso_3166-3.json:!<file>iso_4217.json:!<file>iso_639-2.json:!<file>iso_639-3.json:!<file>iso_639-5.json:!<file>schema-15924.json:!<file>schema-3166-1.json:!<file>schema-3166-2.json:!<file>schema-3166-3.json:!<file>schema-4217.json:!<file>schema-639-2.json:!<file>schema-639-3.json:!<file>schema-639-5.json'
      }
 
 
