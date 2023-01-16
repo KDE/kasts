@@ -92,7 +92,10 @@ VlcMediaBackend::VlcMediaBackend(QObject *parent)
     qCDebug(VlcMediaBackendLog) << "VlcMediaBackend::VlcMediaBackend";
     d->mKMediaSession = static_cast<KMediaSession *>(parent);
     d->mParent = this;
-    d->mInstance = libvlc_new(0, nullptr);
+
+    // TODO: handle video playback
+    const char *cmdLineOption = "--no-video";
+    d->mInstance = libvlc_new(1, &cmdLineOption);
 
     libvlc_set_user_agent(d->mInstance, d->mKMediaSession->playerName().toUtf8().constData(), d->mKMediaSession->playerName().toUtf8().constData());
     libvlc_set_app_id(d->mInstance, d->mKMediaSession->desktopEntryName().toUtf8().constData(), "1.0", d->mKMediaSession->playerName().toUtf8().constData());
