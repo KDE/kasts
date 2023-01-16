@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2020 Volker Krause <vkrause@kde.org>
+    SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
     SPDX-License-Identifier: BSD-3-Clause
 */
 
@@ -10,7 +11,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:@Gradle_ANDROID_GRADLE_PLUGIN_VERSION@'
     }
 }
 
@@ -22,6 +23,7 @@ repositories {
 apply plugin: 'com.android.library'
 
 android {
+    buildToolsVersion '@ANDROID_SDK_BUILD_TOOLS_REVISION@'
     compileSdkVersion @ANDROID_SDK_COMPILE_API@
 
     sourceSets {
