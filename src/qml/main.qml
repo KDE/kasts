@@ -74,6 +74,7 @@ Kirigami.ApplicationWindow {
         property var mobileHeight
         property var desktopWidth
         property var desktopHeight
+        property int headerSize: Kirigami.Units.gridUnit * 5
     }
 
     function saveWindowLayout() {
@@ -128,7 +129,7 @@ Kirigami.ApplicationWindow {
             id: drawer
             modal: false
 
-            readonly property real listViewThreshold: Kirigami.Units.gridUnit * 22
+            readonly property real listViewThreshold: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 22 : Kirigami.Units.gridUnit * 20
 
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
             readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
@@ -148,7 +149,12 @@ Kirigami.ApplicationWindow {
             contentItem: ColumnLayout {
                 spacing: 0
 
-                Kirigami.AbstractApplicationHeader { Layout.fillWidth: true }
+                Loader {
+                    active: Kirigami.Settings.isMobile
+                    visible: active
+                    Layout.fillWidth: true
+                    sourceComponent: Kirigami.AbstractApplicationHeader { }
+                }
 
                 Controls.ScrollView {
                     id: scrollView
@@ -470,6 +476,11 @@ Kirigami.ApplicationWindow {
 
     SyncPasswordOverlay {
         id: syncPasswordOverlay
+    }
+
+    Component {
+        id: fullScreenImage
+        FullScreenImage { }
     }
 
     //Global Shortcuts

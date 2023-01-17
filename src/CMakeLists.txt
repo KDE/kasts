@@ -219,7 +219,8 @@ if(ANDROID)
         kaccounts-nextcloud
         clock
         viewimage
-        media-playback-start-cloud
+        player-volume-muted
+        player-volume
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)

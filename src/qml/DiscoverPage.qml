@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
                 }
             ]
             onClicked: {
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": subscribeAction.enabled ? model : DataManager.getFeed(model.url), "isSubscribed": !subscribeAction.enabled, "subscribeAction": subscribeAction})
+                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": subscribeAction.enabled ? model : DataManager.getFeed(model.url), "isSubscribed": !subscribeAction.enabled, "subscribeAction": subscribeAction, "showMoreInfo": true})
             }
         }
     }

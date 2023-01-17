@@ -22,6 +22,8 @@ Item {
     property string imageTitle: ""
     property bool isLoading: false
     property int imageFillMode: Image.PreserveAspectCrop
+    property bool imageResize: true
+    property bool mipmap: false
 
     Loader {
         id: imageLoader
@@ -49,9 +51,10 @@ Item {
             anchors.fill: parent
             source: root.imageSource
             fillMode: root.imageFillMode
-            sourceSize.width: width
-            sourceSize.height: height
+            sourceSize.width: root.imageResize ? width : undefined
+            sourceSize.height: root.imageResize ? height : undefined
             asynchronous: true
+            mipmap: root.mipmap
         }
     }
 

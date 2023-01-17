@@ -10,9 +10,10 @@
         <file alias="FeedDetailsPage.qml">qml/FeedDetailsPage.qml</file>
         <file alias="AddFeedSheet.qml">qml/AddFeedSheet.qml</file>
         <file alias="FeedListDelegate.qml">qml/FeedListDelegate.qml</file>
-        <file alias="MinimizedPlayerControls.qml">qml/MinimizedPlayerControls.qml</file>
-        <file alias="PlayerControls.qml">qml/PlayerControls.qml</file>
-        <file alias="FooterBar.qml">qml/FooterBar.qml</file>
+        <file alias="MinimizedPlayerControls.qml">qml/Mobile/MinimizedPlayerControls.qml</file>
+        <file alias="MobilePlayerControls.qml">qml/Mobile/MobilePlayerControls.qml</file>
+        <file alias="FooterBar.qml">qml/Mobile/FooterBar.qml</file>
+        <file alias="BottomToolbar.qml">qml/Mobile/BottomToolbar.qml</file>
         <file alias="QueuePage.qml">qml/QueuePage.qml</file>
         <file alias="EpisodeListPage.qml">qml/EpisodeListPage.qml</file>
         <file alias="DownloadListPage.qml">qml/DownloadListPage.qml</file>
@@ -24,7 +25,8 @@
         <file alias="DiscoverPage.qml">qml/DiscoverPage.qml</file>
         <file alias="ImageWithFallback.qml">qml/ImageWithFallback.qml</file>
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
-        <file alias="HeaderBar.qml">qml/HeaderBar.qml</file>
+        <file alias="HeaderBar.qml">qml/Desktop/HeaderBar.qml</file>
+        <file alias="DesktopPlayerControls.qml">qml/Desktop/DesktopPlayerControls.qml</file>
         <file alias="PlaybackRateDialog.qml">qml/PlaybackRateDialog.qml</file>
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
@@ -36,8 +38,8 @@
         <file alias="StorageSettingsPage.qml">qml/Settings/StorageSettingsPage.qml</file>
         <file alias="SynchronizationSettingsPage.qml">qml/Settings/SynchronizationSettingsPage.qml</file>
         <file alias="ErrorListPage.qml">qml/Settings/ErrorListPage.qml</file>
-        <file alias="BottomToolbar.qml">qml/BottomToolbar.qml</file>
         <file alias="SleepTimerDialog.qml">qml/SleepTimerDialog.qml</file>
+        <file alias="FullScreenImage.qml">qml/FullScreenImage.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
         <file alias="media-playback-start-cloud">../icons/media-playback-start-cloud.svg</file>

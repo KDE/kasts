@@ -153,7 +153,7 @@ Flickable {
             }
         }
 
-        PlayerControls {
+        MobilePlayerControls {
             id: mobileTrackPlayer
             Layout.fillWidth: true
             Layout.fillHeight: true

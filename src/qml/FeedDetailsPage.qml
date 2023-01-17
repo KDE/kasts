@@ -155,6 +155,7 @@ Kirigami.ScrollablePage {
                             iconName: "documentinfo"
                             text: i18n("Show Details")
                             checkable: true
+                            checked: showMoreInfo
                             onCheckedChanged: {
                                 showMoreInfo = checked;
                             }

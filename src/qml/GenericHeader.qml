@@ -19,7 +19,7 @@ Item {
     required property string title
 
     property string subtitle: ""
-    property var headerHeight: Kirigami.Units.gridUnit * 8
+    property var headerHeight: Kirigami.Units.gridUnit * 5
 
     property bool clickable: false
     signal clicked()
@@ -31,19 +31,22 @@ Item {
         id: backgroundImage
         anchors.fill: parent
         imageSource: image
-    }
-    GaussianBlur {
-        id: blur
-        anchors.fill: backgroundImage
-        source: backgroundImage
-        radius: 12
-        samples: 16
-        deviation: 6
-    }
-    ColorOverlay {
-        anchors.fill: blur
-        source: blur
-        color:"#87000000"  //RGBA, but first value is actually the alpha channel
+        imageResize: false // no "stuttering" on resizing the window
+
+        layer.enabled: true
+        layer.effect: HueSaturation {
+            cached: true
+
+            lightness: -0.3
+            saturation: 0.9
+
+            layer.enabled: true
+            layer.effect: FastBlur {
+                cached: true
+                radius: 64
+                transparentBorder: false
+            }
+        }
     }
 
     MouseArea {
@@ -56,7 +59,7 @@ Item {
     }
 
     RowLayout {
-        property int size: Kirigami.Units.gridUnit * 6
+        property int size: root.headerHeight -  2 * margin
         property int margin: Kirigami.Units.gridUnit * 1
         height: size
         anchors.bottom: parent.bottom
@@ -84,11 +87,11 @@ Item {
                 Layout.fillHeight: true
                 text: title
                 fontSizeMode: Text.Fit
-                font.pointSize: 18
-                minimumPointSize: 12
+                font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.4)
+                minimumPointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.2)
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignBottom
-                color: "white"
+                color: "#eff0f1" // breeze light text color
                 opacity: 1
                 elide: Text.ElideRight
                 wrapMode: Text.WordWrap
@@ -98,10 +101,11 @@ Item {
                 visible: subtitle !== ""
                 text: subtitle
                 fontSizeMode: Text.Fit
-                font.pointSize: 12
-                minimumPointSize: 10
+                font.pointSize: Kirigami.Theme.defaultFont.pointSize
+                minimumPointSize: Kirigami.Theme.defaultFont.pointSize
+                font.bold: true
                 horizontalAlignment: Text.AlignLeft
-                color: "white"
+                color: "#eff0f1" // breeze light text color
                 elide: Text.ElideRight
                 opacity: 1
             }

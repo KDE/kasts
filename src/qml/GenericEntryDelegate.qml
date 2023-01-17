@@ -329,7 +329,7 @@ Kirigami.SwipeListItem {
         },
         Kirigami.Action {
             text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
-            icon.name: ":/media-playback-start-cloud"
+            icon.name: "qrc:/media-playback-start-cloud"
             visible: showStreamingPlayButton
             onTriggered: {
                 if (!entry.queueStatus) {

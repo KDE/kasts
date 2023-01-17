@@ -152,6 +152,7 @@ Kirigami.Page {
                                 Layout.maximumWidth: parent.width
                                 font.weight: Font.Medium
                             }
+
                             Controls.Label {
                                 text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Podcast Title")
                                 elide: Text.ElideRight
@@ -181,6 +182,7 @@ Kirigami.Page {
                             Layout.fillWidth: true
                             Layout.bottomMargin: Kirigami.Units.largeSpacing
                         }
+
                         Controls.Label {
                             id: text
                             text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
@@ -209,6 +211,7 @@ Kirigami.Page {
 
                         text: i18n("No chapters found.")
                     }
+
                     ListView {
                         id: chapterList
                         model: ChapterModel {
@@ -269,6 +272,7 @@ Kirigami.Page {
                             swipeView.currentIndex = 0;
                         }
                     }
+
                     Controls.ToolButton {
                         visible: AudioManager.entry
                         Layout.maximumHeight: parent.height
@@ -282,6 +286,7 @@ Kirigami.Page {
                             swipeView.currentIndex = 1;
                         }
                     }
+
                     Controls.ToolButton {
                         visible: AudioManager.entry && chapterList.count !== 0
                         Layout.maximumHeight: parent.height
@@ -295,9 +300,11 @@ Kirigami.Page {
                             swipeView.currentIndex = 2;
                         }
                     }
+
                     Item {
                         Layout.fillWidth: true
                     }
+
                     Controls.ToolButton {
                         checkable: true
                         checked: AudioManager.remainingSleepTime > 0
@@ -311,6 +318,67 @@ Kirigami.Page {
                         onClicked: {
                             toggle(); // only set the on/off state based on sleep timer state
                             sleepTimerDialog.open()
+                        }
+                    }
+                    Controls.ToolButton {
+                        id: volumeButton
+                        icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                        enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                        checked: volumePopup.visible
+                        Controls.ToolTip {
+                            visible: parent.hovered
+                            delay: Qt.styleHints.mousePressAndHoldInterval
+                            text: i18nc("@action:button", "Open Volume Settings")
+                        }
+                        onClicked: {
+                            if (volumePopup.visible) {
+                                volumePopup.close();
+                            } else {
+                                volumePopup.open();
+                            }
+                        }
+
+                        Controls.Popup {
+                            id: volumePopup
+                            x: -volumePopup.width + volumeButton.width
+                            y: -volumePopup.height
+
+                            focus: true
+                            padding: Kirigami.Units.smallSpacing
+                            contentHeight: muteButton.implicitHeight
+
+                            contentItem: RowLayout {
+                                id: popupContent
+
+                                Controls.ToolButton {
+                                    id: muteButton
+                                    enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                                    icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                                    onClicked: AudioManager.muted = !AudioManager.muted
+                                    Controls.ToolTip {
+                                        visible: parent.hovered
+                                        delay: Qt.styleHints.mousePressAndHoldInterval
+                                        text: i18nc("@action:button", "Toggle Mute")
+                                    }
+                                }
+
+                                Controls.Slider {
+                                    id: volumeSlider
+                                    width: Kirigami.Units.gridUnit * 7
+                                    Layout.alignment: Qt.AlignVCenter
+                                    Layout.preferredWidth: width
+                                    Layout.maximumWidth: width
+                                    Layout.rightMargin: Kirigami.Units.smallSpacing
+                                    padding: 0
+                                    enabled: !AudioManager.muted && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                                    from: 0
+                                    to: 100
+                                    value: AudioManager.volume
+                                    onMoved: AudioManager.volume = value
+                                    handle.implicitWidth: implicitHeight // workaround to make slider handle position itself exactly at the location of the click
+                                }
+
+                            }
                         }
                     }
                 }
