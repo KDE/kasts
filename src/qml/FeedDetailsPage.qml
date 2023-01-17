@@ -188,7 +188,9 @@ Kirigami.ScrollablePage {
                     Controls.Label {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
-                        textFormat: TextEdit.RichText
+                        textFormat: page.showMoreInfo ? TextEdit.RichText : Text.StyledText
+                        maximumLineCount: page.showMoreInfo ? undefined : 2
+                        elide: Text.ElideRight
                         text: feed.description
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize
                         wrapMode: Text.WordWrap
