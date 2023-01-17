@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-02 01:06+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2022-12-13 19:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: audiomanager.cpp:344
+#: audiomanager.cpp:373
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Kısıtlı bağlantılarda bir bağlantıya veya akışa izin verilmiyor"
 
-#: audiomanager.cpp:481
+#: audiomanager.cpp:507
 #, kde-format
 msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
@@ -87,42 +87,133 @@ msgstr "Bölüm Durumu ve/veya Besleme Eşzamanlanırken Hata"
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "Kısıtlı Bağlantıda Bağlantıya veya Akışa İzin Verilmiyor"
 
-#: main.cpp:103
+#: kmediasession/example-app/qml/main.qml:20
+#, kde-format
+msgid "Example player KMediaSession"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:72
+#, fuzzy, kde-format
+#| msgid "Select folder..."
+msgid "Select file..."
+msgstr "Klasör seç..."
+
+#: kmediasession/example-app/qml/main.qml:78
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgid "Select media file"
+msgstr "Süzgeç Seç"
+
+#: kmediasession/example-app/qml/main.qml:85
+#, kde-format
+msgid "OR"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:93
+#, fuzzy, kde-format
+#| msgid "Open Log"
+msgid "Open"
+msgstr "Günlük Aç"
+
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
+#: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
+#, kde-format
+msgid "Play"
+msgstr "Çal"
+
+#: kmediasession/example-app/qml/main.qml:109 qml/EntryPage.qml:147
+#: qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:197
+#, kde-format
+msgid "Pause"
+msgstr "Duraklat"
+
+#: kmediasession/example-app/qml/main.qml:117 qml/SleepTimerDialog.qml:41
+#, kde-format
+msgid "Stop"
+msgstr "Durdur"
+
+#: kmediasession/example-app/qml/main.qml:147
+#, kde-format
+msgid "Mute"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:174
+#, kde-format
+msgid "title: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:177
+#, kde-format
+msgid "artist: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:180
+#, kde-format
+msgid "album: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:191
+#, kde-format
+msgid "mediaStatus: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:194
+#, fuzzy, kde-format
+#| msgid "Playback Rate: "
+msgid "playbackStatus: %1"
+msgstr "Çalma Hızı: "
+
+#: kmediasession/example-app/qml/main.qml:197
+#, fuzzy, kde-format
+#| msgid "Error (%1): %2"
+msgid "error: %1"
+msgstr "Hata (%1): %2"
+
+#: kmediasession/powermanagement/powermanagementinterface.cpp:188
+#: kmediasession/powermanagement/powermanagementinterface.cpp:214
+#, fuzzy, kde-format
+#| msgctxt "Explanation for sleep inhibit during play of music"
+#| msgid "Playing Music"
+msgctxt "Explanation for sleep inhibit during media playback"
+msgid "Playing Media"
+msgstr "Müzik Çalınıyor"
+
+#: main.cpp:102
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast Uygulaması"
 
-#: main.cpp:105
+#: main.cpp:104
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Aboneliklere yeni bir podcast ekler."
 
-#: main.cpp:106
+#: main.cpp:105
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcast URL'si"
 
-#: main.cpp:111
+#: main.cpp:110
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:113
+#: main.cpp:112
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast Çalar"
 
-#: main.cpp:115
+#: main.cpp:114
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE Topluluğu"
 
-#: main.cpp:116
+#: main.cpp:115
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:117
+#: main.cpp:116
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -151,12 +242,6 @@ msgstr "\"Yeni\" olarak imlenen bölümler"
 #, kde-format
 msgid "Episodes not marked as \"New\""
 msgstr "\"Yeni\" olarak imlenmeyen bölümler"
-
-#: powermanagementinterface.cpp:188 powermanagementinterface.cpp:214
-#, kde-format
-msgctxt "Explanation for sleep inhibit during play of music"
-msgid "Playing Music"
-msgstr "Müzik Çalınıyor"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -193,12 +278,6 @@ msgstr "Bölümler"
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
-
-#: qml/ChapterListDelegate.qml:38 qml/EntryPage.qml:155
-#: qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:196
-#, kde-format
-msgid "Play"
-msgstr "Çal"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -306,11 +385,6 @@ msgstr "İndirmeyi İptal Et"
 #, kde-format
 msgid "Delete Download"
 msgstr "İndirmeyi Sil"
-
-#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:196
-#, kde-format
-msgid "Pause"
-msgstr "Duraklat"
 
 #: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:331
 #, kde-format
@@ -582,43 +656,43 @@ msgid_plural "Delete Downloads"
 msgstr[0] "İndimeyi Sil"
 msgstr[1] "İndirmeleri Sil"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
+#: qml/HeaderBar.qml:81 qml/HeaderBar.qml:301 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "Parça Başlığı Yok"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/HeaderBar.qml:89 qml/HeaderBar.qml:306 qml/PlayerControls.qml:21
 #: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Yüklenen Parça Yok"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
+#: qml/HeaderBar.qml:116 qml/HeaderBar.qml:278
 #, kde-format
 msgid "Chapters"
 msgstr "Fasıllar"
 
-#: qml/HeaderBar.qml:169
+#: qml/HeaderBar.qml:170
 #, kde-format
 msgid "Playback Rate: "
 msgstr "Çalma Hızı: "
 
-#: qml/HeaderBar.qml:182
+#: qml/HeaderBar.qml:183
 #, kde-format
 msgid "Seek Backward"
 msgstr "Geriye Sar"
 
-#: qml/HeaderBar.qml:209
+#: qml/HeaderBar.qml:210
 #, kde-format
 msgid "Seek Forward"
 msgstr "İleri Sar"
 
-#: qml/HeaderBar.qml:222
+#: qml/HeaderBar.qml:223
 #, kde-format
 msgid "Skip Forward"
 msgstr "İleri Atla"
 
-#: qml/main.qml:334
+#: qml/main.qml:336
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -626,7 +700,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2/%1 Podcast Güncellendi"
 msgstr[1] "%2/%1 Podcast Güncellendi"
 
-#: qml/main.qml:361
+#: qml/main.qml:363
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -634,13 +708,13 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2/%1 Dosya Taşındı"
 msgstr[1] "%2/%1 Dosya Taşındı"
 
-#: qml/main.qml:425
+#: qml/main.qml:427
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Şu anda kısıtlı bağlantılar üzerinden podcast indirmelere izin verilmiyor"
 
-#: qml/PlaybackRateDialog.qml:64 qml/PlaybackRateDialog.qml:111
+#: qml/PlaybackRateDialog.qml:65 qml/PlaybackRateDialog.qml:114
 #, kde-format
 msgid "Set Playback Rate"
 msgstr "Çalma Hızını Ayarla"
@@ -697,27 +771,34 @@ msgstr "Kalan Süre"
 msgid "About"
 msgstr "Hakkında"
 
-#: qml/Settings/GeneralSettingsPage.qml:18
+#: qml/Settings/GeneralSettingsPage.qml:19
 #, kde-format
 msgid "General Settings"
 msgstr "Genel Ayarlar"
 
-#: qml/Settings/GeneralSettingsPage.qml:38
+#: qml/Settings/GeneralSettingsPage.qml:39
 #, kde-format
 msgid "Appearance"
 msgstr "Görünüş"
 
-#: qml/Settings/GeneralSettingsPage.qml:43
+#: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
 msgstr "Abonelik görünümünde her zaman podcast başlıklarını göster"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Playback settings"
 msgstr "Çalma ayarları"
 
-#: qml/Settings/GeneralSettingsPage.qml:66
+#: qml/Settings/GeneralSettingsPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "Label for setting to select audio playback backend"
+msgid "Select Audio Backend"
+msgstr "Seçenek Seç"
+
+#: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -725,118 +806,118 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Çalma Süresi:"
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:99
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Toplam parça süresi yerine kalan zamanı göster"
 
-#: qml/Settings/GeneralSettingsPage.qml:78
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Kalan zamanı geçerli çalma hızına bağlı olarak ayarla"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:118
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "İndirme yerine akışa öncelik ver"
 
-#: qml/Settings/GeneralSettingsPage.qml:104
+#: qml/Settings/GeneralSettingsPage.qml:135
 #, kde-format
 msgid "Queue settings"
 msgstr "Kuyruk ayarları"
 
-#: qml/Settings/GeneralSettingsPage.qml:110
+#: qml/Settings/GeneralSettingsPage.qml:141
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Şu anda çalınan bittikten sonra sonraki bölümden çalmayı sürdür"
 
-#: qml/Settings/GeneralSettingsPage.qml:118
+#: qml/Settings/GeneralSettingsPage.qml:149
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Güncelleme Ayarları:"
 
-#: qml/Settings/GeneralSettingsPage.qml:120
+#: qml/Settings/GeneralSettingsPage.qml:151
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Başlangıçta podcast güncellemelerini kendiliğinden getir"
 
-#: qml/Settings/GeneralSettingsPage.qml:129
+#: qml/Settings/GeneralSettingsPage.qml:160
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Yenilemede var olan bölüm verisini güncelle (daha yavaş)"
 
-#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Yeni bölümleri kendiliğinden kuyruğa ekle"
 
-#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Yeni bölümleri kendiliğinden indir"
 
-#: qml/Settings/GeneralSettingsPage.qml:167
+#: qml/Settings/GeneralSettingsPage.qml:198
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Çalınan bölüm davranışı"
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:201
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Silme"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Anında Sil"
 
-#: qml/Settings/GeneralSettingsPage.qml:172
+#: qml/Settings/GeneralSettingsPage.qml:203
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Bir Sonraki Başlangıçta Sil"
 
-#: qml/Settings/GeneralSettingsPage.qml:185
+#: qml/Settings/GeneralSettingsPage.qml:216
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Bir bölüm çalındıktan sonra çalma konumunu sıfırla"
 
-#: qml/Settings/GeneralSettingsPage.qml:202
+#: qml/Settings/GeneralSettingsPage.qml:233
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Yeni Podcast'ler eklerken"
 
-#: qml/Settings/GeneralSettingsPage.qml:207
+#: qml/Settings/GeneralSettingsPage.qml:238
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Tüm bölümleri çalınmış olarak imle"
 
-#: qml/Settings/GeneralSettingsPage.qml:218
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "En son bölümleri çalınmamış olarak imle"
 
-#: qml/Settings/GeneralSettingsPage.qml:241
+#: qml/Settings/GeneralSettingsPage.qml:272
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Tüm bölümleri çalınmamış olarak imle"
 
-#: qml/Settings/GeneralSettingsPage.qml:258
+#: qml/Settings/GeneralSettingsPage.qml:289
 #, kde-format
 msgid "Article"
 msgstr "Yazı"
 
-#: qml/Settings/GeneralSettingsPage.qml:263
+#: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgid "Font size"
 msgstr "Yazıtipi boyutu"
 
-#: qml/Settings/GeneralSettingsPage.qml:270
+#: qml/Settings/GeneralSettingsPage.qml:301
 #, kde-format
 msgid "Font size:"
 msgstr "Yazıtipi boyutu:"
 
-#: qml/Settings/GeneralSettingsPage.qml:286
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
@@ -1240,11 +1321,6 @@ msgstr "Uyku Sayacı"
 msgid "Start"
 msgstr "Başlat"
 
-#: qml/SleepTimerDialog.qml:41
-#, kde-format
-msgid "Stop"
-msgstr "Durdur"
-
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
@@ -1468,9 +1544,6 @@ msgstr "Eşzamanlama, hatalarla bitti"
 
 #~ msgid "Error log"
 #~ msgstr "Hata günlüğü"
-
-#~ msgid "Open Log"
-#~ msgstr "Günlük Aç"
 
 #~ msgctxt ""
 #~ "Label for settings related to streaming of episodes (as opposed to "

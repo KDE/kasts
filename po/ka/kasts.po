@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-02 01:06+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2022-12-14 07:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: audiomanager.cpp:344
+#: audiomanager.cpp:373
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
-#: audiomanager.cpp:481
+#: audiomanager.cpp:507
 #, kde-format
 msgid "Invalid Media"
 msgstr "არასწორი მედია"
@@ -88,42 +88,133 @@ msgstr "ლენტის ან/და ეპიზოდის სტატ�
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
-#: main.cpp:103
+#: kmediasession/example-app/qml/main.qml:20
+#, kde-format
+msgid "Example player KMediaSession"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:72
+#, fuzzy, kde-format
+#| msgid "Select folder..."
+msgid "Select file..."
+msgstr "აირჩიეთ საქაღალდე..."
+
+#: kmediasession/example-app/qml/main.qml:78
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgid "Select media file"
+msgstr "აირჩიეთ ფილტრი"
+
+#: kmediasession/example-app/qml/main.qml:85
+#, kde-format
+msgid "OR"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:93
+#, fuzzy, kde-format
+#| msgid "Open Log"
+msgid "Open"
+msgstr "ჟურნალის გახსნა"
+
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
+#: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
+#, kde-format
+msgid "Play"
+msgstr "დაკვრა"
+
+#: kmediasession/example-app/qml/main.qml:109 qml/EntryPage.qml:147
+#: qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:197
+#, kde-format
+msgid "Pause"
+msgstr "შეჩერება"
+
+#: kmediasession/example-app/qml/main.qml:117 qml/SleepTimerDialog.qml:41
+#, kde-format
+msgid "Stop"
+msgstr "შეჩერება"
+
+#: kmediasession/example-app/qml/main.qml:147
+#, kde-format
+msgid "Mute"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:174
+#, kde-format
+msgid "title: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:177
+#, kde-format
+msgid "artist: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:180
+#, kde-format
+msgid "album: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:191
+#, kde-format
+msgid "mediaStatus: %1"
+msgstr ""
+
+#: kmediasession/example-app/qml/main.qml:194
+#, fuzzy, kde-format
+#| msgid "Playback Rate: "
+msgid "playbackStatus: %1"
+msgstr "დაკვრის სიჩქარე: "
+
+#: kmediasession/example-app/qml/main.qml:197
+#, fuzzy, kde-format
+#| msgid "Error (%1): %2"
+msgid "error: %1"
+msgstr "შეცდომა (%1): %2"
+
+#: kmediasession/powermanagement/powermanagementinterface.cpp:188
+#: kmediasession/powermanagement/powermanagementinterface.cpp:214
+#, fuzzy, kde-format
+#| msgctxt "Explanation for sleep inhibit during play of music"
+#| msgid "Playing Music"
+msgctxt "Explanation for sleep inhibit during media playback"
+msgid "Playing Media"
+msgstr "მუსიკის დაკვრა"
+
+#: main.cpp:102
 #, kde-format
 msgid "Podcast Application"
 msgstr "პოდკასტის აპლიკაცია"
 
-#: main.cpp:105
+#: main.cpp:104
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "გამოწერისთვის ახალი პოდკასტის დამატება."
 
-#: main.cpp:106
+#: main.cpp:105
 #, kde-format
 msgid "Podcast URL"
 msgstr "პოდკასტის URL"
 
-#: main.cpp:111
+#: main.cpp:110
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:113
+#: main.cpp:112
 #, kde-format
 msgid "Podcast Player"
 msgstr "პოდკასტის დამკვრელი"
 
-#: main.cpp:115
+#: main.cpp:114
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE-ის საზოგადოება"
 
-#: main.cpp:116
+#: main.cpp:115
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:117
+#: main.cpp:116
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -152,12 +243,6 @@ msgstr "ეპიზოდები, მონიშნულები, რო�
 #, kde-format
 msgid "Episodes not marked as \"New\""
 msgstr "ეპიზოდები, არ მონიშნულები, როგორც \"ახალი\""
-
-#: powermanagementinterface.cpp:188 powermanagementinterface.cpp:214
-#, kde-format
-msgctxt "Explanation for sleep inhibit during play of music"
-msgid "Playing Music"
-msgstr "მუსიკის დაკვრა"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -194,12 +279,6 @@ msgstr "ეპიზოდები"
 #, kde-format
 msgid "Settings"
 msgstr "მორგება"
-
-#: qml/ChapterListDelegate.qml:38 qml/EntryPage.qml:155
-#: qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:196
-#, kde-format
-msgid "Play"
-msgstr "დაკვრა"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -307,11 +386,6 @@ msgstr "გადმოწერის გაუქმება"
 #, kde-format
 msgid "Delete Download"
 msgstr "გადმოწერის წაშლა"
-
-#: qml/EntryPage.qml:147 qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:196
-#, kde-format
-msgid "Pause"
-msgstr "შეჩერება"
 
 #: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:331
 #, kde-format
@@ -583,43 +657,43 @@ msgid_plural "Delete Downloads"
 msgstr[0] "გადმოწერების წაშლა"
 msgstr[1] "გადმოწერების წაშლა"
 
-#: qml/HeaderBar.qml:80 qml/HeaderBar.qml:300 qml/PlayerControls.qml:178
+#: qml/HeaderBar.qml:81 qml/HeaderBar.qml:301 qml/PlayerControls.qml:178
 #, kde-format
 msgid "No Track Title"
 msgstr "ტრეკის სათაურის გარეშე"
 
-#: qml/HeaderBar.qml:88 qml/HeaderBar.qml:305 qml/PlayerControls.qml:21
+#: qml/HeaderBar.qml:89 qml/HeaderBar.qml:306 qml/PlayerControls.qml:21
 #: qml/PlayerControls.qml:186
 #, kde-format
 msgid "No Track Loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
 
-#: qml/HeaderBar.qml:115 qml/HeaderBar.qml:277
+#: qml/HeaderBar.qml:116 qml/HeaderBar.qml:278
 #, kde-format
 msgid "Chapters"
 msgstr "თავები"
 
-#: qml/HeaderBar.qml:169
+#: qml/HeaderBar.qml:170
 #, kde-format
 msgid "Playback Rate: "
 msgstr "დაკვრის სიჩქარე: "
 
-#: qml/HeaderBar.qml:182
+#: qml/HeaderBar.qml:183
 #, kde-format
 msgid "Seek Backward"
 msgstr "უკან გადახვევა"
 
-#: qml/HeaderBar.qml:209
+#: qml/HeaderBar.qml:210
 #, kde-format
 msgid "Seek Forward"
 msgstr "წინ გადახვევა"
 
-#: qml/HeaderBar.qml:222
+#: qml/HeaderBar.qml:223
 #, kde-format
 msgid "Skip Forward"
 msgstr "წინ გადახტომა"
 
-#: qml/main.qml:334
+#: qml/main.qml:336
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -627,7 +701,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "ატვირთულია %2 პოდკასტი %1-დან"
 msgstr[1] "ატვირთულია %2 პოდკასტი %1-დან"
 
-#: qml/main.qml:361
+#: qml/main.qml:363
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -635,12 +709,12 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "გადატანილია %2 ფაილი %1-დან"
 msgstr[1] "გადატანილია %2 ფაილი %1-დან"
 
-#: qml/main.qml:425
+#: qml/main.qml:427
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
 
-#: qml/PlaybackRateDialog.qml:64 qml/PlaybackRateDialog.qml:111
+#: qml/PlaybackRateDialog.qml:65 qml/PlaybackRateDialog.qml:114
 #, kde-format
 msgid "Set Playback Rate"
 msgstr "დაკვრის სიჩქარის მითითება"
@@ -697,27 +771,34 @@ msgstr "დარჩენილი დრო"
 msgid "About"
 msgstr "შესახებ"
 
-#: qml/Settings/GeneralSettingsPage.qml:18
+#: qml/Settings/GeneralSettingsPage.qml:19
 #, kde-format
 msgid "General Settings"
 msgstr "ზოგადი პარამეტრები"
 
-#: qml/Settings/GeneralSettingsPage.qml:38
+#: qml/Settings/GeneralSettingsPage.qml:39
 #, kde-format
 msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
-#: qml/Settings/GeneralSettingsPage.qml:43
+#: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
 msgstr "გამოწერის ხედში პოდკსტის სათაურების ყოველთვის ჩვენება"
 
-#: qml/Settings/GeneralSettingsPage.qml:61
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Playback settings"
 msgstr "დაკვრის მორგება"
 
-#: qml/Settings/GeneralSettingsPage.qml:66
+#: qml/Settings/GeneralSettingsPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "Label for setting to select audio playback backend"
+msgid "Select Audio Backend"
+msgstr "აირჩიეთ პარამეტრი"
+
+#: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -725,119 +806,119 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "დაკვრის დრო:"
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:99
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "ტრეკის სრული დროის მაგიერ დარჩენილი დროის ჩვენება"
 
-#: qml/Settings/GeneralSettingsPage.qml:78
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "დარჩენილი დროის დაკვრის მიმდინარე სიჩქარეზე დაყრდნობით გასწორება"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/GeneralSettingsPage.qml:118
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "სტრიმინგის პრიორიტეტის გადმოწერისაზე მეტზე აწევა"
 
-#: qml/Settings/GeneralSettingsPage.qml:104
+#: qml/Settings/GeneralSettingsPage.qml:135
 #, kde-format
 msgid "Queue settings"
 msgstr "რიგის მორგება"
 
-#: qml/Settings/GeneralSettingsPage.qml:110
+#: qml/Settings/GeneralSettingsPage.qml:141
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "მიმდინარეს დასრულების შემდეგ შემდეგი ეპიზოდის დაკვრის გაგრძელება"
 
-#: qml/Settings/GeneralSettingsPage.qml:118
+#: qml/Settings/GeneralSettingsPage.qml:149
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "განახლების პარამეტრები:"
 
-#: qml/Settings/GeneralSettingsPage.qml:120
+#: qml/Settings/GeneralSettingsPage.qml:151
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "გაშვებისას პოდკასტის განახლებების ავტომატური გამოთხოვა"
 
-#: qml/Settings/GeneralSettingsPage.qml:129
+#: qml/Settings/GeneralSettingsPage.qml:160
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "განახლებისას ეპიზოდის არსებული მონაცემებიც განახლდება (ნელი)"
 
-#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "ახალი ეპიზოდების ავტომატური ჩამატება"
 
-#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "ახალი ეპიზოდების ავტომატური გადმოწერა"
 
-#: qml/Settings/GeneralSettingsPage.qml:167
+#: qml/Settings/GeneralSettingsPage.qml:198
 #, kde-format
 msgid "Played episode behavior"
 msgstr "დაკრული ეპიზოდის ქცევა"
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:201
 #, kde-format
 msgid "Do Not Delete"
 msgstr "არ წაშალო"
 
-#: qml/Settings/GeneralSettingsPage.qml:171
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgid "Delete Immediately"
 msgstr "დაუყოვნებლივი წაშლა"
 
-#: qml/Settings/GeneralSettingsPage.qml:172
+#: qml/Settings/GeneralSettingsPage.qml:203
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "წაშლა შემდეგი გაშვებისას"
 
-#: qml/Settings/GeneralSettingsPage.qml:185
+#: qml/Settings/GeneralSettingsPage.qml:216
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 "ეპიზოდის დასრულების შემდეგ დაკვრის მდებარეობის საწყის მნიშვნელობაზე დაბრუნება"
 
-#: qml/Settings/GeneralSettingsPage.qml:202
+#: qml/Settings/GeneralSettingsPage.qml:233
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "ახალი პოდკასტების დამატებისას"
 
-#: qml/Settings/GeneralSettingsPage.qml:207
+#: qml/Settings/GeneralSettingsPage.qml:238
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "მონიშნეთ ყველა ეპიზოდი, როგორც დაკრული"
 
-#: qml/Settings/GeneralSettingsPage.qml:218
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "უახლესი ეპიზოდების, როგორც არასოდეს დაკრულის, მონიშვნა"
 
-#: qml/Settings/GeneralSettingsPage.qml:241
+#: qml/Settings/GeneralSettingsPage.qml:272
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "ყველა ეპიზოდის, როგორც არასოდეს დაკრულის, მონიშვნა"
 
-#: qml/Settings/GeneralSettingsPage.qml:258
+#: qml/Settings/GeneralSettingsPage.qml:289
 #, kde-format
 msgid "Article"
 msgstr "სტატია"
 
-#: qml/Settings/GeneralSettingsPage.qml:263
+#: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgid "Font size"
 msgstr "ფონტის ზომა"
 
-#: qml/Settings/GeneralSettingsPage.qml:270
+#: qml/Settings/GeneralSettingsPage.qml:301
 #, kde-format
 msgid "Font size:"
 msgstr "ფონტის ზომა:"
 
-#: qml/Settings/GeneralSettingsPage.qml:286
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Use system default"
 msgstr "სისტემის ნაგულისხმების გამოყენება"
@@ -1241,11 +1322,6 @@ msgstr "ძილის წამმზომი"
 msgid "Start"
 msgstr "გაშვება"
 
-#: qml/SleepTimerDialog.qml:41
-#, kde-format
-msgid "Stop"
-msgstr "შეჩერება"
-
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
@@ -1470,9 +1546,6 @@ msgstr "სინქრონიზაცია შეცდომით და�
 
 #~ msgid "Error log"
 #~ msgstr "შეცდომების ჟურნალი"
-
-#~ msgid "Open Log"
-#~ msgstr "ჟურნალის გახსნა"
 
 #~ msgid "New Episodes:"
 #~ msgstr "ახალი ეპიზოდები:"
