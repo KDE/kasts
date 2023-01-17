@@ -125,10 +125,8 @@ Loader {
                         highlighted: value == AudioManager.playbackRate
                         label: model.name
                         onClicked: {
-                            if (checked) {
-                                AudioManager.playbackRate = value;
-                                close();
-                            }
+                            AudioManager.playbackRate = value;
+                            close();
                         }
                     }
                 }
