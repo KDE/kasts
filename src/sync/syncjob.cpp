@@ -136,7 +136,7 @@ void SyncJob::doQuickSync()
     Q_EMIT infoMessage(this, getProgressMessage(Started));
 
     // Quick sync of local subscription changes
-    QPair<QStringList, QStringList> localChanges = getLocalSubscriptionChanges();
+    std::pair<QStringList, QStringList> localChanges = getLocalSubscriptionChanges();
     // store the local changes in a member variable such that the exact changes can be deleted from DB when processed
     m_localSubscriptionChanges = localChanges;
 
@@ -189,7 +189,7 @@ void SyncJob::syncSubscriptions()
             localAddFeedList << query.value(QStringLiteral("url")).toString();
         }
     } else {
-        QPair<QStringList, QStringList> localChanges = getLocalSubscriptionChanges();
+        std::pair<QStringList, QStringList> localChanges = getLocalSubscriptionChanges();
         // immediately store the local changes such that the exact changes can be deleted from DB when processed
         m_localSubscriptionChanges = localChanges;
 
@@ -363,7 +363,7 @@ void SyncJob::uploadSubscriptions(const QStringList &localAddFeedUrlList, const 
             removeAppliedSubscriptionChangesFromDB();
 
             // TODO: deal with updateUrlsList -> needs on-the-fly feed URL renaming
-            QVector<QPair<QString, QString>> updateUrlsList = upSubRequest->updateUrls();
+            QVector<std::pair<QString, QString>> updateUrlsList = upSubRequest->updateUrls();
             qCDebug(kastsSync) << "updateUrlsList:" << updateUrlsList;
 
             // if this is a quick upload only sync, then stop here, otherwise continue with
@@ -594,8 +594,9 @@ void SyncJob::uploadEpisodeActionsPartial(const QVector<EpisodeAction> &episodeA
         return;
     }
 
-    qCDebug(kastsSync) << "Uploading episode actions" << startIndex << "to" << std::min(startIndex + maxAmountEpisodeUploads, episodeActionList.count()) << "of"
-                       << episodeActionList.count() << "total episode actions";
+    qCDebug(kastsSync) << "Uploading episode actions" << startIndex << "to"
+                       << std::min(startIndex + maxAmountEpisodeUploads, static_cast<int>(episodeActionList.count())) << "of" << episodeActionList.count()
+                       << "total episode actions";
 
     if (!m_gpodder) {
         setError(SyncJobError::InternalDataError);
@@ -741,9 +742,9 @@ QVector<EpisodeAction> SyncJob::createListFromHash(const QHash<QString, QHash<QS
     return episodeActionList;
 }
 
-QPair<QStringList, QStringList> SyncJob::getLocalSubscriptionChanges() const
+std::pair<QStringList, QStringList> SyncJob::getLocalSubscriptionChanges() const
 {
-    QPair<QStringList, QStringList> localChanges;
+    std::pair<QStringList, QStringList> localChanges;
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM FeedActions;"));
     Database::instance().execute(query);

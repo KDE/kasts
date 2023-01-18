@@ -288,7 +288,7 @@ void MediaPlayer2Player::Seek(qlonglong Offset)
 
 void MediaPlayer2Player::SetPosition(const QDBusObjectPath &trackId, qlonglong pos)
 {
-    qCDebug(Mpris2Log) << "MediaPlayer2Player::SetPosition(" << trackId << pos << ")";
+    qCDebug(Mpris2Log) << "MediaPlayer2Player::SetPosition(" << pos << ")";
     if (m_audioPlayer) {
         if (!m_audioPlayer->source().isEmpty()) {
             if (trackId.path() == m_currentTrackId) {

@@ -19,7 +19,12 @@
 
 #include <KFormat>
 #include <KLocalizedString>
+
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+#include <qt6keychain/keychain.h>
+#else
 #include <qt5keychain/keychain.h>
+#endif
 
 #include "audiomanager.h"
 #include "database.h"
@@ -666,9 +671,9 @@ void Sync::linkUpAllDevices()
 
         QSet<QString> syncDevices;
         for (const QStringList &group : syncRequest->syncedDevices()) {
-            syncDevices += group.toSet();
+            syncDevices += QSet(group.begin(), group.end());
         }
-        syncDevices += syncRequest->unsyncedDevices().toSet();
+        syncDevices += QSet(syncRequest->unsyncedDevices().begin(), syncRequest->unsyncedDevices().end());
 
         QVector<QStringList> syncDeviceGroups;
         syncDeviceGroups += QStringList(syncDevices.values());

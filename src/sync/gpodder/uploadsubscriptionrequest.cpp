@@ -10,7 +10,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-#include <QPair>
 #include <QString>
 #include <QUrl>
 #include <QVector>
@@ -22,7 +21,7 @@ UploadSubscriptionRequest::UploadSubscriptionRequest(SyncUtils::Provider provide
 {
 }
 
-QVector<QPair<QString, QString>> UploadSubscriptionRequest::updateUrls() const
+QVector<std::pair<QString, QString>> UploadSubscriptionRequest::updateUrls() const
 {
     return m_updateUrls;
 }
@@ -47,7 +46,7 @@ void UploadSubscriptionRequest::processResults()
             m_errorString = error->errorString();
         } else {
             for (auto jsonFeed : data.object().value(QStringLiteral("update_urls")).toArray()) {
-                m_updateUrls += QPair(jsonFeed.toArray().at(0).toString(), jsonFeed.toArray().at(1).toString());
+                m_updateUrls += std::pair<QString, QString>(jsonFeed.toArray().at(0).toString(), jsonFeed.toArray().at(1).toString());
             }
             m_timestamp = data.object().value(QStringLiteral("timestamp")).toInt();
         }

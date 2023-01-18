@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include <utility>
+
 #include <QNetworkReply>
 #include <QObject>
-#include <QPair>
 #include <QString>
 #include <QVector>
 
@@ -22,12 +23,12 @@ class UploadEpisodeActionRequest : public GenericRequest
 public:
     UploadEpisodeActionRequest(SyncUtils::Provider provider, QNetworkReply *reply, QObject *parent);
 
-    QVector<QPair<QString, QString>> updateUrls() const;
+    QVector<std::pair<QString, QString>> updateUrls() const;
     qulonglong timestamp() const;
 
 private:
     void processResults() override;
 
-    QVector<QPair<QString, QString>> m_updateUrls;
+    QVector<std::pair<QString, QString>> m_updateUrls;
     qulonglong m_timestamp = 0;
 };

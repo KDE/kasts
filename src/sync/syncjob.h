@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <utility>
+
 #include <QHash>
 #include <QObject>
 #include <QStringList>
@@ -73,7 +75,7 @@ private:
     void removeAppliedSubscriptionChangesFromDB();
     void removeAppliedEpisodeActionsFromDB();
 
-    QPair<QStringList, QStringList> getLocalSubscriptionChanges() const; // First list are additions, second are removals
+    std::pair<QStringList, QStringList> getLocalSubscriptionChanges() const; // First list are additions, second are removals
     QVector<SyncUtils::EpisodeAction> getLocalEpisodeActions() const;
 
     void removeSubscriptionChangeConflicts(QStringList &addList, QStringList &removeList);
@@ -95,7 +97,7 @@ private:
     QStringList m_feedsToBeUpdatedEps;
     int m_feedUpdateProgress = 0;
     int m_feedUpdateTotal = 0;
-    QPair<QStringList, QStringList> m_localSubscriptionChanges;
+    std::pair<QStringList, QStringList> m_localSubscriptionChanges;
     QVector<SyncUtils::EpisodeAction> m_localEpisodeActions;
     QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> m_remoteEpisodeActionHash;
 

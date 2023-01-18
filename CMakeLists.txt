@@ -52,7 +52,10 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
 find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
 
 if (ANDROID)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg AndroidExtras)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
+    endif()
     find_package(OpenSSL REQUIRED)
     find_package(SQLite3)
     find_package(ZLIB)

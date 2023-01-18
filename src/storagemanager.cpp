@@ -28,7 +28,7 @@ StorageManager::StorageManager()
 
 QString StorageManager::storagePath() const
 {
-    QString path = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 
     if (!SettingsManager::self()->storagePath().isEmpty()) {
         path = SettingsManager::self()->storagePath().toLocalFile();

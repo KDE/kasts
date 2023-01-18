@@ -31,7 +31,9 @@ target_include_directories(KastsSolidExtras PUBLIC "$<BUILD_INTERFACE:${CMAKE_CU
 target_link_libraries(KastsSolidExtras PUBLIC Qt::Core)
 
 if (ANDROID)
-    target_link_libraries(KastsSolidExtras PRIVATE Qt::AndroidExtras)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(KastsSolidExtras PRIVATE Qt::AndroidExtras)
+    endif()
 else ()
     target_link_libraries(KastsSolidExtras PRIVATE Qt::DBus)
     if (TARGET KF5::NetworkManagerQt)

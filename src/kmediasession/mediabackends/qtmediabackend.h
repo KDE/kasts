@@ -8,6 +8,7 @@
 
 #include <memory>
 
+#include <QMediaPlayer>
 #include <QObject>
 #include <QString>
 #include <QUrl>
@@ -52,4 +53,22 @@ public Q_SLOTS:
 private:
     friend class QtMediaBackendPrivate;
     std::unique_ptr<QtMediaBackendPrivate> d;
+
+    void playerMutedSignalChanges(bool muted);
+    void mediaStatusSignalChanges(const QMediaPlayer::MediaStatus &qtMediaStatus);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    void playerVolumeSignalChanges(float volume);
+    void playerSourceSignalChanges(const QUrl &media);
+    void playerStateSignalChanges(const QMediaPlayer::PlaybackState &qtPlaybackState);
+#else
+    void playerVolumeSignalChanges(qint64 volume);
+    void playerSourceSignalChanges(const QMediaContent &media);
+    void playerStateSignalChanges(const QMediaPlayer::State &qtPlaybackState);
+#endif
+    void playerPlaybackRateSignalChanges(const qreal &playbackRate);
+    void playerErrorSignalChanges(const QMediaPlayer::Error &error);
+    void playerDurationSignalChanges(qint64 newDuration);
+    void playerPositionSignalChanges(qint64 newPosition);
+    void playerSeekableSignalChanges(bool isSeekable);
+    void playerMetaDataSignalChanges();
 };
