@@ -28,7 +28,6 @@ private:
     GstElement *m_audioBin = nullptr;
     GstElement *m_audioSink = nullptr;
     GstElement *m_videoBin = nullptr;
-    GstElement *m_videoSink = nullptr;
     GstElement *m_scaleTempo = nullptr;
     GstElement *m_audioConvert = nullptr;
     GstElement *m_audioResample = nullptr;
@@ -87,8 +86,7 @@ GstMediaBackend::GstMediaBackend(QObject *parent)
     d->m_scaleTempo = gst_element_factory_make("scaletempo", "scale_tempo");
     d->m_audioConvert = gst_element_factory_make("audioconvert", "convert");
     d->m_audioSink = gst_element_factory_make("autoaudiosink", "audio_sink");
-    d->m_videoSink = gst_element_factory_make("fakevideosink", "video_sink");
-    if (!d->m_scaleTempo || !d->m_audioConvert || !d->m_audioSink || !d->m_videoSink) {
+    if (!d->m_scaleTempo || !d->m_audioConvert || !d->m_audioSink) {
         qCDebug(GstMediaBackendLog) << "Not all elements could be created.";
     }
 
@@ -104,20 +102,6 @@ GstMediaBackend::GstMediaBackend(QObject *parent)
 
     /* Set playbin's audio sink to be our sink bin */
     g_object_set(GST_OBJECT(d->m_pipeline), "audio-sink", d->m_audioBin, nullptr);
-
-    /* Create the video sink bin, add the elements and link them */
-    // TODO: handle video (using fakevideosink currently)
-    d->m_videoBin = gst_bin_new("video_sink_bin");
-    gst_bin_add_many(GST_BIN(d->m_audioBin), d->m_videoSink, NULL);
-    // gst_element_link_many(d->m_videoSink, nullptr); // only needed when > 1 element
-    GstPad *pad_video = gst_element_get_static_pad(d->m_videoSink, "sink");
-    GstPad *ghost_pad_video = gst_ghost_pad_new("sink", pad_video);
-    gst_pad_set_active(ghost_pad_video, TRUE);
-    gst_element_add_pad(d->m_videoBin, ghost_pad_video);
-    gst_object_unref(pad_video);
-
-    /* Set playbin's audio sink to be our sink bin */
-    g_object_set(GST_OBJECT(d->m_pipeline), "video-sink", d->m_videoBin, nullptr);
 
     // get bus and connect to get messages sent through callbacks
     // TODO: implement fallback in case gmainloop support is not available in qt
