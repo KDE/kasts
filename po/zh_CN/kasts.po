@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 01:00+0000\n"
+"POT-Creation-Date: 2023-01-18 00:59+0000\n"
 "PO-Revision-Date: 2023-01-12 10:32\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -472,7 +472,7 @@ msgstr "活动筛选条件："
 msgid "Reset"
 msgstr "重置"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr "无可播放剧集"
@@ -527,39 +527,39 @@ msgstr "刷新播客"
 msgid "Show Details"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:215
+#: qml/FeedDetailsPage.qml:217
 #, kde-format
 msgid "Podcast URL:"
 msgstr "播客 URL："
 
-#: qml/FeedDetailsPage.qml:255
+#: qml/FeedDetailsPage.qml:257
 #, kde-format
 msgid "Weblink:"
 msgstr "网页链接："
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:283
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "订阅开始时间：%1"
 
-#: qml/FeedDetailsPage.qml:294
+#: qml/FeedDetailsPage.qml:296
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "上次更新：%1"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "%1 条剧集"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1 条未播放"
 
-#: qml/FeedDetailsPage.qml:329
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "错误 (%1)：%2"

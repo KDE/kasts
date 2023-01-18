@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 01:00+0000\n"
+"POT-Creation-Date: 2023-01-18 00:59+0000\n"
 "PO-Revision-Date: 2022-06-10 00:23+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -474,7 +474,7 @@ msgstr "Aktiver Filter:"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Keine Episoden verfügbar"
@@ -532,41 +532,41 @@ msgstr "Podcast aktualisieren"
 msgid "Show Details"
 msgstr "Details"
 
-#: qml/FeedDetailsPage.qml:215
+#: qml/FeedDetailsPage.qml:217
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL des Podcasts:"
 
-#: qml/FeedDetailsPage.qml:255
+#: qml/FeedDetailsPage.qml:257
 #, kde-format
 msgid "Weblink:"
 msgstr "Internet-Adresse:"
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:283
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonniert seit: %1"
 
-#: qml/FeedDetailsPage.qml:294
+#: qml/FeedDetailsPage.qml:296
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Zuletzt aktualisiert: %1"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Episode"
 msgstr[1] "%1 Episoden"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 nicht gespielt"
 msgstr[1] "%1 nicht gespielt"
 
-#: qml/FeedDetailsPage.qml:329
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Fehler (%1): %2"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 01:00+0000\n"
+"POT-Creation-Date: 2023-01-18 00:59+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -475,7 +475,7 @@ msgstr "Aktiivinen suodatin: "
 msgid "Reset"
 msgstr "Palauta"
 
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:329
+#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Ei jaksoja saatavilla"
@@ -533,41 +533,41 @@ msgstr "Virkistä podcast"
 msgid "Show Details"
 msgstr "Tiedot"
 
-#: qml/FeedDetailsPage.qml:215
+#: qml/FeedDetailsPage.qml:217
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcastin verkko-osoite:"
 
-#: qml/FeedDetailsPage.qml:255
+#: qml/FeedDetailsPage.qml:257
 #, kde-format
 msgid "Weblink:"
 msgstr "Sivusto:"
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:283
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Tilattu: %1 alkaen"
 
-#: qml/FeedDetailsPage.qml:294
+#: qml/FeedDetailsPage.qml:296
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Viimeksi virkistetty: %1"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "Yksi jakso"
 msgstr[1] "%1 jaksoa"
 
-#: qml/FeedDetailsPage.qml:307
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "Yksi kuuntelematta"
 msgstr[1] "%1 kuuntelematta"
 
-#: qml/FeedDetailsPage.qml:329
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Virhe (%1): %2"
