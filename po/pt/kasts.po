@@ -112,12 +112,12 @@ msgstr "Seleccionar o Filtro"
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "OU"
 
 #: kmediasession/example-app/qml/main.qml:93
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
@@ -139,7 +139,7 @@ msgstr "Parar"
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Silenciar"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
@@ -168,10 +168,9 @@ msgid "playbackStatus: %1"
 msgstr "Taxa de Reprodução: "
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "Erro (%1): %2"
+msgstr "erro: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214

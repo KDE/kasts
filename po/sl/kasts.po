@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-18 00:59+0000\n"
-"PO-Revision-Date: 2022-12-14 08:59+0100\n"
+"PO-Revision-Date: 2023-01-18 21:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -91,30 +91,27 @@ msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
 msgid "Example player KMediaSession"
-msgstr ""
+msgstr "Na primer predvajalnik KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select file..."
-msgstr "Izberi mapo..."
+msgstr "Izberi datoteko..."
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select media file"
-msgstr "Izberi filter"
+msgstr "Izberi večpredstavnostno datoteko"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "ali"
 
 #: kmediasession/example-app/qml/main.qml:93
-#, fuzzy, kde-format
-#| msgid "Open Log"
+#, kde-format
 msgid "Open"
-msgstr "Odpri dnevnik"
+msgstr "Odpri"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
@@ -136,48 +133,44 @@ msgstr "Ustavi"
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Utišaj"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
 msgid "title: %1"
-msgstr ""
+msgstr "naslov: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
 msgid "artist: %1"
-msgstr ""
+msgstr "umetnik: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
 msgid "album: %1"
-msgstr ""
+msgstr "album: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
 msgid "mediaStatus: %1"
-msgstr ""
+msgstr "stanje medija: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "playbackStatus: %1"
-msgstr "Hitrost playbacka: "
+msgstr "Stanje playbacka: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "Napaka (%1): %2"
+msgstr "napaka: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Predvajanje glasbe"
+msgstr "Predvajanje medija"
 
 #: main.cpp:102
 #, kde-format
@@ -806,11 +799,10 @@ msgid "Playback settings"
 msgstr "Nastavitve playbacka"
 
 #: qml/Settings/GeneralSettingsPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr "Izberite možnost"
+msgstr "Izberi zvočno ozadje"
 
 #: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
