@@ -363,7 +363,7 @@ void AudioManager::play()
     // if we're streaming, check that we're still connected and check for metered
     // connection
     if (isStreaming()) {
-        if (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::Yes
+        if (d->m_networkStatus.connectivity() == SolidExtras::NetworkStatus::No
             || (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::No && !SettingsManager::self()->allowMeteredStreaming())) {
             qCDebug(kastsAudio) << "Refusing to play: no connection or streaming on metered connection not allowed";
             Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
