@@ -74,6 +74,10 @@ android {
     defaultConfig {
         minSdkVersion qtMinSdkVersion
         targetSdkVersion qtTargetSdkVersion
+        applicationId "org.kde.kasts"
+        namespace "org.kde.kasts"
+        versionCode timestamp
+        versionName projectVersionFull
         manifestPlaceholders = [versionName: projectVersionFull, versionCode: timestamp]
     }
 
