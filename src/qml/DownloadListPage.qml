@@ -34,31 +34,29 @@ Kirigami.ScrollablePage {
 
     contextualActions: episodeList.defaultActionList
 
-    Kirigami.PlaceholderMessage {
-        visible: episodeList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18n("No Downloads")
-    }
-
-    Component {
-        id: episodeListDelegate
-        GenericEntryDelegate {
-            listView: episodeList
-            isDownloads: true
-        }
-    }
-
     GenericEntryListView {
         id: episodeList
-        visible: count !== 0
         isDownloads: true
         reuseItems: true
 
+        Kirigami.PlaceholderMessage {
+            visible: episodeList.count === 0
+
+            width: Kirigami.Units.gridUnit * 20
+            anchors.centerIn: parent
+
+            text: i18n("No Downloads")
+        }
+
         model: DownloadModel
-        delegate: episodeListDelegate
+
+        delegate: Component {
+            id: episodeListDelegate
+            GenericEntryDelegate {
+                listView: episodeList
+                isDownloads: true
+            }
+        }
 
         section {
             delegate: Kirigami.ListSectionHeader {

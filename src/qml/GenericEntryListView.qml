@@ -15,7 +15,6 @@ import org.kde.kasts 1.0
 
 ListView {
     id: listView
-    visible: count !== 0
     clip: true
     property bool isQueue: false
     property bool isDownloads: false

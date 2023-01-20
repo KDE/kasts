@@ -14,7 +14,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
-
+    id: episodeListPage
     title: i18n("Episode List")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
@@ -49,6 +49,63 @@ Kirigami.ScrollablePage {
         text: i18n("Refresh All Podcasts")
         onTriggered: refreshing = true
         visible: episodeProxyModel.filterType == EpisodeProxyModel.NoFilter
+    }
+
+    contextualActions: episodeList.defaultActionList
+
+    GenericEntryListView {
+        id: episodeList
+        anchors.fill: parent
+        reuseItems: true
+
+        Kirigami.PlaceholderMessage {
+            visible: episodeList.count === 0
+
+            width: Kirigami.Units.gridUnit * 20
+            anchors.centerIn: parent
+
+            text: i18n("No Episodes Available")
+        }
+
+
+
+        model: EpisodeProxyModel {
+            id: episodeProxyModel
+        }
+
+        delegate: Component {
+            id: episodeListDelegate
+            GenericEntryDelegate {
+                listView: episodeList
+            }
+        }
+
+        Kirigami.InlineMessage {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                bottom: parent.bottom
+                margins: Kirigami.Units.largeSpacing
+                bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0 )
+            }
+            type: Kirigami.MessageType.Information
+            visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter
+            text: textMetrics.text
+            width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width - anchors.leftMargin - anchors.rightMargin)
+            actions: [
+                Kirigami.Action {
+                    id: resetButton
+                    icon.name: "edit-delete-remove"
+                    text: i18n("Reset")
+                    onTriggered: {
+                        episodeProxyModel.filterType = EpisodeProxyModel.NoFilter;
+                    }
+                }
+            ]
+                    TextMetrics {
+                id: textMetrics
+                text: i18n("Filter Active: ") + episodeProxyModel.filterName
+            }
+        }
     }
 
     Kirigami.Dialog {
@@ -89,65 +146,5 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-    }
-
-    Kirigami.InlineMessage {
-        z: 2
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-            bottom: parent.bottom
-            margins: Kirigami.Units.largeSpacing
-            bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0 )
-        }
-        type: Kirigami.MessageType.Information
-        visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter
-        TextMetrics {
-            id: textMetrics
-            text: i18n("Filter Active: ") + episodeProxyModel.filterName
-        }
-        text: textMetrics.text
-        width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width - anchors.leftMargin - anchors.rightMargin)
-        actions: [
-            Kirigami.Action {
-                id: resetButton
-                icon.name: "edit-delete-remove"
-                text: i18n("Reset")
-                onTriggered: {
-                    episodeProxyModel.filterType = EpisodeProxyModel.NoFilter;
-                }
-            }
-        ]
-    }
-
-    contextualActions: episodeList.defaultActionList
-
-    Kirigami.PlaceholderMessage {
-        visible: episodeList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18n("No Episodes Available")
-    }
-
-    Component {
-        id: episodeListDelegate
-        GenericEntryDelegate {
-            listView: episodeList
-        }
-    }
-
-    EpisodeProxyModel {
-        id: episodeProxyModel
-    }
-
-    GenericEntryListView {
-        id: episodeList
-        anchors.fill: parent
-        visible: count !== 0
-        reuseItems: true
-
-        model: episodeProxyModel
-        delegate: episodeListDelegate
     }
 }

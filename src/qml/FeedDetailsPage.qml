@@ -80,7 +80,6 @@ Kirigami.ScrollablePage {
 
     GenericEntryListView {
         id: entryList
-        visible: true
         reuseItems: true
         currentIndex: -1
 

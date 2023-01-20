@@ -40,28 +40,19 @@ Kirigami.ScrollablePage {
 
     contextualActions: queueList.defaultActionList
 
-    Kirigami.PlaceholderMessage {
-        visible: queueList.count === 0
-
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-
-        text: i18nc("@info", "Queue is empty")
-    }
-
-    Component {
-        id: delegateComponent
-        GenericEntryDelegate {
-            isQueue: true
-            listView: queueList
-        }
-    }
-
     GenericEntryListView {
         id: queueList
         isQueue: true
-        visible: count !== 0
         anchors.fill: parent
+
+        Kirigami.PlaceholderMessage {
+            visible: queueList.count === 0
+
+            width: Kirigami.Units.gridUnit * 20
+            anchors.centerIn: parent
+
+            text: i18nc("@info", "Queue is empty")
+        }
 
         header: ColumnLayout {
             anchors.right: parent.right
@@ -78,6 +69,14 @@ Kirigami.ScrollablePage {
 
         model: QueueModel {
             id: queueModel
+        }
+
+        Component {
+            id: delegateComponent
+            GenericEntryDelegate {
+                isQueue: true
+                listView: queueList
+            }
         }
 
         delegate: Kirigami.DelegateRecycler {
