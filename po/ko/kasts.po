@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -179,42 +179,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "음악 재생 중"
 
-#: main.cpp:102
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 프로그램"
 
-#: main.cpp:104
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:114
+#: main.cpp:120
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE Community"
 
-#: main.cpp:115
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -320,12 +320,12 @@ msgstr "podcastindex.org 검색"
 msgid "Search"
 msgstr "검색"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
@@ -341,22 +341,22 @@ msgstr "다운로드"
 msgid "Refresh All Podcasts"
 msgstr "모든 팟캐스트 새로 고침"
 
-#: qml/DownloadListPage.qml:43
+#: qml/DownloadListPage.qml:48
 #, kde-format
 msgid "No Downloads"
 msgstr "다운로드 없음"
 
-#: qml/DownloadListPage.qml:66
+#: qml/DownloadListPage.qml:64
 #, kde-format
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:65
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "불완전 다운로드"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloaded"
 msgstr "다운로드됨"
@@ -372,7 +372,7 @@ msgid "Open in Browser"
 msgstr "브라우저로 열기"
 
 #: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
-#: qml/GenericEntryListView.qml:198
+#: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "다운로드"
@@ -396,13 +396,13 @@ msgid "Stream"
 msgstr ""
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
-#: qml/GenericEntryListView.qml:156
+#: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
-#: qml/GenericEntryListView.qml:146
+#: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "대기열에 추가"
@@ -412,22 +412,22 @@ msgstr "대기열에 추가"
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:173
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:189
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
@@ -457,10 +457,15 @@ msgstr "에피소드 목록"
 msgid "Filter"
 msgstr "필터"
 
-#: qml/EpisodeListPage.qml:57
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
 #, kde-format
-msgid "Select Filter"
-msgstr "필터 선택"
+msgid "No Episodes Available"
+msgstr "에피소드 없음"
+
+#: qml/EpisodeListPage.qml:98
+#, kde-format
+msgid "Reset"
+msgstr "초기화"
 
 #: qml/EpisodeListPage.qml:106
 #, kde-format
@@ -469,13 +474,8 @@ msgstr "필터 활성:"
 
 #: qml/EpisodeListPage.qml:114
 #, kde-format
-msgid "Reset"
-msgstr "초기화"
-
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
-#, kde-format
-msgid "No Episodes Available"
-msgstr "에피소드 없음"
+msgid "Select Filter"
+msgstr "필터 선택"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -513,55 +513,55 @@ msgstr "오류 로그 표시"
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
 
-#: qml/FeedDetailsPage.qml:110
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "제작: %1"
 
-#: qml/FeedDetailsPage.qml:138
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "팟캐스트 새로 고침"
 
-#: qml/FeedDetailsPage.qml:157
+#: qml/FeedDetailsPage.qml:156
 #, kde-format
 msgid "Show Details"
 msgstr "자세한 정보 표시"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:216
 #, kde-format
 msgid "Podcast URL:"
 msgstr "팟캐스트 URL:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:256
 #, kde-format
 msgid "Weblink:"
 msgstr "웹 링크:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:282
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "구독 시작: %1"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "에피소드 %1개"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1개 재생하지 않음"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
@@ -616,12 +616,12 @@ msgstr "팟캐스트 내보내기"
 msgid "All Files"
 msgstr "모든 파일"
 
-#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "모두 선택"
 
-#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "모두 선택 해제"
@@ -648,7 +648,7 @@ msgstr "읽음"
 msgid "New"
 msgstr "새로 만들기"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -744,13 +744,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "모든 팟캐스트 새로 고침"
 
-#: qml/QueuePage.qml:49
+#: qml/QueuePage.qml:54
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "1 Episode"
 #| msgid_plural "%1 Episodes"
@@ -759,7 +759,7 @@ msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "에피소드 %1개"
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "Time Left"
 msgctxt "@info:progress"
@@ -1417,12 +1417,12 @@ msgstr "사용자가 작업을 중단함"
 msgid "An error occurred while copying data"
 msgstr "데이터를 복사하는 중 오류 발생"
 
-#: sync/sync.cpp:180
+#: sync/sync.cpp:185
 #, kde-format
 msgid "Never"
 msgstr "하지 않음"
 
-#: sync/sync.cpp:203
+#: sync/sync.cpp:208
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1430,42 +1430,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1의 Kasts"
 
-#: sync/sync.cpp:297
+#: sync/sync.cpp:302
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:336
+#: sync/sync.cpp:341
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
+#: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "I/O 거부됨: 암호를 저장할 수 없습니다."
 
-#: sync/sync.cpp:562 sync/sync.cpp:563
+#: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
 
-#: sync/sync.cpp:635
+#: sync/sync.cpp:640
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder 장치를 만들 수 없음"
 
-#: sync/sync.cpp:661
+#: sync/sync.cpp:666
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "동기화된 장치 상태를 가져올 수 없음"
 
-#: sync/sync.cpp:712
+#: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 장치의 구독을 가져올 수 없음"
 
-#: sync/sync.cpp:731
+#: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 장치의 구독을 업로드할 수 없음"
@@ -1495,62 +1495,62 @@ msgstr "서버에 에피소드 업데이트를 업로드할 수 없음"
 msgid "Internal data error"
 msgstr "내부 데이터 오류"
 
-#: sync/syncjob.cpp:885
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(%2단계 중 %1단계) 동기화 시작"
 
-#: sync/syncjob.cpp:888
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(%2단계 중 %1단계) 원격 구독 업데이트 요청 중"
 
-#: sync/syncjob.cpp:891
+#: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(%2단계 중 %1단계) 로컬 구독 업데이트 업로드 중"
 
-#: sync/syncjob.cpp:895
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(%4단계 중 %3단계) 팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: sync/syncjob.cpp:903
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(%2단계 중 %1단계) 원격 에피소드 업데이트 요청 중"
 
-#: sync/syncjob.cpp:906
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(%2단계 중 %1단계) 원격 에피소드 변경 적용 중"
 
-#: sync/syncjob.cpp:909
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(%2단계 중 %1단계) 로컬 에피소드 업데이트 업로드 중"
 
-#: sync/syncjob.cpp:912
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(%2단계 중 %1단계) 동기화 완료"
 
-#: sync/syncjob.cpp:915
+#: sync/syncjob.cpp:916
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "동기화 중단됨"
 
-#: sync/syncjob.cpp:919
+#: sync/syncjob.cpp:920
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

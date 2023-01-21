@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2023-01-18 01:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -173,42 +173,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproduciendo medio"
 
-#: main.cpp:102
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicación de pódcast"
 
-#: main.cpp:104
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Añade un nuevo pódcast a las suscripciones."
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL del pódcast"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de pódcast"
 
-#: main.cpp:114
+#: main.cpp:120
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 la Comunidad de KDE"
 
-#: main.cpp:115
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -316,12 +316,12 @@ msgstr "Buscar en podcastindex.org"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "Suscrito"
@@ -337,22 +337,22 @@ msgstr "Descargas"
 msgid "Refresh All Podcasts"
 msgstr "Actualizar todos los pódcast"
 
-#: qml/DownloadListPage.qml:43
+#: qml/DownloadListPage.qml:48
 #, kde-format
 msgid "No Downloads"
 msgstr "No hay descargas"
 
-#: qml/DownloadListPage.qml:66
+#: qml/DownloadListPage.qml:64
 #, kde-format
 msgid "Downloading"
 msgstr "Descargando"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:65
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Descargas incompletas"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloaded"
 msgstr "Descargado"
@@ -368,7 +368,7 @@ msgid "Open in Browser"
 msgstr "Abrir en el navegador"
 
 #: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
-#: qml/GenericEntryListView.qml:198
+#: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Descargar"
@@ -392,13 +392,13 @@ msgid "Stream"
 msgstr "Emisión"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
-#: qml/GenericEntryListView.qml:156
+#: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Eliminar de la cola"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
-#: qml/GenericEntryListView.qml:146
+#: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Añadir a la cola"
@@ -408,22 +408,22 @@ msgstr "Añadir a la cola"
 msgid "Reset Play Position"
 msgstr "Reiniciar la posición de reproducción"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:173
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marcar como no reproducido"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marcar como reproducido"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:189
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Eliminar la etiqueta «Nuevo»"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etiquetar como «Nuevo»"
@@ -453,10 +453,15 @@ msgstr "Lista de episodios"
 msgid "Filter"
 msgstr "Filtro"
 
-#: qml/EpisodeListPage.qml:57
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
 #, kde-format
-msgid "Select Filter"
-msgstr "Seleccionar filtro"
+msgid "No Episodes Available"
+msgstr "No hay episodios disponibles"
+
+#: qml/EpisodeListPage.qml:98
+#, kde-format
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: qml/EpisodeListPage.qml:106
 #, kde-format
@@ -465,13 +470,8 @@ msgstr "Filtro activo:"
 
 #: qml/EpisodeListPage.qml:114
 #, kde-format
-msgid "Reset"
-msgstr "Reiniciar"
-
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
-#, kde-format
-msgid "No Episodes Available"
-msgstr "No hay episodios disponibles"
+msgid "Select Filter"
+msgstr "Seleccionar filtro"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -507,57 +507,57 @@ msgstr "Mostrar el registro de errores"
 msgid "Podcast Details"
 msgstr "Detalles del pódcast"
 
-#: qml/FeedDetailsPage.qml:110
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "por %1"
 
-#: qml/FeedDetailsPage.qml:138
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Actualizar pódcast"
 
-#: qml/FeedDetailsPage.qml:157
+#: qml/FeedDetailsPage.qml:156
 #, kde-format
 msgid "Show Details"
 msgstr "Mostrar detalles"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:216
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL del pódcast:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:256
 #, kde-format
 msgid "Weblink:"
 msgstr "Enlace web:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:282
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Suscrito desde: %1"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Última actualización: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodio"
 msgstr[1] "%1 episodios"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 no reproducido"
 msgstr[1] "%1 no reproducidos"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
@@ -612,12 +612,12 @@ msgstr "Exportar pódcast"
 msgid "All Files"
 msgstr "Todos los archivos"
 
-#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Deseleccionar todo"
@@ -645,7 +645,7 @@ msgstr "Leer"
 msgid "New"
 msgstr "Nuevo"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -744,13 +744,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Actualizar todos los pódcast"
 
-#: qml/QueuePage.qml:49
+#: qml/QueuePage.qml:54
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "La cola está vacía"
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -758,7 +758,7 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 episodio"
 msgstr[1] "%1 episodios"
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
@@ -1403,12 +1403,12 @@ msgstr "Operación interrumpida por el usuario"
 msgid "An error occurred while copying data"
 msgstr "Ha ocurrido un error al copiar datos"
 
-#: sync/sync.cpp:180
+#: sync/sync.cpp:185
 #, kde-format
 msgid "Never"
 msgstr "Nunca"
 
-#: sync/sync.cpp:203
+#: sync/sync.cpp:208
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1416,42 +1416,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts en %1"
 
-#: sync/sync.cpp:297
+#: sync/sync.cpp:302
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "No se ha podido iniciar sesión en el servidor GPodder-nextcloud"
 
-#: sync/sync.cpp:336
+#: sync/sync.cpp:341
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "No se ha podido iniciar sesión en el servidor GPodder"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
+#: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "E/S denegada: No se puede guardar la contraseña."
 
-#: sync/sync.cpp:562 sync/sync.cpp:563
+#: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "E/S denegada: No se puede acceder al archivo de contraseñas."
 
-#: sync/sync.cpp:635
+#: sync/sync.cpp:640
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "No se ha podido crear el dispositivo GPodder"
 
-#: sync/sync.cpp:661
+#: sync/sync.cpp:666
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "No se ha podido obtener el estado de sincronización del dispositivo"
 
-#: sync/sync.cpp:712
+#: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "No se han podido obtener las suscripciones para el dispositivo %1"
 
-#: sync/sync.cpp:731
+#: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "No se han podido enviar las suscripciones para el dispositivo %1"
@@ -1482,25 +1482,25 @@ msgstr "No se han podido enviar las actualizaciones de episodios al servidor"
 msgid "Internal data error"
 msgstr "Error de datos internos"
 
-#: sync/syncjob.cpp:885
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Paso %1 de %2) Iniciando sincronización"
 
-#: sync/syncjob.cpp:888
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(Paso %1 de %2) Solicitando actualizaciones de suscripciones remotas"
 
-#: sync/syncjob.cpp:891
+#: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Paso %1 de %2) Enviando actualizaciones de suscripciones locales"
 
-#: sync/syncjob.cpp:895
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1508,37 +1508,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Paso %3 de %4) Se ha actualizado %2 de %1 pódcast"
 msgstr[1] "(Paso %3 de %4) Se han actualizado %2 de %1 pódcast"
 
-#: sync/syncjob.cpp:903
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Paso %1 de %2) Solicitando actualizaciones de episodios remotos"
 
-#: sync/syncjob.cpp:906
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Paso %1 de %2) Aplicando actualizaciones de episodios remotos"
 
-#: sync/syncjob.cpp:909
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Paso %1 de %2) Enviando actualizaciones de episodios locales"
 
-#: sync/syncjob.cpp:912
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Paso %1 de %2) Sincronización terminada"
 
-#: sync/syncjob.cpp:915
+#: sync/syncjob.cpp:916
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Sincronización interrumpida"
 
-#: sync/syncjob.cpp:919
+#: sync/syncjob.cpp:920
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

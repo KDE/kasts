@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -178,42 +178,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Spelar musik"
 
-#: main.cpp:102
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "Poddradioprogram"
 
-#: main.cpp:104
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Lägger till ett nytt poddradioprogram i prenumerationerna."
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "Poddradiowebbadress"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "Poddspelare"
 
-#: main.cpp:114
+#: main.cpp:120
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020-2022 KDE-gemenskapen"
 
-#: main.cpp:115
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -320,12 +320,12 @@ msgstr "Sök på podcastindex.org"
 msgid "Search"
 msgstr "Sök"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "Prenumerera"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "Prenumererar"
@@ -341,22 +341,22 @@ msgstr "Nerladdningar"
 msgid "Refresh All Podcasts"
 msgstr "Uppdatera alla poddradioprogram"
 
-#: qml/DownloadListPage.qml:43
+#: qml/DownloadListPage.qml:48
 #, kde-format
 msgid "No Downloads"
 msgstr "Inga nerladdningar"
 
-#: qml/DownloadListPage.qml:66
+#: qml/DownloadListPage.qml:64
 #, kde-format
 msgid "Downloading"
 msgstr "Laddar ner"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:65
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Ofullständiga nerladdningar"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloaded"
 msgstr "Nerladdat"
@@ -372,7 +372,7 @@ msgid "Open in Browser"
 msgstr "Öppna i webbläsare"
 
 #: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
-#: qml/GenericEntryListView.qml:198
+#: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Ladda ner"
@@ -396,13 +396,13 @@ msgid "Stream"
 msgstr ""
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
-#: qml/GenericEntryListView.qml:156
+#: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Ta bort från kö"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
-#: qml/GenericEntryListView.qml:146
+#: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Lägg till i kö"
@@ -412,22 +412,22 @@ msgstr "Lägg till i kö"
 msgid "Reset Play Position"
 msgstr "Nollställ uppspelningsposition"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:173
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Markera som ospelad"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
 msgstr "Markera som spelad"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:189
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Ta bort beteckningen \"ny\""
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Beteckna som \"ny\""
@@ -457,10 +457,15 @@ msgstr "Avsnittslista"
 msgid "Filter"
 msgstr "Filter"
 
-#: qml/EpisodeListPage.qml:57
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
 #, kde-format
-msgid "Select Filter"
-msgstr "Välj filter"
+msgid "No Episodes Available"
+msgstr "Inga avsnitt tillgängliga"
+
+#: qml/EpisodeListPage.qml:98
+#, kde-format
+msgid "Reset"
+msgstr "Nollställ"
 
 #: qml/EpisodeListPage.qml:106
 #, kde-format
@@ -469,13 +474,8 @@ msgstr "Aktivt filter: "
 
 #: qml/EpisodeListPage.qml:114
 #, kde-format
-msgid "Reset"
-msgstr "Nollställ"
-
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
-#, kde-format
-msgid "No Episodes Available"
-msgstr "Inga avsnitt tillgängliga"
+msgid "Select Filter"
+msgstr "Välj filter"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -513,57 +513,57 @@ msgstr "Visa fellogg"
 msgid "Podcast Details"
 msgstr "Information om poddradioprogram"
 
-#: qml/FeedDetailsPage.qml:110
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "av %1"
 
-#: qml/FeedDetailsPage.qml:138
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Uppdatera poddradioprogram"
 
-#: qml/FeedDetailsPage.qml:157
+#: qml/FeedDetailsPage.qml:156
 #, kde-format
 msgid "Show Details"
 msgstr "Visa detaljinformation"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:216
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Poddradiowebbadress:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:256
 #, kde-format
 msgid "Weblink:"
 msgstr "Webblänk:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:282
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Prenumerant sedan: %1"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Senaste uppdatering: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 avsnitt"
 msgstr[1] "%1 avsnitt"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 ospelat"
 msgstr[1] "%1 ospelade"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Fel (%1): %2"
@@ -618,12 +618,12 @@ msgstr "Exportera poddradioprogram"
 msgid "All Files"
 msgstr "Alla filer"
 
-#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Avmarkera alla"
@@ -651,7 +651,7 @@ msgstr "Läs"
 msgid "New"
 msgstr "Ny"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -751,13 +751,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Uppdatera alla poddradioprogram"
 
-#: qml/QueuePage.qml:49
+#: qml/QueuePage.qml:54
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "1 Episode"
 #| msgid_plural "%1 Episodes"
@@ -767,7 +767,7 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 avsnitt"
 msgstr[1] "%1 avsnitt"
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "Time Left"
 msgctxt "@info:progress"
@@ -1430,12 +1430,12 @@ msgstr "Åtgärden avbröts av användaren"
 msgid "An error occurred while copying data"
 msgstr "Ett fel uppstod vid kopiering av data"
 
-#: sync/sync.cpp:180
+#: sync/sync.cpp:185
 #, kde-format
 msgid "Never"
 msgstr "Aldrig"
 
-#: sync/sync.cpp:203
+#: sync/sync.cpp:208
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1443,42 +1443,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts på %1"
 
-#: sync/sync.cpp:297
+#: sync/sync.cpp:302
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Kunde inte logga in på GPodder-nextcloud-server"
 
-#: sync/sync.cpp:336
+#: sync/sync.cpp:341
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Kunde inte logga in på GPodder-server"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
+#: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "In- och utmatning nekas: Kan inte spara lösenord"
 
-#: sync/sync.cpp:562 sync/sync.cpp:563
+#: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "In- och utmatning nekas: Kan inte komma åt lösenordsfil"
 
-#: sync/sync.cpp:635
+#: sync/sync.cpp:640
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Kunde inte skapa GPodder-enhet"
 
-#: sync/sync.cpp:661
+#: sync/sync.cpp:666
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Kunde inte hämta synkroniserad enhetsstatus"
 
-#: sync/sync.cpp:712
+#: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Kunde inte hämta prenumerationer för enhet %1"
 
-#: sync/sync.cpp:731
+#: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Kunde inte ladda upp prenumerationer för enhet %1"
@@ -1508,25 +1508,25 @@ msgstr "Kunde inte ladda upp avsnittsuppdateringar till server"
 msgid "Internal data error"
 msgstr "Internt datafel"
 
-#: sync/syncjob.cpp:885
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Steg %1 av %2) Starta synkronisering"
 
-#: sync/syncjob.cpp:888
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(Steg %1 av %2) Begär uppdateringar av fjärrprenumeration"
 
-#: sync/syncjob.cpp:891
+#: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Steg %1 av %2) Laddar upp lokala prenumerationsuppdateringar"
 
-#: sync/syncjob.cpp:895
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1534,37 +1534,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
 msgstr[1] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
 
-#: sync/syncjob.cpp:903
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Steg %1 av %2) Begär uppdateringar av fjärravsnitt"
 
-#: sync/syncjob.cpp:906
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Steg %1 av %2) Verkställ uppdateringar av fjärravsnitt"
 
-#: sync/syncjob.cpp:909
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Steg %1 av %2) Laddar upp lokala avsnittsuppdateringar"
 
-#: sync/syncjob.cpp:912
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Steg %1 av %2) Avslutade synkronisering"
 
-#: sync/syncjob.cpp:915
+#: sync/syncjob.cpp:916
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Synkronisering avbruten"
 
-#: sync/syncjob.cpp:919
+#: sync/syncjob.cpp:920
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

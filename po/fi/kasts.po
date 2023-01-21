@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
+"POT-Creation-Date: 2023-01-21 01:00+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -179,42 +179,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Soittaa musiikkia"
 
-#: main.cpp:102
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast-sovellus"
 
-#: main.cpp:104
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Lisää tilauksiin uuden podcastin."
 
-#: main.cpp:105
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcastin verkko-osoite"
 
-#: main.cpp:110
+#: main.cpp:116
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast-soitin"
 
-#: main.cpp:114
+#: main.cpp:120
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr "© 2020–2022 KDE-yhteisö"
 
-#: main.cpp:115
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -322,12 +322,12 @@ msgstr "Etsi podcastindex.orgista"
 msgid "Search"
 msgstr "Etsi"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribe"
 msgstr "Tilaa"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:143
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
 #, kde-format
 msgid "Subscribed"
 msgstr "Tilattu"
@@ -343,22 +343,22 @@ msgstr "Lataukset"
 msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
 
-#: qml/DownloadListPage.qml:43
+#: qml/DownloadListPage.qml:48
 #, kde-format
 msgid "No Downloads"
 msgstr "Ei latauksia"
 
-#: qml/DownloadListPage.qml:66
+#: qml/DownloadListPage.qml:64
 #, kde-format
 msgid "Downloading"
 msgstr "Ladataan"
 
-#: qml/DownloadListPage.qml:67
+#: qml/DownloadListPage.qml:65
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Kesken olevat lataukset"
 
-#: qml/DownloadListPage.qml:68
+#: qml/DownloadListPage.qml:66
 #, kde-format
 msgid "Downloaded"
 msgstr "Ladattu"
@@ -374,7 +374,7 @@ msgid "Open in Browser"
 msgstr "Avaa selaimeen"
 
 #: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
-#: qml/GenericEntryListView.qml:198
+#: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Lataa"
@@ -398,13 +398,13 @@ msgid "Stream"
 msgstr ""
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
-#: qml/GenericEntryListView.qml:156
+#: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Poista jonosta"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
-#: qml/GenericEntryListView.qml:146
+#: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Lisää jonoon"
@@ -414,22 +414,22 @@ msgstr "Lisää jonoon"
 msgid "Reset Play Position"
 msgstr "Nollaa soittokohta"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:174
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:173
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Merkitse kuuntelemattomaksi"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:166
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
 msgstr "Merkitse kuunnelluksi"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:190
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:189
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Poista ”Uusi”-nimiö"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:182
+#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
@@ -460,10 +460,15 @@ msgstr "Jaksoluettelo"
 msgid "Filter"
 msgstr "Suodata"
 
-#: qml/EpisodeListPage.qml:57
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
 #, kde-format
-msgid "Select Filter"
-msgstr "Valitse suodatin"
+msgid "No Episodes Available"
+msgstr "Ei jaksoja saatavilla"
+
+#: qml/EpisodeListPage.qml:98
+#, kde-format
+msgid "Reset"
+msgstr "Palauta"
 
 #: qml/EpisodeListPage.qml:106
 #, kde-format
@@ -472,13 +477,8 @@ msgstr "Aktiivinen suodatin: "
 
 #: qml/EpisodeListPage.qml:114
 #, kde-format
-msgid "Reset"
-msgstr "Palauta"
-
-#: qml/EpisodeListPage.qml:130 qml/FeedDetailsPage.qml:331
-#, kde-format
-msgid "No Episodes Available"
-msgstr "Ei jaksoja saatavilla"
+msgid "Select Filter"
+msgstr "Valitse suodatin"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -516,58 +516,58 @@ msgstr "Näytä virheloki"
 msgid "Podcast Details"
 msgstr "Podcastin tiedot"
 
-#: qml/FeedDetailsPage.qml:110
+#: qml/FeedDetailsPage.qml:109
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "tekijältä %1"
 
-#: qml/FeedDetailsPage.qml:138
+#: qml/FeedDetailsPage.qml:137
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Virkistä podcast"
 
-#: qml/FeedDetailsPage.qml:157
+#: qml/FeedDetailsPage.qml:156
 #, fuzzy, kde-format
 #| msgid "Details"
 msgid "Show Details"
 msgstr "Tiedot"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:216
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcastin verkko-osoite:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:256
 #, kde-format
 msgid "Weblink:"
 msgstr "Sivusto:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:282
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Tilattu: %1 alkaen"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:295
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Viimeksi virkistetty: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "Yksi jakso"
 msgstr[1] "%1 jaksoa"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "Yksi kuuntelematta"
 msgstr[1] "%1 kuuntelematta"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Virhe (%1): %2"
@@ -622,12 +622,12 @@ msgstr "Vie podcasteja"
 msgid "All Files"
 msgstr "Kaikki tiedostot"
 
-#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:129
+#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:138
+#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Poista kaikki valinnat"
@@ -656,7 +656,7 @@ msgstr "Lue"
 msgid "New"
 msgstr "Uusi"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -756,13 +756,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
 
-#: qml/QueuePage.qml:49
+#: qml/QueuePage.qml:54
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "1 Episode"
 #| msgid_plural "%1 Episodes"
@@ -772,7 +772,7 @@ msgid_plural "%1 Episodes"
 msgstr[0] "Yksi jakso"
 msgstr[1] "%1 jaksoa"
 
-#: qml/QueuePage.qml:72
+#: qml/QueuePage.qml:63
 #, fuzzy, kde-format
 #| msgid "Time Left"
 msgctxt "@info:progress"
@@ -1431,12 +1431,12 @@ msgstr "Käyttäjä keskeytti toimenpiteen"
 msgid "An error occurred while copying data"
 msgstr "Tietoa kopioitaessa tapahtui virhe"
 
-#: sync/sync.cpp:180
+#: sync/sync.cpp:185
 #, kde-format
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: sync/sync.cpp:203
+#: sync/sync.cpp:208
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1444,42 +1444,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts koneella %1"
 
-#: sync/sync.cpp:297
+#: sync/sync.cpp:302
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-Nextcloud-palvelimeen ei voitu kirjautua."
 
-#: sync/sync.cpp:336
+#: sync/sync.cpp:341
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder-palvelimeen ei voitu kirjautua"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
+#: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "I/O estetty: salasanaa ei voi tallentaa."
 
-#: sync/sync.cpp:562 sync/sync.cpp:563
+#: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "I/O estetty: ei pääsyä salasanatiedostoon."
 
-#: sync/sync.cpp:635
+#: sync/sync.cpp:640
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder-laitetta ei voida luoda"
 
-#: sync/sync.cpp:661
+#: sync/sync.cpp:666
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Ei saatu synkronoidun laitteen tilaa"
 
-#: sync/sync.cpp:712
+#: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Ei saatu laitteen %1 tilauksia"
 
-#: sync/sync.cpp:731
+#: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Ei saatu lähetettyä laitteen %1 tilauksia"
@@ -1509,25 +1509,25 @@ msgstr "Ei saatu lähetettyä jaksopäivityksiä palvelimeen"
 msgid "Internal data error"
 msgstr "Sisäinen tietovirhe"
 
-#: sync/syncjob.cpp:885
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Vaihe %1/%2) Aloitetaan synkronointi"
 
-#: sync/syncjob.cpp:888
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(Vaihe %1/%2) Kysellään etätilauspäivityksiä"
 
-#: sync/syncjob.cpp:891
+#: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Vaihe %1/%2) Lähetetään paikallisia tilauspäivityksiä"
 
-#: sync/syncjob.cpp:895
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1535,37 +1535,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Vaihe %3/%4) Päivitetty %2/%1 podcast"
 msgstr[1] "(Vaihe %3/%4) Päivitetty %2/%1 podcastia"
 
-#: sync/syncjob.cpp:903
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Vaihe %1/%2) Kysellään etäjaksopäivityksiä"
 
-#: sync/syncjob.cpp:906
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Vaihe %1/%2) Otetaan käyttöön etäjaksomuutoksia"
 
-#: sync/syncjob.cpp:909
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Vaihe %1/%2) Lähetetään paikallisia jaksopäivityksiä"
 
-#: sync/syncjob.cpp:912
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Vaihe %1/%2) Viimeistellään synkronointi"
 
-#: sync/syncjob.cpp:915
+#: sync/syncjob.cpp:916
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Synkronointi keskeytettiin"
 
-#: sync/syncjob.cpp:919
+#: sync/syncjob.cpp:920
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
