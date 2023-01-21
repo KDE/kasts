@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(KF5_MIN_VERSION "5.102.0")
-set(QT_MIN_VERSION "5.15.0")
+set(QT_MIN_VERSION "5.15.2")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -30,6 +30,7 @@ include(ECMFindQmlModule)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
+include(ECMDeprecationSettings)
 if(NOT ANDROID)
     include(KDEClangFormat)
 endif()
@@ -39,8 +40,12 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
 
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.102.0
+)
+
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Kirigami2 Syndication Config I18n ThreadWeaver)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
 find_package(KF5KirigamiAddons 0.6 REQUIRED)
 find_package(Taglib REQUIRED)
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
@@ -69,7 +74,6 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_NO_URL_CAST_FROM_STRING
                 -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
                 -DQT_USE_QSTRINGBUILDER
-                -DQT_DISABLE_DEPRECATED_BEFORE=0x050d00
 )
 
 ki18n_install(po)
