@@ -93,26 +93,24 @@ msgid "Example player KMediaSession"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select file..."
-msgstr "Vyberte složku..."
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select media file"
-msgstr "Vybrat filtr"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "NEBO"
 
 #: kmediasession/example-app/qml/main.qml:93
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
@@ -134,7 +132,7 @@ msgstr "Zastavit"
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Ztlumit"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
@@ -144,7 +142,7 @@ msgstr ""
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
 msgid "artist: %1"
-msgstr ""
+msgstr "umělec: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
@@ -157,25 +155,21 @@ msgid "mediaStatus: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "playbackStatus: %1"
-msgstr "Rychlost přehrávání: "
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "Chyba (%1): %2"
+msgstr "chyba: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Přehrát hudbu"
+msgstr ""
 
 #: main.cpp:108
 #, kde-format
@@ -797,11 +791,10 @@ msgid "Playback settings"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr "Zvolte možnost"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:97
 #, kde-format
