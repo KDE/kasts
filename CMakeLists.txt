@@ -40,7 +40,8 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kasts-version.h
 )
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
     KF 5.102.0
 )
 

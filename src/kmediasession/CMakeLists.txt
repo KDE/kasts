@@ -3,6 +3,8 @@
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
+option(BUILD_EXAMPLE_PLAYER "Build and install example audio backend player" OFF)
+
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 
@@ -148,4 +150,6 @@ endif()
 
 install(TARGETS KMediaSession ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-add_subdirectory(example-app)
+if (BUILD_EXAMPLE_PLAYER)
+    add_subdirectory(example-app)
+endif()
