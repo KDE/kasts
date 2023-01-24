@@ -21,8 +21,10 @@ Item {
     property string subtitle: ""
     property var headerHeight: Kirigami.Units.gridUnit * 5
 
-    property bool clickable: false
-    signal clicked()
+    property bool titleClickable: false
+    property bool subtitleClickable: false
+    signal titleClicked()
+    signal subtitleClicked()
 
     implicitHeight: headerHeight
     implicitWidth: parent.width
@@ -49,15 +51,6 @@ Item {
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            if (root.clickable) {
-                root.clicked();
-            }
-        }
-    }
-
     RowLayout {
         property int size: root.headerHeight -  2 * margin
         property int margin: Kirigami.Units.gridUnit * 1
@@ -77,7 +70,19 @@ Item {
             Layout.minimumHeight: parent.size
             Layout.minimumWidth: parent.size
             absoluteRadius: Kirigami.Units.smallSpacing
+            MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: {
+                    const dialog = fullScreenImage.createObject(parent, {
+                        "image": root.image,
+                        "description": root.title
+                    });
+                    dialog.open();
+                }
+            }
         }
+
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -95,7 +100,17 @@ Item {
                 opacity: 1
                 elide: Text.ElideRight
                 wrapMode: Text.WordWrap
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: root.titleClickable ? Qt.PointingHandCursor : undefined
+                    onClicked: {
+                        if (root.titleClickable) {
+                            root.titleClicked();
+                        }
+                    }
+                }
             }
+
             Controls.Label {
                 Layout.fillWidth: true
                 visible: subtitle !== ""
@@ -108,6 +123,15 @@ Item {
                 color: "#eff0f1" // breeze light text color
                 elide: Text.ElideRight
                 opacity: 1
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: root.subtitleClickable ? Qt.PointingHandCursor : undefined
+                    onClicked: {
+                        if (root.subtitleClickable) {
+                            root.subtitleClicked();
+                        }
+                    }
+                }
             }
         }
     }

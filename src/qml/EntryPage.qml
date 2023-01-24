@@ -81,9 +81,9 @@ Kirigami.ScrollablePage {
             image: entry.cachedImage
             title: entry.title
             subtitle: entry.feed.name
-            clickable: true
+            subtitleClickable: true
 
-            onClicked: page.openPodcast()
+            onSubtitleClicked: page.openPodcast()
         }
 
         // header actions
@@ -242,6 +242,9 @@ Kirigami.ScrollablePage {
             color: Kirigami.Theme.textColor
 
             onLinkActivated: Qt.openUrlExternally(link)
+            onLinkHovered: {
+                cursorShape: Qt.PointingHandCursor;
+            }
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
         }
 
