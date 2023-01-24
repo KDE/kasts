@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-01-24 01:01+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -117,13 +117,15 @@ msgid "Open"
 msgstr "팟캐스트 열기"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
-#: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:155
+#: qml/GenericEntryDelegate.qml:322
 #, kde-format
 msgid "Play"
 msgstr "재생"
 
-#: kmediasession/example-app/qml/main.qml:109 qml/EntryPage.qml:147
-#: qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:197
+#: kmediasession/example-app/qml/main.qml:109
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:147
+#: qml/GenericEntryDelegate.qml:343
 #, kde-format
 msgid "Pause"
 msgstr "일시 정지"
@@ -259,27 +261,6 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "팟캐스트 추가"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:170
-#, kde-format
-msgid "Queue"
-msgstr "대기열에 추가"
-
-#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:194
-#, kde-format
-msgid "Subscriptions"
-msgstr "구독"
-
-#: qml/BottomToolbar.qml:45 qml/main.qml:206
-#, kde-format
-msgid "Episodes"
-msgstr "에피소드"
-
-#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:240
-#: qml/main.qml:247
-#, kde-format
-msgid "Settings"
-msgstr "설정"
-
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
@@ -305,7 +286,108 @@ msgstr "한 번만 허용"
 msgid "Always Allow"
 msgstr "항상 허용"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:182
+#: qml/Desktop/DesktopPlayerControls.qml:119
+#, kde-format
+msgid "Seek Backward"
+msgstr "되감기"
+
+#: qml/Desktop/DesktopPlayerControls.qml:138
+#, kde-format
+msgid "Seek Forward"
+msgstr "빨리 감기"
+
+#: qml/Desktop/DesktopPlayerControls.qml:147
+#, kde-format
+msgid "Skip Forward"
+msgstr "앞으로 건너뛰기"
+
+#: qml/Desktop/DesktopPlayerControls.qml:163
+#, kde-format
+msgid "Playback Rate: "
+msgstr "재생 속도:"
+
+#: qml/Desktop/DesktopPlayerControls.qml:222
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:button"
+msgid "Show Chapter List"
+msgstr "챕터"
+
+#: qml/Desktop/DesktopPlayerControls.qml:234
+#, fuzzy, kde-format
+#| msgid "No New Episodes"
+msgctxt "@action:button"
+msgid "Show Episode Info"
+msgstr "새 에피소드"
+
+#: qml/Desktop/DesktopPlayerControls.qml:246
+#, fuzzy, kde-format
+#| msgid "General Settings"
+msgctxt "@action:button"
+msgid "Open Sleep Timer Settings"
+msgstr "일반 설정"
+
+#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Mobile/MobilePlayerControls.qml:331
+#, fuzzy, kde-format
+#| msgid "General Settings"
+msgctxt "@action:button"
+msgid "Open Volume Settings"
+msgstr "일반 설정"
+
+#: qml/Desktop/DesktopPlayerControls.qml:306
+#: qml/Mobile/MobilePlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle Mute"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:323
+#, fuzzy, kde-format
+#| msgid "Show Error Log"
+msgctxt "@action:button"
+msgid "Show More"
+msgstr "오류 로그 표시"
+
+#: qml/Desktop/DesktopPlayerControls.qml:353
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:button"
+msgid "Chapters"
+msgstr "챕터"
+
+#: qml/Desktop/DesktopPlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Info"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:371
+#, fuzzy, kde-format
+#| msgid "Sleep Timer"
+msgctxt "@action:button"
+msgid "Sleep Timer"
+msgstr "수면 타이머"
+
+#: qml/Desktop/DesktopPlayerControls.qml:405
+#, kde-format
+msgid "Chapters"
+msgstr "챕터"
+
+#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:120
+#: qml/Mobile/MobilePlayerControls.qml:179
+#, kde-format
+msgid "No Track Title"
+msgstr "트랙 제목 없음"
+
+#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
+#: qml/Mobile/MobilePlayerControls.qml:21
+#: qml/Mobile/MobilePlayerControls.qml:188
+#, kde-format
+msgid "No Track Loaded"
+msgstr "불러온 트랙 없음"
+
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:188
 #, kde-format
 msgid "Discover"
 msgstr "둘러보기"
@@ -330,7 +412,7 @@ msgstr "구독"
 msgid "Subscribed"
 msgstr "구독 중"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:218
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:224
 #, kde-format
 msgid "Downloads"
 msgstr "다운로드"
@@ -457,7 +539,7 @@ msgstr "에피소드 목록"
 msgid "Filter"
 msgstr "필터"
 
-#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr "에피소드 없음"
@@ -529,39 +611,39 @@ msgstr "팟캐스트 새로 고침"
 msgid "Show Details"
 msgstr "자세한 정보 표시"
 
-#: qml/FeedDetailsPage.qml:216
+#: qml/FeedDetailsPage.qml:217
 #, kde-format
 msgid "Podcast URL:"
 msgstr "팟캐스트 URL:"
 
-#: qml/FeedDetailsPage.qml:256
+#: qml/FeedDetailsPage.qml:257
 #, kde-format
 msgid "Weblink:"
 msgstr "웹 링크:"
 
-#: qml/FeedDetailsPage.qml:282
+#: qml/FeedDetailsPage.qml:283
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "구독 시작: %1"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:296
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:308
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "에피소드 %1개"
 
-#: qml/FeedDetailsPage.qml:308
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1개 재생하지 않음"
 
-#: qml/FeedDetailsPage.qml:330
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
@@ -570,6 +652,11 @@ msgstr "오류(%1): %2"
 #, kde-format
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
+
+#: qml/FeedListPage.qml:20 qml/main.qml:200 qml/Mobile/BottomToolbar.qml:35
+#, kde-format
+msgid "Subscriptions"
+msgstr "구독"
 
 #: qml/FeedListPage.qml:61
 #, kde-format
@@ -633,6 +720,31 @@ msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "팟캐스트 삭제"
 
+#: qml/FullScreenImage.qml:47
+#, kde-format
+msgid "Zoom in"
+msgstr ""
+
+#: qml/FullScreenImage.qml:58
+#, kde-format
+msgid "Zoom out"
+msgstr ""
+
+#: qml/FullScreenImage.qml:69
+#, kde-format
+msgid "Rotate left"
+msgstr ""
+
+#: qml/FullScreenImage.qml:76
+#, kde-format
+msgid "Rotate right"
+msgstr ""
+
+#: qml/FullScreenImage.qml:83
+#, kde-format
+msgid "Close"
+msgstr ""
+
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
@@ -655,80 +767,60 @@ msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "다운로드 삭제"
 
-#: qml/HeaderBar.qml:81 qml/HeaderBar.qml:301 qml/PlayerControls.qml:178
+#: qml/main.qml:176 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
-msgid "No Track Title"
-msgstr "트랙 제목 없음"
+msgid "Queue"
+msgstr "대기열에 추가"
 
-#: qml/HeaderBar.qml:89 qml/HeaderBar.qml:306 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:186
+#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:45
 #, kde-format
-msgid "No Track Loaded"
-msgstr "불러온 트랙 없음"
+msgid "Episodes"
+msgstr "에피소드"
 
-#: qml/HeaderBar.qml:116 qml/HeaderBar.qml:278
+#: qml/main.qml:246 qml/main.qml:253 qml/Mobile/BottomToolbar.qml:55
+#: qml/Mobile/BottomToolbar.qml:60
 #, kde-format
-msgid "Chapters"
-msgstr "챕터"
+msgid "Settings"
+msgstr "설정"
 
-#: qml/HeaderBar.qml:170
-#, kde-format
-msgid "Playback Rate: "
-msgstr "재생 속도:"
-
-#: qml/HeaderBar.qml:183
-#, kde-format
-msgid "Seek Backward"
-msgstr "되감기"
-
-#: qml/HeaderBar.qml:210
-#, kde-format
-msgid "Seek Forward"
-msgstr "빨리 감기"
-
-#: qml/HeaderBar.qml:223
-#, kde-format
-msgid "Skip Forward"
-msgstr "앞으로 건너뛰기"
-
-#: qml/main.qml:336
+#: qml/main.qml:342
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/main.qml:363
+#: qml/main.qml:369
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/main.qml:427
+#: qml/main.qml:433
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
+
+#: qml/Mobile/MobilePlayerControls.qml:149
+#, kde-format
+msgid "No Title"
+msgstr "제목 없음"
+
+#: qml/Mobile/MobilePlayerControls.qml:157
+#, kde-format
+msgid "No Podcast Title"
+msgstr "팟캐스트 재생기"
+
+#: qml/Mobile/MobilePlayerControls.qml:212
+#, kde-format
+msgid "No chapters found."
+msgstr "챕터를 찾을 수 없습니다."
 
 #: qml/PlaybackRateDialog.qml:65 qml/PlaybackRateDialog.qml:114
 #, kde-format
 msgid "Set Playback Rate"
 msgstr "재생 속도 설정"
-
-#: qml/PlayerControls.qml:149
-#, kde-format
-msgid "No Title"
-msgstr "제목 없음"
-
-#: qml/PlayerControls.qml:156
-#, kde-format
-msgid "No Podcast Title"
-msgstr "팟캐스트 재생기"
-
-#: qml/PlayerControls.qml:210
-#, kde-format
-msgid "No chapters found."
-msgstr "챕터를 찾을 수 없습니다."
 
 #: qml/QueuePage.qml:18
 #, fuzzy, kde-format
@@ -1585,9 +1677,6 @@ msgstr "동기화 완료됨, 오류 발생"
 
 #~ msgid "Podcast updates not allowed due to user setting"
 #~ msgstr "사용자 설정 때문에 팟캐스트 업데이트가 허용되지 않음"
-
-#~ msgid "No New Episodes"
-#~ msgstr "새 에피소드"
 
 #~ msgid "New Episodes"
 #~ msgstr "새 에피소드"

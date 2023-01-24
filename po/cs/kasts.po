@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 01:00+0000\n"
+"POT-Creation-Date: 2023-01-24 01:01+0000\n"
 "PO-Revision-Date: 2023-01-04 10:19+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -113,13 +113,15 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
-#: qml/EntryPage.qml:155 qml/GenericEntryDelegate.qml:322 qml/HeaderBar.qml:197
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:155
+#: qml/GenericEntryDelegate.qml:322
 #, kde-format
 msgid "Play"
 msgstr "Přehrát"
 
-#: kmediasession/example-app/qml/main.qml:109 qml/EntryPage.qml:147
-#: qml/GenericEntryDelegate.qml:343 qml/HeaderBar.qml:197
+#: kmediasession/example-app/qml/main.qml:109
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:147
+#: qml/GenericEntryDelegate.qml:343
 #, kde-format
 msgid "Pause"
 msgstr "Pozastavit"
@@ -251,27 +253,6 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "Přidat podcast"
 
-#: qml/BottomToolbar.qml:25 qml/main.qml:170
-#, kde-format
-msgid "Queue"
-msgstr "Fronta"
-
-#: qml/BottomToolbar.qml:35 qml/FeedListPage.qml:20 qml/main.qml:194
-#, kde-format
-msgid "Subscriptions"
-msgstr "Přihlášení"
-
-#: qml/BottomToolbar.qml:45 qml/main.qml:206
-#, kde-format
-msgid "Episodes"
-msgstr "Epizody"
-
-#: qml/BottomToolbar.qml:55 qml/BottomToolbar.qml:60 qml/main.qml:240
-#: qml/main.qml:247
-#, kde-format
-msgid "Settings"
-msgstr "Nastavení"
-
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
@@ -297,7 +278,108 @@ msgstr "Povolit jednou"
 msgid "Always Allow"
 msgstr "Vždy povolit"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:182
+#: qml/Desktop/DesktopPlayerControls.qml:119
+#, kde-format
+msgid "Seek Backward"
+msgstr "Rychle vzad"
+
+#: qml/Desktop/DesktopPlayerControls.qml:138
+#, kde-format
+msgid "Seek Forward"
+msgstr "Rychle vpřed"
+
+#: qml/Desktop/DesktopPlayerControls.qml:147
+#, kde-format
+msgid "Skip Forward"
+msgstr "Přeskočit vpřed"
+
+#: qml/Desktop/DesktopPlayerControls.qml:163
+#, kde-format
+msgid "Playback Rate: "
+msgstr "Rychlost přehrávání: "
+
+#: qml/Desktop/DesktopPlayerControls.qml:222
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:button"
+msgid "Show Chapter List"
+msgstr "Kapitoly"
+
+#: qml/Desktop/DesktopPlayerControls.qml:234
+#, fuzzy, kde-format
+#| msgid "1 Episode"
+#| msgid_plural "%1 Episodes"
+msgctxt "@action:button"
+msgid "Show Episode Info"
+msgstr "%1 epizoda"
+
+#: qml/Desktop/DesktopPlayerControls.qml:246
+#, fuzzy, kde-format
+#| msgid "General Settings"
+msgctxt "@action:button"
+msgid "Open Sleep Timer Settings"
+msgstr "Obecná nastavení"
+
+#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Mobile/MobilePlayerControls.qml:331
+#, fuzzy, kde-format
+#| msgid "General Settings"
+msgctxt "@action:button"
+msgid "Open Volume Settings"
+msgstr "Obecná nastavení"
+
+#: qml/Desktop/DesktopPlayerControls.qml:306
+#: qml/Mobile/MobilePlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle Mute"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:323
+#, fuzzy, kde-format
+#| msgid "Show Error Log"
+msgctxt "@action:button"
+msgid "Show More"
+msgstr "Zobrazit záznam chyb"
+
+#: qml/Desktop/DesktopPlayerControls.qml:353
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:button"
+msgid "Chapters"
+msgstr "Kapitoly"
+
+#: qml/Desktop/DesktopPlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Info"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:371
+#, kde-format
+msgctxt "@action:button"
+msgid "Sleep Timer"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:405
+#, kde-format
+msgid "Chapters"
+msgstr "Kapitoly"
+
+#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:120
+#: qml/Mobile/MobilePlayerControls.qml:179
+#, kde-format
+msgid "No Track Title"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
+#: qml/Mobile/MobilePlayerControls.qml:21
+#: qml/Mobile/MobilePlayerControls.qml:188
+#, kde-format
+msgid "No Track Loaded"
+msgstr ""
+
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:188
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -322,7 +404,7 @@ msgstr "Zaregistrovat"
 msgid "Subscribed"
 msgstr "Přihlášen"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:218
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:224
 #, kde-format
 msgid "Downloads"
 msgstr "Stahování"
@@ -449,7 +531,7 @@ msgstr ""
 msgid "Filter"
 msgstr "Filtr"
 
-#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:330
+#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr ""
@@ -519,27 +601,27 @@ msgstr ""
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: qml/FeedDetailsPage.qml:216
+#: qml/FeedDetailsPage.qml:217
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL podcastu:"
 
-#: qml/FeedDetailsPage.qml:256
+#: qml/FeedDetailsPage.qml:257
 #, kde-format
 msgid "Weblink:"
 msgstr "Webový odkaz:"
 
-#: qml/FeedDetailsPage.qml:282
+#: qml/FeedDetailsPage.qml:283
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Přihlášen od: %1"
 
-#: qml/FeedDetailsPage.qml:295
+#: qml/FeedDetailsPage.qml:296
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Naposledy aktualizováno: %1"
 
-#: qml/FeedDetailsPage.qml:308
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -547,7 +629,7 @@ msgstr[0] "%1 epizoda"
 msgstr[1] "%1 epizody"
 msgstr[2] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:308
+#: qml/FeedDetailsPage.qml:309
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -555,7 +637,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:330
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
@@ -564,6 +646,11 @@ msgstr "Chyba (%1): %2"
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Odstranit podcast"
+
+#: qml/FeedListPage.qml:20 qml/main.qml:200 qml/Mobile/BottomToolbar.qml:35
+#, kde-format
+msgid "Subscriptions"
+msgstr "Přihlášení"
 
 #: qml/FeedListPage.qml:61
 #, kde-format
@@ -629,6 +716,31 @@ msgstr[0] "Odstranit podcast"
 msgstr[1] "Odstranit podcasty"
 msgstr[2] "Odstranit podcasty"
 
+#: qml/FullScreenImage.qml:47
+#, kde-format
+msgid "Zoom in"
+msgstr ""
+
+#: qml/FullScreenImage.qml:58
+#, kde-format
+msgid "Zoom out"
+msgstr ""
+
+#: qml/FullScreenImage.qml:69
+#, kde-format
+msgid "Rotate left"
+msgstr ""
+
+#: qml/FullScreenImage.qml:76
+#, kde-format
+msgid "Rotate right"
+msgstr ""
+
+#: qml/FullScreenImage.qml:83
+#, kde-format
+msgid "Close"
+msgstr ""
+
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
@@ -653,43 +765,23 @@ msgstr[0] "Smazat stahování"
 msgstr[1] "Smazat stahování"
 msgstr[2] "Smazat stahování"
 
-#: qml/HeaderBar.qml:81 qml/HeaderBar.qml:301 qml/PlayerControls.qml:178
+#: qml/main.qml:176 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
-msgid "No Track Title"
-msgstr ""
+msgid "Queue"
+msgstr "Fronta"
 
-#: qml/HeaderBar.qml:89 qml/HeaderBar.qml:306 qml/PlayerControls.qml:21
-#: qml/PlayerControls.qml:186
+#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:45
 #, kde-format
-msgid "No Track Loaded"
-msgstr ""
+msgid "Episodes"
+msgstr "Epizody"
 
-#: qml/HeaderBar.qml:116 qml/HeaderBar.qml:278
+#: qml/main.qml:246 qml/main.qml:253 qml/Mobile/BottomToolbar.qml:55
+#: qml/Mobile/BottomToolbar.qml:60
 #, kde-format
-msgid "Chapters"
-msgstr "Kapitoly"
+msgid "Settings"
+msgstr "Nastavení"
 
-#: qml/HeaderBar.qml:170
-#, kde-format
-msgid "Playback Rate: "
-msgstr "Rychlost přehrávání: "
-
-#: qml/HeaderBar.qml:183
-#, kde-format
-msgid "Seek Backward"
-msgstr "Rychle vzad"
-
-#: qml/HeaderBar.qml:210
-#, kde-format
-msgid "Seek Forward"
-msgstr "Rychle vpřed"
-
-#: qml/HeaderBar.qml:223
-#, kde-format
-msgid "Skip Forward"
-msgstr "Přeskočit vpřed"
-
-#: qml/main.qml:336
+#: qml/main.qml:342
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -698,7 +790,7 @@ msgstr[0] "Aktualizován %2 z %1 podcastů"
 msgstr[1] "Aktualizovány %2 z %1 podcastů"
 msgstr[2] "Aktualizováno %2 z %1 podcastů"
 
-#: qml/main.qml:363
+#: qml/main.qml:369
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -707,30 +799,30 @@ msgstr[0] "Přesunut %2 z %1 souboru"
 msgstr[1] "Přesunuty %2 ze %1 souborů"
 msgstr[2] "Přesunuto %2 ze %1 souborů"
 
-#: qml/main.qml:427
+#: qml/main.qml:433
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
+
+#: qml/Mobile/MobilePlayerControls.qml:149
+#, kde-format
+msgid "No Title"
+msgstr "Bez názvu"
+
+#: qml/Mobile/MobilePlayerControls.qml:157
+#, kde-format
+msgid "No Podcast Title"
+msgstr "Žádný název podcastu"
+
+#: qml/Mobile/MobilePlayerControls.qml:212
+#, kde-format
+msgid "No chapters found."
+msgstr "Nebyly nalezeny žádné kapitoly."
 
 #: qml/PlaybackRateDialog.qml:65 qml/PlaybackRateDialog.qml:114
 #, kde-format
 msgid "Set Playback Rate"
 msgstr "Vyberte rychlost přehrávací"
-
-#: qml/PlayerControls.qml:149
-#, kde-format
-msgid "No Title"
-msgstr "Bez názvu"
-
-#: qml/PlayerControls.qml:156
-#, kde-format
-msgid "No Podcast Title"
-msgstr "Žádný název podcastu"
-
-#: qml/PlayerControls.qml:210
-#, kde-format
-msgid "No chapters found."
-msgstr "Nebyly nalezeny žádné kapitoly."
 
 #: qml/QueuePage.qml:18
 #, kde-format
