@@ -22,6 +22,7 @@ set(kasts_srcs
     storagemovejob.cpp
     updatefeedjob.cpp
     fetchfeedsjob.cpp
+    systrayicon.cpp
     models/chaptermodel.cpp
     models/feedsmodel.cpp
     models/feedsproxymodel.cpp
@@ -221,6 +222,7 @@ if(ANDROID)
         viewimage
         player-volume-muted
         player-volume
+        application-exit
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)

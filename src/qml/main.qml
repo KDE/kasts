@@ -491,4 +491,35 @@ Kirigami.ApplicationWindow {
         enabled: AudioManager.canGoNext
         onActivated: AudioManager.next()
     }
+
+    // Systray implementation
+    Connections {
+        target: root
+
+        function onClosing() {
+            if (SystrayIcon.available && SettingsManager.showTrayIcon && SettingsManager.minimizeToTray) {
+                close.accepted = false;
+                root.hide();
+            } else {
+                close.accepted = true;
+                Qt.quit();
+            }
+        }
+    }
+
+    Connections {
+        target: SystrayIcon
+
+        function onRaiseWindow() {
+            if (root.visible) {
+                root.visible = false;
+                root.hide();
+            } else {
+                root.visible = true;
+                root.show();
+                root.raise();
+                root.requestActivate();
+            }
+        }
+    }
 }

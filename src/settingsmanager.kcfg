@@ -5,6 +5,14 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kastsrc" />
     <group name="General">
+        <entry name="showTrayIcon" type="Bool">
+            <label>Show icon in system tray</label>
+            <default>false</default>
+        </entry>
+        <entry name="minimizeToTray" type="Bool">
+            <label>Minimize to system tray instead of closing application</label>
+            <default>true</default>
+        </entry>
         <entry name="alwaysShowFeedTitles" type="Bool">
             <label>Always show the title of podcast feeds in subscription view</label>
             <default>false</default>

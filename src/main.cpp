@@ -52,6 +52,7 @@
 #include "storagemanager.h"
 #include "sync/sync.h"
 #include "sync/syncutils.h"
+#include "systrayicon.h"
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
@@ -155,6 +156,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "StorageManager", &StorageManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Sync", &Sync::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SystrayIcon", &SystrayIcon::instance());
 
     qmlRegisterUncreatableMetaObject(SyncUtils::staticMetaObject, "org.kde.kasts", 1, 0, "SyncUtils", QStringLiteral("Error: only enums and structs"));
 

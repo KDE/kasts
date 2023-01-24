@@ -1,5 +1,5 @@
 <!-- SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de> -->
-<!-- SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be> -->
+<!-- SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be> -->
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 <RCC>
     <qresource prefix="/">
@@ -43,6 +43,7 @@
         <file alias="FullScreenImage.qml">qml/FullScreenImage.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
+        <file alias="kasts-tray.svg">../icons/kasts-tray.svg</file>
         <file alias="media-playback-start-cloud">../icons/media-playback-start-cloud.svg</file>
     </qresource>
 </RCC>

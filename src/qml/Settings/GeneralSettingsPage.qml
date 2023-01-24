@@ -48,6 +48,30 @@ Kirigami.ScrollablePage {
                         SettingsManager.save();
                     }
                 }
+
+                MobileForm.FormDelegateSeparator {}
+
+                MobileForm.FormCheckDelegate {
+                    id: showTrayIcon
+                    enabled: SystrayIcon.available
+                    text: i18n("Show icon in system tray")
+                    checked: SettingsManager.showTrayIcon
+                    onToggled: {
+                        SettingsManager.showTrayIcon = checked;
+                        SettingsManager.save();
+                    }
+                }
+
+                MobileForm.FormCheckDelegate {
+                    id: minimizeToTray
+                    enabled: SettingsManager.showTrayIcon && SystrayIcon.available
+                    text: i18n("Minimize to tray instead of closing")
+                    checked: SettingsManager.minimizeToTray
+                    onToggled: {
+                        SettingsManager.minimizeToTray = checked;
+                        SettingsManager.save();
+                    }
+                }
             }
         }
 

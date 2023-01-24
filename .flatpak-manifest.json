@@ -15,7 +15,8 @@
         "--device=dri",
         "--socket=pulseaudio",
         "--own-name=org.mpris.MediaPlayer2.kasts",
-        "--talk-name=org.freedesktop.secrets"
+        "--talk-name=org.freedesktop.secrets",
+        "--talk-name=org.kde.StatusNotifierWatcher"
     ],
     "cleanup": [
         "/include",
