@@ -138,6 +138,21 @@
             <label>Use default system font</label>
             <default>true</default>
         </entry>
+        <entry name="interfaceMode" type="Enum">
+            <label>Which interface to show: automatic, desktop or mobile</label>
+            <choices>
+                <choice name="Desktop">
+                    <label>Desktop</label>
+                </choice>
+                <choice name="Mobile">
+                    <label>Mobile</label>
+                </choice>
+                <choice name="Auto">
+                    <label>Auto</label>
+                </choice>
+            </choices>
+            <default>Auto</default>
+        </entry>
     </group>
     <group name="Playback Settings">
         <entry name="playbackRates" type="IntList">

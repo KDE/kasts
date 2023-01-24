@@ -56,6 +56,16 @@ int main(int argc, char *argv[])
 {
     KIconTheme::initTheme();
 
+    // Check if we need to force the interface to mobile or desktop, or stick
+    // with the built-in Kirigami setting
+    if (SettingsManager::self() && SettingsManager::self()->interfaceMode() != 2) {
+        if (SettingsManager::self()->interfaceMode() == 0) {
+            qunsetenv("QT_QUICK_CONTROLS_MOBILE");
+        } else if (SettingsManager::self()->interfaceMode() == 1) {
+            qputenv("QT_QUICK_CONTROLS_MOBILE", "1");
+        }
+    }
+
     if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
         qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }

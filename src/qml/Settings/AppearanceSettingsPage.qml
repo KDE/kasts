@@ -27,6 +27,26 @@ FormCard.FormCardPage {
         Layout.fillWidth: true
 
         FormCard.FormComboBoxDelegate {
+            id: interfaceMode
+            text: i18nc("@label:listbox Label for selecting the type of GUI for the app (desktop, mobile or auto)", "Optimize interface for mobile/desktop usage")
+            description: i18nc("@label", "This will require a restart of the app to take effect")
+
+            textRole: "text"
+            valueRole: "value"
+
+            model: [{"text": i18nc("Label for the GUI mode selection", "Auto"), "value": 2},
+                    {"text": i18nc("Label for the GUI mode selection", "Desktop"), "value": 0},
+                    {"text": i18nc("Label for the GUI mode selection", "Mobile"), "value": 1}]
+            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.interfaceMode)
+            onActivated: {
+                SettingsManager.interfaceMode = currentValue;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormComboBoxDelegate {
             Layout.fillWidth: true
             id: colorTheme
             text: i18nc("@label:listbox", "Color theme")
