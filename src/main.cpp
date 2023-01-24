@@ -11,11 +11,11 @@
 #include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-
 #include <QQuickStyle>
 #include <QQuickView>
 #include <QString>
 #include <QStringList>
+#include <QSysInfo>
 #include <QVariant>
 
 #ifdef Q_OS_ANDROID
@@ -63,7 +63,7 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
-    if (qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
         qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
 
