@@ -427,12 +427,23 @@ FocusScope {
 
         Controls.Label {
             id: text
-            text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
+            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No Track Loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
-            onLinkActivated: Qt.openUrlExternally(link)
+            onLinkHovered: {
+                cursorShape: Qt.PointingHandCursor;
+            }
+            onLinkActivated: {
+                if (link.split("://")[0] === "timestamp") {
+                    if (AudioManager.entry && AudioManager.entry.enclosure) {
+                        AudioManager.seek(link.split("://")[1]);
+                    }
+                } else {
+                    Qt.openUrlExternally(link)
+                }
+            }
         }
     }
 }

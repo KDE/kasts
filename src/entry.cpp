@@ -365,6 +365,27 @@ QString Entry::adjustedContent(int width, int fontSize)
     }
 
     ret.replace(QStringLiteral("<img"), QStringLiteral("<br /> <img"));
+
+    // Replace strings that look like timestamps into clickable links with scheme
+    // "timestamp://".  We will pick these up in the GUI to work like chapter marks
+
+    QRegularExpression imgRegexDate(QStringLiteral("\\d{1,2}(:\\d{2})+"));
+
+    i = imgRegexDate.globalMatch(ret);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        QString timeStamp(match.captured());
+        QStringList timeFragments(timeStamp.split(QStringLiteral(":")));
+        int timeUnit = 1;
+        qint64 time = 0;
+        for (QList<QString>::const_reverse_iterator iter = timeFragments.crbegin(); iter != timeFragments.crend(); iter++) {
+            time += (*iter).toInt() * 1000 * timeUnit;
+            timeUnit *= 60;
+        }
+        timeStamp = QStringLiteral("<a href=\"timestamp://%1\">%2</a>").arg(time).arg(timeStamp);
+        ret.replace(match.captured(), timeStamp);
+    }
+
     return ret;
 }
 

@@ -169,7 +169,7 @@ Kirigami.ScrollablePage {
                                 entry.queueStatus = true;
                             }
                             AudioManager.entry = entry;
-                            AudioManager.play()
+                            AudioManager.play();
                         }
                     },
                     Kirigami.Action {
@@ -241,7 +241,22 @@ Kirigami.ScrollablePage {
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
             color: Kirigami.Theme.textColor
 
-            onLinkActivated: Qt.openUrlExternally(link)
+            onLinkActivated: {
+                if (link.split("://")[0] === "timestamp") {
+                    if (AudioManager.entry && AudioManager.entry.enclosure && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || SettingsManager.prioritizeStreaming)) {
+                        if (AudioManager.entry !== entry) {
+                            if (!entry.queueStatus) {
+                                entry.queueStatus = true;
+                            }
+                            AudioManager.entry = entry;
+                            AudioManager.play();
+                        }
+                        AudioManager.seek(link.split("://")[1]);
+                    }
+                } else {
+                    Qt.openUrlExternally(link)
+                }
+            }
             onLinkHovered: {
                 cursorShape: Qt.PointingHandCursor;
             }
