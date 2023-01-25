@@ -185,19 +185,31 @@ Kirigami.Page {
 
                         Controls.Label {
                             id: text
-                            text: AudioManager.entry ? AudioManager.entry.content : i18n("No Track Loaded")
+                            Layout.fillWidth: true
+                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No Track Loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
                             wrapMode: Text.WordWrap
-                            onLinkActivated: Qt.openUrlExternally(link)
-                            Layout.fillWidth: true
+                            onLinkHovered: {
+                                cursorShape: Qt.PointingHandCursor;
+                            }
+                            onLinkActivated: {
+                                if (link.split("://")[0] === "timestamp") {
+                                    if (AudioManager.entry && AudioManager.entry.enclosure) {
+                                        AudioManager.seek(link.split("://")[1]);
+                                    }
+                                } else {
+                                    Qt.openUrlExternally(link);
+                                }
+                            }
                         }
                     }
                 }
             }
 
             Item {
+                visible: chapterList.count === 0
                 Item {
                     anchors.fill: parent
                     anchors.leftMargin: Kirigami.Units.largeSpacing * 2
@@ -261,6 +273,7 @@ Kirigami.Page {
 
                     Controls.ToolButton {
                         visible: AudioManager.entry
+                        checked: swipeView.currentIndex === 0
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
                         Layout.maximumWidth: height
@@ -275,6 +288,7 @@ Kirigami.Page {
 
                     Controls.ToolButton {
                         visible: AudioManager.entry
+                        checked: swipeView.currentIndex === 1
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
                         Layout.maximumWidth: height
@@ -289,6 +303,7 @@ Kirigami.Page {
 
                     Controls.ToolButton {
                         visible: AudioManager.entry && chapterList.count !== 0
+                        checked: swipeView.currentIndex === 2
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
                         Layout.maximumWidth: height

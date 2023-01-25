@@ -441,7 +441,7 @@ FocusScope {
                         AudioManager.seek(link.split("://")[1]);
                     }
                 } else {
-                    Qt.openUrlExternally(link)
+                    Qt.openUrlExternally(link);
                 }
             }
         }
