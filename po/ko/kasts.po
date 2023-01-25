@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -519,12 +519,12 @@ msgstr "\"새 항목\"으로 표시"
 msgid "Open Podcast"
 msgstr "팟캐스트 열기"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "에피소드 다운로드 URL 복사"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "링크 복사됨"

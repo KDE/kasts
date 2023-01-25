@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2023-01-23 16:46+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -519,12 +519,12 @@ msgstr "Étiqueter comme « Nouveau »"
 msgid "Open Podcast"
 msgstr "Ouvrir un podcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Copier une URL de téléchargement d'épisodes"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "Lien copié"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2023-01-19 02:31+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -341,7 +341,7 @@ msgstr "Configuração Geral"
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Comutar o Silêncio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
 #, fuzzy, kde-format
@@ -520,12 +520,12 @@ msgstr "Marcar como \"Novo\""
 msgid "Open Podcast"
 msgstr "Abrir o 'Podcast'"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Copiar o URL de Transferência do Episódio"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "Ligação copiada"
@@ -725,27 +725,27 @@ msgstr[1] "Remover os 'Podcasts'"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Ampliar"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Reduzir"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Rodar para a esquerda"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Rodar para a direita"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format

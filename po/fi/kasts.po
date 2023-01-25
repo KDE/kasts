@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -521,13 +521,13 @@ msgstr "Merkitse ”uudeksi”"
 msgid "Open Podcast"
 msgstr "Avaa podcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, fuzzy, kde-format
 #| msgid "Episode Download URL:"
 msgid "Copy Episode Download URL"
 msgstr "Jakson latausosoite:"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr ""

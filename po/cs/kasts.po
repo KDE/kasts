@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2023-01-04 10:19+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -299,34 +299,29 @@ msgid "Playback Rate: "
 msgstr "Rychlost přehrávání: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Kapitoly"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "%1 epizoda"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Obecná nastavení"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
 #: qml/Mobile/MobilePlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Obecná nastavení"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
 #: qml/Mobile/MobilePlayerControls.qml:361
@@ -336,18 +331,16 @@ msgid "Toggle Mute"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Zobrazit záznam chyb"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr "Kapitoly"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
@@ -511,12 +504,12 @@ msgstr ""
 msgid "Open Podcast"
 msgstr "Otevřít podcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr ""
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr ""
@@ -719,27 +712,27 @@ msgstr[2] "Odstranit podcasty"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Přiblížit"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Oddálit"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Otočit doleva"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Otočit doprava"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format

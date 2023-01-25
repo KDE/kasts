@@ -1,5 +1,5 @@
 # Translation of kasts.po to Catalan (Valencian)
-# Copyright (C) 2021-2022 This_file_is_part_of_KDE
+# Copyright (C) 2021-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
-"PO-Revision-Date: 2023-01-17 10:53+0100\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"PO-Revision-Date: 2023-01-24 10:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -229,22 +229,22 @@ msgstr "Sense filtre"
 #: models/episodeproxymodel.cpp:88
 #, kde-format
 msgid "Played Episodes"
-msgstr "Capítols reproduïts"
+msgstr "Episodis reproduïts"
 
 #: models/episodeproxymodel.cpp:90
 #, kde-format
 msgid "Unplayed Episodes"
-msgstr "No hi ha cap capítol sense reproduir"
+msgstr "No hi ha cap episodi sense reproduir"
 
 #: models/episodeproxymodel.cpp:92
 #, kde-format
 msgid "Episodes marked as \"New\""
-msgstr "Capítols marcats com a «Nou»"
+msgstr "Episodis marcats com a «Nou»"
 
 #: models/episodeproxymodel.cpp:94
 #, kde-format
 msgid "Episodes not marked as \"New\""
-msgstr "Capítols no marcats com a «Nou»"
+msgstr "Episodis no marcats com a «Nou»"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -307,52 +307,45 @@ msgid "Playback Rate: "
 msgstr "Velocitat de reproducció: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Capítols"
+msgstr "Mostra la llista de capítols"
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "1 capítol"
+msgstr "Mostra la informació dels episodis"
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Configuració general"
+msgstr "Obri la configuració del temporitzador per a adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
 #: qml/Mobile/MobilePlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Configuració general"
+msgstr "Obri la configuració del volum"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
 #: qml/Mobile/MobilePlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Canvia el silenci"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Mostra el registre d'errors"
+msgstr "Mostra'n més"
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítols"
@@ -361,14 +354,13 @@ msgstr "Capítols"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Mostra la informació"
 
 #: qml/Desktop/DesktopPlayerControls.qml:371
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr "Temporitzador per adormir-se"
+msgstr "Temporitzador per a adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:405
 #, kde-format
@@ -447,7 +439,7 @@ msgstr "S'ha baixat"
 #: qml/EntryPage.qml:22
 #, kde-format
 msgid "Episode Details"
-msgstr "Detalls del capítol"
+msgstr "Detalls de l'episodi"
 
 #: qml/EntryPage.qml:114
 #, kde-format
@@ -520,12 +512,12 @@ msgstr "Etiqueta com a «Nou»"
 msgid "Open Podcast"
 msgstr "Obri un podcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
-msgstr "Copia l'URL de baixada del capítol"
+msgstr "Copia l'URL de baixada de l'episodi"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "S'ha copiat l'enllaç"
@@ -533,7 +525,7 @@ msgstr "S'ha copiat l'enllaç"
 #: qml/EpisodeListPage.qml:18
 #, kde-format
 msgid "Episode List"
-msgstr "Llista de capítols"
+msgstr "Llista d'episodis"
 
 #: qml/EpisodeListPage.qml:43
 #, kde-format
@@ -543,7 +535,7 @@ msgstr "Filtre"
 #: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
-msgstr "No hi ha cap capítol disponible"
+msgstr "No hi ha cap episodi disponible"
 
 #: qml/EpisodeListPage.qml:98
 #, kde-format
@@ -634,8 +626,8 @@ msgstr "Última actualització: %1"
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] "1 capítol"
-msgstr[1] "%1 capítols"
+msgstr[0] "1 episodi"
+msgstr[1] "%1 episodis"
 
 #: qml/FeedDetailsPage.qml:309
 #, kde-format
@@ -725,27 +717,27 @@ msgstr[1] "Elimina els podcast"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Amplia"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Allunya"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Gira a l'esquerra"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Gira a la dreta"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -778,7 +770,7 @@ msgstr "A la cua"
 #: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:45
 #, kde-format
 msgid "Episodes"
-msgstr "Capítols"
+msgstr "Episodis"
 
 #: qml/main.qml:246 qml/main.qml:253 qml/Mobile/BottomToolbar.qml:55
 #: qml/Mobile/BottomToolbar.qml:60
@@ -850,8 +842,8 @@ msgstr "La cua està buida"
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] "1 capítol"
-msgstr[1] "%1 capítols"
+msgstr[0] "1 episodi"
+msgstr[1] "%1 episodis"
 
 #: qml/QueuePage.qml:63
 #, kde-format
@@ -922,7 +914,7 @@ msgstr "Configureu la cua"
 #: qml/Settings/GeneralSettingsPage.qml:141
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
-msgstr "Continua reproduint el capítol següent una vegada finalitze l'actual"
+msgstr "Continua reproduint l'episodi següent una vegada finalitze l'actual"
 
 #: qml/Settings/GeneralSettingsPage.qml:149
 #, kde-format
@@ -943,17 +935,17 @@ msgstr "Actualitza les dades dels episodis existents en actualitzar (més lent)"
 #: qml/Settings/GeneralSettingsPage.qml:170
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Posa automàticament a la cua els capítols nous"
+msgstr "Posa automàticament a la cua els episodis nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
 msgid "Automatically download new episodes"
-msgstr "Baixa automàticament els capítols nous"
+msgstr "Baixa automàticament els episodis nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:198
 #, kde-format
 msgid "Played episode behavior"
-msgstr "Comportament dels capítols reproduïts"
+msgstr "Comportament dels episodis reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:201
 #, kde-format
@@ -973,7 +965,7 @@ msgstr "Suprimix-lo en l'inici següent"
 #: qml/Settings/GeneralSettingsPage.qml:216
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr "Restablix la posició de reproducció després de reproduir un capítol"
+msgstr "Restablix la posició de reproducció després de reproduir un episodi"
 
 #: qml/Settings/GeneralSettingsPage.qml:233
 #, kde-format
@@ -988,7 +980,7 @@ msgstr "Marca tots els episodis com a reproduïts"
 #: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Marca els capítols més recents com a sense reproduir"
+msgstr "Marca els episodis més recents com a sense reproduir"
 
 #: qml/Settings/GeneralSettingsPage.qml:272
 #, kde-format
@@ -1033,7 +1025,7 @@ msgstr "Permet les actualitzacions de podcast"
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
 msgid "Allow episode downloads"
-msgstr "Permet les baixades de capítols"
+msgstr "Permet les baixades d'episodis"
 
 #: qml/Settings/NetworkSettingsPage.qml:64
 #, kde-format
@@ -1411,7 +1403,7 @@ msgstr "Realitze ara una primera sincronització?"
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr "Temporitzador per adormir-se"
+msgstr "Temporitzador per a adormir-se"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
@@ -1565,12 +1557,12 @@ msgstr "No s'han pogut pujar al servidor els canvis de subscripció"
 #: sync/syncjob.cpp:75
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr "No s'han pogut recuperar del servidor les actualitzacions de capítols"
+msgstr "No s'han pogut recuperar del servidor les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:78
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr "No s'han pogut pujar al servidor les actualitzacions de capítols"
+msgstr "No s'han pogut pujar al servidor les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:81
 #, kde-format
@@ -1608,7 +1600,7 @@ msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcast"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
-msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de capítols"
+msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:907
 #, kde-format
@@ -1620,7 +1612,7 @@ msgstr "(Pas %1 de %2) S'apliquen els canvis remots dels episodis"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de capítols"
+msgstr "(Pas %1 de %2) Pujada local de les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:913
 #, kde-format

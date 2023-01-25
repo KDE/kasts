@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
-"PO-Revision-Date: 2023-01-17 21:56+0300\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"PO-Revision-Date: 2023-01-24 19:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -299,52 +299,45 @@ msgid "Playback Rate: "
 msgstr "Çalma Hızı: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Fasıllar"
+msgstr "Fasıl Listesini Göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "1 Bölüm"
+msgstr "Bölüm Bilgisini Göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Genel Ayarlar"
+msgstr "Uyku Sayacı Ayarlarını Aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
 #: qml/Mobile/MobilePlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Genel Ayarlar"
+msgstr "Ses Düzeyi Ayarlarını Aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
 #: qml/Mobile/MobilePlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Sesi Aç/Kapat"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Hata Günlüğünü Göster"
+msgstr "Daha Fazla Göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Fasıllar"
@@ -353,11 +346,10 @@ msgstr "Fasıllar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Bilgi Göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:371
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Uyku Sayacı"
@@ -512,12 +504,12 @@ msgstr "\"Yeni\" Olarak İmle"
 msgid "Open Podcast"
 msgstr "Podcast Aç"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Bölüm İndirme URL'sini Kopyala"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "Bağlantı kopyalandı"
@@ -717,27 +709,27 @@ msgstr[1] "Podcast'leri Kaldır"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Yakınlaştır"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Uzaklaştır"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Sola Döndür"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Sağa Döndür"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -526,13 +526,13 @@ msgstr ""
 msgid "Open Podcast"
 msgstr "Pridať Podcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Copy Episode Download URL"
 msgstr "Sťahovania"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr ""

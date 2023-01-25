@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 01:01+0000\n"
-"PO-Revision-Date: 2023-01-18 01:58+0100\n"
+"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"PO-Revision-Date: 2023-01-24 20:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -303,51 +303,45 @@ msgid "Playback Rate: "
 msgstr "Velocidad de reproducción: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Capítulos"
+msgstr "Mostrar lista de capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "No New Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "No hay nuevos episodios"
+msgstr "Mostrar información del episodio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Preferencias generales"
+msgstr "Abrir preferencias del temporizador de reposo"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
 #: qml/Mobile/MobilePlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Preferencias generales"
+msgstr "Abrir preferencias del volumen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
 #: qml/Mobile/MobilePlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Conmutar silencio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Mostrar el registro de errores"
+msgstr "Mostrar más"
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítulos"
@@ -356,14 +350,13 @@ msgstr "Capítulos"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Mostrar información"
 
 #: qml/Desktop/DesktopPlayerControls.qml:371
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr "Temporizador"
+msgstr "Temporizador de reposo"
 
 #: qml/Desktop/DesktopPlayerControls.qml:405
 #, kde-format
@@ -515,12 +508,12 @@ msgstr "Etiquetar como «Nuevo»"
 msgid "Open Podcast"
 msgstr "Abrir pódcast"
 
-#: qml/EntryPage.qml:270
+#: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
 msgstr "Copiar URL de descarga del episodio"
 
-#: qml/EntryPage.qml:276
+#: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
 msgstr "Enlace copiado"
@@ -720,27 +713,27 @@ msgstr[1] "Eliminar pódcast"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Ampliar"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Reducir"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Rotar a la izquierda"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Rotar a la derecha"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -1408,7 +1401,7 @@ msgstr "¿Realizar una primera sincronización ahora?"
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr "Temporizador"
+msgstr "Temporizador de reposo"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
