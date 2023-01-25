@@ -209,7 +209,6 @@ Kirigami.Page {
             }
 
             Item {
-                visible: chapterList.count === 0
                 Item {
                     anchors.fill: parent
                     anchors.leftMargin: Kirigami.Units.largeSpacing * 2
