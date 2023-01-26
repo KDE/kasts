@@ -280,6 +280,23 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
+    <release version="23.01" date="2023-01-30">
+      <url>https://plasma-mobile.org/2023/01/30/january-blog-post/</url>
+      <description>
+        <p>New features and bugfixes in this release:</p>
+        <ul>
+          <li>The header bar player controls have been redesigned, partly based on the design of Elisa. The header bar is resizeable and can be fully collapsed to just a minimal toolbar.</li>
+          <li>The left sidebar menu in desktop mode has been redesigned. It's now using similar buttons to the ones used in the bottom navigation bar in mobile mode.</li>
+          <li>The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
+          <li>The settings menu was ported to the new form components.</li>
+          <li>Support for chapter images was added.</li>
+          <li>Timestamps mentioned in episode descriptions are now clickable, which will make the audio jump to that point in the episode.</li>
+          <li>Images in headers are now clickable. This will open a fullscreen view of the image in question.</li>
+          <li>The subscribe button is now disabled when a podcast has just been added.</li>
+          <li>Several issues with right-to-left language layouts were solved.</li>
+        </ul>
+      </description>
+    </release>
     <release version="22.11" date="2022-11-30">
       <url>https://plasma-mobile.org/2022/11/30/plasma-mobile-gear-22-11/</url>
     </release>
