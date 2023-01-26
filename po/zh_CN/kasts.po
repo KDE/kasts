@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"POT-Creation-Date: 2023-01-26 00:59+0000\n"
 "PO-Revision-Date: 2023-01-12 10:32\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -329,7 +329,7 @@ msgid "Open Sleep Timer Settings"
 msgstr "常规设置"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
-#: qml/Mobile/MobilePlayerControls.qml:331
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
@@ -337,7 +337,7 @@ msgid "Open Volume Settings"
 msgstr "常规设置"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
-#: qml/Mobile/MobilePlayerControls.qml:361
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
@@ -382,7 +382,7 @@ msgstr "无曲目标题"
 
 #: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:21
-#: qml/Mobile/MobilePlayerControls.qml:188
+#: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
 msgstr "未加载曲目"
@@ -810,7 +810,7 @@ msgstr "无标题"
 msgid "No Podcast Title"
 msgstr "无播客标题"
 
-#: qml/Mobile/MobilePlayerControls.qml:212
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found."
 msgstr "未找到章节。"

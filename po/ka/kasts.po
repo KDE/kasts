@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 01:00+0000\n"
-"PO-Revision-Date: 2023-01-20 09:22+0100\n"
+"POT-Creation-Date: 2023-01-26 00:59+0000\n"
+"PO-Revision-Date: 2023-01-25 06:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -300,52 +300,45 @@ msgid "Playback Rate: "
 msgstr "დაკვრის სიჩქარე: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "თავები"
+msgstr "თავების სიის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "1 ეპიზოდი"
+msgstr "ეპიზოდის ინფორმაციის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "ზოგადი პარამეტრები"
+msgstr "ძილის ტაიმერის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
-#: qml/Mobile/MobilePlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#: qml/Mobile/MobilePlayerControls.qml:345
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "ზოგადი პარამეტრები"
+msgstr "ხმის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
-#: qml/Mobile/MobilePlayerControls.qml:361
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "დადუმების გადართვა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "შეცდომების ჟურნალის ჩვენება"
+msgstr "მეტის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "თავები"
@@ -354,11 +347,10 @@ msgstr "თავები"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "ინფორმაციის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:371
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "ძილის წამმზომი"
@@ -376,7 +368,7 @@ msgstr "ტრეკის სათაურის გარეშე"
 
 #: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:21
-#: qml/Mobile/MobilePlayerControls.qml:188
+#: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
@@ -718,27 +710,27 @@ msgstr[1] "პოდკასტების წაშლა"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "&გადიდება"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "და_პატარავება"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "მარცხნივ მოტრიალება"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "მარჯვნივ მოტრიალება"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -810,7 +802,7 @@ msgstr "სათაურის გარეშე"
 msgid "No Podcast Title"
 msgstr "პოდკასტის სათაურის გარეშე"
 
-#: qml/Mobile/MobilePlayerControls.qml:212
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found."
 msgstr "თავები ვერ ვიპოვე."

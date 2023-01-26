@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"POT-Creation-Date: 2023-01-26 00:59+0000\n"
 "PO-Revision-Date: 2023-01-24 10:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -325,14 +325,14 @@ msgid "Open Sleep Timer Settings"
 msgstr "Obre la configuració del temporitzador per adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
-#: qml/Mobile/MobilePlayerControls.qml:331
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
 msgstr "Obre la configuració del volum"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
-#: qml/Mobile/MobilePlayerControls.qml:361
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
@@ -375,7 +375,7 @@ msgstr "Sense títol de pista"
 
 #: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:21
-#: qml/Mobile/MobilePlayerControls.qml:188
+#: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
 msgstr "No s'ha carregat cap pista"
@@ -809,7 +809,7 @@ msgstr "Sense títol"
 msgid "No Podcast Title"
 msgstr "Sense títol de podcast"
 
-#: qml/Mobile/MobilePlayerControls.qml:212
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found."
 msgstr "No s'ha trobat cap capítol."

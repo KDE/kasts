@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"POT-Creation-Date: 2023-01-26 00:59+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -328,7 +328,7 @@ msgid "Open Sleep Timer Settings"
 msgstr "일반 설정"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
-#: qml/Mobile/MobilePlayerControls.qml:331
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
@@ -336,7 +336,7 @@ msgid "Open Volume Settings"
 msgstr "일반 설정"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
-#: qml/Mobile/MobilePlayerControls.qml:361
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
@@ -382,7 +382,7 @@ msgstr "트랙 제목 없음"
 
 #: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:21
-#: qml/Mobile/MobilePlayerControls.qml:188
+#: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
 msgstr "불러온 트랙 없음"
@@ -812,7 +812,7 @@ msgstr "제목 없음"
 msgid "No Podcast Title"
 msgstr "팟캐스트 재생기"
 
-#: qml/Mobile/MobilePlayerControls.qml:212
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found."
 msgstr "챕터를 찾을 수 없습니다."

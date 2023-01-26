@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 01:00+0000\n"
+"POT-Creation-Date: 2023-01-26 00:59+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -329,7 +329,7 @@ msgid "Open Sleep Timer Settings"
 msgstr "Perusasetukset"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
-#: qml/Mobile/MobilePlayerControls.qml:331
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
@@ -337,7 +337,7 @@ msgid "Open Volume Settings"
 msgstr "Perusasetukset"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
-#: qml/Mobile/MobilePlayerControls.qml:361
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
@@ -383,7 +383,7 @@ msgstr "Raidalla ei ole otsikkoa"
 
 #: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:21
-#: qml/Mobile/MobilePlayerControls.qml:188
+#: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
 msgstr "Ei ladattua raitaa"
@@ -824,7 +824,7 @@ msgstr "Ei otsikkoa"
 msgid "No Podcast Title"
 msgstr "Podcastilla ei ole otsikkoa"
 
-#: qml/Mobile/MobilePlayerControls.qml:212
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found."
 msgstr "Lukuja ei löytynyt."
