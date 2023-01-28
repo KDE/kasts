@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-26 00:59+0000\n"
-"PO-Revision-Date: 2023-01-18 09:39+0100\n"
+"PO-Revision-Date: 2023-01-25 13:40+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -306,52 +306,45 @@ msgid "Playback Rate: "
 msgstr "Velocità di riproduzione"
 
 #: qml/Desktop/DesktopPlayerControls.qml:222
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Capitoli"
+msgstr "Mostra l'elenco dei capitoli"
 
 #: qml/Desktop/DesktopPlayerControls.qml:234
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "1 episodio"
+msgstr "Mostra le informazioni sull'episodio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:246
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Impostazioni generali"
+msgstr "Apri le impostazioni del timer di sospensione"
 
 #: qml/Desktop/DesktopPlayerControls.qml:261
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Impostazioni generali"
+msgstr "Apri le impostazioni del volume"
 
 #: qml/Desktop/DesktopPlayerControls.qml:306
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Abilita/disabilita silenzio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:323
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Mostra il registro degli errori"
+msgstr "Mostra altro"
 
 #: qml/Desktop/DesktopPlayerControls.qml:353
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capitoli"
@@ -360,11 +353,10 @@ msgstr "Capitoli"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Mostra informazioni"
 
 #: qml/Desktop/DesktopPlayerControls.qml:371
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Timer di sospensione"
@@ -724,27 +716,27 @@ msgstr[1] "Rimuovi podcast"
 #: qml/FullScreenImage.qml:47
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Ingrandisci"
 
 #: qml/FullScreenImage.qml:58
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Rimpicciolisci"
 
 #: qml/FullScreenImage.qml:69
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Ruota a sinistra"
 
 #: qml/FullScreenImage.qml:76
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Ruota a destra"
 
 #: qml/FullScreenImage.qml:83
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
