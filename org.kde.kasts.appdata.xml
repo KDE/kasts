@@ -229,7 +229,7 @@
   </provides>
   <screenshots>
     <screenshot type="default">
-      <caption>Kasts on the desktop</caption>
+      <caption>Kasts on the desktop with default header bar</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori</caption>
       <caption xml:lang="en-GB">Kasts on the desktop</caption>
@@ -249,6 +249,10 @@
       <caption xml:lang="uk">Kasts на стільниці</caption>
       <caption xml:lang="x-test">xxKasts on the desktopxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Kasts on the desktop with minimized header bar</caption>
+      <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Kasts on a phone</caption>
@@ -276,6 +280,10 @@
       <caption xml:lang="x-test">xxKasts on a phonexx</caption>
       <caption xml:lang="zh-CN">在手机上运行的 Kasts</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Kasts mobile player controls</caption>
+      <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
