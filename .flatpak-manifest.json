@@ -17,6 +17,17 @@
         "--own-name=org.mpris.MediaPlayer2.kasts",
         "--talk-name=org.freedesktop.secrets"
     ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/lib/cmake",
+        "*.la",
+        "*.a"
+    ],
+    "cleanup-commands": [
+        "rm -f /app/lib/vlc/plugins/plugins.dat",
+        "/app/lib/vlc/vlc-cache-gen /app/lib/vlc/plugins"
+    ],
     "modules": [
         {
             "name": "libvlc",
@@ -117,8 +128,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-0.6.tar.xz",
-                    "sha256": "2fc18d25ad684d5fec260b872c3320068290c59abab50e26a61811ca8bd5882f",
+                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-0.7.0.tar.xz",
+                    "sha256": "0132a58b150229544a61e17e792c48cfc6daa03a8be9c7acd873a6c30d283df7",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 242933,
