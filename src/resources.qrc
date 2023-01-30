@@ -27,7 +27,8 @@
         <file alias="UpdateNotification.qml">qml/UpdateNotification.qml</file>
         <file alias="HeaderBar.qml">qml/Desktop/HeaderBar.qml</file>
         <file alias="DesktopPlayerControls.qml">qml/Desktop/DesktopPlayerControls.qml</file>
-        <file alias="PlaybackRateDialog.qml">qml/PlaybackRateDialog.qml</file>
+        <file alias="PlaybackRateMenu.qml">qml/PlaybackRateMenu.qml</file>
+        <file alias="PlaybackRateCustomizerDialog.qml">qml/PlaybackRateCustomizerDialog.qml</file>
         <file alias="ErrorNotification.qml">qml/ErrorNotification.qml</file>
         <file alias="ConnectionCheckAction.qml">qml/ConnectionCheckAction.qml</file>
         <file alias="ChapterListDelegate.qml">qml/ChapterListDelegate.qml</file>

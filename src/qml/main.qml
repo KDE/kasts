@@ -459,10 +459,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    PlaybackRateDialog {
-        id: playbackRateDialog
-    }
-
     SleepTimerDialog {
         id: sleepTimerDialog
     }

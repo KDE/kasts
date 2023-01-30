@@ -147,12 +147,21 @@ FocusScope {
                 Controls.ToolTip.text: i18n("Skip Forward")
             }
             Controls.ToolButton {
+                id: playbackRateButton
                 contentItem: Controls.Label {
-                    text: AudioManager.playbackRate + "x"
+                    text: AudioManager.playbackRate.toFixed(2) + "x"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
-                onClicked: playbackRateDialog.open()
+                checkable: true
+                checked: playbackRateMenu.visible
+                onClicked: {
+                    if (playbackRateMenu.visible) {
+                        playbackRateMenu.dismiss();
+                    } else {
+                        playbackRateMenu.popup(playbackRateButton, 0, playbackRateButton.height);
+                    }
+                }
                 Layout.alignment: Qt.AlignHCenter
                 padding: 0
                 implicitWidth: playButton.width * 1.5
@@ -160,7 +169,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18n("Playback Rate: ") + AudioManager.playbackRate + "x"
+                Controls.ToolTip.text: i18n("Playback Rate: ") + AudioManager.playbackRate.toFixed(2) + "x"
             }
         }
 
@@ -444,5 +453,10 @@ FocusScope {
                 }
             }
         }
+    }
+
+    PlaybackRateMenu {
+        id: playbackRateMenu
+        parentButton: playbackRateButton
     }
 }

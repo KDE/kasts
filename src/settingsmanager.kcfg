@@ -95,6 +95,12 @@
             <default></default>
         </entry>
     </group>
+    <group name="Playback Settings">
+        <entry name="playbackRates" type="IntList">
+            <label>List of user-defined playback rates</label>
+            <default>50,75,100,125,150,175,200,225,250</default>
+        </entry>
+    </group>
     <group name="Network">
         <entry name="allowMeteredFeedUpdates" type="Bool">
             <label>Allow podcast updates on metered connections</label>
