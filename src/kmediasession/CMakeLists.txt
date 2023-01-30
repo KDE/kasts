@@ -18,9 +18,12 @@ set_package_properties(LIBVLC PROPERTIES
     URL "https://www.videolan.org/vlc/libvlc.html"
     TYPE RECOMMENDED)
 
-find_package(PkgConfig REQUIRED) #finding pkg-config is a helper tool
-#using pkg-config to getting Gstreamer
-pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-1.0)
+option(BUILD_GSTREAMER_BACKEND "Build gstreamer audio backend" ON)
+if (BUILD_GSTREAMER_BACKEND)
+    find_package(PkgConfig REQUIRED) #finding pkg-config is a helper tool
+    #using pkg-config to getting Gstreamer
+    pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-1.0)
+endif()
 
 #########################################
 
