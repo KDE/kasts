@@ -15,6 +15,7 @@ Controls.Popup {
     id: root
 
     required property var image
+    required property QtObject loader
     property string description: undefined
 
     property int imageWidth: -1
@@ -201,5 +202,6 @@ Controls.Popup {
     onClosed: {
         imageItem.scaleFactor = 1;
         imageItem.rotationAngle = 0;
+        loader.active = false;
     }
 }

@@ -478,9 +478,10 @@ Kirigami.ApplicationWindow {
         id: syncPasswordOverlay
     }
 
-    Component {
-        id: fullScreenImage
-        FullScreenImage { }
+    Loader {
+        id: fullScreenImageLoader
+        active: false
+        visible: active
     }
 
     //Global Shortcuts

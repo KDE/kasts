@@ -74,11 +74,13 @@ Item {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    const dialog = fullScreenImage.createObject(parent, {
+                    fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", {
                         "image": root.image,
-                        "description": root.title
+                        "description": root.title,
+                        "loader": fullScreenImageLoader
                     });
-                    dialog.open();
+                    fullScreenImageLoader.active = true;
+                    fullScreenImageLoader.item.open();
                 }
             }
         }

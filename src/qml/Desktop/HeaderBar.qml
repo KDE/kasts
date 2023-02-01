@@ -56,11 +56,13 @@ FocusScope {
     }
 
     function openFullScreenImage() {
-        const dialog = fullScreenImage.createObject(parent, {
+        fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", {
             "image": headerMetaData.image,
-            "description": headerMetaData.title
+            "description": headerMetaData.title,
+            "loader": fullScreenImageLoader
         });
-        dialog.open();
+        fullScreenImageLoader.active = true;
+        fullScreenImageLoader.item.open();
     }
 
     Rectangle {
