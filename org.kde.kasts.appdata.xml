@@ -230,24 +230,6 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
-      <caption xml:lang="ca">El Kasts a l'escriptori</caption>
-      <caption xml:lang="ca-valencia">Kasts en l'escriptori</caption>
-      <caption xml:lang="en-GB">Kasts on the desktop</caption>
-      <caption xml:lang="es">Kasts en el escritorio</caption>
-      <caption xml:lang="fi">Kasts työpöydällä</caption>
-      <caption xml:lang="fr">Kasts sur le bureau</caption>
-      <caption xml:lang="id">Kasts di desktop</caption>
-      <caption xml:lang="it">Kasts sul desktop</caption>
-      <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე</caption>
-      <caption xml:lang="ko">데스크톱에서의 Kasts</caption>
-      <caption xml:lang="nl">Kasts op het bureaublad</caption>
-      <caption xml:lang="pl">Kasts na biurko</caption>
-      <caption xml:lang="pt">Kasts no computador</caption>
-      <caption xml:lang="sl">Kasts na namizju</caption>
-      <caption xml:lang="sv">Kasts på skrivbordet</caption>
-      <caption xml:lang="tr">Masaüstünde Kasts</caption>
-      <caption xml:lang="uk">Kasts на стільниці</caption>
-      <caption xml:lang="x-test">xxKasts on the desktopxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot>
