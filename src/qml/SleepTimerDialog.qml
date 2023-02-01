@@ -24,7 +24,7 @@ Kirigami.Dialog {
         Kirigami.Action {
             enabled: !timerActive
             text: i18n("Start")
-            iconName: "dialog-ok"
+            icon.name: "dialog-ok"
             onTriggered: {
                 sleepTimerDialog.close();
                 var sleepTimeSeconds = sleepTimerValueBox.value * sleepTimerUnitsBox.model[sleepTimerUnitsBox.currentIndex]["secs"];
@@ -39,7 +39,7 @@ Kirigami.Dialog {
         Kirigami.Action {
             enabled: timerActive
             text: i18n("Stop")
-            iconName: "dialog-cancel"
+            icon.name: "dialog-cancel"
             onTriggered: {
                 sleepTimerDialog.close();
                 AudioManager.sleepTime = undefined; // make use of RESET

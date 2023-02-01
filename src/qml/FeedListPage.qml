@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         visible: Kirigami.Settings.isMobile
         text: i18n("Discover")
-        iconName: "search"
+        icon.name: "search"
         onTriggered: {
             applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
         }
@@ -47,25 +47,25 @@ Kirigami.ScrollablePage {
     contextualActions: [
         Kirigami.Action {
             text: i18n("Refresh All Podcasts")
-            iconName: "view-refresh"
+            icon.name: "view-refresh"
             onTriggered: refreshing = true
         },
         Kirigami.Action {
             text: i18n("Add Podcast")
-            iconName: "list-add"
+            icon.name: "list-add"
             onTriggered: {
                 addSheet.open()
             }
         },
         Kirigami.Action {
             text: i18n("Import Podcasts...")
-            iconName: "document-import"
+            icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
             text: i18n("Export Podcasts...")
-            iconName: "document-export"
+            icon.name: "document-export"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: exportDialog.open()
         }
@@ -241,7 +241,7 @@ Kirigami.ScrollablePage {
         // For lack of a better place, we put generic entry list actions here so
         // they can be re-used across the different ListViews.
         property var selectAllAction: Kirigami.Action {
-            iconName: "edit-select-all"
+            icon.name: "edit-select-all"
             text: i18n("Select All")
             visible: true
             onTriggered: {
@@ -250,7 +250,7 @@ Kirigami.ScrollablePage {
         }
 
         property var selectNoneAction: Kirigami.Action {
-            iconName: "edit-select-none"
+            icon.name: "edit-select-none"
             text: i18n("Deselect All")
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
@@ -259,7 +259,7 @@ Kirigami.ScrollablePage {
         }
 
         property var deleteFeedAction: Kirigami.Action {
-            iconName: "delete"
+            icon.name: "delete"
             text: i18ncp("context menu action", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
@@ -282,7 +282,7 @@ Kirigami.ScrollablePage {
         }
 
         property var feedDetailsAction: Kirigami.Action {
-            iconName: "documentinfo"
+            icon.name: "documentinfo"
             text: i18n("Podcast Details")
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {

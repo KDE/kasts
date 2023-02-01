@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
     }
 
     actions.main: Kirigami.Action {
-        iconName: "download"
+        icon.name: "download"
         text: i18n("Downloads")
         onTriggered: {
             pushPage("DownloadListPage")
@@ -39,13 +39,13 @@ Kirigami.ScrollablePage {
     }
 
     actions.left: Kirigami.Action {
-        iconName: "view-filter"
+        icon.name: "view-filter"
         text: i18n("Filter")
         onTriggered: filterTypeOverlay.open();
     }
 
     actions.right: Kirigami.Action {
-        iconName: "view-refresh"
+        icon.name: "view-refresh"
         text: i18n("Refresh All Podcasts")
         onTriggered: refreshing = true
         visible: episodeProxyModel.filterType == EpisodeProxyModel.NoFilter

@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
     }
 
     actions.main: Kirigami.Action {
-        iconName: "view-refresh"
+        icon.name: "view-refresh"
         text: i18nc("@action:intoolbar", "Refresh All Podcasts")
         onTriggered: refreshing = true
     }

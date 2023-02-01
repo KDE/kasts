@@ -25,7 +25,7 @@ Kirigami.Dialog {
 
     customFooterActions: Kirigami.Action {
         text: i18nc("@action:button", "Clear All Errors")
-        iconName: "edit-clear-all"
+        icon.name: "edit-clear-all"
         onTriggered: ErrorLogModel.clearAll()
         enabled: errorList.count > 0
     }

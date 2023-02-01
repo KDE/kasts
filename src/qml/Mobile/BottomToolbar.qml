@@ -21,7 +21,7 @@ Kirigami.NavigationTabBar {
 
     actions: [
         Kirigami.Action {
-            iconName: "view-media-playlist"
+            icon.name: "view-media-playlist"
             text: i18n("Queue")
             checked: "QueuePage" === SettingsManager.lastOpenedPage
             onTriggered: {
@@ -31,7 +31,7 @@ Kirigami.NavigationTabBar {
             }
         },
         Kirigami.Action {
-            iconName: "bookmarks"
+            icon.name: "bookmarks"
             text: i18n("Subscriptions")
             checked: "FeedListPage" === SettingsManager.lastOpenedPage
             onTriggered: {
@@ -41,7 +41,7 @@ Kirigami.NavigationTabBar {
             }
         },
         Kirigami.Action {
-            iconName: "rss"
+            icon.name: "rss"
             text: i18n("Episodes")
             checked: "EpisodeListPage" === SettingsManager.lastOpenedPage
             onTriggered: {
@@ -51,7 +51,7 @@ Kirigami.NavigationTabBar {
             }
         },
         Kirigami.Action {
-            iconName: "settings-configure"
+            icon.name: "settings-configure"
             text: i18n("Settings")
             checked: "SettingsPage" === SettingsManager.lastOpenedPage
             onTriggered: {

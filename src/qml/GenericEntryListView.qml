@@ -124,7 +124,7 @@ ListView {
     // For lack of a better place, we put generic entry list actions here so
     // they can be re-used across the different ListViews.
     property var selectAllAction: Kirigami.Action {
-        iconName: "edit-select-all"
+        icon.name: "edit-select-all"
         text: i18n("Select All")
         visible: true
         onTriggered: {
@@ -133,7 +133,7 @@ ListView {
     }
 
     property var selectNoneAction: Kirigami.Action {
-        iconName: "edit-select-none"
+        icon.name: "edit-select-none"
         text: i18n("Deselect All")
         visible: listView.selectionModel.hasSelection
         onTriggered: {

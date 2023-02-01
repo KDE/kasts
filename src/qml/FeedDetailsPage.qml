@@ -133,12 +133,12 @@ Kirigami.ScrollablePage {
                     actions: [
                         Kirigami.Action {
                             visible: isSubscribed
-                            iconName: "view-refresh"
+                            icon.name: "view-refresh"
                             text: i18n("Refresh Podcast")
                             onTriggered: page.refreshing = true
                         },
                         Kirigami.Action {
-                            iconName: "kt-add-feeds"
+                            icon.name: "kt-add-feeds"
                             text: enabled ? i18n("Subscribe") : i18n("Subscribed")
                             enabled: !DataManager.feedExists(feed.url)
                             visible: !isSubscribed
@@ -152,7 +152,7 @@ Kirigami.ScrollablePage {
                             }
                         },
                         Kirigami.Action {
-                            iconName: "documentinfo"
+                            icon.name: "documentinfo"
                             text: i18n("Show Details")
                             checkable: true
                             checked: showMoreInfo

@@ -253,7 +253,7 @@ Controls.ItemDelegate {
                     pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
                     actionOverlay.close();
                 }
-                iconName: "documentinfo"
+                icon.name: "documentinfo"
                 text: i18n("Podcast Details")
             },
             Kirigami.Action {
@@ -264,7 +264,7 @@ Controls.ItemDelegate {
                     DataManager.removeFeed(feed)
                     actionOverlay.close();
                 }
-                iconName: "delete"
+                icon.name: "delete"
                 text: i18n("Remove Podcast")
             }
         ]
