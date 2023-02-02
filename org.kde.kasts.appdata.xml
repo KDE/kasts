@@ -230,10 +230,22 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
+      <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
+      <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras predeterminada</caption>
+      <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
+      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
+      <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot>
       <caption>Kasts on the desktop with minimized header bar</caption>
+      <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
+      <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras minimizada</caption>
+      <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
+      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
+      <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
     </screenshot>
     <screenshot type="default">
@@ -265,6 +277,12 @@
     </screenshot>
     <screenshot>
       <caption>Kasts mobile player controls</caption>
+      <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
+      <caption xml:lang="es">Controles de reproducción móviles de Kasts</caption>
+      <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
+      <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
+      <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
+      <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
     </screenshot>
   </screenshots>
