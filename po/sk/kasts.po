@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:59+0000\n"
+"POT-Creation-Date: 2023-02-02 01:00+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -371,13 +371,13 @@ msgstr ""
 msgid "Chapters"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
+#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -743,27 +743,27 @@ msgstr[0] "Obnoviť všetky Podcast položky"
 msgstr[1] "Obnoviť všetky Podcast položky"
 msgstr[2] "Obnoviť všetky Podcast položky"
 
-#: qml/FullScreenImage.qml:47
+#: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
 msgstr ""
 
-#: qml/FullScreenImage.qml:58
+#: qml/FullScreenImage.qml:59
 #, kde-format
 msgid "Zoom out"
 msgstr ""
 
-#: qml/FullScreenImage.qml:69
+#: qml/FullScreenImage.qml:70
 #, kde-format
 msgid "Rotate left"
 msgstr ""
 
-#: qml/FullScreenImage.qml:76
+#: qml/FullScreenImage.qml:77
 #, kde-format
 msgid "Rotate right"
 msgstr ""
 
-#: qml/FullScreenImage.qml:83
+#: qml/FullScreenImage.qml:84
 #, kde-format
 msgid "Close"
 msgstr ""

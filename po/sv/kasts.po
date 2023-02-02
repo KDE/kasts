@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:59+0000\n"
+"POT-Creation-Date: 2023-02-02 01:00+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -374,13 +374,13 @@ msgstr "Sovtidtagare"
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Ingen spårtitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
+#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -723,27 +723,27 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Ta bort poddradioprogram"
 msgstr[1] "Ta bort poddradioprogram"
 
-#: qml/FullScreenImage.qml:47
+#: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
 msgstr ""
 
-#: qml/FullScreenImage.qml:58
+#: qml/FullScreenImage.qml:59
 #, kde-format
 msgid "Zoom out"
 msgstr ""
 
-#: qml/FullScreenImage.qml:69
+#: qml/FullScreenImage.qml:70
 #, kde-format
 msgid "Rotate left"
 msgstr ""
 
-#: qml/FullScreenImage.qml:76
+#: qml/FullScreenImage.qml:77
 #, kde-format
 msgid "Rotate right"
 msgstr ""
 
-#: qml/FullScreenImage.qml:83
+#: qml/FullScreenImage.qml:84
 #, kde-format
 msgid "Close"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:59+0000\n"
+"POT-Creation-Date: 2023-02-02 01:00+0000\n"
 "PO-Revision-Date: 2023-01-24 19:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -359,13 +359,13 @@ msgstr "Uyku Sayacı"
 msgid "Chapters"
 msgstr "Fasıllar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Parça Başlığı Yok"
 
-#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:121
+#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -706,27 +706,27 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Podcast'i Kaldır"
 msgstr[1] "Podcast'leri Kaldır"
 
-#: qml/FullScreenImage.qml:47
+#: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
 msgstr "Yakınlaştır"
 
-#: qml/FullScreenImage.qml:58
+#: qml/FullScreenImage.qml:59
 #, kde-format
 msgid "Zoom out"
 msgstr "Uzaklaştır"
 
-#: qml/FullScreenImage.qml:69
+#: qml/FullScreenImage.qml:70
 #, kde-format
 msgid "Rotate left"
 msgstr "Sola Döndür"
 
-#: qml/FullScreenImage.qml:76
+#: qml/FullScreenImage.qml:77
 #, kde-format
 msgid "Rotate right"
 msgstr "Sağa Döndür"
 
-#: qml/FullScreenImage.qml:83
+#: qml/FullScreenImage.qml:84
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
