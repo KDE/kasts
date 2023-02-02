@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -8,6 +8,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtGraphicalEffects 1.15
+import QtQuick.Window 2.2
 
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -51,8 +52,8 @@ Item {
             anchors.fill: parent
             source: root.imageSource
             fillMode: root.imageFillMode
-            sourceSize.width: root.imageResize ? width : undefined
-            sourceSize.height: root.imageResize ? height : undefined
+            sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : undefined
+            sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : undefined
             asynchronous: true
             mipmap: root.mipmap
         }
