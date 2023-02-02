@@ -292,7 +292,6 @@ FocusScope {
                             to: 100
                             value: AudioManager.volume
                             onMoved: AudioManager.volume = value
-                            handle.implicitWidth: implicitHeight // workaround to make slider handle position itself exactly at the location of the click
                         }
 
                         Controls.ToolButton {

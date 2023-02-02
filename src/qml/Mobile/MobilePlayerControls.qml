@@ -354,14 +354,14 @@ Kirigami.Page {
 
                         Controls.Popup {
                             id: volumePopup
-                            x: -volumePopup.width + volumeButton.width
+                            x: -padding
                             y: -volumePopup.height
 
                             focus: true
                             padding: Kirigami.Units.smallSpacing
-                            contentHeight: muteButton.implicitHeight
+                            contentWidth: muteButton.implicitWidth
 
-                            contentItem: RowLayout {
+                            contentItem: ColumnLayout {
                                 id: popupContent
 
                                 Controls.ToolButton {
@@ -378,18 +378,18 @@ Kirigami.Page {
 
                                 Controls.Slider {
                                     id: volumeSlider
-                                    width: Kirigami.Units.gridUnit * 7
-                                    Layout.alignment: Qt.AlignVCenter
-                                    Layout.preferredWidth: width
-                                    Layout.maximumWidth: width
-                                    Layout.rightMargin: Kirigami.Units.smallSpacing
+                                    height: Kirigami.Units.gridUnit * 7
+                                    Layout.alignment: Qt.AlignHCenter
+                                    Layout.preferredHeight: height
+                                    Layout.maximumHeight: height
+                                    Layout.bottomMargin: Kirigami.Units.smallSpacing
+                                    orientation: Qt.Vertical
                                     padding: 0
                                     enabled: !AudioManager.muted && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                                     from: 0
                                     to: 100
                                     value: AudioManager.volume
                                     onMoved: AudioManager.volume = value
-                                    handle.implicitWidth: implicitHeight // workaround to make slider handle position itself exactly at the location of the click
                                 }
 
                             }
