@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 01:00+0000\n"
+"POT-Creation-Date: 2023-02-03 01:01+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -335,52 +335,52 @@ msgctxt "@action:button"
 msgid "Open Volume Settings"
 msgstr "일반 설정"
 
-#: qml/Desktop/DesktopPlayerControls.qml:306
+#: qml/Desktop/DesktopPlayerControls.qml:305
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:323
+#: qml/Desktop/DesktopPlayerControls.qml:322
 #, fuzzy, kde-format
 #| msgid "Show Error Log"
 msgctxt "@action:button"
 msgid "Show More"
 msgstr "오류 로그 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:353
+#: qml/Desktop/DesktopPlayerControls.qml:352
 #, fuzzy, kde-format
 #| msgid "Chapters"
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:360
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:371
+#: qml/Desktop/DesktopPlayerControls.qml:370
 #, fuzzy, kde-format
 #| msgid "Sleep Timer"
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "수면 타이머"
 
-#: qml/Desktop/DesktopPlayerControls.qml:405
+#: qml/Desktop/DesktopPlayerControls.qml:404
 #, kde-format
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:122
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:429 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format

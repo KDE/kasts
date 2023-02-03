@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 01:00+0000\n"
+"POT-Creation-Date: 2023-02-03 01:01+0000\n"
 "PO-Revision-Date: 2023-01-24 10:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -331,49 +331,49 @@ msgctxt "@action:button"
 msgid "Open Volume Settings"
 msgstr "Obri la configuració del volum"
 
-#: qml/Desktop/DesktopPlayerControls.qml:306
+#: qml/Desktop/DesktopPlayerControls.qml:305
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
 msgstr "Canvia el silenci"
 
-#: qml/Desktop/DesktopPlayerControls.qml:323
+#: qml/Desktop/DesktopPlayerControls.qml:322
 #, kde-format
 msgctxt "@action:button"
 msgid "Show More"
 msgstr "Mostra'n més"
 
-#: qml/Desktop/DesktopPlayerControls.qml:353
+#: qml/Desktop/DesktopPlayerControls.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:360
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Mostra la informació"
 
-#: qml/Desktop/DesktopPlayerControls.qml:371
+#: qml/Desktop/DesktopPlayerControls.qml:370
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Temporitzador per a adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:405
+#: qml/Desktop/DesktopPlayerControls.qml:404
 #, kde-format
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:425 qml/Desktop/HeaderBar.qml:122
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Sense títol de pista"
 
-#: qml/Desktop/DesktopPlayerControls.qml:430 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:429 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
