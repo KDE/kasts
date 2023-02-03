@@ -231,8 +231,11 @@
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
+      <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras predeterminada</caption>
+      <caption xml:lang="fr">Kasts sur le bureau avec la barre d'en-tête par défaut</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
+      <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
@@ -241,8 +244,11 @@
     <screenshot>
       <caption>Kasts on the desktop with minimized header bar</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
+      <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras minimizada</caption>
+      <caption xml:lang="fr">Kasts sur le bureau avec la barre minimale d'en-tête</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
+      <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
@@ -278,8 +284,11 @@
     <screenshot>
       <caption>Kasts mobile player controls</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
+      <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
       <caption xml:lang="es">Controles de reproducción móviles de Kasts</caption>
+      <caption xml:lang="fr">Contrôleur Kasts de lecteur mobile</caption>
       <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
+      <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
