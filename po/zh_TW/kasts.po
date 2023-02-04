@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 01:01+0000\n"
+"POT-Creation-Date: 2023-02-04 00:57+0000\n"
 "PO-Revision-Date: 2022-06-13 01:10+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -174,42 +174,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr ""
 
-#: main.cpp:108
+#: main.cpp:109
 #, kde-format
 msgid "Podcast Application"
 msgstr ""
 
-#: main.cpp:110
+#: main.cpp:111
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr ""
 
-#: main.cpp:111
+#: main.cpp:112
 #, kde-format
 msgid "Podcast URL"
 msgstr ""
 
-#: main.cpp:116
+#: main.cpp:117
 #, kde-format
 msgid "Kasts"
 msgstr ""
 
-#: main.cpp:118
+#: main.cpp:119
 #, kde-format
 msgid "Podcast Player"
 msgstr ""
 
-#: main.cpp:120
+#: main.cpp:121
 #, kde-format
 msgid "© 2020-2022 KDE Community"
 msgstr ""
 
-#: main.cpp:121
+#: main.cpp:122
 #, kde-format
 msgid "Tobias Fella"
 msgstr ""
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Bart De Vries"
 msgstr ""
@@ -294,79 +294,79 @@ msgstr ""
 msgid "Skip Forward"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:163
+#: qml/Desktop/DesktopPlayerControls.qml:172
 #, kde-format
 msgid "Playback Rate: "
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:222
+#: qml/Desktop/DesktopPlayerControls.qml:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:234
+#: qml/Desktop/DesktopPlayerControls.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:246
+#: qml/Desktop/DesktopPlayerControls.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:305
+#: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:322
+#: qml/Desktop/DesktopPlayerControls.qml:331
 #, kde-format
 msgctxt "@action:button"
 msgid "Show More"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:352
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:360
+#: qml/Desktop/DesktopPlayerControls.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:370
+#: qml/Desktop/DesktopPlayerControls.qml:379
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:413
 #, kde-format
 msgid "Chapters"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:122
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:429 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -807,9 +807,58 @@ msgstr ""
 msgid "No chapters found."
 msgstr ""
 
-#: qml/PlaybackRateDialog.qml:65 qml/PlaybackRateDialog.qml:114
+#: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
-msgid "Set Playback Rate"
+msgctxt "@title:window"
+msgid "Playback Rate Presets"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:52
+#, kde-format
+msgctxt "@info Label for controls to add new playback rate preset"
+msgid "New Preset:"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:64
+#, kde-format
+msgctxt "@action:button Add new playback rate value to list"
+msgid "Add"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:67
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Add new playback rate value to list"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:100
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease Playback Rate"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase Playback Rate"
+msgstr ""
+
+#: qml/PlaybackRateCustomizerDialog.qml:124
+#, kde-format
+msgctxt "@title:group List of custom playback rates"
+msgid "Current Presets:"
+msgstr ""
+
+#: qml/PlaybackRateMenu.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Select Playback Rate"
+msgstr ""
+
+#: qml/PlaybackRateMenu.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Customize"
 msgstr ""
 
 #: qml/QueuePage.qml:18
@@ -863,18 +912,28 @@ msgstr ""
 msgid "Always show podcast titles in subscription view"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:62
+#: qml/Settings/GeneralSettingsPage.qml:57
+#, kde-format
+msgid "Show icon in system tray"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:68
+#, kde-format
+msgid "Minimize to tray instead of closing"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Playback settings"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:67
+#: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:97
+#: qml/Settings/GeneralSettingsPage.qml:121
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -882,118 +941,118 @@ msgctxt ""
 msgid "Play Time:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:99
+#: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:118
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:135
+#: qml/Settings/GeneralSettingsPage.qml:159
 #, kde-format
 msgid "Queue settings"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:141
+#: qml/Settings/GeneralSettingsPage.qml:165
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:149
+#: qml/Settings/GeneralSettingsPage.qml:173
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:151
+#: qml/Settings/GeneralSettingsPage.qml:175
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:160
+#: qml/Settings/GeneralSettingsPage.qml:184
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:170
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:185
+#: qml/Settings/GeneralSettingsPage.qml:209
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:198
+#: qml/Settings/GeneralSettingsPage.qml:222
 #, kde-format
 msgid "Played episode behavior"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:201
+#: qml/Settings/GeneralSettingsPage.qml:225
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:202
+#: qml/Settings/GeneralSettingsPage.qml:226
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:203
+#: qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:216
+#: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:233
+#: qml/Settings/GeneralSettingsPage.qml:257
 #, kde-format
 msgid "When adding new podcasts"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:238
+#: qml/Settings/GeneralSettingsPage.qml:262
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:249
+#: qml/Settings/GeneralSettingsPage.qml:273
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:272
+#: qml/Settings/GeneralSettingsPage.qml:296
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:289
+#: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Article"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:318
 #, kde-format
 msgid "Font size"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:301
+#: qml/Settings/GeneralSettingsPage.qml:325
 #, kde-format
 msgid "Font size:"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:341
 #, kde-format
 msgid "Use system default"
 msgstr ""
@@ -1601,4 +1660,40 @@ msgstr ""
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
+msgstr ""
+
+#: systrayicon.cpp:42
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Backward"
+msgstr ""
+
+#: systrayicon.cpp:54
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Play"
+msgstr ""
+
+#: systrayicon.cpp:62
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Pause"
+msgstr ""
+
+#: systrayicon.cpp:81
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Forward"
+msgstr ""
+
+#: systrayicon.cpp:93
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Skip Forward"
+msgstr ""
+
+#: systrayicon.cpp:108
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Quit"
 msgstr ""
