@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-02-03 17:00+0100\n"
+"PO-Revision-Date: 2023-02-05 06:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -808,63 +808,58 @@ msgid "No chapters found."
 msgstr "თავები ვერ ვიპოვე."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "დაკვრის სიჩქარე: "
+msgstr "დაკვრის სიჩქარის პრესეტები"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "ახალი პრესეტი:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "სიისთვის დაკვრის სიჩქარის ახალი მნიშვნელობის დამატება"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "დაკვრის სიჩქარის მითითება"
+msgstr "დაკვრის სიჩქარის შემცირება"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "დაკვრის სიჩქარის მითითება"
+msgstr "დაკვრის სიჩქარის გაზრდა"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Current Status:"
+#, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "მიმდინარე სტატუსი:"
+msgstr "მიმდინარე პრესეტები:"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "დაკვრის სიჩქარის მითითება"
+msgstr "აირჩიეთ დაკვრის სიჩქარე"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "მორგება"
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -921,12 +916,12 @@ msgstr "გამოწერის ხედში პოდკსტის ს
 #: qml/Settings/GeneralSettingsPage.qml:57
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "სისტემის კუთხეში ხატულის ჩვენება"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "დახურვისას გასვლის მაგიერ სისტემის კუთხეში ჩაკეცვა"
 
 #: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
@@ -1683,36 +1678,31 @@ msgid "Sync finished with Error"
 msgstr "სინქრონიზაცია შეცდომით დასრულდა"
 
 #: systrayicon.cpp:42
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "უკან გადახვევა"
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "დაკვრა"
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "შეჩერება"
 
 #: systrayicon.cpp:81
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "წინ გადახვევა"
 
 #: systrayicon.cpp:93
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "წინ გადახტომა"
@@ -1721,7 +1711,7 @@ msgstr "წინ გადახტომა"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "გასვლა"
 
 #~ msgid "Errors"
 #~ msgstr "შედომები"

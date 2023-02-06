@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-01-31 19:29+0100\n"
+"PO-Revision-Date: 2023-02-04 20:22+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -817,63 +817,58 @@ msgid "No chapters found."
 msgstr "Aucune chapitre n'a été trouvé."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Taux de lecture :"
+msgstr "Pré-réglages pour le débit de lecture"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "Nouveau préréglage :"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Ajouter une nouvelle valeur de débit de lecture à la liste"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Définir le taux de lecture"
+msgstr "Diminuer le débit de lecture"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Définir le taux de lecture"
+msgstr "Augmenter le débit de lecture"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Current Status:"
+#, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "État actuel :"
+msgstr "Préréglages courants :"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Définir le taux de lecture"
+msgstr "Sélectionner un débit de lecture"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Personnaliser"
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -930,12 +925,12 @@ msgstr "Toujours afficher les titres des podcast dans la vue des abonnements"
 #: qml/Settings/GeneralSettingsPage.qml:57
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Afficher une icône dans la boîte à miniatures"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "Minimiser dans la boîte à miniatures à la fermeture."
 
 #: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
@@ -1706,45 +1701,40 @@ msgid "Sync finished with Error"
 msgstr "Synchronisation terminée avec des erreurs"
 
 #: systrayicon.cpp:42
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Rechercher en arrière"
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Lire"
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr "Pause"
+msgstr "Mettre en pause"
 
 #: systrayicon.cpp:81
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Rechercher en avant"
 
 #: systrayicon.cpp:93
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr "Avancer"
+msgstr "Passer au suivant"
 
 #: systrayicon.cpp:108
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Quitter"
 
 #~ msgid "Errors"
 #~ msgstr "Erreurs"
