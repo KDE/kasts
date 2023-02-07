@@ -813,11 +813,10 @@ msgid "No chapters found."
 msgstr "Nebyly nalezeny žádné kapitoly."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Rychlost přehrávání: "
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
@@ -838,18 +837,16 @@ msgid "Add new playback rate value to list"
 msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Vyberte rychlost přehrávací"
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Vyberte rychlost přehrávací"
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
@@ -858,11 +855,10 @@ msgid "Current Presets:"
 msgstr ""
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Vyberte rychlost přehrávací"
+msgstr ""
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
@@ -926,7 +922,7 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:57
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Zobrazit ikonu v systémovém panelu"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
@@ -1675,39 +1671,34 @@ msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
 
 #: systrayicon.cpp:42
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr "Rychle vzad"
+msgstr ""
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
-msgstr "Přehrát"
+msgstr ""
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr "Pozastavit"
+msgstr ""
 
 #: systrayicon.cpp:81
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr "Rychle vpřed"
+msgstr ""
 
 #: systrayicon.cpp:93
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr "Přeskočit vpřed"
+msgstr ""
 
 #: systrayicon.cpp:108
 #, kde-format

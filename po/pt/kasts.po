@@ -937,7 +937,7 @@ msgstr "Mostrar sempre os títulos dos 'podcasts' na área de subscrições"
 #: qml/Settings/GeneralSettingsPage.qml:57
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Mostrar o ícone na bandeja do sistema"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
@@ -1713,15 +1713,13 @@ msgid "Seek Backward"
 msgstr "Recuar"
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Reproduzir"
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Pausa"
