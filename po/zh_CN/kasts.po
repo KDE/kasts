@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-01-12 10:32\n"
+"PO-Revision-Date: 2023-02-07 11:03\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -95,16 +95,14 @@ msgid "Example player KMediaSession"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select file..."
-msgstr "选择目录..."
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select media file"
-msgstr "选择筛选条件"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
@@ -161,25 +159,21 @@ msgid "mediaStatus: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "playbackStatus: %1"
-msgstr "播放速度："
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "错误 (%1)：%2"
+msgstr ""
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "正在播放音乐"
+msgstr ""
 
 #: main.cpp:109
 #, kde-format
@@ -307,34 +301,29 @@ msgid "Playback Rate: "
 msgstr "播放速度："
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "章节"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "%1 条剧集"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "常规设置"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "常规设置"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -344,18 +333,16 @@ msgid "Toggle Mute"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "显示错误日志"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr "章节"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:369
 #, kde-format
@@ -816,11 +803,10 @@ msgid "No chapters found."
 msgstr "未找到章节。"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "播放速度："
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
@@ -841,18 +827,16 @@ msgid "Add new playback rate value to list"
 msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "设置播放速度"
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "设置播放速度"
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
@@ -861,11 +845,10 @@ msgid "Current Presets:"
 msgstr ""
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "设置播放速度"
+msgstr ""
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
@@ -940,11 +923,10 @@ msgid "Playback settings"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr "选择选项"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:121
 #, kde-format
@@ -1679,39 +1661,34 @@ msgid "Sync finished with Error"
 msgstr "同步完成，但发生了错误"
 
 #: systrayicon.cpp:42
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr "快退"
+msgstr ""
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
-msgstr "播放"
+msgstr ""
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr "暂停"
+msgstr ""
 
 #: systrayicon.cpp:81
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr "快进"
+msgstr ""
 
 #: systrayicon.cpp:93
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr "下一个"
+msgstr ""
 
 #: systrayicon.cpp:108
 #, kde-format

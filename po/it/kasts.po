@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-01-25 13:40+0100\n"
+"PO-Revision-Date: 2023-02-05 12:54+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -816,63 +816,58 @@ msgid "No chapters found."
 msgstr "Nessun capitolo trovato."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Velocità di riproduzione"
+msgstr "Preimpostazioni della velocità di riproduzione"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "Nuova preimpostazione:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Aggiungi un nuovo valore della velocità di riproduzione all'elenco"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Imposta la velocità di riproduzione"
+msgstr "Riduci la velocità di riproduzione"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Imposta la velocità di riproduzione"
+msgstr "Incrementa la velocità di riproduzione"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Current Status:"
+#, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "Stato attuale:"
+msgstr "Preimpostazioni attuali:"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Imposta la velocità di riproduzione"
+msgstr "Seleziona la velocità di riproduzione"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Personalizza"
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -929,12 +924,12 @@ msgstr "Mostra sempre i titoli dei podcast nella vista delle sottoscrizioni"
 #: qml/Settings/GeneralSettingsPage.qml:57
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Mostra icona nel vassoio di sistema"
 
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "Minimizza nel vassoio invece di chiudere"
 
 #: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
@@ -1701,36 +1696,31 @@ msgid "Sync finished with Error"
 msgstr "Sincronizzazione terminata con un errore"
 
 #: systrayicon.cpp:42
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Posizionamento all'indietro"
 
 #: systrayicon.cpp:54
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Riproduci"
 
 #: systrayicon.cpp:62
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Pausa"
 
 #: systrayicon.cpp:81
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Posizionamento in avanti"
 
 #: systrayicon.cpp:93
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Salta in avanti"
@@ -1739,7 +1729,7 @@ msgstr "Salta in avanti"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 #~ msgid "Errors"
 #~ msgstr "Errori"
