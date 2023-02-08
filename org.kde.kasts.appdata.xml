@@ -234,6 +234,7 @@
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras predeterminada</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre d'en-tête par défaut</caption>
+      <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ნაგულისხმები თავსართის ზოლით</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
@@ -248,6 +249,7 @@
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras minimizada</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre minimale d'en-tête</caption>
+      <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ჩაკეცილი თავსართის ზოლით</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
@@ -289,6 +291,7 @@
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
       <caption xml:lang="es">Controles de reproducción móviles de Kasts</caption>
       <caption xml:lang="fr">Contrôleur Kasts de lecteur mobile</caption>
+      <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
       <caption xml:lang="ka">Kasts-ის მედიის დამკვრელის კონტროლები</caption>
       <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
