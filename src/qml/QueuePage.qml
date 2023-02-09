@@ -42,6 +42,7 @@ Kirigami.ScrollablePage {
 
     GenericEntryListView {
         id: queueList
+        reuseItems: true
         isQueue: true
         anchors.fill: parent
 
@@ -71,17 +72,14 @@ Kirigami.ScrollablePage {
             id: queueModel
         }
 
-        Component {
-            id: delegateComponent
+        delegate: Item {
+            width: queueList.width
+            height: entryDelegate.height
             GenericEntryDelegate {
+                id: entryDelegate
                 isQueue: true
                 listView: queueList
             }
-        }
-
-        delegate: Kirigami.DelegateRecycler {
-            width: queueList.width
-            sourceComponent: delegateComponent
         }
 
         moveDisplaced: Transition {
