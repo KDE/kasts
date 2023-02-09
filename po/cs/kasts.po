@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-01-04 10:19+0100\n"
+"PO-Revision-Date: 2023-02-08 13:47+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,7 +30,7 @@ msgstr "vit@pelcak.org"
 #: audiomanager.cpp:373
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
 
 #: audiomanager.cpp:507
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "Neplatné médium"
 #: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
+msgstr "Uživatelské nastavení nepovoluje stažení podcastů"
 
 #: enclosuredownloadjob.cpp:33
 #, kde-format
@@ -90,17 +90,17 @@ msgstr ""
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
 msgid "Example player KMediaSession"
-msgstr ""
+msgstr "Ukázkový přehrávač KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
 #, kde-format
 msgid "Select file..."
-msgstr ""
+msgstr "Vyberte soubor..."
 
 #: kmediasession/example-app/qml/main.qml:78
 #, kde-format
 msgid "Select media file"
-msgstr ""
+msgstr "Vyberte soubor médií"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
@@ -139,7 +139,7 @@ msgstr "Ztlumit"
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
 msgid "title: %1"
-msgstr ""
+msgstr "název: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
@@ -149,17 +149,17 @@ msgstr "umělec: %1"
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
 msgid "album: %1"
-msgstr ""
+msgstr "album: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
 msgid "mediaStatus: %1"
-msgstr ""
+msgstr "stav média: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
 #, kde-format
 msgid "playbackStatus: %1"
-msgstr ""
+msgstr "stav přehrávání: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
 #, kde-format
@@ -171,7 +171,7 @@ msgstr "chyba: %1"
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr ""
+msgstr "Přehrávám média"
 
 #: main.cpp:109
 #, kde-format
@@ -302,13 +302,13 @@ msgstr "Rychlost přehrávání: "
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr ""
+msgstr "Zobrazit seznam kapitol"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr ""
+msgstr "Zobrazit informace o epizodě"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
 #, kde-format
@@ -321,32 +321,32 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr ""
+msgstr "Otevřít nastavení hlasitosti"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Přepnout ztlumení"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
 #, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr ""
+msgstr "Zobrazit více"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr ""
+msgstr "Kapitoly"
 
 #: qml/Desktop/DesktopPlayerControls.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Zobrazit informace"
 
 #: qml/Desktop/DesktopPlayerControls.qml:379
 #, kde-format
@@ -460,7 +460,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Proud"
 
 #: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
 #: qml/GenericEntryListView.qml:155
@@ -507,17 +507,17 @@ msgstr "Otevřít podcast"
 #: qml/EntryPage.qml:288
 #, kde-format
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "Zkopírovat odkaz pro stahování epizod"
 
 #: qml/EntryPage.qml:294
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Odkaz zkopírován"
 
 #: qml/EpisodeListPage.qml:18
 #, kde-format
 msgid "Episode List"
-msgstr ""
+msgstr "Seznam epizod"
 
 #: qml/EpisodeListPage.qml:43
 #, kde-format
@@ -559,13 +559,13 @@ msgstr "Kód chyby: "
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr ""
+msgstr "Záznam o chybách"
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr ""
+msgstr "Smazat všechny chyby"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
@@ -822,13 +822,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "Nové přednastavení:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
@@ -840,64 +840,64 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr ""
+msgstr "Snížit rychlost přehrávání"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr ""
+msgstr "Zvýšit rychlost přehrávání"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr ""
+msgstr "Současné předvolby:"
 
 #: qml/PlaybackRateMenu.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr ""
+msgstr "Vyberte rychlost přehrávací"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Přizpůsobit"
 
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
-msgstr ""
+msgstr "Fronta"
 
 #: qml/QueuePage.qml:37
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr ""
+msgstr "Obnovit všechny podcasty"
 
 #: qml/QueuePage.qml:54
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "Fronta je prázdná"
 
 #: qml/QueuePage.qml:63
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 epizoda"
+msgstr[1] "%1 epizody"
+msgstr[2] "%1 epizod"
 
 #: qml/QueuePage.qml:63
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr ""
+msgstr "Zbývající čas"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -927,18 +927,18 @@ msgstr "Zobrazit ikonu v systémovém panelu"
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "Minimalizovat do systémové části panelu namísto zavření"
 
 #: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
 msgid "Playback settings"
-msgstr ""
+msgstr "Možnosti přehrávání"
 
 #: qml/Settings/GeneralSettingsPage.qml:91
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr ""
+msgstr "Vyberte podpůrnou vrstvu audio"
 
 #: qml/Settings/GeneralSettingsPage.qml:121
 #, kde-format
@@ -946,7 +946,7 @@ msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr ""
+msgstr "Čas přehrávání:"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
@@ -961,12 +961,12 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Preferovat streamování před stahováním"
 
 #: qml/Settings/GeneralSettingsPage.qml:159
 #, kde-format
 msgid "Queue settings"
-msgstr ""
+msgstr "Nastavení fronty"
 
 #: qml/Settings/GeneralSettingsPage.qml:165
 #, kde-format
@@ -977,7 +977,7 @@ msgstr "Pokračovat v přehrávání následující epizody po přehrání souč
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr ""
+msgstr "Nastavení aktualizace:"
 
 #: qml/Settings/GeneralSettingsPage.qml:175
 #, kde-format
@@ -992,17 +992,17 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "Automaticky zařadit nové epizody"
 
 #: qml/Settings/GeneralSettingsPage.qml:209
 #, kde-format
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Automaticky stahovat nové epizody"
 
 #: qml/Settings/GeneralSettingsPage.qml:222
 #, kde-format
 msgid "Played episode behavior"
-msgstr ""
+msgstr "Chování přehraných epizod"
 
 #: qml/Settings/GeneralSettingsPage.qml:225
 #, kde-format
@@ -1027,22 +1027,22 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:257
 #, kde-format
 msgid "When adding new podcasts"
-msgstr ""
+msgstr "Při přidání nových podcastů"
 
 #: qml/Settings/GeneralSettingsPage.qml:262
 #, kde-format
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "Označit všechny epizody jako přehrané"
 
 #: qml/Settings/GeneralSettingsPage.qml:273
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr ""
+msgstr "Označit nejnovější epizody jako nepřehrané"
 
 #: qml/Settings/GeneralSettingsPage.qml:296
 #, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr ""
+msgstr "Označit všechny epizody jako nepřehrané"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
@@ -1092,7 +1092,7 @@ msgstr "Povolit stahování obrázků"
 #: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Povolit streamování"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
@@ -1128,7 +1128,7 @@ msgstr "Nastavení úložiště"
 #: qml/Settings/StorageSettingsPage.qml:45
 #, kde-format
 msgid "Storage path"
-msgstr ""
+msgstr "Cesta úložišti"
 
 #: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
@@ -1153,7 +1153,7 @@ msgstr "Informace"
 #: qml/Settings/StorageSettingsPage.qml:95
 #, kde-format
 msgid "Podcast downloads"
-msgstr ""
+msgstr "Stahování podcastů"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #: qml/Settings/StorageSettingsPage.qml:103
@@ -1165,7 +1165,7 @@ msgstr "Používá %1 místa na disku"
 #: qml/Settings/StorageSettingsPage.qml:102
 #, kde-format
 msgid "Image cache"
-msgstr ""
+msgstr "Mezipaměť obrázků"
 
 #: qml/Settings/StorageSettingsPage.qml:107
 #, kde-format
@@ -1190,7 +1190,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Syncing disabled"
-msgstr ""
+msgstr "Synchronizace byla vypnuta"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -1205,7 +1205,7 @@ msgstr "Přihlášení"
 #: qml/Settings/SynchronizationSettingsPage.qml:54
 #, kde-format
 msgid "Manually sync"
-msgstr ""
+msgstr "Synchronizovat ručně"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1225,7 +1225,7 @@ msgstr ""
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
 msgid "Automatic syncing"
-msgstr ""
+msgstr "Automatická synchronizace"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1455,12 +1455,12 @@ msgstr "Spustit"
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Stav: Aktivní"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Stav: Neaktivní"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
@@ -1674,34 +1674,34 @@ msgstr "Synchronizace byla dokončena s chybou"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr ""
+msgstr "Rychle vzad"
 
 #: systrayicon.cpp:54
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
-msgstr ""
+msgstr "Přehrát"
 
 #: systrayicon.cpp:62
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr ""
+msgstr "Pozastavit"
 
 #: systrayicon.cpp:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr ""
+msgstr "Rychle vpřed"
 
 #: systrayicon.cpp:93
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr ""
+msgstr "Přeskočit vpřed"
 
 #: systrayicon.cpp:108
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"

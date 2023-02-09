@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:57+0000\n"
-"PO-Revision-Date: 2023-02-04 10:59+0300\n"
+"PO-Revision-Date: 2023-02-08 19:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1189,12 +1189,12 @@ msgstr "Eşzamanlama devre dışı"
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
 msgid "Logout"
-msgstr "Çıkış Yap"
+msgstr "Oturumu Kapat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
 msgid "Login"
-msgstr "Giriş Yap"
+msgstr "Oturum Aç"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
 #, kde-format
@@ -1551,12 +1551,12 @@ msgstr "%1 üzerinde Kasts"
 #: sync/sync.cpp:302
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr "GPodder-nextcloud sunucusuna giriş yapılamadı"
+msgstr "GPodder-nextcloud sunucusuna oturum açılamadı"
 
 #: sync/sync.cpp:341
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr "GPodder sunucusuna giriş yapılamadı"
+msgstr "GPodder sunucusuna oturum açılamadı"
 
 #: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
