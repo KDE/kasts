@@ -55,7 +55,10 @@ Kirigami.ApplicationWindow {
             case "FeedListPage": return "qrc:/FeedListPage.qml";
             case "DownloadListPage": return "qrc:/DownloadListPage.qml";
             case "SettingsPage": return "qrc:/Settings/SettingsPage.qml";
-            default: return "qrc:/FeedListPage.qml";
+            default: {
+                currentPage = "FeedListPage";
+                return "qrc:/FeedListPage.qml";
+            }
         }
     }
     function pushPage(page) {
