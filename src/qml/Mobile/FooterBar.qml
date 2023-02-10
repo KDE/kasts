@@ -111,11 +111,11 @@ Flickable {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: root.height + root.miniplayerSize + contentToPlayerSpacing
+        height: kastsMainWindow.height + kastsMainWindow.miniplayerSize + contentToPlayerSpacing
         spacing: 0
 
         Controls.Control {
-            implicitHeight: root.miniplayerSize + contentToPlayerSpacing
+            implicitHeight: kastsMainWindow.miniplayerSize + contentToPlayerSpacing
             Layout.fillWidth: true
             padding: 0
 
@@ -145,7 +145,7 @@ Flickable {
 
             MinimizedPlayerControls {
                 id: playControlItem
-                height: root.miniplayerSize
+                height: kastsMainWindow.miniplayerSize
                 focus: true
                 anchors.left: parent.left
                 anchors.right: parent.right

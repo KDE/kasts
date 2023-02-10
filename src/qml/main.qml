@@ -17,7 +17,7 @@ import org.kde.kasts.solidextras 1.0
 import org.kde.kasts 1.0
 
 Kirigami.ApplicationWindow {
-    id: root
+    id: kastsMainWindow
     title: "Kasts"
 
     width: Kirigami.Settings.isMobile ? 360 : 800
@@ -45,7 +45,7 @@ Kirigami.ApplicationWindow {
     property var lastFeed: ""
     property string currentPage: ""
 
-    property bool isWidescreen: root.width > root.height
+    property bool isWidescreen: kastsMainWindow.width > kastsMainWindow.height
 
     function getPage(page) {
         switch (page) {
@@ -68,33 +68,33 @@ Kirigami.ApplicationWindow {
     Settings {
         id: settings
 
-        property alias x: root.x
-        property alias y: root.y
+        property alias x: kastsMainWindow.x
+        property alias y: kastsMainWindow.y
         property var mobileWidth
         property var mobileHeight
         property var desktopWidth
         property var desktopHeight
         property int headerSize: Kirigami.Units.gridUnit * 5
-        property alias lastOpenedPage: root.currentPage
+        property alias lastOpenedPage: kastsMainWindow.currentPage
     }
 
     function saveWindowLayout() {
         if (Kirigami.Settings.isMobile) {
-            settings.mobileWidth = root.width;
-            settings.mobileHeight = root.height;
+            settings.mobileWidth = kastsMainWindow.width;
+            settings.mobileHeight = kastsMainWindow.height;
         } else {
-            settings.desktopWidth = root.width;
-            settings.desktopHeight = root.height;
+            settings.desktopWidth = kastsMainWindow.width;
+            settings.desktopHeight = kastsMainWindow.height;
         }
     }
 
     function restoreWindowLayout() {
         if (Kirigami.Settings.isMobile) {
-            if (settings.mobileWidth) root.width = settings.mobileWidth;
-            if (settings.mobileHeight) root.height = settings.mobileHeight;
+            if (settings.mobileWidth) kastsMainWindow.width = settings.mobileWidth;
+            if (settings.mobileHeight) kastsMainWindow.height = settings.mobileHeight;
         } else {
-            if (settings.desktopWidth) root.width = settings.desktopWidth;
-            if (settings.desktopHeight) root.height = settings.desktopHeight;
+            if (settings.desktopWidth) kastsMainWindow.width = settings.desktopWidth;
+            if (settings.desktopHeight) kastsMainWindow.height = settings.desktopHeight;
         }
     }
 
@@ -124,7 +124,7 @@ Kirigami.ApplicationWindow {
     globalDrawer: sidebar.item
     Loader {
         id: sidebar
-        active: !Kirigami.Settings.isMobile || root.isWidescreen
+        active: !Kirigami.Settings.isMobile || kastsMainWindow.isWidescreen
         sourceComponent: Kirigami.OverlayDrawer {
             id: drawer
             modal: false
@@ -134,9 +134,9 @@ Kirigami.ApplicationWindow {
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
             readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
             readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-            readonly property int buttonDisplayMode: root.isWidescreen ? (drawer.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
+            readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? (drawer.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
 
-            width: root.isWidescreen ? (drawer.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
+            width: kastsMainWindow.isWidescreen ? (drawer.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             Kirigami.Theme.inherit: false
@@ -238,8 +238,8 @@ Kirigami.ApplicationWindow {
                     checked: currentPage == "SettingsPage"
                     onClicked: {
                         checked = false;
-                        root.pageStack.layers.clear()
-                        root.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
+                        kastsMainWindow.pageStack.layers.clear()
+                        kastsMainWindow.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
                             title: i18n("Settings")
                         })
                     }
@@ -259,16 +259,16 @@ Kirigami.ApplicationWindow {
     Connections {
         target: AudioManager
         function onRaiseWindowRequested() {
-            root.visible = true;
-            root.show();
-            root.raise();
-            root.requestActivate();
+            kastsMainWindow.visible = true;
+            kastsMainWindow.show();
+            kastsMainWindow.raise();
+            kastsMainWindow.requestActivate();
         }
     }
     Connections {
         target: AudioManager
         function onQuitRequested() {
-            root.close();
+            kastsMainWindow.close();
         }
     }
 
@@ -292,7 +292,7 @@ Kirigami.ApplicationWindow {
         visible: active
         z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
-            contentHeight: root.height * 2
+            contentHeight: kastsMainWindow.height * 2
             focus: true
             contentToPlayerSpacing: footer.active ? footer.item.height + 1 : 0
         }
@@ -313,7 +313,7 @@ Kirigami.ApplicationWindow {
     footer: Loader {
         visible: active
         height: visible ? implicitHeight : 0
-        active: Kirigami.Settings.isMobile && !root.isWidescreen
+        active: Kirigami.Settings.isMobile && !kastsMainWindow.isWidescreen
         sourceComponent: BottomToolbar {
             transparentBackground: footerLoader.active
             opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
@@ -484,12 +484,12 @@ Kirigami.ApplicationWindow {
 
     // Systray implementation
     Connections {
-        target: root
+        target: kastsMainWindow
 
         function onClosing() {
             if (SystrayIcon.available && SettingsManager.showTrayIcon && SettingsManager.minimizeToTray) {
                 close.accepted = false;
-                root.hide();
+                kastsMainWindow.hide();
             } else {
                 close.accepted = true;
                 Qt.quit();
@@ -501,14 +501,14 @@ Kirigami.ApplicationWindow {
         target: SystrayIcon
 
         function onRaiseWindow() {
-            if (root.visible) {
-                root.visible = false;
-                root.hide();
+            if (kastsMainWindow.visible) {
+                kastsMainWindow.visible = false;
+                kastsMainWindow.hide();
             } else {
-                root.visible = true;
-                root.show();
-                root.raise();
-                root.requestActivate();
+                kastsMainWindow.visible = true;
+                kastsMainWindow.show();
+                kastsMainWindow.raise();
+                kastsMainWindow.requestActivate();
             }
         }
     }

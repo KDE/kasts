@@ -23,7 +23,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "view-media-playlist"
             text: i18n("Queue")
-            checked: "QueuePage" === root.currentPage
+            checked: "QueuePage" === kastsMainWindow.currentPage
             onTriggered: {
                 pushPage("QueuePage");
             }
@@ -31,7 +31,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "bookmarks"
             text: i18n("Subscriptions")
-            checked: "FeedListPage" === root.currentPage
+            checked: "FeedListPage" === kastsMainWindow.currentPage
             onTriggered: {
                 pushPage("FeedListPage");
             }
@@ -39,7 +39,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "rss"
             text: i18n("Episodes")
-            checked: "EpisodeListPage" === root.currentPage
+            checked: "EpisodeListPage" === kastsMainWindow.currentPage
             onTriggered: {
                 pushPage("EpisodeListPage")
             }
@@ -47,7 +47,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "settings-configure"
             text: i18n("Settings")
-            checked: "SettingsPage" === root.currentPage
+            checked: "SettingsPage" === kastsMainWindow.currentPage
             onTriggered: {
                 applicationWindow().pageStack.clear()
                 applicationWindow().pageStack.push("qrc:/SettingsPage.qml", {}, {

@@ -108,14 +108,14 @@ Kirigami.Page {
                         id: coverImage
                         anchors {
                             top: parent.top
-                            bottom: root.isWidescreen ? parent.bottom : undefined
+                            bottom: kastsMainWindow.isWidescreen ? parent.bottom : undefined
                             left: parent.left
-                            right: root.isWidescreen ? undefined : parent.right
+                            right: kastsMainWindow.isWidescreen ? undefined : parent.right
                             margins: 0
-                            topMargin: root.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
+                            topMargin: kastsMainWindow.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
                         }
-                        height: Math.min(parent.height - (root.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
-                        width: root.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
+                        height: Math.min(parent.height - (kastsMainWindow.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
+                        width: kastsMainWindow.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
                             imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
@@ -130,12 +130,12 @@ Kirigami.Page {
 
                     Item {
                         anchors {
-                            top: root.isWidescreen ? parent.top : coverImage.bottom
+                            top: kastsMainWindow.isWidescreen ? parent.top : coverImage.bottom
                             bottom: parent.bottom
-                            left: root.isWidescreen ? coverImage.right : parent.left
+                            left: kastsMainWindow.isWidescreen ? coverImage.right : parent.left
                             right: parent.right
-                            leftMargin: root.isWidescreen ? parent.textMargin : 0
-                            topMargin: root.isWidescreen ? 0 : parent.textMargin
+                            leftMargin: kastsMainWindow.isWidescreen ? parent.textMargin : 0
+                            topMargin: kastsMainWindow.isWidescreen ? 0 : parent.textMargin
                             bottomMargin: 0
                         }
 
@@ -398,8 +398,8 @@ Kirigami.Page {
                 }
 
                 Loader {
-                    active: !root.isWidescreen
-                    visible: !root.isWidescreen
+                    active: !kastsMainWindow.isWidescreen
+                    visible: !kastsMainWindow.isWidescreen
                     sourceComponent: slider
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -418,7 +418,7 @@ Kirigami.Page {
                         font: Kirigami.Theme.smallFont
                     }
                     Loader {
-                        active: root.isWidescreen
+                        active: kastsMainWindow.isWidescreen
                         sourceComponent: slider
                         Layout.fillWidth: true
 
