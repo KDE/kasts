@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:57+0000\n"
+"POT-Creation-Date: 2023-02-10 00:57+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -918,13 +918,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Obnoviť všetky Podcast položky"
 
-#: qml/QueuePage.qml:54
+#: qml/QueuePage.qml:55
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/QueuePage.qml:63
+#: qml/QueuePage.qml:64
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -935,7 +935,7 @@ msgstr[0] "1 epizóda"
 msgstr[1] "%1 epizódy"
 msgstr[2] "%1 epizód"
 
-#: qml/QueuePage.qml:63
+#: qml/QueuePage.qml:64
 #, fuzzy, kde-format
 #| msgid "Time left"
 msgctxt "@info:progress"

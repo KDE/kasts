@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:57+0000\n"
+"POT-Creation-Date: 2023-02-10 00:57+0000\n"
 "PO-Revision-Date: 2023-02-04 10:52+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -880,13 +880,13 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Recarrega tots els podcasts"
 
-#: qml/QueuePage.qml:54
+#: qml/QueuePage.qml:55
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "La cua està buida"
 
-#: qml/QueuePage.qml:63
+#: qml/QueuePage.qml:64
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -894,7 +894,7 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/QueuePage.qml:63
+#: qml/QueuePage.qml:64
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
