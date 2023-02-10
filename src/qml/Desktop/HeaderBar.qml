@@ -31,8 +31,6 @@ FocusScope {
         if (AudioManager.entry) {
             pushPage("QueuePage");
             pageStack.push("qrc:/EntryPage.qml", {"entry": AudioManager.entry});
-            SettingsManager.lastOpenedPage = "QueuePage";
-            SettingsManager.save();
             pageStack.get(0).lastEntry = AudioManager.entry.id;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i <  model.rowCount(); i++) {
@@ -50,8 +48,6 @@ FocusScope {
         if (AudioManager.entry) {
             pushPage("FeedListPage");
             pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": AudioManager.entry.feed});
-            SettingsManager.lastOpenedPage = "FeedListPage";
-            SettingsManager.save();
         }
     }
 

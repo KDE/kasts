@@ -12,9 +12,9 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kasts 1.0
 
 Kirigami.NavigationTabBar {
-    id: root
+    id: navBar
 
-    property alias toolbarHeight: root.implicitHeight
+    property alias toolbarHeight: navBar.implicitHeight
     property bool transparentBackground: false
 
     shadow: false
@@ -23,37 +23,31 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "view-media-playlist"
             text: i18n("Queue")
-            checked: "QueuePage" === SettingsManager.lastOpenedPage
+            checked: "QueuePage" === root.currentPage
             onTriggered: {
                 pushPage("QueuePage");
-                SettingsManager.lastOpenedPage = "QueuePage"; // for persistency
-                SettingsManager.save();
             }
         },
         Kirigami.Action {
             icon.name: "bookmarks"
             text: i18n("Subscriptions")
-            checked: "FeedListPage" === SettingsManager.lastOpenedPage
+            checked: "FeedListPage" === root.currentPage
             onTriggered: {
                 pushPage("FeedListPage");
-                SettingsManager.lastOpenedPage = "FeedListPage"; // for persistency
-                SettingsManager.save();
             }
         },
         Kirigami.Action {
             icon.name: "rss"
             text: i18n("Episodes")
-            checked: "EpisodeListPage" === SettingsManager.lastOpenedPage
+            checked: "EpisodeListPage" === root.currentPage
             onTriggered: {
                 pushPage("EpisodeListPage")
-                SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
-                SettingsManager.save();
             }
         },
         Kirigami.Action {
             icon.name: "settings-configure"
             text: i18n("Settings")
-            checked: "SettingsPage" === SettingsManager.lastOpenedPage
+            checked: "SettingsPage" === root.currentPage
             onTriggered: {
                 applicationWindow().pageStack.clear()
                 applicationWindow().pageStack.push("qrc:/SettingsPage.qml", {}, {

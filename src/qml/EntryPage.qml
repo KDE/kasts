@@ -25,8 +25,6 @@ Kirigami.ScrollablePage {
 
     function openPodcast() {
         pushPage("FeedListPage");
-        SettingsManager.lastOpenedPage = "FeedListPage"; // for persistency
-        SettingsManager.save();
         lastFeed = entry.feed.url;
         pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": entry.feed});
     }

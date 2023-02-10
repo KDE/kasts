@@ -75,6 +75,7 @@ Kirigami.ApplicationWindow {
         property var desktopWidth
         property var desktopHeight
         property int headerSize: Kirigami.Units.gridUnit * 5
+        property alias lastOpenedPage: root.currentPage
     }
 
     function saveWindowLayout() {
@@ -103,8 +104,7 @@ Kirigami.ApplicationWindow {
 
     Component.onCompleted: {
         restoreWindowLayout();
-        currentPage = SettingsManager.lastOpenedPage;
-        pageStack.initialPage = getPage(SettingsManager.lastOpenedPage);
+        pageStack.initialPage = getPage(currentPage);
 
         // Delete played enclosures if set in settings
         if (SettingsManager.autoDeleteOnPlayed == 2) {
@@ -178,8 +178,6 @@ Kirigami.ApplicationWindow {
                             checked: currentPage == "QueuePage"
                             onClicked: {
                                 pushPage("QueuePage")
-                                SettingsManager.lastOpenedPage = "QueuePage" // for persistency
-                                SettingsManager.save();
                             }
                         }
                         Kirigami.NavigationTabButton {
@@ -190,8 +188,6 @@ Kirigami.ApplicationWindow {
                             checked: currentPage == "DiscoverPage"
                             onClicked: {
                                 pushPage("DiscoverPage")
-                                SettingsManager.lastOpenedPage = "DiscoverPage" // for persistency
-                                SettingsManager.save();
                             }
                         }
                         Kirigami.NavigationTabButton {
@@ -202,8 +198,6 @@ Kirigami.ApplicationWindow {
                             checked: currentPage == "FeedListPage"
                             onClicked: {
                                 pushPage("FeedListPage")
-                                SettingsManager.lastOpenedPage = "FeedListPage" // for persistency
-                                SettingsManager.save();
                             }
                         }
                         Kirigami.NavigationTabButton {
@@ -214,8 +208,6 @@ Kirigami.ApplicationWindow {
                             checked: currentPage == "EpisodeListPage"
                             onClicked: {
                                 pushPage("EpisodeListPage")
-                                SettingsManager.lastOpenedPage = "EpisodeListPage" // for persistency
-                                SettingsManager.save();
                             }
                         }
                         Kirigami.NavigationTabButton {
@@ -226,8 +218,6 @@ Kirigami.ApplicationWindow {
                             checked: currentPage == "DownloadListPage"
                             onClicked: {
                                 pushPage("DownloadListPage")
-                                SettingsManager.lastOpenedPage = "DownloadListPage" // for persistency
-                                SettingsManager.save();
                             }
                         }
                     }

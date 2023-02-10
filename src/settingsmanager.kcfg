@@ -128,10 +128,6 @@
         </entry>
     </group>
     <group name="Persistency">
-        <entry name="lastOpenedPage" type="String">
-            <label>The top-level page that was open at shutdown</label>
-            <default>FeedListPage</default>
-        </entry>
         <entry name="sleepTimerValue" type="Int">
             <label>The number of seconds/minutes/hours to set the sleep timer to</label>
             <default>30</default>
