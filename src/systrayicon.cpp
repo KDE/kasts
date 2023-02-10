@@ -6,6 +6,7 @@
 
 #include "systrayicon.h"
 
+#ifndef Q_OS_ANDROID
 #include <QCoreApplication>
 #include <QFile>
 #include <QMenu>
@@ -117,6 +118,12 @@ SystrayIcon::SystrayIcon(QObject *parent)
         show();
     }
 }
+#else
+SystrayIcon::SystrayIcon(QObject *parent)
+    : QObject(parent)
+{
+}
+#endif
 
 SystrayIcon::~SystrayIcon()
 {
@@ -124,5 +131,9 @@ SystrayIcon::~SystrayIcon()
 
 bool SystrayIcon::available() const
 {
+#ifndef Q_OS_ANDROID
     return QSystemTrayIcon::isSystemTrayAvailable();
+#else
+    return false;
+#endif
 }

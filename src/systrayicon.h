@@ -7,9 +7,16 @@
 #pragma once
 
 #include <QObject>
+#ifndef Q_OS_ANDROID
 #include <QSystemTrayIcon>
+#endif
 
-class SystrayIcon : public QSystemTrayIcon
+class SystrayIcon
+#ifndef Q_OS_ANDROID
+    : public QSystemTrayIcon
+#else
+    : public QObject
+#endif
 {
     Q_OBJECT
 
