@@ -212,6 +212,19 @@ ListView {
         }
     }
 
+    property var streamAction: Kirigami.Action {
+        text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
+        icon.name: "qrc:/media-playback-start-cloud"
+        visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false)
+        onTriggered: {
+            if (!singleSelectedEntry.queueStatus) {
+                singleSelectedEntry.queueStatus = true;
+            }
+            AudioManager.entry = singleSelectedEntry;
+            AudioManager.play();
+        }
+    }
+
     property var defaultActionList: [addToQueueAction,
                                      removeFromQueueAction,
                                      markPlayedAction,
@@ -220,6 +233,7 @@ ListView {
                                      markNotNewAction,
                                      downloadEnclosureAction,
                                      deleteEnclosureAction,
+                                     streamAction,
                                      selectAllAction,
                                      selectNoneAction]
 
@@ -266,6 +280,11 @@ ListView {
             visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
+        Controls.MenuItem {
+            action: listView.streamAction
+            visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
+         }
         onClosed: {
             // reset to normal selection if this context menu is closed
             listView.selectionForContextMenu = listView.selectionModel.selectedIndexes;
