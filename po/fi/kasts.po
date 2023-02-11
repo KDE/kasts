@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-10 00:57+0000\n"
+"POT-Creation-Date: 2023-02-11 00:57+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -117,14 +117,14 @@ msgid "Open"
 msgstr "Avaa podcast"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:155
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
 #: qml/GenericEntryDelegate.qml:322
 #, kde-format
 msgid "Play"
 msgstr "Soita"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
 #: qml/GenericEntryDelegate.qml:343
 #, kde-format
 msgid "Pause"
@@ -375,13 +375,13 @@ msgstr "Uniajastin"
 msgid "Chapters"
 msgstr "Luvut"
 
-#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:122
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:118
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Raidalla ei ole otsikkoa"
 
-#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -389,7 +389,7 @@ msgid "No Track Loaded"
 msgstr "Ei ladattua raitaa"
 
 # *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:188
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:189
 #, kde-format
 msgid "Discover"
 msgstr "Etsi"
@@ -414,12 +414,12 @@ msgstr "Tilaa"
 msgid "Subscribed"
 msgstr "Tilattu"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:224
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:219
 #, kde-format
 msgid "Downloads"
 msgstr "Lataukset"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:49
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:47
 #: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
@@ -450,28 +450,28 @@ msgstr "Ladattu"
 msgid "Episode Details"
 msgstr "Jaksotiedot"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:112
 #, kde-format
 msgid "Open in Browser"
 msgstr "Avaa selaimeen"
 
-#: qml/EntryPage.qml:122 qml/GenericEntryDelegate.qml:295
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:295
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Lataa"
 
-#: qml/EntryPage.qml:131 qml/GenericEntryDelegate.qml:304
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:304
 #, kde-format
 msgid "Cancel Download"
 msgstr "Peru lataus"
 
-#: qml/EntryPage.qml:139 qml/EntryPage.qml:192 qml/GenericEntryDelegate.qml:310
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:310
 #, kde-format
 msgid "Delete Download"
 msgstr "Poista lataus"
 
-#: qml/EntryPage.qml:164 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -479,55 +479,55 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:287
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:287
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Poista jonosta"
 
-#: qml/EntryPage.qml:176 qml/GenericEntryDelegate.qml:316
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:316
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Lisää jonoon"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:196
 #, kde-format
 msgid "Reset Play Position"
 msgstr "Nollaa soittokohta"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:173
+#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:173
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Merkitse kuuntelemattomaksi"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:165
+#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
 msgstr "Merkitse kuunnelluksi"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:189
+#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:189
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Poista ”Uusi”-nimiö"
 
-#: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:181
+#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:181
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
 
-#: qml/EntryPage.qml:218
+#: qml/EntryPage.qml:216
 #, kde-format
 msgid "Open Podcast"
 msgstr "Avaa podcast"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:286
 #, fuzzy, kde-format
 #| msgid "Episode Download URL:"
 msgid "Copy Episode Download URL"
 msgstr "Jakson latausosoite:"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:292
 #, kde-format
 msgid "Link copied"
 msgstr ""
@@ -537,27 +537,27 @@ msgstr ""
 msgid "Episode List"
 msgstr "Jaksoluettelo"
 
-#: qml/EpisodeListPage.qml:43
+#: qml/EpisodeListPage.qml:41
 #, kde-format
 msgid "Filter"
 msgstr "Suodata"
 
-#: qml/EpisodeListPage.qml:67 qml/FeedDetailsPage.qml:331
+#: qml/EpisodeListPage.qml:65 qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Ei jaksoja saatavilla"
 
-#: qml/EpisodeListPage.qml:98
+#: qml/EpisodeListPage.qml:96
 #, kde-format
 msgid "Reset"
 msgstr "Palauta"
 
-#: qml/EpisodeListPage.qml:106
+#: qml/EpisodeListPage.qml:104
 #, kde-format
 msgid "Filter Active: "
 msgstr "Aktiivinen suodatin: "
 
-#: qml/EpisodeListPage.qml:114
+#: qml/EpisodeListPage.qml:112
 #, kde-format
 msgid "Select Filter"
 msgstr "Valitse suodatin"
@@ -659,7 +659,7 @@ msgstr "Virhe (%1): %2"
 msgid "Remove Podcast"
 msgstr "Poista podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:200 qml/Mobile/BottomToolbar.qml:35
+#: qml/FeedListPage.qml:20 qml/main.qml:199 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Tilaukset"
@@ -776,23 +776,23 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Poista lataus"
 msgstr[1] "Poista lataukset"
 
-#: qml/main.qml:176 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:179 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "Lisää jonoon"
 
-#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:45
+#: qml/main.qml:209 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Jaksot"
 
-#: qml/main.qml:246 qml/main.qml:253 qml/Mobile/BottomToolbar.qml:55
-#: qml/Mobile/BottomToolbar.qml:60
+#: qml/main.qml:239 qml/main.qml:246 qml/Mobile/BottomToolbar.qml:49
+#: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
 
-#: qml/main.qml:342
+#: qml/main.qml:335
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -800,7 +800,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Virkistetty %2/%1 podcast"
 msgstr[1] "Virkistetty %2/%1 podcastia"
 
-#: qml/main.qml:369
+#: qml/main.qml:362
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -808,7 +808,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Siirrettiin %2/%1 tiedosto"
 msgstr[1] "Siirrettiin %2/%1 tiedostoa"
 
-#: qml/main.qml:433
+#: qml/main.qml:426
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1727,42 +1727,42 @@ msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synkronointi päättyi virheeseen"
 
-#: systrayicon.cpp:42
+#: systrayicon.cpp:43
 #, fuzzy, kde-format
 #| msgid "Seek Backward"
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Hyppää taaksepäin"
 
-#: systrayicon.cpp:54
+#: systrayicon.cpp:55
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Soita"
 
-#: systrayicon.cpp:62
+#: systrayicon.cpp:63
 #, fuzzy, kde-format
 #| msgid "Pause"
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Keskeytä"
 
-#: systrayicon.cpp:81
+#: systrayicon.cpp:82
 #, fuzzy, kde-format
 #| msgid "Seek Forward"
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Hyppää eteenpäin"
 
-#: systrayicon.cpp:93
+#: systrayicon.cpp:94
 #, fuzzy, kde-format
 #| msgid "Skip Forward"
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Hyppää eteenpäin"
 
-#: systrayicon.cpp:108
+#: systrayicon.cpp:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
