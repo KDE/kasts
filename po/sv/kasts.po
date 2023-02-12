@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:57+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -469,7 +469,7 @@ msgstr "Avbryt nerladdning"
 msgid "Delete Download"
 msgstr "Ta bort nerladdning"
 
-#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -762,6 +762,14 @@ msgstr "Läs"
 #, kde-format
 msgid "New"
 msgstr "Ny"
+
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#, kde-format
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr ""
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format

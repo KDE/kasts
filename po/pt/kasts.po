@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:57+0000\n"
 "PO-Revision-Date: 2023-01-19 02:31+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -470,7 +470,7 @@ msgstr "Cancelar a Transferência"
 msgid "Delete Download"
 msgstr "Apagar a Transferência"
 
-#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -761,6 +761,18 @@ msgstr "Lido"
 #, kde-format
 msgid "New"
 msgstr "Novo"
+
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to start playback by streaming the episode rather than downloading "
+#| "it first"
+#| msgid "Stream"
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Transmitir"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format

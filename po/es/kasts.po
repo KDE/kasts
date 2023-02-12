@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:57+0000\n"
 "PO-Revision-Date: 2023-02-04 12:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -458,7 +458,7 @@ msgstr "Cancelar descarga"
 msgid "Delete Download"
 msgstr "Borrar descarga"
 
-#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -749,6 +749,18 @@ msgstr "Leer"
 #, kde-format
 msgid "New"
 msgstr "Nuevo"
+
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to start playback by streaming the episode rather than downloading "
+#| "it first"
+#| msgid "Stream"
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Emisión"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format

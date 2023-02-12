@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:57+0000\n"
 "PO-Revision-Date: 2023-02-08 13:47+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -454,7 +454,7 @@ msgstr "Zrušit stahování"
 msgid "Delete Download"
 msgstr "Smazat stahování"
 
-#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -748,6 +748,18 @@ msgstr "Čtení"
 #, kde-format
 msgid "New"
 msgstr "Nový"
+
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to start playback by streaming the episode rather than downloading "
+#| "it first"
+#| msgid "Stream"
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Proud"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format

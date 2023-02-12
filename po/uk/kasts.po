@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:57+0000\n"
 "PO-Revision-Date: 2023-02-04 08:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -461,7 +461,7 @@ msgstr "Скасувати отримання"
 msgid "Delete Download"
 msgstr "Вилучити отримані дані"
 
-#: qml/EntryPage.qml:162 qml/GenericEntryDelegate.qml:331
+#: qml/EntryPage.qml:162
 #, kde-format
 msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
@@ -758,6 +758,18 @@ msgstr "Прочитано"
 #, kde-format
 msgid "New"
 msgstr "Нова"
+
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Action to start playback by streaming the episode rather than downloading "
+#| "it first"
+#| msgid "Stream"
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Трансляція"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format
