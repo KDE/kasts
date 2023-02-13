@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-12 00:57+0000\n"
-"PO-Revision-Date: 2023-02-04 12:34+0100\n"
+"PO-Revision-Date: 2023-02-13 00:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -751,16 +751,12 @@ msgid "New"
 msgstr "Nuevo"
 
 #: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr "Emisión"
+msgstr "Emitir"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format
