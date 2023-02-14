@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-12 00:57+0000\n"
-"PO-Revision-Date: 2023-02-05 06:47+0100\n"
+"PO-Revision-Date: 2023-02-13 06:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -748,11 +748,7 @@ msgid "New"
 msgstr "ახალი"
 
 #: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
