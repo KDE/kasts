@@ -19,6 +19,7 @@ import org.kde.kasts 1.0
 Kirigami.SwipeListItem {
     id: listItem
     alwaysVisibleActions: true
+    separatorVisible: true
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
