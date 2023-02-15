@@ -17,6 +17,7 @@
 #include "audiologging.h"
 #include "datamanager.h"
 #include "feed.h"
+#include "fetcher.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 
@@ -155,7 +156,13 @@ KMediaSession::Error AudioManager::error() const
 qint64 AudioManager::duration() const
 {
     // we fake the duration in case the track has not been properly loaded yet
-    if (d->m_player.duration() > 0) {
+    if (!d->m_readyToPlay) {
+        if (d->m_entry && d->m_entry->enclosure()) {
+            return d->m_entry->enclosure()->duration() * 1000;
+        } else {
+            return 0;
+        }
+    } else if (d->m_player.duration() > 0) {
         return d->m_player.duration();
     } else if (d->m_entry && d->m_entry->enclosure()) {
         return d->m_entry->enclosure()->duration() * 1000;
@@ -167,7 +174,13 @@ qint64 AudioManager::duration() const
 qint64 AudioManager::position() const
 {
     // we fake the player position in case there is still a pending seek
-    if (d->m_pendingSeek != -1) {
+    if (!d->m_readyToPlay) {
+        if (d->m_entry && d->m_entry->enclosure()) {
+            return d->m_entry->enclosure()->playPosition();
+        } else {
+            return 0;
+        }
+    } else if (d->m_pendingSeek != -1) {
         return d->m_pendingSeek;
     } else {
         return d->m_player.position();
@@ -248,8 +261,13 @@ void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
 
 void AudioManager::setEntry(Entry *entry)
 {
+    qCDebug(kastsAudio) << "begin AudioManager::setEntry";
     // First unset current track and save playing state, such that any signal
     // that still fires doesn't operate on the wrong track.
+
+    // disconnect any pending redirectUrl signals
+    bool signalDisconnect = disconnect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, nullptr);
+    qCDebug(kastsAudio) << "disconnected dangling foundRedirectedUrl signal:" << signalDisconnect;
 
     // reset any pending seek action and lock position saving
     d->m_pendingSeek = -1;
@@ -258,9 +276,9 @@ void AudioManager::setEntry(Entry *entry)
     Entry *oldEntry = d->m_entry;
     d->m_entry = nullptr;
 
-    // First check if the previous track needs to be marked as read
+    // Check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
-    if (oldEntry) {
+    if (oldEntry && !signalDisconnect) {
         qCDebug(kastsAudio) << "Checking previous track";
         qCDebug(kastsAudio) << "Left time" << (duration() - position());
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
@@ -284,36 +302,46 @@ void AudioManager::setEntry(Entry *entry)
             || (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
                 && (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming())))) {
         qCDebug(kastsAudio) << "Going to change source";
-        QUrl loadUrl;
-        if (entry->enclosure()->status() == Enclosure::Downloaded) {
-            loadUrl = QUrl::fromLocalFile(entry->enclosure()->path());
+
+        setEntryInfo(entry);
+
+        if (entry->enclosure()->status() == Enclosure::Downloaded) { // i.e. local file
             if (d->m_isStreaming) {
                 d->m_isStreaming = false;
                 Q_EMIT isStreamingChanged();
             }
+
+            // call method which will try to make sure that the stream will skip
+            // to the previously save position and make sure that the duration
+            // and position are reported correctly
+            prepareAudio(QUrl::fromLocalFile(entry->enclosure()->path()));
         } else {
-            loadUrl = QUrl(entry->enclosure()->url());
-            if (!d->m_isStreaming) {
-                d->m_isStreaming = true;
-                Q_EMIT isStreamingChanged();
-            }
+            // i.e. streaming; we first want to resolve the real URL, following
+            // redirects
+            QUrl loadUrl = QUrl(entry->enclosure()->url());
+            Fetcher::instance().getRedirectedUrl(loadUrl);
+            connect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, [this, entry, loadUrl](const QUrl &oldUrl, const QUrl &newUrl) {
+                qCDebug(kastsAudio) << oldUrl << newUrl;
+                if (loadUrl == oldUrl) {
+                    bool signalDisconnect = disconnect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, nullptr);
+                    qCDebug(kastsAudio) << "disconnected" << signalDisconnect;
+
+                    if (!d->m_isStreaming) {
+                        d->m_isStreaming = true;
+                        Q_EMIT isStreamingChanged();
+                    }
+
+                    d->m_entry = entry;
+                    Q_EMIT entryChanged(entry);
+
+                    // call method which will try to make sure that the stream will skip
+                    // to the previously save position and make sure that the duration
+                    // and position are reported correctly
+                    prepareAudio(newUrl);
+                }
+            });
         }
 
-        d->m_entry = entry;
-        Q_EMIT entryChanged(entry);
-        d->m_player.setSource(loadUrl);
-
-        // save the current playing track in the settingsfile for restoring on startup
-        DataManager::instance().setLastPlayingEntry(d->m_entry->id());
-        qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
-
-        // call method which will try to make sure that the stream will skip to
-        // the previously save position and make sure that the duration and
-        // position are reported correctly
-        prepareAudio();
-
-        // set metadata for MPRIS2
-        updateMetaData();
     } else {
         DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
         d->m_entry = nullptr;
@@ -383,9 +411,11 @@ void AudioManager::play()
     // still being prepared, that the playback will start once it's ready
     d->m_continuePlayback = true;
 
-    d->m_player.play();
-    d->m_isSeekable = true;
-    Q_EMIT seekableChanged(d->m_isSeekable);
+    if (d->m_readyToPlay) {
+        d->m_player.play();
+        d->m_isSeekable = true;
+        Q_EMIT seekableChanged(d->m_isSeekable);
+    }
 }
 
 void AudioManager::pause()
@@ -396,8 +426,10 @@ void AudioManager::pause()
     // still being prepared, that the playback will pause once it's ready
     d->m_continuePlayback = false;
 
-    d->m_isSeekable = true;
-    d->m_player.pause();
+    if (d->m_readyToPlay) {
+        d->m_isSeekable = true;
+        d->m_player.pause();
+    }
 }
 
 void AudioManager::playPause()
@@ -425,7 +457,7 @@ void AudioManager::seek(qint64 position)
     // if there is still a pending seek, then we simply update that pending
     // value, and then manually send the positionChanged signal to have the UI
     // updated
-    if (d->m_pendingSeek != -1) {
+    if (d->m_pendingSeek != -1 && d->m_readyToPlay) {
         d->m_pendingSeek = position;
         Q_EMIT positionChanged(position);
     } else {
@@ -474,9 +506,6 @@ bool AudioManager::canGoNext() const
 void AudioManager::next()
 {
     if (canGoNext()) {
-        qCDebug(kastsAudio) << "Current playbackStatus before next() is:" << playbackState();
-        d->m_continuePlayback = playbackState() == KMediaSession::PlaybackState::PlayingState;
-
         int index = DataManager::instance().queue().indexOf(d->m_entry->id());
         qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
         setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]));
@@ -563,8 +592,45 @@ void AudioManager::savePlayPosition()
     qCDebug(kastsAudio) << d->m_player.mediaStatus();
 }
 
-void AudioManager::prepareAudio()
+void AudioManager::setEntryInfo(Entry *entry)
 {
+    // Set info for next track in preparation for the actual audio player to be
+    // set up and configured.  We set all the info based on what's in the entry
+    // and disable all the controls until the track is ready to be played
+
+    d->m_player.setSource(QUrl());
+    d->m_entry = entry;
+    Q_EMIT entryChanged(entry);
+
+    qint64 newDuration = entry->enclosure()->duration() * 1000;
+    qint64 newPosition = entry->enclosure()->playPosition();
+    if (newPosition > newDuration && newPosition < 0) {
+        newPosition = 0;
+    }
+
+    // Emit positionChanged and durationChanged signals to make sure that
+    // the GUI can see the faked values (if needed)
+    Q_EMIT durationChanged(newDuration);
+    Q_EMIT positionChanged(newPosition);
+
+    d->m_readyToPlay = false;
+    Q_EMIT canPlayChanged();
+    Q_EMIT canPauseChanged();
+    Q_EMIT canSkipForwardChanged();
+    Q_EMIT canSkipBackwardChanged();
+    Q_EMIT canGoNextChanged();
+    d->m_isSeekable = false;
+    Q_EMIT seekableChanged(false);
+}
+
+void AudioManager::prepareAudio(const QUrl &loadUrl)
+{
+    d->m_player.setSource(loadUrl);
+
+    // save the current playing track in the settingsfile for restoring on startup
+    DataManager::instance().setLastPlayingEntry(d->m_entry->id());
+    qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
+
     d->m_player.pause();
 
     qint64 newDuration = duration();
@@ -603,10 +669,14 @@ void AudioManager::prepareAudio()
         // we call play() and not d->m_player.play() because we want to trigger
         // things like inhibit suspend
         play();
-        d->m_continuePlayback = false;
+    } else {
+        pause();
     }
 
     d->m_lockPositionSaving = false;
+
+    // set metadata for MPRIS2
+    updateMetaData();
 }
 
 void AudioManager::checkForPendingSeek()

@@ -155,7 +155,8 @@ private Q_SLOTS:
     void playerMutedChanged();
     void playerVolumeChanged();
     void savePlayPosition();
-    void prepareAudio();
+    void setEntryInfo(Entry *entry);
+    void prepareAudio(const QUrl &loadUrl);
     void checkForPendingSeek();
     void updateMetaData();
 

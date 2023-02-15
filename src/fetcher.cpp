@@ -12,15 +12,12 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
-#include <QDomElement>
 #include <QFile>
 #include <QFileInfo>
-#include <QMultiMap>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QTextDocumentFragment>
 #include <QTime>
-#include <Syndication/Syndication>
+#include <QTimer>
 
 #include "database.h"
 #include "enclosure.h"
@@ -202,6 +199,24 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     });
 
     return reply;
+}
+
+void Fetcher::getRedirectedUrl(const QUrl &url)
+{
+    QNetworkRequest request((QUrl(url)));
+    request.setTransferTimeout(5000); // wait 5 seconds; it will fall back to original url otherwise
+
+    QNetworkReply *reply = head(request);
+
+    connect(reply, &QNetworkReply::finished, this, [this, reply, url]() {
+        qCDebug(kastsFetcher) << "finished looking for redirect; this is the old url and the redirected url:" << url << reply->url();
+
+        QUrl newUrl = reply->url();
+        QTimer::singleShot(0, this, [this, url, newUrl]() {
+            Q_EMIT foundRedirectedUrl(url, newUrl);
+        });
+        reply->deleteLater();
+    });
 }
 
 QNetworkReply *Fetcher::get(QNetworkRequest &request) const
