@@ -225,5 +225,5 @@ QNetworkReply *Fetcher::head(QNetworkRequest &request) const
 
 void Fetcher::setHeader(QNetworkRequest &request) const
 {
-    request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray("; Syndication"));
+    request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray(" Syndication"));
 }
