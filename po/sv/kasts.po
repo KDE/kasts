@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:57+0000\n"
+"POT-Creation-Date: 2023-02-15 00:58+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -117,14 +117,14 @@ msgstr "Öppna poddradioprogram"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:322
+#: qml/GenericEntryDelegate.qml:323
 #, kde-format
 msgid "Play"
 msgstr "Spela"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, kde-format
 msgid "Pause"
 msgstr "Paus"
@@ -453,18 +453,18 @@ msgstr "Information om avsnitt"
 msgid "Open in Browser"
 msgstr "Öppna i webbläsare"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:295
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Ladda ner"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:304
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
 #, kde-format
 msgid "Cancel Download"
 msgstr "Avbryt nerladdning"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:310
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Delete Download"
 msgstr "Ta bort nerladdning"
@@ -477,13 +477,13 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:287
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Ta bort från kö"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:316
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -748,22 +748,22 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Played"
 msgstr "Spelad"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Read"
 msgstr "Läs"
 
-#: qml/GenericEntryDelegate.qml:174
+#: qml/GenericEntryDelegate.qml:175
 #, kde-format
 msgid "New"
 msgstr "Ny"
 
-#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

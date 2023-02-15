@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:57+0000\n"
+"POT-Creation-Date: 2023-02-15 00:58+0000\n"
 "PO-Revision-Date: 2023-02-13 06:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -115,14 +115,14 @@ msgstr "გახსნა"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:322
+#: qml/GenericEntryDelegate.qml:323
 #, kde-format
 msgid "Play"
 msgstr "დაკვრა"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, kde-format
 msgid "Pause"
 msgstr "შეჩერება"
@@ -439,18 +439,18 @@ msgstr "ეპიზოდის დეტალები"
 msgid "Open in Browser"
 msgstr "ბრაუზერში გახსნა"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:295
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "ჩამოტვირთვა"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:304
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
 #, kde-format
 msgid "Cancel Download"
 msgstr "გადმოწერის გაუქმება"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:310
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Delete Download"
 msgstr "გადმოწერის წაშლა"
@@ -463,13 +463,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "ნაკადი"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:287
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "რიგიდან წაშლა"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:316
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -732,22 +732,22 @@ msgstr "მარჯვნივ მოტრიალება"
 msgid "Close"
 msgstr "დახურვა"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Played"
 msgstr "დაკრული"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Read"
 msgstr "წაკითხვა"
 
-#: qml/GenericEntryDelegate.qml:174
+#: qml/GenericEntryDelegate.qml:175
 #, kde-format
 msgid "New"
 msgstr "ახალი"
 
-#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
