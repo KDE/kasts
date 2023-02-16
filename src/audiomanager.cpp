@@ -27,7 +27,7 @@ class AudioManagerPrivate
 private:
     SolidExtras::NetworkStatus m_networkStatus;
 
-    KMediaSession m_player;
+    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"));
 
     Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
@@ -57,8 +57,6 @@ AudioManager::AudioManager(QObject *parent)
     : QObject(parent)
     , d(std::make_unique<AudioManagerPrivate>())
 {
-    d->m_player.setPlayerName(QStringLiteral("kasts"));
-    d->m_player.setDesktopEntryName(QStringLiteral("org.kde.kasts"));
     d->m_player.setMpris2PauseInsteadOfStop(true);
 
     connect(&d->m_player, &KMediaSession::currentBackendChanged, this, &AudioManager::currentBackendChanged);

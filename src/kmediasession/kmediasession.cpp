@@ -45,16 +45,14 @@ private:
     std::unique_ptr<Mpris2> m_mpris;
     MetaData *m_meta = nullptr;
 
-    QString m_playerName =
-        KAboutData::applicationData().displayName().isEmpty() ? QStringLiteral("KMediaSession") : KAboutData::applicationData().displayName();
-    QString m_desktopEntryName =
-        KAboutData::applicationData().desktopFileName().isEmpty() ? QStringLiteral("org.kde.kmediasession") : KAboutData::applicationData().desktopFileName();
+    QString m_playerName;
+    QString m_desktopEntryName;
     bool m_mpris2PauseInsteadOfStop = false;
     bool m_canGoNext = false;
     bool m_canGoPrevious = false;
 };
 
-KMediaSession::KMediaSession(QObject *parent)
+KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEntryName, QObject *parent)
     : QObject(parent)
     , d(std::make_unique<KMediaSessionPrivate>())
 {
@@ -75,6 +73,13 @@ KMediaSession::KMediaSession(QObject *parent)
 #endif
 
     // set up mpris2
+    d->m_playerName = playerName.isEmpty()
+        ? (KAboutData::applicationData().displayName().isEmpty() ? QStringLiteral("KMediaSession") : KAboutData::applicationData().displayName())
+        : playerName;
+    d->m_desktopEntryName = desktopEntryName.isEmpty()
+        ? (KAboutData::applicationData().desktopFileName().isEmpty() ? QStringLiteral("org.kde.kmediasession")
+                                                                     : KAboutData::applicationData().desktopFileName())
+        : desktopEntryName;
     d->m_mpris = std::make_unique<Mpris2>(this);
 
     qCDebug(KMediaSessionLog) << "KMediaSession::KMediaSession end";

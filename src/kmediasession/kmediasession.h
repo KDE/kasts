@@ -86,7 +86,7 @@ public:
     };
     Q_ENUM(Error)
 
-    explicit KMediaSession(QObject *parent = nullptr);
+    explicit KMediaSession(const QString &playerName = QStringLiteral(""), const QString &desktopEntryName = QStringLiteral(""), QObject *parent = nullptr);
     ~KMediaSession();
 
     [[nodiscard]] Q_INVOKABLE QString backendName(KMediaSession::MediaBackends backend) const;
