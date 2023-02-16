@@ -243,6 +243,7 @@
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ნაგულისხმები თავსართის ზოლით</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
+      <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
@@ -258,6 +259,7 @@
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ჩაკეცილი თავსართის ზოლით</caption>
       <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
+      <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
@@ -300,6 +302,7 @@
       <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
       <caption xml:lang="ka">Kasts-ის მედიის დამკვრელის კონტროლები</caption>
       <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
+      <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
