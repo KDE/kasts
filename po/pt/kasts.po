@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:57+0000\n"
-"PO-Revision-Date: 2023-01-19 02:31+0000\n"
+"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"PO-Revision-Date: 2023-02-15 15:58+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -120,14 +120,14 @@ msgstr "Abrir"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:322
+#: qml/GenericEntryDelegate.qml:323
 #, kde-format
 msgid "Play"
 msgstr "Reproduzir"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -307,34 +307,29 @@ msgid "Playback Rate: "
 msgstr "Taxa de Reprodução: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Capítulos"
+msgstr "Mostrar a Lista de Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "1 Episódio"
+msgstr "Mostrar a Informação do Episódio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Configuração Geral"
+msgstr "Abrir a Configuração do Alarme"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Configuração Geral"
+msgstr "Abrir a Configuração do Volume"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -344,15 +339,13 @@ msgid "Toggle Mute"
 msgstr "Comutar o Silêncio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Mostrar o Registo de Erros"
+msgstr "Mostrar Mais"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítulos"
@@ -361,11 +354,10 @@ msgstr "Capítulos"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Mostrar as Informações"
 
 #: qml/Desktop/DesktopPlayerControls.qml:379
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Alarme"
@@ -454,18 +446,18 @@ msgstr "Detalhes do Episódio"
 msgid "Open in Browser"
 msgstr "Abrir no Navegador"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:295
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Obter"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:304
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancelar a Transferência"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:310
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Delete Download"
 msgstr "Apagar a Transferência"
@@ -478,13 +470,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "Transmitir"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:287
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Remover da Fila"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:316
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -747,27 +739,23 @@ msgstr "Rodar para a direita"
 msgid "Close"
 msgstr "Fechar"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Played"
 msgstr "Reproduzido"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:169
 #, kde-format
 msgid "Read"
 msgstr "Lido"
 
-#: qml/GenericEntryDelegate.qml:174
+#: qml/GenericEntryDelegate.qml:175
 #, kde-format
 msgid "New"
 msgstr "Novo"
 
-#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:216
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
+#, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
@@ -837,62 +825,58 @@ msgid "No chapters found."
 msgstr "Não foram encontrados capítulos."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Taxa de Reprodução: "
+msgstr "Predefinições da Taxa de Reprodução"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "Nova Predefinição:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Adicionar um novo valor da taxa de reprodução à lista"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Definir a Taxa de Reprodução"
+msgstr "Diminuir a Taxa de Reprodução"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Definir a Taxa de Reprodução"
+msgstr "Aumentar a Taxa de Reprodução"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr ""
+msgstr "Predefinições Actuais:"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Definir a Taxa de Reprodução"
+msgstr "Seleccionar a Taxa de Reprodução"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Personalizar"
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -954,7 +938,7 @@ msgstr "Mostrar o ícone na bandeja do sistema"
 #: qml/Settings/GeneralSettingsPage.qml:68
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "Minimizar para a bandeja em vez de fechar"
 
 #: qml/Settings/GeneralSettingsPage.qml:86
 #, kde-format
@@ -1718,8 +1702,7 @@ msgid "Sync finished with Error"
 msgstr "Sincronização Terminada com Erros"
 
 #: systrayicon.cpp:43
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Recuar"
@@ -1737,21 +1720,19 @@ msgid "Pause"
 msgstr "Pausa"
 
 #: systrayicon.cpp:82
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Avançar"
 
 #: systrayicon.cpp:94
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr "Avançar"
+msgstr "Seguinte"
 
 #: systrayicon.cpp:109
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Sair"
