@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-17 00:57+0000\n"
 "PO-Revision-Date: 2023-02-12 14:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,14 +30,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:373
+#: audiomanager.cpp:371
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
 "d'ús mesurat"
 
-#: audiomanager.cpp:507
+#: audiomanager.cpp:505
 #, kde-format
 msgid "Invalid Media"
 msgstr "Suport no vàlid"

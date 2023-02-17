@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-17 00:57+0000\n"
 "PO-Revision-Date: 2023-02-15 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -29,12 +29,12 @@ msgstr ""
 "kde-china@kde.org, tysontan@tysontan.com, wordless@echo.moe, "
 "staronthedky@kde.org"
 
-#: audiomanager.cpp:373
+#: audiomanager.cpp:371
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:507
+#: audiomanager.cpp:505
 #, kde-format
 msgid "Invalid Media"
 msgstr "媒体无效"

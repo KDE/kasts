@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-17 00:57+0000\n"
 "PO-Revision-Date: 2023-02-12 16:41+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: audiomanager.cpp:373
+#: audiomanager.cpp:371
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Geen verbinding of streaming op bemeterde verbinding toegestaan"
 
-#: audiomanager.cpp:507
+#: audiomanager.cpp:505
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ongeldig medium"
