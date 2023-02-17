@@ -1,5 +1,5 @@
 /**
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -7,17 +7,17 @@
 #include "models/queuemodel.h"
 #include "models/queuemodellogging.h"
 
-#include <QString>
 #include <QThread>
+
+#include <KFormat>
 
 #include "audiomanager.h"
 #include "datamanager.h"
 #include "entry.h"
-#include "models/episodemodel.h"
 #include "settingsmanager.h"
 
 QueueModel::QueueModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : AbstractEpisodeModel(parent)
 {
     connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, [this](int from, int to_orig) {
         int to = (from < to_orig) ? to_orig + 1 : to_orig;
@@ -50,23 +50,13 @@ QueueModel::QueueModel(QObject *parent)
 QVariant QueueModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case EpisodeModel::Roles::EntryRole:
+    case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
-    case EpisodeModel::Roles::IdRole:
+    case AbstractEpisodeModel::Roles::IdRole:
         return QVariant::fromValue(DataManager::instance().queue()[index.row()]);
     default:
         return QVariant();
     }
-}
-
-QHash<int, QByteArray> QueueModel::roleNames() const
-{
-    return {
-        {EpisodeModel::Roles::EntryRole, "entry"},
-        {EpisodeModel::Roles::IdRole, "id"},
-        {EpisodeModel::Roles::ReadRole, "read"},
-        {EpisodeModel::Roles::NewRole, "new"},
-    };
 }
 
 int QueueModel::rowCount(const QModelIndex &parent) const
@@ -80,7 +70,7 @@ int QueueModel::timeLeft() const
 {
     int result = 0;
     QStringList queue = DataManager::instance().queue();
-    for (QString item : queue) {
+    for (const QString &item : queue) {
         Entry *entry = DataManager::instance().getEntry(item);
         if (entry->enclosure()) {
             result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();
@@ -99,6 +89,11 @@ QString QueueModel::formattedTimeLeft() const
     }
     static KFormat format;
     return format.formatDuration(timeLeft() / rate);
+}
+
+void QueueModel::updateInternalState()
+{
+    // nothing to do; DataManager already has the updated data.
 }
 
 // Hack to get a QItemSelection in QML

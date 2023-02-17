@@ -31,7 +31,7 @@ ListView {
 
     onSelectionForContextMenuChanged: {
         if (selectionForContextMenu.length === 1) {
-            singleSelectedEntry = selectionForContextMenu[0].model.data(selectionForContextMenu[0], EpisodeModel.EntryRole);
+            singleSelectedEntry = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.EntryRole);
         } else {
             singleSelectedEntry = undefined;
         }

@@ -29,6 +29,12 @@ Kirigami.ScrollablePage {
 
     title: i18n("Podcast Details")
 
+    Keys.onPressed: {
+        if (event.matches(StandardKey.Find)) {
+            searchActionButton.checked = true;
+        }
+    }
+
     supportsRefreshing: true
 
     onRefreshingChanged: {
@@ -59,11 +65,31 @@ Kirigami.ScrollablePage {
         }
     }
 
-    // add the default actions through onCompleted to add them to the ones
-    // defined above
-    Component.onCompleted: {
-        for (var i in entryList.defaultActionList) {
-            contextualActions.push(entryList.defaultActionList[i]);
+    actions.main: Kirigami.Action {
+        id: searchActionButton
+        icon.name: "search"
+        text: i18nc("@action:intoolbar", "Search and Filter")
+        checkable: true
+        enabled: page.feed.entries ? true : false
+        visible: enabled
+        onToggled: {
+            if (!checked && page.feed.entries) {
+                page.feed.entries.filterType = AbstractEpisodeProxyModel.NoFilter;
+                page.feed.entries.searchFilter = "";
+            }
+        }
+    }
+
+    header: Loader {
+        anchors.right: parent.right
+        anchors.left: parent.left
+
+        active: searchActionButton.checked
+        visible: active
+
+        sourceComponent: SearchFilterBar {
+            proxyModel: page.feed.entries ? page.feed.entries : emptyListModel
+            parentKey: searchActionButton
         }
     }
 
@@ -86,16 +112,11 @@ Kirigami.ScrollablePage {
         model: page.feed.entries ? page.feed.entries : emptyListModel
         delegate: entryListDelegate
 
-        // OverlayHeader looks nicer, but seems completely broken when flicking the list
-        //headerPositioning: ListView.OverlayHeader
-
         header: ColumnLayout {
             id: headerColumn
             height: (isSubscribed && entryList.count > 0) ? implicitHeight : entryList.height
             width: entryList.width
             spacing: 0
-
-            property real headerOverlayProgress: Math.min(1, Math.abs(entryList.contentY) / headerColumn.height)
 
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -119,15 +140,18 @@ Kirigami.ScrollablePage {
                 topPadding: Kirigami.Units.smallSpacing
 
                 background: Rectangle {
-                    color: Kirigami.Theme.alternateBackgroundColor
+                    Kirigami.Theme.inherit: false
+                    Kirigami.Theme.colorSet: Kirigami.Theme.Header
+                    color: Kirigami.Theme.backgroundColor
                 }
 
                 contentItem: Kirigami.ActionToolBar {
+                    id: feedToolBar
                     alignment: Qt.AlignLeft
                     background: Item {}
 
-                    // HACK: ActionToolBar loads buttons dynamically, and so the height calculation
-                    // changes the position
+                    // HACK: ActionToolBar loads buttons dynamically, and so the
+                    // height calculation changes the position
                     onHeightChanged: entryList.contentY = entryList.originY
 
                     actions: [
@@ -161,6 +185,16 @@ Kirigami.ScrollablePage {
                             }
                         }
                     ]
+
+                    // add the default actions through onCompleted to add them
+                    // to the ones defined above
+                    Component.onCompleted: {
+                        if (isSubscribed) {
+                            for (var i in entryList.defaultActionList) {
+                                feedToolBar.actions.push(entryList.defaultActionList[i]);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -332,6 +366,10 @@ Kirigami.ScrollablePage {
                     icon.name: feed.errorId === 0 ? "" : "data-error"
                 }
             }
+        }
+
+        FilterInlineMessage {
+            proxyModel: page.feed.entries ? page.feed.entries : emptyListModel
         }
     }
 }

@@ -52,7 +52,7 @@ ecm_set_disabled_deprecation_versions(
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
-find_package(KF5KirigamiAddons 0.6 REQUIRED)
+find_package(KF5KirigamiAddons 0.7 REQUIRED)
 find_package(Taglib REQUIRED)
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES

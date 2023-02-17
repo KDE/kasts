@@ -12,10 +12,9 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "feed.h"
-#include "models/episodemodel.h"
 
 EntriesModel::EntriesModel(Feed *feed)
-    : QAbstractListModel(feed)
+    : AbstractEpisodeModel(feed)
     , m_feed(feed)
 {
     // When feed is updated, the entire model needs to be reset because we
@@ -31,25 +30,25 @@ EntriesModel::EntriesModel(Feed *feed)
 
 QVariant EntriesModel::data(const QModelIndex &index, int role) const
 {
+    Entry *entry = DataManager::instance().getEntry(m_feed, index.row());
     switch (role) {
-    case EpisodeModel::Roles::EntryRole:
-        return QVariant::fromValue(DataManager::instance().getEntry(m_feed, index.row()));
-    case Qt::DisplayRole:
-    case EpisodeModel::Roles::IdRole:
+    case AbstractEpisodeModel::Roles::TitleRole:
+        return QVariant::fromValue(entry->title());
+    case AbstractEpisodeModel::Roles::EntryRole:
+        return QVariant::fromValue(entry);
+    case AbstractEpisodeModel::Roles::IdRole:
         return QVariant::fromValue(DataManager::instance().getIdList(m_feed)[index.row()]);
+    case AbstractEpisodeModel::Roles::ReadRole:
+        return QVariant::fromValue(entry->read());
+    case AbstractEpisodeModel::Roles::NewRole:
+        return QVariant::fromValue(entry->getNew());
+    case AbstractEpisodeModel::Roles::ContentRole:
+        return QVariant::fromValue(entry->content());
+    case AbstractEpisodeModel::Roles::FeedNameRole:
+        return QVariant::fromValue(m_feed->name());
     default:
         return QVariant();
     }
-}
-
-QHash<int, QByteArray> EntriesModel::roleNames() const
-{
-    return {
-        {EpisodeModel::Roles::EntryRole, "entry"},
-        {EpisodeModel::Roles::IdRole, "id"},
-        {EpisodeModel::Roles::ReadRole, "read"},
-        {EpisodeModel::Roles::NewRole, "new"},
-    };
 }
 
 int EntriesModel::rowCount(const QModelIndex &parent) const
@@ -63,8 +62,7 @@ Feed *EntriesModel::feed() const
     return m_feed;
 }
 
-// Hack to get a QItemSelection in QML
-QItemSelection EntriesModel::createSelection(int rowa, int rowb)
+void EntriesModel::updateInternalState()
 {
-    return QItemSelection(index(rowa, 0), index(rowb, 0));
+    // nothing to do; DataManager already has the updated data.
 }

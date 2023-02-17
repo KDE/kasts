@@ -14,7 +14,6 @@
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
-#include "models/entriesmodel.h"
 
 Feed::Feed(const QString &feedurl)
     : QObject(&DataManager::instance())
@@ -78,7 +77,7 @@ Feed::Feed(const QString &feedurl)
         }
     });
 
-    m_entries = new EntriesModel(this);
+    m_entries = new EntriesProxyModel(this);
 }
 
 Feed::~Feed()

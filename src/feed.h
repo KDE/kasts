@@ -13,7 +13,7 @@
 #include <QVector>
 
 #include "author.h"
-#include "models/entriesmodel.h"
+#include "models/entriesproxymodel.h"
 
 class Feed : public QObject
 {
@@ -37,7 +37,7 @@ class Feed : public QObject
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
     Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
-    Q_PROPERTY(EntriesModel *entries MEMBER m_entries CONSTANT)
+    Q_PROPERTY(EntriesProxyModel *entries MEMBER m_entries CONSTANT)
 
 public:
     Feed(const QString &feedurl);
@@ -120,7 +120,7 @@ private:
     QString m_errorString;
     int m_unreadEntryCount = -1;
 
-    EntriesModel *m_entries;
+    EntriesProxyModel *m_entries;
 
     bool m_refreshing = false;
 };

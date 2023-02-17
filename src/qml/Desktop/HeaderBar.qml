@@ -35,7 +35,7 @@ FocusScope {
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i <  model.rowCount(); i++) {
                 var index = model.index(i, 0);
-                if (AudioManager.entry == model.data(index, EpisodeModel.EntryRole)) {
+                if (AudioManager.entry == model.data(index, AbstractEpisodeModel.EntryRole)) {
                     pageStack.get(0).queueList.currentIndex = i;
                     pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
 
@@ -117,7 +117,7 @@ FocusScope {
         property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
         property string title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
         property string feed: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Track Loaded")
-        property string authors: AudioManager.entry ? (AudioManager.entry.feed.authors.length !== 0 ? AudioManager.entry.feed.authors[0].name : undefined) : undefined
+        property string authors: AudioManager.entry ? (AudioManager.entry.feed.authors.length !== 0 ? AudioManager.entry.feed.authors[0].name : "") : ""
 
         implicitHeight: headerBar.handlePosition
         implicitWidth: parent.width

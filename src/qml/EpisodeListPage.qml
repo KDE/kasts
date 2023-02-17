@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
- * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2023 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -8,7 +8,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtGraphicalEffects 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.kasts 1.0
@@ -16,6 +15,8 @@ import org.kde.kasts 1.0
 Kirigami.ScrollablePage {
     id: episodeListPage
     title: i18n("Episode List")
+
+    property alias episodeList: episodeList
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
@@ -28,28 +29,55 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions.main: Kirigami.Action {
-        icon.name: "download"
-        text: i18n("Downloads")
-        onTriggered: {
-            pushPage("DownloadListPage")
+    Keys.onPressed: {
+        if (event.matches(StandardKey.Find)) {
+            searchActionButton.checked = true;
         }
     }
 
-    actions.left: Kirigami.Action {
-        icon.name: "view-filter"
-        text: i18n("Filter")
-        onTriggered: filterTypeOverlay.open();
-    }
+    actions {
+        main: Kirigami.Action {
+            icon.name: "download"
+            text: i18n("Downloads")
+            onTriggered: {
+                pushPage("DownloadListPage")
+            }
+        }
 
-    actions.right: Kirigami.Action {
-        icon.name: "view-refresh"
-        text: i18n("Refresh All Podcasts")
-        onTriggered: refreshing = true
-        visible: episodeProxyModel.filterType == EpisodeProxyModel.NoFilter
+        left: Kirigami.Action {
+            id: searchActionButton
+            icon.name: "search"
+            text: i18nc("@action:intoolbar", "Search and Filter")
+            checkable: true
+            onToggled: {
+                if (!checked) {
+                    episodeProxyModel.filterType = AbstractEpisodeProxyModel.NoFilter;
+                    episodeProxyModel.searchFilter = "";
+                }
+            }
+        }
+
+        right: Kirigami.Action {
+            icon.name: "view-refresh"
+            text: i18n("Refresh All Podcasts")
+            onTriggered: refreshing = true
+            visible: episodeProxyModel.filterType == AbstractEpisodeProxyModel.NoFilter
+        }
     }
 
     contextualActions: episodeList.defaultActionList
+
+    header: Loader {
+        anchors.right: parent.right
+        anchors.left: parent.left
+
+        active: searchActionButton.checked
+        visible: active
+        sourceComponent: SearchFilterBar {
+            proxyModel: episodeProxyModel
+            parentKey: searchActionButton
+        }
+    }
 
     GenericEntryListView {
         id: episodeList
@@ -65,8 +93,6 @@ Kirigami.ScrollablePage {
             text: i18n("No Episodes Available")
         }
 
-
-
         model: EpisodeProxyModel {
             id: episodeProxyModel
         }
@@ -78,71 +104,8 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Kirigami.InlineMessage {
-            anchors {
-                horizontalCenter: parent.horizontalCenter
-                bottom: parent.bottom
-                margins: Kirigami.Units.largeSpacing
-                bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0 )
-            }
-            type: Kirigami.MessageType.Information
-            visible: episodeProxyModel.filterType != EpisodeProxyModel.NoFilter
-            text: textMetrics.text
-            width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width - anchors.leftMargin - anchors.rightMargin)
-            actions: [
-                Kirigami.Action {
-                    id: resetButton
-                    icon.name: "edit-delete-remove"
-                    text: i18n("Reset")
-                    onTriggered: {
-                        episodeProxyModel.filterType = EpisodeProxyModel.NoFilter;
-                    }
-                }
-            ]
-                    TextMetrics {
-                id: textMetrics
-                text: i18n("Filter Active: ") + episodeProxyModel.filterName
-            }
-        }
-    }
-
-    Kirigami.Dialog {
-        id: filterTypeOverlay
-
-        title: i18n("Select Filter")
-        preferredWidth: Kirigami.Units.gridUnit * 16
-
-        ColumnLayout {
-            spacing: 0
-
-            Repeater {
-                model: ListModel {
-                    id: filterModel
-                    // have to use script because i18n doesn't work within ListElement
-                    Component.onCompleted: {
-                        var filterList = [EpisodeProxyModel.NoFilter,
-                                        EpisodeProxyModel.ReadFilter,
-                                        EpisodeProxyModel.NotReadFilter,
-                                        EpisodeProxyModel.NewFilter,
-                                        EpisodeProxyModel.NotNewFilter]
-                        for (var i in filterList) {
-                            filterModel.append({"name": episodeProxyModel.getFilterName(filterList[i]),
-                                                "filterType": filterList[i]});
-                        }
-                    }
-                }
-
-                delegate: Kirigami.BasicListItem {
-                    id: swipeDelegate
-                    Layout.fillWidth: true
-                    highlighted: filterType === episodeProxyModel.filterType
-                    text: name
-                    onClicked: {
-                        episodeProxyModel.filterType = filterType;
-                        filterTypeOverlay.close();
-                    }
-                }
-            }
+        FilterInlineMessage {
+            proxyModel: episodeProxyModel
         }
     }
 }

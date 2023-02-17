@@ -23,10 +23,13 @@ set(kasts_srcs
     updatefeedjob.cpp
     fetchfeedsjob.cpp
     systrayicon.cpp
+    models/abstractepisodemodel.cpp
+    models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
     models/feedsmodel.cpp
     models/feedsproxymodel.cpp
     models/entriesmodel.cpp
+    models/entriesproxymodel.cpp
     models/queuemodel.cpp
     models/episodemodel.cpp
     models/episodeproxymodel.cpp

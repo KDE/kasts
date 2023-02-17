@@ -39,10 +39,11 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "kasts-version.h"
+#include "models/abstractepisodemodel.h"
+#include "models/abstractepisodeproxymodel.h"
 #include "models/chaptermodel.h"
 #include "models/downloadmodel.h"
-#include "models/entriesmodel.h"
-#include "models/episodemodel.h"
+#include "models/entriesproxymodel.h"
 #include "models/episodeproxymodel.h"
 #include "models/errorlogmodel.h"
 #include "models/feedsproxymodel.h"
@@ -118,7 +119,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(KASTS_VERSION_STRING),
                      i18n("Podcast Player"),
                      KAboutLicense::GPL,
-                     i18n("© 2020-2022 KDE Community"));
+                     i18n("© 2020-2023 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     about.setProgramLogo(QVariant(QIcon(QStringLiteral(":/logo.svg"))));
@@ -139,9 +140,10 @@ int main(int argc, char *argv[])
     qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
     qmlRegisterType<ChapterModel>("org.kde.kasts", 1, 0, "ChapterModel");
 
-    qmlRegisterUncreatableType<EntriesModel>("org.kde.kasts", 1, 0, "EntriesModel", QStringLiteral("Get from Feed"));
+    qmlRegisterUncreatableType<AbstractEpisodeProxyModel>("org.kde.kasts", 1, 0, "AbstractEpisodeProxyModel", QStringLiteral("Only for enums"));
+    qmlRegisterUncreatableType<EntriesProxyModel>("org.kde.kasts", 1, 0, "EntriesProxyModel", QStringLiteral("Get from Feed"));
     qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
-    qmlRegisterUncreatableType<EpisodeModel>("org.kde.kasts", 1, 0, "EpisodeModel", QStringLiteral("Only for enums"));
+    qmlRegisterUncreatableType<AbstractEpisodeModel>("org.kde.kasts", 1, 0, "AbstractEpisodeModel", QStringLiteral("Only for enums"));
     qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
 
     qmlRegisterSingletonType("org.kde.kasts", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {

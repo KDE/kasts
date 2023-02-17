@@ -41,6 +41,9 @@
         <file alias="ErrorListPage.qml">qml/Settings/ErrorListPage.qml</file>
         <file alias="SleepTimerDialog.qml">qml/SleepTimerDialog.qml</file>
         <file alias="FullScreenImage.qml">qml/FullScreenImage.qml</file>
+        <file alias="GlobalSearchField.qml">qml/GlobalSearchField.qml</file>
+        <file alias="SearchFilterBar.qml">qml/SearchFilterBar.qml</file>
+        <file alias="FilterInlineMessage.qml">qml/FilterInlineMessage.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
         <file alias="kasts-tray.svg">../icons/kasts-tray.svg</file>

@@ -131,15 +131,13 @@ Kirigami.ApplicationWindow {
         sourceComponent: Kirigami.OverlayDrawer {
             id: drawer
             modal: false
-
-            readonly property real listViewThreshold: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 22 : Kirigami.Units.gridUnit * 20
+            closePolicy: Controls.Popup.NoAutoClose
 
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
-            readonly property real widescreenSmallWidth: Kirigami.Units.gridUnit * 6
             readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-            readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? (drawer.height < listViewThreshold ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.TextUnderIcon) : Kirigami.NavigationTabButton.IconOnly
+            readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
-            width: kastsMainWindow.isWidescreen ? (drawer.height < listViewThreshold ? widescreenBigWidth : widescreenSmallWidth) : pinnedWidth
+            width: kastsMainWindow.isWidescreen ? widescreenBigWidth : pinnedWidth
 
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
             Kirigami.Theme.inherit: false
@@ -152,11 +150,16 @@ Kirigami.ApplicationWindow {
             contentItem: ColumnLayout {
                 spacing: 0
 
-                Loader {
-                    active: Kirigami.Settings.isMobile
-                    visible: active
+                Controls.ToolBar {
                     Layout.fillWidth: true
-                    sourceComponent: Kirigami.AbstractApplicationHeader { }
+                    Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
+
+                    leftPadding: Kirigami.Units.smallSpacing
+                    rightPadding: Kirigami.Units.smallSpacing
+                    topPadding: Kirigami.Units.smallSpacing
+                    bottomPadding: Kirigami.Units.smallSpacing
+
+                    contentItem: GlobalSearchField {}
                 }
 
                 Controls.ScrollView {
