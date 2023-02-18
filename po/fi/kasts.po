@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 00:57+0000\n"
+"POT-Creation-Date: 2023-02-18 00:57+0000\n"
 "PO-Revision-Date: 2022-09-06 16:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -181,70 +181,102 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Soittaa musiikkia"
 
-#: main.cpp:109
+#: main.cpp:110
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast-sovellus"
 
-#: main.cpp:111
+#: main.cpp:112
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Lisää tilauksiin uuden podcastin."
 
-#: main.cpp:112
+#: main.cpp:113
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcastin verkko-osoite"
 
-#: main.cpp:117
+#: main.cpp:118
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:119
+#: main.cpp:120
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast-soitin"
 
-#: main.cpp:121
-#, kde-format
-msgid "© 2020-2022 KDE Community"
+#: main.cpp:122
+#, fuzzy, kde-format
+#| msgid "© 2020-2022 KDE Community"
+msgid "© 2020-2023 KDE Community"
 msgstr "© 2020–2022 KDE-yhteisö"
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:123
+#: main.cpp:124
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/episodeproxymodel.cpp:86
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:146
+#, fuzzy, kde-format
+#| msgid "No Filter"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Ei suodatinta"
 
-#: models/episodeproxymodel.cpp:88
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:148
+#, fuzzy, kde-format
+#| msgid "Played Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Kuunnellut jaksot:"
 
-#: models/episodeproxymodel.cpp:90
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Unplayed Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Kuuntelemattomat jaksot"
 
-#: models/episodeproxymodel.cpp:92
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:152
+#, fuzzy, kde-format
+#| msgid "Episodes marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "”Uusiksi” merkityt jaksot"
 
-#: models/episodeproxymodel.cpp:94
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:154
+#, fuzzy, kde-format
+#| msgid "Episodes not marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Jaksot, joita ei ole merkitty ”uusiksi”"
+
+#: models/abstractepisodeproxymodel.cpp:164
+#, fuzzy, kde-format
+#| msgid "No Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Title"
+msgstr "Ei otsikkoa"
+
+#: models/abstractepisodeproxymodel.cpp:166
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Description"
+msgstr "Tilaukset"
+
+#: models/abstractepisodeproxymodel.cpp:168
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Podcast Title"
+msgstr "Podcastilla ei ole otsikkoa"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -389,7 +421,7 @@ msgid "No Track Loaded"
 msgstr "Ei ladattua raitaa"
 
 # *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:189
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
 #, kde-format
 msgid "Discover"
 msgstr "Etsi"
@@ -404,22 +436,22 @@ msgstr "Etsi podcastindex.orgista"
 msgid "Search"
 msgstr "Etsi"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Tilaa"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Tilattu"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:219
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
 #, kde-format
 msgid "Downloads"
 msgstr "Lataukset"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:47
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:62
 #: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
@@ -532,35 +564,22 @@ msgstr "Jakson latausosoite:"
 msgid "Link copied"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:18
+#: qml/EpisodeListPage.qml:17
 #, kde-format
 msgid "Episode List"
 msgstr "Jaksoluettelo"
 
-#: qml/EpisodeListPage.qml:41
-#, kde-format
-msgid "Filter"
-msgstr "Suodata"
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@action:intoolbar"
+msgid "Search and Filter"
+msgstr "Valitse suodatin"
 
-#: qml/EpisodeListPage.qml:65 qml/FeedDetailsPage.qml:331
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Ei jaksoja saatavilla"
-
-#: qml/EpisodeListPage.qml:96
-#, kde-format
-msgid "Reset"
-msgstr "Palauta"
-
-#: qml/EpisodeListPage.qml:104
-#, kde-format
-msgid "Filter Active: "
-msgstr "Aktiivinen suodatin: "
-
-#: qml/EpisodeListPage.qml:112
-#, kde-format
-msgid "Select Filter"
-msgstr "Valitse suodatin"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -598,58 +617,58 @@ msgstr "Näytä virheloki"
 msgid "Podcast Details"
 msgstr "Podcastin tiedot"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:130
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "tekijältä %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:161
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Virkistä podcast"
 
-#: qml/FeedDetailsPage.qml:156
+#: qml/FeedDetailsPage.qml:180
 #, fuzzy, kde-format
 #| msgid "Details"
 msgid "Show Details"
 msgstr "Tiedot"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:251
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcastin verkko-osoite:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:291
 #, kde-format
 msgid "Weblink:"
 msgstr "Sivusto:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Tilattu: %1 alkaen"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Viimeksi virkistetty: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "Yksi jakso"
 msgstr[1] "%1 jaksoa"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "Yksi kuuntelematta"
 msgstr[1] "%1 kuuntelematta"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Virhe (%1): %2"
@@ -659,7 +678,7 @@ msgstr "Virhe (%1): %2"
 msgid "Remove Podcast"
 msgstr "Poista podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:199 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Tilaukset"
@@ -727,6 +746,20 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Poista podcast"
 msgstr[1] "Poista podcastit"
 
+#: qml/FilterInlineMessage.qml:32
+#, fuzzy, kde-format
+#| msgid "Reset"
+msgctxt "@action:button Reset filters active on ListView"
+msgid "Reset"
+msgstr "Palauta"
+
+#: qml/FilterInlineMessage.qml:41
+#, fuzzy, kde-format
+#| msgid "Filter Active: "
+msgctxt "@info:status Name of the filter which is active on the ListView"
+msgid "Filter Active: %1"
+msgstr "Aktiivinen suodatin: "
+
 #: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
@@ -784,23 +817,49 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Poista lataus"
 msgstr[1] "Poista lataukset"
 
-#: qml/main.qml:179 qml/Mobile/BottomToolbar.qml:25
+#: qml/GlobalSearchField.qml:97
+#, kde-format
+msgctxt "@info Placeholder text in search box"
+msgid "No Search Results"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
+#, fuzzy, kde-format
+#| msgid "Advanced Options"
+msgctxt "@action:intoolbar"
+msgid "Advanced Search Options"
+msgstr "Lisäasetukset"
+
+#: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
+#, kde-format
+msgctxt "@title:menu"
+msgid "Search Preferences"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@title:group Group of fields in which can be searched"
+msgid "Search in:"
+msgstr "Etsi"
+
+#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "Lisää jonoon"
 
-#: qml/main.qml:209 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Jaksot"
 
-#: qml/main.qml:239 qml/main.qml:246 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
 
-#: qml/main.qml:335
+#: qml/main.qml:338
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -808,7 +867,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Virkistetty %2/%1 podcast"
 msgstr[1] "Virkistetty %2/%1 podcastia"
 
-#: qml/main.qml:362
+#: qml/main.qml:365
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -816,7 +875,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Siirrettiin %2/%1 tiedosto"
 msgstr[1] "Siirrettiin %2/%1 tiedostoa"
 
-#: qml/main.qml:426
+#: qml/main.qml:429
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -932,6 +991,35 @@ msgstr[1] "%1 jaksoa"
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Aikaa jäljellä"
+
+#: qml/SearchFilterBar.qml:41
+#, fuzzy, kde-format
+#| msgid "New Episodes"
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search Episodes"
+msgstr "Uudet jaksot"
+
+#: qml/SearchFilterBar.qml:86
+#, fuzzy, kde-format
+#| msgid "Filter"
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Suodata"
+
+#: qml/SearchFilterBar.qml:91
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter Episodes by Status"
+msgstr ""
+
+#: qml/SearchFilterBar.qml:127
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@title:menu"
+msgid "Select Filter"
+msgstr "Valitse suodatin"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -1802,9 +1890,6 @@ msgstr ""
 
 #~ msgid "Podcast updates not allowed due to user setting"
 #~ msgstr "Käyttäjäasetus ei salli podcastien virkistystä"
-
-#~ msgid "New Episodes"
-#~ msgstr "Uudet jaksot"
 
 #~ msgid "All Episodes"
 #~ msgstr "Kaikki jaksot"

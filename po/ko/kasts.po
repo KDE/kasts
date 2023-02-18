@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 00:57+0000\n"
+"POT-Creation-Date: 2023-02-18 00:57+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -181,70 +181,102 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "음악 재생 중"
 
-#: main.cpp:109
+#: main.cpp:110
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 프로그램"
 
-#: main.cpp:111
+#: main.cpp:112
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:112
+#: main.cpp:113
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:117
+#: main.cpp:118
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:119
+#: main.cpp:120
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:121
-#, kde-format
-msgid "© 2020-2022 KDE Community"
+#: main.cpp:122
+#, fuzzy, kde-format
+#| msgid "© 2020-2022 KDE Community"
+msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2022 KDE Community"
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:123
+#: main.cpp:124
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/episodeproxymodel.cpp:86
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:146
+#, fuzzy, kde-format
+#| msgid "No Filter"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "필터 없음"
 
-#: models/episodeproxymodel.cpp:88
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:148
+#, fuzzy, kde-format
+#| msgid "Played Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "재생한 에피소드"
 
-#: models/episodeproxymodel.cpp:90
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Unplayed Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "재생하지 않은 에피소드"
 
-#: models/episodeproxymodel.cpp:92
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:152
+#, fuzzy, kde-format
+#| msgid "Episodes marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "\"새 에피소드\"로 표시된 에피소드"
 
-#: models/episodeproxymodel.cpp:94
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:154
+#, fuzzy, kde-format
+#| msgid "Episodes not marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "\"새 에피소드\"로 표시되지 않은 에피소드"
+
+#: models/abstractepisodeproxymodel.cpp:164
+#, fuzzy, kde-format
+#| msgid "No Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Title"
+msgstr "제목 없음"
+
+#: models/abstractepisodeproxymodel.cpp:166
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Description"
+msgstr "구독"
+
+#: models/abstractepisodeproxymodel.cpp:168
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Podcast Title"
+msgstr "팟캐스트 재생기"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -387,7 +419,7 @@ msgstr "트랙 제목 없음"
 msgid "No Track Loaded"
 msgstr "불러온 트랙 없음"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:189
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
 #, kde-format
 msgid "Discover"
 msgstr "둘러보기"
@@ -402,22 +434,22 @@ msgstr "podcastindex.org 검색"
 msgid "Search"
 msgstr "검색"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:219
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
 #, kde-format
 msgid "Downloads"
 msgstr "다운로드"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:47
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:62
 #: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
@@ -529,35 +561,22 @@ msgstr "에피소드 다운로드 URL 복사"
 msgid "Link copied"
 msgstr "링크 복사됨"
 
-#: qml/EpisodeListPage.qml:18
+#: qml/EpisodeListPage.qml:17
 #, kde-format
 msgid "Episode List"
 msgstr "에피소드 목록"
 
-#: qml/EpisodeListPage.qml:41
-#, kde-format
-msgid "Filter"
-msgstr "필터"
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@action:intoolbar"
+msgid "Search and Filter"
+msgstr "필터 선택"
 
-#: qml/EpisodeListPage.qml:65 qml/FeedDetailsPage.qml:331
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "No Episodes Available"
 msgstr "에피소드 없음"
-
-#: qml/EpisodeListPage.qml:96
-#, kde-format
-msgid "Reset"
-msgstr "초기화"
-
-#: qml/EpisodeListPage.qml:104
-#, kde-format
-msgid "Filter Active: "
-msgstr "필터 활성:"
-
-#: qml/EpisodeListPage.qml:112
-#, kde-format
-msgid "Select Filter"
-msgstr "필터 선택"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -595,55 +614,55 @@ msgstr "오류 로그 표시"
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:130
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "제작: %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:161
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "팟캐스트 새로 고침"
 
-#: qml/FeedDetailsPage.qml:156
+#: qml/FeedDetailsPage.qml:180
 #, kde-format
 msgid "Show Details"
 msgstr "자세한 정보 표시"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:251
 #, kde-format
 msgid "Podcast URL:"
 msgstr "팟캐스트 URL:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:291
 #, kde-format
 msgid "Weblink:"
 msgstr "웹 링크:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "구독 시작: %1"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "에피소드 %1개"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1개 재생하지 않음"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
@@ -653,7 +672,7 @@ msgstr "오류(%1): %2"
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:199 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "구독"
@@ -720,6 +739,20 @@ msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "팟캐스트 삭제"
 
+#: qml/FilterInlineMessage.qml:32
+#, fuzzy, kde-format
+#| msgid "Reset"
+msgctxt "@action:button Reset filters active on ListView"
+msgid "Reset"
+msgstr "초기화"
+
+#: qml/FilterInlineMessage.qml:41
+#, fuzzy, kde-format
+#| msgid "Filter Active: "
+msgctxt "@info:status Name of the filter which is active on the ListView"
+msgid "Filter Active: %1"
+msgstr "필터 활성:"
+
 #: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
@@ -775,37 +808,63 @@ msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "다운로드 삭제"
 
-#: qml/main.qml:179 qml/Mobile/BottomToolbar.qml:25
+#: qml/GlobalSearchField.qml:97
+#, kde-format
+msgctxt "@info Placeholder text in search box"
+msgid "No Search Results"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
+#, fuzzy, kde-format
+#| msgid "Advanced Options"
+msgctxt "@action:intoolbar"
+msgid "Advanced Search Options"
+msgstr "고급 옵션"
+
+#: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
+#, kde-format
+msgctxt "@title:menu"
+msgid "Search Preferences"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@title:group Group of fields in which can be searched"
+msgid "Search in:"
+msgstr "검색"
+
+#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "대기열에 추가"
 
-#: qml/main.qml:209 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "에피소드"
 
-#: qml/main.qml:239 qml/main.qml:246 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "설정"
 
-#: qml/main.qml:335
+#: qml/main.qml:338
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/main.qml:362
+#: qml/main.qml:365
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/main.qml:426
+#: qml/main.qml:429
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
@@ -919,6 +978,35 @@ msgstr[0] "에피소드 %1개"
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "남은 시간"
+
+#: qml/SearchFilterBar.qml:41
+#, fuzzy, kde-format
+#| msgid "New Episodes"
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search Episodes"
+msgstr "새 에피소드"
+
+#: qml/SearchFilterBar.qml:86
+#, fuzzy, kde-format
+#| msgid "Filter"
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "필터"
+
+#: qml/SearchFilterBar.qml:91
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter Episodes by Status"
+msgstr ""
+
+#: qml/SearchFilterBar.qml:127
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@title:menu"
+msgid "Select Filter"
+msgstr "필터 선택"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -1787,9 +1875,6 @@ msgstr ""
 
 #~ msgid "Podcast updates not allowed due to user setting"
 #~ msgstr "사용자 설정 때문에 팟캐스트 업데이트가 허용되지 않음"
-
-#~ msgid "New Episodes"
-#~ msgstr "새 에피소드"
 
 #~ msgid "All Episodes"
 #~ msgstr "모든 에피소드"

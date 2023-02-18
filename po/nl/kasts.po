@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 00:57+0000\n"
+"POT-Creation-Date: 2023-02-18 00:57+0000\n"
 "PO-Revision-Date: 2023-02-12 16:41+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -174,70 +174,102 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Medium wordt afgespeeld"
 
-#: main.cpp:109
+#: main.cpp:110
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcastprogramma"
 
-#: main.cpp:111
+#: main.cpp:112
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Voegt een niewe podcast toe aan inschrijvingen."
 
-#: main.cpp:112
+#: main.cpp:113
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcast-URL"
 
-#: main.cpp:117
+#: main.cpp:118
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:119
+#: main.cpp:120
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcastafspeler"
 
-#: main.cpp:121
-#, kde-format
-msgid "© 2020-2022 KDE Community"
+#: main.cpp:122
+#, fuzzy, kde-format
+#| msgid "© 2020-2022 KDE Community"
+msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2022 De KDE gemeenschap"
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:123
+#: main.cpp:124
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/episodeproxymodel.cpp:86
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:146
+#, fuzzy, kde-format
+#| msgid "No Filter"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Geen filter"
 
-#: models/episodeproxymodel.cpp:88
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:148
+#, fuzzy, kde-format
+#| msgid "Played Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Afgespeelde episoden"
 
-#: models/episodeproxymodel.cpp:90
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Unplayed Episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Niet-afgespeelde episoden"
 
-#: models/episodeproxymodel.cpp:92
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:152
+#, fuzzy, kde-format
+#| msgid "Episodes marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episoden gemarkeerd als \"Nieuw\""
 
-#: models/episodeproxymodel.cpp:94
-#, kde-format
+#: models/abstractepisodeproxymodel.cpp:154
+#, fuzzy, kde-format
+#| msgid "Episodes not marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episoden niet gemarkeerd als \"Nieuw\""
+
+#: models/abstractepisodeproxymodel.cpp:164
+#, fuzzy, kde-format
+#| msgid "No Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Title"
+msgstr "Geen titel"
+
+#: models/abstractepisodeproxymodel.cpp:166
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Description"
+msgstr "Inschrijvingen"
+
+#: models/abstractepisodeproxymodel.cpp:168
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Podcast Title"
+msgstr "Geen podcasttitel"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -373,7 +405,7 @@ msgstr "Geen tracktitel"
 msgid "No Track Loaded"
 msgstr "Geen track geladen"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:189
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
 #, kde-format
 msgid "Discover"
 msgstr "Ontdekken"
@@ -388,22 +420,22 @@ msgstr "podcastindex.org doorzoeken"
 msgid "Search"
 msgstr "Zoeken"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Inschrijven"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:142
+#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Ingeschreven"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:33 qml/main.qml:219
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
 #, kde-format
 msgid "Downloads"
 msgstr "Downloads"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:47
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:62
 #: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
@@ -515,35 +547,22 @@ msgstr "URL van downloaden van episode kopiëren"
 msgid "Link copied"
 msgstr "Koppeling gekopieerd"
 
-#: qml/EpisodeListPage.qml:18
+#: qml/EpisodeListPage.qml:17
 #, kde-format
 msgid "Episode List"
 msgstr "Lijst met episoden"
 
-#: qml/EpisodeListPage.qml:41
-#, kde-format
-msgid "Filter"
-msgstr "Filter"
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@action:intoolbar"
+msgid "Search and Filter"
+msgstr "Filter selecteren"
 
-#: qml/EpisodeListPage.qml:65 qml/FeedDetailsPage.qml:331
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Geen episoden beschikbaar"
-
-#: qml/EpisodeListPage.qml:96
-#, kde-format
-msgid "Reset"
-msgstr "Reset"
-
-#: qml/EpisodeListPage.qml:104
-#, kde-format
-msgid "Filter Active: "
-msgstr "Actief filter: "
-
-#: qml/EpisodeListPage.qml:112
-#, kde-format
-msgid "Select Filter"
-msgstr "Filter selecteren"
 
 #: qml/ErrorList.qml:29
 #, kde-format
@@ -579,57 +598,57 @@ msgstr "Foutenlog tonen"
 msgid "Podcast Details"
 msgstr "Podcast-details"
 
-#: qml/FeedDetailsPage.qml:109
+#: qml/FeedDetailsPage.qml:130
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "door %1"
 
-#: qml/FeedDetailsPage.qml:137
+#: qml/FeedDetailsPage.qml:161
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Podcast vernieuwen"
 
-#: qml/FeedDetailsPage.qml:156
+#: qml/FeedDetailsPage.qml:180
 #, kde-format
 msgid "Show Details"
 msgstr "Details tonen"
 
-#: qml/FeedDetailsPage.qml:217
+#: qml/FeedDetailsPage.qml:251
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast-URL:"
 
-#: qml/FeedDetailsPage.qml:257
+#: qml/FeedDetailsPage.qml:291
 #, kde-format
 msgid "Weblink:"
 msgstr "Webkoppeling:"
 
-#: qml/FeedDetailsPage.qml:283
+#: qml/FeedDetailsPage.qml:317
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Ingeschreven sinds: %1"
 
-#: qml/FeedDetailsPage.qml:296
+#: qml/FeedDetailsPage.qml:330
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Laatst bijgewerkt: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episode"
 msgstr[1] "%1 episoden"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:343
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 niet-afgespeeld"
 msgstr[1] "%1 niet-afgespeeld"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Fout (%1): %2"
@@ -639,7 +658,7 @@ msgstr "Fout (%1): %2"
 msgid "Remove Podcast"
 msgstr "Podcast verwijderen"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:199 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Inschrijvingen"
@@ -707,6 +726,20 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Podcast verwijderen"
 msgstr[1] "Podcasts verwijderen"
 
+#: qml/FilterInlineMessage.qml:32
+#, fuzzy, kde-format
+#| msgid "Reset"
+msgctxt "@action:button Reset filters active on ListView"
+msgid "Reset"
+msgstr "Reset"
+
+#: qml/FilterInlineMessage.qml:41
+#, fuzzy, kde-format
+#| msgid "Filter Active: "
+msgctxt "@info:status Name of the filter which is active on the ListView"
+msgid "Filter Active: %1"
+msgstr "Actief filter: "
+
 #: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
@@ -763,23 +796,49 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Download verwijderen"
 msgstr[1] "Downloads verwijderen"
 
-#: qml/main.qml:179 qml/Mobile/BottomToolbar.qml:25
+#: qml/GlobalSearchField.qml:97
+#, kde-format
+msgctxt "@info Placeholder text in search box"
+msgid "No Search Results"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
+#, fuzzy, kde-format
+#| msgid "Advanced options"
+msgctxt "@action:intoolbar"
+msgid "Advanced Search Options"
+msgstr "Geavanceerde opties"
+
+#: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
+#, kde-format
+msgctxt "@title:menu"
+msgid "Search Preferences"
+msgstr ""
+
+#: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@title:group Group of fields in which can be searched"
+msgid "Search in:"
+msgstr "Zoeken"
+
+#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "In wachtrij zetten"
 
-#: qml/main.qml:209 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Episoden"
 
-#: qml/main.qml:239 qml/main.qml:246 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Instellingen"
 
-#: qml/main.qml:335
+#: qml/main.qml:338
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -787,7 +846,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 van %1 podcast bijgewerkt"
 msgstr[1] "%2 van %1 podcasts bijgewerkt"
 
-#: qml/main.qml:362
+#: qml/main.qml:365
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -795,7 +854,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Verplaatst %2 van %1 bestand"
 msgstr[1] "Verplaatst %2 van %1 bestanden"
 
-#: qml/main.qml:426
+#: qml/main.qml:429
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Downloaden van Podcast is nu niet toegestaan op bemeterde verbindingen"
@@ -900,6 +959,35 @@ msgstr[1] "%1 episoden"
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Resterende tijd"
+
+#: qml/SearchFilterBar.qml:41
+#, fuzzy, kde-format
+#| msgid "New Episodes"
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search Episodes"
+msgstr "Nieuwe episoden"
+
+#: qml/SearchFilterBar.qml:86
+#, fuzzy, kde-format
+#| msgid "Filter"
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Filter"
+
+#: qml/SearchFilterBar.qml:91
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter Episodes by Status"
+msgstr ""
+
+#: qml/SearchFilterBar.qml:127
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgctxt "@title:menu"
+msgid "Select Filter"
+msgstr "Filter selecteren"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -1757,9 +1845,6 @@ msgstr "Afsluiten"
 #~ msgid "Podcast updates not allowed due to user setting"
 #~ msgstr ""
 #~ "Bijwerken van Podcast is niet toegestaan vanwege een gebruikersinstelling"
-
-#~ msgid "New Episodes"
-#~ msgstr "Nieuwe episoden"
 
 #~ msgid "All Episodes"
 #~ msgstr "Alle episoden"
