@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 00:57+0000\n"
-"PO-Revision-Date: 2023-02-12 10:23+0300\n"
+"PO-Revision-Date: 2023-02-18 11:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -199,10 +199,9 @@ msgid "Podcast Player"
 msgstr "Podcast Çalar"
 
 #: main.cpp:122
-#, fuzzy, kde-format
-#| msgid "© 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2020-2023 KDE Community"
-msgstr "© 2020-2022 KDE Topluluğu"
+msgstr "© 2020-2023 KDE Topluluğu"
 
 #: main.cpp:123
 #, kde-format
@@ -215,60 +214,52 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:146
-#, fuzzy, kde-format
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Süzgeç Yok"
 
 #: models/abstractepisodeproxymodel.cpp:148
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
-msgstr "Çalınan Bölümler"
+msgstr "Çalınan bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
-msgstr "Çalınmayan Bölümler"
+msgstr "Çalınmayan bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:152
-#, fuzzy, kde-format
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "\"Yeni\" olarak imlenen bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:154
-#, fuzzy, kde-format
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
-msgstr "\"Yeni\" olarak imlenmeyen bölümler"
+msgstr "\"Yeni\" olarak imlenmemiş bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:164
-#, fuzzy, kde-format
-#| msgid "No Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr "Başlıksız"
+msgstr "Başlık"
 
 #: models/abstractepisodeproxymodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr "Abonelikler"
+msgstr "Açıklama"
 
 #: models/abstractepisodeproxymodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "Podcast Başlığı Yok"
+msgstr "Podcast Başlığı"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -552,11 +543,10 @@ msgid "Episode List"
 msgstr "Bölüm Listesi"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
-msgstr "Süzgeç Seç"
+msgstr "Ara ve Süz"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
@@ -726,18 +716,16 @@ msgstr[0] "Podcast'i Kaldır"
 msgstr[1] "Podcast'leri Kaldır"
 
 #: qml/FilterInlineMessage.qml:32
-#, fuzzy, kde-format
-#| msgid "Reset"
+#, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "Sıfırla"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Filter Active: %1"
-msgstr "Süzgeç Etkin: "
+msgstr "Süzgeç Etkin: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -799,27 +787,25 @@ msgstr[1] "İndirmeleri Sil"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
-msgstr ""
+msgstr "Arama Sonucu Yok"
 
 #: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
-#, fuzzy, kde-format
-#| msgid "Advanced options"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Gelişmiş seçenekler"
+msgstr "Gelişmiş Arama Seçenekleri"
 
 #: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "Arama Tercihleri"
 
 #: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Arama"
+msgstr "Şurada ara:"
 
 #: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -961,15 +947,13 @@ msgid "Time Left"
 msgstr "Kalan Süre"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgid "New Episodes:"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search Episodes"
-msgstr "Yeni Bölümler:"
+msgstr "Bölümleri Ara"
 
 #: qml/SearchFilterBar.qml:86
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
@@ -980,11 +964,10 @@ msgstr "Süzgeç"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
-msgstr ""
+msgstr "Bölümleri Duruma Göre Süz"
 
 #: qml/SearchFilterBar.qml:127
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr "Süzgeç Seç"
