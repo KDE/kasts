@@ -132,6 +132,7 @@ Kirigami.ApplicationWindow {
             id: drawer
             modal: false
             closePolicy: Controls.Popup.NoAutoClose
+            edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
 
             readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
             readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
