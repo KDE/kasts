@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:57+0000\n"
+"POT-Creation-Date: 2023-02-20 00:56+0000\n"
 "PO-Revision-Date: 2023-02-15 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -405,7 +405,7 @@ msgstr "无曲目标题"
 msgid "No Track Loaded"
 msgstr "未加载曲目"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
 #, kde-format
 msgid "Discover"
 msgstr "发现"
@@ -430,7 +430,7 @@ msgstr "订阅"
 msgid "Subscribed"
 msgstr "已订阅"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:223
 #, kde-format
 msgid "Downloads"
 msgstr "下载"
@@ -656,7 +656,7 @@ msgstr "错误 (%1)：%2"
 msgid "Remove Podcast"
 msgstr "移除播客"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "订阅"
@@ -817,37 +817,37 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "搜索"
 
-#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "加入队列"
 
-#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "单集"
 
-#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:243 qml/main.qml:250 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "设置"
 
-#: qml/main.qml:338
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "已更新了 %2 个播客，共 %1 个"
 
-#: qml/main.qml:365
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "已移动 %2 个文件，共 %1 个"
 
-#: qml/main.qml:429
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许下载播客"

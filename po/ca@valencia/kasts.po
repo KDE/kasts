@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:57+0000\n"
+"POT-Creation-Date: 2023-02-20 00:56+0000\n"
 "PO-Revision-Date: 2023-02-12 14:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -412,7 +412,7 @@ msgstr "Sense títol de pista"
 msgid "No Track Loaded"
 msgstr "No s'ha carregat cap pista"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
 #, kde-format
 msgid "Discover"
 msgstr "Descobrix"
@@ -437,7 +437,7 @@ msgstr "Subscriu"
 msgid "Subscribed"
 msgstr "Subscrit"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:223
 #, kde-format
 msgid "Downloads"
 msgstr "Baixades"
@@ -665,7 +665,7 @@ msgstr "S'ha produït un error (%1): %2"
 msgid "Remove Podcast"
 msgstr "Elimina el podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Subscripcions"
@@ -829,23 +829,23 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Busca"
 
-#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "A la cua"
 
-#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Episodis"
 
-#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:243 qml/main.qml:250 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Configuració"
 
-#: qml/main.qml:338
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -853,7 +853,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 actualitzat de %1 podcast"
 msgstr[1] "%2 actualitzats de %1 podcast"
 
-#: qml/main.qml:365
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -861,7 +861,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/main.qml:429
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Baixades de podcast no permeses amb la connexió d'ús mesurat"

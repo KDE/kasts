@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:57+0000\n"
-"PO-Revision-Date: 2023-02-13 19:05+0100\n"
+"POT-Creation-Date: 2023-02-20 00:56+0000\n"
+"PO-Revision-Date: 2023-02-19 09:22+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -205,10 +205,9 @@ msgid "Podcast Player"
 msgstr "Lecteur de podcasts"
 
 #: main.cpp:122
-#, fuzzy, kde-format
-#| msgid "© 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2020-2023 KDE Community"
-msgstr "© 2020-2022 La communauté de KDE"
+msgstr "© 2020-2023 La communauté de KDE"
 
 #: main.cpp:123
 #, kde-format
@@ -221,60 +220,52 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:146
-#, fuzzy, kde-format
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Aucun filtre"
 
 #: models/abstractepisodeproxymodel.cpp:148
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Épisodes regardés"
 
 #: models/abstractepisodeproxymodel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Épisodes non regardés"
 
 #: models/abstractepisodeproxymodel.cpp:152
-#, fuzzy, kde-format
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Épisodes marqués comme « Nouveau »"
 
 #: models/abstractepisodeproxymodel.cpp:154
-#, fuzzy, kde-format
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Épisodes non marqués comme « Nouveau »"
 
 #: models/abstractepisodeproxymodel.cpp:164
-#, fuzzy, kde-format
-#| msgid "No Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr "Aucun titre"
+msgstr "Titre"
 
 #: models/abstractepisodeproxymodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr "Abonnements"
+msgstr "Description"
 
 #: models/abstractepisodeproxymodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "Aucun titre de podcast"
+msgstr "Titre de podcast"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -412,7 +403,7 @@ msgstr "Aucun titre de piste"
 msgid "No Track Loaded"
 msgstr "Aucune piste chargée"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -437,7 +428,7 @@ msgstr "S'abonner"
 msgid "Subscribed"
 msgstr "Abonné"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:223
 #, kde-format
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -560,11 +551,10 @@ msgid "Episode List"
 msgstr "Liste des épisodes"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
-msgstr "Sélectionner un filtre"
+msgstr "Rechercher et filtrer"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
@@ -665,7 +655,7 @@ msgstr "Erreur (%1) : %2"
 msgid "Remove Podcast"
 msgstr "Supprimer un podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonnements"
@@ -734,18 +724,16 @@ msgstr[0] "Supprimer un podcast"
 msgstr[1] "Supprimer des podcasts"
 
 #: qml/FilterInlineMessage.qml:32
-#, fuzzy, kde-format
-#| msgid "Reset"
+#, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "Réinitialiser"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Filter Active: %1"
-msgstr "Filtre actif : "
+msgstr "Filtre actif : %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -807,45 +795,43 @@ msgstr[1] "Supprimer des téléchargements"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
-msgstr ""
+msgstr "Aucun résultat de recherche"
 
 #: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
-#, fuzzy, kde-format
-#| msgid "Advanced options"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Options avancées"
+msgstr "Options avancées de recherche"
 
 #: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "Préférences de recherche"
 
 #: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Rechercher"
+msgstr "Rechercher dans :"
 
-#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "Mettre en file"
 
-#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Épisodes"
 
-#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:243 qml/main.qml:250 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
 
-#: qml/main.qml:338
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -853,7 +839,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 mis à jour du podcast %1"
 msgstr[1] "%2 mis à jour des %1 podcasts"
 
-#: qml/main.qml:365
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -861,7 +847,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
-#: qml/main.qml:429
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -970,30 +956,27 @@ msgid "Time Left"
 msgstr "Temps écoulé"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgid "New Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search Episodes"
-msgstr "Nouveaux épisodes"
+msgstr "Rechercher des épisodes"
 
 #: qml/SearchFilterBar.qml:86
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
 msgid "Filter"
-msgstr "Filtre"
+msgstr "Filtrer"
 
 #: qml/SearchFilterBar.qml:91
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
-msgstr ""
+msgstr "Filter des épisodes par état"
 
 #: qml/SearchFilterBar.qml:127
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr "Sélectionner un filtre"

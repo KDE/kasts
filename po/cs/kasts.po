@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:57+0000\n"
+"POT-Creation-Date: 2023-02-20 00:56+0000\n"
 "PO-Revision-Date: 2023-02-13 12:56+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -404,7 +404,7 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:192
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -429,7 +429,7 @@ msgstr "Zaregistrovat"
 msgid "Subscribed"
 msgstr "Přihlášen"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:222
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:223
 #, kde-format
 msgid "Downloads"
 msgstr "Stahování"
@@ -659,7 +659,7 @@ msgstr "Chyba (%1): %2"
 msgid "Remove Podcast"
 msgstr "Odstranit podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:202 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Přihlášení"
@@ -824,23 +824,23 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Hledat"
 
-#: qml/main.qml:182 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "Fronta"
 
-#: qml/main.qml:212 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Epizody"
 
-#: qml/main.qml:242 qml/main.qml:249 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:243 qml/main.qml:250 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Nastavení"
 
-#: qml/main.qml:338
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -849,7 +849,7 @@ msgstr[0] "Aktualizován %2 z %1 podcastů"
 msgstr[1] "Aktualizovány %2 z %1 podcastů"
 msgstr[2] "Aktualizováno %2 z %1 podcastů"
 
-#: qml/main.qml:365
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -858,7 +858,7 @@ msgstr[0] "Přesunut %2 z %1 souboru"
 msgstr[1] "Přesunuty %2 ze %1 souborů"
 msgstr[2] "Přesunuto %2 ze %1 souborů"
 
-#: qml/main.qml:429
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
