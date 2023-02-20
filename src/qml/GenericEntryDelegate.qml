@@ -24,6 +24,8 @@ Kirigami.SwipeListItem {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    visible: entry ? true : false
+
     property bool isQueue: false
     property bool isDownloads: false
     property QtObject listView: undefined
@@ -32,14 +34,14 @@ Kirigami.SwipeListItem {
 
     property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && SettingsManager.prioritizeStreaming && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
 
-    property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
-    property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
-    property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showRemoveFromQueueButton: entry ? (!entry.enclosure && entry.queueStatus) : false
+    property bool showDownloadButton: entry ? ((!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
+    property bool showCancelDownloadButton: entry ? (entry.enclosure && entry.enclosure.status === Enclosure.Downloading) : false
+    property bool showDeleteDownloadButton: entry ? (isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
+    property bool showAddToQueueButton: entry ? (!isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
+    property bool showPlayButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
+    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
+    property bool showPauseButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
 
 
     highlighted: selected
@@ -145,7 +147,7 @@ Kirigami.SwipeListItem {
 
             ImageWithFallback {
                 id: img
-                imageSource: entry.cachedImage
+                imageSource: entry ? entry.cachedImage : "no-image"
                 property int size: Kirigami.Units.gridUnit * 3
                 Layout.preferredHeight: size
                 Layout.preferredWidth: size
@@ -162,32 +164,32 @@ Kirigami.SwipeListItem {
                         Layout.maximumHeight: playedLabel.implicitHeight
                         Layout.maximumWidth:  playedLabel.implicitHeight
                         source: "checkbox"
-                        visible: entry.read
+                        visible: entry ? entry.read : false
                     }
                     Controls.Label {
                         id: playedLabel
-                        text: (entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
+                        text: entry ? ((entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·") : ""
                         font: Kirigami.Theme.smallFont
-                        visible: entry.read
+                        visible: entry ? entry.read : false
                         opacity: 0.7
                     }
                     Controls.Label {
-                        text: entry.new ? i18n("New") + "  ·" : ""
+                        text: entry ? (entry.new ? i18n("New") + "  ·" : "") : ""
                         font.capitalization: Font.AllUppercase
                         color: Kirigami.Theme.highlightColor
-                        visible: entry.new
+                        visible: entry ? entry.new : false
                         opacity: 0.7
                     }
                     Kirigami.Icon {
                         Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                         Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                         source: "source-playlist"
-                        visible: !isQueue && entry.queueStatus
+                        visible: entry ? (!isQueue && entry.queueStatus) : false
                         opacity: 0.7
                     }
                     Controls.Label {
                         id: supertitle
-                        text: (!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )
+                        text: entry ? ((!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )) : ""
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
@@ -195,19 +197,19 @@ Kirigami.SwipeListItem {
                     }
                 }
                 Controls.Label {
-                    text: entry.title
+                    text: entry ? entry.title : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font.weight: Font.Normal
                 }
                 Loader {
-                    sourceComponent: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                    sourceComponent: entry ? (entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)) : undefined
                     Layout.fillWidth: true
                 }
                 Component {
                     id: subtitle
                     Controls.Label {
-                        text: entry.enclosure ? entry.enclosure.formattedDuration : ""
+                        text: entry ? (entry.enclosure ? entry.enclosure.formattedDuration : "") : ""
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
@@ -219,7 +221,7 @@ Kirigami.SwipeListItem {
                     id: downloadProgress
                     RowLayout {
                         Controls.Label {
-                            text: entry.enclosure.formattedDownloadSize
+                            text: entry ? entry.enclosure.formattedDownloadSize : ""
                             elide: Text.ElideRight
                             font: Kirigami.Theme.smallFont
                             opacity: 0.7
@@ -227,11 +229,11 @@ Kirigami.SwipeListItem {
                         Controls.ProgressBar {
                             from: 0
                             to: 1
-                            value: entry.enclosure.downloadProgress
+                            value: entry ? entry.enclosure.downloadProgress : 0
                             Layout.fillWidth: true
                         }
                         Controls.Label {
-                            text: entry.enclosure.formattedSize
+                            text: entry ? entry.enclosure.formattedSize : ""
                             elide: Text.ElideRight
                             font: Kirigami.Theme.smallFont
                             opacity: 0.7
@@ -242,21 +244,21 @@ Kirigami.SwipeListItem {
                     id: playProgress
                     RowLayout {
                         Controls.Label {
-                            text: entry.enclosure.formattedPlayPosition
+                            text: entry ? entry.enclosure.formattedPlayPosition : ""
                             elide: Text.ElideRight
                             font: Kirigami.Theme.smallFont
                             opacity: 0.7
                         }
                         Controls.ProgressBar {
                             from: 0
-                            to: entry.enclosure.duration
-                            value: entry.enclosure.playPosition / 1000
+                            to: entry ? entry.enclosure.duration : 1
+                            value: entry ? entry.enclosure.playPosition / 1000 : 0
                             Layout.fillWidth: true
                         }
                         Controls.Label {
-                            text: (SettingsManager.toggleRemainingTime)
+                            text: entry ? ((SettingsManager.toggleRemainingTime)
                                     ? "-" + entry.enclosure.formattedLeftDuration
-                                    : entry.enclosure.formattedDuration
+                                    : entry.enclosure.formattedDuration) : ""
                             elide: Text.ElideRight
                             font: Kirigami.Theme.smallFont
                             opacity: 0.7
