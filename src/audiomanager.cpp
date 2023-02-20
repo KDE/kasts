@@ -248,15 +248,15 @@ void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
 
 void AudioManager::setEntry(Entry *entry)
 {
-    // First unset current track, such that any signal that fires doesn't
-    // operate on the wrong track
-    Entry *oldEntry = d->m_entry;
-    d->m_entry = nullptr;
+    // First unset current track and save playing state, such that any signal
+    // that still fires doesn't operate on the wrong track.
 
-    // reset any pending seek action, lock position saving and notify interval
+    // reset any pending seek action and lock position saving
     d->m_pendingSeek = -1;
     d->m_lockPositionSaving = true;
-    // d->m_player.setNotifyInterval(1000);
+
+    Entry *oldEntry = d->m_entry;
+    d->m_entry = nullptr;
 
     // First check if the previous track needs to be marked as read
     // TODO: make grace time a setting in SettingsManager
@@ -269,7 +269,12 @@ void AudioManager::setEntry(Entry *entry)
             qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
             oldEntry->enclosure()->setPlayPosition(0);
             oldEntry->setRead(true);
+            stop();
             d->m_continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
+        } else {
+            bool continuePlaying = d->m_continuePlayback; // saving to local bool because it will be overwritten by the stop action
+            stop();
+            d->m_continuePlayback = continuePlaying;
         }
     }
 
@@ -279,23 +284,23 @@ void AudioManager::setEntry(Entry *entry)
             || (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
                 && (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming())))) {
         qCDebug(kastsAudio) << "Going to change source";
-        d->m_entry = entry;
-        Q_EMIT entryChanged(entry);
         QUrl loadUrl;
         if (entry->enclosure()->status() == Enclosure::Downloaded) {
-            loadUrl = QUrl::fromLocalFile(d->m_entry->enclosure()->path());
+            loadUrl = QUrl::fromLocalFile(entry->enclosure()->path());
             if (d->m_isStreaming) {
                 d->m_isStreaming = false;
                 Q_EMIT isStreamingChanged();
             }
         } else {
-            loadUrl = QUrl(d->m_entry->enclosure()->url());
+            loadUrl = QUrl(entry->enclosure()->url());
             if (!d->m_isStreaming) {
                 d->m_isStreaming = true;
                 Q_EMIT isStreamingChanged();
             }
         }
 
+        d->m_entry = entry;
+        Q_EMIT entryChanged(entry);
         d->m_player.setSource(loadUrl);
 
         // save the current playing track in the settingsfile for restoring on startup
