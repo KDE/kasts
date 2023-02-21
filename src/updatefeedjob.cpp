@@ -98,13 +98,14 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     QDateTime current = QDateTime::currentDateTime();
     query.bindValue(QStringLiteral(":lastUpdated"), current.toSecsSinceEpoch());
 
-    QString image = feed->image()->url();
-    // If there is no regular image tag, then try the itunes tags
-    if (image.isEmpty()) {
-        if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
-            image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
-        }
+    QString image;
+    // First try the itunes tags, if not, fall back to regular image tag
+    if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
+        image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+    } else {
+        image = feed->image()->url();
     }
+
     if (image.startsWith(QStringLiteral("/")))
         image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + image;
     query.bindValue(QStringLiteral(":image"), image);
@@ -282,10 +283,12 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     entryDetails.read = m_isNewFeed ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
     entryDetails.isNew = !m_isNewFeed; // if new feed, then mark none as new
 
-    if (!entry->description().isEmpty())
-        entryDetails.content = entry->description();
-    else
+    // Take the longest text, either content or description
+    if (entry->content().length() > entry->description().length()) {
         entryDetails.content = entry->content();
+    } else {
+        entryDetails.content = entry->description();
+    }
 
     // Look for image in itunes tags
     if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
