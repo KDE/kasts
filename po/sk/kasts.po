@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -26,12 +26,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
-#: audiomanager.cpp:371
+#: audiomanager.cpp:376
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:505
+#: audiomanager.cpp:510
 #, kde-format
 msgid "Invalid Media"
 msgstr ""
@@ -114,14 +114,14 @@ msgstr "Pridať Podcast"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:323
+#: qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr "Prehrať"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:344
+#: qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr "Pozastaviť"
@@ -482,19 +482,19 @@ msgstr "Epizódy"
 msgid "Open in Browser"
 msgstr "Otvoriť v prehliadači"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Cancel Download"
 msgstr "Stiahnuť"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Delete Download"
@@ -508,13 +508,13 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -791,24 +791,24 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, fuzzy, kde-format
 #| msgid "Play"
 msgid "Played"
 msgstr "Prehrať"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Read"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:175
+#: qml/GenericEntryDelegate.qml:177
 #, fuzzy, kde-format
 #| msgid "new"
 msgid "New"
 msgstr "nové"
 
-#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:56+0000\n"
-"PO-Revision-Date: 2023-02-12 14:42+0100\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
+"PO-Revision-Date: 2023-02-18 11:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -30,14 +30,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:371
+#: audiomanager.cpp:376
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
 "d'ús mesurat"
 
-#: audiomanager.cpp:505
+#: audiomanager.cpp:510
 #, kde-format
 msgid "Invalid Media"
 msgstr "Suport no vàlid"
@@ -122,14 +122,14 @@ msgstr "Obri"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:323
+#: qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr "Reproduïx"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:344
+#: qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -207,10 +207,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de podcast"
 
 #: main.cpp:122
-#, fuzzy, kde-format
-#| msgid "© 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2020-2023 KDE Community"
-msgstr "© 2020-2022 La comunitat KDE"
+msgstr "© 2020-2023 La comunitat KDE"
 
 #: main.cpp:123
 #, kde-format
@@ -223,60 +222,52 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:146
-#, fuzzy, kde-format
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Sense filtre"
 
 #: models/abstractepisodeproxymodel.cpp:148
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Episodis reproduïts"
 
 #: models/abstractepisodeproxymodel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
-msgstr "No hi ha cap episodi sense reproduir"
+msgstr "Episodis sense reproduir"
 
 #: models/abstractepisodeproxymodel.cpp:152
-#, fuzzy, kde-format
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodis marcats com a «Nou»"
 
 #: models/abstractepisodeproxymodel.cpp:154
-#, fuzzy, kde-format
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodis no marcats com a «Nou»"
 
 #: models/abstractepisodeproxymodel.cpp:164
-#, fuzzy, kde-format
-#| msgid "No Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr "Sense títol"
+msgstr "Títol"
 
 #: models/abstractepisodeproxymodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr "Subscripcions"
+msgstr "Descripció"
 
 #: models/abstractepisodeproxymodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "Sense títol de podcast"
+msgstr "Títol del podcast"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -478,18 +469,18 @@ msgstr "Detalls de l'episodi"
 msgid "Open in Browser"
 msgstr "Obri en un navegador"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Baixa"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancel·la la baixada"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
 #, kde-format
 msgid "Delete Download"
 msgstr "Suprimix la baixada"
@@ -502,13 +493,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "Transmissió en continu"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Elimina de la cua"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -560,11 +551,10 @@ msgid "Episode List"
 msgstr "Llista d'episodis"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
-msgstr "Selecciona el filtre"
+msgstr "Busca i filtra"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
@@ -734,18 +724,16 @@ msgstr[0] "Elimina el podcast"
 msgstr[1] "Elimina els podcast"
 
 #: qml/FilterInlineMessage.qml:32
-#, fuzzy, kde-format
-#| msgid "Reset"
+#, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "Restablix"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Filter Active: %1"
-msgstr "Filtre actiu: "
+msgstr "Filtre actiu: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -772,22 +760,22 @@ msgstr "Gira a la dreta"
 msgid "Close"
 msgstr "Tanca"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Played"
 msgstr "Reproduït"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Read"
 msgstr "Llegit"
 
-#: qml/GenericEntryDelegate.qml:175
+#: qml/GenericEntryDelegate.qml:177
 #, kde-format
 msgid "New"
 msgstr "Nou"
 
-#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -807,27 +795,25 @@ msgstr[1] "Suprimix les baixades"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
-msgstr ""
+msgstr "Busca sense cap resultat"
 
 #: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
-#, fuzzy, kde-format
-#| msgid "Advanced options"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Opcions avançades"
+msgstr "Opcions avançades de busca"
 
 #: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "Preferències de busca"
 
 #: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Busca"
+msgstr "Busca a:"
 
 #: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -968,15 +954,13 @@ msgid "Time Left"
 msgstr "Temps restant"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgid "Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search Episodes"
-msgstr "Episodis"
+msgstr "Busca episodis"
 
 #: qml/SearchFilterBar.qml:86
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
@@ -987,14 +971,13 @@ msgstr "Filtre"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
-msgstr ""
+msgstr "Filtra els episodis per l'estat"
 
 #: qml/SearchFilterBar.qml:127
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
-msgstr "Selecciona el filtre"
+msgstr "Seleccioneu el filtre"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
 #, kde-format

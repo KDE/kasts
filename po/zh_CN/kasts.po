@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-15 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -29,12 +29,12 @@ msgstr ""
 "kde-china@kde.org, tysontan@tysontan.com, wordless@echo.moe, "
 "staronthedky@kde.org"
 
-#: audiomanager.cpp:371
+#: audiomanager.cpp:376
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:505
+#: audiomanager.cpp:510
 #, kde-format
 msgid "Invalid Media"
 msgstr "媒体无效"
@@ -116,14 +116,14 @@ msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:323
+#: qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr "播放"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:344
+#: qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr "暂停"
@@ -471,18 +471,18 @@ msgstr "剧集详情"
 msgid "Open in Browser"
 msgstr "在浏览器中打开"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "下载"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Cancel Download"
 msgstr "取消下载"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
 #, kde-format
 msgid "Delete Download"
 msgstr "删除下载"
@@ -495,13 +495,13 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "移出队列"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -762,22 +762,22 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Played"
 msgstr "已播放"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Read"
 msgstr "已读"
 
-#: qml/GenericEntryDelegate.qml:175
+#: qml/GenericEntryDelegate.qml:177
 #, kde-format
 msgid "New"
 msgstr "新"
 
-#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

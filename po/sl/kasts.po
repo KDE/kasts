@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:56+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-19 06:37+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
-#: audiomanager.cpp:371
+#: audiomanager.cpp:376
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
 
-#: audiomanager.cpp:505
+#: audiomanager.cpp:510
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neveljavni medij"
@@ -115,14 +115,14 @@ msgstr "Odpri"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:323
+#: qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr "Predvajaj"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:344
+#: qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr "Premor"
@@ -462,18 +462,18 @@ msgstr "Podrobnosti epizode"
 msgid "Open in Browser"
 msgstr "Odpri v brskalniku"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:296
+#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
 #: qml/GenericEntryListView.qml:197
 #, kde-format
 msgid "Download"
 msgstr "Prenesi"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:305
+#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
 #, kde-format
 msgid "Cancel Download"
 msgstr "Prekliči prenos"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:311
+#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
 #, kde-format
 msgid "Delete Download"
 msgstr "Zbriši prenos"
@@ -486,13 +486,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "Tok"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:288
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
 #: qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Odstrani iz čakalne vrste"
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:317
+#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
 #: qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
@@ -759,22 +759,22 @@ msgstr "Zasukaj desno"
 msgid "Close"
 msgstr "Zapri"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Played"
 msgstr "Predvajano"
 
-#: qml/GenericEntryDelegate.qml:169
+#: qml/GenericEntryDelegate.qml:171
 #, kde-format
 msgid "Read"
 msgstr "Beri"
 
-#: qml/GenericEntryDelegate.qml:175
+#: qml/GenericEntryDelegate.qml:177
 #, kde-format
 msgid "New"
 msgstr "Novi"
 
-#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
