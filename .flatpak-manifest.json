@@ -146,10 +146,18 @@
         {
             "name": "kasts",
             "buildsystem": "cmake-ninja",
+            "post-install": [
+                "mv /app/bin/{kasts,kasts-bin}",
+                "install .patches/run_kasts.sh /app/bin/kasts"
+            ],
             "sources": [
                 {
                     "type": "dir",
                     "path": "."
+                },
+                {
+                    "type": "file",
+                    "path": ".patches/run_kasts.sh"
                 }
             ]
         }
