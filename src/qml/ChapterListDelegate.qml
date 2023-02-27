@@ -35,7 +35,8 @@ Kirigami.BasicListItem {
     }
 
     trailing: Controls.ToolButton {
-        icon.name: streamingButtonVisible ? "qrc:/media-playback-start-cloud" : "media-playback-start"
+        icon.name: streamingButtonVisible ? "" : "media-playback-start"
+        icon.source: streamingButtonVisible ? "qrc:/media-playback-start-cloud" : ""
         text: i18n("Play")
         enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
         display: Controls.Button.IconOnly
