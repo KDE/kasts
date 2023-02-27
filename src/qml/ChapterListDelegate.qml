@@ -26,6 +26,7 @@ Kirigami.BasicListItem {
 
     text: model.title
     subtitle: model.formattedStart
+    separatorVisible: true
 
     leading: ImageWithFallback {
         imageSource: model.chapter.cachedImage

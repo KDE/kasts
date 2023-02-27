@@ -19,6 +19,7 @@ ListView {
 
     model: ErrorLogModel
     implicitHeight: errorList.count > 0 ? errorList.contentHeight : placeholder.height
+    currentIndex: -1
 
     Kirigami.PlaceholderMessage {
         id: placeholder
@@ -32,10 +33,10 @@ ListView {
     Component {
         id: errorListDelegate
         Kirigami.SwipeListItem {
-            // workaround to get rid of "_swipeFilter" errors
             alwaysVisibleActions: true
+            separatorVisible: true
             highlighted: false
-            activeBackgroundColor: 'transparent'
+            hoverEnabled: false
             contentItem: RowLayout {
                 Kirigami.Icon {
                     source: "data-error"

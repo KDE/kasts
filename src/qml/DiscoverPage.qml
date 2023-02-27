@@ -45,6 +45,7 @@ Kirigami.ScrollablePage {
         Kirigami.SwipeListItem {
             id: listItem
             alwaysVisibleActions: true
+            separatorVisible: true
             contentItem: RowLayout {
                 ImageWithFallback {
                     imageSource: model.image
