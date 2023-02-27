@@ -47,6 +47,8 @@ void Database::closeDatabase(const QString &connectionName)
 
 bool Database::migrate()
 {
+    setWalMode();
+
     int dbversion = version();
     if (dbversion < 1)
         TRUE_OR_RETURN(migrateTo1());
@@ -198,6 +200,26 @@ int Database::version()
         qCritical() << "Failed to check database version";
     }
     return -1;
+}
+
+void Database::setWalMode()
+{
+    bool ok = false;
+    QSqlQuery query;
+    query.prepare(QStringLiteral("PRAGMA journal_mode;"));
+    execute(query);
+    if (query.next()) {
+        ok = (query.value(0).toString() == QStringLiteral("wal"));
+    }
+
+    if (!ok) {
+        query.prepare(QStringLiteral("PRAGMA journal_mode=WAL;"));
+        execute(query);
+        if (query.next()) {
+            ok = (query.value(0).toString() == QStringLiteral("wal"));
+        }
+        qDebug() << "Activating WAL mode on database:" << (ok ? "ok" : "not ok!");
+    }
 }
 
 void Database::cleanup()
