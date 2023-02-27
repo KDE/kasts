@@ -20,8 +20,7 @@
 SystrayIcon::SystrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    // do not specify svg-extension; icon will not be visible due to [QTBUG-53550]
-    setIcon(QIcon(QStringLiteral(":/kasts-tray")));
+    setIconColor(intToIconColorEnum(SettingsManager::self()->trayIconType()));
 
     QMenu *menu = new QMenu();
 
@@ -37,6 +36,10 @@ SystrayIcon::SystrayIcon(QObject *parent)
         } else {
             hide();
         }
+    });
+
+    connect(SettingsManager::self(), &SettingsManager::trayIconTypeChanged, this, [this]() {
+        setIconColor(intToIconColorEnum(SettingsManager::self()->trayIconType()));
     });
 
     // Seek backward
@@ -136,4 +139,48 @@ bool SystrayIcon::available() const
 #else
     return false;
 #endif
+}
+
+void SystrayIcon::setIconColor(SystrayIcon::IconColor iconColor)
+{
+#ifndef Q_OS_ANDROID
+    // do not specify svg-extension; icon will not be visible due to [QTBUG-53550]
+    switch (iconColor) {
+    case SystrayIcon::IconColor::Colorful:
+        setIcon(QIcon(QStringLiteral(":/logo")));
+        break;
+    case SystrayIcon::IconColor::Light:
+        setIcon(QIcon(QStringLiteral(":/kasts-tray-light")));
+        break;
+    case SystrayIcon::IconColor::Dark:
+        setIcon(QIcon(QStringLiteral(":/kasts-tray-dark")));
+        break;
+    }
+#endif
+}
+
+int SystrayIcon::iconColorEnumToInt(SystrayIcon::IconColor iconColor)
+{
+    switch (iconColor) {
+    case SystrayIcon::IconColor::Light:
+        return 1;
+    case SystrayIcon::IconColor::Dark:
+        return 2;
+    case SystrayIcon::IconColor::Colorful:
+    default:
+        return 0;
+    }
+}
+
+SystrayIcon::IconColor SystrayIcon::intToIconColorEnum(int iconColorCode)
+{
+    switch (iconColorCode) {
+    case 1:
+        return SystrayIcon::IconColor::Light;
+    case 2:
+        return SystrayIcon::IconColor::Dark;
+    case 0:
+    default:
+        return SystrayIcon::IconColor::Colorful;
+    }
 }

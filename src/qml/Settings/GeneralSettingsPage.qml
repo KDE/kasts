@@ -53,6 +53,7 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormCheckDelegate {
                     id: showTrayIcon
+                    visible: SystrayIcon.available
                     enabled: SystrayIcon.available
                     text: i18n("Show icon in system tray")
                     checked: SettingsManager.showTrayIcon
@@ -64,11 +65,31 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormCheckDelegate {
                     id: minimizeToTray
+                    visible: SystrayIcon.available
                     enabled: SettingsManager.showTrayIcon && SystrayIcon.available
                     text: i18n("Minimize to tray instead of closing")
                     checked: SettingsManager.minimizeToTray
                     onToggled: {
                         SettingsManager.minimizeToTray = checked;
+                        SettingsManager.save();
+                    }
+                }
+
+                MobileForm.FormComboBoxDelegate {
+                    id: trayIconType
+                    visible: SystrayIcon.available
+                    enabled: SettingsManager.showTrayIcon && SystrayIcon.available
+                    text: i18nc("Label for selecting the color of the tray icon", "Tray icon type")
+
+                    textRole: "text"
+                    valueRole: "value"
+
+                    model: [{"text": i18nc("Label describing style of tray icon", "Colorful"), "value": 0},
+                            {"text": i18nc("Label describing style of tray icon", "Light"), "value": 1},
+                            {"text": i18nc("Label describing style of tray icon", "Dark"), "value": 2}]
+                    Component.onCompleted: currentIndex = indexOfValue(SettingsManager.trayIconType)
+                    onActivated: {
+                        SettingsManager.trayIconType = currentValue;
                         SettingsManager.save();
                     }
                 }

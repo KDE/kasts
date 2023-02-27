@@ -9,6 +9,21 @@
             <label>Show icon in system tray</label>
             <default>false</default>
         </entry>
+        <entry name="trayIconType" type="Enum">
+            <label>Color/type of the tray icon</label>
+            <choices>
+                <choice name="Colorful">
+                    <label>Colorful</label>
+                </choice>
+                <choice name="Light">
+                    <label>Light</label>
+                </choice>
+                <choice name="Dark">
+                    <label>Dark</label>
+                </choice>
+            </choices>
+            <default>Dark</default>
+        </entry>
         <entry name="minimizeToTray" type="Bool">
             <label>Minimize to system tray instead of closing application</label>
             <default>true</default>

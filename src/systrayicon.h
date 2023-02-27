@@ -21,6 +21,13 @@ class SystrayIcon
     Q_OBJECT
 
 public:
+    enum IconColor {
+        Colorful,
+        Light,
+        Dark,
+    };
+    Q_ENUM(IconColor)
+
     Q_PROPERTY(bool available READ available CONSTANT)
 
     static SystrayIcon &instance()
@@ -33,9 +40,13 @@ public:
 
     [[nodiscard]] bool available() const;
 
+    void setIconColor(IconColor iconColor);
+
 Q_SIGNALS:
     void raiseWindow();
 
 private:
     explicit SystrayIcon(QObject *parent = nullptr);
+    int iconColorEnumToInt(IconColor iconColor);
+    IconColor intToIconColorEnum(int iconColorCode);
 };
