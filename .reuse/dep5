@@ -1,9 +1,9 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Kasts
-Upstream-Contact: Tobias Fella <fella@posteo.de>
+Upstream-Contact: Tobias Fella <tobias.fella@kde.org>
 
 Files: src/qtquickcontrols2.conf README.md
-Copyright: 2020 Tobias Fella <fella@posteo.de>
+Copyright: 2020 Tobias Fella <tobias.fella@kde.org>
 License: CC0-1.0
 
 Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg .flatpak-manifest.json
@@ -11,7 +11,7 @@ Copyright: 2021 Bart De Vries <bart@mogwai.be>
 License: CC0-1.0
 
 Files: android/res/drawable/splash.xml
-Copyright: 2020 Tobias Fella <fella@posteo.de>
+Copyright: 2020 Tobias Fella <tobias.fella@kde.org>
 License: BSD-2-Clause
 
 Files: kasts.svg kasts-android-square.svg icons/kasts-tray-light.svg icons/kasts-tray-dark.svg logo.png android/ic_launcher-playstore.png android/res/drawable/kasts.png android/res/drawable-v24/ic_launcher_background.xml android/res/drawable-v24/ic_launcher_foreground.xml android/res/mipmap-hdpi/ic_launcher.png android/res/mipmap-mdpi/ic_launcher.png android/res/mipmap-xhdpi/ic_launcher.png android/res/mipmap-xxhdpi/ic_launcher.png android/res/mipmap-xxxhdpi/ic_launcher.png icons/16-apps-kasts.png icons/24-apps-kasts.png icons/32-apps-kasts.png icons/48-apps-kasts.png icons/64-apps-kasts.png icons/128-apps-kasts.png

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+# SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 # SPDX-FileCopyrightText: 2020 Nicolas Fella <nicolas.fella@gmx.de>
 # SPDX-FileCopyrightText: 2023 Bart De Vries <bart@mogwai.be>
 # SPDX-License-Identifier: BSD-2-Clause
