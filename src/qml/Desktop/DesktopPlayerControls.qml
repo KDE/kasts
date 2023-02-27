@@ -181,7 +181,7 @@ FocusScope {
 
         Controls.Slider {
             id: durationSlider
-            enabled: AudioManager.entry
+            enabled: AudioManager.entry && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
             Layout.fillWidth: true
             padding: 0
             from: 0

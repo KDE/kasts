@@ -457,10 +457,12 @@ void AudioManager::seek(qint64 position)
     // if there is still a pending seek, then we simply update that pending
     // value, and then manually send the positionChanged signal to have the UI
     // updated
-    if (d->m_pendingSeek != -1 && d->m_readyToPlay) {
+    // NOTE: this can also happen while the streaming URL is still resolving, so
+    // we also allow seeking even when the track is not yet readyToPlay.
+    if (d->m_pendingSeek != -1 || !d->m_readyToPlay) {
         d->m_pendingSeek = position;
         Q_EMIT positionChanged(position);
-    } else {
+    } else if (d->m_pendingSeek == -1 && d->m_readyToPlay) {
         d->m_player.setPosition(position);
     }
 }
@@ -637,10 +639,14 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
 
     qint64 startingPosition = d->m_entry->enclosure()->playPosition();
     qCDebug(kastsAudio) << "Changing position to" << startingPosition / 1000 << "sec";
-    if (startingPosition <= newDuration) {
-        d->m_pendingSeek = startingPosition;
-    } else {
-        d->m_pendingSeek = -1;
+    // if a seek is still pending then we don't set the position here
+    // this can happen e.g. if a chapter marker was clicked on a non-playing entry
+    if (d->m_pendingSeek == -1) {
+        if (startingPosition <= newDuration) {
+            d->m_pendingSeek = startingPosition;
+        } else {
+            d->m_pendingSeek = -1;
+        }
     }
 
     // Emit positionChanged and durationChanged signals to make sure that
