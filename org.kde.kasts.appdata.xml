@@ -238,6 +238,7 @@
       <caption>Kasts on the desktop with default header bar</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
+      <caption xml:lang="en-GB">Kasts on the desktop with default header bar</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras predeterminada</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre d'en-tête par défaut</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
@@ -254,6 +255,7 @@
       <caption>Kasts on the desktop with minimized header bar</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
+      <caption xml:lang="en-GB">Kasts on the desktop with minimised header bar</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras minimizada</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre minimale d'en-tête</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
@@ -297,6 +299,7 @@
       <caption>Kasts mobile player controls</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
+      <caption xml:lang="en-GB">Kasts mobile player controls</caption>
       <caption xml:lang="es">Controles de reproducción móviles de Kasts</caption>
       <caption xml:lang="fr">Contrôleur Kasts de lecteur mobile</caption>
       <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
