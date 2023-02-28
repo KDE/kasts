@@ -53,14 +53,9 @@ Kirigami.ScrollablePage {
                         onClicked: storagePathDialog.open()
                     }
 
-                    FileDialog {
+                    StorageDirDialog {
                         id: storagePathDialog
                         title: i18n("Select Storage Path")
-                        selectFolder: true
-                        folder: "file://" + StorageManager.storagePath
-                        onAccepted: {
-                            StorageManager.setStoragePath(fileUrl);
-                        }
                     }
                 }
 

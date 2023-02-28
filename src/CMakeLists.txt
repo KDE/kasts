@@ -136,6 +136,14 @@ if(ANDROID)
          androidlogging.h)
 endif()
 
+if(KASTS_FLATPAK)
+    list(APPEND kasts_srcs
+         resources-flatpak.qrc)
+else()
+    list(APPEND kasts_srcs
+         resources-non-flatpak.qrc)
+endif()
+
 set(kasts_ICONS_PNG
     ../icons/16-apps-kasts.png
     ../icons/24-apps-kasts.png
@@ -154,6 +162,10 @@ kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg KF5::Kirigami2 KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver KMediaSession)
+
+if(KASTS_FLATPAK)
+    target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)
+endif()
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE

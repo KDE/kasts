@@ -159,6 +159,9 @@
                     "type": "file",
                     "path": ".patches/run_kasts.sh"
                 }
+            ],
+            "config-opts": [
+                "-DKASTS_FLATPAK=ON"
             ]
         }
     ]
