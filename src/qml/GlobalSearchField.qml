@@ -43,17 +43,16 @@ Addons.SearchPopupField {
         pushPage("EpisodeListPage");
         pageStack.push("qrc:/EntryPage.qml", {"entry": entry});
 
-        /* let's not select the current item for now, since it can take a long
-         * time and will not automatically scroll to that item either
+        // Find the index of the entry on the EpisodeListPage and scroll to it
         var episodeModel = pageStack.get(0).episodeList.model
         for (var i = 0; i <  episodeModel.rowCount(); i++) {
             var index = episodeModel.index(i, 0);
-            if (entry == episodeModel.data(index, AbstractEpisodeModel.EntryRole)) {
+            if (entry.id == episodeModel.data(index, AbstractEpisodeModel.IdRole)) {
                 pageStack.get(0).episodeList.currentIndex = i;
                 pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);
             }
         }
-        */
     }
 
     Component.onCompleted: {
