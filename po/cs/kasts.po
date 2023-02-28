@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 00:58+0000\n"
+"POT-Creation-Date: 2023-02-28 00:57+0000\n"
 "PO-Revision-Date: 2023-02-22 16:53+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "vit@pelcak.org"
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:539
+#: audiomanager.cpp:541
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neplatné médium"
@@ -112,7 +112,7 @@ msgstr "NEBO"
 msgid "Open"
 msgstr "Otevřít"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
 #: qml/GenericEntryDelegate.qml:325
 #, kde-format
@@ -410,12 +410,12 @@ msgstr "Prohledávat podcastindex.org"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Zaregistrovat"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Přihlášen"
@@ -553,12 +553,12 @@ msgstr "Hledat a filtrovat"
 msgid "No Episodes Available"
 msgstr ""
 
-#: qml/ErrorList.qml:29
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No Errors Logged"
 msgstr ""
 
-#: qml/ErrorList.qml:65
+#: qml/ErrorList.qml:66
 #, kde-format
 msgid "Error Code: "
 msgstr "Kód chyby: "
@@ -998,28 +998,52 @@ msgstr "Vzhled"
 msgid "Always show podcast titles in subscription view"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:57
+#: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Show icon in system tray"
 msgstr "Zobrazit ikonu v systémovém panelu"
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "Minimize to tray instead of closing"
 msgstr "Minimalizovat do systémové části panelu namísto zavření"
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "Label for selecting the color of the tray icon"
+msgid "Tray icon type"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:87
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Colorful"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:88
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Light"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:89
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Dark"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
 msgid "Playback settings"
 msgstr "Možnosti přehrávání"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
+#: qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
 msgstr "Vyberte podpůrnou vrstvu audio"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -1027,118 +1051,118 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Čas přehrávání:"
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:142
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Preferovat streamování před stahováním"
 
-#: qml/Settings/GeneralSettingsPage.qml:159
+#: qml/Settings/GeneralSettingsPage.qml:180
 #, kde-format
 msgid "Queue settings"
 msgstr "Nastavení fronty"
 
-#: qml/Settings/GeneralSettingsPage.qml:165
+#: qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Pokračovat v přehrávání následující epizody po přehrání současné"
 
-#: qml/Settings/GeneralSettingsPage.qml:173
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Nastavení aktualizace:"
 
-#: qml/Settings/GeneralSettingsPage.qml:175
+#: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:215
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Automaticky zařadit nové epizody"
 
-#: qml/Settings/GeneralSettingsPage.qml:209
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Automaticky stahovat nové epizody"
 
-#: qml/Settings/GeneralSettingsPage.qml:222
+#: qml/Settings/GeneralSettingsPage.qml:243
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Chování přehraných epizod"
 
-#: qml/Settings/GeneralSettingsPage.qml:225
+#: qml/Settings/GeneralSettingsPage.qml:246
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Nemazat"
 
-#: qml/Settings/GeneralSettingsPage.qml:226
+#: qml/Settings/GeneralSettingsPage.qml:247
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Okamžitě smazat"
 
-#: qml/Settings/GeneralSettingsPage.qml:227
+#: qml/Settings/GeneralSettingsPage.qml:248
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Smazat při následujícím spuštění"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:261
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Při přidání nových podcastů"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Označit všechny epizody jako přehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:273
+#: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Označit nejnovější epizody jako nepřehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:296
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Označit všechny epizody jako nepřehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:313
+#: qml/Settings/GeneralSettingsPage.qml:334
 #, kde-format
 msgid "Article"
 msgstr "Článek"
 
-#: qml/Settings/GeneralSettingsPage.qml:318
+#: qml/Settings/GeneralSettingsPage.qml:339
 #, kde-format
 msgid "Font size"
 msgstr "Velikost písma"
 
-#: qml/Settings/GeneralSettingsPage.qml:325
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Font size:"
 msgstr "Velikost písma:"
 
-#: qml/Settings/GeneralSettingsPage.qml:341
+#: qml/Settings/GeneralSettingsPage.qml:362
 #, kde-format
 msgid "Use system default"
 msgstr "Použít výchozí systémový"
@@ -1749,37 +1773,37 @@ msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Synchronizace byla dokončena s chybou"
 
-#: systrayicon.cpp:43
+#: systrayicon.cpp:46
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Rychle vzad"
 
-#: systrayicon.cpp:55
+#: systrayicon.cpp:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Přehrát"
 
-#: systrayicon.cpp:63
+#: systrayicon.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: systrayicon.cpp:82
+#: systrayicon.cpp:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Rychle vpřed"
 
-#: systrayicon.cpp:94
+#: systrayicon.cpp:97
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Přeskočit vpřed"
 
-#: systrayicon.cpp:109
+#: systrayicon.cpp:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"

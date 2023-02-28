@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 00:58+0000\n"
+"POT-Creation-Date: 2023-02-28 00:57+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "kde@peremen.name"
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:539
+#: audiomanager.cpp:541
 #, kde-format
 msgid "Invalid Media"
 msgstr "잘못된 미디어"
@@ -116,7 +116,7 @@ msgstr ""
 msgid "Open"
 msgstr "팟캐스트 열기"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
 #: qml/GenericEntryDelegate.qml:325
 #, kde-format
@@ -434,12 +434,12 @@ msgstr "podcastindex.org 검색"
 msgid "Search"
 msgstr "검색"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
@@ -578,12 +578,12 @@ msgstr "필터 선택"
 msgid "No Episodes Available"
 msgstr "에피소드 없음"
 
-#: qml/ErrorList.qml:29
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No Errors Logged"
 msgstr "기록된 오류 없음"
 
-#: qml/ErrorList.qml:65
+#: qml/ErrorList.qml:66
 #, kde-format
 msgid "Error Code: "
 msgstr "오류 코드: "
@@ -1028,30 +1028,54 @@ msgstr "모양"
 msgid "Always show podcast titles in subscription view"
 msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:57
+#: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Show icon in system tray"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "Minimize to tray instead of closing"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "Label for selecting the color of the tray icon"
+msgid "Tray icon type"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:87
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Colorful"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:88
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Light"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:89
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Dark"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:107
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgid "Playback settings"
 msgstr "재생 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
+#: qml/Settings/GeneralSettingsPage.qml:112
 #, fuzzy, kde-format
 #| msgid "Select Option"
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
 msgstr "옵션 선택"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, fuzzy, kde-format
 #| msgid "Played"
 msgctxt ""
@@ -1060,126 +1084,126 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "재생됨"
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "현재 재생 속도에 맞춰서 남은 시간 조정"
 
-#: qml/Settings/GeneralSettingsPage.qml:142
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:159
+#: qml/Settings/GeneralSettingsPage.qml:180
 #, fuzzy, kde-format
 #| msgid "Queue Settings"
 msgid "Queue settings"
 msgstr "대기열 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:165
+#: qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "현재 에피소드 재생이 끝난 후 다음 에피소드 계속 재생"
 
-#: qml/Settings/GeneralSettingsPage.qml:173
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "재생 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:175
+#: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "시작할 때 자동으로 팟캐스트 가져오기"
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "새로 고칠 때 기존 에피소드 데이터 업데이트(느림)"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Automatically Queue"
 msgid "Automatically queue new episodes"
 msgstr "자동으로 대기열에 추가"
 
-#: qml/Settings/GeneralSettingsPage.qml:209
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, fuzzy, kde-format
 #| msgid "Automatically Download"
 msgid "Automatically download new episodes"
 msgstr "자동으로 다운로드"
 
-#: qml/Settings/GeneralSettingsPage.qml:222
+#: qml/Settings/GeneralSettingsPage.qml:243
 #, fuzzy, kde-format
 #| msgid "Played Episodes"
 msgid "Played episode behavior"
 msgstr "재생한 에피소드"
 
-#: qml/Settings/GeneralSettingsPage.qml:225
+#: qml/Settings/GeneralSettingsPage.qml:246
 #, kde-format
 msgid "Do Not Delete"
 msgstr "삭제 안 함"
 
-#: qml/Settings/GeneralSettingsPage.qml:226
+#: qml/Settings/GeneralSettingsPage.qml:247
 #, kde-format
 msgid "Delete Immediately"
 msgstr "즉시 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:227
+#: qml/Settings/GeneralSettingsPage.qml:248
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "다음에 시작할 때 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:261
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:278
 #, fuzzy, kde-format
 #| msgid "When adding new podcasts:"
 msgid "When adding new podcasts"
 msgstr "새 팟캐스트를 추가할 때:"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "모든 에피소드를 재생한 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:273
+#: qml/Settings/GeneralSettingsPage.qml:294
 #, fuzzy, kde-format
 #| msgid "Mark most recent episodes as unplayed:"
 msgid "Mark most recent episodes as unplayed"
 msgstr "최근 에피소드를 재생하지 않은 것으로 표시:"
 
-#: qml/Settings/GeneralSettingsPage.qml:296
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "모든 에피소드를 재생하지 않은 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:313
+#: qml/Settings/GeneralSettingsPage.qml:334
 #, kde-format
 msgid "Article"
 msgstr "글"
 
-#: qml/Settings/GeneralSettingsPage.qml:318
+#: qml/Settings/GeneralSettingsPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Font size:"
 msgid "Font size"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:325
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:341
+#: qml/Settings/GeneralSettingsPage.qml:362
 #, kde-format
 msgid "Use system default"
 msgstr "시스템 기본값 사용"
@@ -1808,42 +1832,42 @@ msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "동기화 완료됨, 오류 발생"
 
-#: systrayicon.cpp:43
+#: systrayicon.cpp:46
 #, fuzzy, kde-format
 #| msgid "Seek Backward"
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "되감기"
 
-#: systrayicon.cpp:55
+#: systrayicon.cpp:58
 #, fuzzy, kde-format
 #| msgid "Play"
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "재생"
 
-#: systrayicon.cpp:63
+#: systrayicon.cpp:66
 #, fuzzy, kde-format
 #| msgid "Pause"
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "일시 정지"
 
-#: systrayicon.cpp:82
+#: systrayicon.cpp:85
 #, fuzzy, kde-format
 #| msgid "Seek Forward"
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "빨리 감기"
 
-#: systrayicon.cpp:94
+#: systrayicon.cpp:97
 #, fuzzy, kde-format
 #| msgid "Skip Forward"
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "앞으로 건너뛰기"
 
-#: systrayicon.cpp:109
+#: systrayicon.cpp:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"

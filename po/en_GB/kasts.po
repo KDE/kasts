@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2021, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 00:58+0000\n"
-"PO-Revision-Date: 2022-12-31 16:22+0000\n"
+"POT-Creation-Date: 2023-02-28 00:57+0000\n"
+"PO-Revision-Date: 2023-02-27 21:28+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +32,7 @@ msgstr "steve.allewell@gmail.com"
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "No connection or streaming on metered connection not allowed"
 
-#: audiomanager.cpp:539
+#: audiomanager.cpp:541
 #, kde-format
 msgid "Invalid Media"
 msgstr "Invalid Media"
@@ -90,32 +90,29 @@ msgstr "No Connection or Streaming Not Allowed on Metered Connection"
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
 msgid "Example player KMediaSession"
-msgstr ""
+msgstr "Example player KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select file..."
-msgstr "Select folder..."
+msgstr "Select file..."
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select media file"
-msgstr "Select Filter"
+msgstr "Select media file"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "OR"
 
 #: kmediasession/example-app/qml/main.qml:93
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open"
-msgstr "Open Podcast"
+msgstr "Open"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:39
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
 #: qml/GenericEntryDelegate.qml:325
 #, kde-format
@@ -137,48 +134,44 @@ msgstr "Stop"
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Mute"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
 msgid "title: %1"
-msgstr ""
+msgstr "title: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
 msgid "artist: %1"
-msgstr ""
+msgstr "artist: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
 msgid "album: %1"
-msgstr ""
+msgstr "album: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
 msgid "mediaStatus: %1"
-msgstr ""
+msgstr "mediaStatus: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "playbackStatus: %1"
-msgstr "Playback Rate: "
+msgstr "playbackStatus: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "Error (%1): %2"
+msgstr "error: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Playing Music"
+msgstr "Playing Media"
 
 #: main.cpp:110
 #, kde-format
@@ -206,10 +199,9 @@ msgid "Podcast Player"
 msgstr "Podcast Player"
 
 #: main.cpp:122
-#, fuzzy, kde-format
-#| msgid "© 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2020-2023 KDE Community"
-msgstr "© 2020-2022 KDE Community"
+msgstr "© 2020-2023 KDE Community"
 
 #: main.cpp:123
 #, kde-format
@@ -222,60 +214,52 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:146
-#, fuzzy, kde-format
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "No Filter"
 
 #: models/abstractepisodeproxymodel.cpp:148
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Played Episodes"
 
 #: models/abstractepisodeproxymodel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Unplayed Episodes"
 
 #: models/abstractepisodeproxymodel.cpp:152
-#, fuzzy, kde-format
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodes marked as \"New\""
 
 #: models/abstractepisodeproxymodel.cpp:154
-#, fuzzy, kde-format
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodes not marked as \"New\""
 
 #: models/abstractepisodeproxymodel.cpp:164
-#, fuzzy, kde-format
-#| msgid "No Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr "No Title"
+msgstr "Title"
 
 #: models/abstractepisodeproxymodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr "Subscriptions"
+msgstr "Description"
 
 #: models/abstractepisodeproxymodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "No Podcast Title"
+msgstr "Podcast Title"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -338,51 +322,45 @@ msgid "Playback Rate: "
 msgstr "Playback Rate: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Chapters"
+msgstr "Show Chapter List"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgid "No New Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "No New Episodes"
+msgstr "Show Episode Info"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "General Settings"
+msgstr "Open Sleep Timer Settings"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "General Settings"
+msgstr "Open Volume Settings"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Toggle Mute"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Show Error Log"
+msgstr "Show More"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Chapters"
@@ -391,11 +369,10 @@ msgstr "Chapters"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Show Info"
 
 #: qml/Desktop/DesktopPlayerControls.qml:379
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Sleep Timer"
@@ -433,12 +410,12 @@ msgstr "Search podcastindex.org"
 msgid "Search"
 msgstr "Search"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: qml/DiscoverPage.qml:67 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscribed"
@@ -566,23 +543,22 @@ msgid "Episode List"
 msgstr "Episode List"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
-msgstr "Select Filter"
+msgstr "Search and Filter"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
 #, kde-format
 msgid "No Episodes Available"
 msgstr "No Episodes Available"
 
-#: qml/ErrorList.qml:29
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No Errors Logged"
 msgstr "No Errors Logged"
 
-#: qml/ErrorList.qml:65
+#: qml/ErrorList.qml:66
 #, kde-format
 msgid "Error Code: "
 msgstr "Error Code: "
@@ -740,43 +716,41 @@ msgstr[0] "Remove Podcast"
 msgstr[1] "Remove Podcasts"
 
 #: qml/FilterInlineMessage.qml:32
-#, fuzzy, kde-format
-#| msgid "Reset"
+#, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "Reset"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Filter Active: %1"
-msgstr "Filter Active: "
+msgstr "Filter Active: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom in"
 
 #: qml/FullScreenImage.qml:59
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom out"
 
 #: qml/FullScreenImage.qml:70
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Rotate left"
 
 #: qml/FullScreenImage.qml:77
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Rotate right"
 
 #: qml/FullScreenImage.qml:84
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Close"
 
 #: qml/GenericEntryDelegate.qml:171
 #, kde-format
@@ -794,11 +768,7 @@ msgid "New"
 msgstr "New"
 
 #: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
@@ -817,27 +787,25 @@ msgstr[1] "Delete Downloads"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
-msgstr ""
+msgstr "No Search Results"
 
 #: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
-#, fuzzy, kde-format
-#| msgid "Advanced options"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Advanced options"
+msgstr "Advanced Search Options"
 
 #: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "Search Preferences"
 
 #: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Search"
+msgstr "Search in:"
 
 #: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -892,63 +860,58 @@ msgid "No chapters found."
 msgstr "No chapters found."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Playback Rate: "
+msgstr "Playback Rate Presets"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "New Preset:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Add new playback rate value to list"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Set Playback Rate"
+msgstr "Decrease Playback Rate"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Set Playback Rate"
+msgstr "Increase Playback Rate"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Current Status:"
+#, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "Current Status:"
+msgstr "Current Presets:"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Set Playback Rate"
+msgstr "Select Playback Rate"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Customise"
 
 #: qml/QueuePage.qml:18
 #, kde-format
@@ -983,15 +946,13 @@ msgid "Time Left"
 msgstr "Time Left"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgid "New Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search Episodes"
-msgstr "New Episodes"
+msgstr "Search Episodes"
 
 #: qml/SearchFilterBar.qml:86
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
@@ -1002,11 +963,10 @@ msgstr "Filter"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
-msgstr ""
+msgstr "Filter Episodes by Status"
 
 #: qml/SearchFilterBar.qml:127
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr "Select Filter"
@@ -1031,29 +991,52 @@ msgstr "Appearance"
 msgid "Always show podcast titles in subscription view"
 msgstr "Always show podcast titles in subscription view"
 
-#: qml/Settings/GeneralSettingsPage.qml:57
+#: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Show icon in system tray"
 
-#: qml/Settings/GeneralSettingsPage.qml:68
+#: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "Minimize to tray instead of closing"
+msgstr "Minimise to tray instead of closing"
+
+#: qml/Settings/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "Label for selecting the color of the tray icon"
+msgid "Tray icon type"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:86
+#: qml/Settings/GeneralSettingsPage.qml:87
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Colorful"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:88
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Light"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:89
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Dark"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
 msgid "Playback settings"
 msgstr "Playback settings"
 
-#: qml/Settings/GeneralSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#: qml/Settings/GeneralSettingsPage.qml:112
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr "Select Option"
+msgstr "Select Audio Backend"
 
-#: qml/Settings/GeneralSettingsPage.qml:121
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -1061,118 +1044,118 @@ msgctxt ""
 msgid "Play Time:"
 msgstr "Play Time:"
 
-#: qml/Settings/GeneralSettingsPage.qml:123
+#: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Show time left instead of total track time"
 
-#: qml/Settings/GeneralSettingsPage.qml:133
+#: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Adjust time left based on current playback speed"
 
-#: qml/Settings/GeneralSettingsPage.qml:142
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Prioritise streaming over downloading"
 
-#: qml/Settings/GeneralSettingsPage.qml:159
+#: qml/Settings/GeneralSettingsPage.qml:180
 #, kde-format
 msgid "Queue settings"
 msgstr "Queue settings"
 
-#: qml/Settings/GeneralSettingsPage.qml:165
+#: qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Continue playing next episode after current one finishes"
 
-#: qml/Settings/GeneralSettingsPage.qml:173
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Update Settings:"
 
-#: qml/Settings/GeneralSettingsPage.qml:175
+#: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Automatically fetch podcast updates on startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:184
+#: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Update existing episode data on refresh (slower)"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:215
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Automatically queue new episodes"
 
-#: qml/Settings/GeneralSettingsPage.qml:209
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Automatically download new episodes"
 
-#: qml/Settings/GeneralSettingsPage.qml:222
+#: qml/Settings/GeneralSettingsPage.qml:243
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Played episode behaviour"
 
-#: qml/Settings/GeneralSettingsPage.qml:225
+#: qml/Settings/GeneralSettingsPage.qml:246
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Do Not Delete"
 
-#: qml/Settings/GeneralSettingsPage.qml:226
+#: qml/Settings/GeneralSettingsPage.qml:247
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Delete Immediately"
 
-#: qml/Settings/GeneralSettingsPage.qml:227
+#: qml/Settings/GeneralSettingsPage.qml:248
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Delete at Next Startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:261
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Reset play position after an episode is played"
 
-#: qml/Settings/GeneralSettingsPage.qml:257
+#: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "When adding new podcasts"
 
-#: qml/Settings/GeneralSettingsPage.qml:262
+#: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Mark all episodes as played"
 
-#: qml/Settings/GeneralSettingsPage.qml:273
+#: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Mark most recent episodes as unplayed"
 
-#: qml/Settings/GeneralSettingsPage.qml:296
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Mark all episodes as unplayed"
 
-#: qml/Settings/GeneralSettingsPage.qml:313
+#: qml/Settings/GeneralSettingsPage.qml:334
 #, kde-format
 msgid "Article"
 msgstr "Article"
 
-#: qml/Settings/GeneralSettingsPage.qml:318
+#: qml/Settings/GeneralSettingsPage.qml:339
 #, kde-format
 msgid "Font size"
 msgstr "Font size"
 
-#: qml/Settings/GeneralSettingsPage.qml:325
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Font size:"
 msgstr "Font size:"
 
-#: qml/Settings/GeneralSettingsPage.qml:341
+#: qml/Settings/GeneralSettingsPage.qml:362
 #, kde-format
 msgid "Use system default"
 msgstr "Use system default"
@@ -1798,46 +1781,41 @@ msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
 msgstr "Sync finished with Error"
 
-#: systrayicon.cpp:43
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#: systrayicon.cpp:46
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Seek Backward"
 
-#: systrayicon.cpp:55
-#, fuzzy, kde-format
-#| msgid "Play"
+#: systrayicon.cpp:58
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Play"
 
-#: systrayicon.cpp:63
-#, fuzzy, kde-format
-#| msgid "Pause"
+#: systrayicon.cpp:66
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Pause"
 
-#: systrayicon.cpp:82
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#: systrayicon.cpp:85
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Seek Forward"
 
-#: systrayicon.cpp:94
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#: systrayicon.cpp:97
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Skip Forward"
 
-#: systrayicon.cpp:109
+#: systrayicon.cpp:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Quit"
 
 #~ msgid "Errors"
 #~ msgstr "Errors"
