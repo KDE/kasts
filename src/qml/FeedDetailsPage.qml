@@ -102,6 +102,7 @@ Kirigami.ScrollablePage {
 
     ListModel {
         id: emptyListModel
+        readonly property var filterType: AbstractEpisodeProxyModel.NoFilter
     }
 
     GenericEntryListView {
