@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be>
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Gui Multimedia)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 
 if (NOT ANDROID)
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Widgets)
@@ -16,8 +16,8 @@ target_link_libraries(kmediasession-example PRIVATE
     Qt::Core
     Qt::Qml
     Qt::Gui
-    KF5::CoreAddons
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
     KMediaSession
 )
 

@@ -18,10 +18,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(KF5_MIN_VERSION "5.102.0")
+set(KF_MIN_VERSION "5.102.0")
 set(QT_MIN_VERSION "5.15.2")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
@@ -50,9 +50,17 @@ ecm_set_disabled_deprecation_versions(
     KF 5.102.0
 )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
+if (QT_MAJOR_VERSION EQUAL "6")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
+
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg Xml)
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
+if (NOT KF_MAJOR_VERSION EQUAL "6") # TODO temporary workaround until kirigami-addons is switched to KF6
 find_package(KF5KirigamiAddons 0.7 REQUIRED)
+endif()
 find_package(Taglib REQUIRED)
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
@@ -60,7 +68,7 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
     PURPOSE "Secure storage of account secrets"
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
 
 if (ANDROID)
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)

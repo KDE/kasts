@@ -161,7 +161,7 @@ add_executable(kasts ${kasts_srcs})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg KF5::Kirigami2 KF5::Syndication KF5::CoreAddons KF5::ConfigGui KF5::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF5::ThreadWeaver KMediaSession)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml KF${KF_MAJOR_VERSION}::Kirigami2 KF${KF_MAJOR_VERSION}::Syndication KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::ConfigGui KF${KF_MAJOR_VERSION}::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF${KF_MAJOR_VERSION}::ThreadWeaver KMediaSession)
 
 if(KASTS_FLATPAK)
     target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)
