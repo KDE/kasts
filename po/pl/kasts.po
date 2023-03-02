@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 00:57+0000\n"
+"POT-Creation-Date: 2023-03-02 00:54+0000\n"
 "PO-Revision-Date: 2022-12-27 18:47+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -436,12 +436,12 @@ msgstr "Przeszukaj podcastindex.org"
 msgid "Search"
 msgstr "Szukaj"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribe"
 msgstr "Śledź"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribed"
 msgstr "Śledzone"
@@ -575,7 +575,7 @@ msgctxt "@action:intoolbar"
 msgid "Search and Filter"
 msgstr "Wybierz filtr"
 
-#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:366
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Brak dostępnych odcinków"
@@ -614,43 +614,43 @@ msgstr "Pokaż dziennik błędów"
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
 
-#: qml/FeedDetailsPage.qml:130
+#: qml/FeedDetailsPage.qml:131
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "przez %1"
 
-#: qml/FeedDetailsPage.qml:161
+#: qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Odśwież podkast"
 
-#: qml/FeedDetailsPage.qml:180
+#: qml/FeedDetailsPage.qml:181
 #, kde-format
 msgid "Show Details"
 msgstr "Pokaż szczegóły"
 
-#: qml/FeedDetailsPage.qml:251
+#: qml/FeedDetailsPage.qml:252
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Adres URL podkastu:"
 
-#: qml/FeedDetailsPage.qml:291
+#: qml/FeedDetailsPage.qml:292
 #, kde-format
 msgid "Weblink:"
 msgstr "Odnośnik sieciowy:"
 
-#: qml/FeedDetailsPage.qml:317
+#: qml/FeedDetailsPage.qml:318
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Śledzone od: %1"
 
-#: qml/FeedDetailsPage.qml:330
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Ostatnio uaktualnione: %1"
 
-#: qml/FeedDetailsPage.qml:343
+#: qml/FeedDetailsPage.qml:344
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -658,7 +658,7 @@ msgstr[0] "1 odcinek"
 msgstr[1] "%1 odcinki"
 msgstr[2] "%1 odcinków"
 
-#: qml/FeedDetailsPage.qml:343
+#: qml/FeedDetailsPage.qml:344
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -666,7 +666,7 @@ msgstr[0] "1 nieodtworzony"
 msgstr[1] "%1 nieodtworzone"
 msgstr[2] "%1 nieodtworzonych"
 
-#: qml/FeedDetailsPage.qml:365
+#: qml/FeedDetailsPage.qml:366
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Błąd (%1): %2"
@@ -820,26 +820,26 @@ msgstr[0] "Usuń pobrane"
 msgstr[1] "Usuń pobrane"
 msgstr[2] "Usuń pobrane"
 
-#: qml/GlobalSearchField.qml:97
+#: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
+#: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
 #, fuzzy, kde-format
 #| msgid "Advanced options"
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Ustawienia rozszerzone"
 
-#: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
+#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
+#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:177
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "@title:group Group of fields in which can be searched"
@@ -1267,55 +1267,55 @@ msgstr "Synchronizacja"
 msgid "Error Log"
 msgstr "Dziennik błędów"
 
-#: qml/Settings/StorageSettingsPage.qml:19
+#: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
 msgstr "Ustawienia składowania"
 
-#: qml/Settings/StorageSettingsPage.qml:39
-#: qml/Settings/StorageSettingsPage.qml:45
+#: qml/Settings/StorageSettingsPage.qml:38
+#: qml/Settings/StorageSettingsPage.qml:44
 #, kde-format
 msgid "Storage path"
 msgstr "Ścieżka przechowywania"
 
-#: qml/Settings/StorageSettingsPage.qml:51
+#: qml/Settings/StorageSettingsPage.qml:50
 #, kde-format
 msgid "Select folder..."
 msgstr "Wybierz katalog…"
 
-#: qml/Settings/StorageSettingsPage.qml:58
+#: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
 msgid "Select Storage Path"
 msgstr "Wybierz położenie pamięci dyskowej"
 
-#: qml/Settings/StorageSettingsPage.qml:73
+#: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Use default path"
 msgstr "Użyj domyślnego położenia"
 
-#: qml/Settings/StorageSettingsPage.qml:91
+#: qml/Settings/StorageSettingsPage.qml:85
 #, kde-format
 msgid "Information"
 msgstr "Informacja"
 
-#: qml/Settings/StorageSettingsPage.qml:95
+#: qml/Settings/StorageSettingsPage.qml:89
 #, kde-format
 msgid "Podcast downloads"
 msgstr "Pobierane podkasty"
 
-#: qml/Settings/StorageSettingsPage.qml:96
-#: qml/Settings/StorageSettingsPage.qml:103
+#: qml/Settings/StorageSettingsPage.qml:90
+#: qml/Settings/StorageSettingsPage.qml:97
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr "Wykorzystane %1 miejsca na dysku"
 
-#: qml/Settings/StorageSettingsPage.qml:102
+#: qml/Settings/StorageSettingsPage.qml:96
 #, kde-format
 msgid "Image cache"
 msgstr "Pamięć podręczna obrazów"
 
-#: qml/Settings/StorageSettingsPage.qml:107
+#: qml/Settings/StorageSettingsPage.qml:101
 #, kde-format
 msgid "Clear Cache"
 msgstr "Wyczyść pamięć podręczną"

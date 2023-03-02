@@ -6,17 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 00:57+0000\n"
-"PO-Revision-Date: 2023-02-25 08:56+0100\n"
+"POT-Creation-Date: 2023-03-02 00:54+0000\n"
+"PO-Revision-Date: 2023-02-28 09:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -411,12 +411,12 @@ msgstr "Preišči podcastindex.org"
 msgid "Search"
 msgstr "Išči"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribe"
 msgstr "Naroči se"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribed"
 msgstr "Naročen"
@@ -549,7 +549,7 @@ msgctxt "@action:intoolbar"
 msgid "Search and Filter"
 msgstr "Išči in filtriraj"
 
-#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:365
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:366
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Nobenih epizod ni na voljo"
@@ -588,43 +588,43 @@ msgstr "Prikaži dnevnik napak"
 msgid "Podcast Details"
 msgstr "Podrobnosti podcasta"
 
-#: qml/FeedDetailsPage.qml:130
+#: qml/FeedDetailsPage.qml:131
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:161
+#: qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Osveži podcast"
 
-#: qml/FeedDetailsPage.qml:180
+#: qml/FeedDetailsPage.qml:181
 #, kde-format
 msgid "Show Details"
 msgstr "Prikaži podrobnosti"
 
-#: qml/FeedDetailsPage.qml:251
+#: qml/FeedDetailsPage.qml:252
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Spletni naslov podcasta:"
 
-#: qml/FeedDetailsPage.qml:291
+#: qml/FeedDetailsPage.qml:292
 #, kde-format
 msgid "Weblink:"
 msgstr "Spletna povezava:"
 
-#: qml/FeedDetailsPage.qml:317
+#: qml/FeedDetailsPage.qml:318
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Naročen od: %1"
 
-#: qml/FeedDetailsPage.qml:330
+#: qml/FeedDetailsPage.qml:331
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Zadnjič osveženo: %1"
 
-#: qml/FeedDetailsPage.qml:343
+#: qml/FeedDetailsPage.qml:344
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -633,7 +633,7 @@ msgstr[1] "%1 epizodi"
 msgstr[2] "%1 epizode"
 msgstr[3] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:343
+#: qml/FeedDetailsPage.qml:344
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -642,7 +642,7 @@ msgstr[1] "%1 nepredvajana"
 msgstr[2] "%1 nepredvajani"
 msgstr[3] "%1 nepredvajanih"
 
-#: qml/FeedDetailsPage.qml:365
+#: qml/FeedDetailsPage.qml:366
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Napaka (%1): %2"
@@ -792,25 +792,25 @@ msgstr[1] "Zbriši prenosa"
 msgstr[2] "Zbriši prenose"
 msgstr[3] "Zbriši prenose"
 
-#: qml/GlobalSearchField.qml:97
+#: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
 msgstr "Ni zadetkov iskanja"
 
-#: qml/GlobalSearchField.qml:104 qml/SearchFilterBar.qml:51
+#: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Napredne možnosti iskanja"
 
-#: qml/GlobalSearchField.qml:138 qml/SearchFilterBar.qml:173
+#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preference iskanja"
 
-#: qml/GlobalSearchField.qml:142 qml/SearchFilterBar.qml:177
+#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:177
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1020,25 +1020,25 @@ msgstr "Strni na pladenj namesto zapiranja"
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "Vrsta ikone pladnja"
 
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "Barvita"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "Svetla"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "Temna"
 
 #: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
@@ -1230,55 +1230,55 @@ msgstr "Sinhronizacija"
 msgid "Error Log"
 msgstr "Dnevnik napak"
 
-#: qml/Settings/StorageSettingsPage.qml:19
+#: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
 msgstr "Nastavitve hrambe"
 
-#: qml/Settings/StorageSettingsPage.qml:39
-#: qml/Settings/StorageSettingsPage.qml:45
+#: qml/Settings/StorageSettingsPage.qml:38
+#: qml/Settings/StorageSettingsPage.qml:44
 #, kde-format
 msgid "Storage path"
 msgstr "Pot do hrambe"
 
-#: qml/Settings/StorageSettingsPage.qml:51
+#: qml/Settings/StorageSettingsPage.qml:50
 #, kde-format
 msgid "Select folder..."
 msgstr "Izberi mapo..."
 
-#: qml/Settings/StorageSettingsPage.qml:58
+#: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
 msgid "Select Storage Path"
 msgstr "Izberi pot hrambe"
 
-#: qml/Settings/StorageSettingsPage.qml:73
+#: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Use default path"
 msgstr "Uporabi privzeto pot"
 
-#: qml/Settings/StorageSettingsPage.qml:91
+#: qml/Settings/StorageSettingsPage.qml:85
 #, kde-format
 msgid "Information"
 msgstr "Informacije"
 
-#: qml/Settings/StorageSettingsPage.qml:95
+#: qml/Settings/StorageSettingsPage.qml:89
 #, kde-format
 msgid "Podcast downloads"
 msgstr "Prenosi podcastov"
 
-#: qml/Settings/StorageSettingsPage.qml:96
-#: qml/Settings/StorageSettingsPage.qml:103
+#: qml/Settings/StorageSettingsPage.qml:90
+#: qml/Settings/StorageSettingsPage.qml:97
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr "Uporabljeno %1 diskovnega prostora"
 
-#: qml/Settings/StorageSettingsPage.qml:102
+#: qml/Settings/StorageSettingsPage.qml:96
 #, kde-format
 msgid "Image cache"
 msgstr "Medpomnilnik slik"
 
-#: qml/Settings/StorageSettingsPage.qml:107
+#: qml/Settings/StorageSettingsPage.qml:101
 #, kde-format
 msgid "Clear Cache"
 msgstr "Počisti medpomnilnik"
