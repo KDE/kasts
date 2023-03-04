@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:54+0000\n"
-"PO-Revision-Date: 2023-02-24 19:04+0100\n"
+"PO-Revision-Date: 2023-03-01 01:33+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1014,25 +1014,25 @@ msgstr "Minimizza nel vassoio invece di chiudere"
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "Tipo dell'icona nel vassoio di sistema"
 
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "Colorato"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 #: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
