@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:54+0000\n"
-"PO-Revision-Date: 2023-02-22 16:53+0100\n"
+"PO-Revision-Date: 2023-03-01 16:22+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1012,25 +1012,25 @@ msgstr "Minimalizovat do systémové části panelu namísto zavření"
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "Typ ikony v systémové liště"
 
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "Barevný"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "Světlý"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "Tmavý"
 
 #: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
