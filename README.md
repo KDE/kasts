@@ -43,7 +43,7 @@ Note: When using versions of Kasts built from git-master, it's possible that the
 ## Linux
 
 ```
-git clone https://invent.kde.org/plasma-mobile/kasts
+git clone https://invent.kde.org/multimedia/kasts
 cd kasts
 mkdir build && cd build
 cmake .. -DCMAKE_PREFIX_PATH=/usr
