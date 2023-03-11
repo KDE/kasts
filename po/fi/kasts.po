@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# Tommi Nieminen <translator@legisign.org>, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-02 00:54+0000\n"
-"PO-Revision-Date: 2022-09-06 16:48+0300\n"
+"PO-Revision-Date: 2023-03-07 21:36+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: KDE\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,7 +30,7 @@ msgstr "translator@legisign.org"
 #: audiomanager.cpp:404
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+msgstr "Ei yhteyttä tai suoratoistoa ei sallittu maksullisessa yhteydessä"
 
 #: audiomanager.cpp:541
 #, kde-format
@@ -83,10 +83,9 @@ msgid "Error Syncing Feed and/or Episode Status"
 msgstr "Virhe synkronoitaessa syötteen tai jakson tilaa"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr "Maksullinen yhteys ei salli virkistystä"
+msgstr "Ei yhteyttä tai suoratoistoa ei sallittu maksullisessa yhteydessä"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -94,27 +93,24 @@ msgid "Example player KMediaSession"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select file..."
-msgstr "Valitse kansio…"
+msgstr "Valitse tiedosto…"
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select media file"
-msgstr "Valitse suodatin"
+msgstr "Valitse mediatiedosto"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "TAI"
 
 #: kmediasession/example-app/qml/main.qml:93
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgid "Open"
-msgstr "Avaa podcast"
+msgstr "Avaa"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
@@ -138,48 +134,44 @@ msgstr "Pysäytä"
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "Vaimenna"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
 msgid "title: %1"
-msgstr ""
+msgstr "otsikko: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
 msgid "artist: %1"
-msgstr ""
+msgstr "artisti: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
 msgid "album: %1"
-msgstr ""
+msgstr "albumi: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
 msgid "mediaStatus: %1"
-msgstr ""
+msgstr "median tila: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "playbackStatus: %1"
-msgstr "Soittonopeus: "
+msgstr "toiston tila: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "error: %1"
-msgstr "Virhe (%1): %2"
+msgstr "virhe: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Soittaa musiikkia"
+msgstr "Toistaa musiikkia"
 
 #: main.cpp:110
 #, kde-format
@@ -207,10 +199,9 @@ msgid "Podcast Player"
 msgstr "Podcast-soitin"
 
 #: main.cpp:122
-#, fuzzy, kde-format
-#| msgid "© 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2020-2023 KDE Community"
-msgstr "© 2020–2022 KDE-yhteisö"
+msgstr "© 2020–2023 KDE-yhteisö"
 
 #: main.cpp:123
 #, kde-format
@@ -223,60 +214,52 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:146
-#, fuzzy, kde-format
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Ei suodatinta"
 
 #: models/abstractepisodeproxymodel.cpp:148
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Kuunnellut jaksot:"
 
 #: models/abstractepisodeproxymodel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Kuuntelemattomat jaksot"
 
 #: models/abstractepisodeproxymodel.cpp:152
-#, fuzzy, kde-format
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "”Uusiksi” merkityt jaksot"
 
 #: models/abstractepisodeproxymodel.cpp:154
-#, fuzzy, kde-format
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Jaksot, joita ei ole merkitty ”uusiksi”"
 
 #: models/abstractepisodeproxymodel.cpp:164
-#, fuzzy, kde-format
-#| msgid "No Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr "Ei otsikkoa"
+msgstr "Otsikko"
 
 #: models/abstractepisodeproxymodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr "Tilaukset"
+msgstr "Kuvaus"
 
 #: models/abstractepisodeproxymodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "Podcastilla ei ole otsikkoa"
+msgstr "Podcastin otsikko"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -340,51 +323,45 @@ msgid "Playback Rate: "
 msgstr "Soittonopeus: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Chapter List"
-msgstr "Luvut"
+msgstr "Näytä lukujen luettelo"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgid "No New Episodes"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Episode Info"
-msgstr "Ei uusia jaksoja"
+msgstr "Näytä jaksotiedot"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr "Perusasetukset"
+msgstr "Ajaa uniajastimen asetukset"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Volume Settings"
-msgstr "Perusasetukset"
+msgstr "Avaa äänenvoimakkuusasetukset"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle Mute"
-msgstr ""
+msgstr "Vaimenna/lopeta vaimennus"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show More"
-msgstr "Näytä virheloki"
+msgstr "Näytä lisää"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Luvut"
@@ -393,11 +370,10 @@ msgstr "Luvut"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Näytä tiedot"
 
 #: qml/Desktop/DesktopPlayerControls.qml:379
-#, fuzzy, kde-format
-#| msgid "Sleep Timer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Uniajastin"
@@ -509,7 +485,7 @@ msgctxt ""
 "Action to start playback by streaming the episode rather than downloading it "
 "first"
 msgid "Stream"
-msgstr ""
+msgstr "Suoratoista"
 
 #: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
 #: qml/GenericEntryListView.qml:155
@@ -554,15 +530,14 @@ msgid "Open Podcast"
 msgstr "Avaa podcast"
 
 #: qml/EntryPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Episode Download URL:"
+#, kde-format
 msgid "Copy Episode Download URL"
-msgstr "Jakson latausosoite:"
+msgstr "Kopioi jakson latausosoite"
 
 #: qml/EntryPage.qml:292
 #, kde-format
 msgid "Link copied"
-msgstr ""
+msgstr "Linkki kopioitu"
 
 #: qml/EpisodeListPage.qml:17
 #, kde-format
@@ -570,11 +545,10 @@ msgid "Episode List"
 msgstr "Jaksoluettelo"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
-msgstr "Valitse suodatin"
+msgstr "Etsi ja suodata"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:366
 #, kde-format
@@ -593,15 +567,13 @@ msgstr "Virhekoodi: "
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Virheloki"
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
 msgstr "Tyhjennä kaikki virheet"
@@ -629,10 +601,9 @@ msgid "Refresh Podcast"
 msgstr "Virkistä podcast"
 
 #: qml/FeedDetailsPage.qml:181
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgid "Show Details"
-msgstr "Tiedot"
+msgstr "Näytä yksityiskohdat"
 
 #: qml/FeedDetailsPage.qml:252
 #, kde-format
@@ -747,43 +718,41 @@ msgstr[0] "Poista podcast"
 msgstr[1] "Poista podcastit"
 
 #: qml/FilterInlineMessage.qml:32
-#, fuzzy, kde-format
-#| msgid "Reset"
+#, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "Palauta"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Filter Active: %1"
-msgstr "Aktiivinen suodatin: "
+msgstr "Aktiivinen suodatin: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Lähennä"
 
 #: qml/FullScreenImage.qml:59
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Loitonna"
 
 #: qml/FullScreenImage.qml:70
 #, kde-format
 msgid "Rotate left"
-msgstr ""
+msgstr "Kierrä vasemmalle"
 
 #: qml/FullScreenImage.qml:77
 #, kde-format
 msgid "Rotate right"
-msgstr ""
+msgstr "Kierrä oikealle"
 
 #: qml/FullScreenImage.qml:84
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 #: qml/GenericEntryDelegate.qml:171
 #, kde-format
@@ -807,7 +776,7 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "Suoratoista"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format
@@ -821,27 +790,25 @@ msgstr[1] "Poista lataukset"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No Search Results"
-msgstr ""
+msgstr "Ei hakutuloksia"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Lisäasetukset"
+msgstr "Lisähakuasetukset"
 
 #: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:173
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "Hakuasetukset"
 
 #: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:177
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Etsi"
+msgstr "Etsi:"
 
 #: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -897,74 +864,67 @@ msgid "No chapters found."
 msgstr "Lukuja ei löytynyt."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Soittonopeus: "
+msgstr "Soittonopeuden esiasetukset"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "Uusi esiasetus:"
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Lisää luetteloon uusi toistonopeusarvo"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease Playback Rate"
-msgstr "Aseta soittonopeus"
+msgstr "Hidasta soittonopeutta"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase Playback Rate"
-msgstr "Aseta soittonopeus"
+msgstr "Nopeuta soittonopeutta"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Current Status:"
+#, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "Nykyinen tila:"
+msgstr "Nykyiset esiasetukset:"
 
 #: qml/PlaybackRateMenu.qml:19
-#, fuzzy, kde-format
-#| msgid "Set Playback Rate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Aseta soittonopeus"
+msgstr "Valitse soittonopeus"
 
 #: qml/PlaybackRateMenu.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "Mukauta"
 
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Lisää jonoon"
 
 #: qml/QueuePage.qml:37
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
@@ -973,12 +933,10 @@ msgstr "Virkistä kaikki podcastit"
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "Jono on tyhjä"
 
 #: qml/QueuePage.qml:64
-#, fuzzy, kde-format
-#| msgid "1 Episode"
-#| msgid_plural "%1 Episodes"
+#, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -986,22 +944,19 @@ msgstr[0] "Yksi jakso"
 msgstr[1] "%1 jaksoa"
 
 #: qml/QueuePage.qml:64
-#, fuzzy, kde-format
-#| msgid "Time Left"
+#, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Aikaa jäljellä"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgid "New Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search Episodes"
-msgstr "Uudet jaksot"
+msgstr "Etsi jaksoja"
 
 #: qml/SearchFilterBar.qml:86
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
@@ -1012,11 +967,10 @@ msgstr "Suodata"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
-msgstr ""
+msgstr "Suodata jaksoja tilan mukaan"
 
 #: qml/SearchFilterBar.qml:127
-#, fuzzy, kde-format
-#| msgid "Select Filter"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr "Valitse suodatin"
@@ -1044,63 +998,60 @@ msgstr "Näytä tilausnäkymässä aina podcastien otsikot"
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "Näytä kuvake ilmoitusalueella"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "Pienennä ilmoitusalueelle sulkemisen sijaan"
 
 #: qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "Ilmoituskuvakkeen tyyppi"
 
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "Värikäs"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "Vaalea"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "Tumma"
 
 #: qml/Settings/GeneralSettingsPage.qml:107
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgid "Playback settings"
-msgstr "Soittoasetukset"
+msgstr "Toistoasetukset"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select Audio Backend"
-msgstr "Valitse vaihtoehto"
+msgstr "Valitse äänijärjestelmä"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Played"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play Time:"
-msgstr "Kuunneltu"
+msgstr "Soittoaika:"
 
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Näytä jäljellä oleva aika raidan kokonaisajan sijaan"
 
 #: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
@@ -1110,11 +1061,10 @@ msgstr "Säädä jäljellä olevaa aikaa nykyisen toistonopeuden mukaan"
 #: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Suosi suoratoistoa latauksen sijaan"
 
 #: qml/Settings/GeneralSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Queue Settings"
+#, kde-format
 msgid "Queue settings"
 msgstr "Jonoasetukset"
 
@@ -1124,11 +1074,10 @@ msgid "Continue playing next episode after current one finishes"
 msgstr "Jatka seuraavaan jaksoon, kun nykyinen on kuunneltu"
 
 #: qml/Settings/GeneralSettingsPage.qml:194
-#, fuzzy, kde-format
-#| msgid "Play Settings"
+#, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr "Soittoasetukset"
+msgstr "Päivitysasetukset:"
 
 #: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
@@ -1141,22 +1090,19 @@ msgid "Update existing episode data on refresh (slower)"
 msgstr "Päivitä olemassa oleva jaksotieto virkistettäessä (hidas)"
 
 #: qml/Settings/GeneralSettingsPage.qml:215
-#, fuzzy, kde-format
-#| msgid "Automatically Queue"
+#, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Lisää jonoon automaattisesti"
+msgstr "Lisää uudet jaksot jonoon automaattisesti"
 
 #: qml/Settings/GeneralSettingsPage.qml:230
-#, fuzzy, kde-format
-#| msgid "Automatically Download"
+#, kde-format
 msgid "Automatically download new episodes"
-msgstr "Lataa automaattisesti"
+msgstr "Lataa uudet jaksot automaattisesti"
 
 #: qml/Settings/GeneralSettingsPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Played Episodes"
+#, kde-format
 msgid "Played episode behavior"
-msgstr "Kuunnellut jaksot:"
+msgstr "Toistetun jakson toiminta"
 
 #: qml/Settings/GeneralSettingsPage.qml:246
 #, kde-format
@@ -1176,11 +1122,10 @@ msgstr "Poista käynnistettäessä uudelleen"
 #: qml/Settings/GeneralSettingsPage.qml:261
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Palata toistokohta, kun jakso on toistettu"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts:"
+#, kde-format
 msgid "When adding new podcasts"
 msgstr "Lisättäessä uusia podcasteja:"
 
@@ -1190,10 +1135,9 @@ msgid "Mark all episodes as played"
 msgstr "Merkitse kaikki jaksot kuunnelluiksi"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed:"
+#, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi:"
+msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi"
 
 #: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
@@ -1206,10 +1150,9 @@ msgid "Article"
 msgstr "Artikkeli"
 
 #: qml/Settings/GeneralSettingsPage.qml:339
-#, fuzzy, kde-format
-#| msgid "Font size:"
+#, kde-format
 msgid "Font size"
-msgstr "Fonttikoko:"
+msgstr "Fonttikoko"
 
 #: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
@@ -1227,10 +1170,9 @@ msgid "Network Settings"
 msgstr "Verkkoasetukset"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "On metered connections:"
+#, kde-format
 msgid "On metered connections"
-msgstr "Maksullisissa yhteyksissä:"
+msgstr "Maksullisissa yhteyksissä"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
@@ -1250,7 +1192,7 @@ msgstr "Salli kuvien lataus"
 #: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Salli suoratoisto"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
@@ -1284,10 +1226,9 @@ msgstr "Tallennustila-asetukset"
 
 #: qml/Settings/StorageSettingsPage.qml:38
 #: qml/Settings/StorageSettingsPage.qml:44
-#, fuzzy, kde-format
-#| msgid "Storage path:"
+#, kde-format
 msgid "Storage path"
-msgstr "Tallennuspaikka:"
+msgstr "Tallennuspaikka"
 
 #: qml/Settings/StorageSettingsPage.qml:50
 #, kde-format
@@ -1307,13 +1248,12 @@ msgstr "Käytä oletussijaintia"
 #: qml/Settings/StorageSettingsPage.qml:85
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Tietoa"
 
 #: qml/Settings/StorageSettingsPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Podcast Downloads:"
+#, kde-format
 msgid "Podcast downloads"
-msgstr "Podcast-latauksia:"
+msgstr "Podcast-lataukset"
 
 #: qml/Settings/StorageSettingsPage.qml:90
 #: qml/Settings/StorageSettingsPage.qml:97
@@ -1323,10 +1263,9 @@ msgid "Using %1 of disk space"
 msgstr "Levytilaa käytössä %1"
 
 #: qml/Settings/StorageSettingsPage.qml:96
-#, fuzzy, kde-format
-#| msgid "Image Cache:"
+#, kde-format
 msgid "Image cache"
-msgstr "Kuvavälimuisti:"
+msgstr "Kuvavälimuisti"
 
 #: qml/Settings/StorageSettingsPage.qml:101
 #, kde-format
@@ -1341,7 +1280,7 @@ msgstr "Synkronointiasetukset"
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Tili"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
@@ -1349,8 +1288,7 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "Kirjauduttu tilille ”%1” palvelimella ”%2”"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Syncing Disabled"
+#, kde-format
 msgid "Syncing disabled"
 msgstr "Synkronointi ei käytössä"
 
@@ -1365,10 +1303,9 @@ msgid "Login"
 msgstr "Kirjaudu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Manual Syncing:"
+#, kde-format
 msgid "Manually sync"
-msgstr "Manuaalinen synkronointi:"
+msgstr "Synkronointi käsin"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
@@ -1376,22 +1313,19 @@ msgid "Sync Now"
 msgstr "Synkronoi nyt"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Last full sync with server:"
+#, kde-format
 msgid "Last full sync with server"
-msgstr "Viimeisin täysi synkronointi palvelimeen:"
+msgstr "Viimeisin täysi synkronointi palvelimeen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server:"
+#, kde-format
 msgid "Last quick upload to sync server"
-msgstr "Viimeisin pikalähetys synkronointipalvelimeen:"
+msgstr "Viimeisin pikalähetys synkronointipalvelimeen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Automatic Syncing:"
+#, kde-format
 msgid "Automatic syncing"
-msgstr "Automaattinen synkronointi:"
+msgstr "Automaattinen synkronointi"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
@@ -1409,8 +1343,7 @@ msgid "Upload episode play positions on play/pause toggle"
 msgstr "Lähetä toista/keskeytä-toiminnon jälkeen jakson toistokohdat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
-#, fuzzy, kde-format
-#| msgid "Advanced Options"
+#, kde-format
 msgid "Advanced options"
 msgstr "Lisäasetukset"
 
@@ -1422,7 +1355,7 @@ msgstr "Nouda kaikkien jaksojen tila palvelimelta"
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Nouda"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
@@ -1432,7 +1365,7 @@ msgstr "Lähetä kaikkien paikallisten jaksojen tila palvelimeen"
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "Lähetä"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
@@ -1848,36 +1781,31 @@ msgid "Sync finished with Error"
 msgstr "Synkronointi päättyi virheeseen"
 
 #: systrayicon.cpp:46
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Hyppää taaksepäin"
 
 #: systrayicon.cpp:58
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Soita"
 
 #: systrayicon.cpp:66
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr "Keskeytä"
+msgstr "Tauko"
 
 #: systrayicon.cpp:85
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Hyppää eteenpäin"
 
 #: systrayicon.cpp:97
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Hyppää eteenpäin"
@@ -1886,7 +1814,7 @@ msgstr "Hyppää eteenpäin"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "Lopeta"
 
 #~ msgid "Errors"
 #~ msgstr "Virheet"
