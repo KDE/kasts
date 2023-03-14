@@ -48,7 +48,7 @@ Kirigami.SwipeListItem {
     activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
 
     Accessible.role: Accessible.Button
-    Accessible.name: entry.title
+    Accessible.name: entry ? entry.title : ""
     Accessible.onPressAction: {
          listItem.clicked();
     }
