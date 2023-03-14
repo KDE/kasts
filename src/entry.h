@@ -32,6 +32,7 @@ class Entry : public QObject
     Q_PROPERTY(QString baseUrl READ baseUrl NOTIFY baseUrlChanged)
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged)
     Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged)
+    Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT)
     Q_PROPERTY(bool hasEnclosure READ hasEnclosure NOTIFY hasEnclosureChanged)
     Q_PROPERTY(QString image READ image NOTIFY imageChanged)
@@ -51,6 +52,7 @@ public:
     QString link() const;
     bool read() const;
     bool getNew() const;
+    bool favorite() const;
     Enclosure *enclosure() const;
     bool hasEnclosure() const;
     QString image() const;
@@ -62,12 +64,14 @@ public:
 
     void setRead(bool read);
     void setNew(bool state);
+    void setFavorite(bool favorite);
     void setQueueStatus(bool status);
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 
     void setNewInternal(bool state);
     void setReadInternal(bool read);
+    void setFavoriteInternal(bool favorite);
     void setQueueStatusInternal(bool state);
 
 Q_SIGNALS:
@@ -80,6 +84,7 @@ Q_SIGNALS:
     void baseUrlChanged(const QString &baseUrl);
     void readChanged(bool read);
     void newChanged(bool state);
+    void favoriteChanged(bool favorite);
     void hasEnclosureChanged(bool hasEnclosure);
     void imageChanged(const QString &url);
     void cachedImageChanged(const QString &imagePath);
@@ -106,6 +111,7 @@ private:
     QString m_link;
     bool m_read;
     bool m_new;
+    bool m_favorite;
     Enclosure *m_enclosure = nullptr;
     QString m_image;
     bool m_hasenclosure = false;

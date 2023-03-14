@@ -72,6 +72,10 @@ void Entry::updateFromDb(bool emitSignals)
         m_new = entryQuery.value(QStringLiteral("new")).toBool();
         Q_EMIT newChanged(m_new);
     }
+    if (m_favorite != entryQuery.value(QStringLiteral("favorite")).toBool()) {
+        m_favorite = entryQuery.value(QStringLiteral("favorite")).toBool();
+        Q_EMIT favoriteChanged(m_favorite);
+    }
 
     setHasEnclosure(entryQuery.value(QStringLiteral("hasEnclosure")).toBool(), emitSignals);
     setImage(entryQuery.value(QStringLiteral("image")).toString(), emitSignals);
@@ -170,6 +174,11 @@ bool Entry::read() const
 bool Entry::getNew() const
 {
     return m_new;
+}
+
+bool Entry::favorite() const
+{
+    return m_favorite;
 }
 
 QString Entry::baseUrl() const
@@ -337,6 +346,34 @@ void Entry::setNewInternal(bool state)
 
         // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
         Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->url());
+    }
+}
+
+void Entry::setFavorite(bool favorite)
+{
+    if (favorite != m_favorite) {
+        // Making a detour through DataManager to make bulk operations more
+        // performant.  DataManager will call setFavoriteInternal on every item to
+        // be marked new/not new.  So implement features there.
+        DataManager::instance().bulkMarkFavorite(favorite, QStringList(m_id));
+    }
+}
+
+void Entry::setFavoriteInternal(bool favorite)
+{
+    if (favorite != m_favorite) {
+        // Make sure that operations done here can be wrapped inside an sqlite
+        // transaction.  I.e. no calls that trigger a SELECT operation.
+        m_favorite = favorite;
+        Q_EMIT favoriteChanged(m_favorite);
+
+        QSqlQuery query;
+        query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE id=:id;"));
+        query.bindValue(QStringLiteral(":id"), m_id);
+        query.bindValue(QStringLiteral(":favorite"), m_favorite);
+        Database::instance().execute(query);
+
+        Q_EMIT DataManager::instance().favoriteEntryCountChanged(m_feed->url());
     }
 }
 

@@ -62,6 +62,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo5());
     if (dbversion < 6)
         TRUE_OR_RETURN(migrateTo6());
+    if (dbversion < 7)
+        TRUE_OR_RETURN(migrateTo7());
     return true;
 }
 
@@ -147,6 +149,16 @@ bool Database::migrateTo6()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActions (podcast TEXT, url TEXT, id TEXT, action TEXT, started INTEGER, position INTEGER, "
                                "total INTEGER, timestamp INTEGER);")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 6;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo7()
+{
+    qDebug() << "Migrating database to version 7";
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entries ADD COLUMN favorite BOOL DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 7;")));
     TRUE_OR_RETURN(commit());
     return true;
 }

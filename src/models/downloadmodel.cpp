@@ -38,6 +38,7 @@ QHash<int, QByteArray> DownloadModel::roleNames() const
         {EpisodeModel::Roles::IdRole, "id"},
         {EpisodeModel::Roles::ReadRole, "read"},
         {EpisodeModel::Roles::NewRole, "new"},
+        {EpisodeModel::Roles::FavoriteRole, "favorite"},
     };
 }
 

@@ -37,6 +37,7 @@ public:
     int entryCount(const int feed_index) const;
     int entryCount(const Feed *feed) const;
     int newEntryCount(const Feed *feed) const;
+    int favoriteEntryCount(const Feed *feed) const;
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
@@ -67,12 +68,14 @@ public:
 
     Q_INVOKABLE void bulkMarkRead(bool state, QStringList list);
     Q_INVOKABLE void bulkMarkNew(bool state, QStringList list);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, QStringList list);
     Q_INVOKABLE void bulkQueueStatus(bool state, QStringList list);
     Q_INVOKABLE void bulkDownloadEnclosures(QStringList list);
     Q_INVOKABLE void bulkDeleteEnclosures(QStringList list);
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, QModelIndexList list);
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, QModelIndexList list);
+    Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, QModelIndexList list);
     Q_INVOKABLE void bulkQueueStatusByIndex(bool state, QModelIndexList list);
     Q_INVOKABLE void bulkDownloadEnclosuresByIndex(QModelIndexList list);
     Q_INVOKABLE void bulkDeleteEnclosuresByIndex(QModelIndexList list);
@@ -87,9 +90,11 @@ Q_SIGNALS:
 
     void unreadEntryCountChanged(const QString &url);
     void newEntryCountChanged(const QString &url);
+    void favoriteEntryCountChanged(const QString &url);
 
     void bulkReadStatusActionFinished();
     void bulkNewStatusActionFinished();
+    void bulkFavoriteStatusActionFinished();
 
     // this will relay the AudioManager::playbackRateChanged signal; this is
     // required to avoid a dependency loop on startup

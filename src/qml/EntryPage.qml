@@ -207,6 +207,14 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
+                        text: entry.favorite ? i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites") : i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
+                        icon.name: !entry.favorite ? "starred-symbolic" : "non-starred-symbolic"
+                        displayHint: Kirigami.DisplayHint.AlwaysHide
+                        onTriggered: {
+                            entry.favorite = !entry.favorite
+                        }
+                    },
+                    Kirigami.Action {
                         text: i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: page.openPodcast()

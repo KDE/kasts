@@ -183,13 +183,20 @@ Kirigami.SwipeListItem {
                     Kirigami.Icon {
                         Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                         Layout.maximumWidth:  0.8 * supertitle.implicitHeight
+                        source: "starred-symbolic"
+                        visible: entry ? (entry.favorite) : false
+                        opacity: 0.7
+                    }
+                    Kirigami.Icon {
+                        Layout.maximumHeight: 0.8 * supertitle.implicitHeight
+                        Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                         source: "source-playlist"
                         visible: entry ? (!isQueue && entry.queueStatus) : false
                         opacity: 0.7
                     }
                     Controls.Label {
                         id: supertitle
-                        text: entry ? ((!isQueue && entry.queueStatus ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )) : ""
+                        text: entry ? (((!isQueue && entry.queueStatus) || entry.favorite ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )) : ""
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

@@ -22,6 +22,7 @@ public:
         IdRole,
         ReadRole,
         NewRole,
+        FavoriteRole,
         ContentRole,
         FeedNameRole,
     };

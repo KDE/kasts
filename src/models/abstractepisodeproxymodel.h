@@ -25,6 +25,8 @@ public:
         NotReadFilter,
         NewFilter,
         NotNewFilter,
+        FavoriteFilter,
+        NotFavoriteFilter,
     };
     Q_ENUM(FilterType)
 

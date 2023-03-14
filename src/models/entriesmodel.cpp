@@ -42,6 +42,8 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(entry->read());
     case AbstractEpisodeModel::Roles::NewRole:
         return QVariant::fromValue(entry->getNew());
+    case AbstractEpisodeModel::Roles::FavoriteRole:
+        return QVariant::fromValue(entry->favorite());
     case AbstractEpisodeModel::Roles::ContentRole:
         return QVariant::fromValue(entry->content());
     case AbstractEpisodeModel::Roles::FeedNameRole:

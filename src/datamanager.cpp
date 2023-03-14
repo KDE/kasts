@@ -185,6 +185,17 @@ int DataManager::newEntryCount(const Feed *feed) const
     return query.value(0).toInt();
 }
 
+int DataManager::favoriteEntryCount(const Feed *feed) const
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND favorite=1;"));
+    query.bindValue(QStringLiteral(":feed"), feed->url());
+    Database::instance().execute(query);
+    if (!query.next())
+        return -1;
+    return query.value(0).toInt();
+}
+
 void DataManager::removeFeed(Feed *feed)
 {
     QList<Feed *> feeds;
@@ -659,6 +670,22 @@ void DataManager::bulkMarkNew(bool state, QStringList list)
     Database::instance().commit();
 
     Q_EMIT bulkNewStatusActionFinished();
+}
+
+void DataManager::bulkMarkFavoriteByIndex(bool state, QModelIndexList list)
+{
+    bulkMarkFavorite(state, getIdsFromModelIndexList(list));
+}
+
+void DataManager::bulkMarkFavorite(bool state, QStringList list)
+{
+    Database::instance().transaction();
+    for (QString id : list) {
+        getEntry(id)->setFavoriteInternal(state);
+    }
+    Database::instance().commit();
+
+    Q_EMIT bulkFavoriteStatusActionFinished();
 }
 
 void DataManager::bulkQueueStatusByIndex(bool state, QModelIndexList list)

@@ -35,6 +35,7 @@ private:
     QStringList m_entryIds;
     QVector<bool> m_read;
     QVector<bool> m_new;
+    QVector<bool> m_favorite;
     QStringList m_titles;
     QStringList m_contents;
     QStringList m_feedNames;

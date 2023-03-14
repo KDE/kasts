@@ -113,7 +113,9 @@ Controls.Control {
                               AbstractEpisodeProxyModel.ReadFilter,
                               AbstractEpisodeProxyModel.NotReadFilter,
                               AbstractEpisodeProxyModel.NewFilter,
-                              AbstractEpisodeProxyModel.NotNewFilter]
+                              AbstractEpisodeProxyModel.NotNewFilter,
+                              AbstractEpisodeProxyModel.FavoriteFilter,
+                              AbstractEpisodeProxyModel.NotFavoriteFilter]
             for (var i in filterList) {
                 filterModel.append({"name": proxyModel.getFilterName(filterList[i]),
                                     "filterType": filterList[i]});

@@ -490,7 +490,7 @@ void UpdateFeedJob::writeToDatabase()
 
     // new entries
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image);"));
+        QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
     for (const EntryDetails &entryDetails : m_newEntries) {
         writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
         writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -503,6 +503,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
         writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
+        writeQuery.bindValue(QStringLiteral(":favorite"), false);
         Database::execute(writeQuery);
     }
 

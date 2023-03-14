@@ -40,6 +40,12 @@ bool AbstractEpisodeProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
     case NotNewFilter:
         accepted = !sourceModel()->data(index, AbstractEpisodeModel::Roles::NewRole).value<bool>();
         break;
+    case FavoriteFilter:
+        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::FavoriteRole).value<bool>();
+        break;
+    case NotFavoriteFilter:
+        accepted = !sourceModel()->data(index, AbstractEpisodeModel::Roles::FavoriteRole).value<bool>();
+        break;
     default:
         accepted = true;
         break;
@@ -94,6 +100,7 @@ void AbstractEpisodeProxyModel::setFilterType(FilterType type)
     if (type != m_currentFilter) {
         disconnect(&DataManager::instance(), &DataManager::bulkReadStatusActionFinished, this, nullptr);
         disconnect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, nullptr);
+        disconnect(&DataManager::instance(), &DataManager::bulkFavoriteStatusActionFinished, this, nullptr);
 
         beginResetModel();
         m_currentFilter = type;
@@ -109,6 +116,12 @@ void AbstractEpisodeProxyModel::setFilterType(FilterType type)
             });
         } else if (type == NewFilter || type == NotNewFilter) {
             connect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, [this]() {
+                beginResetModel();
+                dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
+                endResetModel();
+            });
+        } else if (type == FavoriteFilter || type == NotFavoriteFilter) {
+            connect(&DataManager::instance(), &DataManager::bulkFavoriteStatusActionFinished, this, [this]() {
                 beginResetModel();
                 dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
                 endResetModel();
@@ -152,6 +165,10 @@ QString AbstractEpisodeProxyModel::getFilterName(FilterType type) const
         return i18nc("@label:chooser Choice of filter for episode list", "Episodes marked as \"New\"");
     case FilterType::NotNewFilter:
         return i18nc("@label:chooser Choice of filter for episode list", "Episodes not marked as \"New\"");
+    case FilterType::FavoriteFilter:
+        return i18nc("@label:chooser Choice of filter for episode list", "Episodes marked as Favorite");
+    case FilterType::NotFavoriteFilter:
+        return i18nc("@label:chooser Choice of filter for episode list", "Episodes not marked as Favorite");
     default:
         return QString();
     }

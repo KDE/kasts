@@ -215,6 +215,11 @@ int Feed::newEntryCount() const
     return DataManager::instance().newEntryCount(this);
 }
 
+int Feed::favoriteEntryCount() const
+{
+    return DataManager::instance().favoriteEntryCount(this);
+}
+
 bool Feed::refreshing() const
 {
     return m_refreshing;

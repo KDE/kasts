@@ -193,6 +193,24 @@ ListView {
         }
     }
 
+    property var markFavoriteAction: Kirigami.Action {
+        text: i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
+        icon.name: "starred-symbolic"
+        visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? !singleSelectedEntry.favorite : true)
+        onTriggered: {
+            DataManager.bulkMarkFavoriteByIndex(true, selectionForContextMenu);
+        }
+    }
+
+    property var markNotFavoriteAction: Kirigami.Action {
+        text: i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
+        icon.name: "non-starred-symbolic"
+        visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? singleSelectedEntry.favorite : true)
+        onTriggered: {
+            DataManager.bulkMarkFavoriteByIndex(false, selectionForContextMenu);
+        }
+    }
+
     property var downloadEnclosureAction: Kirigami.Action {
         text: i18n("Download")
         icon.name: "download"
@@ -231,6 +249,8 @@ ListView {
                                      markNotPlayedAction,
                                      markNewAction,
                                      markNotNewAction,
+                                     markFavoriteAction,
+                                     markNotFavoriteAction,
                                      downloadEnclosureAction,
                                      deleteEnclosureAction,
                                      streamAction,
@@ -268,6 +288,16 @@ ListView {
         Controls.MenuItem {
             action: listView.markNotNewAction
             visible: singleSelectedEntry ? singleSelectedEntry.new : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
+         }
+        Controls.MenuItem {
+            action: listView.markFavoriteAction
+            visible: singleSelectedEntry ? !singleSelectedEntry.favorite : true
+            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
+        }
+        Controls.MenuItem {
+            action: listView.markNotFavoriteAction
+            visible: singleSelectedEntry ? singleSelectedEntry.favorite : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
          }
         Controls.MenuItem {
