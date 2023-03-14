@@ -65,10 +65,6 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
-    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
-        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
-    }
-
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -83,6 +79,10 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
+
+    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
 #endif
 
