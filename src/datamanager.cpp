@@ -322,14 +322,23 @@ void DataManager::addFeeds(const QStringList &urls)
 
 void DataManager::addFeeds(const QStringList &urls, const bool fetch)
 {
-    if (urls.count() == 0)
+    // First check if the URLs are not empty
+    // TODO: Add more checks like checking if URLs exist; however this will mean async...
+    QStringList newUrls;
+    for (const QString &url : urls) {
+        if (!url.trimmed().isEmpty()) {
+            newUrls << url.trimmed();
+        }
+    }
+
+    if (newUrls.count() == 0)
         return;
 
     // This method will add the relevant internal data structures, and then add
     // a preliminary entry into the database.  Those details (as well as entries,
     // authors and enclosures) will be updated by calling Fetcher::fetch() which
     // will trigger a full update of the feed and all related items.
-    for (QString url : urls) {
+    for (const QString &url : newUrls) {
         qCDebug(kastsDataManager) << "Adding feed";
         if (feedExists(url)) {
             qCDebug(kastsDataManager) << "Feed already exists";
