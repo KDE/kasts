@@ -415,6 +415,10 @@ void AudioManager::play()
         d->m_player.play();
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(d->m_isSeekable);
+
+        if (d->m_entry && d->m_entry->getNew()) {
+            d->m_entry->setNew(false);
+        }
     }
 }
 
