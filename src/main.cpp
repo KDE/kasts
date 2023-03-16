@@ -70,6 +70,10 @@ int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
+    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
+    }
+
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);
@@ -79,10 +83,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
-    }
-
-    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
-        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
 #endif
 
