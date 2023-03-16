@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:54+0000\n"
+"POT-Creation-Date: 2023-03-16 02:47+0000\n"
 "PO-Revision-Date: 2023-02-28 11:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "emir_sari@icloud.com"
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Kısıtlı bağlantılarda bir bağlantıya veya akışa izin verilmiyor"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:545
 #, kde-format
 msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
