@@ -200,6 +200,7 @@ if(ANDROID)
         document-import
         document-export
         document-open-folder
+        document-save
         edit-delete-remove
         edit-clear-all
         edit-select-all
