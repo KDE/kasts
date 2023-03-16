@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:54+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2023-02-28 10:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
 "d'ús mesurat"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:545
 #, kde-format
 msgid "Invalid Media"
 msgstr "Suport no vàlid"

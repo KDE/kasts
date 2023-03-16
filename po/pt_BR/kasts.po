@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:54+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2021-06-04 15:07-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:545
 #, kde-format
 msgid "Invalid Media"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:54+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2023-02-28 09:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -33,7 +33,7 @@ msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:545
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neveljavni medij"
