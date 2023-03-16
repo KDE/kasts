@@ -44,6 +44,7 @@
         <file alias="GlobalSearchField.qml">qml/GlobalSearchField.qml</file>
         <file alias="SearchFilterBar.qml">qml/SearchFilterBar.qml</file>
         <file alias="FilterInlineMessage.qml">qml/FilterInlineMessage.qml</file>
+        <file>qtquickcontrols2.conf</file>
         <file alias="logo.svg">../kasts.svg</file>
         <file alias="kasts-tray-light.svg">../icons/kasts-tray-light.svg</file>
         <file alias="kasts-tray-dark.svg">../icons/kasts-tray-dark.svg</file>

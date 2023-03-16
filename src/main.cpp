@@ -65,20 +65,20 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
+    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
+    }
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
-        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
-    }
-
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);
     QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
-    QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
+    QQuickStyle::setStyle(QStringLiteral("Material"));
 #else
     QApplication app(argc, argv);
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
