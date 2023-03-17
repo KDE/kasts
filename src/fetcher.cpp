@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QNetworkAccessManager>
+#include <QNetworkProxyFactory>
 #include <QNetworkReply>
 #include <QTime>
 #include <QTimer>
@@ -42,6 +43,8 @@ Fetcher::Fetcher()
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
     manager->enableStrictTransportSecurityStore(true);
+
+    QNetworkProxyFactory::setUseSystemConfiguration(true);
 }
 
 void Fetcher::fetch(const QString &url)
