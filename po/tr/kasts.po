@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-16 01:00+0000\n"
-"PO-Revision-Date: 2023-02-28 11:51+0300\n"
+"PO-Revision-Date: 2023-03-17 12:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -191,7 +191,7 @@ msgstr "Podcast URL'si"
 #: main.cpp:118
 #, kde-format
 msgid "Kasts"
-msgstr "Kasts"
+msgstr "Kastlar"
 
 #: main.cpp:120
 #, kde-format
@@ -1434,7 +1434,7 @@ msgid ""
 "interface and use those credentials."
 msgstr ""
 "GPodder Sync uygulaması kurulu bir Nextcloud sunucusu ile eşzamanla: %1.<br/"
-">Web arabiriminden Kasts'a özel bir uygulama parolası oluturulması ve onun "
+">Web arabiriminden Kastlar'a özel bir uygulama parolası oluturulması ve onun "
 "kullanılması önerilir."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:328
@@ -1649,7 +1649,7 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr "%1 üzerinde Kasts"
+msgstr "%1 üzerinde Kastlar"
 
 #: sync/sync.cpp:302
 #, kde-format
