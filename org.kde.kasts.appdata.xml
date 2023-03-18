@@ -27,7 +27,7 @@
   <name xml:lang="sk">Kasts</name>
   <name xml:lang="sl">Kasts</name>
   <name xml:lang="sv">Kasts</name>
-  <name xml:lang="tr">Kasts</name>
+  <name xml:lang="tr">Kastlar</name>
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
@@ -100,7 +100,7 @@
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
     <p xml:lang="sl">Kasts je konvergentna aplikacija za podcaste za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
-    <p xml:lang="tr">Kasts, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir Podcast uygulamasıdır.</p>
+    <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir Podcast uygulamasıdır.</p>
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
     <p xml:lang="x-test">xxKasts is a convergent podcast application that looks good on desktop and mobile.xx</p>
     <p>Its main features are:</p>
@@ -248,7 +248,7 @@
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
-      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
@@ -267,7 +267,7 @@
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
-      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
@@ -293,7 +293,7 @@
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
-      <caption xml:lang="tr">Telefonda Kasts</caption>
+      <caption xml:lang="tr">Telefonda Kastlar</caption>
       <caption xml:lang="uk">Kasts на телефоні</caption>
       <caption xml:lang="x-test">xxKasts on a phonexx</caption>
       <caption xml:lang="zh-CN">在手机上运行的 Kasts</caption>
@@ -313,7 +313,7 @@
       <caption xml:lang="pl">Sterowanie Kastem na urządzeniach przenośnych</caption>
       <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
-      <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
+      <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
