@@ -62,6 +62,7 @@ void EpisodeModel::updateInternalState()
     m_read.clear();
     m_new.clear();
     m_titles.clear();
+    m_contents.clear();
     m_feedNames.clear();
 
     QSqlQuery query;
