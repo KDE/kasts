@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-22 00:47+0000\n"
 "PO-Revision-Date: 2023-03-11 04:53\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -115,15 +115,13 @@ msgid "Open"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:325
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr "播放"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr "暂停"
@@ -454,89 +452,131 @@ msgid "Downloaded"
 msgstr "已下载"
 
 #: qml/EntryPage.qml:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Episode Details"
+msgctxt "@title"
 msgid "Episode Details"
 msgstr "剧集详情"
 
 #: qml/EntryPage.qml:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open in Browser"
+msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "在浏览器中打开"
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
-#: qml/GenericEntryListView.qml:197
-#, kde-format
+#: qml/EntryPage.qml:120
+#, fuzzy, kde-format
+#| msgid "Download"
+msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "下载"
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
-#, kde-format
+#: qml/EntryPage.qml:129
+#, fuzzy, kde-format
+#| msgid "Cancel Download"
+msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "取消下载"
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
-#, kde-format
-msgid "Delete Download"
-msgstr "删除下载"
+#: qml/EntryPage.qml:137
+#, fuzzy, kde-format
+#| msgid "Pause"
+msgctxt "@action:intoolbar Button to pause the playback of the episode"
+msgid "Pause"
+msgstr "暂停"
 
-#: qml/EntryPage.qml:162
+#: qml/EntryPage.qml:145
+#, fuzzy, kde-format
+#| msgid "Play"
+msgctxt "@action:intoolbar Button to start playback of the episode"
+msgid "Play"
+msgstr "播放"
+
+#: qml/EntryPage.qml:154
 #, kde-format
 msgctxt ""
-"Action to start playback by streaming the episode rather than downloading it "
-"first"
+"@action:intoolbar Action to start playback by streaming the episode rather "
+"than downloading it first"
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
-#: qml/GenericEntryListView.qml:155
-#, kde-format
-msgid "Remove from Queue"
-msgstr "移出队列"
-
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
-#: qml/GenericEntryListView.qml:145
-#, kde-format
+#: qml/EntryPage.qml:166
+#, fuzzy, kde-format
+#| msgid "Add to Queue"
+msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "加入队列"
 
-#: qml/EntryPage.qml:196
-#, kde-format
+#: qml/EntryPage.qml:166
+#, fuzzy, kde-format
+#| msgid "Remove from Queue"
+msgctxt "@action:intoolbar Button to remove an episode from the play queue"
+msgid "Remove from Queue"
+msgstr "移出队列"
+
+#: qml/EntryPage.qml:182
+#, fuzzy, kde-format
+#| msgid "Delete Download"
+msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
+msgid "Delete Download"
+msgstr "删除下载"
+
+#: qml/EntryPage.qml:190
+#, fuzzy, kde-format
+#| msgid "Reset Play Position"
+msgctxt ""
+"@action:intoolbar Button to reset the play position of an episode to the "
+"start"
 msgid "Reset Play Position"
 msgstr "重置播放进度"
 
-#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:173
-#, kde-format
+#: qml/EntryPage.qml:196
+#, fuzzy, kde-format
+#| msgid "Mark as Unplayed"
+msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "标记为未播放"
 
-#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:165
-#, kde-format
+#: qml/EntryPage.qml:196
+#, fuzzy, kde-format
+#| msgid "Mark as Played"
+msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "标记为已播放"
 
-#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:189
-#, kde-format
+#: qml/EntryPage.qml:203
+#, fuzzy, kde-format
+#| msgid "Remove \"New\" Label"
+msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "移除“新”标记"
 
-#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:181
-#, kde-format
+#: qml/EntryPage.qml:203
+#, fuzzy, kde-format
+#| msgid "Label as \"New\""
+msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "标记为“新”"
 
-#: qml/EntryPage.qml:216
-#, kde-format
+#: qml/EntryPage.qml:210
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr ""
+msgstr "添加播客"
+
+#: qml/EntryPage.qml:280
+#, fuzzy, kde-format
+#| msgid "Allow episode downloads"
+msgctxt "@action:button"
+msgid "Copy Episode Download URL"
+msgstr "允许下载剧集"
 
 #: qml/EntryPage.qml:286
 #, kde-format
-msgid "Copy Episode Download URL"
-msgstr ""
-
-#: qml/EntryPage.qml:292
-#, kde-format
-msgid "Link copied"
+msgctxt "@info:status"
+msgid "Link Copied"
 msgstr ""
 
 #: qml/EpisodeListPage.qml:17
@@ -766,6 +806,31 @@ msgstr "已读"
 msgid "New"
 msgstr "新"
 
+#: qml/GenericEntryDelegate.qml:290 qml/GenericEntryListView.qml:155
+#, kde-format
+msgid "Remove from Queue"
+msgstr "移出队列"
+
+#: qml/GenericEntryDelegate.qml:298 qml/GenericEntryListView.qml:197
+#, kde-format
+msgid "Download"
+msgstr "下载"
+
+#: qml/GenericEntryDelegate.qml:307
+#, kde-format
+msgid "Cancel Download"
+msgstr "取消下载"
+
+#: qml/GenericEntryDelegate.qml:313
+#, kde-format
+msgid "Delete Download"
+msgstr "删除下载"
+
+#: qml/GenericEntryDelegate.qml:319 qml/GenericEntryListView.qml:145
+#, kde-format
+msgid "Add to Queue"
+msgstr "加入队列"
+
 #: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
@@ -773,6 +838,26 @@ msgctxt ""
 "downloading it first"
 msgid "Stream"
 msgstr ""
+
+#: qml/GenericEntryListView.qml:165
+#, kde-format
+msgid "Mark as Played"
+msgstr "标记为已播放"
+
+#: qml/GenericEntryListView.qml:173
+#, kde-format
+msgid "Mark as Unplayed"
+msgstr "标记为未播放"
+
+#: qml/GenericEntryListView.qml:181
+#, kde-format
+msgid "Label as \"New\""
+msgstr "标记为“新”"
+
+#: qml/GenericEntryListView.qml:189
+#, kde-format
+msgid "Remove \"New\" Label"
+msgstr "移除“新”标记"
 
 #: qml/GenericEntryListView.qml:207
 #, kde-format

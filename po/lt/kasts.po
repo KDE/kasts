@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-22 00:47+0000\n"
 "PO-Revision-Date: 2023-02-24 00:58+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -114,15 +114,13 @@ msgid "Open"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
-#: qml/GenericEntryDelegate.qml:325
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:325
 #, kde-format
 msgid "Play"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:145
-#: qml/GenericEntryDelegate.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:346
 #, kde-format
 msgid "Pause"
 msgstr ""
@@ -454,88 +452,114 @@ msgstr ""
 
 #: qml/EntryPage.qml:22
 #, kde-format
+msgctxt "@title"
 msgid "Episode Details"
 msgstr ""
 
 #: qml/EntryPage.qml:112
 #, kde-format
+msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr ""
 
-#: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
-#: qml/GenericEntryListView.qml:197
+#: qml/EntryPage.qml:120
 #, kde-format
+msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr ""
 
-#: qml/EntryPage.qml:129 qml/GenericEntryDelegate.qml:307
+#: qml/EntryPage.qml:129
 #, kde-format
+msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/EntryPage.qml:137 qml/EntryPage.qml:190 qml/GenericEntryDelegate.qml:313
+#: qml/EntryPage.qml:137
 #, kde-format
-msgid "Delete Download"
+msgctxt "@action:intoolbar Button to pause the playback of the episode"
+msgid "Pause"
 msgstr ""
 
-#: qml/EntryPage.qml:162
+#: qml/EntryPage.qml:145
+#, kde-format
+msgctxt "@action:intoolbar Button to start playback of the episode"
+msgid "Play"
+msgstr ""
+
+#: qml/EntryPage.qml:154
 #, kde-format
 msgctxt ""
-"Action to start playback by streaming the episode rather than downloading it "
-"first"
+"@action:intoolbar Action to start playback by streaming the episode rather "
+"than downloading it first"
 msgid "Stream"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:290
-#: qml/GenericEntryListView.qml:155
+#: qml/EntryPage.qml:166
 #, kde-format
+msgctxt "@action:intoolbar Button to add an episode to the play queue"
+msgid "Add to Queue"
+msgstr ""
+
+#: qml/EntryPage.qml:166
+#, kde-format
+msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/EntryPage.qml:174 qml/GenericEntryDelegate.qml:319
-#: qml/GenericEntryListView.qml:145
+#: qml/EntryPage.qml:182
 #, kde-format
-msgid "Add to Queue"
+msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
+msgid "Delete Download"
+msgstr ""
+
+#: qml/EntryPage.qml:190
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to reset the play position of an episode to the "
+"start"
+msgid "Reset Play Position"
 msgstr ""
 
 #: qml/EntryPage.qml:196
 #, kde-format
-msgid "Reset Play Position"
-msgstr ""
-
-#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:173
-#, kde-format
+msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr ""
 
-#: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:165
+#: qml/EntryPage.qml:196
 #, kde-format
+msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr ""
 
-#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:189
+#: qml/EntryPage.qml:203
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr ""
 
-#: qml/EntryPage.qml:209 qml/GenericEntryListView.qml:181
+#: qml/EntryPage.qml:203
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr ""
 
-#: qml/EntryPage.qml:216
+#: qml/EntryPage.qml:210
 #, kde-format
+msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
+msgstr ""
+
+#: qml/EntryPage.qml:280
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Episode Download URL"
 msgstr ""
 
 #: qml/EntryPage.qml:286
 #, kde-format
-msgid "Copy Episode Download URL"
-msgstr ""
-
-#: qml/EntryPage.qml:292
-#, kde-format
-msgid "Link copied"
+msgctxt "@info:status"
+msgid "Link Copied"
 msgstr ""
 
 #: qml/EpisodeListPage.qml:17
@@ -771,12 +795,57 @@ msgstr ""
 msgid "New"
 msgstr ""
 
+#: qml/GenericEntryDelegate.qml:290 qml/GenericEntryListView.qml:155
+#, kde-format
+msgid "Remove from Queue"
+msgstr ""
+
+#: qml/GenericEntryDelegate.qml:298 qml/GenericEntryListView.qml:197
+#, kde-format
+msgid "Download"
+msgstr ""
+
+#: qml/GenericEntryDelegate.qml:307
+#, kde-format
+msgid "Cancel Download"
+msgstr ""
+
+#: qml/GenericEntryDelegate.qml:313
+#, kde-format
+msgid "Delete Download"
+msgstr ""
+
+#: qml/GenericEntryDelegate.qml:319 qml/GenericEntryListView.qml:145
+#, kde-format
+msgid "Add to Queue"
+msgstr ""
+
 #: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:165
+#, kde-format
+msgid "Mark as Played"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:173
+#, kde-format
+msgid "Mark as Unplayed"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:181
+#, kde-format
+msgid "Label as \"New\""
+msgstr ""
+
+#: qml/GenericEntryListView.qml:189
+#, kde-format
+msgid "Remove \"New\" Label"
 msgstr ""
 
 #: qml/GenericEntryListView.qml:207
