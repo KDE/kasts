@@ -239,6 +239,8 @@ if(ANDROID)
         player-volume-muted
         player-volume
         application-exit
+        starred-symbolic
+        non-starred-symbolic
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)
