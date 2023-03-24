@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:47+0000\n"
-"PO-Revision-Date: 2023-02-28 07:00+0100\n"
+"POT-Creation-Date: 2023-03-24 00:47+0000\n"
+"PO-Revision-Date: 2023-03-23 14:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -114,13 +114,13 @@ msgid "Open"
 msgstr "გახსნა"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:325
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:332
 #, kde-format
 msgid "Play"
 msgstr "დაკვრა"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:353
 #, kde-format
 msgid "Pause"
 msgstr "შეჩერება"
@@ -212,49 +212,65 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:146
+#: models/abstractepisodeproxymodel.cpp:159
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "ფილტრის გარეშე"
 
-#: models/abstractepisodeproxymodel.cpp:148
+#: models/abstractepisodeproxymodel.cpp:161
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "დაკრული ეპიზოდები"
 
-#: models/abstractepisodeproxymodel.cpp:150
+#: models/abstractepisodeproxymodel.cpp:163
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "დაუკრავი ეპიზოდები"
 
-#: models/abstractepisodeproxymodel.cpp:152
+#: models/abstractepisodeproxymodel.cpp:165
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "ეპიზოდები, მონიშნულები, როგორც \"ახალი\""
 
-#: models/abstractepisodeproxymodel.cpp:154
+#: models/abstractepisodeproxymodel.cpp:167
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "ეპიზოდები, არ მონიშნულები, როგორც \"ახალი\""
 
-#: models/abstractepisodeproxymodel.cpp:164
+#: models/abstractepisodeproxymodel.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as Favorite"
+msgstr "ეპიზოდები, მონიშნულები, როგორც \"ახალი\""
+
+#: models/abstractepisodeproxymodel.cpp:171
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes not marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as Favorite"
+msgstr "ეპიზოდები, არ მონიშნულები, როგორც \"ახალი\""
+
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "სათაური"
 
-#: models/abstractepisodeproxymodel.cpp:166
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "აღწერა"
 
-#: models/abstractepisodeproxymodel.cpp:168
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
@@ -451,53 +467,43 @@ msgid "Downloaded"
 msgstr "გადმოწერილია"
 
 #: qml/EntryPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Episode Details"
+#, kde-format
 msgctxt "@title"
 msgid "Episode Details"
 msgstr "ეპიზოდის დეტალები"
 
 #: qml/EntryPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Open in Browser"
+#, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "ბრაუზერში გახსნა"
 
 #: qml/EntryPage.qml:120
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
-msgstr "ჩამოტვირთვა"
+msgstr "გადმოწერა"
 
 #: qml/EntryPage.qml:129
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "გადმოწერის გაუქმება"
 
 #: qml/EntryPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "შეჩერება"
 
 #: qml/EntryPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "დაკვრა"
 
 #: qml/EntryPage.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
@@ -505,29 +511,25 @@ msgid "Stream"
 msgstr "ნაკადი"
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Add to Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "რიგში ჩამატება"
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "რიგიდან წაშლა"
 
 #: qml/EntryPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Delete Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "გადმოწერის წაშლა"
 
 #: qml/EntryPage.qml:190
-#, fuzzy, kde-format
-#| msgid "Reset Play Position"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
@@ -535,50 +537,58 @@ msgid "Reset Play Position"
 msgstr "დაკვრის მდებარეობის საწყის მნიშვნელობაზე დაბრუნება"
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "დაუკრავად მონიშვნა"
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Played"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "დაკრულად მონიშვნა"
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Remove \"New\" Label"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "\"ახალი\" ჭდის მოხსნა"
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Label as \"New\""
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "\"ახალი\" ჭდის დასმა"
 
-#: qml/EntryPage.qml:210
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
 #, fuzzy, kde-format
-#| msgid "Open Podcast"
+#| msgid "Remove from Queue"
+msgctxt ""
+"@action:intoolbar Button to remove the \"favorite\" property of a podcast "
+"episode"
+msgid "Remove from Favorites"
+msgstr "რიგიდან წაშლა"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
+#, kde-format
+msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
+msgid "Add to Favorites"
+msgstr ""
+
+#: qml/EntryPage.qml:218
+#, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "პოდკასტის გახსნა"
 
-#: qml/EntryPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Copy Episode Download URL"
+#: qml/EntryPage.qml:288
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "ეპიზოდის გადმოწერის ბმულის კოპირება"
 
-#: qml/EntryPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Link copied"
+#: qml/EntryPage.qml:294
+#, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "ბმული დაკოპირებულია"
@@ -813,32 +823,32 @@ msgstr "წაკითხვა"
 msgid "New"
 msgstr "ახალი"
 
-#: qml/GenericEntryDelegate.qml:290 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:297 qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "რიგიდან წაშლა"
 
-#: qml/GenericEntryDelegate.qml:298 qml/GenericEntryListView.qml:197
+#: qml/GenericEntryDelegate.qml:305 qml/GenericEntryListView.qml:215
 #, kde-format
 msgid "Download"
-msgstr "ჩამოტვირთვა"
+msgstr "გადმოწერა"
 
-#: qml/GenericEntryDelegate.qml:307
+#: qml/GenericEntryDelegate.qml:314
 #, kde-format
 msgid "Cancel Download"
 msgstr "გადმოწერის გაუქმება"
 
-#: qml/GenericEntryDelegate.qml:313
+#: qml/GenericEntryDelegate.qml:320
 #, kde-format
 msgid "Delete Download"
 msgstr "გადმოწერის წაშლა"
 
-#: qml/GenericEntryDelegate.qml:319 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "რიგში ჩამატება"
 
-#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:341 qml/GenericEntryListView.qml:234
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -866,7 +876,7 @@ msgstr "\"ახალი\" ჭდის დასმა"
 msgid "Remove \"New\" Label"
 msgstr "\"ახალი\" ჭდის მოხსნა"
 
-#: qml/GenericEntryListView.qml:207
+#: qml/GenericEntryListView.qml:225
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -886,13 +896,13 @@ msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "ძებნის დამატებითი პარამეტრები"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:173
+#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:175
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "ძებნის პარამეტრები"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:177
+#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:179
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1056,7 +1066,7 @@ msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
 msgstr "ეპიზოდების სტატუსის მიხედვით გაფილტვრა"
 
-#: qml/SearchFilterBar.qml:127
+#: qml/SearchFilterBar.qml:129
 #, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"

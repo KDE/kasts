@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:47+0000\n"
+"POT-Creation-Date: 2023-03-24 00:47+0000\n"
 "PO-Revision-Date: 2023-03-22 11:53+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -119,13 +119,13 @@ msgid "Open"
 msgstr "Abrir"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:325
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:332
 #, kde-format
 msgid "Play"
 msgstr "Reproduzir"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:353
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -217,49 +217,65 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:146
+#: models/abstractepisodeproxymodel.cpp:159
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No Filter"
 msgstr "Sem Filtro"
 
-#: models/abstractepisodeproxymodel.cpp:148
+#: models/abstractepisodeproxymodel.cpp:161
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played Episodes"
 msgstr "Episódios Reproduzidos"
 
-#: models/abstractepisodeproxymodel.cpp:150
+#: models/abstractepisodeproxymodel.cpp:163
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed Episodes"
 msgstr "Episódios por Reproduzir"
 
-#: models/abstractepisodeproxymodel.cpp:152
+#: models/abstractepisodeproxymodel.cpp:165
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episódios marcados como \"Novos\""
 
-#: models/abstractepisodeproxymodel.cpp:154
+#: models/abstractepisodeproxymodel.cpp:167
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episódios não marcados como \"Novos\""
 
-#: models/abstractepisodeproxymodel.cpp:164
+#: models/abstractepisodeproxymodel.cpp:169
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as Favorite"
+msgstr "Episódios marcados como \"Novos\""
+
+#: models/abstractepisodeproxymodel.cpp:171
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes not marked as \"New\""
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as Favorite"
+msgstr "Episódios não marcados como \"Novos\""
+
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Título"
 
-#: models/abstractepisodeproxymodel.cpp:166
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Descrição"
 
-#: models/abstractepisodeproxymodel.cpp:168
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
@@ -551,19 +567,34 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Marcar como \"Novo\""
 
-#: qml/EntryPage.qml:210
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
+#, fuzzy, kde-format
+#| msgid "Remove from Queue"
+msgctxt ""
+"@action:intoolbar Button to remove the \"favorite\" property of a podcast "
+"episode"
+msgid "Remove from Favorites"
+msgstr "Remover da Fila"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
+#, kde-format
+msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
+msgid "Add to Favorites"
+msgstr ""
+
+#: qml/EntryPage.qml:218
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Abrir o 'Podcast'"
 
-#: qml/EntryPage.qml:280
+#: qml/EntryPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Copiar o URL de Transferência do Episódio"
 
-#: qml/EntryPage.qml:286
+#: qml/EntryPage.qml:294
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -799,32 +830,32 @@ msgstr "Lido"
 msgid "New"
 msgstr "Novo"
 
-#: qml/GenericEntryDelegate.qml:290 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:297 qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Remover da Fila"
 
-#: qml/GenericEntryDelegate.qml:298 qml/GenericEntryListView.qml:197
+#: qml/GenericEntryDelegate.qml:305 qml/GenericEntryListView.qml:215
 #, kde-format
 msgid "Download"
 msgstr "Obter"
 
-#: qml/GenericEntryDelegate.qml:307
+#: qml/GenericEntryDelegate.qml:314
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancelar a Transferência"
 
-#: qml/GenericEntryDelegate.qml:313
+#: qml/GenericEntryDelegate.qml:320
 #, kde-format
 msgid "Delete Download"
 msgstr "Apagar a Transferência"
 
-#: qml/GenericEntryDelegate.qml:319 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Adicionar à Fila"
 
-#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:216
+#: qml/GenericEntryDelegate.qml:341 qml/GenericEntryListView.qml:234
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -852,7 +883,7 @@ msgstr "Marcar como \"Novo\""
 msgid "Remove \"New\" Label"
 msgstr "Remover a Marca \"Novo\""
 
-#: qml/GenericEntryListView.qml:207
+#: qml/GenericEntryListView.qml:225
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -872,13 +903,13 @@ msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opções de Pesquisa Avançadas"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:173
+#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:175
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preferências da Pesquisa"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:177
+#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:179
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1044,7 +1075,7 @@ msgctxt "@info:tooltip"
 msgid "Filter Episodes by Status"
 msgstr "Filtrar os Episódios pelo Estado"
 
-#: qml/SearchFilterBar.qml:127
+#: qml/SearchFilterBar.qml:129
 #, kde-format
 msgctxt "@title:menu"
 msgid "Select Filter"
