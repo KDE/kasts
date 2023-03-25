@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:47+0000\n"
-"PO-Revision-Date: 2023-03-22 13:20+0200\n"
+"PO-Revision-Date: 2023-03-24 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -247,20 +247,16 @@ msgid "Episodes not marked as \"New\""
 msgstr "Епізоди, які не позначено як «Нові»"
 
 #: models/abstractepisodeproxymodel.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr "Епізоди, які позначено як «Нові»"
+msgstr "Епізоди, які позначено як «Улюблені»"
 
 #: models/abstractepisodeproxymodel.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr "Епізоди, які не позначено як «Нові»"
+msgstr "Епізоди, які не позначено як «Улюблені»"
 
 #: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
@@ -567,19 +563,18 @@ msgid "Label as \"New\""
 msgstr "Позначити як «Нова»"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr "Вилучити з черги"
+msgstr "Вилучити з улюбленого"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Додати до улюбленого"
 
 #: qml/EntryPage.qml:218
 #, kde-format
