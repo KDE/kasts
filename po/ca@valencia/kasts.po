@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:47+0000\n"
-"PO-Revision-Date: 2023-03-22 13:02+0100\n"
+"PO-Revision-Date: 2023-03-24 12:09+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -250,20 +250,16 @@ msgid "Episodes not marked as \"New\""
 msgstr "Episodis no marcats com a «Nou»"
 
 #: models/abstractepisodeproxymodel.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr "Episodis marcats com a «Nou»"
+msgstr "Episodis marcats com a preferits"
 
 #: models/abstractepisodeproxymodel.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr "Episodis no marcats com a «Nou»"
+msgstr "Episodis no marcats com a preferits"
 
 #: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
@@ -568,19 +564,18 @@ msgid "Label as \"New\""
 msgstr "Etiqueta com a «Nou»"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr "Elimina de la cua"
+msgstr "Elimina dels preferits"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Afig als preferits"
 
 #: qml/EntryPage.qml:218
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:47+0000\n"
-"PO-Revision-Date: 2023-03-22 11:47+0300\n"
+"PO-Revision-Date: 2023-03-25 14:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -242,20 +242,16 @@ msgid "Episodes not marked as \"New\""
 msgstr "\"Yeni\" olarak imlenmemiş bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr "\"Yeni\" olarak imlenen bölümler"
+msgstr "Sık Kullanılan olarak imlenen bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr "\"Yeni\" olarak imlenmemiş bölümler"
+msgstr "Sık Kullanılan olarak imlenmemiş bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
@@ -560,19 +556,18 @@ msgid "Label as \"New\""
 msgstr "\"Yeni\" Olarak İmle"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr "Kuyruktan Kaldır"
+msgstr "Sık Kullanılanlardan Kaldır"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Sık Kullanılanlara Ekle"
 
 #: qml/EntryPage.qml:218
 #, kde-format
