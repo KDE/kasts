@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-16 02:47+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-03-26 02:21\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kasts/kasts.pot\n"
-"X-Crowdin-File-ID: 25422\n"
+"X-Crowdin-File: /kf5-stable/messages/kasts/kasts.pot\n"
+"X-Crowdin-File-ID: 42035\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -456,12 +456,12 @@ msgstr "已下载"
 #: qml/EntryPage.qml:22
 #, kde-format
 msgid "Episode Details"
-msgstr "剧集详情"
+msgstr ""
 
 #: qml/EntryPage.qml:112
 #, kde-format
 msgid "Open in Browser"
-msgstr "在浏览器中打开"
+msgstr ""
 
 #: qml/EntryPage.qml:120 qml/GenericEntryDelegate.qml:298
 #: qml/GenericEntryListView.qml:197
@@ -502,7 +502,7 @@ msgstr "加入队列"
 #: qml/EntryPage.qml:196
 #, kde-format
 msgid "Reset Play Position"
-msgstr "重置播放进度"
+msgstr ""
 
 #: qml/EntryPage.qml:202 qml/GenericEntryListView.qml:173
 #, kde-format
@@ -1718,7 +1718,7 @@ msgstr "(第 %1 步，共 %2 步) 请求远程订阅源更新"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
-msgstr "(第 %1 步，共 %2 步) 上传本机订阅源更新"
+msgstr "(第 %1 步，共 %2 步) 上传本地订阅源更新"
 
 #: sync/syncjob.cpp:896
 #, kde-format
@@ -1743,7 +1743,7 @@ msgstr "(第 %1 步，共 %2 步) 应用远程剧集更改"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(第 %1 步，共 %2 步) 上传本机剧集更新"
+msgstr "(第 %1 步，共 %2 步) 上传本地剧集更新"
 
 #: sync/syncjob.cpp:913
 #, kde-format
