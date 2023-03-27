@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:47+0000\n"
-"PO-Revision-Date: 2023-03-11 04:53\n"
+"PO-Revision-Date: 2023-03-26 02:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -464,46 +464,40 @@ msgid "Downloaded"
 msgstr "已下载"
 
 #: qml/EntryPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Episode Details"
+#, kde-format
 msgctxt "@title"
 msgid "Episode Details"
-msgstr "剧集详情"
+msgstr ""
 
 #: qml/EntryPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Open in Browser"
+#, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
-msgstr "在浏览器中打开"
+msgstr ""
 
 #: qml/EntryPage.qml:120
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
-msgstr "下载"
+msgstr ""
 
 #: qml/EntryPage.qml:129
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
-msgstr "取消下载"
+msgstr ""
 
 #: qml/EntryPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
-msgstr "暂停"
+msgstr ""
 
 #: qml/EntryPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
-msgstr "播放"
+msgstr ""
 
 #: qml/EntryPage.qml:154
 #, kde-format
@@ -514,71 +508,62 @@ msgid "Stream"
 msgstr ""
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Add to Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
-msgstr "加入队列"
+msgstr ""
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
-msgstr "移出队列"
+msgstr ""
 
 #: qml/EntryPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Delete Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
-msgstr "删除下载"
+msgstr ""
 
 #: qml/EntryPage.qml:190
-#, fuzzy, kde-format
-#| msgid "Reset Play Position"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr "重置播放进度"
+msgstr ""
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr "标记为未播放"
+msgstr ""
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Played"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr "标记为已播放"
+msgstr ""
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Remove \"New\" Label"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr "移除“新”标记"
+msgstr ""
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Label as \"New\""
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
-msgstr "标记为“新”"
+msgstr ""
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr "移出队列"
+msgstr ""
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
 #, kde-format
@@ -587,18 +572,16 @@ msgid "Add to Favorites"
 msgstr ""
 
 #: qml/EntryPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr "添加播客"
+msgstr ""
 
 #: qml/EntryPage.qml:288
-#, fuzzy, kde-format
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr "允许下载剧集"
+msgstr ""
 
 #: qml/EntryPage.qml:294
 #, kde-format
@@ -1830,7 +1813,7 @@ msgstr "(第 %1 步，共 %2 步) 请求远程订阅源更新"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
-msgstr "(第 %1 步，共 %2 步) 上传本机订阅源更新"
+msgstr "(第 %1 步，共 %2 步) 上传本地订阅源更新"
 
 #: sync/syncjob.cpp:896
 #, kde-format
@@ -1855,7 +1838,7 @@ msgstr "(第 %1 步，共 %2 步) 应用远程剧集更改"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(第 %1 步，共 %2 步) 上传本机剧集更新"
+msgstr "(第 %1 步，共 %2 步) 上传本地剧集更新"
 
 #: sync/syncjob.cpp:913
 #, kde-format
