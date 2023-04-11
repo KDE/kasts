@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 00:47+0000\n"
-"PO-Revision-Date: 2023-03-04 08:53+0100\n"
+"PO-Revision-Date: 2023-04-10 11:45+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -244,20 +244,16 @@ msgid "Episodes not marked as \"New\""
 msgstr "Odcinki nieoznaczone jako \"Nowe\""
 
 #: models/abstractepisodeproxymodel.cpp:169
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr "Odcinki oznaczone jako \"Nowe\""
+msgstr "Odcinki oznaczone jako ulubione"
 
 #: models/abstractepisodeproxymodel.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as \"New\""
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr "Odcinki nieoznaczone jako \"Nowe\""
+msgstr "Odcinki nieoznaczone jako ulubione"
 
 #: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
@@ -469,53 +465,43 @@ msgid "Downloaded"
 msgstr "Pobrane"
 
 #: qml/EntryPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Episode Details"
+#, kde-format
 msgctxt "@title"
 msgid "Episode Details"
 msgstr "Szczegóły odcinka"
 
 #: qml/EntryPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Open in Browser"
+#, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "Otwórz w przeglądarce"
 
 #: qml/EntryPage.qml:120
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "Pobierz"
 
 #: qml/EntryPage.qml:129
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "Anuluj pobieranie"
 
 #: qml/EntryPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Pause"
+#, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "Wstrzymaj"
 
 #: qml/EntryPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Play"
+#, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "Odtwórz"
 
 #: qml/EntryPage.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Action to start playback by streaming the episode rather than downloading "
-#| "it first"
-#| msgid "Stream"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
@@ -523,29 +509,25 @@ msgid "Stream"
 msgstr "Strumień"
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Add to Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Dodaj do kolejki"
 
 #: qml/EntryPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Usuń z kolejki"
 
 #: qml/EntryPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Delete Download"
+#, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Usuń pobrane"
 
 #: qml/EntryPage.qml:190
-#, fuzzy, kde-format
-#| msgid "Reset Play Position"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
@@ -553,65 +535,57 @@ msgid "Reset Play Position"
 msgstr "Wyzeruj położenie odtwarzania"
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Unplayed"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Oznacz jako nieodtworzone"
 
 #: qml/EntryPage.qml:196
-#, fuzzy, kde-format
-#| msgid "Mark as Played"
+#, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Oznacz jako odtworzone"
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Remove \"New\" Label"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Usuń etykietę „nowy”"
 
 #: qml/EntryPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Label as \"New\""
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Dodaj etykietę „nowy”"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove from Queue"
+#, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr "Usuń z kolejki"
+msgstr "Usuń z ulubionych"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Dodaj do ulubionych"
 
 #: qml/EntryPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Open Podcast"
+#, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Otwórz podkast"
 
 #: qml/EntryPage.qml:288
-#, fuzzy, kde-format
-#| msgid "Copy Episode Download URL"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Skopiuj adres URL do pobrania odcinka"
 
 #: qml/EntryPage.qml:294
-#, fuzzy, kde-format
-#| msgid "Link copied"
+#, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Skopiowano odnośnik"
