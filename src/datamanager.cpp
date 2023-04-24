@@ -512,8 +512,11 @@ void DataManager::setLastPlayingEntry(const QString &id)
 void DataManager::deletePlayedEnclosures()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded AND read=:read;"));
+    query.prepare(
+        QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE"
+                       "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
+    query.bindValue(QStringLiteral(":partiallydownloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
     query.bindValue(QStringLiteral(":read"), true);
     Database::instance().execute(query);
     while (query.next()) {
