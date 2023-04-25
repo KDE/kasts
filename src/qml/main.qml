@@ -255,13 +255,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    contextDrawer: Kirigami.ContextDrawer {
-        id: contextDrawer
-        // make room at the bottom for miniplayer
-        handle.anchors.bottomMargin: ( (AudioManager.entry && Kirigami.Settings.isMobile) ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 ) + Kirigami.Units.smallSpacing
-        handleVisible: Kirigami.Settings.isMobile ? !AudioManager.entry || footerLoader.item.contentY === 0 : false
-    }
-
     // Implement slots for MPRIS2 signals
     Connections {
         target: AudioManager
