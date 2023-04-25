@@ -133,13 +133,13 @@ Controls.Control {
         Repeater {
             model: filterModel
 
-            Controls.RadioButton {
-                padding: Kirigami.Units.smallSpacing
+            Controls.MenuItem {
                 text: model.name
+                checkable: true
                 checked: model.filterType === proxyModel.filterType
                 Controls.ButtonGroup.group: filterGroup
 
-                onToggled: {
+                onTriggered: {
                     if (checked) {
                         proxyModel.filterType = model.filterType;
                     }
@@ -182,11 +182,11 @@ Controls.Control {
         Repeater {
             model: searchSettingsModel
 
-            Controls.CheckBox {
-                padding: Kirigami.Units.smallSpacing
+            Controls.MenuItem {
                 text: model.name
+                checkable: true
                 checked: model.checked
-                onToggled: {
+                onTriggered: {
                     if (checked) {
                         proxyModel.searchFlags = proxyModel.searchFlags | model.searchFlag;
                     } else {

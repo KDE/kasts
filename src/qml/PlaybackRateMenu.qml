@@ -20,24 +20,27 @@ Controls.Menu {
 
     Controls.ButtonGroup { id: playbackRateGroup }
 
-    ColumnLayout {
-        Repeater {
-            model: playbackRateModel
+    // Using instantiator because using Repeater made the separator show up in
+    // the wrong place
+    Instantiator {
+        model: playbackRateModel
 
-            Controls.RadioButton {
-                padding: Kirigami.Units.smallSpacing
-                text: model.value
-                checked: model.value === AudioManager.playbackRate.toFixed(2)
-                Controls.ButtonGroup.group: playbackRateGroup
+        Controls.MenuItem {
+            text: model.value
+            checkable: true
+            checked: model.value === AudioManager.playbackRate.toFixed(2)
+            Controls.ButtonGroup.group: playbackRateGroup
 
-                onToggled: {
-                    if (checked) {
-                        AudioManager.playbackRate = value;
-                    }
-                    playbackRateMenu.dismiss();
+            onTriggered: {
+                if (checked) {
+                    AudioManager.playbackRate = value;
                 }
+                playbackRateMenu.dismiss();
             }
         }
+
+        onObjectAdded: playbackRateMenu.insertItem(index, object)
+        onObjectRemoved: playbackRateMenu.removeItem(object)
     }
 
     Controls.MenuSeparator {
