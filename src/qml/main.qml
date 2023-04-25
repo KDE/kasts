@@ -124,31 +124,35 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    globalDrawer: sidebar.item
-    Loader {
-        id: sidebar
-        active: !Kirigami.Settings.isMobile || kastsMainWindow.isWidescreen
-        sourceComponent: Kirigami.OverlayDrawer {
-            id: drawer
-            modal: false
-            closePolicy: Controls.Popup.NoAutoClose
-            edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
+    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || kastsMainWindow.isWidescreen
 
-            readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
-            readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-            readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
+    globalDrawer: showGlobalDrawer ? myGlobalDrawer : null
 
-            width: kastsMainWindow.isWidescreen ? widescreenBigWidth : pinnedWidth
+    property Kirigami.OverlayDrawer myGlobalDrawer: Kirigami.OverlayDrawer {
+        id: drawer
+        modal: false
+        closePolicy: Controls.Popup.NoAutoClose
+        edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
 
-            Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            Kirigami.Theme.inherit: false
+        readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
+        readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
+        readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
-            leftPadding: 0
-            rightPadding: 0
-            topPadding: 0
-            bottomPadding: 0
+        width: showGlobalDrawer ? (kastsMainWindow.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
 
-            contentItem: ColumnLayout {
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+
+        contentItem: Loader {
+            id: sidebarColumn
+            active: showGlobalDrawer
+
+            sourceComponent: ColumnLayout {
                 spacing: 0
 
                 Controls.ToolBar {
