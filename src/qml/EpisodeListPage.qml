@@ -63,8 +63,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    // TODO: KF6 replace contextualActions with actions
-    contextualActions: pageActions
+    actions: pageActions
 
     header: Loader {
         anchors.right: parent.right
