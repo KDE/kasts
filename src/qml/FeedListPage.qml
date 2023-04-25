@@ -35,16 +35,15 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions.main: Kirigami.Action {
-        visible: Kirigami.Settings.isMobile
-        text: i18n("Discover")
-        icon.name: "search"
-        onTriggered: {
-            applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
-        }
-    }
-
-    contextualActions: [
+    property list<Kirigami.Action> pageActions: [
+        Kirigami.Action {
+            visible: Kirigami.Settings.isMobile
+            text: i18n("Discover")
+            icon.name: "search"
+            onTriggered: {
+                applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
+            }
+        },
         Kirigami.Action {
             text: i18n("Refresh All Podcasts")
             icon.name: "view-refresh"
@@ -75,9 +74,12 @@ Kirigami.ScrollablePage {
     // defined above
     Component.onCompleted: {
         for (var i in feedList.contextualActionList) {
-            contextualActions.push(feedList.contextualActionList[i]);
+            pageActions.push(feedList.contextualActionList[i]);
         }
     }
+
+    // TODO: KF6 replace contextualActions with actions
+    contextualActions: pageActions
 
     AddFeedSheet {
         id: addSheet

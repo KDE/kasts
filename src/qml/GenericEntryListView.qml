@@ -123,7 +123,7 @@ ListView {
 
     // For lack of a better place, we put generic entry list actions here so
     // they can be re-used across the different ListViews.
-    property var selectAllAction: Kirigami.Action {
+    readonly property var selectAllAction: Kirigami.Action {
         icon.name: "edit-select-all"
         text: i18n("Select All")
         visible: true
@@ -132,7 +132,7 @@ ListView {
         }
     }
 
-    property var selectNoneAction: Kirigami.Action {
+    readonly property var selectNoneAction: Kirigami.Action {
         icon.name: "edit-select-none"
         text: i18n("Deselect All")
         visible: listView.selectionModel.hasSelection
@@ -141,7 +141,7 @@ ListView {
         }
     }
 
-    property var addToQueueAction: Kirigami.Action {
+    readonly property var addToQueueAction: Kirigami.Action {
         text: i18n("Add to Queue")
         icon.name: "media-playlist-append"
         visible: listView.selectionModel.hasSelection && !listView.isQueue && (singleSelectedEntry ? !singleSelectedEntry.queueStatus : true)
@@ -151,7 +151,7 @@ ListView {
         }
     }
 
-    property var removeFromQueueAction: Kirigami.Action {
+    readonly property var removeFromQueueAction: Kirigami.Action {
         text: i18n("Remove from Queue")
         icon.name: "list-remove"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? singleSelectedEntry.queueStatus : true)
@@ -161,7 +161,7 @@ ListView {
         }
     }
 
-    property var markPlayedAction: Kirigami.Action {
+    readonly property var markPlayedAction: Kirigami.Action {
         text: i18n("Mark as Played")
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? !singleSelectedEntry.read : true)
         onTriggered: {
@@ -169,7 +169,7 @@ ListView {
         }
     }
 
-    property var markNotPlayedAction: Kirigami.Action {
+    readonly property var markNotPlayedAction: Kirigami.Action {
         text: i18n("Mark as Unplayed")
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? singleSelectedEntry.read : true)
         onTriggered: {
@@ -177,7 +177,7 @@ ListView {
         }
     }
 
-    property var markNewAction: Kirigami.Action {
+    readonly property var markNewAction: Kirigami.Action {
         text: i18n("Label as \"New\"")
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? !singleSelectedEntry.new : true)
         onTriggered: {
@@ -185,7 +185,7 @@ ListView {
         }
     }
 
-    property var markNotNewAction: Kirigami.Action {
+    readonly property var markNotNewAction: Kirigami.Action {
         text: i18n("Remove \"New\" Label")
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? singleSelectedEntry.new : true)
         onTriggered: {
@@ -193,7 +193,7 @@ ListView {
         }
     }
 
-    property var markFavoriteAction: Kirigami.Action {
+    readonly property var markFavoriteAction: Kirigami.Action {
         text: i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
         icon.name: "starred-symbolic"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? !singleSelectedEntry.favorite : true)
@@ -202,7 +202,7 @@ ListView {
         }
     }
 
-    property var markNotFavoriteAction: Kirigami.Action {
+    readonly property var markNotFavoriteAction: Kirigami.Action {
         text: i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
         icon.name: "non-starred-symbolic"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? singleSelectedEntry.favorite : true)
@@ -211,7 +211,7 @@ ListView {
         }
     }
 
-    property var downloadEnclosureAction: Kirigami.Action {
+    readonly property var downloadEnclosureAction: Kirigami.Action {
         text: i18n("Download")
         icon.name: "download"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : true)
@@ -221,7 +221,7 @@ ListView {
         }
     }
 
-    property var deleteEnclosureAction: Kirigami.Action {
+    readonly property var deleteEnclosureAction: Kirigami.Action {
         text: i18ncp("context menu action", "Delete Download", "Delete Downloads", selectionForContextMenu.length)
         icon.name: "delete"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true)
@@ -230,7 +230,7 @@ ListView {
         }
     }
 
-    property var streamAction: Kirigami.Action {
+    readonly property var streamAction: Kirigami.Action {
         text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.source: "qrc:/media-playback-start-cloud"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false)
@@ -243,19 +243,19 @@ ListView {
         }
     }
 
-    property var defaultActionList: [addToQueueAction,
-                                     removeFromQueueAction,
-                                     markPlayedAction,
-                                     markNotPlayedAction,
-                                     markNewAction,
-                                     markNotNewAction,
-                                     markFavoriteAction,
-                                     markNotFavoriteAction,
-                                     downloadEnclosureAction,
-                                     deleteEnclosureAction,
-                                     streamAction,
-                                     selectAllAction,
-                                     selectNoneAction]
+    readonly property var defaultActionList: [addToQueueAction,
+                                              removeFromQueueAction,
+                                              markPlayedAction,
+                                              markNotPlayedAction,
+                                              markNewAction,
+                                              markNotNewAction,
+                                              markFavoriteAction,
+                                              markNotFavoriteAction,
+                                              downloadEnclosureAction,
+                                              deleteEnclosureAction,
+                                              streamAction,
+                                              selectAllAction,
+                                              selectNoneAction]
 
     property Controls.Menu contextMenu: Controls.Menu {
         id: contextMenu

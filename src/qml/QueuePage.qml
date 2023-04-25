@@ -32,13 +32,22 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions.main: Kirigami.Action {
-        icon.name: "view-refresh"
-        text: i18nc("@action:intoolbar", "Refresh All Podcasts")
-        onTriggered: refreshing = true
+    property list<Kirigami.Action> pageActions: [
+        Kirigami.Action {
+            icon.name: "view-refresh"
+            text: i18nc("@action:intoolbar", "Refresh All Podcasts")
+            onTriggered: refreshing = true
+        }
+    ]
+
+    Component.onCompleted: {
+        for (var i in queueList.defaultActionList) {
+            pageActions.push(queueList.defaultActionList[i]);
+        }
     }
 
-    contextualActions: queueList.defaultActionList
+    // TODO: KF6 replace contextualActions with actions
+    contextualActions: pageActions
 
     GenericEntryListView {
         id: queueList

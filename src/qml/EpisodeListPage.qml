@@ -35,16 +35,15 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions {
-        main: Kirigami.Action {
+    property list<Kirigami.Action> pageActions: [
+        Kirigami.Action {
             icon.name: "download"
             text: i18n("Downloads")
             onTriggered: {
                 pushPage("DownloadListPage")
             }
-        }
-
-        left: Kirigami.Action {
+        },
+        Kirigami.Action {
             id: searchActionButton
             icon.name: "search"
             text: i18nc("@action:intoolbar", "Search and Filter")
@@ -55,17 +54,23 @@ Kirigami.ScrollablePage {
                     episodeProxyModel.searchFilter = "";
                 }
             }
-        }
-
-        right: Kirigami.Action {
+        },
+        Kirigami.Action {
             icon.name: "view-refresh"
             text: i18n("Refresh All Podcasts")
             onTriggered: refreshing = true
             visible: episodeProxyModel.filterType == AbstractEpisodeProxyModel.NoFilter
         }
+    ]
+
+    Component.onCompleted: {
+        for (var i in episodeList.defaultActionList) {
+            pageActions.push(episodeList.defaultActionList[i]);
+        }
     }
 
-    contextualActions: episodeList.defaultActionList
+    // TODO: KF6 replace contextualActions with actions
+    contextualActions: pageActions
 
     header: Loader {
         anchors.right: parent.right

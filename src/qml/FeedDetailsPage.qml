@@ -65,7 +65,8 @@ Kirigami.ScrollablePage {
         }
     }
 
-    actions.main: Kirigami.Action {
+    // TODO: KF6 replace contextualActions with actions
+    contextualActions: Kirigami.Action {
         id: searchActionButton
         icon.name: "search"
         text: i18nc("@action:intoolbar", "Search and Filter")
