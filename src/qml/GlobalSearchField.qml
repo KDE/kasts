@@ -144,11 +144,11 @@ Addons.SearchPopupField {
             Repeater {
                 model: searchSettingsModel
 
-                Controls.CheckBox {
-                    padding: Kirigami.Units.smallSpacing
+                Controls.MenuItem {
                     text: model.name
+                    checkable: true
                     checked: model.checked
-                    onToggled: {
+                    onTriggered: {
                         if (checked) {
                             proxyModel.searchFlags = proxyModel.searchFlags | model.searchFlag;
                         } else {
