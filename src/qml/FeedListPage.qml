@@ -50,13 +50,15 @@ Kirigami.ScrollablePage {
             onTriggered: refreshing = true
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar", "Add Podcast")
+            id: addAction
+            text: i18nc("@action:intoolbar", "Add Podcast...")
             icon.name: "list-add"
             onTriggered: {
                 addSheet.open()
             }
         },
         Kirigami.Action {
+            id: importAction
             text: i18nc("@action:intoolbar", "Import Podcasts...")
             icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
@@ -85,18 +87,11 @@ Kirigami.ScrollablePage {
         id: addSheet
     }
 
-    Kirigami.PlaceholderMessage {
-        visible: feedList.count === 0
-        width: Kirigami.Units.gridUnit * 20
-        anchors.centerIn: parent
-        text: i18nc("@info Placeholder message for empty podcast list", "No Podcasts Added Yet")
-    }
-
     FileDialog {
         id: importDialog
         title: i18nc("@title:window", "Import Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "All Files (*)"), i18nc("@label:listbox File filter option in file dialog", "XML Files (*.xml)"), i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)")]
+        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), i18nc("@label:listbox File filter option in file dialog", "XML Files (*.xml)"), i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
         onAccepted: DataManager.importFeeds(file)
     }
 
@@ -104,7 +99,7 @@ Kirigami.ScrollablePage {
         id: exportDialog
         title: i18nc("@title:window", "Export Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "All Files")]
+        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
         onAccepted: DataManager.exportFeeds(file)
         fileMode: FileDialog.SaveFile
     }
@@ -112,8 +107,66 @@ Kirigami.ScrollablePage {
     GridView {
         id: feedList
         currentIndex: -1
-        visible: count !== 0
         clip: true
+
+        Kirigami.PlaceholderMessage {
+            id: placeholderMessage
+            visible: feedList.count === 0
+            width: Kirigami.Units.gridUnit * 20
+            anchors.centerIn: parent
+            type: Kirigami.PlaceholderMessage.Actionable
+            text: i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet")
+            explanation: i18nc("@info:tipoftheday", "Get started by adding podcasts:")
+
+            readonly property int buttonSize: Math.max(discoverButton.implicitWidth, addButton.implicitWidth, importButton.implicitWidth, syncButton.implicitWidth)
+
+            // These actions are also in the toolbar, but duplicating some here
+            // to give them more descriptive names
+            Controls.Button {
+                id: discoverButton
+                Layout.preferredWidth: placeholderMessage.buttonSize
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: Kirigami.Units.gridUnit
+                action: Kirigami.Action {
+                    icon.name: "search"
+                    text: i18nc("@action:button", "Search Online")
+                    onTriggered: pushPage("DiscoverPage")
+                }
+            }
+
+            Controls.Button {
+                id: addButton
+                Layout.preferredWidth: placeholderMessage.buttonSize
+                Layout.alignment: Qt.AlignHCenter
+                action: addAction
+            }
+
+            Controls.Button {
+                id: importButton
+                Layout.preferredWidth: placeholderMessage.buttonSize
+                Layout.alignment: Qt.AlignHCenter
+                action: importAction
+            }
+
+            Controls.Button {
+                id: syncButton
+                Layout.preferredWidth: placeholderMessage.buttonSize
+                Layout.alignment: Qt.AlignHCenter
+                action: Kirigami.Action {
+                    text: i18nc("@action:button", "Synchronize")
+                    icon.name: "state-sync"
+                    onTriggered: {
+                        // not using pushPage here in order to open the sync page
+                        // directly
+                        pageStack.layers.clear()
+                        pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
+                            defaultPage: "Synchronization" }, {
+                            title: i18n("Settings"),
+                        })
+                    }
+                }
+            }
+        }
 
         property int minimumCardSize: 150
         property int cardMargin: Kirigami.Units.largeSpacing
