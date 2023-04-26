@@ -49,10 +49,7 @@ Kirigami.NavigationTabBar {
             text: i18n("Settings")
             checked: "SettingsPage" === kastsMainWindow.currentPage
             onTriggered: {
-                applicationWindow().pageStack.clear()
-                applicationWindow().pageStack.push("qrc:/SettingsPage.qml", {}, {
-                    title: i18n("Settings")
-                })
+                pushPage("SettingsPage")
             }
         }
     ]

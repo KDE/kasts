@@ -62,10 +62,17 @@ Kirigami.ApplicationWindow {
         }
     }
     function pushPage(page) {
-        pageStack.clear();
-        pageStack.layers.clear();
-        pageStack.push(getPage(page));
-        currentPage = page;
+        if (page === "SettingsPage") {
+            pageStack.layers.clear()
+            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
+                title: i18n("Settings")
+            })
+        } else {
+            pageStack.clear();
+            pageStack.layers.clear();
+            pageStack.push(getPage(page));
+            currentPage = page;
+        }
     }
 
     Settings {
@@ -249,10 +256,7 @@ Kirigami.ApplicationWindow {
                     checked: currentPage == "SettingsPage"
                     onClicked: {
                         checked = false;
-                        kastsMainWindow.pageStack.layers.clear()
-                        kastsMainWindow.pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
-                            title: i18n("Settings")
-                        })
+                        pushPage("SettingsPage")
                     }
                 }
             }
