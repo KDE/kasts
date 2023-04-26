@@ -52,8 +52,8 @@ Item {
             anchors.fill: parent
             source: root.imageSource
             fillMode: root.imageFillMode
-            sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : undefined
-            sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : undefined
+            sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : 0
+            sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : 0
             asynchronous: true
             mipmap: root.mipmap
         }
