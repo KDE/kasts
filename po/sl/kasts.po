@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:47+0000\n"
+"POT-Creation-Date: 2023-04-26 00:48+0000\n"
 "PO-Revision-Date: 2023-03-25 10:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -282,7 +282,7 @@ msgstr "Dodaj nov podcast"
 msgid "Url:"
 msgstr "Url:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:54
+#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
 #, kde-format
 msgid "Add Podcast"
 msgstr "Dodaj podcast"
@@ -406,7 +406,7 @@ msgstr "Ni naslova sledi"
 msgid "No Track Loaded"
 msgstr "Ni naloženih sledi"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:197
 #, kde-format
 msgid "Discover"
 msgstr "Razišči"
@@ -421,43 +421,43 @@ msgstr "Preišči podcastindex.org"
 msgid "Search"
 msgstr "Išči"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
 #, kde-format
 msgid "Subscribe"
 msgstr "Naroči se"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
 #, kde-format
 msgid "Subscribed"
 msgstr "Naročen"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:223
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:227
 #, kde-format
 msgid "Downloads"
 msgstr "Prenosi"
 
-#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:62
-#: qml/FeedListPage.qml:49
+#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
+#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Osveži vse podcaste"
 
-#: qml/DownloadListPage.qml:48
+#: qml/DownloadListPage.qml:57
 #, kde-format
 msgid "No Downloads"
 msgstr "Ni prenosov"
 
-#: qml/DownloadListPage.qml:64
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloading"
 msgstr "Prenašanje"
 
-#: qml/DownloadListPage.qml:65
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Nepopolni prenosi"
 
-#: qml/DownloadListPage.qml:66
+#: qml/DownloadListPage.qml:75
 #, kde-format
 msgid "Downloaded"
 msgstr "Prenešeno"
@@ -593,13 +593,13 @@ msgstr "Povezava kopirana"
 msgid "Episode List"
 msgstr "Seznam epizod"
 
-#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:71
+#: qml/EpisodeListPage.qml:49 qml/FeedDetailsPage.qml:72
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search and Filter"
 msgstr "Išči in filtriraj"
 
-#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:366
+#: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
 #, kde-format
 msgid "No Episodes Available"
 msgstr "Nobenih epizod ni na voljo"
@@ -633,48 +633,48 @@ msgid "Show Error Log"
 msgstr "Prikaži dnevnik napak"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:286
+#: qml/FeedListPage.qml:288
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti podcasta"
 
-#: qml/FeedDetailsPage.qml:131
+#: qml/FeedDetailsPage.qml:132
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:162
+#: qml/FeedDetailsPage.qml:163
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Osveži podcast"
 
-#: qml/FeedDetailsPage.qml:181
+#: qml/FeedDetailsPage.qml:182
 #, kde-format
 msgid "Show Details"
 msgstr "Prikaži podrobnosti"
 
-#: qml/FeedDetailsPage.qml:252
+#: qml/FeedDetailsPage.qml:253
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Spletni naslov podcasta:"
 
-#: qml/FeedDetailsPage.qml:292
+#: qml/FeedDetailsPage.qml:293
 #, kde-format
 msgid "Weblink:"
 msgstr "Spletna povezava:"
 
-#: qml/FeedDetailsPage.qml:318
+#: qml/FeedDetailsPage.qml:319
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Naročen od: %1"
 
-#: qml/FeedDetailsPage.qml:331
+#: qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "Last Updated: %1"
 msgstr "Zadnjič osveženo: %1"
 
-#: qml/FeedDetailsPage.qml:344
+#: qml/FeedDetailsPage.qml:345
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -683,7 +683,7 @@ msgstr[1] "%1 epizodi"
 msgstr[2] "%1 epizode"
 msgstr[3] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:344
+#: qml/FeedDetailsPage.qml:345
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -692,7 +692,7 @@ msgstr[1] "%1 nepredvajana"
 msgstr[2] "%1 nepredvajani"
 msgstr[3] "%1 nepredvajanih"
 
-#: qml/FeedDetailsPage.qml:366
+#: qml/FeedDetailsPage.qml:367
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Napaka (%1): %2"
@@ -702,67 +702,67 @@ msgstr "Napaka (%1): %2"
 msgid "Remove Podcast"
 msgstr "Odstrani podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:207 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Naročnine"
 
-#: qml/FeedListPage.qml:61
+#: qml/FeedListPage.qml:60
 #, kde-format
 msgid "Import Podcasts..."
 msgstr "Uvozi podcaste..."
 
-#: qml/FeedListPage.qml:67
+#: qml/FeedListPage.qml:66
 #, kde-format
 msgid "Export Podcasts..."
 msgstr "Izvozi podcaste..."
 
-#: qml/FeedListPage.qml:92
+#: qml/FeedListPage.qml:94
 #, kde-format
 msgid "No Podcasts Added Yet"
 msgstr "Še ni dodanih podcastov"
 
-#: qml/FeedListPage.qml:97
+#: qml/FeedListPage.qml:99
 #, kde-format
 msgid "Import Podcasts"
 msgstr "Uvozi podcaste"
 
-#: qml/FeedListPage.qml:99
+#: qml/FeedListPage.qml:101
 #, kde-format
 msgid "All Files (*)"
 msgstr "Vse datoteke (*)"
 
-#: qml/FeedListPage.qml:99
+#: qml/FeedListPage.qml:101
 #, kde-format
 msgid "XML Files (*.xml)"
 msgstr "Datoteke XML ((*.xml)"
 
-#: qml/FeedListPage.qml:99
+#: qml/FeedListPage.qml:101
 #, kde-format
 msgid "OPML Files (*.opml)"
 msgstr "Datoteke OPML (*.opml)"
 
-#: qml/FeedListPage.qml:105
+#: qml/FeedListPage.qml:107
 #, kde-format
 msgid "Export Podcasts"
 msgstr "Izvozi podcaste"
 
-#: qml/FeedListPage.qml:107
+#: qml/FeedListPage.qml:109
 #, kde-format
 msgid "All Files"
 msgstr "Vse datoteke"
 
-#: qml/FeedListPage.qml:245 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
 #, kde-format
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: qml/FeedListPage.qml:254 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
 #, kde-format
 msgid "Deselect All"
 msgstr "Prekliči izbor vseh"
 
-#: qml/FeedListPage.qml:263
+#: qml/FeedListPage.qml:265
 #, kde-format
 msgctxt "context menu action"
 msgid "Remove Podcast"
@@ -911,23 +911,23 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Išči v:"
 
-#: qml/main.qml:183 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:187 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "Čakalna vrsta"
 
-#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:217 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Epizode"
 
-#: qml/main.qml:243 qml/main.qml:250 qml/Mobile/BottomToolbar.qml:49
+#: qml/main.qml:247 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
 #: qml/Mobile/BottomToolbar.qml:54
 #, kde-format
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: qml/main.qml:339
+#: qml/main.qml:336
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -937,7 +937,7 @@ msgstr[1] "Posodobljena %2 od %1 podcastov"
 msgstr[2] "Posodobljeno %2 od %1 podcastov"
 msgstr[3] "Posodobljenih %2 od %1 podcastov"
 
-#: qml/main.qml:366
+#: qml/main.qml:363
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -947,7 +947,7 @@ msgstr[1] "Preneseno %2 od %1 datotek"
 msgstr[2] "Preneseno %2 od %1 datotek"
 msgstr[3] "Preneseno %2 od %1 datotek"
 
-#: qml/main.qml:430
+#: qml/main.qml:427
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Prenos podkastov trenutno ni dovoljeno pri merjenih povezavah"
@@ -1015,7 +1015,7 @@ msgctxt "@title:window"
 msgid "Select Playback Rate"
 msgstr "Izberi hitrost playbacka"
 
-#: qml/PlaybackRateMenu.qml:48
+#: qml/PlaybackRateMenu.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
@@ -1027,19 +1027,19 @@ msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Čakalna vrsta"
 
-#: qml/QueuePage.qml:37
+#: qml/QueuePage.qml:38
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Osveži vse podcaste"
 
-#: qml/QueuePage.qml:55
+#: qml/QueuePage.qml:64
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "Čakalna vrsta je prazna"
 
-#: qml/QueuePage.qml:64
+#: qml/QueuePage.qml:73
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -1049,7 +1049,7 @@ msgstr[1] "%1 epizodi"
 msgstr[2] "%1 epizode"
 msgstr[3] "%1 epizod"
 
-#: qml/QueuePage.qml:64
+#: qml/QueuePage.qml:73
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
