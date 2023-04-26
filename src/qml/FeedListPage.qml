@@ -17,7 +17,7 @@ import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
     id: subscriptionPage
-    title: i18n("Subscriptions")
+    title: i18nc("@title Podcast subscription list page title", "Subscriptions")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
@@ -38,32 +38,32 @@ Kirigami.ScrollablePage {
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             visible: Kirigami.Settings.isMobile
-            text: i18n("Discover")
+            text: i18nc("@action:intoolbar Open the podcast discover page", "Discover")
             icon.name: "search"
             onTriggered: {
                 applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
             }
         },
         Kirigami.Action {
-            text: i18n("Refresh All Podcasts")
+            text: i18nc("@action:intoolbar", "Refresh All Podcasts")
             icon.name: "view-refresh"
             onTriggered: refreshing = true
         },
         Kirigami.Action {
-            text: i18n("Add Podcast")
+            text: i18nc("@action:intoolbar", "Add Podcast")
             icon.name: "list-add"
             onTriggered: {
                 addSheet.open()
             }
         },
         Kirigami.Action {
-            text: i18n("Import Podcasts...")
+            text: i18nc("@action:intoolbar", "Import Podcasts...")
             icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
-            text: i18n("Export Podcasts...")
+            text: i18nc("@action:intoolbar", "Export Podcasts...")
             icon.name: "document-export"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: exportDialog.open()
@@ -87,26 +87,24 @@ Kirigami.ScrollablePage {
 
     Kirigami.PlaceholderMessage {
         visible: feedList.count === 0
-
         width: Kirigami.Units.gridUnit * 20
         anchors.centerIn: parent
-
-        text: i18n("No Podcasts Added Yet")
+        text: i18nc("@info Placeholder message for empty podcast list", "No Podcasts Added Yet")
     }
 
     FileDialog {
         id: importDialog
-        title: i18n("Import Podcasts")
+        title: i18nc("@title:window", "Import Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18n("All Files (*)"), i18n("XML Files (*.xml)"), i18n("OPML Files (*.opml)")]
+        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "All Files (*)"), i18nc("@label:listbox File filter option in file dialog", "XML Files (*.xml)"), i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)")]
         onAccepted: DataManager.importFeeds(file)
     }
 
     FileDialog {
         id: exportDialog
-        title: i18n("Export Podcasts")
+        title: i18nc("@title:window", "Export Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18n("All Files")]
+        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "All Files")]
         onAccepted: DataManager.exportFeeds(file)
         fileMode: FileDialog.SaveFile
     }
@@ -244,7 +242,7 @@ Kirigami.ScrollablePage {
         // they can be re-used across the different ListViews.
         property var selectAllAction: Kirigami.Action {
             icon.name: "edit-select-all"
-            text: i18n("Select All")
+            text: i18nc("@action:intoolbar", "Select All")
             visible: true
             onTriggered: {
                 feedList.selectionModel.select(feedList.model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
@@ -253,7 +251,7 @@ Kirigami.ScrollablePage {
 
         property var selectNoneAction: Kirigami.Action {
             icon.name: "edit-select-none"
-            text: i18n("Deselect All")
+            text: i18nc("@action:intoolbar", "Deselect All")
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 feedList.selectionModel.clearSelection();
@@ -262,7 +260,7 @@ Kirigami.ScrollablePage {
 
         property var deleteFeedAction: Kirigami.Action {
             icon.name: "delete"
-            text: i18ncp("context menu action", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
+            text: i18ncp("@action:intoolbar", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 // First get an array of pointers to the feeds to be deleted
@@ -285,7 +283,7 @@ Kirigami.ScrollablePage {
 
         property var feedDetailsAction: Kirigami.Action {
             icon.name: "documentinfo"
-            text: i18n("Podcast Details")
+            text: i18nc("@action:intoolbar Open view with more podcast details", "Podcast Details")
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {
                 while(pageStack.depth > 1)
