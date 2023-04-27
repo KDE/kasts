@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:48+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2023-03-26 18:45+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -413,7 +413,7 @@ msgstr "Aucun titre de piste"
 msgid "No Track Loaded"
 msgstr "Aucune piste chargée"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:197
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr "Discover"
@@ -438,7 +438,7 @@ msgstr "S'abonner"
 msgid "Subscribed"
 msgstr "Abonné"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:227
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:234
 #, kde-format
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -705,7 +705,7 @@ msgstr "Erreur (%1) : %2"
 msgid "Remove Podcast"
 msgstr "Supprimer un podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:207 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonnements"
@@ -910,23 +910,22 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Rechercher dans :"
 
-#: qml/main.qml:187 qml/Mobile/BottomToolbar.qml:25
-#, kde-format
-msgid "Queue"
-msgstr "Mettre en file"
-
-#: qml/main.qml:217 qml/Mobile/BottomToolbar.qml:41
-#, kde-format
-msgid "Episodes"
-msgstr "Épisodes"
-
-#: qml/main.qml:247 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
-#: qml/Mobile/BottomToolbar.qml:54
+#: qml/main.qml:68 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
 msgstr "Configuration"
 
-#: qml/main.qml:336
+#: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
+#, kde-format
+msgid "Queue"
+msgstr "Mettre en file"
+
+#: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
+#, kde-format
+msgid "Episodes"
+msgstr "Épisodes"
+
+#: qml/main.qml:340
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -934,7 +933,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 mis à jour du podcast %1"
 msgstr[1] "%2 mis à jour des %1 podcasts"
 
-#: qml/main.qml:363
+#: qml/main.qml:367
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -942,7 +941,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
-#: qml/main.qml:427
+#: qml/main.qml:431
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1076,7 +1075,7 @@ msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr "Sélectionner un filtre"
 
-#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "About"
 msgstr "À propos"
@@ -1302,22 +1301,22 @@ msgstr "Autoriser la lecture en flux"
 msgid "General"
 msgstr "Général"
 
-#: qml/Settings/SettingsPage.qml:21
+#: qml/Settings/SettingsPage.qml:22
 #, kde-format
 msgid "Storage"
 msgstr "Stockage"
 
-#: qml/Settings/SettingsPage.qml:26
+#: qml/Settings/SettingsPage.qml:28
 #, kde-format
 msgid "Network"
 msgstr "Réseau"
 
-#: qml/Settings/SettingsPage.qml:31
+#: qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Synchronization"
 msgstr "Synchronisation"
 
-#: qml/Settings/SettingsPage.qml:36
+#: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Error Log"
 msgstr "Journal d'erreurs"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-26 00:48+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2021-05-16 22:06+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -419,7 +419,7 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:197
+#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr ""
@@ -446,7 +446,7 @@ msgstr "Odbery"
 msgid "Subscribed"
 msgstr "Odbery"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:227
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:234
 #, kde-format
 msgid "Downloads"
 msgstr "Sťahovania"
@@ -739,7 +739,7 @@ msgstr "Chyba (%1): %2"
 msgid "Remove Podcast"
 msgstr ""
 
-#: qml/FeedListPage.qml:20 qml/main.qml:207 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Odbery"
@@ -952,23 +952,22 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr ""
 
-#: qml/main.qml:187 qml/Mobile/BottomToolbar.qml:25
-#, kde-format
-msgid "Queue"
-msgstr "Fronta"
-
-#: qml/main.qml:217 qml/Mobile/BottomToolbar.qml:41
-#, kde-format
-msgid "Episodes"
-msgstr "Epizódy"
-
-#: qml/main.qml:247 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
-#: qml/Mobile/BottomToolbar.qml:54
+#: qml/main.qml:68 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: qml/main.qml:336
+#: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
+#, kde-format
+msgid "Queue"
+msgstr "Fronta"
+
+#: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
+#, kde-format
+msgid "Episodes"
+msgstr "Epizódy"
+
+#: qml/main.qml:340
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -977,7 +976,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/main.qml:363
+#: qml/main.qml:367
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -986,7 +985,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/main.qml:427
+#: qml/main.qml:431
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1126,7 +1125,7 @@ msgctxt "@title:menu"
 msgid "Select Filter"
 msgstr ""
 
-#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:41
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "About"
 msgstr "O aplikácii"
@@ -1362,22 +1361,22 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:21
+#: qml/Settings/SettingsPage.qml:22
 #, kde-format
 msgid "Storage"
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:26
+#: qml/Settings/SettingsPage.qml:28
 #, kde-format
 msgid "Network"
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:31
+#: qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Synchronization"
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:36
+#: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Error Log"
 msgstr "Chybový záznam"
