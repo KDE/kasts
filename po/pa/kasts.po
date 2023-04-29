@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-04-29 00:49+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -289,7 +289,7 @@ msgstr "ਨਵਾਂ ਪੋਡਕਾਸਟ ਜੋੜੋ"
 msgid "Url:"
 msgstr "Url:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
+#: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
 msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
@@ -417,7 +417,7 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr ""
@@ -448,7 +448,6 @@ msgid "Downloads"
 msgstr "ਡਾਊਨਲੋਡ"
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
-#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr ""
@@ -663,7 +662,6 @@ msgid "Show Error Log"
 msgstr "ਗਲਤੀ ਦਾ ਲਾਗ"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:288
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Podcast Details"
@@ -732,74 +730,120 @@ msgstr "ਗ਼ਲਤੀ (%1): %2"
 msgid "Remove Podcast"
 msgstr "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
-#, kde-format
+#: qml/FeedListPage.qml:20
+#, fuzzy, kde-format
+msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
+msgstr "ਮੈਂਬਰ ਹੋ: %1"
+
+#: qml/FeedListPage.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
 msgstr ""
 
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
+#, fuzzy, kde-format
+#| msgid "Refresh Podcast"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "ਪੋਡਕਾਸਟ ਤਾਜ਼ਾ ਕਰੋ"
+
+#: qml/FeedListPage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@action:intoolbar"
+msgid "Add Podcast"
+msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
+
 #: qml/FeedListPage.qml:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remove Podcast"
+msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
-msgstr ""
+msgstr "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 
 #: qml/FeedListPage.qml:66
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr ""
 
-#: qml/FeedListPage.qml:94
+#: qml/FeedListPage.qml:92
 #, kde-format
+msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr ""
 
-#: qml/FeedListPage.qml:99
-#, kde-format
+#: qml/FeedListPage.qml:97
+#, fuzzy, kde-format
+#| msgid "Remove Podcast"
+msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr ""
+msgstr "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "ਸਭ ਫਾਇਲਾਂ (*)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "XML Files (*.xml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML ਫਾਇਲਾਂ (*.xml)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "OPML Files (*.opml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML ਫਾਇਲਾਂ (*.opml)"
 
-#: qml/FeedListPage.qml:107
-#, kde-format
+#: qml/FeedListPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr ""
+msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: qml/FeedListPage.qml:109
-#, kde-format
+#: qml/FeedListPage.qml:107
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "ਸਭ ਫਾਇਲਾਂ"
 
-#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:245
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr ""
 
-#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:254
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr ""
 
-#: qml/FeedListPage.qml:265
+#: qml/FeedListPage.qml:263
 #, fuzzy, kde-format
 #| msgid "Remove Podcast"
-msgctxt "context menu action"
+msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 msgstr[1] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
+
+#: qml/FeedListPage.qml:286
+#, fuzzy, kde-format
+#| msgid "Downloads"
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "ਡਾਊਨਲੋਡ"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -887,6 +931,16 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
+#: qml/GenericEntryListView.qml:128
+#, kde-format
+msgid "Select All"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:137
+#, kde-format
+msgid "Deselect All"
+msgstr ""
+
 #: qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
@@ -949,6 +1003,11 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 #, kde-format
 msgid "Queue"
 msgstr "ਕਤਾਰ"
+
+#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr ""
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
@@ -1052,13 +1111,6 @@ msgstr ""
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "ਕਤਾਰ"
-
-#: qml/QueuePage.qml:38
-#, fuzzy, kde-format
-#| msgid "Refresh Podcast"
-msgctxt "@action:intoolbar"
-msgid "Refresh All Podcasts"
-msgstr "ਪੋਡਕਾਸਟ ਤਾਜ਼ਾ ਕਰੋ"
 
 #: qml/QueuePage.qml:64
 #, kde-format
@@ -1959,6 +2011,14 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Remove Podcast"
+#~ msgctxt "context menu action"
+#~ msgid "Remove Podcast"
+#~ msgid_plural "Remove Podcasts"
+#~ msgstr[0] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
+#~ msgstr[1] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 
 #, fuzzy
 #~| msgid "Error Log"

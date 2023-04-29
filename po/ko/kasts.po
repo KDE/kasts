@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-04-29 00:49+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -300,7 +300,7 @@ msgstr "새 팟캐스트 추가"
 msgid "Url:"
 msgstr "URL:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
+#: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
 msgstr "팟캐스트 추가"
@@ -431,7 +431,7 @@ msgstr "트랙 제목 없음"
 msgid "No Track Loaded"
 msgstr "불러온 트랙 없음"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr "둘러보기"
@@ -462,7 +462,6 @@ msgid "Downloads"
 msgstr "다운로드"
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
-#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "모든 팟캐스트 새로 고침"
@@ -679,7 +678,6 @@ msgid "Show Error Log"
 msgstr "오류 로그 표시"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:288
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
@@ -742,72 +740,125 @@ msgstr "오류(%1): %2"
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
-#, kde-format
+#: qml/FeedListPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "구독"
 
+#: qml/FeedListPage.qml:41
+#, fuzzy, kde-format
+#| msgid "Discover"
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr "둘러보기"
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
+#, fuzzy, kde-format
+#| msgid "Refresh All Podcasts"
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "모든 팟캐스트 새로 고침"
+
+#: qml/FeedListPage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@action:intoolbar"
+msgid "Add Podcast"
+msgstr "팟캐스트 추가"
+
 #: qml/FeedListPage.qml:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Import Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "팟캐스트 가져오기..."
 
 #: qml/FeedListPage.qml:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Export Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "팟캐스트 내보내기..."
 
-#: qml/FeedListPage.qml:94
-#, kde-format
+#: qml/FeedListPage.qml:92
+#, fuzzy, kde-format
+#| msgid "No Podcasts Added Yet"
+msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "추가한 팟캐스트 없음"
 
-#: qml/FeedListPage.qml:99
-#, kde-format
+#: qml/FeedListPage.qml:97
+#, fuzzy, kde-format
+#| msgid "Import Podcasts"
+msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "팟캐스트 가져오기"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "모든 파일 (*)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "XML Files (*.xml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML 파일 (*.xml)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "OPML Files (*.opml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML 파일 (*.opml)"
 
-#: qml/FeedListPage.qml:107
-#, kde-format
+#: qml/FeedListPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Export Podcasts"
+msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "팟캐스트 내보내기"
 
-#: qml/FeedListPage.qml:109
-#, kde-format
+#: qml/FeedListPage.qml:107
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "모든 파일"
 
-#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
-#, kde-format
+#: qml/FeedListPage.qml:245
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "모두 선택"
 
-#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
-#, kde-format
+#: qml/FeedListPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Deselect All"
+msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "모두 선택 해제"
 
-#: qml/FeedListPage.qml:265
-#, kde-format
-msgctxt "context menu action"
+#: qml/FeedListPage.qml:263
+#, fuzzy, kde-format
+#| msgid "Remove Podcast"
+msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "팟캐스트 삭제"
+
+#: qml/FeedListPage.qml:286
+#, fuzzy, kde-format
+#| msgid "Podcast Details"
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "팟캐스트 자세한 정보"
 
 #: qml/FilterInlineMessage.qml:32
 #, fuzzy, kde-format
@@ -896,6 +947,16 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
+#: qml/GenericEntryListView.qml:128
+#, kde-format
+msgid "Select All"
+msgstr "모두 선택"
+
+#: qml/GenericEntryListView.qml:137
+#, kde-format
+msgid "Deselect All"
+msgstr "모두 선택 해제"
+
 #: qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
@@ -958,6 +1019,11 @@ msgstr "설정"
 #, kde-format
 msgid "Queue"
 msgstr "대기열에 추가"
+
+#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr "구독"
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
@@ -1063,13 +1129,6 @@ msgstr ""
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "대기열에 추가"
-
-#: qml/QueuePage.qml:38
-#, fuzzy, kde-format
-#| msgid "Refresh All Podcasts"
-msgctxt "@action:intoolbar"
-msgid "Refresh All Podcasts"
-msgstr "모든 팟캐스트 새로 고침"
 
 #: qml/QueuePage.qml:64
 #, kde-format
@@ -1986,6 +2045,11 @@ msgstr "앞으로 건너뛰기"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
+
+#~ msgctxt "context menu action"
+#~ msgid "Remove Podcast"
+#~ msgid_plural "Remove Podcasts"
+#~ msgstr[0] "팟캐스트 삭제"
 
 #~ msgid "Errors"
 #~ msgstr "오류"

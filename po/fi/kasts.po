@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-04-29 00:49+0000\n"
 "PO-Revision-Date: 2023-03-29 23:07+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -281,7 +281,7 @@ msgstr "Lisää uusi podcast"
 msgid "Url:"
 msgstr "Verkko-osoite:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
+#: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
 msgstr "Lisää podcast"
@@ -407,7 +407,7 @@ msgid "No Track Loaded"
 msgstr "Ei ladattua raitaa"
 
 # *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr "Etsi"
@@ -438,7 +438,6 @@ msgid "Downloads"
 msgstr "Lataukset"
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
-#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
@@ -634,7 +633,6 @@ msgid "Show Error Log"
 msgstr "Näytä virheloki"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:288
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcastin tiedot"
@@ -699,73 +697,126 @@ msgstr "Virhe (%1): %2"
 msgid "Remove Podcast"
 msgstr "Poista podcast"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
-#, kde-format
+#: qml/FeedListPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "Tilaukset"
 
-#: qml/FeedListPage.qml:60
+# *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
+#: qml/FeedListPage.qml:41
+#, fuzzy, kde-format
+#| msgid "Discover"
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr "Etsi"
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Virkistä kaikki podcastit"
+
+#: qml/FeedListPage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@action:intoolbar"
+msgid "Add Podcast"
+msgstr "Lisää podcast"
+
+#: qml/FeedListPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Import Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "Tuo podcasteja…"
 
 #: qml/FeedListPage.qml:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Export Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "Vie podcasteja…"
 
-#: qml/FeedListPage.qml:94
-#, kde-format
+#: qml/FeedListPage.qml:92
+#, fuzzy, kde-format
+#| msgid "No Podcasts Added Yet"
+msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Podcasteja ei ole vielä lisätty"
 
-#: qml/FeedListPage.qml:99
-#, kde-format
+#: qml/FeedListPage.qml:97
+#, fuzzy, kde-format
+#| msgid "Import Podcasts"
+msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Tuo podcasteja"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Kaikki tiedostot (*)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "XML Files (*.xml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML-tiedostot (*.xml)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "OPML Files (*.opml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML-tiedostot (*.opml)"
 
-#: qml/FeedListPage.qml:107
-#, kde-format
+#: qml/FeedListPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Export Podcasts"
+msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Vie podcasteja"
 
-#: qml/FeedListPage.qml:109
-#, kde-format
+#: qml/FeedListPage.qml:107
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "Kaikki tiedostot"
 
-#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
-#, kde-format
+#: qml/FeedListPage.qml:245
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
-#, kde-format
+#: qml/FeedListPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Deselect All"
+msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Poista kaikki valinnat"
 
-#: qml/FeedListPage.qml:265
-#, kde-format
-msgctxt "context menu action"
+#: qml/FeedListPage.qml:263
+#, fuzzy, kde-format
+#| msgid "Remove Podcast"
+msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Poista podcast"
-msgstr[1] "Poista podcastit"
+msgstr[1] "Poista podcast"
+
+#: qml/FeedListPage.qml:286
+#, fuzzy, kde-format
+#| msgid "Podcast Details"
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "Podcastin tiedot"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -853,6 +904,16 @@ msgctxt ""
 msgid "Stream"
 msgstr "Suoratoista"
 
+#: qml/GenericEntryListView.qml:128
+#, kde-format
+msgid "Select All"
+msgstr "Valitse kaikki"
+
+#: qml/GenericEntryListView.qml:137
+#, kde-format
+msgid "Deselect All"
+msgstr "Poista kaikki valinnat"
+
 #: qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
@@ -914,6 +975,11 @@ msgstr "Asetukset"
 #, kde-format
 msgid "Queue"
 msgstr "Lisää jonoon"
+
+#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr "Tilaukset"
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
@@ -1016,12 +1082,6 @@ msgstr "Mukauta"
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Lisää jonoon"
-
-#: qml/QueuePage.qml:38
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Refresh All Podcasts"
-msgstr "Virkistä kaikki podcastit"
 
 #: qml/QueuePage.qml:64
 #, kde-format
@@ -1909,6 +1969,12 @@ msgstr "Hyppää eteenpäin"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgctxt "context menu action"
+#~ msgid "Remove Podcast"
+#~ msgid_plural "Remove Podcasts"
+#~ msgstr[0] "Poista podcast"
+#~ msgstr[1] "Poista podcastit"
 
 #~ msgid "Errors"
 #~ msgstr "Virheet"

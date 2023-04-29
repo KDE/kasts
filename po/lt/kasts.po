@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-04-29 00:49+0000\n"
 "PO-Revision-Date: 2023-02-24 00:58+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Url:"
 msgstr ""
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
+#: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
 msgstr ""
@@ -406,7 +406,7 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr ""
@@ -437,7 +437,6 @@ msgid "Downloads"
 msgstr ""
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
-#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr ""
@@ -633,7 +632,6 @@ msgid "Show Error Log"
 msgstr ""
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:288
 #, kde-format
 msgid "Podcast Details"
 msgstr ""
@@ -700,74 +698,111 @@ msgstr ""
 msgid "Remove Podcast"
 msgstr ""
 
-#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#: qml/FeedListPage.qml:20
 #, kde-format
+msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
+msgstr ""
+
+#: qml/FeedListPage.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr ""
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr ""
+
+#: qml/FeedListPage.qml:53
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add Podcast"
 msgstr ""
 
 #: qml/FeedListPage.qml:60
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr ""
 
 #: qml/FeedListPage.qml:66
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr ""
 
-#: qml/FeedListPage.qml:94
+#: qml/FeedListPage.qml:92
 #, kde-format
+msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
+msgstr ""
+
+#: qml/FeedListPage.qml:97
+#, kde-format
+msgctxt "@title:window"
+msgid "Import Podcasts"
 msgstr ""
 
 #: qml/FeedListPage.qml:99
 #, kde-format
-msgid "Import Podcasts"
-msgstr ""
-
-#: qml/FeedListPage.qml:101
-#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr ""
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:99
 #, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr ""
 
-#: qml/FeedListPage.qml:101
+#: qml/FeedListPage.qml:99
 #, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
+msgstr ""
+
+#: qml/FeedListPage.qml:105
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Podcasts"
 msgstr ""
 
 #: qml/FeedListPage.qml:107
 #, kde-format
-msgid "Export Podcasts"
-msgstr ""
-
-#: qml/FeedListPage.qml:109
-#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr ""
 
-#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
+#: qml/FeedListPage.qml:245
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr ""
 
-#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
+#: qml/FeedListPage.qml:254
 #, kde-format
+msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr ""
 
-#: qml/FeedListPage.qml:265
+#: qml/FeedListPage.qml:263
 #, kde-format
-msgctxt "context menu action"
+msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
+
+#: qml/FeedListPage.qml:286
+#, kde-format
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr ""
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -854,6 +889,16 @@ msgctxt ""
 msgid "Stream"
 msgstr ""
 
+#: qml/GenericEntryListView.qml:128
+#, kde-format
+msgid "Select All"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:137
+#, kde-format
+msgid "Deselect All"
+msgstr ""
+
 #: qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
@@ -915,6 +960,11 @@ msgstr ""
 #: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
+msgstr ""
+
+#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
 msgstr ""
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
@@ -1018,12 +1068,6 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
-msgstr ""
-
-#: qml/QueuePage.qml:38
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Refresh All Podcasts"
 msgstr ""
 
 #: qml/QueuePage.qml:64

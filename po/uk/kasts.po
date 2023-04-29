@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-04-29 00:49+0000\n"
 "PO-Revision-Date: 2023-03-24 08:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -286,7 +286,7 @@ msgstr "Додати нову трансляцію"
 msgid "Url:"
 msgstr "Адреса:"
 
-#: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:53
+#: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
 msgstr "Додати трансляцію"
@@ -412,7 +412,7 @@ msgstr "Немає заголовка доріжки"
 msgid "No Track Loaded"
 msgstr "Нічого не завантажено"
 
-#: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:41 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:204
 #, kde-format
 msgid "Discover"
 msgstr "Виявлення"
@@ -443,7 +443,6 @@ msgid "Downloads"
 msgstr "Отримане"
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
-#: qml/FeedListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Оновити усі трансляції"
@@ -639,7 +638,6 @@ msgid "Show Error Log"
 msgstr "Показати журнал помилок"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:257
-#: qml/FeedListPage.qml:288
 #, kde-format
 msgid "Podcast Details"
 msgstr "Подробиці щодо подкасту"
@@ -708,75 +706,127 @@ msgstr "Помилка (%1): %2"
 msgid "Remove Podcast"
 msgstr "Вилучити трансляцію"
 
-#: qml/FeedListPage.qml:20 qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
-#, kde-format
+#: qml/FeedListPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "Підписки"
 
-#: qml/FeedListPage.qml:60
+#: qml/FeedListPage.qml:41
+#, fuzzy, kde-format
+#| msgid "Discover"
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr "Виявлення"
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Оновити усі трансляції"
+
+#: qml/FeedListPage.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
+msgctxt "@action:intoolbar"
+msgid "Add Podcast"
+msgstr "Додати трансляцію"
+
+#: qml/FeedListPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Import Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "Імпортувати трансляції…"
 
 #: qml/FeedListPage.qml:66
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Export Podcasts..."
+msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "Експортувати трансляції…"
 
-#: qml/FeedListPage.qml:94
-#, kde-format
+#: qml/FeedListPage.qml:92
+#, fuzzy, kde-format
+#| msgid "No Podcasts Added Yet"
+msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Трансляцій ще не додано"
 
-#: qml/FeedListPage.qml:99
-#, kde-format
+#: qml/FeedListPage.qml:97
+#, fuzzy, kde-format
+#| msgid "Import Podcasts"
+msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Імпортування трансляцій"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "усі файли (*)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "XML Files (*.xml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "файли XML (*.xml)"
 
-#: qml/FeedListPage.qml:101
-#, kde-format
+#: qml/FeedListPage.qml:99
+#, fuzzy, kde-format
+#| msgid "OPML Files (*.opml)"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "файли OPML (*.opml)"
 
-#: qml/FeedListPage.qml:107
-#, kde-format
+#: qml/FeedListPage.qml:105
+#, fuzzy, kde-format
+#| msgid "Export Podcasts"
+msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Експортування трансляцій"
 
-#: qml/FeedListPage.qml:109
-#, kde-format
+#: qml/FeedListPage.qml:107
+#, fuzzy, kde-format
+#| msgid "All Files"
+msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "усі файли"
 
-#: qml/FeedListPage.qml:247 qml/GenericEntryListView.qml:128
-#, kde-format
+#: qml/FeedListPage.qml:245
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Позначити все"
 
-#: qml/FeedListPage.qml:256 qml/GenericEntryListView.qml:137
-#, kde-format
+#: qml/FeedListPage.qml:254
+#, fuzzy, kde-format
+#| msgid "Deselect All"
+msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Зняти позначення з усіх"
 
-#: qml/FeedListPage.qml:265
-#, kde-format
-msgctxt "context menu action"
+#: qml/FeedListPage.qml:263
+#, fuzzy, kde-format
+#| msgid "Remove Podcast"
+msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] "Вилучити трансляції"
-msgstr[1] "Вилучити трансляції"
-msgstr[2] "Вилучити трансляції"
+msgstr[0] "Вилучити трансляцію"
+msgstr[1] "Вилучити трансляцію"
+msgstr[2] "Вилучити трансляцію"
 msgstr[3] "Вилучити трансляцію"
+
+#: qml/FeedListPage.qml:286
+#, fuzzy, kde-format
+#| msgid "Podcast Details"
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "Подробиці щодо подкасту"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -863,6 +913,16 @@ msgctxt ""
 msgid "Stream"
 msgstr "Трансляція"
 
+#: qml/GenericEntryListView.qml:128
+#, kde-format
+msgid "Select All"
+msgstr "Позначити все"
+
+#: qml/GenericEntryListView.qml:137
+#, kde-format
+msgid "Deselect All"
+msgstr "Зняти позначення з усіх"
+
 #: qml/GenericEntryListView.qml:165
 #, kde-format
 msgid "Mark as Played"
@@ -926,6 +986,11 @@ msgstr "Параметри"
 #, kde-format
 msgid "Queue"
 msgstr "Додати до черги"
+
+#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr "Підписки"
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
@@ -1033,12 +1098,6 @@ msgstr "Налаштувати"
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Черга"
-
-#: qml/QueuePage.qml:38
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Refresh All Podcasts"
-msgstr "Оновити усі трансляції"
 
 #: qml/QueuePage.qml:64
 #, kde-format
@@ -1936,6 +1995,14 @@ msgstr "Перемотати вперед"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgctxt "context menu action"
+#~ msgid "Remove Podcast"
+#~ msgid_plural "Remove Podcasts"
+#~ msgstr[0] "Вилучити трансляції"
+#~ msgstr[1] "Вилучити трансляції"
+#~ msgstr[2] "Вилучити трансляції"
+#~ msgstr[3] "Вилучити трансляцію"
 
 #~ msgid "Errors"
 #~ msgstr "Помилки"
