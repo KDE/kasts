@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-16 02:47+0000\n"
-"PO-Revision-Date: 2023-03-04 08:53+0100\n"
+"PO-Revision-Date: 2023-04-29 11:06+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -655,7 +655,7 @@ msgstr "Usuń podkast"
 #: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
-msgstr "Subskrypcje"
+msgstr "Śledzone"
 
 #: qml/FeedListPage.qml:61
 #, kde-format
@@ -1000,7 +1000,7 @@ msgstr "Wygląd"
 #: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Zawsze pokazuj tytuły podkastów w widoku subskrybowanych"
+msgstr "Zawsze pokazuj tytuły podkastów w widoku śledzonych"
 
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
@@ -1547,8 +1547,8 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
-"Czy synchronizować na wszystkich urządzeniach wszystkie subskrypcje "
-"podkastów z tego konta gpodder.net?\n"
+"Czy synchronizować na wszystkich urządzeniach wszystkie śledzone podkasty z "
+"tego konta gpodder.net?\n"
 "Jeśli nie wiesz, co to znaczy, to prawdopodobnie powinieneś odpowiedzieć \"Ok"
 "\"."
 
@@ -1697,22 +1697,22 @@ msgstr "Nie można pobrać stanu synchronizowanego urządzenia"
 #: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr "Nie można pobrać subskrypcji dla urządzenia %1"
+msgstr "Nie można pobrać śledzonych z urządzenia %1"
 
 #: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr "Nie można wysłać subskrypcji dla urządzenia %1"
+msgstr "Nie można wysłać śledzonych do urządzenia %1"
 
 #: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr "Nie można pobrać uaktualnień subskrypcji z serwera"
+msgstr "Nie można pobrać uaktualnień śledzonych z serwera"
 
 #: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "Nie można wysłać zmian subskrypcji na serwer"
+msgstr "Nie można wysłać zmian śledzonych na serwer"
 
 #: sync/syncjob.cpp:75
 #, kde-format
@@ -1739,13 +1739,13 @@ msgstr "(Krok %1 z %2) Rozpocznij synchronizowanie"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
-msgstr "(Krok %1 z %2) Żądnie Uaktualnień Zdalnych Subskrypcji"
+msgstr "(Krok %1 z %2) Żądnie Uaktualnienia Zdalnie Śledzonych"
 
 #: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
-msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Lokalnych Subskrypcji"
+msgstr "(Krok %1 z %2) Wysyłanie Uaktualnienia Miejscowo Śledzonych"
 
 #: sync/syncjob.cpp:896
 #, kde-format
@@ -1772,7 +1772,7 @@ msgstr "(Krok %1 z %2) Wprowadzanie Zmian Zdalnych Odcinków"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Lokalnych Odcinków"
+msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Miejscowych Odcinków"
 
 #: sync/syncjob.cpp:913
 #, kde-format
@@ -1784,7 +1784,7 @@ msgstr "(Krok %1 z %2) Ukończono synchronizowanie"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
-msgstr "Przerwano synchronizację"
+msgstr "Przerwano synchronizowanie"
 
 #: sync/syncjob.cpp:920
 #, kde-format
