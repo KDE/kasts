@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-29 00:49+0000\n"
-"PO-Revision-Date: 2023-03-25 10:09+0100\n"
+"PO-Revision-Date: 2023-04-29 07:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -701,15 +701,13 @@ msgid "Remove Podcast"
 msgstr "Odstrani podcast"
 
 #: qml/FeedListPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "Naročnine"
 
 #: qml/FeedListPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Discover"
+#, kde-format
 msgctxt "@action:intoolbar Open the podcast discover page"
 msgid "Discover"
 msgstr "Razišči"
@@ -721,103 +719,89 @@ msgid "Refresh All Podcasts"
 msgstr "Osveži vse podcaste"
 
 #: qml/FeedListPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast"
 msgstr "Dodaj podcast"
 
 #: qml/FeedListPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Import Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "Uvozi podcaste..."
 
 #: qml/FeedListPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Export Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "Izvozi podcaste..."
 
 #: qml/FeedListPage.qml:92
-#, fuzzy, kde-format
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Še ni dodanih podcastov"
 
 #: qml/FeedListPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Uvozi podcaste"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Vse datoteke (*)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "XML Files (*.xml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
-msgstr "Datoteke XML ((*.xml)"
+msgstr "Datoteke XML (*.xml)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "OPML Files (*.opml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Datoteke OPML (*.opml)"
 
 #: qml/FeedListPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Izvozi podcaste"
 
 #: qml/FeedListPage.qml:107
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "Vse datoteke"
 
 #: qml/FeedListPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Izberi vse"
 
 #: qml/FeedListPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Deselect All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Prekliči izbor vseh"
 
 #: qml/FeedListPage.qml:263
-#, fuzzy, kde-format
-#| msgid "Remove Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Odstrani podcast"
-msgstr[1] "Odstrani podcast"
-msgstr[2] "Odstrani podcast"
-msgstr[3] "Odstrani podcast"
+msgstr[1] "Odstrani podcasta"
+msgstr[2] "Odstrani podcaste"
+msgstr[3] "Odstrani podcaste"
 
 #: qml/FeedListPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podrobnosti podcasta"

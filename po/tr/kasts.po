@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-29 00:49+0000\n"
-"PO-Revision-Date: 2023-03-25 14:20+0300\n"
+"PO-Revision-Date: 2023-04-29 10:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -696,15 +696,13 @@ msgid "Remove Podcast"
 msgstr "Podcast'i Kaldır"
 
 #: qml/FeedListPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "Abonelikler"
 
 #: qml/FeedListPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Discover"
+#, kde-format
 msgctxt "@action:intoolbar Open the podcast discover page"
 msgid "Discover"
 msgstr "Keşfet"
@@ -716,101 +714,87 @@ msgid "Refresh All Podcasts"
 msgstr "Tüm Podcast'leri Yenile"
 
 #: qml/FeedListPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast"
 msgstr "Podcast Ekle"
 
 #: qml/FeedListPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Import Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
-msgstr "Podcast'leri İçe Aktar..."
+msgstr "Podcast'ler İçe Aktar..."
 
 #: qml/FeedListPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Export Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "Podcast'leri Dışa Aktar..."
 
 #: qml/FeedListPage.qml:92
-#, fuzzy, kde-format
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Henüz bir Podcast Eklenmedi"
 
 #: qml/FeedListPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr "Podcast'leri İçe Aktar"
+msgstr "Podcast'ler İçe Aktar"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Tüm Dosyalar (*)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "XML Files (*.xml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML Dosyaları (*.xml"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "OPML Files (*.opml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML Dosyaları (*.opml)"
 
 #: qml/FeedListPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Podcast'leri Dışa Aktar"
 
 #: qml/FeedListPage.qml:107
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "Tüm Dosyalar"
 
 #: qml/FeedListPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Tümünü Seç"
 
 #: qml/FeedListPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Deselect All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Tümünün Seçimini Kaldır"
 
 #: qml/FeedListPage.qml:263
-#, fuzzy, kde-format
-#| msgid "Remove Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Podcast'i Kaldır"
-msgstr[1] "Podcast'i Kaldır"
+msgstr[1] "Podcast'leri Kaldır"
 
 #: qml/FeedListPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podcast Ayrıntıları"

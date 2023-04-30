@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-29 00:49+0000\n"
-"PO-Revision-Date: 2023-04-10 11:45+0200\n"
+"PO-Revision-Date: 2023-04-29 11:06+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -701,15 +701,13 @@ msgid "Remove Podcast"
 msgstr "Usuń podkast"
 
 #: qml/FeedListPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
-msgstr "Subskrypcje"
+msgstr "Śledzone"
 
 #: qml/FeedListPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Discover"
+#, kde-format
 msgctxt "@action:intoolbar Open the podcast discover page"
 msgid "Discover"
 msgstr "Odkrywaj"
@@ -721,92 +719,79 @@ msgid "Refresh All Podcasts"
 msgstr "Odśwież wszystkie podkasty"
 
 #: qml/FeedListPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast"
 msgstr "Dodaj podkast"
 
 #: qml/FeedListPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Import Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "Zaimportuj podkasty..."
 
 #: qml/FeedListPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Export Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
 msgstr "Wyeksportuj podkasty..."
 
 #: qml/FeedListPage.qml:92
-#, fuzzy, kde-format
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Jeszcze nie dodano żadnych podkastów"
 
 #: qml/FeedListPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Zaimportuj podkasty"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Wszystkie pliki (*)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "XML Files (*.xml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "Pliki XML (*.xml)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "OPML Files (*.opml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Pliki OPML (*.opml)"
 
 #: qml/FeedListPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Wyeksportuj podkasty"
 
 #: qml/FeedListPage.qml:107
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "Wszystkie pliki"
 
 #: qml/FeedListPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Zaznacz wszystkie"
 
 #: qml/FeedListPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Deselect All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Odznacz wszystkie"
 
 #: qml/FeedListPage.qml:263
-#, fuzzy, kde-format
-#| msgid "Remove Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
@@ -815,8 +800,7 @@ msgstr[1] "Usuń podkast"
 msgstr[2] "Usuń podkast"
 
 #: qml/FeedListPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
@@ -982,7 +966,7 @@ msgstr "Do kolejki"
 #: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
-msgstr "Subskrypcje"
+msgstr "Śledzone"
 
 #: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
@@ -1153,7 +1137,7 @@ msgstr "Wygląd"
 #: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Zawsze pokazuj tytuły podkastów w widoku subskrybowanych"
+msgstr "Zawsze pokazuj tytuły podkastów w widoku śledzonych"
 
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
@@ -1700,8 +1684,8 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
-"Czy synchronizować na wszystkich urządzeniach wszystkie subskrypcje "
-"podkastów z tego konta gpodder.net?\n"
+"Czy synchronizować na wszystkich urządzeniach wszystkie śledzone podkasty z "
+"tego konta gpodder.net?\n"
 "Jeśli nie wiesz, co to znaczy, to prawdopodobnie powinieneś odpowiedzieć \"Ok"
 "\"."
 
@@ -1850,22 +1834,22 @@ msgstr "Nie można pobrać stanu synchronizowanego urządzenia"
 #: sync/sync.cpp:717
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr "Nie można pobrać subskrypcji dla urządzenia %1"
+msgstr "Nie można pobrać śledzonych z urządzenia %1"
 
 #: sync/sync.cpp:736
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr "Nie można wysłać subskrypcji dla urządzenia %1"
+msgstr "Nie można wysłać śledzonych do urządzenia %1"
 
 #: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr "Nie można pobrać uaktualnień subskrypcji z serwera"
+msgstr "Nie można pobrać uaktualnień śledzonych z serwera"
 
 #: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "Nie można wysłać zmian subskrypcji na serwer"
+msgstr "Nie można wysłać zmian śledzonych na serwer"
 
 #: sync/syncjob.cpp:75
 #, kde-format
@@ -1892,13 +1876,13 @@ msgstr "(Krok %1 z %2) Rozpocznij synchronizowanie"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
-msgstr "(Krok %1 z %2) Żądnie Uaktualnień Zdalnych Subskrypcji"
+msgstr "(Krok %1 z %2) Żądnie Uaktualnienia Zdalnie Śledzonych"
 
 #: sync/syncjob.cpp:892
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
-msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Lokalnych Subskrypcji"
+msgstr "(Krok %1 z %2) Wysyłanie Uaktualnienia Miejscowo Śledzonych"
 
 #: sync/syncjob.cpp:896
 #, kde-format
@@ -1925,7 +1909,7 @@ msgstr "(Krok %1 z %2) Wprowadzanie Zmian Zdalnych Odcinków"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Lokalnych Odcinków"
+msgstr "(Krok %1 z %2) Wysyłanie Uaktualnień Miejscowych Odcinków"
 
 #: sync/syncjob.cpp:913
 #, kde-format
@@ -1937,7 +1921,7 @@ msgstr "(Krok %1 z %2) Ukończono synchronizowanie"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
-msgstr "Przerwano synchronizację"
+msgstr "Przerwano synchronizowanie"
 
 #: sync/syncjob.cpp:920
 #, kde-format
