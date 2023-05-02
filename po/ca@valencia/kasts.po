@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-29 00:49+0000\n"
-"PO-Revision-Date: 2023-03-24 12:09+0100\n"
+"PO-Revision-Date: 2023-04-29 10:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -704,15 +704,13 @@ msgid "Remove Podcast"
 msgstr "Elimina el podcast"
 
 #: qml/FeedListPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
 msgstr "Subscripcions"
 
 #: qml/FeedListPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Discover"
+#, kde-format
 msgctxt "@action:intoolbar Open the podcast discover page"
 msgid "Discover"
 msgstr "Descobrix"
@@ -724,101 +722,87 @@ msgid "Refresh All Podcasts"
 msgstr "Torna a carregar tots els podcast"
 
 #: qml/FeedListPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast"
 msgstr "Afig un podcast"
 
 #: qml/FeedListPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Import Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
-msgstr "Importa alguns podcast..."
+msgstr "Importa podcast..."
 
 #: qml/FeedListPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Export Podcasts..."
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
-msgstr "Exporta els podcast..."
+msgstr "Exporta podcast..."
 
 #: qml/FeedListPage.qml:92
-#, fuzzy, kde-format
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No Podcasts Added Yet"
 msgstr "Encara no s'ha afegit cap podcast"
 
 #: qml/FeedListPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr "Importa alguns podcast"
+msgstr "Importa podcast"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Tots els fitxers (*)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "XML Files (*.xml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "Fitxers XML (*.xml)"
 
 #: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "OPML Files (*.opml)"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Fitxers OPML (*.opml)"
 
 #: qml/FeedListPage.qml:105
-#, fuzzy, kde-format
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr "Exporta els podcast"
+msgstr "Exporta podcast"
 
 #: qml/FeedListPage.qml:107
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files"
 msgstr "Tots els fitxers"
 
 #: qml/FeedListPage.qml:245
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
 #: qml/FeedListPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Deselect All"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Desselecciona-ho tot"
 
 #: qml/FeedListPage.qml:263
-#, fuzzy, kde-format
-#| msgid "Remove Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Elimina el podcast"
-msgstr[1] "Elimina el podcast"
+msgstr[1] "Elimina els podcast"
 
 #: qml/FeedListPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Podcast Details"
+#, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Detalls del podcast"
@@ -1982,9 +1966,3 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgctxt "context menu action"
-#~ msgid "Remove Podcast"
-#~ msgid_plural "Remove Podcasts"
-#~ msgstr[0] "Elimina el podcast"
-#~ msgstr[1] "Elimina els podcast"
