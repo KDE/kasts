@@ -161,7 +161,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: i18nc("Action to start playback by streaming the episode rather than downloading it first", "Stream")
                         visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
-                        icon.source: "qrc:/media-playback-start-cloud"
+                        icon.name: "media-playback-cloud"
                         onTriggered: {
                             if (!entry.queueStatus) {
                                 entry.queueStatus = true;

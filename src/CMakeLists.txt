@@ -238,6 +238,7 @@ if(ANDROID)
         player-volume-muted
         player-volume
         application-exit
+        media-playback-cloud
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)

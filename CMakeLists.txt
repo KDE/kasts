@@ -97,7 +97,7 @@ install(FILES org.kde.kasts.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kasts.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES icons/kasts-tray-dark.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES icons/kasts-tray-light.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
-install(FILES icons/media-playback-start-cloud.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/actions)
+install(FILES icons/media-playback-cloud.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/actions)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 
