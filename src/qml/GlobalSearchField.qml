@@ -79,7 +79,7 @@ Addons.SearchPopupField {
         delegate: Component {
             Kirigami.BasicListItem {
                 separatorVisible: true
-                icon: model.entry.cachedImage
+                icon.source: model.entry.cachedImage
                 label: model.entry.title
                 subtitle: model.entry.feed.name
                 onClicked: {

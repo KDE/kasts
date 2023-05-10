@@ -246,7 +246,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     label: model.name
                     subtitle: model.subtitle
-                    icon: model.icon
+                    icon.name: model.icon
                     //highlighted: false
                     iconSize: Kirigami.Units.gridUnit * 3
                     Keys.onReturnPressed: clicked()
