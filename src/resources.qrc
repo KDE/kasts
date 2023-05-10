@@ -47,6 +47,6 @@
         <file alias="logo.svg">../kasts.svg</file>
         <file alias="kasts-tray-light.svg">../icons/kasts-tray-light.svg</file>
         <file alias="kasts-tray-dark.svg">../icons/kasts-tray-dark.svg</file>
-        <file alias="media-playback-start-cloud">../icons/media-playback-start-cloud.svg</file>
+        <file alias="custom-icons/media-playback-cloud.svg">../icons/media-playback-cloud.svg</file>
     </qresource>
 </RCC>

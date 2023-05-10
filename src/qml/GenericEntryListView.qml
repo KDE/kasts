@@ -232,7 +232,7 @@ ListView {
 
     readonly property var streamAction: Kirigami.Action {
         text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
-        icon.source: "qrc:/media-playback-start-cloud"
+        icon.name: "media-playback-cloud"
         visible: listView.selectionModel.hasSelection && (singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false)
         onTriggered: {
             if (!singleSelectedEntry.queueStatus) {

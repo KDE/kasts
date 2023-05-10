@@ -241,6 +241,7 @@ if(ANDROID)
         application-exit
         starred-symbolic
         non-starred-symbolic
+        media-playback-cloud
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)

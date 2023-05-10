@@ -98,6 +98,8 @@ int main(int argc, char *argv[])
     app.setFont(font);
 #endif
 
+    QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << QStringLiteral(":custom-icons"));
+
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
