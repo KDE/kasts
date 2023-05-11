@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 02:47+0000\n"
+"POT-Creation-Date: 2023-05-11 02:33+0000\n"
 "PO-Revision-Date: 2023-02-28 07:00+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -113,7 +113,7 @@ msgstr "ან"
 msgid "Open"
 msgstr "გახსნა"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:40
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/EntryPage.qml:153
 #: qml/GenericEntryDelegate.qml:325
 #, kde-format
@@ -174,42 +174,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "მუსიკის დაკვრა"
 
-#: main.cpp:110
+#: main.cpp:112
 #, kde-format
 msgid "Podcast Application"
 msgstr "პოდკასტის აპლიკაცია"
 
-#: main.cpp:112
+#: main.cpp:114
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "გამოწერისთვის ახალი პოდკასტის დამატება."
 
-#: main.cpp:113
+#: main.cpp:115
 #, kde-format
 msgid "Podcast URL"
 msgstr "პოდკასტის URL"
 
-#: main.cpp:118
+#: main.cpp:120
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:120
+#: main.cpp:122
 #, kde-format
 msgid "Podcast Player"
 msgstr "პოდკასტის დამკვრელი"
 
-#: main.cpp:122
+#: main.cpp:124
 #, kde-format
 msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2023 KDE-ის საზოგადოება"
 
-#: main.cpp:123
+#: main.cpp:125
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:124
+#: main.cpp:126
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
