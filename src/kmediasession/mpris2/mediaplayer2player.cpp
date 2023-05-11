@@ -34,7 +34,6 @@ MediaPlayer2Player::MediaPlayer2Player(KMediaSession *audioPlayer, bool showProg
     connect(m_audioPlayer, &KMediaSession::sourceChanged, this, &MediaPlayer2Player::setSource);
 
     // Signals from KMediaSession which are directly forwarded
-    connect(m_audioPlayer, &KMediaSession::playbackRateChanged, this, &MediaPlayer2Player::rateChanged);
     // TODO: implement this in KMediaSession, such that it can be forwarded
     // connect(m_audioPlayer, &KMediaSession::minimumRateChanged,
     //        this, &MediaPlayer2Player::mimimumRateChanged);
@@ -44,8 +43,9 @@ MediaPlayer2Player::MediaPlayer2Player(KMediaSession *audioPlayer, bool showProg
 
     // Signals which are semi-wrapped signals from KMediaSession
     connect(m_audioPlayer, &KMediaSession::playbackStateChanged, this, &MediaPlayer2Player::playerPlaybackStateChanged);
+    connect(m_audioPlayer, &KMediaSession::playbackRateChanged, this, &MediaPlayer2Player::playerPlaybackRateChanged);
     connect(m_audioPlayer, &KMediaSession::volumeChanged, this, &MediaPlayer2Player::playerVolumeChanged);
-    connect(m_audioPlayer, &KMediaSession::positionChanged, this, &MediaPlayer2Player::playerSeeked); // Implement Seeked signal
+    connect(m_audioPlayer, &KMediaSession::positionJumped, this, &MediaPlayer2Player::playerSeeked); // Implement Seeked signal
 
     connect(m_audioPlayer, &KMediaSession::canPlayChanged, this, &MediaPlayer2Player::playerCanPlayChanged);
     connect(m_audioPlayer, &KMediaSession::canPauseChanged, this, &MediaPlayer2Player::playerCanPauseChanged);
@@ -252,6 +252,24 @@ double MediaPlayer2Player::Rate() const
         return 1.0;
 }
 
+double MediaPlayer2Player::MinimumRate() const
+{
+    qCDebug(Mpris2Log) << "MediaPlayer2Player::MinimumRate()";
+    if (m_audioPlayer)
+        return m_audioPlayer->minimumPlaybackRate();
+    else
+        return 1.0;
+}
+
+double MediaPlayer2Player::MaximumRate() const
+{
+    qCDebug(Mpris2Log) << "MediaPlayer2Player::MaximumRate()";
+    if (m_audioPlayer)
+        return m_audioPlayer->maximumPlaybackRate();
+    else
+        return 1.0;
+}
+
 void MediaPlayer2Player::setRate(double newRate)
 {
     qCDebug(Mpris2Log) << "MediaPlayer2Player::setRate(" << newRate << ")";
@@ -311,6 +329,13 @@ void MediaPlayer2Player::playerPlaybackStateChanged()
     Q_EMIT playbackStatusChanged();
 }
 
+void MediaPlayer2Player::playerPlaybackRateChanged()
+{
+    qCDebug(Mpris2Log) << "MediaPlayer2Player::playerPlaybackRateChanged()";
+    signalPropertiesChange(QStringLiteral("Rate"), Rate());
+    // Q_EMIT rateChanged(Rate());
+}
+
 void MediaPlayer2Player::playerSeeked(qint64 position)
 {
     qCDebug(Mpris2Log) << "MediaPlayer2Player::playerSeeked(" << position << ")";
@@ -323,6 +348,16 @@ void MediaPlayer2Player::audioPositionChanged()
     // for progress indicator on taskbar
     if (m_audioPlayer)
         setPropertyPosition(static_cast<int>(m_audioPlayer->position()));
+
+    // Occasionally send updated position through MPRIS to make sure that
+    // audio position is still correct if playing without seeking for a long
+    // time.  This will also guarantee correct playback position if the MPRIS
+    // client does not support non-standard playback rates
+    qlonglong position = Position();
+    if (abs(position - m_lastSentPosition) > 10000000) { // every 10 seconds
+        m_lastSentPosition = position;
+        Q_EMIT Seeked(position);
+    }
 }
 
 void MediaPlayer2Player::audioDurationChanged()

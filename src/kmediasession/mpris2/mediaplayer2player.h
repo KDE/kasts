@@ -24,6 +24,8 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
 
     Q_PROPERTY(QString PlaybackStatus READ PlaybackStatus NOTIFY playbackStatusChanged)
     Q_PROPERTY(double Rate READ Rate WRITE setRate NOTIFY rateChanged)
+    Q_PROPERTY(double MinimumRate READ MinimumRate NOTIFY minimumRateChanged)
+    Q_PROPERTY(double MaximumRate READ MaximumRate NOTIFY maximumRateChanged)
     Q_PROPERTY(QVariantMap Metadata READ Metadata NOTIFY playbackStatusChanged)
     Q_PROPERTY(double Volume READ Volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(qlonglong Position READ Position WRITE setPropertyPosition NOTIFY playbackStatusChanged)
@@ -40,6 +42,8 @@ public:
 
     QString PlaybackStatus() const;
     double Rate() const;
+    double MinimumRate() const;
+    double MaximumRate() const;
     QVariantMap Metadata() const;
     double Volume() const;
     qlonglong Position() const;
@@ -56,6 +60,8 @@ Q_SIGNALS:
     void Seeked(qlonglong Position);
 
     void rateChanged(double newRate);
+    void minimumRateChanged(double minRate);
+    void maximumRateChanged(double maxRate);
     void volumeChanged(double newVol);
     void playbackStatusChanged();
     void canGoNextChanged();
@@ -84,8 +90,8 @@ public Q_SLOTS:
     void OpenUri(const QString &uri);
 
 private Q_SLOTS:
-
     void playerPlaybackStateChanged();
+    void playerPlaybackRateChanged();
     void playerSeeked(qint64 position);
     void playerVolumeChanged();
     void playerCanGoNextChanged();
@@ -118,4 +124,5 @@ private:
     int mPreviousProgressPosition = 0;
     bool mShowProgressOnTaskBar = true;
     qlonglong m_position = 0;
+    qlonglong m_lastSentPosition = 0;
 };
