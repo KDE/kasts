@@ -123,6 +123,18 @@
             <label>List of user-defined playback rates</label>
             <default>50,75,100,125,150,175,200,225,250</default>
         </entry>
+        <entry name="skipForward" type="UInt">
+            <label>Skip forward in seconds</label>
+            <min>1</min>
+            <max>300</max>
+            <default>10</default>
+        </entry>
+        <entry name="skipBackward" type="UInt">
+            <label>Skip backward in seconds</label>
+            <min>1</min>
+            <max>300</max>
+            <default>10</default>
+        </entry>
     </group>
     <group name="Network">
         <entry name="allowMeteredFeedUpdates" type="Bool">

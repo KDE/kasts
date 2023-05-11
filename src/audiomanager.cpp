@@ -474,13 +474,13 @@ void AudioManager::seek(qint64 position)
 void AudioManager::skipForward()
 {
     qCDebug(kastsAudio) << "AudioManager::skipForward";
-    seek(std::min((position() + SKIP_STEP), duration()));
+    seek(std::min((position() + (1000 * SettingsManager::skipForward())), duration()));
 }
 
 void AudioManager::skipBackward()
 {
     qCDebug(kastsAudio) << "AudioManager::skipBackward";
-    seek(std::max((qint64)0, (position() - SKIP_STEP)));
+    seek(std::max((qint64)0, (position() - (1000 * SettingsManager::skipBackward()))));
 }
 
 bool AudioManager::canGoNext() const

@@ -166,6 +166,40 @@ Kirigami.ScrollablePage {
                         SettingsManager.save();
                     }
                 }
+                MobileForm.FormDelegateSeparator {
+                    below: prioritizeStreaming
+                    above: skipForwardStep
+                }
+                MobileForm.FormTextDelegate {
+                    id: skipForwardStep
+                    text: i18nc("@label:spinbox", "Skip forward interval (in seconds)")
+                    trailing :
+                        Controls.SpinBox {
+                            Layout.rightMargin: Kirigami.Units.gridUnit
+                            value: SettingsManager.skipForward
+                            from: 1
+                            to: 300
+                            onValueModified: {
+                                SettingsManager.skipForward = value;
+                                SettingsManager.save();
+                            }
+                        }
+                }
+                MobileForm.FormTextDelegate {
+                    id: skipBackwardInterval
+                    text: i18nc("@label:spinbox", "Skip backward interval (in seconds)")
+                    trailing :
+                        Controls.SpinBox {
+                            Layout.rightMargin: Kirigami.Units.gridUnit
+                            value: SettingsManager.skipBackward
+                            from: 1
+                            to: 300
+                            onValueModified: {
+                                SettingsManager.skipBackward = value;
+                                SettingsManager.save();
+                            }
+                        }
+                }
             }
         }
 
