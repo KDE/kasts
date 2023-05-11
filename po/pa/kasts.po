@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-29 00:49+0000\n"
+"POT-Creation-Date: 2023-05-11 00:46+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Open"
 msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:41
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:40
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:332
 #, kde-format
 msgid "Play"
@@ -175,43 +175,43 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "ਸੰਗੀਤ ਚੱਲ ਰਿਹਾ ਹੈ"
 
-#: main.cpp:110
+#: main.cpp:112
 #, kde-format
 msgid "Podcast Application"
 msgstr "ਪੋਡਕਾਸਟ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: main.cpp:112
+#: main.cpp:114
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr ""
 
-#: main.cpp:113
+#: main.cpp:115
 #, kde-format
 msgid "Podcast URL"
 msgstr "ਪੋਡਕਾਸਟ URL"
 
-#: main.cpp:118
+#: main.cpp:120
 #, kde-format
 msgid "Kasts"
 msgstr "ਕਾਸਟਸ"
 
-#: main.cpp:120
+#: main.cpp:122
 #, kde-format
 msgid "Podcast Player"
 msgstr "ਪੋਡਕਾਸਟ ਪਲੇਅਰ"
 
-#: main.cpp:122
+#: main.cpp:124
 #, fuzzy, kde-format
 #| msgid "© 2020-2021 KDE Community"
 msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2021 ਕੇਡੀਈ ਕਮਿਊਨਟੀ"
 
-#: main.cpp:123
+#: main.cpp:125
 #, kde-format
 msgid "Tobias Fella"
 msgstr "ਟੋਬਿਸ ਫੇਲਾ"
 
-#: main.cpp:124
+#: main.cpp:126
 #, kde-format
 msgid "Bart De Vries"
 msgstr ""
