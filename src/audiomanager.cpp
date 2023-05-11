@@ -224,12 +224,12 @@ qreal AudioManager::playbackRate() const
 
 qreal AudioManager::minimumPlaybackRate() const
 {
-    return MIN_RATE;
+    return d->m_player.minimumPlaybackRate();
 }
 
 qreal AudioManager::maximumPlaybackRate() const
 {
-    return MAX_RATE;
+    return d->m_player.maximumPlaybackRate();
 }
 
 bool AudioManager::isStreaming() const

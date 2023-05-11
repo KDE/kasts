@@ -193,6 +193,18 @@ qreal KMediaSession::playbackRate() const
     return 1.0;
 }
 
+qreal KMediaSession::minimumPlaybackRate() const
+{
+    qCDebug(KMediaSessionLog) << "KMediaSession::minimumPlayBackRate()";
+    return MIN_RATE;
+}
+
+qreal KMediaSession::maximumPlaybackRate() const
+{
+    qCDebug(KMediaSessionLog) << "KMediaSession::maximumPlayBackRate()";
+    return MAX_RATE;
+}
+
 KMediaSession::Error KMediaSession::error() const
 {
     qCDebug(KMediaSessionLog) << "KMediaSession::error()";
@@ -404,6 +416,7 @@ void KMediaSession::setPosition(qint64 position)
         d->m_player->setPosition(position);
         QTimer::singleShot(0, this, [this, position]() {
             Q_EMIT positionChanged(position);
+            Q_EMIT positionJumped(position);
         });
     }
 }
@@ -412,7 +425,11 @@ void KMediaSession::setPlaybackRate(qreal rate)
 {
     qCDebug(KMediaSessionLog) << "KMediaSession::setPlaybackRate(" << rate << ")";
     if (d->m_player) {
-        d->m_player->setPlaybackRate(rate);
+        qreal clippedRate = rate > MAX_RATE ? MAX_RATE : (rate < MIN_RATE ? MIN_RATE : rate);
+        d->m_player->setPlaybackRate(clippedRate);
+        QTimer::singleShot(0, this, [this, clippedRate]() {
+            Q_EMIT playbackRateChanged(clippedRate);
+        });
     }
 }
 

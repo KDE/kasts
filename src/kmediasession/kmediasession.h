@@ -49,6 +49,9 @@ class KMEDIASESSION_EXPORT KMediaSession : public QObject
     Q_PROPERTY(bool canGoPrevious READ canGoPrevious WRITE setCanGoPrevious NOTIFY canGoPreviousChanged)
 
 public:
+    const double MAX_RATE = 3.0;
+    const double MIN_RATE = 0.1;
+
     enum MediaBackends {
         Qt = 0,
         Vlc = 1,
@@ -103,6 +106,8 @@ public:
     [[nodiscard]] KMediaSession::MediaStatus mediaStatus() const;
     [[nodiscard]] KMediaSession::PlaybackState playbackState() const;
     [[nodiscard]] qreal playbackRate() const;
+    [[nodiscard]] qreal minimumPlaybackRate() const;
+    [[nodiscard]] qreal maximumPlaybackRate() const;
     [[nodiscard]] KMediaSession::Error error() const;
     [[nodiscard]] qint64 duration() const;
     [[nodiscard]] qint64 position() const;
@@ -130,7 +135,8 @@ Q_SIGNALS:
     void playbackRateChanged(qreal rate);
     void errorChanged(KMediaSession::Error error);
     void durationChanged(qint64 duration);
-    void positionChanged(qint64 position);
+    void positionChanged(qint64 position); // emitted constantly while playing
+    void positionJumped(qint64 position); // emitted only if position jumps after explicit seek operation
     void seekableChanged(bool seekable);
 
     void metaDataChanged(MetaData *metadata);
