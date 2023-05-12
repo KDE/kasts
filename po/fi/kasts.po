@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 00:46+0000\n"
+"POT-Creation-Date: 2023-05-12 00:47+0000\n"
 "PO-Revision-Date: 2023-03-29 23:07+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1217,103 +1217,115 @@ msgstr "Säädä jäljellä olevaa aikaa nykyisen toistonopeuden mukaan"
 msgid "Prioritize streaming over downloading"
 msgstr "Suosi suoratoistoa latauksen sijaan"
 
-#: qml/Settings/GeneralSettingsPage.qml:180
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
 msgid "Queue settings"
 msgstr "Jonoasetukset"
 
-#: qml/Settings/GeneralSettingsPage.qml:186
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Jatka seuraavaan jaksoon, kun nykyinen on kuunneltu"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:228
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Päivitysasetukset:"
 
-#: qml/Settings/GeneralSettingsPage.qml:196
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Virkistä podcastit automaattisesti käynnistettäessä"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Päivitä olemassa oleva jaksotieto virkistettäessä (hidas)"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Lisää uudet jaksot jonoon automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:230
+#: qml/Settings/GeneralSettingsPage.qml:264
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Lataa uudet jaksot automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:243
+#: qml/Settings/GeneralSettingsPage.qml:277
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Toistetun jakson toiminta"
 
-#: qml/Settings/GeneralSettingsPage.qml:246
+#: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Älä poista"
 
-#: qml/Settings/GeneralSettingsPage.qml:247
+#: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Poista heti"
 
-#: qml/Settings/GeneralSettingsPage.qml:248
+#: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Poista käynnistettäessä uudelleen"
 
-#: qml/Settings/GeneralSettingsPage.qml:261
+#: qml/Settings/GeneralSettingsPage.qml:295
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Palata toistokohta, kun jakso on toistettu"
 
-#: qml/Settings/GeneralSettingsPage.qml:278
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Lisättäessä uusia podcasteja:"
 
-#: qml/Settings/GeneralSettingsPage.qml:283
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Merkitse kaikki jaksot kuunnelluiksi"
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:328
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Merkitse kaikki jaksot kuuntelemattomiksi"
 
-#: qml/Settings/GeneralSettingsPage.qml:334
+#: qml/Settings/GeneralSettingsPage.qml:368
 #, kde-format
 msgid "Article"
 msgstr "Artikkeli"
 
-#: qml/Settings/GeneralSettingsPage.qml:339
+#: qml/Settings/GeneralSettingsPage.qml:373
 #, kde-format
 msgid "Font size"
 msgstr "Fonttikoko"
 
-#: qml/Settings/GeneralSettingsPage.qml:346
+#: qml/Settings/GeneralSettingsPage.qml:380
 #, kde-format
 msgid "Font size:"
 msgstr "Fonttikoko:"
 
-#: qml/Settings/GeneralSettingsPage.qml:362
+#: qml/Settings/GeneralSettingsPage.qml:396
 #, kde-format
 msgid "Use system default"
 msgstr "Käytä järjestelmän oletusta"

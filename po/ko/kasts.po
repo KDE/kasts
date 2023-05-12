@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 00:46+0000\n"
+"POT-Creation-Date: 2023-05-12 00:47+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -1272,111 +1272,123 @@ msgstr "현재 재생 속도에 맞춰서 남은 시간 조정"
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:180
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:214
 #, fuzzy, kde-format
 #| msgid "Queue Settings"
 msgid "Queue settings"
 msgstr "대기열 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:186
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "현재 에피소드 재생이 끝난 후 다음 에피소드 계속 재생"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:228
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "재생 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:196
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "시작할 때 자동으로 팟캐스트 가져오기"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "새로 고칠 때 기존 에피소드 데이터 업데이트(느림)"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, fuzzy, kde-format
 #| msgid "Automatically Queue"
 msgid "Automatically queue new episodes"
 msgstr "자동으로 대기열에 추가"
 
-#: qml/Settings/GeneralSettingsPage.qml:230
+#: qml/Settings/GeneralSettingsPage.qml:264
 #, fuzzy, kde-format
 #| msgid "Automatically Download"
 msgid "Automatically download new episodes"
 msgstr "자동으로 다운로드"
 
-#: qml/Settings/GeneralSettingsPage.qml:243
+#: qml/Settings/GeneralSettingsPage.qml:277
 #, fuzzy, kde-format
 #| msgid "Played Episodes"
 msgid "Played episode behavior"
 msgstr "재생한 에피소드"
 
-#: qml/Settings/GeneralSettingsPage.qml:246
+#: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do Not Delete"
 msgstr "삭제 안 함"
 
-#: qml/Settings/GeneralSettingsPage.qml:247
+#: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete Immediately"
 msgstr "즉시 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:248
+#: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "다음에 시작할 때 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:261
+#: qml/Settings/GeneralSettingsPage.qml:295
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:278
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, fuzzy, kde-format
 #| msgid "When adding new podcasts:"
 msgid "When adding new podcasts"
 msgstr "새 팟캐스트를 추가할 때:"
 
-#: qml/Settings/GeneralSettingsPage.qml:283
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "모든 에피소드를 재생한 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:328
 #, fuzzy, kde-format
 #| msgid "Mark most recent episodes as unplayed:"
 msgid "Mark most recent episodes as unplayed"
 msgstr "최근 에피소드를 재생하지 않은 것으로 표시:"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "모든 에피소드를 재생하지 않은 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:334
+#: qml/Settings/GeneralSettingsPage.qml:368
 #, kde-format
 msgid "Article"
 msgstr "글"
 
-#: qml/Settings/GeneralSettingsPage.qml:339
+#: qml/Settings/GeneralSettingsPage.qml:373
 #, fuzzy, kde-format
 #| msgid "Font size:"
 msgid "Font size"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:346
+#: qml/Settings/GeneralSettingsPage.qml:380
 #, kde-format
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: qml/Settings/GeneralSettingsPage.qml:362
+#: qml/Settings/GeneralSettingsPage.qml:396
 #, kde-format
 msgid "Use system default"
 msgstr "시스템 기본값 사용"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 00:46+0000\n"
+"POT-Creation-Date: 2023-05-12 00:47+0000\n"
 "PO-Revision-Date: 2023-04-29 12:38+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1196,103 +1196,115 @@ msgstr "Adjust time left based on current playback speed"
 msgid "Prioritize streaming over downloading"
 msgstr "Prioritise streaming over downloading"
 
-#: qml/Settings/GeneralSettingsPage.qml:180
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
 msgid "Queue settings"
 msgstr "Queue settings"
 
-#: qml/Settings/GeneralSettingsPage.qml:186
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Continue playing next episode after current one finishes"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:228
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Update Settings:"
 
-#: qml/Settings/GeneralSettingsPage.qml:196
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Automatically fetch podcast updates on startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Update existing episode data on refresh (slower)"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Automatically queue new episodes"
 
-#: qml/Settings/GeneralSettingsPage.qml:230
+#: qml/Settings/GeneralSettingsPage.qml:264
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Automatically download new episodes"
 
-#: qml/Settings/GeneralSettingsPage.qml:243
+#: qml/Settings/GeneralSettingsPage.qml:277
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Played episode behaviour"
 
-#: qml/Settings/GeneralSettingsPage.qml:246
+#: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Do Not Delete"
 
-#: qml/Settings/GeneralSettingsPage.qml:247
+#: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Delete Immediately"
 
-#: qml/Settings/GeneralSettingsPage.qml:248
+#: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Delete at Next Startup"
 
-#: qml/Settings/GeneralSettingsPage.qml:261
+#: qml/Settings/GeneralSettingsPage.qml:295
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Reset play position after an episode is played"
 
-#: qml/Settings/GeneralSettingsPage.qml:278
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "When adding new podcasts"
 
-#: qml/Settings/GeneralSettingsPage.qml:283
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Mark all episodes as played"
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:328
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Mark most recent episodes as unplayed"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Mark all episodes as unplayed"
 
-#: qml/Settings/GeneralSettingsPage.qml:334
+#: qml/Settings/GeneralSettingsPage.qml:368
 #, kde-format
 msgid "Article"
 msgstr "Article"
 
-#: qml/Settings/GeneralSettingsPage.qml:339
+#: qml/Settings/GeneralSettingsPage.qml:373
 #, kde-format
 msgid "Font size"
 msgstr "Font size"
 
-#: qml/Settings/GeneralSettingsPage.qml:346
+#: qml/Settings/GeneralSettingsPage.qml:380
 #, kde-format
 msgid "Font size:"
 msgstr "Font size:"
 
-#: qml/Settings/GeneralSettingsPage.qml:362
+#: qml/Settings/GeneralSettingsPage.qml:396
 #, kde-format
 msgid "Use system default"
 msgstr "Use system default"

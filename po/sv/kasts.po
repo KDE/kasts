@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 00:46+0000\n"
+"POT-Creation-Date: 2023-05-12 00:47+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1280,111 +1280,123 @@ msgstr "Justera återstående tid baserat på nuvarande uppspelningshastighet"
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:180
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:214
 #, fuzzy, kde-format
 #| msgid "Queue Settings"
 msgid "Queue settings"
 msgstr "Köinställningar"
 
-#: qml/Settings/GeneralSettingsPage.qml:186
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Fortsätt att spela upp nästa avsnitt när det pågående är slut"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:228
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Uppspelningsinställningar"
 
-#: qml/Settings/GeneralSettingsPage.qml:196
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Hämta automatiskt uppdateringar av poddradioprogram vid start"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Uppdatera befintlig avsnittsinformation vid uppdatering (långsammare)"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, fuzzy, kde-format
 #| msgid "Automatically Queue"
 msgid "Automatically queue new episodes"
 msgstr "Köa automatiskt"
 
-#: qml/Settings/GeneralSettingsPage.qml:230
+#: qml/Settings/GeneralSettingsPage.qml:264
 #, fuzzy, kde-format
 #| msgid "Automatically Download"
 msgid "Automatically download new episodes"
 msgstr "Ladda ner automatiskt"
 
-#: qml/Settings/GeneralSettingsPage.qml:243
+#: qml/Settings/GeneralSettingsPage.qml:277
 #, fuzzy, kde-format
 #| msgid "Played Episodes"
 msgid "Played episode behavior"
 msgstr "Spelade avsnitt"
 
-#: qml/Settings/GeneralSettingsPage.qml:246
+#: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do Not Delete"
 msgstr "Ta inte bort"
 
-#: qml/Settings/GeneralSettingsPage.qml:247
+#: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete Immediately"
 msgstr "Ta bort omedelbart"
 
-#: qml/Settings/GeneralSettingsPage.qml:248
+#: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr "Ta bort vid nästa start"
 
-#: qml/Settings/GeneralSettingsPage.qml:261
+#: qml/Settings/GeneralSettingsPage.qml:295
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:278
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, fuzzy, kde-format
 #| msgid "When adding new podcasts:"
 msgid "When adding new podcasts"
 msgstr "När nya poddradioprogram läggs till:"
 
-#: qml/Settings/GeneralSettingsPage.qml:283
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Markera alla avsnitt som spelade"
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:328
 #, fuzzy, kde-format
 #| msgid "Mark most recent episodes as unplayed:"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Markera de senaste avsnitten som ospelade:"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Markera alla avsnitten som ospelade"
 
-#: qml/Settings/GeneralSettingsPage.qml:334
+#: qml/Settings/GeneralSettingsPage.qml:368
 #, kde-format
 msgid "Article"
 msgstr "Artikel"
 
-#: qml/Settings/GeneralSettingsPage.qml:339
+#: qml/Settings/GeneralSettingsPage.qml:373
 #, fuzzy, kde-format
 #| msgid "Font size:"
 msgid "Font size"
 msgstr "Teckenstorlek:"
 
-#: qml/Settings/GeneralSettingsPage.qml:346
+#: qml/Settings/GeneralSettingsPage.qml:380
 #, kde-format
 msgid "Font size:"
 msgstr "Teckenstorlek:"
 
-#: qml/Settings/GeneralSettingsPage.qml:362
+#: qml/Settings/GeneralSettingsPage.qml:396
 #, kde-format
 msgid "Use system default"
 msgstr "Använda systemstandard"

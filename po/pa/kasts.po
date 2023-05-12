@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 00:46+0000\n"
+"POT-Creation-Date: 2023-05-12 00:47+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1252,110 +1252,122 @@ msgstr ""
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:180
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:214
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgid "Queue settings"
 msgstr "ਚਲਾਉਣ ਸੈਟਿੰਗਾਂ"
 
-#: qml/Settings/GeneralSettingsPage.qml:186
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:228
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "ਚਲਾਉਣ ਸੈਟਿੰਗਾਂ"
 
-#: qml/Settings/GeneralSettingsPage.qml:196
+#: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:249
 #, fuzzy, kde-format
 #| msgid "Cancel Download"
 msgid "Automatically queue new episodes"
 msgstr "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
 
-#: qml/Settings/GeneralSettingsPage.qml:230
+#: qml/Settings/GeneralSettingsPage.qml:264
 #, fuzzy, kde-format
 #| msgid "Cancel Download"
 msgid "Automatically download new episodes"
 msgstr "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
 
-#: qml/Settings/GeneralSettingsPage.qml:243
+#: qml/Settings/GeneralSettingsPage.qml:277
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgid "Played episode behavior"
 msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
-#: qml/Settings/GeneralSettingsPage.qml:246
+#: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do Not Delete"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:247
+#: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete Immediately"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:248
+#: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at Next Startup"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:261
+#: qml/Settings/GeneralSettingsPage.qml:295
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:278
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, fuzzy, kde-format
 #| msgid "Add New Podcast"
 msgid "When adding new podcasts"
 msgstr "ਨਵਾਂ ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: qml/Settings/GeneralSettingsPage.qml:283
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:294
+#: qml/Settings/GeneralSettingsPage.qml:328
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:334
+#: qml/Settings/GeneralSettingsPage.qml:368
 #, kde-format
 msgid "Article"
 msgstr "ਲੇਖ"
 
-#: qml/Settings/GeneralSettingsPage.qml:339
+#: qml/Settings/GeneralSettingsPage.qml:373
 #, fuzzy, kde-format
 #| msgid "Font size:"
 msgid "Font size"
 msgstr "ਫੋਂਟ ਦਾ ਆਕਾਰ:"
 
-#: qml/Settings/GeneralSettingsPage.qml:346
+#: qml/Settings/GeneralSettingsPage.qml:380
 #, kde-format
 msgid "Font size:"
 msgstr "ਫੋਂਟ ਦਾ ਆਕਾਰ:"
 
-#: qml/Settings/GeneralSettingsPage.qml:362
+#: qml/Settings/GeneralSettingsPage.qml:396
 #, kde-format
 msgid "Use system default"
 msgstr "ਸਿਸਟਮ ਦੇ ਮੂਲ ਵਰਤੋਂ"
