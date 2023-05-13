@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-12 00:47+0000\n"
-"PO-Revision-Date: 2023-04-30 02:29+0200\n"
+"PO-Revision-Date: 2023-05-12 20:28+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1207,13 +1207,13 @@ msgstr "Priorizar la emisión sobre la descarga"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "Intervalo a saltar hacia adelante (en segundos)"
 
 #: qml/Settings/GeneralSettingsPage.qml:190
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Intervalo a saltar hacia atrás (en segundos)"
 
 #: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format

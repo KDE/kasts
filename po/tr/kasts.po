@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-12 00:47+0000\n"
-"PO-Revision-Date: 2023-05-03 12:28+0300\n"
+"PO-Revision-Date: 2023-05-12 12:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1201,13 +1201,13 @@ msgstr "İndirme yerine akışa öncelik ver"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "İleri sarma aralığı (saniye)"
 
 #: qml/Settings/GeneralSettingsPage.qml:190
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Geri sarma aralığı (saniye)"
 
 #: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
