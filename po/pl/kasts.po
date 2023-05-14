@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-12 00:47+0000\n"
-"PO-Revision-Date: 2023-04-29 11:06+0200\n"
+"PO-Revision-Date: 2023-05-13 08:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1211,13 +1211,13 @@ msgstr "Przedkładaj strumieniowanie nad pobieranie"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "Odstęp, o który przewinąć do przodu (w sekundach)"
 
 #: qml/Settings/GeneralSettingsPage.qml:190
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Odstęp, o który przewinąć do tyłu (w sekundach)"
 
 #: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
