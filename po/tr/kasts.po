@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-11 02:33+0000\n"
-"PO-Revision-Date: 2023-05-03 12:28+0300\n"
+"PO-Revision-Date: 2023-05-22 14:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -40,7 +40,7 @@ msgstr "Geçersiz Ortam"
 #: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
-msgstr "Kullanıcı ayarlarından dolayı podcast indirmelerine izin verilmiyor"
+msgstr "Kullanıcı ayarlarından dolayı pod yayını indirmelerine izin verilmiyor"
 
 #: enclosuredownloadjob.cpp:33
 #, kde-format
@@ -50,7 +50,7 @@ msgstr "%1 indiriliyor"
 #: error.cpp:48
 #, kde-format
 msgid "Podcast Update Error"
-msgstr "Podcast Güncelleme Hatası"
+msgstr "Pod Yayını Güncelleme Hatası"
 
 #: error.cpp:50
 #, kde-format
@@ -176,17 +176,17 @@ msgstr "Ortam Çalınıyor"
 #: main.cpp:112
 #, kde-format
 msgid "Podcast Application"
-msgstr "Podcast Uygulaması"
+msgstr "Pod Yayını Uygulaması"
 
 #: main.cpp:114
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Aboneliklere yeni bir Podcast ekler."
+msgstr "Aboneliklere yeni bir pod yayını ekler."
 
 #: main.cpp:115
 #, kde-format
 msgid "Podcast URL"
-msgstr "Podcast URL'si"
+msgstr "Pod Yayını URL'si"
 
 #: main.cpp:120
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "Kasts"
 #: main.cpp:122
 #, kde-format
 msgid "Podcast Player"
-msgstr "Podcast Çalar"
+msgstr "Pod Yayını Çalar"
 
 #: main.cpp:124
 #, kde-format
@@ -259,12 +259,12 @@ msgstr "Açıklama"
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast Title"
-msgstr "Podcast Başlığı"
+msgstr "Pod Yayını Başlığı"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr "Yeni Podcast Ekle"
+msgstr "Yeni Pod Yayını Ekle"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
@@ -274,12 +274,13 @@ msgstr "URL:"
 #: qml/AddFeedSheet.qml:49 qml/FeedListPage.qml:54
 #, kde-format
 msgid "Add Podcast"
-msgstr "Podcast Ekle"
+msgstr "Pod Yayını Ekle"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr "Şu anda kısıtlı bağlantılarda podcast güncellemelerine izin verilmiyor"
+msgstr ""
+"Şu anda kısıtlı bağlantılarda pod yayını güncellemelerine izin verilmiyor"
 
 #: qml/ConnectionCheckAction.qml:55
 #, kde-format
@@ -429,7 +430,7 @@ msgstr "İndirmeler"
 #: qml/FeedListPage.qml:49
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Tüm Podcast'leri Yenile"
+msgstr "Tüm Pod Yayınlarını Yenile"
 
 #: qml/DownloadListPage.qml:48
 #, kde-format
@@ -525,7 +526,7 @@ msgstr "\"Yeni\" Olarak İmle"
 #: qml/EntryPage.qml:216
 #, kde-format
 msgid "Open Podcast"
-msgstr "Podcast Aç"
+msgstr "Pod Yayını Aç"
 
 #: qml/EntryPage.qml:286
 #, kde-format
@@ -585,7 +586,7 @@ msgstr "Hata Günlüğünü Göster"
 #: qml/FeedListPage.qml:286
 #, kde-format
 msgid "Podcast Details"
-msgstr "Podcast Ayrıntıları"
+msgstr "Pod Yayını Ayrıntıları"
 
 #: qml/FeedDetailsPage.qml:131
 #, kde-format
@@ -596,7 +597,7 @@ msgstr "%1 tarafından"
 #: qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Podcast'i Yenile"
+msgstr "Pod Yayınını Yenile"
 
 #: qml/FeedDetailsPage.qml:181
 #, kde-format
@@ -606,7 +607,7 @@ msgstr "Ayrıntıları Göster"
 #: qml/FeedDetailsPage.qml:252
 #, kde-format
 msgid "Podcast URL:"
-msgstr "Podcast URL'si:"
+msgstr "Pod Yayını URL'si:"
 
 #: qml/FeedDetailsPage.qml:292
 #, kde-format
@@ -645,7 +646,7 @@ msgstr "Hata (%1): %2"
 #: qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Remove Podcast"
-msgstr "Podcast'i Kaldır"
+msgstr "Pod Yayınını Kaldır"
 
 #: qml/FeedListPage.qml:20 qml/main.qml:203 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
@@ -660,12 +661,12 @@ msgstr "Podcast'leri İçe Aktar..."
 #: qml/FeedListPage.qml:67
 #, kde-format
 msgid "Export Podcasts..."
-msgstr "Podcast'leri Dışa Aktar..."
+msgstr "Pod Yayınlarını Dışa Aktar..."
 
 #: qml/FeedListPage.qml:92
 #, kde-format
 msgid "No Podcasts Added Yet"
-msgstr "Henüz bir Podcast Eklenmedi"
+msgstr "Henüz bir Pod Yayını Eklenmedi"
 
 #: qml/FeedListPage.qml:97
 #, kde-format
@@ -690,7 +691,7 @@ msgstr "OPML Dosyaları (*.opml)"
 #: qml/FeedListPage.qml:105
 #, kde-format
 msgid "Export Podcasts"
-msgstr "Podcast'leri Dışa Aktar"
+msgstr "Pod Yayınlarını Dışa Aktar"
 
 #: qml/FeedListPage.qml:107
 #, kde-format
@@ -712,8 +713,8 @@ msgstr "Tümünün Seçimini Kaldır"
 msgctxt "context menu action"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] "Podcast'i Kaldır"
-msgstr[1] "Podcast'leri Kaldır"
+msgstr[0] "Pod Yayınını Kaldır"
+msgstr[1] "Pod Yayınlarını Kaldır"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -828,8 +829,8 @@ msgstr "Ayarlar"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] "%2/%1 Podcast Güncellendi"
-msgstr[1] "%2/%1 Podcast Güncellendi"
+msgstr[0] "%2/%1 Pod Yayını Güncellendi"
+msgstr[1] "%2/%1 Pod Yayını Güncellendi"
 
 #: qml/main.qml:366
 #, kde-format
@@ -843,7 +844,8 @@ msgstr[1] "%2/%1 Dosya Taşındı"
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden podcast indirmelere izin verilmiyor"
+"Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
+"verilmiyor"
 
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
@@ -853,7 +855,7 @@ msgstr "Başlıksız"
 #: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No Podcast Title"
-msgstr "Podcast Başlığı Yok"
+msgstr "Pod Yayını Başlığı Yok"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
@@ -924,7 +926,7 @@ msgstr "Kuyruk"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Tüm Podcast'leri Yenile"
+msgstr "Tüm Pod Yayınlarını Yenile"
 
 #: qml/QueuePage.qml:55
 #, kde-format
@@ -990,7 +992,7 @@ msgstr "Görünüş"
 #: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Abonelik görünümünde her zaman podcast başlıklarını göster"
+msgstr "Abonelik görünümünde her zaman pod yayını başlıklarını göster"
 
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
@@ -1079,7 +1081,7 @@ msgstr "Güncelleme Ayarları:"
 #: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr "Başlangıçta podcast güncellemelerini kendiliğinden getir"
+msgstr "Başlangıçta pod yayını güncellemelerini kendiliğinden getir"
 
 #: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
@@ -1124,7 +1126,7 @@ msgstr "Bir bölüm çalındıktan sonra çalma konumunu sıfırla"
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgid "When adding new podcasts"
-msgstr "Yeni Podcast'ler eklerken"
+msgstr "Yeni pod yayınları eklerken"
 
 #: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
@@ -1174,7 +1176,7 @@ msgstr "Kısıtlı bağlantılarda"
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
 msgid "Allow podcast updates"
-msgstr "Podcast güncellemelerine izin ver"
+msgstr "Pod yayını güncellemelerine izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1250,7 +1252,7 @@ msgstr "Bilgi"
 #: qml/Settings/StorageSettingsPage.qml:89
 #, kde-format
 msgid "Podcast downloads"
-msgstr "Podcast indirmeleri"
+msgstr "Pod yayını indirmeleri"
 
 #: qml/Settings/StorageSettingsPage.qml:90
 #: qml/Settings/StorageSettingsPage.qml:97
@@ -1332,7 +1334,7 @@ msgstr "Başlangıçta tam eşzamanlama yapma"
 #: qml/Settings/SynchronizationSettingsPage.qml:107
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr "Podcast'leri getirirken tam eşzamanlama yap"
+msgstr "Pod yayınlarını getirirken tam eşzamanlama yap"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:117
 #, kde-format
@@ -1536,7 +1538,7 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
-"Bu gpodder.net hesabındaki tüm podcast abonelikleri tüm aygıtlar arasında "
+"Bu gpodder.net hesabındaki tüm pod yayını abonelikleri tüm aygıtlar arasında "
 "eşzamanlansın mı?\n"
 "Bunun ne anlama geldiğini bilmiyorsanız \"Tamam\"ı seçmeniz yararlı olabilir."
 
@@ -1739,20 +1741,20 @@ msgstr "(Adım %1/%2) Yerel Abonelik Güncellemeleri Yükleniyor"
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
-msgstr[0] "(Adım %3/%4) %2/%1 Podcast Yükleniyor"
-msgstr[1] "(Adım %3/%4) %2/%1 Podcast Güncellendi"
+msgstr[0] "(Adım %3/%4) %2/%1 Pod Yayını Güncellendi"
+msgstr[1] "(Adım %3/%4) %2/%1 Pod Yayını Güncellendi"
 
 #: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
-msgstr "(Adım %1/%2) Uzak Konum Bölüm Güncellemeleri İsteniyor"
+msgstr "(Adım %1/%2) Uzaktaki Bölüm Güncellemeleri İsteniyor"
 
 #: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
-msgstr "(Adım %1/%2) Uzak Konum Bölüm Güncellemeleri Uygulanıyor"
+msgstr "(Adım %1/%2) Uzaktaki Bölüm Güncellemeleri Uygulanıyor"
 
 #: sync/syncjob.cpp:910
 #, kde-format
