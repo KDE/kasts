@@ -51,7 +51,7 @@
   <summary xml:lang="ru">Приложение для подкастов</summary>
   <summary xml:lang="sl">Aplikacija podcastov</summary>
   <summary xml:lang="sv">Poddradioprogram</summary>
-  <summary xml:lang="tr">Podcast uygulaması</summary>
+  <summary xml:lang="tr">Pod yayını uygulaması</summary>
   <summary xml:lang="uk">Програма для трансляцій</summary>
   <summary xml:lang="x-test">xxPodcast applicationxx</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -210,7 +210,7 @@
       <li xml:lang="ru">Поиск по подкастам;</li>
       <li xml:lang="sl">Iskanje podkastov</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
-      <li xml:lang="tr">Podcast arama</li>
+      <li xml:lang="tr">Pod yayını arama</li>
       <li xml:lang="uk">Пошук подкастів</li>
       <li xml:lang="x-test">xxSearch for podcastsxx</li>
       <li>Full system integration: e.g. inhibit system suspend while listening</li>
