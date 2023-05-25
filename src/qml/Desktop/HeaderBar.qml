@@ -52,11 +52,12 @@ FocusScope {
     }
 
     function openFullScreenImage() {
-        fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", {
-            "image": headerMetaData.image,
-            "description": headerMetaData.title,
-            "loader": fullScreenImageLoader
-        });
+        var options = {
+            "image": Qt.binding(function() { return headerMetaData.image }),
+            "description": Qt.binding(function() { return headerMetaData.title }),
+            "loader": Qt.binding(function() { return fullScreenImageLoader})
+        };
+        fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", options);
         fullScreenImageLoader.active = true;
         fullScreenImageLoader.item.open();
     }
