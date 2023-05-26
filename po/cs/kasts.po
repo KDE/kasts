@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-12 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:45+0000\n"
 "PO-Revision-Date: 2023-03-29 16:22+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -392,13 +392,13 @@ msgstr ""
 msgid "Chapters"
 msgstr "Kapitoly"
 
-#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:118
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -717,21 +717,21 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Obnovit všechny podcasty"
 
-#: qml/FeedListPage.qml:53
+#: qml/FeedListPage.qml:54
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgctxt "@action:intoolbar"
-msgid "Add Podcast"
+msgid "Add Podcast..."
 msgstr "Přidat podcast"
 
-#: qml/FeedListPage.qml:60
+#: qml/FeedListPage.qml:62
 #, fuzzy, kde-format
 #| msgid "Import Podcasts..."
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "Importovat podcasty..."
 
-#: qml/FeedListPage.qml:66
+#: qml/FeedListPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Export Podcasts..."
 msgctxt "@action:intoolbar"
@@ -740,68 +740,89 @@ msgstr "Exportovat podcasty..."
 
 #: qml/FeedListPage.qml:92
 #, fuzzy, kde-format
-#| msgid "No Podcasts Added Yet"
-msgctxt "@info Placeholder message for empty podcast list"
-msgid "No Podcasts Added Yet"
-msgstr "Zatím nebyly přidány žádné podcasty"
-
-#: qml/FeedListPage.qml:97
-#, fuzzy, kde-format
 #| msgid "Import Podcasts"
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Importovat podcasty"
 
-#: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "All Files (*)"
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "All Files (*)"
-msgstr "Všechny soubory (*)"
-
-#: qml/FeedListPage.qml:99
-#, fuzzy, kde-format
-#| msgid "XML Files (*.xml)"
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "XML Files (*.xml)"
-msgstr "Soubory XML (*.xml)"
-
-#: qml/FeedListPage.qml:99
+#: qml/FeedListPage.qml:94 qml/FeedListPage.qml:102
 #, fuzzy, kde-format
 #| msgid "OPML Files (*.opml)"
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Soubory OPML (*.opml)"
 
-#: qml/FeedListPage.qml:105
+#: qml/FeedListPage.qml:94
+#, fuzzy, kde-format
+#| msgid "XML Files (*.xml)"
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "XML Files (*.xml)"
+msgstr "Soubory XML (*.xml)"
+
+#: qml/FeedListPage.qml:94 qml/FeedListPage.qml:102
+#, fuzzy, kde-format
+#| msgid "All Files (*)"
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "All Files (*)"
+msgstr "Všechny soubory (*)"
+
+#: qml/FeedListPage.qml:100
 #, fuzzy, kde-format
 #| msgid "Export Podcasts"
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Exportovat podcasty"
 
-#: qml/FeedListPage.qml:107
+#: qml/FeedListPage.qml:118
 #, fuzzy, kde-format
-#| msgid "All Files"
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "All Files"
-msgstr "Všechny soubory"
+#| msgid "No Podcasts Added Yet"
+msgctxt "@info Placeholder message for empty podcast list"
+msgid "No podcasts added yet"
+msgstr "Zatím nebyly přidány žádné podcasty"
 
-#: qml/FeedListPage.qml:245
+#: qml/FeedListPage.qml:119
+#, fuzzy, kde-format
+#| msgid "When adding new podcasts"
+msgctxt "@info:tipoftheday"
+msgid "Get started by adding podcasts:"
+msgstr "Při přidání nových podcastů"
+
+#: qml/FeedListPage.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@title:group Group of fields in which can be searched"
+#| msgid "Search in:"
+msgctxt "@action:button"
+msgid "Search Online"
+msgstr "Hledat v:"
+
+#: qml/FeedListPage.qml:156
+#, fuzzy, kde-format
+#| msgid "Synchronization"
+msgctxt "@action:button"
+msgid "Synchronize"
+msgstr "Synchronizace"
+
+#: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
+#: qml/Mobile/BottomToolbar.qml:49
+#, kde-format
+msgid "Settings"
+msgstr "Nastavení"
+
+#: qml/FeedListPage.qml:298
 #, fuzzy, kde-format
 #| msgid "Select All"
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: qml/FeedListPage.qml:254
+#: qml/FeedListPage.qml:307
 #, fuzzy, kde-format
 #| msgid "Deselect All"
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Zrušit výběr"
 
-#: qml/FeedListPage.qml:263
+#: qml/FeedListPage.qml:316
 #, fuzzy, kde-format
 #| msgid "Remove Podcast"
 msgctxt "@action:intoolbar"
@@ -811,7 +832,7 @@ msgstr[0] "Odstranit podcast"
 msgstr[1] "Odstranit podcast"
 msgstr[2] "Odstranit podcast"
 
-#: qml/FeedListPage.qml:286
+#: qml/FeedListPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Podcast Details"
 msgctxt "@action:intoolbar Open view with more podcast details"
@@ -965,11 +986,6 @@ msgstr "Předvolby hledání"
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Hledat v:"
-
-#: qml/main.qml:68 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
-#, kde-format
-msgid "Settings"
-msgstr "Nastavení"
 
 #: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -1973,6 +1989,18 @@ msgstr "Přeskočit vpřed"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
+
+#, fuzzy
+#~| msgid "Add Podcast"
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add Podcast"
+#~ msgstr "Přidat podcast"
+
+#, fuzzy
+#~| msgid "All Files"
+#~ msgctxt "@label:listbox File filter option in file dialog"
+#~ msgid "All Files"
+#~ msgstr "Všechny soubory"
 
 #~ msgctxt "context menu action"
 #~ msgid "Remove Podcast"

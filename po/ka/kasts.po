@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-12 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:45+0000\n"
 "PO-Revision-Date: 2023-05-13 06:01+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -393,13 +393,13 @@ msgstr "ძილის წამმზომი"
 msgid "Chapters"
 msgstr "თავები"
 
-#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:118
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "ტრეკის სათაურის გარეშე"
 
-#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
@@ -714,19 +714,20 @@ msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
 
-#: qml/FeedListPage.qml:53
-#, kde-format
+#: qml/FeedListPage.qml:54
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
 msgctxt "@action:intoolbar"
-msgid "Add Podcast"
+msgid "Add Podcast..."
 msgstr "პოდკასტის დამატება"
 
-#: qml/FeedListPage.qml:60
+#: qml/FeedListPage.qml:62
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts..."
 msgstr "პოდკასტების შემოტანა..."
 
-#: qml/FeedListPage.qml:66
+#: qml/FeedListPage.qml:68
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts..."
@@ -734,59 +735,83 @@ msgstr "პოდკასტების გატანა..."
 
 #: qml/FeedListPage.qml:92
 #, kde-format
-msgctxt "@info Placeholder message for empty podcast list"
-msgid "No Podcasts Added Yet"
-msgstr "ჯერ პოდკასტები არ დამატებულა"
-
-#: qml/FeedListPage.qml:97
-#, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "პოდკასტების შემოტანა"
 
-#: qml/FeedListPage.qml:99
-#, kde-format
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "All Files (*)"
-msgstr "ყველა ფაილი (*)"
-
-#: qml/FeedListPage.qml:99
-#, kde-format
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "XML Files (*.xml)"
-msgstr "XML ფაილები (*.xml)"
-
-#: qml/FeedListPage.qml:99
+#: qml/FeedListPage.qml:94 qml/FeedListPage.qml:102
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML ფაილები (*.opml)"
 
-#: qml/FeedListPage.qml:105
+#: qml/FeedListPage.qml:94
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "XML Files (*.xml)"
+msgstr "XML ფაილები (*.xml)"
+
+#: qml/FeedListPage.qml:94 qml/FeedListPage.qml:102
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "All Files (*)"
+msgstr "ყველა ფაილი (*)"
+
+#: qml/FeedListPage.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "პოდკასტების გატანა"
 
-#: qml/FeedListPage.qml:107
-#, kde-format
-msgctxt "@label:listbox File filter option in file dialog"
-msgid "All Files"
-msgstr "ყველა ფაილი"
+#: qml/FeedListPage.qml:118
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder message for empty podcast list"
+#| msgid "No Podcasts Added Yet"
+msgctxt "@info Placeholder message for empty podcast list"
+msgid "No podcasts added yet"
+msgstr "ჯერ პოდკასტები არ დამატებულა"
 
-#: qml/FeedListPage.qml:245
+#: qml/FeedListPage.qml:119
+#, fuzzy, kde-format
+#| msgid "When adding new podcasts"
+msgctxt "@info:tipoftheday"
+msgid "Get started by adding podcasts:"
+msgstr "ახალი პოდკასტების დამატებისას"
+
+#: qml/FeedListPage.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@title:group Group of fields in which can be searched"
+#| msgid "Search in:"
+msgctxt "@action:button"
+msgid "Search Online"
+msgstr "ძებნა:"
+
+#: qml/FeedListPage.qml:156
+#, fuzzy, kde-format
+#| msgid "Synchronization"
+msgctxt "@action:button"
+msgid "Synchronize"
+msgstr "სინქრონიზაცია"
+
+#: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
+#: qml/Mobile/BottomToolbar.qml:49
+#, kde-format
+msgid "Settings"
+msgstr "მორგება"
+
+#: qml/FeedListPage.qml:298
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "ყველას მონიშვნა"
 
-#: qml/FeedListPage.qml:254
+#: qml/FeedListPage.qml:307
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "მონიშვნის მოხსნა"
 
-#: qml/FeedListPage.qml:263
+#: qml/FeedListPage.qml:316
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -794,7 +819,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "პოდკასტის წაშლა"
 msgstr[1] "პოდკასტების წაშლა"
 
-#: qml/FeedListPage.qml:286
+#: qml/FeedListPage.qml:339
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -946,11 +971,6 @@ msgstr "ძებნის პარამეტრები"
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "ძებნა:"
-
-#: qml/main.qml:68 qml/main.qml:254 qml/Mobile/BottomToolbar.qml:49
-#, kde-format
-msgid "Settings"
-msgstr "მორგება"
 
 #: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
@@ -1964,6 +1984,14 @@ msgstr "წინ გადახტომა"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "გასვლა"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add Podcast"
+#~ msgstr "პოდკასტის დამატება"
+
+#~ msgctxt "@label:listbox File filter option in file dialog"
+#~ msgid "All Files"
+#~ msgstr "ყველა ფაილი"
 
 #~ msgctxt "context menu action"
 #~ msgid "Remove Podcast"
