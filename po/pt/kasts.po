@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 00:45+0000\n"
-"PO-Revision-Date: 2023-05-13 11:51+0100\n"
+"PO-Revision-Date: 2023-05-26 22:56+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-POFile-SpellExtra: org gpodder net GPodder Nextcloud nextcloud GPOdder\n"
 "X-POFile-SpellExtra: peguntas pizzaria servior grandequantidade ocuprar\n"
 "X-POFile-SpellExtra: subtitiuir afecnionamemto dac akltito aparce min esó\n"
-"X-POFile-SpellExtra: KMediaSession\n"
+"X-POFile-SpellExtra: KMediaSession Online\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -722,11 +722,10 @@ msgid "Refresh All Podcasts"
 msgstr "Actualizar Todos os 'Podcasts'"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Adicionar um 'Podcast'"
+msgstr "Adicionar um 'Podcast'..."
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -771,34 +770,28 @@ msgid "Export Podcasts"
 msgstr "Exportar os 'Podcasts'"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr "Nenhum 'podcast' Ainda Adicionado"
+msgstr "Nenhum 'podcast' ainda adicionado"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Ao adicionar novos 'podcasts'"
+msgstr "Comece por adicionar 'podcasts':"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Procurar em:"
+msgstr "Procurar 'Online'"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Sincronização"
+msgstr "Sincronizar"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
 #: qml/Mobile/BottomToolbar.qml:49
@@ -2000,11 +1993,3 @@ msgstr "Seguinte"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Sair"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add Podcast"
-#~ msgstr "Adicionar um 'Podcast'"
-
-#~ msgctxt "@label:listbox File filter option in file dialog"
-#~ msgid "All Files"
-#~ msgstr "Todos os Ficheiros"

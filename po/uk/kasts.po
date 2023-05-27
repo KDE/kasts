@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 00:45+0000\n"
-"PO-Revision-Date: 2023-05-12 09:02+0300\n"
+"PO-Revision-Date: 2023-05-26 09:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -725,11 +725,10 @@ msgid "Refresh All Podcasts"
 msgstr "Оновити усі трансляції"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Додати трансляцію"
+msgstr "Додати трансляцію…"
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -774,34 +773,28 @@ msgid "Export Podcasts"
 msgstr "Експортування трансляцій"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Трансляцій ще не додано"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "При додаванні нових епізодів"
+msgstr "Почніть з додавання трансляцій:"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Шукати у:"
+msgstr "Шукати у мережі"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Синхронізація"
+msgstr "Синхронізувати"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
 #: qml/Mobile/BottomToolbar.qml:49

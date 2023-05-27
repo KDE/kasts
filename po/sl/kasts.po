@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 00:45+0000\n"
-"PO-Revision-Date: 2023-05-12 08:11+0200\n"
+"PO-Revision-Date: 2023-05-26 06:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
@@ -719,11 +719,10 @@ msgid "Refresh All Podcasts"
 msgstr "Osveži vse podcaste"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Dodaj podcast"
+msgstr "Dodaj podcast..."
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -768,34 +767,28 @@ msgid "Export Podcasts"
 msgstr "Izvozi podcaste"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Še ni dodanih podcastov"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Kadar se dodajajo novi podcasti"
+msgstr "Začni z dodajanjem podcastov:"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Išči v:"
+msgstr "Išči na spletu"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Sinhronizacija"
+msgstr "Sinhroniziraj"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
 #: qml/Mobile/BottomToolbar.qml:49

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 00:45+0000\n"
-"PO-Revision-Date: 2023-05-22 14:02+0300\n"
+"PO-Revision-Date: 2023-05-26 12:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -715,11 +715,10 @@ msgid "Refresh All Podcasts"
 msgstr "Tüm Pod Yayınlarını Yenile"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Pod Yayını Ekle"
+msgstr "Pod Yayını Ekle..."
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -764,34 +763,28 @@ msgid "Export Podcasts"
 msgstr "Pod Yayınlarını Dışa Aktar"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr "Henüz bir Pod Yayını Eklenmedi"
+msgstr "Henüz bir pod yayını eklenmedi"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Yeni pod yayınları eklerken"
+msgstr "Yeni pod yayınları ekleyerek başlayın:"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Şurada ara:"
+msgstr "Çevrimiçi Ara"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Eşzamanlama"
+msgstr "Eşzamanla"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
 #: qml/Mobile/BottomToolbar.qml:49
