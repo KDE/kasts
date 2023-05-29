@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 00:45+0000\n"
-"PO-Revision-Date: 2023-05-12 09:19+0200\n"
+"PO-Revision-Date: 2023-05-26 09:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -722,11 +722,10 @@ msgid "Refresh All Podcasts"
 msgstr "Torna a carregar tots els podcast"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Afig un podcast"
+msgstr "Afig un podcast..."
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -771,34 +770,28 @@ msgid "Export Podcasts"
 msgstr "Exporta podcast"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Encara no s'ha afegit cap podcast"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "En afegir podcast nous"
+msgstr "Comenceu afegint podcast:"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Busca a:"
+msgstr "Busca en línia"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Sincronització"
+msgstr "Sincronitza"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
 #: qml/Mobile/BottomToolbar.qml:49
@@ -1562,7 +1555,7 @@ msgstr ""
 "servidor. També cal tindre en compte que esta acció sobreescriurà l'estat de "
 "tots els episodis existents en el servidor.\n"
 "\n"
-"Voleu continuar?"
+"Continue?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
@@ -1998,11 +1991,3 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add Podcast"
-#~ msgstr "Afig un podcast"
-
-#~ msgctxt "@label:listbox File filter option in file dialog"
-#~ msgid "All Files"
-#~ msgstr "Tots els fitxers"
