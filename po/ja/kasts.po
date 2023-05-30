@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -625,14 +625,12 @@ msgstr ""
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/FeedDetailsPage.qml:344
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/FeedDetailsPage.qml:366
 #, kde-format
@@ -710,7 +708,6 @@ msgctxt "context menu action"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -778,7 +775,6 @@ msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/GlobalSearchField.qml:96
 #, kde-format
@@ -826,7 +822,6 @@ msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/main.qml:366
 #, kde-format
@@ -834,7 +829,6 @@ msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/main.qml:430
 #, kde-format
@@ -934,7 +928,6 @@ msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] ""
-msgstr[1] ""
 
 #: qml/QueuePage.qml:64
 #, kde-format
@@ -1724,7 +1717,6 @@ msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] ""
-msgstr[1] ""
 
 #: sync/syncjob.cpp:904
 #, kde-format
