@@ -9,7 +9,6 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
 
@@ -19,7 +18,7 @@ Kirigami.Dialog {
     closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
     property string headingText: i18n("Podcast updates are currently not allowed on metered connections")
-    property bool condition: SettingsManager.allowMeteredFeedUpdates
+    property bool condition: NetworkConnectionManager.feedUpdatesAllowed
 
     // Function to be overloaded where this is instantiated with another purpose
     // than refreshing all feeds
@@ -45,7 +44,7 @@ Kirigami.Dialog {
     // this is the function that should be called if the action should be
     // triggered conditionally (on the basis that the condition is passed)
     function run() {
-        if (NetworkStatus.metered !== NetworkStatus.Yes || condition) {
+        if (condition) {
             action();
         } else {
             overlay.open();

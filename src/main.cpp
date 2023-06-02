@@ -49,6 +49,7 @@
 #include "models/feedsproxymodel.h"
 #include "models/podcastsearchmodel.h"
 #include "models/queuemodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/sync.h"
@@ -152,6 +153,7 @@ int main(int argc, char *argv[])
         return engine->toScriptValue(KAboutData::applicationData());
     });
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
+    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "NetworkConnectionManager", &NetworkConnectionManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());

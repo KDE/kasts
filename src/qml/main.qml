@@ -12,7 +12,6 @@ import QtGraphicalEffects 1.12
 import Qt.labs.settings 1.0
 
 import org.kde.kirigami 2.20 as Kirigami
-import org.kde.kasts.solidextras 1.0
 
 import org.kde.kasts 1.0
 
@@ -124,7 +123,7 @@ Kirigami.ApplicationWindow {
         // Refresh feeds on startup if allowed
         // NOTE: refresh+sync on startup is handled in Sync and not here, since it
         // requires credentials to be loaded before starting a refresh+sync
-        if (NetworkStatus.connectivity != NetworkStatus.No && (SettingsManager.allowMeteredFeedUpdates || NetworkStatus.metered !== NetworkStatus.Yes)) {
+        if (NetworkConnectionManager.feedUpdatesAllowed) {
             if (SettingsManager.refreshOnStartup && !(SettingsManager.syncEnabled && SettingsManager.syncWhenUpdatingFeeds)) {
                 Fetcher.fetchAll();
             }
@@ -429,7 +428,7 @@ Kirigami.ApplicationWindow {
         id: downloadOverlay
 
         headingText: i18n("Podcast downloads are currently not allowed on metered connections")
-        condition: SettingsManager.allowMeteredEpisodeDownloads
+        condition: NetworkConnectionManager.episodeDownloadsAllowed
         property var entry: undefined
         property var selection: undefined
 

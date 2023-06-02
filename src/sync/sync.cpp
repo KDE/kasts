@@ -33,6 +33,7 @@
 #include "fetcher.h"
 #include "fetchfeedsjob.h"
 #include "models/errorlogmodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/gpodder/devicerequest.h"
@@ -47,8 +48,6 @@
 #include "sync/gpodder/uploadsubscriptionrequest.h"
 #include "sync/syncjob.h"
 #include "sync/syncutils.h"
-
-#include <solidextras/networkstatus.h>
 
 using namespace SyncUtils;
 
@@ -101,9 +100,7 @@ void Sync::retrieveCredentialsFromConfig()
                 // Now that we have all credentials we can do the initial sync if
                 // it's enabled in the config.  If it's not enabled, then we handle
                 // the automatic refresh through main.qml
-                SolidExtras::NetworkStatus networkStatus;
-                if (networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredFeedUpdates())) {
+                if (NetworkConnectionManager::instance().feedUpdatesAllowed()) {
                     if (SettingsManager::self()->refreshOnStartup() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
                         doRegularSync(true);
                     }
@@ -814,9 +811,7 @@ void Sync::doQuickSync()
 
     // since this method is supposed to be called automatically, we cannot check
     // the network state from the UI, so we have to do it here
-    SolidExtras::NetworkStatus networkStatus;
-    if (networkStatus.connectivity() == SolidExtras::NetworkStatus::No
-        || (networkStatus.metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredFeedUpdates())) {
+    if (!NetworkConnectionManager::instance().feedUpdatesAllowed()) {
         qCDebug(kastsSync) << "Not uploading episode actions on metered connection due to settings";
         return;
     }

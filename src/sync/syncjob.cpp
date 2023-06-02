@@ -30,8 +30,6 @@
 #include "sync/sync.h"
 #include "sync/syncutils.h"
 
-#include <solidextras/networkstatus.h>
-
 using namespace SyncUtils;
 
 SyncJob::SyncJob(SyncStatus syncStatus, GPodder *gpodder, const QString &device, bool forceFetchAll, QObject *parent)

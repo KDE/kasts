@@ -3,7 +3,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 add_subdirectory(kmediasession)
+if (NOT QT_MAJOR_VERSION EQUAL "6")
 add_subdirectory(solidextras)
+endif()
 
 set(kasts_srcs
     main.cpp
@@ -23,6 +25,7 @@ set(kasts_srcs
     updatefeedjob.cpp
     fetchfeedsjob.cpp
     systrayicon.cpp
+    networkconnectionmanager.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
@@ -131,6 +134,13 @@ ecm_qt_declare_logging_category(kasts_srcs
     DEFAULT_SEVERITY Info
 )
 
+ecm_qt_declare_logging_category(kasts_srcs
+    HEADER "networkconnectionmanagerlogging.h"
+    IDENTIFIER "kastsNetworkConnectionManager"
+    CATEGORY_NAME "org.kde.kasts.networkconnectionmanager"
+    DEFAULT_SEVERITY Info
+)
+
 if(ANDROID)
     list(APPEND kasts_srcs
          androidlogging.h)
@@ -161,7 +171,13 @@ add_executable(kasts ${kasts_srcs})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml KF${KF_MAJOR_VERSION}::Kirigami2 KF${KF_MAJOR_VERSION}::Syndication KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::ConfigGui KF${KF_MAJOR_VERSION}::I18n Taglib::Taglib KastsSolidExtras ${QTKEYCHAIN_LIBRARIES} KF${KF_MAJOR_VERSION}::ThreadWeaver KMediaSession)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml KF${KF_MAJOR_VERSION}::Kirigami2 KF${KF_MAJOR_VERSION}::Syndication KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::ConfigGui KF${KF_MAJOR_VERSION}::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF${KF_MAJOR_VERSION}::ThreadWeaver KMediaSession)
+
+if (QT_MAJOR_VERSION EQUAL "6")
+target_link_libraries(kasts PRIVATE Qt6::Network)
+else ()
+target_link_libraries(kasts PRIVATE KastsSolidExtras)
+endif()
 
 if(KASTS_FLATPAK)
     target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)

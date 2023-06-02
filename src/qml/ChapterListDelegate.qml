@@ -9,7 +9,6 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.kasts.solidextras 1.0
 import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
@@ -21,8 +20,7 @@ Kirigami.BasicListItem {
     property var entry: undefined
     property var overlay: undefined
 
-    property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
-    property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
+    property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
 
     text: model.title
     subtitle: model.formattedStart

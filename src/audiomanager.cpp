@@ -19,15 +19,12 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
-
-#include <solidextras/networkstatus.h>
 
 class AudioManagerPrivate
 {
 private:
-    SolidExtras::NetworkStatus m_networkStatus;
-
     KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"));
 
     Entry *m_entry = nullptr;
@@ -298,9 +295,7 @@ void AudioManager::setEntry(Entry *entry)
 
     // do some checks on the new entry to see whether it's valid and not corrupted
     if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
-        && (entry->enclosure()->status() == Enclosure::Downloaded
-            || (d->m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                && (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming())))) {
+        && (entry->enclosure()->status() == Enclosure::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
         qCDebug(kastsAudio) << "Going to change source";
 
         setEntryInfo(entry);
@@ -394,8 +389,7 @@ void AudioManager::play()
     // if we're streaming, check that we're still connected and check for metered
     // connection
     if (isStreaming()) {
-        if (d->m_networkStatus.connectivity() == SolidExtras::NetworkStatus::No
-            || (d->m_networkStatus.metered() != SolidExtras::NetworkStatus::No && !SettingsManager::self()->allowMeteredStreaming())) {
+        if (!NetworkConnectionManager::instance().streamingAllowed()) {
             qCDebug(kastsAudio) << "Refusing to play: no connection or streaming on metered connection not allowed";
             Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
                             d->m_entry->feed()->url(),
@@ -496,9 +490,7 @@ bool AudioManager::canGoNext() const
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
                         return true;
                     } else {
-                        SolidExtras::NetworkStatus networkStatus;
-                        if (networkStatus.connectivity() == SolidExtras::NetworkStatus::Yes
-                            && (networkStatus.metered() == SolidExtras::NetworkStatus::No || SettingsManager::self()->allowMeteredStreaming())) {
+                        if (NetworkConnectionManager::instance().streamingAllowed()) {
                             return true;
                         }
                     }

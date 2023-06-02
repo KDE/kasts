@@ -11,7 +11,6 @@ import QtGraphicalEffects 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.14 as Kirigami
-import org.kde.kasts.solidextras 1.0
 import org.kde.kmediasession 1.0
 
 import org.kde.kasts 1.0
@@ -32,15 +31,13 @@ Kirigami.SwipeListItem {
     property bool selected: false
     property int row: model ? model.row : -1
 
-    property bool streamingAllowed: (NetworkStatus.connectivity !== NetworkStatus.No && SettingsManager.prioritizeStreaming && (SettingsManager.allowMeteredStreaming || NetworkStatus.metered !== NetworkStatus.Yes))
-
     property bool showRemoveFromQueueButton: entry ? (!entry.enclosure && entry.queueStatus) : false
-    property bool showDownloadButton: entry ? ((!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
+    property bool showDownloadButton: entry ? ((!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
     property bool showCancelDownloadButton: entry ? (entry.enclosure && entry.enclosure.status === Enclosure.Downloading) : false
     property bool showDeleteDownloadButton: entry ? (isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
     property bool showAddToQueueButton: entry ? (!isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
     property bool showPlayButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
-    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
+    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
     property bool showPauseButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
 
 

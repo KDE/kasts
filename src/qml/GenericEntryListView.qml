@@ -312,7 +312,7 @@ ListView {
         }
         Controls.MenuItem {
             action: listView.streamAction
-            visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false
+            visible: singleSelectedEntry ? (singleSelectedEntry.hasEnclosure ? (singleSelectedEntry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : false
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
          }
         onClosed: {

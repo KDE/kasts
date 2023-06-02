@@ -29,11 +29,10 @@
 #include "fetcher.h"
 #include "models/downloadmodel.h"
 #include "models/errorlogmodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/sync.h"
-
-#include <solidextras/networkstatus.h>
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
@@ -156,7 +155,7 @@ void Enclosure::download()
         return;
     }
 
-    if (SolidExtras::NetworkStatus().metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredEpisodeDownloads()) {
+    if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
         Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
                              m_entry->feed()->url(),
                              m_entry->id(),

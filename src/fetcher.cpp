@@ -25,11 +25,10 @@
 #include "fetchfeedsjob.h"
 #include "kasts-version.h"
 #include "models/errorlogmodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/sync.h"
-
-#include <solidextras/networkstatus.h>
 
 Fetcher::Fetcher()
 {
@@ -130,9 +129,7 @@ QString Fetcher::image(const QString &url)
 
     // if image has not yet been cached, then check for network connectivity if
     // possible; and download the image
-    SolidExtras::NetworkStatus networkStatus;
-    if (networkStatus.connectivity() == SolidExtras::NetworkStatus::No
-        || (networkStatus.metered() == SolidExtras::NetworkStatus::Yes && !SettingsManager::self()->allowMeteredImageDownloads())) {
+    if (!NetworkConnectionManager::instance().imageDownloadsAllowed()) {
         return QLatin1String("no-image");
     }
 
