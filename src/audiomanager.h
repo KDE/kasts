@@ -51,8 +51,6 @@ class AudioManager : public QObject
     Q_PROPERTY(bool isStreaming READ isStreaming NOTIFY isStreamingChanged)
 
 public:
-    const qint64 SKIP_TRACK_END = 15000;
-
     static AudioManager &instance()
     {
         static AudioManager _instance;

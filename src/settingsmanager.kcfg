@@ -75,6 +75,10 @@
             </choices>
             <default>OnNextStartup</default>
         </entry>
+        <entry name="markAsPlayedBeforeEnd" type="Int">
+            <label>Amount of seconds before end of stream that the episode should already be marked as played</label>
+            <default>15</default>
+        </entry>
         <entry name="resetPositionOnPlayed" type="Bool">
             <label>Reset play position when episode is marked as played</label>
             <default>true</default>

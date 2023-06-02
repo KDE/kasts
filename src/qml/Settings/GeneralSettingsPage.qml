@@ -287,7 +287,25 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: episodeBehavior; below: resetPositionOnPlayed }
+                MobileForm.FormDelegateSeparator { above: episodeBehavior; below: markAsPlayedGracePeriod }
+
+                MobileForm.FormTextDelegate {
+                    id: markAsPlayedGracePeriod
+                    text: i18nc("@label:spinbox", "Mark episodes as played when the given time is remaining (in seconds)")
+                    textItem.wrapMode: Text.Wrap
+                    trailing: Controls.SpinBox {
+                        Layout.rightMargin: Kirigami.Units.gridUnit
+                        value: SettingsManager.markAsPlayedBeforeEnd
+                        from: 0
+                        to: 300
+                        onValueModified: {
+                            SettingsManager.markAsPlayedBeforeEnd = value;
+                            SettingsManager.save();
+                        }
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator { above: markAsPlayedGracePeriod; below: resetPositionOnPlayed }
 
                 MobileForm.FormCheckDelegate {
                     id: resetPositionOnPlayed

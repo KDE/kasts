@@ -274,12 +274,11 @@ void AudioManager::setEntry(Entry *entry)
     d->m_entry = nullptr;
 
     // Check if the previous track needs to be marked as read
-    // TODO: make grace time a setting in SettingsManager
     if (oldEntry && !signalDisconnect) {
         qCDebug(kastsAudio) << "Checking previous track";
         qCDebug(kastsAudio) << "Left time" << (duration() - position());
         qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
-        if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SKIP_TRACK_END))
+        if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SettingsManager::self()->markAsPlayedBeforeEnd() * 1000))
             || (d->m_player.mediaStatus() == KMediaSession::EndOfMedia)) {
             qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
             oldEntry->enclosure()->setPlayPosition(0);
