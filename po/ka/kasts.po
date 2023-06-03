@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:45+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2023-05-29 06:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,17 +28,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: audiomanager.cpp:404
+#: audiomanager.cpp:398
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
-#: audiomanager.cpp:545
+#: audiomanager.cpp:537
 #, kde-format
 msgid "Invalid Media"
 msgstr "არასწორი მედია"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:163
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "პოდკასტის გადმოწერა დაუშვებელია მომხმარებლის პარამეტრების გამო"
@@ -113,14 +113,14 @@ msgstr "ან"
 msgid "Open"
 msgstr "გახსნა"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:40
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:332
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
 #, kde-format
 msgid "Play"
 msgstr "დაკვრა"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:353
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
 #, kde-format
 msgid "Pause"
 msgstr "შეჩერება"
@@ -172,42 +172,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "მუსიკის დაკვრა"
 
-#: main.cpp:112
+#: main.cpp:113
 #, kde-format
 msgid "Podcast Application"
 msgstr "პოდკასტის აპლიკაცია"
 
-#: main.cpp:114
+#: main.cpp:115
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "გამოწერისთვის ახალი პოდკასტის დამატება."
 
-#: main.cpp:115
+#: main.cpp:116
 #, kde-format
 msgid "Podcast URL"
 msgstr "პოდკასტის URL"
 
-#: main.cpp:120
+#: main.cpp:121
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Podcast Player"
 msgstr "პოდკასტის დამკვრელი"
 
-#: main.cpp:124
+#: main.cpp:125
 #, kde-format
 msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2023 KDE-ის საზოგადოება"
 
-#: main.cpp:125
+#: main.cpp:126
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:126
+#: main.cpp:127
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -287,27 +287,27 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "პოდკასტის დამატება"
 
-#: qml/ConnectionCheckAction.qml:21
+#: qml/ConnectionCheckAction.qml:20
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე პოდკასტის განახლებები ამჟამად დაშვებული არაა"
 
-#: qml/ConnectionCheckAction.qml:55
+#: qml/ConnectionCheckAction.qml:54
 #, kde-format
 msgid "Select Option"
 msgstr "აირჩიეთ პარამეტრი"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:81
 #, kde-format
 msgid "Don't Allow"
 msgstr "არ დაშვება"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:94
 #, kde-format
 msgid "Allow Once"
 msgstr "ერთხელ დაშვება"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:107
 #, kde-format
 msgid "Always Allow"
 msgstr "ყოველთვის დაშვება"
@@ -406,7 +406,7 @@ msgstr "ტრეკის სათაურის გარეშე"
 msgid "No Track Loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
 
-#: qml/DiscoverPage.qml:16 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:203
 #, kde-format
 msgid "Discover"
 msgstr "აღმოაჩინეთ"
@@ -431,7 +431,7 @@ msgstr "ხელმოწერა"
 msgid "Subscribed"
 msgstr "გამოწერილია"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:234
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:233
 #, kde-format
 msgid "Downloads"
 msgstr "გადმოწერები"
@@ -786,7 +786,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "სინქრონიზაცია"
 
-#: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
+#: qml/FeedListPage.qml:164 qml/main.qml:67 qml/main.qml:253
 #: qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
@@ -855,47 +855,47 @@ msgstr "მარჯვნივ მოტრიალება"
 msgid "Close"
 msgstr "დახურვა"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
 msgstr "დაკრული"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Read"
 msgstr "წაკითხვა"
 
-#: qml/GenericEntryDelegate.qml:177
+#: qml/GenericEntryDelegate.qml:174
 #, kde-format
 msgid "New"
 msgstr "ახალი"
 
-#: qml/GenericEntryDelegate.qml:297 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "რიგიდან წაშლა"
 
-#: qml/GenericEntryDelegate.qml:305 qml/GenericEntryListView.qml:215
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:215
 #, kde-format
 msgid "Download"
 msgstr "გადმოწერა"
 
-#: qml/GenericEntryDelegate.qml:314
+#: qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Cancel Download"
 msgstr "გადმოწერის გაუქმება"
 
-#: qml/GenericEntryDelegate.qml:320
+#: qml/GenericEntryDelegate.qml:317
 #, kde-format
 msgid "Delete Download"
 msgstr "გადმოწერის წაშლა"
 
-#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "რიგში ჩამატება"
 
-#: qml/GenericEntryDelegate.qml:341 qml/GenericEntryListView.qml:234
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:234
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -965,22 +965,22 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "ძებნა:"
 
-#: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:193 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "რიგი"
 
-#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "გამოწერები"
 
-#: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:223 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "ეპიზოდები"
 
-#: qml/main.qml:340
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -988,7 +988,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "ატვირთულია %2 პოდკასტი %1-დან"
 msgstr[1] "ატვირთულია %2 პოდკასტი %1-დან"
 
-#: qml/main.qml:367
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -996,7 +996,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "გადატანილია %2 ფაილი %1-დან"
 msgstr[1] "გადატანილია %2 ფაილი %1-დან"
 
-#: qml/main.qml:431
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
@@ -1802,12 +1802,12 @@ msgstr "ოპერაცია გაუქმებულია მომხ�
 msgid "An error occurred while copying data"
 msgstr "შეცდომა მონაცემების კოპირებისას"
 
-#: sync/sync.cpp:185
+#: sync/sync.cpp:182
 #, kde-format
 msgid "Never"
 msgstr "არასდროს"
 
-#: sync/sync.cpp:208
+#: sync/sync.cpp:205
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1815,90 +1815,90 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts %1-ზე"
 
-#: sync/sync.cpp:302
+#: sync/sync.cpp:299
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud-ის სერვერზე შესვლის პრობლემა"
 
-#: sync/sync.cpp:341
+#: sync/sync.cpp:338
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder-ის სერვერზე შესვლის პრობლემა"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:483 sync/sync.cpp:484
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "შ/გ-ის შეცდომა: პაროლის შენახვა შეუძლებელია."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:564 sync/sync.cpp:565
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
 
-#: sync/sync.cpp:640
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder მოწყობილობის შექმნის შეცდომა"
 
-#: sync/sync.cpp:666
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "სინრქონიზებული მოწყობილობის მდგომარეობის მიღების შეცდომა"
 
-#: sync/sync.cpp:717
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "მოწყობილობის (%1) გამოწერების მიღების შეცდომა"
 
-#: sync/sync.cpp:736
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "მოწყობილობის (%1) გამოწერების ატვირთვის შეცდომა"
 
-#: sync/syncjob.cpp:69
+#: sync/syncjob.cpp:67
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "სერვერიდან გამოწერის განახლებების გამოთხოვის შეცდომა"
 
-#: sync/syncjob.cpp:72
+#: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "სერვერზე გამოწერის ცვლილებების ატვირთვის შეცდომა"
 
-#: sync/syncjob.cpp:75
+#: sync/syncjob.cpp:73
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "სერვერიდან ეპიზოდის განახლებების გამოთხოვის შეცდომა"
 
-#: sync/syncjob.cpp:78
+#: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "სერვერზე ეპიზოდის განახლებების ატვირთვის შეცდომა"
 
-#: sync/syncjob.cpp:81
+#: sync/syncjob.cpp:79
 #, kde-format
 msgid "Internal data error"
 msgstr "მონაცემების შიდა დინების შეცდომა"
 
-#: sync/syncjob.cpp:886
+#: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(ნაბიჯი %1 %2-დან) სინქრონიზების დასაწყისი"
 
-#: sync/syncjob.cpp:889
+#: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr "(ნაბიჯი %1/%2) გარე გამოწერის განახლებების გამოთხოვა"
 
-#: sync/syncjob.cpp:892
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(ნაბიჯი %1/%2) ლოკალური გამოწერის განახლებების ატვირთვა"
 
-#: sync/syncjob.cpp:896
+#: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1906,37 +1906,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(ნაბიჯი %3/%4) განახლდა %2/%1 პოდკასტი"
 msgstr[1] "(ნაბიჯი %3/%4) განახლდა %2/%1 პოდკასტი"
 
-#: sync/syncjob.cpp:904
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(ნაბიჯი %1/%2) გარე ეპიზოდის განახლებების გამოთხოვა"
 
-#: sync/syncjob.cpp:907
+#: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(ნაბიჯი %1/%2) გარე ეპიზოდის ცვლილებების გადატარება"
 
-#: sync/syncjob.cpp:910
+#: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(ნაბიჯი %1/%2) ლოკალური ეპიზოდის განახლებების ატვირთვა"
 
-#: sync/syncjob.cpp:913
+#: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(ნაბიჯი %1 %2-დან) სინქრონიზების დასასრული"
 
-#: sync/syncjob.cpp:916
+#: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "სინქრონიზაცია გაუქმდა"
 
-#: sync/syncjob.cpp:920
+#: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"

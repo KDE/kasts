@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:45+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2023-05-26 09:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,19 +30,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:404
+#: audiomanager.cpp:398
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
 "d'ús mesurat"
 
-#: audiomanager.cpp:545
+#: audiomanager.cpp:537
 #, kde-format
 msgid "Invalid Media"
 msgstr "Suport no vàlid"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:163
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
 msgstr "Baixades de podcast no permeses a causa de la configuració de l'usuari"
@@ -120,14 +120,14 @@ msgstr "O"
 msgid "Open"
 msgstr "Obri"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:40
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:332
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
 #, kde-format
 msgid "Play"
 msgstr "Reproduïx"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:353
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -179,42 +179,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproduïu un fitxer multimèdia"
 
-#: main.cpp:112
+#: main.cpp:113
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicació de podcast"
 
-#: main.cpp:114
+#: main.cpp:115
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Afig un podcast nou a les subscripcions."
 
-#: main.cpp:115
+#: main.cpp:116
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL del podcast"
 
-#: main.cpp:120
+#: main.cpp:121
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:122
+#: main.cpp:123
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de podcast"
 
-#: main.cpp:124
+#: main.cpp:125
 #, kde-format
 msgid "© 2020-2023 KDE Community"
 msgstr "© 2020-2023 La comunitat KDE"
 
-#: main.cpp:125
+#: main.cpp:126
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:126
+#: main.cpp:127
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -294,27 +294,27 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Afig un podcast"
 
-#: qml/ConnectionCheckAction.qml:21
+#: qml/ConnectionCheckAction.qml:20
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Actualització de podcast no permesa amb la connexió d'ús mesurat"
 
-#: qml/ConnectionCheckAction.qml:55
+#: qml/ConnectionCheckAction.qml:54
 #, kde-format
 msgid "Select Option"
 msgstr "Seleccioneu una opció"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:81
 #, kde-format
 msgid "Don't Allow"
 msgstr "No la permetes"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:94
 #, kde-format
 msgid "Allow Once"
 msgstr "Permet una vegada"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:107
 #, kde-format
 msgid "Always Allow"
 msgstr "Permet sempre"
@@ -413,7 +413,7 @@ msgstr "Sense títol de pista"
 msgid "No Track Loaded"
 msgstr "No s'ha carregat cap pista"
 
-#: qml/DiscoverPage.qml:16 qml/main.qml:204
+#: qml/DiscoverPage.qml:16 qml/main.qml:203
 #, kde-format
 msgid "Discover"
 msgstr "Descobrix"
@@ -438,7 +438,7 @@ msgstr "Subscriu"
 msgid "Subscribed"
 msgstr "Subscrit"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:234
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:233
 #, kde-format
 msgid "Downloads"
 msgstr "Baixades"
@@ -793,7 +793,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
-#: qml/FeedListPage.qml:164 qml/main.qml:68 qml/main.qml:254
+#: qml/FeedListPage.qml:164 qml/main.qml:67 qml/main.qml:253
 #: qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
@@ -862,47 +862,47 @@ msgstr "Gira a la dreta"
 msgid "Close"
 msgstr "Tanca"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
 msgstr "Reproduït"
 
-#: qml/GenericEntryDelegate.qml:171
+#: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Read"
 msgstr "Llegit"
 
-#: qml/GenericEntryDelegate.qml:177
+#: qml/GenericEntryDelegate.qml:174
 #, kde-format
 msgid "New"
 msgstr "Nou"
 
-#: qml/GenericEntryDelegate.qml:297 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:155
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Elimina de la cua"
 
-#: qml/GenericEntryDelegate.qml:305 qml/GenericEntryListView.qml:215
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:215
 #, kde-format
 msgid "Download"
 msgstr "Baixa"
 
-#: qml/GenericEntryDelegate.qml:314
+#: qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancel·la la baixada"
 
-#: qml/GenericEntryDelegate.qml:320
+#: qml/GenericEntryDelegate.qml:317
 #, kde-format
 msgid "Delete Download"
 msgstr "Suprimix la baixada"
 
-#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:145
 #, kde-format
 msgid "Add to Queue"
 msgstr "Afig a la cua"
 
-#: qml/GenericEntryDelegate.qml:341 qml/GenericEntryListView.qml:234
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:234
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -972,22 +972,22 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Busca a:"
 
-#: qml/main.qml:194 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:193 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
 msgstr "A la cua"
 
-#: qml/main.qml:214 qml/Mobile/BottomToolbar.qml:33
+#: qml/main.qml:213 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
 msgstr "Subscripcions"
 
-#: qml/main.qml:224 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:223 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
 msgstr "Episodis"
 
-#: qml/main.qml:340
+#: qml/main.qml:339
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -995,7 +995,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 actualitzat de %1 podcast"
 msgstr[1] "%2 actualitzats de %1 podcast"
 
-#: qml/main.qml:367
+#: qml/main.qml:366
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1003,7 +1003,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/main.qml:431
+#: qml/main.qml:430
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Baixades de podcast no permeses amb la connexió d'ús mesurat"
@@ -1814,12 +1814,12 @@ msgstr "L'operació ha sigut interrompuda per l'usuari"
 msgid "An error occurred while copying data"
 msgstr "S'ha produït un error en copiar les dades"
 
-#: sync/sync.cpp:185
+#: sync/sync.cpp:182
 #, kde-format
 msgid "Never"
 msgstr "Mai"
 
-#: sync/sync.cpp:208
+#: sync/sync.cpp:205
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1827,92 +1827,92 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts a %1"
 
-#: sync/sync.cpp:302
+#: sync/sync.cpp:299
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "No s'ha pogut iniciar la sessió al servidor Nextcloud de GPodder"
 
-#: sync/sync.cpp:341
+#: sync/sync.cpp:338
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "No s'ha pogut iniciar la sessió al servidor de GPodder"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:483 sync/sync.cpp:484
 #, kde-format
 msgid "I/O Denied: Cannot save password."
 msgstr "E/S denegada: no s'ha pogut guardar la contrasenya."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:564 sync/sync.cpp:565
 #, kde-format
 msgid "I/O Denied: Cannot access password file."
 msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
 
-#: sync/sync.cpp:640
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "No s'ha pogut crear el dispositiu de GPodder"
 
-#: sync/sync.cpp:666
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "No s'ha pogut recuperar l'estat del dispositiu sincronitzat"
 
-#: sync/sync.cpp:717
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "No s'han pogut recuperar les subscripcions per al dispositiu %1"
 
-#: sync/sync.cpp:736
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "No s'han pogut pujar les subscripcions per al dispositiu %1"
 
-#: sync/syncjob.cpp:69
+#: sync/syncjob.cpp:67
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr ""
 "No s'han pogut recuperar del servidor les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:72
+#: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "No s'han pogut pujar al servidor els canvis de subscripció"
 
-#: sync/syncjob.cpp:75
+#: sync/syncjob.cpp:73
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "No s'han pogut recuperar del servidor les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:78
+#: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "No s'han pogut pujar al servidor les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:81
+#: sync/syncjob.cpp:79
 #, kde-format
 msgid "Internal data error"
 msgstr "S'ha produït un error intern de dades"
 
-#: sync/syncjob.cpp:886
+#: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
 msgstr "(Pas %1 de %2) Inici de la sincronització"
 
-#: sync/syncjob.cpp:889
+#: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
 msgstr ""
 "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:892
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:896
+#: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
@@ -1920,37 +1920,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
 msgstr[0] "(Pas %3 de %4) actualitzat %2 de %1 podcast"
 msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcast"
 
-#: sync/syncjob.cpp:904
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
 msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:907
+#: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
 msgstr "(Pas %1 de %2) S'apliquen els canvis remots dels episodis"
 
-#: sync/syncjob.cpp:910
+#: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:913
+#: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
 msgstr "(Pas %1 de %2) Sincronització finalitzada"
 
-#: sync/syncjob.cpp:916
+#: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
 msgstr "Sincronització interrompuda"
 
-#: sync/syncjob.cpp:920
+#: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
