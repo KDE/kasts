@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2023-05-13 08:54+0200\n"
+"PO-Revision-Date: 2023-06-03 08:15+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -719,11 +719,10 @@ msgid "Refresh All Podcasts"
 msgstr "Odśwież wszystkie podkasty"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast..."
-msgstr "Dodaj podkast"
+msgstr "Dodaj podkast..."
 
 #: qml/FeedListPage.qml:62
 #, kde-format
@@ -768,34 +767,28 @@ msgid "Export Podcasts"
 msgstr "Wyeksportuj podkasty"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder message for empty podcast list"
-#| msgid "No Podcasts Added Yet"
+#, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr "Jeszcze nie dodano żadnych podkastów"
+msgstr "Jeszcze nie dodano żadnego podkastu"
 
 #: qml/FeedListPage.qml:119
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Przy dodawaniu nowego podkastu"
+msgstr "Rozpocznij, dodając nowy podkast:"
 
 #: qml/FeedListPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@title:group Group of fields in which can be searched"
-#| msgid "Search in:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "Poszukaj w:"
+msgstr "Znajdź w sieci"
 
 #: qml/FeedListPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Synchronizacja"
+msgstr "Zsynchronizuj"
 
 #: qml/FeedListPage.qml:164 qml/main.qml:67 qml/main.qml:253
 #: qml/Mobile/BottomToolbar.qml:49
