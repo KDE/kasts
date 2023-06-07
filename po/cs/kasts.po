@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-26 02:25+0000\n"
-"PO-Revision-Date: 2023-03-01 16:22+0100\n"
+"PO-Revision-Date: 2023-06-06 10:40+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -337,7 +337,7 @@ msgstr "Zobrazit informace o epizodě"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Sleep Timer Settings"
-msgstr ""
+msgstr "Otevřít nastavení časování uspání"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
@@ -375,7 +375,7 @@ msgstr "Zobrazit informace"
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Časovač uspání"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413
 #, kde-format
@@ -386,14 +386,14 @@ msgstr "Kapitoly"
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
-msgstr ""
+msgstr "Žádný název skladby"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No Track Loaded"
-msgstr ""
+msgstr "Nebyla nalezena žádná skladba"
 
 #: qml/DiscoverPage.qml:16 qml/FeedListPage.qml:40 qml/main.qml:193
 #, kde-format
@@ -551,12 +551,12 @@ msgstr "Hledat a filtrovat"
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:366
 #, kde-format
 msgid "No Episodes Available"
-msgstr ""
+msgstr "Nejsou k dispozici žádné epizody"
 
 #: qml/ErrorList.qml:30
 #, kde-format
 msgid "No Errors Logged"
-msgstr ""
+msgstr "Nebyly zaznamenány žádné chyby"
 
 #: qml/ErrorList.qml:66
 #, kde-format
@@ -996,7 +996,7 @@ msgstr "Vzhled"
 #: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr ""
+msgstr "Vždy zobrazovat názvy podcastů v pohledu přihlášení"
 
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
@@ -1054,12 +1054,12 @@ msgstr "Čas přehrávání:"
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Zobrazit zbývající čas namísto celkové délky skladby"
 
 #: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Upravit zbývající čas podle rychlosti přehrávání"
 
 #: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
@@ -1085,12 +1085,12 @@ msgstr "Nastavení aktualizace:"
 #: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr ""
+msgstr "Automaticky stahovat aktualizace podcastů při spuštění"
 
 #: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Aktualizovat data existující epizody při obnovení (pomalejší)"
 
 #: qml/Settings/GeneralSettingsPage.qml:215
 #, kde-format
@@ -1125,7 +1125,7 @@ msgstr "Smazat při následujícím spuštění"
 #: qml/Settings/GeneralSettingsPage.qml:261
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Resetovat pozici přehrávání poté, co je epizoda přehrána"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
@@ -1318,12 +1318,12 @@ msgstr "Synchronizovat nyní"
 #: qml/Settings/SynchronizationSettingsPage.qml:69
 #, kde-format
 msgid "Last full sync with server"
-msgstr ""
+msgstr "Poslední plná synchronizace se serverem"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
 #, kde-format
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "Poslední rychlé odeslání na synchronizační server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
@@ -1333,17 +1333,17 @@ msgstr "Automatická synchronizace"
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "Provést plnou synchronizaci při spuštění"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:107
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr ""
+msgstr "Provést plnou synchronizaci při stahování podcastů"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:117
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
-msgstr ""
+msgstr "Odeslat pozice přehrávání epizod pri stisknutí přehrát/pozastavit"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
 #, kde-format
@@ -1353,7 +1353,7 @@ msgstr "Rozšířené možnosti"
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Fetch all episode states from server"
-msgstr ""
+msgstr "Stáhnout stavy všech epizod ze serveru"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
@@ -1363,7 +1363,7 @@ msgstr "Stáhnout"
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
 msgid "Push all local episode states to server"
-msgstr ""
+msgstr "Odeslat stavy místních epizod na server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
@@ -1373,7 +1373,7 @@ msgstr "Odeslat"
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
 msgid "Push all local episode states to server?"
-msgstr ""
+msgstr "Odeslat stavy místních epizod na server?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:217
 #, kde-format
