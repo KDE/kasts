@@ -107,13 +107,13 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/v0.13.2.tar.gz",
-                    "sha256": "20beeb32de7c4eb0af9039b21e18370faf847ac8697ab3045906076afbc4caa5",
+                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/0.14.1.tar.gz",
+                    "sha256": "afb2d120722141aca85f8144c4ef017bd74977ed45b80e5d9e9614015dadd60c",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 4138,
                         "stable-only": true,
-                        "url-template": "https://github.com/frankosterfeld/qtkeychain/archive/v$version.tar.gz"
+                        "url-template": "https://github.com/frankosterfeld/qtkeychain/archive/$version.tar.gz"
                     }
                 }
             ],
