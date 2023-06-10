@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-10 00:47+0000\n"
 "PO-Revision-Date: 2023-05-26 15:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: audiomanager.cpp:398
+#: audiomanager.cpp:397
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 "Nessuna connessione o trasmissione non consentita sulla connessione a consumo"
 
-#: audiomanager.cpp:537
+#: audiomanager.cpp:536
 #, kde-format
 msgid "Invalid Media"
 msgstr "Supporto non valido"
@@ -1288,48 +1288,54 @@ msgstr "Elimina immediatamente"
 msgid "Delete at Next Startup"
 msgstr "Elimina al prossimo avvio"
 
-#: qml/Settings/GeneralSettingsPage.qml:295
+#: qml/Settings/GeneralSettingsPage.qml:294
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 "Ripristina la posizione di riproduzione dopo la riproduzione di un episodio"
 
-#: qml/Settings/GeneralSettingsPage.qml:312
+#: qml/Settings/GeneralSettingsPage.qml:330
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Quando si aggiungono nuovi podcast"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:335
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Marca tutti gli episodi riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:328
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marca gli episodi più recenti come non riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:351
+#: qml/Settings/GeneralSettingsPage.qml:369
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Marca tutti gli episodi come non riprodotti"
 
-#: qml/Settings/GeneralSettingsPage.qml:368
+#: qml/Settings/GeneralSettingsPage.qml:386
 #, kde-format
 msgid "Article"
 msgstr "Articolo"
 
-#: qml/Settings/GeneralSettingsPage.qml:373
+#: qml/Settings/GeneralSettingsPage.qml:391
 #, kde-format
 msgid "Font size"
 msgstr "Dimensione del carattere"
 
-#: qml/Settings/GeneralSettingsPage.qml:380
+#: qml/Settings/GeneralSettingsPage.qml:398
 #, kde-format
 msgid "Font size:"
 msgstr "Dimensione dei caratteri:"
 
-#: qml/Settings/GeneralSettingsPage.qml:396
+#: qml/Settings/GeneralSettingsPage.qml:414
 #, kde-format
 msgid "Use system default"
 msgstr "Usare i valori predefiniti di sistema"

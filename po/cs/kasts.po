@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-10 00:47+0000\n"
 "PO-Revision-Date: 2023-06-06 10:40+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
 
-#: audiomanager.cpp:398
+#: audiomanager.cpp:397
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:537
+#: audiomanager.cpp:536
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neplatné médium"
@@ -1284,47 +1284,53 @@ msgstr "Okamžitě smazat"
 msgid "Delete at Next Startup"
 msgstr "Smazat při následujícím spuštění"
 
-#: qml/Settings/GeneralSettingsPage.qml:295
+#: qml/Settings/GeneralSettingsPage.qml:294
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Resetovat pozici přehrávání poté, co je epizoda přehrána"
 
-#: qml/Settings/GeneralSettingsPage.qml:312
+#: qml/Settings/GeneralSettingsPage.qml:330
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Při přidání nových podcastů"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:335
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Označit všechny epizody jako přehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:328
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Označit nejnovější epizody jako nepřehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:351
+#: qml/Settings/GeneralSettingsPage.qml:369
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Označit všechny epizody jako nepřehrané"
 
-#: qml/Settings/GeneralSettingsPage.qml:368
+#: qml/Settings/GeneralSettingsPage.qml:386
 #, kde-format
 msgid "Article"
 msgstr "Článek"
 
-#: qml/Settings/GeneralSettingsPage.qml:373
+#: qml/Settings/GeneralSettingsPage.qml:391
 #, kde-format
 msgid "Font size"
 msgstr "Velikost písma"
 
-#: qml/Settings/GeneralSettingsPage.qml:380
+#: qml/Settings/GeneralSettingsPage.qml:398
 #, kde-format
 msgid "Font size:"
 msgstr "Velikost písma:"
 
-#: qml/Settings/GeneralSettingsPage.qml:396
+#: qml/Settings/GeneralSettingsPage.qml:414
 #, kde-format
 msgid "Use system default"
 msgstr "Použít výchozí systémový"

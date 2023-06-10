@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-10 00:47+0000\n"
 "PO-Revision-Date: 2023-05-12 19:55+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-i18n-de@kde.org"
 
-#: audiomanager.cpp:398
+#: audiomanager.cpp:397
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:537
+#: audiomanager.cpp:536
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ungültige Medien"
@@ -1294,49 +1294,55 @@ msgstr "Sofort löschen"
 msgid "Delete at Next Startup"
 msgstr "Beim nächsten Start löschen"
 
-#: qml/Settings/GeneralSettingsPage.qml:295
+#: qml/Settings/GeneralSettingsPage.qml:294
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+
+#: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr ""
 
-#: qml/Settings/GeneralSettingsPage.qml:312
+#: qml/Settings/GeneralSettingsPage.qml:330
 #, fuzzy, kde-format
 #| msgid "Add New Podcast"
 msgid "When adding new podcasts"
 msgstr "Neuen Podcast hinzufügen"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:335
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Alle Episoden als gespielt markieren"
 
-#: qml/Settings/GeneralSettingsPage.qml:328
+#: qml/Settings/GeneralSettingsPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Mark as Unplayed"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Als nicht gespielt markieren"
 
-#: qml/Settings/GeneralSettingsPage.qml:351
+#: qml/Settings/GeneralSettingsPage.qml:369
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Alle Episoden als nicht gespielt markieren"
 
-#: qml/Settings/GeneralSettingsPage.qml:368
+#: qml/Settings/GeneralSettingsPage.qml:386
 #, kde-format
 msgid "Article"
 msgstr "Artikel"
 
-#: qml/Settings/GeneralSettingsPage.qml:373
+#: qml/Settings/GeneralSettingsPage.qml:391
 #, kde-format
 msgid "Font size"
 msgstr "Schriftgröße"
 
-#: qml/Settings/GeneralSettingsPage.qml:380
+#: qml/Settings/GeneralSettingsPage.qml:398
 #, kde-format
 msgid "Font size:"
 msgstr "Schriftgröße:"
 
-#: qml/Settings/GeneralSettingsPage.qml:396
+#: qml/Settings/GeneralSettingsPage.qml:414
 #, kde-format
 msgid "Use system default"
 msgstr "Voreinstellung des Systems verwenden"
