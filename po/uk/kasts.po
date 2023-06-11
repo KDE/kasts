@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 00:47+0000\n"
-"PO-Revision-Date: 2023-05-26 09:14+0300\n"
+"PO-Revision-Date: 2023-06-10 08:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1305,6 +1305,8 @@ msgstr "Вилучити під час наступного запуску"
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
+"Позначати епізоди, які відтворені, якщо лишатиметься невідтвореним вказаний "
+"час (у секундах)"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format

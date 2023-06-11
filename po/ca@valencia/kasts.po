@@ -3,22 +3,22 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2021, 2022.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2021, 2022, 2023.
 # Josep M. Ferrer <txemaq@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 00:47+0000\n"
-"PO-Revision-Date: 2023-05-26 09:34+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2023-06-10 17:23+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1291,6 +1291,7 @@ msgstr "Suprimix-lo en l'inici següent"
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
+"Marca els episodis com a reproduïts quan reste el temps indicat (en segons)"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
@@ -1561,7 +1562,7 @@ msgstr ""
 "servidor. També cal tindre en compte que esta acció sobreescriurà l'estat de "
 "tots els episodis existents en el servidor.\n"
 "\n"
-"Continue?"
+"Voleu continuar?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
