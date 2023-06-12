@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-10 00:47+0000\n"
-"PO-Revision-Date: 2023-05-29 06:54+0200\n"
+"PO-Revision-Date: 2023-06-11 06:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1282,7 +1282,7 @@ msgstr "წაშლა შემდეგი გაშვებისას"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
+msgstr "ეპიზოდების დაკრულად მონიშვნა, როცა დარჩენილია მითითებული დრო (წამებში)"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
