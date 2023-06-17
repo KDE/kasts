@@ -231,7 +231,7 @@
       <li xml:lang="ru">Полная интеграция с системой: при воспроизведении подкастов работа системы не приостанавливается;</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
-      <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu ertele</li>
+      <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu engelle</li>
       <li xml:lang="uk">Повна інтеграція із системою, зокрема заборона присипляння пристрою під час прослуховування</li>
       <li xml:lang="x-test">xxFull system integration: e.g. inhibit system suspend while listeningxx</li>
     </ul>
