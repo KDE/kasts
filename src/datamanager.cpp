@@ -127,31 +127,47 @@ DataManager::DataManager()
 
 Feed *DataManager::getFeed(const int index) const
 {
-    return getFeed(m_feedmap[index]);
+    if (index < m_feedmap.size()) {
+        return getFeed(m_feedmap[index]);
+    }
+    return nullptr;
 }
 
 Feed *DataManager::getFeed(const QString &feedurl) const
 {
-    if (m_feeds[feedurl] == nullptr)
-        loadFeed(feedurl);
-    return m_feeds[feedurl];
+    if (m_feeds.contains(feedurl)) {
+        if (m_feeds[feedurl] == nullptr) {
+            loadFeed(feedurl);
+        }
+        return m_feeds[feedurl];
+    }
+    return nullptr;
 }
 
 Entry *DataManager::getEntry(const int feed_index, const int entry_index) const
 {
-    return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
+    if (feed_index < m_feedmap.size() && entry_index < m_entrymap[m_feedmap[feed_index]].size()) {
+        return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
+    }
+    return nullptr;
 }
 
 Entry *DataManager::getEntry(const Feed *feed, const int entry_index) const
 {
-    return getEntry(m_entrymap[feed->url()][entry_index]);
+    if (feed && entry_index < m_entrymap[feed->url()].size()) {
+        return getEntry(m_entrymap[feed->url()][entry_index]);
+    }
+    return nullptr;
 }
 
 Entry *DataManager::getEntry(const QString &id) const
 {
-    if (m_entries[id] == nullptr)
-        loadEntry(id);
-    return m_entries[id];
+    if (m_entries.contains(id)) {
+        if (m_entries[id] == nullptr)
+            loadEntry(id);
+        return m_entries[id];
+    }
+    return nullptr;
 }
 
 int DataManager::feedCount() const
