@@ -196,14 +196,19 @@ void DataManager::removeFeed(const int index)
 {
     // Get feed pointer
     Feed *feed = getFeed(m_feedmap[index]);
-    removeFeed(feed);
+    if (feed) {
+        removeFeed(feed);
+    }
 }
 
 void DataManager::removeFeeds(const QStringList &feedurls)
 {
     QList<Feed *> feeds;
     for (QString feedurl : feedurls) {
-        feeds << getFeed(feedurl);
+        Feed *feed = getFeed(feedurl);
+        if (feed) {
+            feeds << feed;
+        }
     }
     removeFeeds(feeds);
 }
@@ -213,7 +218,9 @@ void DataManager::removeFeeds(const QVariantList feedVariantList)
     QList<Feed *> feeds;
     for (QVariant feedVariant : feedVariantList) {
         if (feedVariant.canConvert<Feed *>()) {
-            feeds << feedVariant.value<Feed *>();
+            if (feedVariant.value<Feed *>()) {
+                feeds << feedVariant.value<Feed *>();
+            }
         }
     }
     removeFeeds(feeds);
@@ -222,83 +229,85 @@ void DataManager::removeFeeds(const QVariantList feedVariantList)
 void DataManager::removeFeeds(const QList<Feed *> &feeds)
 {
     for (Feed *feed : feeds) {
-        const QString feedurl = feed->url();
-        int index = m_feedmap.indexOf(feedurl);
+        if (feed) {
+            const QString feedurl = feed->url();
+            int index = m_feedmap.indexOf(feedurl);
 
-        qCDebug(kastsDataManager) << "deleting feed" << feedurl << "with index" << index;
+            qCDebug(kastsDataManager) << "deleting feed" << feedurl << "with index" << index;
 
-        // Delete the object instances and mappings
-        // First delete entries in Queue
-        qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
-        QStringList removeFromQueueList;
-        for (auto &id : m_queuemap) {
-            if (getEntry(id)->feed()->url() == feedurl) {
-                if (AudioManager::instance().entry() == getEntry(id)) {
-                    AudioManager::instance().next();
+            // Delete the object instances and mappings
+            // First delete entries in Queue
+            qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
+            QStringList removeFromQueueList;
+            for (auto &id : m_queuemap) {
+                if (getEntry(id)->feed()->url() == feedurl) {
+                    if (AudioManager::instance().entry() == getEntry(id)) {
+                        AudioManager::instance().next();
+                    }
+                    removeFromQueueList += id;
                 }
-                removeFromQueueList += id;
             }
+            bulkQueueStatus(false, removeFromQueueList);
+
+            // Delete entries themselves
+            qCDebug(kastsDataManager) << "delete entries of" << feedurl;
+            for (auto &id : m_entrymap[feedurl]) {
+                if (getEntry(id)->hasEnclosure())
+                    getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
+                if (!getEntry(id)->image().isEmpty())
+                    StorageManager::instance().removeImage(getEntry(id)->image()); // delete entry images
+                delete m_entries[id]; // delete pointer
+                m_entries.remove(id); // delete the hash key
+            }
+            m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
+
+            qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
+            if (!feed->image().isEmpty())
+                StorageManager::instance().removeImage(feed->image());
+            m_feeds.remove(m_feedmap[index]); // remove from m_feeds
+            m_feedmap.removeAt(index); // remove from m_feedmap
+            delete feed; // remove the pointer
+
+            // Then delete everything from the database
+            qCDebug(kastsDataManager) << "delete database part of" << feedurl;
+
+            // Delete related Errors
+            QSqlQuery query;
+            query.prepare(QStringLiteral("DELETE FROM Errors WHERE url=:url;"));
+            query.bindValue(QStringLiteral(":url"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete Authors
+            query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete Chapters
+            query.prepare(QStringLiteral("DELETE FROM Chapters WHERE feed=:feed;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete Entries
+            query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete Enclosures
+            query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete Feed
+            query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
+            query.bindValue(QStringLiteral(":url"), feedurl);
+            Database::instance().execute(query);
+
+            // Save this action to the database (including timestamp) in order to be
+            // able to sync with remote services
+            Sync::instance().storeRemoveFeedAction(feedurl);
+
+            Q_EMIT feedRemoved(index);
         }
-        bulkQueueStatus(false, removeFromQueueList);
-
-        // Delete entries themselves
-        qCDebug(kastsDataManager) << "delete entries of" << feedurl;
-        for (auto &id : m_entrymap[feedurl]) {
-            if (getEntry(id)->hasEnclosure())
-                getEntry(id)->enclosure()->deleteFile(); // delete enclosure (if it exists)
-            if (!getEntry(id)->image().isEmpty())
-                StorageManager::instance().removeImage(getEntry(id)->image()); // delete entry images
-            delete m_entries[id]; // delete pointer
-            m_entries.remove(id); // delete the hash key
-        }
-        m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
-
-        qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
-        if (!feed->image().isEmpty())
-            StorageManager::instance().removeImage(feed->image());
-        m_feeds.remove(m_feedmap[index]); // remove from m_feeds
-        m_feedmap.removeAt(index); // remove from m_feedmap
-        delete feed; // remove the pointer
-
-        // Then delete everything from the database
-        qCDebug(kastsDataManager) << "delete database part of" << feedurl;
-
-        // Delete related Errors
-        QSqlQuery query;
-        query.prepare(QStringLiteral("DELETE FROM Errors WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), feedurl);
-        Database::instance().execute(query);
-
-        // Delete Authors
-        query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
-        query.bindValue(QStringLiteral(":feed"), feedurl);
-        Database::instance().execute(query);
-
-        // Delete Chapters
-        query.prepare(QStringLiteral("DELETE FROM Chapters WHERE feed=:feed;"));
-        query.bindValue(QStringLiteral(":feed"), feedurl);
-        Database::instance().execute(query);
-
-        // Delete Entries
-        query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
-        query.bindValue(QStringLiteral(":feed"), feedurl);
-        Database::instance().execute(query);
-
-        // Delete Enclosures
-        query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
-        query.bindValue(QStringLiteral(":feed"), feedurl);
-        Database::instance().execute(query);
-
-        // Delete Feed
-        query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), feedurl);
-        Database::instance().execute(query);
-
-        // Save this action to the database (including timestamp) in order to be
-        // able to sync with remote services
-        Sync::instance().storeRemoveFeedAction(feedurl);
-
-        Q_EMIT feedRemoved(index);
     }
 
     // if settings allow, then upload these changes immediately to sync server
