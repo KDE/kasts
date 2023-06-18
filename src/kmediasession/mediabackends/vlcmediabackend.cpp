@@ -679,16 +679,16 @@ void VlcMediaBackendPrivate::signalErrorChange(KMediaSession::Error errorCode)
 void VlcMediaBackendPrivate::parseMetaData()
 {
     qCDebug(VlcSignalsLog) << "VlcMediaBackendPrivate::parseMetaData()";
-    if (mKMediaSession->metaData()->title().isEmpty()) {
+    if (mMedia && mKMediaSession->metaData()->title().isEmpty()) {
         mKMediaSession->metaData()->setTitle(QString::fromUtf8(libvlc_media_get_meta(mMedia, libvlc_meta_Title)));
     }
-    if (mKMediaSession->metaData()->artist().isEmpty()) {
+    if (mMedia && mKMediaSession->metaData()->artist().isEmpty()) {
         mKMediaSession->metaData()->setArtist(QString::fromUtf8(libvlc_media_get_meta(mMedia, libvlc_meta_Artist)));
     }
-    if (mKMediaSession->metaData()->album().isEmpty()) {
+    if (mMedia && mKMediaSession->metaData()->album().isEmpty()) {
         mKMediaSession->metaData()->setAlbum(QString::fromUtf8(libvlc_media_get_meta(mMedia, libvlc_meta_Album)));
     }
-    if (mKMediaSession->metaData()->artworkUrl().isEmpty()) {
+    if (mMedia && mKMediaSession->metaData()->artworkUrl().isEmpty()) {
         mKMediaSession->metaData()->setArtworkUrl(QUrl(QString::fromUtf8(libvlc_media_get_meta(mMedia, libvlc_meta_ArtworkURL))));
     }
 }
