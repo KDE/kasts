@@ -101,6 +101,13 @@ void StorageMoveJob::moveFiles()
             QFile(QDir(m_from).absoluteFilePath(file)).remove();
             qCDebug(kastsStorageMoveJob) << "Removing file" << QDir(m_from).absoluteFilePath(file);
         }
+
+        // delete the directories as well
+        for (const QString &item : m_list) {
+            if (!item.isEmpty() && QFileInfo(m_from + QStringLiteral("/") + item).isDir()) {
+                QDir(m_from).rmdir(item);
+            }
+        }
     } else {
         setError(2);
         setErrorText(i18n("An error occurred while copying data"));

@@ -37,6 +37,7 @@ Feed::Feed(const QString &feedurl)
     m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
     m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
     m_notify = query.value(QStringLiteral("notify")).toBool();
+    m_dirname = query.value(QStringLiteral("dirname")).toString();
 
     m_errorId = 0;
     m_errorString = QLatin1String("");
@@ -200,6 +201,11 @@ bool Feed::notify() const
     return m_notify;
 }
 
+QString Feed::dirname() const
+{
+    return m_dirname;
+}
+
 int Feed::entryCount() const
 {
     return DataManager::instance().entryCount(this);
@@ -303,6 +309,14 @@ void Feed::setNotify(bool notify)
     if (notify != m_notify) {
         m_notify = notify;
         Q_EMIT notifyChanged(m_notify);
+    }
+}
+
+void Feed::setDirname(const QString &dirname)
+{
+    if (dirname != m_dirname) {
+        m_dirname = dirname;
+        Q_EMIT dirnameChanged(m_dirname);
     }
 }
 

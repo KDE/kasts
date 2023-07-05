@@ -34,6 +34,8 @@ public:
         return _instance;
     }
 
+    static const int maxFilenameLength = 200;
+
     QString storagePath() const;
     Q_INVOKABLE void setStoragePath(QUrl url);
 
@@ -41,7 +43,8 @@ public:
     QString imagePath(const QString &url) const;
 
     QString enclosureDirPath() const;
-    QString enclosurePath(const QString &url) const;
+    QString enclosureDirPath(const QString &feedname) const;
+    QString enclosurePath(const QString &name, const QString &url, const QString &feedname) const;
 
     qint64 enclosureDirSize() const;
     qint64 imageDirSize() const;

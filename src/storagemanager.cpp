@@ -65,7 +65,13 @@ void StorageManager::setStoragePath(QUrl url)
     qCDebug(kastsStorageManager) << "New storage path will be:" << newPath;
 
     if (oldPath != newPath) {
-        QStringList list = {QStringLiteral("enclosures"), QStringLiteral("images")};
+        // make list of dirs to be moved (images/ and enclosures/*/)
+        QStringList list = {QStringLiteral("images")};
+        for (const QString &subdir : QDir(oldPath + QStringLiteral("/enclosures/")).entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+            list << QStringLiteral("enclosures/") + subdir;
+        }
+        list << QStringLiteral("enclosures");
+
         StorageMoveJob *moveJob = new StorageMoveJob(oldPath, newPath, list);
         connect(moveJob, &KJob::processedAmountChanged, this, [this, moveJob]() {
             m_storageMoveProgress = moveJob->processedAmount(KJob::Files);
@@ -113,23 +119,43 @@ QString StorageManager::imagePath(const QString &url) const
 
 QString StorageManager::enclosureDirPath() const
 {
+    return enclosureDirPath(QStringLiteral(""));
+}
+
+QString StorageManager::enclosureDirPath(const QString &feedname) const
+{
     QString path = storagePath() + QStringLiteral("/enclosures/");
+
+    if (!feedname.isEmpty()) {
+        path += feedname + QStringLiteral("/");
+    }
+
     // Create path if it doesn't exist yet
     QFileInfo().absoluteDir().mkpath(path);
     return path;
 }
 
-QString StorageManager::enclosurePath(const QString &url) const
+QString StorageManager::enclosurePath(const QString &name, const QString &url, const QString &feedname) const
 {
-    return enclosureDirPath() + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+    // Generate filename based on episode name and url hash with feedname as subdirectory
+    QString enclosureFilenameBase = name.left(maxFilenameLength) + QStringLiteral(".")
+        + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);
+    QString enclosureFilenameExt = QFileInfo(QUrl::fromUserInput(url).fileName()).suffix();
+
+    QString enclosureFilename = !enclosureFilenameExt.isEmpty() ? enclosureFilenameBase + QStringLiteral(".") + enclosureFilenameExt : enclosureFilenameBase;
+
+    return enclosureDirPath(feedname) + enclosureFilename;
 }
 
 qint64 StorageManager::dirSize(const QString &path) const
 {
     qint64 size = 0;
-    QFileInfoList files = QDir(path).entryInfoList(QDir::Files);
+    QFileInfoList files = QDir(path).entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 
     for (QFileInfo info : files) {
+        if (info.isDir()) {
+            size += dirSize(info.filePath());
+        }
         size += info.size();
     }
 
@@ -145,11 +171,11 @@ void StorageManager::removeImage(const QString &url)
 
 void StorageManager::clearImageCache()
 {
-    qDebug() << imageDirPath();
+    qCDebug(kastsStorageManager) << imageDirPath();
     QStringList images = QDir(imageDirPath()).entryList(QDir::Files);
-    qDebug() << images;
+    qCDebug(kastsStorageManager) << images;
     for (QString image : images) {
-        qDebug() << image;
+        qCDebug(kastsStorageManager) << image;
         QFile(QDir(imageDirPath()).absoluteFilePath(image)).remove();
     }
     Q_EMIT imageDirSizeChanged();

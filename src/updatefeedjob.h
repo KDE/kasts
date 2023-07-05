@@ -76,7 +76,8 @@ Q_SIGNALS:
                             const QString &image,
                             const QString &link,
                             const QString &description,
-                            const QDateTime &lastUpdated);
+                            const QDateTime &lastUpdated,
+                            const QString &dirname);
     void feedUpdated(const QString &url);
     void entryAdded(const QString &feedurl, const QString &id);
     void entryUpdated(const QString &feedurl, const QString &id);
@@ -88,13 +89,15 @@ private:
     void processFeed(Syndication::FeedPtr feed);
     bool processEntry(Syndication::ItemPtr entry);
     bool processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
-    bool processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry);
+    bool processEnclosure(Syndication::EnclosurePtr enclosure, const EntryDetails &newEntry, const EntryDetails &oldEntry);
     bool processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
     void writeToDatabase();
 
+    QString generateFeedDirname(const QString &name) const;
     bool m_abort = false;
 
     QString m_url;
+    QString m_dirname;
     QByteArray m_data;
 
     bool m_isNewFeed;

@@ -7,13 +7,18 @@
 
 #include "database.h"
 
+#include <QCryptographicHash>
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
+#include <QFile>
+#include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QStandardPaths>
 #include <QUrl>
+
+#include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
     if (!x)                                                                                                                                                    \
@@ -64,6 +69,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo6());
     if (dbversion < 7)
         TRUE_OR_RETURN(migrateTo7());
+    if (dbversion < 8)
+        TRUE_OR_RETURN(migrateTo8());
     return true;
 }
 
@@ -159,6 +166,82 @@ bool Database::migrateTo7()
     TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entries ADD COLUMN favorite BOOL DEFAULT 0;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 7;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo8()
+{
+    qDebug() << "Migrating database to version 8; this can take a while";
+
+    const int maxFilenameLength = 200;
+    QString enclosurePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    if (!SettingsManager::self()->storagePath().isEmpty()) {
+        enclosurePath = SettingsManager::self()->storagePath().toLocalFile();
+    }
+    enclosurePath += QStringLiteral("/enclosures/");
+
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN dirname TEXT;")));
+
+    QStringList dirNameList;
+    QSqlQuery query(QStringLiteral("SELECT url, name FROM Feeds;"));
+    while (query.next()) {
+        QString url = query.value(QStringLiteral("url")).toString();
+        QString name = query.value(QStringLiteral("name")).toString();
+
+        // Generate directory name for enclosures based on feed name
+        QString dirBaseName = name.left(maxFilenameLength);
+        QString dirName = dirBaseName;
+
+        // Check for duplicate names
+        int numDups = 1; // Minimum to append is " (1)" if file already exists
+        while (dirNameList.contains(dirName)) {
+            dirName = QStringLiteral("%1 (%2)").arg(dirBaseName, QString::number(numDups));
+            numDups++;
+        }
+
+        dirNameList << dirName;
+
+        QSqlQuery writeQuery;
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET dirname=:dirname WHERE url=:url;"));
+        writeQuery.bindValue(QStringLiteral(":dirname"), dirName);
+        writeQuery.bindValue(QStringLiteral(":url"), url);
+        TRUE_OR_RETURN(execute(writeQuery));
+    }
+
+    // Rename enclosures to new filename convention
+    query.prepare(
+        QStringLiteral("SELECT entry.title, enclosure.id, enclosure.url, feed.dirname FROM Enclosures enclosure JOIN Entries entry ON enclosure.id = entry.id "
+                       "JOIN Feeds feed ON enclosure.feed = feed.url;"));
+    TRUE_OR_RETURN(execute(query));
+    while (query.next()) {
+        QString queryTitle = query.value(QStringLiteral("title")).toString();
+        QString queryId = query.value(QStringLiteral("id")).toString();
+        QString queryUrl = query.value(QStringLiteral("url")).toString();
+        QString feedDirName = query.value(QStringLiteral("dirname")).toString();
+
+        // Rename any existing files with the new filename generated above
+        QString legacyPath = enclosurePath + QString::fromStdString(QCryptographicHash::hash(queryUrl.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
+
+        if (QFileInfo::exists(legacyPath) && QFileInfo(legacyPath).isFile()) {
+            // Generate filename based on episode name and url hash with feedname as subdirectory
+            QString enclosureFilenameBase = queryTitle.left(maxFilenameLength) + QStringLiteral(".")
+                + QString::fromStdString(QCryptographicHash::hash(queryUrl.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);
+            QString enclosureFilenameExt = QFileInfo(QUrl::fromUserInput(queryUrl).fileName()).suffix();
+
+            QString enclosureFilename =
+                !enclosureFilenameExt.isEmpty() ? enclosureFilenameBase + QStringLiteral(".") + enclosureFilenameExt : enclosureFilenameBase;
+
+            QString newDirPath = enclosurePath + feedDirName + QStringLiteral("/");
+            QString newFilePath = newDirPath + enclosureFilename;
+
+            QFileInfo().absoluteDir().mkpath(newDirPath);
+            QFile::rename(legacyPath, newFilePath);
+        }
+    }
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 8;")));
     TRUE_OR_RETURN(commit());
     return true;
 }

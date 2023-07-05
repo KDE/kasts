@@ -32,6 +32,7 @@ class Feed : public QObject
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
     Q_PROPERTY(bool notify READ notify WRITE setNotify NOTIFY notifyChanged)
+    Q_PROPERTY(QString dirname READ dirname WRITE setDirname NOTIFY dirnameChanged)
     Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount WRITE setUnreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
@@ -59,6 +60,7 @@ public:
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
     bool notify() const;
+    QString dirname() const;
     int entryCount() const;
     int unreadEntryCount() const;
     int newEntryCount() const;
@@ -78,6 +80,7 @@ public:
     void setDeleteAfterType(int type);
     void setLastUpdated(const QDateTime &lastUpdated);
     void setNotify(bool notify);
+    void setDirname(const QString &dirname);
     void setUnreadEntryCount(const int count);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
@@ -96,6 +99,7 @@ Q_SIGNALS:
     void deleteAfterTypeChanged(int type);
     void lastUpdatedChanged(const QDateTime &lastUpdated);
     void notifyChanged(bool notify);
+    void dirnameChanged(const QString &dirname);
     void entryCountChanged();
     void unreadEntryCountChanged();
     void newEntryCountChanged();
@@ -119,6 +123,7 @@ private:
     QDateTime m_subscribed;
     QDateTime m_lastUpdated;
     bool m_notify;
+    QString m_dirname;
     int m_errorId;
     QString m_errorString;
     int m_unreadEntryCount = -1;
