@@ -27,28 +27,34 @@
 
 DataManager::DataManager()
 {
-    connect(
-        &Fetcher::instance(),
-        &Fetcher::feedDetailsUpdated,
-        this,
-        [this](const QString &url, const QString &name, const QString &image, const QString &link, const QString &description, const QDateTime &lastUpdated) {
-            qCDebug(kastsDataManager) << "Start updating feed details for" << url;
-            Feed *feed = getFeed(url);
-            if (feed != nullptr) {
-                feed->setName(name);
-                feed->setImage(image);
-                feed->setLink(link);
-                feed->setDescription(description);
-                feed->setLastUpdated(lastUpdated);
-                qCDebug(kastsDataManager) << "Retrieving authors";
-                feed->updateAuthors();
-                // For feeds that have just been added, this is probably the point
-                // where the Feed object gets created; let's set refreshing to
-                // true in order to show user feedback that the feed is still
-                // being fetched
-                feed->setRefreshing(true);
-            }
-        });
+    connect(&Fetcher::instance(),
+            &Fetcher::feedDetailsUpdated,
+            this,
+            [this](const QString &url,
+                   const QString &name,
+                   const QString &image,
+                   const QString &link,
+                   const QString &description,
+                   const QDateTime &lastUpdated,
+                   const QString &dirname) {
+                qCDebug(kastsDataManager) << "Start updating feed details for" << url;
+                Feed *feed = getFeed(url);
+                if (feed != nullptr) {
+                    feed->setName(name);
+                    feed->setImage(image);
+                    feed->setLink(link);
+                    feed->setDescription(description);
+                    feed->setLastUpdated(lastUpdated);
+                    feed->setDirname(dirname);
+                    qCDebug(kastsDataManager) << "Retrieving authors";
+                    feed->updateAuthors();
+                    // For feeds that have just been added, this is probably the point
+                    // where the Feed object gets created; let's set refreshing to
+                    // true in order to show user feedback that the feed is still
+                    // being fetched
+                    feed->setRefreshing(true);
+                }
+            });
     connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
         Q_UNUSED(feedurl)
         // Only add the new entry to m_entries
@@ -289,6 +295,11 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             m_entrymap.remove(feedurl); // remove all the entry mappings belonging to the feed
 
             qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feedurl;
+            qCDebug(kastsDataManager) << "Remove feed enclosure download directory" << feed->dirname() << "for feed" << feedurl;
+            QDir enclosureDir = QDir(StorageManager::instance().enclosureDirPath() + feed->dirname());
+            if (!feed->dirname().isEmpty() && enclosureDir.exists()) {
+                enclosureDir.removeRecursively();
+            }
             if (!feed->image().isEmpty())
                 StorageManager::instance().removeImage(feed->image());
             m_feeds.remove(m_feedmap[index]); // remove from m_feeds
@@ -362,7 +373,8 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
     // TODO: Add more checks like checking if URLs exist; however this will mean async...
     QStringList newUrls;
     for (const QString &url : urls) {
-        if (!url.trimmed().isEmpty()) {
+        if (!url.trimmed().isEmpty() && !feedExists(url)) {
+            qCDebug(kastsDataManager) << "Feed already exists or URL is empty" << url.trimmed();
             newUrls << url.trimmed();
         }
     }
@@ -375,18 +387,13 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
     // authors and enclosures) will be updated by calling Fetcher::fetch() which
     // will trigger a full update of the feed and all related items.
     for (const QString &url : newUrls) {
-        qCDebug(kastsDataManager) << "Adding feed";
-        if (feedExists(url)) {
-            qCDebug(kastsDataManager) << "Feed already exists";
-            continue;
-        }
-        qCDebug(kastsDataManager) << "Feed does not yet exist";
+        qCDebug(kastsDataManager) << "Adding new feed:" << url;
 
         QUrl urlFromInput = QUrl::fromUserInput(url);
         QSqlQuery query;
         query.prepare(
             QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
-                           ":lastUpdated, :new, :notify);"));
+                           ":lastUpdated, :new, :notify, :dirname);"));
         query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -398,6 +405,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":lastUpdated"), 0);
         query.bindValue(QStringLiteral(":new"), true);
         query.bindValue(QStringLiteral(":notify"), false);
+        query.bindValue(QStringLiteral(":dirname"), QLatin1String(""));
         Database::instance().execute(query);
 
         m_feeds[urlFromInput.toString()] = nullptr;

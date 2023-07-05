@@ -51,7 +51,8 @@ Q_SIGNALS:
                             const QString &image,
                             const QString &link,
                             const QString &description,
-                            const QDateTime &lastUpdated);
+                            const QDateTime &lastUpdated,
+                            const QString &dirname);
     void feedUpdateStatusChanged(const QString &url, bool status);
     void cancelFetching();
 

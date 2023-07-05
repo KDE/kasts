@@ -290,7 +290,7 @@ QString Enclosure::url() const
 
 QString Enclosure::path() const
 {
-    return StorageManager::instance().enclosurePath(m_url);
+    return StorageManager::instance().enclosurePath(m_entry->title(), m_url, m_entry->feed()->dirname());
 }
 
 Enclosure::Status Enclosure::status() const
@@ -301,7 +301,7 @@ Enclosure::Status Enclosure::status() const
 QString Enclosure::cachedEmbeddedImage() const
 {
     // if image is already cached, then return the path
-    QString cachedpath = StorageManager::instance().imagePath(path());
+    QString cachedpath = StorageManager::instance().imagePath(m_url);
     if (QFileInfo::exists(cachedpath)) {
         if (QFileInfo(cachedpath).size() != 0) {
             return QUrl::fromLocalFile(cachedpath).toString();

@@ -23,6 +23,7 @@
 #include "fetcherlogging.h"
 #include "kasts-version.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
 
 using namespace ThreadWeaver;
 
@@ -69,27 +70,32 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     if (feed.isNull())
         return;
 
-    // First check if this is a newly added feed
+    // First check if this is a newly added feed and get current name and dirname
     m_isNewFeed = false;
+    QString oldName, oldDirname;
     QSqlQuery query(QSqlDatabase::database(m_url));
-    query.prepare(QStringLiteral("SELECT new FROM Feeds WHERE url=:url;"));
+    query.prepare(QStringLiteral("SELECT new, name, dirname FROM Feeds WHERE url=:url;"));
     query.bindValue(QStringLiteral(":url"), m_url);
     Database::execute(query);
     if (query.next()) {
         m_isNewFeed = query.value(QStringLiteral("new")).toBool();
+        oldName = query.value(QStringLiteral("name")).toString();
+        oldDirname = query.value(QStringLiteral("dirname")).toString();
     } else {
         qCDebug(kastsFetcher) << "Feed not found in database" << m_url;
         return;
     }
-    if (m_isNewFeed)
+    if (m_isNewFeed) {
         qCDebug(kastsFetcher) << "New feed" << feed->title();
+    }
 
     m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
-    query.prepare(QStringLiteral("UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated WHERE url=:url;"));
+    query.prepare(QStringLiteral(
+        "UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, dirname=:dirname WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
     query.bindValue(QStringLiteral(":url"), m_url);
     query.bindValue(QStringLiteral(":link"), feed->link());
@@ -109,6 +115,23 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     if (image.startsWith(QStringLiteral("/")))
         image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + image;
     query.bindValue(QStringLiteral(":image"), image);
+
+    // if the title has changed, we need to rename the corresponding enclosure
+    // download directory name and move the files
+    m_dirname = oldDirname;
+    if (oldName != feed->title() || oldDirname.isEmpty() || m_isNewFeed) {
+        QString generatedDirname = generateFeedDirname(feed->title());
+        if (generatedDirname != oldDirname) {
+            m_dirname = generatedDirname;
+            QString enclosurePath = StorageManager::instance().enclosureDirPath();
+            if (QDir(enclosurePath + oldDirname).exists()) {
+                QDir().rename(enclosurePath + oldDirname, enclosurePath + m_dirname);
+            } else {
+                QDir().mkpath(enclosurePath + m_dirname);
+            }
+        }
+    }
+    query.bindValue(QStringLiteral(":dirname"), m_dirname);
 
     // Do the actual database UPDATE of this feed
     Database::execute(query);
@@ -210,7 +233,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     qCDebug(kastsFetcher) << "Updated feed details:" << feed->title();
 
     // TODO: Only emit signal if the details have really changed
-    Q_EMIT feedDetailsUpdated(m_url, feed->title(), image, feed->link(), feed->description(), current);
+    Q_EMIT feedDetailsUpdated(m_url, feed->title(), image, feed->link(), feed->description(), current, m_dirname);
 
     if (m_abort)
         return;
@@ -359,7 +382,7 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     // the first one is probably the podcast author's preferred version
     // TODO: handle more than one enclosure?
     if (entry->enclosures().count() > 0) {
-        isUpdateDependencies = isUpdateDependencies | processEnclosure(entry->enclosures()[0], entry);
+        isUpdateDependencies = isUpdateDependencies | processEnclosure(entry->enclosures()[0], entryDetails, currentEntry);
     }
 
     return isNewEntry | isUpdateEntry | isUpdateDependencies; // this is a new or updated entry, or an enclosure, chapter or author has been changed/added
@@ -402,7 +425,7 @@ bool UpdateFeedJob::processAuthor(const QString &entryId, const QString &authorN
     return isNewAuthor | isUpdateAuthor;
 }
 
-bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, Syndication::ItemPtr entry)
+bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, const EntryDetails &newEntry, const EntryDetails &oldEntry)
 {
     bool isNewEnclosure = true;
     bool isUpdateEnclosure = false;
@@ -410,7 +433,7 @@ bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, Syndic
 
     // check against existing enclosures already in database
     for (const EnclosureDetails &enclosureDetails : (m_enclosures + m_newEnclosures)) {
-        if (enclosureDetails.id == entry->id()) {
+        if (enclosureDetails.id == newEntry.id) {
             isNewEnclosure = false;
             currentEnclosure = enclosureDetails;
         }
@@ -418,7 +441,7 @@ bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, Syndic
 
     EnclosureDetails enclosureDetails;
     enclosureDetails.feed = m_url;
-    enclosureDetails.id = entry->id();
+    enclosureDetails.id = newEntry.id;
     enclosureDetails.duration = enclosure->duration();
     enclosureDetails.size = enclosure->length();
     enclosureDetails.title = enclosure->title();
@@ -430,14 +453,32 @@ bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, Syndic
     if (!isNewEnclosure) {
         if ((currentEnclosure.url != enclosureDetails.url) || (currentEnclosure.title != enclosureDetails.title)
             || (currentEnclosure.type != enclosureDetails.type)) {
-            qCDebug(kastsFetcher) << "enclosure details have been updated for:" << entry->id();
+            qCDebug(kastsFetcher) << "enclosure details have been updated for:" << newEntry.id;
             isUpdateEnclosure = true;
             m_updateEnclosures += enclosureDetails;
         } else {
-            qCDebug(kastsFetcher) << "enclosure details are unchanged:" << entry->id();
+            qCDebug(kastsFetcher) << "enclosure details are unchanged:" << newEntry.id;
+        }
+
+        // Check if entry title or enclosure URL has changed
+        if (newEntry.title != oldEntry.title) {
+            QString oldFilename = StorageManager::instance().enclosurePath(oldEntry.title, currentEnclosure.url, m_dirname);
+            QString newFilename = StorageManager::instance().enclosurePath(newEntry.title, enclosureDetails.url, m_dirname);
+
+            if (oldFilename != newFilename) {
+                if (currentEnclosure.url == enclosureDetails.url) {
+                    // If entry title has changed but URL is still the same, the existing enclosure needs to be renamed
+                    QFile::rename(oldFilename, newFilename);
+                } else {
+                    // If enclosure URL has changed, the old enclosure needs to be deleted
+                    if (QFile(oldFilename).exists()) {
+                        QFile(oldFilename).remove();
+                    }
+                }
+            }
         }
     } else {
-        qCDebug(kastsFetcher) << "this is a new enclosure:" << entry->id();
+        qCDebug(kastsFetcher) << "this is a new enclosure:" << newEntry.id;
         m_newEnclosures += enclosureDetails;
     }
 
@@ -651,6 +692,29 @@ void UpdateFeedJob::writeToDatabase()
             Q_EMIT entryUpdated(m_url, id);
         }
     }
+}
+
+QString UpdateFeedJob::generateFeedDirname(const QString &name) const
+{
+    // Generate directory name for enclosures based on feed name
+    // NOTE: Any changes here require a database migration!
+    QString dirBaseName = name.left(StorageManager::maxFilenameLength);
+    QString dirName = dirBaseName;
+
+    QStringList dirNameList;
+    QSqlQuery query(QSqlDatabase::database(m_url));
+    query.prepare(QStringLiteral("SELECT name FROM Feeds;"));
+    while (query.next()) {
+        dirNameList << query.value(QStringLiteral("name")).toString();
+    }
+
+    // Check for duplicate names in database and on filesystem
+    int numDups = 1; // Minimum to append is " (1)" if file already exists
+    while (dirNameList.contains(dirName) || QDir(StorageManager::instance().enclosureDirPath() + dirName).exists()) {
+        dirName = QStringLiteral("%1 (%2)").arg(dirBaseName, QString::number(numDups));
+        numDups++;
+    }
+    return dirName;
 }
 
 void UpdateFeedJob::abort()
