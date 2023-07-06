@@ -698,7 +698,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name) const
 {
     // Generate directory name for enclosures based on feed name
     // NOTE: Any changes here require a database migration!
-    QString dirBaseName = name.left(StorageManager::maxFilenameLength);
+    QString dirBaseName = StorageManager::instance().sanitizedFilePath(name);
     QString dirName = dirBaseName;
 
     QStringList dirNameList;

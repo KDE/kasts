@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QRegularExpression>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QStandardPaths>
@@ -191,7 +192,8 @@ bool Database::migrateTo8()
         QString name = query.value(QStringLiteral("name")).toString();
 
         // Generate directory name for enclosures based on feed name
-        QString dirBaseName = name.left(maxFilenameLength);
+        QString dirBaseName = name.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+        dirBaseName = dirBaseName.isEmpty() ? QStringLiteral("Noname") : dirBaseName;
         QString dirName = dirBaseName;
 
         // Check for duplicate names
@@ -226,8 +228,11 @@ bool Database::migrateTo8()
 
         if (QFileInfo::exists(legacyPath) && QFileInfo(legacyPath).isFile()) {
             // Generate filename based on episode name and url hash with feedname as subdirectory
-            QString enclosureFilenameBase = queryTitle.left(maxFilenameLength) + QStringLiteral(".")
+            QString enclosureFilenameBase = queryTitle.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+            enclosureFilenameBase = enclosureFilenameBase.isEmpty() ? QStringLiteral("Noname") : enclosureFilenameBase;
+            enclosureFilenameBase += QStringLiteral(".")
                 + QString::fromStdString(QCryptographicHash::hash(queryUrl.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);
+
             QString enclosureFilenameExt = QFileInfo(QUrl::fromUserInput(queryUrl).fileName()).suffix();
 
             QString enclosureFilename =

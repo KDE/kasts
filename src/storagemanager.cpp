@@ -14,6 +14,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QRegularExpression>
 #include <QStandardPaths>
 
 #include "enclosure.h"
@@ -138,8 +139,9 @@ QString StorageManager::enclosureDirPath(const QString &feedname) const
 QString StorageManager::enclosurePath(const QString &name, const QString &url, const QString &feedname) const
 {
     // Generate filename based on episode name and url hash with feedname as subdirectory
-    QString enclosureFilenameBase = name.left(maxFilenameLength) + QStringLiteral(".")
+    QString enclosureFilenameBase = sanitizedFilePath(name) + QStringLiteral(".")
         + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);
+
     QString enclosureFilenameExt = QFileInfo(QUrl::fromUserInput(url).fileName()).suffix();
 
     QString enclosureFilename = !enclosureFilenameExt.isEmpty() ? enclosureFilenameBase + QStringLiteral(".") + enclosureFilenameExt : enclosureFilenameBase;
@@ -204,4 +206,17 @@ QString StorageManager::formattedImageDirSize() const
 QString StorageManager::passwordFilePath(const QString &username) const
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + username;
+}
+
+QString StorageManager::sanitizedFilePath(const QString &path) const
+{
+    // NOTE: Any changes here require a database migration!
+
+    // Only keep alphanumeric ascii characters; this avoid any kind of issues
+    // with the many types of filesystems out there.  Then remove excess whitespace
+    // and limit the length of the string.
+    QString newPath = path;
+    newPath = newPath.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+
+    return newPath.isEmpty() ? QStringLiteral("Noname") : newPath;
 }

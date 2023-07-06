@@ -56,6 +56,8 @@ public:
 
     QString passwordFilePath(const QString &username) const;
 
+    QString sanitizedFilePath(const QString &path) const;
+
 Q_SIGNALS:
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
