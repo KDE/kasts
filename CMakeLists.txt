@@ -20,6 +20,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(KF_MIN_VERSION "5.102.0")
 set(QT_MIN_VERSION "5.15.2")
+if (ANDROID)
+    set(QT_MIN_VERSION 5.15.10) # due to 5.15.10 changing NDK versioning
+endif()
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
