@@ -17,7 +17,7 @@ import org.kde.kasts 1.0
 
 Kirigami.ApplicationWindow {
     id: kastsMainWindow
-    title: "Kasts"
+    title: i18n("Kasts")
 
     width: Kirigami.Settings.isMobile ? 360 : 800
     height: Kirigami.Settings.isMobile ? 660 : 600

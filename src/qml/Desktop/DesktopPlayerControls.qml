@@ -116,7 +116,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18n("Seek Backward")
+                Controls.ToolTip.text: i18n("Seek backward")
             }
             Controls.ToolButton {
                 id: playButton
@@ -135,7 +135,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18n("Seek Forward")
+                Controls.ToolTip.text: i18n("Seek forward")
             }
             Controls.ToolButton {
                 icon.name: "media-skip-forward"
@@ -144,7 +144,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18n("Skip Forward")
+                Controls.ToolTip.text: i18n("Skip forward")
             }
             Controls.ToolButton {
                 id: playbackRateButton
@@ -169,7 +169,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18n("Playback Rate: ") + AudioManager.playbackRate.toFixed(2) + "x"
+                Controls.ToolTip.text: i18n("Playback rate:") + " " + AudioManager.playbackRate.toFixed(2) + "x"
             }
         }
 
@@ -228,7 +228,7 @@ FocusScope {
                 Controls.ToolTip {
                     visible: parent.hovered
                     delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Show Chapter List")
+                    text: i18nc("@action:button", "Show chapter list")
                 }
             }
 
@@ -240,7 +240,7 @@ FocusScope {
                 Controls.ToolTip {
                     visible: parent.hovered
                     delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Show Episode Info")
+                    text: i18nc("@action:button", "Show episode info")
                 }
             }
 
@@ -252,7 +252,7 @@ FocusScope {
                 Controls.ToolTip {
                     visible: parent.hovered
                     delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Open Sleep Timer Settings")
+                    text: i18nc("@action:button", "Open sleep timer settings")
                 }
             }
         }
@@ -267,7 +267,7 @@ FocusScope {
                 Controls.ToolTip {
                     visible: parent.hovered
                     delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Open Volume Settings")
+                    text: i18nc("@action:button", "Open volume settings")
                 }
                 onClicked: {
                     if (volumePopup.visible) {
@@ -311,7 +311,7 @@ FocusScope {
                             Controls.ToolTip {
                                 visible: parent.hovered
                                 delay: Qt.styleHints.mousePressAndHoldInterval
-                                text: i18nc("@action:button", "Toggle Mute")
+                                text: i18nc("@action:button", "Toggle mute")
                             }
                         }
                     }
@@ -328,7 +328,7 @@ FocusScope {
             Controls.ToolTip {
                 visible: parent.hovered
                 delay: Qt.styleHints.mousePressAndHoldInterval
-                text: i18nc("@action:button", "Show More")
+                text: i18nc("@action:button", "Show more")
             }
             onClicked: {
                 if (overflowMenu.visible) {

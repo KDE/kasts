@@ -156,11 +156,11 @@ QString AbstractEpisodeProxyModel::getFilterName(FilterType type) const
 {
     switch (type) {
     case FilterType::NoFilter:
-        return i18nc("@label:chooser Choice of filter for episode list", "No Filter");
+        return i18nc("@label:chooser Choice of filter for episode list", "No filter");
     case FilterType::ReadFilter:
-        return i18nc("@label:chooser Choice of filter for episode list", "Played Episodes");
+        return i18nc("@label:chooser Choice of filter for episode list", "Played episodes");
     case FilterType::NotReadFilter:
-        return i18nc("@label:chooser Choice of filter for episode list", "Unplayed Episodes");
+        return i18nc("@label:chooser Choice of filter for episode list", "Unplayed episodes");
     case FilterType::NewFilter:
         return i18nc("@label:chooser Choice of filter for episode list", "Episodes marked as \"New\"");
     case FilterType::NotNewFilter:
@@ -182,7 +182,7 @@ QString AbstractEpisodeProxyModel::getSearchFlagName(SearchFlag flag) const
     case SearchFlag::ContentFlag:
         return i18nc("@label:chooser Choice of fields to search for string", "Description");
     case SearchFlag::FeedNameFlag:
-        return i18nc("@label:chooser Choice of fields to search for string", "Podcast Title");
+        return i18nc("@label:chooser Choice of fields to search for string", "Podcast title");
     default:
         return QString();
     }

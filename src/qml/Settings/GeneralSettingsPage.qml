@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormComboBoxDelegate {
                     id: selectAudioBackend
-                    text: i18nc("Label for setting to select audio playback backend", "Select Audio Backend")
+                    text: i18nc("Label for setting to select audio playback backend", "Select audio backend")
 
                     textRole: "text"
                     valueRole: "value"
@@ -139,7 +139,7 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormCheckDelegate {
                     id: showTimeLeft
-                    Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play Time:")
+                    Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play time:")
                     checked: SettingsManager.toggleRemainingTime
                     text: i18n("Show time left instead of total track time")
                     onToggled: {
@@ -277,9 +277,9 @@ Kirigami.ScrollablePage {
                     text: i18n("Played episode behavior")
                     textRole: "text"
                     valueRole: "value"
-                    model: [{"text": i18n("Do Not Delete"), "value": 0},
-                            {"text": i18n("Delete Immediately"), "value": 1},
-                            {"text": i18n("Delete at Next Startup"), "value": 2}]
+                    model: [{"text": i18n("Do not delete"), "value": 0},
+                            {"text": i18n("Delete immediately"), "value": 1},
+                            {"text": i18n("Delete at next startup"), "value": 2}]
                     Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
                     onActivated: {
                         SettingsManager.autoDeleteOnPlayed = currentValue;

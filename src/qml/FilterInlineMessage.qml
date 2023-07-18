@@ -38,6 +38,6 @@ Kirigami.InlineMessage {
 
     TextMetrics {
         id: textMetrics
-        text: i18nc("@info:status Name of the filter which is active on the ListView", "Filter Active: %1", proxyModel.filterName)
+        text: i18nc("@info:status Name of the filter which is active on the ListView", "Active filter: %1", proxyModel.filterName)
     }
 }

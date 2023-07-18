@@ -97,7 +97,7 @@ Kirigami.Dialog {
                 onClicked: rateSlider.value = Math.max(0.0, rateSlider.value - 0.05)
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18nc("@action:button", "Decrease Playback Rate")
+                Controls.ToolTip.text: i18nc("@action:button", "Decrease playback rate")
             }
 
             Controls.Slider {
@@ -116,7 +116,7 @@ Kirigami.Dialog {
                 onClicked: rateSlider.value = Math.min(3.0, rateSlider.value + 0.05)
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                Controls.ToolTip.text: i18nc("@action:button", "Increase Playback Rate")
+                Controls.ToolTip.text: i18nc("@action:button", "Increase playback rate")
             }
         }
 

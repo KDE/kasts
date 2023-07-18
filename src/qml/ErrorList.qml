@@ -27,7 +27,7 @@ ListView {
         visible: errorList.count == 0
         anchors.centerIn: parent
 
-        text: i18n("No Errors Logged")
+        text: i18n("No errors logged")
     }
 
     Component {
@@ -63,7 +63,7 @@ ListView {
                         opacity: 1
                     }
                     Controls.Label {
-                        text: i18n("Error Code: ") + error.code + (error.message ? "  ·  " + error.message : "")
+                        text: i18n("Error code:") + " " + error.code + (error.message ? "  ·  " + error.message : "")
                         Layout.fillWidth: true
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont

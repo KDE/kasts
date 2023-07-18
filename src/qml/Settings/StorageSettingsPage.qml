@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
                     trailing: Controls.Button {
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         icon.name: "document-open-folder"
-                        text: i18n("Select folder...")
+                        text: i18n("Select Folder…")
                         enabled: !defaultStoragePath.checked
                         onClicked: storagePathDialog.open()
                     }
