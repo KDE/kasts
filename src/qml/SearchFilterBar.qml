@@ -38,7 +38,7 @@ Controls.Control {
         Kirigami.SearchField {
             Layout.fillWidth: true
             id: searchField
-            placeholderText: i18nc("@label:textbox Placeholder text for episode search field", "Search Episodes")
+            placeholderText: i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
             focus: true
             autoAccept: false
             onAccepted: {
@@ -88,7 +88,7 @@ Controls.Control {
 
             Controls.ToolTip.visible: hovered
             Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-            Controls.ToolTip.text: i18nc("@info:tooltip", "Filter Episodes by Status")
+            Controls.ToolTip.text: i18nc("@info:tooltip", "Filter episodes by status")
 
             onPressed: {
                 if (filterMenu.visible) {

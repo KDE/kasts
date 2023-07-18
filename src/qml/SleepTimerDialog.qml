@@ -56,7 +56,7 @@ Kirigami.Dialog {
         Controls.Label {
             opacity: (timerActive) ? 1 : 0.5
             Layout.bottomMargin: Kirigami.Units.largeSpacing
-            text: i18n("Remaining Time: %1", AudioManager.formattedRemainingSleepTime)
+            text: i18n("Remaining time: %1", AudioManager.formattedRemainingSleepTime)
         }
 
         RowLayout {

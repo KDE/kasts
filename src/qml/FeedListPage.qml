@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
         },
         Kirigami.Action {
             id: addAction
-            text: i18nc("@action:intoolbar", "Add Podcast...")
+            text: i18nc("@action:intoolbar", "Add Podcast…")
             icon.name: "list-add"
             onTriggered: {
                 addSheet.open()
@@ -59,13 +59,13 @@ Kirigami.ScrollablePage {
         },
         Kirigami.Action {
             id: importAction
-            text: i18nc("@action:intoolbar", "Import Podcasts...")
+            text: i18nc("@action:intoolbar", "Import Podcasts…")
             icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar", "Export Podcasts...")
+            text: i18nc("@action:intoolbar", "Export Podcasts…")
             icon.name: "document-export"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: exportDialog.open()

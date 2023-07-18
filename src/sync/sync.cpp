@@ -480,8 +480,8 @@ void Sync::savePasswordToFile(const QString &username, const QString &password)
                      passwordFile.fileName(),
                      QStringLiteral(""),
                      0,
-                     i18n("I/O Denied: Cannot save password."),
-                     i18n("I/O Denied: Cannot save password."));
+                     i18n("I/O denied: Cannot save password."),
+                     i18n("I/O denied: Cannot save password."));
         Q_EMIT passwordSaveFinished(false);
     } else {
         passwordFile.write(password.toUtf8());
@@ -561,8 +561,8 @@ QString Sync::retrievePasswordFromFile(const QString &username)
                      passwordFile.fileName(),
                      QStringLiteral(""),
                      0,
-                     i18n("I/O Denied: Cannot access password file."),
-                     i18n("I/O Denied: Cannot access password file."));
+                     i18n("I/O denied: Cannot access password file."),
+                     i18n("I/O denied: Cannot access password file."));
 
         return QStringLiteral("");
     }

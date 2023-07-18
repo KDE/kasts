@@ -329,7 +329,7 @@ Kirigami.ScrollablePage {
                         readOnly: true
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat:TextEdit.RichText
-                        text: isSubscribed ? i18n("Last Updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: isSubscribed ? i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                         color: Kirigami.Theme.textColor
                     }

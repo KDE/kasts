@@ -17,7 +17,7 @@ import org.kde.kmediasession 1.0
 Kirigami.ApplicationWindow {
     id: root
 
-    title: i18n("Example player KMediaSession")
+    title: i18n("Example KMediaSession Player")
 
     KMediaSession {
         id: audio
@@ -69,13 +69,13 @@ Kirigami.ApplicationWindow {
         RowLayout {
             Controls.Button {
                 icon.name: "document-open-folder"
-                text: i18n("Select file...")
+                text: i18n("Select File…")
                 onClicked: filePathDialog.open()
             }
 
             FileDialog {
                 id: filePathDialog
-                title: i18n("Select media file")
+                title: i18n("Select Media File")
                 currentFile: audio.source
                 onAccepted: {
                     audio.source = filePathDialog.file;
@@ -171,13 +171,13 @@ Kirigami.ApplicationWindow {
         }
         ColumnLayout {
             Controls.Label {
-                text: i18n("title: %1", audio.metaData.title)
+                text: i18n("Title: %1", audio.metaData.title)
             }
             Controls.Label {
-                text: i18n("artist: %1", audio.metaData.artist)
+                text: i18n("Artist: %1", audio.metaData.artist)
             }
             Controls.Label {
-                text: i18n("album: %1", audio.metaData.album)
+                text: i18n("Album: %1", audio.metaData.album)
             }
             Image {
                 fillMode: Image.PreserveAspectFit
@@ -188,13 +188,13 @@ Kirigami.ApplicationWindow {
         }
         ColumnLayout {
             Controls.Label {
-                text: i18n("mediaStatus: %1", audio.mediaStatus)
+                text: i18n("Media status: %1", audio.mediaStatus)
             }
             Controls.Label {
-                text: i18n("playbackStatus: %1", audio.playbackState)
+                text: i18n("Playback status: %1", audio.playbackState)
             }
             Controls.Label {
-                text: i18n("error: %1", audio.error)
+                text: i18n("Error: %1", audio.error)
             }
         }
     }
