@@ -24,11 +24,10 @@
   <name xml:lang="pl">Kasts</name>
   <name xml:lang="pt">Kasts</name>
   <name xml:lang="pt-BR">Kasts</name>
-  <name xml:lang="ru">Kasts</name>
   <name xml:lang="sk">Kasts</name>
   <name xml:lang="sl">Kasts</name>
   <name xml:lang="sv">Kasts</name>
-  <name xml:lang="tr">Kasts</name>
+  <name xml:lang="tr">Kastlar</name>
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
@@ -48,7 +47,6 @@
   <summary xml:lang="nl">Podcastprogramma</summary>
   <summary xml:lang="pl">Aplikacja do podkastów</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
-  <summary xml:lang="ru">Приложение для подкастов</summary>
   <summary xml:lang="sl">Aplikacija podcastov</summary>
   <summary xml:lang="sv">Poddradioprogram</summary>
   <summary xml:lang="tr">Pod yayını uygulaması</summary>
@@ -79,7 +77,6 @@
   <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">A Comunidade do KDE</developer_name>
   <developer_name xml:lang="pt-BR">A comunidade KDE</developer_name>
-  <developer_name xml:lang="ru">Сообщество KDE</developer_name>
   <developer_name xml:lang="sk">KDE Komunita</developer_name>
   <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
@@ -102,10 +99,9 @@
     <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
     <p xml:lang="pl">Kasts jest dostosowującą się aplikacją do podkastów, która wygląda dobrze na urządzeniach biurkowych i przenośnych.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
-    <p xml:lang="ru">Kasts — это универсальное приложение для подкастов, эффективно работающее как на компьютерах, так и на мобильных устройствах.</p>
     <p xml:lang="sl">Kasts je konvergentna aplikacija za podcaste za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
-    <p xml:lang="tr">Kasts, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir Podcast uygulamasıdır.</p>
+    <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
     <p xml:lang="x-test">xxKasts is a convergent podcast application that looks good on desktop and mobile.xx</p>
     <p>Its main features are:</p>
@@ -123,7 +119,6 @@
     <p xml:lang="nl">De hoofdkenmerken zijn:</p>
     <p xml:lang="pl">Jego głównymi cechami są:</p>
     <p xml:lang="pt">As suas funcionalidades principais são:</p>
-    <p xml:lang="ru">Его основные возможности:</p>
     <p xml:lang="sl">Njene glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
     <p xml:lang="tr">Temel özellikleri:</p>
@@ -145,7 +140,6 @@
       <li xml:lang="nl">Beheer van episoden via afspeelwachtrij</li>
       <li xml:lang="pl">Zarządzanie odcinkami poprzez kolejkę odtwarzania</li>
       <li xml:lang="pt">Gestão de episódios através da fila de reprodução</li>
-      <li xml:lang="ru">Управление эпизодами с помощью очереди воспроизведения;</li>
       <li xml:lang="sl">Upravljanje z epizodami prek čakalne vrste predvajanj</li>
       <li xml:lang="sv">Avsnittshantering via uppspelningskö</li>
       <li xml:lang="tr">Çalma kuyruğu üzerinden bölüm yönetimi</li>
@@ -165,7 +159,6 @@
       <li xml:lang="nl">Afspeelposities synchroniseren met andere clients via gpodder.net of gpodder-nextcloud</li>
       <li xml:lang="pl">Uwspólnianie postępu w odtwarzaniu z innymi programami przez gpodder.net lub gpodder-nextcloud</li>
       <li xml:lang="pt">Sincronizar as posições de reprodução com outros clientes através do gpodder.net ou do gpodder-nextcloud</li>
-      <li xml:lang="ru">Синхронизация позиций воспроизведения с другими клиентами с помощью gpodder.net или gpodder для Nextcloud;</li>
       <li xml:lang="sl">Sinhronizacija pozicij predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
       <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
@@ -186,7 +179,6 @@
       <li xml:lang="nl">Variabele afspeelsnelheid</li>
       <li xml:lang="pl">Zmienna szybkość odtwarzania</li>
       <li xml:lang="pt">Velocidade de reprodução variável</li>
-      <li xml:lang="ru">Настраиваемая скорость воспроизведения;</li>
       <li xml:lang="sl">Variabilna hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
       <li xml:lang="tr">Değişken çalma hızı</li>
@@ -207,7 +199,6 @@
       <li xml:lang="nl">Zoeken naar podcasts</li>
       <li xml:lang="pl">Poszukaj podkastów</li>
       <li xml:lang="pt">Procurar por 'podcasts'</li>
-      <li xml:lang="ru">Поиск по подкастам;</li>
       <li xml:lang="sl">Iskanje podkastov</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
       <li xml:lang="tr">Pod yayını arama</li>
@@ -228,7 +219,6 @@
       <li xml:lang="nl">Volledige systeemintegratie: bijv. het systeem niet uitschakelen tijdens luisteren</li>
       <li xml:lang="pl">Pełna integracja z systemem, tj. nie usypianie systemu podczas słuchania</li>
       <li xml:lang="pt">Integração total com o sistema: p.ex. inibir a suspensão do sistema enquanto escuta algo</li>
-      <li xml:lang="ru">Полная интеграция с системой: при воспроизведении подкастов работа системы не приостанавливается;</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
       <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu engelle</li>
@@ -258,9 +248,8 @@
       <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
-      <caption xml:lang="ru">Kasts на рабочем столе со стандартной панелью заголовка</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
-      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
@@ -278,9 +267,8 @@
       <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
-      <caption xml:lang="ru">Kasts на рабочем столе со свёрнутой панелью заголовка</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
-      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
@@ -304,10 +292,9 @@
       <caption xml:lang="pl">Kasts na telefonie</caption>
       <caption xml:lang="pt">O Kasts num telemóvel</caption>
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
-      <caption xml:lang="ru">Kasts на мобильном устройстве</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
-      <caption xml:lang="tr">Telefonda Kasts</caption>
+      <caption xml:lang="tr">Telefonda Kastlar</caption>
       <caption xml:lang="uk">Kasts на телефоні</caption>
       <caption xml:lang="x-test">xxKasts on a phonexx</caption>
       <caption xml:lang="zh-CN">在手机上运行的 Kasts</caption>
@@ -326,9 +313,8 @@
       <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
       <caption xml:lang="pl">Sterowanie Kastem na urządzeniach przenośnych</caption>
       <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
-      <caption xml:lang="ru">Управление мобильным проигрывателем Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
-      <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
+      <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
