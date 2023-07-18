@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:47+0000\n"
 "PO-Revision-Date: 2023-06-11 07:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1799,12 +1799,12 @@ msgstr "Impossibile recuperare la password per l'utente «%1» su «gpodder.net�
 msgid "Abort"
 msgstr "Interrompi"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Vecchia posizione:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Nuova posizione:"
@@ -1819,7 +1819,7 @@ msgstr "Percorso di destinazione non scrivibile"
 msgid "Operation aborted by user"
 msgstr "L'operazione interrotta dall'utente"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "Si è verificato un errore durante la copia dei dati"

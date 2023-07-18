@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:47+0000\n"
 "PO-Revision-Date: 2023-06-10 17:23+0200\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1796,12 +1796,12 @@ msgstr ""
 msgid "Abort"
 msgstr "Interromp"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Ubicació antiga:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Ubicació nova:"
@@ -1816,7 +1816,7 @@ msgstr "No es pot escriure en el camí de destinació"
 msgid "Operation aborted by user"
 msgstr "L'operació ha sigut interrompuda per l'usuari"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "S'ha produït un error en copiar les dades"

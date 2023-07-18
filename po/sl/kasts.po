@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:47+0000\n"
 "PO-Revision-Date: 2023-06-10 06:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1798,12 +1798,12 @@ msgstr ""
 msgid "Abort"
 msgstr "Prekini"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Stara lokacija:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Nova lokacija:"
@@ -1818,7 +1818,7 @@ msgstr "Ciljna pot ne dovoli pisanja"
 msgid "Operation aborted by user"
 msgstr "Operacijo je prekinil uporabnik"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "Prišlo je do napake pri kopiranju podatkov"

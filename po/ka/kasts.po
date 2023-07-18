@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:47+0000\n"
 "PO-Revision-Date: 2023-06-11 06:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1783,12 +1783,12 @@ msgstr "\"gpodder.net\"-დან მომხმარებლისთვი�
 msgid "Abort"
 msgstr "შეწყვეტა"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "ძველი მდებარეობა:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "ახალი მდებარეობა:"
@@ -1803,7 +1803,7 @@ msgstr "სამიზნე ბილიკი ჩაწერადი არ
 msgid "Operation aborted by user"
 msgstr "ოპერაცია გაუქმებულია მომხმარებლის მიერ"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "შეცდომა მონაცემების კოპირებისას"
