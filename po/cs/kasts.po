@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-19 04:12+0000\n"
 "PO-Revision-Date: 2023-06-23 10:06+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1775,12 +1775,12 @@ msgstr ""
 msgid "Abort"
 msgstr "Přerušit"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Staré umístění:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Nové umístění:"
@@ -1795,7 +1795,7 @@ msgstr "Do cíle nelze zapisovat"
 msgid "Operation aborted by user"
 msgstr "Operace byla přerušena uživatelem"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "Během kopírování dat došlo k chybě."

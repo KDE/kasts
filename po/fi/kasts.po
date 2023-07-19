@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-19 04:12+0000\n"
 "PO-Revision-Date: 2023-06-27 17:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1785,12 +1785,12 @@ msgstr "Käyttäjän ”%1” salasanaa gpodder.netissä ei saatu."
 msgid "Abort"
 msgstr "Keskeytä"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Aiempi sijainti:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Uusi sijainti:"
@@ -1805,7 +1805,7 @@ msgstr "Kohdesijaintiin ei voi kirjoittaa"
 msgid "Operation aborted by user"
 msgstr "Käyttäjä keskeytti toimenpiteen"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "Tietoa kopioitaessa tapahtui virhe"

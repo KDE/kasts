@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
-"PO-Revision-Date: 2023-06-10 11:46+0300\n"
+"POT-Creation-Date: 2023-07-19 04:12+0000\n"
+"PO-Revision-Date: 2023-07-19 01:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -45,7 +45,7 @@ msgstr "Kullanıcı ayarlarından dolayı pod yayını indirmelerine izin verilm
 #: enclosuredownloadjob.cpp:33
 #, kde-format
 msgid "Downloading %1"
-msgstr "%1 indiriliyor"
+msgstr "İndiriliyor: %1"
 
 #: error.cpp:48
 #, kde-format
@@ -70,7 +70,7 @@ msgstr "Geçersiz Ortam Dosyası"
 #: error.cpp:56
 #, kde-format
 msgid "Nothing Found"
-msgstr "Bir Şey Bulunmadı"
+msgstr "Bulunan Bir Şey Yok"
 
 #: error.cpp:58
 #, kde-format
@@ -419,7 +419,7 @@ msgstr "podcastindex.org aranıyor"
 #: qml/DiscoverPage.qml:32
 #, kde-format
 msgid "Search"
-msgstr "Arama"
+msgstr "Ara"
 
 #: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
 #, kde-format
@@ -901,7 +901,7 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr "Akışı Başlat"
+msgstr "Akışı başlat"
 
 #: qml/GenericEntryListView.qml:128
 #, kde-format
@@ -1606,8 +1606,8 @@ msgid ""
 "interface and use those credentials."
 msgstr ""
 "GPodder Sync uygulaması kurulu bir Nextcloud sunucusu ile eşzamanla: %1.<br/"
-">Web arabiriminden Kastlar'a özel bir uygulama parolası oluturulması ve onun "
-"kullanılması önerilir."
+">Web arabiriminden Kastlar'a özel bir uygulama parolası oluşturulması ve "
+"onun kullanılması önerilir."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
@@ -1740,7 +1740,7 @@ msgstr "Durum: Etkin"
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr "Durum: Devre Dışı"
+msgstr "Durum: Devre dışı"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
@@ -1785,12 +1785,12 @@ msgstr "\"gpodder.net\" üzerindeki \"%1\" kullanıcısının parolası alınama
 msgid "Abort"
 msgstr "İptal Et"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "Eski konum:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "Yeni konum:"
@@ -1805,7 +1805,7 @@ msgstr "Hedef konumu yazılabilir değil"
 msgid "Operation aborted by user"
 msgstr "İşlem kullanıcı tarafından iptal edildi"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "Veri kopyalanırken bir hata oluştu"

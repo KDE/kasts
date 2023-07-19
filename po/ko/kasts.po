@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-19 04:12+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -1874,12 +1874,12 @@ msgstr "\"gpodder.net\"의 사용자 \"%1\"의 암호를 가져올 수 없습니
 msgid "Abort"
 msgstr "중단"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
 msgstr "이전 위치:"
 
-#: storagemanager.cpp:83
+#: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
 msgstr "새 위치:"
@@ -1894,7 +1894,7 @@ msgstr "대상 경로에 쓸 수 없음"
 msgid "Operation aborted by user"
 msgstr "사용자가 작업을 중단함"
 
-#: storagemovejob.cpp:106
+#: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
 msgstr "데이터를 복사하는 중 오류 발생"
