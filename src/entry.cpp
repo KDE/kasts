@@ -438,11 +438,11 @@ bool Entry::hasEnclosure() const
 
 QString Entry::image() const
 {
-    if (!m_image.isEmpty()) {
-        return m_image;
-    } else if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
+    if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
         // use embedded image if available
         return m_enclosure->cachedEmbeddedImage();
+    } else if (!m_image.isEmpty()) {
+        return m_image;
     } else {
         // else fall back to feed image
         return m_feed->image();
@@ -451,16 +451,17 @@ QString Entry::image() const
 
 QString Entry::cachedImage() const
 {
-    // First check for the feed image, fall back if needed
+    // First check for an image in the downloaded file
+    if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
+        // use embedded image if available
+        return m_enclosure->cachedEmbeddedImage();
+    }
+
+    // Then check for the entry image, fall back if needed to feed image
     QString image = m_image;
     if (image.isEmpty()) {
-        if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
-            // use embedded image if available
-            return m_enclosure->cachedEmbeddedImage();
-        } else {
-            // else fall back to feed image
-            image = m_feed->image();
-        }
+        // else fall back to feed image
+        image = m_feed->image();
     }
 
     return Fetcher::instance().image(image);
