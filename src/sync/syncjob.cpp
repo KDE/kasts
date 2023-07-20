@@ -881,41 +881,41 @@ QString SyncJob::getProgressMessage(SyncJobStatus status) const
 
     switch (status) {
     case Started:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Start Syncing", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Start sync", processed, total);
         break;
     case SubscriptionDownload:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Requesting Remote Subscription Updates", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote subscription updates", processed, total);
         break;
     case SubscriptionUpload:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Uploading Local Subscription Updates", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local subscription updates", processed, total);
         break;
     case SubscriptionFetch:
-        return i18ncp("Step in Subscription and Episode Syncing Progress",
-                      "(Step %3 of %4) Updated %2 of %1 Podcast",
-                      "(Step %3 of %4) Updated %2 of %1 Podcasts",
+        return i18ncp("Subscription/Episode sync progress step",
+                      "(Step %3 of %4) Updated %2 of %1 podcast",
+                      "(Step %3 of %4) Updated %2 of %1 podcasts",
                       m_feedUpdateTotal,
                       m_feedUpdateProgress,
                       processed,
                       total);
         break;
     case EpisodeDownload:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Requesting Remote Episode Updates", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote episode updates", processed, total);
         break;
     case ApplyEpisodeActions:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Applying Remote Episode Changes", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Applying remote episode changes", processed, total);
         break;
     case EpisodeUpload:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Uploading Local Episode Updates", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local episode updates", processed, total);
         break;
     case Finished:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "(Step %1 of %2) Finished Syncing", processed, total);
+        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Finished sync", processed, total);
         break;
     case Aborted:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "Sync Aborted");
+        return i18nc("Subscription/Episode sync progress step", "Sync aborted");
         break;
     case Error:
     default:
-        return i18nc("Step in Subscription and Episode Syncing Progress", "Sync finished with Error");
+        return i18nc("Subscription/Episode sync progress step", "Sync finished with error");
         break;
     }
 }
