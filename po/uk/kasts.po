@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:47+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2023-06-10 08:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -93,18 +93,22 @@ msgstr ""
 "передавання даних заборонено"
 
 #: kmediasession/example-app/qml/main.qml:20
-#, kde-format
-msgid "Example player KMediaSession"
+#, fuzzy, kde-format
+#| msgid "Example player KMediaSession"
+msgid "Example KMediaSession Player"
 msgstr "Приклад програвача KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, kde-format
-msgid "Select file..."
-msgstr "Вибір файла…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Select Filter"
+msgid "Select File…"
+msgstr "Вибрати теку"
 
 #: kmediasession/example-app/qml/main.qml:78
-#, kde-format
-msgid "Select media file"
+#, fuzzy, kde-format
+#| msgid "Select media file"
+msgid "Select Media File"
 msgstr "Виберіть файл мультимедійних даних"
 
 #: kmediasession/example-app/qml/main.qml:85
@@ -140,33 +144,39 @@ msgid "Mute"
 msgstr "Вимкнути звук"
 
 #: kmediasession/example-app/qml/main.qml:174
-#, kde-format
-msgid "title: %1"
+#, fuzzy, kde-format
+#| msgid "title: %1"
+msgid "Title: %1"
 msgstr "назва: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
-#, kde-format
-msgid "artist: %1"
+#, fuzzy, kde-format
+#| msgid "artist: %1"
+msgid "Artist: %1"
 msgstr "виконавець: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
-#, kde-format
-msgid "album: %1"
+#, fuzzy, kde-format
+#| msgid "album: %1"
+msgid "Album: %1"
 msgstr "альбом: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
-#, kde-format
-msgid "mediaStatus: %1"
+#, fuzzy, kde-format
+#| msgid "mediaStatus: %1"
+msgid "Media status: %1"
 msgstr "Стан даних: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, kde-format
-msgid "playbackStatus: %1"
+#, fuzzy, kde-format
+#| msgid "playbackStatus: %1"
+msgid "Playback status: %1"
 msgstr "Стан відтворення: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, kde-format
-msgid "error: %1"
+#, fuzzy, kde-format
+#| msgid "error: %1"
+msgid "Error: %1"
 msgstr "помилка: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
@@ -191,7 +201,7 @@ msgstr "Додає новий трансляцію до підписок."
 msgid "Podcast URL"
 msgstr "Адреса трансляції"
 
-#: main.cpp:121
+#: main.cpp:121 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
@@ -202,8 +212,9 @@ msgid "Podcast Player"
 msgstr "Програвач трансляцій"
 
 #: main.cpp:125
-#, kde-format
-msgid "© 2020-2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2020-2023 KDE Community"
+msgid "© 2020–2023 KDE Community"
 msgstr "© Спільнота KDE, 2020–2023"
 
 #: main.cpp:126
@@ -217,21 +228,27 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "No Filter"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "No Filter"
+msgid "No filter"
 msgstr "Без фільтрування"
 
 #: models/abstractepisodeproxymodel.cpp:161
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Played Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "Played Episodes"
+msgid "Played episodes"
 msgstr "Відтворені епізоди"
 
 #: models/abstractepisodeproxymodel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "Unplayed Episodes"
+msgid "Unplayed episodes"
 msgstr "Невідтворені епізоди"
 
 #: models/abstractepisodeproxymodel.cpp:165
@@ -271,9 +288,11 @@ msgid "Description"
 msgstr "Опис"
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of fields to search for string"
+#| msgid "Podcast Title"
 msgctxt "@label:chooser Choice of fields to search for string"
-msgid "Podcast Title"
+msgid "Podcast title"
 msgstr "Заголовок трансляції"
 
 #: qml/AddFeedSheet.qml:21
@@ -319,61 +338,75 @@ msgid "Always Allow"
 msgstr "Завжди дозволяти"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, kde-format
-msgid "Seek Backward"
+#, fuzzy, kde-format
+#| msgid "Seek Backward"
+msgid "Seek backward"
 msgstr "Перемотати назад"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, kde-format
-msgid "Seek Forward"
+#, fuzzy, kde-format
+#| msgid "Seek Forward"
+msgid "Seek forward"
 msgstr "Перемотати вперед"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, kde-format
-msgid "Skip Forward"
+#, fuzzy, kde-format
+#| msgid "Skip Forward"
+msgid "Skip forward"
 msgstr "Гортати вперед"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, kde-format
-msgid "Playback Rate: "
+#, fuzzy, kde-format
+#| msgid "Playback Rate: "
+msgid "Playback rate:"
 msgstr "Швидкість відтворення: "
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Chapter List"
 msgctxt "@action:button"
-msgid "Show Chapter List"
+msgid "Show chapter list"
 msgstr "Показати список глав"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Episode Info"
 msgctxt "@action:button"
-msgid "Show Episode Info"
+msgid "Show episode info"
 msgstr "Показати відомості щодо епізоду"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Sleep Timer Settings"
 msgctxt "@action:button"
-msgid "Open Sleep Timer Settings"
+msgid "Open sleep timer settings"
 msgstr "Відкрити параметри таймера приспляння"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Volume Settings"
 msgctxt "@action:button"
-msgid "Open Volume Settings"
+msgid "Open volume settings"
 msgstr "Відкрити параметри гучності"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Toggle Mute"
 msgctxt "@action:button"
-msgid "Toggle Mute"
+msgid "Toggle mute"
 msgstr "Увімкнути або вимкнути звук"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show More"
 msgctxt "@action:button"
-msgid "Show More"
+msgid "Show more"
 msgstr "Докладніше"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
@@ -610,13 +643,15 @@ msgid "No Episodes Available"
 msgstr "Немає доступних епізодів"
 
 #: qml/ErrorList.qml:30
-#, kde-format
-msgid "No Errors Logged"
+#, fuzzy, kde-format
+#| msgid "No Errors Logged"
+msgid "No errors logged"
 msgstr "У журналі немає записів помилок"
 
 #: qml/ErrorList.qml:66
-#, kde-format
-msgid "Error Code: "
+#, fuzzy, kde-format
+#| msgid "Error Code: "
+msgid "Error code:"
 msgstr "Код помилки:"
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
@@ -674,8 +709,9 @@ msgid "Subscribed since: %1"
 msgstr "Дата підписки: %1"
 
 #: qml/FeedDetailsPage.qml:332
-#, kde-format
-msgid "Last Updated: %1"
+#, fuzzy, kde-format
+#| msgid "Last Updated: %1"
+msgid "Last updated: %1"
 msgstr "Востаннє оновлено: %1"
 
 #: qml/FeedDetailsPage.qml:345
@@ -725,22 +761,27 @@ msgid "Refresh All Podcasts"
 msgstr "Оновити усі трансляції"
 
 #: qml/FeedListPage.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add Podcast"
 msgctxt "@action:intoolbar"
-msgid "Add Podcast..."
-msgstr "Додати трансляцію…"
+msgid "Add Podcast…"
+msgstr "Додати трансляцію"
 
 #: qml/FeedListPage.qml:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Import Podcasts"
 msgctxt "@action:intoolbar"
-msgid "Import Podcasts..."
-msgstr "Імпортувати трансляції…"
+msgid "Import Podcasts…"
+msgstr "Імпортування трансляцій"
 
 #: qml/FeedListPage.qml:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Export Podcasts"
 msgctxt "@action:intoolbar"
-msgid "Export Podcasts..."
-msgstr "Експортувати трансляції…"
+msgid "Export Podcasts…"
+msgstr "Експортування трансляцій"
 
 #: qml/FeedListPage.qml:92
 #, kde-format
@@ -837,10 +878,11 @@ msgid "Reset"
 msgstr "Скинути"
 
 #: qml/FilterInlineMessage.qml:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "title: %1"
 msgctxt "@info:status Name of the filter which is active on the ListView"
-msgid "Filter Active: %1"
-msgstr "Активний фільтр: %1"
+msgid "Active filter: %1"
+msgstr "назва: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -1036,6 +1078,18 @@ msgstr "Немає заголовка трансляції"
 msgid "No chapters found."
 msgstr "Глав не знайдено."
 
+#: qml/Mobile/MobilePlayerControls.qml:345
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Volume Settings"
+msgstr "Відкрити параметри гучності"
+
+#: qml/Mobile/MobilePlayerControls.qml:375
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle Mute"
+msgstr "Увімкнути або вимкнути звук"
+
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
@@ -1061,15 +1115,19 @@ msgid "Add new playback rate value to list"
 msgstr "Додати до списку нове значення швидкості відтворення"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Decrease Playback Rate"
 msgctxt "@action:button"
-msgid "Decrease Playback Rate"
+msgid "Decrease playback rate"
 msgstr "Зменшити швидкість відтворення"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Increase Playback Rate"
 msgctxt "@action:button"
-msgid "Increase Playback Rate"
+msgid "Increase playback rate"
 msgstr "Збільшити швидкість відтворення"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
@@ -1119,9 +1177,11 @@ msgid "Time Left"
 msgstr "Лишилося часу"
 
 #: qml/SearchFilterBar.qml:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Placeholder text for episode search field"
+#| msgid "Search Episodes"
 msgctxt "@label:textbox Placeholder text for episode search field"
-msgid "Search Episodes"
+msgid "Search episodes…"
 msgstr "Шукати епізоди"
 
 #: qml/SearchFilterBar.qml:86
@@ -1133,9 +1193,11 @@ msgid "Filter"
 msgstr "Фільтрувати"
 
 #: qml/SearchFilterBar.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter Episodes by Status"
 msgctxt "@info:tooltip"
-msgid "Filter Episodes by Status"
+msgid "Filter episodes by status"
 msgstr "Фільтрувати епізоди за станом"
 
 #: qml/SearchFilterBar.qml:129
@@ -1204,17 +1266,23 @@ msgid "Playback settings"
 msgstr "Параметри відтворення"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Label for setting to select audio playback backend"
+#| msgid "Select Audio Backend"
 msgctxt "Label for setting to select audio playback backend"
-msgid "Select Audio Backend"
+msgid "Select audio backend"
 msgstr "Виберіть звуковий модуль"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Label for settings related to the play time, e.g. whether the total track "
+#| "time is shown or a countdown of the remaining play time"
+#| msgid "Play Time:"
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
-msgid "Play Time:"
+msgid "Play time:"
 msgstr "Час відтворення:"
 
 #: qml/Settings/GeneralSettingsPage.qml:144
@@ -1286,18 +1354,21 @@ msgid "Played episode behavior"
 msgstr "Обробка відтворених епізодів"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, kde-format
-msgid "Do Not Delete"
+#, fuzzy, kde-format
+#| msgid "Do Not Delete"
+msgid "Do not delete"
 msgstr "Не вилучати"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, kde-format
-msgid "Delete Immediately"
+#, fuzzy, kde-format
+#| msgid "Delete Immediately"
+msgid "Delete immediately"
 msgstr "Вилучити негайно"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, kde-format
-msgid "Delete at Next Startup"
+#, fuzzy, kde-format
+#| msgid "Delete at Next Startup"
+msgid "Delete at next startup"
 msgstr "Вилучити під час наступного запуску"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
@@ -1420,9 +1491,11 @@ msgid "Storage path"
 msgstr "Шлях зберігання"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, kde-format
-msgid "Select folder..."
-msgstr "Вибрати теку…"
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "Select Filter"
+msgid "Select Folder…"
+msgstr "Вибрати теку"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1767,8 +1840,9 @@ msgid "Status: Inactive"
 msgstr "Стан: неактивний"
 
 #: qml/SleepTimerDialog.qml:59
-#, kde-format
-msgid "Remaining Time: %1"
+#, fuzzy, kde-format
+#| msgid "Remaining Time: %1"
+msgid "Remaining time: %1"
 msgstr "Лишилося: %1"
 
 #: qml/SleepTimerDialog.qml:76
@@ -1858,13 +1932,15 @@ msgid "Could not log into GPodder server"
 msgstr "Не вдалося увійти до сервера GPodder"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, kde-format
-msgid "I/O Denied: Cannot save password."
+#, fuzzy, kde-format
+#| msgid "I/O Denied: Cannot save password."
+msgid "I/O denied: Cannot save password."
 msgstr "Заборонено введення-виведення: не вдалося зберегти пароль."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, kde-format
-msgid "I/O Denied: Cannot access password file."
+#, fuzzy, kde-format
+#| msgid "I/O Denied: Cannot access password file."
+msgid "I/O denied: Cannot access password file."
 msgstr ""
 "Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
 
@@ -2012,6 +2088,28 @@ msgstr "Перемотати вперед"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Select file..."
+#~ msgstr "Вибір файла…"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add Podcast..."
+#~ msgstr "Додати трансляцію…"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Import Podcasts..."
+#~ msgstr "Імпортувати трансляції…"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Export Podcasts..."
+#~ msgstr "Експортувати трансляції…"
+
+#~ msgctxt "@info:status Name of the filter which is active on the ListView"
+#~ msgid "Filter Active: %1"
+#~ msgstr "Активний фільтр: %1"
+
+#~ msgid "Select folder..."
+#~ msgstr "Вибрати теку…"
 
 #~ msgctxt "@action:intoolbar"
 #~ msgid "Add Podcast"

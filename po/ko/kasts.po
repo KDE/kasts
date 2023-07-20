@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:47+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 16:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -90,19 +90,19 @@ msgstr "종량제 연결에서 업데이트가 허용되지 않음"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
-msgid "Example player KMediaSession"
+msgid "Example KMediaSession Player"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:72
 #, fuzzy, kde-format
-#| msgid "Select folder..."
-msgid "Select file..."
-msgstr "폴더 선택..."
+#| msgid "Select Filter"
+msgid "Select File…"
+msgstr "필터 선택"
 
 #: kmediasession/example-app/qml/main.qml:78
 #, fuzzy, kde-format
 #| msgid "Select Filter"
-msgid "Select media file"
+msgid "Select Media File"
 msgstr "필터 선택"
 
 #: kmediasession/example-app/qml/main.qml:85
@@ -139,35 +139,36 @@ msgid "Mute"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:174
-#, kde-format
-msgid "title: %1"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "No Title"
+msgid "Title: %1"
+msgstr "제목 없음"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
-msgid "artist: %1"
+msgid "Artist: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
-msgid "album: %1"
+msgid "Album: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
-msgid "mediaStatus: %1"
+msgid "Media status: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:194
 #, fuzzy, kde-format
 #| msgid "Playback Rate: "
-msgid "playbackStatus: %1"
+msgid "Playback status: %1"
 msgstr "재생 속도:"
 
 #: kmediasession/example-app/qml/main.qml:197
 #, fuzzy, kde-format
 #| msgid "Error (%1): %2"
-msgid "error: %1"
+msgid "Error: %1"
 msgstr "오류(%1): %2"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
@@ -194,7 +195,7 @@ msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:121
+#: main.cpp:121 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
@@ -207,7 +208,7 @@ msgstr "팟캐스트 재생기"
 #: main.cpp:125
 #, fuzzy, kde-format
 #| msgid "© 2020-2022 KDE Community"
-msgid "© 2020-2023 KDE Community"
+msgid "© 2020–2023 KDE Community"
 msgstr "© 2020-2022 KDE Community"
 
 #: main.cpp:126
@@ -224,21 +225,21 @@ msgstr "Bart De Vries"
 #, fuzzy, kde-format
 #| msgid "No Filter"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "No Filter"
+msgid "No filter"
 msgstr "필터 없음"
 
 #: models/abstractepisodeproxymodel.cpp:161
 #, fuzzy, kde-format
 #| msgid "Played Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "Played Episodes"
+msgid "Played episodes"
 msgstr "재생한 에피소드"
 
 #: models/abstractepisodeproxymodel.cpp:163
 #, fuzzy, kde-format
 #| msgid "Unplayed Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
-msgid "Unplayed Episodes"
+msgid "Unplayed episodes"
 msgstr "재생하지 않은 에피소드"
 
 #: models/abstractepisodeproxymodel.cpp:165
@@ -287,7 +288,7 @@ msgstr "구독"
 #, fuzzy, kde-format
 #| msgid "No Podcast Title"
 msgctxt "@label:chooser Choice of fields to search for string"
-msgid "Podcast Title"
+msgid "Podcast title"
 msgstr "팟캐스트 재생기"
 
 #: qml/AddFeedSheet.qml:21
@@ -331,66 +332,68 @@ msgid "Always Allow"
 msgstr "항상 허용"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, kde-format
-msgid "Seek Backward"
+#, fuzzy, kde-format
+#| msgid "Seek Backward"
+msgid "Seek backward"
 msgstr "되감기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, kde-format
-msgid "Seek Forward"
+#, fuzzy, kde-format
+#| msgid "Seek Forward"
+msgid "Seek forward"
 msgstr "빨리 감기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, kde-format
-msgid "Skip Forward"
+#, fuzzy, kde-format
+#| msgid "Skip Forward"
+msgid "Skip forward"
 msgstr "앞으로 건너뛰기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, kde-format
-msgid "Playback Rate: "
+#, fuzzy, kde-format
+#| msgid "Playback Rate: "
+msgid "Playback rate:"
 msgstr "재생 속도:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
 #, fuzzy, kde-format
 #| msgid "Chapters"
 msgctxt "@action:button"
-msgid "Show Chapter List"
+msgid "Show chapter list"
 msgstr "챕터"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
 #, fuzzy, kde-format
 #| msgid "No New Episodes"
 msgctxt "@action:button"
-msgid "Show Episode Info"
+msgid "Show episode info"
 msgstr "새 에피소드"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
-msgid "Open Sleep Timer Settings"
+msgid "Open sleep timer settings"
 msgstr "일반 설정"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
-msgid "Open Volume Settings"
+msgid "Open volume settings"
 msgstr "일반 설정"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
-#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
-msgid "Toggle Mute"
+msgid "Toggle mute"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
 #, fuzzy, kde-format
 #| msgid "Show Error Log"
 msgctxt "@action:button"
-msgid "Show More"
+msgid "Show more"
 msgstr "오류 로그 표시"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
@@ -648,13 +651,15 @@ msgid "No Episodes Available"
 msgstr "에피소드 없음"
 
 #: qml/ErrorList.qml:30
-#, kde-format
-msgid "No Errors Logged"
+#, fuzzy, kde-format
+#| msgid "No Errors Logged"
+msgid "No errors logged"
 msgstr "기록된 오류 없음"
 
 #: qml/ErrorList.qml:66
-#, kde-format
-msgid "Error Code: "
+#, fuzzy, kde-format
+#| msgid "Error Code: "
+msgid "Error code:"
 msgstr "오류 코드: "
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
@@ -714,8 +719,9 @@ msgid "Subscribed since: %1"
 msgstr "구독 시작: %1"
 
 #: qml/FeedDetailsPage.qml:332
-#, kde-format
-msgid "Last Updated: %1"
+#, fuzzy, kde-format
+#| msgid "Last Updated: %1"
+msgid "Last updated: %1"
 msgstr "마지막 업데이트: %1"
 
 #: qml/FeedDetailsPage.qml:345
@@ -765,22 +771,22 @@ msgstr "모든 팟캐스트 새로 고침"
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgctxt "@action:intoolbar"
-msgid "Add Podcast..."
+msgid "Add Podcast…"
 msgstr "팟캐스트 추가"
 
 #: qml/FeedListPage.qml:62
 #, fuzzy, kde-format
-#| msgid "Import Podcasts..."
+#| msgid "Import Podcasts"
 msgctxt "@action:intoolbar"
-msgid "Import Podcasts..."
-msgstr "팟캐스트 가져오기..."
+msgid "Import Podcasts…"
+msgstr "팟캐스트 가져오기"
 
 #: qml/FeedListPage.qml:68
 #, fuzzy, kde-format
-#| msgid "Export Podcasts..."
+#| msgid "Export Podcasts"
 msgctxt "@action:intoolbar"
-msgid "Export Podcasts..."
-msgstr "팟캐스트 내보내기..."
+msgid "Export Podcasts…"
+msgstr "팟캐스트 내보내기"
 
 #: qml/FeedListPage.qml:92
 #, fuzzy, kde-format
@@ -888,11 +894,10 @@ msgid "Reset"
 msgstr "초기화"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "Filter Active: "
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
-msgid "Filter Active: %1"
-msgstr "필터 활성:"
+msgid "Active filter: %1"
+msgstr ""
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -1079,6 +1084,19 @@ msgstr "팟캐스트 재생기"
 msgid "No chapters found."
 msgstr "챕터를 찾을 수 없습니다."
 
+#: qml/Mobile/MobilePlayerControls.qml:345
+#, fuzzy, kde-format
+#| msgid "General Settings"
+msgctxt "@action:button"
+msgid "Open Volume Settings"
+msgstr "일반 설정"
+
+#: qml/Mobile/MobilePlayerControls.qml:375
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle Mute"
+msgstr ""
+
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Playback Rate: "
@@ -1108,14 +1126,14 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Set Playback Rate"
 msgctxt "@action:button"
-msgid "Decrease Playback Rate"
+msgid "Decrease playback rate"
 msgstr "재생 속도 설정"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
 #, fuzzy, kde-format
 #| msgid "Set Playback Rate"
 msgctxt "@action:button"
-msgid "Increase Playback Rate"
+msgid "Increase playback rate"
 msgstr "재생 속도 설정"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
@@ -1171,7 +1189,7 @@ msgstr "남은 시간"
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgctxt "@label:textbox Placeholder text for episode search field"
-msgid "Search Episodes"
+msgid "Search episodes…"
 msgstr "새 에피소드"
 
 #: qml/SearchFilterBar.qml:86
@@ -1186,7 +1204,7 @@ msgstr "필터"
 #: qml/SearchFilterBar.qml:91
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Filter Episodes by Status"
+msgid "Filter episodes by status"
 msgstr ""
 
 #: qml/SearchFilterBar.qml:129
@@ -1260,7 +1278,7 @@ msgstr "재생 설정"
 #, fuzzy, kde-format
 #| msgid "Select Option"
 msgctxt "Label for setting to select audio playback backend"
-msgid "Select Audio Backend"
+msgid "Select audio backend"
 msgstr "옵션 선택"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1269,7 +1287,7 @@ msgstr "옵션 선택"
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
-msgid "Play Time:"
+msgid "Play time:"
 msgstr "재생됨"
 
 #: qml/Settings/GeneralSettingsPage.qml:144
@@ -1346,18 +1364,21 @@ msgid "Played episode behavior"
 msgstr "재생한 에피소드"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, kde-format
-msgid "Do Not Delete"
+#, fuzzy, kde-format
+#| msgid "Do Not Delete"
+msgid "Do not delete"
 msgstr "삭제 안 함"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, kde-format
-msgid "Delete Immediately"
+#, fuzzy, kde-format
+#| msgid "Delete Immediately"
+msgid "Delete immediately"
 msgstr "즉시 삭제"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, kde-format
-msgid "Delete at Next Startup"
+#, fuzzy, kde-format
+#| msgid "Delete at Next Startup"
+msgid "Delete at next startup"
 msgstr "다음에 시작할 때 삭제"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
@@ -1483,9 +1504,10 @@ msgid "Storage path"
 msgstr "저장 경로:"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, kde-format
-msgid "Select folder..."
-msgstr "폴더 선택..."
+#, fuzzy, kde-format
+#| msgid "Select Filter"
+msgid "Select Folder…"
+msgstr "필터 선택"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1833,8 +1855,9 @@ msgid "Status: Inactive"
 msgstr "상태: 비활성"
 
 #: qml/SleepTimerDialog.qml:59
-#, kde-format
-msgid "Remaining Time: %1"
+#, fuzzy, kde-format
+#| msgid "Remaining Time: %1"
+msgid "Remaining time: %1"
 msgstr "남은 시간: %1"
 
 #: qml/SleepTimerDialog.qml:76
@@ -1923,13 +1946,15 @@ msgid "Could not log into GPodder server"
 msgstr "GPodder 서버에 연결할 수 없음"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, kde-format
-msgid "I/O Denied: Cannot save password."
+#, fuzzy, kde-format
+#| msgid "I/O Denied: Cannot save password."
+msgid "I/O denied: Cannot save password."
 msgstr "I/O 거부됨: 암호를 저장할 수 없습니다."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, kde-format
-msgid "I/O Denied: Cannot access password file."
+#, fuzzy, kde-format
+#| msgid "I/O Denied: Cannot access password file."
+msgid "I/O denied: Cannot access password file."
 msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
 
 #: sync/sync.cpp:637
@@ -2078,6 +2103,38 @@ msgstr "앞으로 건너뛰기"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Select folder..."
+#~ msgid "Select file..."
+#~ msgstr "폴더 선택..."
+
+#, fuzzy
+#~| msgid "Add Podcast"
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add Podcast..."
+#~ msgstr "팟캐스트 추가"
+
+#, fuzzy
+#~| msgid "Import Podcasts..."
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Import Podcasts..."
+#~ msgstr "팟캐스트 가져오기..."
+
+#, fuzzy
+#~| msgid "Export Podcasts..."
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Export Podcasts..."
+#~ msgstr "팟캐스트 내보내기..."
+
+#, fuzzy
+#~| msgid "Filter Active: "
+#~ msgctxt "@info:status Name of the filter which is active on the ListView"
+#~ msgid "Filter Active: %1"
+#~ msgstr "필터 활성:"
+
+#~ msgid "Select folder..."
+#~ msgstr "폴더 선택..."
 
 #, fuzzy
 #~| msgid "Add Podcast"
