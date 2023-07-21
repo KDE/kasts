@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-20 02:44+0000\n"
-"PO-Revision-Date: 2023-07-19 01:19+0300\n"
+"PO-Revision-Date: 2023-07-20 12:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -88,23 +88,19 @@ msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "Kısıtlı Bağlantıda Bağlantıya veya Akışa İzin Verilmiyor"
 
 #: kmediasession/example-app/qml/main.qml:20
-#, fuzzy, kde-format
-#| msgid "Example player KMediaSession"
+#, kde-format
 msgid "Example KMediaSession Player"
-msgstr "Örnek oynatıcı KMediaSession"
+msgstr "Örnek KMediaSession Çaları"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select File…"
-msgstr "Süzgeç Seç"
+msgstr "Dosya Seç…"
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select media file"
+#, kde-format
 msgid "Select Media File"
-msgstr "Ortam dosyası seç"
+msgstr "Ortam Dosyası Seç"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
@@ -139,40 +135,34 @@ msgid "Mute"
 msgstr "Sessize Al"
 
 #: kmediasession/example-app/qml/main.qml:174
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgid "Title: %1"
-msgstr "başlık: %1"
+msgstr "Başlık: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
-#, fuzzy, kde-format
-#| msgid "artist: %1"
+#, kde-format
 msgid "Artist: %1"
-msgstr "sanatçı: %1"
+msgstr "Sanatçı: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
-#, fuzzy, kde-format
-#| msgid "album: %1"
+#, kde-format
 msgid "Album: %1"
-msgstr "albüm: %1"
+msgstr "Albüm: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
-#, fuzzy, kde-format
-#| msgid "mediaStatus: %1"
+#, kde-format
 msgid "Media status: %1"
-msgstr "ortamDurumu: %1"
+msgstr "Ortam durumu: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "playbackStatus: %1"
+#, kde-format
 msgid "Playback status: %1"
-msgstr "çalmaDurumu: %1"
+msgstr "Çalma durumu: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "error: %1"
+#, kde-format
 msgid "Error: %1"
-msgstr "hata: %1"
+msgstr "Hata: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
@@ -207,10 +197,9 @@ msgid "Podcast Player"
 msgstr "Pod Yayını Çalar"
 
 #: main.cpp:125
-#, fuzzy, kde-format
-#| msgid "© 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2020–2023 KDE Community"
-msgstr "© 2020-2023 KDE Topluluğu"
+msgstr "© 2020–2023 KDE Topluluğu"
 
 #: main.cpp:126
 #, kde-format
@@ -223,25 +212,19 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:159
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr "Süzgeç Yok"
+msgstr "Süzgeç yok"
 
 #: models/abstractepisodeproxymodel.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Çalınan bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:163
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Çalınmayan bölümler"
@@ -283,12 +266,10 @@ msgid "Description"
 msgstr "Açıklama"
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr "Pod Yayını Başlığı"
+msgstr "Pod yayını başlığı"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -332,76 +313,60 @@ msgid "Always Allow"
 msgstr "Her Zaman İzin Ver"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgid "Seek backward"
-msgstr "Geriye Sar"
+msgstr "Geri sar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgid "Seek forward"
-msgstr "İleri Sar"
+msgstr "İleri sar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgid "Skip forward"
-msgstr "İleri Atla"
+msgstr "İleri atla"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback rate:"
-msgstr "Çalma Hızı: "
+msgstr "Çalma hızı:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Chapter List"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
-msgstr "Fasıl Listesini Göster"
+msgstr "Fasıl listesini göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Episode Info"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr "Bölüm Bilgisini Göster"
+msgstr "Bölüm bilgisini göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Sleep Timer Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr "Uyku Sayacı Ayarlarını Aç"
+msgstr "Uyku sayacı ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Volume Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr "Ses Düzeyi Ayarlarını Aç"
+msgstr "Ses düzeyi ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Toggle Mute"
+#, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr "Sesi Aç/Kapat"
+msgstr "Sesi aç/kapat"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show More"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr "Daha Fazla Göster"
+msgstr "Daha fazla göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
@@ -637,16 +602,14 @@ msgid "No Episodes Available"
 msgstr "Bölüm Yok"
 
 #: qml/ErrorList.qml:30
-#, fuzzy, kde-format
-#| msgid "No Errors Logged"
+#, kde-format
 msgid "No errors logged"
-msgstr "Günlüklenen Hata Yok"
+msgstr "Günlüklenen hata yok"
 
 #: qml/ErrorList.qml:66
-#, fuzzy, kde-format
-#| msgid "Error Code: "
+#, kde-format
 msgid "Error code:"
-msgstr "Hata Kodu: "
+msgstr "Hata kodu:"
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
@@ -703,10 +666,9 @@ msgid "Subscribed since: %1"
 msgstr "Abonelik tarihi: %1"
 
 #: qml/FeedDetailsPage.qml:332
-#, fuzzy, kde-format
-#| msgid "Last Updated: %1"
+#, kde-format
 msgid "Last updated: %1"
-msgstr "Son Güncelleme: %1"
+msgstr "Son güncelleme: %1"
 
 #: qml/FeedDetailsPage.qml:345
 #, kde-format
@@ -751,27 +713,22 @@ msgid "Refresh All Podcasts"
 msgstr "Tüm Pod Yayınlarını Yenile"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Pod Yayını Ekle"
+msgstr "Pod Yayını Ekle…"
 
 #: qml/FeedListPage.qml:62
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Pod Yayınları İçe Aktar"
+msgstr "Pod Yayınları İçe Aktar…"
 
 #: qml/FeedListPage.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Pod Yayınlarını Dışa Aktar"
+msgstr "Pod Yayınlarını Dışa Aktar…"
 
 #: qml/FeedListPage.qml:92
 #, kde-format
@@ -866,11 +823,10 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr "başlık: %1"
+msgstr "Etkin süzgeç: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -1097,20 +1053,16 @@ msgid "Add new playback rate value to list"
 msgstr "Listeye yeni çalma listesi hızı değeri ekle"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Decrease Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
-msgstr "Çalma Hızını Azalt"
+msgstr "Çalma hızını azalt"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Increase Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
-msgstr "Çalma Hızını Artır"
+msgstr "Çalma hızını artır"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
@@ -1157,12 +1109,10 @@ msgid "Time Left"
 msgstr "Kalan Süre"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Bölümleri Ara"
+msgstr "Bölümler ara…"
 
 #: qml/SearchFilterBar.qml:86
 #, kde-format
@@ -1173,12 +1123,10 @@ msgid "Filter"
 msgstr "Süzgeç"
 
 #: qml/SearchFilterBar.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter Episodes by Status"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr "Bölümleri Duruma Göre Süz"
+msgstr "Bölümleri duruma göre süz"
 
 #: qml/SearchFilterBar.qml:129
 #, kde-format
@@ -1246,24 +1194,18 @@ msgid "Playback settings"
 msgstr "Çalma ayarları"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Label for setting to select audio playback backend"
-#| msgid "Select Audio Backend"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Ses Arka Ucu Seç"
+msgstr "Ses arka ucu seç"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Label for settings related to the play time, e.g. whether the total track "
-#| "time is shown or a countdown of the remaining play time"
-#| msgid "Play Time:"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play time:"
-msgstr "Çalma Süresi:"
+msgstr "Çalma süresi:"
 
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
@@ -1334,22 +1276,19 @@ msgid "Played episode behavior"
 msgstr "Çalınan bölüm davranışı"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Do Not Delete"
+#, kde-format
 msgid "Do not delete"
 msgstr "Silme"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Delete Immediately"
+#, kde-format
 msgid "Delete immediately"
-msgstr "Anında Sil"
+msgstr "Anında sil"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Delete at Next Startup"
+#, kde-format
 msgid "Delete at next startup"
-msgstr "Bir Sonraki Başlangıçta Sil"
+msgstr "Bir sonraki başlangıçta sil"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
@@ -1471,11 +1410,9 @@ msgid "Storage path"
 msgstr "Depolama konumu"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select Folder…"
-msgstr "Süzgeç Seç"
+msgstr "Klasör Seç…"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1816,10 +1753,9 @@ msgid "Status: Inactive"
 msgstr "Durum: Devre dışı"
 
 #: qml/SleepTimerDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Remaining Time: %1"
+#, kde-format
 msgid "Remaining time: %1"
-msgstr "Kalan Zaman: %1"
+msgstr "Kalan zaman: %1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
@@ -1908,16 +1844,14 @@ msgid "Could not log into GPodder server"
 msgstr "GPodder sunucusuna oturum açılamadı"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot save password."
+#, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr "Girdi-Çıktı Reddedildi: Parola kaydedilemiyor."
+msgstr "Girdi-Çıktı reddedildi: Parola kaydedilemiyor."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot access password file."
+#, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr "Girdi-Çıktı Reddedildi: Parola dosyasına erişilemiyor."
+msgstr "Girdi-Çıktı reddedildi: Parola dosyasına erişilemiyor."
 
 #: sync/sync.cpp:637
 #, kde-format
@@ -1968,69 +1902,69 @@ msgstr "İç veri hatası"
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Start Syncing"
-msgstr "(Adım %1/%2) Eşzamanlamaya Başlanıyor"
+msgstr "(Adım %1/%2) Eşzamanlama başlatılıyor"
 
 #: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
-msgstr "(Adım %1/%2) Uzak Konum Abonelik Güncellemeleri İsteniyor"
+msgstr "(Adım %1/%2) Uzak konum abonelik güncellemeleri isteniyor"
 
 #: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Subscription Updates"
-msgstr "(Adım %1/%2) Yerel Abonelik Güncellemeleri Yükleniyor"
+msgstr "(Adım %1/%2) Yerel abonelik güncellemeleri yükleniyor"
 
 #: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
-msgstr[0] "(Adım %3/%4) %2/%1 Pod Yayını Güncellendi"
-msgstr[1] "(Adım %3/%4) %2/%1 Pod Yayını Güncellendi"
+msgstr[0] "(Adım %3/%4) %2/%1 pod yayını güncellendi"
+msgstr[1] "(Adım %3/%4) %2/%1 pod yayını güncellendi"
 
 #: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Requesting Remote Episode Updates"
-msgstr "(Adım %1/%2) Uzaktaki Bölüm Güncellemeleri İsteniyor"
+msgstr "(Adım %1/%2) Uzak bölüm güncellemeleri isteniyor"
 
 #: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Applying Remote Episode Changes"
-msgstr "(Adım %1/%2) Uzaktaki Bölüm Güncellemeleri Uygulanıyor"
+msgstr "(Adım %1/%2) Uzak bölüm güncellemeleri uygulanıyor"
 
 #: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Uploading Local Episode Updates"
-msgstr "(Adım %1/%2) Yerel Bölüm Güncellemeleri Yükleniyor"
+msgstr "(Adım %1/%2) Yerel bölüm güncellemeleri karşıya yükleniyor"
 
 #: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "(Step %1 of %2) Finished Syncing"
-msgstr "(Adım %1/%2) Eşzamanlama Bitti"
+msgstr "(Adım %1/%2) Eşzamanlama bitti"
 
 #: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync Aborted"
-msgstr "Eşzamanlama İptal Edildi"
+msgstr "Eşzamanlama iptal edildi"
 
 #: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Step in Subscription and Episode Syncing Progress"
 msgid "Sync finished with Error"
-msgstr "Eşzamanlama, hatalarla bitti"
+msgstr "Eşzamanlama hatalarla bitti"
 
 #: systrayicon.cpp:46
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr "Geriye Sar"
+msgstr "Geri Sar"
 
 #: systrayicon.cpp:58
 #, kde-format

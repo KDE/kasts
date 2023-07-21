@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-20 02:44+0000\n"
-"PO-Revision-Date: 2023-06-10 17:23+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2023-07-20 10:13+0300\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,21 +96,17 @@ msgstr ""
 "d'ús mesurat"
 
 #: kmediasession/example-app/qml/main.qml:20
-#, fuzzy, kde-format
-#| msgid "Example player KMediaSession"
+#, kde-format
 msgid "Example KMediaSession Player"
 msgstr "Exemple de reproductor KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select File…"
-msgstr "Selecció de filtre"
+msgstr "Selecció de fitxer…"
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select media file"
+#, kde-format
 msgid "Select Media File"
 msgstr "Selecció de fitxer multimèdia"
 
@@ -147,40 +143,34 @@ msgid "Mute"
 msgstr "Silenci"
 
 #: kmediasession/example-app/qml/main.qml:174
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgid "Title: %1"
-msgstr "títol: %1"
+msgstr "Títol: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
-#, fuzzy, kde-format
-#| msgid "artist: %1"
+#, kde-format
 msgid "Artist: %1"
-msgstr "artista: %1"
+msgstr "Artista: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
-#, fuzzy, kde-format
-#| msgid "album: %1"
+#, kde-format
 msgid "Album: %1"
-msgstr "àlbum: %1"
+msgstr "Àlbum: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
-#, fuzzy, kde-format
-#| msgid "mediaStatus: %1"
+#, kde-format
 msgid "Media status: %1"
-msgstr "estat del fitxer multimèdia: %1"
+msgstr "Estat del fitxer multimèdia: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "playbackStatus: %1"
+#, kde-format
 msgid "Playback status: %1"
-msgstr "estat de la reproducció: %1"
+msgstr "Estat de la reproducció: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "error: %1"
+#, kde-format
 msgid "Error: %1"
-msgstr "error: %1"
+msgstr "Error: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
@@ -215,10 +205,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de podcast"
 
 #: main.cpp:125
-#, fuzzy, kde-format
-#| msgid "© 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2020–2023 KDE Community"
-msgstr "© 2020-2023 La comunitat KDE"
+msgstr "© 2020–2023 La comunitat KDE"
 
 #: main.cpp:126
 #, kde-format
@@ -231,25 +220,19 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:159
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Sense filtre"
 
 #: models/abstractepisodeproxymodel.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Episodis reproduïts"
 
 #: models/abstractepisodeproxymodel.cpp:163
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Episodis sense reproduir"
@@ -291,9 +274,7 @@ msgid "Description"
 msgstr "Descripció"
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Títol del podcast"
@@ -339,73 +320,57 @@ msgid "Always Allow"
 msgstr "Permet sempre"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgid "Seek backward"
 msgstr "Cerca enrere"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgid "Seek forward"
 msgstr "Cerca endavant"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgid "Skip forward"
 msgstr "Salta cap endavant"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback rate:"
-msgstr "Velocitat de reproducció: "
+msgstr "Velocitat de reproducció:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Chapter List"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Mostra la llista de capítols"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Episode Info"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Mostra la informació dels episodis"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Sleep Timer Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Obre la configuració del temporitzador per adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Volume Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Obre la configuració del volum"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Toggle Mute"
+#, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Commuta el silenci"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show More"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mostra'n més"
@@ -644,14 +609,12 @@ msgid "No Episodes Available"
 msgstr "No hi ha cap episodi disponible"
 
 #: qml/ErrorList.qml:30
-#, fuzzy, kde-format
-#| msgid "No Errors Logged"
+#, kde-format
 msgid "No errors logged"
 msgstr "Sense errors registrats"
 
 #: qml/ErrorList.qml:66
-#, fuzzy, kde-format
-#| msgid "Error Code: "
+#, kde-format
 msgid "Error code:"
 msgstr "Codi d'error:"
 
@@ -710,8 +673,7 @@ msgid "Subscribed since: %1"
 msgstr "Subscrit des de: %1"
 
 #: qml/FeedDetailsPage.qml:332
-#, fuzzy, kde-format
-#| msgid "Last Updated: %1"
+#, kde-format
 msgid "Last updated: %1"
 msgstr "Darrera actualització: %1"
 
@@ -758,27 +720,22 @@ msgid "Refresh All Podcasts"
 msgstr "Recarrega tots els podcasts"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Afegeix un podcast"
+msgstr "Afegeix un podcast…"
 
 #: qml/FeedListPage.qml:62
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importa podcasts"
+msgstr "Importa podcasts…"
 
 #: qml/FeedListPage.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exporta podcasts"
+msgstr "Exporta podcasts…"
 
 #: qml/FeedListPage.qml:92
 #, kde-format
@@ -873,11 +830,10 @@ msgid "Reset"
 msgstr "Restableix"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr "títol: %1"
+msgstr "Filtre actiu: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -1102,17 +1058,13 @@ msgid "Add new playback rate value to list"
 msgstr "Afegeix un valor nou de velocitat de reproducció a la llista"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Decrease Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
 msgstr "Redueix la velocitat de reproducció"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Increase Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
 msgstr "Augmenta la velocitat de reproducció"
@@ -1162,12 +1114,10 @@ msgid "Time Left"
 msgstr "Temps restant"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Cerca episodis"
+msgstr "Cerca episodis…"
 
 #: qml/SearchFilterBar.qml:86
 #, kde-format
@@ -1178,12 +1128,10 @@ msgid "Filter"
 msgstr "Filtre"
 
 #: qml/SearchFilterBar.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter Episodes by Status"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr "Filtra els episodis per l'estat"
+msgstr "Filtra els episodis per estat"
 
 #: qml/SearchFilterBar.qml:129
 #, kde-format
@@ -1251,19 +1199,13 @@ msgid "Playback settings"
 msgstr "Configuració de la reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Label for setting to select audio playback backend"
-#| msgid "Select Audio Backend"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Selecció del dorsal d'àudio"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Label for settings related to the play time, e.g. whether the total track "
-#| "time is shown or a countdown of the remaining play time"
-#| msgid "Play Time:"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
@@ -1340,20 +1282,17 @@ msgid "Played episode behavior"
 msgstr "Comportament dels episodis reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Do Not Delete"
+#, kde-format
 msgid "Do not delete"
 msgstr "No els suprimeixis"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Delete Immediately"
+#, kde-format
 msgid "Delete immediately"
 msgstr "Suprimeix immediatament"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Delete at Next Startup"
+#, kde-format
 msgid "Delete at next startup"
 msgstr "Suprimeix-lo en l'inici següent"
 
@@ -1476,11 +1415,9 @@ msgid "Storage path"
 msgstr "Camí d'emmagatzematge"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select Folder…"
-msgstr "Selecció de filtre"
+msgstr "Selecciona una carpeta…"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1825,8 +1762,7 @@ msgid "Status: Inactive"
 msgstr "Estat: Inactiu"
 
 #: qml/SleepTimerDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Remaining Time: %1"
+#, kde-format
 msgid "Remaining time: %1"
 msgstr "Temps restant: %1"
 
@@ -1919,14 +1855,12 @@ msgid "Could not log into GPodder server"
 msgstr "No s'ha pogut iniciar la sessió al servidor de GPodder"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot save password."
+#, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "E/S denegada: no s'ha pogut desar la contrasenya."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot access password file."
+#, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
 
@@ -2074,25 +2008,3 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgid "Select file..."
-#~ msgstr "Selecció de fitxer..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add Podcast..."
-#~ msgstr "Afegeix un podcast..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Import Podcasts..."
-#~ msgstr "Importa podcasts..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Export Podcasts..."
-#~ msgstr "Exporta podcasts..."
-
-#~ msgctxt "@info:status Name of the filter which is active on the ListView"
-#~ msgid "Filter Active: %1"
-#~ msgstr "Filtre actiu: %1"
-
-#~ msgid "Select folder..."
-#~ msgstr "Selecciona una carpeta..."
