@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:49+0000\n"
-"PO-Revision-Date: 2023-07-20 06:30+0200\n"
+"PO-Revision-Date: 2023-07-21 06:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1912,34 +1912,25 @@ msgid "Internal data error"
 msgstr "Notranja napaka podatkov"
 
 #: sync/syncjob.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Start Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Korak %1 od %2) Začetek sinhronizacije"
 
 #: sync/syncjob.cpp:887
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr "(Korak %1 od %2) Zahtevek za posodobitve oddaljene naročnine"
+msgstr "(Korak %1 od %2) Zahtevam za posodobitve oddaljene naročnine"
 
 #: sync/syncjob.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr "(Korak %1 od %2) Prenos posodobitev lokalne naročnine"
+msgstr "(Korak %1 od %2) Prenašanje posodobitev lokalne naročnine"
 
 #: sync/syncjob.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
@@ -1949,49 +1940,37 @@ msgstr[2] "(Korak %3 od %4) posodobljeno %2 od %1 podcastov"
 msgstr[3] "(Korak %3 od %4) posodobljeno %2 od %1 podcastov"
 
 #: sync/syncjob.cpp:902
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Korak %1 od %2) zahtevam posodobitev oddaljene epizode"
 
 #: sync/syncjob.cpp:905
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr "(Korak %1 od %2) uveljavitev sprememb oddaljene epizode"
+msgstr "(Korak %1 od %2) Uveljavljanje sprememb oddaljene epizode"
 
 #: sync/syncjob.cpp:908
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr "(Korak %1 od %2) prenašam posodobitev lokalne epizode"
+msgstr "(Korak %1 od %2) Prenašanje posodobitev lokalne epizode"
 
 #: sync/syncjob.cpp:911
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Finished Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Korak %1 od %2) Končana sinhronizacija"
 
 #: sync/syncjob.cpp:914
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync Aborted"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Sinhronizacija preklicana"
 
 #: sync/syncjob.cpp:918
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync finished with Error"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Sinhronizacija se je končala z napako"

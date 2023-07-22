@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:49+0000\n"
-"PO-Revision-Date: 2023-07-20 07:40+0300\n"
+"PO-Revision-Date: 2023-07-21 08:45+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1924,34 +1924,25 @@ msgid "Internal data error"
 msgstr "Помилка внутрішньої обробки даних"
 
 #: sync/syncjob.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Start Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Крок %1 з %2) Починаємо синхронізацію"
 
 #: sync/syncjob.cpp:887
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(Крок %1 з %2) Надсилаємо запит щодо віддалених оновлень підписок"
 
 #: sync/syncjob.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Крок %1 з %2) Вивантажуємо локальні оновлення підписок"
 
 #: sync/syncjob.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
@@ -1961,49 +1952,37 @@ msgstr[2] "(Крок %3 з %4) Оновлено %2 %1 трансляцій"
 msgstr[3] "(Крок %3 з %4) Оновлено %2 %1 трансляції"
 
 #: sync/syncjob.cpp:902
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Крок %1 з %2) Надсилаємо запит щодо віддалених оновлень епізодів"
 
 #: sync/syncjob.cpp:905
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(Крок %1 з %2) Застосовуємо віддалені зміни у епізодах"
 
 #: sync/syncjob.cpp:908
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Крок %1 з %2) Вивантажуємо локальні оновлення епізодів"
 
 #: sync/syncjob.cpp:911
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Finished Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Крок %1 з %2) Синхронізацію завершено"
 
 #: sync/syncjob.cpp:914
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync Aborted"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Синхронізацію перервано"
 
 #: sync/syncjob.cpp:918
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync finished with Error"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Синхронізацію завершено з помилкою"
