@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 02:44+0000\n"
+"POT-Creation-Date: 2023-07-22 02:39+0000\n"
 "PO-Revision-Date: 2023-07-18 11:15\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1907,64 +1907,85 @@ msgid "Internal data error"
 msgstr "内部数据错误"
 
 #: sync/syncjob.cpp:884
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Start Syncing"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Start Syncing"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Start sync"
 msgstr "(第 %1 步，共 %2 步) 开始同步"
 
 #: sync/syncjob.cpp:887
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(第 %1 步，共 %2 步) 请求远程订阅源更新"
 
 #: sync/syncjob.cpp:890
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(第 %1 步，共 %2 步) 上传本地订阅源更新"
 
 #: sync/syncjob.cpp:894
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
+#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %3 of %4) Updated %2 of %1 podcast"
+msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(第 %3 步，共 %4 步) 已更新 %2 个播客，共 %1 个"
 
 #: sync/syncjob.cpp:902
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(第 %1 步，共 %2 步) 请求远程剧集更新"
 
 #: sync/syncjob.cpp:905
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(第 %1 步，共 %2 步) 应用远程剧集更改"
 
 #: sync/syncjob.cpp:908
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(第 %1 步，共 %2 步) 上传本地剧集更新"
 
 #: sync/syncjob.cpp:911
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Finished Syncing"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Finished Syncing"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Finished sync"
 msgstr "(第 %1 步，共 %2 步) 完成同步"
 
 #: sync/syncjob.cpp:914
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "Sync Aborted"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "Sync Aborted"
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync aborted"
 msgstr "同步中止"
 
 #: sync/syncjob.cpp:918
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "Sync finished with Error"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "Sync finished with Error"
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync finished with error"
 msgstr "同步完成，但发生了错误"
 
 #: systrayicon.cpp:46

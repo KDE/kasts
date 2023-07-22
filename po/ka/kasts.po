@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 02:44+0000\n"
-"PO-Revision-Date: 2023-06-11 06:12+0200\n"
+"POT-Creation-Date: 2023-07-22 02:39+0000\n"
+"PO-Revision-Date: 2023-07-21 06:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -89,21 +89,17 @@ msgid "No Connection or Streaming Not Allowed on Metered Connection"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
 #: kmediasession/example-app/qml/main.qml:20
-#, fuzzy, kde-format
-#| msgid "Example player KMediaSession"
+#, kde-format
 msgid "Example KMediaSession Player"
-msgstr "დამკვრელის მაგალითი KMediaSession"
+msgstr "საჩვენებელი KMediaSession-ის დამკვრელი"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select File…"
-msgstr "აირჩიეთ ფილტრი"
+msgstr "აირჩიეთ ფაილი…"
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select media file"
+#, kde-format
 msgid "Select Media File"
 msgstr "აირჩიეთ მედია ფაილი"
 
@@ -140,38 +136,32 @@ msgid "Mute"
 msgstr "დადუმება"
 
 #: kmediasession/example-app/qml/main.qml:174
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgid "Title: %1"
 msgstr "სათაური: %1"
 
 #: kmediasession/example-app/qml/main.qml:177
-#, fuzzy, kde-format
-#| msgid "artist: %1"
+#, kde-format
 msgid "Artist: %1"
 msgstr "შემსრულებელი: %1"
 
 #: kmediasession/example-app/qml/main.qml:180
-#, fuzzy, kde-format
-#| msgid "album: %1"
+#, kde-format
 msgid "Album: %1"
 msgstr "ალბომი: %1"
 
 #: kmediasession/example-app/qml/main.qml:191
-#, fuzzy, kde-format
-#| msgid "mediaStatus: %1"
+#, kde-format
 msgid "Media status: %1"
-msgstr "მედიისსტატუსი: %1"
+msgstr "მედიის სტატუსი: %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "playbackStatus: %1"
+#, kde-format
 msgid "Playback status: %1"
 msgstr "დაკვრის მდგომარეობა: %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "error: %1"
+#, kde-format
 msgid "Error: %1"
 msgstr "შეცდომა: %1"
 
@@ -208,8 +198,7 @@ msgid "Podcast Player"
 msgstr "პოდკასტის დამკვრელი"
 
 #: main.cpp:125
-#, fuzzy, kde-format
-#| msgid "© 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020-2023 KDE-ის საზოგადოება"
 
@@ -224,25 +213,19 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:159
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "ფილტრის გარეშე"
 
 #: models/abstractepisodeproxymodel.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "დაკრული ეპიზოდები"
 
 #: models/abstractepisodeproxymodel.cpp:163
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "დაუკრავი ეპიზოდები"
@@ -284,9 +267,7 @@ msgid "Description"
 msgstr "აღწერა"
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "პოდკასტის სათაური"
@@ -332,73 +313,57 @@ msgid "Always Allow"
 msgstr "ყოველთვის დაშვება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgid "Seek backward"
 msgstr "უკან გადახვევა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgid "Seek forward"
 msgstr "წინ გადახვევა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgid "Skip forward"
 msgstr "წინ გადახტომა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback rate:"
-msgstr "დაკვრის სიჩქარე: "
+msgstr "დაკვრის სიჩქარე:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Chapter List"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "თავების სიის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Episode Info"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "ეპიზოდის ინფორმაციის ჩვენება"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Sleep Timer Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "ძილის ტაიმერის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Volume Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "ხმის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Toggle Mute"
+#, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "დადუმების გადართვა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show More"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "მეტის ჩვენება"
@@ -637,16 +602,14 @@ msgid "No Episodes Available"
 msgstr "ეპიზოდების გარეშე"
 
 #: qml/ErrorList.qml:30
-#, fuzzy, kde-format
-#| msgid "No Errors Logged"
+#, kde-format
 msgid "No errors logged"
 msgstr "ჟურნალში შეცდომები არაა"
 
 #: qml/ErrorList.qml:66
-#, fuzzy, kde-format
-#| msgid "Error Code: "
+#, kde-format
 msgid "Error code:"
-msgstr "შეცდომის კოდი: "
+msgstr "შეცდომის კოდი:"
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
@@ -703,8 +666,7 @@ msgid "Subscribed since: %1"
 msgstr "გამოწერის საწყისი დრო: %1"
 
 #: qml/FeedDetailsPage.qml:332
-#, fuzzy, kde-format
-#| msgid "Last Updated: %1"
+#, kde-format
 msgid "Last updated: %1"
 msgstr "უკანასკნელი განახლება: %1"
 
@@ -751,27 +713,22 @@ msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "პოდკასტის დამატება"
+msgstr "პოდკასტის დამატება…"
 
 #: qml/FeedListPage.qml:62
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "პოდკასტების შემოტანა"
+msgstr "პოდკასტების შემოტანა…"
 
 #: qml/FeedListPage.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "პოდკასტების გატანა"
+msgstr "პოდკასტების გატანა…"
 
 #: qml/FeedListPage.qml:92
 #, kde-format
@@ -866,11 +823,10 @@ msgid "Reset"
 msgstr "საწყის მნიშვნელობაზე დაბრუნება"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr "სათაური: %1"
+msgstr "აქტიური ფილტრი: %1"
 
 #: qml/FullScreenImage.qml:48
 #, kde-format
@@ -1095,17 +1051,13 @@ msgid "Add new playback rate value to list"
 msgstr "სიისთვის დაკვრის სიჩქარის ახალი მნიშვნელობის დამატება"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Decrease Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
 msgstr "დაკვრის სიჩქარის შემცირება"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Increase Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
 msgstr "დაკვრის სიჩქარის გაზრდა"
@@ -1155,12 +1107,10 @@ msgid "Time Left"
 msgstr "დარჩენილი დრო"
 
 #: qml/SearchFilterBar.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "ეპიზოდების ძებნა"
+msgstr "ეპიზოდების ძებნა…"
 
 #: qml/SearchFilterBar.qml:86
 #, kde-format
@@ -1171,9 +1121,7 @@ msgid "Filter"
 msgstr "ფილტრი"
 
 #: qml/SearchFilterBar.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter Episodes by Status"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "ეპიზოდების სტატუსის მიხედვით გაფილტვრა"
@@ -1244,19 +1192,13 @@ msgid "Playback settings"
 msgstr "დაკვრის მორგება"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Label for setting to select audio playback backend"
-#| msgid "Select Audio Backend"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "აირჩიეთ აუდიოს უკანაბოლო"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Label for settings related to the play time, e.g. whether the total track "
-#| "time is shown or a countdown of the remaining play time"
-#| msgid "Play Time:"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
@@ -1332,20 +1274,17 @@ msgid "Played episode behavior"
 msgstr "დაკრული ეპიზოდის ქცევა"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Do Not Delete"
+#, kde-format
 msgid "Do not delete"
 msgstr "არ წაშალო"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Delete Immediately"
+#, kde-format
 msgid "Delete immediately"
 msgstr "დაუყოვნებლივი წაშლა"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Delete at Next Startup"
+#, kde-format
 msgid "Delete at next startup"
 msgstr "წაშლა შემდეგი გაშვებისას"
 
@@ -1468,11 +1407,9 @@ msgid "Storage path"
 msgstr "საცავის ბილიკი"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select Folder…"
-msgstr "აირჩიეთ ფილტრი"
+msgstr "აირჩიეთ საქაღალდე…"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1813,8 +1750,7 @@ msgid "Status: Inactive"
 msgstr "სტატუსი: არააქტიური"
 
 #: qml/SleepTimerDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Remaining Time: %1"
+#, kde-format
 msgid "Remaining time: %1"
 msgstr "დარჩენილი დრო: %1"
 
@@ -1906,14 +1842,12 @@ msgid "Could not log into GPodder server"
 msgstr "GPodder-ის სერვერზე შესვლის პრობლემა"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot save password."
+#, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "შ/გ-ის შეცდომა: პაროლის შენახვა შეუძლებელია."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot access password file."
+#, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
 
@@ -1963,65 +1897,86 @@ msgid "Internal data error"
 msgstr "მონაცემების შიდა დინების შეცდომა"
 
 #: sync/syncjob.cpp:884
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Start Syncing"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Start Syncing"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Start sync"
 msgstr "(ნაბიჯი %1 %2-დან) სინქრონიზების დასაწყისი"
 
 #: sync/syncjob.cpp:887
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(ნაბიჯი %1/%2) გარე გამოწერის განახლებების გამოთხოვა"
 
 #: sync/syncjob.cpp:890
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(ნაბიჯი %1/%2) ლოკალური გამოწერის განახლებების ატვირთვა"
 
 #: sync/syncjob.cpp:894
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
+#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %3 of %4) Updated %2 of %1 podcast"
+msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(ნაბიჯი %3/%4) განახლდა %2/%1 პოდკასტი"
 msgstr[1] "(ნაბიჯი %3/%4) განახლდა %2/%1 პოდკასტი"
 
 #: sync/syncjob.cpp:902
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(ნაბიჯი %1/%2) გარე ეპიზოდის განახლებების გამოთხოვა"
 
 #: sync/syncjob.cpp:905
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(ნაბიჯი %1/%2) გარე ეპიზოდის ცვლილებების გადატარება"
 
 #: sync/syncjob.cpp:908
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(ნაბიჯი %1/%2) ლოკალური ეპიზოდის განახლებების ატვირთვა"
 
 #: sync/syncjob.cpp:911
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "(Step %1 of %2) Finished Syncing"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "(Step %1 of %2) Finished Syncing"
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Finished sync"
 msgstr "(ნაბიჯი %1 %2-დან) სინქრონიზების დასასრული"
 
 #: sync/syncjob.cpp:914
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "Sync Aborted"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "Sync Aborted"
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync aborted"
 msgstr "სინქრონიზაცია გაუქმდა"
 
 #: sync/syncjob.cpp:918
-#, kde-format
-msgctxt "Step in Subscription and Episode Syncing Progress"
-msgid "Sync finished with Error"
+#, fuzzy, kde-format
+#| msgctxt "Step in Subscription and Episode Syncing Progress"
+#| msgid "Sync finished with Error"
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync finished with error"
 msgstr "სინქრონიზაცია შეცდომით დასრულდა"
 
 #: systrayicon.cpp:46
