@@ -258,6 +258,11 @@ if(ANDROID)
         starred-symbolic
         non-starred-symbolic
         media-playback-cloud
+        zoom-in
+        zoom-out
+        object-rotate-left
+        object-rotate-right
+        add-subtitle
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)
