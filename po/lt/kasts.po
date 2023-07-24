@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 02:39+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-02-24 00:58+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -830,31 +830,6 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr ""
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr ""
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr ""
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr ""
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr ""
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
 msgstr ""
 
 #: qml/GenericEntryDelegate.qml:168

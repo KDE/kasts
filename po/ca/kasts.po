@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 02:39+0000\n"
-"PO-Revision-Date: 2023-07-20 10:13+0300\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-22 17:43+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -834,31 +834,6 @@ msgstr "Restableix"
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Filtre actiu: %1"
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr "Amplia"
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr "Allunya"
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr "Gira a l'esquerra"
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr "Gira a la dreta"
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
-msgstr "Tanca"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -1911,85 +1886,64 @@ msgid "Internal data error"
 msgstr "Error intern de dades"
 
 #: sync/syncjob.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Start Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Pas %1 de %2) Inici de la sincronització"
 
 #: sync/syncjob.cpp:887
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr ""
 "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de subscripció"
 
 #: sync/syncjob.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 
 #: sync/syncjob.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] "(Pas %3 de %4) actualitzat %2 de %1 podcasts"
-msgstr[1] "(Pas %3 de %4) actualitzats %2 de %1 podcasts"
+msgstr[0] "(Pas %3 de %4) Actualitzat %2 de %1 podcasts"
+msgstr[1] "(Pas %3 de %4) Actualitzats %2 de %1 podcasts"
 
 #: sync/syncjob.cpp:902
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:905
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(Pas %1 de %2) S'apliquen els canvis remots dels episodis"
 
 #: sync/syncjob.cpp:908
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:911
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Finished Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Pas %1 de %2) Sincronització finalitzada"
 
 #: sync/syncjob.cpp:914
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync Aborted"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Sincronització interrompuda"
 
 #: sync/syncjob.cpp:918
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync finished with Error"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Sincronització acabada amb error"
@@ -2029,3 +1983,18 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Zoom in"
+#~ msgstr "Amplia"
+
+#~ msgid "Zoom out"
+#~ msgstr "Allunya"
+
+#~ msgid "Rotate left"
+#~ msgstr "Gira a l'esquerra"
+
+#~ msgid "Rotate right"
+#~ msgstr "Gira a la dreta"
+
+#~ msgid "Close"
+#~ msgstr "Tanca"

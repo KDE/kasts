@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 02:39+0000\n"
-"PO-Revision-Date: 2023-07-18 11:15\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-23 12:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -95,16 +95,14 @@ msgid "Example KMediaSession Player"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgid "Select File…"
-msgstr "全部选中"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Select Media File"
-msgstr "媒体文件无效"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
@@ -159,16 +157,14 @@ msgid "Media status: %1"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback status: %1"
-msgstr "播放速度："
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
+#, kde-format
 msgid "Error: %1"
-msgstr "错误 (%1)：%2"
+msgstr ""
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
@@ -224,11 +220,10 @@ msgid "No filter"
 msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:161
-#, fuzzy, kde-format
-#| msgid "Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr "单集"
+msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:163
 #, kde-format
@@ -273,11 +268,10 @@ msgid "Description"
 msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr "无播客标题"
+msgstr ""
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -320,28 +314,24 @@ msgid "Always Allow"
 msgstr "总是允许"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgid "Seek backward"
-msgstr "快退"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgid "Seek forward"
-msgstr "快进"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgid "Skip forward"
-msgstr "下一个"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback rate:"
-msgstr "播放速度："
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
 #, kde-format
@@ -350,11 +340,10 @@ msgid "Show chapter list"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr "允许下载剧集"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
 #, kde-format
@@ -363,11 +352,10 @@ msgid "Open sleep timer settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#, fuzzy, kde-format
-#| msgid "General Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr "常规设置"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #, kde-format
@@ -376,11 +364,10 @@ msgid "Toggle mute"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgid "Show Error Log"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr "显示错误日志"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
@@ -616,16 +603,14 @@ msgid "No Episodes Available"
 msgstr "无可播放剧集"
 
 #: qml/ErrorList.qml:30
-#, fuzzy, kde-format
-#| msgid "No Errors Logged"
+#, kde-format
 msgid "No errors logged"
-msgstr "没有错误记录"
+msgstr ""
 
 #: qml/ErrorList.qml:66
-#, fuzzy, kde-format
-#| msgid "Error Code: "
+#, kde-format
 msgid "Error code:"
-msgstr "错误代码："
+msgstr ""
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
@@ -682,10 +667,9 @@ msgid "Subscribed since: %1"
 msgstr "订阅开始时间：%1"
 
 #: qml/FeedDetailsPage.qml:332
-#, fuzzy, kde-format
-#| msgid "Last Updated: %1"
+#, kde-format
 msgid "Last updated: %1"
-msgstr "上次更新：%1"
+msgstr ""
 
 #: qml/FeedDetailsPage.qml:345
 #, kde-format
@@ -728,18 +712,16 @@ msgid "Refresh All Podcasts"
 msgstr ""
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "添加播客"
+msgstr ""
 
 #: qml/FeedListPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Remove Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "移除播客"
+msgstr ""
 
 #: qml/FeedListPage.qml:68
 #, kde-format
@@ -842,31 +824,6 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr ""
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr ""
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr ""
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr ""
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr ""
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
 msgstr ""
 
 #: qml/GenericEntryDelegate.qml:168
@@ -1204,20 +1161,18 @@ msgid "Playback settings"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "选择选项"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play time:"
-msgstr "播放速度："
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
@@ -1288,22 +1243,19 @@ msgid "Played episode behavior"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Do Not Delete"
+#, kde-format
 msgid "Do not delete"
-msgstr "不删除"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Delete Immediately"
+#, kde-format
 msgid "Delete immediately"
-msgstr "立即删除"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Delete at Next Startup"
+#, kde-format
 msgid "Delete at next startup"
-msgstr "下次启动时删除"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
@@ -1423,10 +1375,9 @@ msgid "Storage path"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Select folder..."
+#, kde-format
 msgid "Select Folder…"
-msgstr "选择目录..."
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1850,16 +1801,14 @@ msgid "Could not log into GPodder server"
 msgstr "无法登录到 GPodder 服务器"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot save password."
+#, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr "I/O 被拒绝：无法保存密码。"
+msgstr ""
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot access password file."
+#, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr "I/O 被拒绝：无法访问密码文件。"
+msgstr ""
 
 #: sync/sync.cpp:637
 #, kde-format
@@ -1907,86 +1856,65 @@ msgid "Internal data error"
 msgstr "内部数据错误"
 
 #: sync/syncjob.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Start Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr "(第 %1 步，共 %2 步) 开始同步"
+msgstr ""
 
 #: sync/syncjob.cpp:887
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr "(第 %1 步，共 %2 步) 请求远程订阅源更新"
+msgstr ""
 
 #: sync/syncjob.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr "(第 %1 步，共 %2 步) 上传本地订阅源更新"
+msgstr ""
 
 #: sync/syncjob.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] "(第 %3 步，共 %4 步) 已更新 %2 个播客，共 %1 个"
+msgstr[0] ""
 
 #: sync/syncjob.cpp:902
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr "(第 %1 步，共 %2 步) 请求远程剧集更新"
+msgstr ""
 
 #: sync/syncjob.cpp:905
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr "(第 %1 步，共 %2 步) 应用远程剧集更改"
+msgstr ""
 
 #: sync/syncjob.cpp:908
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr "(第 %1 步，共 %2 步) 上传本地剧集更新"
+msgstr ""
 
 #: sync/syncjob.cpp:911
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Finished Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr "(第 %1 步，共 %2 步) 完成同步"
+msgstr ""
 
 #: sync/syncjob.cpp:914
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync Aborted"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr "同步中止"
+msgstr ""
 
 #: sync/syncjob.cpp:918
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync finished with Error"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
-msgstr "同步完成，但发生了错误"
+msgstr ""
 
 #: systrayicon.cpp:46
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-22 02:39+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-06-10 10:10+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -876,31 +876,6 @@ msgstr "Wyzeruj"
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "tytuł: %1"
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr "Powiększ"
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr "Pomniejsz"
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr "Obróć w lewo"
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr "Obróć w prawo"
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
-msgstr "Zamknij"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -2093,6 +2068,21 @@ msgstr "Przejdź do przodu"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Zoom in"
+#~ msgstr "Powiększ"
+
+#~ msgid "Zoom out"
+#~ msgstr "Pomniejsz"
+
+#~ msgid "Rotate left"
+#~ msgstr "Obróć w lewo"
+
+#~ msgid "Rotate right"
+#~ msgstr "Obróć w prawo"
+
+#~ msgid "Close"
+#~ msgstr "Zamknij"
 
 #~ msgid "Select file..."
 #~ msgstr "Wybierz plik..."
