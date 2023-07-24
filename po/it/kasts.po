@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:32+0000\n"
 "PO-Revision-Date: 2023-06-11 07:58+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -877,31 +877,6 @@ msgstr "Ripristina"
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "titolo: %1"
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr "Ingrandisci"
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr "Rimpicciolisci"
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr "Ruota a sinistra"
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr "Ruota a destra"
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
-msgstr "Chiudi"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -2100,6 +2075,21 @@ msgstr "Salta in avanti"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgid "Zoom in"
+#~ msgstr "Ingrandisci"
+
+#~ msgid "Zoom out"
+#~ msgstr "Rimpicciolisci"
+
+#~ msgid "Rotate left"
+#~ msgstr "Ruota a sinistra"
+
+#~ msgid "Rotate right"
+#~ msgstr "Ruota a destra"
+
+#~ msgid "Close"
+#~ msgstr "Chiudi"
 
 #~ msgid "Select file..."
 #~ msgstr "Seleziona file..."

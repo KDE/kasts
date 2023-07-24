@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:32+0000\n"
 "PO-Revision-Date: 2023-07-21 23:13+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -827,31 +827,6 @@ msgstr "Reset"
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Actief filter: %1"
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr "Inzoomen"
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr "Uitzoomen"
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr "Linksom draaien"
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr "Rechtsom draaien"
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
-msgstr "Sluiten"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -1999,6 +1974,21 @@ msgstr "Vooruit springen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "Zoom in"
+#~ msgstr "Inzoomen"
+
+#~ msgid "Zoom out"
+#~ msgstr "Uitzoomen"
+
+#~ msgid "Rotate left"
+#~ msgstr "Linksom draaien"
+
+#~ msgid "Rotate right"
+#~ msgstr "Rechtsom draaien"
+
+#~ msgid "Close"
+#~ msgstr "Sluiten"
 
 #~ msgid "Select file..."
 #~ msgstr "Bestand selecteren..."

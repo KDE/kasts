@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:32+0000\n"
 "PO-Revision-Date: 2023-07-21 06:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
@@ -833,31 +833,6 @@ msgstr "Ponovno nastavi"
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Aktivni filter: %1"
-
-#: qml/FullScreenImage.qml:48
-#, kde-format
-msgid "Zoom in"
-msgstr "Približaj"
-
-#: qml/FullScreenImage.qml:59
-#, kde-format
-msgid "Zoom out"
-msgstr "Oddalji"
-
-#: qml/FullScreenImage.qml:70
-#, kde-format
-msgid "Rotate left"
-msgstr "Zasukaj levo"
-
-#: qml/FullScreenImage.qml:77
-#, kde-format
-msgid "Rotate right"
-msgstr "Zasukaj desno"
-
-#: qml/FullScreenImage.qml:84
-#, kde-format
-msgid "Close"
-msgstr "Zapri"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -2010,6 +1985,21 @@ msgstr "Preskoči naprej"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Zoom in"
+#~ msgstr "Približaj"
+
+#~ msgid "Zoom out"
+#~ msgstr "Oddalji"
+
+#~ msgid "Rotate left"
+#~ msgstr "Zasukaj levo"
+
+#~ msgid "Rotate right"
+#~ msgstr "Zasukaj desno"
+
+#~ msgid "Close"
+#~ msgstr "Zapri"
 
 #~ msgid "Select file..."
 #~ msgstr "Izberi datoteko..."
