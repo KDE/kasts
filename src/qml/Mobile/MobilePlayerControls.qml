@@ -154,7 +154,7 @@ Kirigami.Page {
                             }
 
                             Controls.Label {
-                                text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No Podcast Title")
+                                text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No podcast title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -186,7 +186,7 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No Track Loaded")
+                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No track loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
@@ -220,7 +220,7 @@ Kirigami.Page {
                         width: parent.width
                         anchors.centerIn: parent
 
-                        text: i18n("No chapters found.")
+                        text: i18n("No chapters found")
                     }
 
                     ListView {
@@ -342,7 +342,7 @@ Kirigami.Page {
                         Controls.ToolTip {
                             visible: parent.hovered
                             delay: Qt.styleHints.mousePressAndHoldInterval
-                            text: i18nc("@action:button", "Open Volume Settings")
+                            text: i18nc("@action:button", "Open volume settings")
                         }
                         onClicked: {
                             if (volumePopup.visible) {
@@ -372,7 +372,7 @@ Kirigami.Page {
                                     Controls.ToolTip {
                                         visible: parent.hovered
                                         delay: Qt.styleHints.mousePressAndHoldInterval
-                                        text: i18nc("@action:button", "Toggle Mute")
+                                        text: i18nc("@action:button", "Toggle mute")
                                     }
                                 }
 

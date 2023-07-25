@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
 
-            text: i18n("No Downloads")
+            text: i18n("No downloads")
         }
 
         model: DownloadModel

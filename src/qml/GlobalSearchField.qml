@@ -93,7 +93,7 @@ Addons.SearchPopupField {
             anchors.fill: parent
             visible: searchListView.count === 0
 
-            text: i18nc("@info Placeholder text in search box", "No Search Results")
+            text: i18nc("@info Placeholder text in search box", "No search results")
         }
 
         Kirigami.Action {

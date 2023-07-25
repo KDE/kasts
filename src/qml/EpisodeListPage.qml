@@ -95,7 +95,7 @@ Kirigami.ScrollablePage {
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
 
-            text: i18n("No Episodes Available")
+            text: i18n("No episodes available")
         }
 
         model: EpisodeProxyModel {
