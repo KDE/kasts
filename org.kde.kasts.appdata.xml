@@ -43,7 +43,7 @@
   <summary xml:lang="id">Aplikasi podcast</summary>
   <summary xml:lang="it">Applicazione per podcast</summary>
   <summary xml:lang="ka">პოდკასტის აპლიკაცია</summary>
-  <summary xml:lang="ko">팟캐스트 프로그램</summary>
+  <summary xml:lang="ko">팟캐스트 앱</summary>
   <summary xml:lang="nl">Podcastprogramma</summary>
   <summary xml:lang="pl">Aplikacja do podkastów</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
@@ -95,7 +95,7 @@
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
     <p xml:lang="ka">Kasts პოდკასტების კონვერგენტული აპლიკაციაა, რომელიც ორივე, კომპიუტერზე და მობილურზე, კარგად გამოიყურება.</p>
-    <p xml:lang="ko">Kasts는 데스크톱과 모바일 양쪽에서 작동하는 팟캐스트 프로그램입니다.</p>
+    <p xml:lang="ko">Kasts는 데스크톱과 모바일 양쪽에서 작동하는 팟캐스트 앱입니다.</p>
     <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
     <p xml:lang="pl">Kasts jest dostosowującą się aplikacją do podkastów, która wygląda dobrze na urządzeniach biurkowych i przenośnych.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
@@ -249,6 +249,7 @@
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
+      <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
@@ -268,6 +269,7 @@
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
+      <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
@@ -314,6 +316,7 @@
       <caption xml:lang="pl">Sterowanie Kastem na urządzeniach przenośnych</caption>
       <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
+      <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
       <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
