@@ -435,7 +435,7 @@ FocusScope {
 
         Controls.Label {
             id: text
-            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No Track Loaded")
+            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No track loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText

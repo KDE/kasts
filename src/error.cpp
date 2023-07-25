@@ -45,21 +45,21 @@ QString Error::description() const
 {
     switch (type) {
     case Error::Type::FeedUpdate:
-        return i18n("Podcast Update Error");
+        return i18n("Podcast update error");
     case Error::Type::MediaDownload:
-        return i18n("Media Download Error");
+        return i18n("Media download error");
     case Error::Type::MeteredNotAllowed:
-        return i18n("Update Not Allowed on Metered Connection");
+        return i18n("Update not allowed on metered connection");
     case Error::Type::InvalidMedia:
-        return i18n("Invalid Media File");
+        return i18n("Invalid media file");
     case Error::Type::DiscoverError:
-        return i18n("Nothing Found");
+        return i18n("Nothing found");
     case Error::Type::StorageMoveError:
         return i18n("Error moving storage path");
     case Error::Type::SyncError:
-        return i18n("Error Syncing Feed and/or Episode Status");
+        return i18n("Error syncing feed and/or episode status");
     case Error::Type::MeteredStreamingNotAllowed:
-        return i18n("No Connection or Streaming Not Allowed on Metered Connection");
+        return i18n("Connection or streaming not allowed on metered connection");
     default:
         return QString();
     }
