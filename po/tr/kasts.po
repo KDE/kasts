@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-07-24 14:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -48,28 +48,33 @@ msgid "Downloading %1"
 msgstr "İndiriliyor: %1"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "Pod Yayını Güncelleme Hatası"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "Ortam İndirme Hatası"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "Kısıtlı Bağlantıda Güncellemeye İzin Verilmiyor"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "Geçersiz Ortam Dosyası"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "Bir şey bulunamadı"
 
 #: error.cpp:58
@@ -78,13 +83,15 @@ msgid "Error moving storage path"
 msgstr "Depolama yolu taşınırken hata"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "Bölüm Durumu ve/veya Besleme Eşzamanlanırken Hata"
 
 #: error.cpp:62
-#, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "Kısıtlı Bağlantıda Bağlantıya veya Akışa İzin Verilmiyor"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -351,12 +358,14 @@ msgid "Open sleep timer settings"
 msgstr "Uyku sayacı ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Ses düzeyi ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -398,10 +407,10 @@ msgid "No Track Title"
 msgstr "Parça Başlığı Yok"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "Yüklenen parça yok"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -440,8 +449,9 @@ msgid "Refresh All Podcasts"
 msgstr "Tüm Pod Yayınlarını Yenile"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "İndirme yok"
 
 #: qml/DownloadListPage.qml:73
@@ -597,8 +607,9 @@ msgid "Search and Filter"
 msgstr "Ara ve Süz"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
-#, kde-format
-msgid "No Episodes Available"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "Kullanılabilir bölüm yok"
 
 #: qml/ErrorList.qml:30
@@ -915,9 +926,11 @@ msgstr[0] "İndimeyi Sil"
 msgstr[1] "İndirmeleri Sil"
 
 #: qml/GlobalSearchField.qml:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder text in search box"
+#| msgid "No Search Results"
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr "Arama sonucu yok"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -976,32 +989,27 @@ msgstr ""
 "Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
 "verilmiyor"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Yüklenen parça yok"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Başlıksız"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "Pod yayını başlığı yok"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
+#, fuzzy, kde-format
+#| msgid "No chapters found."
+msgid "No chapters found"
 msgstr "Fasıl bulunamadı."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "Ses Düzeyi Ayarlarını Aç"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr "Sesi Aç/Kapat"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -1970,6 +1978,14 @@ msgstr "İleri Atla"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "Ses Düzeyi Ayarlarını Aç"
+
+#~ msgctxt "@action:button"
+#~ msgid "Toggle Mute"
+#~ msgstr "Sesi Aç/Kapat"
 
 #~ msgid "Zoom in"
 #~ msgstr "Yakınlaştır"

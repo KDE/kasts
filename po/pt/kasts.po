@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -54,28 +54,33 @@ msgid "Downloading %1"
 msgstr "A obter o %1"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "Erro de Actualização do 'Podcast'"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "Erro de Transferência dos Conteúdos"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "A Actualização Não é Permitida em Redes com 'Plafonds'"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "Ficheiro de Conteúdos Inválido"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "Nada Encontrado"
 
 #: error.cpp:58
@@ -84,13 +89,15 @@ msgid "Error moving storage path"
 msgstr "Erro ao mover o local de armazenamento"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "Erro ao Sincronizar o Estado da Fonte e/ou Episódio"
 
 #: error.cpp:62
-#, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "Sem Ligação ou Transmissão Proibida em Redes Móveis Limitadas"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -387,6 +394,7 @@ msgid "Open sleep timer settings"
 msgstr "Abrir a Configuração do Alarme"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Volume Settings"
@@ -395,6 +403,7 @@ msgid "Open volume settings"
 msgstr "Abrir a Configuração do Volume"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Toggle Mute"
@@ -440,10 +449,10 @@ msgid "No Track Title"
 msgstr "Nenhum Título da Faixa"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "Nenhuma Faixa Carregada"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -482,8 +491,9 @@ msgid "Refresh All Podcasts"
 msgstr "Actualizar Todos os 'Podcasts'"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "Sem Transferências"
 
 #: qml/DownloadListPage.qml:73
@@ -639,8 +649,9 @@ msgid "Search and Filter"
 msgstr "Pesquisar e Filtrar"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
-#, kde-format
-msgid "No Episodes Available"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "Sem Episódios Disponíveis"
 
 #: qml/ErrorList.qml:30
@@ -966,9 +977,11 @@ msgstr[0] "Apagar a Transferência"
 msgstr[1] "Apagar as Transferências"
 
 #: qml/GlobalSearchField.qml:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder text in search box"
+#| msgid "No Search Results"
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr "Pesquisa sem Resultados"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -1027,32 +1040,27 @@ msgstr ""
 "As transferências de 'podcasts' não são permitidas de momento em redes com "
 "'plafonds'"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Nenhuma Faixa Carregada"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Sem Título"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "Sem Título do 'Podcast'"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
+#, fuzzy, kde-format
+#| msgid "No chapters found."
+msgid "No chapters found"
 msgstr "Não foram encontrados capítulos."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "Abrir a Configuração do Volume"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr "Comutar o Silêncio"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -2073,6 +2081,14 @@ msgstr "Seguinte"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "Abrir a Configuração do Volume"
+
+#~ msgctxt "@action:button"
+#~ msgid "Toggle Mute"
+#~ msgstr "Comutar o Silêncio"
 
 #~ msgid "Zoom in"
 #~ msgstr "Ampliar"

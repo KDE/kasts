@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2022-09-25 10:01+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -47,28 +47,33 @@ msgid "Downloading %1"
 msgstr "Laddar ner %1"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "Uppdateringsfel för poddradioprogram"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "Fel vid nerladdning av media"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "Uppdatering tillåts inte för uppmätt anslutning"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "Ogiltig mediafil"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "Ingenting hittades"
 
 #: error.cpp:58
@@ -77,14 +82,15 @@ msgid "Error moving storage path"
 msgstr "Fel vid förflyttning av lagringssökväg"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "Fel vid synkronisering av kanal och/eller avsnittsstatus"
 
 #: error.cpp:62
 #, fuzzy, kde-format
 #| msgid "Update Not Allowed on Metered Connection"
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "Uppdatering tillåts inte för uppmätt anslutning"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -377,6 +383,7 @@ msgid "Open sleep timer settings"
 msgstr "Allmänna inställningar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
@@ -384,6 +391,7 @@ msgid "Open volume settings"
 msgstr "Allmänna inställningar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -428,10 +436,10 @@ msgid "No Track Title"
 msgstr "Ingen spårtitel"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "Inget spår inläst"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -470,8 +478,9 @@ msgid "Refresh All Podcasts"
 msgstr "Uppdatera alla poddradioprogram"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "Inga nerladdningar"
 
 #: qml/DownloadListPage.qml:73
@@ -647,7 +656,7 @@ msgstr "Välj filter"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
 #, kde-format
-msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "Inga avsnitt tillgängliga"
 
 #: qml/ErrorList.qml:30
@@ -991,7 +1000,7 @@ msgstr[1] "Ta bort nerladdningar"
 #: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr ""
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -1051,33 +1060,27 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Nerladdningar av poddradioprogram tillåts inte för uppmätta anslutningar"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Inget spår inläst"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Ingen titel"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "Ingen poddradiotitel"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
-msgstr "Inga kapitel hittades."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
-#| msgid "General Settings"
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "Allmänna inställningar"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr ""
+#| msgid "No chapters found."
+msgid "No chapters found"
+msgstr "Inga kapitel hittades."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, fuzzy, kde-format
@@ -2114,6 +2117,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
 
+#~ msgid "No Episodes Available"
+#~ msgstr "Inga avsnitt tillgängliga"
+
+#, fuzzy
+#~| msgid "General Settings"
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "Allmänna inställningar"
+
 #, fuzzy
 #~| msgid "Select folder..."
 #~ msgid "Select file..."
@@ -2224,9 +2236,6 @@ msgstr ""
 
 #~ msgid "Remove from queue"
 #~ msgstr "Ta bort från kö"
-
-#~ msgid "No episodes available"
-#~ msgstr "Inga avsnitt tillgängliga"
 
 #~ msgid "No new episodes"
 #~ msgstr "Inga ny avsnitt"

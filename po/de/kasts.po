@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-06-12 00:16+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -49,28 +49,33 @@ msgid "Downloading %1"
 msgstr "%1 wird heruntergeladen"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "Fehler beim Aktualisieren des Podcasts"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "Fehler beim Herunterladen von Medien"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "Aktualisierung ist bei gebührenpflichtigen Verbindungen nicht erlaubt"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "Ungültige Mediendatei"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "Nichts gefunden"
 
 #: error.cpp:58
@@ -79,14 +84,15 @@ msgid "Error moving storage path"
 msgstr "Fehler beim Verschieben des Speicherpfades"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "Fehler beim Synchronisieren des Quellen- und/oder Episodenstatus’"
 
 #: error.cpp:62
 #, fuzzy, kde-format
 #| msgid "Update Not Allowed on Metered Connection"
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "Aktualisierung ist bei gebührenpflichtigen Verbindungen nicht erlaubt"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -378,6 +384,7 @@ msgid "Open sleep timer settings"
 msgstr "Allgemeine Einstellungen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgid "General Settings"
 msgctxt "@action:button"
@@ -385,6 +392,7 @@ msgid "Open volume settings"
 msgstr "Allgemeine Einstellungen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Toggle Mute"
@@ -430,10 +438,10 @@ msgid "No Track Title"
 msgstr "Kein Stücktitel"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "Kein Stück geladen"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -472,8 +480,9 @@ msgid "Refresh All Podcasts"
 msgstr "Alle Podcasts aktualisieren"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "Keine heruntergeladen"
 
 #: qml/DownloadListPage.qml:73
@@ -630,7 +639,7 @@ msgstr "Suchen und filtern"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
 #, kde-format
-msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "Keine Episoden verfügbar"
 
 #: qml/ErrorList.qml:30
@@ -961,9 +970,11 @@ msgstr[0] "Download löschen"
 msgstr[1] "Downloads löschen"
 
 #: qml/GlobalSearchField.qml:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder text in search box"
+#| msgid "No Search Results"
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr "Keine Suchergebnisse"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -1020,33 +1031,27 @@ msgstr[1] "%2 von %1 Dateien verschoben"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Kein Stück geladen"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "Kein Titel"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "Kein Podcast-Titel"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
-msgstr "Keine Kapitel gefunden."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
-#| msgid "General Settings"
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "Allgemeine Einstellungen"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr "Stummschaltung an/aus"
+#| msgid "No chapters found."
+msgid "No chapters found"
+msgstr "Keine Kapitel gefunden."
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -2072,6 +2077,19 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Beenden"
 
+#~ msgid "No Episodes Available"
+#~ msgstr "Keine Episoden verfügbar"
+
+#, fuzzy
+#~| msgid "General Settings"
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "Allgemeine Einstellungen"
+
+#~ msgctxt "@action:button"
+#~ msgid "Toggle Mute"
+#~ msgstr "Stummschaltung an/aus"
+
 #~ msgid "Zoom in"
 #~ msgstr "Vergrößern"
 
@@ -2175,9 +2193,6 @@ msgstr "Beenden"
 
 #~ msgid "Remove from queue"
 #~ msgstr "Aus Warteschlange entfernen"
-
-#~ msgid "No episodes available"
-#~ msgstr "Keine Episoden verfügbar"
 
 #~ msgid "No new episodes"
 #~ msgstr "Keine neue Episoden"

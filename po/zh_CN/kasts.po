@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-07-23 12:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -50,28 +50,33 @@ msgid "Downloading %1"
 msgstr "正在下载 %1"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "播客更新出错"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "媒体下载出错"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "使用计费连接时不允许更新"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "媒体文件无效"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "未找到任何内容"
 
 #: error.cpp:58
@@ -80,14 +85,16 @@ msgid "Error moving storage path"
 msgstr "移动存储路径时出错"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "同步订阅源和/或单集状态时出错"
 
 #: error.cpp:62
-#, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Connection or streaming not allowed on metered connection"
+msgstr "使用计费连接时不允许下载播客"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -352,12 +359,14 @@ msgid "Open sleep timer settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -399,10 +408,10 @@ msgid "No Track Title"
 msgstr "无曲目标题"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "未加载曲目"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -441,8 +450,9 @@ msgid "Refresh All Podcasts"
 msgstr "刷新所有播客"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "无下载任务"
 
 #: qml/DownloadListPage.qml:73
@@ -598,8 +608,9 @@ msgid "Search and Filter"
 msgstr ""
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
-#, kde-format
-msgid "No Episodes Available"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "无可播放剧集"
 
 #: qml/ErrorList.qml:30
@@ -914,7 +925,7 @@ msgstr[0] "删除下载"
 #: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr ""
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -969,32 +980,27 @@ msgstr[0] "已移动 %2 个文件，共 %1 个"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许下载播客"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "未加载曲目"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "无标题"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "无播客标题"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
+#, fuzzy, kde-format
+#| msgid "No chapters found."
+msgid "No chapters found"
 msgstr "未找到章节。"
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr ""
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format

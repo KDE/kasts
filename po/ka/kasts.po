@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-07-21 07:15+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -49,28 +49,33 @@ msgid "Downloading %1"
 msgstr "%1-ის გადმოწერა"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "პოდკასტის განახლების შეცდომა"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "მედიის გადმოწერის შეცდომა"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "განახლება გაზომვადი ქსელური შეერთების დროს აკრძალულია"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "არასწორი მედია ფაილი"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "ვერაფერი მოიძებნა"
 
 #: error.cpp:58
@@ -79,13 +84,15 @@ msgid "Error moving storage path"
 msgstr "საცავის ბილიკის გადატანის შეცდომა"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "ლენტის ან/და ეპიზოდის სტატუსის სინქრონიზაციის შეცდომა"
 
 #: error.cpp:62
-#, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -351,12 +358,14 @@ msgid "Open sleep timer settings"
 msgstr "ძილის ტაიმერის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "ხმის პარამეტრების გახსნა"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -398,10 +407,10 @@ msgid "No Track Title"
 msgstr "ტრეკის სათაურის გარეშე"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -440,8 +449,9 @@ msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "გადმოწერების გარეშე"
 
 #: qml/DownloadListPage.qml:73
@@ -597,8 +607,9 @@ msgid "Search and Filter"
 msgstr "ძებნა და გაფილტვრა"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
-#, kde-format
-msgid "No Episodes Available"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "ეპიზოდების გარეშე"
 
 #: qml/ErrorList.qml:30
@@ -915,9 +926,11 @@ msgstr[0] "გადმოწერების წაშლა"
 msgstr[1] "გადმოწერების წაშლა"
 
 #: qml/GlobalSearchField.qml:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder text in search box"
+#| msgid "No Search Results"
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr "ძებნის შედეგების გარეშე"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -974,32 +987,27 @@ msgstr[1] "გადატანილია %2 ფაილი %1-დან"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "ტრეკი ჩატვირთული არაა"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "სათაურის გარეშე"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "პოდკასტის სათაურის გარეშე"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
+#, fuzzy, kde-format
+#| msgid "No chapters found."
+msgid "No chapters found"
 msgstr "თავები ვერ ვიპოვე."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "ხმის პარამეტრების გახსნა"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr "დადუმების გადართვა"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -1968,6 +1976,14 @@ msgstr "წინ გადახტომა"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "გასვლა"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "ხმის პარამეტრების გახსნა"
+
+#~ msgctxt "@action:button"
+#~ msgid "Toggle Mute"
+#~ msgstr "დადუმების გადართვა"
 
 #~ msgid "Zoom in"
 #~ msgstr "&გადიდება"

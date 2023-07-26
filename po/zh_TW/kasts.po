@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:32+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2022-06-13 01:10+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -50,27 +50,27 @@ msgstr ""
 
 #: error.cpp:48
 #, kde-format
-msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr ""
 
 #: error.cpp:50
 #, kde-format
-msgid "Media Download Error"
+msgid "Media download error"
 msgstr ""
 
 #: error.cpp:52
 #, kde-format
-msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr ""
 
 #: error.cpp:54
 #, kde-format
-msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr ""
 
 #: error.cpp:56
 #, kde-format
-msgid "Nothing Found"
+msgid "Nothing found"
 msgstr ""
 
 #: error.cpp:58
@@ -80,12 +80,12 @@ msgstr ""
 
 #: error.cpp:60
 #, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr ""
 
 #: error.cpp:62
 #, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -351,12 +351,14 @@ msgid "Open sleep timer settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -398,10 +400,9 @@ msgid "No Track Title"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
-msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr ""
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -441,7 +442,7 @@ msgstr ""
 
 #: qml/DownloadListPage.qml:57
 #, kde-format
-msgid "No Downloads"
+msgid "No downloads"
 msgstr ""
 
 #: qml/DownloadListPage.qml:73
@@ -598,7 +599,7 @@ msgstr ""
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
 #, kde-format
-msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr ""
 
 #: qml/ErrorList.qml:30
@@ -916,7 +917,7 @@ msgstr[1] ""
 #: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr ""
 
 #: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
@@ -973,6 +974,11 @@ msgstr[1] ""
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr ""
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
@@ -980,24 +986,12 @@ msgstr ""
 
 #: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
-msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr ""
 
 #: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
-msgid "No chapters found."
-msgstr ""
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr ""
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
+msgid "No chapters found"
 msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
