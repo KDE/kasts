@@ -69,16 +69,10 @@ Kirigami.ScrollablePage {
     contextualActions: Kirigami.Action {
         id: searchActionButton
         icon.name: "search"
-        text: i18nc("@action:intoolbar", "Search and Filter")
+        text: i18nc("@action:intoolbar", "Search")
         checkable: true
         enabled: page.feed.entries ? true : false
         visible: enabled
-        onToggled: {
-            if (!checked && page.feed.entries) {
-                page.feed.entries.filterType = AbstractEpisodeProxyModel.NoFilter;
-                page.feed.entries.searchFilter = "";
-            }
-        }
     }
 
     header: Loader {
@@ -88,7 +82,7 @@ Kirigami.ScrollablePage {
         active: searchActionButton.checked
         visible: active
 
-        sourceComponent: SearchFilterBar {
+        sourceComponent: SearchBar {
             proxyModel: page.feed.entries ? page.feed.entries : emptyListModel
             parentKey: searchActionButton
         }

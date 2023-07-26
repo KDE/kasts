@@ -39,4 +39,5 @@ private:
     QStringList m_titles;
     QStringList m_contents;
     QStringList m_feedNames;
+    QList<int> m_updated;
 };

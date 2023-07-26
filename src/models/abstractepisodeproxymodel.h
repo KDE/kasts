@@ -39,10 +39,17 @@ public:
     Q_DECLARE_FLAGS(SearchFlags, SearchFlag)
     Q_FLAGS(SearchFlags)
 
+    enum SortType {
+        DateDescending,
+        DateAscending,
+    };
+    Q_ENUM(SortType)
+
     Q_PROPERTY(FilterType filterType READ filterType WRITE setFilterType NOTIFY filterTypeChanged)
     Q_PROPERTY(QString filterName READ filterName NOTIFY filterTypeChanged)
     Q_PROPERTY(QString searchFilter READ searchFilter WRITE setSearchFilter NOTIFY searchFilterChanged)
     Q_PROPERTY(SearchFlags searchFlags READ searchFlags WRITE setSearchFlags NOTIFY searchFlagsChanged)
+    Q_PROPERTY(SortType sortType READ sortType WRITE setSortType NOTIFY sortTypeChanged)
 
     explicit AbstractEpisodeProxyModel(QObject *parent = nullptr);
 
@@ -52,13 +59,17 @@ public:
     QString filterName() const;
     QString searchFilter() const;
     SearchFlags searchFlags() const;
+    SortType sortType() const;
 
     void setFilterType(FilterType type);
     void setSearchFilter(const QString &searchString);
     void setSearchFlags(SearchFlags searchFlags);
+    void setSortType(SortType type);
 
     Q_INVOKABLE QString getFilterName(FilterType type) const;
     Q_INVOKABLE QString getSearchFlagName(SearchFlag flag) const;
+    Q_INVOKABLE QString getSortName(SortType type) const;
+    Q_INVOKABLE QString getSortIconName(SortType type) const;
 
     Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 
@@ -66,11 +77,14 @@ Q_SIGNALS:
     void filterTypeChanged();
     void searchFilterChanged();
     void searchFlagsChanged();
+    void sortTypeChanged();
 
 protected:
     FilterType m_currentFilter = FilterType::NoFilter;
     QString m_searchFilter;
     SearchFlags m_searchFlags;
+    SortType m_currentSort = SortType::DateDescending;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(AbstractEpisodeProxyModel::SearchFlags)
+Q_DECLARE_METATYPE(AbstractEpisodeProxyModel::SortType)

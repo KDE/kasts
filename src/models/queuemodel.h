@@ -6,11 +6,8 @@
 
 #pragma once
 
-#include <QHash>
-#include <QItemSelection>
 #include <QModelIndex>
 #include <QObject>
-#include <QString>
 #include <QVariant>
 
 #include "models/abstractepisodemodel.h"
@@ -18,9 +15,6 @@
 class QueueModel : public AbstractEpisodeModel
 {
     Q_OBJECT
-
-    Q_PROPERTY(int timeLeft READ timeLeft NOTIFY timeLeftChanged)
-    Q_PROPERTY(QString formattedTimeLeft READ formattedTimeLeft NOTIFY timeLeftChanged)
 
 public:
     static QueueModel &instance()
@@ -35,11 +29,9 @@ public:
     int timeLeft() const;
     QString formattedTimeLeft() const;
 
-    Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
+Q_SIGNALS:
+    void timeLeftChanged();
 
 public Q_SLOTS:
     void updateInternalState() override;
-
-Q_SIGNALS:
-    void timeLeftChanged();
 };

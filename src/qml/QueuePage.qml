@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    property list<Kirigami.Action> pageActions: [
+    readonly property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             icon.name: "view-refresh"
             text: i18nc("@action:intoolbar", "Refresh All Podcasts")
@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        model: QueueModel {
+        model: QueueProxyModel {
             id: queueModel
         }
 

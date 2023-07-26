@@ -25,6 +25,7 @@ public:
         FavoriteRole,
         ContentRole,
         FeedNameRole,
+        UpdatedRole,
     };
     Q_ENUM(Roles)
 

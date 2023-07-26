@@ -121,8 +121,112 @@ ListView {
         }
     }
 
+
     // For lack of a better place, we put generic entry list actions here so
     // they can be re-used across the different ListViews.
+
+    readonly property var sortAction: Kirigami.Action {
+        id: sortActionRoot
+        visible: !isDownloads
+        enabled: visible
+        icon.name: "view-sort"
+        text: i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
+
+        tooltip: i18nc("@info:tooltip", "Select how to sort episodes")
+
+        property Controls.ActionGroup sortGroup: Controls.ActionGroup { }
+
+        property Instantiator repeater: Instantiator {
+            model: ListModel {
+                id: sortModel
+                // have to use script because i18n doesn't work within ListElement
+                Component.onCompleted: {
+                    if (sortActionRoot.visible) {
+                        var sortList = [AbstractEpisodeProxyModel.DateDescending,
+                                        AbstractEpisodeProxyModel.DateAscending]
+                        for (var i in sortList) {
+                            sortModel.append({"name": listView.model.getSortName(sortList[i]),
+                                            "iconName": listView.model.getSortIconName(sortList[i]),
+                                            "sortType": sortList[i]});
+                        }
+                    }
+                }
+            }
+
+            Kirigami.Action {
+                visible: sortActionRoot.visible
+                icon.name: model.iconName
+                text: model.name
+                checkable: !isQueue
+                checked: !isQueue && (listView.model.sortType === model.sortType)
+                Controls.ActionGroup.group: isQueue ? null : sortActionRoot.sortGroup
+
+                onTriggered: {
+                    if (isQueue) {
+                        DataManager.sortQueue(model.sortType);
+                    } else {
+                        listView.model.sortType = model.sortType;
+                    }
+                }
+            }
+
+            onObjectAdded: (index, object) => {
+                sortActionRoot.children.push(object);
+            }
+        }
+    }
+
+    readonly property var filterAction: Kirigami.Action {
+        id: filterActionRoot
+        visible: !isDownloads && !isQueue
+        enabled: visible
+        icon.name: "view-filter"
+        text: i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
+
+        tooltip: i18nc("@info:tooltip", "Filter episodes by status")
+
+        property Controls.ActionGroup filterGroup: Controls.ActionGroup { }
+
+
+        property Instantiator repeater: Instantiator {
+            model: ListModel {
+                id: filterModel
+                // have to use script because i18n doesn't work within ListElement
+                Component.onCompleted: {
+                    if (filterActionRoot.visible) {
+                        var filterList = [AbstractEpisodeProxyModel.NoFilter,
+                                        AbstractEpisodeProxyModel.ReadFilter,
+                                        AbstractEpisodeProxyModel.NotReadFilter,
+                                        AbstractEpisodeProxyModel.NewFilter,
+                                        AbstractEpisodeProxyModel.NotNewFilter,
+                                        AbstractEpisodeProxyModel.FavoriteFilter,
+                                        AbstractEpisodeProxyModel.NotFavoriteFilter]
+                        for (var i in filterList) {
+                            filterModel.append({"name": listView.model.getFilterName(filterList[i]),
+                                                "filterType": filterList[i]});
+                        }
+                    }
+                }
+            }
+
+            Kirigami.Action {
+                visible: filterActionRoot.visible
+                text: model.name
+                checkable: true
+                checked: listView.model.filterType === model.filterType
+                Controls.ActionGroup.group: filterActionRoot.filterGroup
+
+                onTriggered: {
+                    listView.model.filterType = model.filterType;
+                }
+            }
+
+            onObjectAdded: (index, object) => {
+                filterActionRoot.children.push(object);
+            }
+        }
+    }
+
     readonly property var selectAllAction: Kirigami.Action {
         icon.name: "edit-select-all"
         text: i18n("Select All")
@@ -243,7 +347,9 @@ ListView {
         }
     }
 
-    readonly property var defaultActionList: [addToQueueAction,
+    readonly property var defaultActionList: [sortAction,
+                                              filterAction,
+                                              addToQueueAction,
                                               removeFromQueueAction,
                                               markPlayedAction,
                                               markNotPlayedAction,

@@ -47,6 +47,8 @@ QVariant EpisodeModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(m_contents[index.row()]);
     case AbstractEpisodeModel::Roles::FeedNameRole:
         return QVariant::fromValue(m_feedNames[index.row()]);
+    case AbstractEpisodeModel::Roles::UpdatedRole:
+        return QVariant::fromValue(m_updated[index.row()]);
     default:
         return QVariant();
     }
@@ -67,9 +69,10 @@ void EpisodeModel::updateInternalState()
     m_titles.clear();
     m_contents.clear();
     m_feedNames.clear();
+    m_updated.clear();
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT id, read, new, favorite, title, content, feed FROM Entries ORDER BY updated DESC;"));
+    query.prepare(QStringLiteral("SELECT id, read, new, favorite, title, content, feed, updated FROM Entries ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_entryIds += query.value(QStringLiteral("id")).toString();
@@ -79,5 +82,6 @@ void EpisodeModel::updateInternalState()
         m_titles += query.value(QStringLiteral("title")).toString();
         m_contents += query.value(QStringLiteral("content")).toString();
         m_feedNames += DataManager::instance().getFeed(query.value(QStringLiteral("feed")).toString())->name();
+        m_updated += query.value(QStringLiteral("updated")).toInt();
     }
 }
