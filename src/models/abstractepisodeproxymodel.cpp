@@ -95,6 +95,11 @@ AbstractEpisodeProxyModel::SearchFlags AbstractEpisodeProxyModel::searchFlags() 
     return m_searchFlags;
 }
 
+AbstractEpisodeProxyModel::SortType AbstractEpisodeProxyModel::sortType() const
+{
+    return m_currentSort;
+}
+
 void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 {
     if (type != m_currentFilter) {
@@ -152,6 +157,26 @@ void AbstractEpisodeProxyModel::setSearchFlags(AbstractEpisodeProxyModel::Search
     }
 }
 
+void AbstractEpisodeProxyModel::setSortType(SortType type)
+{
+    if (type != m_currentSort) {
+        switch (type) {
+        case SortType::DateDescending:
+            m_currentSort = type;
+            setSortRole(AbstractEpisodeModel::UpdatedRole);
+            sort(-1, Qt::DescendingOrder);
+            break;
+        case SortType::DateAscending:
+            m_currentSort = type;
+            setSortRole(AbstractEpisodeModel::UpdatedRole);
+            sort(0, Qt::AscendingOrder);
+            break;
+        }
+
+        Q_EMIT sortTypeChanged();
+    }
+}
+
 QString AbstractEpisodeProxyModel::getFilterName(FilterType type) const
 {
     switch (type) {
@@ -183,6 +208,30 @@ QString AbstractEpisodeProxyModel::getSearchFlagName(SearchFlag flag) const
         return i18nc("@label:chooser Choice of fields to search for string", "Description");
     case SearchFlag::FeedNameFlag:
         return i18nc("@label:chooser Choice of fields to search for string", "Podcast title");
+    default:
+        return QString();
+    }
+}
+
+QString AbstractEpisodeProxyModel::getSortName(SortType type) const
+{
+    switch (type) {
+    case SortType::DateDescending:
+        return i18nc("@label:chooser Sort episodes by decreasing date", "Date: newer first");
+    case SortType::DateAscending:
+        return i18nc("@label:chooser Sort episodes by increasing date", "Date: older first");
+    default:
+        return QString();
+    }
+}
+
+QString AbstractEpisodeProxyModel::getSortIconName(SortType type) const
+{
+    switch (type) {
+    case SortType::DateDescending:
+        return QStringLiteral("view-sort-descending");
+    case SortType::DateAscending:
+        return QStringLiteral("view-sort-ascending");
     default:
         return QString();
     }

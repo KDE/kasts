@@ -48,6 +48,8 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(entry->content());
     case AbstractEpisodeModel::Roles::FeedNameRole:
         return QVariant::fromValue(m_feed->name());
+    case AbstractEpisodeModel::Roles::UpdatedRole:
+        return QVariant::fromValue(entry->updated());
     default:
         return QVariant();
     }

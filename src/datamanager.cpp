@@ -517,6 +517,48 @@ void DataManager::removeFromQueue(const QString &id)
     Q_EMIT queueEntryRemoved(index, id);
 }
 
+void DataManager::sortQueue(AbstractEpisodeProxyModel::SortType sortType)
+{
+    QString columnName;
+    QString order;
+
+    switch (sortType) {
+    case AbstractEpisodeProxyModel::SortType::DateAscending:
+        order = QStringLiteral("ASC");
+        columnName = QStringLiteral("updated");
+        break;
+    case AbstractEpisodeProxyModel::SortType::DateDescending:
+        order = QStringLiteral("DESC");
+        columnName = QStringLiteral("updated");
+        break;
+    }
+
+    QStringList newQueuemap;
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Queue INNER JOIN Entries ON Queue.id = Entries.id ORDER BY %1 %2;").arg(columnName, order));
+    Database::instance().execute(query);
+
+    while (query.next()) {
+        qCDebug(kastsDataManager) << "new queue order:" << query.value(QStringLiteral("id")).toString();
+        newQueuemap += query.value(QStringLiteral("id")).toString();
+    }
+
+    Database::instance().transaction();
+    for (int i = 0; i < m_queuemap.length(); i++) {
+        query.prepare(QStringLiteral("UPDATE Queue SET listnr=:listnr WHERE id=:id;"));
+        query.bindValue(QStringLiteral(":id"), newQueuemap[i]);
+        query.bindValue(QStringLiteral(":listnr"), i);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    m_queuemap.clear();
+    m_queuemap = newQueuemap;
+
+    Q_EMIT queueSorted();
+}
+
 QString DataManager::lastPlayingEntry()
 {
     QSqlQuery query;

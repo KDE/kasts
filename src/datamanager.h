@@ -11,6 +11,7 @@
 #include <QString>
 #include <QStringList>
 
+#include "models/abstractepisodeproxymodel.h"
 #include "models/episodemodel.h"
 
 class Entry;
@@ -56,6 +57,7 @@ public:
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
     void addToQueue(const QString &id);
     void removeFromQueue(const QString &id);
+    Q_INVOKABLE void sortQueue(AbstractEpisodeProxyModel::SortType sortType);
 
     Q_INVOKABLE QString lastPlayingEntry();
     Q_INVOKABLE void setLastPlayingEntry(const QString &id);
@@ -87,6 +89,7 @@ Q_SIGNALS:
     void queueEntryAdded(const int &index, const QString &id);
     void queueEntryRemoved(const int &index, const QString &id);
     void queueEntryMoved(const int &from, const int &to);
+    void queueSorted();
 
     void unreadEntryCountChanged(const QString &url);
     void newEntryCountChanged(const QString &url);

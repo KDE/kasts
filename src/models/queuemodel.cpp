@@ -39,6 +39,11 @@ QueueModel::QueueModel(QObject *parent)
         Q_EMIT timeLeftChanged();
         qCDebug(kastsQueueModel) << "Removed entry at pos" << pos;
     });
+    connect(&DataManager::instance(), &DataManager::queueSorted, this, [this]() {
+        beginResetModel();
+        endResetModel();
+        qCDebug(kastsQueueModel) << "Queue was sorted";
+    });
     // Connect positionChanged to make sure that the remaining playing time in
     // the queue header is up-to-date
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](qint64 position) {
@@ -94,10 +99,4 @@ QString QueueModel::formattedTimeLeft() const
 void QueueModel::updateInternalState()
 {
     // nothing to do; DataManager already has the updated data.
-}
-
-// Hack to get a QItemSelection in QML
-QItemSelection QueueModel::createSelection(int rowa, int rowb)
-{
-    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

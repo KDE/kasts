@@ -44,22 +44,16 @@ Kirigami.ScrollablePage {
             }
         },
         Kirigami.Action {
-            id: searchActionButton
-            icon.name: "search"
-            text: i18nc("@action:intoolbar", "Search and Filter")
-            checkable: true
-            onToggled: {
-                if (!checked) {
-                    episodeProxyModel.filterType = AbstractEpisodeProxyModel.NoFilter;
-                    episodeProxyModel.searchFilter = "";
-                }
-            }
-        },
-        Kirigami.Action {
             icon.name: "view-refresh"
             text: i18n("Refresh All Podcasts")
             onTriggered: refreshing = true
             visible: episodeProxyModel.filterType == AbstractEpisodeProxyModel.NoFilter
+        },
+        Kirigami.Action {
+            id: searchActionButton
+            icon.name: "search"
+            text: i18nc("@action:intoolbar", "Search")
+            checkable: true
         }
     ]
 
@@ -78,7 +72,7 @@ Kirigami.ScrollablePage {
 
         active: searchActionButton.checked
         visible: active
-        sourceComponent: SearchFilterBar {
+        sourceComponent: SearchBar {
             proxyModel: episodeProxyModel
             parentKey: searchActionButton
         }

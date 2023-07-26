@@ -34,6 +34,7 @@ set(kasts_srcs
     models/entriesmodel.cpp
     models/entriesproxymodel.cpp
     models/queuemodel.cpp
+    models/queueproxymodel.cpp
     models/episodemodel.cpp
     models/episodeproxymodel.cpp
     models/downloadmodel.cpp
@@ -263,6 +264,9 @@ if(ANDROID)
         object-rotate-left
         object-rotate-right
         add-subtitle
+        view-sort
+        view-sort-descending
+        view-sort-ascending
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)
