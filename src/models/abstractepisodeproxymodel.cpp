@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "models/episodeproxymodel.h"
+#include "models/abstractepisodemodel.h"
 
 #include <KLocalizedString>
 
 #include "datamanager.h"
 #include "entry.h"
-#include "models/abstractepisodemodel.h"
+#include "models/episodeproxymodel.h"
 
 AbstractEpisodeProxyModel::AbstractEpisodeProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -177,7 +177,7 @@ void AbstractEpisodeProxyModel::setSortType(SortType type)
     }
 }
 
-QString AbstractEpisodeProxyModel::getFilterName(FilterType type) const
+QString AbstractEpisodeProxyModel::getFilterName(FilterType type)
 {
     switch (type) {
     case FilterType::NoFilter:
@@ -199,7 +199,7 @@ QString AbstractEpisodeProxyModel::getFilterName(FilterType type) const
     }
 }
 
-QString AbstractEpisodeProxyModel::getSearchFlagName(SearchFlag flag) const
+QString AbstractEpisodeProxyModel::getSearchFlagName(SearchFlag flag)
 {
     switch (flag) {
     case SearchFlag::TitleFlag:
@@ -213,7 +213,7 @@ QString AbstractEpisodeProxyModel::getSearchFlagName(SearchFlag flag) const
     }
 }
 
-QString AbstractEpisodeProxyModel::getSortName(SortType type) const
+QString AbstractEpisodeProxyModel::getSortName(SortType type)
 {
     switch (type) {
     case SortType::DateDescending:
@@ -225,7 +225,7 @@ QString AbstractEpisodeProxyModel::getSortName(SortType type) const
     }
 }
 
-QString AbstractEpisodeProxyModel::getSortIconName(SortType type) const
+QString AbstractEpisodeProxyModel::getSortIconName(SortType type)
 {
     switch (type) {
     case SortType::DateDescending:

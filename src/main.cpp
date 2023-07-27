@@ -48,7 +48,7 @@
 #include "models/errorlogmodel.h"
 #include "models/feedsproxymodel.h"
 #include "models/podcastsearchmodel.h"
-#include "models/queueproxymodel.h"
+#include "models/queuemodel.h"
 #include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
     about.processCommandLine(&parser);
 
     qmlRegisterType<FeedsProxyModel>("org.kde.kasts", 1, 0, "FeedsProxyModel");
-    qmlRegisterType<QueueProxyModel>("org.kde.kasts", 1, 0, "QueueProxyModel");
+    qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
     qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
     qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
     qmlRegisterType<ChapterModel>("org.kde.kasts", 1, 0, "ChapterModel");

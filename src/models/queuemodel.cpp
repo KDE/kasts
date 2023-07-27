@@ -96,7 +96,23 @@ QString QueueModel::formattedTimeLeft() const
     return format.formatDuration(timeLeft() / rate);
 }
 
+QString QueueModel::getSortName(AbstractEpisodeProxyModel::SortType type)
+{
+    return AbstractEpisodeProxyModel::getSortName(type);
+}
+
+QString QueueModel::getSortIconName(AbstractEpisodeProxyModel::SortType type)
+{
+    return AbstractEpisodeProxyModel::getSortIconName(type);
+}
+
 void QueueModel::updateInternalState()
 {
     // nothing to do; DataManager already has the updated data.
+}
+
+// Hack to get a QItemSelection in QML
+QItemSelection QueueModel::createSelection(int rowa, int rowb)
+{
+    return QItemSelection(index(rowa, 0), index(rowb, 0));
 }

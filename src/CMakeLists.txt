@@ -34,7 +34,6 @@ set(kasts_srcs
     models/entriesmodel.cpp
     models/entriesproxymodel.cpp
     models/queuemodel.cpp
-    models/queueproxymodel.cpp
     models/episodemodel.cpp
     models/episodeproxymodel.cpp
     models/downloadmodel.cpp

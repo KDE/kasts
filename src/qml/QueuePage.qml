@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        model: QueueProxyModel {
+        model: QueueModel {
             id: queueModel
         }
 
