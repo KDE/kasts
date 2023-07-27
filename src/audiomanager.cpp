@@ -390,9 +390,14 @@ void AudioManager::play()
     if (isStreaming()) {
         if (!NetworkConnectionManager::instance().streamingAllowed()) {
             qCDebug(kastsAudio) << "Refusing to play: no connection or streaming on metered connection not allowed";
+            QString feedUrl, entryId;
+            if (d->m_entry) {
+                feedUrl = d->m_entry->feed()->url();
+                entryId = d->m_entry->id();
+            }
             Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
-                            d->m_entry->feed()->url(),
-                            d->m_entry->id(),
+                            feedUrl,
+                            entryId,
                             0,
                             i18n("No connection or streaming on metered connection not allowed"),
                             QString());
@@ -484,7 +489,7 @@ bool AudioManager::canGoNext() const
             // check if there is a next track
             if (index < DataManager::instance().queue().count() - 1) {
                 Entry *next_entry = DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]);
-                if (next_entry->enclosure()) {
+                if (next_entry && next_entry->enclosure()) {
                     qCDebug(kastsAudio) << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
                         return true;
@@ -543,9 +548,12 @@ void AudioManager::playerDurationChanged(qint64 duration)
     qCDebug(kastsAudio) << "AudioManager::playerDurationChanged" << duration;
 
     // Check if duration mentioned in enclosure corresponds to real duration
-    if (duration > 0 && (duration / 1000) != d->m_entry->enclosure()->duration()) {
-        qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << duration / 1000 << "(was" << d->m_entry->enclosure()->duration() << ")";
-        d->m_entry->enclosure()->setDuration(duration / 1000);
+    if (d->m_entry && d->m_entry->enclosure()) {
+        if (duration > 0 && (duration / 1000) != d->m_entry->enclosure()->duration()) {
+            qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << duration / 1000 << "(was" << d->m_entry->enclosure()->duration()
+                                << ")";
+            d->m_entry->enclosure()->setDuration(duration / 1000);
+        }
     }
 
     qint64 correctedDuration = duration;
@@ -580,7 +588,7 @@ void AudioManager::savePlayPosition()
     checkForPendingSeek();
 
     if (!d->m_lockPositionSaving) {
-        if (d->m_entry) {
+        if (d->m_entry && d->m_entry->enclosure()) {
             if (d->m_entry->enclosure()) {
                 d->m_entry->enclosure()->setPlayPosition(position());
             }
