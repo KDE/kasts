@@ -58,6 +58,62 @@ Kirigami.ScrollablePage {
             }
         },
         Kirigami.Action {
+            id: sortActionRoot
+            icon.name: "view-sort"
+            text: i18nc("@action:intoolbar Open menu with options to sort subscriptions", "Sort")
+
+            tooltip: i18nc("@info:tooltip", "Select how to sort subscriptions")
+
+            property Controls.ActionGroup sortGroup: Controls.ActionGroup { }
+
+            property Instantiator repeater: Instantiator {
+                model: ListModel {
+                    id: sortModel
+                    // have to use script because i18n doesn't work within ListElement
+                    Component.onCompleted: {
+                        if (sortActionRoot.visible) {
+                            var sortList = [FeedsProxyModel.UnreadDescending,
+                                            FeedsProxyModel.UnreadAscending,
+                                            FeedsProxyModel.NewDescending,
+                                            FeedsProxyModel.NewAscending,
+                                            FeedsProxyModel.FavoriteDescending,
+                                            FeedsProxyModel.FavoriteAscending,
+                                            FeedsProxyModel.TitleAscending,
+                                            FeedsProxyModel.TitleDescending]
+                            for (var i in sortList) {
+                                sortModel.append({"name": feedsModel.getSortName(sortList[i]),
+                                                "iconName": feedsModel.getSortIconName(sortList[i]),
+                                                "sortType": sortList[i]});
+                            }
+                        }
+                    }
+                }
+
+                Kirigami.Action {
+                    visible: sortActionRoot.visible
+                    icon.name: model.iconName
+                    text: model.name
+                    checkable: true
+                    checked: kastsMainWindow.feedSorting === model.sortType
+                    Controls.ActionGroup.group: sortActionRoot.sortGroup
+
+                    onTriggered: {
+                        kastsMainWindow.feedSorting = model.sortType;
+                    }
+                }
+
+                onObjectAdded: (index, object) => {
+                    sortActionRoot.children.push(object);
+                }
+            }
+        },
+        Kirigami.Action {
+            id: searchActionButton
+            icon.name: "search"
+            text: i18nc("@action:intoolbar", "Search")
+            checkable: true
+        },
+        Kirigami.Action {
             id: importAction
             text: i18nc("@action:intoolbar", "Import Podcasts…")
             icon.name: "document-import"
@@ -82,6 +138,19 @@ Kirigami.ScrollablePage {
 
     // TODO: KF6 replace contextualActions with actions
     contextualActions: pageActions
+
+    header: Loader {
+        anchors.right: parent.right
+        anchors.left: parent.left
+
+        active: searchActionButton.checked
+        visible: active
+        sourceComponent: SearchBar {
+            proxyModel: feedsModel
+            parentKey: searchActionButton
+            showSearchFilters: false
+        }
+    }
 
     AddFeedSheet {
         id: addSheet
@@ -114,9 +183,9 @@ Kirigami.ScrollablePage {
             visible: feedList.count === 0
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
-            type: Kirigami.PlaceholderMessage.Actionable
-            text: i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet")
-            explanation: i18nc("@info:tipoftheday", "Get started by adding podcasts:")
+            type: feedsModel.searchFilter === "" ? Kirigami.PlaceholderMessage.Actionable : Kirigami.PlaceholderMessage.Informational
+            text: feedsModel.searchFilter === "" ? i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet") : i18nc("@info Placeholder message for podcast list when no podcast matches the search criteria", "No podcasts found")
+            explanation: feedsModel.searchFilter === "" ? i18nc("@info:tipoftheday", "Get started by adding podcasts:") : null
 
             readonly property int buttonSize: Math.max(discoverButton.implicitWidth, addButton.implicitWidth, importButton.implicitWidth, syncButton.implicitWidth)
 
@@ -124,6 +193,7 @@ Kirigami.ScrollablePage {
             // to give them more descriptive names
             Controls.Button {
                 id: discoverButton
+                visible: feedsModel.searchFilter === ""
                 Layout.preferredWidth: placeholderMessage.buttonSize
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: Kirigami.Units.gridUnit
@@ -136,6 +206,7 @@ Kirigami.ScrollablePage {
 
             Controls.Button {
                 id: addButton
+                visible: feedsModel.searchFilter === ""
                 Layout.preferredWidth: placeholderMessage.buttonSize
                 Layout.alignment: Qt.AlignHCenter
                 action: addAction
@@ -143,6 +214,7 @@ Kirigami.ScrollablePage {
 
             Controls.Button {
                 id: importButton
+                visible: feedsModel.searchFilter === ""
                 Layout.preferredWidth: placeholderMessage.buttonSize
                 Layout.alignment: Qt.AlignHCenter
                 action: importAction
@@ -150,6 +222,7 @@ Kirigami.ScrollablePage {
 
             Controls.Button {
                 id: syncButton
+                visible: feedsModel.searchFilter === ""
                 Layout.preferredWidth: placeholderMessage.buttonSize
                 Layout.alignment: Qt.AlignHCenter
                 action: Kirigami.Action {
@@ -184,6 +257,7 @@ Kirigami.ScrollablePage {
 
         model: FeedsProxyModel {
             id: feedsModel
+            sortType: kastsMainWindow.feedSorting
         }
 
         delegate: FeedListDelegate {
@@ -207,9 +281,9 @@ Kirigami.ScrollablePage {
         Connections {
             target: feedList.model
             function onModelAboutToBeReset() {
-                selectionForContextMenu = [];
+                feedList.selectionForContextMenu = [];
                 feedList.selectionModel.clear();
-                feedList.selectionModel.setCurrentIndex(model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
+                feedList.selectionModel.setCurrentIndex(feedList.model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
                 currentIndex = 0;
             }
         }

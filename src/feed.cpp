@@ -44,6 +44,8 @@ Feed::Feed(const QString &feedurl)
 
     updateAuthors();
     updateUnreadEntryCountFromDB();
+    updateNewEntryCountFromDB();
+    updateFavoriteEntryCountFromDB();
 
     connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const QString &url, bool status) {
         if (url == m_url) {
@@ -54,9 +56,24 @@ Feed::Feed(const QString &feedurl)
         if (url == m_url) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
             Q_EMIT unreadEntryCountChanged();
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT newEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const QString &url) {
+        if (url == m_url) {
+            updateNewEntryCountFromDB();
+            Q_EMIT newEntryCountChanged();
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const QString &url) {
+        if (url == m_url) {
+            updateFavoriteEntryCountFromDB();
+            Q_EMIT favoriteEntryCountChanged();
         }
     });
     connect(&Fetcher::instance(),
@@ -141,6 +158,28 @@ void Feed::updateUnreadEntryCountFromDB()
     m_unreadEntryCount = query.value(0).toInt();
 }
 
+void Feed::updateNewEntryCountFromDB()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
+    query.bindValue(QStringLiteral(":feed"), m_url);
+    Database::instance().execute(query);
+    if (!query.next())
+        m_newEntryCount = -1;
+    m_newEntryCount = query.value(0).toInt();
+}
+
+void Feed::updateFavoriteEntryCountFromDB()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND favorite=1;"));
+    query.bindValue(QStringLiteral(":feed"), m_url);
+    Database::instance().execute(query);
+    if (!query.next())
+        m_favoriteEntryCount = -1;
+    m_favoriteEntryCount = query.value(0).toInt();
+}
+
 QString Feed::url() const
 {
     return m_url;
@@ -218,12 +257,12 @@ int Feed::unreadEntryCount() const
 
 int Feed::newEntryCount() const
 {
-    return DataManager::instance().newEntryCount(this);
+    return m_newEntryCount;
 }
 
 int Feed::favoriteEntryCount() const
 {
-    return DataManager::instance().favoriteEntryCount(this);
+    return m_favoriteEntryCount;
 }
 
 bool Feed::refreshing() const

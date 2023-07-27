@@ -267,6 +267,8 @@ if(ANDROID)
         view-sort
         view-sort-descending
         view-sort-ascending
+        view-sort-descending-name
+        view-sort-ascending-name
     )
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)
