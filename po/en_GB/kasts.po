@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"POT-Creation-Date: 2023-07-27 02:26+0000\n"
 "PO-Revision-Date: 2023-06-17 12:09+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -48,28 +48,33 @@ msgid "Downloading %1"
 msgstr "Downloading %1"
 
 #: error.cpp:48
-#, kde-format
-msgid "Podcast Update Error"
+#, fuzzy, kde-format
+#| msgid "Podcast Update Error"
+msgid "Podcast update error"
 msgstr "Podcast Update Error"
 
 #: error.cpp:50
-#, kde-format
-msgid "Media Download Error"
+#, fuzzy, kde-format
+#| msgid "Media Download Error"
+msgid "Media download error"
 msgstr "Media Download Error"
 
 #: error.cpp:52
-#, kde-format
-msgid "Update Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Update not allowed on metered connection"
 msgstr "Update Not Allowed on Metered Connection"
 
 #: error.cpp:54
-#, kde-format
-msgid "Invalid Media File"
+#, fuzzy, kde-format
+#| msgid "Invalid Media File"
+msgid "Invalid media file"
 msgstr "Invalid Media File"
 
 #: error.cpp:56
-#, kde-format
-msgid "Nothing Found"
+#, fuzzy, kde-format
+#| msgid "Nothing Found"
+msgid "Nothing found"
 msgstr "Nothing Found"
 
 #: error.cpp:58
@@ -78,13 +83,15 @@ msgid "Error moving storage path"
 msgstr "Error moving storage path"
 
 #: error.cpp:60
-#, kde-format
-msgid "Error Syncing Feed and/or Episode Status"
+#, fuzzy, kde-format
+#| msgid "Error Syncing Feed and/or Episode Status"
+msgid "Error syncing feed and/or episode status"
 msgstr "Error Syncing Feed and/or Episode Status"
 
 #: error.cpp:62
-#, kde-format
-msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, fuzzy, kde-format
+#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+msgid "Connection or streaming not allowed on metered connection"
 msgstr "No Connection or Streaming Not Allowed on Metered Connection"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -222,7 +229,7 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:159
+#: models/abstractepisodeproxymodel.cpp:184
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "No Filter"
@@ -230,7 +237,7 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "No Filter"
 
-#: models/abstractepisodeproxymodel.cpp:161
+#: models/abstractepisodeproxymodel.cpp:186
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Played Episodes"
@@ -238,7 +245,7 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Played Episodes"
 
-#: models/abstractepisodeproxymodel.cpp:163
+#: models/abstractepisodeproxymodel.cpp:188
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Unplayed Episodes"
@@ -246,49 +253,61 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Unplayed Episodes"
 
-#: models/abstractepisodeproxymodel.cpp:165
+#: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodes marked as \"New\""
 
-#: models/abstractepisodeproxymodel.cpp:167
+#: models/abstractepisodeproxymodel.cpp:192
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodes not marked as \"New\""
 
-#: models/abstractepisodeproxymodel.cpp:169
+#: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Episodes marked as Favourite"
 
-#: models/abstractepisodeproxymodel.cpp:171
+#: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Episodes not marked as Favourite"
 
-#: models/abstractepisodeproxymodel.cpp:181
+#: models/abstractepisodeproxymodel.cpp:206
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Title"
 
-#: models/abstractepisodeproxymodel.cpp:183
+#: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Description"
 
-#: models/abstractepisodeproxymodel.cpp:185
+#: models/abstractepisodeproxymodel.cpp:210
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of fields to search for string"
 #| msgid "Podcast Title"
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Podcast Title"
+
+#: models/abstractepisodeproxymodel.cpp:220
+#, kde-format
+msgctxt "@label:chooser Sort episodes by decreasing date"
+msgid "Date: newer first"
+msgstr ""
+
+#: models/abstractepisodeproxymodel.cpp:222
+#, kde-format
+msgctxt "@label:chooser Sort episodes by increasing date"
+msgid "Date: older first"
+msgstr ""
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -379,6 +398,7 @@ msgid "Open sleep timer settings"
 msgstr "Open Sleep Timer Settings"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Volume Settings"
@@ -387,6 +407,7 @@ msgid "Open volume settings"
 msgstr "Open Volume Settings"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Toggle Mute"
@@ -432,10 +453,10 @@ msgid "No Track Title"
 msgstr "No Track Title"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:21
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, kde-format
-msgid "No Track Loaded"
+#, fuzzy, kde-format
+#| msgid "No Track Loaded"
+msgid "No track loaded"
 msgstr "No Track Loaded"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
@@ -453,12 +474,12 @@ msgstr "Search podcastindex.org"
 msgid "Search"
 msgstr "Search"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscribed"
@@ -468,14 +489,15 @@ msgstr "Subscribed"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
+#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Refresh All Podcasts"
 
 #: qml/DownloadListPage.qml:57
-#, kde-format
-msgid "No Downloads"
+#, fuzzy, kde-format
+#| msgid "No Downloads"
+msgid "No downloads"
 msgstr "No Downloads"
 
 #: qml/DownloadListPage.qml:73
@@ -587,7 +609,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Label as \"New\""
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:310
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -595,7 +617,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Remove from Favourites"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:301
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -624,15 +646,17 @@ msgstr "Link Copied"
 msgid "Episode List"
 msgstr "Episode List"
 
-#: qml/EpisodeListPage.qml:49 qml/FeedDetailsPage.qml:72
-#, kde-format
+#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
+#, fuzzy, kde-format
+#| msgid "Search"
 msgctxt "@action:intoolbar"
-msgid "Search and Filter"
-msgstr "Search and Filter"
+msgid "Search"
+msgstr "Search"
 
-#: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
-#, kde-format
-msgid "No Episodes Available"
+#: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No episodes available"
 msgstr "No Episodes Available"
 
 #: qml/ErrorList.qml:30
@@ -670,58 +694,58 @@ msgstr "Show Error Log"
 msgid "Podcast Details"
 msgstr "Podcast Details"
 
-#: qml/FeedDetailsPage.qml:132
+#: qml/FeedDetailsPage.qml:126
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "by %1"
 
-#: qml/FeedDetailsPage.qml:163
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Refresh Podcast"
 
-#: qml/FeedDetailsPage.qml:182
+#: qml/FeedDetailsPage.qml:176
 #, kde-format
 msgid "Show Details"
 msgstr "Show Details"
 
-#: qml/FeedDetailsPage.qml:253
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast URL:"
 
-#: qml/FeedDetailsPage.qml:293
+#: qml/FeedDetailsPage.qml:287
 #, kde-format
 msgid "Weblink:"
 msgstr "Weblink:"
 
-#: qml/FeedDetailsPage.qml:319
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscribed since: %1"
 
-#: qml/FeedDetailsPage.qml:332
+#: qml/FeedDetailsPage.qml:326
 #, fuzzy, kde-format
 #| msgid "Last Updated: %1"
 msgid "Last updated: %1"
 msgstr "Last Updated: %1"
 
-#: qml/FeedDetailsPage.qml:345
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Episode"
 msgstr[1] "%1 Episodes"
 
-#: qml/FeedDetailsPage.qml:345
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Unplayed"
 msgstr[1] "%1 Unplayed"
 
-#: qml/FeedDetailsPage.qml:367
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
@@ -886,12 +910,12 @@ msgstr "Read"
 msgid "New"
 msgstr "New"
 
-#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Remove from Queue"
 
-#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:215
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Download"
 msgstr "Download"
@@ -906,12 +930,12 @@ msgstr "Cancel Download"
 msgid "Delete Download"
 msgstr "Delete Download"
 
-#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Add to Queue"
 msgstr "Add to Queue"
 
-#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:234
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -919,37 +943,65 @@ msgctxt ""
 msgid "Stream"
 msgstr "Stream"
 
-#: qml/GenericEntryListView.qml:128
+#: qml/GenericEntryListView.qml:133
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort episodes"
+msgid "Sort"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort episodes"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:184
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Filter"
+
+#: qml/GenericEntryListView.qml:186
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter Episodes by Status"
+msgctxt "@info:tooltip"
+msgid "Filter episodes by status"
+msgstr "Filter Episodes by Status"
+
+#: qml/GenericEntryListView.qml:232
 #, kde-format
 msgid "Select All"
 msgstr "Select All"
 
-#: qml/GenericEntryListView.qml:137
+#: qml/GenericEntryListView.qml:241
 #, kde-format
 msgid "Deselect All"
 msgstr "Deselect All"
 
-#: qml/GenericEntryListView.qml:165
+#: qml/GenericEntryListView.qml:269
 #, kde-format
 msgid "Mark as Played"
 msgstr "Mark as Played"
 
-#: qml/GenericEntryListView.qml:173
+#: qml/GenericEntryListView.qml:277
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Mark as Unplayed"
 
-#: qml/GenericEntryListView.qml:181
+#: qml/GenericEntryListView.qml:285
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Label as \"New\""
 
-#: qml/GenericEntryListView.qml:189
+#: qml/GenericEntryListView.qml:293
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Remove \"New\" Label"
 
-#: qml/GenericEntryListView.qml:225
+#: qml/GenericEntryListView.qml:329
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -958,24 +1010,26 @@ msgstr[0] "Delete Download"
 msgstr[1] "Delete Downloads"
 
 #: qml/GlobalSearchField.qml:96
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info Placeholder text in search box"
+#| msgid "No Search Results"
 msgctxt "@info Placeholder text in search box"
-msgid "No Search Results"
+msgid "No search results"
 msgstr "No Search Results"
 
-#: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
+#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:50
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Advanced Search Options"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:175
+#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:109
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Search Preferences"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:179
+#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1017,32 +1071,27 @@ msgstr[1] "Moved %2 of %1 Files"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Podcast downloads are currently not allowed on metered connections"
 
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "No Track Loaded"
+
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
 msgstr "No Title"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, kde-format
-msgid "No Podcast Title"
+#, fuzzy, kde-format
+#| msgid "No Podcast Title"
+msgid "No podcast title"
 msgstr "No Podcast Title"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, kde-format
-msgid "No chapters found."
+#, fuzzy, kde-format
+#| msgid "No chapters found."
+msgid "No chapters found"
 msgstr "No chapters found."
-
-#: qml/Mobile/MobilePlayerControls.qml:345
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Volume Settings"
-msgstr "Open Volume Settings"
-
-#: qml/Mobile/MobilePlayerControls.qml:375
-#, kde-format
-msgctxt "@action:button"
-msgid "Toggle Mute"
-msgstr "Toggle Mute"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -1128,35 +1177,13 @@ msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Time Left"
 
-#: qml/SearchFilterBar.qml:41
+#: qml/SearchBar.qml:40
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Placeholder text for episode search field"
 #| msgid "Search Episodes"
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Search Episodes"
-
-#: qml/SearchFilterBar.qml:86
-#, kde-format
-msgctxt ""
-"@action:intoolbar Button to open menu to filter episodes based on their "
-"status (played, new, etc.)"
-msgid "Filter"
-msgstr "Filter"
-
-#: qml/SearchFilterBar.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter Episodes by Status"
-msgctxt "@info:tooltip"
-msgid "Filter episodes by status"
-msgstr "Filter Episodes by Status"
-
-#: qml/SearchFilterBar.qml:129
-#, kde-format
-msgctxt "@title:menu"
-msgid "Select Filter"
-msgstr "Select Filter"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
@@ -2056,6 +2083,22 @@ msgstr "Skip Forward"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Quit"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Search and Filter"
+#~ msgstr "Search and Filter"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Volume Settings"
+#~ msgstr "Open Volume Settings"
+
+#~ msgctxt "@action:button"
+#~ msgid "Toggle Mute"
+#~ msgstr "Toggle Mute"
+
+#~ msgctxt "@title:menu"
+#~ msgid "Select Filter"
+#~ msgstr "Select Filter"
 
 #~ msgid "Zoom in"
 #~ msgstr "Zoom in"
