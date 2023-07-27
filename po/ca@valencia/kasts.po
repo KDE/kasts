@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-26 00:46+0000\n"
-"PO-Revision-Date: 2023-07-21 08:23+0300\n"
+"POT-Creation-Date: 2023-07-27 00:45+0000\n"
+"PO-Revision-Date: 2023-07-26 07:49+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -40,7 +40,7 @@ msgstr ""
 #: audiomanager.cpp:536
 #, kde-format
 msgid "Invalid Media"
-msgstr "Suport no vàlid"
+msgstr "Fitxer multimèdia no vàlid"
 
 #: enclosure.cpp:163
 #, kde-format
@@ -53,32 +53,27 @@ msgid "Downloading %1"
 msgstr "S'està descarregant %1"
 
 #: error.cpp:48
-#, fuzzy, kde-format
-#| msgid "Podcast Update Error"
+#, kde-format
 msgid "Podcast update error"
 msgstr "S'ha produït un error en actualitzar el podcast"
 
 #: error.cpp:50
-#, fuzzy, kde-format
-#| msgid "Media Download Error"
+#, kde-format
 msgid "Media download error"
-msgstr "S'ha produït un error en la baixada dels suports"
+msgstr "S'ha produït un error en la baixada dels elements multimèdia"
 
 #: error.cpp:52
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "Actualització no permesa amb la connexió d'ús mesurat"
+msgstr "Actualització no permesa en la connexió d'ús mesurat"
 
 #: error.cpp:54
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Invalid media file"
-msgstr "Fitxer de suport no vàlid"
+msgstr "Fitxer multimèdia no vàlid"
 
 #: error.cpp:56
-#, fuzzy, kde-format
-#| msgid "Nothing Found"
+#, kde-format
 msgid "Nothing found"
 msgstr "No s'ha trobat res"
 
@@ -88,15 +83,13 @@ msgid "Error moving storage path"
 msgstr "S'ha produït un error en moure el camí d'emmagatzematge"
 
 #: error.cpp:60
-#, fuzzy, kde-format
-#| msgid "Error Syncing Feed and/or Episode Status"
+#, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr ""
 "S'ha produït un error de sincronització en l'estat de la font o de l'episodi"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, kde-format
 msgid "Connection or streaming not allowed on metered connection"
 msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
@@ -226,65 +219,77 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:159
+#: models/abstractepisodeproxymodel.cpp:184
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Sense filtre"
 
-#: models/abstractepisodeproxymodel.cpp:161
+#: models/abstractepisodeproxymodel.cpp:186
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Episodis reproduïts"
 
-#: models/abstractepisodeproxymodel.cpp:163
+#: models/abstractepisodeproxymodel.cpp:188
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Episodis sense reproduir"
 
-#: models/abstractepisodeproxymodel.cpp:165
+#: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodis marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:167
+#: models/abstractepisodeproxymodel.cpp:192
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodis no marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:169
+#: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Episodis marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:171
+#: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Episodis no marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:181
+#: models/abstractepisodeproxymodel.cpp:206
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Títol"
 
-#: models/abstractepisodeproxymodel.cpp:183
+#: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Descripció"
 
-#: models/abstractepisodeproxymodel.cpp:185
+#: models/abstractepisodeproxymodel.cpp:210
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Títol del podcast"
+
+#: models/abstractepisodeproxymodel.cpp:220
+#, kde-format
+msgctxt "@label:chooser Sort episodes by decreasing date"
+msgid "Date: newer first"
+msgstr ""
+
+#: models/abstractepisodeproxymodel.cpp:222
+#, kde-format
+msgctxt "@label:chooser Sort episodes by increasing date"
+msgid "Date: older first"
+msgstr ""
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -411,14 +416,13 @@ msgstr "Capítols"
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
-msgstr "Sense títol de pista"
+msgstr "Peça sense títol"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, fuzzy, kde-format
-#| msgid "No Track Loaded"
+#, kde-format
 msgid "No track loaded"
-msgstr "No s'ha carregat cap pista"
+msgstr "No s'ha carregat cap peça"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:203
 #, kde-format
@@ -435,12 +439,12 @@ msgstr "Busca en podcastindex.org"
 msgid "Search"
 msgstr "Busca"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscriu"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:168
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscrit"
@@ -450,14 +454,13 @@ msgstr "Subscrit"
 msgid "Downloads"
 msgstr "Baixades"
 
-#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:60
+#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Torna a carregar tots els podcast"
 
 #: qml/DownloadListPage.qml:57
-#, fuzzy, kde-format
-#| msgid "No Downloads"
+#, kde-format
 msgid "No downloads"
 msgstr "No hi ha cap baixada"
 
@@ -570,7 +573,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Etiqueta com a «Nou»"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:206
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:310
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -578,7 +581,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Elimina dels preferits"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:197
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:301
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -607,15 +610,15 @@ msgstr "S'ha copiat l'enllaç"
 msgid "Episode List"
 msgstr "Llista d'episodis"
 
-#: qml/EpisodeListPage.qml:49 qml/FeedDetailsPage.qml:72
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Search and Filter"
-msgstr "Busca i filtra"
-
-#: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:367
+#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#| msgid "Search"
+msgctxt "@action:intoolbar"
+msgid "Search"
+msgstr "Busca"
+
+#: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
+#, kde-format
 msgid "No episodes available"
 msgstr "No hi ha cap episodi disponible"
 
@@ -652,57 +655,57 @@ msgstr "Mostra el registre d'errors"
 msgid "Podcast Details"
 msgstr "Detalls del podcast"
 
-#: qml/FeedDetailsPage.qml:132
+#: qml/FeedDetailsPage.qml:126
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "per %1"
 
-#: qml/FeedDetailsPage.qml:163
+#: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Actualitza els podcast"
 
-#: qml/FeedDetailsPage.qml:182
+#: qml/FeedDetailsPage.qml:176
 #, kde-format
 msgid "Show Details"
 msgstr "Mostra els detalls"
 
-#: qml/FeedDetailsPage.qml:253
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL del podcast:"
 
-#: qml/FeedDetailsPage.qml:293
+#: qml/FeedDetailsPage.qml:287
 #, kde-format
 msgid "Weblink:"
 msgstr "Enllaç web:"
 
-#: qml/FeedDetailsPage.qml:319
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscrit des de: %1"
 
-#: qml/FeedDetailsPage.qml:332
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Última actualització: %1"
 
-#: qml/FeedDetailsPage.qml:345
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/FeedDetailsPage.qml:345
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 sense reproduir"
 msgstr[1] "%1 sense reproduir"
 
-#: qml/FeedDetailsPage.qml:367
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "S'ha produït un error (%1): %2"
@@ -861,12 +864,12 @@ msgstr "Llegit"
 msgid "New"
 msgstr "Nou"
 
-#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:155
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Elimina de la cua"
 
-#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:215
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Download"
 msgstr "Baixa"
@@ -881,12 +884,12 @@ msgstr "Cancel·la la baixada"
 msgid "Delete Download"
 msgstr "Suprimix la baixada"
 
-#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:145
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Add to Queue"
 msgstr "Afig a la cua"
 
-#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:234
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -894,37 +897,63 @@ msgctxt ""
 msgid "Stream"
 msgstr "Transmissió en continu"
 
-#: qml/GenericEntryListView.qml:128
+#: qml/GenericEntryListView.qml:133
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort episodes"
+msgid "Sort"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort episodes"
+msgstr ""
+
+#: qml/GenericEntryListView.qml:184
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Filtre"
+
+#: qml/GenericEntryListView.qml:186
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter episodes by status"
+msgstr "Filtra els episodis per estat"
+
+#: qml/GenericEntryListView.qml:232
 #, kde-format
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: qml/GenericEntryListView.qml:137
+#: qml/GenericEntryListView.qml:241
 #, kde-format
 msgid "Deselect All"
 msgstr "Desselecciona-ho tot"
 
-#: qml/GenericEntryListView.qml:165
+#: qml/GenericEntryListView.qml:269
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marca com a reproduït"
 
-#: qml/GenericEntryListView.qml:173
+#: qml/GenericEntryListView.qml:277
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marca com a sense reproduir"
 
-#: qml/GenericEntryListView.qml:181
+#: qml/GenericEntryListView.qml:285
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etiqueta com a «Nou»"
 
-#: qml/GenericEntryListView.qml:189
+#: qml/GenericEntryListView.qml:293
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Elimina l'etiqueta «Nou»"
 
-#: qml/GenericEntryListView.qml:225
+#: qml/GenericEntryListView.qml:329
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -933,26 +962,24 @@ msgstr[0] "Suprimix la baixada"
 msgstr[1] "Suprimix les baixades"
 
 #: qml/GlobalSearchField.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder text in search box"
-#| msgid "No Search Results"
+#, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Busca sense cap resultat"
 
-#: qml/GlobalSearchField.qml:103 qml/SearchFilterBar.qml:51
+#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:50
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opcions avançades de busca"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchFilterBar.qml:175
+#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:109
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preferències de busca"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchFilterBar.qml:179
+#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -997,7 +1024,7 @@ msgstr "Baixades de podcast no permeses amb la connexió d'ús mesurat"
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
 msgid "No Track Loaded"
-msgstr "No s'ha carregat cap pista"
+msgstr "No s'ha carregat cap peça"
 
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
@@ -1005,16 +1032,14 @@ msgid "No Title"
 msgstr "Sense títol"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgid "No podcast title"
 msgstr "Sense títol de podcast"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgid "No chapters found"
-msgstr "No s'ha trobat cap capítol."
+msgstr "No s'ha trobat cap capítol"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
@@ -1096,31 +1121,11 @@ msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Temps restant"
 
-#: qml/SearchFilterBar.qml:41
+#: qml/SearchBar.qml:40
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Busca episodis…"
-
-#: qml/SearchFilterBar.qml:86
-#, kde-format
-msgctxt ""
-"@action:intoolbar Button to open menu to filter episodes based on their "
-"status (played, new, etc.)"
-msgid "Filter"
-msgstr "Filtre"
-
-#: qml/SearchFilterBar.qml:91
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Filter episodes by status"
-msgstr "Filtra els episodis per estat"
-
-#: qml/SearchFilterBar.qml:129
-#, kde-format
-msgctxt "@title:menu"
-msgid "Select Filter"
-msgstr "Seleccioneu el filtre"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
@@ -1198,7 +1203,7 @@ msgstr "Temps de reproducció:"
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr "Mostra el temps restant en lloc del temps total de la pista"
+msgstr "Mostra el temps restant en lloc del temps total de la peça"
 
 #: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
@@ -1992,25 +1997,10 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
 
-#~ msgctxt "@action:button"
-#~ msgid "Open Volume Settings"
-#~ msgstr "Obri la configuració del volum"
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Search and Filter"
+#~ msgstr "Busca i filtra"
 
-#~ msgctxt "@action:button"
-#~ msgid "Toggle Mute"
-#~ msgstr "Canvia el silenci"
-
-#~ msgid "Zoom in"
-#~ msgstr "Amplia"
-
-#~ msgid "Zoom out"
-#~ msgstr "Allunya"
-
-#~ msgid "Rotate left"
-#~ msgstr "Gira a l'esquerra"
-
-#~ msgid "Rotate right"
-#~ msgstr "Gira a la dreta"
-
-#~ msgid "Close"
-#~ msgstr "Tanca"
+#~ msgctxt "@title:menu"
+#~ msgid "Select Filter"
+#~ msgstr "Seleccioneu el filtre"
