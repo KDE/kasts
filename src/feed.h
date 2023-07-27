@@ -111,6 +111,8 @@ Q_SIGNALS:
 
 private:
     void updateUnreadEntryCountFromDB();
+    void updateNewEntryCountFromDB();
+    void updateFavoriteEntryCountFromDB();
 
     QString m_url;
     QString m_name;
@@ -127,6 +129,8 @@ private:
     int m_errorId;
     QString m_errorString;
     int m_unreadEntryCount = -1;
+    int m_newEntryCount = -1;
+    int m_favoriteEntryCount = -1;
 
     EntriesProxyModel *m_entries;
 

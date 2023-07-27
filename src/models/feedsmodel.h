@@ -24,6 +24,8 @@ public:
         UrlRole,
         TitleRole,
         UnreadCountRole,
+        NewCountRole,
+        FavoriteCountRole,
     };
     Q_ENUM(Roles)
 
@@ -31,4 +33,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
+
+private:
+    void triggerFeedUpdate(const QString &url);
 };

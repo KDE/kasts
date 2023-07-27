@@ -16,6 +16,7 @@ Controls.Control {
 
     required property var proxyModel
     required property var parentKey
+    property bool showSearchFilters: true
 
     leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
     rightPadding: Kirigami.Units.largeSpacing
@@ -46,6 +47,8 @@ Controls.Control {
 
         Kirigami.Action {
             id: searchSettingsButton
+            visible: showSearchFilters
+            enabled: visible
             icon.name: "settings-configure"
             text: i18nc("@action:intoolbar", "Advanced Search Options")
 
@@ -68,7 +71,6 @@ Controls.Control {
         }
 
         Keys.onEscapePressed: {
-            proxyModel.filterType = AbstractEpisodeProxyModel.NoFilter;
             proxyModel.searchFilter = "";
             parentKey.checked = false;
             event.accepted = true;
@@ -88,13 +90,15 @@ Controls.Control {
 
         function reload() {
             clear();
-            var searchList = [AbstractEpisodeProxyModel.TitleFlag,
-                              AbstractEpisodeProxyModel.ContentFlag,
-                              AbstractEpisodeProxyModel.FeedNameFlag]
-            for (var i in searchList) {
-                searchSettingsModel.append({"name": proxyModel.getSearchFlagName(searchList[i]),
-                                            "searchFlag": searchList[i],
-                                            "checked": proxyModel.searchFlags & searchList[i]});
+            if (showSearchFilters) {
+                var searchList = [AbstractEpisodeProxyModel.TitleFlag,
+                                AbstractEpisodeProxyModel.ContentFlag,
+                                AbstractEpisodeProxyModel.FeedNameFlag]
+                for (var i in searchList) {
+                    searchSettingsModel.append({"name": proxyModel.getSearchFlagName(searchList[i]),
+                                                "searchFlag": searchList[i],
+                                                "checked": proxyModel.searchFlags & searchList[i]});
+                }
             }
         }
 

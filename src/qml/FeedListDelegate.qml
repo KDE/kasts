@@ -18,6 +18,7 @@ import org.kde.kasts 1.0
 Controls.ItemDelegate {
     id: feedDelegate
 
+    property var countProperty: (kastsMainWindow.feedSorting === FeedsProxyModel.UnreadDescending || kastsMainWindow.feedSorting === FeedsProxyModel.UnreadAscending) ? feed.unreadEntryCount : ((kastsMainWindow.feedSorting === FeedsProxyModel.NewDescending || kastsMainWindow.feedSorting === FeedsProxyModel.NewAscending) ? feed.newEntryCount : ((kastsMainWindow.feedSorting === FeedsProxyModel.FavoriteDescending || kastsMainWindow.feedSorting === FeedsProxyModel.FavoriteAscending) ? feed.favoriteEntryCount : 0))
     property int cardSize: 0
     property int cardMargin: 0
     property int borderWidth: 1
@@ -170,7 +171,7 @@ Controls.ItemDelegate {
 
         Rectangle {
             id: countRectangle
-            visible: feed.unreadEntryCount > 0
+            visible: countProperty > 0
             anchors.top: img.top
             anchors.right: img.right
             width: actionsButton.width
@@ -181,10 +182,10 @@ Controls.ItemDelegate {
 
         Controls.Label {
             id: countLabel
-            visible: feed.unreadEntryCount > 0
+            visible: countProperty > 0
             anchors.centerIn: countRectangle
             anchors.margins: Kirigami.Units.smallSpacing
-            text: feed.unreadEntryCount
+            text: countProperty
             font.bold: true
             color: Kirigami.Theme.highlightedTextColor
         }

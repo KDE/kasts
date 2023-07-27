@@ -28,22 +28,10 @@ FeedsModel::FeedsModel(QObject *parent)
         beginRemoveRows(QModelIndex(), index, index);
         endRemoveRows();
     });
-    connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [=](const QString &url) {
-        for (int i = 0; i < rowCount(QModelIndex()); i++) {
-            if (data(index(i, 0), UrlRole).toString() == url) {
-                Q_EMIT dataChanged(index(i, 0), index(i, 0));
-                return;
-            }
-        }
-    });
-    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [=](const QString &url) {
-        for (int i = 0; i < rowCount(QModelIndex()); i++) {
-            if (data(index(i, 0), UrlRole).toString() == url) {
-                Q_EMIT dataChanged(index(i, 0), index(i, 0));
-                return;
-            }
-        }
-    });
+    connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, &FeedsModel::triggerFeedUpdate);
+    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, &FeedsModel::triggerFeedUpdate);
+    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, &FeedsModel::triggerFeedUpdate);
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, &FeedsModel::triggerFeedUpdate);
 }
 
 QHash<int, QByteArray> FeedsModel::roleNames() const
@@ -53,6 +41,8 @@ QHash<int, QByteArray> FeedsModel::roleNames() const
         {UrlRole, "url"},
         {TitleRole, "title"},
         {UnreadCountRole, "unreadCount"},
+        {NewCountRole, "newCount"},
+        {FavoriteCountRole, "favoriteCount"},
     };
 }
 
@@ -74,7 +64,21 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(DataManager::instance().getFeed(index.row())->name());
     case UnreadCountRole:
         return QVariant::fromValue(DataManager::instance().getFeed(index.row())->unreadEntryCount());
+    case NewCountRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->newEntryCount());
+    case FavoriteCountRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->favoriteEntryCount());
     default:
         return QVariant();
+    }
+}
+
+void FeedsModel::triggerFeedUpdate(const QString &url)
+{
+    for (int i = 0; i < rowCount(QModelIndex()); i++) {
+        if (data(index(i, 0), UrlRole).toString() == url) {
+            Q_EMIT dataChanged(index(i, 0), index(i, 0));
+            return;
+        }
     }
 }

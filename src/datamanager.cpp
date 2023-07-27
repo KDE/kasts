@@ -196,28 +196,6 @@ int DataManager::entryCount(const Feed *feed) const
     return m_entrymap[feed->url()].count();
 }
 
-int DataManager::newEntryCount(const Feed *feed) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
-    query.bindValue(QStringLiteral(":feed"), feed->url());
-    Database::instance().execute(query);
-    if (!query.next())
-        return -1;
-    return query.value(0).toInt();
-}
-
-int DataManager::favoriteEntryCount(const Feed *feed) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND favorite=1;"));
-    query.bindValue(QStringLiteral(":feed"), feed->url());
-    Database::instance().execute(query);
-    if (!query.next())
-        return -1;
-    return query.value(0).toInt();
-}
-
 void DataManager::removeFeed(Feed *feed)
 {
     QList<Feed *> feeds;

@@ -43,6 +43,7 @@ Kirigami.ApplicationWindow {
     }
     property var lastFeed: ""
     property string currentPage: ""
+    property int feedSorting: FeedsProxyModel.UnreadDescending
 
     property bool isWidescreen: kastsMainWindow.width > kastsMainWindow.height
 
@@ -85,6 +86,7 @@ Kirigami.ApplicationWindow {
         property var desktopHeight
         property int headerSize: Kirigami.Units.gridUnit * 5
         property alias lastOpenedPage: kastsMainWindow.currentPage
+        property alias feedSorting: kastsMainWindow.feedSorting
     }
 
     function saveWindowLayout() {
