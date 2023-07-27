@@ -66,10 +66,10 @@ public:
     void setSearchFlags(SearchFlags searchFlags);
     void setSortType(SortType type);
 
-    Q_INVOKABLE QString getFilterName(FilterType type) const;
-    Q_INVOKABLE QString getSearchFlagName(SearchFlag flag) const;
-    Q_INVOKABLE QString getSortName(SortType type) const;
-    Q_INVOKABLE QString getSortIconName(SortType type) const;
+    Q_INVOKABLE static QString getFilterName(FilterType type);
+    Q_INVOKABLE static QString getSearchFlagName(SearchFlag flag);
+    Q_INVOKABLE static QString getSortName(SortType type);
+    Q_INVOKABLE static QString getSortIconName(SortType type);
 
     Q_INVOKABLE QItemSelection createSelection(int rowa, int rowb);
 
