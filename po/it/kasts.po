@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 00:45+0000\n"
-"PO-Revision-Date: 2023-07-21 15:45+0200\n"
+"PO-Revision-Date: 2023-07-28 16:24+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -51,32 +51,27 @@ msgid "Downloading %1"
 msgstr "Scaricamento di %1"
 
 #: error.cpp:48
-#, fuzzy, kde-format
-#| msgid "Podcast Update Error"
+#, kde-format
 msgid "Podcast update error"
 msgstr "Errore di aggiornamento del podcast"
 
 #: error.cpp:50
-#, fuzzy, kde-format
-#| msgid "Media Download Error"
+#, kde-format
 msgid "Media download error"
-msgstr "Errore di scaricamento del supporto"
+msgstr "Errore di scaricamento del file multimediale"
 
 #: error.cpp:52
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "Aggiornamento non consentito su connessione a consumo"
 
 #: error.cpp:54
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Invalid media file"
 msgstr "File multimediale non valido"
 
 #: error.cpp:56
-#, fuzzy, kde-format
-#| msgid "Nothing Found"
+#, kde-format
 msgid "Nothing found"
 msgstr "Non è stato trovato niente"
 
@@ -86,18 +81,15 @@ msgid "Error moving storage path"
 msgstr "Errore durante lo spostamento del percorso di archiviazione"
 
 #: error.cpp:60
-#, fuzzy, kde-format
-#| msgid "Error Syncing Feed and/or Episode Status"
+#, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr ""
 "Errore durante la sincronizzazione della fonte e/o dello stato dell'episodio"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, kde-format
 msgid "Connection or streaming not allowed on metered connection"
-msgstr ""
-"Nessuna connessione o trasmissione non consentita sulla connessione a consumo"
+msgstr "Connessione o trasmissione non consentita su connessione a consumo"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -287,69 +279,63 @@ msgstr "Titolo del podcast"
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "Data: prima i più recenti"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "Data: prima i più datati"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Episodi non riprodotti"
+msgstr "Conteggio dei non riprodotti: decrescente"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Conteggio dei non riprodotti: crescente"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Conteggio dei nuovi: decrescente"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Conteggio dei nuovi: crescente"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Conteggio dei preferiti: decrescente"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Conteggio dei preferiti: crescente"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Titolo del podcast"
+msgstr "Titolo del podcast: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Titolo del podcast"
+msgstr "Titolo del podcast: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -482,8 +468,7 @@ msgstr "Nessun titolo della traccia"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, fuzzy, kde-format
-#| msgid "No Track Loaded"
+#, kde-format
 msgid "No track loaded"
 msgstr "Nessuna traccia caricata"
 
@@ -523,8 +508,7 @@ msgid "Refresh All Podcasts"
 msgstr "Aggiorna tutti i podcast"
 
 #: qml/DownloadListPage.qml:57
-#, fuzzy, kde-format
-#| msgid "No Downloads"
+#, kde-format
 msgid "No downloads"
 msgstr "Nessuno scaricamento"
 
@@ -676,15 +660,13 @@ msgstr "Elenco degli episodi"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Cerca"
 
 #: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#, kde-format
 msgid "No episodes available"
 msgstr "Nessun episodio disponibile"
 
@@ -809,13 +791,13 @@ msgstr "Aggiungi podcast..."
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "Ordina"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "Seleziona come ordinare le sottoscrizioni"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -866,13 +848,12 @@ msgid "No podcasts added yet"
 msgstr "Nessun podcast aggiunto ancora"
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "Nessun capitolo trovato."
+msgstr "Nessun podcast trovato"
 
 #: qml/FeedListPage.qml:188
 #, kde-format
@@ -988,13 +969,13 @@ msgstr "Trasmetti"
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "Ordina"
 
 #: qml/GenericEntryListView.qml:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "Seleziona come ordinare gli episodi"
 
 #: qml/GenericEntryListView.qml:184
 #, kde-format
@@ -1049,12 +1030,10 @@ msgstr[0] "Elimina lo scaricamento"
 msgstr[1] "Elimina gli scaricamenti"
 
 #: qml/GlobalSearchField.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder text in search box"
-#| msgid "No Search Results"
+#, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr "Nessun risultato"
+msgstr "Nessun risultato trovato"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
 #, kde-format
@@ -1123,16 +1102,14 @@ msgid "No Title"
 msgstr "Nessun titolo"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgid "No podcast title"
 msgstr "Nessun titolo del podcast"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgid "No chapters found"
-msgstr "Nessun capitolo trovato."
+msgstr "Nessun capitolo trovato"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
