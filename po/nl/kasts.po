@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-07-27 09:20+0200\n"
+"PO-Revision-Date: 2023-07-28 21:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -285,60 +285,54 @@ msgid "Date: older first"
 msgstr "Datum: oudere eerst"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Niet-afgespeelde episoden"
+msgstr "Aantal niet-afgespeelde: aflopend"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Aantal niet-afgespeelde: oplopend"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Aantal nieuw: aflopend"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Aantal nieuw: oplopend"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Aantal favorieten: aflopend"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Aantal favorieten: oplopend"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Podcasttitel"
+msgstr "Podcasttitel: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Podcasttitel"
+msgstr "Podcasttitel: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -789,20 +783,16 @@ msgid "Add Podcast…"
 msgstr "Podcast toevoegen…"
 
 #: qml/FeedListPage.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Open menu with options to sort episodes"
-#| msgid "Sort"
+#, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Sorteren"
 
 #: qml/FeedListPage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select how to sort episodes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Hoe episoden sorteren selecteren"
+msgstr "Hoe inschrijvingen te sorteren selecteren"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -853,13 +843,12 @@ msgid "No podcasts added yet"
 msgstr "Nog geen podcasts toegevoegd"
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found"
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "Geen hoofdstukken gevonden."
+msgstr "Geen podcasts gevonden"
 
 #: qml/FeedListPage.qml:188
 #, kde-format

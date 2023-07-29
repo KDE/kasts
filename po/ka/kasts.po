@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-07-23 12:13+0200\n"
+"PO-Revision-Date: 2023-07-28 09:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -49,34 +49,29 @@ msgid "Downloading %1"
 msgstr "%1-ის გადმოწერა"
 
 #: error.cpp:48
-#, fuzzy, kde-format
-#| msgid "Podcast Update Error"
+#, kde-format
 msgid "Podcast update error"
 msgstr "პოდკასტის განახლების შეცდომა"
 
 #: error.cpp:50
-#, fuzzy, kde-format
-#| msgid "Media Download Error"
+#, kde-format
 msgid "Media download error"
 msgstr "მედიის გადმოწერის შეცდომა"
 
 #: error.cpp:52
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "განახლება გაზომვადი ქსელური შეერთების დროს აკრძალულია"
 
 #: error.cpp:54
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Invalid media file"
 msgstr "არასწორი მედია ფაილი"
 
 #: error.cpp:56
-#, fuzzy, kde-format
-#| msgid "Nothing Found"
+#, kde-format
 msgid "Nothing found"
-msgstr "ვერაფერი მოიძებნა"
+msgstr "ვერაფერი ვიპოვე"
 
 #: error.cpp:58
 #, kde-format
@@ -84,14 +79,12 @@ msgid "Error moving storage path"
 msgstr "საცავის ბილიკის გადატანის შეცდომა"
 
 #: error.cpp:60
-#, fuzzy, kde-format
-#| msgid "Error Syncing Feed and/or Episode Status"
+#, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr "ლენტის ან/და ეპიზოდის სტატუსის სინქრონიზაციის შეცდომა"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, kde-format
 msgid "Connection or streaming not allowed on metered connection"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
@@ -283,69 +276,63 @@ msgstr "პოდკასტის სათაური"
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "თარიღი: ჯერ ახლები"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "თარიღი: ჯერ ძველები"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "დაუკრავი ეპიზოდები"
+msgstr "დაუკრავების რაოდენობა: დაღმავალი"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "დაუკრავების რაოდენობა: დაღმავალი"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "ახლების რაოდენობა: დაღმავალი"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "ახლების რაოდენობა: აღმავალი"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "რჩეულების რაოდენობა: დაღმავალი"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "რჩეულების რაოდენობა: აღმავალი"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "პოდკასტის სათაური"
+msgstr "პოდკასტის სათაურით: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "პოდკასტის სათაური"
+msgstr "პოდკასტის სათაურით: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -476,8 +463,7 @@ msgstr "ტრეკის სათაურის გარეშე"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, fuzzy, kde-format
-#| msgid "No Track Loaded"
+#, kde-format
 msgid "No track loaded"
 msgstr "ტრეკი ჩატვირთული არაა"
 
@@ -517,8 +503,7 @@ msgid "Refresh All Podcasts"
 msgstr "ყველა პოდკასტის განახლება"
 
 #: qml/DownloadListPage.qml:57
-#, fuzzy, kde-format
-#| msgid "No Downloads"
+#, kde-format
 msgid "No downloads"
 msgstr "გადმოწერების გარეშე"
 
@@ -670,15 +655,13 @@ msgstr "ეპიზოდების სია"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "ძებნა"
 
 #: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#, kde-format
 msgid "No episodes available"
 msgstr "ეპიზოდების გარეშე"
 
@@ -803,13 +786,13 @@ msgstr "პოდკასტის დამატება…"
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "დალაგება"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "აირჩიეთ, როგორ დალაგდება გამოწერები"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -860,13 +843,12 @@ msgid "No podcasts added yet"
 msgstr "ჯერ პოდკასტები არ დამატებულა"
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "თავები ვერ ვიპოვე."
+msgstr "პოდკასტები ვერ ვიპოვე"
 
 #: qml/FeedListPage.qml:188
 #, kde-format
@@ -982,13 +964,13 @@ msgstr "ნაკადი"
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "დალაგება"
 
 #: qml/GenericEntryListView.qml:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "აირჩიეთ, როგორ დალაგდება ეპიზოდები"
 
 #: qml/GenericEntryListView.qml:184
 #, kde-format
@@ -1043,9 +1025,7 @@ msgstr[0] "გადმოწერების წაშლა"
 msgstr[1] "გადმოწერების წაშლა"
 
 #: qml/GlobalSearchField.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder text in search box"
-#| msgid "No Search Results"
+#, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "ძებნის შედეგების გარეშე"
@@ -1115,14 +1095,12 @@ msgid "No Title"
 msgstr "სათაურის გარეშე"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgid "No podcast title"
 msgstr "პოდკასტის სათაურის გარეშე"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgid "No chapters found"
 msgstr "თავები ვერ ვიპოვე."
 

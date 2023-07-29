@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-07-27 17:22+0200\n"
+"PO-Revision-Date: 2023-07-28 10:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -283,60 +283,54 @@ msgid "Date: older first"
 msgstr "Datum: äldre först"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Ospelade avsnitt"
+msgstr "Antal ospelade: fallande"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Antal ospelade: stigande"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Antal nya: fallande"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Antal nya: stigande"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Antal favoriter: fallande"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Antal favoriter: stigande"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Poddradiotitel"
+msgstr "Poddradiotitel: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Poddradiotitel"
+msgstr "Poddradiotitel: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -788,20 +782,16 @@ msgid "Add Podcast…"
 msgstr "Lägg till poddradioprogram…"
 
 #: qml/FeedListPage.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Open menu with options to sort episodes"
-#| msgid "Sort"
+#, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Sortera"
 
 #: qml/FeedListPage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select how to sort episodes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Välj hur avsnitt sorteras"
+msgstr "Välj hur prenumerationer sorteras"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -852,13 +842,12 @@ msgid "No podcasts added yet"
 msgstr "Inga poddradioprogram tillagda ännu"
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found"
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "Inga kapitel hittades"
+msgstr "Inga poddradioprogram hittades"
 
 #: qml/FeedListPage.qml:188
 #, kde-format

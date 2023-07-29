@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-07-27 14:09+0300\n"
+"PO-Revision-Date: 2023-07-29 00:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -291,60 +291,54 @@ msgid "Date: older first"
 msgstr "Tarih: Önce en eski"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Çalınmayan bölümler"
+msgstr "Çalınmamış sayısı: Azalan"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Çalınmamış sayısı: Artan"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Yeni sayısı: Azalan"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Yeni sayısı: Artan"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Sık kullanılan sayısı: Azalan"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Sık kullanılan sayısı: Artan"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Pod yayını başlığı"
+msgstr "Pod yayını başlığı: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Pod yayını başlığı"
+msgstr "Pod yayını başlığı: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -799,20 +793,16 @@ msgid "Add Podcast…"
 msgstr "Pod Yayını Ekle…"
 
 #: qml/FeedListPage.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Open menu with options to sort episodes"
-#| msgid "Sort"
+#, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Sırala"
 
 #: qml/FeedListPage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select how to sort episodes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Bölümlerin nasıl sıralanacağını seç"
+msgstr "Aboneliklerin nasıl sıralanacağını seç"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -1091,8 +1081,8 @@ msgstr "Bölümler"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] "%2/%1 Pod Yayını Güncellendi"
-msgstr[1] "%2/%1 Pod Yayını Güncellendi"
+msgstr[0] "%2/%1 pod yayını güncellendi"
+msgstr[1] "%2/%1 pod yayını güncellendi"
 
 #: qml/main.qml:368
 #, kde-format

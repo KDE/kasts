@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-07-27 09:37+0300\n"
+"PO-Revision-Date: 2023-07-28 10:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -292,60 +292,54 @@ msgid "Date: older first"
 msgstr "Data: primer els més antics"
 
 #: models/feedsproxymodel.cpp:120
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Episodis sense reproduir"
+msgstr "Nombre de no reproduïts: descendent"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Nombre de no reproduïts: ascendent"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Nombre de nous: descendent"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Nombre de nous: ascendent"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Nombre de preferits: descendent"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Nombre de preferits: ascendent"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Títol del podcast"
+msgstr "Títol del podcast: A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Títol del podcast"
+msgstr "Títol del podcast: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -796,20 +790,16 @@ msgid "Add Podcast…"
 msgstr "Afegeix un podcast…"
 
 #: qml/FeedListPage.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Open menu with options to sort episodes"
-#| msgid "Sort"
+#, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr "Ordena"
+msgstr "Ordenació"
 
 #: qml/FeedListPage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select how to sort episodes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Seleccioneu com ordenar els episodis"
+msgstr "Seleccioneu com ordenar les subscripcions"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -860,13 +850,12 @@ msgid "No podcasts added yet"
 msgstr "Encara no s'ha afegit cap podcast"
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found"
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "No s'ha trobat cap capítol"
+msgstr "No s'ha trobat cap podcast"
 
 #: qml/FeedListPage.qml:188
 #, kde-format
