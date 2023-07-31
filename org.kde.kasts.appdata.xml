@@ -260,6 +260,7 @@
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
       <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
+      <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
@@ -280,6 +281,7 @@
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
+      <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
@@ -328,6 +330,7 @@
       <caption xml:lang="pl">Sterowanie Kastem na urządzeniach przenośnych</caption>
       <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
+      <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
       <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
