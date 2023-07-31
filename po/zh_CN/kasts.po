@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 00:45+0000\n"
-"PO-Revision-Date: 2023-07-23 12:29\n"
+"PO-Revision-Date: 2023-07-30 07:10\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -50,34 +50,29 @@ msgid "Downloading %1"
 msgstr "正在下载 %1"
 
 #: error.cpp:48
-#, fuzzy, kde-format
-#| msgid "Podcast Update Error"
+#, kde-format
 msgid "Podcast update error"
-msgstr "播客更新出错"
+msgstr ""
 
 #: error.cpp:50
-#, fuzzy, kde-format
-#| msgid "Media Download Error"
+#, kde-format
 msgid "Media download error"
-msgstr "媒体下载出错"
+msgstr ""
 
 #: error.cpp:52
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "使用计费连接时不允许更新"
+msgstr ""
 
 #: error.cpp:54
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Invalid media file"
-msgstr "媒体文件无效"
+msgstr ""
 
 #: error.cpp:56
-#, fuzzy, kde-format
-#| msgid "Nothing Found"
+#, kde-format
 msgid "Nothing found"
-msgstr "未找到任何内容"
+msgstr ""
 
 #: error.cpp:58
 #, kde-format
@@ -85,16 +80,14 @@ msgid "Error moving storage path"
 msgstr "移动存储路径时出错"
 
 #: error.cpp:60
-#, fuzzy, kde-format
-#| msgid "Error Syncing Feed and/or Episode Status"
+#, kde-format
 msgid "Error syncing feed and/or episode status"
-msgstr "同步订阅源和/或单集状态时出错"
+msgstr ""
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Connection or streaming not allowed on metered connection"
-msgstr "使用计费连接时不允许下载播客"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -331,18 +324,16 @@ msgid "Favorite count: ascending"
 msgstr ""
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "无播客标题"
+msgstr ""
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "无播客标题"
+msgstr ""
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -473,10 +464,9 @@ msgstr "无曲目标题"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, fuzzy, kde-format
-#| msgid "No Track Loaded"
+#, kde-format
 msgid "No track loaded"
-msgstr "未加载曲目"
+msgstr ""
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:205
 #, kde-format
@@ -514,10 +504,9 @@ msgid "Refresh All Podcasts"
 msgstr "刷新所有播客"
 
 #: qml/DownloadListPage.qml:57
-#, fuzzy, kde-format
-#| msgid "No Downloads"
+#, kde-format
 msgid "No downloads"
-msgstr "无下载任务"
+msgstr ""
 
 #: qml/DownloadListPage.qml:73
 #, kde-format
@@ -667,17 +656,15 @@ msgstr "剧集列表"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
-msgstr "搜索"
+msgstr ""
 
 #: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
-#, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#, kde-format
 msgid "No episodes available"
-msgstr "无可播放剧集"
+msgstr ""
 
 #: qml/ErrorList.qml:30
 #, kde-format
@@ -855,13 +842,12 @@ msgid "No podcasts added yet"
 msgstr ""
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "未找到章节。"
+msgstr ""
 
 #: qml/FeedListPage.qml:188
 #, kde-format
@@ -1104,16 +1090,14 @@ msgid "No Title"
 msgstr "无标题"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgid "No podcast title"
-msgstr "无播客标题"
+msgstr ""
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgid "No chapters found"
-msgstr "未找到章节。"
+msgstr ""
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
