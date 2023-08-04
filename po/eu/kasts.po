@@ -1,0 +1,2060 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kasts package.
+#
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: kasts\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-28 02:34+0000\n"
+"PO-Revision-Date: 2023-08-03 23:16+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Iñigo Salvador Azurmendi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xalba@ni.eus"
+
+#: audiomanager.cpp:402
+#, kde-format
+msgid "No connection or streaming on metered connection not allowed"
+msgstr "Konexiorik ez edo ez da korronterik baimentzen tarifatutako konexioan"
+
+#: audiomanager.cpp:541
+#, kde-format
+msgid "Invalid Media"
+msgstr "Komunikabide baliogabea"
+
+#: enclosure.cpp:163
+#, kde-format
+msgid "Podcast downloads not allowed due to user setting"
+msgstr "Erabiltzailearen ezarpenek ez dute onartzen podcastak zama-jaistea"
+
+#: enclosuredownloadjob.cpp:33
+#, kde-format
+msgid "Downloading %1"
+msgstr "%1 zama-jaisten"
+
+#: error.cpp:48
+#, kde-format
+msgid "Podcast update error"
+msgstr "Podcasta eguneratzeko errorea"
+
+#: error.cpp:50
+#, kde-format
+msgid "Media download error"
+msgstr "Komunikabidea zama-jaisteko errorea"
+
+#: error.cpp:52
+#, kde-format
+msgid "Update not allowed on metered connection"
+msgstr "Eguneratzea ez dago baimenduta tarifatutako konexioan"
+
+#: error.cpp:54
+#, kde-format
+msgid "Invalid media file"
+msgstr "Komunikabide-fitxategia baliogabea"
+
+#: error.cpp:56
+#, kde-format
+msgid "Nothing found"
+msgstr "Ez da ezer aurkitu"
+
+#: error.cpp:58
+#, kde-format
+msgid "Error moving storage path"
+msgstr "Biltegiratze bide-izena mugitzeko errorea"
+
+#: error.cpp:60
+#, kde-format
+msgid "Error syncing feed and/or episode status"
+msgstr "Jarioa eta/edo atalen egoera sinkronizatzeko errorea"
+
+#: error.cpp:62
+#, kde-format
+msgid "Connection or streaming not allowed on metered connection"
+msgstr "Konexioa edo korrontea ez dago baimenduta tarifatutako konexioan"
+
+#: kmediasession/example-app/qml/main.qml:20
+#, kde-format
+msgid "Example KMediaSession Player"
+msgstr "KMediaSession jotzaile adibidea"
+
+#: kmediasession/example-app/qml/main.qml:72
+#, kde-format
+msgid "Select File…"
+msgstr "Hautatu fitxategia..."
+
+#: kmediasession/example-app/qml/main.qml:78
+#, kde-format
+msgid "Select Media File"
+msgstr "Hautatu komunikabide-fitxategia"
+
+#: kmediasession/example-app/qml/main.qml:85
+#, kde-format
+msgid "OR"
+msgstr "EDO"
+
+#: kmediasession/example-app/qml/main.qml:93
+#, kde-format
+msgid "Open"
+msgstr "Ireki"
+
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
+#, kde-format
+msgid "Play"
+msgstr "Jo"
+
+#: kmediasession/example-app/qml/main.qml:109
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
+#, kde-format
+msgid "Pause"
+msgstr "Etenaldia"
+
+#: kmediasession/example-app/qml/main.qml:117 qml/SleepTimerDialog.qml:41
+#, kde-format
+msgid "Stop"
+msgstr "Gelditu"
+
+#: kmediasession/example-app/qml/main.qml:147
+#, kde-format
+msgid "Mute"
+msgstr "Isilarazi"
+
+#: kmediasession/example-app/qml/main.qml:174
+#, kde-format
+msgid "Title: %1"
+msgstr "Izenburua: %1"
+
+#: kmediasession/example-app/qml/main.qml:177
+#, kde-format
+msgid "Artist: %1"
+msgstr "Artista: %1"
+
+#: kmediasession/example-app/qml/main.qml:180
+#, kde-format
+msgid "Album: %1"
+msgstr "Albuma: %1"
+
+#: kmediasession/example-app/qml/main.qml:191
+#, kde-format
+msgid "Media status: %1"
+msgstr "Komunikabidearen egoera: %1"
+
+#: kmediasession/example-app/qml/main.qml:194
+#, kde-format
+msgid "Playback status: %1"
+msgstr "Atzera-jotze egoera: %1"
+
+#: kmediasession/example-app/qml/main.qml:197
+#, kde-format
+msgid "Error: %1"
+msgstr "Errorea: %1"
+
+#: kmediasession/powermanagement/powermanagementinterface.cpp:188
+#: kmediasession/powermanagement/powermanagementinterface.cpp:214
+#, kde-format
+msgctxt "Explanation for sleep inhibit during media playback"
+msgid "Playing Media"
+msgstr "Komunikabidea jotzen"
+
+#: main.cpp:113
+#, kde-format
+msgid "Podcast Application"
+msgstr "Podcast aplikazioa"
+
+#: main.cpp:115
+#, kde-format
+msgid "Adds a new podcast to subscriptions."
+msgstr "Harpidetzetara podcast berri bat gehitzen du."
+
+#: main.cpp:116
+#, kde-format
+msgid "Podcast URL"
+msgstr "Podcastaren URL"
+
+#: main.cpp:121 qml/main.qml:20
+#, kde-format
+msgid "Kasts"
+msgstr "Kasts"
+
+#: main.cpp:123
+#, kde-format
+msgid "Podcast Player"
+msgstr "Podcast jotzailea"
+
+#: main.cpp:125
+#, kde-format
+msgid "© 2020–2023 KDE Community"
+msgstr "© 2020–2023 KDE komunitatea"
+
+#: main.cpp:126
+#, kde-format
+msgid "Tobias Fella"
+msgstr "Tobias Fella"
+
+#: main.cpp:127
+#, kde-format
+msgid "Bart De Vries"
+msgstr "Bart De Vries"
+
+#: models/abstractepisodeproxymodel.cpp:184
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "No filter"
+msgstr "Iragazkirik ez"
+
+#: models/abstractepisodeproxymodel.cpp:186
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Played episodes"
+msgstr "Jotako atalak"
+
+#: models/abstractepisodeproxymodel.cpp:188
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Unplayed episodes"
+msgstr "Jo gabeko atalak"
+
+#: models/abstractepisodeproxymodel.cpp:190
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as \"New\""
+msgstr "\"Berria\" gisa markatutako atalak"
+
+#: models/abstractepisodeproxymodel.cpp:192
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as \"New\""
+msgstr "\"Berria\" gisa markatu gabeko atalak"
+
+#: models/abstractepisodeproxymodel.cpp:194
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as Favorite"
+msgstr "Gogoko gisa markatutako atalak"
+
+#: models/abstractepisodeproxymodel.cpp:196
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as Favorite"
+msgstr "Gogoko gisa markatu gabeko atalak"
+
+#: models/abstractepisodeproxymodel.cpp:206
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Title"
+msgstr "Izenburua"
+
+#: models/abstractepisodeproxymodel.cpp:208
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Description"
+msgstr "Deskribapena"
+
+#: models/abstractepisodeproxymodel.cpp:210
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Podcast title"
+msgstr "Podcastaren izenburua"
+
+#: models/abstractepisodeproxymodel.cpp:220
+#, kde-format
+msgctxt "@label:chooser Sort episodes by decreasing date"
+msgid "Date: newer first"
+msgstr "Data: berriagoak aurrena"
+
+#: models/abstractepisodeproxymodel.cpp:222
+#, kde-format
+msgctxt "@label:chooser Sort episodes by increasing date"
+msgid "Date: older first"
+msgstr "Data: zaharragoak aurrena"
+
+#: models/feedsproxymodel.cpp:120
+#, kde-format
+msgctxt ""
+"@label:chooser Sort podcasts by decreasing number of unplayed episodes"
+msgid "Unplayed count: descending"
+msgstr "Jo gabekoen zenbaketa: beherakorra"
+
+#: models/feedsproxymodel.cpp:122
+#, kde-format
+msgctxt ""
+"@label:chooser Sort podcasts by increasing number of unplayed episodes"
+msgid "Unplayed count: ascending"
+msgstr "Jotakoen zenbaketa: gorakorra"
+
+#: models/feedsproxymodel.cpp:124
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
+msgid "New count: descending"
+msgstr "Berrien zenbaketa: beherakorra"
+
+#: models/feedsproxymodel.cpp:126
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
+msgid "New count: ascending"
+msgstr "Berrien zenbaketa: gorakorra"
+
+#: models/feedsproxymodel.cpp:128
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
+msgid "Favorite count: descending"
+msgstr "Gogokoen zenbaketa. beherakorra"
+
+#: models/feedsproxymodel.cpp:130
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
+msgid "Favorite count: ascending"
+msgstr "Gogokoen zenbaketa: gorakorra"
+
+#: models/feedsproxymodel.cpp:132
+#, kde-format
+msgctxt "@label:chooser Sort podcasts titles alphabetically"
+msgid "Podcast title: A → Z"
+msgstr "Podcast izenburua: A → Z"
+
+#: models/feedsproxymodel.cpp:134
+#, kde-format
+msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
+msgid "Podcast title: Z → A"
+msgstr "Podcast izenburua: Z → A"
+
+#: qml/AddFeedSheet.qml:21
+#, kde-format
+msgid "Add New Podcast"
+msgstr "Gehitu podcast berria"
+
+#: qml/AddFeedSheet.qml:27
+#, kde-format
+msgid "Url:"
+msgstr "URL:"
+
+#: qml/AddFeedSheet.qml:49
+#, kde-format
+msgid "Add Podcast"
+msgstr "Gehitu podcasta"
+
+#: qml/ConnectionCheckAction.qml:20
+#, kde-format
+msgid "Podcast updates are currently not allowed on metered connections"
+msgstr ""
+"Podcast eguneratzeak, une honetan, ez daude baimenduta tarifatutako "
+"konexioetan"
+
+#: qml/ConnectionCheckAction.qml:54
+#, kde-format
+msgid "Select Option"
+msgstr "Hautatu aukera"
+
+#: qml/ConnectionCheckAction.qml:81
+#, kde-format
+msgid "Don't Allow"
+msgstr "Ez baimendu"
+
+#: qml/ConnectionCheckAction.qml:94
+#, kde-format
+msgid "Allow Once"
+msgstr "Baimendu behin"
+
+#: qml/ConnectionCheckAction.qml:107
+#, kde-format
+msgid "Always Allow"
+msgstr "Baimendu beti"
+
+#: qml/Desktop/DesktopPlayerControls.qml:119
+#, kde-format
+msgid "Seek backward"
+msgstr "Bilatu atzerantz"
+
+#: qml/Desktop/DesktopPlayerControls.qml:138
+#, kde-format
+msgid "Seek forward"
+msgstr "Bilatu aurrerantz"
+
+#: qml/Desktop/DesktopPlayerControls.qml:147
+#, kde-format
+msgid "Skip forward"
+msgstr "Jauzi aurrerantz"
+
+#: qml/Desktop/DesktopPlayerControls.qml:172
+#, kde-format
+msgid "Playback rate:"
+msgstr "Atzera-jotze emaria:"
+
+#: qml/Desktop/DesktopPlayerControls.qml:231
+#, kde-format
+msgctxt "@action:button"
+msgid "Show chapter list"
+msgstr "Erakutsi kapitulu-zerrenda"
+
+#: qml/Desktop/DesktopPlayerControls.qml:243
+#, kde-format
+msgctxt "@action:button"
+msgid "Show episode info"
+msgstr "Erakutsi atalaren informazioa"
+
+#: qml/Desktop/DesktopPlayerControls.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Open sleep timer settings"
+msgstr "Ireki lokartzeko tenporizadorearen ezarpenak"
+
+#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
+#, kde-format
+msgctxt "@action:button"
+msgid "Open volume settings"
+msgstr "Ireki bolumenaren ezarpenak"
+
+#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle mute"
+msgstr "Txandakatu isilaraztea"
+
+#: qml/Desktop/DesktopPlayerControls.qml:331
+#, kde-format
+msgctxt "@action:button"
+msgid "Show more"
+msgstr "Erakutsi gehiago"
+
+#: qml/Desktop/DesktopPlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Chapters"
+msgstr "Atalak"
+
+#: qml/Desktop/DesktopPlayerControls.qml:369
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Info"
+msgstr "Erakutsi informazioa"
+
+#: qml/Desktop/DesktopPlayerControls.qml:379
+#, kde-format
+msgctxt "@action:button"
+msgid "Sleep Timer"
+msgstr "Lokartzeko tenporizadorea"
+
+#: qml/Desktop/DesktopPlayerControls.qml:413
+#, kde-format
+msgid "Chapters"
+msgstr "Atalak"
+
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
+#: qml/Mobile/MobilePlayerControls.qml:179
+#, kde-format
+msgid "No Track Title"
+msgstr "Pistaren titulurik ez"
+
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
+#: qml/Mobile/MobilePlayerControls.qml:189
+#, kde-format
+msgid "No track loaded"
+msgstr "Ez da pistarik zamatu"
+
+#: qml/DiscoverPage.qml:16 qml/main.qml:205
+#, kde-format
+msgid "Discover"
+msgstr "Aurkitu"
+
+#: qml/DiscoverPage.qml:23
+#, kde-format
+msgid "Search podcastindex.org"
+msgstr "Bilatu hemen, podcastindex.org"
+
+#: qml/DiscoverPage.qml:32
+#, kde-format
+msgid "Search"
+msgstr "Bilatu"
+
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#, kde-format
+msgid "Subscribe"
+msgstr "Harpidetu"
+
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#, kde-format
+msgid "Subscribed"
+msgstr "Harpidetuta"
+
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:235
+#, kde-format
+msgid "Downloads"
+msgstr "Zama-jaitsitakoak"
+
+#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
+#, kde-format
+msgid "Refresh All Podcasts"
+msgstr "Berritu podcast guztiak"
+
+#: qml/DownloadListPage.qml:57
+#, kde-format
+msgid "No downloads"
+msgstr "Zama-jaitsitakorik ez"
+
+#: qml/DownloadListPage.qml:73
+#, kde-format
+msgid "Downloading"
+msgstr "Zama-jaisten"
+
+#: qml/DownloadListPage.qml:74
+#, kde-format
+msgid "Incomplete Downloads"
+msgstr "Osatu gabeko zama-jaitsierak"
+
+#: qml/DownloadListPage.qml:75
+#, kde-format
+msgid "Downloaded"
+msgstr "Zama-jaitsita"
+
+#: qml/EntryPage.qml:22
+#, kde-format
+msgctxt "@title"
+msgid "Episode Details"
+msgstr "Atalaren xehetasunak"
+
+#: qml/EntryPage.qml:112
+#, kde-format
+msgctxt "@action:intoolbar Button to open an episode URL in browser"
+msgid "Open in Browser"
+msgstr "Ireki arakatzailean"
+
+#: qml/EntryPage.qml:120
+#, kde-format
+msgctxt "@action:intoolbar Button to start episode download"
+msgid "Download"
+msgstr "Zama-jaitsi"
+
+#: qml/EntryPage.qml:129
+#, kde-format
+msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
+msgid "Cancel Download"
+msgstr "Utzi zama-jaistea"
+
+#: qml/EntryPage.qml:137
+#, kde-format
+msgctxt "@action:intoolbar Button to pause the playback of the episode"
+msgid "Pause"
+msgstr "Etenaldia"
+
+#: qml/EntryPage.qml:145
+#, kde-format
+msgctxt "@action:intoolbar Button to start playback of the episode"
+msgid "Play"
+msgstr "Jo"
+
+#: qml/EntryPage.qml:154
+#, kde-format
+msgctxt ""
+"@action:intoolbar Action to start playback by streaming the episode rather "
+"than downloading it first"
+msgid "Stream"
+msgstr "Korrontea"
+
+#: qml/EntryPage.qml:166
+#, kde-format
+msgctxt "@action:intoolbar Button to add an episode to the play queue"
+msgid "Add to Queue"
+msgstr "Gehitu ilaran"
+
+#: qml/EntryPage.qml:166
+#, kde-format
+msgctxt "@action:intoolbar Button to remove an episode from the play queue"
+msgid "Remove from Queue"
+msgstr "Kendu ilaratik"
+
+#: qml/EntryPage.qml:182
+#, kde-format
+msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
+msgid "Delete Download"
+msgstr "Ezabatu zama-jaitsiera"
+
+#: qml/EntryPage.qml:190
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to reset the play position of an episode to the "
+"start"
+msgid "Reset Play Position"
+msgstr "Berrezarri jotze-kokalekua"
+
+#: qml/EntryPage.qml:196
+#, kde-format
+msgctxt "@action:intoolbar Button to mark eposide as not played"
+msgid "Mark as Unplayed"
+msgstr "Markatu jo gabeko gisa"
+
+#: qml/EntryPage.qml:196
+#, kde-format
+msgctxt "@action:intoolbar Button to mark episode as played"
+msgid "Mark as Played"
+msgstr "Markatu jotako gisa"
+
+#: qml/EntryPage.qml:203
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Remove \"New\" Label"
+msgstr "Kendu \"Berria\" etiketa"
+
+#: qml/EntryPage.qml:203
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Label as \"New\""
+msgstr "Etiketatu \"Berria\" gisa"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:310
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to remove the \"favorite\" property of a podcast "
+"episode"
+msgid "Remove from Favorites"
+msgstr "Kendu gogokoen artetik"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:301
+#, kde-format
+msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
+msgid "Add to Favorites"
+msgstr "Gehitu gogokoetara"
+
+#: qml/EntryPage.qml:218
+#, kde-format
+msgctxt "@action:intoolbar Button to open the podcast URL in browser"
+msgid "Open Podcast"
+msgstr "Ireki podcasta"
+
+#: qml/EntryPage.qml:288
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Episode Download URL"
+msgstr "Kopiatu atala zama-jaisteko URL"
+
+#: qml/EntryPage.qml:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Link Copied"
+msgstr "Esteka kopiatu da"
+
+#: qml/EpisodeListPage.qml:17
+#, kde-format
+msgid "Episode List"
+msgstr "Atal-zerrenda"
+
+#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
+#: qml/FeedListPage.qml:113
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Search"
+msgstr "Bilatu"
+
+#: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
+#, kde-format
+msgid "No episodes available"
+msgstr "Ez dago atalik erabilgarri"
+
+#: qml/ErrorList.qml:30
+#, kde-format
+msgid "No errors logged"
+msgstr "Ez da errorerik erregistratu"
+
+#: qml/ErrorList.qml:66
+#, kde-format
+msgid "Error code:"
+msgstr "Errore kodea:"
+
+#: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
+#: qml/Settings/ErrorListPage.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Error Log"
+msgstr "Erroreen egunkaria"
+
+#: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
+#, kde-format
+msgctxt "@action:button"
+msgid "Clear All Errors"
+msgstr "Garbitu errore guztiak"
+
+#: qml/ErrorNotification.qml:30
+#, kde-format
+msgid "Show Error Log"
+msgstr "Erakutsi erroreen egunkaria"
+
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:258
+#, kde-format
+msgid "Podcast Details"
+msgstr "Podcastaren xehetasunak"
+
+#: qml/FeedDetailsPage.qml:126
+#, kde-format
+msgctxt "by <author(s)>"
+msgid "by %1"
+msgstr "%1(e)k egina"
+
+#: qml/FeedDetailsPage.qml:157
+#, kde-format
+msgid "Refresh Podcast"
+msgstr "Berritu podcasta"
+
+#: qml/FeedDetailsPage.qml:176
+#, kde-format
+msgid "Show Details"
+msgstr "Erakutsi xehetasunak"
+
+#: qml/FeedDetailsPage.qml:247
+#, kde-format
+msgid "Podcast URL:"
+msgstr "Podcastaren URL:"
+
+#: qml/FeedDetailsPage.qml:287
+#, kde-format
+msgid "Weblink:"
+msgstr "Web-esteka:"
+
+#: qml/FeedDetailsPage.qml:313
+#, kde-format
+msgid "Subscribed since: %1"
+msgstr "Noiztik harpidetuta: %1"
+
+#: qml/FeedDetailsPage.qml:326
+#, kde-format
+msgid "Last updated: %1"
+msgstr "Azken eguneratzea: %1"
+
+#: qml/FeedDetailsPage.qml:339
+#, kde-format
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "Atal 1"
+msgstr[1] "%1 atal"
+
+#: qml/FeedDetailsPage.qml:339
+#, kde-format
+msgid "1 Unplayed"
+msgid_plural "%1 Unplayed"
+msgstr[0] "1 jo gabe"
+msgstr[1] "%1 jo gabe"
+
+#: qml/FeedDetailsPage.qml:361
+#, kde-format
+msgid "Error (%1): %2"
+msgstr "Errorea (%1): %2"
+
+#: qml/FeedListDelegate.qml:269
+#, kde-format
+msgid "Remove Podcast"
+msgstr "Kendu podcasta"
+
+#: qml/FeedListPage.qml:20
+#, kde-format
+msgctxt "@title Podcast subscription list page title"
+msgid "Subscriptions"
+msgstr "Harpidetzak"
+
+#: qml/FeedListPage.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr "Aurkitu"
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Berritu podcast guztiak"
+
+#: qml/FeedListPage.qml:54
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add Podcast…"
+msgstr "Gehitu podcasta..."
+
+#: qml/FeedListPage.qml:63
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
+msgid "Sort"
+msgstr "Sailkatu"
+
+#: qml/FeedListPage.qml:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort subscriptions"
+msgstr "Hautatu harpidetzak nola sailkatu"
+
+#: qml/FeedListPage.qml:118
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Import Podcasts…"
+msgstr "Inportatu podcastak..."
+
+#: qml/FeedListPage.qml:124
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Export Podcasts…"
+msgstr "Esportatu podcastak..."
+
+#: qml/FeedListPage.qml:161
+#, kde-format
+msgctxt "@title:window"
+msgid "Import Podcasts"
+msgstr "Inportatu podcastak"
+
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "OPML Files (*.opml)"
+msgstr "OPML fitxategiak (*.opml)"
+
+#: qml/FeedListPage.qml:163
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "XML Files (*.xml)"
+msgstr "XML fitxategiak (*.xml)"
+
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "All Files (*)"
+msgstr "Fitxategi guztiak (*)"
+
+#: qml/FeedListPage.qml:169
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Podcasts"
+msgstr "Podcastak esportatu"
+
+#: qml/FeedListPage.qml:187
+#, kde-format
+msgctxt "@info Placeholder message for empty podcast list"
+msgid "No podcasts added yet"
+msgstr "Ez da oraindik podcastik gehitu"
+
+#: qml/FeedListPage.qml:187
+#, kde-format
+msgctxt ""
+"@info Placeholder message for podcast list when no podcast matches the "
+"search criteria"
+msgid "No podcasts found"
+msgstr "Ez da podcastik aurkitu"
+
+#: qml/FeedListPage.qml:188
+#, kde-format
+msgctxt "@info:tipoftheday"
+msgid "Get started by adding podcasts:"
+msgstr "Hasteko, podcastak gehitu:"
+
+#: qml/FeedListPage.qml:202
+#, kde-format
+msgctxt "@action:button"
+msgid "Search Online"
+msgstr "Bilatu lerroan"
+
+#: qml/FeedListPage.qml:229
+#, kde-format
+msgctxt "@action:button"
+msgid "Synchronize"
+msgstr "Sinkronizatu"
+
+#: qml/FeedListPage.qml:237 qml/main.qml:68 qml/main.qml:255
+#: qml/Mobile/BottomToolbar.qml:49
+#, kde-format
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: qml/FeedListPage.qml:372
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select All"
+msgstr "Hautatu dena"
+
+#: qml/FeedListPage.qml:381
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Deselect All"
+msgstr "Desautatu dena"
+
+#: qml/FeedListPage.qml:390
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Remove Podcast"
+msgid_plural "Remove Podcasts"
+msgstr[0] "Kendu podcasta"
+msgstr[1] "Kendu podcastak"
+
+#: qml/FeedListPage.qml:413
+#, kde-format
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "Podcastaren xehetasunak"
+
+#: qml/FilterInlineMessage.qml:32
+#, kde-format
+msgctxt "@action:button Reset filters active on ListView"
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: qml/FilterInlineMessage.qml:41
+#, kde-format
+msgctxt "@info:status Name of the filter which is active on the ListView"
+msgid "Active filter: %1"
+msgstr "Iragazki aktiboa: %1"
+
+#: qml/GenericEntryDelegate.qml:168
+#, kde-format
+msgid "Played"
+msgstr "Jota"
+
+#: qml/GenericEntryDelegate.qml:168
+#, kde-format
+msgid "Read"
+msgstr "Irakurri"
+
+#: qml/GenericEntryDelegate.qml:174
+#, kde-format
+msgid "New"
+msgstr "Berria"
+
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
+#, kde-format
+msgid "Remove from Queue"
+msgstr "Kendu ilaratik"
+
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
+#, kde-format
+msgid "Download"
+msgstr "Zama-jaitsi"
+
+#: qml/GenericEntryDelegate.qml:311
+#, kde-format
+msgid "Cancel Download"
+msgstr "Utzi zama-jaistea"
+
+#: qml/GenericEntryDelegate.qml:317
+#, kde-format
+msgid "Delete Download"
+msgstr "Ezabatu zama-jaitsiera"
+
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
+#, kde-format
+msgid "Add to Queue"
+msgstr "Gehitu ilaran"
+
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
+#, kde-format
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Korrontea"
+
+#: qml/GenericEntryListView.qml:133
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort episodes"
+msgid "Sort"
+msgstr "Sailkatu"
+
+#: qml/GenericEntryListView.qml:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort episodes"
+msgstr "Hautatu atalak nola sailkatu"
+
+#: qml/GenericEntryListView.qml:184
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Iragazi"
+
+#: qml/GenericEntryListView.qml:186
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter episodes by status"
+msgstr "Iragazi atalak egoeraren arabera"
+
+#: qml/GenericEntryListView.qml:232
+#, kde-format
+msgid "Select All"
+msgstr "Hautatu dena"
+
+#: qml/GenericEntryListView.qml:241
+#, kde-format
+msgid "Deselect All"
+msgstr "Desautatu dena"
+
+#: qml/GenericEntryListView.qml:269
+#, kde-format
+msgid "Mark as Played"
+msgstr "Markatu jotako gisa"
+
+#: qml/GenericEntryListView.qml:277
+#, kde-format
+msgid "Mark as Unplayed"
+msgstr "Markatu jo gabeko gisa"
+
+#: qml/GenericEntryListView.qml:285
+#, kde-format
+msgid "Label as \"New\""
+msgstr "Etiketatu \"Berria\" gisa"
+
+#: qml/GenericEntryListView.qml:293
+#, kde-format
+msgid "Remove \"New\" Label"
+msgstr "Kendu \"Berria\" etiketa"
+
+#: qml/GenericEntryListView.qml:329
+#, kde-format
+msgctxt "context menu action"
+msgid "Delete Download"
+msgid_plural "Delete Downloads"
+msgstr[0] "Ezabatu zama-jaitsiera"
+msgstr[1] "Ezabatu zama-jaitsierak"
+
+#: qml/GlobalSearchField.qml:96
+#, kde-format
+msgctxt "@info Placeholder text in search box"
+msgid "No search results"
+msgstr "Ez dago bilaketaren emaitzarik"
+
+#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Advanced Search Options"
+msgstr "Bilaketa aukera aurreratuak"
+
+#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:113
+#, kde-format
+msgctxt "@title:menu"
+msgid "Search Preferences"
+msgstr "Bilaketa hobespenak"
+
+#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:117
+#, kde-format
+msgctxt "@title:group Group of fields in which can be searched"
+msgid "Search in:"
+msgstr "Bilatu hemen:"
+
+#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
+#, kde-format
+msgid "Queue"
+msgstr "Ilara"
+
+#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr "Harpidetzak"
+
+#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
+#, kde-format
+msgid "Episodes"
+msgstr "Atalak"
+
+#: qml/main.qml:341
+#, kde-format
+msgctxt "Number of Updated Podcasts"
+msgid "Updated %2 of %1 Podcast"
+msgid_plural "Updated %2 of %1 Podcasts"
+msgstr[0] "%2/%1 podcast eguneratu da"
+msgstr[1] "%2/%1 podcast eguneratu dira"
+
+#: qml/main.qml:368
+#, kde-format
+msgctxt "Number of Moved Files"
+msgid "Moved %2 of %1 File"
+msgid_plural "Moved %2 of %1 Files"
+msgstr[0] "%2/%1 fitxategi mugitu da"
+msgstr[1] "%2/%1 fitxategi mugitu dira"
+
+#: qml/main.qml:432
+#, kde-format
+msgid "Podcast downloads are currently not allowed on metered connections"
+msgstr ""
+"Podcast zama-jaisteak, une honetan, ez daude baimenduta tarifatutako "
+"konexioetan"
+
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Ez da pistarik zamatu"
+
+#: qml/Mobile/MobilePlayerControls.qml:149
+#, kde-format
+msgid "No Title"
+msgstr "Izenbururik ez"
+
+#: qml/Mobile/MobilePlayerControls.qml:157
+#, kde-format
+msgid "No podcast title"
+msgstr "Podcast izenbururik ez"
+
+#: qml/Mobile/MobilePlayerControls.qml:223
+#, kde-format
+msgid "No chapters found"
+msgstr "Ez da atalik aurkitu"
+
+#: qml/PlaybackRateCustomizerDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Playback Rate Presets"
+msgstr "Atzera-jotze emari aurrezarpenak"
+
+#: qml/PlaybackRateCustomizerDialog.qml:52
+#, kde-format
+msgctxt "@info Label for controls to add new playback rate preset"
+msgid "New Preset:"
+msgstr "Aurrezarpen berria:"
+
+#: qml/PlaybackRateCustomizerDialog.qml:64
+#, kde-format
+msgctxt "@action:button Add new playback rate value to list"
+msgid "Add"
+msgstr "Gehitu"
+
+#: qml/PlaybackRateCustomizerDialog.qml:67
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Add new playback rate value to list"
+msgstr "Gehitu zerrendara atzera-jotze emari balio berria"
+
+#: qml/PlaybackRateCustomizerDialog.qml:100
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease playback rate"
+msgstr "Gutxitu atzera-jotze emaria"
+
+#: qml/PlaybackRateCustomizerDialog.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase playback rate"
+msgstr "Gehitu atzera-jotze emaria"
+
+#: qml/PlaybackRateCustomizerDialog.qml:124
+#, kde-format
+msgctxt "@title:group List of custom playback rates"
+msgid "Current Presets:"
+msgstr "Uneko aurrezarpenak:"
+
+#: qml/PlaybackRateMenu.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Select Playback Rate"
+msgstr "Hautatu atzera-jotze emaria"
+
+#: qml/PlaybackRateMenu.qml:51
+#, kde-format
+msgctxt "@action:button"
+msgid "Customize"
+msgstr "Neurrira egokitu"
+
+#: qml/QueuePage.qml:18
+#, kde-format
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "Ilara"
+
+#: qml/QueuePage.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr "Ilara hutsik dago"
+
+#: qml/QueuePage.qml:73
+#, kde-format
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "Atal 1"
+msgstr[1] "%1 atal"
+
+#: qml/QueuePage.qml:73
+#, kde-format
+msgctxt "@info:progress"
+msgid "Time Left"
+msgstr "Falta den denbora"
+
+#: qml/SearchBar.qml:41
+#, kde-format
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search episodes…"
+msgstr "Bilatu atalak..."
+
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
+#, kde-format
+msgid "About"
+msgstr "Honi buruz"
+
+#: qml/Settings/GeneralSettingsPage.qml:19
+#, kde-format
+msgid "General Settings"
+msgstr "Ezarpen orokorrak"
+
+#: qml/Settings/GeneralSettingsPage.qml:39
+#, kde-format
+msgid "Appearance"
+msgstr "Itxura"
+
+#: qml/Settings/GeneralSettingsPage.qml:44
+#, kde-format
+msgid "Always show podcast titles in subscription view"
+msgstr "Erakutsi beti podcasten izenburuak harpidetza ikuspegian"
+
+#: qml/Settings/GeneralSettingsPage.qml:58
+#, kde-format
+msgid "Show icon in system tray"
+msgstr "Erakutsi ikonoa sistema-erretiluan"
+
+#: qml/Settings/GeneralSettingsPage.qml:70
+#, kde-format
+msgid "Minimize to tray instead of closing"
+msgstr "Ikonotu sistemaren erretiluan itxi ordez"
+
+#: qml/Settings/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "Label for selecting the color of the tray icon"
+msgid "Tray icon type"
+msgstr "Erretiluko ikono mota"
+
+#: qml/Settings/GeneralSettingsPage.qml:87
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Colorful"
+msgstr "Koloretsua"
+
+#: qml/Settings/GeneralSettingsPage.qml:88
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Light"
+msgstr "Argia"
+
+#: qml/Settings/GeneralSettingsPage.qml:89
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Dark"
+msgstr "Iluna"
+
+#: qml/Settings/GeneralSettingsPage.qml:107
+#, kde-format
+msgid "Playback settings"
+msgstr "Atzera-jotze ezarpenak"
+
+#: qml/Settings/GeneralSettingsPage.qml:112
+#, kde-format
+msgctxt "Label for setting to select audio playback backend"
+msgid "Select audio backend"
+msgstr "Aukeratu audio-bizkarraldekoa"
+
+#: qml/Settings/GeneralSettingsPage.qml:142
+#, kde-format
+msgctxt ""
+"Label for settings related to the play time, e.g. whether the total track "
+"time is shown or a countdown of the remaining play time"
+msgid "Play time:"
+msgstr "Jotze denbora:"
+
+#: qml/Settings/GeneralSettingsPage.qml:144
+#, kde-format
+msgid "Show time left instead of total track time"
+msgstr "Erakutsi falta den denbora, pistaren denbora osoa erakutsi ordez"
+
+#: qml/Settings/GeneralSettingsPage.qml:154
+#, kde-format
+msgid "Adjust time left based on current playback speed"
+msgstr "Doitu falta den denbora, uneko atzera-jotze abiaduran oinarrituta"
+
+#: qml/Settings/GeneralSettingsPage.qml:163
+#, kde-format
+msgid "Prioritize streaming over downloading"
+msgstr "Eman lehentasuna korronteei zama-jaistearen gainetik"
+
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr "Aurrerantz jauzteko bitartea (segundotan)"
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr "Atzerantz jauzteko bitartea (segundotan)"
+
+#: qml/Settings/GeneralSettingsPage.qml:214
+#, kde-format
+msgid "Queue settings"
+msgstr "Ilararen ezarpenak"
+
+#: qml/Settings/GeneralSettingsPage.qml:220
+#, kde-format
+msgid "Continue playing next episode after current one finishes"
+msgstr "Jarraitu hurrengo atala jotzen unekoa amaitu ondoren"
+
+#: qml/Settings/GeneralSettingsPage.qml:228
+#, kde-format
+msgctxt "Label for settings related to podcast updates"
+msgid "Update Settings:"
+msgstr "Eguneratze ezarpenak:"
+
+#: qml/Settings/GeneralSettingsPage.qml:230
+#, kde-format
+msgid "Automatically fetch podcast updates on startup"
+msgstr "Automatikoki ekarri podcasten eguneratzeak abiatzean"
+
+#: qml/Settings/GeneralSettingsPage.qml:239
+#, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr "Berritzean, eguneratu dagoen atalaren datuak (motelagoa)"
+
+#: qml/Settings/GeneralSettingsPage.qml:249
+#, kde-format
+msgid "Automatically queue new episodes"
+msgstr "Atal berriak ilaran automatikoki ipini"
+
+#: qml/Settings/GeneralSettingsPage.qml:264
+#, kde-format
+msgid "Automatically download new episodes"
+msgstr "Atal berriak automatikoki zama-jaitsi"
+
+#: qml/Settings/GeneralSettingsPage.qml:277
+#, kde-format
+msgid "Played episode behavior"
+msgstr "Jotako atalen jokabidea"
+
+#: qml/Settings/GeneralSettingsPage.qml:280
+#, kde-format
+msgid "Do not delete"
+msgstr "Ez ezabatu"
+
+#: qml/Settings/GeneralSettingsPage.qml:281
+#, kde-format
+msgid "Delete immediately"
+msgstr "Ezabatu berehala"
+
+#: qml/Settings/GeneralSettingsPage.qml:282
+#, kde-format
+msgid "Delete at next startup"
+msgstr "Ezabatu hurrengo abioan"
+
+#: qml/Settings/GeneralSettingsPage.qml:294
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Markatu atalak jotzat falta den denbora adierazitakoa denean (segundotan)"
+
+#: qml/Settings/GeneralSettingsPage.qml:313
+#, kde-format
+msgid "Reset play position after an episode is played"
+msgstr "Berrezarri jotze-kokalekua atal bat jo ondoren"
+
+#: qml/Settings/GeneralSettingsPage.qml:330
+#, kde-format
+msgid "When adding new podcasts"
+msgstr "Podcast berriak gehitzean"
+
+#: qml/Settings/GeneralSettingsPage.qml:335
+#, kde-format
+msgid "Mark all episodes as played"
+msgstr "Markatu atal guztiak jotako gisa"
+
+#: qml/Settings/GeneralSettingsPage.qml:346
+#, kde-format
+msgid "Mark most recent episodes as unplayed"
+msgstr "Markatu azkenaldiko atal berrienak jo gabeko gisa"
+
+#: qml/Settings/GeneralSettingsPage.qml:369
+#, kde-format
+msgid "Mark all episodes as unplayed"
+msgstr "Markatu atal denak jo gabeko gisa"
+
+#: qml/Settings/GeneralSettingsPage.qml:386
+#, kde-format
+msgid "Article"
+msgstr "Artikulua"
+
+#: qml/Settings/GeneralSettingsPage.qml:391
+#, kde-format
+msgid "Font size"
+msgstr "Letra-tipoaren neurria"
+
+#: qml/Settings/GeneralSettingsPage.qml:398
+#, kde-format
+msgid "Font size:"
+msgstr "Letra-tipoaren neurria:"
+
+#: qml/Settings/GeneralSettingsPage.qml:414
+#, kde-format
+msgid "Use system default"
+msgstr "Erabili sisteman lehenetsitakoa"
+
+#: qml/Settings/NetworkSettingsPage.qml:18
+#, kde-format
+msgid "Network Settings"
+msgstr "Sareko ezarpenak"
+
+#: qml/Settings/NetworkSettingsPage.qml:38
+#, kde-format
+msgid "On metered connections"
+msgstr "Tarifatutako konexioetan"
+
+#: qml/Settings/NetworkSettingsPage.qml:44
+#, kde-format
+msgid "Allow podcast updates"
+msgstr "Baimendu podcasten eguneratzeak"
+
+#: qml/Settings/NetworkSettingsPage.qml:54
+#, kde-format
+msgid "Allow episode downloads"
+msgstr "Baimendu atalak zama-jaistea"
+
+#: qml/Settings/NetworkSettingsPage.qml:64
+#, kde-format
+msgid "Allow image downloads"
+msgstr "Baimendu irudiak zama-jaistea"
+
+#: qml/Settings/NetworkSettingsPage.qml:74
+#, kde-format
+msgid "Allow streaming"
+msgstr "Baimendu datu-korronteak"
+
+#: qml/Settings/SettingsPage.qml:16
+#, kde-format
+msgid "General"
+msgstr "Orokorra"
+
+#: qml/Settings/SettingsPage.qml:22
+#, kde-format
+msgid "Storage"
+msgstr "Biltegiratzea"
+
+#: qml/Settings/SettingsPage.qml:28
+#, kde-format
+msgid "Network"
+msgstr "Sarea"
+
+#: qml/Settings/SettingsPage.qml:35
+#, kde-format
+msgid "Synchronization"
+msgstr "Sinkronizatzea"
+
+#: qml/Settings/SettingsPage.qml:41
+#, kde-format
+msgid "Error Log"
+msgstr "Erroreen egunkaria"
+
+#: qml/Settings/StorageSettingsPage.qml:18
+#, kde-format
+msgid "Storage Settings"
+msgstr "Biltegiratze ezarpenak"
+
+#: qml/Settings/StorageSettingsPage.qml:38
+#: qml/Settings/StorageSettingsPage.qml:44
+#, kde-format
+msgid "Storage path"
+msgstr "Biltegiratze bide-izena"
+
+#: qml/Settings/StorageSettingsPage.qml:50
+#, kde-format
+msgid "Select Folder…"
+msgstr "Hautatu karpeta..."
+
+#: qml/Settings/StorageSettingsPage.qml:57
+#, kde-format
+msgid "Select Storage Path"
+msgstr "Hautatu biltegiratze bide-izena"
+
+#: qml/Settings/StorageSettingsPage.qml:67
+#, kde-format
+msgid "Use default path"
+msgstr "Erabili bide-izen lehenetsia"
+
+#: qml/Settings/StorageSettingsPage.qml:85
+#, kde-format
+msgid "Information"
+msgstr "Informazioa"
+
+#: qml/Settings/StorageSettingsPage.qml:89
+#, kde-format
+msgid "Podcast downloads"
+msgstr "Podcast zama-jaistea"
+
+#: qml/Settings/StorageSettingsPage.qml:90
+#: qml/Settings/StorageSettingsPage.qml:97
+#, kde-format
+msgctxt "Using <amount of bytes> of disk space"
+msgid "Using %1 of disk space"
+msgstr "Diskoko lekuaren %1 erabiltzen"
+
+#: qml/Settings/StorageSettingsPage.qml:96
+#, kde-format
+msgid "Image cache"
+msgstr "Irudien cachea"
+
+#: qml/Settings/StorageSettingsPage.qml:101
+#, kde-format
+msgid "Clear Cache"
+msgstr "Garbitu cachea"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:18
+#, kde-format
+msgid "Synchronization Settings"
+msgstr "Sinkronizazio ezarpenak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:39
+#, kde-format
+msgid "Account"
+msgstr "Kontua"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:40
+#, kde-format
+msgid "Logged into account \"%1\" on server \"%2\""
+msgstr "\"%1\" kontuan \"%2\" zerbitzarian saio-hasita"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:40
+#, kde-format
+msgid "Syncing disabled"
+msgstr "Sinkronizatzea ezgaituta"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:43
+#, kde-format
+msgid "Logout"
+msgstr "Saio-itxi"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:43
+#, kde-format
+msgid "Login"
+msgstr "Saio-hasi"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:54
+#, kde-format
+msgid "Manually sync"
+msgstr "Eskuz sinkronizatu"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:57
+#, kde-format
+msgid "Sync Now"
+msgstr "Sinkronizatu orain"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:69
+#, kde-format
+msgid "Last full sync with server"
+msgstr "Zerbitzariarekin azken sinkronizazio osoa"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:77
+#, kde-format
+msgid "Last quick upload to sync server"
+msgstr "Sinkronizatzeko zerbitzarira azken zama-igotze azkarra"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:91
+#, kde-format
+msgid "Automatic syncing"
+msgstr "Sinkronizazio automatikoa"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:97
+#, kde-format
+msgid "Do full sync on startup"
+msgstr "Egin sinkronizazio osoa abioan"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:107
+#, kde-format
+msgid "Do full sync when fetching podcasts"
+msgstr "Egin sinkronizazio osoa podcastak ekartzerakoan"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:117
+#, kde-format
+msgid "Upload episode play positions on play/pause toggle"
+msgstr "Zama-igo ataleko jotze-kokalekuak jotzea/etenaldia txandakatzean"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:134
+#, kde-format
+msgid "Advanced options"
+msgstr "Aukera aurreratuak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:139
+#, kde-format
+msgid "Fetch all episode states from server"
+msgstr "Ekarri zerbitzaritik atal guztien egoera"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:142
+#, kde-format
+msgid "Fetch"
+msgstr "Ekarri"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:154
+#, kde-format
+msgid "Push all local episode states to server"
+msgstr "Bultzatu zerbitzarira atalen egoera lokal guztiak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:158
+#, kde-format
+msgid "Push"
+msgstr "Bultzatu"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:197
+#, kde-format
+msgid "Push all local episode states to server?"
+msgstr "Zerbitzarira atalen egoera lokala guztiak bultzatu?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:217
+#, kde-format
+msgid ""
+"Please note that pushing the playback state of all local episodes to the "
+"server might take a very long time and/or might overload the server. Also "
+"note that this action will overwrite all existing episode states on the "
+"server.\n"
+"\n"
+"Continue?"
+msgstr ""
+"Kontuan izan zerbitzarira atal lokal guztien atzera-jotzeko egoera "
+"bultzatzeak denbora luzea har dezakeela eta/edo zerbitzarian gainzama eragin "
+"dezakeela. Gainera, jakizu ekintza horrek zerbitzarian dauden atalen egoera "
+"guztiak gainidatziko dituela.\n"
+"\n"
+"Jarraitu?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:241
+#, kde-format
+msgid "Select Sync Provider"
+msgstr "Hautatu sinkronizazio hornitzailearekin"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:253
+#, kde-format
+msgid "gpodder.net"
+msgstr "gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:254
+#, kde-format
+msgid "Synchronize with official gpodder.net server"
+msgstr "Sinkronizatu «gpodder.net» zerbitzari ofizialarekin"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:257
+#, kde-format
+msgid "GPodder Nextcloud"
+msgstr "GPodder Nextcloud"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:258
+#, kde-format
+msgid "Synchronize with GPodder Nextcloud app"
+msgstr "Sinkronizatu «GPodder Nextcloud» aplikazioarekin"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:289
+#, kde-format
+msgid "Sync Login Credentials"
+msgstr "Sinkronizatu saio-haseko egiaztagiriak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with GPodder Nextcloud app"
+msgstr "Sinkronizatu «GPodder Nextcloud» aplikazioarekin"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with gpodder.net service"
+msgstr "Sinkronizatu «gpodder.net» zerbitzuarekin"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:327
+#, kde-format
+msgctxt "argument is a weblink"
+msgid ""
+"Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
+">It is advised to manually create an app password for Kasts through the web "
+"interface and use those credentials."
+msgstr ""
+"Sinkronizatu «GPodder» sinkronizatzeko aplikazioa instalatuta duen "
+"«Nextcloud» zerbitzari batekin: %1.<br/> «Kasts» aplikaziorako, web "
+"interfazearen bidez, eskuz, pasahitz bat sortzea eta egiaztagiri haiek "
+"erabiltzea gomendatzen da."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:328
+#, kde-format
+msgctxt "argument is a weblink"
+msgid "If you don't already have an account, you should first create one at %1"
+msgstr ""
+"Dagoeneko konturik ez baduzu, aurrena bat sortu beharko zenuke, hemen, %1"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:340
+#, kde-format
+msgid "Username:"
+msgstr "Erabiltzaile-izena:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:351
+#: qml/SyncPasswordOverlay.qml:56
+#, kde-format
+msgid "Password:"
+msgstr "Pasahitza:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:366
+#, kde-format
+msgid "Use custom server"
+msgstr "Erabili neurrira finkatutako zerbitzaria"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:371
+#, kde-format
+msgid "Hostname:"
+msgstr "Ostalari-izena:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:405
+#, kde-format
+msgid "Sync Device Settings"
+msgstr "Sinkronizatu gailuaren ezarpenak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:411
+#, kde-format
+msgid "Create a new device"
+msgstr "Sortu gailu berri bat"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:417
+#, kde-format
+msgid "Device Name:"
+msgstr "Gailuaren izena:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:427
+#, kde-format
+msgid "Device Description:"
+msgstr "Gailuaren deskribapena:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:436
+#, kde-format
+msgid "Device Type:"
+msgstr "Gailu mota:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:443
+#, kde-format
+msgid "other"
+msgstr "bestelakoa"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:444
+#, kde-format
+msgid "desktop"
+msgstr "mahaigaina"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:445
+#, kde-format
+msgid "laptop"
+msgstr "magalekoa"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:446
+#, kde-format
+msgid "server"
+msgstr "zerbitzaria"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:447
+#, kde-format
+msgid "mobile"
+msgstr "mugikorra"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:452
+#, kde-format
+msgid "Create Device"
+msgstr "Sortu gailua"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:469
+#, kde-format
+msgid "or select an existing device"
+msgstr "edo hautatu dagoen gailu bat"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:518
+#, kde-format
+msgid "Device Sync Settings"
+msgstr "Gailua sinkronizatzeko ezarpenak"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:540
+#, kde-format
+msgid ""
+"Should all podcast subscriptions on this gpodder.net account be synced "
+"across all devices?\n"
+"If you don't know what this means, you should probably select \"Ok\"."
+msgstr ""
+"«gpodder.net» kontu honetako podcast harpidetza guztiak gailu guztietara "
+"sinkronizatu beharko lirateke?\n"
+"Horrek zer esan nahi duen ez badakizu, \"Ados\" hautatu behar zenuke."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:562
+#, kde-format
+msgid "Sync Now?"
+msgstr "Orain sinkronizatu?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:582
+#, kde-format
+msgid "Perform a first sync now?"
+msgstr "Orain lehen sinkronizatze bat gauzatu?"
+
+#: qml/SleepTimerDialog.qml:16
+#, kde-format
+msgid "Sleep Timer"
+msgstr "Lokartzeko tenporizadorea"
+
+#: qml/SleepTimerDialog.qml:26
+#, kde-format
+msgid "Start"
+msgstr "Hasi"
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Active"
+msgstr "Egoera: Aktibo"
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Inactive"
+msgstr "Egoera: Ez aktibo"
+
+#: qml/SleepTimerDialog.qml:59
+#, kde-format
+msgid "Remaining time: %1"
+msgstr "Geratzen den denbora: %1"
+
+#: qml/SleepTimerDialog.qml:76
+#, kde-format
+msgid "Seconds"
+msgstr "segundo"
+
+#: qml/SleepTimerDialog.qml:77
+#, kde-format
+msgid "Minutes"
+msgstr "Minutu"
+
+#: qml/SleepTimerDialog.qml:78
+#, kde-format
+msgid "Hours"
+msgstr "Ordu"
+
+#: qml/SyncPasswordOverlay.qml:24
+#, kde-format
+msgid "Sync Password Required"
+msgstr "Sinkronizatzeko pasahitza behar da"
+
+#: qml/SyncPasswordOverlay.qml:48
+#, kde-format
+msgid ""
+"The password for user \"%1\" on Nextcloud server \"%2\" could not be "
+"retrieved."
+msgstr ""
+"Ezin izan da \"%1\" erabiltzailearen \"%2 \"Nextcloud\" zerbitzariko "
+"pasahitza ekarri."
+
+#: qml/SyncPasswordOverlay.qml:49
+#, kde-format
+msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+msgstr ""
+"Ezin izan da \"%1\" erabiltzailearen \"gpodder.net\"eko pasahitza ekarri."
+
+#: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
+#, kde-format
+msgid "Abort"
+msgstr "Utzi bertan behera"
+
+#: storagemanager.cpp:90
+#, kde-format
+msgid "Old location:"
+msgstr "Kokaleku zaharra:"
+
+#: storagemanager.cpp:90
+#, kde-format
+msgid "New location:"
+msgstr "Kokaleku berria:"
+
+#: storagemovejob.cpp:59
+#, kde-format
+msgid "Destination path not writable"
+msgstr "Helburuko bide-izena ez da idazgarria"
+
+#: storagemovejob.cpp:76 storagemovejob.cpp:97
+#, kde-format
+msgid "Operation aborted by user"
+msgstr "Erabiltzaileak eragiketa bertan behera utzi du"
+
+#: storagemovejob.cpp:113
+#, kde-format
+msgid "An error occurred while copying data"
+msgstr "Datuak kopiatzean errore bat gertatu da"
+
+#: sync/sync.cpp:182
+#, kde-format
+msgid "Never"
+msgstr "Inoiz ez"
+
+#: sync/sync.cpp:205
+#, kde-format
+msgctxt ""
+"Suggested description for this device on gpodder sync service; argument is "
+"the hostname"
+msgid "Kasts on %1"
+msgstr "Kasts %1(e)an"
+
+#: sync/sync.cpp:299
+#, kde-format
+msgid "Could not log into GPodder-nextcloud server"
+msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
+
+#: sync/sync.cpp:338
+#, kde-format
+msgid "Could not log into GPodder server"
+msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
+
+#: sync/sync.cpp:483 sync/sync.cpp:484
+#, kde-format
+msgid "I/O denied: Cannot save password."
+msgstr "S/I ukatu da: Ezin da pasahitza gorde."
+
+#: sync/sync.cpp:564 sync/sync.cpp:565
+#, kde-format
+msgid "I/O denied: Cannot access password file."
+msgstr "S/I ukatu da: Ezin da pasahitz-fitxategia atzitu."
+
+#: sync/sync.cpp:637
+#, kde-format
+msgid "Could not create GPodder device"
+msgstr "Ezin izan du «GPodder» gailua sortu"
+
+#: sync/sync.cpp:663
+#, kde-format
+msgid "Could not retrieve synced device status"
+msgstr "Ezin izan du ekarri sinkronizatutako gailuaren egoera"
+
+#: sync/sync.cpp:714
+#, kde-format
+msgid "Could not retrieve subscriptions for device %1"
+msgstr "Ezin izan ditu %1 gailuaren harpidetzak ekarri"
+
+#: sync/sync.cpp:733
+#, kde-format
+msgid "Could not upload subscriptions for device %1"
+msgstr "Ezin izan ditu %1 gailuaren harpidetzak zama-igo"
+
+#: sync/syncjob.cpp:67
+#, kde-format
+msgid "Could not retrieve subscription updates from server"
+msgstr "Ezin izan ditu zerbitzaritik harpidetza eguneratzeak ekarri"
+
+#: sync/syncjob.cpp:70
+#, kde-format
+msgid "Could not upload subscription changes to server"
+msgstr "Ezin izan ditu harpidetzen aldaketak zerbitzarira zama-igo"
+
+#: sync/syncjob.cpp:73
+#, kde-format
+msgid "Could not retrieve episode updates from server"
+msgstr "Ezin izan ditu zerbitzaritik atalen eguneratzeak ekarri"
+
+#: sync/syncjob.cpp:76
+#, kde-format
+msgid "Could not upload episode updates to server"
+msgstr "Ezin izan ditu atalen eguneratzeak zerbitzarira zama-igo"
+
+#: sync/syncjob.cpp:79
+#, kde-format
+msgid "Internal data error"
+msgstr "Barneko datuen errorea"
+
+#: sync/syncjob.cpp:884
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Start sync"
+msgstr "(%1/%2 urratsa) Hasi sinkronizatzen"
+
+#: sync/syncjob.cpp:887
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote subscription updates"
+msgstr "(%1/%2 urratsa) Urrutiko harpidetza eguneratzeak eskatzen"
+
+#: sync/syncjob.cpp:890
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local subscription updates"
+msgstr "(%1/%2 urratsa) Harpidetzen eguneratze lokalak zama-igotzen"
+
+#: sync/syncjob.cpp:894
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %3 of %4) Updated %2 of %1 podcast"
+msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
+msgstr[0] "(%3/%4 urratsa) %2/%1 podcast eguneratu da"
+msgstr[1] "(%3/%4 urratsa) %2/%1 podcast eguneratu dira"
+
+#: sync/syncjob.cpp:902
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote episode updates"
+msgstr "(%1/%2 urratsa) Atalen urrutiko eguneratzeak eskatzen"
+
+#: sync/syncjob.cpp:905
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Applying remote episode changes"
+msgstr "(%1/%2 urratsa) Atalen urrutiko aldaketak aplikatzen"
+
+#: sync/syncjob.cpp:908
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local episode updates"
+msgstr "(%1/%2 urratsa) Atalen eguneratze lokalak zama-igotzen"
+
+#: sync/syncjob.cpp:911
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Finished sync"
+msgstr "(%1/%2 urratsa) Sinkronizazioa amaitu da"
+
+#: sync/syncjob.cpp:914
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync aborted"
+msgstr "Sinkronizatzea bertan behera utzi da"
+
+#: sync/syncjob.cpp:918
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync finished with error"
+msgstr "Sinkronizatzea erroreekin amaitu da"
+
+#: systrayicon.cpp:46
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Backward"
+msgstr "Bilatu atzerantz"
+
+#: systrayicon.cpp:58
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Play"
+msgstr "Jo"
+
+#: systrayicon.cpp:66
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Pause"
+msgstr "Etenaldia"
+
+#: systrayicon.cpp:85
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Forward"
+msgstr "Bilatu aurrerantz"
+
+#: systrayicon.cpp:97
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Skip Forward"
+msgstr "Jauzi aurrerantz"
+
+#: systrayicon.cpp:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Quit"
+msgstr "Irten"
