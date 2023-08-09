@@ -10,98 +10,80 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.kasts 1.0
 
-Kirigami.ScrollablePage {
-    title: i18n("Storage Settings")
+FormCard.FormCardPage {
+    id: root
 
-    leftPadding: 0
-    rightPadding: 0
-    topPadding: Kirigami.Units.gridUnit
-    bottomPadding: Kirigami.Units.gridUnit
+    FormCard.FormHeader {
+        title: i18n("Storage path")
+        Layout.fillWidth: true
+    }
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    Kirigami.Theme.inherit: false
+    FormCard.FormCard {
+        Layout.fillWidth: true
 
-    ColumnLayout {
-        spacing: 0
+        FormCard.FormTextDelegate {
+            id: storagePath
+            visible: Qt.platform.os !== "android" // not functional on android
+            text: i18n("Storage path")
+            description: StorageManager.storagePath
 
-        MobileForm.FormCard {
-            Layout.fillWidth: true
+            trailing: Controls.Button {
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                icon.name: "document-open-folder"
+                text: i18n("Select folder…")
+                enabled: !defaultStoragePath.checked
+                onClicked: storagePathDialog.open()
+            }
 
-            contentItem: ColumnLayout {
-                spacing: 0
 
-                MobileForm.FormCardHeader {
-                    title: i18n("Storage path")
-                }
-
-                MobileForm.FormTextDelegate {
-                    id: storagePath
-                    visible: Qt.platform.os !== "android" // not functional on android
-                    text: i18n("Storage path")
-                    description: StorageManager.storagePath
-
-                    trailing: Controls.Button {
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
-                        icon.name: "document-open-folder"
-                        text: i18n("Select Folder…")
-                        enabled: !defaultStoragePath.checked
-                        onClicked: storagePathDialog.open()
-                    }
-
-                    StorageDirDialog {
-                        id: storagePathDialog
-                        title: i18n("Select Storage Path")
-                    }
-                }
-
-                MobileForm.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
-
-                MobileForm.FormCheckDelegate {
-                    id: defaultStoragePath
-                    visible: Qt.platform.os !== "android" // not functional on android
-                    checked: SettingsManager.storagePath == ""
-                    text: i18n("Use default path")
-                    onToggled: {
-                        if (checked) {
-                            StorageManager.setStoragePath("");
-                        }
-                    }
-                }
+            StorageDirDialog {
+                id: storagePathDialog
+                title: i18n("Select Storage Path")
             }
         }
 
-        MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            Layout.fillWidth: true
+        FormCard.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
 
-            contentItem: ColumnLayout {
-                spacing: 0
-
-                MobileForm.FormCardHeader {
-                    title: i18n("Information")
+        FormCard.FormCheckDelegate {
+            id: defaultStoragePath
+            visible: Qt.platform.os !== "android" // not functional on android
+            checked: SettingsManager.storagePath == ""
+            text: i18n("Use default path")
+            onToggled: {
+                if (checked) {
+                    StorageManager.setStoragePath("");
                 }
+            }
+        }
+    }
 
-                MobileForm.FormTextDelegate {
-                    text: i18n("Podcast downloads")
-                    description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
-                }
+    FormCard.FormHeader {
+        Layout.fillWidth: true
+        title: i18n("Information")
+    }
 
-                MobileForm.FormDelegateSeparator {}
+    FormCard.FormCard {
+        Layout.fillWidth: true
 
-                MobileForm.FormTextDelegate {
-                    text: i18n("Image cache")
-                    description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+        FormCard.FormTextDelegate {
+            text: i18n("Podcast downloads")
+            description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
+        }
 
-                    trailing: Controls.Button {
-                        icon.name: "edit-clear-all"
-                        text: i18n("Clear Cache")
-                        onClicked: StorageManager.clearImageCache();
-                    }
-                }
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormTextDelegate {
+            text: i18n("Image cache")
+            description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+
+            trailing: Controls.Button {
+                icon.name: "edit-clear-all"
+                text: i18n("Clear Cache")
+                onClicked: StorageManager.clearImageCache();
             }
         }
     }

@@ -10,155 +10,138 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.kasts 1.0
 
 Kirigami.ScrollablePage {
-    title: i18n("Synchronization Settings")
+    id: root
 
     leftPadding: 0
     rightPadding: 0
-    topPadding: Kirigami.Units.gridUnit
-    bottomPadding: Kirigami.Units.gridUnit
-
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    Kirigami.Theme.inherit: false
 
     ColumnLayout {
         spacing: 0
 
-        MobileForm.FormCard {
+        FormCard.FormCard {
             Layout.fillWidth: true
 
-            contentItem: ColumnLayout {
-                spacing: 0
+            FormCard.FormTextDelegate {
+                id: accountStatus
+                text: i18n("Account")
+                description: Sync.syncEnabled ? i18n("Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : i18n("Syncing disabled")
 
-                MobileForm.FormTextDelegate {
-                    id: accountStatus
-                    text: i18n("Account")
-                    description: Sync.syncEnabled ? i18n("Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : i18n("Syncing disabled")
-
-                    trailing: Controls.Button {
-                        text: Sync.syncEnabled ? i18n("Logout") : i18n("Login")
-                        onClicked: {
-                            Sync.syncEnabled ? Sync.logout() : syncProviderOverlay.open();
-                        }
+                trailing: Controls.Button {
+                    text: Sync.syncEnabled ? i18n("Logout") : i18n("Login")
+                    onClicked: {
+                        Sync.syncEnabled ? Sync.logout() : syncProviderOverlay.open();
                     }
                 }
+            }
 
-                MobileForm.FormDelegateSeparator {}
+            FormCard.FormDelegateSeparator {}
 
-                MobileForm.FormTextDelegate {
-                    id: manualSync
-                    text: i18n("Manually sync")
+            FormCard.FormTextDelegate {
+                id: manualSync
+                text: i18n("Manually sync")
 
-                    trailing: Controls.Button {
-                        text: i18n("Sync Now")
-                        enabled: Sync.syncEnabled
-                        onClicked: {
-                            syncFeedsAndEpisodes.run();
-                        }
+                trailing: Controls.Button {
+                    text: i18n("Sync Now")
+                    enabled: Sync.syncEnabled
+                    onClicked: {
+                        syncFeedsAndEpisodes.run();
                     }
                 }
+            }
 
-                MobileForm.FormDelegateSeparator {}
+            FormCard.FormDelegateSeparator {}
 
-                MobileForm.FormTextDelegate {
-                    id: lastFullSync
-                    text: i18n("Last full sync with server")
-                    description: Sync.lastSuccessfulDownloadSync
+            FormCard.FormTextDelegate {
+                id: lastFullSync
+                text: i18n("Last full sync with server")
+                description: Sync.lastSuccessfulDownloadSync
+            }
+
+            FormCard.FormDelegateSeparator {}
+
+            FormCard.FormTextDelegate {
+                id: lastQuickUpload
+                text: i18n("Last quick upload to sync server")
+                description: Sync.lastSuccessfulUploadSync
+            }
+        }
+
+        FormCard.FormHeader {
+            title: i18n("Automatic syncing")
+            Layout.fillWidth: true
+        }
+
+        FormCard.FormCard {
+            Layout.fillWidth: true
+
+            FormCard.FormCheckDelegate {
+                enabled: Sync.syncEnabled
+                checked: SettingsManager.refreshOnStartup
+                text: i18n("Do full sync on startup")
+                onToggled: {
+                    SettingsManager.refreshOnStartup = checked;
+                    SettingsManager.save();
                 }
+            }
 
-                MobileForm.FormDelegateSeparator {}
+            FormCard.FormCheckDelegate {
+                enabled: Sync.syncEnabled
+                checked: SettingsManager.syncWhenUpdatingFeeds
+                text: i18n("Do full sync when fetching podcasts")
+                onToggled: {
+                    SettingsManager.syncWhenUpdatingFeeds = checked;
+                    SettingsManager.save();
+                }
+            }
 
-                MobileForm.FormTextDelegate {
-                    id: lastQuickUpload
-                    text: i18n("Last quick upload to sync server")
-                    description: Sync.lastSuccessfulUploadSync
+            FormCard.FormCheckDelegate {
+                enabled: Sync.syncEnabled
+                checked: SettingsManager.syncWhenPlayerstateChanges
+                text: i18n("Upload episode play positions on play/pause toggle")
+                onToggled: {
+                    SettingsManager.syncWhenPlayerstateChanges = checked;
+                    SettingsManager.save();
                 }
             }
         }
 
-        MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
+        FormCard.FormHeader {
+            title: i18n("Advanced options")
+            Layout.fillWidth: true
+        }
+
+        FormCard.FormCard {
             Layout.fillWidth: true
 
-            contentItem: ColumnLayout {
-                spacing: 0
+            FormCard.FormTextDelegate {
+                id: fetchAllEpisodeStates
+                text: i18n("Fetch all episode states from server")
 
-                MobileForm.FormCardHeader {
-                    title: i18n("Automatic syncing")
-                }
-
-                MobileForm.FormCheckDelegate {
+                trailing: Controls.Button {
+                    text: i18n("Fetch")
                     enabled: Sync.syncEnabled
-                    checked: SettingsManager.refreshOnStartup
-                    text: i18n("Do full sync on startup")
-                    onToggled: {
-                        SettingsManager.refreshOnStartup = checked;
-                        SettingsManager.save();
-                    }
-                }
-
-                MobileForm.FormCheckDelegate {
-                    enabled: Sync.syncEnabled
-                    checked: SettingsManager.syncWhenUpdatingFeeds
-                    text: i18n("Do full sync when fetching podcasts")
-                    onToggled: {
-                        SettingsManager.syncWhenUpdatingFeeds = checked;
-                        SettingsManager.save();
-                    }
-                }
-
-                MobileForm.FormCheckDelegate {
-                    enabled: Sync.syncEnabled
-                    checked: SettingsManager.syncWhenPlayerstateChanges
-                    text: i18n("Upload episode play positions on play/pause toggle")
-                    onToggled: {
-                        SettingsManager.syncWhenPlayerstateChanges = checked;
-                        SettingsManager.save();
+                    onClicked: {
+                        forceSyncFeedsAndEpisodes.run();
                     }
                 }
             }
-        }
 
-        MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            Layout.fillWidth: true
+            FormCard.FormDelegateSeparator {}
 
-            contentItem: ColumnLayout {
-                spacing: 0
+            FormCard.FormTextDelegate {
+                id: fetchLocalEpisodeStates
+                text: i18n("Push all local episode states to server")
 
-                MobileForm.FormCardHeader {
-                    title: i18n("Advanced options")
-                }
-
-                MobileForm.FormTextDelegate {
-                    id: fetchAllEpisodeStates
-                    text: i18n("Fetch all episode states from server")
-
-                    trailing: Controls.Button {
-                        text: i18n("Fetch")
-                        enabled: Sync.syncEnabled
-                        onClicked: {
-                            forceSyncFeedsAndEpisodes.run();
-                        }
-                    }
-                }
-
-                MobileForm.FormDelegateSeparator {}
-
-                MobileForm.FormTextDelegate {
-                    id: fetchLocalEpisodeStates
-                    text: i18n("Push all local episode states to server")
-
-                    trailing: Controls.Button {
-                        enabled: Sync.syncEnabled
-                        text: i18n("Push")
-                        onClicked: {
-                            syncPushAllStatesDialog.open();
-                        }
+                trailing: Controls.Button {
+                    enabled: Sync.syncEnabled
+                    text: i18n("Push")
+                    onClicked: {
+                        syncPushAllStatesDialog.open();
                     }
                 }
             }

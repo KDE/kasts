@@ -9,51 +9,36 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.kasts 1.0
 
-Kirigami.ScrollablePage {
+FormCard.FormCardPage {
     title: i18nc("@title", "Error Log")
 
-    leftPadding: 0
-    rightPadding: 0
-    topPadding: Kirigami.Units.gridUnit
-    bottomPadding: Kirigami.Units.gridUnit
+    FormCard.FormHeader {
+        title: i18nc("@title", "Error Log")
+        Layout.fillWidth: true
+    }
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    Kirigami.Theme.inherit: false
+    FormCard.FormCard {
+        Layout.fillWidth: true
 
-    ColumnLayout {
-        spacing: 0
+        FormCard.AbstractFormDelegate {
+            background: null
+            contentItem: ErrorList {
+                id: errorList
+            }
+        }
 
-        MobileForm.FormCard {
-            Layout.fillWidth: true
+        FormCard.FormDelegateSeparator {}
 
-            contentItem: ColumnLayout {
-                spacing: 0
-
-                MobileForm.FormCardHeader {
-                    title: i18nc("@title", "Error Log")
-                }
-
-                MobileForm.AbstractFormDelegate {
-                    background: Item {}
-                    contentItem: ErrorList {
-                        id: errorList
-                    }
-                }
-
-                MobileForm.FormDelegateSeparator {}
-
-                MobileForm.FormTextDelegate {
-                    trailing: Controls.Button {
-                        icon.name: "edit-clear-all"
-                        text: i18nc("@action:button", "Clear All Errors")
-                        onClicked: ErrorLogModel.clearAll()
-                        enabled: errorList.count > 0
-                    }
-                }
+        FormCard.FormTextDelegate {
+            trailing: Controls.Button {
+                icon.name: "edit-clear-all"
+                text: i18nc("@action:button", "Clear All Errors")
+                onClicked: ErrorLogModel.clearAll()
+                enabled: errorList.count > 0
             }
         }
     }
