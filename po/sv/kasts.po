@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-10 00:45+0000\n"
-"PO-Revision-Date: 2023-07-28 10:05+0200\n"
+"PO-Revision-Date: 2023-08-10 07:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1449,8 +1449,7 @@ msgid "Storage path"
 msgstr "Lagringssökväg"
 
 #: qml/Settings/StorageSettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Select Folder…"
+#, kde-format
 msgid "Select folder…"
 msgstr "Välj katalog…"
 
