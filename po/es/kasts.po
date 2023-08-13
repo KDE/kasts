@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-10 00:45+0000\n"
-"PO-Revision-Date: 2023-07-30 19:12+0200\n"
+"PO-Revision-Date: 2023-08-13 00:51+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1458,8 +1458,7 @@ msgid "Storage path"
 msgstr "Ruta de almacenamiento"
 
 #: qml/Settings/StorageSettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Select Folder…"
+#, kde-format
 msgid "Select folder…"
 msgstr "Seleccionar carpeta..."
 
