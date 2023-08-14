@@ -708,7 +708,8 @@ msgid "Search"
 msgstr "Suchen"
 
 #: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No episodes available"
 msgid "No episodes available"
 msgstr "Keine Episoden verfügbar"
 
