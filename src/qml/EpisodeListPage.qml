@@ -95,11 +95,8 @@ Kirigami.ScrollablePage {
             id: episodeProxyModel
         }
 
-        delegate: Component {
-            id: episodeListDelegate
-            GenericEntryDelegate {
-                listView: episodeList
-            }
+        delegate: GenericEntryDelegate {
+            listViewObject: episodeList
         }
 
         FilterInlineMessage {

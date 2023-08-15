@@ -57,12 +57,9 @@ Kirigami.ScrollablePage {
 
         model: DownloadModel
 
-        delegate: Component {
-            id: episodeListDelegate
-            GenericEntryDelegate {
-                listView: episodeList
-                isDownloads: true
-            }
+        delegate: GenericEntryDelegate {
+            listViewObject: episodeList
+            isDownloads: true
         }
 
         section {

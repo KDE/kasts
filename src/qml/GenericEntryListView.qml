@@ -29,6 +29,9 @@ ListView {
         }
     }
 
+    topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+    currentIndex: -1
+
     onSelectionForContextMenuChanged: {
         if (selectionForContextMenu.length === 1) {
             singleSelectedEntry = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.EntryRole);

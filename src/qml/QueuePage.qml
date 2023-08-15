@@ -52,7 +52,6 @@ Kirigami.ScrollablePage {
         id: queueList
         reuseItems: true
         isQueue: true
-        anchors.fill: parent
 
         Kirigami.PlaceholderMessage {
             visible: queueList.count === 0
@@ -80,13 +79,16 @@ Kirigami.ScrollablePage {
             id: queueModel
         }
 
-        delegate: Item {
+        delegate: FocusScope {
             width: queueList.width
             height: entryDelegate.height
             GenericEntryDelegate {
                 id: entryDelegate
+                width: parent.width
                 isQueue: true
                 listView: queueList
+                listViewObject: queueList
+                focus: parent.visualFocus || parent.activeFocus
             }
         }
 

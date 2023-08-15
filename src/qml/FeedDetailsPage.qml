@@ -86,13 +86,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Component {
-        id: entryListDelegate
-        GenericEntryDelegate {
-            listView: entryList
-        }
-    }
-
     ListModel {
         id: emptyListModel
         readonly property var filterType: AbstractEpisodeProxyModel.NoFilter
@@ -104,7 +97,9 @@ Kirigami.ScrollablePage {
         currentIndex: -1
 
         model: page.feed.entries ? page.feed.entries : emptyListModel
-        delegate: entryListDelegate
+        delegate: GenericEntryDelegate {
+            listViewObject: entryList
+        }
 
         header: ColumnLayout {
             id: headerColumn

@@ -9,15 +9,19 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as AddonDelegates
+
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: page
     title: i18n("Discover")
     property var feedModel: ""
+
     header: RowLayout {
         width: parent.width
         anchors.topMargin: Kirigami.Units.smallSpacing
+
         Kirigami.SearchField {
             id: textField
             placeholderText: i18n("Search podcastindex.org")
@@ -27,6 +31,7 @@ Kirigami.ScrollablePage {
                 searchButton.clicked()
             }
         }
+
         Controls.Button {
             id: searchButton
             text: isWidescreen ? i18n("Search") : ""
@@ -37,58 +42,70 @@ Kirigami.ScrollablePage {
             }
         }
     }
+
     Component.onCompleted: {
         textField.forceActiveFocus();
     }
-    Component {
-        id: delegateComponent
-        Kirigami.SwipeListItem {
-            id: listItem
-            alwaysVisibleActions: true
-            separatorVisible: true
-            contentItem: RowLayout {
-                ImageWithFallback {
-                    imageSource: model.image
-                    Layout.fillHeight: true
-                    Layout.maximumHeight: Kirigami.Units.iconSizes.huge
-                    Layout.preferredWidth: height
-                    fractionalRadius: 1.0 / 8.0
-                }
-                Controls.Label {
-                    Layout.fillWidth: true
-                    height: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                    text: model.title
-                    elide: Text.ElideRight
-                    color: listItem.checked || (listItem.pressed && !listItem.checked && !listItem.sectionDelegate) ? listItem.activeTextColor : listItem.textColor
-                }
-            }
-            actions: [
-                Kirigami.Action {
-                    id: subscribeAction
-                    text: enabled ? i18n("Subscribe") : i18n("Subscribed")
-                    icon.name: "kt-add-feeds"
-                    enabled: !DataManager.feedExists(model.url)
-                    onTriggered: {
-                        DataManager.addFeed(model.url);
-                        enabled = false;
-                    }
-                }
-            ]
-            onClicked: {
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": subscribeAction.enabled ? model : DataManager.getFeed(model.url), "isSubscribed": !subscribeAction.enabled, "subscribeAction": subscribeAction, "showMoreInfo": true})
-            }
-        }
-    }
+
     ListView {
         id: listView
-        anchors.fill: parent
         reuseItems: true
 
         model: PodcastSearchModel {
             id: podcastSearchModel
         }
-        spacing: 5
-        clip: true
-        delegate: delegateComponent
+
+        delegate: AddonDelegates.RoundedItemDelegate {
+            id: listItem
+
+            required property string title
+            required property string image
+            required property string url
+            required property var model
+
+            text: title
+
+            contentItem: RowLayout {
+                ImageWithFallback {
+                    imageSource: listItem.image
+                    Layout.fillHeight: true
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.huge
+                    Layout.preferredWidth: height
+                    absoluteRadius: Kirigami.Units.smallSpacing
+                }
+
+                AddonDelegates.DefaultContentItem {
+                    itemDelegate: listItem
+                }
+
+                Controls.ToolButton {
+                    id: subscribeAction
+                    text: enabled ? i18n("Subscribe") : i18n("Subscribed")
+                    icon.name: "kt-add-feeds"
+                    display: Controls.ToolButton.IconOnly
+                    enabled: !DataManager.feedExists(listItem.url)
+
+                    Controls.ToolTip.text: text
+                    Controls.ToolTip.visible: hovered
+                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                    onClicked: {
+                        DataManager.addFeed(listItem.url);
+                        enabled = false;
+                    }
+                }
+            }
+
+            Keys.onReturnPressed: clicked()
+
+            onClicked: {
+                pageStack.push("qrc:/FeedDetailsPage.qml", {
+                    feed: subscribeAction.enabled ? listItem.model : DataManager.getFeed(listItem.url),
+                    isSubscribed: !subscribeAction.enabled,
+                    subscribeAction: subscribeAction,
+                    showMoreInfo: true
+                })
+            }
+        }
     }
 }
