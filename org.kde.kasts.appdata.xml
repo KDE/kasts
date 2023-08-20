@@ -7,6 +7,7 @@
   <id>org.kde.kasts</id>
   <content_rating type="oars-1.1"/>
   <name>Kasts</name>
+  <name xml:lang="ar">كاستس</name>
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
   <name xml:lang="cs">Kasts</name>
@@ -34,6 +35,7 @@
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
   <summary>Podcast application</summary>
+  <summary xml:lang="ar">تطبيق مدونات صوتية</summary>
   <summary xml:lang="ca">Aplicació de podcast</summary>
   <summary xml:lang="ca-valencia">Aplicació de podcast</summary>
   <summary xml:lang="cs">Aplikace pro přehrávání podcastů</summary>
@@ -64,6 +66,7 @@
     <value key="KDE::matrix">#kasts:kde.org</value>
   </custom>
   <developer_name>The KDE Community</developer_name>
+  <developer_name xml:lang="ar">مجتمع كيدي</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
@@ -92,6 +95,7 @@
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
+    <p xml:lang="ar">كاستس تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de podcast que funciona bé a l'escriptori i al mòbil.</p>
     <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé en l'escriptori i al mòbil.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
@@ -113,6 +117,7 @@
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
     <p xml:lang="x-test">xxKasts is a convergent podcast application that looks good on desktop and mobile.xx</p>
     <p>Its main features are:</p>
+    <p xml:lang="ar">مزاياه الرئيسية هي:</p>
     <p xml:lang="ca">Les seves característiques principals són:</p>
     <p xml:lang="ca-valencia">Les seues característiques principals són:</p>
     <p xml:lang="cs">Hlavní vlastnosti jsou:</p>
@@ -136,6 +141,7 @@
     <p xml:lang="x-test">xxIts main features are:xx</p>
     <ul>
       <li>Episode management through play queue</li>
+      <li xml:lang="ar">إدارة الحلقات من خلال طابور التشغيل</li>
       <li xml:lang="ca">Gestió d'episodis a través de la cua de reproducció</li>
       <li xml:lang="ca-valencia">Gestioneu els episodis a través de la cua de reproducció</li>
       <li xml:lang="cs">Správa epizod přes frontu přehrávání</li>
@@ -158,6 +164,7 @@
       <li xml:lang="uk">Керування епізодами за допомогою черги відтворення</li>
       <li xml:lang="x-test">xxEpisode management through play queuexx</li>
       <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
+      <li xml:lang="ar">مزامنة مواضع التشغيل مع العملاء الآخرين من خلال gpodder.net أو gpodder-nextcloud</li>
       <li xml:lang="ca">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="ca-valencia">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="en-GB">Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
@@ -179,6 +186,7 @@
       <li xml:lang="uk">Синхронізація позицій відтворення із іншими клієнтами за допомогою gpodder.net або gpodder-nextcloud</li>
       <li xml:lang="x-test">xxSync playback positions with other clients through gpodder.net or gpodder-nextcloudxx</li>
       <li>Variable playback speed</li>
+      <li xml:lang="ar">سرعة تشغيل متغيرة</li>
       <li xml:lang="ca">Velocitat de reproducció variable</li>
       <li xml:lang="ca-valencia">Velocitat de reproducció variable</li>
       <li xml:lang="cs">Měnitelná rychlost přehrávání</li>
@@ -201,6 +209,7 @@
       <li xml:lang="uk">Змінна швидкість відтворення</li>
       <li xml:lang="x-test">xxVariable playback speedxx</li>
       <li>Search for podcasts</li>
+      <li xml:lang="ar">ابحث عن مدونات صوتية</li>
       <li xml:lang="ca">Cerca de podcasts</li>
       <li xml:lang="ca-valencia">Busca de podcast</li>
       <li xml:lang="cs">Hledání podcastů</li>
@@ -223,6 +232,7 @@
       <li xml:lang="uk">Пошук подкастів</li>
       <li xml:lang="x-test">xxSearch for podcastsxx</li>
       <li>Full system integration: e.g. inhibit system suspend while listening</li>
+      <li xml:lang="ar">تكامل كامل مع النظام: منع توقف النظام أثناء الاستماع</li>
       <li xml:lang="ca">Integració completa amb el sistema: p. ex. inhibeix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="ca-valencia">Integració completa amb el sistema: p. ex. inhibix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="cs">Plná integrace do systému: např. potlačení uspání systému při poslechu</li>
@@ -257,6 +267,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
+      <caption xml:lang="ar">كاستس على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with default header bar</caption>
@@ -280,6 +291,7 @@
     </screenshot>
     <screenshot>
       <caption>Kasts on the desktop with minimized header bar</caption>
+      <caption xml:lang="ar">كاستس على سطح المكتب مع شريط رأسي مصغر</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with minimised header bar</caption>
@@ -303,6 +315,7 @@
     </screenshot>
     <screenshot type="default">
       <caption>Kasts on a phone</caption>
+      <caption xml:lang="ar">كاستس على الهاتف</caption>
       <caption xml:lang="ca">El Kasts a un telèfon</caption>
       <caption xml:lang="ca-valencia">Kasts a un telèfon</caption>
       <caption xml:lang="cs">Kasts na telefonu</caption>
@@ -332,6 +345,7 @@
     </screenshot>
     <screenshot>
       <caption>Kasts mobile player controls</caption>
+      <caption xml:lang="ar">متحكمات مشغل كاستس للهاتف</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
       <caption xml:lang="en-GB">Kasts mobile player controls</caption>
