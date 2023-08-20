@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
 [Desktop Entry]
 Name=Kasts
+Name[ar]=كاستس
 Name[ca]=Kasts
 Name[ca@valencia]=Kasts
 Name[cs]=Kasts
@@ -30,6 +31,7 @@ Name[uk]=Kasts
 Name[x-test]=xxKastsxx
 Name[zh_CN]=Kasts
 Comment=Mobile Podcast Application
+Comment[ar]=تطبيق مدونات صوتية للهاتف
 Comment[ca]=Aplicació mòbil per a podcast
 Comment[ca@valencia]=Aplicació mòbil per a podcast
 Comment[cs]=Mobilní aplikace pro přehrávání podcastů
@@ -57,6 +59,7 @@ Comment[uk]=Мобільна програма для подкастів
 Comment[x-test]=xxMobile Podcast Applicationxx
 Comment[zh_CN]=移动设备播客应用程序
 GenericName=Podcast Application
+GenericName[ar]=تطبيق مدونات صوتية
 GenericName[ca]=Aplicació de podcast
 GenericName[ca@valencia]=Aplicació de podcast
 GenericName[cs]=Aplikace pro přehrávání podcastů
@@ -84,6 +87,7 @@ GenericName[uk]=Програма для подкастів
 GenericName[x-test]=xxPodcast Applicationxx
 GenericName[zh_CN]=播客应用程序
 Keywords=podcast
+Keywords[ar]=مدونة صوتية
 Keywords[ca]=podcast
 Keywords[ca@valencia]=podcast
 Keywords[cs]=podcast
