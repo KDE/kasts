@@ -37,7 +37,7 @@ Note: When using versions of Kasts built from git-master, it's possible that the
     kirigami2-dev kirigami-addons-dev libkf5syndication-dev \
     libkf5config-dev libkf5i18n-dev libkf5coreaddons-dev libtag1-dev \
     qtkeychain-qt5-dev libkf5networkmanagerqt-dev libkf5threadweaver-dev \
-    libvlc-dev
+    libvlc-dev libvlccore-dev
 ```
 
 ## Linux
