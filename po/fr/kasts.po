@@ -1,11 +1,11 @@
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-05-27 11:17+0200\n"
+"PO-Revision-Date: 2023-08-25 15:13+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,32 +50,27 @@ msgid "Downloading %1"
 msgstr "Téléchargement de %1"
 
 #: error.cpp:48
-#, fuzzy, kde-format
-#| msgid "Podcast Update Error"
+#, kde-format
 msgid "Podcast update error"
 msgstr "Erreur de mise à jour de podcasts"
 
 #: error.cpp:50
-#, fuzzy, kde-format
-#| msgid "Media Download Error"
+#, kde-format
 msgid "Media download error"
 msgstr "Erreur de téléchargement de média"
 
 #: error.cpp:52
-#, fuzzy, kde-format
-#| msgid "Update Not Allowed on Metered Connection"
+#, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "Les mises à jour ne sont pas autorisées avec une connexion facturée"
 
 #: error.cpp:54
-#, fuzzy, kde-format
-#| msgid "Invalid Media File"
+#, kde-format
 msgid "Invalid media file"
 msgstr "Fichier de média non valable"
 
 #: error.cpp:56
-#, fuzzy, kde-format
-#| msgid "Nothing Found"
+#, kde-format
 msgid "Nothing found"
 msgstr "Rien n'a été trouvé"
 
@@ -85,37 +80,31 @@ msgid "Error moving storage path"
 msgstr "Erreur lors du déplacement du dossier de stockage"
 
 #: error.cpp:60
-#, fuzzy, kde-format
-#| msgid "Error Syncing Feed and/or Episode Status"
+#, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr ""
 "Erreur durant la synchronisation de l'état des discussions et /ou des "
 "épisodes"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#, kde-format
 msgid "Connection or streaming not allowed on metered connection"
 msgstr ""
 "Aucune connexion ou lecture en flux n'est autorisée sur une connexion "
 "facturée."
 
 #: kmediasession/example-app/qml/main.qml:20
-#, fuzzy, kde-format
-#| msgid "Example player KMediaSession"
+#, kde-format
 msgid "Example KMediaSession Player"
 msgstr "Exemple de lecteur KMediaSession"
 
 #: kmediasession/example-app/qml/main.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select File…"
-msgstr "Sélectionner un filtre"
+msgstr "Sélectionner un fichier..."
 
 #: kmediasession/example-app/qml/main.qml:78
-#, fuzzy, kde-format
-#| msgid "Select media file"
+#, kde-format
 msgid "Select Media File"
 msgstr "Sélectionner un fichier de média"
 
@@ -152,38 +141,32 @@ msgid "Mute"
 msgstr "Couper le son"
 
 #: kmediasession/example-app/qml/main.qml:174
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgid "Title: %1"
 msgstr "Titre : %1"
 
 #: kmediasession/example-app/qml/main.qml:177
-#, fuzzy, kde-format
-#| msgid "artist: %1"
+#, kde-format
 msgid "Artist: %1"
 msgstr "Artiste : %1"
 
 #: kmediasession/example-app/qml/main.qml:180
-#, fuzzy, kde-format
-#| msgid "album: %1"
+#, kde-format
 msgid "Album: %1"
 msgstr "Album : %1"
 
 #: kmediasession/example-app/qml/main.qml:191
-#, fuzzy, kde-format
-#| msgid "mediaStatus: %1"
+#, kde-format
 msgid "Media status: %1"
 msgstr "État du média : %1"
 
 #: kmediasession/example-app/qml/main.qml:194
-#, fuzzy, kde-format
-#| msgid "playbackStatus: %1"
+#, kde-format
 msgid "Playback status: %1"
 msgstr "État de lecture : %1"
 
 #: kmediasession/example-app/qml/main.qml:197
-#, fuzzy, kde-format
-#| msgid "error: %1"
+#, kde-format
 msgid "Error: %1"
 msgstr "Erreur : %1"
 
@@ -220,8 +203,7 @@ msgid "Podcast Player"
 msgstr "Lecteur de podcasts"
 
 #: main.cpp:125
-#, fuzzy, kde-format
-#| msgid "© 2020-2023 KDE Community"
+#, kde-format
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020-2023 La communauté de KDE"
 
@@ -236,28 +218,22 @@ msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:184
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "No Filter"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Aucun filtre"
 
 #: models/abstractepisodeproxymodel.cpp:186
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Played Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr "Épisodes regardés"
+msgstr "Épisodes lus"
 
 #: models/abstractepisodeproxymodel.cpp:188
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr "Épisodes non regardés"
+msgstr "Épisodes non lus"
 
 #: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
@@ -296,9 +272,7 @@ msgid "Description"
 msgstr "Description"
 
 #: models/abstractepisodeproxymodel.cpp:210
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Titre de podcast"
@@ -307,13 +281,13 @@ msgstr "Titre de podcast"
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "Date : le plus récent d'abord"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "Date : le plus ancien d'abord"
 
 #: models/feedsproxymodel.cpp:120
 #, fuzzy, kde-format
@@ -329,47 +303,43 @@ msgstr "Épisodes non regardés"
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Comptage des non-lus : croissant"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Nouveau comptage : décroissant"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Nouveau comptage : croissant"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Comptage des favoris : décroissant"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Comptage des favoris : croissant"
 
 #: models/feedsproxymodel.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Titre de podcast"
+msgstr "Titre de podcast : A → Z"
 
 #: models/feedsproxymodel.cpp:134
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast Title"
+#, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Titre de podcast"
+msgstr "Titre de podcast : Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -414,75 +384,59 @@ msgid "Always Allow"
 msgstr "Toujours autoriser"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
-#, fuzzy, kde-format
-#| msgid "Seek Backward"
+#, kde-format
 msgid "Seek backward"
 msgstr "Rechercher en arrière"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
-#, fuzzy, kde-format
-#| msgid "Seek Forward"
+#, kde-format
 msgid "Seek forward"
 msgstr "Rechercher en avant"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
-#, fuzzy, kde-format
-#| msgid "Skip Forward"
+#, kde-format
 msgid "Skip forward"
-msgstr "Avancer"
+msgstr "Ignorer vers le suivant"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
-#, fuzzy, kde-format
-#| msgid "Playback Rate: "
+#, kde-format
 msgid "Playback rate:"
 msgstr "Taux de lecture :"
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Chapter List"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Afficher la liste des chapitres"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Episode Info"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Afficher les informations des épisodes"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Sleep Timer Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Ouvrir la configuration des chronomètres de veille"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Volume Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr "Ouvrir la configuration de volume"
+msgstr "Ouvrir la configuration du volume"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Toggle Mute"
+#, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Activer / Désactiver le mode muet"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show More"
+#, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Afficher plus"
@@ -518,8 +472,7 @@ msgstr "Aucun titre de piste"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
-#, fuzzy, kde-format
-#| msgid "No Track Loaded"
+#, kde-format
 msgid "No track loaded"
 msgstr "Aucune piste chargée"
 
@@ -559,8 +512,7 @@ msgid "Refresh All Podcasts"
 msgstr "Rafraîchir tous les podcasts"
 
 #: qml/DownloadListPage.qml:57
-#, fuzzy, kde-format
-#| msgid "No Downloads"
+#, kde-format
 msgid "No downloads"
 msgstr "Aucun téléchargement"
 
@@ -712,8 +664,7 @@ msgstr "Liste des épisodes"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Rechercher"
@@ -724,14 +675,12 @@ msgid "No episodes available"
 msgstr "Aucun épisode disponible"
 
 #: qml/ErrorList.qml:30
-#, fuzzy, kde-format
-#| msgid "No Errors Logged"
+#, kde-format
 msgid "No errors logged"
 msgstr "Aucune erreur journalisée"
 
 #: qml/ErrorList.qml:66
-#, fuzzy, kde-format
-#| msgid "Error Code: "
+#, kde-format
 msgid "Error code:"
 msgstr "Code d'erreur : "
 
@@ -790,8 +739,7 @@ msgid "Subscribed since: %1"
 msgstr "Abonné depuis : %1"
 
 #: qml/FeedDetailsPage.qml:326
-#, fuzzy, kde-format
-#| msgid "Last Updated: %1"
+#, kde-format
 msgid "Last updated: %1"
 msgstr "Dernière mise à jour : %1"
 
@@ -838,39 +786,34 @@ msgid "Refresh All Podcasts"
 msgstr "Rafraîchir tous les podcasts"
 
 #: qml/FeedListPage.qml:54
-#, fuzzy, kde-format
-#| msgid "Add Podcast"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Ajouter un podcast"
+msgstr "Ajouter un podcast..."
 
 #: qml/FeedListPage.qml:63
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "Trier"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "Sélectionner le mode de tri des abonnements"
 
 #: qml/FeedListPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importer des podcasts"
+msgstr "Importer des podcasts..."
 
 #: qml/FeedListPage.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Export Podcasts"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exporter des podcasts"
+msgstr "Exporter des podcasts..."
 
 #: qml/FeedListPage.qml:161
 #, kde-format
@@ -909,13 +852,12 @@ msgid "No podcasts added yet"
 msgstr "Aucun podcast n'a été encore ajouté."
 
 #: qml/FeedListPage.qml:187
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "Aucune chapitre n'a été trouvé."
+msgstr "Aucune podcast n'a été trouvé."
 
 #: qml/FeedListPage.qml:188
 #, kde-format
@@ -974,11 +916,10 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 #: qml/FilterInlineMessage.qml:41
-#, fuzzy, kde-format
-#| msgid "title: %1"
+#, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr "Titre : %1"
+msgstr "Filtre actif : %1"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
@@ -1032,13 +973,13 @@ msgstr "Flux"
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "Trier"
 
 #: qml/GenericEntryListView.qml:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "Sélectionner le mode de tri des épisodes"
 
 #: qml/GenericEntryListView.qml:184
 #, kde-format
@@ -1049,12 +990,10 @@ msgid "Filter"
 msgstr "Filtrer"
 
 #: qml/GenericEntryListView.qml:186
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter Episodes by Status"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr "Filter des épisodes par état"
+msgstr "Filter les épisodes selon leurs états"
 
 #: qml/GenericEntryListView.qml:232
 #, kde-format
@@ -1095,12 +1034,10 @@ msgstr[0] "Supprimer un téléchargement"
 msgstr[1] "Supprimer des téléchargements"
 
 #: qml/GlobalSearchField.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@info Placeholder text in search box"
-#| msgid "No Search Results"
+#, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr "Aucun résultat de recherche"
+msgstr "Aucun résultat à la recherche"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
 #, kde-format
@@ -1169,14 +1106,12 @@ msgid "No Title"
 msgstr "Aucun titre"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
-#, fuzzy, kde-format
-#| msgid "No Podcast Title"
+#, kde-format
 msgid "No podcast title"
 msgstr "Aucun titre de podcast"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
-#, fuzzy, kde-format
-#| msgid "No chapters found."
+#, kde-format
 msgid "No chapters found"
 msgstr "Aucune chapitre n'a été trouvé."
 
@@ -1205,17 +1140,13 @@ msgid "Add new playback rate value to list"
 msgstr "Ajouter une nouvelle valeur de débit de lecture à la liste"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Decrease Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
 msgstr "Diminuer le débit de lecture"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Increase Playback Rate"
+#, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
 msgstr "Augmenter le débit de lecture"
@@ -1265,12 +1196,10 @@ msgid "Time Left"
 msgstr "Temps écoulé"
 
 #: qml/SearchBar.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search Episodes"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Rechercher des épisodes"
+msgstr "Rechercher des épisodes..."
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
@@ -1332,19 +1261,13 @@ msgid "Playback settings"
 msgstr "Configuration de lecture"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Label for setting to select audio playback backend"
-#| msgid "Select Audio Backend"
+#, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Sélectionner un moteur audio"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Label for settings related to the play time, e.g. whether the total track "
-#| "time is shown or a countdown of the remaining play time"
-#| msgid "Play Time:"
+#, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
@@ -1422,28 +1345,27 @@ msgid "Played episode behavior"
 msgstr "Comportement pour les épisodes lus"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
-#, fuzzy, kde-format
-#| msgid "Do Not Delete"
+#, kde-format
 msgid "Do not delete"
 msgstr "Ne pas supprimer"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Delete Immediately"
+#, kde-format
 msgid "Delete immediately"
 msgstr "Supprimer immédiatement"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Delete at Next Startup"
+#, kde-format
 msgid "Delete at next startup"
-msgstr "Supprimer au démarrage"
+msgstr "Supprimer au prochain démarrage"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
+"Marquer les épisodes comme lus lorsque le temps indiqué est atteint (En "
+"secondes)"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
@@ -1557,11 +1479,9 @@ msgid "Storage path"
 msgstr "Emplacement d'enregistrement"
 
 #: qml/Settings/StorageSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "Select Filter"
+#, kde-format
 msgid "Select Folder…"
-msgstr "Sélectionner un filtre"
+msgstr "Sélectionner un dossier…"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
@@ -1909,8 +1829,7 @@ msgid "Status: Inactive"
 msgstr "État : inactif"
 
 #: qml/SleepTimerDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Remaining Time: %1"
+#, kde-format
 msgid "Remaining time: %1"
 msgstr "Temps restant : %1"
 
@@ -2004,14 +1923,12 @@ msgid "Could not log into GPodder server"
 msgstr "Impossible de se connecter au serveur « GPodder »"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot save password."
+#, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "Refus Entrée / Sortie : impossible d'enregistrer un mot de passe."
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
-#, fuzzy, kde-format
-#| msgid "I/O Denied: Cannot access password file."
+#, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr ""
 "Refus Entrée / Sortie : impossible d'accéder au fichier de mots de passe."
@@ -2064,34 +1981,25 @@ msgid "Internal data error"
 msgstr "Erreur interne sur les données"
 
 #: sync/syncjob.cpp:884
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Start Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Étape %1 sur %2) Démarrage de la synchronisation"
 
 #: sync/syncjob.cpp:887
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(Étape %1 sur %2) Demande de mises à jour des abonnements à distance"
 
 #: sync/syncjob.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Subscription Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Étape %1 sur %2) Envoi des mises à jour locales des abonnements"
 
 #: sync/syncjob.cpp:894
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %3 of %4) Updated %2 of %1 Podcast"
-#| msgid_plural "(Step %3 of %4) Updated %2 of %1 Podcasts"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
@@ -2099,50 +2007,38 @@ msgstr[0] "(Étape %3 de %4) %2 mis à jour avec le podcast %1"
 msgstr[1] "(Étape %3 de %4) %2 mis à jour avec %1 podcasts"
 
 #: sync/syncjob.cpp:902
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Requesting Remote Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Étape %1 sur %2) Demande de mises à jour des épisodes à distance"
 
 #: sync/syncjob.cpp:905
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Applying Remote Episode Changes"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr ""
 "(Étape %1 sur %2) Application des modifications à distance pour les épisodes "
 
 #: sync/syncjob.cpp:908
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Uploading Local Episode Updates"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Étape %1 sur %2) Envoi des mises à jour locales des épisodes"
 
 #: sync/syncjob.cpp:911
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "(Step %1 of %2) Finished Syncing"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Étape %1 sur %2) Synchronisation terminée"
 
 #: sync/syncjob.cpp:914
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync Aborted"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr "Synchronisation abandonnée"
+msgstr "Synchronisation annulée"
 
 #: sync/syncjob.cpp:918
-#, fuzzy, kde-format
-#| msgctxt "Step in Subscription and Episode Syncing Progress"
-#| msgid "Sync finished with Error"
+#, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Synchronisation terminée avec des erreurs"
