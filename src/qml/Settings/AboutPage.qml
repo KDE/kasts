@@ -9,11 +9,11 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.kasts 1.0
 
-MobileForm.AboutPage {
+FormCard.AboutPage {
     title: i18n("About")
     aboutData: About
 }
