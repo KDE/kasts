@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-10 00:45+0000\n"
-"PO-Revision-Date: 2023-08-22 00:51+0300\n"
+"PO-Revision-Date: 2023-09-12 01:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -288,14 +288,14 @@ msgstr "Tarih: Önce en eski"
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Çalınmamış sayısı: Azalan"
+msgstr "Çalınmayan sayısı: Azalan"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr "Çalınmamış sayısı: Artan"
+msgstr "Çalınmayan sayısı: Artan"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
@@ -515,7 +515,7 @@ msgstr "İndiriliyor"
 #: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Incomplete Downloads"
-msgstr "Tamamlanmamış İndirmeler"
+msgstr "Tamamlanmayan İndirmeler"
 
 #: qml/DownloadListPage.qml:75
 #, kde-format
@@ -596,13 +596,13 @@ msgstr "Çalma Konumunu Sıfırla"
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr "Çalınmamış Olarak İmle"
+msgstr "Çalındı Olarak İmle"
 
 #: qml/EntryPage.qml:196
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr "Çalınmış Olarak İmle"
+msgstr "Çalındı Olarak İmle"
 
 #: qml/EntryPage.qml:203
 #, kde-format
@@ -745,8 +745,8 @@ msgstr[1] "%1 Bölüm"
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] "1 Çalınmamış"
-msgstr[1] "%1 Çalınmamış"
+msgstr[0] "1 Çalınmayan"
+msgstr[1] "%1 Çalınmayan"
 
 #: qml/FeedDetailsPage.qml:361
 #, kde-format
@@ -999,12 +999,12 @@ msgstr "Tümünün Seçimini Kaldır"
 #: qml/GenericEntryListView.qml:269
 #, kde-format
 msgid "Mark as Played"
-msgstr "Çalınmış Olarak İmle"
+msgstr "Çalındı Olarak İmle"
 
 #: qml/GenericEntryListView.qml:277
 #, kde-format
 msgid "Mark as Unplayed"
-msgstr "Çalınmamış Olarak İmle"
+msgstr "Çalınmadı Olarak İmle"
 
 #: qml/GenericEntryListView.qml:285
 #, kde-format
@@ -1364,17 +1364,17 @@ msgstr "Yeni pod yayınları eklerken"
 #: qml/Settings/GeneralSettingsPage.qml:308
 #, kde-format
 msgid "Mark all episodes as played"
-msgstr "Tüm bölümleri çalınmış olarak imle"
+msgstr "Tüm bölümleri çalındı olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:319
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr "En son bölümleri çalınmamış olarak imle"
+msgstr "En son bölümleri çalınmadı olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:342
 #, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr "Tüm bölümleri çalınmamış olarak imle"
+msgstr "Tüm bölümleri çalınmadı olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:351
 #, kde-format
