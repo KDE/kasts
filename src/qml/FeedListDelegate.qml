@@ -252,7 +252,6 @@ Controls.ItemDelegate {
                     while (pageStack.depth > 1)
                         pageStack.pop()
                     pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
-                    actionOverlay.close();
                 }
                 icon.name: "documentinfo"
                 text: i18n("Podcast Details")
@@ -263,7 +262,6 @@ Controls.ItemDelegate {
                         while(pageStack.depth > 1)
                             pageStack.pop()
                     DataManager.removeFeed(feed)
-                    actionOverlay.close();
                 }
                 icon.name: "delete"
                 text: i18n("Remove Podcast")
