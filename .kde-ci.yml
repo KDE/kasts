@@ -13,7 +13,6 @@ Dependencies:
     'frameworks/threadweaver': '@latest-kf6'
     'libraries/kirigami-addons': '@latest-kf6'
     'third-party/qtkeychain': '@latest'
-    'third-party/taglib': '@latest'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]
