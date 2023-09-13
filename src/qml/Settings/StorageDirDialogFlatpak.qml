@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs
 
-import org.kde.kasts 1.0
+import org.kde.kasts
 
 FileDialog {
     selectFolder: true

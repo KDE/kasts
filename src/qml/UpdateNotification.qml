@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
-import org.kde.kirigami 2.15 as Kirigami
-import org.kde.kasts 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as Controls
+import org.kde.kirigami as Kirigami
+import org.kde.kasts
 
 /*
  * This visually mimics the Kirigami.InlineMessage due to the

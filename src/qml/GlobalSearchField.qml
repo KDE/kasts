@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
-import QtQuick.Layouts 1.14
-import QtQml.Models 2.15
+import QtQuick
+import QtQuick.Controls as Controls
+import QtQuick.Layouts
+import QtQml.Models
 
-import org.kde.kirigami 2.12 as Kirigami
-import org.kde.kirigamiaddons.labs.components 1.0 as Addons
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.labs.components as Addons
 
-import org.kde.kasts 1.0
+import org.kde.kasts
 
 Addons.SearchPopupField {
     id: globalSearchField

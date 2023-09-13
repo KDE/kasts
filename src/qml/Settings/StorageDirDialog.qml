@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import Qt.labs.platform 1.1
+import Qt.labs.platform
 
-import org.kde.kasts 1.0
+import org.kde.kasts
 
 FolderDialog {
     currentFolder: "file://" + StorageManager.storagePath
