@@ -1905,12 +1905,12 @@ msgstr "Kasts a %1"
 #: sync/sync.cpp:299
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr "No s'ha pogut iniciar la sessió al servidor Nextcloud de GPodder"
+msgstr "No s'ha pogut iniciar la sessió en el servidor Nextcloud de GPodder"
 
 #: sync/sync.cpp:338
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr "No s'ha pogut iniciar la sessió al servidor de GPodder"
+msgstr "No s'ha pogut iniciar la sessió en el servidor de GPodder"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
 #, kde-format
