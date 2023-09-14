@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-10 00:45+0000\n"
+"POT-Creation-Date: 2023-09-14 01:54+0000\n"
 "PO-Revision-Date: 2023-08-10 19:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -121,13 +121,13 @@ msgid "Open"
 msgstr "Obre"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
 msgstr "Reprodueix"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:349
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -489,42 +489,42 @@ msgstr "Cerca a podcastindex.org"
 msgid "Search"
 msgstr "Cerca"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscriu"
 
-#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscrit"
 
-#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:235
+#: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41 qml/main.qml:235
 #, kde-format
 msgid "Downloads"
 msgstr "Baixades"
 
-#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
+#: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Recarrega tots els podcasts"
 
-#: qml/DownloadListPage.qml:57
+#: qml/DownloadListPage.qml:55
 #, kde-format
 msgid "No downloads"
 msgstr "No hi ha cap baixada"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:71
 #, kde-format
 msgid "Downloading"
 msgstr "S'està descarregant"
 
-#: qml/DownloadListPage.qml:74
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Baixades incompletes"
 
-#: qml/DownloadListPage.qml:75
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloaded"
 msgstr "S'ha baixat"
@@ -660,36 +660,36 @@ msgstr "S'ha copiat l'enllaç"
 msgid "Episode List"
 msgstr "Llista d'episodis"
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
+#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:70
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Cerca"
 
-#: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:359
 #, kde-format
 msgid "No episodes available"
 msgstr "No hi ha cap episodi disponible"
 
-#: qml/ErrorList.qml:30
+#: qml/ErrorList.qml:29
 #, kde-format
 msgid "No errors logged"
 msgstr "Sense errors registrats"
 
-#: qml/ErrorList.qml:66
+#: qml/ErrorList.qml:65
 #, kde-format
 msgid "Error code:"
 msgstr "Codi d'error:"
 
-#: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
+#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Registre d'errors"
 
-#: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:39
+#: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
@@ -700,62 +700,62 @@ msgstr "Neteja tots els errors"
 msgid "Show Error Log"
 msgstr "Mostra el registre d'errors"
 
-#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:258
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:258
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalls del podcast"
 
-#: qml/FeedDetailsPage.qml:126
+#: qml/FeedDetailsPage.qml:124
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "per %1"
 
-#: qml/FeedDetailsPage.qml:157
+#: qml/FeedDetailsPage.qml:155
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Actualitza els podcasts"
 
-#: qml/FeedDetailsPage.qml:176
+#: qml/FeedDetailsPage.qml:174
 #, kde-format
 msgid "Show Details"
 msgstr "Mostra els detalls"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:245
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL del podcast:"
 
-#: qml/FeedDetailsPage.qml:287
+#: qml/FeedDetailsPage.qml:285
 #, kde-format
 msgid "Weblink:"
 msgstr "Enllaç web:"
 
-#: qml/FeedDetailsPage.qml:313
+#: qml/FeedDetailsPage.qml:311
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscrit des de: %1"
 
-#: qml/FeedDetailsPage.qml:326
+#: qml/FeedDetailsPage.qml:324
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Darrera actualització: %1"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:337
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:337
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 sense reproduir"
 msgstr[1] "%1 sense reproduir"
 
-#: qml/FeedDetailsPage.qml:361
+#: qml/FeedDetailsPage.qml:359
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
@@ -813,43 +813,43 @@ msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
 msgstr "Exporta podcasts…"
 
-#: qml/FeedListPage.qml:161
+#: qml/FeedListPage.qml:160
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Importa podcasts"
 
-#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Fitxers OPML (*.opml)"
 
-#: qml/FeedListPage.qml:163
+#: qml/FeedListPage.qml:162
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "Fitxers XML (*.xml)"
 
-#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Tots els fitxers (*)"
 
-#: qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Exporta podcasts"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:186
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Encara no s'ha afegit cap podcast"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:186
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -857,43 +857,43 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "No s'ha trobat cap podcast"
 
-#: qml/FeedListPage.qml:188
+#: qml/FeedListPage.qml:187
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "Comenceu afegint podcasts:"
 
-#: qml/FeedListPage.qml:202
+#: qml/FeedListPage.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "Cerca en línia"
 
-#: qml/FeedListPage.qml:229
+#: qml/FeedListPage.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
-#: qml/FeedListPage.qml:237 qml/main.qml:68 qml/main.qml:255
+#: qml/FeedListPage.qml:236 qml/main.qml:68 qml/main.qml:255
 #: qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
 msgstr "Arranjament"
 
-#: qml/FeedListPage.qml:372
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: qml/FeedListPage.qml:381
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Desselecciona-ho tot"
 
-#: qml/FeedListPage.qml:390
+#: qml/FeedListPage.qml:389
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -901,7 +901,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Elimina el podcast"
 msgstr[1] "Elimina els podcasts"
 
-#: qml/FeedListPage.qml:413
+#: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -919,47 +919,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Filtre actiu: %1"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:167
 #, kde-format
 msgid "Played"
 msgstr "Reproduït"
 
-#: qml/GenericEntryDelegate.qml:168
+#: qml/GenericEntryDelegate.qml:167
 #, kde-format
 msgid "Read"
 msgstr "Llegit"
 
-#: qml/GenericEntryDelegate.qml:174
+#: qml/GenericEntryDelegate.qml:173
 #, kde-format
 msgid "New"
 msgstr "Nou"
 
-#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
+#: qml/GenericEntryDelegate.qml:293 qml/GenericEntryListView.qml:259
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Elimina de la cua"
 
-#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
+#: qml/GenericEntryDelegate.qml:301 qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Download"
 msgstr "Baixa"
 
-#: qml/GenericEntryDelegate.qml:311
+#: qml/GenericEntryDelegate.qml:310
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancel·la la baixada"
 
-#: qml/GenericEntryDelegate.qml:317
+#: qml/GenericEntryDelegate.qml:316
 #, kde-format
 msgid "Delete Download"
 msgstr "Suprimeix la baixada"
 
-#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
+#: qml/GenericEntryDelegate.qml:322 qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Add to Queue"
 msgstr "Afegeix a la cua"
 
-#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
+#: qml/GenericEntryDelegate.qml:337 qml/GenericEntryListView.qml:338
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1171,13 +1171,13 @@ msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
 msgstr "Cua"
 
-#: qml/QueuePage.qml:64
+#: qml/QueuePage.qml:63
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "La cua està buida"
 
-#: qml/QueuePage.qml:73
+#: qml/QueuePage.qml:72
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -1185,7 +1185,7 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/QueuePage.qml:73
+#: qml/QueuePage.qml:72
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
