@@ -1,3 +1,0 @@
-module org.kde.kasts.solidextras
-plugin kasts-solidextrasqmlplugin
-classname SolidExtrasQmlPlugin

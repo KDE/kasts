@@ -8,10 +8,6 @@
 
 #include <QObject>
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <solidextras/networkstatus.h>
-#endif
-
 class NetworkConnectionManager : public QObject
 {
     Q_OBJECT
@@ -42,9 +38,5 @@ Q_SIGNALS:
 private:
     NetworkConnectionManager(QObject *parent = nullptr);
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    SolidExtras::NetworkStatus m_networkStatus;
-#else
     bool m_backendAvailable = false;
-#endif
 };

@@ -7,19 +7,13 @@
 #include "networkconnectionmanager.h"
 #include "networkconnectionmanagerlogging.h"
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <QNetworkInformation>
-#endif
 
 #include "settingsmanager.h"
 
 NetworkConnectionManager::NetworkConnectionManager(QObject *parent)
     : QObject(parent)
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    , m_networkStatus(SolidExtras::NetworkStatus())
-#endif
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     m_backendAvailable = QNetworkInformation::loadDefaultBackend();
 
     if (m_backendAvailable) {
@@ -36,20 +30,6 @@ NetworkConnectionManager::NetworkConnectionManager(QObject *parent)
             Q_EMIT streamingAllowedChanged();
         });
     }
-#else
-    connect(&m_networkStatus, &SolidExtras::NetworkStatus::connectivityChanged, this, [this]() {
-        Q_EMIT feedUpdatesAllowedChanged();
-        Q_EMIT episodeDownloadsAllowedChanged();
-        Q_EMIT imageDownloadsAllowedChanged();
-        Q_EMIT streamingAllowedChanged();
-    });
-    connect(&m_networkStatus, &SolidExtras::NetworkStatus::meteredChanged, this, [this]() {
-        Q_EMIT feedUpdatesAllowedChanged();
-        Q_EMIT episodeDownloadsAllowedChanged();
-        Q_EMIT imageDownloadsAllowedChanged();
-        Q_EMIT streamingAllowedChanged();
-    });
-#endif
 
     connect(SettingsManager::self(), &SettingsManager::allowMeteredFeedUpdatesChanged, this, &NetworkConnectionManager::feedUpdatesAllowedChanged);
     connect(SettingsManager::self(), &SettingsManager::allowMeteredEpisodeDownloadsChanged, this, &NetworkConnectionManager::episodeDownloadsAllowedChanged);
@@ -59,16 +39,11 @@ NetworkConnectionManager::NetworkConnectionManager(QObject *parent)
 
 bool NetworkConnectionManager::feedUpdatesAllowed() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
         allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
                    && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredFeedUpdates()));
     }
-#else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredFeedUpdates()));
-#endif
 
     qCDebug(kastsNetworkConnectionManager) << "FeedUpdatesAllowed()" << allowed;
 
@@ -77,16 +52,11 @@ bool NetworkConnectionManager::feedUpdatesAllowed() const
 
 bool NetworkConnectionManager::episodeDownloadsAllowed() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
         allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
                    && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredEpisodeDownloads()));
     }
-#else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredEpisodeDownloads()));
-#endif
 
     qCDebug(kastsNetworkConnectionManager) << "EpisodeDownloadsAllowed()" << allowed;
 
@@ -95,16 +65,11 @@ bool NetworkConnectionManager::episodeDownloadsAllowed() const
 
 bool NetworkConnectionManager::imageDownloadsAllowed() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
         allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
                    && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredImageDownloads()));
     }
-#else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredImageDownloads()));
-#endif
 
     qCDebug(kastsNetworkConnectionManager) << "ImageDownloadsAllowed()" << allowed;
 
@@ -113,16 +78,11 @@ bool NetworkConnectionManager::imageDownloadsAllowed() const
 
 bool NetworkConnectionManager::streamingAllowed() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
         allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
                    && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredStreaming()));
     }
-#else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming()));
-#endif
 
     qCDebug(kastsNetworkConnectionManager) << "StreamingAllowed()" << allowed;
 

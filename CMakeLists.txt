@@ -18,11 +18,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(KF_MIN_VERSION "5.105.0")
-set(QT_MIN_VERSION "5.15.2")
-if (ANDROID)
-    set(QT_MIN_VERSION 5.15.10) # due to 5.15.10 changing NDK versioning
-endif()
+set(KF_MIN_VERSION "5.240.0")
+set(QT_MIN_VERSION "6.4.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -49,47 +46,28 @@ ecm_setup_version(${PROJECT_VERSION}
 )
 
 ecm_set_disabled_deprecation_versions(
-    QT 5.15.2
-    KF 5.102.0
+    QT 6.0.0
+    KF 5.240.0
 )
 
-if (QT_MAJOR_VERSION EQUAL "6")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
-
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg Xml)
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
-
-if (QT_MAJOR_VERSION EQUAL "6")
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Network)
-else()
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} OPTIONAL_COMPONENTS NetworkManagerQt)
-endif()
-
-if (NOT KF_MAJOR_VERSION EQUAL "6") # TODO temporary workaround until kirigami-addons is switched to KF6
-find_package(KF5KirigamiAddons 0.7 REQUIRED)
-endif()
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg Xml Network)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami2 Syndication Config ThreadWeaver)
 
 find_package(Taglib REQUIRED)
-find_package(Qt${QT_MAJOR_VERSION}Keychain)
-set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
+find_package(Qt6Keychain)
+set_package_properties(Qt6Keychain PROPERTIES
     TYPE REQUIRED
     PURPOSE "Secure storage of account secrets"
 )
 
 if (ANDROID)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
-    endif()
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Svg)
     find_package(OpenSSL REQUIRED)
     find_package(SQLite3)
     find_package(ZLIB)
     find_package(Gradle)
 else()
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
 endif()
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII

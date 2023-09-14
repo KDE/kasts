@@ -5,11 +5,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake" $
 
 option(BUILD_EXAMPLE_PLAYER "Build and install example audio backend player" OFF)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Multimedia)
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Multimedia)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 
 if (NOT ANDROID)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Widgets)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Widgets)
 endif()
 
 find_package(LIBVLC)
@@ -134,8 +134,8 @@ target_include_directories(KMediaSession PUBLIC ${CMAKE_BINARY_DIR})
 target_link_libraries(KMediaSession PUBLIC Qt::Core)
 target_link_libraries(KMediaSession PRIVATE
     Qt::Multimedia
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::I18n
+    KF6::CoreAddons
+    KF6::I18n
 )
 
 if (LIBVLC_FOUND)

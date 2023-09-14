@@ -70,11 +70,6 @@ int main(int argc, char *argv[])
         qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#endif
-
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);

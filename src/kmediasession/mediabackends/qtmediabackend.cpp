@@ -10,16 +10,12 @@
 #include <memory>
 
 #include <QAudio>
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include <QAudioOutput>
-#endif
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include <QMediaMetaData>
-#endif
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTimer>
@@ -32,22 +28,14 @@ private:
     KMediaSession *m_KMediaSession = nullptr;
 
     QMediaPlayer m_player;
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     QAudioOutput m_output;
-#else
-#define m_output m_player
-#define QAudioOutput QMediaPlayer
-#endif
 
     std::unique_ptr<QTemporaryDir> imageCacheDir = nullptr;
 
     KMediaSession::Error translateErrorEnum(QMediaPlayer::Error errorEnum);
     KMediaSession::MediaStatus translateMediaStatusEnum(QMediaPlayer::MediaStatus mediaEnum);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     KMediaSession::PlaybackState translatePlaybackStateEnum(QMediaPlayer::PlaybackState playbackStateEnum);
-#else
-    KMediaSession::PlaybackState translatePlaybackStateEnum(QMediaPlayer::State playbackStateEnum);
-#endif
+
     void parseMetaData();
 };
 
@@ -59,25 +47,16 @@ QtMediaBackend::QtMediaBackend(QObject *parent)
 
     d->m_KMediaSession = static_cast<KMediaSession *>(parent);
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     d->m_player.setAudioOutput(&d->m_output);
-#endif
 
     // connect to QMediaPlayer signals and dispatch to AbstractMediaBackend
     // signals and add debug output
     connect(&d->m_output, &QAudioOutput::mutedChanged, this, &QtMediaBackend::playerMutedSignalChanges);
     connect(&d->m_output, &QAudioOutput::volumeChanged, this, &QtMediaBackend::playerVolumeSignalChanges);
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     connect(&d->m_player, &QMediaPlayer::sourceChanged, this, &QtMediaBackend::playerSourceSignalChanges);
     connect(&d->m_player, &QMediaPlayer::playbackStateChanged, this, &QtMediaBackend::playerStateSignalChanges);
     connect(&d->m_player, QOverload<QMediaPlayer::Error, const QString &>::of(&QMediaPlayer::errorOccurred), this, &QtMediaBackend::playerErrorSignalChanges);
     connect(&d->m_player, &QMediaPlayer::metaDataChanged, this, &QtMediaBackend::playerMetaDataSignalChanges);
-#else
-    connect(&d->m_player, &QMediaPlayer::mediaChanged, this, &QtMediaBackend::playerSourceSignalChanges);
-    connect(&d->m_player, &QMediaPlayer::stateChanged, this, &QtMediaBackend::playerStateSignalChanges);
-    connect(&d->m_player, QOverload<QMediaPlayer::Error>::of(&QMediaPlayer::error), this, &QtMediaBackend::playerErrorSignalChanges);
-    connect(&d->m_player, QOverload<>::of(&QMediaObject::metaDataChanged), this, &QtMediaBackend::playerMetaDataSignalChanges);
-#endif
     connect(&d->m_player, &QMediaPlayer::mediaStatusChanged, this, &QtMediaBackend::mediaStatusSignalChanges);
     connect(&d->m_player, &QMediaPlayer::playbackRateChanged, this, &QtMediaBackend::playerPlaybackRateSignalChanges);
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &QtMediaBackend::playerDurationSignalChanges);
@@ -106,11 +85,7 @@ bool QtMediaBackend::muted() const
 qreal QtMediaBackend::volume() const
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackend::volume()";
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     qreal realVolume = static_cast<qreal>(d->m_output.volume());
-#else
-    qreal realVolume = static_cast<qreal>(d->m_output.volume() / 100.0);
-#endif
     qreal userVolume = static_cast<qreal>(QAudio::convertVolume(realVolume, QAudio::LinearVolumeScale, QAudio::LogarithmicVolumeScale));
 
     return userVolume * 100.0;
@@ -119,11 +94,7 @@ qreal QtMediaBackend::volume() const
 QUrl QtMediaBackend::source() const
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackend::source()";
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     return d->m_player.source();
-#else
-    return d->m_player.media().request().url();
-#endif
 }
 
 KMediaSession::MediaStatus QtMediaBackend::mediaStatus() const
@@ -135,11 +106,7 @@ KMediaSession::MediaStatus QtMediaBackend::mediaStatus() const
 KMediaSession::PlaybackState QtMediaBackend::playbackState() const
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackend::playbackState()";
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     return d->translatePlaybackStateEnum(d->m_player.playbackState());
-#else
-    return d->translatePlaybackStateEnum(d->m_player.state());
-#endif
 }
 
 qreal QtMediaBackend::playbackRate() const
@@ -183,21 +150,13 @@ void QtMediaBackend::setVolume(qreal volume)
     qCDebug(QtMediaBackendLog) << "QtMediaBackend::setVolume(" << volume << ")";
 
     qreal realVolume = static_cast<qreal>(QAudio::convertVolume(volume / 100.0, QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale));
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     d->m_output.setVolume(realVolume);
-#else
-    d->m_output.setVolume(qRound(realVolume * 100.0));
-#endif
 }
 
 void QtMediaBackend::setSource(const QUrl &source)
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackend::setSource(" << source << ")";
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     d->m_player.setSource(source);
-#else
-    d->m_player.setMedia(source);
-#endif
 }
 
 void QtMediaBackend::setPosition(qint64 position)
@@ -238,15 +197,9 @@ void QtMediaBackend::playerMutedSignalChanges(bool muted)
     });
 }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 void QtMediaBackend::playerVolumeSignalChanges(float volume)
 {
     qreal realVolume = static_cast<qreal>(volume);
-#else
-void QtMediaBackend::playerVolumeSignalChanges(qint64 volume)
-{
-    qreal realVolume = static_cast<qreal>(volume) / 100.0;
-#endif
     qreal userVolume = static_cast<qreal>(QAudio::convertVolume(realVolume, QAudio::LinearVolumeScale, QAudio::LogarithmicVolumeScale)) * 100.0;
     QTimer::singleShot(0, this, [this, userVolume]() {
         qCDebug(QtMediaBackendLog) << "QtMediaBackend::volumeChanged(" << userVolume << ")";
@@ -254,16 +207,10 @@ void QtMediaBackend::playerVolumeSignalChanges(qint64 volume)
     });
 }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 void QtMediaBackend::playerSourceSignalChanges(const QUrl &media)
 {
     QUrl source = media;
 
-#else
-void QtMediaBackend::playerSourceSignalChanges(const QMediaContent &media)
-{
-    QUrl source = media.request().url();
-#endif
     QTimer::singleShot(0, this, [this, source]() {
         qCDebug(QtMediaBackendLog) << "QtMediaBackend::sourceChanged(" << source << ")";
         Q_EMIT sourceChanged(source);
@@ -278,11 +225,7 @@ void QtMediaBackend::mediaStatusSignalChanges(const QMediaPlayer::MediaStatus &q
     });
 }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 void QtMediaBackend::playerStateSignalChanges(const QMediaPlayer::PlaybackState &qtPlaybackState)
-#else
-void QtMediaBackend::playerStateSignalChanges(const QMediaPlayer::State &qtPlaybackState)
-#endif
 {
     const KMediaSession::PlaybackState playbackState = d->translatePlaybackStateEnum(qtPlaybackState);
     QTimer::singleShot(0, this, [this, playbackState]() {
@@ -346,10 +289,6 @@ KMediaSession::Error QtMediaBackendPrivate::translateErrorEnum(QMediaPlayer::Err
         return KMediaSession::Error::NetworkError;
     case QMediaPlayer::Error::AccessDeniedError:
         return KMediaSession::Error::AccessDeniedError;
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    case QMediaPlayer::Error::ServiceMissingError:
-        return KMediaSession::Error::ServiceMissingError;
-#endif
     default:
         return KMediaSession::Error::NoError;
     }
@@ -375,18 +314,11 @@ KMediaSession::MediaStatus QtMediaBackendPrivate::translateMediaStatusEnum(QMedi
         return KMediaSession::MediaStatus::EndOfMedia;
     case QMediaPlayer::MediaStatus::InvalidMedia:
         return KMediaSession::MediaStatus::InvalidMedia;
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     default:
         return KMediaSession::MediaStatus::NoMedia;
-#else
-    case QMediaPlayer::MediaStatus::UnknownMediaStatus:
-    default:
-        return KMediaSession::MediaStatus::UnknownMediaStatus;
-#endif
     }
 }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 KMediaSession::PlaybackState QtMediaBackendPrivate::translatePlaybackStateEnum(QMediaPlayer::PlaybackState playbackStateEnum)
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackendPrivate::translateMediaStatusEnum(" << playbackStateEnum << ")";
@@ -402,66 +334,29 @@ KMediaSession::PlaybackState QtMediaBackendPrivate::translatePlaybackStateEnum(Q
         return KMediaSession::PlaybackState::StoppedState;
     }
 }
-#else
-KMediaSession::PlaybackState QtMediaBackendPrivate::translatePlaybackStateEnum(QMediaPlayer::State playbackStateEnum)
-{
-    qCDebug(QtMediaBackendLog) << "QtMediaBackendPrivate::translateMediaStatusEnum(" << playbackStateEnum << ")";
-
-    switch (playbackStateEnum) {
-    case QMediaPlayer::State::StoppedState:
-        return KMediaSession::PlaybackState::StoppedState;
-    case QMediaPlayer::State::PlayingState:
-        return KMediaSession::PlaybackState::PlayingState;
-    case QMediaPlayer::State::PausedState:
-        return KMediaSession::PlaybackState::PausedState;
-    default:
-        return KMediaSession::PlaybackState::StoppedState;
-    }
-}
-#endif
 
 void QtMediaBackendPrivate::parseMetaData()
 {
     qCDebug(QtMediaBackendLog) << "QtMediaBackendPrivate::parseMetaData()";
 
     if (m_KMediaSession->metaData()->title().isEmpty()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         m_KMediaSession->metaData()->setTitle(m_player.metaData().stringValue(QMediaMetaData::Title));
-#else
-        m_KMediaSession->metaData()->setTitle(m_player.metaData(QStringLiteral("Title")).toString());
-#endif
     }
 
     if (m_KMediaSession->metaData()->artist().isEmpty()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         m_KMediaSession->metaData()->setArtist(m_player.metaData().stringValue(QMediaMetaData::ContributingArtist));
-#else
-        m_KMediaSession->metaData()->setArtist(m_player.metaData(QStringLiteral("ContributingArtist")).toString());
-#endif
     }
 
     if (m_KMediaSession->metaData()->album().isEmpty()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         m_KMediaSession->metaData()->setAlbum(m_player.metaData().stringValue(QMediaMetaData::AlbumTitle));
-#else
-        m_KMediaSession->metaData()->setAlbum(m_player.metaData(QStringLiteral("AlbumTitle")).toString());
-#endif
     }
     if (m_KMediaSession->metaData()->artworkUrl().isEmpty()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         if (m_player.metaData().value(QMediaMetaData::CoverArtImage).isValid()) {
-#else
-        if (m_player.metaData(QStringLiteral("CoverArtImage")).isValid()) {
-#endif
             imageCacheDir = std::make_unique<QTemporaryDir>();
             if (imageCacheDir->isValid()) {
                 QString filePath = imageCacheDir->path() + QStringLiteral("/coverimage");
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
                 bool success = m_player.metaData().value(QMediaMetaData::CoverArtImage).value<QImage>().save(filePath, "PNG");
-#else
-                bool success = m_player.metaData(QStringLiteral("CoverArtImage")).value<QImage>().save(filePath, "PNG");
-#endif
 
                 if (success) {
                     QString localFilePath = QStringLiteral("file://") + filePath;

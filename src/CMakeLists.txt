@@ -3,9 +3,6 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 add_subdirectory(kmediasession)
-if (NOT QT_MAJOR_VERSION EQUAL "6")
-add_subdirectory(solidextras)
-endif()
 
 set(kasts_srcs
     main.cpp
@@ -171,13 +168,7 @@ add_executable(kasts ${kasts_srcs})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml KF${KF_MAJOR_VERSION}::Kirigami2 KF${KF_MAJOR_VERSION}::Syndication KF${KF_MAJOR_VERSION}::CoreAddons KF${KF_MAJOR_VERSION}::ConfigGui KF${KF_MAJOR_VERSION}::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF${KF_MAJOR_VERSION}::ThreadWeaver KMediaSession)
-
-if (QT_MAJOR_VERSION EQUAL "6")
-target_link_libraries(kasts PRIVATE Qt6::Network)
-else ()
-target_link_libraries(kasts PRIVATE KastsSolidExtras)
-endif()
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami2 KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KMediaSession)
 
 if(KASTS_FLATPAK)
     target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)
