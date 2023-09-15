@@ -18,6 +18,7 @@
   <name xml:lang="eu">Kasts</name>
   <name xml:lang="fi">Kasts</name>
   <name xml:lang="fr">Kasts</name>
+  <name xml:lang="ia">Kasts</name>
   <name xml:lang="id">Kasts</name>
   <name xml:lang="it">Kasts</name>
   <name xml:lang="ka">Kasts</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="eu">Podcast aplikazioa</summary>
   <summary xml:lang="fi">Podcast-sovellus</summary>
   <summary xml:lang="fr">Application de podcasts</summary>
+  <summary xml:lang="ia">Application de Podcast</summary>
   <summary xml:lang="id">Aplikasi podcast</summary>
   <summary xml:lang="it">Applicazione per podcast</summary>
   <summary xml:lang="ka">პოდკასტის აპლიკაცია</summary>
@@ -77,6 +79,7 @@
   <developer_name xml:lang="eu">KDE komunitatea</developer_name>
   <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
+  <developer_name xml:lang="ia">Le communitate de KDE</developer_name>
   <developer_name xml:lang="id">KDE Community</developer_name>
   <developer_name xml:lang="it">La comunità KDE</developer_name>
   <developer_name xml:lang="ka">KDE-ის საზოგადოება</developer_name>
