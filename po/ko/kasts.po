@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -171,42 +171,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "미디어 재생 중"
 
-#: main.cpp:113
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 앱"
 
-#: main.cpp:115
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:116
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:121 qml/main.qml:20
+#: main.cpp:116 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:123
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:125
+#: main.cpp:120
 #, kde-format
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020–2023 KDE Community"
 
-#: main.cpp:126
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:127
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -692,7 +692,7 @@ msgstr "모든 오류 삭제"
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:258
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
@@ -750,7 +750,7 @@ msgstr[0] "%1개 재생하지 않음"
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
 
-#: qml/FeedListDelegate.qml:269
+#: qml/FeedListDelegate.qml:267
 #, kde-format
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
@@ -1844,12 +1844,12 @@ msgstr "사용자가 작업을 중단함"
 msgid "An error occurred while copying data"
 msgstr "데이터를 복사하는 중 오류 발생"
 
-#: sync/sync.cpp:182
+#: sync/sync.cpp:178
 #, kde-format
 msgid "Never"
 msgstr "하지 않음"
 
-#: sync/sync.cpp:205
+#: sync/sync.cpp:201
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1857,42 +1857,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1의 Kasts"
 
-#: sync/sync.cpp:299
+#: sync/sync.cpp:295
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:338
+#: sync/sync.cpp:334
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:483 sync/sync.cpp:484
+#: sync/sync.cpp:479 sync/sync.cpp:480
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O 거부됨: 암호를 저장할 수 없습니다."
 
-#: sync/sync.cpp:564 sync/sync.cpp:565
+#: sync/sync.cpp:560 sync/sync.cpp:561
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
 
-#: sync/sync.cpp:637
+#: sync/sync.cpp:633
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder 장치를 만들 수 없음"
 
-#: sync/sync.cpp:663
+#: sync/sync.cpp:659
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "동기화된 장치 상태를 가져올 수 없음"
 
-#: sync/sync.cpp:714
+#: sync/sync.cpp:710
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 장치의 구독을 가져올 수 없음"
 
-#: sync/sync.cpp:733
+#: sync/sync.cpp:729
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 장치의 구독을 업로드할 수 없음"

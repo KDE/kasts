@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
-"PO-Revision-Date: 2023-08-10 19:02+0200\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
+"PO-Revision-Date: 2023-09-14 19:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -179,42 +179,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproducció de fitxer multimèdia"
 
-#: main.cpp:113
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicació de podcast"
 
-#: main.cpp:115
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Afegeix un podcast nou a les subscripcions."
 
-#: main.cpp:116
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL del podcast"
 
-#: main.cpp:121 qml/main.qml:20
+#: main.cpp:116 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:123
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de podcast"
 
-#: main.cpp:125
+#: main.cpp:120
 #, kde-format
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020–2023 La comunitat KDE"
 
-#: main.cpp:126
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:127
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -700,7 +700,7 @@ msgstr "Neteja tots els errors"
 msgid "Show Error Log"
 msgstr "Mostra el registre d'errors"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:258
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalls del podcast"
@@ -760,7 +760,7 @@ msgstr[1] "%1 sense reproduir"
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
 
-#: qml/FeedListDelegate.qml:269
+#: qml/FeedListDelegate.qml:267
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Elimina el podcast"
@@ -1389,12 +1389,12 @@ msgstr "Article"
 #: qml/Settings/GeneralSettingsPage.qml:360
 #, kde-format
 msgid "Font size"
-msgstr "Mida del tipus de lletra"
+msgstr "Mida de la lletra"
 
 #: qml/Settings/GeneralSettingsPage.qml:367
 #, kde-format
 msgid "Font size:"
-msgstr "Mida del tipus de lletra:"
+msgstr "Mida de la lletra:"
 
 #: qml/Settings/GeneralSettingsPage.qml:383
 #, kde-format
@@ -1869,12 +1869,12 @@ msgstr "L'operació ha estat interrompuda per l'usuari"
 msgid "An error occurred while copying data"
 msgstr "S'ha produït un error en copiar les dades"
 
-#: sync/sync.cpp:182
+#: sync/sync.cpp:178
 #, kde-format
 msgid "Never"
 msgstr "Mai"
 
-#: sync/sync.cpp:205
+#: sync/sync.cpp:201
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1882,42 +1882,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts a %1"
 
-#: sync/sync.cpp:299
+#: sync/sync.cpp:295
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "No s'ha pogut iniciar la sessió al servidor Nextcloud de GPodder"
 
-#: sync/sync.cpp:338
+#: sync/sync.cpp:334
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "No s'ha pogut iniciar la sessió al servidor de GPodder"
 
-#: sync/sync.cpp:483 sync/sync.cpp:484
+#: sync/sync.cpp:479 sync/sync.cpp:480
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "E/S denegada: no s'ha pogut desar la contrasenya."
 
-#: sync/sync.cpp:564 sync/sync.cpp:565
+#: sync/sync.cpp:560 sync/sync.cpp:561
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
 
-#: sync/sync.cpp:637
+#: sync/sync.cpp:633
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "No s'ha pogut crear el dispositiu de GPodder"
 
-#: sync/sync.cpp:663
+#: sync/sync.cpp:659
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "No s'ha pogut recuperar l'estat del dispositiu sincronitzat"
 
-#: sync/sync.cpp:714
+#: sync/sync.cpp:710
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "No s'han pogut recuperar les subscripcions per al dispositiu %1"
 
-#: sync/sync.cpp:733
+#: sync/sync.cpp:729
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "No s'han pogut pujar les subscripcions per al dispositiu %1"

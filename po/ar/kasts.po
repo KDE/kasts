@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2023-08-19 16:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -172,42 +172,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "جاري تشغيل الوسائط"
 
-#: main.cpp:113
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "تطبيق مدونات صوتية"
 
-#: main.cpp:115
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "إضافة مدونة صوتية جديدة للاشتراكات."
 
-#: main.cpp:116
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "رابط المدونة الصوتية"
 
-#: main.cpp:121 qml/main.qml:20
+#: main.cpp:116 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "كاستس"
 
-#: main.cpp:123
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "مشكل مدونات صوتية"
 
-#: main.cpp:125
+#: main.cpp:120
 #, kde-format
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020–2023 كيدي مجتمع"
 
-#: main.cpp:126
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "توبايس فيلال"
 
-#: main.cpp:127
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "برات دي فرايس"
@@ -693,7 +693,7 @@ msgstr "مسح جميع الاخطاء"
 msgid "Show Error Log"
 msgstr "عرض سجل الاخطاء"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:258
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
 #, kde-format
 msgid "Podcast Details"
 msgstr "تفاصيل المدونة الصوتية"
@@ -761,7 +761,7 @@ msgstr[5] "غير مشغلة %1"
 msgid "Error (%1): %2"
 msgstr "خطأ (%1) : %2"
 
-#: qml/FeedListDelegate.qml:269
+#: qml/FeedListDelegate.qml:267
 #, kde-format
 msgid "Remove Podcast"
 msgstr "احذف المدونة الصوتية"
@@ -1875,12 +1875,12 @@ msgstr "العملية ملغاة بواسطة مستخدم"
 msgid "An error occurred while copying data"
 msgstr "حدث خطأ اثناء نسخ البيانات"
 
-#: sync/sync.cpp:182
+#: sync/sync.cpp:178
 #, kde-format
 msgid "Never"
 msgstr "مطلقا"
 
-#: sync/sync.cpp:205
+#: sync/sync.cpp:201
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1888,42 +1888,42 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "كاستس على %1"
 
-#: sync/sync.cpp:299
+#: sync/sync.cpp:295
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder-nextcloud"
 
-#: sync/sync.cpp:338
+#: sync/sync.cpp:334
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder"
 
-#: sync/sync.cpp:483 sync/sync.cpp:484
+#: sync/sync.cpp:479 sync/sync.cpp:480
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة المرورز"
 
-#: sync/sync.cpp:564 sync/sync.cpp:565
+#: sync/sync.cpp:560 sync/sync.cpp:561
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "قراء كتابة مرفوضة: لا يمكن الوصول الر ملف كلمة المرور."
 
-#: sync/sync.cpp:637
+#: sync/sync.cpp:633
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "لا يمكن إنشاء جهاز GPodder"
 
-#: sync/sync.cpp:663
+#: sync/sync.cpp:659
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "لا يمكن جلب حالات الأجهزة المتزامنة"
 
-#: sync/sync.cpp:714
+#: sync/sync.cpp:710
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "لا يمكن جلب الاشتراكات لجهاز %1"
 
-#: sync/sync.cpp:733
+#: sync/sync.cpp:729
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "لا يمكن رفع الاشتراكات لجهاز %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-14 01:54+0000\n"
+"POT-Creation-Date: 2023-09-15 01:53+0000\n"
 "PO-Revision-Date: 2023-06-10 10:10+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -190,43 +190,43 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Odtwarzanie pliku"
 
-#: main.cpp:113
+#: main.cpp:108
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplikacja do podkastów"
 
-#: main.cpp:115
+#: main.cpp:110
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Dodaje nowy podkast do zapisanych."
 
-#: main.cpp:116
+#: main.cpp:111
 #, kde-format
 msgid "Podcast URL"
 msgstr "Adres URL podkastu"
 
-#: main.cpp:121 qml/main.qml:20
+#: main.cpp:116 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:123
+#: main.cpp:118
 #, kde-format
 msgid "Podcast Player"
 msgstr "Odtwarzacz podkastów"
 
-#: main.cpp:125
+#: main.cpp:120
 #, fuzzy, kde-format
 #| msgid "© 2020-2023 KDE Community"
 msgid "© 2020–2023 KDE Community"
 msgstr "© 2020-2023 Społeczność KDE"
 
-#: main.cpp:126
+#: main.cpp:121
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:127
+#: main.cpp:122
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -748,7 +748,7 @@ msgstr "Wyczyść wszystkie błędy"
 msgid "Show Error Log"
 msgstr "Pokaż dziennik błędów"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:258
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
 #, kde-format
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
@@ -811,7 +811,7 @@ msgstr[2] "%1 nieodtworzonych"
 msgid "Error (%1): %2"
 msgstr "Błąd (%1): %2"
 
-#: qml/FeedListDelegate.qml:269
+#: qml/FeedListDelegate.qml:267
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Usuń podkast"
@@ -1953,12 +1953,12 @@ msgstr "Działanie przerwane przez użytkownika"
 msgid "An error occurred while copying data"
 msgstr "Wystąpił błąd podczas kopiowania danych"
 
-#: sync/sync.cpp:182
+#: sync/sync.cpp:178
 #, kde-format
 msgid "Never"
 msgstr "Nigdy"
 
-#: sync/sync.cpp:205
+#: sync/sync.cpp:201
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -1966,44 +1966,44 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts na %1"
 
-#: sync/sync.cpp:299
+#: sync/sync.cpp:295
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Nie można wejść na serwer GPodder-nextcloud"
 
-#: sync/sync.cpp:338
+#: sync/sync.cpp:334
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Nie można wejść na serwer GPodder"
 
-#: sync/sync.cpp:483 sync/sync.cpp:484
+#: sync/sync.cpp:479 sync/sync.cpp:480
 #, fuzzy, kde-format
 #| msgid "I/O Denied: Cannot save password."
 msgid "I/O denied: Cannot save password."
 msgstr "Odmówiono WE/WY: Nie można zapisać hasła."
 
-#: sync/sync.cpp:564 sync/sync.cpp:565
+#: sync/sync.cpp:560 sync/sync.cpp:561
 #, fuzzy, kde-format
 #| msgid "I/O Denied: Cannot access password file."
 msgid "I/O denied: Cannot access password file."
 msgstr "Odmówiono WE/WY: Brak dostępu do pliku hasła."
 
-#: sync/sync.cpp:637
+#: sync/sync.cpp:633
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "nie można utworzyć urządzenia GPodder"
 
-#: sync/sync.cpp:663
+#: sync/sync.cpp:659
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Nie można pobrać stanu synchronizowanego urządzenia"
 
-#: sync/sync.cpp:714
+#: sync/sync.cpp:710
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Nie można pobrać śledzonych z urządzenia %1"
 
-#: sync/sync.cpp:733
+#: sync/sync.cpp:729
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Nie można wysłać śledzonych do urządzenia %1"
