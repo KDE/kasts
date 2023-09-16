@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:53+0000\n"
-"PO-Revision-Date: 2023-08-10 19:02+0200\n"
+"PO-Revision-Date: 2023-09-14 19:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1389,12 +1389,12 @@ msgstr "Article"
 #: qml/Settings/GeneralSettingsPage.qml:360
 #, kde-format
 msgid "Font size"
-msgstr "Mida del tipus de lletra"
+msgstr "Mida de la lletra"
 
 #: qml/Settings/GeneralSettingsPage.qml:367
 #, kde-format
 msgid "Font size:"
-msgstr "Mida del tipus de lletra:"
+msgstr "Mida de la lletra:"
 
 #: qml/Settings/GeneralSettingsPage.qml:383
 #, kde-format
