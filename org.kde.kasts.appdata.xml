@@ -107,6 +107,7 @@
     <p xml:lang="eu">«Kasts» podcast aplikazio konbergente bat da, mahaigainean eta gailu mugikorretan itxura ona duena.</p>
     <p xml:lang="fi">Kasts on mukautuva podcast-sovellus, joka näyttää hyvältä niin työpöydällä kuin mobiilissa.</p>
     <p xml:lang="fr">Kasts est une application unifiée pour podcast, fonctionnant bien sur ordinateurs et sur mobile.</p>
+    <p xml:lang="ia">Kasts es un application de podcast convergente que appare belle sur scriptorio e mobile.</p>
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
     <p xml:lang="ka">Kasts პოდკასტების კონვერგენტული აპლიკაციაა, რომელიც ორივე, კომპიუტერზე და მობილურზე, კარგად გამოიყურება.</p>
@@ -130,6 +131,7 @@
     <p xml:lang="eu">Bere ezaugarri nagusiak:</p>
     <p xml:lang="fi">Sen pääominaisuuksia ovat:</p>
     <p xml:lang="fr">Ses principales fonctionnalités sont :</p>
+    <p xml:lang="ia">Su characteristicas principal es:</p>
     <p xml:lang="id">Fitur utamanya adalah:</p>
     <p xml:lang="it">Le sue funzionalità principali sono:</p>
     <p xml:lang="ka">მთავარი ფუნქციები:</p>
@@ -154,6 +156,7 @@
       <li xml:lang="eu">Atalen kudeaketa, jotze-ilararen bidez</li>
       <li xml:lang="fi">Jaksohallinta toistojonon kauta</li>
       <li xml:lang="fr">Gestion des épisodes grâce à une file de lecture</li>
+      <li xml:lang="ia">Gestion de episodio per cauda de reproduction</li>
       <li xml:lang="id">Pengelolaan episode melalui antrean putar</li>
       <li xml:lang="it">Gestione degli episodi attraverso la coda di riproduzione</li>
       <li xml:lang="ka">ეპიზოდის მართვა დაკვრის რიგის საშუალებით</li>
@@ -176,6 +179,7 @@
       <li xml:lang="eu">Jotze kokalekua beste bezero batzuekin partekatzea «gpodder.net» edo «gpodder-nextcloud» bidez</li>
       <li xml:lang="fi">Toistosijainnin tahdistus eri asiakkailla gpodder.netin tai gpodder-nextcloudin avulla</li>
       <li xml:lang="fr">Synchroniser les positions de lecture avec d'autres client, grâce à « gpodder.net » ou « gpodder-nextcloud »</li>
+      <li xml:lang="ia">Synchronisa positiones de reproduction con altere clientes per gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="id">Sinkronkan posisi pemutaran dengan klien lain melalui gpodder.net atau gpodder-nextcloud</li>
       <li xml:lang="it">Sincronizza le posizioni di riproduzione con altri client tramite gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="ka">დაასინქრონეთ დაკვრის მდებარეობები სხვა კლიენტებთან gpodder.net ან gpodder-nextcloud-ის საშუალებით</li>
@@ -199,6 +203,7 @@
       <li xml:lang="eu">Atzera-jotze abiadura aldagarria</li>
       <li xml:lang="fi">Muuntuva toistonopeus</li>
       <li xml:lang="fr">Vitesse variable de lecture</li>
+      <li xml:lang="ia">Velocitate de repsoduction variabile</li>
       <li xml:lang="id">Kecepatan pemutaran variabel</li>
       <li xml:lang="it">Velocità di riproduzione variabile</li>
       <li xml:lang="ka">დაკვრის ცვლადი სიჩქარე</li>
@@ -222,6 +227,7 @@
       <li xml:lang="eu">Miatu podcast bila</li>
       <li xml:lang="fi">Podcast-haku</li>
       <li xml:lang="fr">Recherche de podcasts</li>
+      <li xml:lang="ia">Cerca podcastes</li>
       <li xml:lang="id">Pencarian podcasts</li>
       <li xml:lang="it">Ricerca dei podcast</li>
       <li xml:lang="ka">პოდკასტების ძებნა</li>
@@ -245,6 +251,7 @@
       <li xml:lang="eu">Sistema osoarekin bateratzea: adib. entzun bitartean sistema esekitzea eragoztea</li>
       <li xml:lang="fi">Täysi järjestelmäeheytys, esim. estää järjestelmän lepotilan kuunneltaessa</li>
       <li xml:lang="fr">Intégration totale avec le système : par exemple, inhibition de la mise en veille du système durant la lecture</li>
+      <li xml:lang="ia">Integration systema complete: p.ex. inhibi suspension de systema quando ascolta</li>
       <li xml:lang="id">Integrasi sistem penuh: mis. menghambat sistem suspensi saat mendengarkan</li>
       <li xml:lang="it">Integrazione completa del sistema: ad es. inibire la sospensione del sistema durante l'ascolto</li>
       <li xml:lang="ka">სრული ინტეგრაცია სისტემასთან: მაგ: მოსმენისას სისტემის დაძინების აკრძალვა</li>
@@ -279,6 +286,7 @@
       <caption xml:lang="eu">«Kasts» mahaigainean goiburu-barra lehenetsiarekin</caption>
       <caption xml:lang="fi">Kasts työpöydällä oletusotsikkorivillä</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre d'en-tête par défaut</caption>
+      <caption xml:lang="ia">Kasts sur le scriptorio con barra de capite predefinite</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ნაგულისხმები თავსართის ზოლით</caption>
       <caption xml:lang="ko">기본 헤더 표시줄이 있는 데스크톱에서의 Kasts</caption>
@@ -303,6 +311,7 @@
       <caption xml:lang="eu">«Kasts» mahaigainean goiburu-barra minimizatuta</caption>
       <caption xml:lang="fi">Kasts työpöydällä pienennetyllä otsikkorivillä</caption>
       <caption xml:lang="fr">Kasts sur le bureau avec la barre minimale d'en-tête</caption>
+      <caption xml:lang="ia">Kasts sur le scriptorio conbarra de capite minimisate</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ჩაკეცილი თავსართის ზოლით</caption>
       <caption xml:lang="ko">최소화된 헤더 표시줄이 있는 데스크톱에서의 Kasts</caption>
@@ -329,6 +338,7 @@
       <caption xml:lang="eu">«Kasts» telefono batean</caption>
       <caption xml:lang="fi">Kasts puhelimessa</caption>
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
+      <caption xml:lang="ia">Kasts sur  un telephono</caption>
       <caption xml:lang="id">Kasts di ponsel</caption>
       <caption xml:lang="it">Kasts su un telefono</caption>
       <caption xml:lang="ka">Kasts ტელეფონზე</caption>
@@ -357,6 +367,7 @@
       <caption xml:lang="eu">Mugikorreko «Kasts»en jotze-agintzeak</caption>
       <caption xml:lang="fi">Kasts-mobiilisoittimen säätimet</caption>
       <caption xml:lang="fr">Contrôleur Kasts de lecteur mobile</caption>
+      <caption xml:lang="ia">Controles de reproductor mobile de Kasts</caption>
       <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
       <caption xml:lang="ka">Kasts-ის მედიის დამკვრელის კონტროლები</caption>
       <caption xml:lang="ko">Kasts 모바일 재생기 제어</caption>
