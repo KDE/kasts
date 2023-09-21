@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-09-18 17:03+0200\n"
+"PO-Revision-Date: 2023-09-20 17:40+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,7 +30,7 @@ msgstr "g.sora@tiscali.it"
 #: audiomanager.cpp:402
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr "Necun connexion o streaming sur connexion \"metered\" non permittite"
+msgstr "Necun connexion o streaming sur connexion a consumo non permittite"
 
 #: audiomanager.cpp:541
 #, kde-format
@@ -61,7 +61,7 @@ msgstr "Error de discargamento de Medios"
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "Actualisation non permittite sur connexion \"metered\""
+msgstr "Actualisation non permittite sur connexion a consumo"
 
 #: error.cpp:54
 #, kde-format
@@ -86,7 +86,7 @@ msgstr "Error synchronizante fluxo (syndication) e/o stato de episodio"
 #: error.cpp:62
 #, kde-format
 msgid "Connection or streaming not allowed on metered connection"
-msgstr "Connexion o streaming nonpermittite sur connexion \"metered\""
+msgstr "Connexion o streaming nonpermittite sur connexion a consumo"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -353,8 +353,8 @@ msgstr "Adde Podcast..."
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Actualisationjes de Podcast es currentemente nonpermittite sur connexiones "
-"\"metered\""
+"Actualisationjes de Podcast es currentemente nonpermittite sur connexiones a "
+"consumo"
 
 #: qml/ConnectionCheckAction.qml:54
 #, kde-format
@@ -502,7 +502,7 @@ msgstr "Discargamentos"
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Refresca Omne Podcasts"
+msgstr "Refresca Omne Podcastes"
 
 #: qml/DownloadListPage.qml:57
 #, kde-format
@@ -776,7 +776,7 @@ msgstr "Discover (Discoperi)"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Refresca Omne Podcasts"
+msgstr "Refresca Omne Podcastes"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
@@ -800,19 +800,19 @@ msgstr "Selige como ordinar subscriptiones"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importa Podcasts..."
+msgstr "Importa Podcastes..."
 
 #: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exporta Podcasts..."
+msgstr "Exporta Podcastes..."
 
 #: qml/FeedListPage.qml:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr "Importa Podcasts"
+msgstr "Importa Podcastes"
 
 #: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
@@ -836,7 +836,7 @@ msgstr "Omne files (*)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr "Exporta Podcasts"
+msgstr "Exporta Podcastes"
 
 #: qml/FeedListPage.qml:187
 #, kde-format
@@ -856,7 +856,7 @@ msgstr "Necun podcast trovate"
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr ""
+msgstr "Initia per adder podcastes:"
 
 #: qml/FeedListPage.qml:202
 #, kde-format
@@ -894,7 +894,7 @@ msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "Remove Podcast"
-msgstr[1] "Remove Podcasts"
+msgstr[1] "Remove Podcastes"
 
 #: qml/FeedListPage.qml:413
 #, kde-format
@@ -1019,12 +1019,12 @@ msgid "Remove \"New\" Label"
 msgstr "Remove etiquetta de \"Nove\""
 
 #: qml/GenericEntryListView.qml:329
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
-msgstr[0] "Dele DiscargamentoDele Discargamento"
-msgstr[1] ""
+msgstr[0] "Dele Discargamento"
+msgstr[1] "Dele Discargamentos"
 
 #: qml/GlobalSearchField.qml:96
 #, kde-format
@@ -1071,7 +1071,7 @@ msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Actualisate %2 de %1 Podcast"
-msgstr[1] "Actualisate %2 de %1 Podcasts"
+msgstr[1] "Actualisate %2 de %1 Podcastes"
 
 #: qml/main.qml:368
 #, kde-format
@@ -1085,8 +1085,8 @@ msgstr[1] "Movite %2 de %1 files"
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Discargamentos de Podcast es currentemente non permittite sur connexiones "
-"\"metered\""
+"Discargamentos de Podcast es currentemente non permittite sur connexiones a "
+"consumo"
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
@@ -1275,24 +1275,24 @@ msgstr "Monstra tempore lassate in loco de tempore de tracia total"
 #: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Adapta Tempore lassate basate sur velocitate currente de reproduction"
 
 #: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Da prioritate al Streaming sur discargar"
 
 #: qml/Settings/GeneralSettingsPage.qml:175
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "Salta intervallo avante (in secundas)"
 
 #: qml/Settings/GeneralSettingsPage.qml:190
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Salta intervallo de retro (in secundas)"
 
 #: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
@@ -1302,38 +1302,38 @@ msgstr "Preferentias de cauda"
 #: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
-msgstr ""
+msgstr "Continua reproducente proxime episodio post que le currente termina"
 
 #: qml/Settings/GeneralSettingsPage.qml:228
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr ""
+msgstr "Actualisa preferentias:"
 
 #: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr ""
+msgstr "Automaticamente trova actualisationes de podcast quando starta"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "Actualisa datos de episodio existente quando on refresca (plus lente)"
 
 #: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "Automaticamente pon in cauda nove episodios"
 
 #: qml/Settings/GeneralSettingsPage.qml:264
 #, kde-format
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Automaticamente discarga nove episodios"
 
 #: qml/Settings/GeneralSettingsPage.qml:277
 #, kde-format
 msgid "Played episode behavior"
-msgstr ""
+msgstr "Comportmento de episodio reproducite"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
@@ -1343,43 +1343,45 @@ msgstr "Non dele"
 #: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete immediately"
-msgstr ""
+msgstr "Dele immediatemente"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at next startup"
-msgstr ""
+msgstr "Dele al proxime startar"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
+"Marca episodio como reproducite quando le date tempore es remanente (in "
+"secundas)"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Reassigna Position post que un episodio es reproducite"
 
 #: qml/Settings/GeneralSettingsPage.qml:330
 #, kde-format
 msgid "When adding new podcasts"
-msgstr ""
+msgstr "Quando on adde nove podcastes"
 
 #: qml/Settings/GeneralSettingsPage.qml:335
 #, kde-format
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "Marca tote episodios como reproducite"
 
 #: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr ""
+msgstr "Marka episodios plus recente como non reproducite"
 
 #: qml/Settings/GeneralSettingsPage.qml:369
 #, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr ""
+msgstr "Marca tote episodios comom non reproducite"
 
 #: qml/Settings/GeneralSettingsPage.qml:386
 #, kde-format
@@ -1409,27 +1411,27 @@ msgstr "Preferentias de rete"
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "On metered connections"
-msgstr ""
+msgstr "Sur connexiones a consumo"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
 msgid "Allow podcast updates"
-msgstr ""
+msgstr "Permitte actualisationes de podcast"
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
 msgid "Allow episode downloads"
-msgstr ""
+msgstr "Permitte discargamentos de episodio"
 
 #: qml/Settings/NetworkSettingsPage.qml:64
 #, kde-format
 msgid "Allow image downloads"
-msgstr ""
+msgstr "Permitte discargamentos de imagine"
 
 #: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "Permitte streaming"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
@@ -1459,7 +1461,7 @@ msgstr "Registro de Error"
 #: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
-msgstr ""
+msgstr "Preferentias de immagasinage"
 
 #: qml/Settings/StorageSettingsPage.qml:38
 #: qml/Settings/StorageSettingsPage.qml:44
@@ -1475,12 +1477,12 @@ msgstr "Selige dossier…"
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
 msgid "Select Storage Path"
-msgstr ""
+msgstr "Selige percurso de immagazinage"
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Use default path"
-msgstr ""
+msgstr "Usa percurso predefinite"
 
 #: qml/Settings/StorageSettingsPage.qml:85
 #, kde-format
@@ -1490,19 +1492,19 @@ msgstr "Information"
 #: qml/Settings/StorageSettingsPage.qml:89
 #, kde-format
 msgid "Podcast downloads"
-msgstr ""
+msgstr "Discargamentos de Podcast"
 
 #: qml/Settings/StorageSettingsPage.qml:90
 #: qml/Settings/StorageSettingsPage.qml:97
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr ""
+msgstr "Usante %1 de spatio de disco"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #, kde-format
 msgid "Image cache"
-msgstr ""
+msgstr "Cache de Imagine"
 
 #: qml/Settings/StorageSettingsPage.qml:101
 #, kde-format
@@ -1512,7 +1514,7 @@ msgstr "Netta Cache"
 #: qml/Settings/SynchronizationSettingsPage.qml:18
 #, kde-format
 msgid "Synchronization Settings"
-msgstr ""
+msgstr "Preferentias de Synchronisation"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
@@ -1522,12 +1524,12 @@ msgstr "Conto"
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr ""
+msgstr "Accedite in conto \"%1\" sur servitor \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Syncing disabled"
-msgstr ""
+msgstr "Synchronisar dishabilitate"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
@@ -1542,42 +1544,43 @@ msgstr "Accesso de identification"
 #: qml/Settings/SynchronizationSettingsPage.qml:54
 #, kde-format
 msgid "Manually sync"
-msgstr ""
+msgstr "Synchronisar manualmente"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
 msgid "Sync Now"
-msgstr ""
+msgstr "Synchronisa nunc"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
 #, kde-format
 msgid "Last full sync with server"
-msgstr ""
+msgstr "Ultime synchronisation complete con servitor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
 #, kde-format
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "Ultime incargar rapide a servitor de synchronisation"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
 msgid "Automatic syncing"
-msgstr ""
+msgstr "Synchronisar automatic"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "Face synchronisation complete al startar"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:107
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr ""
+msgstr "Face complete synhronisation quando trova podcastes"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:117
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
+"Incarga positiones de reproducer episodio quando commutar reproduce/pausa"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
 #, kde-format
@@ -1587,7 +1590,7 @@ msgstr "Optiones avantiate"
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Fetch all episode states from server"
-msgstr ""
+msgstr "Trova omne statos de episodio ab le servitor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
@@ -1597,7 +1600,7 @@ msgstr "Reporta"
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
 msgid "Push all local episode states to server"
-msgstr ""
+msgstr "Pulsa omne statos local de episodio a servitor"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
@@ -1607,7 +1610,7 @@ msgstr "Preme"
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
 msgid "Push all local episode states to server?"
-msgstr ""
+msgstr "Pulsa omne statos local de episodio a servitor?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:217
 #, kde-format
@@ -1619,11 +1622,17 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Pro favor tu nota que pulsar le stato de reproduction de omne episodios "
+"local al servitor pote prender un tempore multe longe e/o poterea "
+"supercargar le servitor. Anque tu nota que iste action superscribera omne "
+"statos de episodio existente sur le servitor.\n"
+"\n"
+"Tu continua?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgid "Select Sync Provider"
-msgstr ""
+msgstr "Selectiona Fornitor de Synchronisation"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:253
 #, kde-format
@@ -1633,32 +1642,32 @@ msgstr "gpodder.net"
 #: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgid "Synchronize with official gpodder.net server"
-msgstr ""
+msgstr "Synchronisa con le servitor official de gpodder.net"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
 msgid "GPodder Nextcloud"
-msgstr ""
+msgstr "GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr ""
+msgstr "Synchronisa con app de GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
 msgid "Sync Login Credentials"
-msgstr ""
+msgstr "Synchronisa credentiales de accesso"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
-msgstr ""
+msgstr "Synchronisa con app de GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with gpodder.net service"
-msgstr ""
+msgstr "Synchronisa con servicio de gpodder.net"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:327
 #, kde-format
@@ -1668,12 +1677,15 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"Synchronisa con un servitor de Nextcloud que ha le app de synchronisare de "
+"GPodder installate: %1.<br/> Il es consiliabile crear manualmente un "
+"contrasigno de app per Kasts per leinterfacie web e usar illos credentiales."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
-msgstr ""
+msgstr "Si tu non ha ja un conto, tu prime deberea crear un a %1"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:340
 #, kde-format
@@ -1689,7 +1701,7 @@ msgstr "Contrasigno:"
 #: qml/Settings/SynchronizationSettingsPage.qml:366
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "Usa servitor personalisate"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:371
 #, kde-format
@@ -1699,12 +1711,12 @@ msgstr "Nomine de Hospite:"
 #: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Sync Device Settings"
-msgstr ""
+msgstr "Preferentias de Dispositivo de Synchronisation"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:411
 #, kde-format
 msgid "Create a new device"
-msgstr ""
+msgstr "Crea un nove dispositivo"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
 #, kde-format
@@ -1714,7 +1726,7 @@ msgstr "Nomine de dispositivo:"
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
 msgid "Device Description:"
-msgstr ""
+msgstr "Description de Dispositivo:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
 #, kde-format
@@ -1749,17 +1761,17 @@ msgstr "mobile"
 #: qml/Settings/SynchronizationSettingsPage.qml:452
 #, kde-format
 msgid "Create Device"
-msgstr ""
+msgstr "Crea Dispositivo"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:469
 #, kde-format
 msgid "or select an existing device"
-msgstr ""
+msgstr "o selectiona un dispositivo existente"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:518
 #, kde-format
 msgid "Device Sync Settings"
-msgstr ""
+msgstr "Preferentias de Synchronisar de Dispositivo"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:540
 #, kde-format
@@ -1768,16 +1780,19 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"Esque omne subscriptiones de podcast sur iste conto de gpodder.net deberea "
+"esser synchronisate trans omne dispoditivos?\n"
+"Si tu non sape cosa isto significa, tu propbabilemente debe seliger \"Ok\"."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:562
 #, kde-format
 msgid "Sync Now?"
-msgstr ""
+msgstr "Synchronisa nunc?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:582
 #, kde-format
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "Executa un prime synchronisation nunc?"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
@@ -1792,12 +1807,12 @@ msgstr "Initia"
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "Stato: Active"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "Stato: Inactive"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
@@ -1822,7 +1837,7 @@ msgstr "Horas"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr ""
+msgstr "Synchronisae Contrasigno requirite "
 
 #: qml/SyncPasswordOverlay.qml:48
 #, kde-format
@@ -1830,11 +1845,15 @@ msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr ""
+"Le contrasigno per usator \"%1\" sur servitor de Nextcloud \"%2\" non poteva "
+"esser recuperate."
 
 #: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr ""
+"Le contrasigno per usator \"%1\" sur \"gpodder.net\" non poteva esser "
+"recuperate."
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
@@ -1844,27 +1863,27 @@ msgstr "Aborta"
 #: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
-msgstr ""
+msgstr "Vetere Location:"
 
 #: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
-msgstr ""
+msgstr "Nove Location:"
 
 #: storagemovejob.cpp:59
 #, kde-format
 msgid "Destination path not writable"
-msgstr ""
+msgstr "Percurso de destination non scribibile"
 
 #: storagemovejob.cpp:76 storagemovejob.cpp:97
 #, kde-format
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "Operation abortate per usator"
 
 #: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
-msgstr ""
+msgstr "Un error occurreva durante que on copiava datos"
 
 #: sync/sync.cpp:182
 #, kde-format
@@ -1877,134 +1896,134 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr ""
+msgstr "Kasts sur %1"
 
 #: sync/sync.cpp:299
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr ""
+msgstr "Non poteva acceder a servitor de GPodder-Nextcloud"
 
 #: sync/sync.cpp:338
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr ""
+msgstr "Non poteva acceder a servitor de GPodder"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr ""
+msgstr "I/O refusate: Non poteva salveguardar contrasigno"
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr ""
+msgstr "I/O refusate: Non poteva acceder a file de contrasigno"
 
 #: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
-msgstr ""
+msgstr "Non poteva crear dispositivo de GPodder"
 
 #: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
-msgstr ""
+msgstr "On non pote recuperar stato de dispositivo synchronisate"
 
 #: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr ""
+msgstr "On non pote recuperar subscriptiones per dispositivo %1"
 
 #: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr ""
+msgstr "On non pote incargar subscriptiones per dispositivo %1"
 
 #: sync/syncjob.cpp:67
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr ""
+msgstr "Il non pote recuperar actualisationes de subscription ab le servitor"
 
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr ""
+msgstr "Il non pote incargar cambios de subscription al servitor"
 
 #: sync/syncjob.cpp:73
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr ""
+msgstr "Il non pote recuperar actualisationes de episodio ab le servitor"
 
 #: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr ""
+msgstr "Il non pote incargar actualisationes de episodio al servitor"
 
 #: sync/syncjob.cpp:79
 #, kde-format
 msgid "Internal data error"
-msgstr ""
+msgstr "Error de datos interne"
 
 #: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr ""
+msgstr "(Passo %1 de %2) Initia Synchronisar"
 
 #: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr ""
+msgstr "(Passo %1 de %2) Requirente actualisationes de subscription remote"
 
 #: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr ""
+msgstr "(Passo %1 de  %2) Incargante actualisationes de subscription local"
 
 #: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "(Passo %3 de %4) Actualisate %2 de %1 podcast"
+msgstr[1] "(Passo %3 de %4) Actualisate %2 de %1 podcastes"
 
 #: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr ""
+msgstr "(Passo %1 de %2) Requirente actualisationes de episodio remote"
 
 #: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr ""
+msgstr "(Passo %1 de %2) Applicante cambios de episodio remote"
 
 #: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr ""
+msgstr "(Passo %1 de  %2) Incargante actualisationes de episodio local"
 
 #: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr ""
+msgstr "(Passo %1 de %2) Synchronisation terminate"
 
 #: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr ""
+msgstr "Synchronisation Abortate"
 
 #: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
-msgstr ""
+msgstr "Synchronisation  terminate con error"
 
 #: systrayicon.cpp:46
 #, kde-format
