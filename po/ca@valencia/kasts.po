@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-15 01:53+0000\n"
-"PO-Revision-Date: 2023-09-14 19:01+0200\n"
+"PO-Revision-Date: 2023-09-19 19:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1920,7 +1920,7 @@ msgstr "No s'han pogut recuperar les subscripcions per al dispositiu %1"
 #: sync/sync.cpp:729
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr "No s'han pogut pujar les subscripcions per al dispositiu %1"
+msgstr "No han pogut pujar les subscripcions per al dispositiu %1"
 
 #: sync/syncjob.cpp:67
 #, kde-format
@@ -1931,7 +1931,7 @@ msgstr ""
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "No s'han pogut pujar al servidor els canvis de subscripció"
+msgstr "No han pogut pujar al servidor els canvis de subscripció"
 
 #: sync/syncjob.cpp:73
 #, kde-format
