@@ -10,8 +10,9 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Addons
+import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.kirigami.delegates as Delegates
 
 import org.kde.kasts
 
@@ -77,12 +78,10 @@ Addons.SearchPopupField {
 
         model: globalSearchField.searchFilter === "" ? null : proxyModel
 
-        delegate: Delegates.RoundedItemDelegate {
-            id: searchListDelegate
-            text: model.entry.title
-            icon.source: model.entry.cachedImage
-            contentItem: Delegates.SubtitleContentItem {
-                itemDelegate: searchListDelegate
+        delegate: AddonDelegates.RoundedItemDelegate {
+            contentItem: Delegates.IconTitleSubtitle {
+                icon.source: model.entry.cachedImage
+                title: model.entry.title
                 subtitle: model.entry.feed.name
             }
             onClicked: {
@@ -90,6 +89,7 @@ Addons.SearchPopupField {
                 globalSearchField.popup.close();
             }
         }
+
         Kirigami.PlaceholderMessage {
             id: loadingPlaceholder
             anchors.fill: parent
