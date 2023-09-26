@@ -9,12 +9,13 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kmediasession
 
 import org.kde.kasts
 
 
-Kirigami.BasicListItem {
+Delegates.RoundedItemDelegate {
     id: root
 
     property var entry: undefined
@@ -23,34 +24,32 @@ Kirigami.BasicListItem {
     property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
 
     text: model.title
-    subtitle: model.formattedStart
-    separatorVisible: true
+    icon.source: model.chapter.cachedImage
 
-    leading: ImageWithFallback {
-        imageSource: model.chapter.cachedImage
-        height: parent.height
-        width: height
-        fractionalRadius: 1.0 / 8.0
-    }
-
-    trailing: Controls.ToolButton {
-        icon.name: streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
-        text: i18n("Play")
-        enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
-        display: Controls.Button.IconOnly
-        onClicked: {
-            if (!entry.queueStatus) {
-                entry.queueStatus = true;
-            }
-            if (AudioManager.entry != entry) {
-                AudioManager.entry = entry;
-            }
-            if (AudioManager.playbackState !== KMediaSession.PlayingState) {
-                AudioManager.play();
-            }
-            AudioManager.position = start * 1000;
-            if (overlay != undefined) {
-                overlay.close();
+    contentItem: RowLayout {
+        Delegates.SubtitleContentItem {
+            itemDelegate: root
+            subtitle: model.formattedStart
+        }
+        Controls.ToolButton {
+            icon.name: streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
+            text: i18n("Play")
+            enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
+            display: Controls.Button.IconOnly
+            onClicked: {
+                if (!entry.queueStatus) {
+                    entry.queueStatus = true;
+                }
+                if (AudioManager.entry != entry) {
+                    AudioManager.entry = entry;
+                }
+                if (AudioManager.playbackState !== KMediaSession.PlayingState) {
+                    AudioManager.play();
+                }
+                AudioManager.position = start * 1000;
+                if (overlay != undefined) {
+                    overlay.close();
+                }
             }
         }
     }
