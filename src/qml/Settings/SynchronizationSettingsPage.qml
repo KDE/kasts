@@ -10,6 +10,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.kasts
@@ -242,13 +243,15 @@ Kirigami.ScrollablePage {
                                         "icon": "kaccounts-nextcloud",
                                         "provider": Sync.GPodderNextcloud});
                 }
-                delegate: Kirigami.BasicListItem {
+                delegate: Delegates.RoundedItemDelegate {
+                    id: syncProviderRepeaterDelegate
                     Layout.fillWidth: true
-                    label: model.name
-                    subtitle: model.subtitle
+                    text: model.name
                     icon.name: model.icon
-                    //highlighted: false
-                    iconSize: Kirigami.Units.gridUnit * 3
+                    contentItem: Delegates.SubtitleContentItem {
+                        itemDelegate: syncProviderRepeaterDelegate
+                        subtitle: model.subtitle
+                    }
                     Keys.onReturnPressed: clicked()
                     onClicked: {
                         Sync.provider = model.provider;
@@ -455,10 +458,9 @@ Kirigami.ScrollablePage {
                     id: deviceListModel
                 }
 
-                delegate: Kirigami.BasicListItem {
-                    label: model.device.caption
-                    highlighted: false
-                    icon: model.device.type == "desktop" ? "computer" :
+                delegate: Delegates.RoundedItemDelegate {
+                    text: model.device.caption
+                    icon.name: model.device.type == "desktop" ? "computer" :
                         model.device.type == "laptop" ? "computer-laptop" :
                         model.device.type == "server" ? "network-server-database" :
                         model.device.type == "mobile" ? "smartphone" :
