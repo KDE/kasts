@@ -301,6 +301,49 @@ FocusScope {
                             to: 100
                             value: AudioManager.volume
                             onMoved: AudioManager.volume = value
+
+                            onPressedChanged: {
+                                tooltip.delay = pressed ? 0 : Kirigami.Units.toolTipDelay
+                            }
+
+                            readonly property int wheelEffect: 5
+
+                            Controls.ToolTip {
+                                id: tooltip
+                                x: volumeSliderVertical.x - volumeSliderVertical.width / 2 - width
+                                y: volumeSliderVertical.visualPosition * volumeSliderVertical.height - height / 2
+                                visible: volumeSliderVertical.pressed || sliderMouseArea.containsMouse
+                                // delay is actually handled in volumeSliderVertical.onPressedChanged, because property bindings aren't immediate
+                                delay: volumeSliderVertical.pressed ? 0 : Kirigami.Units.toolTipDelay
+                                closePolicy: Controls.Popup.NoAutoClose
+                                timeout: -1
+                                text: i18nc("Volume as a percentage", "%1%", Math.round(volumeSliderVertical.value))
+                            }
+
+                            MouseArea {
+                                id: sliderMouseArea
+                                anchors.fill: parent
+                                acceptedButtons: Qt.NoButton
+                                hoverEnabled: true
+                                onWheel: (wheel) => {
+                                    // Can't use Slider's built-in increase() and decrease() functions here
+                                    // since they go in increments of 0.1 when the slider's stepSize is not
+                                    // defined, which is much too slow. And we don't define a stepSize for
+                                    // the slider because if we do, it gets gets tickmarks which look ugly.
+                                    if (wheel.angleDelta.y > 0) {
+                                        // Increase volume
+                                        volumeSliderVertical.value = Math.min(volumeSliderVertical.to,
+                                            volumeSliderVertical.value + volumeSliderVertical.wheelEffect);
+                                        AudioManager.volume = volumeSliderVertical.value
+
+                                    } else {
+                                        // Decrease volume
+                                        volumeSliderVertical.value = Math.max(volumeSliderVertical.from,
+                                            volumeSliderVertical.value - volumeSliderVertical.wheelEffect);
+                                        AudioManager.volume = volumeSliderVertical.value
+                                    }
+                                }
+                            }
                         }
 
                         Controls.ToolButton {
