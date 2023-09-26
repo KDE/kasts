@@ -9,6 +9,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.kasts
 
@@ -72,7 +73,7 @@ Kirigami.Dialog {
             opacity: 0.5
         }
 
-        Kirigami.BasicListItem {
+        Delegates.RoundedItemDelegate {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -85,7 +86,7 @@ Kirigami.Dialog {
             }
         }
 
-        Kirigami.BasicListItem {
+        Delegates.RoundedItemDelegate {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -98,7 +99,7 @@ Kirigami.Dialog {
             }
         }
 
-        Kirigami.BasicListItem {
+        Delegates.RoundedItemDelegate {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
