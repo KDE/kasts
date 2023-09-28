@@ -266,8 +266,9 @@ Kirigami.ScrollablePage {
         ListView {
             visible: count !== 0
             Layout.fillWidth: true
-            height: contentHeight
+            implicitHeight: contentHeight
             interactive: false
+            currentIndex: -1
             Layout.leftMargin: Kirigami.Units.gridUnit
             Layout.rightMargin: Kirigami.Units.gridUnit
             Layout.bottomMargin: Kirigami.Units.gridUnit

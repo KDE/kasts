@@ -448,8 +448,6 @@ FocusScope {
 
     Kirigami.Dialog {
         id: chapterOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 30
-        preferredHeight: Kirigami.Units.gridUnit * 25
 
         showCloseButton: false
 
@@ -457,6 +455,12 @@ FocusScope {
 
         ListView {
             id: chapterList
+
+            currentIndex: -1
+
+            implicitWidth: Kirigami.Units.gridUnit * 30
+            implicitHeight: Kirigami.Units.gridUnit * 25
+
             model: chapterModel
             delegate: ChapterListDelegate {
                 id: chapterDelegate
