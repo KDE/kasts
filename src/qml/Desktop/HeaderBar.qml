@@ -227,7 +227,7 @@ FocusScope {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        onHandlePositionChanged: {
+        onHandlePositionChanged: (y, offset) => {
             handlePosition = Math.max(0, Math.min(headerBar.maximumHeight, headerBar.height - implicitHeight - offset + y));
             settings.headerSize = handlePosition;
         }

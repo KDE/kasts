@@ -287,7 +287,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Keys.onPressed: {
+        Keys.onPressed: (event) => {
             if (event.matches(StandardKey.SelectAll)) {
                 feedList.selectionModel.select(model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
                 return;

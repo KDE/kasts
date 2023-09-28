@@ -73,7 +73,7 @@ Kirigami.SwipeListItem {
         implicitWidth: rowLayout.implicitWidth
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: {
+        onClicked: (mouse) => {
             // Keep track of (currently) selected items
             var modelIndex = listItem.listView.model.index(index, 0);
 

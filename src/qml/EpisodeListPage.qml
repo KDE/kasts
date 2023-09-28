@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Keys.onPressed: {
+    Keys.onPressed: (event) => {
         if (event.matches(StandardKey.Find)) {
             searchActionButton.checked = true;
         }

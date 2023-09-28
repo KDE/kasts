@@ -28,7 +28,7 @@ Kirigami.ScrollablePage {
 
     title: i18n("Podcast Details")
 
-    Keys.onPressed: {
+    Keys.onPressed: (event) => {
         if (event.matches(StandardKey.Find)) {
             searchActionButton.checked = true;
         }

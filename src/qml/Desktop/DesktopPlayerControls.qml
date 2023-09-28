@@ -44,11 +44,11 @@ FocusScope {
 
           cursorShape: Qt.SizeVerCursor
 
-          onPressed: {
+          onPressed: (mouse) => {
             dragStartOffset = mouse.y
           }
 
-          onPositionChanged: {
+          onPositionChanged: (mouse) => {
             desktopPlayerControls.handlePositionChanged(mouse.y, dragStartOffset)
           }
 
