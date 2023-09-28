@@ -101,7 +101,7 @@ Controls.ItemDelegate {
         implicitHeight: cardSize  - 2 * borderWidth
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: {
+        onClicked: (mouse) => {
             // Keep track of (currently) selected items
             var modelIndex = feedDelegate.listView.model.index(index, 0);
 

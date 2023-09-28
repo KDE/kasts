@@ -131,7 +131,7 @@ Kirigami.SwipeListItem {
                 Kirigami.ListItemDragHandle {
                     listItem: loaderListItem
                     listView: loaderListView
-                    onMoveRequested: {
+                    onMoveRequested: (oldIndex, newIndex) => {
                         DataManager.moveQueueItem(oldIndex, newIndex);
                         // reset current selection when moving items
                         var modelIndex = listItem.listView.model.index(newIndex, 0);

@@ -40,7 +40,7 @@ Controls.Menu {
         }
 
         onObjectAdded: (index, object) => playbackRateMenu.insertItem(index, object)
-        onObjectRemoved: (object) => playbackRateMenu.removeItem(object)
+        onObjectRemoved: (index, object) => playbackRateMenu.removeItem(object)
     }
 
     Controls.MenuSeparator {
