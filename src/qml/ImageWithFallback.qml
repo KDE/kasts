@@ -16,7 +16,7 @@ import org.kde.kasts
 
 Item {
     id: root
-    property string imageSource: ""
+    property string imageSource: "no-image"
     property real imageOpacity: 1
     property int absoluteRadius: 0
     property real fractionalRadius: 0.0
@@ -29,7 +29,7 @@ Item {
     Loader {
         id: imageLoader
         anchors.fill: parent
-        sourceComponent: imageSource === "no-image" ? fallbackImg : (imageSource === "fetching" ? loaderSymbol : realImg )
+        sourceComponent: (imageSource === "no-image" || imageSource === "") ? fallbackImg : (imageSource === "fetching" ? loaderSymbol : realImg )
         opacity: root.imageOpacity
         layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
         layer.effect: OpacityMask {
