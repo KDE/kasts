@@ -293,7 +293,9 @@ Kirigami.ScrollablePage {
                             selectByMouse: !Kirigami.Settings.isMobile
                             textFormat:TextEdit.RichText
                             text: "<a href='%1'>%1</a>".arg(feed.link)
-                            onLinkActivated: Qt.openUrlExternally(link)
+                            onLinkActivated: (link) => {
+                                Qt.openUrlExternally(link);
+                            }
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                             color: Kirigami.Theme.textColor

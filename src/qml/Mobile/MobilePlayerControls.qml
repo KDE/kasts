@@ -194,7 +194,7 @@ Kirigami.Page {
                             onLinkHovered: {
                                 cursorShape: Qt.PointingHandCursor;
                             }
-                            onLinkActivated: {
+                            onLinkActivated: (link) => {
                                 if (link.split("://")[0] === "timestamp") {
                                     if (AudioManager.entry && AudioManager.entry.enclosure) {
                                         AudioManager.seek(link.split("://")[1]);

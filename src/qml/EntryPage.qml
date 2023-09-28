@@ -241,7 +241,7 @@ Kirigami.ScrollablePage {
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
             color: Kirigami.Theme.textColor
 
-            onLinkActivated: {
+            onLinkActivated: (link) => {
                 if (link.split("://")[0] === "timestamp") {
                     if (AudioManager.entry && AudioManager.entry.enclosure && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || SettingsManager.prioritizeStreaming)) {
                         if (AudioManager.entry !== entry) {

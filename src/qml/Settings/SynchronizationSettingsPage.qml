@@ -308,7 +308,9 @@ Kirigami.ScrollablePage {
                         readOnly: true
                         wrapMode: Text.WordWrap
                         textFormat: Text.RichText
-                        onLinkActivated: Qt.openUrlExternally(link)
+                        onLinkActivated: (link) => {
+                            Qt.openUrlExternally(link);
+                        }
                         text: Sync.provider === Sync.GPodderNextcloud ?
                             i18nc("argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials." , "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") :
                             i18nc("argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
