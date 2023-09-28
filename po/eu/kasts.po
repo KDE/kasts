@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:53+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-08-16 18:49+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -112,7 +112,7 @@ msgstr "EDO"
 msgid "Open"
 msgstr "Ireki"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -348,29 +348,29 @@ msgstr "URL:"
 msgid "Add Podcast"
 msgstr "Gehitu podcasta"
 
-#: qml/ConnectionCheckAction.qml:20
+#: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
 "Podcast eguneratzeak, une honetan, ez daude baimenduta tarifatutako "
 "konexioetan"
 
-#: qml/ConnectionCheckAction.qml:54
+#: qml/ConnectionCheckAction.qml:55
 #, kde-format
 msgid "Select Option"
 msgstr "Hautatu aukera"
 
-#: qml/ConnectionCheckAction.qml:81
+#: qml/ConnectionCheckAction.qml:82
 #, kde-format
 msgid "Don't Allow"
 msgstr "Ez baimendu"
 
-#: qml/ConnectionCheckAction.qml:94
+#: qml/ConnectionCheckAction.qml:95
 #, kde-format
 msgid "Allow Once"
 msgstr "Baimendu behin"
 
-#: qml/ConnectionCheckAction.qml:107
+#: qml/ConnectionCheckAction.qml:108
 #, kde-format
 msgid "Always Allow"
 msgstr "Baimendu beti"
@@ -420,49 +420,55 @@ msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Ireki bolumenaren ezarpenak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:320
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Txandakatu isilaraztea"
 
-#: qml/Desktop/DesktopPlayerControls.qml:331
+#: qml/Desktop/DesktopPlayerControls.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Erakutsi gehiago"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:404
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Atalak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:369
+#: qml/Desktop/DesktopPlayerControls.qml:412
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Erakutsi informazioa"
 
-#: qml/Desktop/DesktopPlayerControls.qml:379
+#: qml/Desktop/DesktopPlayerControls.qml:422
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Lokartzeko tenporizadorea"
 
-#: qml/Desktop/DesktopPlayerControls.qml:413
+#: qml/Desktop/DesktopPlayerControls.qml:456
 #, kde-format
 msgid "Chapters"
 msgstr "Atalak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Pistaren titulurik ez"
 
-#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -1025,25 +1031,25 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Ezabatu zama-jaitsiera"
 msgstr[1] "Ezabatu zama-jaitsierak"
 
-#: qml/GlobalSearchField.qml:96
+#: qml/GlobalSearchField.qml:98
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Ez dago bilaketaren emaitzarik"
 
-#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
+#: qml/GlobalSearchField.qml:105 qml/SearchBar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Bilaketa aukera aurreratuak"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:113
+#: qml/GlobalSearchField.qml:139 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Bilaketa hobespenak"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:117
+#: qml/GlobalSearchField.qml:143 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1494,102 +1500,102 @@ msgstr "Irudien cachea"
 msgid "Clear Cache"
 msgstr "Garbitu cachea"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:31
+#: qml/Settings/SynchronizationSettingsPage.qml:32
 #, kde-format
 msgid "Account"
 msgstr "Kontua"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:32
+#: qml/Settings/SynchronizationSettingsPage.qml:33
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "\"%1\" kontuan \"%2\" zerbitzarian saio-hasita"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:32
+#: qml/Settings/SynchronizationSettingsPage.qml:33
 #, kde-format
 msgid "Syncing disabled"
 msgstr "Sinkronizatzea ezgaituta"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:35
+#: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgid "Logout"
 msgstr "Saio-itxi"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:35
+#: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgid "Login"
 msgstr "Saio-hasi"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:46
+#: qml/Settings/SynchronizationSettingsPage.qml:47
 #, kde-format
 msgid "Manually sync"
 msgstr "Eskuz sinkronizatu"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:49
+#: qml/Settings/SynchronizationSettingsPage.qml:50
 #, kde-format
 msgid "Sync Now"
 msgstr "Sinkronizatu orain"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:61
+#: qml/Settings/SynchronizationSettingsPage.qml:62
 #, kde-format
 msgid "Last full sync with server"
 msgstr "Zerbitzariarekin azken sinkronizazio osoa"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:69
+#: qml/Settings/SynchronizationSettingsPage.qml:70
 #, kde-format
 msgid "Last quick upload to sync server"
 msgstr "Sinkronizatzeko zerbitzarira azken zama-igotze azkarra"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:75
+#: qml/Settings/SynchronizationSettingsPage.qml:76
 #, kde-format
 msgid "Automatic syncing"
 msgstr "Sinkronizazio automatikoa"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:85
+#: qml/Settings/SynchronizationSettingsPage.qml:86
 #, kde-format
 msgid "Do full sync on startup"
 msgstr "Egin sinkronizazio osoa abioan"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:95
+#: qml/Settings/SynchronizationSettingsPage.qml:96
 #, kde-format
 msgid "Do full sync when fetching podcasts"
 msgstr "Egin sinkronizazio osoa podcastak ekartzerakoan"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:105
+#: qml/Settings/SynchronizationSettingsPage.qml:106
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr "Zama-igo ataleko jotze-kokalekuak jotzea/etenaldia txandakatzean"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:114
+#: qml/Settings/SynchronizationSettingsPage.qml:115
 #, kde-format
 msgid "Advanced options"
 msgstr "Aukera aurreratuak"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:123
+#: qml/Settings/SynchronizationSettingsPage.qml:124
 #, kde-format
 msgid "Fetch all episode states from server"
 msgstr "Ekarri zerbitzaritik atal guztien egoera"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:126
+#: qml/Settings/SynchronizationSettingsPage.qml:127
 #, kde-format
 msgid "Fetch"
 msgstr "Ekarri"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:138
+#: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Push all local episode states to server"
 msgstr "Bultzatu zerbitzarira atalen egoera lokal guztiak"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:142
+#: qml/Settings/SynchronizationSettingsPage.qml:143
 #, kde-format
 msgid "Push"
 msgstr "Bultzatu"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:180
+#: qml/Settings/SynchronizationSettingsPage.qml:181
 #, kde-format
 msgid "Push all local episode states to server?"
 msgstr "Zerbitzarira atalen egoera lokala guztiak bultzatu?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:200
+#: qml/Settings/SynchronizationSettingsPage.qml:201
 #, kde-format
 msgid ""
 "Please note that pushing the playback state of all local episodes to the "
@@ -1606,47 +1612,47 @@ msgstr ""
 "\n"
 "Jarraitu?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:224
+#: qml/Settings/SynchronizationSettingsPage.qml:225
 #, kde-format
 msgid "Select Sync Provider"
 msgstr "Hautatu sinkronizazio hornitzailearekin"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:236
+#: qml/Settings/SynchronizationSettingsPage.qml:237
 #, kde-format
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:237
+#: qml/Settings/SynchronizationSettingsPage.qml:238
 #, kde-format
 msgid "Synchronize with official gpodder.net server"
 msgstr "Sinkronizatu «gpodder.net» zerbitzari ofizialarekin"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:240
+#: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:241
+#: qml/Settings/SynchronizationSettingsPage.qml:242
 #, kde-format
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Sinkronizatu «GPodder Nextcloud» aplikazioarekin"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:272
+#: qml/Settings/SynchronizationSettingsPage.qml:275
 #, kde-format
 msgid "Sync Login Credentials"
 msgstr "Sinkronizatu saio-haseko egiaztagiriak"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:301
+#: qml/Settings/SynchronizationSettingsPage.qml:304
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Sinkronizatu «GPodder Nextcloud» aplikazioarekin"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:301
+#: qml/Settings/SynchronizationSettingsPage.qml:304
 #, kde-format
 msgid "Sync with gpodder.net service"
 msgstr "Sinkronizatu «gpodder.net» zerbitzuarekin"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:313
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1659,100 +1665,100 @@ msgstr ""
 "interfazearen bidez, eskuz, pasahitz bat sortzea eta egiaztagiri haiek "
 "erabiltzea gomendatzen da."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:311
+#: qml/Settings/SynchronizationSettingsPage.qml:314
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 "Dagoeneko konturik ez baduzu, aurrena bat sortu beharko zenuke, hemen, %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:323
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgid "Username:"
 msgstr "Erabiltzaile-izena:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:334
+#: qml/Settings/SynchronizationSettingsPage.qml:337
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:349
+#: qml/Settings/SynchronizationSettingsPage.qml:352
 #, kde-format
 msgid "Use custom server"
 msgstr "Erabili neurrira finkatutako zerbitzaria"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:354
+#: qml/Settings/SynchronizationSettingsPage.qml:357
 #, kde-format
 msgid "Hostname:"
 msgstr "Ostalari-izena:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:388
+#: qml/Settings/SynchronizationSettingsPage.qml:391
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Sinkronizatu gailuaren ezarpenak"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:394
+#: qml/Settings/SynchronizationSettingsPage.qml:397
 #, kde-format
 msgid "Create a new device"
 msgstr "Sortu gailu berri bat"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:400
+#: qml/Settings/SynchronizationSettingsPage.qml:403
 #, kde-format
 msgid "Device Name:"
 msgstr "Gailuaren izena:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:410
+#: qml/Settings/SynchronizationSettingsPage.qml:413
 #, kde-format
 msgid "Device Description:"
 msgstr "Gailuaren deskribapena:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:422
 #, kde-format
 msgid "Device Type:"
 msgstr "Gailu mota:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:426
+#: qml/Settings/SynchronizationSettingsPage.qml:429
 #, kde-format
 msgid "other"
 msgstr "bestelakoa"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:427
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgid "desktop"
 msgstr "mahaigaina"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:428
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "laptop"
 msgstr "magalekoa"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "server"
 msgstr "zerbitzaria"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "mobile"
 msgstr "mugikorra"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:438
 #, kde-format
 msgid "Create Device"
 msgstr "Sortu gailua"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:452
+#: qml/Settings/SynchronizationSettingsPage.qml:455
 #, kde-format
 msgid "or select an existing device"
 msgstr "edo hautatu dagoen gailu bat"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:501
+#: qml/Settings/SynchronizationSettingsPage.qml:503
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Gailua sinkronizatzeko ezarpenak"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:523
+#: qml/Settings/SynchronizationSettingsPage.qml:525
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1763,12 +1769,12 @@ msgstr ""
 "sinkronizatu beharko lirateke?\n"
 "Horrek zer esan nahi duen ez badakizu, \"Ados\" hautatu behar zenuke."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:545
+#: qml/Settings/SynchronizationSettingsPage.qml:547
 #, kde-format
 msgid "Sync Now?"
 msgstr "Orain sinkronizatu?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:565
+#: qml/Settings/SynchronizationSettingsPage.qml:567
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Orain lehen sinkronizatze bat gauzatu?"

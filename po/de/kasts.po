@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-15 01:53+0000\n"
+"POT-Creation-Date: 2023-09-28 01:40+0000\n"
 "PO-Revision-Date: 2023-06-12 00:16+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -123,7 +123,7 @@ msgstr "ODER"
 msgid "Open"
 msgstr "Öffnen"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -379,27 +379,27 @@ msgstr "Url:"
 msgid "Add Podcast"
 msgstr "Podcast hinzufügen"
 
-#: qml/ConnectionCheckAction.qml:20
+#: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Aktualisierungen sind über getaktete Verbindungen nicht erlaubt"
 
-#: qml/ConnectionCheckAction.qml:54
+#: qml/ConnectionCheckAction.qml:55
 #, kde-format
 msgid "Select Option"
 msgstr "Option auswählen"
 
-#: qml/ConnectionCheckAction.qml:81
+#: qml/ConnectionCheckAction.qml:82
 #, kde-format
 msgid "Don't Allow"
 msgstr "Nicht zulassen"
 
-#: qml/ConnectionCheckAction.qml:94
+#: qml/ConnectionCheckAction.qml:95
 #, kde-format
 msgid "Allow Once"
 msgstr "Einmal zulassen"
 
-#: qml/ConnectionCheckAction.qml:107
+#: qml/ConnectionCheckAction.qml:108
 #, kde-format
 msgid "Always Allow"
 msgstr "Immer zulassen"
@@ -459,7 +459,13 @@ msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Allgemeine Einstellungen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:320
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr ""
+
+#: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -468,7 +474,7 @@ msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Stummschaltung an/aus"
 
-#: qml/Desktop/DesktopPlayerControls.qml:331
+#: qml/Desktop/DesktopPlayerControls.qml:374
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show More"
@@ -476,36 +482,36 @@ msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mehr anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:404
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:369
+#: qml/Desktop/DesktopPlayerControls.qml:412
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Informationen anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:379
+#: qml/Desktop/DesktopPlayerControls.qml:422
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:413
+#: qml/Desktop/DesktopPlayerControls.qml:456
 #, kde-format
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Kein Stücktitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, fuzzy, kde-format
 #| msgid "No Track Loaded"
@@ -1089,7 +1095,7 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Download löschen"
 msgstr[1] "Downloads löschen"
 
-#: qml/GlobalSearchField.qml:96
+#: qml/GlobalSearchField.qml:98
 #, fuzzy, kde-format
 #| msgctxt "@info Placeholder text in search box"
 #| msgid "No Search Results"
@@ -1097,19 +1103,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Keine Suchergebnisse"
 
-#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
+#: qml/GlobalSearchField.qml:105 qml/SearchBar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Erweiterte Such-Einstellungen"
 
-#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:113
+#: qml/GlobalSearchField.qml:139 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Such-Einstellungen"
 
-#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:117
+#: qml/GlobalSearchField.qml:143 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1580,109 +1586,109 @@ msgstr "Bildzwischenspeicher"
 msgid "Clear Cache"
 msgstr "Zwischenspeicher leeren"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:31
+#: qml/Settings/SynchronizationSettingsPage.qml:32
 #, kde-format
 msgid "Account"
 msgstr "Zugang"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:32
+#: qml/Settings/SynchronizationSettingsPage.qml:33
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "In Konto „%1“ auf Server „%2“ angemeldet"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:32
+#: qml/Settings/SynchronizationSettingsPage.qml:33
 #, kde-format
 msgid "Syncing disabled"
 msgstr "Abgleich deaktiviert"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:35
+#: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgid "Logout"
 msgstr "Abmelden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:35
+#: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgid "Login"
 msgstr "Anmelden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:46
+#: qml/Settings/SynchronizationSettingsPage.qml:47
 #, kde-format
 msgid "Manually sync"
 msgstr "Manueller Abgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:49
+#: qml/Settings/SynchronizationSettingsPage.qml:50
 #, kde-format
 msgid "Sync Now"
 msgstr "Jetzt abgleichen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:61
+#: qml/Settings/SynchronizationSettingsPage.qml:62
 #, fuzzy, kde-format
 #| msgid "Last full sync with server:"
 msgid "Last full sync with server"
 msgstr "Letzter vollständiger Abgleich mit dem Server:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:69
+#: qml/Settings/SynchronizationSettingsPage.qml:70
 #, fuzzy, kde-format
 #| msgid "Last quick upload to sync server:"
 msgid "Last quick upload to sync server"
 msgstr "Letzter Schnellupload zum Abgleichserver:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:75
+#: qml/Settings/SynchronizationSettingsPage.qml:76
 #, kde-format
 msgid "Automatic syncing"
 msgstr "Automatischer Abgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:85
+#: qml/Settings/SynchronizationSettingsPage.qml:86
 #, kde-format
 msgid "Do full sync on startup"
 msgstr "Vollständigen Abgleich beim Start durchführen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:95
+#: qml/Settings/SynchronizationSettingsPage.qml:96
 #, kde-format
 msgid "Do full sync when fetching podcasts"
 msgstr "Vollständigen Abgleich beim Abholen der Podcasts durchführen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:105
+#: qml/Settings/SynchronizationSettingsPage.qml:106
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
 "Abspielposition der Episode beim Umschalten zwischen Wiedergabe und Pause "
 "hochladen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:114
+#: qml/Settings/SynchronizationSettingsPage.qml:115
 #, kde-format
 msgid "Advanced options"
 msgstr "Erweiterte Einstellungen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:123
+#: qml/Settings/SynchronizationSettingsPage.qml:124
 #, fuzzy, kde-format
 #| msgid "Could not retrieve episode updates from server"
 msgid "Fetch all episode states from server"
 msgstr "Episoden-Aktualisierungen können nicht vom Server geholt werden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:126
+#: qml/Settings/SynchronizationSettingsPage.qml:127
 #, kde-format
 msgid "Fetch"
 msgstr "Abholen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:138
+#: qml/Settings/SynchronizationSettingsPage.qml:139
 #, fuzzy, kde-format
 #| msgid "Could not upload episode updates to server"
 msgid "Push all local episode states to server"
 msgstr "Episoden-Aktualisierungen können nicht zum Server hochgeladen werden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:142
+#: qml/Settings/SynchronizationSettingsPage.qml:143
 #, kde-format
 msgid "Push"
 msgstr "Übertragen (Push)"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:180
+#: qml/Settings/SynchronizationSettingsPage.qml:181
 #, fuzzy, kde-format
 #| msgid "Could not upload episode updates to server"
 msgid "Push all local episode states to server?"
 msgstr "Episoden-Aktualisierungen können nicht zum Server hochgeladen werden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:200
+#: qml/Settings/SynchronizationSettingsPage.qml:201
 #, kde-format
 msgid ""
 "Please note that pushing the playback state of all local episodes to the "
@@ -1693,47 +1699,47 @@ msgid ""
 "Continue?"
 msgstr ""
 
-#: qml/Settings/SynchronizationSettingsPage.qml:224
+#: qml/Settings/SynchronizationSettingsPage.qml:225
 #, kde-format
 msgid "Select Sync Provider"
 msgstr "Abgleichanbieter auswählen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:236
+#: qml/Settings/SynchronizationSettingsPage.qml:237
 #, kde-format
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:237
+#: qml/Settings/SynchronizationSettingsPage.qml:238
 #, kde-format
 msgid "Synchronize with official gpodder.net server"
 msgstr "Abgleich über offiziellen gpodder.net-Server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:240
+#: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:241
+#: qml/Settings/SynchronizationSettingsPage.qml:242
 #, kde-format
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Abgleich über GPodder-Nextcloud-App"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:272
+#: qml/Settings/SynchronizationSettingsPage.qml:275
 #, kde-format
 msgid "Sync Login Credentials"
 msgstr "Anmeldedaten für Abgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:301
+#: qml/Settings/SynchronizationSettingsPage.qml:304
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Mittels GPodder-Nextcloud-App abgleichen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:301
+#: qml/Settings/SynchronizationSettingsPage.qml:304
 #, kde-format
 msgid "Sync with gpodder.net service"
 msgstr "Mittels gpodder.net-Dienst abgleichen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:313
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1745,100 +1751,100 @@ msgstr ""
 "hat: %1.<br/>Es wird empfohlen, in der Web-Oberfläche ein Anwendungspasswort "
 "für Kasts einzurichten und zur Anmeldung zu nutzen."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:311
+#: qml/Settings/SynchronizationSettingsPage.qml:314
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 "Wenn Sie noch kein Konto haben, erstellen Sie sich zuerst eines unter %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:323
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:334
+#: qml/Settings/SynchronizationSettingsPage.qml:337
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Passwort:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:349
+#: qml/Settings/SynchronizationSettingsPage.qml:352
 #, kde-format
 msgid "Use custom server"
 msgstr "Benutzerdefinierten Server verwenden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:354
+#: qml/Settings/SynchronizationSettingsPage.qml:357
 #, kde-format
 msgid "Hostname:"
 msgstr "Rechnername:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:388
+#: qml/Settings/SynchronizationSettingsPage.qml:391
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Einstellungen zum Geräteabgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:394
+#: qml/Settings/SynchronizationSettingsPage.qml:397
 #, kde-format
 msgid "Create a new device"
 msgstr "Ein neues Gerät anlegen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:400
+#: qml/Settings/SynchronizationSettingsPage.qml:403
 #, kde-format
 msgid "Device Name:"
 msgstr "Gerätename:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:410
+#: qml/Settings/SynchronizationSettingsPage.qml:413
 #, kde-format
 msgid "Device Description:"
 msgstr "Gerätebeschreibung:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:422
 #, kde-format
 msgid "Device Type:"
 msgstr "Gerätetyp:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:426
+#: qml/Settings/SynchronizationSettingsPage.qml:429
 #, kde-format
 msgid "other"
 msgstr "Andere"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:427
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgid "desktop"
 msgstr "Desktop-Rechner"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:428
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "laptop"
 msgstr "Notebook"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "server"
 msgstr "Server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "mobile"
 msgstr "Mobilgerät"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:438
 #, kde-format
 msgid "Create Device"
 msgstr "Gerät anlegen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:452
+#: qml/Settings/SynchronizationSettingsPage.qml:455
 #, kde-format
 msgid "or select an existing device"
 msgstr "Oder ein bestehendes Gerät auswählen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:501
+#: qml/Settings/SynchronizationSettingsPage.qml:503
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Einstellungen zum Geräteabgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:523
+#: qml/Settings/SynchronizationSettingsPage.qml:525
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1850,12 +1856,12 @@ msgstr ""
 "Falls Sie nicht wissen, was das bedeutet, sollten Sie wahrscheinlich „OK“ "
 "wählen."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:545
+#: qml/Settings/SynchronizationSettingsPage.qml:547
 #, kde-format
 msgid "Sync Now?"
 msgstr "Jetzt abgleichen?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:565
+#: qml/Settings/SynchronizationSettingsPage.qml:567
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Jetzt einen ersten Abgleich durchführen?"
