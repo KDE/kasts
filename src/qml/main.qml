@@ -8,7 +8,7 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import Qt.labs.settings
+import QtCore
 import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
