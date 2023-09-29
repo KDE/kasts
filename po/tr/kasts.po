@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
-"PO-Revision-Date: 2023-09-12 01:41+0300\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"PO-Revision-Date: 2023-09-28 10:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,7 +112,7 @@ msgstr "VEYA"
 msgid "Open"
 msgstr "Aç"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -423,7 +423,7 @@ msgstr "Ses düzeyi ayarlarını aç"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%​%1"
 
 #: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -456,18 +456,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Uyku Sayacı"
 
-#: qml/Desktop/DesktopPlayerControls.qml:456
+#: qml/Desktop/DesktopPlayerControls.qml:454
 #, kde-format
 msgid "Chapters"
 msgstr "Fasıllar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Parça Başlığı Yok"
 
-#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -642,13 +642,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Pod Yayını Aç"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Bölüm İndirme URL'sini Kopyala"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:295
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -666,7 +666,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Ara"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:359
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Kullanılabilir bölüm yok"
@@ -730,31 +730,31 @@ msgstr "Pod Yayını URL'si:"
 msgid "Weblink:"
 msgstr "Web bağlantısı:"
 
-#: qml/FeedDetailsPage.qml:311
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonelik tarihi: %1"
 
-#: qml/FeedDetailsPage.qml:324
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Son güncelleme: %1"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Çalınmayan"
 msgstr[1] "%1 Çalınmayan"
 
-#: qml/FeedDetailsPage.qml:359
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Hata (%1): %2"
@@ -1651,7 +1651,7 @@ msgstr "GPodder Nextcloud uygulamasıyla eşzamanla"
 msgid "Sync with gpodder.net service"
 msgstr "gpodder.net hizmetiyle eşzamanla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:313
+#: qml/Settings/SynchronizationSettingsPage.qml:315
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1663,99 +1663,99 @@ msgstr ""
 ">Web arabiriminden Kastlar'a özel bir uygulama parolası oluşturulması ve "
 "onun kullanılması önerilir."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:314
+#: qml/Settings/SynchronizationSettingsPage.qml:316
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Eğer bir hesabınız yoksa %1 adresinde bir tane oluşturmalısınız"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:326
+#: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:337
+#: qml/Settings/SynchronizationSettingsPage.qml:339
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:352
+#: qml/Settings/SynchronizationSettingsPage.qml:354
 #, kde-format
 msgid "Use custom server"
 msgstr "Özel sunucu kullan"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:357
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgid "Hostname:"
 msgstr "Makine adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Eşzamanlama Aygıt Ayarları"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:399
 #, kde-format
 msgid "Create a new device"
 msgstr "Yeni bir aygıt oluştur"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Device Name:"
 msgstr "Aygıt Adı:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:413
+#: qml/Settings/SynchronizationSettingsPage.qml:415
 #, kde-format
 msgid "Device Description:"
 msgstr "Aygıt Açıklaması:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgid "Device Type:"
 msgstr "Aygıt Türü:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "other"
 msgstr "diğer"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "desktop"
 msgstr "masaüstü"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:431
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "laptop"
 msgstr "dizüstü"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:432
+#: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
 msgid "server"
 msgstr "sunucu"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:433
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgid "mobile"
 msgstr "taşınabilir"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:438
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgid "Create Device"
 msgstr "Aygıt Oluştur"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:455
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgid "or select an existing device"
 msgstr "veya var olan bir aygıtı seç"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:503
+#: qml/Settings/SynchronizationSettingsPage.qml:505
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Aygıt Eşzamanlama Ayarları"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:525
+#: qml/Settings/SynchronizationSettingsPage.qml:527
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1766,12 +1766,12 @@ msgstr ""
 "eşzamanlansın mı?\n"
 "Bunun ne anlama geldiğini bilmiyorsanız \"Tamam\"ı seçmeniz yararlı olabilir."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:547
+#: qml/Settings/SynchronizationSettingsPage.qml:549
 #, kde-format
 msgid "Sync Now?"
 msgstr "Şimdi Eşzamanla?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:567
+#: qml/Settings/SynchronizationSettingsPage.qml:569
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "İlk eşzamanlama gerçekleştirilsin mi?"

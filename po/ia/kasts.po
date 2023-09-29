@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
-"PO-Revision-Date: 2023-09-20 17:21+0200\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"PO-Revision-Date: 2023-09-28 10:32+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -113,7 +113,7 @@ msgstr "OR"
 msgid "Open"
 msgstr "Aperi"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -425,7 +425,7 @@ msgstr "Aperi preferentias de volumine"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -458,18 +458,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Temporisator de dormir"
 
-#: qml/Desktop/DesktopPlayerControls.qml:456
+#: qml/Desktop/DesktopPlayerControls.qml:454
 #, kde-format
 msgid "Chapters"
 msgstr "Capitulos"
 
-#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Nulle Titulo de tracia"
 
-#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -644,13 +644,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Aperi Podcast"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Copia URL de Discargamento de Epidosio"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:295
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -668,7 +668,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Cerca"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:359
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Nulle episodio disponibile"
@@ -732,31 +732,31 @@ msgstr "URL de Podcast:"
 msgid "Weblink:"
 msgstr "Weblink (Ligamine de web):"
 
-#: qml/FeedDetailsPage.qml:311
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscribite depost : %1"
 
-#: qml/FeedDetailsPage.qml:324
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Ultime actualisation: %1"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Episodio"
 msgstr[1] "%1 Episodios"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 NonReproducite"
 msgstr[1] "%1 NonReproducite"
 
-#: qml/FeedDetailsPage.qml:359
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error: (%1): %2"
@@ -1655,7 +1655,7 @@ msgstr "Synchronisa con app de GPodder Nextcloud"
 msgid "Sync with gpodder.net service"
 msgstr "Synchronisa con servicio de gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:313
+#: qml/Settings/SynchronizationSettingsPage.qml:315
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1667,99 +1667,99 @@ msgstr ""
 "GPodder installate: %1.<br/> Il es consiliabile crear manualmente un "
 "contrasigno de app per Kasts per leinterfacie web e usar illos credentiales."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:314
+#: qml/Settings/SynchronizationSettingsPage.qml:316
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Si tu non ha ja un conto, tu prime deberea crear un a %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:326
+#: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgid "Username:"
 msgstr "Nomine de usator:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:337
+#: qml/Settings/SynchronizationSettingsPage.qml:339
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Contrasigno:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:352
+#: qml/Settings/SynchronizationSettingsPage.qml:354
 #, kde-format
 msgid "Use custom server"
 msgstr "Usa servitor personalisate"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:357
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgid "Hostname:"
 msgstr "Nomine de Hospite:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Preferentias de Dispositivo de Synchronisation"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:399
 #, kde-format
 msgid "Create a new device"
 msgstr "Crea un nove dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Device Name:"
 msgstr "Nomine de dispositivo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:413
+#: qml/Settings/SynchronizationSettingsPage.qml:415
 #, kde-format
 msgid "Device Description:"
 msgstr "Description de Dispositivo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgid "Device Type:"
 msgstr "Typo de dispositivo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "other"
 msgstr "altere"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "desktop"
 msgstr "Scriptorio"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:431
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "laptop"
 msgstr "Laptop"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:432
+#: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
 msgid "server"
 msgstr "Servitor"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:433
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgid "mobile"
 msgstr "mobile"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:438
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgid "Create Device"
 msgstr "Crea Dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:455
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgid "or select an existing device"
 msgstr "o selectiona un dispositivo existente"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:503
+#: qml/Settings/SynchronizationSettingsPage.qml:505
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Preferentias de Synchronisar de Dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:525
+#: qml/Settings/SynchronizationSettingsPage.qml:527
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1770,12 +1770,12 @@ msgstr ""
 "esser synchronisate trans omne dispoditivos?\n"
 "Si tu non sape cosa isto significa, tu propbabilemente debe seliger \"Ok\"."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:547
+#: qml/Settings/SynchronizationSettingsPage.qml:549
 #, kde-format
 msgid "Sync Now?"
 msgstr "Synchronisa nunc?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:567
+#: qml/Settings/SynchronizationSettingsPage.qml:569
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Executa un prime synchronisation nunc?"

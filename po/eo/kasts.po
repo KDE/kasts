@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
-"PO-Revision-Date: 2023-09-14 23:18+0100\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"PO-Revision-Date: 2023-09-28 07:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -113,7 +113,7 @@ msgstr "AŬ"
 msgid "Open"
 msgstr "Malfermi"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -424,7 +424,7 @@ msgstr "Malfermi laŭtecajn agordojn"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -457,18 +457,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Sleep Timer"
 
-#: qml/Desktop/DesktopPlayerControls.qml:456
+#: qml/Desktop/DesktopPlayerControls.qml:454
 #, kde-format
 msgid "Chapters"
 msgstr "Ĉapitroj"
 
-#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Neniu Trak-titolo"
 
-#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -643,13 +643,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Malfermi Podkaston"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Kopii Epizod-Elŝutan URL"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:295
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -667,7 +667,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Serĉi"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:359
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Neniuj epizodoj haveblaj"
@@ -731,31 +731,31 @@ msgstr "Podkasta URL:"
 msgid "Weblink:"
 msgstr "Retligilo:"
 
-#: qml/FeedDetailsPage.qml:311
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonita ekde: %1"
 
-#: qml/FeedDetailsPage.qml:324
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Laste ĝisdatigita: %1"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Epizodo"
 msgstr[1] "%1 Epizodoj"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Neludita"
 msgstr[1] "%1 Neluditaj"
 
-#: qml/FeedDetailsPage.qml:359
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Eraro (%1): %2"
@@ -1651,7 +1651,7 @@ msgstr "Sinkronigi kun GPodder Nextcloud-apo"
 msgid "Sync with gpodder.net service"
 msgstr "Sinkronigi kun gpodder.net-servo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:313
+#: qml/Settings/SynchronizationSettingsPage.qml:315
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1663,99 +1663,99 @@ msgstr ""
 "%1.<br/>Estas konsilite krei aplikaĵon pasvorton por Kasts per la "
 "retinterfaco kaj uzi tiujn akreditaĵojn."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:314
+#: qml/Settings/SynchronizationSettingsPage.qml:316
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Se vi ne jam havas konton, vi unue kreu unu ĉe %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:326
+#: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgid "Username:"
 msgstr "Uzantnomo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:337
+#: qml/Settings/SynchronizationSettingsPage.qml:339
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:352
+#: qml/Settings/SynchronizationSettingsPage.qml:354
 #, kde-format
 msgid "Use custom server"
 msgstr "Uzi propran servilon"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:357
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgid "Hostname:"
 msgstr "Gastnomo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Sinkronigi Aparajn Agordojn"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:399
 #, kde-format
 msgid "Create a new device"
 msgstr "Krei novan aparaton"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Device Name:"
 msgstr "Aparatnomo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:413
+#: qml/Settings/SynchronizationSettingsPage.qml:415
 #, kde-format
 msgid "Device Description:"
 msgstr "Aparato Priskribo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgid "Device Type:"
 msgstr "Aparato Tipo:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "other"
 msgstr "alia"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "desktop"
 msgstr "surtabla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:431
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "laptop"
 msgstr "tekkomputilo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:432
+#: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
 msgid "server"
 msgstr "servilo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:433
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgid "mobile"
 msgstr "movebla"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:438
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgid "Create Device"
 msgstr "Krei Aparaton"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:455
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgid "or select an existing device"
 msgstr "aŭ elekti ekzistantan aparaton"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:503
+#: qml/Settings/SynchronizationSettingsPage.qml:505
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Agordoj de Sinkronigado de Aparato"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:525
+#: qml/Settings/SynchronizationSettingsPage.qml:527
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1766,12 +1766,12 @@ msgstr ""
 "ĉiuj aparatoj?\n"
 "Se vi ne scias, kion tio signifas, vi verŝajne elektu \"Bone\"."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:547
+#: qml/Settings/SynchronizationSettingsPage.qml:549
 #, kde-format
 msgid "Sync Now?"
 msgstr "Ĉu Sinkronigi Nun?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:567
+#: qml/Settings/SynchronizationSettingsPage.qml:569
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Ĉu fari unuan sinkronigon nun?"

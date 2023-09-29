@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-28 01:40+0000\n"
-"PO-Revision-Date: 2023-08-10 09:56+0200\n"
+"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"PO-Revision-Date: 2023-09-28 13:00+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -113,7 +113,7 @@ msgstr "OF"
 msgid "Open"
 msgstr "Openen"
 
-#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:328
 #, kde-format
 msgid "Play"
@@ -423,7 +423,7 @@ msgstr "Volume-instellingen openen"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: qml/Desktop/DesktopPlayerControls.qml:357
 #: qml/Mobile/MobilePlayerControls.qml:375
@@ -456,18 +456,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Timer voor slapen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:456
+#: qml/Desktop/DesktopPlayerControls.qml:454
 #, kde-format
 msgid "Chapters"
 msgstr "Hoofdstukken"
 
-#: qml/Desktop/DesktopPlayerControls.qml:476 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Geen tracktitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:481 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -642,13 +642,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Podcast openen"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "URL van downloaden van episode kopiëren"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:295
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -666,7 +666,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Zoeken"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:359
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Geen episoden beschikbaar"
@@ -730,31 +730,31 @@ msgstr "Podcast-URL:"
 msgid "Weblink:"
 msgstr "Webkoppeling:"
 
-#: qml/FeedDetailsPage.qml:311
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Ingeschreven sinds: %1"
 
-#: qml/FeedDetailsPage.qml:324
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Laatst bijgewerkt: %1"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episode"
 msgstr[1] "%1 episoden"
 
-#: qml/FeedDetailsPage.qml:337
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 niet-afgespeeld"
 msgstr[1] "%1 niet-afgespeeld"
 
-#: qml/FeedDetailsPage.qml:359
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Fout (%1): %2"
@@ -1648,7 +1648,7 @@ msgstr "Synchroniseren met GPodder Nextcloud-app"
 msgid "Sync with gpodder.net service"
 msgstr "Synchroniseren met service gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:313
+#: qml/Settings/SynchronizationSettingsPage.qml:315
 #, kde-format
 msgctxt "argument is a weblink"
 msgid ""
@@ -1661,100 +1661,100 @@ msgstr ""
 "wachtwoord voor Kasts aan te maken via het webinterface en deze "
 "aanmeldgegevens te gebruiken."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:314
+#: qml/Settings/SynchronizationSettingsPage.qml:316
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 "Als u niet al een account hebt, zou u er eerst een op %1 moeten aanmaken"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:326
+#: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:337
+#: qml/Settings/SynchronizationSettingsPage.qml:339
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:352
+#: qml/Settings/SynchronizationSettingsPage.qml:354
 #, kde-format
 msgid "Use custom server"
 msgstr "Aangepaste server gebruiken"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:357
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgid "Hostname:"
 msgstr "Hostnaam:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:391
+#: qml/Settings/SynchronizationSettingsPage.qml:393
 #, kde-format
 msgid "Sync Device Settings"
 msgstr "Instellingen voor synchronisatie-apparaat"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:399
 #, kde-format
 msgid "Create a new device"
 msgstr "Een nieuw apparaat aanmaken"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Device Name:"
 msgstr "Apparaatnaam:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:413
+#: qml/Settings/SynchronizationSettingsPage.qml:415
 #, kde-format
 msgid "Device Description:"
 msgstr "Apparaatbeschrijving:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:422
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgid "Device Type:"
 msgstr "Apparaattype:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:429
+#: qml/Settings/SynchronizationSettingsPage.qml:431
 #, kde-format
 msgid "other"
 msgstr "overig"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:430
+#: qml/Settings/SynchronizationSettingsPage.qml:432
 #, kde-format
 msgid "desktop"
 msgstr "bureaublad"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:431
+#: qml/Settings/SynchronizationSettingsPage.qml:433
 #, kde-format
 msgid "laptop"
 msgstr "laptop"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:432
+#: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
 msgid "server"
 msgstr "server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:433
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgid "mobile"
 msgstr "mobiel"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:438
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgid "Create Device"
 msgstr "Apparaat aanmaken"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:455
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgid "or select an existing device"
 msgstr "of een bestaand apparaat selecteren"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:503
+#: qml/Settings/SynchronizationSettingsPage.qml:505
 #, kde-format
 msgid "Device Sync Settings"
 msgstr "Instellingen voor apparaatsynchonisatie"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:525
+#: qml/Settings/SynchronizationSettingsPage.qml:527
 #, kde-format
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -1766,12 +1766,12 @@ msgstr ""
 "Als u niet weet wat dat betekent, zult u waarschijnlijk \"Ok\" moeten "
 "selecteren."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:547
+#: qml/Settings/SynchronizationSettingsPage.qml:549
 #, kde-format
 msgid "Sync Now?"
 msgstr "Nu synchroniseren?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:567
+#: qml/Settings/SynchronizationSettingsPage.qml:569
 #, kde-format
 msgid "Perform a first sync now?"
 msgstr "Nu een eerste synchronisatie uitvoeren?"
