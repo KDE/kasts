@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:39+0000\n"
-"PO-Revision-Date: 2023-09-28 12:31+0200\n"
+"PO-Revision-Date: 2023-09-29 20:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -417,7 +417,7 @@ msgstr "Mostra la informació dels episodis"
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr "Obri la configuració del temporitzador per a adormir-se"
+msgstr "Obri la configuració del temporitzador d'adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
@@ -461,7 +461,7 @@ msgstr "Mostra la informació"
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr "Temporitzador per a adormir-se"
+msgstr "Temporitzador d'adormir-se"
 
 #: qml/Desktop/DesktopPlayerControls.qml:454
 #, kde-format
@@ -1788,7 +1788,7 @@ msgstr "Realitze ara una primera sincronització?"
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr "Temporitzador per a adormir-se"
+msgstr "Temporitzador d'adormir-se"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
