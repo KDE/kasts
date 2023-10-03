@@ -115,7 +115,7 @@ FocusScope {
                 enabled: AudioManager.canSkipBackward
 
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18n("Seek backward")
             }
             Controls.ToolButton {
@@ -125,7 +125,7 @@ FocusScope {
                 enabled: AudioManager.canPlay
 
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: AudioManager.playbackState === KMediaSession.PlayingState ? i18n("Pause") : i18n("Play")
             }
             Controls.ToolButton {
@@ -134,7 +134,7 @@ FocusScope {
                 enabled: AudioManager.canSkipForward
 
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18n("Seek forward")
             }
             Controls.ToolButton {
@@ -143,7 +143,7 @@ FocusScope {
                 enabled: AudioManager.canGoNext
 
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18n("Skip forward")
             }
             Controls.ToolButton {
@@ -168,7 +168,7 @@ FocusScope {
                 implicitHeight: playButton.height
 
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18n("Playback rate:") + " " + AudioManager.playbackRate.toFixed(2) + "x"
             }
         }
@@ -225,11 +225,10 @@ FocusScope {
                 action: chapterAction
                 display: playerControlToolBar.tooNarrowChapter ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible: chapterAction.visible && !playerControlToolBar.tooNarrowOverflow
-                Controls.ToolTip {
-                    visible: parent.hovered
-                    delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Show chapter list")
-                }
+
+                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Controls.ToolTip.text: i18nc("@action:button", "Show chapter list")
             }
 
             Controls.ToolButton {
@@ -237,11 +236,10 @@ FocusScope {
                 action: infoAction
                 display: playerControlToolBar.tooNarrowExtra ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible: infoAction.visible && !playerControlToolBar.tooNarrowOverflow
-                Controls.ToolTip {
-                    visible: parent.hovered
-                    delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Show episode info")
-                }
+
+                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Controls.ToolTip.text: i18nc("@action:button", "Show episode info")
             }
 
             Controls.ToolButton {
@@ -249,11 +247,10 @@ FocusScope {
                 action: sleepAction
                 display: playerControlToolBar.tooNarrowExtra ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible:  !playerControlToolBar.tooNarrowOverflow
-                Controls.ToolTip {
-                    visible: parent.hovered
-                    delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Open sleep timer settings")
-                }
+
+                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Controls.ToolTip.text: i18nc("@action:button", "Open sleep timer settings")
             }
         }
 
@@ -264,11 +261,11 @@ FocusScope {
                 icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                 enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                 checked: volumePopup.visible
-                Controls.ToolTip {
-                    visible: parent.hovered
-                    delay: Qt.styleHints.mousePressAndHoldInterval
-                    text: i18nc("@action:button", "Open volume settings")
-                }
+
+                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Controls.ToolTip.text: i18nc("@action:button", "Open volume settings")
+
                 onClicked: {
                     if (volumePopup.visible) {
                         volumePopup.close();
@@ -351,11 +348,11 @@ FocusScope {
                             enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                             icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                             onClicked: AudioManager.muted = !AudioManager.muted
-                            Controls.ToolTip {
-                                visible: parent.hovered
-                                delay: Qt.styleHints.mousePressAndHoldInterval
-                                text: i18nc("@action:button", "Toggle mute")
-                            }
+
+                            Controls.ToolTip.visible: parent.hovered
+                            Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
+
                         }
                     }
                 }
@@ -368,11 +365,11 @@ FocusScope {
             display: Controls.AbstractButton.IconOnly
             visible: playerControlToolBar.tooNarrowOverflow
             checked: overflowMenu.visible
-            Controls.ToolTip {
-                visible: parent.hovered
-                delay: Qt.styleHints.mousePressAndHoldInterval
-                text: i18nc("@action:button", "Show more")
-            }
+
+            Controls.ToolTip.visible: parent.hovered
+            Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+            Controls.ToolTip.text: i18nc("@action:button", "Show more")
+
             onClicked: {
                 if (overflowMenu.visible) {
                     overflowMenu.dismiss();

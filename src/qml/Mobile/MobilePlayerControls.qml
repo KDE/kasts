@@ -339,11 +339,11 @@ Kirigami.Page {
                         icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                         enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                         checked: volumePopup.visible
-                        Controls.ToolTip {
-                            visible: parent.hovered
-                            delay: Qt.styleHints.mousePressAndHoldInterval
-                            text: i18nc("@action:button", "Open volume settings")
-                        }
+
+                        Controls.ToolTip.visible: parent.hovered
+                        Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Controls.ToolTip.text: i18nc("@action:button", "Open volume settings")
+
                         onClicked: {
                             if (volumePopup.visible) {
                                 volumePopup.close();
@@ -369,11 +369,11 @@ Kirigami.Page {
                                     enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                                     icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                                     onClicked: AudioManager.muted = !AudioManager.muted
-                                    Controls.ToolTip {
-                                        visible: parent.hovered
-                                        delay: Qt.styleHints.mousePressAndHoldInterval
-                                        text: i18nc("@action:button", "Toggle mute")
-                                    }
+
+                                    Controls.ToolTip.visible: parent.hovered
+                                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                                    Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
+
                                 }
 
                                 Controls.Slider {

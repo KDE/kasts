@@ -233,11 +233,9 @@ Controls.ItemDelegate {
         pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
     }
 
-    Controls.ToolTip {
-        text: feed.name
-        delay: Qt.styleHints.mousePressAndHoldInterval
-        y: cardSize + cardMargin
-    }
+    Controls.ToolTip.text: feed.name
+    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+    Controls.ToolTip.y: cardSize + cardMargin
 
     Kirigami.MenuDialog {
         id: actionOverlay

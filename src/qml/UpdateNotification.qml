@@ -86,7 +86,7 @@ Rectangle {
             Layout.rightMargin: Kirigami.Units.largeSpacing
             visible: showAbortButton
             Controls.ToolTip.visible: hovered
-            Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
             Controls.ToolTip.text: i18n("Abort")
             text: i18n("Abort")
             icon.name: "edit-delete-remove"

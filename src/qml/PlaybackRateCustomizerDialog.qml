@@ -63,7 +63,7 @@ Kirigami.Dialog {
                 icon.name: "list-add"
                 text: i18nc("@action:button Add new playback rate value to list", "Add")
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@info:tooltip", "Add new playback rate value to list")
                 onClicked: {
                     var found = false;
@@ -96,7 +96,7 @@ Kirigami.Dialog {
                 implicitHeight: addButton.height
                 onClicked: rateSlider.value = Math.max(0.0, rateSlider.value - 0.05)
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Decrease playback rate")
             }
 
@@ -115,7 +115,7 @@ Kirigami.Dialog {
                 implicitHeight: addButton.height
                 onClicked: rateSlider.value = Math.min(3.0, rateSlider.value + 0.05)
                 Controls.ToolTip.visible: hovered
-                Controls.ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Increase playback rate")
             }
         }
