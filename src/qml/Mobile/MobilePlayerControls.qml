@@ -376,22 +376,9 @@ Kirigami.Page {
 
                                 }
 
-                                Controls.Slider {
+                                VolumeSlider {
                                     id: volumeSlider
-                                    height: Kirigami.Units.gridUnit * 7
-                                    Layout.alignment: Qt.AlignHCenter
-                                    Layout.preferredHeight: height
-                                    Layout.maximumHeight: height
-                                    Layout.bottomMargin: Kirigami.Units.smallSpacing
-                                    orientation: Qt.Vertical
-                                    padding: 0
-                                    enabled: !AudioManager.muted && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
-                                    from: 0
-                                    to: 100
-                                    value: AudioManager.volume
-                                    onMoved: AudioManager.volume = value
                                 }
-
                             }
                         }
                     }
