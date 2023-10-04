@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
 "PO-Revision-Date: 2023-08-26 00:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -399,74 +399,68 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "챕터 목록 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:243
+#: qml/Desktop/DesktopPlayerControls.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "에피소드 정보 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:255
+#: qml/Desktop/DesktopPlayerControls.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "수면 타이머 설정 열기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Desktop/DesktopPlayerControls.qml:267
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "음량 설정 열기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:320
-#, kde-format
-msgctxt "Volume as a percentage"
-msgid "%1%"
-msgstr ""
-
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:299
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "음소거 전환"
 
-#: qml/Desktop/DesktopPlayerControls.qml:374
+#: qml/Desktop/DesktopPlayerControls.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "더 보기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "정보 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422
+#: qml/Desktop/DesktopPlayerControls.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "수면 타이머"
 
-#: qml/Desktop/DesktopPlayerControls.qml:454
+#: qml/Desktop/DesktopPlayerControls.qml:396
 #, kde-format
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -698,7 +692,7 @@ msgstr "모든 오류 삭제"
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
@@ -756,7 +750,7 @@ msgstr[0] "%1개 재생하지 않음"
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
 
-#: qml/FeedListDelegate.qml:267
+#: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
@@ -1824,6 +1818,12 @@ msgstr "\"gpodder.net\"의 사용자 \"%1\"의 암호를 가져올 수 없습니
 #, kde-format
 msgid "Abort"
 msgstr "중단"
+
+#: qml/VolumeSlider.qml:47
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr ""
 
 #: storagemanager.cpp:90
 #, kde-format

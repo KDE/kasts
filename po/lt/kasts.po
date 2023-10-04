@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
 "PO-Revision-Date: 2023-02-24 00:58+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -400,74 +400,68 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:243
+#: qml/Desktop/DesktopPlayerControls.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:255
+#: qml/Desktop/DesktopPlayerControls.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Desktop/DesktopPlayerControls.qml:267
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:320
-#, kde-format
-msgctxt "Volume as a percentage"
-msgid "%1%"
-msgstr ""
-
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:299
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:374
+#: qml/Desktop/DesktopPlayerControls.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:422
+#: qml/Desktop/DesktopPlayerControls.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:454
+#: qml/Desktop/DesktopPlayerControls.qml:396
 #, kde-format
 msgid "Chapters"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -699,7 +693,7 @@ msgstr ""
 msgid "Show Error Log"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
 msgstr ""
@@ -761,7 +755,7 @@ msgstr[2] ""
 msgid "Error (%1): %2"
 msgstr ""
 
-#: qml/FeedListDelegate.qml:267
+#: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
 msgstr ""
@@ -1829,6 +1823,12 @@ msgstr ""
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
 msgid "Abort"
+msgstr ""
+
+#: qml/VolumeSlider.qml:47
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
 msgstr ""
 
 #: storagemanager.cpp:90

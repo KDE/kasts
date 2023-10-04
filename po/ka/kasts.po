@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
 "PO-Revision-Date: 2023-09-29 05:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -400,74 +400,68 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "თავების სიის ჩვენება"
 
-#: qml/Desktop/DesktopPlayerControls.qml:243
+#: qml/Desktop/DesktopPlayerControls.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "ეპიზოდის ინფორმაციის ჩვენება"
 
-#: qml/Desktop/DesktopPlayerControls.qml:255
+#: qml/Desktop/DesktopPlayerControls.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "ძილის ტაიმერის პარამეტრების გახსნა"
 
-#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Desktop/DesktopPlayerControls.qml:267
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "ხმის პარამეტრების გახსნა"
 
-#: qml/Desktop/DesktopPlayerControls.qml:320
-#, kde-format
-msgctxt "Volume as a percentage"
-msgid "%1%"
-msgstr "%1%"
-
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:299
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "დადუმების გადართვა"
 
-#: qml/Desktop/DesktopPlayerControls.qml:374
+#: qml/Desktop/DesktopPlayerControls.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "მეტის ჩვენება"
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "თავები"
 
-#: qml/Desktop/DesktopPlayerControls.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "ინფორმაციის ჩვენება"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422
+#: qml/Desktop/DesktopPlayerControls.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "ძილის წამმზომი"
 
-#: qml/Desktop/DesktopPlayerControls.qml:454
+#: qml/Desktop/DesktopPlayerControls.qml:396
 #, kde-format
 msgid "Chapters"
 msgstr "თავები"
 
-#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "ტრეკის სათაურის გარეშე"
 
-#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -699,7 +693,7 @@ msgstr "ყველა შეცდომის გასუფთავებ�
 msgid "Show Error Log"
 msgstr "შეცდომების ჟურნალის ჩვენება"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
 msgstr "პოდკასტის დეტალები"
@@ -759,7 +753,7 @@ msgstr[1] "%1 დაუკრავი"
 msgid "Error (%1): %2"
 msgstr "შეცდომა (%1): %2"
 
-#: qml/FeedListDelegate.qml:267
+#: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
 msgstr "პოდკასტის წაშლა"
@@ -1836,6 +1830,12 @@ msgstr "\"gpodder.net\"-დან მომხმარებლისთვი�
 #, kde-format
 msgid "Abort"
 msgstr "შეწყვეტა"
+
+#: qml/VolumeSlider.qml:47
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr "%1%"
 
 #: storagemanager.cpp:90
 #, kde-format

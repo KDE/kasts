@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
 "PO-Revision-Date: 2023-08-19 16:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -400,74 +400,68 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "عرض قائمة الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:243
+#: qml/Desktop/DesktopPlayerControls.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "عرض معلومات الحلقة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:255
+#: qml/Desktop/DesktopPlayerControls.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "فتح إعدادات مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Desktop/DesktopPlayerControls.qml:267
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "فتح إعدادات الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:320
-#, kde-format
-msgctxt "Volume as a percentage"
-msgid "%1%"
-msgstr ""
-
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:299
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "تبديل كتم الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:374
+#: qml/Desktop/DesktopPlayerControls.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "عرض المزيد"
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "عرض المعلومات"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422
+#: qml/Desktop/DesktopPlayerControls.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:454
+#: qml/Desktop/DesktopPlayerControls.qml:396
 #, kde-format
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "لا يوجد عنوان للمقطوعة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -699,7 +693,7 @@ msgstr "مسح جميع الاخطاء"
 msgid "Show Error Log"
 msgstr "عرض سجل الاخطاء"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
 msgstr "تفاصيل المدونة الصوتية"
@@ -767,7 +761,7 @@ msgstr[5] "غير مشغلة %1"
 msgid "Error (%1): %2"
 msgstr "خطأ (%1) : %2"
 
-#: qml/FeedListDelegate.qml:267
+#: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
 msgstr "احذف المدونة الصوتية"
@@ -1855,6 +1849,12 @@ msgstr ""
 #, kde-format
 msgid "Abort"
 msgstr "احباط"
+
+#: qml/VolumeSlider.qml:47
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr ""
 
 #: storagemanager.cpp:90
 #, kde-format

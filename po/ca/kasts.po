@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:39+0000\n"
+"POT-Creation-Date: 2023-10-04 01:39+0000\n"
 "PO-Revision-Date: 2023-09-29 20:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -407,74 +407,68 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Mostra la llista de capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:243
+#: qml/Desktop/DesktopPlayerControls.qml:242
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Mostra la informació dels episodis"
 
-#: qml/Desktop/DesktopPlayerControls.qml:255
+#: qml/Desktop/DesktopPlayerControls.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Obre la configuració del temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Desktop/DesktopPlayerControls.qml:267
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Obre la configuració del volum"
 
-#: qml/Desktop/DesktopPlayerControls.qml:320
-#, kde-format
-msgctxt "Volume as a percentage"
-msgid "%1%"
-msgstr "%1%"
-
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:299
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Commuta el silenci"
 
-#: qml/Desktop/DesktopPlayerControls.qml:374
+#: qml/Desktop/DesktopPlayerControls.qml:316
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mostra'n més"
 
-#: qml/Desktop/DesktopPlayerControls.qml:404
+#: qml/Desktop/DesktopPlayerControls.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Mostra la informació"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422
+#: qml/Desktop/DesktopPlayerControls.qml:364
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:454
+#: qml/Desktop/DesktopPlayerControls.qml:396
 #, kde-format
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:480 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Sense títol de peça"
 
-#: qml/Desktop/DesktopPlayerControls.qml:485 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
@@ -706,7 +700,7 @@ msgstr "Neteja tots els errors"
 msgid "Show Error Log"
 msgstr "Mostra el registre d'errors"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:257
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalls del podcast"
@@ -766,7 +760,7 @@ msgstr[1] "%1 sense reproduir"
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
 
-#: qml/FeedListDelegate.qml:267
+#: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Elimina el podcast"
@@ -1849,6 +1843,12 @@ msgstr ""
 #, kde-format
 msgid "Abort"
 msgstr "Interromp"
+
+#: qml/VolumeSlider.qml:47
+#, kde-format
+msgctxt "Volume as a percentage"
+msgid "%1%"
+msgstr "%1%"
 
 #: storagemanager.cpp:90
 #, kde-format
