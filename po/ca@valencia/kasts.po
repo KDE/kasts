@@ -55,7 +55,7 @@ msgstr "S'està descarregant %1"
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr "S'ha produït un error en actualitzar el podcast"
+msgstr "S'ha produït un error durant l'actualització del podcast"
 
 #: error.cpp:50
 #, kde-format
@@ -829,7 +829,7 @@ msgstr "Fitxers OPML (*.opml)"
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
-msgstr "Fitxers XML (*.xml)"
+msgstr "Fitxers en XML (*.xml)"
 
 #: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
