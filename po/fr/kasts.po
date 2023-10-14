@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-04 01:39+0000\n"
-"PO-Revision-Date: 2023-09-30 11:06+0200\n"
+"PO-Revision-Date: 2023-10-12 09:21+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -991,7 +991,7 @@ msgstr "Filtrer"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr "Filter les épisodes selon leurs états"
+msgstr "Filtrer les épisodes selon leurs états"
 
 #: qml/GenericEntryListView.qml:232
 #, kde-format
