@@ -6,8 +6,9 @@ Files: src/qtquickcontrols2.conf README.md
 Copyright: 2020 Tobias Fella <tobias.fella@kde.org>
 License: CC0-1.0
 
-Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg .flatpak-manifest.json
+Files: src/settingsmanager.kcfgc src/settingsmanager.kcfg .flatpak-manifest.json snapcraft.yaml
 Copyright: 2021 Bart De Vries <bart@mogwai.be>
+           2023 Scarlett Moore <sgmoore@kde.org>
 License: CC0-1.0
 
 Files: android/res/drawable/splash.xml
