@@ -23,10 +23,11 @@ apps:
         - unity7
         - network
         - network-bind
+        - network-manager-observe
         command-chain:
         - snap/command-chain/desktop-launch
 assumes:
-- snapd2.55.3
+- snapd2.58.3
 compression: lzo
 plugs:
     desktop:
@@ -46,6 +47,9 @@ plugs:
         target: $SNAP/kf5
 environment:
     SNAP_DESKTOP_RUNTIME: $SNAP/kf5
+    QML2_IMPORT_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/qml:$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/qml:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/qml"
+    QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins:$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qt5/plugins/kf5"
+    QT_QUICK_CONTROLS_STYLE: org.kde.desktop
     GST_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer-1.0"
     GST_PLUGIN_SYSTEM_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer-1.0"
     GST_PLUGIN_SCANNER: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner"
@@ -128,6 +132,7 @@ parts:
         - qml-module-org-kde-kirigami-addons-labs-mobileform
         - qml-module-org-kde-kirigami-addons-sounds
         - qml-module-org-kde-kirigami-addons-treeview
+        - qml-module-org-kde-qqc2desktopstyle
         - libtag1v5
         - libqt5keychain1
         - libkf5networkmanagerqt6
