@@ -226,7 +226,7 @@ FocusScope {
                 display: playerControlToolBar.tooNarrowChapter ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible: chapterAction.visible && !playerControlToolBar.tooNarrowOverflow
 
-                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Show chapter list")
             }
@@ -237,7 +237,7 @@ FocusScope {
                 display: playerControlToolBar.tooNarrowExtra ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible: infoAction.visible && !playerControlToolBar.tooNarrowOverflow
 
-                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Show episode info")
             }
@@ -248,7 +248,7 @@ FocusScope {
                 display: playerControlToolBar.tooNarrowExtra ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
                 visible:  !playerControlToolBar.tooNarrowOverflow
 
-                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Open sleep timer settings")
             }
@@ -262,7 +262,7 @@ FocusScope {
                 enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                 checked: volumePopup.visible
 
-                Controls.ToolTip.visible: parent.hovered
+                Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Controls.ToolTip.text: i18nc("@action:button", "Open volume settings")
 
@@ -294,7 +294,7 @@ FocusScope {
                             icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                             onClicked: AudioManager.muted = !AudioManager.muted
 
-                            Controls.ToolTip.visible: parent.hovered
+                            Controls.ToolTip.visible: hovered
                             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                             Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
 
@@ -311,7 +311,7 @@ FocusScope {
             visible: playerControlToolBar.tooNarrowOverflow
             checked: overflowMenu.visible
 
-            Controls.ToolTip.visible: parent.hovered
+            Controls.ToolTip.visible: hovered
             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
             Controls.ToolTip.text: i18nc("@action:button", "Show more")
 
