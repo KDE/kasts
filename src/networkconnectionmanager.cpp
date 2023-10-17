@@ -62,12 +62,10 @@ bool NetworkConnectionManager::feedUpdatesAllowed() const
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredFeedUpdates()));
+        allowed = (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredFeedUpdates());
     }
 #else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredFeedUpdates()));
+    bool allowed = (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredFeedUpdates());
 #endif
 
     qCDebug(kastsNetworkConnectionManager) << "FeedUpdatesAllowed()" << allowed;
@@ -80,12 +78,10 @@ bool NetworkConnectionManager::episodeDownloadsAllowed() const
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredEpisodeDownloads()));
+        allowed = (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredEpisodeDownloads());
     }
 #else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredEpisodeDownloads()));
+    bool allowed = (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredEpisodeDownloads());
 #endif
 
     qCDebug(kastsNetworkConnectionManager) << "EpisodeDownloadsAllowed()" << allowed;
@@ -98,12 +94,10 @@ bool NetworkConnectionManager::imageDownloadsAllowed() const
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredImageDownloads()));
+        allowed = (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredImageDownloads());
     }
 #else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredImageDownloads()));
+    bool allowed = (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredImageDownloads());
 #endif
 
     qCDebug(kastsNetworkConnectionManager) << "ImageDownloadsAllowed()" << allowed;
@@ -116,12 +110,10 @@ bool NetworkConnectionManager::streamingAllowed() const
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredStreaming()));
+        allowed = (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredStreaming());
     }
 #else
-    bool allowed = (m_networkStatus.connectivity() != SolidExtras::NetworkStatus::No
-                    && (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming()));
+    bool allowed = (m_networkStatus.metered() != SolidExtras::NetworkStatus::Yes || SettingsManager::self()->allowMeteredStreaming());
 #endif
 
     qCDebug(kastsNetworkConnectionManager) << "StreamingAllowed()" << allowed;
