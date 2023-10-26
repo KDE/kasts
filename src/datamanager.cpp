@@ -371,7 +371,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         QSqlQuery query;
         query.prepare(
             QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
-                           ":lastUpdated, :new, :notify, :dirname);"));
+                           ":lastUpdated, :new, :notify, :dirname, :lastHash);"));
         query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -384,6 +384,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":new"), true);
         query.bindValue(QStringLiteral(":notify"), false);
         query.bindValue(QStringLiteral(":dirname"), QLatin1String(""));
+        query.bindValue(QStringLiteral(":lastHash"), QLatin1String(""));
         Database::instance().execute(query);
 
         m_feeds[urlFromInput.toString()] = nullptr;

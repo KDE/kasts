@@ -1,3 +1,4 @@
+
 /**
  * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
@@ -54,9 +55,31 @@ void UpdateFeedJob::run(JobPointer, Thread *)
 
     Database::openDatabase(m_url);
 
-    Syndication::DocumentSource document(m_data, m_url);
-    Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
-    processFeed(feed);
+    // First check if the RSS file has changed since last update; we do this by
+    // comparing to the SHA1 hash we saved last time
+    bool skipUpdate = false;
+
+    m_newHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
+
+    QSqlQuery query(QSqlDatabase::database(m_url));
+    query.prepare(QStringLiteral("SELECT lastHash FROM Feeds WHERE url=:url;"));
+    query.bindValue(QStringLiteral(":url"), m_url);
+    Database::execute(query);
+    if (query.next()) {
+        m_oldHash = query.value(QStringLiteral("lastHash")).toString();
+        qCDebug(kastsFetcher) << "RSS hashes (old and new)" << m_url << m_oldHash << m_newHash;
+        if (m_newHash == m_oldHash) {
+            skipUpdate = true;
+            qCDebug(kastsFetcher) << "same RSS feed hash as last time; skipping feed update for" << m_url;
+        }
+    }
+    query.clear(); // release lock on database
+
+    if (!skipUpdate) {
+        Syndication::DocumentSource document(m_data, m_url);
+        Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+        processFeed(feed);
+    }
 
     Database::closeDatabase(m_url);
 
@@ -93,6 +116,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
+
+    Database::transaction(m_url);
 
     query.prepare(QStringLiteral(
         "UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, dirname=:dirname WHERE url=:url;"));
@@ -135,6 +160,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // Do the actual database UPDATE of this feed
     Database::execute(query);
+    Database::commit(m_url);
 
     // Now that we have the feed details, we make vectors of the data that's
     // already in the database relating to this feed
@@ -203,6 +229,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         m_chapters += chapterDetails;
     }
 
+    query.clear(); // make sure this query is not blocking anything anymore
+
     // Process feed authors
     if (feed->authors().count() > 0) {
         for (auto &author : feed->authors()) {
@@ -258,6 +286,13 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         query.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), m_url);
         query.bindValue(QStringLiteral(":new"), false);
+        Database::execute(query);
+    }
+
+    if (m_oldHash != m_newHash) {
+        query.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
+        query.bindValue(QStringLiteral(":url"), m_url);
+        query.bindValue(QStringLiteral(":lastHash"), m_newHash);
         Database::execute(query);
     }
 

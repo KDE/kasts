@@ -72,6 +72,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo7());
     if (dbversion < 8)
         TRUE_OR_RETURN(migrateTo8());
+    if (dbversion < 9)
+        TRUE_OR_RETURN(migrateTo9());
     return true;
 }
 
@@ -247,6 +249,16 @@ bool Database::migrateTo8()
     }
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 8;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo9()
+{
+    qDebug() << "Migrating database to version 9";
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN lastHash TEXT;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 9;")));
     TRUE_OR_RETURN(commit());
     return true;
 }
