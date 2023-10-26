@@ -22,8 +22,8 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "settingsmanager.h"
-#include "storagemanager.h"
 #include "sync/sync.h"
+#include "utils/storagemanager.h"
 
 DataManager::DataManager()
 {

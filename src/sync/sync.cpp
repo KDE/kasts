@@ -27,11 +27,8 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "fetcher.h"
-#include "fetchfeedsjob.h"
 #include "models/errorlogmodel.h"
-#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
-#include "storagemanager.h"
 #include "sync/gpodder/devicerequest.h"
 #include "sync/gpodder/episodeactionrequest.h"
 #include "sync/gpodder/gpodder.h"
@@ -44,6 +41,9 @@
 #include "sync/gpodder/uploadsubscriptionrequest.h"
 #include "sync/syncjob.h"
 #include "sync/syncutils.h"
+#include "utils/fetchfeedsjob.h"
+#include "utils/networkconnectionmanager.h"
+#include "utils/storagemanager.h"
 
 using namespace SyncUtils;
 

@@ -19,8 +19,8 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
-#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
+#include "utils/networkconnectionmanager.h"
 
 class AudioManagerPrivate
 {

@@ -23,16 +23,16 @@
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "enclosuredownloadjob.h"
 #include "entry.h"
 #include "error.h"
 #include "fetcher.h"
 #include "models/downloadmodel.h"
 #include "models/errorlogmodel.h"
-#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
-#include "storagemanager.h"
 #include "sync/sync.h"
+#include "utils/enclosuredownloadjob.h"
+#include "utils/networkconnectionmanager.h"
+#include "utils/storagemanager.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)

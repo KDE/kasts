@@ -13,7 +13,6 @@
 
 #include <KLocalizedString>
 
-
 StorageMoveJob::StorageMoveJob(const QString &from, const QString &to, QStringList &list, QObject *parent)
     : KJob(parent)
     , m_from(from)

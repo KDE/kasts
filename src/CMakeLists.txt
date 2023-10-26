@@ -16,13 +16,13 @@ set(kasts_srcs
     datamanager.cpp
     audiomanager.cpp
     error.cpp
-    enclosuredownloadjob.cpp
-    storagemanager.cpp
-    storagemovejob.cpp
-    updatefeedjob.cpp
-    fetchfeedsjob.cpp
-    systrayicon.cpp
-    networkconnectionmanager.cpp
+    utils/enclosuredownloadjob.cpp
+    utils/storagemanager.cpp
+    utils/storagemovejob.cpp
+    utils/updatefeedjob.cpp
+    utils/fetchfeedsjob.cpp
+    utils/systrayicon.cpp
+    utils/networkconnectionmanager.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
@@ -140,7 +140,7 @@ ecm_qt_declare_logging_category(kasts_srcs
 
 if(ANDROID)
     list(APPEND kasts_srcs
-         androidlogging.h)
+         utils/androidlogging.h)
 endif()
 
 if(KASTS_FLATPAK)

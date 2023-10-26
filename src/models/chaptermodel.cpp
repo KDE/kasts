@@ -20,7 +20,7 @@
 
 #include "audiomanager.h"
 #include "database.h"
-#include "storagemanager.h"
+#include "utils/storagemanager.h"
 
 ChapterModel::ChapterModel(QObject *parent)
     : QAbstractListModel(parent)

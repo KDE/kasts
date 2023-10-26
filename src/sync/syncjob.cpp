@@ -19,7 +19,6 @@
 #include "database.h"
 #include "datamanager.h"
 #include "entry.h"
-#include "fetchfeedsjob.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "sync/gpodder/episodeactionrequest.h"
@@ -29,6 +28,7 @@
 #include "sync/gpodder/uploadsubscriptionrequest.h"
 #include "sync/sync.h"
 #include "sync/syncutils.h"
+#include "utils/fetchfeedsjob.h"
 
 using namespace SyncUtils;
 

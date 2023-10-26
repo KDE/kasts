@@ -22,13 +22,13 @@
 
 #include "database.h"
 #include "enclosure.h"
-#include "fetchfeedsjob.h"
 #include "kasts-version.h"
 #include "models/errorlogmodel.h"
-#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
-#include "storagemanager.h"
 #include "sync/sync.h"
+#include "utils/fetchfeedsjob.h"
+#include "utils/networkconnectionmanager.h"
+#include "utils/storagemanager.h"
 
 Fetcher::Fetcher()
 {

@@ -49,12 +49,12 @@
 #include "models/feedsproxymodel.h"
 #include "models/podcastsearchmodel.h"
 #include "models/queuemodel.h"
-#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
-#include "storagemanager.h"
 #include "sync/sync.h"
 #include "sync/syncutils.h"
-#include "systrayicon.h"
+#include "utils/networkconnectionmanager.h"
+#include "utils/storagemanager.h"
+#include "utils/systrayicon.h"
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
