@@ -5,6 +5,9 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kastsrc" />
     <group name="General">
+        <entry name="ColorScheme" type="String">
+            <label>Color scheme</label>
+        </entry>
         <entry name="showTrayIcon" type="Bool">
             <label>Show icon in system tray</label>
             <default>false</default>

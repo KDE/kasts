@@ -23,6 +23,7 @@ set(kasts_srcs
     utils/fetchfeedsjob.cpp
     utils/systrayicon.cpp
     utils/networkconnectionmanager.cpp
+    utils/colorschemer.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
@@ -168,7 +169,7 @@ add_executable(kasts ${kasts_srcs})
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami2 KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KMediaSession)
+target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami2 KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KF6::ColorScheme KMediaSession)
 
 if(KASTS_FLATPAK)
     target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)

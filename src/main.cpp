@@ -52,6 +52,7 @@
 #include "settingsmanager.h"
 #include "sync/sync.h"
 #include "sync/syncutils.h"
+#include "utils/colorschemer.h"
 #include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
 #include "utils/systrayicon.h"
@@ -158,6 +159,10 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "StorageManager", &StorageManager::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Sync", &Sync::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SystrayIcon", &SystrayIcon::instance());
+    qmlRegisterSingletonInstance<ColorSchemer>("org.kde.kasts", 1, 0, "ColorSchemer", &ColorSchemer::instance());
+    if (SettingsManager::self()->colorScheme().isEmpty()) {
+        ColorSchemer::instance().apply(SettingsManager::self()->colorScheme());
+    }
 
     qmlRegisterUncreatableMetaObject(SyncUtils::staticMetaObject, "org.kde.kasts", 1, 0, "SyncUtils", QStringLiteral("Error: only enums and structs"));
 

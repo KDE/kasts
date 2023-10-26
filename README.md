@@ -26,6 +26,7 @@ Note: When using versions of Kasts built from git-master, it's possible that the
  - TagLib
  - QtKeychain
  - ThreadWeaver
+ - KColorScheme
  - libVLC (optional, recommended)
  - GStreamer (optional)
 

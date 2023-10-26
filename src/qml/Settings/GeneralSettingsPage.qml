@@ -26,6 +26,23 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
+        FormCard.FormComboBoxDelegate {
+            Layout.fillWidth: true
+            id: colorTheme
+            text: i18n("Color theme")
+            textRole: "display"
+            valueRole: "display"
+            model: ColorSchemer.model
+            Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(SettingsManager.colorScheme);
+            onCurrentValueChanged: {
+                ColorSchemer.apply(currentIndex);
+                SettingsManager.colorScheme = ColorSchemer.nameForIndex(currentIndex);
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormCheckDelegate {
             id: alwaysShowFeedTitles
             text: i18n("Always show podcast titles in subscription view")
