@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2023-10-12 09:21+0200\n"
+"PO-Revision-Date: 2023-10-24 21:13+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1117,7 +1117,7 @@ msgstr "Aucune chapitre n'a été trouvé."
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Pré-réglages pour le débit de lecture"
+msgstr "Pré réglages pour le débit de lecture"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
