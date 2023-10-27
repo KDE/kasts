@@ -32,12 +32,12 @@ Kirigami.SwipeListItem {
     property int row: model ? model.row : -1
 
     property bool showRemoveFromQueueButton: entry ? (!entry.enclosure && entry.queueStatus) : false
-    property bool showDownloadButton: entry ? ((!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
+    property bool showDownloadButton: entry ? (entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
     property bool showCancelDownloadButton: entry ? (entry.enclosure && entry.enclosure.status === Enclosure.Downloading) : false
     property bool showDeleteDownloadButton: entry ? (isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
     property bool showAddToQueueButton: entry ? (!isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
     property bool showPlayButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
-    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
+    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
     property bool showPauseButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
 
 
