@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-27 01:40+0000\n"
-"PO-Revision-Date: 2023-09-29 20:40+0200\n"
+"PO-Revision-Date: 2023-10-27 11:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1205,7 +1205,7 @@ msgstr "Aparença"
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Tema de color"
 
 #: qml/Settings/GeneralSettingsPage.qml:48
 #, kde-format
