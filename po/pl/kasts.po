@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-27 01:40+0000\n"
-"PO-Revision-Date: 2023-09-30 11:08+0200\n"
+"PO-Revision-Date: 2023-10-28 09:23+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1208,7 +1208,7 @@ msgstr "Wygląd"
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Zestaw barw"
 
 #: qml/Settings/GeneralSettingsPage.qml:48
 #, kde-format
