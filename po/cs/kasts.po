@@ -1204,7 +1204,7 @@ msgstr "Vzhled"
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Barevný motiv"
 
 #: qml/Settings/GeneralSettingsPage.qml:48
 #, kde-format
