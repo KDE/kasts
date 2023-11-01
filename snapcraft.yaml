@@ -1,4 +1,6 @@
-# Trigger rebuild
+# SPDX-FileCopyrightText: 2023 Scarlett Moore <sgmoore@kde.org>
+#
+# SPDX-License-Identifier: CC0-1.0
 ---
 name: kasts
 confinement: strict
@@ -25,6 +27,7 @@ apps:
         - network-bind
         - network-manager-observe
         - alsa
+        - mpris
         command-chain:
         - snap/command-chain/desktop-launch
 assumes:
@@ -70,10 +73,9 @@ layout:
     "/etc/alsa/conf.d":
         bind: "$SNAP/etc/alsa/conf.d"
 slots:
-    session-dbus-interface:
-        interface: dbus
+    mpris:
+        interface: mpris
         name: org.mpris.MediaPlayer2.kasts
-        bus: session
 package-repositories:
 -   type: apt
     components:
