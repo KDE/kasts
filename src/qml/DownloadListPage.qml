@@ -67,10 +67,12 @@ Kirigami.ScrollablePage {
 
         section {
             delegate: Kirigami.ListSectionHeader {
-                height: implicitHeight // workaround for bug 422289
-                label: section == Enclosure.Downloading ? i18n("Downloading") :
-                       section == Enclosure.PartiallyDownloaded ? i18n("Incomplete Downloads") :
-                       section == Enclosure.Downloaded ? i18n("Downloaded") :
+                required property string section
+
+                // NOTE: the Enclosure.Status enum values get converted to strings
+                label: section == "Downloading" ? i18n("Downloading") :
+                       section == "PartiallyDownloaded" ? i18n("Incomplete Downloads") :
+                       section == "Downloaded" ? i18n("Downloaded") :
                        ""
             }
             property: "entry.enclosure.status"
