@@ -72,10 +72,6 @@ layout:
         bind: "$SNAP/usr/share/alsa"
     "/etc/alsa/conf.d":
         bind: "$SNAP/etc/alsa/conf.d"
-slots:
-    mpris:
-        interface: mpris
-        name: org.mpris.MediaPlayer2.kasts
 package-repositories:
 -   type: apt
     components:
