@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-27 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 01:38+0000\n"
 "PO-Revision-Date: 2023-10-28 01:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -502,17 +502,17 @@ msgstr "Tüm Pod Yayınlarını Yenile"
 msgid "No downloads"
 msgstr "İndirme yok"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloading"
 msgstr "İndiriliyor"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Tamamlanmayan İndirmeler"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:75
 #, kde-format
 msgid "Downloaded"
 msgstr "İndirildi"

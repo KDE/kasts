@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-27 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 01:38+0000\n"
 "PO-Revision-Date: 2023-10-27 10:52+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -502,17 +502,17 @@ msgstr "Osveži vse podcaste"
 msgid "No downloads"
 msgstr "Ni prenosov"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloading"
 msgstr "Prenašanje"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Nepopolni prenosi"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:75
 #, kde-format
 msgid "Downloaded"
 msgstr "Prenešeno"
