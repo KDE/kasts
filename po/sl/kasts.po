@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 01:38+0000\n"
-"PO-Revision-Date: 2023-10-27 10:52+0200\n"
+"PO-Revision-Date: 2023-11-04 14:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -490,7 +490,7 @@ msgstr "Naročen"
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41 qml/main.qml:235
 #, kde-format
 msgid "Downloads"
-msgstr "Prenosi"
+msgstr "Prejemi"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
@@ -500,7 +500,7 @@ msgstr "Osveži vse podcaste"
 #: qml/DownloadListPage.qml:55
 #, kde-format
 msgid "No downloads"
-msgstr "Ni prenosov"
+msgstr "Ni prejemov"
 
 #: qml/DownloadListPage.qml:73
 #, kde-format
@@ -577,7 +577,7 @@ msgstr "Odstrani iz čakalne vrste"
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
-msgstr "Zbriši prenos"
+msgstr "Zbriši prejem"
 
 #: qml/EntryPage.qml:190
 #, kde-format
@@ -936,7 +936,7 @@ msgstr "Odstrani iz čakalne vrste"
 #: qml/GenericEntryDelegate.qml:301 qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Download"
-msgstr "Prenesi"
+msgstr "Prenesi sem"
 
 #: qml/GenericEntryDelegate.qml:310
 #, kde-format
