@@ -117,8 +117,6 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
-    Database::transaction(m_url);
-
     query.prepare(QStringLiteral(
         "UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, dirname=:dirname WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());
@@ -160,7 +158,6 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // Do the actual database UPDATE of this feed
     Database::execute(query);
-    Database::commit(m_url);
 
     // Now that we have the feed details, we make vectors of the data that's
     // already in the database relating to this feed
