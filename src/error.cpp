@@ -59,7 +59,9 @@ QString Error::description() const
     case Error::Type::SyncError:
         return i18n("Error syncing feed and/or episode status");
     case Error::Type::MeteredStreamingNotAllowed:
-        return i18n("Connection or streaming not allowed on metered connection");
+        return i18n("Streaming not allowed on metered connection");
+    case Error::Type::NoNetwork:
+        return i18n("No network connection");
     default:
         return QString();
     }
@@ -84,6 +86,8 @@ int Error::typeToDb(Error::Type type)
         return 6;
     case Error::Type::MeteredStreamingNotAllowed:
         return 7;
+    case Error::Type::NoNetwork:
+        return 8;
     default:
         return -1;
     }
@@ -108,6 +112,8 @@ Error::Type Error::dbToType(int value)
         return Error::Type::SyncError;
     case 7:
         return Error::Type::MeteredStreamingNotAllowed;
+    case 8:
+        return Error::Type::NoNetwork;
     default:
         return Error::Type::Unknown;
     }

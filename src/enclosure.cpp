@@ -156,13 +156,18 @@ void Enclosure::download()
     }
 
     if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
-        Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
-                             m_entry->feed()->url(),
-                             m_entry->id(),
-                             0,
-                             i18n("Podcast downloads not allowed due to user setting"),
-                             QString());
-        return;
+        if (NetworkConnectionManager::instance().networkReachable()) {
+            Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
+                                 m_entry->feed()->url(),
+                                 m_entry->id(),
+                                 0,
+                                 i18n("Podcast downloads not allowed on metered connection"),
+                                 QString());
+            return;
+        } else {
+            Q_EMIT downloadError(Error::Type::NoNetwork, m_entry->feed()->url(), m_entry->id(), 0, i18n("No network connection"), QString());
+            return;
+        }
     }
 
     checkSizeOnDisk();

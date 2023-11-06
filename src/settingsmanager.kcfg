@@ -144,6 +144,10 @@
         </entry>
     </group>
     <group name="Network">
+        <entry name="checkNetworkStatus" type="Bool">
+            <label>Check for network and metered connection status</label>
+            <default>true</default>
+        </entry>
         <entry name="allowMeteredFeedUpdates" type="Bool">
             <label>Allow podcast updates on metered connections</label>
             <default>false</default>

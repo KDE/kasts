@@ -429,7 +429,7 @@ Kirigami.ApplicationWindow {
     ConnectionCheckAction {
         id: downloadOverlay
 
-        headingText: i18n("Podcast downloads are currently not allowed on metered connections")
+        headingText: i18nc("@info:status", "Podcast downloads are currently not allowed on metered connections")
         condition: NetworkConnectionManager.episodeDownloadsAllowed
         property var entry: undefined
         property var selection: undefined

@@ -25,6 +25,7 @@ public:
         StorageMoveError,
         SyncError,
         MeteredStreamingNotAllowed,
+        NoNetwork,
     };
     Q_ENUM(Type)
 

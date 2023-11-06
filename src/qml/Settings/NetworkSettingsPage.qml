@@ -19,6 +19,25 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         Layout.fillWidth: true
+        title: i18n("Network")
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
+
+        FormCard.FormCheckDelegate {
+            id: doNetworkChecks
+            checked: SettingsManager.checkNetworkStatus
+            text: i18n("Enable network connection checks")
+            onToggled: {
+                SettingsManager.checkNetworkStatus = checked;
+                SettingsManager.save();
+            }
+        }
+    }
+
+    FormCard.FormHeader {
+        Layout.fillWidth: true
         title: i18n("On metered connections")
     }
 
@@ -27,6 +46,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: allowMeteredFeedUpdates
+            enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredFeedUpdates
             text: i18n("Allow podcast updates")
             onToggled: {
@@ -37,6 +57,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: allowMeteredEpisodeDownloads
+            enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredEpisodeDownloads
             text: i18n("Allow episode downloads")
             onToggled: {
@@ -47,6 +68,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: allowMeteredImageDownloads
+            enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredImageDownloads
             text: i18n("Allow image downloads")
             onToggled: {
@@ -57,6 +79,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: allowMeteredStreaming
+            enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredStreaming
             text: i18n("Allow streaming")
             onToggled: {

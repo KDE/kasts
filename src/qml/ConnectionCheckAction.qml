@@ -18,7 +18,7 @@ Kirigami.Dialog {
     parent: applicationWindow().overlay
     closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-    property string headingText: i18n("Podcast updates are currently not allowed on metered connections")
+    property string headingText: i18nc("@info:status", "Podcast updates are currently not allowed on metered connections")
     property bool condition: NetworkConnectionManager.feedUpdatesAllowed
 
     // Function to be overloaded where this is instantiated with another purpose
@@ -52,7 +52,7 @@ Kirigami.Dialog {
         }
     }
 
-    title: i18n("Select Option")
+    title: NetworkConnectionManager.networkReachable ? i18nc("@title:window", "Select Option") : i18nc("@title:window", "Network not reachable")
 
     ColumnLayout {
         spacing: 0
@@ -63,17 +63,19 @@ Kirigami.Dialog {
             Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            text: headingText
+            text: NetworkConnectionManager.networkReachable ? headingText : i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
             wrapMode: Text.Wrap
-            color: Kirigami.Theme.disabledTextColor
+            color: NetworkConnectionManager.networkReachable ?Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
 
         Kirigami.Separator {
+            visible: NetworkConnectionManager.networkReachable
             Layout.fillWidth: true
             opacity: 0.5
         }
 
         Delegates.RoundedItemDelegate {
+            visible: NetworkConnectionManager.networkReachable
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -87,6 +89,7 @@ Kirigami.Dialog {
         }
 
         Delegates.RoundedItemDelegate {
+            visible: NetworkConnectionManager.networkReachable
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -100,6 +103,7 @@ Kirigami.Dialog {
         }
 
         Delegates.RoundedItemDelegate {
+            visible: NetworkConnectionManager.networkReachable
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing

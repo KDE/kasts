@@ -18,12 +18,14 @@ NetworkConnectionManager::NetworkConnectionManager(QObject *parent)
 
     if (m_backendAvailable) {
         connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, [this]() {
+            Q_EMIT networkReachableChanged();
             Q_EMIT feedUpdatesAllowedChanged();
             Q_EMIT episodeDownloadsAllowedChanged();
             Q_EMIT imageDownloadsAllowedChanged();
             Q_EMIT streamingAllowedChanged();
         });
         connect(QNetworkInformation::instance(), &QNetworkInformation::isMeteredChanged, this, [this]() {
+            Q_EMIT networkReachableChanged();
             Q_EMIT feedUpdatesAllowedChanged();
             Q_EMIT episodeDownloadsAllowedChanged();
             Q_EMIT imageDownloadsAllowedChanged();
@@ -31,18 +33,40 @@ NetworkConnectionManager::NetworkConnectionManager(QObject *parent)
         });
     }
 
+    connect(SettingsManager::self(), &SettingsManager::checkNetworkStatusChanged, this, [this]() {
+        Q_EMIT networkReachableChanged();
+        Q_EMIT feedUpdatesAllowedChanged();
+        Q_EMIT episodeDownloadsAllowedChanged();
+        Q_EMIT imageDownloadsAllowedChanged();
+        Q_EMIT streamingAllowedChanged();
+    });
+
     connect(SettingsManager::self(), &SettingsManager::allowMeteredFeedUpdatesChanged, this, &NetworkConnectionManager::feedUpdatesAllowedChanged);
     connect(SettingsManager::self(), &SettingsManager::allowMeteredEpisodeDownloadsChanged, this, &NetworkConnectionManager::episodeDownloadsAllowedChanged);
     connect(SettingsManager::self(), &SettingsManager::allowMeteredImageDownloadsChanged, this, &NetworkConnectionManager::imageDownloadsAllowedChanged);
     connect(SettingsManager::self(), &SettingsManager::allowMeteredStreamingChanged, this, &NetworkConnectionManager::streamingAllowedChanged);
 }
 
+bool NetworkConnectionManager::networkReachable() const
+{
+    bool reachable = true;
+    if (m_backendAvailable) {
+        reachable = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
+                     || !SettingsManager::self()->checkNetworkStatus());
+    }
+
+    qCDebug(kastsNetworkConnectionManager) << "networkReachable()" << reachable;
+
+    return reachable;
+}
+
 bool NetworkConnectionManager::feedUpdatesAllowed() const
 {
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredFeedUpdates()));
+        allowed = (networkReachable()
+                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredFeedUpdates()
+                       || !SettingsManager::self()->checkNetworkStatus()));
     }
 
     qCDebug(kastsNetworkConnectionManager) << "FeedUpdatesAllowed()" << allowed;
@@ -54,8 +78,9 @@ bool NetworkConnectionManager::episodeDownloadsAllowed() const
 {
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredEpisodeDownloads()));
+        allowed = (networkReachable()
+                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredEpisodeDownloads()
+                       || !SettingsManager::self()->checkNetworkStatus()));
     }
 
     qCDebug(kastsNetworkConnectionManager) << "EpisodeDownloadsAllowed()" << allowed;
@@ -67,8 +92,9 @@ bool NetworkConnectionManager::imageDownloadsAllowed() const
 {
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredImageDownloads()));
+        allowed = (networkReachable()
+                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredImageDownloads()
+                       || !SettingsManager::self()->checkNetworkStatus()));
     }
 
     qCDebug(kastsNetworkConnectionManager) << "ImageDownloadsAllowed()" << allowed;
@@ -80,8 +106,9 @@ bool NetworkConnectionManager::streamingAllowed() const
 {
     bool allowed = true;
     if (m_backendAvailable) {
-        allowed = (QNetworkInformation::instance()->reachability() != QNetworkInformation::Reachability::Disconnected
-                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredStreaming()));
+        allowed = (networkReachable()
+                   && (!QNetworkInformation::instance()->isMetered() || SettingsManager::self()->allowMeteredStreaming()
+                       || !SettingsManager::self()->checkNetworkStatus()));
     }
 
     qCDebug(kastsNetworkConnectionManager) << "StreamingAllowed()" << allowed;

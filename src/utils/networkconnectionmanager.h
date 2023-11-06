@@ -12,6 +12,7 @@ class NetworkConnectionManager : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool networkReachable READ networkReachable NOTIFY networkReachableChanged)
     Q_PROPERTY(bool feedUpdatesAllowed READ feedUpdatesAllowed NOTIFY feedUpdatesAllowedChanged)
     Q_PROPERTY(bool episodeDownloadsAllowed READ episodeDownloadsAllowed NOTIFY episodeDownloadsAllowedChanged)
     Q_PROPERTY(bool imageDownloadsAllowed READ imageDownloadsAllowed NOTIFY imageDownloadsAllowedChanged)
@@ -24,12 +25,14 @@ public:
         return _instance;
     }
 
+    [[nodiscard]] bool networkReachable() const;
     [[nodiscard]] bool feedUpdatesAllowed() const;
     [[nodiscard]] bool episodeDownloadsAllowed() const;
     [[nodiscard]] bool imageDownloadsAllowed() const;
     [[nodiscard]] bool streamingAllowed() const;
 
 Q_SIGNALS:
+    void networkReachableChanged();
     void feedUpdatesAllowedChanged();
     void episodeDownloadsAllowedChanged();
     void imageDownloadsAllowedChanged();

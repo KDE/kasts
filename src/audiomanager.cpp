@@ -389,19 +389,25 @@ void AudioManager::play()
     // connection
     if (isStreaming()) {
         if (!NetworkConnectionManager::instance().streamingAllowed()) {
-            qCDebug(kastsAudio) << "Refusing to play: no connection or streaming on metered connection not allowed";
-            QString feedUrl, entryId;
-            if (d->m_entry) {
-                feedUrl = d->m_entry->feed()->url();
-                entryId = d->m_entry->id();
+            if (NetworkConnectionManager::instance().networkReachable()) {
+                qCDebug(kastsAudio) << "Refusing to play: streaming on metered connection not allowed";
+                QString feedUrl, entryId;
+                if (d->m_entry) {
+                    feedUrl = d->m_entry->feed()->url();
+                    entryId = d->m_entry->id();
+                }
+                Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed, feedUrl, entryId, 0, i18n("Streaming on metered connection not allowed"), QString());
+                return;
+            } else {
+                qCDebug(kastsAudio) << "Refusing to play: no network connection";
+                QString feedUrl, entryId;
+                if (d->m_entry) {
+                    feedUrl = d->m_entry->feed()->url();
+                    entryId = d->m_entry->id();
+                }
+                Q_EMIT logError(Error::Type::NoNetwork, feedUrl, entryId, 0, i18n("No network connection"), QString());
+                return;
             }
-            Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed,
-                            feedUrl,
-                            entryId,
-                            0,
-                            i18n("No connection or streaming on metered connection not allowed"),
-                            QString());
-            return;
         }
     }
 
