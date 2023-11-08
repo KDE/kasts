@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -29,24 +29,32 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr ""
 "Não existe nenhuma ligação ou a transmissão em ligações móveis limitadas não "
 "é permitida"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Em ligações com 'plafond'"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Conteúdo Inválido"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
-"As transferências dos 'podcasts' não são permitidas pela configuração do "
-"utilizador"
+"As transferências de 'podcasts' não são permitidas de momento em redes com "
+"'plafonds'"
 
 #: error.cpp:48
 #, fuzzy, kde-format
@@ -91,9 +99,9 @@ msgstr "Erro ao Sincronizar o Estado da Fonte e/ou Episódio"
 
 #: error.cpp:62
 #, fuzzy, kde-format
-#| msgid "No Connection or Streaming Not Allowed on Metered Connection"
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Sem Ligação ou Transmissão Proibida em Redes Móveis Limitadas"
+#| msgid "Update Not Allowed on Metered Connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "A Actualização Não é Permitida em Redes com 'Plafonds'"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, fuzzy, kde-format
@@ -382,28 +390,46 @@ msgid "Add Podcast"
 msgstr "Adicionar um 'Podcast'"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
 "A actualizações de 'podcasts' não são permitidas de momento em redes com "
 "'plafonds'"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Seleccionar a Opção"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Não Permitir"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Permitir Uma Vez"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Permitir Sempre"
@@ -1148,7 +1174,9 @@ msgstr[0] "Foi Movido %2 de %1 Ficheiro"
 msgstr[1] "Foram Movidos %2 de %1 Ficheiros"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "As transferências de 'podcasts' não são permitidas de momento em redes com "
@@ -1486,27 +1514,38 @@ msgstr "Tamanho da letra:"
 msgid "Use system default"
 msgstr "Usar a predefinição do sistema"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Rede"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Em ligações com 'plafond'"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Em ligações com 'plafond'"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Permitir as actualizações dos 'podcasts'"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Permitir as transferências dos episódios"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Permitir as transferências das imagens"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Permitir a transmissão"
@@ -1520,11 +1559,6 @@ msgstr "Geral"
 #, kde-format
 msgid "Storage"
 msgstr "Armazenamento"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Rede"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2169,6 +2203,16 @@ msgstr "Seguinte"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr ""
+#~ "As transferências dos 'podcasts' não são permitidas pela configuração do "
+#~ "utilizador"
+
+#, fuzzy
+#~| msgid "No Connection or Streaming Not Allowed on Metered Connection"
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "Sem Ligação ou Transmissão Proibida em Redes Móveis Limitadas"
 
 #~ msgid "General Settings"
 #~ msgstr "Configuração Geral"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-10-21 13:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -29,20 +29,26 @@ msgstr ""
 "kde-china@kde.org, tysontan@tysontan.com, wordless@echo.moe, "
 "staronthedky@kde.org"
 
-#: audiomanager.cpp:402
+#: audiomanager.cpp:399
 #, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, kde-format
+msgid "No network connection"
+msgstr ""
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "媒体无效"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "按照用户设置的条件，不允许下载播客"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "使用计费连接时不允许下载播客"
 
 #: error.cpp:48
 #, kde-format
@@ -80,9 +86,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr ""
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgid "Streaming not allowed on metered connection"
+msgstr "使用计费连接时不允许更新播客"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -346,26 +353,44 @@ msgid "Add Podcast"
 msgstr "添加播客"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许更新播客"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "选择选项"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "不允许"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "允许一次"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "总是允许"
@@ -1070,7 +1095,9 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "已移动 %2 个文件，共 %1 个"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许下载播客"
 
@@ -1386,27 +1413,37 @@ msgstr "字体大小："
 msgid "Use system default"
 msgstr "使用系统默认值"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "网络"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, kde-format
+msgid "Enable network connection checks"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "允许更新播客"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "允许下载剧集"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "允许下载图像"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr ""
@@ -1420,11 +1457,6 @@ msgstr "常规"
 #, kde-format
 msgid "Storage"
 msgstr "存储"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "网络"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2025,3 +2057,6 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr "按照用户设置的条件，不允许下载播客"

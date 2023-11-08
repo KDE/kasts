@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-10-28 01:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -27,20 +27,30 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "Kısıtlı bağlantılarda bir bağlantıya veya akışa izin verilmiyor"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Kısıtlı bağlantılarda"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "Kullanıcı ayarlarından dolayı pod yayını indirmelerine izin verilmiyor"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr ""
+"Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
+"verilmiyor"
 
 #: error.cpp:48
 #, kde-format
@@ -78,9 +88,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Bölüm durumu ve/veya besleme eşzamanlanırken hata"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Kısıtlı bağlantıda bağlantıya veya akışa izin verilmiyor"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Kısıtlı bağlantıda güncellemeye izin verilmiyor"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -344,27 +355,45 @@ msgid "Add Podcast"
 msgstr "Pod Yayını Ekle"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
 "Şu anda kısıtlı bağlantılarda pod yayını güncellemelerine izin verilmiyor"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Seçenek Seç"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "İzin Verme"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Bir Kez İzin Ver"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Her Zaman İzin Ver"
@@ -1075,7 +1104,9 @@ msgstr[0] "%2/%1 Dosya Taşındı"
 msgstr[1] "%2/%1 Dosya Taşındı"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
@@ -1396,27 +1427,38 @@ msgstr "Yazıtipi boyutu:"
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Ağ"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Kısıtlı bağlantılarda"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Kısıtlı bağlantılarda"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Pod yayını güncellemelerine izin ver"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Bölüm indirmelere izin ver"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Görsel indirmelere izin ver"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Akışa izin ver"
@@ -1430,11 +1472,6 @@ msgstr "Genel"
 #, kde-format
 msgid "Storage"
 msgstr "Depolama"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Ağ"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2044,6 +2081,13 @@ msgstr "İleri Atla"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr ""
+#~ "Kullanıcı ayarlarından dolayı pod yayını indirmelerine izin verilmiyor"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "Kısıtlı bağlantıda bağlantıya veya akışa izin verilmiyor"
 
 #~ msgid "General Settings"
 #~ msgstr "Genel Ayarlar"

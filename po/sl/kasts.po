@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-11-04 14:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,20 +28,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Pri merjenih povezavah"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neveljavni medij"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "Nalaganje podcastov ni dovoljeno zaradi uporabnikovih nastavitev"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "Prenos podkastov trenutno ni dovoljeno pri merjenih povezavah"
 
 #: error.cpp:48
 #, kde-format
@@ -79,9 +87,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Napaka pri sinhronizaciji vira in/ali stanja epizode"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Osveževanje ni dovoljeno pri merjeni povezavi"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -345,26 +354,44 @@ msgid "Add Podcast"
 msgstr "Dodaj podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Osveževanje podcastov trenutno ni dovoljeno pri merjenih povezavah"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Izberite možnost"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Ne dovoli"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Dovoli enkrat"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Vedno dovoli"
@@ -1087,7 +1114,9 @@ msgstr[2] "Preneseno %2 od %1 datotek"
 msgstr[3] "Preneseno %2 od %1 datotek"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Prenos podkastov trenutno ni dovoljeno pri merjenih povezavah"
 
@@ -1406,27 +1435,38 @@ msgstr "Velikost pisave:"
 msgid "Use system default"
 msgstr "Uporabi sistemske privzete vrednosti"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Omrežje"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Pri merjenih povezavah"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Pri merjenih povezavah"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Dovoli osveževanje podcastov"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Dovoli prenose epizod"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Dovoli prenose slik"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Dovoli prenose tokov"
@@ -1440,11 +1480,6 @@ msgstr "Splošno"
 #, kde-format
 msgid "Storage"
 msgstr "Hramba"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Omrežje"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2059,6 +2094,12 @@ msgstr "Preskoči naprej"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr "Nalaganje podcastov ni dovoljeno zaradi uporabnikovih nastavitev"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
 
 #~ msgid "General Settings"
 #~ msgstr "Splošne nastavitve"

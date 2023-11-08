@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-10-27 11:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,23 +30,30 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr ""
 "No hi ha connexió o no es permet la transmissió en continu amb una connexió "
 "d'ús mesurat"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "En les connexions d'ús mesurat"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Fitxer multimèdia no vàlid"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
-"Baixades de podcasts no permeses a causa de la configuració de l'usuari"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "Baixades de podcasts no permeses amb la connexió d'ús mesurat"
 
 #: error.cpp:48
 #, kde-format
@@ -84,11 +91,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Error de sincronització en l'estat de la font o de l'episodi"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr ""
-"No hi ha connexió o no es permet la transmissió en continu amb una connexió "
-"d'ús mesurat"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Actualització no permesa en la connexió d'ús mesurat"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -352,26 +358,44 @@ msgid "Add Podcast"
 msgstr "Afegeix un podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Actualització de podcast no permesa amb la connexió d'ús mesurat"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Selecció d'opció"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "No la permetis"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Permet un cop"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Permet sempre"
@@ -1082,7 +1106,9 @@ msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Baixades de podcasts no permeses amb la connexió d'ús mesurat"
 
@@ -1401,27 +1427,38 @@ msgstr "Mida de la lletra:"
 msgid "Use system default"
 msgstr "Usa la predeterminada del sistema"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Xarxa"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "En les connexions d'ús mesurat"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "En les connexions d'ús mesurat"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Permet les actualitzacions de podcast"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Permet les baixades d'episodis"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Permet les baixades d'imatges"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Permet la transmissió en continu"
@@ -1435,11 +1472,6 @@ msgstr "General"
 #, kde-format
 msgid "Storage"
 msgstr "Emmagatzematge"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Xarxa"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2057,3 +2089,12 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr ""
+#~ "Baixades de podcasts no permeses a causa de la configuració de l'usuari"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr ""
+#~ "No hi ha connexió o no es permet la transmissió en continu amb una "
+#~ "connexió d'ús mesurat"

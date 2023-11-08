@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-08-10 07:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -24,22 +24,29 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "Ingen anslutning eller ström är inte tillåten för uppmätt anslutning"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "För uppmätta anslutningar"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ogiltigt media"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
-"Nerladdningar av poddradioprogram tillåts inte på grund av "
-"användarinställning"
+"Nerladdningar av poddradioprogram tillåts inte för uppmätta anslutningar"
 
 #: error.cpp:48
 #, kde-format
@@ -77,9 +84,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Fel vid synkronisering av kanal och/eller avsnittsstatus"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Anslutning eller strömmar tillåts inte för uppmätt anslutning"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Uppdatering tillåts inte för uppmätt anslutning"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -343,27 +351,45 @@ msgid "Add Podcast"
 msgstr "Lägg till poddradioprogram"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
 "Uppdateringar av poddradioprogram tillåts inte för uppmätta anslutningar"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Välj alternativ"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Tillåt inte"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Tillåt en gång"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Tillåt alltid"
@@ -1074,7 +1100,9 @@ msgstr[0] "Flyttade %2 av %1 fil"
 msgstr[1] "Flyttade %2 av %1 filer"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Nerladdningar av poddradioprogram tillåts inte för uppmätta anslutningar"
@@ -1392,27 +1420,38 @@ msgstr "Teckenstorlek:"
 msgid "Use system default"
 msgstr "Använda systemstandard"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Nätverk"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "För uppmätta anslutningar"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "För uppmätta anslutningar"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Tillåt uppdateringar av poddradioprogram"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Tillåt nerladdningar av avsnitt"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Tillåt nerladdningar av bilder"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Tillåt ström"
@@ -1426,11 +1465,6 @@ msgstr "Allmänt"
 #, kde-format
 msgid "Storage"
 msgstr "Lagring"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Nätverk"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2043,6 +2077,14 @@ msgstr "Hoppa framåt"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr ""
+#~ "Nerladdningar av poddradioprogram tillåts inte på grund av "
+#~ "användarinställning"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "Anslutning eller strömmar tillåts inte för uppmätt anslutning"
 
 #~ msgid "General Settings"
 #~ msgstr "Allmänna inställningar"

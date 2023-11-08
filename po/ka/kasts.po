@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-10-28 05:37+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,20 +28,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "გაზომვადი მიერთების დროს"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "არასწორი მედია"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "პოდკასტის გადმოწერა დაუშვებელია მომხმარებლის პარამეტრების გამო"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
 
 #: error.cpp:48
 #, kde-format
@@ -79,9 +87,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "ლენტის ან/და ეპიზოდის სტატუსის სინქრონიზაციის შეცდომა"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "განახლება გაზომვადი ქსელური შეერთების დროს აკრძალულია"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -345,26 +354,44 @@ msgid "Add Podcast"
 msgstr "პოდკასტის დამატება"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე პოდკასტის განახლებები ამჟამად დაშვებული არაა"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "აირჩიეთ პარამეტრი"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "არ დაშვება"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "ერთხელ დაშვება"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "ყოველთვის დაშვება"
@@ -1075,7 +1102,9 @@ msgstr[0] "გადატანილია %2 ფაილი %1-დან"
 msgstr[1] "გადატანილია %2 ფაილი %1-დან"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
 
@@ -1393,27 +1422,38 @@ msgstr "ფონტის ზომა:"
 msgid "Use system default"
 msgstr "სისტემის ნაგულისხმების გამოყენება"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "ქსელი"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "გაზომვადი მიერთების დროს"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "გაზომვადი მიერთების დროს"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "პოდკასტების განახლების უფლება"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "ეპიზოდების გადმოწერის უფლება"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "გამოსახულებების გადმოწერის უფლება"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "სტრიმინგის დაშვება"
@@ -1427,11 +1467,6 @@ msgstr "საერთო"
 #, kde-format
 msgid "Storage"
 msgstr "საცავი"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "ქსელი"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2042,6 +2077,12 @@ msgstr "წინ გადახტომა"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "გასვლა"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr "პოდკასტის გადმოწერა დაუშვებელია მომხმარებლის პარამეტრების გამო"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "გაზომვად შეერთებებზე მიერთება და სტრიმინგი დაშვებული არაა"
 
 #~ msgid "General Settings"
 #~ msgstr "ზოგადი პარამეტრები"

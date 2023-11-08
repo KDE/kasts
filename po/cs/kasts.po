@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-08-09 12:51+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,20 +27,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Na měřených spojeních"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neplatné médium"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "Uživatelské nastavení nepovoluje stažení podcastů"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "Aktualizace při použití měřeného síťového připojení není povolena"
 
 #: error.cpp:48
 #, kde-format
@@ -78,9 +86,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr ""
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Aktualizace při použití měřeného síťového připojení není povolena"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -344,26 +353,44 @@ msgid "Add Podcast"
 msgstr "Přidat podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr ""
+msgstr "Aktualizace při použití měřeného síťového připojení není povolena"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Zvolte možnost"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Nepovolovat"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Povolit jednou"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Vždy povolit"
@@ -1080,9 +1107,11 @@ msgstr[1] "Přesunuty %2 ze %1 souborů"
 msgstr[2] "Přesunuto %2 ze %1 souborů"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Connection or streaming not allowed on metered connection"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr ""
+msgstr "Spojení nebo streamování na měřeném připojení není povoleno"
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
@@ -1398,27 +1427,38 @@ msgstr "Velikost písma:"
 msgid "Use system default"
 msgstr "Použít výchozí systémový"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Síť"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Na měřených spojeních"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Na měřených spojeních"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Povolit aktualizace podcastů"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Povolit stahování epizod"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Povolit stahování obrázků"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Povolit streamování"
@@ -1432,11 +1472,6 @@ msgstr "Obecné"
 #, kde-format
 msgid "Storage"
 msgstr "Úložiště"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Síť"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2035,3 +2070,6 @@ msgstr "Přeskočit vpřed"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr "Uživatelské nastavení nepovoluje stažení podcastů"

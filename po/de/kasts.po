@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-06-12 00:16+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -27,21 +27,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-i18n-de@kde.org"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Streaming on metered connection not allowed"
+msgstr "Über getaktete Verbindungen"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Über getaktete Verbindungen"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ungültige Medien"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
-"Die Benutzereinstellungen erlauben das Herunterladen von Podcasts nicht"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 
 #: error.cpp:48
 #, fuzzy, kde-format
@@ -87,7 +94,7 @@ msgstr "Fehler beim Synchronisieren des Quellen- und/oder Episodenstatus’"
 #: error.cpp:62
 #, fuzzy, kde-format
 #| msgid "Update Not Allowed on Metered Connection"
-msgid "Connection or streaming not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
 msgstr "Aktualisierung ist bei gebührenpflichtigen Verbindungen nicht erlaubt"
 
 #: kmediasession/example-app/qml/main.qml:20
@@ -375,26 +382,44 @@ msgid "Add Podcast"
 msgstr "Podcast hinzufügen"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Aktualisierungen sind über getaktete Verbindungen nicht erlaubt"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Option auswählen"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Nicht zulassen"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Einmal zulassen"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Immer zulassen"
@@ -1142,7 +1167,9 @@ msgstr[0] "%2 von %1 Datei verschoben"
 msgstr[1] "%2 von %1 Dateien verschoben"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 
@@ -1480,27 +1507,38 @@ msgstr "Schriftgröße:"
 msgid "Use system default"
 msgstr "Voreinstellung des Systems verwenden"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Netzwerk"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Über getaktete Verbindungen"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Über getaktete Verbindungen"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Podcast-Aktualisierungen zulassen"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Herunterladen von Episoden zulassen"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Herunterladen von Bildern zulassen"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Streaming erlauben"
@@ -1514,11 +1552,6 @@ msgstr "Allgemein"
 #, kde-format
 msgid "Storage"
 msgstr "Speicher"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Netzwerk"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2165,6 +2198,16 @@ msgstr "Vorwärts springen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr ""
+#~ "Die Benutzereinstellungen erlauben das Herunterladen von Podcasts nicht"
+
+#, fuzzy
+#~| msgid "Update Not Allowed on Metered Connection"
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr ""
+#~ "Aktualisierung ist bei gebührenpflichtigen Verbindungen nicht erlaubt"
 
 #~ msgid "General Settings"
 #~ msgstr "Allgemeine Einstellungen"

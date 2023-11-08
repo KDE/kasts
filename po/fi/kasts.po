@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:43+0000\n"
+"POT-Creation-Date: 2023-11-08 08:47+0000\n"
 "PO-Revision-Date: 2023-08-26 17:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -27,20 +27,29 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translator@legisign.org"
 
-#: audiomanager.cpp:402
-#, kde-format
-msgid "No connection or streaming on metered connection not allowed"
+#: audiomanager.cpp:399
+#, fuzzy, kde-format
+#| msgid "No connection or streaming on metered connection not allowed"
+msgid "Streaming on metered connection not allowed"
 msgstr "Ei yhteyttä tai suoratoistoa ei sallittu maksullisessa yhteydessä"
 
-#: audiomanager.cpp:541
+#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "No network connection"
+msgstr "Maksullisissa yhteyksissä"
+
+#: audiomanager.cpp:547
 #, kde-format
 msgid "Invalid Media"
 msgstr "Virheellinen media"
 
-#: enclosure.cpp:163
-#, kde-format
-msgid "Podcast downloads not allowed due to user setting"
-msgstr "Käyttäjäasetus ei salli podcastien latausta"
+#: enclosure.cpp:164
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgid "Podcast downloads not allowed on metered connection"
+msgstr ""
+"Maksullisissa yhteyksissä ei toistaiseksi sallita podcastien lataamista"
 
 #: error.cpp:48
 #, kde-format
@@ -78,9 +87,10 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Virhe synkronoitaessa syötteen tai jakson tilaa"
 
 #: error.cpp:62
-#, kde-format
-msgid "Connection or streaming not allowed on metered connection"
-msgstr "Yhteydenotto tai suoratoisto ei sallittu maksullisessa yhteydessä"
+#, fuzzy, kde-format
+#| msgid "Update not allowed on metered connection"
+msgid "Streaming not allowed on metered connection"
+msgstr "Maksullinen yhteys ei salli virkistystä"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -344,27 +354,45 @@ msgid "Add Podcast"
 msgstr "Lisää podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast updates are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
 "Maksullisissa yhteyksissä podcastien virkistystä ei toistaiseksi sallita"
 
 #: qml/ConnectionCheckAction.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Option"
+msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Valitse vaihtoehto"
 
-#: qml/ConnectionCheckAction.qml:82
+#: qml/ConnectionCheckAction.qml:55
+#, kde-format
+msgctxt "@title:window"
+msgid "Network not reachable"
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:66
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"It seems the network cannot be reached. If this is incorrect, this check can "
+"be disabled through: Settings > Network."
+msgstr ""
+
+#: qml/ConnectionCheckAction.qml:84
 #, kde-format
 msgid "Don't Allow"
 msgstr "Älä salli"
 
-#: qml/ConnectionCheckAction.qml:95
+#: qml/ConnectionCheckAction.qml:98
 #, kde-format
 msgid "Allow Once"
 msgstr "Salli kerran"
 
-#: qml/ConnectionCheckAction.qml:108
+#: qml/ConnectionCheckAction.qml:112
 #, kde-format
 msgid "Always Allow"
 msgstr "Salli aina"
@@ -1078,7 +1106,9 @@ msgstr[0] "Siirrettiin %2/%1 tiedosto"
 msgstr[1] "Siirrettiin %2/%1 tiedostoa"
 
 #: qml/main.qml:432
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads are currently not allowed on metered connections"
+msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Maksullisissa yhteyksissä ei toistaiseksi sallita podcastien lataamista"
@@ -1397,27 +1427,38 @@ msgstr "Fonttikoko:"
 msgid "Use system default"
 msgstr "Käytä järjestelmän oletusta"
 
-#: qml/Settings/NetworkSettingsPage.qml:22
+#: qml/Settings/NetworkSettingsPage.qml:22 qml/Settings/SettingsPage.qml:29
+#, kde-format
+msgid "Network"
+msgstr "Verkko"
+
+#: qml/Settings/NetworkSettingsPage.qml:31
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgid "Enable network connection checks"
+msgstr "Maksullisissa yhteyksissä"
+
+#: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
 msgid "On metered connections"
 msgstr "Maksullisissa yhteyksissä"
 
-#: qml/Settings/NetworkSettingsPage.qml:31
+#: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
 msgstr "Salli podcastien virkistys"
 
-#: qml/Settings/NetworkSettingsPage.qml:41
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgid "Allow episode downloads"
 msgstr "Salli jaksojen lataus"
 
-#: qml/Settings/NetworkSettingsPage.qml:51
+#: qml/Settings/NetworkSettingsPage.qml:73
 #, kde-format
 msgid "Allow image downloads"
 msgstr "Salli kuvien lataus"
 
-#: qml/Settings/NetworkSettingsPage.qml:61
+#: qml/Settings/NetworkSettingsPage.qml:84
 #, kde-format
 msgid "Allow streaming"
 msgstr "Salli suoratoisto"
@@ -1431,11 +1472,6 @@ msgstr "Perusasetukset"
 #, kde-format
 msgid "Storage"
 msgstr "Tallennusasema"
-
-#: qml/Settings/SettingsPage.qml:29
-#, kde-format
-msgid "Network"
-msgstr "Verkko"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
@@ -2044,6 +2080,12 @@ msgstr "Hyppää eteenpäin"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgid "Podcast downloads not allowed due to user setting"
+#~ msgstr "Käyttäjäasetus ei salli podcastien latausta"
+
+#~ msgid "Connection or streaming not allowed on metered connection"
+#~ msgstr "Yhteydenotto tai suoratoisto ei sallittu maksullisessa yhteydessä"
 
 #~ msgid "General Settings"
 #~ msgstr "Perusasetukset"
