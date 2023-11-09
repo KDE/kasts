@@ -14,9 +14,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="Kasts" android:icon="@mipmap/ic_launcher">
+    <application android:name="org.qtproject.qt.android.bindings.QtApplication" android:label="Kasts" android:icon="@mipmap/ic_launcher">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation"
-                  android:name="org.qtproject.qt5.android.bindings.QtActivity"
+                  android:name="org.qtproject.qt.android.bindings.QtActivity"
                   android:label="Kasts"
                   android:windowSoftInputMode="adjustResize"
                   android:launchMode="singleTop"

@@ -261,6 +261,7 @@ if(ANDROID)
         view-sort-descending-name
         view-sort-ascending-name
     )
+    ecm_add_android_apk(kasts ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
     target_link_libraries(kasts PRIVATE Qt::Widgets)
 endif()
