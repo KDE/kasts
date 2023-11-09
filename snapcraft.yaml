@@ -142,6 +142,8 @@ parts:
         - libvlc5
         - libnm0
         - libsecret-1-0
+        - mpg123
+        - gnome-keyring
         source: .
         source-type: local
         cmake-parameters:
