@@ -38,8 +38,8 @@
   <name xml:lang="zh-CN">Kasts</name>
   <summary>Podcast application</summary>
   <summary xml:lang="ar">تطبيق مدونات صوتية</summary>
-  <summary xml:lang="ca">Aplicació de podcast</summary>
-  <summary xml:lang="ca-valencia">Aplicació de podcast</summary>
+  <summary xml:lang="ca">Aplicació de pòdcast</summary>
+  <summary xml:lang="ca-valencia">Aplicació de pòdcast</summary>
   <summary xml:lang="cs">Aplikace pro přehrávání podcastů</summary>
   <summary xml:lang="de">Podcast-Anwendung</summary>
   <summary xml:lang="en-GB">Podcast application</summary>
@@ -100,8 +100,8 @@
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="ar">كاستس تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
-    <p xml:lang="ca">El Kasts és una aplicació convergent de podcast que funciona bé a l'escriptori i al mòbil.</p>
-    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de podcast que treballa bé en l'escriptori i al mòbil.</p>
+    <p xml:lang="ca">El Kasts és una aplicació convergent de pòdcast que funciona bé a l'escriptori i al mòbil.</p>
+    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que treballa bé en l'escriptori i en el mòbil.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="eo">Kasts estas konverĝa podkasta aplikaĵo, kiu aspektas bone sur labortablo kaj poŝtelefono.</p>
     <p xml:lang="es">Kasts es una aplicación convergente de pódcast que se ve bien en el escritorio y en dispositivos móviles.</p>
@@ -219,8 +219,8 @@
       <li xml:lang="x-test">xxVariable playback speedxx</li>
       <li>Search for podcasts</li>
       <li xml:lang="ar">ابحث عن مدونات صوتية</li>
-      <li xml:lang="ca">Cerca de podcasts</li>
-      <li xml:lang="ca-valencia">Busca de podcast</li>
+      <li xml:lang="ca">Cerca de pòdcasts</li>
+      <li xml:lang="ca-valencia">Busca de pòdcast</li>
       <li xml:lang="cs">Hledání podcastů</li>
       <li xml:lang="en-GB">Search for podcasts</li>
       <li xml:lang="eo">Serĉi podkastojn</li>
