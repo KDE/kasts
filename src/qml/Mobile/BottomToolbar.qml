@@ -17,8 +17,6 @@ Kirigami.NavigationTabBar {
     property alias toolbarHeight: navBar.implicitHeight
     property bool transparentBackground: false
 
-    shadow: false
-
     actions: [
         Kirigami.Action {
             icon.name: "view-media-playlist"
