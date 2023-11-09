@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-27 20:52+0300\n"
+"PO-Revision-Date: 2023-11-08 23:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -29,18 +29,16 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr ""
-"Немає з'єднання або потокове передавання даних на з'єднанні з обліком "
-"передавання даних заборонено"
+"Потокове передавання даних на з'єднанні з обліком передавання даних "
+"заборонено"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "При вимірюваних з'єднаннях"
+msgstr "Немає з'єднання з мережею"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -48,12 +46,10 @@ msgid "Invalid Media"
 msgstr "Некоректне мультимедіа"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
-"Зараз отримання трансляцій заборонено через використання вимірюваного "
-"з'єднання"
+"Отримання трансляцій заборонено через використання вимірюваного з'єднання"
 
 #: error.cpp:48
 #, kde-format
@@ -91,10 +87,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Помилка під час спроби синхронізувати стан подачі і/або епізоду"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "При з'єднанні з обліком даних оновлення заборонено"
+msgstr "При з'єднанні з обліком даних потокову трансляцію заборонено"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -358,8 +353,7 @@ msgid "Add Podcast"
 msgstr "Додати трансляцію"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
@@ -367,8 +361,7 @@ msgstr ""
 "з'єднання"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Виберіть варіант"
@@ -377,7 +370,7 @@ msgstr "Виберіть варіант"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Мережа недоступна"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -386,6 +379,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Здається, мережа недоступна. Якщо це не так, цю перевірку можна вимкнути за "
+"допомогою пункту: Параметри > Мережа."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -1120,8 +1115,7 @@ msgstr[2] "Пересунуто %2 з %1 файлів"
 msgstr[3] "Пересунуто %2 з %1 файла"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1451,10 +1445,9 @@ msgid "Network"
 msgstr "Мережа"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "При вимірюваних з'єднаннях"
+msgstr "Увімкнути перевірки з'єднання з мережею"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format

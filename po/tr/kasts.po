@@ -2,12 +2,13 @@
 # This file is distributed under the same license as the kasts package.
 #
 # SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-28 01:49+0300\n"
+"PO-Revision-Date: 2023-11-08 21:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,16 +29,14 @@ msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Kısıtlı bağlantılarda bir bağlantıya veya akışa izin verilmiyor"
+msgstr "Kısıtlı bağlantılarda akışa izin verilmiyor"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Kısıtlı bağlantılarda"
+msgstr "Ağ bağlantısı yok"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -45,12 +44,9 @@ msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
-"verilmiyor"
+msgstr "Kısıtlı bağlantılarda pod yayını indirmelerine izin verilmiyor"
 
 #: error.cpp:48
 #, kde-format
@@ -88,10 +84,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Bölüm durumu ve/veya besleme eşzamanlanırken hata"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Kısıtlı bağlantıda güncellemeye izin verilmiyor"
+msgstr "Kısıtla bağlantılarda akışa izin verilmiyor"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -355,16 +350,15 @@ msgid "Add Podcast"
 msgstr "Pod Yayını Ekle"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılarda pod yayını güncellemelerine izin verilmiyor"
+"Şu anda kısıtlı bağlantılar üzerinden pod yayını güncellemelerine izin "
+"verilmiyor"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Seçenek Seç"
@@ -373,7 +367,7 @@ msgstr "Seçenek Seç"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Ağa Erişilemiyor"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -382,6 +376,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Ağa erişilemiyor gibi görünüyor. Bu yanlışsa bu denetim, Ayarlar > Ağ "
+"sayfasından devre dışı bırakılabilir."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -1104,8 +1100,7 @@ msgstr[0] "%2/%1 Dosya Taşındı"
 msgstr[1] "%2/%1 Dosya Taşındı"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1433,10 +1428,9 @@ msgid "Network"
 msgstr "Ağ"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Kısıtlı bağlantılarda"
+msgstr "Ağ bağlantısı denetimlerine izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-27 17:31+0200\n"
+"PO-Revision-Date: 2023-11-08 12:26+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -35,10 +35,9 @@ msgid "Streaming on metered connection not allowed"
 msgstr "Necun connexion o streaming  sur connexion a consumo non permittite"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Sur connexiones a consumo"
+msgstr "Necun connexion de rete"
 
 #: audiomanager.cpp:547
 #, kde-format

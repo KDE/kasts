@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-27 11:38+0200\n"
+"PO-Revision-Date: 2023-11-08 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -31,18 +31,14 @@ msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr ""
-"No hi ha connexió o no es permet la transmissió en continu amb una connexió "
-"d'ús mesurat"
+msgstr "No es permet la transmissió en continu amb una connexió d'ús mesurat"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "En les connexions d'ús mesurat"
+msgstr "No hi ha cap connexió de xarxa"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -50,15 +46,14 @@ msgid "Invalid Media"
 msgstr "Fitxer multimèdia no vàlid"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Baixades de podcasts no permeses amb la connexió d'ús mesurat"
+msgstr "Baixades de pòdcasts no permeses amb la connexió d'ús mesurat"
 
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr "Error en actualitzar el podcast"
+msgstr "Error en actualitzar el pòdcast"
 
 #: error.cpp:50
 #, kde-format
@@ -91,10 +86,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Error de sincronització en l'estat de la font o de l'episodi"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Actualització no permesa en la connexió d'ús mesurat"
+msgstr "Transmissió en continu no permesa en la connexió d'ús mesurat"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -183,17 +177,17 @@ msgstr "Reproducció de fitxer multimèdia"
 #: main.cpp:109
 #, kde-format
 msgid "Podcast Application"
-msgstr "Aplicació de podcast"
+msgstr "Aplicació de pòdcast"
 
 #: main.cpp:111
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Afegeix un podcast nou a les subscripcions."
+msgstr "Afegeix un pòdcast nou a les subscripcions."
 
 #: main.cpp:112
 #, kde-format
 msgid "Podcast URL"
-msgstr "URL del podcast"
+msgstr "URL del pòdcast"
 
 #: main.cpp:117 qml/main.qml:20
 #, kde-format
@@ -203,7 +197,7 @@ msgstr "Kasts"
 #: main.cpp:119
 #, kde-format
 msgid "Podcast Player"
-msgstr "Reproductor de podcast"
+msgstr "Reproductor de pòdcast"
 
 #: main.cpp:121
 #, kde-format
@@ -278,7 +272,7 @@ msgstr "Descripció"
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr "Títol del podcast"
+msgstr "Títol del pòdcast"
 
 #: models/abstractepisodeproxymodel.cpp:220
 #, kde-format
@@ -334,18 +328,18 @@ msgstr "Nombre de preferits: ascendent"
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Títol del podcast: A → Z"
+msgstr "Títol del pòdcast: A → Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Títol del podcast: Z → A"
+msgstr "Títol del pòdcast: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr "Afegeix un podcast nou"
+msgstr "Afegeix un pòdcast nou"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
@@ -355,18 +349,18 @@ msgstr "URL:"
 #: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
-msgstr "Afegeix un podcast"
+msgstr "Afegeix un pòdcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr "Actualització de podcast no permesa amb la connexió d'ús mesurat"
+msgstr ""
+"Actualment, les actualitzacions de pòdcast no es permeten amb la connexió "
+"d'ús mesurat"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Selecció d'opció"
@@ -375,7 +369,7 @@ msgstr "Selecció d'opció"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "No es pot accedir a la xarxa"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -384,6 +378,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Sembla que no s'ha pogut accedir a la xarxa. Si això és incorrecte, aquesta "
+"comprovació es pot desactivar a través de: Configuració > Xarxa."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -526,7 +522,7 @@ msgstr "Baixades"
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Recarrega tots els podcasts"
+msgstr "Recarrega tots els pòdcasts"
 
 #: qml/DownloadListPage.qml:55
 #, kde-format
@@ -660,7 +656,7 @@ msgstr "Afegeix als preferits"
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr "Obre un podcast"
+msgstr "Obre un pòdcast"
 
 #: qml/EntryPage.qml:289
 #, kde-format
@@ -722,7 +718,7 @@ msgstr "Mostra el registre d'errors"
 #: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:255
 #, kde-format
 msgid "Podcast Details"
-msgstr "Detalls del podcast"
+msgstr "Detalls del pòdcast"
 
 #: qml/FeedDetailsPage.qml:119
 #, kde-format
@@ -733,7 +729,7 @@ msgstr "per %1"
 #: qml/FeedDetailsPage.qml:150
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Actualitza els podcasts"
+msgstr "Actualitza els pòdcasts"
 
 #: qml/FeedDetailsPage.qml:169
 #, kde-format
@@ -743,7 +739,7 @@ msgstr "Mostra els detalls"
 #: qml/FeedDetailsPage.qml:240
 #, kde-format
 msgid "Podcast URL:"
-msgstr "URL del podcast:"
+msgstr "URL del pòdcast:"
 
 #: qml/FeedDetailsPage.qml:280
 #, kde-format
@@ -782,7 +778,7 @@ msgstr "Error (%1): %2"
 #: qml/FeedListDelegate.qml:265
 #, kde-format
 msgid "Remove Podcast"
-msgstr "Elimina el podcast"
+msgstr "Elimina el pòdcast"
 
 #: qml/FeedListPage.qml:20
 #, kde-format
@@ -800,13 +796,13 @@ msgstr "Descobreix"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Recarrega tots els podcasts"
+msgstr "Recarrega tots els pòdcasts"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Afegeix un podcast…"
+msgstr "Afegeix un pòdcast…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
@@ -824,19 +820,19 @@ msgstr "Seleccioneu com ordenar les subscripcions"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importa podcasts…"
+msgstr "Importa pòdcasts…"
 
 #: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exporta podcasts…"
+msgstr "Exporta pòdcasts…"
 
 #: qml/FeedListPage.qml:160
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr "Importa podcasts"
+msgstr "Importa pòdcasts"
 
 #: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
@@ -860,13 +856,13 @@ msgstr "Tots els fitxers (*)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr "Exporta podcasts"
+msgstr "Exporta pòdcasts"
 
 #: qml/FeedListPage.qml:186
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr "Encara no s'ha afegit cap podcast"
+msgstr "Encara no s'ha afegit cap pòdcast"
 
 #: qml/FeedListPage.qml:186
 #, kde-format
@@ -874,13 +870,13 @@ msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "No s'ha trobat cap podcast"
+msgstr "No s'ha trobat cap pòdcast"
 
 #: qml/FeedListPage.qml:187
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Comenceu afegint podcasts:"
+msgstr "Comenceu afegint pòdcasts:"
 
 #: qml/FeedListPage.qml:201
 #, kde-format
@@ -898,7 +894,7 @@ msgstr "Sincronitza"
 #: qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
-msgstr "Arranjament"
+msgstr "Configuració"
 
 #: qml/FeedListPage.qml:371
 #, kde-format
@@ -917,14 +913,14 @@ msgstr "Desselecciona-ho tot"
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] "Elimina el podcast"
-msgstr[1] "Elimina els podcasts"
+msgstr[0] "Elimina el pòdcast"
+msgstr[1] "Elimina els pòdcasts"
 
 #: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
-msgstr "Detalls del podcast"
+msgstr "Detalls del pòdcast"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -1094,8 +1090,8 @@ msgstr "Episodis"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] "%2 actualitzat de %1 podcasts"
-msgstr[1] "%2 actualitzats de %1 podcasts"
+msgstr[0] "%2 actualitzat de %1 pòdcasts"
+msgstr[1] "%2 actualitzats de %1 pòdcasts"
 
 #: qml/main.qml:368
 #, kde-format
@@ -1106,11 +1102,12 @@ msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr "Baixades de podcasts no permeses amb la connexió d'ús mesurat"
+msgstr ""
+"Actualment, les baixades de pòdcasts no es permeten amb la connexió d'ús "
+"mesurat"
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
@@ -1125,7 +1122,7 @@ msgstr "Sense títol"
 #: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No podcast title"
-msgstr "Sense títol de podcast"
+msgstr "Sense títol de pòdcast"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
@@ -1236,7 +1233,7 @@ msgstr "Tema de color"
 #: qml/Settings/GeneralSettingsPage.qml:48
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr "Mostra sempre els títols dels podcasts a la vista de subscripcions"
+msgstr "Mostra sempre els títols dels pòdcasts a la vista de subscripcions"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
@@ -1338,7 +1335,7 @@ msgstr "Configuració de l'actualització:"
 #: qml/Settings/GeneralSettingsPage.qml:224
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr "Obtén automàticament a l'inici les actualitzacions dels podcasts"
+msgstr "Obtén automàticament a l'inici les actualitzacions dels pòdcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:233
 #, kde-format
@@ -1390,7 +1387,7 @@ msgstr "Restableix la posició de reproducció després de reproduir un episodi"
 #: qml/Settings/GeneralSettingsPage.qml:316
 #, kde-format
 msgid "When adding new podcasts"
-msgstr "En afegir podcasts nous"
+msgstr "En afegir pòdcasts nous"
 
 #: qml/Settings/GeneralSettingsPage.qml:325
 #, kde-format
@@ -1433,10 +1430,9 @@ msgid "Network"
 msgstr "Xarxa"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "En les connexions d'ús mesurat"
+msgstr "Activa les comprovacions de connexió de la xarxa"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
@@ -1446,7 +1442,7 @@ msgstr "En les connexions d'ús mesurat"
 #: qml/Settings/NetworkSettingsPage.qml:51
 #, kde-format
 msgid "Allow podcast updates"
-msgstr "Permet les actualitzacions de podcast"
+msgstr "Permet les actualitzacions de pòdcast"
 
 #: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
@@ -1512,7 +1508,7 @@ msgstr "Informació"
 #: qml/Settings/StorageSettingsPage.qml:73
 #, kde-format
 msgid "Podcast downloads"
-msgstr "Baixades de podcasts"
+msgstr "Baixades de pòdcasts"
 
 #: qml/Settings/StorageSettingsPage.qml:74
 #: qml/Settings/StorageSettingsPage.qml:81
@@ -1589,7 +1585,7 @@ msgstr "Fes una sincronització completa en iniciar"
 #: qml/Settings/SynchronizationSettingsPage.qml:96
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr "Fes una sincronització completa quan se cerquin podcasts"
+msgstr "Fes una sincronització completa quan se cerquin pòdcasts"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:106
 #, kde-format
@@ -1796,7 +1792,7 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
-"Totes les subscripcions de podcasts en aquest compte de gpodder.net s'han de "
+"Totes les subscripcions de pòdcasts en aquest compte de gpodder.net s'han de "
 "sincronitzar en tots els dispositius?\n"
 "Si no sabeu el que això significa, probablement hauríeu de seleccionar "
 "«D'acord»."
@@ -1985,8 +1981,8 @@ msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] "(Pas %3 de %4) Actualitzat %2 de %1 podcasts"
-msgstr[1] "(Pas %3 de %4) Actualitzats %2 de %1 podcasts"
+msgstr[0] "(Pas %3 de %4) Actualitzat %2 de %1 pòdcasts"
+msgstr[1] "(Pas %3 de %4) Actualitzats %2 de %1 pòdcasts"
 
 #: sync/syncjob.cpp:902
 #, kde-format
@@ -2089,12 +2085,3 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgid "Podcast downloads not allowed due to user setting"
-#~ msgstr ""
-#~ "Baixades de podcasts no permeses a causa de la configuració de l'usuari"
-
-#~ msgid "Connection or streaming not allowed on metered connection"
-#~ msgstr ""
-#~ "No hi ha connexió o no es permet la transmissió en continu amb una "
-#~ "connexió d'ús mesurat"
