@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-27 11:16+0200\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-09 10:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -28,16 +28,14 @@ msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Geen verbinding of streaming op bemeterde verbinding toegestaan"
+msgstr "Streaming op bemeterde verbinding niet toegestaan"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Op bemeterde verbindingen"
+msgstr "Geen netwerkverbinding"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -45,10 +43,9 @@ msgid "Invalid Media"
 msgstr "Ongeldig medium"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Downloaden van Podcast is nu niet toegestaan op bemeterde verbindingen"
+msgstr "Downloaden van Podcast is niet toegestaan op bemeterde verbinding"
 
 #: error.cpp:48
 #, kde-format
@@ -86,10 +83,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Fout bij synchroniseren van feed en/of status van episode"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Bijwerken is niet toegestaan op bemeterde verbinding"
+msgstr "Streamen is niet toegestaan op bemeterde verbinding"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -353,15 +349,13 @@ msgid "Add Podcast"
 msgstr "Podcast toevoegen"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Bijwerken van Podcast is nu niet toegestaan op bemeterde verbindingen"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Optie selecteren"
@@ -370,7 +364,7 @@ msgstr "Optie selecteren"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Netwerk niet bereikbaar"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -379,6 +373,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Het lijkt erop dat het netwerk niet bereikt kan worden. Als dat onjuist is, "
+"kan deze controle uitgeschakeld worden door: Instellingen > Netwerk."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -890,7 +886,7 @@ msgid "Synchronize"
 msgstr "Synchroniseren"
 
 #: qml/FeedListPage.qml:236 qml/main.qml:68 qml/main.qml:255
-#: qml/Mobile/BottomToolbar.qml:49
+#: qml/Mobile/BottomToolbar.qml:47
 #, kde-format
 msgid "Settings"
 msgstr "Instellingen"
@@ -1069,17 +1065,17 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Zoeken in:"
 
-#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:23
 #, kde-format
 msgid "Queue"
 msgstr "In wachtrij zetten"
 
-#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
+#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:31
 #, kde-format
 msgid "Subscriptions"
 msgstr "Inschrijvingen"
 
-#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:39
 #, kde-format
 msgid "Episodes"
 msgstr "Episoden"
@@ -1101,8 +1097,7 @@ msgstr[0] "Verplaatst %2 van %1 bestand"
 msgstr[1] "Verplaatst %2 van %1 bestanden"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Downloaden van Podcast is nu niet toegestaan op bemeterde verbindingen"
@@ -1427,10 +1422,9 @@ msgid "Network"
 msgstr "Netwerk"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Op bemeterde verbindingen"
+msgstr "Controles op netwerkverbinding inschakelen"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format

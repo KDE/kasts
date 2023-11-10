@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
-"PO-Revision-Date: 2023-10-27 07:10+0100\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"PO-Revision-Date: 2023-11-09 20:08+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -29,16 +29,14 @@ msgid "Your emails"
 msgstr "okellogg@users.sourceforge.net"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Neniu konekto aŭ streaming sur mezurita konekto ne permesis"
+msgstr "Streaming sur mezurita konekto ne permesita"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Sur mezuritaj konektoj"
+msgstr "Sur retaj konektoj"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -46,10 +44,9 @@ msgid "Invalid Media"
 msgstr "Nevalida Komunikilo"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Podkastaj elŝutoj estas nuntempe ne permesitaj sur mezuritaj konektoj"
+msgstr "Podkastaj elŝutoj ne permesitaj sur mezuritaj konektoj"
 
 #: error.cpp:48
 #, kde-format
@@ -87,10 +84,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Eraro dum sinkronigado de feed kaj/aŭ epizoda stato"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Ĝisdatigo ne permesita sur mezurita konekto"
+msgstr "Streaming ne permesita sur mezurita konekto"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -354,16 +350,14 @@ msgid "Add Podcast"
 msgstr "Aldoni Podkaston"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Podkastaj ĝisdatigoj estas nuntempe ne permesitaj sur mezuritaj konektoj"
+"Podkastaj ĝisdatigoj aktuale ne estas permesitaj sur mezuritaj konektoj"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Elekti Opcion"
@@ -372,7 +366,7 @@ msgstr "Elekti Opcion"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Reto ne atingebla"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -381,6 +375,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Ŝajnas, ke la reto ne estas atingebla. Se tio estas malĝusta, ĉi tiu "
+"kontrolo povas esti malŝaltita per: Agordoj > Reto."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -892,7 +888,7 @@ msgid "Synchronize"
 msgstr "Sinkronigi"
 
 #: qml/FeedListPage.qml:236 qml/main.qml:68 qml/main.qml:255
-#: qml/Mobile/BottomToolbar.qml:49
+#: qml/Mobile/BottomToolbar.qml:47
 #, kde-format
 msgid "Settings"
 msgstr "Agordoj"
@@ -1071,17 +1067,17 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Serĉi en:"
 
-#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:23
 #, kde-format
 msgid "Queue"
 msgstr "Vico"
 
-#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
+#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:31
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonoj"
 
-#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:39
 #, kde-format
 msgid "Episodes"
 msgstr "Epizodoj"
@@ -1103,11 +1099,10 @@ msgstr[0] "Movis %2 of %1 Dosiero"
 msgstr[1] "Movis %2 of %1 Dosieroj"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr "Podkastaj elŝutoj estas nuntempe ne permesitaj sur mezuritaj konektoj"
+msgstr "Podkastaj elŝutoj aktuale ne estas permesitaj sur mezuritaj konektoj"
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
@@ -1339,13 +1334,12 @@ msgstr "Aŭtomate alporti podkastajn ĝisdatigojn dum ekfunkciigo"
 #: qml/Settings/GeneralSettingsPage.qml:233
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
-"Ĝisdatigi ekzistantajn epizodajn datumojn dum refreŝiĝo (pli malrapide)"
+msgstr "Ĝisdatigi ekzistantajn epizoddatumojn dum refreŝiĝo (pli malrapida)"
 
 #: qml/Settings/GeneralSettingsPage.qml:243
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr "Aŭtomate vico de novaj epizodoj"
+msgstr "Aŭtomate vicigi novajn epizodojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:258
 #, kde-format
@@ -1355,7 +1349,7 @@ msgstr "Aŭtomate elŝuti novajn epizodojn"
 #: qml/Settings/GeneralSettingsPage.qml:271
 #, kde-format
 msgid "Played episode behavior"
-msgstr "Ludita epizoda konduto"
+msgstr "Konduto de luditaj epizodoj"
 
 #: qml/Settings/GeneralSettingsPage.qml:274
 #, kde-format
@@ -1430,10 +1424,9 @@ msgid "Network"
 msgstr "Reto"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Sur mezuritaj konektoj"
+msgstr "Ebligi retkonektajn kontrolojn"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
@@ -1634,7 +1627,7 @@ msgid ""
 "Continue?"
 msgstr ""
 "Bonvolu noti, ke puŝi la reproduktan staton de ĉiuj lokaj epizodoj al la "
-"servilo eble daŭros tre longan tempon kaj/aŭ povus troŝargi la servilon. "
+"servilo eble daŭros tre longan tempon kaj/aŭ povus troŝarĝi la servilon. "
 "Rimarku ankaŭ, ke ĉi tiu ago anstataŭigos ĉiujn ekzistantajn epizodajn "
 "statojn sur la servilo.\n"
 "\n"
@@ -2080,9 +2073,3 @@ msgstr "Salti Antaŭen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgid "Podcast downloads not allowed due to user setting"
-#~ msgstr "Podkastaj elŝutoj ne estas permesitaj pro uzanta agordo"
-
-#~ msgid "Connection or streaming not allowed on metered connection"
-#~ msgstr "Konekto aŭ streaming ne permesita sur mezurita konekto"

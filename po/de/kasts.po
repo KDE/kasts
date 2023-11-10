@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:47+0000\n"
+"POT-Creation-Date: 2023-11-10 01:47+0000\n"
 "PO-Revision-Date: 2023-06-12 00:16+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -951,7 +951,7 @@ msgid "Synchronize"
 msgstr "Abgleichen"
 
 #: qml/FeedListPage.qml:236 qml/main.qml:68 qml/main.qml:255
-#: qml/Mobile/BottomToolbar.qml:49
+#: qml/Mobile/BottomToolbar.qml:47
 #, kde-format
 msgid "Settings"
 msgstr "Einstellungen"
@@ -1135,17 +1135,17 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Suchen in:"
 
-#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
+#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:23
 #, kde-format
 msgid "Queue"
 msgstr "Warteschlange"
 
-#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
+#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:31
 #, kde-format
 msgid "Subscriptions"
 msgstr "Abonnements"
 
-#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
+#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:39
 #, kde-format
 msgid "Episodes"
 msgstr "Episoden"
