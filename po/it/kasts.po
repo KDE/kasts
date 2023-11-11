@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:47+0000\n"
-"PO-Revision-Date: 2023-10-27 14:58+0200\n"
+"PO-Revision-Date: 2023-11-08 15:11+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -28,17 +28,14 @@ msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr ""
-"Nessuna connessione o trasmissione non consentita sulla connessione a consumo"
+msgstr "La trasmissione su connessione a consumo non è consentita"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Su connessioni a consumo"
+msgstr "Nessuna connessione di rete"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -46,12 +43,10 @@ msgid "Invalid Media"
 msgstr "Supporto non valido"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
-"Gli scaricamenti dei podcast non sono attualmente consentiti su connessioni "
-"a consumo"
+"Gli scaricamenti dei podcast non sono consentiti su connessioni a consumo"
 
 #: error.cpp:48
 #, kde-format
@@ -90,10 +85,9 @@ msgstr ""
 "Errore durante la sincronizzazione della fonte e/o dello stato dell'episodio"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Aggiornamento non consentito su connessione a consumo"
+msgstr "Trasmissione non consentita su connessione a consumo"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -357,8 +351,7 @@ msgid "Add Podcast"
 msgstr "Aggiungi podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
@@ -366,8 +359,7 @@ msgstr ""
 "connessioni a consumo"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Seleziona opzione"
@@ -376,7 +368,7 @@ msgstr "Seleziona opzione"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Rete non raggiungibile"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -385,6 +377,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Sembra che la rete non sia raggiungibile. Se non è corretto, questo "
+"controllo può essere disabilitato tramite: Impostazioni > Rete."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -591,7 +585,7 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr "Trasmetti"
+msgstr "Riproduci"
 
 #: qml/EntryPage.qml:166
 #, kde-format
@@ -1107,8 +1101,7 @@ msgstr[0] "Spostato %2 di %1 file"
 msgstr[1] "Spostati %2 di %1 file"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
@@ -1439,10 +1432,9 @@ msgid "Network"
 msgstr "Rete"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Su connessioni a consumo"
+msgstr "Abilita i controlli della connessione di rete"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format

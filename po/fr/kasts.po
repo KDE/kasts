@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:47+0000\n"
-"PO-Revision-Date: 2023-10-28 13:02+0200\n"
+"PO-Revision-Date: 2023-11-09 13:00+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -26,18 +26,14 @@ msgid "Your emails"
 msgstr "xavier.besnard@neuf.fr"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr ""
-"Aucune connexion ou lecture en flux n'est autorisée sur une connexion "
-"facturée."
+msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Pour les connexions facturées"
+msgstr "Aucune connexion réseau"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -45,12 +41,11 @@ msgid "Invalid Media"
 msgstr "Média non valable"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
-"Les mises à jour de podcasts ne sont pas autorisées avec des connexions "
-"facturées."
+"Les mises à jour de podcasts sur des connexions facturées ne sont pas "
+"autorisées."
 
 #: error.cpp:48
 #, kde-format
@@ -90,10 +85,9 @@ msgstr ""
 "épisodes"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Les mises à jour ne sont pas autorisées avec une connexion facturée"
+msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -357,17 +351,15 @@ msgid "Add Podcast"
 msgstr "Ajouter un podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Les mises à jour de podcasts ne sont pas autorisées avec des connexions "
-"facturées."
+"Les mises à jour de podcasts sur des connexions facturées ne sont pas "
+"actuellement autorisées."
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Sélectionner une option"
@@ -376,7 +368,7 @@ msgstr "Sélectionner une option"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Réseau non atteignable"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -385,6 +377,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Il semble que le réseau ne puisse être atteint. Si cela est incorrect, cette "
+"vérification peut être désactivée grâce à : menu Configuration / Réseau."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -1107,13 +1101,12 @@ msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Les mises à jour de podcasts ne sont pas autorisées avec des connexions "
-"facturées."
+"Les mises à jour de podcasts sur des connexions facturées ne sont pas "
+"actuellement autorisées."
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
@@ -1438,10 +1431,9 @@ msgid "Network"
 msgstr "Réseau"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Pour les connexions facturées"
+msgstr "Activer les vérifications de connexion au réseau"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format

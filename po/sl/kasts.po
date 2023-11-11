@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:47+0000\n"
-"PO-Revision-Date: 2023-11-04 14:28+0100\n"
+"PO-Revision-Date: 2023-11-10 09:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,16 +29,14 @@ msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Ni povezave ali tokovni prenos na merjeni povezavi ni dovoljen"
+msgstr "Prenos toka na merjeni povezavi ni dovoljen"
 
 #: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Pri merjenih povezavah"
+msgstr "Ni omrežne povezave"
 
 #: audiomanager.cpp:547
 #, kde-format
@@ -46,10 +44,9 @@ msgid "Invalid Media"
 msgstr "Neveljavni medij"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Prenos podkastov trenutno ni dovoljeno pri merjenih povezavah"
+msgstr "Prenos podkastov ni dovoljen pri merjenih povezavah"
 
 #: error.cpp:48
 #, kde-format
@@ -87,10 +84,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Napaka pri sinhronizaciji vira in/ali stanja epizode"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Osveževanje ni dovoljeno pri merjeni povezavi"
+msgstr "Spremljanje tokov ni dovoljeno pri merjeni povezavi"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -354,15 +350,13 @@ msgid "Add Podcast"
 msgstr "Dodaj podcast"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "Osveževanje podcastov trenutno ni dovoljeno pri merjenih povezavah"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Izberite možnost"
@@ -371,7 +365,7 @@ msgstr "Izberite možnost"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Omrežje ni dostopno"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -380,6 +374,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Videti je, da omrežje ni dostopno. Če to ne velja, lahko to preverjanje "
+"onemogočite z: Nastavitve > Omrežje."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -1114,8 +1110,7 @@ msgstr[2] "Preneseno %2 od %1 datotek"
 msgstr[3] "Preneseno %2 od %1 datotek"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Prenos podkastov trenutno ni dovoljeno pri merjenih povezavah"
@@ -1441,10 +1436,9 @@ msgid "Network"
 msgstr "Omrežje"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Pri merjenih povezavah"
+msgstr "Omogoči preverjanje povezave z omrežjem"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
