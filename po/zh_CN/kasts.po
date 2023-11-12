@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-10 01:47+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -45,10 +45,9 @@ msgid "Invalid Media"
 msgstr "媒体无效"
 
 #: enclosure.cpp:164
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "使用计费连接时不允许下载播客"
+msgstr ""
 
 #: error.cpp:48
 #, kde-format
@@ -86,10 +85,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr ""
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "使用计费连接时不允许更新播客"
+msgstr ""
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -353,15 +351,13 @@ msgid "Add Podcast"
 msgstr "添加播客"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许更新播客"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "选择选项"
@@ -1095,8 +1091,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "已移动 %2 个文件，共 %1 个"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许下载播客"
@@ -2057,6 +2052,3 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
-
-#~ msgid "Podcast downloads not allowed due to user setting"
-#~ msgstr "按照用户设置的条件，不允许下载播客"
