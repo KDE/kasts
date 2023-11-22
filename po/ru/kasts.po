@@ -1,0 +1,2070 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kasts package.
+#
+# Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: kasts\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-07-28 02:34+0000\n"
+"PO-Revision-Date: 2023-11-21 17:03+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Олеся Герасименко"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translation-team@basealt.ru"
+
+#: audiomanager.cpp:402
+#, kde-format
+msgid "No connection or streaming on metered connection not allowed"
+msgstr ""
+"Нет подключения или запрещена потоковая передача данных при лимитном "
+"подключении"
+
+#: audiomanager.cpp:541
+#, kde-format
+msgid "Invalid Media"
+msgstr "Некорректное мультимедиа"
+
+#: enclosure.cpp:163
+#, kde-format
+msgid "Podcast downloads not allowed due to user setting"
+msgstr "Загрузка подкастов запрещена установленным пользователем параметром"
+
+#: enclosuredownloadjob.cpp:33
+#, kde-format
+msgid "Downloading %1"
+msgstr "Загрузка %1"
+
+#: error.cpp:48
+#, kde-format
+msgid "Podcast update error"
+msgstr "Ошибка обновления подкастов"
+
+#: error.cpp:50
+#, kde-format
+msgid "Media download error"
+msgstr "Ошибка загрузки мультимедийных данных"
+
+#: error.cpp:52
+#, kde-format
+msgid "Update not allowed on metered connection"
+msgstr "При лимитном подключении обновление запрещено"
+
+#: error.cpp:54
+#, kde-format
+msgid "Invalid media file"
+msgstr "Некорректный файл мультимедиа"
+
+#: error.cpp:56
+#, kde-format
+msgid "Nothing found"
+msgstr "Ничего не найдено"
+
+#: error.cpp:58
+#, kde-format
+msgid "Error moving storage path"
+msgstr "Ошибка при изменении пути сохранения данных"
+
+#: error.cpp:60
+#, kde-format
+msgid "Error syncing feed and/or episode status"
+msgstr "Ошибка синхронизации ленты и/или состояния выпусков"
+
+#: error.cpp:62
+#, kde-format
+msgid "Connection or streaming not allowed on metered connection"
+msgstr ""
+"Подключение или потоковая передача данных запрещены при лимитном соединении"
+
+#: kmediasession/example-app/qml/main.qml:20
+#, kde-format
+msgid "Example KMediaSession Player"
+msgstr "Пример проигрывателя KMediaSession"
+
+#: kmediasession/example-app/qml/main.qml:72
+#, kde-format
+msgid "Select File…"
+msgstr "Выбрать файл…"
+
+#: kmediasession/example-app/qml/main.qml:78
+#, kde-format
+msgid "Select Media File"
+msgstr "Выбор файла мультимедиа"
+
+#: kmediasession/example-app/qml/main.qml:85
+#, kde-format
+msgid "OR"
+msgstr "ИЛИ"
+
+#: kmediasession/example-app/qml/main.qml:93
+#, kde-format
+msgid "Open"
+msgstr "Открыть"
+
+#: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
+#, kde-format
+msgid "Play"
+msgstr "Воспроизвести"
+
+#: kmediasession/example-app/qml/main.qml:109
+#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
+#, kde-format
+msgid "Pause"
+msgstr "Приостановить"
+
+#: kmediasession/example-app/qml/main.qml:117 qml/SleepTimerDialog.qml:41
+#, kde-format
+msgid "Stop"
+msgstr "Остановить"
+
+#: kmediasession/example-app/qml/main.qml:147
+#, kde-format
+msgid "Mute"
+msgstr "Отключить звук"
+
+#: kmediasession/example-app/qml/main.qml:174
+#, kde-format
+msgid "Title: %1"
+msgstr "Название: %1"
+
+#: kmediasession/example-app/qml/main.qml:177
+#, kde-format
+msgid "Artist: %1"
+msgstr "Исполнитель: %1"
+
+#: kmediasession/example-app/qml/main.qml:180
+#, kde-format
+msgid "Album: %1"
+msgstr "Альбом: %1"
+
+#: kmediasession/example-app/qml/main.qml:191
+#, kde-format
+msgid "Media status: %1"
+msgstr "Состояние мультимедиа: %1"
+
+#: kmediasession/example-app/qml/main.qml:194
+#, kde-format
+msgid "Playback status: %1"
+msgstr "Состояние воспроизведения: %1"
+
+#: kmediasession/example-app/qml/main.qml:197
+#, kde-format
+msgid "Error: %1"
+msgstr "Ошибка: %1"
+
+#: kmediasession/powermanagement/powermanagementinterface.cpp:188
+#: kmediasession/powermanagement/powermanagementinterface.cpp:214
+#, kde-format
+msgctxt "Explanation for sleep inhibit during media playback"
+msgid "Playing Media"
+msgstr "Воспроизведение мультимедиа"
+
+#: main.cpp:113
+#, kde-format
+msgid "Podcast Application"
+msgstr "Приложение для прослушивания подкастов"
+
+#: main.cpp:115
+#, kde-format
+msgid "Adds a new podcast to subscriptions."
+msgstr "Добавляет новый подкаст в подписки."
+
+#: main.cpp:116
+#, kde-format
+msgid "Podcast URL"
+msgstr "URL-адрес подкаста"
+
+#: main.cpp:121 qml/main.qml:20
+#, kde-format
+msgid "Kasts"
+msgstr "Kasts"
+
+#: main.cpp:123
+#, kde-format
+msgid "Podcast Player"
+msgstr "Проигрыватель подкастов"
+
+#: main.cpp:125
+#, kde-format
+msgid "© 2020–2023 KDE Community"
+msgstr "© Сообщество KDE, 2020–2023"
+
+#: main.cpp:126
+#, kde-format
+msgid "Tobias Fella"
+msgstr "Tobias Fella"
+
+#: main.cpp:127
+#, kde-format
+msgid "Bart De Vries"
+msgstr "Bart De Vries"
+
+#: models/abstractepisodeproxymodel.cpp:184
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "No filter"
+msgstr "Нет фильтра"
+
+#: models/abstractepisodeproxymodel.cpp:186
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Played episodes"
+msgstr "Воспроизведённые выпуски"
+
+#: models/abstractepisodeproxymodel.cpp:188
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Unplayed episodes"
+msgstr "Невоспроизведённые выпуски"
+
+#: models/abstractepisodeproxymodel.cpp:190
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as \"New\""
+msgstr "Выпуски с отметкой «Новый»"
+
+#: models/abstractepisodeproxymodel.cpp:192
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as \"New\""
+msgstr "Выпуски без отметки «Новый»"
+
+#: models/abstractepisodeproxymodel.cpp:194
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes marked as Favorite"
+msgstr "Выпуски, добавленные в избранное"
+
+#: models/abstractepisodeproxymodel.cpp:196
+#, kde-format
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Episodes not marked as Favorite"
+msgstr "Выпуски, не добавленные в избранное"
+
+#: models/abstractepisodeproxymodel.cpp:206
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Title"
+msgstr "Название"
+
+#: models/abstractepisodeproxymodel.cpp:208
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Description"
+msgstr "Описание"
+
+#: models/abstractepisodeproxymodel.cpp:210
+#, kde-format
+msgctxt "@label:chooser Choice of fields to search for string"
+msgid "Podcast title"
+msgstr "Название подкаста"
+
+#: models/abstractepisodeproxymodel.cpp:220
+#, kde-format
+msgctxt "@label:chooser Sort episodes by decreasing date"
+msgid "Date: newer first"
+msgstr "Дата: сначала новые"
+
+#: models/abstractepisodeproxymodel.cpp:222
+#, kde-format
+msgctxt "@label:chooser Sort episodes by increasing date"
+msgid "Date: older first"
+msgstr "Дата: сначала старые"
+
+#: models/feedsproxymodel.cpp:120
+#, kde-format
+msgctxt ""
+"@label:chooser Sort podcasts by decreasing number of unplayed episodes"
+msgid "Unplayed count: descending"
+msgstr "Количество невоспроизведённых: по убыванию"
+
+#: models/feedsproxymodel.cpp:122
+#, kde-format
+msgctxt ""
+"@label:chooser Sort podcasts by increasing number of unplayed episodes"
+msgid "Unplayed count: ascending"
+msgstr "Количество невоспроизведённых: по возрастанию"
+
+#: models/feedsproxymodel.cpp:124
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
+msgid "New count: descending"
+msgstr "Количество новых: по убыванию"
+
+#: models/feedsproxymodel.cpp:126
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
+msgid "New count: ascending"
+msgstr "Количество новых: по возрастанию"
+
+#: models/feedsproxymodel.cpp:128
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
+msgid "Favorite count: descending"
+msgstr "Количество избранных: по убыванию"
+
+#: models/feedsproxymodel.cpp:130
+#, kde-format
+msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
+msgid "Favorite count: ascending"
+msgstr "Количество избранных: по возрастанию"
+
+#: models/feedsproxymodel.cpp:132
+#, kde-format
+msgctxt "@label:chooser Sort podcasts titles alphabetically"
+msgid "Podcast title: A → Z"
+msgstr "Название подкаста: А → Я"
+
+#: models/feedsproxymodel.cpp:134
+#, kde-format
+msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
+msgid "Podcast title: Z → A"
+msgstr "Название подкаста: Я → А"
+
+#: qml/AddFeedSheet.qml:21
+#, kde-format
+msgid "Add New Podcast"
+msgstr "Добавление нового подкаста"
+
+#: qml/AddFeedSheet.qml:27
+#, kde-format
+msgid "Url:"
+msgstr "URL-адрес:"
+
+#: qml/AddFeedSheet.qml:49
+#, kde-format
+msgid "Add Podcast"
+msgstr "Добавить подкаст"
+
+#: qml/ConnectionCheckAction.qml:20
+#, kde-format
+msgid "Podcast updates are currently not allowed on metered connections"
+msgstr "Сейчас обновление подкастов запрещено при лимитном подключении"
+
+#: qml/ConnectionCheckAction.qml:54
+#, kde-format
+msgid "Select Option"
+msgstr "Выбор варианта"
+
+#: qml/ConnectionCheckAction.qml:81
+#, kde-format
+msgid "Don't Allow"
+msgstr "Не разрешать"
+
+#: qml/ConnectionCheckAction.qml:94
+#, kde-format
+msgid "Allow Once"
+msgstr "Разрешить однократно"
+
+#: qml/ConnectionCheckAction.qml:107
+#, kde-format
+msgid "Always Allow"
+msgstr "Всегда разрешать"
+
+#: qml/Desktop/DesktopPlayerControls.qml:119
+#, kde-format
+msgid "Seek backward"
+msgstr "Искать назад"
+
+#: qml/Desktop/DesktopPlayerControls.qml:138
+#, kde-format
+msgid "Seek forward"
+msgstr "Искать вперёд"
+
+#: qml/Desktop/DesktopPlayerControls.qml:147
+#, kde-format
+msgid "Skip forward"
+msgstr "Перейти вперёд"
+
+#: qml/Desktop/DesktopPlayerControls.qml:172
+#, kde-format
+msgid "Playback rate:"
+msgstr "Скорость воспроизведения:"
+
+#: qml/Desktop/DesktopPlayerControls.qml:231
+#, kde-format
+msgctxt "@action:button"
+msgid "Show chapter list"
+msgstr "Показать список глав"
+
+#: qml/Desktop/DesktopPlayerControls.qml:243
+#, kde-format
+msgctxt "@action:button"
+msgid "Show episode info"
+msgstr "Показать информацию о выпуске"
+
+#: qml/Desktop/DesktopPlayerControls.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Open sleep timer settings"
+msgstr "Открыть параметры таймера сна"
+
+#: qml/Desktop/DesktopPlayerControls.qml:270
+#: qml/Mobile/MobilePlayerControls.qml:345
+#, kde-format
+msgctxt "@action:button"
+msgid "Open volume settings"
+msgstr "Открыть параметры громкости"
+
+#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Mobile/MobilePlayerControls.qml:375
+#, kde-format
+msgctxt "@action:button"
+msgid "Toggle mute"
+msgstr "Включить или отключить звук"
+
+#: qml/Desktop/DesktopPlayerControls.qml:331
+#, kde-format
+msgctxt "@action:button"
+msgid "Show more"
+msgstr "Показать больше"
+
+#: qml/Desktop/DesktopPlayerControls.qml:361
+#, kde-format
+msgctxt "@action:button"
+msgid "Chapters"
+msgstr "Главы"
+
+#: qml/Desktop/DesktopPlayerControls.qml:369
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Info"
+msgstr "Показать информацию"
+
+#: qml/Desktop/DesktopPlayerControls.qml:379
+#, kde-format
+msgctxt "@action:button"
+msgid "Sleep Timer"
+msgstr "Таймер сна"
+
+#: qml/Desktop/DesktopPlayerControls.qml:413
+#, kde-format
+msgid "Chapters"
+msgstr "Главы"
+
+#: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
+#: qml/Mobile/MobilePlayerControls.qml:179
+#, kde-format
+msgid "No Track Title"
+msgstr "Нет названия дорожки"
+
+#: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
+#: qml/Mobile/MobilePlayerControls.qml:189
+#, kde-format
+msgid "No track loaded"
+msgstr "Нет загруженных дорожек"
+
+#: qml/DiscoverPage.qml:16 qml/main.qml:205
+#, kde-format
+msgid "Discover"
+msgstr "Поиск подкастов"
+
+#: qml/DiscoverPage.qml:23
+#, kde-format
+msgid "Search podcastindex.org"
+msgstr "Поиск на podcastindex.org"
+
+#: qml/DiscoverPage.qml:32
+#, kde-format
+msgid "Search"
+msgstr "Искать"
+
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#, kde-format
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
+#, kde-format
+msgid "Subscribed"
+msgstr "Оформлена подписка"
+
+#: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:235
+#, kde-format
+msgid "Downloads"
+msgstr "Загрузки"
+
+#: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
+#, kde-format
+msgid "Refresh All Podcasts"
+msgstr "Обновить все подкасты"
+
+#: qml/DownloadListPage.qml:57
+#, kde-format
+msgid "No downloads"
+msgstr "Нет загрузок"
+
+#: qml/DownloadListPage.qml:73
+#, kde-format
+msgid "Downloading"
+msgstr "Загрузка"
+
+#: qml/DownloadListPage.qml:74
+#, kde-format
+msgid "Incomplete Downloads"
+msgstr "Неполные загрузки"
+
+#: qml/DownloadListPage.qml:75
+#, kde-format
+msgid "Downloaded"
+msgstr "Загружено"
+
+#: qml/EntryPage.qml:22
+#, kde-format
+msgctxt "@title"
+msgid "Episode Details"
+msgstr "Сведения о выпуске"
+
+#: qml/EntryPage.qml:112
+#, kde-format
+msgctxt "@action:intoolbar Button to open an episode URL in browser"
+msgid "Open in Browser"
+msgstr "Открыть в браузере"
+
+#: qml/EntryPage.qml:120
+#, kde-format
+msgctxt "@action:intoolbar Button to start episode download"
+msgid "Download"
+msgstr "Загрузить"
+
+#: qml/EntryPage.qml:129
+#, kde-format
+msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
+msgid "Cancel Download"
+msgstr "Отменить загрузку"
+
+#: qml/EntryPage.qml:137
+#, kde-format
+msgctxt "@action:intoolbar Button to pause the playback of the episode"
+msgid "Pause"
+msgstr "Приостановить"
+
+#: qml/EntryPage.qml:145
+#, kde-format
+msgctxt "@action:intoolbar Button to start playback of the episode"
+msgid "Play"
+msgstr "Воспроизвести"
+
+#: qml/EntryPage.qml:154
+#, kde-format
+msgctxt ""
+"@action:intoolbar Action to start playback by streaming the episode rather "
+"than downloading it first"
+msgid "Stream"
+msgstr "Потоковая передача"
+
+#: qml/EntryPage.qml:166
+#, kde-format
+msgctxt "@action:intoolbar Button to add an episode to the play queue"
+msgid "Add to Queue"
+msgstr "Добавить в очередь"
+
+#: qml/EntryPage.qml:166
+#, kde-format
+msgctxt "@action:intoolbar Button to remove an episode from the play queue"
+msgid "Remove from Queue"
+msgstr "Удалить из очереди"
+
+#: qml/EntryPage.qml:182
+#, kde-format
+msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
+msgid "Delete Download"
+msgstr "Удалить загруженные данные"
+
+#: qml/EntryPage.qml:190
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to reset the play position of an episode to the "
+"start"
+msgid "Reset Play Position"
+msgstr "Сбросить позицию воспроизведения"
+
+#: qml/EntryPage.qml:196
+#, kde-format
+msgctxt "@action:intoolbar Button to mark eposide as not played"
+msgid "Mark as Unplayed"
+msgstr "Отметить невоспроизведённым"
+
+#: qml/EntryPage.qml:196
+#, kde-format
+msgctxt "@action:intoolbar Button to mark episode as played"
+msgid "Mark as Played"
+msgstr "Отметить воспроизведённым"
+
+#: qml/EntryPage.qml:203
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Remove \"New\" Label"
+msgstr "Удалить подпись «Новый»"
+
+#: qml/EntryPage.qml:203
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Label as \"New\""
+msgstr "Добавить подпись «Новый»"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:310
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to remove the \"favorite\" property of a podcast "
+"episode"
+msgid "Remove from Favorites"
+msgstr "Удалить из избранного"
+
+#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:301
+#, kde-format
+msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
+msgid "Add to Favorites"
+msgstr "Добавить в избранное"
+
+#: qml/EntryPage.qml:218
+#, kde-format
+msgctxt "@action:intoolbar Button to open the podcast URL in browser"
+msgid "Open Podcast"
+msgstr "Открыть подкаст"
+
+#: qml/EntryPage.qml:288
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Episode Download URL"
+msgstr "Копировать URL-адрес загрузки выпуска"
+
+#: qml/EntryPage.qml:294
+#, kde-format
+msgctxt "@info:status"
+msgid "Link Copied"
+msgstr "Ссылка скопирована"
+
+#: qml/EpisodeListPage.qml:17
+#, kde-format
+msgid "Episode List"
+msgstr "Список выпусков"
+
+#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
+#: qml/FeedListPage.qml:113
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Search"
+msgstr "Искать"
+
+#: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
+#, kde-format
+msgid "No episodes available"
+msgstr "Нет доступных выпусков"
+
+#: qml/ErrorList.qml:30
+#, kde-format
+msgid "No errors logged"
+msgstr "В журнале нет записей ошибок"
+
+#: qml/ErrorList.qml:66
+#, kde-format
+msgid "Error code:"
+msgstr "Код ошибки:"
+
+#: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
+#: qml/Settings/ErrorListPage.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Error Log"
+msgstr "Журнал ошибок"
+
+#: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
+#, kde-format
+msgctxt "@action:button"
+msgid "Clear All Errors"
+msgstr "Очистить все ошибки"
+
+#: qml/ErrorNotification.qml:30
+#, kde-format
+msgid "Show Error Log"
+msgstr "Показать журнал ошибок"
+
+#: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:258
+#, kde-format
+msgid "Podcast Details"
+msgstr "Сведения о подкасте"
+
+#: qml/FeedDetailsPage.qml:126
+#, kde-format
+msgctxt "by <author(s)>"
+msgid "by %1"
+msgstr "%1"
+
+#: qml/FeedDetailsPage.qml:157
+#, kde-format
+msgid "Refresh Podcast"
+msgstr "Обновить подкаст"
+
+#: qml/FeedDetailsPage.qml:176
+#, kde-format
+msgid "Show Details"
+msgstr "Показать подробности"
+
+#: qml/FeedDetailsPage.qml:247
+#, kde-format
+msgid "Podcast URL:"
+msgstr "URL-адрес подкаста:"
+
+#: qml/FeedDetailsPage.qml:287
+#, kde-format
+msgid "Weblink:"
+msgstr "Веб-ссылка:"
+
+#: qml/FeedDetailsPage.qml:313
+#, kde-format
+msgid "Subscribed since: %1"
+msgstr "Подписка оформлена: %1"
+
+#: qml/FeedDetailsPage.qml:326
+#, kde-format
+msgid "Last updated: %1"
+msgstr "Последнее обновление: %1"
+
+#: qml/FeedDetailsPage.qml:339
+#, kde-format
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "%1 выпуск"
+msgstr[1] "%1 выпуска"
+msgstr[2] "%1 выпусков"
+
+#: qml/FeedDetailsPage.qml:339
+#, kde-format
+msgid "1 Unplayed"
+msgid_plural "%1 Unplayed"
+msgstr[0] "%1 невоспроизведённый"
+msgstr[1] "%1 невоспроизведённых"
+msgstr[2] "%1 невоспроизведённых"
+
+#: qml/FeedDetailsPage.qml:361
+#, kde-format
+msgid "Error (%1): %2"
+msgstr "Ошибка (%1): %2"
+
+#: qml/FeedListDelegate.qml:269
+#, kde-format
+msgid "Remove Podcast"
+msgstr "Удалить подкаст"
+
+#: qml/FeedListPage.qml:20
+#, kde-format
+msgctxt "@title Podcast subscription list page title"
+msgid "Subscriptions"
+msgstr "Подписки"
+
+#: qml/FeedListPage.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Open the podcast discover page"
+msgid "Discover"
+msgstr "Поиск подкастов"
+
+#: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Refresh All Podcasts"
+msgstr "Обновить все подкасты"
+
+#: qml/FeedListPage.qml:54
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add Podcast…"
+msgstr "Добавить подкаст…"
+
+#: qml/FeedListPage.qml:63
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
+msgid "Sort"
+msgstr "Сортировка"
+
+#: qml/FeedListPage.qml:65
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort subscriptions"
+msgstr "Выберите способ сортировки подписок"
+
+#: qml/FeedListPage.qml:118
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Import Podcasts…"
+msgstr "Импорт подкастов…"
+
+#: qml/FeedListPage.qml:124
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Export Podcasts…"
+msgstr "Экспорт подкастов…"
+
+#: qml/FeedListPage.qml:161
+#, kde-format
+msgctxt "@title:window"
+msgid "Import Podcasts"
+msgstr "Импорт подкастов"
+
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "OPML Files (*.opml)"
+msgstr "Файлы OPML (*.opml)"
+
+#: qml/FeedListPage.qml:163
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "XML Files (*.xml)"
+msgstr "Файлы XML (*.xml)"
+
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#, kde-format
+msgctxt "@label:listbox File filter option in file dialog"
+msgid "All Files (*)"
+msgstr "Все файлы (*)"
+
+#: qml/FeedListPage.qml:169
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Podcasts"
+msgstr "Экспорт подкастов"
+
+#: qml/FeedListPage.qml:187
+#, kde-format
+msgctxt "@info Placeholder message for empty podcast list"
+msgid "No podcasts added yet"
+msgstr "Подкасты ещё не добавлены"
+
+#: qml/FeedListPage.qml:187
+#, kde-format
+msgctxt ""
+"@info Placeholder message for podcast list when no podcast matches the "
+"search criteria"
+msgid "No podcasts found"
+msgstr "Подкасты не найдены"
+
+#: qml/FeedListPage.qml:188
+#, kde-format
+msgctxt "@info:tipoftheday"
+msgid "Get started by adding podcasts:"
+msgstr "Начните, добавив подкасты:"
+
+#: qml/FeedListPage.qml:202
+#, kde-format
+msgctxt "@action:button"
+msgid "Search Online"
+msgstr "Найти в Интернете"
+
+#: qml/FeedListPage.qml:229
+#, kde-format
+msgctxt "@action:button"
+msgid "Synchronize"
+msgstr "Синхронизировать"
+
+#: qml/FeedListPage.qml:237 qml/main.qml:68 qml/main.qml:255
+#: qml/Mobile/BottomToolbar.qml:49
+#, kde-format
+msgid "Settings"
+msgstr "Настройка"
+
+#: qml/FeedListPage.qml:372
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: qml/FeedListPage.qml:381
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Deselect All"
+msgstr "Отменить выбор"
+
+#: qml/FeedListPage.qml:390
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Remove Podcast"
+msgid_plural "Remove Podcasts"
+msgstr[0] "Удалить подкасты"
+msgstr[1] "Удалить подкасты"
+msgstr[2] "Удалить подкасты"
+
+#: qml/FeedListPage.qml:413
+#, kde-format
+msgctxt "@action:intoolbar Open view with more podcast details"
+msgid "Podcast Details"
+msgstr "Сведения о подкасте"
+
+#: qml/FilterInlineMessage.qml:32
+#, kde-format
+msgctxt "@action:button Reset filters active on ListView"
+msgid "Reset"
+msgstr "Сбросить"
+
+#: qml/FilterInlineMessage.qml:41
+#, kde-format
+msgctxt "@info:status Name of the filter which is active on the ListView"
+msgid "Active filter: %1"
+msgstr "Активный фильтр: %1"
+
+#: qml/GenericEntryDelegate.qml:168
+#, kde-format
+msgid "Played"
+msgstr "Воспроизведённый"
+
+#: qml/GenericEntryDelegate.qml:168
+#, kde-format
+msgid "Read"
+msgstr "Прочитанный"
+
+#: qml/GenericEntryDelegate.qml:174
+#, kde-format
+msgid "New"
+msgstr "Новый"
+
+#: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
+#, kde-format
+msgid "Remove from Queue"
+msgstr "Удалить из очереди"
+
+#: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
+#, kde-format
+msgid "Download"
+msgstr "Загрузить"
+
+#: qml/GenericEntryDelegate.qml:311
+#, kde-format
+msgid "Cancel Download"
+msgstr "Отменить загрузку"
+
+#: qml/GenericEntryDelegate.qml:317
+#, kde-format
+msgid "Delete Download"
+msgstr "Удалить загруженные данные"
+
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
+#, kde-format
+msgid "Add to Queue"
+msgstr "Добавить в очередь"
+
+#: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
+#, kde-format
+msgctxt ""
+"@action:inmenu Action to start playback by streaming the episode rather than "
+"downloading it first"
+msgid "Stream"
+msgstr "Потоковая передача"
+
+#: qml/GenericEntryListView.qml:133
+#, kde-format
+msgctxt "@action:intoolbar Open menu with options to sort episodes"
+msgid "Sort"
+msgstr "Сортировка"
+
+#: qml/GenericEntryListView.qml:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select how to sort episodes"
+msgstr "Выберите способ сортировки выпусков"
+
+#: qml/GenericEntryListView.qml:184
+#, kde-format
+msgctxt ""
+"@action:intoolbar Button to open menu to filter episodes based on their "
+"status (played, new, etc.)"
+msgid "Filter"
+msgstr "Фильтр"
+
+#: qml/GenericEntryListView.qml:186
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Filter episodes by status"
+msgstr "Фильтровать выпуски по состоянию"
+
+#: qml/GenericEntryListView.qml:232
+#, kde-format
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: qml/GenericEntryListView.qml:241
+#, kde-format
+msgid "Deselect All"
+msgstr "Отменить выбор"
+
+#: qml/GenericEntryListView.qml:269
+#, kde-format
+msgid "Mark as Played"
+msgstr "Отметить воспроизведённым"
+
+#: qml/GenericEntryListView.qml:277
+#, kde-format
+msgid "Mark as Unplayed"
+msgstr "Отметить невоспроизведённым"
+
+#: qml/GenericEntryListView.qml:285
+#, kde-format
+msgid "Label as \"New\""
+msgstr "Добавить подпись «Новый»"
+
+#: qml/GenericEntryListView.qml:293
+#, kde-format
+msgid "Remove \"New\" Label"
+msgstr "Удалить подпись «Новый»"
+
+#: qml/GenericEntryListView.qml:329
+#, kde-format
+msgctxt "context menu action"
+msgid "Delete Download"
+msgid_plural "Delete Downloads"
+msgstr[0] "Удалить загруженные данные"
+msgstr[1] "Удалить загруженные данные"
+msgstr[2] "Удалить загруженные данные"
+
+#: qml/GlobalSearchField.qml:96
+#, kde-format
+msgctxt "@info Placeholder text in search box"
+msgid "No search results"
+msgstr "Поиск не принёс результатов"
+
+#: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Advanced Search Options"
+msgstr "Дополнительные параметры поиска"
+
+#: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:113
+#, kde-format
+msgctxt "@title:menu"
+msgid "Search Preferences"
+msgstr "Параметры поиска"
+
+#: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:117
+#, kde-format
+msgctxt "@title:group Group of fields in which can be searched"
+msgid "Search in:"
+msgstr "Искать в:"
+
+#: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
+#, kde-format
+msgid "Queue"
+msgstr "Очередь"
+
+#: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
+#, kde-format
+msgid "Subscriptions"
+msgstr "Подписки"
+
+#: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
+#, kde-format
+msgid "Episodes"
+msgstr "Выпуски"
+
+#: qml/main.qml:341
+#, kde-format
+msgctxt "Number of Updated Podcasts"
+msgid "Updated %2 of %1 Podcast"
+msgid_plural "Updated %2 of %1 Podcasts"
+msgstr[0] "Выполнено обновление подкастов (%2 из %1)"
+msgstr[1] "Выполнено обновление подкастов (%2 из %1)"
+msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
+
+#: qml/main.qml:368
+#, kde-format
+msgctxt "Number of Moved Files"
+msgid "Moved %2 of %1 File"
+msgid_plural "Moved %2 of %1 Files"
+msgstr[0] "Выполнено перемещение файлов (%2 из %1)"
+msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
+msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
+
+#: qml/main.qml:432
+#, kde-format
+msgid "Podcast downloads are currently not allowed on metered connections"
+msgstr "Сейчас загрузка подкастов запрещена при лимитном подключении"
+
+#: qml/Mobile/MobilePlayerControls.qml:21
+#, kde-format
+msgid "No Track Loaded"
+msgstr "Нет загруженных дорожек"
+
+#: qml/Mobile/MobilePlayerControls.qml:149
+#, kde-format
+msgid "No Title"
+msgstr "Нет названия"
+
+#: qml/Mobile/MobilePlayerControls.qml:157
+#, kde-format
+msgid "No podcast title"
+msgstr "Нет названия подкаста"
+
+#: qml/Mobile/MobilePlayerControls.qml:223
+#, kde-format
+msgid "No chapters found"
+msgstr "Главы не найдены"
+
+#: qml/PlaybackRateCustomizerDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Playback Rate Presets"
+msgstr "Предустановки скорости воспроизведения"
+
+#: qml/PlaybackRateCustomizerDialog.qml:52
+#, kde-format
+msgctxt "@info Label for controls to add new playback rate preset"
+msgid "New Preset:"
+msgstr "Новая предустановка:"
+
+#: qml/PlaybackRateCustomizerDialog.qml:64
+#, kde-format
+msgctxt "@action:button Add new playback rate value to list"
+msgid "Add"
+msgstr "Добавить"
+
+#: qml/PlaybackRateCustomizerDialog.qml:67
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Add new playback rate value to list"
+msgstr "Добавить новое значение скорости воспроизведения в список"
+
+#: qml/PlaybackRateCustomizerDialog.qml:100
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease playback rate"
+msgstr "Уменьшить скорость воспроизведения"
+
+#: qml/PlaybackRateCustomizerDialog.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase playback rate"
+msgstr "Увеличить скорость воспроизведения"
+
+#: qml/PlaybackRateCustomizerDialog.qml:124
+#, kde-format
+msgctxt "@title:group List of custom playback rates"
+msgid "Current Presets:"
+msgstr "Текущие предустановки:"
+
+#: qml/PlaybackRateMenu.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Select Playback Rate"
+msgstr "Выбор скорости воспроизведения"
+
+#: qml/PlaybackRateMenu.qml:51
+#, kde-format
+msgctxt "@action:button"
+msgid "Customize"
+msgstr "Настроить"
+
+#: qml/QueuePage.qml:18
+#, kde-format
+msgctxt "@title:column Page showing the list queued items"
+msgid "Queue"
+msgstr "Очередь"
+
+#: qml/QueuePage.qml:64
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr "Очередь пуста"
+
+#: qml/QueuePage.qml:73
+#, kde-format
+msgctxt "@info:progress"
+msgid "1 Episode"
+msgid_plural "%1 Episodes"
+msgstr[0] "%1 выпуск"
+msgstr[1] "%1 выпуска"
+msgstr[2] "%1 выпусков"
+
+#: qml/QueuePage.qml:73
+#, kde-format
+msgctxt "@info:progress"
+msgid "Time Left"
+msgstr "Осталось времени"
+
+#: qml/SearchBar.qml:41
+#, kde-format
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search episodes…"
+msgstr "Найти выпуски…"
+
+#: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
+#, kde-format
+msgid "About"
+msgstr "О программе"
+
+#: qml/Settings/GeneralSettingsPage.qml:19
+#, kde-format
+msgid "General Settings"
+msgstr "Основные параметры"
+
+#: qml/Settings/GeneralSettingsPage.qml:39
+#, kde-format
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#: qml/Settings/GeneralSettingsPage.qml:44
+#, kde-format
+msgid "Always show podcast titles in subscription view"
+msgstr "Всегда показывать названия подкастов в области подписок"
+
+#: qml/Settings/GeneralSettingsPage.qml:58
+#, kde-format
+msgid "Show icon in system tray"
+msgstr "Показывать значок в системном лотке"
+
+#: qml/Settings/GeneralSettingsPage.qml:70
+#, kde-format
+msgid "Minimize to tray instead of closing"
+msgstr "Сворачивать в лоток вместо закрытия"
+
+#: qml/Settings/GeneralSettingsPage.qml:82
+#, kde-format
+msgctxt "Label for selecting the color of the tray icon"
+msgid "Tray icon type"
+msgstr "Тип значка в лотке"
+
+#: qml/Settings/GeneralSettingsPage.qml:87
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Colorful"
+msgstr "Цветной"
+
+#: qml/Settings/GeneralSettingsPage.qml:88
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Light"
+msgstr "Светлый"
+
+#: qml/Settings/GeneralSettingsPage.qml:89
+#, kde-format
+msgctxt "Label describing style of tray icon"
+msgid "Dark"
+msgstr "Тёмный"
+
+#: qml/Settings/GeneralSettingsPage.qml:107
+#, kde-format
+msgid "Playback settings"
+msgstr "Параметры воспроизведения"
+
+#: qml/Settings/GeneralSettingsPage.qml:112
+#, kde-format
+msgctxt "Label for setting to select audio playback backend"
+msgid "Select audio backend"
+msgstr "Выбор звукового модуля"
+
+#: qml/Settings/GeneralSettingsPage.qml:142
+#, kde-format
+msgctxt ""
+"Label for settings related to the play time, e.g. whether the total track "
+"time is shown or a countdown of the remaining play time"
+msgid "Play time:"
+msgstr "Время воспроизведения:"
+
+#: qml/Settings/GeneralSettingsPage.qml:144
+#, kde-format
+msgid "Show time left instead of total track time"
+msgstr "Показывать оставшееся время вместо общей длительности дорожки"
+
+#: qml/Settings/GeneralSettingsPage.qml:154
+#, kde-format
+msgid "Adjust time left based on current playback speed"
+msgstr ""
+"Корректировать оставшееся время на основе текущей скорости воспроизведения"
+
+#: qml/Settings/GeneralSettingsPage.qml:163
+#, kde-format
+msgid "Prioritize streaming over downloading"
+msgstr "Приоритет потоковой передачи над загрузкой данных"
+
+#: qml/Settings/GeneralSettingsPage.qml:175
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr "Интервал перехода вперёд (в секундах)"
+
+#: qml/Settings/GeneralSettingsPage.qml:190
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr "Интервал перехода назад (в секундах)"
+
+#: qml/Settings/GeneralSettingsPage.qml:214
+#, kde-format
+msgid "Queue settings"
+msgstr "Параметры очереди"
+
+#: qml/Settings/GeneralSettingsPage.qml:220
+#, kde-format
+msgid "Continue playing next episode after current one finishes"
+msgstr ""
+"Переходить к воспроизведению следующего выпуска после завершения текущего"
+
+#: qml/Settings/GeneralSettingsPage.qml:228
+#, kde-format
+msgctxt "Label for settings related to podcast updates"
+msgid "Update Settings:"
+msgstr "Параметры обновления:"
+
+#: qml/Settings/GeneralSettingsPage.qml:230
+#, kde-format
+msgid "Automatically fetch podcast updates on startup"
+msgstr "Автоматически получать обновления выпусков при запуске"
+
+#: qml/Settings/GeneralSettingsPage.qml:239
+#, kde-format
+msgid "Update existing episode data on refresh (slower)"
+msgstr "Обновлять существующие данные выпусков при обновлении (медленнее)"
+
+#: qml/Settings/GeneralSettingsPage.qml:249
+#, kde-format
+msgid "Automatically queue new episodes"
+msgstr "Автоматически добавлять в очередь новые выпуски"
+
+#: qml/Settings/GeneralSettingsPage.qml:264
+#, kde-format
+msgid "Automatically download new episodes"
+msgstr "Автоматически загружать новые выпуски"
+
+#: qml/Settings/GeneralSettingsPage.qml:277
+#, kde-format
+msgid "Played episode behavior"
+msgstr "Обработка воспроизведённых выпусков"
+
+#: qml/Settings/GeneralSettingsPage.qml:280
+#, kde-format
+msgid "Do not delete"
+msgstr "Не удалять"
+
+#: qml/Settings/GeneralSettingsPage.qml:281
+#, kde-format
+msgid "Delete immediately"
+msgstr "Удалять сразу"
+
+#: qml/Settings/GeneralSettingsPage.qml:282
+#, kde-format
+msgid "Delete at next startup"
+msgstr "Удалять при следующем запуске"
+
+#: qml/Settings/GeneralSettingsPage.qml:294
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Отмечать выпуски воспроизведёнными, когда остаётся указанное время (в "
+"секундах)"
+
+#: qml/Settings/GeneralSettingsPage.qml:313
+#, kde-format
+msgid "Reset play position after an episode is played"
+msgstr "Сбрасывать положение воспроизведения после воспроизведения выпуска"
+
+#: qml/Settings/GeneralSettingsPage.qml:330
+#, kde-format
+msgid "When adding new podcasts"
+msgstr "При добавлении новых подкастов"
+
+#: qml/Settings/GeneralSettingsPage.qml:335
+#, kde-format
+msgid "Mark all episodes as played"
+msgstr "Отметить все выпуски воспроизведёнными"
+
+#: qml/Settings/GeneralSettingsPage.qml:346
+#, kde-format
+msgid "Mark most recent episodes as unplayed"
+msgstr "Отметить самые последние выпуски невоспроизведёнными"
+
+#: qml/Settings/GeneralSettingsPage.qml:369
+#, kde-format
+msgid "Mark all episodes as unplayed"
+msgstr "Отметить все выпуски невоспроизведёнными"
+
+#: qml/Settings/GeneralSettingsPage.qml:386
+#, kde-format
+msgid "Article"
+msgstr "Статья"
+
+#: qml/Settings/GeneralSettingsPage.qml:391
+#, kde-format
+msgid "Font size"
+msgstr "Размер шрифта"
+
+#: qml/Settings/GeneralSettingsPage.qml:398
+#, kde-format
+msgid "Font size:"
+msgstr "Размер шрифта:"
+
+#: qml/Settings/GeneralSettingsPage.qml:414
+#, kde-format
+msgid "Use system default"
+msgstr "Использовать системное значение по умолчанию"
+
+#: qml/Settings/NetworkSettingsPage.qml:18
+#, kde-format
+msgid "Network Settings"
+msgstr "Параметры сети"
+
+#: qml/Settings/NetworkSettingsPage.qml:38
+#, kde-format
+msgid "On metered connections"
+msgstr "При лимитных подключениях"
+
+#: qml/Settings/NetworkSettingsPage.qml:44
+#, kde-format
+msgid "Allow podcast updates"
+msgstr "Разрешить обновление подкастов"
+
+#: qml/Settings/NetworkSettingsPage.qml:54
+#, kde-format
+msgid "Allow episode downloads"
+msgstr "Разрешить загрузку выпусков"
+
+#: qml/Settings/NetworkSettingsPage.qml:64
+#, kde-format
+msgid "Allow image downloads"
+msgstr "Разрешить загрузку изображений"
+
+#: qml/Settings/NetworkSettingsPage.qml:74
+#, kde-format
+msgid "Allow streaming"
+msgstr "Разрешить потоковую передачу"
+
+#: qml/Settings/SettingsPage.qml:16
+#, kde-format
+msgid "General"
+msgstr "Общие"
+
+#: qml/Settings/SettingsPage.qml:22
+#, kde-format
+msgid "Storage"
+msgstr "Хранение данных"
+
+#: qml/Settings/SettingsPage.qml:28
+#, kde-format
+msgid "Network"
+msgstr "Сеть"
+
+#: qml/Settings/SettingsPage.qml:35
+#, kde-format
+msgid "Synchronization"
+msgstr "Синхронизация"
+
+#: qml/Settings/SettingsPage.qml:41
+#, kde-format
+msgid "Error Log"
+msgstr "Журнал ошибок"
+
+#: qml/Settings/StorageSettingsPage.qml:18
+#, kde-format
+msgid "Storage Settings"
+msgstr "Параметры хранилища данных"
+
+#: qml/Settings/StorageSettingsPage.qml:38
+#: qml/Settings/StorageSettingsPage.qml:44
+#, kde-format
+msgid "Storage path"
+msgstr "Путь сохранения данных"
+
+#: qml/Settings/StorageSettingsPage.qml:50
+#, kde-format
+msgid "Select Folder…"
+msgstr "Выбрать папку…"
+
+#: qml/Settings/StorageSettingsPage.qml:57
+#, kde-format
+msgid "Select Storage Path"
+msgstr "Выбор пути сохранения данных"
+
+#: qml/Settings/StorageSettingsPage.qml:67
+#, kde-format
+msgid "Use default path"
+msgstr "Использовать путь по умолчанию"
+
+#: qml/Settings/StorageSettingsPage.qml:85
+#, kde-format
+msgid "Information"
+msgstr "Информация"
+
+#: qml/Settings/StorageSettingsPage.qml:89
+#, kde-format
+msgid "Podcast downloads"
+msgstr "Загруженные подкасты"
+
+#: qml/Settings/StorageSettingsPage.qml:90
+#: qml/Settings/StorageSettingsPage.qml:97
+#, kde-format
+msgctxt "Using <amount of bytes> of disk space"
+msgid "Using %1 of disk space"
+msgstr "Используется %1 дискового пространства"
+
+#: qml/Settings/StorageSettingsPage.qml:96
+#, kde-format
+msgid "Image cache"
+msgstr "Кэш изображений"
+
+#: qml/Settings/StorageSettingsPage.qml:101
+#, kde-format
+msgid "Clear Cache"
+msgstr "Очистить кэш"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:18
+#, kde-format
+msgid "Synchronization Settings"
+msgstr "Параметры синхронизации"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:39
+#, kde-format
+msgid "Account"
+msgstr "Учётная запись"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:40
+#, kde-format
+msgid "Logged into account \"%1\" on server \"%2\""
+msgstr "Выполнен вход в учётную запись «%1» на сервере «%2»"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:40
+#, kde-format
+msgid "Syncing disabled"
+msgstr "Синхронизация отключена"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:43
+#, kde-format
+msgid "Logout"
+msgstr "Выйти"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:43
+#, kde-format
+msgid "Login"
+msgstr "Войти"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:54
+#, kde-format
+msgid "Manually sync"
+msgstr "Синхронизация вручную"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:57
+#, kde-format
+msgid "Sync Now"
+msgstr "Синхронизировать сейчас"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:69
+#, kde-format
+msgid "Last full sync with server"
+msgstr "Последняя полная синхронизация с сервером"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:77
+#, kde-format
+msgid "Last quick upload to sync server"
+msgstr "Последняя быстрая отправка на сервер синхронизации"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:91
+#, kde-format
+msgid "Automatic syncing"
+msgstr "Автоматическая синхронизация"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:97
+#, kde-format
+msgid "Do full sync on startup"
+msgstr "Выполнять полную синхронизацию при запуске"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:107
+#, kde-format
+msgid "Do full sync when fetching podcasts"
+msgstr "Выполнять полную синхронизацию при получении подкастов"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:117
+#, kde-format
+msgid "Upload episode play positions on play/pause toggle"
+msgstr ""
+"Отправлять позиции воспроизведения выпусков при переключении состояния "
+"воспроизведения"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:134
+#, kde-format
+msgid "Advanced options"
+msgstr "Дополнительные параметры"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:139
+#, kde-format
+msgid "Fetch all episode states from server"
+msgstr "Получить состояния всех выпусков с сервера"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:142
+#, kde-format
+msgid "Fetch"
+msgstr "Получить"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:154
+#, kde-format
+msgid "Push all local episode states to server"
+msgstr "Отправить все состояния локальных выпусков на сервер"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:158
+#, kde-format
+msgid "Push"
+msgstr "Отправить"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:197
+#, kde-format
+msgid "Push all local episode states to server?"
+msgstr "Отправить все состояния локальных выпусков на сервер?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:217
+#, kde-format
+msgid ""
+"Please note that pushing the playback state of all local episodes to the "
+"server might take a very long time and/or might overload the server. Also "
+"note that this action will overwrite all existing episode states on the "
+"server.\n"
+"\n"
+"Continue?"
+msgstr ""
+"Обратите внимание, что отправка состояний воспроизведения всех локальных "
+"выпусков на сервер может занять очень много времени и/или перегрузить "
+"сервер. Также учтите, что это действие приведёт к перезаписи всех "
+"существующих состояний выпусков на сервере.\n"
+"\n"
+"Продолжить?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:241
+#, kde-format
+msgid "Select Sync Provider"
+msgstr "Выбор поставщика услуг синхронизации"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:253
+#, kde-format
+msgid "gpodder.net"
+msgstr "gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:254
+#, kde-format
+msgid "Synchronize with official gpodder.net server"
+msgstr "Синхронизировать с официальным сервером gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:257
+#, kde-format
+msgid "GPodder Nextcloud"
+msgstr "Nextcloud GPodder"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:258
+#, kde-format
+msgid "Synchronize with GPodder Nextcloud app"
+msgstr "Синхронизировать с приложением Nextcloud GPodder"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:289
+#, kde-format
+msgid "Sync Login Credentials"
+msgstr "Учётные данные для синхронизации"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with GPodder Nextcloud app"
+msgstr "Синхронизация с приложением Nextcloud GPodder"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:318
+#, kde-format
+msgid "Sync with gpodder.net service"
+msgstr "Синхронизация со службой gpodder.net"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:327
+#, kde-format
+msgctxt "argument is a weblink"
+msgid ""
+"Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
+">It is advised to manually create an app password for Kasts through the web "
+"interface and use those credentials."
+msgstr ""
+"Синхронизация с сервером Nextcloud, на котором установлено приложение "
+"GPodder Sync: %1.<br/>Рекомендуется вручную создать пароль входа в "
+"приложение для Kasts с помощью веб-интерфейса и использовать эти учётные "
+"данные."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:328
+#, kde-format
+msgctxt "argument is a weblink"
+msgid "If you don't already have an account, you should first create one at %1"
+msgstr "Если учётной записи ещё нет, следует создать её по адресу %1"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:340
+#, kde-format
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:351
+#: qml/SyncPasswordOverlay.qml:56
+#, kde-format
+msgid "Password:"
+msgstr "Пароль:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:366
+#, kde-format
+msgid "Use custom server"
+msgstr "Использовать нестандартный сервер"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:371
+#, kde-format
+msgid "Hostname:"
+msgstr "Имя узла:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:405
+#, kde-format
+msgid "Sync Device Settings"
+msgstr "Параметры устройства синхронизации"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:411
+#, kde-format
+msgid "Create a new device"
+msgstr "Создание нового устройства"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:417
+#, kde-format
+msgid "Device Name:"
+msgstr "Имя устройства:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:427
+#, kde-format
+msgid "Device Description:"
+msgstr "Описание устройства:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:436
+#, kde-format
+msgid "Device Type:"
+msgstr "Тип устройства:"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:443
+#, kde-format
+msgid "other"
+msgstr "другое"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:444
+#, kde-format
+msgid "desktop"
+msgstr "компьютер"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:445
+#, kde-format
+msgid "laptop"
+msgstr "ноутбук"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:446
+#, kde-format
+msgid "server"
+msgstr "сервер"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:447
+#, kde-format
+msgid "mobile"
+msgstr "мобильное устройство"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:452
+#, kde-format
+msgid "Create Device"
+msgstr "Создать устройство"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:469
+#, kde-format
+msgid "or select an existing device"
+msgstr "или выбрать существующее устройство"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:518
+#, kde-format
+msgid "Device Sync Settings"
+msgstr "Параметры синхронизации устройств"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:540
+#, kde-format
+msgid ""
+"Should all podcast subscriptions on this gpodder.net account be synced "
+"across all devices?\n"
+"If you don't know what this means, you should probably select \"Ok\"."
+msgstr ""
+"Следует ли синхронизировать все подписки на подкасты в этой учётной записи "
+"gpodder.net на всех устройствах?\n"
+"Если не совсем понятно, что это означает, рекомендуется выбрать «ОК»."
+
+#: qml/Settings/SynchronizationSettingsPage.qml:562
+#, kde-format
+msgid "Sync Now?"
+msgstr "Выполнить синхронизацию сейчас?"
+
+#: qml/Settings/SynchronizationSettingsPage.qml:582
+#, kde-format
+msgid "Perform a first sync now?"
+msgstr "Выполнить первую синхронизацию сейчас?"
+
+#: qml/SleepTimerDialog.qml:16
+#, kde-format
+msgid "Sleep Timer"
+msgstr "Таймер сна"
+
+#: qml/SleepTimerDialog.qml:26
+#, kde-format
+msgid "Start"
+msgstr "Запустить"
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Active"
+msgstr "Состояние: активный"
+
+#: qml/SleepTimerDialog.qml:53
+#, kde-format
+msgid "Status: Inactive"
+msgstr "Состояние: неактивный"
+
+#: qml/SleepTimerDialog.qml:59
+#, kde-format
+msgid "Remaining time: %1"
+msgstr "Оставшееся время: %1"
+
+#: qml/SleepTimerDialog.qml:76
+#, kde-format
+msgid "Seconds"
+msgstr "Секунды"
+
+#: qml/SleepTimerDialog.qml:77
+#, kde-format
+msgid "Minutes"
+msgstr "Минуты"
+
+#: qml/SleepTimerDialog.qml:78
+#, kde-format
+msgid "Hours"
+msgstr "Часы"
+
+#: qml/SyncPasswordOverlay.qml:24
+#, kde-format
+msgid "Sync Password Required"
+msgstr "Требуется пароль синхронизации"
+
+#: qml/SyncPasswordOverlay.qml:48
+#, kde-format
+msgid ""
+"The password for user \"%1\" on Nextcloud server \"%2\" could not be "
+"retrieved."
+msgstr ""
+"Не удалось получить пароль для пользователя «%1» на сервере Nextcloud «%2»."
+
+#: qml/SyncPasswordOverlay.qml:49
+#, kde-format
+msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+msgstr "Не удалось получить пароль для пользователя «%1» на «gpodder.net»."
+
+#: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
+#, kde-format
+msgid "Abort"
+msgstr "Прервать"
+
+#: storagemanager.cpp:90
+#, kde-format
+msgid "Old location:"
+msgstr "Старое расположение:"
+
+#: storagemanager.cpp:90
+#, kde-format
+msgid "New location:"
+msgstr "Новое расположение:"
+
+#: storagemovejob.cpp:59
+#, kde-format
+msgid "Destination path not writable"
+msgstr "Запись по пути назначения невозможна"
+
+#: storagemovejob.cpp:76 storagemovejob.cpp:97
+#, kde-format
+msgid "Operation aborted by user"
+msgstr "Операция прервана пользователем"
+
+#: storagemovejob.cpp:113
+#, kde-format
+msgid "An error occurred while copying data"
+msgstr "При копировании данных произошла ошибка"
+
+#: sync/sync.cpp:182
+#, kde-format
+msgid "Never"
+msgstr "Никогда"
+
+#: sync/sync.cpp:205
+#, kde-format
+msgctxt ""
+"Suggested description for this device on gpodder sync service; argument is "
+"the hostname"
+msgid "Kasts on %1"
+msgstr "Kasts на %1"
+
+#: sync/sync.cpp:299
+#, kde-format
+msgid "Could not log into GPodder-nextcloud server"
+msgstr "Не удалось войти на сервер GPodder-nextcloud"
+
+#: sync/sync.cpp:338
+#, kde-format
+msgid "Could not log into GPodder server"
+msgstr "Не удалось войти на сервер GPodder"
+
+#: sync/sync.cpp:483 sync/sync.cpp:484
+#, kde-format
+msgid "I/O denied: Cannot save password."
+msgstr "Запрещён ввод/вывод: не удалось сохранить пароль."
+
+#: sync/sync.cpp:564 sync/sync.cpp:565
+#, kde-format
+msgid "I/O denied: Cannot access password file."
+msgstr "Запрещён ввод/вывод: не удалось получить доступ к файлу пароля."
+
+#: sync/sync.cpp:637
+#, kde-format
+msgid "Could not create GPodder device"
+msgstr "Не удалось создать устройство GPodder"
+
+#: sync/sync.cpp:663
+#, kde-format
+msgid "Could not retrieve synced device status"
+msgstr "Не удалось получить состояние синхронизированного устройства"
+
+#: sync/sync.cpp:714
+#, kde-format
+msgid "Could not retrieve subscriptions for device %1"
+msgstr "Не удалось получить подписки для устройства %1"
+
+#: sync/sync.cpp:733
+#, kde-format
+msgid "Could not upload subscriptions for device %1"
+msgstr "Не удалось отправить подписки для устройства %1"
+
+#: sync/syncjob.cpp:67
+#, kde-format
+msgid "Could not retrieve subscription updates from server"
+msgstr "Не удалось получить обновления подписок с сервера"
+
+#: sync/syncjob.cpp:70
+#, kde-format
+msgid "Could not upload subscription changes to server"
+msgstr "Не удалось отправить изменения подписок на сервер"
+
+#: sync/syncjob.cpp:73
+#, kde-format
+msgid "Could not retrieve episode updates from server"
+msgstr "Не удалось получить обновления выпусков с сервера"
+
+#: sync/syncjob.cpp:76
+#, kde-format
+msgid "Could not upload episode updates to server"
+msgstr "Не удалось отправить обновления выпусков на сервер"
+
+#: sync/syncjob.cpp:79
+#, kde-format
+msgid "Internal data error"
+msgstr "Ошибка внутренней обработки данных"
+
+#: sync/syncjob.cpp:884
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Start sync"
+msgstr "(Шаг %1 из %2) Начало синхронизации"
+
+#: sync/syncjob.cpp:887
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote subscription updates"
+msgstr "(Шаг %1 из %2) Запрос обновлений удалённых подписок"
+
+#: sync/syncjob.cpp:890
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local subscription updates"
+msgstr "(Шаг %1 из %2) Отправка обновлений локальных подписок"
+
+#: sync/syncjob.cpp:894
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %3 of %4) Updated %2 of %1 podcast"
+msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
+msgstr[0] "(Шаг %3 из %4) Обновлено подкастов: %2 из %1"
+msgstr[1] "(Шаг %3 из %4) Обновлено подкастов: %2 из %1"
+msgstr[2] "(Шаг %3 из %4) Обновлено подкастов: %2 из %1"
+
+#: sync/syncjob.cpp:902
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Requesting remote episode updates"
+msgstr "(Шаг %1 из %2) Запрос обновлений удалённых выпусков"
+
+#: sync/syncjob.cpp:905
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Applying remote episode changes"
+msgstr "(Шаг %1 из %2) Применение изменений удалённых выпусков"
+
+#: sync/syncjob.cpp:908
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Uploading local episode updates"
+msgstr "(Шаг %1 из %2) Отправка обновлений локальных выпусков"
+
+#: sync/syncjob.cpp:911
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "(Step %1 of %2) Finished sync"
+msgstr "(Шаг %1 из %2) Синхронизация завершена"
+
+#: sync/syncjob.cpp:914
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync aborted"
+msgstr "Синхронизация прервана"
+
+#: sync/syncjob.cpp:918
+#, kde-format
+msgctxt "Subscription/Episode sync progress step"
+msgid "Sync finished with error"
+msgstr "Синхронизация завершена с ошибкой"
+
+#: systrayicon.cpp:46
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Backward"
+msgstr "Искать назад"
+
+#: systrayicon.cpp:58
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Play"
+msgstr "Воспроизвести"
+
+#: systrayicon.cpp:66
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Pause"
+msgstr "Приостановить"
+
+#: systrayicon.cpp:85
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Seek Forward"
+msgstr "Искать вперёд"
+
+#: systrayicon.cpp:97
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Skip Forward"
+msgstr "Перейти вперёд"
+
+#: systrayicon.cpp:112
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Quit"
+msgstr "Выйти"
