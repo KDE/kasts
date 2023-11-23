@@ -738,7 +738,7 @@ msgid "Last updated: %1"
 msgstr "Последнее обновление: %1"
 
 #: qml/FeedDetailsPage.qml:339
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "%1 выпуск"
@@ -746,7 +746,7 @@ msgstr[1] "%1 выпуска"
 msgstr[2] "%1 выпусков"
 
 #: qml/FeedDetailsPage.qml:339
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1 невоспроизведённый"
@@ -892,7 +892,7 @@ msgid "Deselect All"
 msgstr "Отменить выбор"
 
 #: qml/FeedListPage.qml:390
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
@@ -1023,7 +1023,7 @@ msgid "Remove \"New\" Label"
 msgstr "Удалить подпись «Новый»"
 
 #: qml/GenericEntryListView.qml:329
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
@@ -1071,7 +1071,7 @@ msgid "Episodes"
 msgstr "Выпуски"
 
 #: qml/main.qml:341
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
@@ -1080,7 +1080,7 @@ msgstr[1] "Выполнено обновление подкастов (%2 из %
 msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
 
 #: qml/main.qml:368
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
@@ -1180,7 +1180,7 @@ msgid "Queue is empty"
 msgstr "Очередь пуста"
 
 #: qml/QueuePage.qml:73
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -1989,7 +1989,7 @@ msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Шаг %1 из %2) Отправка обновлений локальных подписок"
 
 #: sync/syncjob.cpp:894
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
