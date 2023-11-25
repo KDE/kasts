@@ -440,6 +440,7 @@ void Sync::savePasswordToKeyChain(const QString &username, const QString &passwo
 {
     qCDebug(kastsSync) << "Save the password to the keychain for" << username;
 
+#ifndef Q_OS_WINDOWS
     QKeychain::WritePasswordJob *job = new QKeychain::WritePasswordJob(qAppName(), this);
     job->setAutoDelete(false);
     job->setKey(username);
@@ -457,6 +458,7 @@ void Sync::savePasswordToKeyChain(const QString &username, const QString &passwo
         job->deleteLater();
     });
     job->start();
+#endif
 }
 
 void Sync::savePasswordToFile(const QString &username, const QString &password)
@@ -569,6 +571,7 @@ void Sync::deletePasswordFromKeychain(const QString &username)
     // Workaround: first try and store a dummy entry to the keychain to ensure
     // that the keychain is unlocked before we try to delete the real password
 
+#ifndef Q_OS_WINDOWS
     QKeychain::WritePasswordJob *writeDummyJob = new QKeychain::WritePasswordJob(qAppName(), this);
     writeDummyJob->setAutoDelete(false);
     writeDummyJob->setKey(QStringLiteral("dummy"));
@@ -614,6 +617,7 @@ void Sync::deletePasswordFromKeychain(const QString &username)
         writeDummyJob->deleteLater();
     });
     writeDummyJob->start();
+#endif
 }
 
 void Sync::registerNewDevice(const QString &id, const QString &caption, const QString &type)
