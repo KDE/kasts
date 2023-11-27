@@ -436,6 +436,19 @@ void Sync::clearSettings()
     Q_EMIT syncProgressChanged();
 }
 
+void Sync::onWritePasswordJobFinished(QKeychain::WritePasswordJob *job, const QString &username, const QString &password)
+{
+    if (job->error()) {
+        qCDebug(kastsSync) << "Could not save password to the keychain: " << qPrintable(job->errorString());
+        // fall back to file
+        savePasswordToFile(username, password);
+    } else {
+        qCDebug(kastsSync) << "Password saved to keychain";
+        Q_EMIT passwordSaveFinished(true);
+    }
+    job->deleteLater();
+}
+
 void Sync::savePasswordToKeyChain(const QString &username, const QString &password)
 {
     qCDebug(kastsSync) << "Save the password to the keychain for" << username;
@@ -446,16 +459,8 @@ void Sync::savePasswordToKeyChain(const QString &username, const QString &passwo
     job->setKey(username);
     job->setTextData(password);
 
-    QKeychain::WritePasswordJob::connect(job, &QKeychain::Job::finished, this, [=]() {
-        if (job->error()) {
-            qCDebug(kastsSync) << "Could not save password to the keychain: " << qPrintable(job->errorString());
-            // fall back to file
-            savePasswordToFile(username, password);
-        } else {
-            qCDebug(kastsSync) << "Password saved to keychain";
-            Q_EMIT passwordSaveFinished(true);
-        }
-        job->deleteLater();
+    QKeychain::WritePasswordJob::connect(job, &QKeychain::Job::finished, this, [this, username, password, job]() {
+        onWritePasswordJobFinished(job, username, password);
     });
     job->start();
 #endif
@@ -566,58 +571,66 @@ QString Sync::retrievePasswordFromFile(const QString &username)
     }
 }
 
+void Sync::onDeleteJobFinished(QKeychain::DeletePasswordJob *deleteJob, const QString &username)
+{
+    if (deleteJob->error() == QKeychain::Error::NoError) {
+        qCDebug(kastsSync) << "Password for username" << username << "successfully deleted from keychain";
+
+        // now also delete the dummy entry
+        QKeychain::DeletePasswordJob *deleteDummyJob = new QKeychain::DeletePasswordJob(qAppName());
+        deleteDummyJob->setAutoDelete(true);
+        deleteDummyJob->setKey(QStringLiteral("dummy"));
+
+        QKeychain::DeletePasswordJob::connect(deleteDummyJob, &QKeychain::Job::finished, this, [=]() {
+            if (deleteDummyJob->error()) {
+                qCDebug(kastsSync) << "Deleting dummy from keychain unsuccessful";
+            } else {
+                qCDebug(kastsSync) << "Deleting dummy from keychain successful";
+            }
+        });
+        deleteDummyJob->start();
+    } else if (deleteJob->error() == QKeychain::Error::EntryNotFound) {
+        qCDebug(kastsSync) << "No password for username" << username << "found in keychain";
+    } else {
+        qCDebug(kastsSync) << "Could not access keychain to delete password for username" << username;
+    }
+}
+
+void Sync::onWriteDummyJobFinished(QKeychain::WritePasswordJob *writeDummyJob, const QString &username)
+{
+    if (writeDummyJob->error()) {
+        qCDebug(kastsSync) << "Could not open keychain: " << qPrintable(writeDummyJob->errorString());
+    } else {
+        // opening keychain succeeded, let's try to delete the password
+
+        QFile(StorageManager::instance().passwordFilePath(username)).remove();
+
+        QKeychain::DeletePasswordJob *deleteJob = new QKeychain::DeletePasswordJob(qAppName());
+        deleteJob->setAutoDelete(true);
+        deleteJob->setKey(username);
+
+        QKeychain::DeletePasswordJob::connect(deleteJob, &QKeychain::Job::finished, this, [this, deleteJob, username]() {
+            onDeleteJobFinished(deleteJob, username);
+        });
+        deleteJob->start();
+    }
+    writeDummyJob->deleteLater();
+}
+
 void Sync::deletePasswordFromKeychain(const QString &username)
 {
     // Workaround: first try and store a dummy entry to the keychain to ensure
     // that the keychain is unlocked before we try to delete the real password
 
-#ifndef Q_OS_WINDOWS
     QKeychain::WritePasswordJob *writeDummyJob = new QKeychain::WritePasswordJob(qAppName(), this);
     writeDummyJob->setAutoDelete(false);
     writeDummyJob->setKey(QStringLiteral("dummy"));
     writeDummyJob->setTextData(QStringLiteral("dummy"));
 
-    QKeychain::WritePasswordJob::connect(writeDummyJob, &QKeychain::Job::finished, this, [=]() {
-        if (writeDummyJob->error()) {
-            qCDebug(kastsSync) << "Could not open keychain: " << qPrintable(writeDummyJob->errorString());
-        } else {
-            // opening keychain succeeded, let's try to delete the password
-
-            QFile(StorageManager::instance().passwordFilePath(username)).remove();
-
-            QKeychain::DeletePasswordJob *deleteJob = new QKeychain::DeletePasswordJob(qAppName());
-            deleteJob->setAutoDelete(true);
-            deleteJob->setKey(username);
-
-            QKeychain::DeletePasswordJob::connect(deleteJob, &QKeychain::Job::finished, this, [=]() {
-                if (deleteJob->error() == QKeychain::Error::NoError) {
-                    qCDebug(kastsSync) << "Password for username" << username << "successfully deleted from keychain";
-
-                    // now also delete the dummy entry
-                    QKeychain::DeletePasswordJob *deleteDummyJob = new QKeychain::DeletePasswordJob(qAppName());
-                    deleteDummyJob->setAutoDelete(true);
-                    deleteDummyJob->setKey(QStringLiteral("dummy"));
-
-                    QKeychain::DeletePasswordJob::connect(deleteDummyJob, &QKeychain::Job::finished, this, [=]() {
-                        if (deleteDummyJob->error()) {
-                            qCDebug(kastsSync) << "Deleting dummy from keychain unsuccessful";
-                        } else {
-                            qCDebug(kastsSync) << "Deleting dummy from keychain successful";
-                        }
-                    });
-                    deleteDummyJob->start();
-                } else if (deleteJob->error() == QKeychain::Error::EntryNotFound) {
-                    qCDebug(kastsSync) << "No password for username" << username << "found in keychain";
-                } else {
-                    qCDebug(kastsSync) << "Could not access keychain to delete password for username" << username;
-                }
-            });
-            deleteJob->start();
-        }
-        writeDummyJob->deleteLater();
+    QKeychain::WritePasswordJob::connect(writeDummyJob, &QKeychain::Job::finished, this, [this, writeDummyJob, username]() {
+        onWriteDummyJobFinished(writeDummyJob, username);
     });
     writeDummyJob->start();
-#endif
 }
 
 void Sync::registerNewDevice(const QString &id, const QString &caption, const QString &type)

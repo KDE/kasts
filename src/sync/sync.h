@@ -14,6 +14,12 @@
 #include "error.h"
 #include "sync/syncutils.h"
 
+namespace QKeychain
+{
+class WritePasswordJob;
+class DeletePasswordJob;
+}
+
 class GPodder;
 
 class Sync : public QObject
@@ -119,6 +125,9 @@ private:
     void deletePasswordFromKeychain(const QString &username);
 
     void retrieveAllLocalEpisodeStates();
+    void onWriteDummyJobFinished(QKeychain::WritePasswordJob *writeDummyJob, const QString &username);
+    void onWritePasswordJobFinished(QKeychain::WritePasswordJob *job, const QString &username, const QString &password);
+    void onDeleteJobFinished(QKeychain::DeletePasswordJob *deleteJob, const QString &username);
 
     GPodder *m_gpodder = nullptr;
 
