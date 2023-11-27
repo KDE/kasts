@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2023-10-08 22:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1883,32 +1883,32 @@ msgstr "GPodder-nextcloud 서버에 연결할 수 없음"
 msgid "Could not log into GPodder server"
 msgstr "GPodder 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:479 sync/sync.cpp:480
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O 거부됨: 암호를 저장할 수 없습니다."
 
-#: sync/sync.cpp:560 sync/sync.cpp:561
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
 
-#: sync/sync.cpp:633
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder 장치를 만들 수 없음"
 
-#: sync/sync.cpp:659
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "동기화된 장치 상태를 가져올 수 없음"
 
-#: sync/sync.cpp:710
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 장치의 구독을 가져올 수 없음"
 
-#: sync/sync.cpp:729
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 장치의 구독을 업로드할 수 없음"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2023-08-19 16:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -1914,32 +1914,32 @@ msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder-nextcloud"
 msgid "Could not log into GPodder server"
 msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder"
 
-#: sync/sync.cpp:479 sync/sync.cpp:480
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة المرورز"
 
-#: sync/sync.cpp:560 sync/sync.cpp:561
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "قراء كتابة مرفوضة: لا يمكن الوصول الر ملف كلمة المرور."
 
-#: sync/sync.cpp:633
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "لا يمكن إنشاء جهاز GPodder"
 
-#: sync/sync.cpp:659
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "لا يمكن جلب حالات الأجهزة المتزامنة"
 
-#: sync/sync.cpp:710
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "لا يمكن جلب الاشتراكات لجهاز %1"
 
-#: sync/sync.cpp:729
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "لا يمكن رفع الاشتراكات لجهاز %1"

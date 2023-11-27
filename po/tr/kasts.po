@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2023-11-08 21:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1893,32 +1893,32 @@ msgstr "GPodder-nextcloud sunucusuna oturum açılamadı"
 msgid "Could not log into GPodder server"
 msgstr "GPodder sunucusuna oturum açılamadı"
 
-#: sync/sync.cpp:479 sync/sync.cpp:480
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "Girdi-Çıktı reddedildi: Parola kaydedilemiyor."
 
-#: sync/sync.cpp:560 sync/sync.cpp:561
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "Girdi-Çıktı reddedildi: Parola dosyasına erişilemiyor."
 
-#: sync/sync.cpp:633
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder aygıtı oluşturulamadı"
 
-#: sync/sync.cpp:659
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Eşzamanlanmış aygıt durumu alınamadı"
 
-#: sync/sync.cpp:710
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 aygıtı için abonelikler alınamadı"
 
-#: sync/sync.cpp:729
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 aygıtı için abonelikler yüklenemedi"

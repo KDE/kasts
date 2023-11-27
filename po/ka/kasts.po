@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2023-11-09 02:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1889,32 +1889,32 @@ msgstr "GPodder-nextcloud-ის სერვერზე შესვლის 
 msgid "Could not log into GPodder server"
 msgstr "GPodder-ის სერვერზე შესვლის პრობლემა"
 
-#: sync/sync.cpp:479 sync/sync.cpp:480
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "შ/გ-ის შეცდომა: პაროლის შენახვა შეუძლებელია."
 
-#: sync/sync.cpp:560 sync/sync.cpp:561
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
 
-#: sync/sync.cpp:633
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder მოწყობილობის შექმნის შეცდომა"
 
-#: sync/sync.cpp:659
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "სინრქონიზებული მოწყობილობის მდგომარეობის მიღების შეცდომა"
 
-#: sync/sync.cpp:710
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "მოწყობილობის (%1) გამოწერების მიღების შეცდომა"
 
-#: sync/sync.cpp:729
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "მოწყობილობის (%1) გამოწერების ატვირთვის შეცდომა"

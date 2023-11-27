@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-10 01:47+0000\n"
+"POT-Creation-Date: 2023-11-27 01:37+0000\n"
 "PO-Revision-Date: 2023-08-26 17:57+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1898,32 +1898,32 @@ msgstr "GPodder-Nextcloud-palvelimeen ei voitu kirjautua."
 msgid "Could not log into GPodder server"
 msgstr "GPodder-palvelimeen ei voitu kirjautua"
 
-#: sync/sync.cpp:479 sync/sync.cpp:480
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O estetty: salasanaa ei voi tallentaa."
 
-#: sync/sync.cpp:560 sync/sync.cpp:561
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O estetty: ei pääsyä salasanatiedostoon."
 
-#: sync/sync.cpp:633
+#: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder-laitetta ei voida luoda"
 
-#: sync/sync.cpp:659
+#: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Ei saatu synkronoidun laitteen tilaa"
 
-#: sync/sync.cpp:710
+#: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Ei saatu laitteen %1 tilauksia"
 
-#: sync/sync.cpp:729
+#: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Ei saatu lähetettyä laitteen %1 tilauksia"
