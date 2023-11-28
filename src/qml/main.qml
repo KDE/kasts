@@ -495,7 +495,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: kastsMainWindow
 
-        function onClosing() {
+        function onClosing(close) {
             if (SystrayIcon.available && SettingsManager.showTrayIcon && SettingsManager.minimizeToTray) {
                 close.accepted = false;
                 kastsMainWindow.hide();
