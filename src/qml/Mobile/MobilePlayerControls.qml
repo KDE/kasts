@@ -452,13 +452,7 @@ Kirigami.Page {
                     // left section
                     Controls.Button {
                         id: playbackRateButton
-                        // Use contentItem and a Label because using plain "text"
-                        // does not rescale automatically if the text changes
-                        contentItem: Controls.Label {
-                            text: AudioManager.playbackRate.toFixed(2) + "x"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
+                        text: AudioManager.playbackRate.toFixed(2) + "x"
                         checkable: true
                         checked: playbackRateMenu.visible
                         onClicked: {
@@ -470,7 +464,7 @@ Kirigami.Page {
                         }
                         flat: true
                         padding: 0
-                        implicitWidth: playButton.width
+                        implicitWidth: playButton.width * 1.5
                         implicitHeight: playButton.height
                     }
 

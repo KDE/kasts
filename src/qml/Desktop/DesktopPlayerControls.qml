@@ -59,7 +59,6 @@ FocusScope {
 
     RowLayout {
         id: playerControlToolBar
-        property int iconSize: Kirigami.Units.gridUnit
 
         anchors.fill: parent
         anchors.topMargin: Kirigami.Units.largeSpacing
@@ -148,11 +147,7 @@ FocusScope {
             }
             Controls.ToolButton {
                 id: playbackRateButton
-                contentItem: Controls.Label {
-                    text: AudioManager.playbackRate.toFixed(2) + "x"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
+                text: AudioManager.playbackRate.toFixed(2) + "x"
                 checkable: true
                 checked: playbackRateMenu.visible
                 onClicked: {
@@ -162,7 +157,6 @@ FocusScope {
                         playbackRateMenu.popup(playbackRateButton, 0, playbackRateButton.height);
                     }
                 }
-                Layout.alignment: Qt.AlignHCenter
                 padding: 0
                 implicitWidth: playButton.width * 1.5
                 implicitHeight: playButton.height
@@ -177,12 +171,14 @@ FocusScope {
             id: currentPositionLabel
             text: AudioManager.formattedPosition
             visible: !playerControlToolBar.tooNarrowAudioLabels
+            Layout.alignment: Qt.AlignVCenter
         }
 
         Controls.Slider {
             id: durationSlider
             enabled: AudioManager.entry && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
             padding: 0
             from: 0
             to: AudioManager.duration / 1000
@@ -197,6 +193,8 @@ FocusScope {
             Layout.preferredHeight: endLabel.implicitHeight
             Layout.preferredWidth: endLabel.implicitWidth
             Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.alignment: Qt.AlignVCenter
+
             Controls.Label {
                 id: endLabel
                 anchors.right: parent.right
@@ -204,7 +202,6 @@ FocusScope {
                 text: (SettingsManager.toggleRemainingTime) ?
                         "-" + AudioManager.formattedLeftDuration
                         : AudioManager.formattedDuration
-
             }
 
             MouseArea {
