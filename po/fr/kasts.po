@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-27 01:37+0000\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
 "PO-Revision-Date: 2023-11-09 13:00+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -1906,33 +1906,33 @@ msgstr "Impossible de se connecter au serveur « GPodder-Nextcloud »"
 msgid "Could not log into GPodder server"
 msgstr "Impossible de se connecter au serveur « GPodder »"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
+#: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "Refus Entrée / Sortie : impossible d'enregistrer un mot de passe."
 
-#: sync/sync.cpp:562 sync/sync.cpp:563
+#: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr ""
 "Refus Entrée / Sortie : impossible d'accéder au fichier de mots de passe."
 
-#: sync/sync.cpp:637
+#: sync/sync.cpp:650
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Impossible de créer un périphérique « GPodder »"
 
-#: sync/sync.cpp:663
+#: sync/sync.cpp:676
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Impossible de charger l'état du périphérique synchronisé"
 
-#: sync/sync.cpp:714
+#: sync/sync.cpp:727
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Impossible de recevoir des abonnements du périphérique %1"
 
-#: sync/sync.cpp:733
+#: sync/sync.cpp:746
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Impossible d'envoyer des abonnements vers le périphérique %1"
