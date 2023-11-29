@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2023-11-29 01:37+0000\n"
 "PO-Revision-Date: 2023-08-19 16:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -118,13 +118,13 @@ msgid "Open"
 msgstr "افتح"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
 #, kde-format
 msgid "Play"
 msgstr "شغّل"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
 #, kde-format
 msgid "Pause"
 msgstr "ألبث"
@@ -396,94 +396,94 @@ msgstr "السماح مرة واحدة"
 msgid "Always Allow"
 msgstr "السماح دائما"
 
-#: qml/Desktop/DesktopPlayerControls.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:118
 #, kde-format
 msgid "Seek backward"
 msgstr "أخر"
 
-#: qml/Desktop/DesktopPlayerControls.qml:138
+#: qml/Desktop/DesktopPlayerControls.qml:137
 #, kde-format
 msgid "Seek forward"
 msgstr "قدم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:146
 #, kde-format
 msgid "Skip forward"
 msgstr "تخطى للأمام"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:166
 #, kde-format
 msgid "Playback rate:"
 msgstr "معدل التشغيل:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:231
+#: qml/Desktop/DesktopPlayerControls.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "عرض قائمة الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:242
+#: qml/Desktop/DesktopPlayerControls.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "عرض معلومات الحلقة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:253
+#: qml/Desktop/DesktopPlayerControls.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "فتح إعدادات مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:267
+#: qml/Desktop/DesktopPlayerControls.qml:264
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "فتح إعدادات الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:299
+#: qml/Desktop/DesktopPlayerControls.qml:296
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "تبديل كتم الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:316
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "عرض المزيد"
 
-#: qml/Desktop/DesktopPlayerControls.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:343
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:354
+#: qml/Desktop/DesktopPlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "عرض المعلومات"
 
-#: qml/Desktop/DesktopPlayerControls.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:396
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "لا يوجد عنوان للمقطوعة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"

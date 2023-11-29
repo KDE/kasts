@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2023-11-29 01:37+0000\n"
 "PO-Revision-Date: 2023-11-08 23:08+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -116,13 +116,13 @@ msgid "Open"
 msgstr "Ireki"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
 #, kde-format
 msgid "Play"
 msgstr "Jo"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
 #, kde-format
 msgid "Pause"
 msgstr "Etenaldia"
@@ -396,94 +396,94 @@ msgstr "Baimendu behin"
 msgid "Always Allow"
 msgstr "Baimendu beti"
 
-#: qml/Desktop/DesktopPlayerControls.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:118
 #, kde-format
 msgid "Seek backward"
 msgstr "Bilatu atzerantz"
 
-#: qml/Desktop/DesktopPlayerControls.qml:138
+#: qml/Desktop/DesktopPlayerControls.qml:137
 #, kde-format
 msgid "Seek forward"
 msgstr "Bilatu aurrerantz"
 
-#: qml/Desktop/DesktopPlayerControls.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:146
 #, kde-format
 msgid "Skip forward"
 msgstr "Jauzi aurrerantz"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:166
 #, kde-format
 msgid "Playback rate:"
 msgstr "Atzera-jotze emaria:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:231
+#: qml/Desktop/DesktopPlayerControls.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Erakutsi kapitulu-zerrenda"
 
-#: qml/Desktop/DesktopPlayerControls.qml:242
+#: qml/Desktop/DesktopPlayerControls.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Erakutsi atalaren informazioa"
 
-#: qml/Desktop/DesktopPlayerControls.qml:253
+#: qml/Desktop/DesktopPlayerControls.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Ireki lokartzeko tenporizadorearen ezarpenak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:267
+#: qml/Desktop/DesktopPlayerControls.qml:264
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Ireki bolumenaren ezarpenak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:299
+#: qml/Desktop/DesktopPlayerControls.qml:296
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Txandakatu isilaraztea"
 
-#: qml/Desktop/DesktopPlayerControls.qml:316
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Erakutsi gehiago"
 
-#: qml/Desktop/DesktopPlayerControls.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:343
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Atalak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:354
+#: qml/Desktop/DesktopPlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Erakutsi informazioa"
 
-#: qml/Desktop/DesktopPlayerControls.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Lokartzeko tenporizadorea"
 
-#: qml/Desktop/DesktopPlayerControls.qml:396
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "Atalak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Pistaren titulurik ez"
 
-#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"

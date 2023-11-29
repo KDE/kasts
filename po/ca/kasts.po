@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2023-11-29 01:37+0000\n"
 "PO-Revision-Date: 2023-11-08 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -116,13 +116,13 @@ msgid "Open"
 msgstr "Obre"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
 #, kde-format
 msgid "Play"
 msgstr "Reprodueix"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -396,94 +396,94 @@ msgstr "Permet un cop"
 msgid "Always Allow"
 msgstr "Permet sempre"
 
-#: qml/Desktop/DesktopPlayerControls.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:118
 #, kde-format
 msgid "Seek backward"
 msgstr "Cerca enrere"
 
-#: qml/Desktop/DesktopPlayerControls.qml:138
+#: qml/Desktop/DesktopPlayerControls.qml:137
 #, kde-format
 msgid "Seek forward"
 msgstr "Cerca endavant"
 
-#: qml/Desktop/DesktopPlayerControls.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:146
 #, kde-format
 msgid "Skip forward"
 msgstr "Salta cap endavant"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:166
 #, kde-format
 msgid "Playback rate:"
 msgstr "Velocitat de reproducció:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:231
+#: qml/Desktop/DesktopPlayerControls.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Mostra la llista de capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:242
+#: qml/Desktop/DesktopPlayerControls.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Mostra la informació dels episodis"
 
-#: qml/Desktop/DesktopPlayerControls.qml:253
+#: qml/Desktop/DesktopPlayerControls.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Obre la configuració del temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:267
+#: qml/Desktop/DesktopPlayerControls.qml:264
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Obre la configuració del volum"
 
-#: qml/Desktop/DesktopPlayerControls.qml:299
+#: qml/Desktop/DesktopPlayerControls.qml:296
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Commuta el silenci"
 
-#: qml/Desktop/DesktopPlayerControls.qml:316
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mostra'n més"
 
-#: qml/Desktop/DesktopPlayerControls.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:343
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:354
+#: qml/Desktop/DesktopPlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Mostra la informació"
 
-#: qml/Desktop/DesktopPlayerControls.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:396
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Sense títol de peça"
 
-#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"

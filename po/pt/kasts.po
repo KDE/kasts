@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2023-11-29 01:37+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -133,13 +133,13 @@ msgid "Open"
 msgstr "Abrir"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
 #, kde-format
 msgid "Play"
 msgstr "Reproduzir"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -434,31 +434,31 @@ msgstr "Permitir Uma Vez"
 msgid "Always Allow"
 msgstr "Permitir Sempre"
 
-#: qml/Desktop/DesktopPlayerControls.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:118
 #, fuzzy, kde-format
 #| msgid "Seek Backward"
 msgid "Seek backward"
 msgstr "Recuar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:138
+#: qml/Desktop/DesktopPlayerControls.qml:137
 #, fuzzy, kde-format
 #| msgid "Seek Forward"
 msgid "Seek forward"
 msgstr "Avançar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:146
 #, fuzzy, kde-format
 #| msgid "Skip Forward"
 msgid "Skip forward"
 msgstr "Avançar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:166
 #, fuzzy, kde-format
 #| msgid "Playback Rate: "
 msgid "Playback rate:"
 msgstr "Taxa de Reprodução: "
 
-#: qml/Desktop/DesktopPlayerControls.qml:231
+#: qml/Desktop/DesktopPlayerControls.qml:228
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Chapter List"
@@ -466,7 +466,7 @@ msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Mostrar a Lista de Capítulos"
 
-#: qml/Desktop/DesktopPlayerControls.qml:242
+#: qml/Desktop/DesktopPlayerControls.qml:239
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Episode Info"
@@ -474,7 +474,7 @@ msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Mostrar a Informação do Episódio"
 
-#: qml/Desktop/DesktopPlayerControls.qml:253
+#: qml/Desktop/DesktopPlayerControls.qml:250
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Sleep Timer Settings"
@@ -482,7 +482,7 @@ msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Abrir a Configuração do Alarme"
 
-#: qml/Desktop/DesktopPlayerControls.qml:267
+#: qml/Desktop/DesktopPlayerControls.qml:264
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -491,7 +491,7 @@ msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Abrir a Configuração do Volume"
 
-#: qml/Desktop/DesktopPlayerControls.qml:299
+#: qml/Desktop/DesktopPlayerControls.qml:296
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -500,7 +500,7 @@ msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Comutar o Silêncio"
 
-#: qml/Desktop/DesktopPlayerControls.qml:316
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show More"
@@ -508,36 +508,36 @@ msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mostrar Mais"
 
-#: qml/Desktop/DesktopPlayerControls.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:343
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítulos"
 
-#: qml/Desktop/DesktopPlayerControls.qml:354
+#: qml/Desktop/DesktopPlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Mostrar as Informações"
 
-#: qml/Desktop/DesktopPlayerControls.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Alarme"
 
-#: qml/Desktop/DesktopPlayerControls.qml:396
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "Capítulos"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Nenhum Título da Faixa"
 
-#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, fuzzy, kde-format
 #| msgid "No Track Loaded"

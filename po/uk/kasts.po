@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2023-11-29 01:37+0000\n"
 "PO-Revision-Date: 2023-11-08 23:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -117,13 +117,13 @@ msgid "Open"
 msgstr "Відкрити"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
 #, kde-format
 msgid "Play"
 msgstr "Відтворити"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
 #, kde-format
 msgid "Pause"
 msgstr "Призупинити"
@@ -397,94 +397,94 @@ msgstr "Дозволити зараз"
 msgid "Always Allow"
 msgstr "Завжди дозволяти"
 
-#: qml/Desktop/DesktopPlayerControls.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:118
 #, kde-format
 msgid "Seek backward"
 msgstr "Перемотати назад"
 
-#: qml/Desktop/DesktopPlayerControls.qml:138
+#: qml/Desktop/DesktopPlayerControls.qml:137
 #, kde-format
 msgid "Seek forward"
 msgstr "Перемотати вперед"
 
-#: qml/Desktop/DesktopPlayerControls.qml:147
+#: qml/Desktop/DesktopPlayerControls.qml:146
 #, kde-format
 msgid "Skip forward"
 msgstr "Гортати вперед"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:166
 #, kde-format
 msgid "Playback rate:"
 msgstr "Швидкість відтворення: "
 
-#: qml/Desktop/DesktopPlayerControls.qml:231
+#: qml/Desktop/DesktopPlayerControls.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Показати список глав"
 
-#: qml/Desktop/DesktopPlayerControls.qml:242
+#: qml/Desktop/DesktopPlayerControls.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Показати відомості щодо епізоду"
 
-#: qml/Desktop/DesktopPlayerControls.qml:253
+#: qml/Desktop/DesktopPlayerControls.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Відкрити параметри таймера приспляння"
 
-#: qml/Desktop/DesktopPlayerControls.qml:267
+#: qml/Desktop/DesktopPlayerControls.qml:264
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Відкрити параметри гучності"
 
-#: qml/Desktop/DesktopPlayerControls.qml:299
+#: qml/Desktop/DesktopPlayerControls.qml:296
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Увімкнути або вимкнути звук"
 
-#: qml/Desktop/DesktopPlayerControls.qml:316
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Докладніше"
 
-#: qml/Desktop/DesktopPlayerControls.qml:346
+#: qml/Desktop/DesktopPlayerControls.qml:343
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Глави"
 
-#: qml/Desktop/DesktopPlayerControls.qml:354
+#: qml/Desktop/DesktopPlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Показати відомості"
 
-#: qml/Desktop/DesktopPlayerControls.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Таймер присипляння"
 
-#: qml/Desktop/DesktopPlayerControls.qml:396
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "Глави"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
 msgstr "Немає заголовка доріжки"
 
-#: qml/Desktop/DesktopPlayerControls.qml:427 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:424 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
