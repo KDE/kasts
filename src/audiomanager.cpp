@@ -442,10 +442,11 @@ void AudioManager::pause()
 
 void AudioManager::playPause()
 {
-    if (playbackState() == KMediaSession::PlaybackState::PausedState)
-        play();
-    else if (playbackState() == KMediaSession::PlaybackState::PlayingState)
+    if (playbackState() == KMediaSession::PlaybackState::PlayingState) {
         pause();
+    } else {
+        play();
+    }
 }
 
 void AudioManager::stop()
