@@ -170,6 +170,9 @@ int main(int argc, char *argv[])
     qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*
     qRegisterMetaType<QVector<SyncUtils::Device>>("QVector<SyncUtils::Device>"); // "hack" to make qml understand QVector of SyncUtils::Device
 
+    // Workaround to don't get the app to silently quit when minimized to tray
+    app.setQuitLockEnabled(false);
+
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
 
