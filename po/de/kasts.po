@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:34+0000\n"
 "PO-Revision-Date: 2023-06-12 00:16+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -39,7 +39,7 @@ msgstr "Über getaktete Verbindungen"
 msgid "No network connection"
 msgstr "Über getaktete Verbindungen"
 
-#: audiomanager.cpp:547
+#: audiomanager.cpp:548
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ungültige Medien"

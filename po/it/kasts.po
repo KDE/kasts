@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:34+0000\n"
 "PO-Revision-Date: 2023-11-08 15:11+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr "La trasmissione su connessione a consumo non è consentita"
 msgid "No network connection"
 msgstr "Nessuna connessione di rete"
 
-#: audiomanager.cpp:547
+#: audiomanager.cpp:548
 #, kde-format
 msgid "Invalid Media"
 msgstr "Supporto non valido"

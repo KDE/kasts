@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:34+0000\n"
 "PO-Revision-Date: 2023-11-09 13:00+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -35,7 +35,7 @@ msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
 msgid "No network connection"
 msgstr "Aucune connexion réseau"
 
-#: audiomanager.cpp:547
+#: audiomanager.cpp:548
 #, kde-format
 msgid "Invalid Media"
 msgstr "Média non valable"

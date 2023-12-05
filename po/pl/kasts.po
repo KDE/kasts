@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:34+0000\n"
 "PO-Revision-Date: 2023-10-28 09:23+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -41,7 +41,7 @@ msgstr "Połączenie lub strumieniowanie na taryfowej sieci jest niedozwolone"
 msgid "No network connection"
 msgstr "W połączeniach taryfowych"
 
-#: audiomanager.cpp:547
+#: audiomanager.cpp:548
 #, kde-format
 msgid "Invalid Media"
 msgstr "Nieprawidłowa treść"

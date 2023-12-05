@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 01:37+0000\n"
+"POT-Creation-Date: 2023-12-05 01:34+0000\n"
 "PO-Revision-Date: 2023-10-08 22:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -39,7 +39,7 @@ msgstr "연결되지 않았거나 종량제 연결에서 스트리밍이 허용�
 msgid "No network connection"
 msgstr "종량제 연결에서"
 
-#: audiomanager.cpp:547
+#: audiomanager.cpp:548
 #, kde-format
 msgid "Invalid Media"
 msgstr "잘못된 미디어"
