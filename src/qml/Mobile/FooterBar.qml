@@ -8,7 +8,7 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
 import org.kde.kirigami as Kirigami
 
@@ -119,27 +119,25 @@ Flickable {
             Layout.fillWidth: true
             padding: 0
 
-            background: Image {
-                opacity: 0.2
-                source: AudioManager.entry.cachedImage
-                asynchronous: true
-
+            background: MultiEffect {
+                source: backgroundImage
                 anchors.fill: parent
-                fillMode: Image.PreserveAspectCrop
 
-                layer.enabled: true
-                layer.effect: HueSaturation {
-                    cached: true
+                brightness: 0.55
+                saturation: -0.4
+                contrast: -0.7
+                blurMax: 64
+                blur: 1.0
+                blurEnabled: true
+                autoPaddingEnabled: false
 
-                    lightness: 0.7
-                    saturation: 0.9
-
-                    layer.enabled: true
-                    layer.effect: FastBlur {
-                        cached: true
-                        radius: 64
-                        transparentBorder: false
-                    }
+                Image {
+                    id: backgroundImage
+                    source: AudioManager.entry.cachedImage
+                    asynchronous: true
+                    visible: false
+                    anchors.fill: parent
+                    fillMode: Image.PreserveAspectCrop
                 }
             }
 

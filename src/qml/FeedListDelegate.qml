@@ -8,8 +8,8 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+import QtQuick.Effects
 import QtQml.Models
-import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
 
@@ -96,7 +96,6 @@ Controls.ItemDelegate {
         id: mouseArea
         anchors.fill: parent
         anchors.margins: cardMargin + borderWidth
-        anchors.leftMargin: cardMargin + borderWidth
         implicitWidth:  cardSize - 2 * borderWidth
         implicitHeight: cardSize  - 2 * borderWidth
 
@@ -167,6 +166,7 @@ Controls.ItemDelegate {
             imageSource: feed.cachedImage
             imageTitle: feed.name
             isLoading: feed.refreshing
+            absoluteRadius: Kirigami.Units.smallSpacing + borderWidth
         }
 
         Rectangle {
@@ -208,21 +208,6 @@ Controls.ItemDelegate {
             icon.name: "overflow-menu"
             icon.color: "white"
             onClicked: actionOverlay.open()
-        }
-
-        // Rounded edges
-        layer.enabled: true
-        layer.effect: OpacityMask {
-            maskSource: Item {
-                width: img.width
-                height: img.height
-                Rectangle {
-                    anchors.centerIn: parent
-                    width: img.adapt ? img.width : Math.min(img.width, img.height)
-                    height: img.adapt ? img.height : width
-                    radius: Kirigami.Units.smallSpacing - borderWidth
-                }
-            }
         }
     }
 

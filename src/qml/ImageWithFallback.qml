@@ -7,7 +7,7 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
@@ -29,19 +29,23 @@ Item {
     Loader {
         id: imageLoader
         anchors.fill: parent
+        visible: false
         sourceComponent: (imageSource === "no-image" || imageSource === "") ? fallbackImg : (imageSource === "fetching" ? loaderSymbol : realImg )
+    }
+
+    MultiEffect {
+        anchors.fill: parent
+        source: imageLoader.item
         opacity: root.imageOpacity
-        layer.enabled: (root.absoluteRadius > 0 || root.fractionalRadius > 0)
-        layer.effect: OpacityMask {
-            maskSource: Item {
-                width: imageLoader.width
-                height: imageLoader.height
-                Rectangle {
-                    anchors.centerIn: parent
-                    width: imageLoader.adapt ? imageLoader.width : Math.min(imageLoader.width, imageLoader.height)
-                    height: imageLoader.adapt ? imageLoader.height : width
-                    radius: (absoluteRadius > 0) ? absoluteRadius : ( (fractionalRadius > 0) ? Math.min(width, height)*fractionalRadius : 0 )
-                }
+        maskEnabled: true
+        maskSource: ShaderEffectSource {
+            width: imageLoader.width
+            height: imageLoader.height
+            sourceItem: Rectangle {
+                anchors.centerIn: parent
+                width: imageLoader.adapt ? imageLoader.width : Math.min(imageLoader.width, imageLoader.height)
+                height: imageLoader.adapt ? imageLoader.height : width
+                radius: (absoluteRadius > 0) ? absoluteRadius : ( (fractionalRadius > 0) ? Math.min(width, height)*fractionalRadius : 0 )
             }
         }
     }

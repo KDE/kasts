@@ -7,7 +7,7 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 
 import org.kde.kirigami as Kirigami
 
@@ -29,25 +29,25 @@ Item {
     implicitHeight: headerHeight
     implicitWidth: parent.width
 
-    ImageWithFallback {
+    MultiEffect {
         id: backgroundImage
+        source: backgroundImageRaw
         anchors.fill: parent
-        imageSource: image
-        imageResize: false // no "stuttering" on resizing the window
 
-        layer.enabled: true
-        layer.effect: HueSaturation {
-            cached: true
+        brightness: -0.15
+        saturation: 0.6
+        contrast: -0.4
+        blurMax: 64
+        blur: 1.0
+        blurEnabled: true
+        autoPaddingEnabled: false
 
-            lightness: -0.3
-            saturation: 0.9
-
-            layer.enabled: true
-            layer.effect: FastBlur {
-                cached: true
-                radius: 64
-                transparentBorder: false
-            }
+        ImageWithFallback {
+            id: backgroundImageRaw
+            anchors.fill: parent
+            visible: false
+            imageSource: image
+            imageResize: false // no "stuttering" on resizing the window
         }
     }
 

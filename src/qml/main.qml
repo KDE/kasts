@@ -8,8 +8,8 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+import QtQuick.Effects
 import QtCore
-import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
 
@@ -312,14 +312,17 @@ Kirigami.ApplicationWindow {
         active: footer.active && !footerLoader.active
         anchors.fill: footer
 
-        sourceComponent: RectangularGlow {
-            glowRadius: 5
-            spread: 0.3
-            color: Qt.rgba(0.0, 0.0, 0.0, 0.1)
+        sourceComponent: MultiEffect {
+            source: bottomToolbarLoader
+            shadowEnabled: true
+            shadowScale: 1.1
+            blurMax: 10
+            shadowColor: Qt.rgba(0.0, 0.0, 0.0, 0.1)
         }
     }
 
     footer: Loader {
+        id: bottomToolbarLoader
         visible: active
         height: visible ? implicitHeight : 0
         active: Kirigami.Settings.isMobile && !kastsMainWindow.isWidescreen

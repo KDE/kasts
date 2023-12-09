@@ -8,8 +8,8 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+import QtQuick.Effects
 import QtQml.Models
-import Qt5Compat.GraphicalEffects
 
 import org.kde.kirigami as Kirigami
 import org.kde.kmediasession
@@ -79,27 +79,25 @@ FocusScope {
 
     Component {
         id: backgroundImageComponent
-        ImageWithFallback {
-            id: backgroundImage
+        MultiEffect {
+            source: backgroundImage
+            anchors.fill: parent
 
-            imageSource: headerMetaData.blurredImage
-            imageResize: false // no "stuttering" on resizing the window
+            brightness: -0.3
+            saturation: 0.6
+            contrast: -0.5
+            blurMax: 64
+            blur: 1.0
+            blurEnabled: true
+            autoPaddingEnabled: false
 
-            opacity: handlePosition > 0 ? 1 : 0
+            ImageWithFallback {
+                id: backgroundImage
 
-            layer.enabled: true
-            layer.effect: HueSaturation {
-                cached: true
-
-                lightness: -0.6
-                saturation: 0.9
-
-                layer.enabled: true
-                layer.effect: FastBlur {
-                    cached: true
-                    radius: 64
-                    transparentBorder: false
-                }
+                visible: false
+                imageSource: headerMetaData.blurredImage
+                imageResize: false // no "stuttering" on resizing the window
+                anchors.fill: parent
             }
         }
     }
