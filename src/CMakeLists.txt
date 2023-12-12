@@ -4,7 +4,7 @@
 
 add_subdirectory(kmediasession)
 
-set(kasts_srcs
+add_executable(kasts
     main.cpp
     fetcher.cpp
     database.cpp
@@ -55,84 +55,84 @@ set(kasts_srcs
     resources.qrc
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "audiologging.h"
     IDENTIFIER "kastsAudio"
     CATEGORY_NAME "org.kde.kasts.audio"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "datamanagerlogging.h"
     IDENTIFIER "kastsDataManager"
     CATEGORY_NAME "org.kde.kasts.datamanager"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "enclosurelogging.h"
     IDENTIFIER "kastsEnclosure"
     CATEGORY_NAME "org.kde.kasts.enclosure"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "entrylogging.h"
     IDENTIFIER "kastsEntry"
     CATEGORY_NAME "org.kde.kasts.entry"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "feedlogging.h"
     IDENTIFIER "kastsFeed"
     CATEGORY_NAME "org.kde.kasts.feed"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "fetcherlogging.h"
     IDENTIFIER "kastsFetcher"
     CATEGORY_NAME "org.kde.kasts.fetcher"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "synclogging.h"
     IDENTIFIER "kastsSync"
     CATEGORY_NAME "org.kde.kasts.sync"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "models/downloadmodellogging.h"
     IDENTIFIER "kastsDownloadModel"
     CATEGORY_NAME "org.kde.kasts.downloadmodel"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "models/queuemodellogging.h"
     IDENTIFIER "kastsQueueModel"
     CATEGORY_NAME "org.kde.kasts.queuemodel"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "storagemanagerlogging.h"
     IDENTIFIER "kastsStorageManager"
     CATEGORY_NAME "org.kde.kasts.storagemanager"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "storagemovejoblogging.h"
     IDENTIFIER "kastsStorageMoveJob"
     CATEGORY_NAME "org.kde.kasts.storagemovejob"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kasts_srcs
+ecm_qt_declare_logging_category(kasts
     HEADER "networkconnectionmanagerlogging.h"
     IDENTIFIER "kastsNetworkConnectionManager"
     CATEGORY_NAME "org.kde.kasts.networkconnectionmanager"
@@ -140,19 +140,16 @@ ecm_qt_declare_logging_category(kasts_srcs
 )
 
 if(ANDROID)
-    list(APPEND kasts_srcs
-         utils/androidlogging.h)
+    target_sources(kasts PRIVATE utils/androidlogging.h)
 endif()
 
 if(KASTS_FLATPAK)
-    list(APPEND kasts_srcs
-         resources-flatpak.qrc)
+    target_sources(kasts PRIVATE resources-flatpak.qrc)
 else()
-    list(APPEND kasts_srcs
-         resources-non-flatpak.qrc)
+    target_sources(kasts PRIVATE resources-non-flatpak.qrc)
 endif()
 
-set(kasts_ICONS_PNG
+ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
     ../icons/16-apps-kasts.png
     ../icons/24-apps-kasts.png
     ../icons/32-apps-kasts.png
@@ -160,11 +157,6 @@ set(kasts_ICONS_PNG
     ../icons/64-apps-kasts.png
     ../icons/128-apps-kasts.png
 )
-
-# add icons to application sources, to have them bundled
-ecm_add_app_icon(kasts_srcs ICONS ${kasts_ICONS_PNG})
-
-add_executable(kasts ${kasts_srcs})
 
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
