@@ -96,9 +96,7 @@ AudioManager::AudioManager(QObject *parent)
     }
 }
 
-AudioManager::~AudioManager()
-{
-}
+AudioManager::~AudioManager() = default;
 
 QString AudioManager::backendName(KMediaSession::MediaBackends backend) const
 {

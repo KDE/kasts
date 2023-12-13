@@ -44,8 +44,6 @@ class Feed : public QObject
 public:
     Feed(const QString &feedurl);
 
-    ~Feed();
-
     void updateAuthors();
 
     QString url() const;

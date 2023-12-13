@@ -25,7 +25,6 @@ class Chapter : public QObject
 
 public:
     Chapter(Entry *entry, const QString &title, const QString &link, const QString &image, const int &start, QObject *parent = nullptr);
-    ~Chapter();
 
     Entry *entry() const;
     QString title() const;

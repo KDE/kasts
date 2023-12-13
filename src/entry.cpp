@@ -42,10 +42,6 @@ Entry::Entry(Feed *feed, const QString &id)
     updateFromDb(false);
 }
 
-Entry::~Entry()
-{
-}
-
 void Entry::updateFromDb(bool emitSignals)
 {
     QSqlQuery entryQuery;

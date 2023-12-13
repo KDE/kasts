@@ -76,11 +76,6 @@ MediaPlayer2Player::MediaPlayer2Player(KMediaSession *audioPlayer, bool showProg
     }
 }
 
-MediaPlayer2Player::~MediaPlayer2Player()
-{
-    qCDebug(Mpris2Log) << "MediaPlayer2Player::~MediaPlayer2Player()";
-}
-
 QString MediaPlayer2Player::PlaybackStatus() const
 {
     qCDebug(Mpris2Log) << "MediaPlayer2Player::PlaybackStatus()";

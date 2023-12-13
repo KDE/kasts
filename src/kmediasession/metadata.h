@@ -23,7 +23,6 @@ class KMEDIASESSION_EXPORT MetaData : public QObject
 
 public:
     explicit MetaData(QObject *parent = nullptr);
-    ~MetaData();
 
     QString title() const;
     QString artist() const;

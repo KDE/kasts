@@ -36,8 +36,6 @@ public:
         return _instance;
     }
 
-    ~SystrayIcon() override;
-
     [[nodiscard]] bool available() const;
 
     void setIconColor(IconColor iconColor);

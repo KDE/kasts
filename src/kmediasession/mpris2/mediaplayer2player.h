@@ -38,7 +38,6 @@ class MediaPlayer2Player : public QDBusAbstractAdaptor
 
 public:
     explicit MediaPlayer2Player(KMediaSession *audioPlayer, bool showProgressOnTaskBar, QObject *parent = nullptr);
-    ~MediaPlayer2Player() override;
 
     QString PlaybackStatus() const;
     double Rate() const;

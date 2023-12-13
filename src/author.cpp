@@ -14,10 +14,6 @@ Author::Author(const QString &name, const QString &email, const QString &url, QO
 {
 }
 
-Author::~Author()
-{
-}
-
 QString Author::name() const
 {
     return m_name;

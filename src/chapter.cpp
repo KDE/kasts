@@ -24,10 +24,6 @@ Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const 
     });
 }
 
-Chapter::~Chapter()
-{
-}
-
 Entry *Chapter::entry() const
 {
     return m_entry;

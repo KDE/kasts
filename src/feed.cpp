@@ -98,10 +98,6 @@ Feed::Feed(const QString &feedurl)
     m_entries = new EntriesProxyModel(this);
 }
 
-Feed::~Feed()
-{
-}
-
 void Feed::updateAuthors()
 {
     QVector<Author *> newAuthors;

@@ -97,10 +97,7 @@ bool Mpris2::unregisterDBusService(const QString &playerName)
     return success;
 }
 
-Mpris2::~Mpris2()
-{
-    qCDebug(Mpris2Log) << "Mpris2::~Mpris2()";
-}
+Mpris2::~Mpris2() = default;
 
 bool Mpris2::showProgressOnTaskBar() const
 {

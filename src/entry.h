@@ -41,7 +41,6 @@ class Entry : public QObject
 
 public:
     Entry(Feed *feed, const QString &id);
-    ~Entry();
 
     QString id() const;
     QString title() const;

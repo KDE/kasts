@@ -41,11 +41,6 @@ UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, QObject
     connect(this, &UpdateFeedJob::feedUpdateStatusChanged, &Fetcher::instance(), &Fetcher::feedUpdateStatusChanged);
 }
 
-UpdateFeedJob::~UpdateFeedJob()
-{
-    qCDebug(kastsFetcher) << "destroyed UpdateFeedJob for" << m_url;
-}
-
 void UpdateFeedJob::run(JobPointer, Thread *)
 {
     if (m_abort) {

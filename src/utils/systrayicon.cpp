@@ -133,10 +133,6 @@ SystrayIcon::SystrayIcon(QObject *parent)
 }
 #endif
 
-SystrayIcon::~SystrayIcon()
-{
-}
-
 bool SystrayIcon::available() const
 {
 #ifndef Q_OS_ANDROID

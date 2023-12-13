@@ -18,7 +18,6 @@ class Author : public QObject
 
 public:
     Author(const QString &name, const QString &email, const QString &url, QObject *parent = nullptr);
-    ~Author();
 
     QString name() const;
     QString email() const;

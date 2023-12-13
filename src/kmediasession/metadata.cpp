@@ -19,11 +19,6 @@ MetaData::MetaData(QObject *parent)
     connect(this, &MetaData::artworkUrlChanged, this, &MetaData::signalMetaDataChanged);
 }
 
-MetaData::~MetaData()
-{
-    qCDebug(MetaDataLog) << "MetaData::~MetaData";
-}
-
 QString MetaData::title() const
 {
     qCDebug(MetaDataLog) << "MetaData::title()";

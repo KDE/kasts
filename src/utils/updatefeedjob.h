@@ -22,7 +22,6 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 
 public:
     explicit UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent = nullptr);
-    ~UpdateFeedJob();
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
