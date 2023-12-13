@@ -45,6 +45,7 @@
         <file alias="GlobalSearchField.qml">qml/GlobalSearchField.qml</file>
         <file alias="SearchBar.qml">qml/SearchBar.qml</file>
         <file alias="FilterInlineMessage.qml">qml/FilterInlineMessage.qml</file>
+        <file alias="KastsGlobalDrawer.qml">qml/KastsGlobalDrawer.qml</file>
         <file alias="logo.svg">../kasts.svg</file>
         <file alias="kasts-tray-light.svg">../icons/kasts-tray-light.svg</file>
         <file alias="kasts-tray-dark.svg">../icons/kasts-tray-dark.svg</file>
