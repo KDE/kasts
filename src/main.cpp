@@ -104,6 +104,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("kasts");
 
+    // pass name of style to qml
+    engine.rootContext()->setContextProperty(QStringLiteral("styleName"), QQuickStyle::name());
+
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Podcast Application"));
     QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add"),

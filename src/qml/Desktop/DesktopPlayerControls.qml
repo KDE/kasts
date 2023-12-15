@@ -183,8 +183,6 @@ FocusScope {
             enabled: AudioManager.entry && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
-            value: AudioManager.position / 1000
-            Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.gridUnit % 4
         }
 
         Item {
