@@ -21,12 +21,17 @@ SystrayIcon::SystrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
     setIconColor(intToIconColorEnum(SettingsManager::self()->trayIconType()));
+    setToolTip(i18nc("@info:tooltip",
+                     "Kasts\n"
+                     "Middle-click to play/pause"));
 
     QMenu *menu = new QMenu();
 
     connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
             Q_EMIT raiseWindow();
+        } else if (reason == QSystemTrayIcon::MiddleClick) {
+            AudioManager::instance().playPause();
         }
     });
 
