@@ -36,6 +36,7 @@
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="x-test">xxKastsxx</name>
   <name xml:lang="zh-CN">Kasts</name>
+  <name xml:lang="zh-TW">Kasts</name>
   <summary>Podcast application</summary>
   <summary xml:lang="ar">تطبيق مدونات صوتية</summary>
   <summary xml:lang="ca">Aplicació de pòdcast</summary>
@@ -62,6 +63,7 @@
   <summary xml:lang="tr">Pod yayını uygulaması</summary>
   <summary xml:lang="uk">Програма для трансляцій</summary>
   <summary xml:lang="x-test">xxPodcast applicationxx</summary>
+  <summary xml:lang="zh-TW">Podcast 應用程式</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <url type="homepage">https://apps.kde.org/kasts/</url>
@@ -98,6 +100,7 @@
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxThe KDE Communityxx</developer_name>
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
+  <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="ar">كاستس تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
@@ -122,6 +125,7 @@
     <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
     <p xml:lang="x-test">xxKasts is a convergent podcast application that looks good on desktop and mobile.xx</p>
+    <p xml:lang="zh-TW">Kasts 是一個跨平台的 Podcast 應用程式，在桌面上或手機上都好看。</p>
     <p>Its main features are:</p>
     <p xml:lang="ar">مزاياه الرئيسية هي:</p>
     <p xml:lang="ca">Les seves característiques principals són:</p>
@@ -146,6 +150,7 @@
     <p xml:lang="tr">Temel özellikleri:</p>
     <p xml:lang="uk">Його основні можливості:</p>
     <p xml:lang="x-test">xxIts main features are:xx</p>
+    <p xml:lang="zh-TW">它的主要功能有：</p>
     <ul>
       <li>Episode management through play queue</li>
       <li xml:lang="ar">إدارة الحلقات من خلال طابور التشغيل</li>
@@ -171,6 +176,7 @@
       <li xml:lang="tr">Çalma kuyruğu üzerinden bölüm yönetimi</li>
       <li xml:lang="uk">Керування епізодами за допомогою черги відтворення</li>
       <li xml:lang="x-test">xxEpisode management through play queuexx</li>
+      <li xml:lang="zh-TW">透過播放佇列管理集數</li>
       <li>Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
       <li xml:lang="ar">مزامنة مواضع التشغيل مع العملاء الآخرين من خلال gpodder.net أو gpodder-nextcloud</li>
       <li xml:lang="ca">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
@@ -194,6 +200,7 @@
       <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
       <li xml:lang="uk">Синхронізація позицій відтворення із іншими клієнтами за допомогою gpodder.net або gpodder-nextcloud</li>
       <li xml:lang="x-test">xxSync playback positions with other clients through gpodder.net or gpodder-nextcloudxx</li>
+      <li xml:lang="zh-TW">透過 gpodder.net 或 gpodder-nextcloud 與其他用戶端同步播放位置</li>
       <li>Variable playback speed</li>
       <li xml:lang="ar">سرعة تشغيل متغيرة</li>
       <li xml:lang="ca">Velocitat de reproducció variable</li>
@@ -218,6 +225,7 @@
       <li xml:lang="tr">Değişken çalma hızı</li>
       <li xml:lang="uk">Змінна швидкість відтворення</li>
       <li xml:lang="x-test">xxVariable playback speedxx</li>
+      <li xml:lang="zh-TW">可變動的播放速度</li>
       <li>Search for podcasts</li>
       <li xml:lang="ar">ابحث عن مدونات صوتية</li>
       <li xml:lang="ca">Cerca de pòdcasts</li>
@@ -242,6 +250,7 @@
       <li xml:lang="tr">Pod yayını arama</li>
       <li xml:lang="uk">Пошук подкастів</li>
       <li xml:lang="x-test">xxSearch for podcastsxx</li>
+      <li xml:lang="zh-TW">搜尋 Podcast</li>
       <li>Full system integration: e.g. inhibit system suspend while listening</li>
       <li xml:lang="ar">تكامل كامل مع النظام: منع توقف النظام أثناء الاستماع</li>
       <li xml:lang="ca">Integració completa amb el sistema: p. ex. inhibeix la suspensió del sistema mentre s'està escoltant</li>
@@ -266,6 +275,7 @@
       <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu engelleme</li>
       <li xml:lang="uk">Повна інтеграція із системою, зокрема заборона присипляння пристрою під час прослуховування</li>
       <li xml:lang="x-test">xxFull system integration: e.g. inhibit system suspend while listeningxx</li>
+      <li xml:lang="zh-TW">完整系統整合：例如聆聽時阻擋系統暫停</li>
     </ul>
   </description>
   <recommends>
@@ -300,6 +310,7 @@
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with default header barxx</caption>
+      <caption xml:lang="zh-TW">桌面上的 Kasts，使用預設標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
     </screenshot>
     <screenshot>
@@ -325,6 +336,7 @@
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="x-test">xxKasts on the desktop with minimized header barxx</caption>
+      <caption xml:lang="zh-TW">桌面上的 Kasts，使用最小化標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
     </screenshot>
     <screenshot type="default">
@@ -356,6 +368,7 @@
       <caption xml:lang="uk">Kasts на телефоні</caption>
       <caption xml:lang="x-test">xxKasts on a phonexx</caption>
       <caption xml:lang="zh-CN">在手机上运行的 Kasts</caption>
+      <caption xml:lang="zh-TW">手機上的 Kasts</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile.png</image>
     </screenshot>
     <screenshot>
@@ -381,6 +394,7 @@
       <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="x-test">xxKasts mobile player controlsxx</caption>
+      <caption xml:lang="zh-TW">Kasts 行動版播放器控制</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
     </screenshot>
   </screenshots>
