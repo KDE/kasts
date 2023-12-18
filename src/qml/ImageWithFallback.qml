@@ -26,6 +26,14 @@ Item {
     property bool imageResize: true
     property bool mipmap: false
 
+    // HACK: if mipmap has been set to true, then reset it AFTER image has
+    // changed, otherwise it will be ignored
+    onImageSourceChanged: {
+        if (root.mipmap) {
+            root.mipmap = true;
+        }
+    }
+
     Loader {
         id: imageLoader
         anchors.fill: parent
@@ -38,6 +46,8 @@ Item {
         source: imageLoader.item
         opacity: root.imageOpacity
         maskEnabled: true
+        maskThresholdMin: 0.5
+        maskSpreadAtMin: 0.5
         maskSource: ShaderEffectSource {
             width: imageLoader.width
             height: imageLoader.height

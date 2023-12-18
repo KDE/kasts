@@ -166,7 +166,7 @@ Controls.ItemDelegate {
             imageSource: feed.cachedImage
             imageTitle: feed.name
             isLoading: feed.refreshing
-            absoluteRadius: Kirigami.Units.smallSpacing + borderWidth
+            absoluteRadius: Kirigami.Units.smallSpacing - borderWidth
         }
 
         Rectangle {
