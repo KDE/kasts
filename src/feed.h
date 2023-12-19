@@ -12,7 +12,6 @@
 #include <QString>
 #include <QVector>
 
-#include "author.h"
 #include "models/entriesproxymodel.h"
 
 class Feed : public QObject
@@ -25,7 +24,7 @@ class Feed : public QObject
     Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(QString link READ link WRITE setLink NOTIFY linkChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
-    Q_PROPERTY(QVector<Author *> authors READ authors WRITE setAuthors NOTIFY authorsChanged)
+    Q_PROPERTY(QString authors READ authors NOTIFY authorsChanged)
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
     Q_PROPERTY(int deleteAfterCount READ deleteAfterCount WRITE setDeleteAfterCount NOTIFY deleteAfterCountChanged)
     Q_PROPERTY(int deleteAfterType READ deleteAfterType WRITE setDeleteAfterType NOTIFY deleteAfterTypeChanged)
@@ -52,7 +51,7 @@ public:
     QString cachedImage() const;
     QString link() const;
     QString description() const;
-    QVector<Author *> authors() const;
+    QString authors() const;
     int deleteAfterCount() const;
     int deleteAfterType() const;
     QDateTime subscribed() const;
@@ -73,7 +72,6 @@ public:
     void setImage(const QString &image);
     void setLink(const QString &link);
     void setDescription(const QString &description);
-    void setAuthors(const QVector<Author *> &authors);
     void setDeleteAfterCount(int count);
     void setDeleteAfterType(int type);
     void setLastUpdated(const QDateTime &lastUpdated);
@@ -92,7 +90,7 @@ Q_SIGNALS:
     void cachedImageChanged(const QString &imagePath);
     void linkChanged(const QString &link);
     void descriptionChanged(const QString &description);
-    void authorsChanged(const QVector<Author *> &authors);
+    void authorsChanged(const QString &authors);
     void deleteAfterCountChanged(int count);
     void deleteAfterTypeChanged(int type);
     void lastUpdatedChanged(const QDateTime &lastUpdated);
@@ -117,7 +115,7 @@ private:
     QString m_image;
     QString m_link;
     QString m_description;
-    QVector<Author *> m_authors;
+    QString m_authors;
     int m_deleteAfterCount;
     int m_deleteAfterType;
     QDateTime m_subscribed;

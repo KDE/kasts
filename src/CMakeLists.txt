@@ -10,7 +10,6 @@ add_executable(kasts
     database.cpp
     entry.cpp
     feed.cpp
-    author.cpp
     enclosure.cpp
     chapter.cpp
     datamanager.cpp

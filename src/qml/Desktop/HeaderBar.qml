@@ -116,7 +116,7 @@ FocusScope {
         property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
         property string title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
         property string feed: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No track loaded")
-        property string authors: AudioManager.entry ? (AudioManager.entry.feed.authors.length !== 0 ? AudioManager.entry.feed.authors[0].name : "") : ""
+        property string authors: AudioManager.entry ? AudioManager.entry.feed.authors : ""
 
         implicitHeight: headerBar.handlePosition
         implicitWidth: parent.width

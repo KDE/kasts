@@ -7,7 +7,8 @@
 
 #include <QVariant>
 
-#include "author.h"
+#include <KLocalizedString>
+
 #include "database.h"
 #include "datamanager.h"
 #include "error.h"
@@ -100,47 +101,25 @@ Feed::Feed(const QString &feedurl)
 
 void Feed::updateAuthors()
 {
-    QVector<Author *> newAuthors;
-    bool haveAuthorsChanged = false;
+    QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id='' AND feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":feed"), m_url);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
-        // check if author already exists, if so, then reuse
-        bool existingAuthor = false;
-        QString name = authorQuery.value(QStringLiteral("name")).toString();
-        QString email = authorQuery.value(QStringLiteral("email")).toString();
-        QString url = authorQuery.value(QStringLiteral("uri")).toString();
-        qCDebug(kastsFeed) << name << email << url;
-        for (int i = 0; i < m_authors.count(); i++) {
-            qCDebug(kastsFeed) << "old authors" << m_authors[i]->name() << m_authors[i]->email() << m_authors[i]->url();
-            if (m_authors[i] && m_authors[i]->name() == name && m_authors[i]->email() == email && m_authors[i]->url() == url) {
-                existingAuthor = true;
-                newAuthors += m_authors[i];
-            }
-        }
-        if (!existingAuthor) {
-            newAuthors += new Author(name, email, url, nullptr);
-            haveAuthorsChanged = true;
-        }
+        authors += authorQuery.value(QStringLiteral("name")).toString();
     }
 
-    // Finally check whether m_authors and newAuthors are identical
-    // if not, then delete the authors that were removed
-    for (int i = 0; i < m_authors.count(); i++) {
-        if (!newAuthors.contains(m_authors[i])) {
-            delete m_authors[i];
-            haveAuthorsChanged = true;
-        }
+    if (authors.size() == 1) {
+        m_authors = authors[0];
+    } else if (authors.size() == 2) {
+        m_authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+    } else if (authors.size() > 2) {
+        auto last = authors.takeLast();
+        m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
     }
-
-    m_authors = newAuthors;
-
-    if (haveAuthorsChanged)
-        Q_EMIT authorsChanged(m_authors);
-    qCDebug(kastsFeed) << "feed" << m_name << "authors have changed?" << haveAuthorsChanged;
+    Q_EMIT authorsChanged(m_authors);
 }
 
 void Feed::updateUnreadEntryCountFromDB()
@@ -206,7 +185,7 @@ QString Feed::description() const
     return m_description;
 }
 
-QVector<Author *> Feed::authors() const
+QString Feed::authors() const
 {
     return m_authors;
 }
@@ -307,16 +286,6 @@ void Feed::setDescription(const QString &description)
         m_description = description;
         Q_EMIT descriptionChanged(m_description);
     }
-}
-
-void Feed::setAuthors(const QVector<Author *> &authors)
-{
-    for (auto &author : m_authors) {
-        delete author;
-    }
-    m_authors.clear();
-    m_authors = authors;
-    Q_EMIT authorsChanged(m_authors);
 }
 
 void Feed::setDeleteAfterCount(int count)

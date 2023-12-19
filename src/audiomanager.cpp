@@ -731,11 +731,8 @@ void AudioManager::updateMetaData()
     if (!d->m_entry->feed()->name().isEmpty()) {
         d->m_player.metaData()->setAlbum(d->m_entry->feed()->name());
     }
-    if (d->m_entry->authors().count() > 0) {
-        QString authors;
-        for (auto &author : d->m_entry->authors())
-            authors.append(author->name());
-        d->m_player.metaData()->setArtist(authors);
+    if (d->m_entry->authors().length() > 0) {
+        d->m_player.metaData()->setArtist(d->m_entry->authors());
     }
     if (!d->m_entry->image().isEmpty()) {
         d->m_player.metaData()->setArtworkUrl(QUrl(d->m_entry->cachedImage()));

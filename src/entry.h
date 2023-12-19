@@ -13,7 +13,6 @@
 #include <QString>
 #include <QStringList>
 
-#include "author.h"
 #include "enclosure.h"
 #include "feed.h"
 
@@ -25,7 +24,7 @@ class Entry : public QObject
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QString content READ content NOTIFY contentChanged)
-    Q_PROPERTY(QVector<Author *> authors READ authors NOTIFY authorsChanged)
+    Q_PROPERTY(QString authors READ authors NOTIFY authorsChanged)
     Q_PROPERTY(QDateTime created READ created NOTIFY createdChanged)
     Q_PROPERTY(QDateTime updated READ updated NOTIFY updatedChanged)
     Q_PROPERTY(QString link READ link NOTIFY linkChanged)
@@ -45,7 +44,7 @@ public:
     QString id() const;
     QString title() const;
     QString content() const;
-    QVector<Author *> authors() const;
+    QString authors() const;
     QDateTime created() const;
     QDateTime updated() const;
     QString link() const;
@@ -76,7 +75,7 @@ public:
 Q_SIGNALS:
     void titleChanged(const QString &title);
     void contentChanged(const QString &content);
-    void authorsChanged(const QVector<Author *> &authors);
+    void authorsChanged(const QString &authors);
     void createdChanged(const QDateTime &created);
     void updatedChanged(const QDateTime &updated);
     void linkChanged(const QString &link);
@@ -91,7 +90,7 @@ Q_SIGNALS:
 
 private:
     void updateFromDb(bool emitSignals = true);
-    void updateAuthors(bool emitSignals = true);
+    void updateAuthors();
     void setTitle(const QString &title, bool emitSignal = true);
     void setContent(const QString &content, bool emitSignal = true);
     void setCreated(const QDateTime &created, bool emitSignal = true);
@@ -104,7 +103,7 @@ private:
     QString m_id;
     QString m_title;
     QString m_content;
-    QVector<Author *> m_authors;
+    QString m_authors;
     QDateTime m_created;
     QDateTime m_updated;
     QString m_link;

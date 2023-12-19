@@ -23,7 +23,6 @@ Kirigami.ScrollablePage {
     property bool isSubscribed: true
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
 
-    property string author: isSubscribed ? (page.feed.authors.length === 0 ? "" : page.feed.authors[0].name) : feed.author
     property bool showMoreInfo: false
 
     title: i18n("Podcast Details")
@@ -114,9 +113,11 @@ Kirigami.ScrollablePage {
                 id: headerImage
                 Layout.fillWidth: true
 
+                property string authors: isSubscribed ? feed.authors : feed.author
+
                 image: isSubscribed ? feed.cachedImage : feed.image
                 title: isSubscribed ? feed.name : feed.title
-                subtitle: (!page.feed.authors || page.feed.authors.length === 0) ? "" : i18nc("by <author(s)>", "by %1", page.feed.authors[0].name)
+                subtitle: authors ? i18nc("by <author(s)>", "by %1", authors) : undefined
             }
 
             // header actions

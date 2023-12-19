@@ -12,6 +12,8 @@
 #include <QSqlQuery>
 #include <QUrl>
 
+#include <KLocalizedString>
+
 #include "database.h"
 #include "datamanager.h"
 #include "feed.h"
@@ -76,55 +78,31 @@ void Entry::updateFromDb(bool emitSignals)
     setHasEnclosure(entryQuery.value(QStringLiteral("hasEnclosure")).toBool(), emitSignals);
     setImage(entryQuery.value(QStringLiteral("image")).toString(), emitSignals);
 
-    updateAuthors(emitSignals);
+    updateAuthors();
 }
 
-void Entry::updateAuthors(bool emitSignals)
+void Entry::updateAuthors()
 {
-    QVector<Author *> newAuthors;
-    bool haveAuthorsChanged = false;
+    QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT * FROM Authors WHERE id=:id AND feed=:feed;"));
+    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id AND feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":id"), m_id);
     authorQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
-        // check if author already exists, if so, then reuse
-        bool existingAuthor = false;
-        QString name = authorQuery.value(QStringLiteral("name")).toString();
-        QString email = authorQuery.value(QStringLiteral("email")).toString();
-        QString url = authorQuery.value(QStringLiteral("uri")).toString();
-        qCDebug(kastsEntry) << name << email << url;
-        for (Author *author : m_authors) {
-            if (author)
-                qCDebug(kastsEntry) << "old authors" << author->name() << author->email() << author->url();
-            if (author && author->name() == name && author->email() == email && author->url() == url) {
-                existingAuthor = true;
-                newAuthors += author;
-            }
-        }
-        if (!existingAuthor) {
-            newAuthors += new Author(name, email, url, this);
-            haveAuthorsChanged = true;
-        }
+        authors += authorQuery.value(QStringLiteral("name")).toString();
     }
 
-    // Finally check whether m_authors and newAuthors are identical
-    // if not, then delete the authors that were removed
-    for (Author *author : m_authors) {
-        if (!newAuthors.contains(author)) {
-            delete author;
-            haveAuthorsChanged = true;
-        }
+    if (authors.size() == 1) {
+        m_authors = authors[0];
+    } else if (authors.size() == 2) {
+        m_authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+    } else if (authors.size() > 2) {
+        auto last = authors.takeLast();
+        m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
     }
-
-    m_authors = newAuthors;
-
-    if (haveAuthorsChanged && emitSignals) {
-        Q_EMIT authorsChanged(m_authors);
-        qCDebug(kastsEntry) << "entry" << m_id << "authors have changed?" << haveAuthorsChanged;
-    }
+    Q_EMIT authorsChanged(m_authors);
 }
 
 QString Entry::id() const
@@ -142,7 +120,7 @@ QString Entry::content() const
     return m_content;
 }
 
-QVector<Author *> Entry::authors() const
+QString Entry::authors() const
 {
     return m_authors;
 }
