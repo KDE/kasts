@@ -4,559 +4,561 @@
 # This file is distributed under the same license as the kasts package.
 # Automatically generated, 2022.
 #
+# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-28 02:34+0000\n"
-"PO-Revision-Date: 2022-06-13 01:10+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-12-19 18:10+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
 
 #: audiomanager.cpp:402
 #, kde-format
 msgid "No connection or streaming on metered connection not allowed"
-msgstr ""
+msgstr "無法連線，或是未允許透過計量連線進行串流"
 
 #: audiomanager.cpp:541
 #, kde-format
 msgid "Invalid Media"
-msgstr ""
+msgstr "無效的媒體"
 
 #: enclosure.cpp:163
 #, kde-format
 msgid "Podcast downloads not allowed due to user setting"
-msgstr ""
+msgstr "Podcast 下載由於使用者設定而不允許"
 
 #: enclosuredownloadjob.cpp:33
 #, kde-format
 msgid "Downloading %1"
-msgstr ""
+msgstr "正在下載 %1"
 
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr ""
+msgstr "Podcast 更新錯誤"
 
 #: error.cpp:50
 #, kde-format
 msgid "Media download error"
-msgstr ""
+msgstr "媒體下載錯誤"
 
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr ""
+msgstr "未允許透過計量連線進行更新"
 
 #: error.cpp:54
 #, kde-format
 msgid "Invalid media file"
-msgstr ""
+msgstr "無效媒體檔案"
 
 #: error.cpp:56
 #, kde-format
 msgid "Nothing found"
-msgstr ""
+msgstr "找不到東西"
 
 #: error.cpp:58
 #, kde-format
 msgid "Error moving storage path"
-msgstr ""
+msgstr "移動儲存路徑時發生錯誤"
 
 #: error.cpp:60
 #, kde-format
 msgid "Error syncing feed and/or episode status"
-msgstr ""
+msgstr "同步 feed 或集數狀態時發生錯誤"
 
 #: error.cpp:62
 #, kde-format
 msgid "Connection or streaming not allowed on metered connection"
-msgstr ""
+msgstr "未允許透過計量連線進行連線或串流"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
 msgid "Example KMediaSession Player"
-msgstr ""
+msgstr "範例 KMediaSession 播放器"
 
 #: kmediasession/example-app/qml/main.qml:72
 #, kde-format
 msgid "Select File…"
-msgstr ""
+msgstr "選擇檔案…"
 
 #: kmediasession/example-app/qml/main.qml:78
 #, kde-format
 msgid "Select Media File"
-msgstr ""
+msgstr "選擇媒體檔案"
 
 #: kmediasession/example-app/qml/main.qml:85
 #, kde-format
 msgid "OR"
-msgstr ""
+msgstr "或"
 
 #: kmediasession/example-app/qml/main.qml:93
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:38
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:329
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: kmediasession/example-app/qml/main.qml:109
 #: qml/Desktop/DesktopPlayerControls.qml:129 qml/GenericEntryDelegate.qml:350
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "暫停"
 
 #: kmediasession/example-app/qml/main.qml:117 qml/SleepTimerDialog.qml:41
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: kmediasession/example-app/qml/main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "靜音"
 
 #: kmediasession/example-app/qml/main.qml:174
 #, kde-format
 msgid "Title: %1"
-msgstr ""
+msgstr "標題：%1"
 
 #: kmediasession/example-app/qml/main.qml:177
 #, kde-format
 msgid "Artist: %1"
-msgstr ""
+msgstr "藝人：%1"
 
 #: kmediasession/example-app/qml/main.qml:180
 #, kde-format
 msgid "Album: %1"
-msgstr ""
+msgstr "專輯：%1"
 
 #: kmediasession/example-app/qml/main.qml:191
 #, kde-format
 msgid "Media status: %1"
-msgstr ""
+msgstr "媒體狀態：%1"
 
 #: kmediasession/example-app/qml/main.qml:194
 #, kde-format
 msgid "Playback status: %1"
-msgstr ""
+msgstr "播放狀態：%1"
 
 #: kmediasession/example-app/qml/main.qml:197
 #, kde-format
 msgid "Error: %1"
-msgstr ""
+msgstr "錯誤：%1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr ""
+msgstr "正在播放媒體"
 
 #: main.cpp:113
 #, kde-format
 msgid "Podcast Application"
-msgstr ""
+msgstr "Podcast 應用程式"
 
 #: main.cpp:115
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr ""
+msgstr "將 Podcast 加入訂閱。"
 
 #: main.cpp:116
 #, kde-format
 msgid "Podcast URL"
-msgstr ""
+msgstr "Podcast 網址"
 
 #: main.cpp:121 qml/main.qml:20
 #, kde-format
 msgid "Kasts"
-msgstr ""
+msgstr "Kasts"
 
 #: main.cpp:123
 #, kde-format
 msgid "Podcast Player"
-msgstr ""
+msgstr "Podcast 播放器"
 
 #: main.cpp:125
 #, kde-format
 msgid "© 2020–2023 KDE Community"
-msgstr ""
+msgstr "© 2020–2023 KDE 社群"
 
 #: main.cpp:126
 #, kde-format
 msgid "Tobias Fella"
-msgstr ""
+msgstr "Tobias Fella"
 
 #: main.cpp:127
 #, kde-format
 msgid "Bart De Vries"
-msgstr ""
+msgstr "Bart De Vries"
 
 #: models/abstractepisodeproxymodel.cpp:184
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr ""
+msgstr "沒有過濾器"
 
 #: models/abstractepisodeproxymodel.cpp:186
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr ""
+msgstr "已播放的集數"
 
 #: models/abstractepisodeproxymodel.cpp:188
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr ""
+msgstr "未播放的集數"
 
 #: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
-msgstr ""
+msgstr "標記為「新的」的集數"
 
 #: models/abstractepisodeproxymodel.cpp:192
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
-msgstr ""
+msgstr "沒有標記為「新的」的集數"
 
 #: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr ""
+msgstr "標記為最愛的集數"
 
 #: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr ""
+msgstr "未標記為最愛的集數"
 
 #: models/abstractepisodeproxymodel.cpp:206
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr ""
+msgstr "標題"
 
 #: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: models/abstractepisodeproxymodel.cpp:210
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr ""
+msgstr "Podcast 標題"
 
 #: models/abstractepisodeproxymodel.cpp:220
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "日期：新的在前"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "日期：舊的在前"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr ""
+msgstr "未播放數量：遞減"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "未播放數量：遞增"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "更新集數：遞減"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "更新集數：遞增"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "最愛數量：遞減"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "最愛數量：遞增"
 
 #: models/feedsproxymodel.cpp:132
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr ""
+msgstr "Podcast 標題：A → Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr ""
+msgstr "Podcast 標題：Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr ""
+msgstr "新增 Podcast"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
 msgid "Url:"
-msgstr ""
+msgstr "網址："
 
 #: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
-msgstr ""
+msgstr "新增 Podcast"
 
 #: qml/ConnectionCheckAction.qml:20
 #, kde-format
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr ""
+msgstr "目前未允許透過計量連線更新 Podcast"
 
 #: qml/ConnectionCheckAction.qml:54
 #, kde-format
 msgid "Select Option"
-msgstr ""
+msgstr "選取選項"
 
 #: qml/ConnectionCheckAction.qml:81
 #, kde-format
 msgid "Don't Allow"
-msgstr ""
+msgstr "不要允許"
 
 #: qml/ConnectionCheckAction.qml:94
 #, kde-format
 msgid "Allow Once"
-msgstr ""
+msgstr "允許一次"
 
 #: qml/ConnectionCheckAction.qml:107
 #, kde-format
 msgid "Always Allow"
-msgstr ""
+msgstr "總是允許"
 
 #: qml/Desktop/DesktopPlayerControls.qml:119
 #, kde-format
 msgid "Seek backward"
-msgstr ""
+msgstr "倒轉"
 
 #: qml/Desktop/DesktopPlayerControls.qml:138
 #, kde-format
 msgid "Seek forward"
-msgstr ""
+msgstr "快轉"
 
 #: qml/Desktop/DesktopPlayerControls.qml:147
 #, kde-format
 msgid "Skip forward"
-msgstr ""
+msgstr "快轉"
 
 #: qml/Desktop/DesktopPlayerControls.qml:172
 #, kde-format
 msgid "Playback rate:"
-msgstr ""
+msgstr "播放速度："
 
 #: qml/Desktop/DesktopPlayerControls.qml:231
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
-msgstr ""
+msgstr "顯示章節列表"
 
 #: qml/Desktop/DesktopPlayerControls.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr ""
+msgstr "顯示本集資訊"
 
 #: qml/Desktop/DesktopPlayerControls.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr ""
+msgstr "開啟睡眠計時器設定"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr ""
+msgstr "開啟音量設定"
 
 #: qml/Desktop/DesktopPlayerControls.qml:314
 #: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr ""
+msgstr "切換靜音"
 
 #: qml/Desktop/DesktopPlayerControls.qml:331
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr ""
+msgstr "顯示更多"
 
 #: qml/Desktop/DesktopPlayerControls.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr ""
+msgstr "章節"
 
 #: qml/Desktop/DesktopPlayerControls.qml:369
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "顯示資訊"
 
 #: qml/Desktop/DesktopPlayerControls.qml:379
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr ""
+msgstr "睡眠計時器"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413
 #, kde-format
 msgid "Chapters"
-msgstr ""
+msgstr "章節"
 
 #: qml/Desktop/DesktopPlayerControls.qml:433 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:179
 #, kde-format
 msgid "No Track Title"
-msgstr ""
+msgstr "無音軌標題"
 
 #: qml/Desktop/DesktopPlayerControls.qml:438 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:189
 #, kde-format
 msgid "No track loaded"
-msgstr ""
+msgstr "未載入音軌"
 
 #: qml/DiscoverPage.qml:16 qml/main.qml:205
 #, kde-format
 msgid "Discover"
-msgstr ""
+msgstr "探索"
 
 #: qml/DiscoverPage.qml:23
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr ""
+msgstr "搜尋 podcastindex.org"
 
 #: qml/DiscoverPage.qml:32
 #, kde-format
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribe"
-msgstr ""
+msgstr "訂閱"
 
 #: qml/DiscoverPage.qml:68 qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Subscribed"
-msgstr ""
+msgstr "已訂閱"
 
 #: qml/DownloadListPage.qml:16 qml/EpisodeListPage.qml:41 qml/main.qml:235
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "下載"
 
 #: qml/DownloadListPage.qml:32 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr ""
+msgstr "重新整理所有 Podcast"
 
 #: qml/DownloadListPage.qml:57
 #, kde-format
 msgid "No downloads"
-msgstr ""
+msgstr "無下載"
 
 #: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloading"
-msgstr ""
+msgstr "下載中"
 
 #: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Incomplete Downloads"
-msgstr ""
+msgstr "未完成的下載"
 
 #: qml/DownloadListPage.qml:75
 #, kde-format
 msgid "Downloaded"
-msgstr ""
+msgstr "已下載"
 
 #: qml/EntryPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Episode Details"
-msgstr ""
+msgstr "集數詳細資料"
 
 #: qml/EntryPage.qml:112
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
-msgstr ""
+msgstr "在瀏覽器開啟"
 
 #: qml/EntryPage.qml:120
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: qml/EntryPage.qml:129
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
-msgstr ""
+msgstr "取消下載"
 
 #: qml/EntryPage.qml:137
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
-msgstr ""
+msgstr "暫停"
 
 #: qml/EntryPage.qml:145
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: qml/EntryPage.qml:154
 #, kde-format
@@ -564,25 +566,25 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "串流"
 
 #: qml/EntryPage.qml:166
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
-msgstr ""
+msgstr "加到佇列"
 
 #: qml/EntryPage.qml:166
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
-msgstr ""
+msgstr "從佇列中移除"
 
 #: qml/EntryPage.qml:182
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
-msgstr ""
+msgstr "刪除下載"
 
 #: qml/EntryPage.qml:190
 #, kde-format
@@ -590,31 +592,31 @@ msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr ""
+msgstr "重設播放位置"
 
 #: qml/EntryPage.qml:196
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr ""
+msgstr "標記為未播放"
 
 #: qml/EntryPage.qml:196
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr ""
+msgstr "標記為已播放"
 
 #: qml/EntryPage.qml:203
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr ""
+msgstr "移除「新的」標記"
 
 #: qml/EntryPage.qml:203
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
-msgstr ""
+msgstr "標記為「新的」"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:310
 #, kde-format
@@ -622,225 +624,223 @@ msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "從最愛中移除"
 
 #: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:301
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "新增到最愛"
 
 #: qml/EntryPage.qml:218
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr ""
+msgstr "開啟 Podcast"
 
 #: qml/EntryPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "複製集數下載連結"
 
 #: qml/EntryPage.qml:294
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
-msgstr ""
+msgstr "連結已複製"
 
 #: qml/EpisodeListPage.qml:17
 #, kde-format
 msgid "Episode List"
-msgstr ""
+msgstr "集數列表"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: qml/EpisodeListPage.qml:92 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
-msgstr ""
+msgstr "沒有可用的集數"
 
 #: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
-msgstr ""
+msgstr "沒有紀錄錯誤"
 
 #: qml/ErrorList.qml:66
 #, kde-format
 msgid "Error code:"
-msgstr ""
+msgstr "錯誤代碼："
 
 #: qml/ErrorListOverlay.qml:23 qml/Settings/ErrorListPage.qml:17
 #: qml/Settings/ErrorListPage.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr ""
+msgstr "錯誤紀錄"
 
 #: qml/ErrorListOverlay.qml:27 qml/Settings/ErrorListPage.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr ""
+msgstr "清除所有錯誤"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
 msgid "Show Error Log"
-msgstr ""
+msgstr "顯示錯誤紀錄"
 
 #: qml/FeedDetailsPage.qml:30 qml/FeedListDelegate.qml:258
 #, kde-format
 msgid "Podcast Details"
-msgstr ""
+msgstr "Podcast 詳細資料"
 
 #: qml/FeedDetailsPage.qml:126
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
-msgstr ""
+msgstr "由：%1"
 
 #: qml/FeedDetailsPage.qml:157
 #, kde-format
 msgid "Refresh Podcast"
-msgstr ""
+msgstr "重新整理 Podcast"
 
 #: qml/FeedDetailsPage.qml:176
 #, kde-format
 msgid "Show Details"
-msgstr ""
+msgstr "顯示詳細資料"
 
 #: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Podcast URL:"
-msgstr ""
+msgstr "Podcast 網址："
 
 #: qml/FeedDetailsPage.qml:287
 #, kde-format
 msgid "Weblink:"
-msgstr ""
+msgstr "網頁連結："
 
 #: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
-msgstr ""
+msgstr "訂閱開始日：%1"
 
 #: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
-msgstr ""
+msgstr "上次更新：%1"
 
 #: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 集"
 
 #: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 集未播放"
 
 #: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
-msgstr ""
+msgstr "錯誤 (%1)：%2"
 
 #: qml/FeedListDelegate.qml:269
 #, kde-format
 msgid "Remove Podcast"
-msgstr ""
+msgstr "移除 Podcast"
 
 #: qml/FeedListPage.qml:20
 #, kde-format
 msgctxt "@title Podcast subscription list page title"
 msgid "Subscriptions"
-msgstr ""
+msgstr "訂閱"
 
 #: qml/FeedListPage.qml:41
 #, kde-format
 msgctxt "@action:intoolbar Open the podcast discover page"
 msgid "Discover"
-msgstr ""
+msgstr "探索"
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr ""
+msgstr "重新整理所有 Podcast"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr ""
+msgstr "新增 Podcast…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "排序"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "選取如何排序訂閱"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr ""
+msgstr "匯入 Podcast…"
 
 #: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr ""
+msgstr "匯出 Podcast…"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr ""
+msgstr "匯入 Podcast"
 
 #: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
-msgstr ""
+msgstr "OPML 檔案 (*.opml)"
 
 #: qml/FeedListPage.qml:163
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
-msgstr ""
+msgstr "XML 檔案 (*.xml)"
 
 #: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
-msgstr ""
+msgstr "所有檔案 (*)"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr ""
+msgstr "匯出 Podcast"
 
 #: qml/FeedListPage.qml:187
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr ""
+msgstr "未新增 Podcast"
 
 #: qml/FeedListPage.qml:187
 #, kde-format
@@ -848,108 +848,108 @@ msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr ""
+msgstr "找不到 Podcast"
 
 #: qml/FeedListPage.qml:188
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr ""
+msgstr "從新增 Podcast 開始吧："
 
 #: qml/FeedListPage.qml:202
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr ""
+msgstr "線上搜尋"
 
 #: qml/FeedListPage.qml:229
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr ""
+msgstr "同步"
 
 #: qml/FeedListPage.qml:237 qml/main.qml:68 qml/main.qml:255
 #: qml/Mobile/BottomToolbar.qml:49
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: qml/FeedListPage.qml:372
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
-msgstr ""
+msgstr "全部選取"
 
 #: qml/FeedListPage.qml:381
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
-msgstr ""
+msgstr "全部取消選取"
 
 #: qml/FeedListPage.qml:390
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] ""
+msgstr[0] "移除 Podcast"
 
 #: qml/FeedListPage.qml:413
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
-msgstr ""
+msgstr "Podcast 詳細資料"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 #: qml/FilterInlineMessage.qml:41
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr ""
+msgstr "作用中過濾器：%1"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Played"
-msgstr ""
+msgstr "已播放"
 
 #: qml/GenericEntryDelegate.qml:168
 #, kde-format
 msgid "Read"
-msgstr ""
+msgstr "已讀"
 
 #: qml/GenericEntryDelegate.qml:174
 #, kde-format
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: qml/GenericEntryDelegate.qml:294 qml/GenericEntryListView.qml:259
 #, kde-format
 msgid "Remove from Queue"
-msgstr ""
+msgstr "從佇列中移除"
 
 #: qml/GenericEntryDelegate.qml:302 qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 #: qml/GenericEntryDelegate.qml:311
 #, kde-format
 msgid "Cancel Download"
-msgstr ""
+msgstr "取消下載"
 
 #: qml/GenericEntryDelegate.qml:317
 #, kde-format
 msgid "Delete Download"
-msgstr ""
+msgstr "刪除下載"
 
 #: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Add to Queue"
-msgstr ""
+msgstr "加到佇列"
 
 #: qml/GenericEntryDelegate.qml:338 qml/GenericEntryListView.qml:338
 #, kde-format
@@ -957,19 +957,19 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "串流"
 
 #: qml/GenericEntryListView.qml:133
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "排序"
 
 #: qml/GenericEntryListView.qml:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "選取如何排序集數"
 
 #: qml/GenericEntryListView.qml:184
 #, kde-format
@@ -977,281 +977,278 @@ msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
 msgid "Filter"
-msgstr ""
+msgstr "過濾器"
 
 #: qml/GenericEntryListView.qml:186
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr ""
+msgstr "依狀態過濾集數"
 
 #: qml/GenericEntryListView.qml:232
 #, kde-format
 msgid "Select All"
-msgstr ""
+msgstr "全部選取"
 
 #: qml/GenericEntryListView.qml:241
 #, kde-format
 msgid "Deselect All"
-msgstr ""
+msgstr "全部取消選取"
 
 #: qml/GenericEntryListView.qml:269
 #, kde-format
 msgid "Mark as Played"
-msgstr ""
+msgstr "標記為已播放"
 
 #: qml/GenericEntryListView.qml:277
 #, kde-format
 msgid "Mark as Unplayed"
-msgstr ""
+msgstr "標記為未播放"
 
 #: qml/GenericEntryListView.qml:285
 #, kde-format
 msgid "Label as \"New\""
-msgstr ""
+msgstr "標記為「新的」"
 
 #: qml/GenericEntryListView.qml:293
 #, kde-format
 msgid "Remove \"New\" Label"
-msgstr ""
+msgstr "移除「新的」標記"
 
 #: qml/GenericEntryListView.qml:329
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "刪除下載"
 
 #: qml/GlobalSearchField.qml:96
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr ""
+msgstr "沒有搜尋結果"
 
 #: qml/GlobalSearchField.qml:103 qml/SearchBar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr ""
+msgstr "進階搜尋選項"
 
 #: qml/GlobalSearchField.qml:137 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "搜尋偏好設定"
 
 #: qml/GlobalSearchField.qml:141 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr ""
+msgstr "搜尋欄位："
 
 #: qml/main.qml:195 qml/Mobile/BottomToolbar.qml:25
 #, kde-format
 msgid "Queue"
-msgstr ""
+msgstr "佇列"
 
 #: qml/main.qml:215 qml/Mobile/BottomToolbar.qml:33
 #, kde-format
 msgid "Subscriptions"
-msgstr ""
+msgstr "訂閱"
 
 #: qml/main.qml:225 qml/Mobile/BottomToolbar.qml:41
 #, kde-format
 msgid "Episodes"
-msgstr ""
+msgstr "集數"
 
 #: qml/main.qml:341
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "已更新 %2 個 Podcast，共 %1 個"
 
 #: qml/main.qml:368
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "已移動 %2 個檔案，共 %1 個"
 
 #: qml/main.qml:432
 #, kde-format
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr ""
+msgstr "目前未允許透過計量連線下載 Podcast"
 
 #: qml/Mobile/MobilePlayerControls.qml:21
 #, kde-format
 msgid "No Track Loaded"
-msgstr ""
+msgstr "未載入音軌"
 
 #: qml/Mobile/MobilePlayerControls.qml:149
 #, kde-format
 msgid "No Title"
-msgstr ""
+msgstr "無標題"
 
 #: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No podcast title"
-msgstr ""
+msgstr "無 Podcast 標題"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found"
-msgstr ""
+msgstr "未找到章節"
 
 #: qml/PlaybackRateCustomizerDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr ""
+msgstr "播放速度預設檔"
 
 #: qml/PlaybackRateCustomizerDialog.qml:52
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "新預設檔："
 
 #: qml/PlaybackRateCustomizerDialog.qml:64
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: qml/PlaybackRateCustomizerDialog.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "加入新的播放速度數值到列表中"
 
 #: qml/PlaybackRateCustomizerDialog.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
-msgstr ""
+msgstr "降低播放速度"
 
 #: qml/PlaybackRateCustomizerDialog.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
-msgstr ""
+msgstr "提高播放速度"
 
 #: qml/PlaybackRateCustomizerDialog.qml:124
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr ""
+msgstr "目前預設檔："
 
 #: qml/PlaybackRateMenu.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr ""
+msgstr "選擇播放速度"
 
 #: qml/PlaybackRateMenu.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "自訂"
 
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt "@title:column Page showing the list queued items"
 msgid "Queue"
-msgstr ""
+msgstr "佇列"
 
 #: qml/QueuePage.qml:64
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "佇列是空的"
 
 #: qml/QueuePage.qml:73
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
+msgstr[0] "%1 集"
 
 #: qml/QueuePage.qml:73
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr ""
+msgstr "剩餘時間"
 
 #: qml/SearchBar.qml:41
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr ""
+msgstr "搜尋集數…"
 
 #: qml/Settings/AboutPage.qml:17 qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: qml/Settings/GeneralSettingsPage.qml:19
 #, kde-format
 msgid "General Settings"
-msgstr ""
+msgstr "一般設定"
 
 #: qml/Settings/GeneralSettingsPage.qml:39
 #, kde-format
 msgid "Appearance"
-msgstr ""
+msgstr "外觀"
 
 #: qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Always show podcast titles in subscription view"
-msgstr ""
+msgstr "在訂閱檢視中總是顯示 Podcast 標題"
 
 #: qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "在系統匣中顯示圖示"
 
 #: qml/Settings/GeneralSettingsPage.qml:70
 #, kde-format
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "最小化到系統匣而非關閉"
 
 #: qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "系統匣圖示類型"
 
 #: qml/Settings/GeneralSettingsPage.qml:87
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "彩色"
 
 #: qml/Settings/GeneralSettingsPage.qml:88
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "亮色"
 
 #: qml/Settings/GeneralSettingsPage.qml:89
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "暗色"
 
 #: qml/Settings/GeneralSettingsPage.qml:107
 #, kde-format
 msgid "Playback settings"
-msgstr ""
+msgstr "播放設定"
 
 #: qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr ""
+msgstr "選擇音效後端"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
@@ -1259,349 +1256,349 @@ msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
 "time is shown or a countdown of the remaining play time"
 msgid "Play time:"
-msgstr ""
+msgstr "播放時間："
 
 #: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "顯示剩餘時間而非總音軌長度"
 
 #: qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "依目前播放速度計算剩餘時間"
 
 #: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "優先使用串流而非下載"
 
 #: qml/Settings/GeneralSettingsPage.qml:175
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "快轉間隔值（秒）"
 
 #: qml/Settings/GeneralSettingsPage.qml:190
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "倒轉間隔值（秒）"
 
 #: qml/Settings/GeneralSettingsPage.qml:214
 #, kde-format
 msgid "Queue settings"
-msgstr ""
+msgstr "佇列設定"
 
 #: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
-msgstr ""
+msgstr "播完目前集數之後繼續播下一集"
 
 #: qml/Settings/GeneralSettingsPage.qml:228
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
-msgstr ""
+msgstr "更新設定："
 
 #: qml/Settings/GeneralSettingsPage.qml:230
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
-msgstr ""
+msgstr "啟動時自動抓取 Podcast 更新"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "重新整理時更新現有集數資料（比較慢）"
 
 #: qml/Settings/GeneralSettingsPage.qml:249
 #, kde-format
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "自動將新集數加入佇列"
 
 #: qml/Settings/GeneralSettingsPage.qml:264
 #, kde-format
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "自動下載新集數"
 
 #: qml/Settings/GeneralSettingsPage.qml:277
 #, kde-format
 msgid "Played episode behavior"
-msgstr ""
+msgstr "已播放集數行為"
 
 #: qml/Settings/GeneralSettingsPage.qml:280
 #, kde-format
 msgid "Do not delete"
-msgstr ""
+msgstr "不要刪除"
 
 #: qml/Settings/GeneralSettingsPage.qml:281
 #, kde-format
 msgid "Delete immediately"
-msgstr ""
+msgstr "立即刪除"
 
 #: qml/Settings/GeneralSettingsPage.qml:282
 #, kde-format
 msgid "Delete at next startup"
-msgstr ""
+msgstr "下次啟動時刪除"
 
 #: qml/Settings/GeneralSettingsPage.qml:294
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
+msgstr "集數剩餘時間低於此秒數時將集數標記為已播放"
 
 #: qml/Settings/GeneralSettingsPage.qml:313
 #, kde-format
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "播放集數後重設播放位置"
 
 #: qml/Settings/GeneralSettingsPage.qml:330
 #, kde-format
 msgid "When adding new podcasts"
-msgstr ""
+msgstr "新增 Podcast 時"
 
 #: qml/Settings/GeneralSettingsPage.qml:335
 #, kde-format
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "標記所有集數為已播放"
 
 #: qml/Settings/GeneralSettingsPage.qml:346
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
-msgstr ""
+msgstr "標記最新集數為未播放"
 
 #: qml/Settings/GeneralSettingsPage.qml:369
 #, kde-format
 msgid "Mark all episodes as unplayed"
-msgstr ""
+msgstr "標記所有集數為未播放"
 
 #: qml/Settings/GeneralSettingsPage.qml:386
 #, kde-format
 msgid "Article"
-msgstr ""
+msgstr "文章"
 
 #: qml/Settings/GeneralSettingsPage.qml:391
 #, kde-format
 msgid "Font size"
-msgstr ""
+msgstr "字型大小"
 
 #: qml/Settings/GeneralSettingsPage.qml:398
 #, kde-format
 msgid "Font size:"
-msgstr ""
+msgstr "字型大小："
 
 #: qml/Settings/GeneralSettingsPage.qml:414
 #, kde-format
 msgid "Use system default"
-msgstr ""
+msgstr "使用系統預設"
 
 #: qml/Settings/NetworkSettingsPage.qml:18
 #, kde-format
 msgid "Network Settings"
-msgstr ""
+msgstr "網路設定"
 
 #: qml/Settings/NetworkSettingsPage.qml:38
 #, kde-format
 msgid "On metered connections"
-msgstr ""
+msgstr "使用計量連線時"
 
 #: qml/Settings/NetworkSettingsPage.qml:44
 #, kde-format
 msgid "Allow podcast updates"
-msgstr ""
+msgstr "允許更新 Podcast"
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
 msgid "Allow episode downloads"
-msgstr ""
+msgstr "允許下載集數"
 
 #: qml/Settings/NetworkSettingsPage.qml:64
 #, kde-format
 msgid "Allow image downloads"
-msgstr ""
+msgstr "允許下載影像"
 
 #: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgid "Allow streaming"
-msgstr ""
+msgstr "允許串流"
 
 #: qml/Settings/SettingsPage.qml:16
 #, kde-format
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: qml/Settings/SettingsPage.qml:22
 #, kde-format
 msgid "Storage"
-msgstr ""
+msgstr "儲存"
 
 #: qml/Settings/SettingsPage.qml:28
 #, kde-format
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Synchronization"
-msgstr ""
+msgstr "同步"
 
 #: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Error Log"
-msgstr ""
+msgstr "錯誤紀錄"
 
 #: qml/Settings/StorageSettingsPage.qml:18
 #, kde-format
 msgid "Storage Settings"
-msgstr ""
+msgstr "儲存設定"
 
 #: qml/Settings/StorageSettingsPage.qml:38
 #: qml/Settings/StorageSettingsPage.qml:44
 #, kde-format
 msgid "Storage path"
-msgstr ""
+msgstr "儲存路徑"
 
 #: qml/Settings/StorageSettingsPage.qml:50
 #, kde-format
 msgid "Select Folder…"
-msgstr ""
+msgstr "選擇資料夾…"
 
 #: qml/Settings/StorageSettingsPage.qml:57
 #, kde-format
 msgid "Select Storage Path"
-msgstr ""
+msgstr "選擇儲存路徑"
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgid "Use default path"
-msgstr ""
+msgstr "使用預設路徑"
 
 #: qml/Settings/StorageSettingsPage.qml:85
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "資訊"
 
 #: qml/Settings/StorageSettingsPage.qml:89
 #, kde-format
 msgid "Podcast downloads"
-msgstr ""
+msgstr "Podcast 下載"
 
 #: qml/Settings/StorageSettingsPage.qml:90
 #: qml/Settings/StorageSettingsPage.qml:97
 #, kde-format
 msgctxt "Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr ""
+msgstr "已使用 %1 的磁碟空間"
 
 #: qml/Settings/StorageSettingsPage.qml:96
 #, kde-format
 msgid "Image cache"
-msgstr ""
+msgstr "影像快取"
 
 #: qml/Settings/StorageSettingsPage.qml:101
 #, kde-format
 msgid "Clear Cache"
-msgstr ""
+msgstr "清除快取"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:18
 #, kde-format
 msgid "Synchronization Settings"
-msgstr ""
+msgstr "同步設定"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgid "Account"
-msgstr ""
+msgstr "帳號"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr ""
+msgstr "已登入伺服器 \"%2\" 上的帳號 \"%1\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:40
 #, kde-format
 msgid "Syncing disabled"
-msgstr ""
+msgstr "已停用同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
 msgid "Logout"
-msgstr ""
+msgstr "登出"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:43
 #, kde-format
 msgid "Login"
-msgstr ""
+msgstr "登入"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:54
 #, kde-format
 msgid "Manually sync"
-msgstr ""
+msgstr "手動同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:57
 #, kde-format
 msgid "Sync Now"
-msgstr ""
+msgstr "現在同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:69
 #, kde-format
 msgid "Last full sync with server"
-msgstr ""
+msgstr "上次與伺服器完整同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:77
 #, kde-format
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "上次快速上傳到同步伺服器"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
 msgid "Automatic syncing"
-msgstr ""
+msgstr "自動同步中"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:97
 #, kde-format
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "啟動時進行完整同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:107
 #, kde-format
 msgid "Do full sync when fetching podcasts"
-msgstr ""
+msgstr "抓取 Podcast 時進行完整同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:117
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
-msgstr ""
+msgstr "切換播放/暫停時上傳集數播放位置"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:134
 #, kde-format
 msgid "Advanced options"
-msgstr ""
+msgstr "進階選項"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:139
 #, kde-format
 msgid "Fetch all episode states from server"
-msgstr ""
+msgstr "從伺服器抓取所有集數的狀態"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "抓取"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:154
 #, kde-format
 msgid "Push all local episode states to server"
-msgstr ""
+msgstr "推送所有本機集數更新到伺服器上"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:158
 #, kde-format
 msgid "Push"
-msgstr ""
+msgstr "推送"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:197
 #, kde-format
 msgid "Push all local episode states to server?"
-msgstr ""
+msgstr "要推送所有本機集數更新到伺服器上嗎？"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:217
 #, kde-format
@@ -1613,46 +1610,50 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"請注意，推送所有本地集數的播放狀態到伺服器上可能會花很多時間，甚至有可能會使"
+"伺服器負擔過重。另外也請注意這個動作會覆寫伺服器上所有現有的集數狀態。\n"
+"\n"
+"還是要繼續嗎？"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgid "Select Sync Provider"
-msgstr ""
+msgstr "選擇同步提供者"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:253
 #, kde-format
 msgid "gpodder.net"
-msgstr ""
+msgstr "gpodder.net"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgid "Synchronize with official gpodder.net server"
-msgstr ""
+msgstr "與官方 gpodder.net 伺服器同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:257
 #, kde-format
 msgid "GPodder Nextcloud"
-msgstr ""
+msgstr "GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:258
 #, kde-format
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr ""
+msgstr "與 GPodder Nextcloud 應用程式同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
 msgid "Sync Login Credentials"
-msgstr ""
+msgstr "同步登入資訊"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with GPodder Nextcloud app"
-msgstr ""
+msgstr "與 GPodder Nextcloud 應用程式同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
 msgid "Sync with gpodder.net service"
-msgstr ""
+msgstr "與 gpodder.net 服務同步"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:327
 #, kde-format
@@ -1662,98 +1663,100 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"與有安裝 GPodder 同步 app (%1) 的 Nextcloud 伺服器進行同步。<br/>建議您透過網"
+"頁介面手動為 Kasts 建立應用程式密碼並使用該驗證資訊。"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:328
 #, kde-format
 msgctxt "argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
-msgstr ""
+msgstr "若您尚未持有帳號，您應先在 %1 建立一個"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:340
 #, kde-format
 msgid "Username:"
-msgstr ""
+msgstr "使用者名稱："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:351
 #: qml/SyncPasswordOverlay.qml:56
 #, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:366
 #, kde-format
 msgid "Use custom server"
-msgstr ""
+msgstr "使用自訂伺服器"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:371
 #, kde-format
 msgid "Hostname:"
-msgstr ""
+msgstr "主機名稱："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:405
 #, kde-format
 msgid "Sync Device Settings"
-msgstr ""
+msgstr "同步裝置設定"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:411
 #, kde-format
 msgid "Create a new device"
-msgstr ""
+msgstr "建立新裝置"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
 #, kde-format
 msgid "Device Name:"
-msgstr ""
+msgstr "裝置名稱："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
 msgid "Device Description:"
-msgstr ""
+msgstr "裝置描述："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
 #, kde-format
 msgid "Device Type:"
-msgstr ""
+msgstr "裝置類型："
 
 #: qml/Settings/SynchronizationSettingsPage.qml:443
 #, kde-format
 msgid "other"
-msgstr ""
+msgstr "其他"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:444
 #, kde-format
 msgid "desktop"
-msgstr ""
+msgstr "桌面"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:445
 #, kde-format
 msgid "laptop"
-msgstr ""
+msgstr "筆電"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:446
 #, kde-format
 msgid "server"
-msgstr ""
+msgstr "伺服器"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:447
 #, kde-format
 msgid "mobile"
-msgstr ""
+msgstr "手機"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:452
 #, kde-format
 msgid "Create Device"
-msgstr ""
+msgstr "建立裝置"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:469
 #, kde-format
 msgid "or select an existing device"
-msgstr ""
+msgstr "或是選取一個現存裝置"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:518
 #, kde-format
 msgid "Device Sync Settings"
-msgstr ""
+msgstr "裝置同步設定"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:540
 #, kde-format
@@ -1762,108 +1765,110 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"是否要同步這個 gpodder.net 帳號的 Podcast 訂閱到所有裝置上？\n"
+"如果您不知道這是什麼意思，您可能應該要選取「確認」。"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:562
 #, kde-format
 msgid "Sync Now?"
-msgstr ""
+msgstr "現在同步？"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:582
 #, kde-format
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "現在進行第一次同步嗎？"
 
 #: qml/SleepTimerDialog.qml:16
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "睡眠計時器"
 
 #: qml/SleepTimerDialog.qml:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "開始"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Active"
-msgstr ""
+msgstr "狀態：作用中"
 
 #: qml/SleepTimerDialog.qml:53
 #, kde-format
 msgid "Status: Inactive"
-msgstr ""
+msgstr "狀態：非作用中"
 
 #: qml/SleepTimerDialog.qml:59
 #, kde-format
 msgid "Remaining time: %1"
-msgstr ""
+msgstr "剩餘時間：%1"
 
 #: qml/SleepTimerDialog.qml:76
 #, kde-format
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 #: qml/SleepTimerDialog.qml:77
 #, kde-format
 msgid "Minutes"
-msgstr ""
+msgstr "分鐘"
 
 #: qml/SleepTimerDialog.qml:78
 #, kde-format
 msgid "Hours"
-msgstr ""
+msgstr "小時"
 
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr ""
+msgstr "需要同步密碼"
 
 #: qml/SyncPasswordOverlay.qml:48
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
-msgstr ""
+msgstr "無法取得 Nextcloud 伺服器 \"%2\" 上使用者 \"%1\" 的密碼。"
 
 #: qml/SyncPasswordOverlay.qml:49
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
-msgstr ""
+msgstr "無法取得 \"gpodder.net\" 上使用者 \"%1\" 的密碼。"
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
 msgid "Abort"
-msgstr ""
+msgstr "中止"
 
 #: storagemanager.cpp:90
 #, kde-format
 msgid "Old location:"
-msgstr ""
+msgstr "舊位置："
 
 #: storagemanager.cpp:90
 #, kde-format
 msgid "New location:"
-msgstr ""
+msgstr "新位置："
 
 #: storagemovejob.cpp:59
 #, kde-format
 msgid "Destination path not writable"
-msgstr ""
+msgstr "目的地路徑不可寫入"
 
 #: storagemovejob.cpp:76 storagemovejob.cpp:97
 #, kde-format
 msgid "Operation aborted by user"
-msgstr ""
+msgstr "操作已被使用者取消"
 
 #: storagemovejob.cpp:113
 #, kde-format
 msgid "An error occurred while copying data"
-msgstr ""
+msgstr "複製資料時發生錯誤"
 
 #: sync/sync.cpp:182
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: sync/sync.cpp:205
 #, kde-format
@@ -1871,166 +1876,166 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr ""
+msgstr "%1 上的 Kasts"
 
 #: sync/sync.cpp:299
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr ""
+msgstr "無法登入 GPodder-nextcloud 伺服器"
 
 #: sync/sync.cpp:338
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr ""
+msgstr "無法登入 GPodder 伺服器"
 
 #: sync/sync.cpp:483 sync/sync.cpp:484
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr ""
+msgstr "I/O 被拒絕：無法儲存密碼。"
 
 #: sync/sync.cpp:564 sync/sync.cpp:565
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr ""
+msgstr "I/O 被拒絕：無法存取密碼檔案。"
 
 #: sync/sync.cpp:637
 #, kde-format
 msgid "Could not create GPodder device"
-msgstr ""
+msgstr "無法建立 GPodder 裝置"
 
 #: sync/sync.cpp:663
 #, kde-format
 msgid "Could not retrieve synced device status"
-msgstr ""
+msgstr "無法取得已同步裝置狀態"
 
 #: sync/sync.cpp:714
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr ""
+msgstr "無法從裝置 %1 取得訂閱"
 
 #: sync/sync.cpp:733
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr ""
+msgstr "無法為 %1 上傳訂閱"
 
 #: sync/syncjob.cpp:67
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr ""
+msgstr "無法從伺服器取得訂閱更新"
 
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr ""
+msgstr "無法上傳訂閱變更至伺服器"
 
 #: sync/syncjob.cpp:73
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr ""
+msgstr "無法從伺服器取得集數更新"
 
 #: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr ""
+msgstr "無法上傳集數更新至伺服器"
 
 #: sync/syncjob.cpp:79
 #, kde-format
 msgid "Internal data error"
-msgstr ""
+msgstr "內部資料錯誤"
 
 #: sync/syncjob.cpp:884
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr ""
+msgstr "（步驟 %1/%2）開始同步"
 
 #: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr ""
+msgstr "（步驟 %1/%2）正在請求遠端訂閱更新"
 
 #: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr ""
+msgstr "（步驟 %1/%2）正在上傳本地訂閱更新"
 
 #: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] ""
+msgstr[0] "（步驟 %3/%4）已更新 %2 個 Podcast，共 %1 個"
 
 #: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr ""
+msgstr "（步驟 %1/%2）正在請求遠端集數更新"
 
 #: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr ""
+msgstr "（步驟 %1/%2）正在套用遠端集數變更"
 
 #: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr ""
+msgstr "（步驟 %1/%2）正在上傳本地集數更新"
 
 #: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr ""
+msgstr "（步驟 %1/%2）已完成同步"
 
 #: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr ""
+msgstr "同步已中止"
 
 #: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
-msgstr ""
+msgstr "同步完成，但是有錯誤"
 
 #: systrayicon.cpp:46
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr ""
+msgstr "倒轉"
 
 #: systrayicon.cpp:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: systrayicon.cpp:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr ""
+msgstr "暫停"
 
 #: systrayicon.cpp:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr ""
+msgstr "快轉"
 
 #: systrayicon.cpp:97
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr ""
+msgstr "快轉"
 
 #: systrayicon.cpp:112
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "離開"
