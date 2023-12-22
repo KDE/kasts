@@ -206,6 +206,7 @@
       <li xml:lang="ca">Velocitat de reproducció variable</li>
       <li xml:lang="ca-valencia">Velocitat de reproducció variable</li>
       <li xml:lang="cs">Měnitelná rychlost přehrávání</li>
+      <li xml:lang="de">Variable Wiedergabegeschwindigkeit</li>
       <li xml:lang="en-GB">Variable playback speed</li>
       <li xml:lang="eo">Varia reprodukta rapido</li>
       <li xml:lang="es">Velocidad de reproducción variable</li>
@@ -231,6 +232,7 @@
       <li xml:lang="ca">Cerca de pòdcasts</li>
       <li xml:lang="ca-valencia">Busca de pòdcast</li>
       <li xml:lang="cs">Hledání podcastů</li>
+      <li xml:lang="de">Nach Podcasts suchen</li>
       <li xml:lang="en-GB">Search for podcasts</li>
       <li xml:lang="eo">Serĉi podkastojn</li>
       <li xml:lang="es">Búsqueda de pódcast</li>
@@ -256,6 +258,7 @@
       <li xml:lang="ca">Integració completa amb el sistema: p. ex. inhibeix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="ca-valencia">Integració completa amb el sistema: p. ex., inhibix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="cs">Plná integrace do systému: např. potlačení uspání systému při poslechu</li>
+      <li xml:lang="de">Volle Systemintegration: z. B. verhindern des Schlafmodus während des Zuhörens</li>
       <li xml:lang="en-GB">Full system integration: e.g. inhibit system suspend while listening</li>
       <li xml:lang="eo">Plena sistema integriĝo: ekz. malhelpi sistemon suspendi dum aŭskultado</li>
       <li xml:lang="es">Completa integración con el sistema: por ejemplo, inhibición de la suspensión del sistema cuando se está reproduciendo</li>
@@ -292,6 +295,7 @@
       <caption xml:lang="ar">كاستس على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
+      <caption xml:lang="de">Kasts auf der Arbeitsfläche mit Standard-Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with default header bar</caption>
       <caption xml:lang="eo">Kasts sur la labortablo kun defaŭlta kaplinio</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras predeterminada</caption>
@@ -318,6 +322,7 @@
       <caption xml:lang="ar">كاستس على سطح المكتب مع شريط رأسي مصغر</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
+      <caption xml:lang="de">Kasts auf der Arbeitsfläche mit minimierter Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with minimised header bar</caption>
       <caption xml:lang="eo">Kasts sur la labortablo kun minimumigita kaplinio</caption>
       <caption xml:lang="es">Kasts en el escritorio con la barra de cabeceras minimizada</caption>
@@ -376,6 +381,7 @@
       <caption xml:lang="ar">متحكمات مشغل كاستس للهاتف</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
+      <caption xml:lang="de">Kasts zur Steuerung eines mobilen Wiedergabegerätes</caption>
       <caption xml:lang="en-GB">Kasts mobile player controls</caption>
       <caption xml:lang="eo">Kasts moveblaj ludantaj kontroloj</caption>
       <caption xml:lang="es">Controles de reproducción móviles de Kasts</caption>
