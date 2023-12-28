@@ -137,14 +137,14 @@ AddonDelegates.RoundedItemDelegate {
 
             if (listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
                 listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
-            } else if (button == Qt.LeftButton) {
-                listViewObject.currentIndex = index;
-                listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
-                delegateTapped();
             } else if (button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
                 listViewObject.selectionForContextMenu = [modelIndex];
                 listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
+            } else if (button == Qt.LeftButton || button == Qt.NoButton) {
+                listViewObject.currentIndex = index;
+                listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                delegateTapped();
             }
         }
 
