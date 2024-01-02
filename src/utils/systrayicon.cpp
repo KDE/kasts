@@ -148,13 +148,13 @@ void SystrayIcon::setIconColor(SystrayIcon::IconColor iconColor)
     // do not specify svg-extension; icon will not be visible due to [QTBUG-53550]
     switch (iconColor) {
     case SystrayIcon::IconColor::Colorful:
-        setIcon(QIcon(QStringLiteral(":/logo")));
+        setIcon(QIcon(QStringLiteral(":/icons/kasts")));
         break;
     case SystrayIcon::IconColor::Light:
-        setIcon(QIcon(QStringLiteral(":/kasts-tray-light")));
+        setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-light")));
         break;
     case SystrayIcon::IconColor::Dark:
-        setIcon(QIcon(QStringLiteral(":/kasts-tray-dark")));
+        setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-dark")));
         break;
     }
 #endif

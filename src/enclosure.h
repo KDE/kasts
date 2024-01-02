@@ -9,6 +9,7 @@
 
 #include <QDebug>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 
 #include <KFormat>
@@ -20,6 +21,8 @@ class Entry;
 class Enclosure : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(qint64 size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)

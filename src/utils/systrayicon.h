@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #ifndef Q_OS_ANDROID
 #include <QSystemTrayIcon>
 #endif
@@ -19,6 +20,8 @@ class SystrayIcon
 #endif
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     enum IconColor {
@@ -34,6 +37,11 @@ public:
     {
         static SystrayIcon _instance;
         return _instance;
+    }
+    static SystrayIcon *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     [[nodiscard]] bool available() const;

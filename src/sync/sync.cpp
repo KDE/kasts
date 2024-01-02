@@ -95,7 +95,7 @@ void Sync::retrieveCredentialsFromConfig()
 
                 // Now that we have all credentials we can do the initial sync if
                 // it's enabled in the config.  If it's not enabled, then we handle
-                // the automatic refresh through main.qml
+                // the automatic refresh through Main.qml
                 if (NetworkConnectionManager::instance().feedUpdatesAllowed()) {
                     if (SettingsManager::self()->refreshOnStartup() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
                         doRegularSync(true);

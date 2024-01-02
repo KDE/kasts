@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QItemSelection>
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 #include <QString>
 
@@ -17,6 +18,8 @@ class Entry;
 class AbstractEpisodeProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     enum FilterType {

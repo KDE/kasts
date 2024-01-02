@@ -10,6 +10,7 @@
 #include <QHash>
 #include <QJsonObject>
 #include <QObject>
+#include <QQmlEngine>
 #include <QVariant>
 
 #include "feed.h"
@@ -18,6 +19,8 @@
 class PodcastSearchModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     enum Roles {
         Id = Qt::UserRole,

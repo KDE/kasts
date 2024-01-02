@@ -8,6 +8,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 #include "models/abstractepisodeproxymodel.h"
 #include "models/entriesmodel.h"
@@ -17,6 +18,8 @@ class Feed;
 class EntriesProxyModel : public AbstractEpisodeProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
 

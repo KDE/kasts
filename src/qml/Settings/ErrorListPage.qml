@@ -13,6 +13,8 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.kasts
 
+import ".."
+
 FormCard.FormCardPage {
     title: i18nc("@title", "Error Log")
 

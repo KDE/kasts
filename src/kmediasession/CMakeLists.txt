@@ -27,9 +27,7 @@ endif()
 
 #########################################
 
-add_subdirectory(qml)
-
-set(kmediasession_srcs
+add_library(KMediaSession
     kmediasession.cpp
     metadata.cpp
     mediabackends/abstractmediabackend.h
@@ -38,35 +36,40 @@ set(kmediasession_srcs
     mpris2/mpris2.cpp
 )
 
-ecm_qt_declare_logging_category(kmediasession_srcs
+qt_policy(SET QTP0001 NEW)
+qt_add_qml_module(KMediaSession URI org.kde.kmediasession
+    OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/org/kde/kmediasession
+)
+
+ecm_qt_declare_logging_category(KMediaSession
     HEADER "kmediasessionlogging.h"
     IDENTIFIER "KMediaSessionLog"
     CATEGORY_NAME "org.kde.kmediasession.kmediasession"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kmediasession_srcs
+ecm_qt_declare_logging_category(KMediaSession
     HEADER "powermanagementinterfacelogging.h"
     IDENTIFIER "KMediaSessionPowerManagementInterface"
     CATEGORY_NAME "org.kde.kmediasession.powermanagementinterface"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kmediasession_srcs
+ecm_qt_declare_logging_category(KMediaSession
     HEADER "qtmediabackendlogging.h"
     IDENTIFIER "QtMediaBackendLog"
     CATEGORY_NAME "org.kde.kmediasession.qtmediabackend"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kmediasession_srcs
+ecm_qt_declare_logging_category(KMediaSession
     HEADER "mpris2logging.h"
     IDENTIFIER "Mpris2Log"
     CATEGORY_NAME "org.kde.kmediasession.mpris2"
     DEFAULT_SEVERITY Info
 )
 
-ecm_qt_declare_logging_category(kmediasession_srcs
+ecm_qt_declare_logging_category(KMediaSession
     HEADER "metadatalogging.h"
     IDENTIFIER "MetaDataLog"
     CATEGORY_NAME "org.kde.kmediasession.metadata"
@@ -74,51 +77,51 @@ ecm_qt_declare_logging_category(kmediasession_srcs
 )
 
 if(ANDROID)
-    list(APPEND kmediasession_srcs
-        androidlogging.h
-    )
+    target_sources(KMediaSession PRIVATE androidlogging.h)
 else()
-    list(APPEND kmediasession_srcs
+    set(KMediaSession_dbus_srcs "")
+    qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
+    qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+    target_sources(KMediaSession PRIVATE
         mpris2/mediaplayer2.cpp
         mpris2/mediaplayer2player.cpp
+        ${KMediaSession_dbus_srcs}
     )
-    qt_add_dbus_interface(kmediasession_srcs dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
-    qt_add_dbus_interface(kmediasession_srcs dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
 endif()
 
 if (LIBVLC_FOUND)
-    ecm_qt_declare_logging_category(kmediasession_srcs
+    ecm_qt_declare_logging_category(KMediaSession
         HEADER "vlcmediabackendlogging.h"
         IDENTIFIER "VlcMediaBackendLog"
         CATEGORY_NAME "org.kde.kmediasession.vlcmediabackend"
         DEFAULT_SEVERITY Info
     )
-    ecm_qt_declare_logging_category(kmediasession_srcs
+    ecm_qt_declare_logging_category(KMediaSession
         HEADER "vlcsignalslogging.h"
         IDENTIFIER "VlcSignalsLog"
         CATEGORY_NAME "org.kde.kmediasession.vlcsignals"
         DEFAULT_SEVERITY Info
     )
-    list(APPEND kmediasession_srcs
+    target_sources(KMediaSession PRIVATE
         mediabackends/vlcmediabackend.cpp
     )
     set(HAVE_LIBVLC ON)
 endif()
 
 if (GSTREAMER_FOUND)
-    ecm_qt_declare_logging_category(kmediasession_srcs
+    ecm_qt_declare_logging_category(KMediaSession
         HEADER "gstmediabackendlogging.h"
         IDENTIFIER "GstMediaBackendLog"
         CATEGORY_NAME "org.kde.kmediasession.gstmediabackend"
         DEFAULT_SEVERITY Info
     )
-    ecm_qt_declare_logging_category(kmediasession_srcs
+    ecm_qt_declare_logging_category(KMediaSession
         HEADER "gstsignalslogging.h"
         IDENTIFIER "GstSignalsLog"
         CATEGORY_NAME "org.kde.kmediasession.gstsignals"
         DEFAULT_SEVERITY Info
     )
-    list(APPEND kmediasession_srcs
+    target_sources(KMediaSession PRIVATE
         mediabackends/gstmediabackend.cpp
     )
     set(HAVE_GST ON)
@@ -126,7 +129,6 @@ endif()
 
 configure_file(config-kmediasession.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kmediasession.h)
 
-add_library(KMediaSession ${kmediasession_srcs})
 generate_export_header(KMediaSession BASE_NAME KMediaSession)
 
 target_include_directories(KMediaSession PUBLIC ${CMAKE_BINARY_DIR})

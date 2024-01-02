@@ -8,6 +8,7 @@
 
 #include <QFile>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QUrl>
 
@@ -18,6 +19,8 @@
 class StorageManager : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(int storageMoveProgress MEMBER m_storageMoveProgress NOTIFY storageMoveProgressChanged)
     Q_PROPERTY(int storageMoveTotal MEMBER m_storageMoveTotal NOTIFY storageMoveTotalChanged)
@@ -32,6 +35,11 @@ public:
     {
         static StorageManager _instance;
         return _instance;
+    }
+    static StorageManager *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     static const int maxFilenameLength = 200;

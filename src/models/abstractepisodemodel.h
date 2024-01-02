@@ -10,10 +10,13 @@
 #include <QByteArray>
 #include <QHash>
 #include <QObject>
+#include <QQmlEngine>
 
 class AbstractEpisodeModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     enum Roles {

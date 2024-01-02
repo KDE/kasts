@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
             Keys.onReturnPressed: clicked()
 
             onClicked: {
-                pageStack.push("qrc:/FeedDetailsPage.qml", {
+                pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {
                     feed: subscribeAction.enabled ? listItem.model : DataManager.getFeed(listItem.url),
                     isSubscribed: !subscribeAction.enabled,
                     subscribeAction: subscribeAction,

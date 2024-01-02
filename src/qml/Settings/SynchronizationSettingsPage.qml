@@ -14,6 +14,9 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.kasts
+import org.kde.kasts.settings
+
+import ".."
 
 Kirigami.ScrollablePage {
     id: root

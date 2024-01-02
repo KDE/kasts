@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kasts
+import org.kde.kasts.settings
 
 Controls.Menu {
     id: playbackRateMenu

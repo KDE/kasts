@@ -8,6 +8,7 @@
 
 #include <QHash>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QStringList>
 
@@ -20,12 +21,18 @@ class Feed;
 class DataManager : public QObject
 {
     Q_OBJECT
-
+    QML_ELEMENT
+    QML_SINGLETON
 public:
     static DataManager &instance()
     {
         static DataManager _instance;
         return _instance;
+    }
+    static DataManager *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     Feed *getFeed(const int index) const;

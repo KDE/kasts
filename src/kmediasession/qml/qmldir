@@ -1,3 +1,0 @@
-module org.kde.kmediasession
-plugin kmediasession-qmlplugin
-classname KMediaSessionQmlPlugin

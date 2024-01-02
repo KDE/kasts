@@ -8,6 +8,7 @@
 
 #include <KFormat>
 #include <QAbstractListModel>
+#include <QQmlEngine>
 
 #include <mpegfile.h>
 
@@ -17,6 +18,7 @@
 class ChapterModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
     Q_PROPERTY(Chapter *currentChapter READ currentChapter NOTIFY currentChapterChanged)

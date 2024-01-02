@@ -9,6 +9,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QQmlEngine>
 #include <QSqlTableModel>
 #include <QUrl>
 
@@ -17,6 +18,8 @@
 class FeedsModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     enum Roles {

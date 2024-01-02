@@ -43,7 +43,7 @@ Addons.SearchPopupField {
 
     function openEntry(entry) {
         pushPage("EpisodeListPage");
-        pageStack.push("qrc:/EntryPage.qml", {"entry": entry});
+        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {"entry": entry});
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
         var episodeModel = pageStack.get(0).episodeList.model

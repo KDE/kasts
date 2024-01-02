@@ -10,6 +10,7 @@
 #include <QDateTime>
 #include <QHash>
 #include <QObject>
+#include <QQmlEngine>
 #include <QVariant>
 
 #include "error.h"
@@ -17,12 +18,19 @@
 class ErrorLogModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     static ErrorLogModel &instance()
     {
         static ErrorLogModel _instance;
         return _instance;
+    }
+    static ErrorLogModel *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

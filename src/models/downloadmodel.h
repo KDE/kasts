@@ -10,6 +10,7 @@
 #include <QHash>
 #include <QItemSelection>
 #include <QObject>
+#include <QQmlEngine>
 #include <QVariant>
 
 #include "enclosure.h"
@@ -18,12 +19,19 @@
 class DownloadModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
 public:
     static DownloadModel &instance()
     {
         static DownloadModel _instance;
         return _instance;
+    }
+    static DownloadModel *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

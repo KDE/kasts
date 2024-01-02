@@ -9,6 +9,7 @@
 #include <QItemSelection>
 #include <QModelIndex>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QVariant>
 
@@ -18,6 +19,7 @@
 class QueueModel : public AbstractEpisodeModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     Q_PROPERTY(int timeLeft READ timeLeft NOTIFY timeLeftChanged)

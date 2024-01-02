@@ -11,6 +11,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QObject>
+#include <QQmlEngine>
 #include <QUrl>
 #include <Syndication/Syndication>
 
@@ -20,6 +21,8 @@
 class Fetcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(int updateProgress MEMBER m_updateProgress NOTIFY updateProgressChanged)
     Q_PROPERTY(int updateTotal MEMBER m_updateTotal NOTIFY updateTotalChanged)
@@ -30,6 +33,11 @@ public:
     {
         static Fetcher _instance;
         return _instance;
+    }
+    static Fetcher *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     Q_INVOKABLE void fetch(const QString &url);

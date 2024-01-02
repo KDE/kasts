@@ -12,6 +12,7 @@
 
 #include <QList>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QUrl>
 
@@ -22,6 +23,7 @@ class KMediaSessionPrivate;
 class KMEDIASESSION_EXPORT KMediaSession : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(KMediaSession::MediaBackends currentBackend READ currentBackend WRITE setCurrentBackend NOTIFY currentBackendChanged)
     Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)

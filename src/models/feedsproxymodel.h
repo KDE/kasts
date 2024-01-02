@@ -8,6 +8,7 @@
 
 #include <QItemSelection>
 #include <QModelIndex>
+#include <QQmlEngine>
 #include <QSortFilterProxyModel>
 #include <QString>
 
@@ -18,6 +19,7 @@ class Entry;
 class FeedsProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum SortType {

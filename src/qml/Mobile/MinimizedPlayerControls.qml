@@ -14,6 +14,8 @@ import org.kde.kmediasession
 
 import org.kde.kasts
 
+import ".."
+
 Item {
     property int miniplayerheight: Kirigami.Units.gridUnit * 3
     property int progressbarheight: Kirigami.Units.gridUnit / 6

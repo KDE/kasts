@@ -8,6 +8,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 #include <KFormat>
 
@@ -25,6 +26,8 @@ class GPodder;
 class Sync : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(bool syncEnabled READ syncEnabled WRITE setSyncEnabled NOTIFY syncEnabledChanged)
     Q_PROPERTY(QString username READ username NOTIFY credentialsChanged)
@@ -50,6 +53,11 @@ public:
     {
         static Sync _instance;
         return _instance;
+    }
+    static Sync *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     bool syncEnabled() const;

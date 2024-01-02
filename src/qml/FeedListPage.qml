@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
             text: i18nc("@action:intoolbar Open the podcast discover page", "Discover")
             icon.name: "search"
             onTriggered: {
-                applicationWindow().pageStack.push("qrc:/DiscoverPage.qml");
+                applicationWindow().pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/DiscoverPage.qml");
             }
         },
         Kirigami.Action {
@@ -231,7 +231,7 @@ Kirigami.ScrollablePage {
                         // not using pushPage here in order to open the sync page
                         // directly
                         pageStack.layers.clear()
-                        pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
+                        pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml", {
                             defaultPage: "Synchronization" }, {
                             title: i18n("Settings"),
                         })
@@ -414,7 +414,7 @@ Kirigami.ScrollablePage {
             onTriggered: {
                 while(pageStack.depth > 1)
                     pageStack.pop();
-                pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)});
+                pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)});
             }
         }
 

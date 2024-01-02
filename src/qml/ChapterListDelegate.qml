@@ -14,7 +14,7 @@ import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kmediasession
 
 import org.kde.kasts
-
+import org.kde.kasts.settings
 
 AddonDelegates.RoundedItemDelegate {
     id: root

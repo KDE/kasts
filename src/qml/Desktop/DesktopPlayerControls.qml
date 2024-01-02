@@ -13,6 +13,9 @@ import org.kde.kirigami as Kirigami
 import org.kde.kmediasession
 
 import org.kde.kasts
+import org.kde.kasts.settings
+
+import ".."
 
 FocusScope {
     id: desktopPlayerControls

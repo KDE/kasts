@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 #include "models/abstractepisodeproxymodel.h"
 #include "models/episodemodel.h"
@@ -14,6 +15,7 @@
 class EpisodeProxyModel : public AbstractEpisodeProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit EpisodeProxyModel(QObject *parent = nullptr);

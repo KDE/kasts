@@ -14,6 +14,7 @@ import org.kde.kirigamiaddons.delegates as AddonDelegates
 
 import org.kde.kmediasession
 import org.kde.kasts
+import org.kde.kasts.settings
 
 AddonDelegates.RoundedItemDelegate {
     id: listItem
@@ -90,7 +91,7 @@ AddonDelegates.RoundedItemDelegate {
             pageStack.pop();
         }
 
-        pageStack.push("qrc:/EntryPage.qml", {
+        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {
             entry: entry,
         });
     }

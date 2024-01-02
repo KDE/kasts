@@ -7,11 +7,13 @@
 #pragma once
 
 #include <QMetaType>
+#include <QQmlEngine>
 #include <QString>
 
 namespace SyncUtils
 {
 Q_NAMESPACE
+QML_ELEMENT
 
 // constants
 const QString subscriptionTimestampLabel = QStringLiteral("syncsubscriptions");

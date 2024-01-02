@@ -16,38 +16,38 @@ KirigamiSettings.CategorizedSettings {
         KirigamiSettings.SettingAction {
             text: i18n("General")
             actionName: "General"
-            icon.name: ":/logo.svg"
-            page: "qrc:/GeneralSettingsPage.qml"
+            icon.name: "kasts"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/GeneralSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {
             text: i18n("Storage")
             actionName: "Storage"
             icon.name: "drive-harddisk-symbolic"
-            page: "qrc:/StorageSettingsPage.qml"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/StorageSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {
             text: i18n("Network")
             actionName: "Network"
             icon.name: "network-connect"
-            page: "qrc:/NetworkSettingsPage.qml"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/NetworkSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {
             text: i18n("Synchronization")
             actionName: "Synchronization"
             icon.name: "state-sync"
-            page: "qrc:/SynchronizationSettingsPage.qml"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/SynchronizationSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {
             text: i18n("Error Log")
             actionName: "Error Log"
             icon.name: "error"
-            page: "qrc:/ErrorListPage.qml"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/ErrorListPage.qml"
         },
         KirigamiSettings.SettingAction {
             text: i18n("About")
             actionName: "About"
             icon.name: "documentinfo"
-            page: "qrc:/AboutPage.qml"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/AboutPage.qml"
         }
     ]
 }

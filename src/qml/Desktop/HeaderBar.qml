@@ -16,6 +16,8 @@ import org.kde.kmediasession
 
 import org.kde.kasts
 
+import ".."
+
 FocusScope {
     id: headerBar
     height: headerMetaData.implicitHeight + desktopPlayerControls.implicitHeight
@@ -30,7 +32,7 @@ FocusScope {
     function openEntry() {
         if (AudioManager.entry) {
             pushPage("QueuePage");
-            pageStack.push("qrc:/EntryPage.qml", {"entry": AudioManager.entry});
+            pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {"entry": AudioManager.entry});
             pageStack.get(0).lastEntry = AudioManager.entry.id;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i <  model.rowCount(); i++) {
@@ -47,7 +49,7 @@ FocusScope {
     function openFeed() {
         if (AudioManager.entry) {
             pushPage("FeedListPage");
-            pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": AudioManager.entry.feed});
+            pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": AudioManager.entry.feed});
         }
     }
 
@@ -57,7 +59,7 @@ FocusScope {
             "description": Qt.binding(function() { return headerMetaData.title }),
             "loader": Qt.binding(function() { return fullScreenImageLoader})
         };
-        fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", options);
+        fullScreenImageLoader.setSource("qrc:/qt/qml/org/kde/kasts/qml/FullScreenImage.qml", options);
         fullScreenImageLoader.active = true;
         fullScreenImageLoader.item.open();
     }

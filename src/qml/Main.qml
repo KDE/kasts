@@ -14,6 +14,11 @@ import QtCore
 import org.kde.kirigami as Kirigami
 
 import org.kde.kasts
+import org.kde.kasts.settings
+
+import "Desktop"
+import "Mobile"
+
 
 Kirigami.ApplicationWindow {
     id: kastsMainWindow
@@ -49,22 +54,22 @@ Kirigami.ApplicationWindow {
 
     function getPage(page) {
         switch (page) {
-            case "QueuePage": return "qrc:/QueuePage.qml";
-            case "EpisodeListPage": return "qrc:/EpisodeListPage.qml";
-            case "DiscoverPage": return "qrc:/DiscoverPage.qml";
-            case "FeedListPage": return "qrc:/FeedListPage.qml";
-            case "DownloadListPage": return "qrc:/DownloadListPage.qml";
-            case "SettingsPage": return "qrc:/Settings/SettingsPage.qml";
+            case "QueuePage": return "qrc:/qt/qml/org/kde/kasts/qml/QueuePage.qml";
+            case "EpisodeListPage": return "qrc:/qt/qml/org/kde/kasts/qml/EpisodeListPage.qml";
+            case "DiscoverPage": return "qrc:/qt/qml/org/kde/kasts/qml/DiscoverPage.qml";
+            case "FeedListPage": return "qrc:/qt/qml/org/kde/kasts/qml/FeedListPage.qml";
+            case "DownloadListPage": return "qrc:/qt/qml/org/kde/kasts/qml/DownloadListPage.qml";
+            case "SettingsPage": return "qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml";
             default: {
                 currentPage = "FeedListPage";
-                return "qrc:/FeedListPage.qml";
+                return "qrc:/qt/qml/org/kde/kasts/qml/FeedListPage.qml";
             }
         }
     }
     function pushPage(page) {
         if (page === "SettingsPage") {
             pageStack.layers.clear()
-            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
+            pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml", {}, {
                 title: i18n("Settings")
             })
         } else {

@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kmediasession
 
 import org.kde.kasts
+import org.kde.kasts.settings
 
 Kirigami.ScrollablePage {
     id: page
@@ -26,7 +27,7 @@ Kirigami.ScrollablePage {
     function openPodcast() {
         pushPage("FeedListPage");
         lastFeed = entry.feed.url;
-        pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": entry.feed});
+        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": entry.feed});
     }
 
     // This function is needed to close the EntryPage if it is opened over the

@@ -7,10 +7,13 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 
 class NetworkConnectionManager : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(bool networkReachable READ networkReachable NOTIFY networkReachableChanged)
     Q_PROPERTY(bool feedUpdatesAllowed READ feedUpdatesAllowed NOTIFY feedUpdatesAllowedChanged)
@@ -23,6 +26,11 @@ public:
     {
         static NetworkConnectionManager _instance;
         return _instance;
+    }
+    static NetworkConnectionManager *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     [[nodiscard]] bool networkReachable() const;

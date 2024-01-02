@@ -74,7 +74,7 @@ Item {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
-                    fullScreenImageLoader.setSource("qrc:/FullScreenImage.qml", {
+                    fullScreenImageLoader.setSource("qrc:/qt/qml/org/kde/kasts/qml/FullScreenImage.qml", {
                         "image": root.image,
                         "description": root.title,
                         "loader": fullScreenImageLoader

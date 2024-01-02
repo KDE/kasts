@@ -11,6 +11,7 @@
 #include <memory>
 
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <QUrl>
 
@@ -24,6 +25,8 @@ class AudioManagerPrivate;
 class AudioManager : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(KMediaSession::MediaBackends currentBackend READ currentBackend WRITE setCurrentBackend NOTIFY currentBackendChanged)
     Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)
@@ -55,6 +58,11 @@ public:
     {
         static AudioManager _instance;
         return _instance;
+    }
+    static AudioManager *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
+        return &instance();
     }
 
     ~AudioManager() override;

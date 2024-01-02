@@ -215,7 +215,7 @@ Controls.ItemDelegate {
         lastFeed = feed.url
         if (pageStack.depth >  1)
             pageStack.pop();
-        pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed})
+        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feed})
     }
 
     Controls.ToolTip.visible: hovered
@@ -234,7 +234,7 @@ Controls.ItemDelegate {
                 onTriggered: {
                     while (pageStack.depth > 1)
                         pageStack.pop()
-                    pageStack.push("qrc:/FeedDetailsPage.qml", {"feed": feed});
+                    pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feed});
                 }
                 icon.name: "documentinfo"
                 text: i18n("Podcast Details")

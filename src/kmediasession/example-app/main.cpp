@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("kmediasession-example");
 
-    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
+    engine.loadFromModule("org.kde.kmediasession-example", "Main");
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

@@ -120,54 +120,22 @@ int main(int argc, char *argv[])
                      i18n("© 2020–2023 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
-    about.setProgramLogo(QVariant(QIcon(QStringLiteral(":/logo.svg"))));
     KAboutData::setApplicationData(about);
 
     about.setupCommandLine(&parser);
     parser.process(app);
     QString feedURL = parser.value(addFeedOption);
+    Database::instance();
     if (feedURL != QStringLiteral("none")) {
-        Database::instance();
         DataManager::instance().addFeed(feedURL);
     }
     about.processCommandLine(&parser);
 
-    qmlRegisterType<FeedsProxyModel>("org.kde.kasts", 1, 0, "FeedsProxyModel");
-    qmlRegisterType<QueueModel>("org.kde.kasts", 1, 0, "QueueModel");
-    qmlRegisterType<EpisodeProxyModel>("org.kde.kasts", 1, 0, "EpisodeProxyModel");
-    qmlRegisterType<PodcastSearchModel>("org.kde.kasts", 1, 0, "PodcastSearchModel");
-    qmlRegisterType<ChapterModel>("org.kde.kasts", 1, 0, "ChapterModel");
+    qmlRegisterSingletonInstance("org.kde.kasts.settings", 1, 0, "SettingsManager", SettingsManager::self());
 
-    qmlRegisterUncreatableType<AbstractEpisodeProxyModel>("org.kde.kasts", 1, 0, "AbstractEpisodeProxyModel", QStringLiteral("Only for enums"));
-    qmlRegisterUncreatableType<EntriesProxyModel>("org.kde.kasts", 1, 0, "EntriesProxyModel", QStringLiteral("Get from Feed"));
-    qmlRegisterUncreatableType<Enclosure>("org.kde.kasts", 1, 0, "Enclosure", QStringLiteral("Only for enums"));
-    qmlRegisterUncreatableType<AbstractEpisodeModel>("org.kde.kasts", 1, 0, "AbstractEpisodeModel", QStringLiteral("Only for enums"));
-    qmlRegisterUncreatableType<FeedsModel>("org.kde.kasts", 1, 0, "FeedsModel", QStringLiteral("Only for enums"));
-
-    qmlRegisterSingletonType("org.kde.kasts", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
-        return engine->toScriptValue(KAboutData::applicationData());
-    });
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Database", &Database::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "NetworkConnectionManager", &NetworkConnectionManager::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Fetcher", &Fetcher::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DataManager", &DataManager::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SettingsManager", SettingsManager::self());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "DownloadModel", &DownloadModel::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "ErrorLogModel", &ErrorLogModel::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "AudioManager", &AudioManager::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "StorageManager", &StorageManager::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Sync", &Sync::instance());
-    qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SystrayIcon", &SystrayIcon::instance());
-    qmlRegisterSingletonInstance<ColorSchemer>("org.kde.kasts", 1, 0, "ColorSchemer", &ColorSchemer::instance());
     if (SettingsManager::self()->colorScheme().isEmpty()) {
         ColorSchemer::instance().apply(SettingsManager::self()->colorScheme());
     }
-
-    qmlRegisterUncreatableMetaObject(SyncUtils::staticMetaObject, "org.kde.kasts", 1, 0, "SyncUtils", QStringLiteral("Error: only enums and structs"));
-
-    qRegisterMetaType<Entry *>("const Entry*"); // "hack" to make qml understand Entry*
-    qRegisterMetaType<Feed *>("const Feed*"); // "hack" to make qml understand Feed*
-    qRegisterMetaType<QVector<SyncUtils::Device>>("QVector<SyncUtils::Device>"); // "hack" to make qml understand QVector of SyncUtils::Device
 
     // Workaround to don't get the app to silently quit when minimized to tray
     app.setQuitLockEnabled(false);
@@ -175,7 +143,7 @@ int main(int argc, char *argv[])
     // Make sure that settings are saved before the application exits
     QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
 
-    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
+    engine.loadFromModule("org.kde.kasts", "Main");
 
     if (engine.rootObjects().isEmpty()) {
         return -1;

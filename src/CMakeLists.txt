@@ -51,7 +51,79 @@ add_executable(kasts
     sync/gpodder/uploadsubscriptionrequest.cpp
     sync/gpodder/episodeactionrequest.cpp
     sync/gpodder/uploadepisodeactionrequest.cpp
-    resources.qrc
+)
+
+# define custom resource paths
+set_source_files_properties(../kasts.svg PROPERTIES
+    QT_RESOURCE_ALIAS icons/kasts.svg
+)
+set_source_files_properties(../icons/media-playback-cloud.svg PROPERTIES
+    QT_RESOURCE_ALIAS icons/media-playback-cloud.svg
+)
+set_source_files_properties(../icons/kasts-tray-light.svg PROPERTIES
+    QT_RESOURCE_ALIAS icons/kasts-tray-light.svg
+)
+set_source_files_properties(../icons/kasts-tray-dark.svg PROPERTIES
+    QT_RESOURCE_ALIAS icons/kasts-tray-dark.svg
+)
+
+# add icons needed by c++
+qt_add_resources(kasts "icons"
+    FILES
+        ../kasts.svg
+        ../icons/kasts-tray-light.svg
+        ../icons/kasts-tray-dark.svg
+)
+
+qt_policy(SET QTP0001 NEW)
+qt_add_qml_module(kasts URI org.kde.kasts
+    QML_FILES
+        qml/Main.qml
+        qml/FeedListPage.qml
+        qml/EntryPage.qml
+        qml/Settings/AboutPage.qml
+        qml/FeedDetailsPage.qml
+        qml/AddFeedSheet.qml
+        qml/FeedListDelegate.qml
+        qml/Mobile/MinimizedPlayerControls.qml
+        qml/Mobile/MobilePlayerControls.qml
+        qml/VolumeSlider.qml
+        qml/Mobile/FooterBar.qml
+        qml/Mobile/BottomToolbar.qml
+        qml/QueuePage.qml
+        qml/EpisodeListPage.qml
+        qml/DownloadListPage.qml
+        qml/ErrorList.qml
+        qml/ErrorListOverlay.qml
+        qml/GenericHeader.qml
+        qml/GenericEntryDelegate.qml
+        qml/GenericEntryListView.qml
+        qml/DiscoverPage.qml
+        qml/ImageWithFallback.qml
+        qml/UpdateNotification.qml
+        qml/KastsGlobalDrawer.qml
+        qml/Desktop/HeaderBar.qml
+        qml/Desktop/DesktopPlayerControls.qml
+        qml/PlaybackRateMenu.qml
+        qml/PlaybackRateCustomizerDialog.qml
+        qml/ErrorNotification.qml
+        qml/ConnectionCheckAction.qml
+        qml/ChapterListDelegate.qml
+        qml/SyncPasswordOverlay.qml
+        qml/Settings/SettingsPage.qml
+        qml/Settings/GeneralSettingsPage.qml
+        qml/Settings/NetworkSettingsPage.qml
+        qml/Settings/StorageSettingsPage.qml
+        qml/Settings/SynchronizationSettingsPage.qml
+        qml/Settings/ErrorListPage.qml
+        qml/SleepTimerDialog.qml
+        qml/FullScreenImage.qml
+        qml/GlobalSearchField.qml
+        qml/SearchBar.qml
+        qml/FilterInlineMessage.qml
+    RESOURCES
+        ../icons/media-playback-cloud.svg
+        ../kasts.svg
 )
 
 ecm_qt_declare_logging_category(kasts
@@ -143,9 +215,18 @@ if(ANDROID)
 endif()
 
 if(KASTS_FLATPAK)
-    target_sources(kasts PRIVATE resources-flatpak.qrc)
+    set_source_files_properties(qml/Settings/StorageDirDialogFlatpak.qml PROPERTIES
+        QT_RESOURCE_ALIAS qml/Settings/StorageDirDialog.qml
+    )
+    qt_target_qml_sources(kasts
+        QML_FILES
+            qml/Settings/StorageDirDialogFlatpak.qml
+    )
 else()
-    target_sources(kasts PRIVATE resources-non-flatpak.qrc)
+    qt_target_qml_sources(kasts
+        QML_FILES
+            qml/Settings/StorageDirDialog.qml
+    )
 endif()
 
 ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
@@ -159,7 +240,7 @@ ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
 
 kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 
-target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR})
+target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/utils ${CMAKE_CURRENT_SOURCE_DIR}/sync)
 target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KF6::ColorScheme KMediaSession)
 
 if(KASTS_FLATPAK)

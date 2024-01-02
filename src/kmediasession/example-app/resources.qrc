@@ -1,8 +1,0 @@
-<!-- SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be> -->
-<!-- SPDX-License-Identifier: CC0-1.0 -->
-<RCC>
-    <qresource prefix="/">
-        <file alias="main.qml">qml/main.qml</file>
-    </qresource>
-</RCC>
-
