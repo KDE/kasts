@@ -70,12 +70,12 @@ Controls.Control {
             searchField.rightActions.push(origAction);
         }
 
-        Keys.onEscapePressed: {
+        Keys.onEscapePressed: (event) => {
             proxyModel.searchFilter = "";
             parentKey.checked = false;
             event.accepted = true;
         }
-        Keys.onReturnPressed: {
+        Keys.onReturnPressed: (event) => {
             accepted();
             event.accepted = true;
         }
