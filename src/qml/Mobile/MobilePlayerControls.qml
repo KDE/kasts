@@ -336,7 +336,13 @@ Kirigami.Page {
                     }
                     Controls.ToolButton {
                         id: volumeButton
+                        Layout.maximumHeight: parent.height
+                        Layout.preferredHeight: contextButtons.buttonSize
+                        Layout.maximumWidth: height
+                        Layout.preferredWidth: height
                         icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                        icon.width: contextButtons.iconSize
+                        icon.height: contextButtons.iconSize
                         enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
                         checked: volumePopup.visible
 
