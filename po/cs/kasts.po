@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-05 01:34+0000\n"
+"POT-Creation-Date: 2024-01-06 01:33+0000\n"
 "PO-Revision-Date: 2023-11-08 14:12+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -430,14 +430,14 @@ msgid "Open sleep timer settings"
 msgstr "Otevřít nastavení časování uspání"
 
 #: qml/Desktop/DesktopPlayerControls.qml:264
-#: qml/Mobile/MobilePlayerControls.qml:345
+#: qml/Mobile/MobilePlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Otevřít nastavení hlasitosti"
 
 #: qml/Desktop/DesktopPlayerControls.qml:296
-#: qml/Mobile/MobilePlayerControls.qml:375
+#: qml/Mobile/MobilePlayerControls.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
