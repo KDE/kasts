@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
 
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
-            visible: Kirigami.Settings.isMobile
+            visible: kastsMainWindow.isMobile
             text: i18nc("@action:intoolbar Open the podcast discover page", "Discover")
             icon.name: "search"
             onTriggered: {
@@ -246,7 +246,7 @@ Kirigami.ScrollablePage {
         // binding loop, we calculate the number of columns and card width based
         // on the total width of the page itself rather than the width left for
         // the GridView, and then subtract some space
-        property int availableWidth: subscriptionPage.width - !Kirigami.Settings.isMobile * Kirigami.Units.gridUnit * 1.3
+        property int availableWidth: subscriptionPage.width - !kastsMainWindow.isMobile * Kirigami.Units.gridUnit * 1.3
         // TODO: get proper width for scrollbar rather than hardcoding it
 
         property int columns: Math.max(1, Math.floor(availableWidth / (minimumCardSize + 2 * cardMargin)))

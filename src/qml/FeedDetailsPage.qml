@@ -246,7 +246,7 @@ Kirigami.ScrollablePage {
                                 id: feedUrl
                                 Layout.alignment: Qt.AlignTop
                                 readOnly: true
-                                selectByMouse: !Kirigami.Settings.isMobile
+                                selectByMouse: !kastsMainWindow.isMobile
                                 textFormat:TextEdit.RichText
                                 text: "<a href='%1'>%1</a>".arg(feed.url)
                                 wrapMode: TextEdit.Wrap
@@ -286,7 +286,7 @@ Kirigami.ScrollablePage {
                         TextEdit {
                             readOnly: true
                             Layout.alignment: Qt.AlignTop
-                            selectByMouse: !Kirigami.Settings.isMobile
+                            selectByMouse: !kastsMainWindow.isMobile
                             textFormat:TextEdit.RichText
                             text: "<a href='%1'>%1</a>".arg(feed.link)
                             onLinkActivated: (link) => {
@@ -304,7 +304,7 @@ Kirigami.ScrollablePage {
                         height: visible ? implicitHeight : 0
 
                         readOnly: true
-                        selectByMouse: !Kirigami.Settings.isMobile
+                        selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
@@ -317,7 +317,7 @@ Kirigami.ScrollablePage {
                         height: visible ? implicitHeight : 0
 
                         readOnly: true
-                        selectByMouse: !Kirigami.Settings.isMobile
+                        selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: isSubscribed ? i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
@@ -330,7 +330,7 @@ Kirigami.ScrollablePage {
                         height: visible ? implicitHeight : 0
 
                         readOnly: true
-                        selectByMouse: !Kirigami.Settings.isMobile
+                        selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
                         wrapMode: Text.WordWrap

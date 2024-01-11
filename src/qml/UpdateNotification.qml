@@ -29,7 +29,7 @@ Rectangle {
         bottom: parent.bottom
         left: parent.left
         right: parent.right
-        margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
+        margins: kastsMainWindow.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
         bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 )
     }
 

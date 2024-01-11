@@ -234,7 +234,7 @@ Kirigami.ScrollablePage {
             Layout.fillHeight: true
 
             readOnly: true
-            selectByMouse: !Kirigami.Settings.isMobile
+            selectByMouse: !kastsMainWindow.isMobile
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText

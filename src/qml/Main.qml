@@ -24,8 +24,9 @@ Kirigami.ApplicationWindow {
     id: kastsMainWindow
     title: i18n("Kasts")
 
-    width: Kirigami.Settings.isMobile ? 360 : 800
-    height: Kirigami.Settings.isMobile ? 660 : 600
+    property bool isMobile: Kirigami.Settings.isMobile
+    width: isMobile ? 360 : 800
+    height: isMobile ? 660 : 600
 
     pageStack.clip: true
     pageStack.popHiddenPages: true
@@ -40,7 +41,7 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
-        if (Kirigami.Settings.isMobile) {
+        if (isMobile) {
             return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
         } else {
             return Kirigami.Units.largeSpacing;
@@ -95,7 +96,7 @@ Kirigami.ApplicationWindow {
     }
 
     function saveWindowLayout() {
-        if (Kirigami.Settings.isMobile) {
+        if (isMobile) {
             settings.mobileWidth = kastsMainWindow.width;
             settings.mobileHeight = kastsMainWindow.height;
         } else {
@@ -105,7 +106,7 @@ Kirigami.ApplicationWindow {
     }
 
     function restoreWindowLayout() {
-        if (Kirigami.Settings.isMobile) {
+        if (isMobile) {
             if (settings.mobileWidth) kastsMainWindow.width = settings.mobileWidth;
             if (settings.mobileHeight) kastsMainWindow.height = settings.mobileHeight;
         } else {
@@ -137,7 +138,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || kastsMainWindow.isWidescreen
+    property bool showGlobalDrawer: !isMobile || kastsMainWindow.isWidescreen
 
     globalDrawer: showGlobalDrawer ? myGlobalDrawer : null
 
@@ -164,7 +165,7 @@ Kirigami.ApplicationWindow {
 
     header: Loader {
         id: headerLoader
-        active: !Kirigami.Settings.isMobile
+        active: !isMobile
         visible: active
 
         sourceComponent: HeaderBar { focus: true }
@@ -172,13 +173,13 @@ Kirigami.ApplicationWindow {
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (AudioManager.entry && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entry && isMobile) ? miniplayerSize + 1 : 0
 
     Loader {
         id: footerLoader
 
         anchors.fill: parent
-        active: AudioManager.entry && Kirigami.Settings.isMobile
+        active: AudioManager.entry && isMobile
         visible: active
         z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
@@ -206,7 +207,7 @@ Kirigami.ApplicationWindow {
         id: bottomToolbarLoader
         visible: active
         height: visible ? implicitHeight : 0
-        active: Kirigami.Settings.isMobile && !kastsMainWindow.isWidescreen
+        active: isMobile && !kastsMainWindow.isWidescreen
         sourceComponent: BottomToolbar {
             transparentBackground: footerLoader.active
             opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
