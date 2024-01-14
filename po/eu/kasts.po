@@ -1,16 +1,16 @@
 # Translation for kasts.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# SPDX-FileCopyrightText: 2023 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:37+0000\n"
-"PO-Revision-Date: 2023-11-08 23:08+0100\n"
+"PO-Revision-Date: 2024-01-13 10:23+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -54,13 +54,13 @@ msgstr "Tarifatutako konexioetan podcast zama-jaisteak ez daude baimenduta "
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 eta %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1, eta %2"
 
 #: error.cpp:48
 #, kde-format
@@ -2066,6 +2066,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"Erdiko-klik jotzeko/eteteko"
 
 #: utils/systrayicon.cpp:51
 #, kde-format

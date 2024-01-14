@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:37+0000\n"
-"PO-Revision-Date: 2024-01-03 14:17+0100\n"
+"PO-Revision-Date: 2024-01-13 09:04+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -52,13 +52,13 @@ msgstr "Podkastaj elŝutoj ne permesitaj sur mezuritaj konektoj"
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 kaj %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1 kaj %2"
 
 #: error.cpp:48
 #, kde-format
@@ -2058,6 +2058,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"Mezklaku por ludi/paŭzi"
 
 #: utils/systrayicon.cpp:51
 #, kde-format

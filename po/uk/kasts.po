@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2021, 2022, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:37+0000\n"
-"PO-Revision-Date: 2023-11-08 23:28+0200\n"
+"PO-Revision-Date: 2024-01-13 09:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,13 +55,13 @@ msgstr ""
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 і %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1 і %2"
 
 #: error.cpp:48
 #, kde-format
@@ -2084,6 +2084,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"Клацніть середньою для відтворення або призупинення"
 
 #: utils/systrayicon.cpp:51
 #, kde-format

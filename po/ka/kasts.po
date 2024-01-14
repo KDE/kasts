@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:37+0000\n"
-"PO-Revision-Date: 2023-11-09 02:46+0100\n"
+"PO-Revision-Date: 2024-01-13 04:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -52,13 +52,13 @@ msgstr "გაზომვად შეერთებებზე პოდკ�
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 და %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1 და %2"
 
 #: error.cpp:48
 #, kde-format
@@ -2056,6 +2056,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"შუა წკაპი დაკვრა/შეჩერებისთვის"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
