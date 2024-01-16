@@ -132,3 +132,4 @@ Terminal=false
 InitialPreference=10
 X-KDE-FormFactor=desktop;tablet;handset;
 StartupNotify=true
+StartupWMClass=kasts
