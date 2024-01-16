@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the kasts package.
 #
 # SPDX-FileCopyrightText: 2023 giovanni <g.sora@tiscali.it>
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:37+0000\n"
-"PO-Revision-Date: 2023-11-09 15:15+0100\n"
+"PO-Revision-Date: 2024-01-15 18:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -52,13 +52,13 @@ msgstr "Discargamentos de Podcast non permittite sur connexiones a consumo"
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 e %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1, e %2"
 
 #: error.cpp:48
 #, kde-format
@@ -2065,6 +2065,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"Pulsa in le medie per sonar/pausar"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
