@@ -64,6 +64,7 @@ Kirigami.ScrollablePage {
 
         section {
             delegate: Kirigami.ListSectionHeader {
+                width: episodeList.width
                 required property string section
 
                 // NOTE: the Enclosure.Status enum values get converted to strings
