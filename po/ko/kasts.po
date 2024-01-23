@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:37+0000\n"
+"POT-Creation-Date: 2024-01-23 00:37+0000\n"
 "PO-Revision-Date: 2023-10-08 22:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -541,17 +541,17 @@ msgstr "모든 팟캐스트 새로 고침"
 msgid "No downloads"
 msgstr "다운로드 없음"
 
-#: qml/DownloadListPage.qml:70
+#: qml/DownloadListPage.qml:71
 #, kde-format
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "불완전 다운로드"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloaded"
 msgstr "다운로드됨"

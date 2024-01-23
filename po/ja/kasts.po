@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:37+0000\n"
+"POT-Creation-Date: 2024-01-23 00:37+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -532,17 +532,17 @@ msgstr ""
 msgid "No downloads"
 msgstr ""
 
-#: qml/DownloadListPage.qml:70
+#: qml/DownloadListPage.qml:71
 #, kde-format
 msgid "Downloading"
 msgstr ""
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr ""
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloaded"
 msgstr ""

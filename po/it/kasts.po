@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:37+0000\n"
+"POT-Creation-Date: 2024-01-23 00:37+0000\n"
 "PO-Revision-Date: 2024-01-14 10:49+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -541,17 +541,17 @@ msgstr "Aggiorna tutti i podcast"
 msgid "No downloads"
 msgstr "Nessuno scaricamento"
 
-#: qml/DownloadListPage.qml:70
+#: qml/DownloadListPage.qml:71
 #, kde-format
 msgid "Downloading"
 msgstr "Scaricamento"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Scaricamenti incompleti"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloaded"
 msgstr "Scaricato"

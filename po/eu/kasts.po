@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:37+0000\n"
+"POT-Creation-Date: 2024-01-23 00:37+0000\n"
 "PO-Revision-Date: 2024-01-13 10:23+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -542,17 +542,17 @@ msgstr "Berritu podcast guztiak"
 msgid "No downloads"
 msgstr "Zama-jaitsitakorik ez"
 
-#: qml/DownloadListPage.qml:70
+#: qml/DownloadListPage.qml:71
 #, kde-format
 msgid "Downloading"
 msgstr "Zama-jaisten"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Osatu gabeko zama-jaitsierak"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Downloaded"
 msgstr "Zama-jaitsita"
