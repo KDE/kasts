@@ -368,7 +368,12 @@ void VlcMediaBackend::pause()
         return;
     }
 
-    libvlc_media_player_pause(d->mPlayer);
+    // need to check playback state first, because the pause function will
+    // actually toggle pause, i.e. it will start playing when the current track
+    // has already been paused
+    if (playbackState() == KMediaSession::PlaybackState::PlayingState) {
+        libvlc_media_player_pause(d->mPlayer);
+    }
 }
 
 void VlcMediaBackend::stop()
