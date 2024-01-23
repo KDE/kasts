@@ -20,9 +20,15 @@ KirigamiSettings.CategorizedSettings {
             page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/GeneralSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {
+            text: i18n("Appearance")
+            actionName: "Appearance"
+            icon.name: "preferences-desktop-theme-global"
+            page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/AppearanceSettingsPage.qml"
+        },
+        KirigamiSettings.SettingAction {
             text: i18n("Storage")
             actionName: "Storage"
-            icon.name: "drive-harddisk-symbolic"
+            icon.name: "drive-harddisk"
             page: "qrc:/qt/qml/org/kde/kasts/qml/Settings/StorageSettingsPage.qml"
         },
         KirigamiSettings.SettingAction {

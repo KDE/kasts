@@ -112,6 +112,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/SyncPasswordOverlay.qml
         qml/Settings/SettingsPage.qml
         qml/Settings/GeneralSettingsPage.qml
+        qml/Settings/AppearanceSettingsPage.qml
         qml/Settings/NetworkSettingsPage.qml
         qml/Settings/StorageSettingsPage.qml
         qml/Settings/SynchronizationSettingsPage.qml
@@ -305,7 +306,8 @@ if(ANDROID)
         kt-add-feeds
         state-sync
         network-connect
-        drive-harddisk-symbolic
+        drive-harddisk
+        preferences-desktop-theme-global
         dialog-ok
         dialog-cancel
         computer
