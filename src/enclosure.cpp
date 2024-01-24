@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QFile>
 #include <QFileInfo>
+#include <QImage>
 #include <QMimeDatabase>
 #include <QNetworkReply>
 #include <QSqlQuery>
@@ -335,7 +336,7 @@ QString Enclosure::cachedEmbeddedImage() const
     for (const auto &frame : f.ID3v2Tag()->frameListMap()["APIC"]) {
         auto pictureFrame = dynamic_cast<TagLib::ID3v2::AttachedPictureFrame *>(frame);
         QByteArray data(pictureFrame->picture().data(), pictureFrame->picture().size());
-        if (!data.isEmpty()) {
+        if (!data.isEmpty() && QImage().loadFromData(data)) {
             QFile file(cachedpath);
             file.open(QIODevice::WriteOnly);
             file.write(data);
