@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-01-25 00:36+0000\n"
 "PO-Revision-Date: 2024-01-13 15:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -35,7 +35,7 @@ msgstr "antonibella5@yahoo.com"
 msgid "Streaming on metered connection not allowed"
 msgstr "No es permet la transmissió en continu amb una connexió d'ús mesurat"
 
-#: audiomanager.cpp:406 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "No hi ha cap connexió de xarxa"
@@ -45,7 +45,7 @@ msgstr "No hi ha cap connexió de xarxa"
 msgid "Invalid Media"
 msgstr "Fitxer multimèdia no vàlid"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:165
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Baixades de pòdcast no permeses amb la connexió d'ús mesurat"
