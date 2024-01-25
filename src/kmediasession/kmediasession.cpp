@@ -24,6 +24,9 @@
 #ifdef HAVE_GST
 #include "mediabackends/gstmediabackend.h"
 #endif
+#ifdef HAVE_MPVQT
+#include "mediabackends/mpvmediabackend.h"
+#endif
 
 class KMediaSessionPrivate
 {
@@ -37,6 +40,9 @@ private:
 #endif
 #ifdef HAVE_GST
         {KMediaSession::MediaBackends::Gst, QStringLiteral("GStreamer")},
+#endif
+#ifdef HAVE_MPVQT
+        {KMediaSession::MediaBackends::Mpv, QStringLiteral("Mpv")},
 #endif
     };
 
@@ -308,6 +314,11 @@ void KMediaSession::setCurrentBackend(KMediaSession::MediaBackends backend)
 #ifdef HAVE_GST
     case KMediaSession::MediaBackends::Gst:
         d->m_player = new GstMediaBackend(this);
+        break;
+#endif
+#ifdef HAVE_MPVQT
+    case KMediaSession::MediaBackends::Mpv:
+        d->m_player = new MpvMediaBackend(this);
         break;
 #endif
     };

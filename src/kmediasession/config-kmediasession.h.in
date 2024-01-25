@@ -8,3 +8,4 @@
 
 #cmakedefine HAVE_LIBVLC
 #cmakedefine HAVE_GST
+#cmakedefine HAVE_MPVQT
