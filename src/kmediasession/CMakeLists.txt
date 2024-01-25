@@ -15,11 +15,22 @@ if (NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
 endif()
 
+option(BUILD_MPV_BACKEND "Build Mpv audio backend" ON)
+if (BUILD_MPV_BACKEND)
+find_package(MpvQt)
+set_package_properties(MpvQt PROPERTIES
+    DESCRIPTION "Allows to play audio and video using MpvQt as backend"
+    TYPE RECOMMENDED)
+endif()
+
+option(BUILD_LIBVLC_BACKEND "Build libVLC audio backend" ON)
+if (BUILD_LIBVLC_BACKEND)
 find_package(LIBVLC)
 set_package_properties(LIBVLC PROPERTIES
     DESCRIPTION "Allows to play audio using libVLC as backend"
     URL "https://www.videolan.org/vlc/libvlc.html"
     TYPE RECOMMENDED)
+endif()
 
 option(BUILD_GSTREAMER_BACKEND "Build gstreamer audio backend" ON)
 if (BUILD_GSTREAMER_BACKEND)
@@ -94,6 +105,25 @@ else()
     endif()
 endif()
 
+if (MpvQt_FOUND)
+    ecm_qt_declare_logging_category(KMediaSession
+        HEADER "mpvmediabackendlogging.h"
+        IDENTIFIER "MpvMediaBackendLog"
+        CATEGORY_NAME "org.kde.kmediasession.mpvmediabackend"
+        DEFAULT_SEVERITY Info
+    )
+    ecm_qt_declare_logging_category(KMediaSession
+        HEADER "mpvsignalslogging.h"
+        IDENTIFIER "MpvSignalsLog"
+        CATEGORY_NAME "org.kde.kmediasession.mpvsignals"
+        DEFAULT_SEVERITY Info
+    )
+    target_sources(KMediaSession PRIVATE
+        mediabackends/mpvmediabackend.cpp
+    )
+    set(HAVE_MPVQT ON)
+endif()
+
 if (LIBVLC_FOUND)
     ecm_qt_declare_logging_category(KMediaSession
         HEADER "vlcmediabackendlogging.h"
@@ -144,6 +174,10 @@ target_link_libraries(KMediaSession PRIVATE
     KF6::CoreAddons
     KF6::I18n
 )
+
+if (MpvQt_FOUND)
+    target_link_libraries(KMediaSession PRIVATE MpvQt::MpvQt)
+endif()
 
 if (LIBVLC_FOUND)
     target_link_libraries(KMediaSession PRIVATE LIBVLC::LIBVLC)
