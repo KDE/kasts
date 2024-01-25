@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 02:28+0000\n"
+"POT-Creation-Date: 2024-01-25 02:21+0000\n"
 "PO-Revision-Date: 2023-08-10 07:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -30,7 +30,7 @@ msgstr "stefan.asserhall@bredband.net"
 msgid "Streaming on metered connection not allowed"
 msgstr "Ingen anslutning eller ström är inte tillåten för uppmätt anslutning"
 
-#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:408 enclosure.cpp:169 error.cpp:64
 #, fuzzy, kde-format
 #| msgid "On metered connections"
 msgid "No network connection"
@@ -41,7 +41,7 @@ msgstr "För uppmätta anslutningar"
 msgid "Invalid Media"
 msgstr "Ogiltigt media"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:165
 #, fuzzy, kde-format
 #| msgid "Podcast downloads are currently not allowed on metered connections"
 msgid "Podcast downloads not allowed on metered connection"

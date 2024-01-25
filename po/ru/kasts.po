@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 02:28+0000\n"
+"POT-Creation-Date: 2024-01-25 02:21+0000\n"
 "PO-Revision-Date: 2023-12-26 13:05+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -34,7 +34,7 @@ msgstr "translation-team@basealt.ru"
 msgid "Streaming on metered connection not allowed"
 msgstr "Потоковая передача запрещена при лимитном подключении"
 
-#: audiomanager.cpp:408 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:408 enclosure.cpp:169 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Нет сетевого соединения"
@@ -44,7 +44,7 @@ msgstr "Нет сетевого соединения"
 msgid "Invalid Media"
 msgstr "Некорректное мультимедиа"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:165
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Загрузка подкастов запрещена при лимитном подключении"
