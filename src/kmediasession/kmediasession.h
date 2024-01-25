@@ -58,6 +58,7 @@ public:
         Qt = 0,
         Vlc = 1,
         Gst = 2,
+        Mpv = 3,
     };
     Q_ENUM(MediaBackends)
 
