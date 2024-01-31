@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:36+0000\n"
-"PO-Revision-Date: 2023-08-26 17:57+0300\n"
+"PO-Revision-Date: 2023-12-27 16:14+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -28,16 +28,14 @@ msgid "Your emails"
 msgstr "translator@legisign.org"
 
 #: audiomanager.cpp:397
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Ei yhteyttä tai suoratoistoa ei sallittu maksullisessa yhteydessä"
+msgstr "Suoratoistoa ei sallittu maksullisessa yhteydessä"
 
 #: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "Maksullisissa yhteyksissä"
+msgstr "Ei verkkoyhteyttä"
 
 #: audiomanager.cpp:546
 #, kde-format
@@ -45,11 +43,9 @@ msgid "Invalid Media"
 msgstr "Virheellinen media"
 
 #: enclosure.cpp:165
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr ""
-"Maksullisissa yhteyksissä ei toistaiseksi sallita podcastien lataamista"
+msgstr "Podcastien lataamista ei sallittu maksullisissa yhteyksissä"
 
 #: entry.cpp:100 feed.cpp:117
 #, kde-format
@@ -99,10 +95,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "Virhe synkronoitaessa syötteen tai jakson tilaa"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Maksullinen yhteys ei salli virkistystä"
+msgstr "Suoratoistoa ei sallittu maksullisissa yhteyksissä"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -366,16 +361,14 @@ msgid "Add Podcast"
 msgstr "Lisää podcast"
 
 #: qml/ConnectionCheckAction.qml:22
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Maksullisissa yhteyksissä podcastien virkistystä ei toistaiseksi sallita"
+"Podcastien virkistystä ei toistaiseksi sallita maksullisissa yhteyksissä"
 
 #: qml/ConnectionCheckAction.qml:56
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "Valitse vaihtoehto"
@@ -384,7 +377,7 @@ msgstr "Valitse vaihtoehto"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Verkko tavoittamattomissa"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -393,6 +386,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Verkkoa ei ilmeisesti tavoiteta. Ellei näin ole, tarkistuksen voi kuitenkin "
+"poistaa käytöstä: Asetukset > Verkko."
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -1119,12 +1114,11 @@ msgstr[0] "Siirrettiin %2/%1 tiedosto"
 msgstr[1] "Siirrettiin %2/%1 tiedostoa"
 
 #: qml/Main.qml:316
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Maksullisissa yhteyksissä ei toistaiseksi sallita podcastien lataamista"
+"Podcastien lataamista ei toistaiseksi sallita maksullisissa yhteyksissä "
 
 #: qml/Mobile/MobilePlayerControls.qml:24
 #, kde-format
@@ -1245,7 +1239,7 @@ msgstr "Ulkoasu"
 #: qml/Settings/GeneralSettingsPage.qml:33
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Väriteema"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -1446,10 +1440,9 @@ msgid "Network"
 msgstr "Verkko"
 
 #: qml/Settings/NetworkSettingsPage.qml:32
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "Maksullisissa yhteyksissä"
+msgstr "Tarkista verkkoyhteys"
 
 #: qml/Settings/NetworkSettingsPage.qml:42
 #, kde-format
@@ -1886,7 +1879,7 @@ msgstr "Keskeytä"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1 %"
 
 #: sync/sync.cpp:178
 #, kde-format
