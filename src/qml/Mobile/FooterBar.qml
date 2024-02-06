@@ -122,9 +122,10 @@ Flickable {
             background: MultiEffect {
                 source: backgroundImage
                 anchors.fill: parent
+                opacity: 0.2
 
-                brightness: 0.55
-                saturation: -0.4
+                brightness: 0.3
+                saturation: 2
                 contrast: -0.7
                 blurMax: 64
                 blur: 1.0
