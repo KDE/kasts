@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:36+0000\n"
-"PO-Revision-Date: 2024-01-21 14:11\n"
+"PO-Revision-Date: 2024-02-05 11:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -63,27 +63,27 @@ msgstr ""
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr ""
+msgstr "播客更新出错"
 
 #: error.cpp:50
 #, kde-format
 msgid "Media download error"
-msgstr ""
+msgstr "媒体下载出错"
 
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr ""
+msgstr "使用计费连接时不允许更新"
 
 #: error.cpp:54
 #, kde-format
 msgid "Invalid media file"
-msgstr ""
+msgstr "媒体文件无效"
 
 #: error.cpp:56
 #, kde-format
 msgid "Nothing found"
-msgstr ""
+msgstr "未找到任何内容"
 
 #: error.cpp:58
 #, kde-format
@@ -93,7 +93,7 @@ msgstr "移动存储路径时出错"
 #: error.cpp:60
 #, kde-format
 msgid "Error syncing feed and/or episode status"
-msgstr ""
+msgstr "同步订阅源和/或单集状态时出错"
 
 #: error.cpp:62
 #, kde-format
@@ -103,17 +103,17 @@ msgstr ""
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
 msgid "Example KMediaSession Player"
-msgstr ""
+msgstr "KMediaSession Player 示例"
 
 #: kmediasession/example-app/qml/Main.qml:72
 #, kde-format
 msgid "Select File…"
-msgstr ""
+msgstr "选择文件…"
 
 #: kmediasession/example-app/qml/Main.qml:78
 #, kde-format
 msgid "Select Media File"
-msgstr ""
+msgstr "选择媒体文件"
 
 #: kmediasession/example-app/qml/Main.qml:85
 #, kde-format
@@ -150,32 +150,32 @@ msgstr ""
 #: kmediasession/example-app/qml/Main.qml:174
 #, kde-format
 msgid "Title: %1"
-msgstr ""
+msgstr "标题：%1"
 
 #: kmediasession/example-app/qml/Main.qml:177
 #, kde-format
 msgid "Artist: %1"
-msgstr ""
+msgstr "艺人：%1"
 
 #: kmediasession/example-app/qml/Main.qml:180
 #, kde-format
 msgid "Album: %1"
-msgstr ""
+msgstr "专辑：%1"
 
 #: kmediasession/example-app/qml/Main.qml:191
 #, kde-format
 msgid "Media status: %1"
-msgstr ""
+msgstr "媒体状态: %1"
 
 #: kmediasession/example-app/qml/Main.qml:194
 #, kde-format
 msgid "Playback status: %1"
-msgstr ""
+msgstr "回放状态：%1"
 
 #: kmediasession/example-app/qml/Main.qml:197
 #, kde-format
 msgid "Error: %1"
-msgstr ""
+msgstr "错误：%1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
@@ -212,7 +212,7 @@ msgstr "播客播放器"
 #: main.cpp:123
 #, kde-format
 msgid "© 2020–2023 KDE Community"
-msgstr ""
+msgstr "© 2020-2023 KDE 社区"
 
 #: main.cpp:124
 #, kde-format
@@ -228,19 +228,19 @@ msgstr "Bart De Vries"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr ""
+msgstr "没有过滤条件"
 
 #: models/abstractepisodeproxymodel.cpp:186
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr ""
+msgstr "已播放的单集："
 
 #: models/abstractepisodeproxymodel.cpp:188
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr ""
+msgstr "未播放的单集："
 
 #: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
@@ -282,69 +282,69 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr ""
+msgstr "播客标题"
 
 #: models/abstractepisodeproxymodel.cpp:220
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "日期：新的在前"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "日期：旧的在前"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr ""
+msgstr "未播放计数：降序排列"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "未播放计数：升序排列"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "新计数：降序排列"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "新计数：升序排列"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "收藏计数：降序排列"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "收藏计数：升序排列"
 
 #: models/feedsproxymodel.cpp:132
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr ""
+msgstr "播客标题：A -> Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr ""
+msgstr "播客标题：Z -> A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -405,60 +405,60 @@ msgstr "总是允许"
 #: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
-msgstr ""
+msgstr "快退"
 
 #: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
-msgstr ""
+msgstr "快进"
 
 #: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
-msgstr ""
+msgstr "下一首"
 
 #: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
-msgstr ""
+msgstr "回放速度："
 
 #: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
-msgstr ""
+msgstr "显示章节列表"
 
 #: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr ""
+msgstr "显示剧集信息"
 
 #: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr ""
+msgstr "打开睡眠计时器设置"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr ""
+msgstr "打开音量设置"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr ""
+msgstr "切换静音"
 
 #: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr ""
+msgstr "显示更多"
 
 #: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
@@ -493,7 +493,7 @@ msgstr "无曲目标题"
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
-msgstr ""
+msgstr "未加载音轨"
 
 #: qml/DiscoverPage.qml:18 qml/KastsGlobalDrawer.qml:79
 #, kde-format
@@ -534,7 +534,7 @@ msgstr "刷新所有播客"
 #: qml/DownloadListPage.qml:55
 #, kde-format
 msgid "No downloads"
-msgstr ""
+msgstr "暂无下载"
 
 #: qml/DownloadListPage.qml:71
 #, kde-format
@@ -692,17 +692,17 @@ msgstr ""
 #: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:357
 #, kde-format
 msgid "No episodes available"
-msgstr ""
+msgstr "无可播放剧集"
 
 #: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
-msgstr ""
+msgstr "没有错误记录"
 
 #: qml/ErrorList.qml:62
 #, kde-format
 msgid "Error code:"
-msgstr ""
+msgstr "错误代码： "
 
 #: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:19
 #: qml/Settings/ErrorListPage.qml:22
@@ -761,7 +761,7 @@ msgstr "订阅开始时间：%1"
 #: qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "Last updated: %1"
-msgstr ""
+msgstr "上次更新时间：%1"
 
 #: qml/FeedDetailsPage.qml:335
 #, kde-format
@@ -807,19 +807,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr ""
+msgstr "添加播客..."
 
 #: qml/FeedListPage.qml:63
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "排序"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "选择如何排序订阅"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
