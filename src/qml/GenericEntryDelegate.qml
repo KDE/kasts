@@ -130,8 +130,9 @@ AddonDelegates.RoundedItemDelegate {
 
         acceptedModifiers: Qt.NoModifier
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+        exclusiveSignals: Kirigami.Settings.isMobile ? (TapHandler.SingleTap | TapHandler.DoubleTap) : TapHandler.NotExclusive
 
-        onTapped: (eventPoint, button) => {
+        onSingleTapped: (eventPoint, button) => {
 
             // Keep track of (currently) selected items
             const modelIndex = listItem.listViewObject.model.index(index, 0);
