@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:36+0000\n"
+"POT-Creation-Date: 2024-02-07 00:37+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -495,7 +495,7 @@ msgid "Open sleep timer settings"
 msgstr "Abrir a Configuração do Alarme"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
-#: qml/Mobile/MobilePlayerControls.qml:347
+#: qml/Mobile/MobilePlayerControls.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Volume Settings"
@@ -504,7 +504,7 @@ msgid "Open volume settings"
 msgstr "Abrir a Configuração do Volume"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
-#: qml/Mobile/MobilePlayerControls.qml:377
+#: qml/Mobile/MobilePlayerControls.qml:378
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Toggle Mute"
@@ -544,13 +544,13 @@ msgid "Chapters"
 msgstr "Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
-#: qml/Mobile/MobilePlayerControls.qml:174
+#: qml/Mobile/MobilePlayerControls.qml:175
 #, kde-format
 msgid "No Track Title"
 msgstr "Nenhum Título da Faixa"
 
 #: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:184
+#: qml/Mobile/MobilePlayerControls.qml:185
 #, fuzzy, kde-format
 #| msgid "No Track Loaded"
 msgid "No track loaded"
@@ -1200,18 +1200,18 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr "Nenhuma Faixa Carregada"
 
-#: qml/Mobile/MobilePlayerControls.qml:144
+#: qml/Mobile/MobilePlayerControls.qml:145
 #, kde-format
 msgid "No Title"
 msgstr "Sem Título"
 
-#: qml/Mobile/MobilePlayerControls.qml:152
+#: qml/Mobile/MobilePlayerControls.qml:153
 #, fuzzy, kde-format
 #| msgid "No Podcast Title"
 msgid "No podcast title"
 msgstr "Sem Título do 'Podcast'"
 
-#: qml/Mobile/MobilePlayerControls.qml:218
+#: qml/Mobile/MobilePlayerControls.qml:219
 #, fuzzy, kde-format
 #| msgid "No chapters found."
 msgid "No chapters found"

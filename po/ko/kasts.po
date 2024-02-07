@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:36+0000\n"
+"POT-Creation-Date: 2024-02-07 00:37+0000\n"
 "PO-Revision-Date: 2023-10-08 22:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -446,14 +446,14 @@ msgid "Open sleep timer settings"
 msgstr "수면 타이머 설정 열기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
-#: qml/Mobile/MobilePlayerControls.qml:347
+#: qml/Mobile/MobilePlayerControls.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "음량 설정 열기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
-#: qml/Mobile/MobilePlayerControls.qml:377
+#: qml/Mobile/MobilePlayerControls.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -489,13 +489,13 @@ msgid "Chapters"
 msgstr "챕터"
 
 #: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
-#: qml/Mobile/MobilePlayerControls.qml:174
+#: qml/Mobile/MobilePlayerControls.qml:175
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
 #: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:184
+#: qml/Mobile/MobilePlayerControls.qml:185
 #, kde-format
 msgid "No track loaded"
 msgstr "불러온 트랙 없음"
@@ -1119,17 +1119,17 @@ msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
 msgid "No Track Loaded"
 msgstr "불러온 트랙 없음"
 
-#: qml/Mobile/MobilePlayerControls.qml:144
+#: qml/Mobile/MobilePlayerControls.qml:145
 #, kde-format
 msgid "No Title"
 msgstr "제목 없음"
 
-#: qml/Mobile/MobilePlayerControls.qml:152
+#: qml/Mobile/MobilePlayerControls.qml:153
 #, kde-format
 msgid "No podcast title"
 msgstr "팟캐스트 제목 없음"
 
-#: qml/Mobile/MobilePlayerControls.qml:218
+#: qml/Mobile/MobilePlayerControls.qml:219
 #, kde-format
 msgid "No chapters found"
 msgstr "챕터를 찾을 수 없음"

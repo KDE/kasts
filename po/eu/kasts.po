@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:36+0000\n"
+"POT-Creation-Date: 2024-02-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-13 10:23+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -447,14 +447,14 @@ msgid "Open sleep timer settings"
 msgstr "Ireki lokartzeko tenporizadorearen ezarpenak"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
-#: qml/Mobile/MobilePlayerControls.qml:347
+#: qml/Mobile/MobilePlayerControls.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Ireki bolumenaren ezarpenak"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
-#: qml/Mobile/MobilePlayerControls.qml:377
+#: qml/Mobile/MobilePlayerControls.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -490,13 +490,13 @@ msgid "Chapters"
 msgstr "Atalak"
 
 #: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
-#: qml/Mobile/MobilePlayerControls.qml:174
+#: qml/Mobile/MobilePlayerControls.qml:175
 #, kde-format
 msgid "No Track Title"
 msgstr "Pistaren titulurik ez"
 
 #: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
-#: qml/Mobile/MobilePlayerControls.qml:184
+#: qml/Mobile/MobilePlayerControls.qml:185
 #, kde-format
 msgid "No track loaded"
 msgstr "Ez da pistarik zamatu"
@@ -1127,17 +1127,17 @@ msgstr ""
 msgid "No Track Loaded"
 msgstr "Ez da pistarik zamatu"
 
-#: qml/Mobile/MobilePlayerControls.qml:144
+#: qml/Mobile/MobilePlayerControls.qml:145
 #, kde-format
 msgid "No Title"
 msgstr "Izenbururik ez"
 
-#: qml/Mobile/MobilePlayerControls.qml:152
+#: qml/Mobile/MobilePlayerControls.qml:153
 #, kde-format
 msgid "No podcast title"
 msgstr "Podcast izenbururik ez"
 
-#: qml/Mobile/MobilePlayerControls.qml:218
+#: qml/Mobile/MobilePlayerControls.qml:219
 #, kde-format
 msgid "No chapters found"
 msgstr "Ez da atalik aurkitu"
