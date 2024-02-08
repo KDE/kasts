@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 02:21+0000\n"
+"POT-Creation-Date: 2024-02-08 02:28+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -117,13 +117,13 @@ msgid "Open"
 msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:365
 #, kde-format
 msgid "Play"
 msgstr "ਚਲਾਓ"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:388
 #, kde-format
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
@@ -989,48 +989,48 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Played"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Read"
 msgstr "ਪੜ੍ਹਨ"
 
-#: qml/GenericEntryDelegate.qml:223
+#: qml/GenericEntryDelegate.qml:224
 #, kde-format
 msgid "New"
 msgstr "ਨਵਾਂ"
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:325 qml/GenericEntryListView.qml:262
 #, kde-format
 msgid "Remove from Queue"
 msgstr "ਕਤਾਰ ਵਿੱਚੋਂ ਹਟਾਓ"
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Download"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, kde-format
 msgid "Cancel Download"
 msgstr "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:351
 #, fuzzy, kde-format
 #| msgid "Delete Download"
 msgid "Delete Download"
 msgstr "ਡਾਊਨਲੋਡ ਨੂੰ ਹਟਾਓ"
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:252
 #, kde-format
 msgid "Add to Queue"
 msgstr "ਕਤਾਰ ਵਿੱਚ ਜੋੜੋ"
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:375 qml/GenericEntryListView.qml:341
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

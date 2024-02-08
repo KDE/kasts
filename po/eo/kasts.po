@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 02:21+0000\n"
+"POT-Creation-Date: 2024-02-08 02:28+0000\n"
 "PO-Revision-Date: 2024-01-03 14:17+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -114,13 +114,13 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:365
 #, kde-format
 msgid "Play"
 msgstr "Ludi"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:388
 #, kde-format
 msgid "Pause"
 msgstr "Paŭzo"
@@ -931,47 +931,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Aktiva filtrilo: %1"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Played"
 msgstr "Ludita"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Read"
 msgstr "Legi"
 
-#: qml/GenericEntryDelegate.qml:223
+#: qml/GenericEntryDelegate.qml:224
 #, kde-format
 msgid "New"
 msgstr "Nova"
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:325 qml/GenericEntryListView.qml:262
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Forigi de Queue"
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Download"
 msgstr "Elŝuti"
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, kde-format
 msgid "Cancel Download"
 msgstr "Nuligi Elŝuton"
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:351
 #, kde-format
 msgid "Delete Download"
 msgstr "Forigi Elŝuton"
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:252
 #, kde-format
 msgid "Add to Queue"
 msgstr "Aldoni al Vico"
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:375 qml/GenericEntryListView.qml:341
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

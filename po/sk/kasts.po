@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 02:21+0000\n"
+"POT-Creation-Date: 2024-02-08 02:28+0000\n"
 "PO-Revision-Date: 2023-12-05 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -113,13 +113,13 @@ msgid "Open"
 msgstr "Otvoriť"
 
 #: kmediasession/example-app/qml/main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:365
 #, kde-format
 msgid "Play"
 msgstr "Prehrať"
 
 #: kmediasession/example-app/qml/main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:128 qml/GenericEntryDelegate.qml:388
 #, kde-format
 msgid "Pause"
 msgstr "Pozastaviť"
@@ -983,51 +983,51 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Aktívny filter: %1"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, fuzzy, kde-format
 #| msgid "Play"
 msgid "Played"
 msgstr "Prehrať"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Read"
 msgstr "Prečítané"
 
-#: qml/GenericEntryDelegate.qml:223
+#: qml/GenericEntryDelegate.qml:224
 #, fuzzy, kde-format
 #| msgid "new"
 msgid "New"
 msgstr "Nové"
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:325 qml/GenericEntryListView.qml:262
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Odstrániť z poradia"
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:334 qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Download"
 msgstr "Stiahnuť"
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:344
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Cancel Download"
 msgstr "Stiahnuť"
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:351
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Delete Download"
 msgstr "Stiahnuť"
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:252
 #, kde-format
 msgid "Add to Queue"
 msgstr "Pridať do poradia"
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:375 qml/GenericEntryListView.qml:341
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
