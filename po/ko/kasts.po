@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# Shinjo Park <kde@peremen.name>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-08 02:28+0000\n"
-"PO-Revision-Date: 2023-10-08 22:50+0200\n"
+"PO-Revision-Date: 2024-02-10 00:29+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,16 +28,14 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: audiomanager.cpp:399
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "연결되지 않았거나 종량제 연결에서 스트리밍이 허용되지 않음"
+msgstr "종량제 연결에서 스트리밍이 허용되지 않음"
 
 #: audiomanager.cpp:408 enclosure.cpp:169 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "종량제 연결에서"
+msgstr "네트워크 연결 없음"
 
 #: audiomanager.cpp:548
 #, kde-format
@@ -45,8 +43,7 @@ msgid "Invalid Media"
 msgstr "잘못된 미디어"
 
 #: enclosure.cpp:165
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
 
@@ -86,10 +83,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "피드 및 에피소드 상태 동기화 오류"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "종량제 연결에서 업데이트가 허용되지 않음"
+msgstr "종량제 연결에서 스트리밍이 허용되지 않음"
 
 #: kmediasession/example-app/qml/main.qml:20
 #, kde-format
@@ -353,15 +349,13 @@ msgid "Add Podcast"
 msgstr "팟캐스트 추가"
 
 #: qml/ConnectionCheckAction.qml:21
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 업데이트가 허용되지 않음"
 
 #: qml/ConnectionCheckAction.qml:55
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "옵션 선택"
@@ -370,7 +364,7 @@ msgstr "옵션 선택"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "네트워크에 접근할 수 없음"
 
 #: qml/ConnectionCheckAction.qml:66
 #, kde-format
@@ -379,6 +373,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"네트워크에 접근할 수 없는 것 같습니다. 검사가 잘못되었으면 설정 > 네트워크에"
+"서 비활성화할 수 있습니다."
 
 #: qml/ConnectionCheckAction.qml:84
 #, kde-format
@@ -1095,8 +1091,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
 #: qml/main.qml:432
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
@@ -1219,7 +1214,7 @@ msgstr "모양"
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "색 테마"
 
 #: qml/Settings/GeneralSettingsPage.qml:48
 #, kde-format
@@ -1419,10 +1414,9 @@ msgid "Network"
 msgstr "네트워크"
 
 #: qml/Settings/NetworkSettingsPage.qml:31
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "종량제 연결에서"
+msgstr "네트워크 연결 확인 활성화"
 
 #: qml/Settings/NetworkSettingsPage.qml:41
 #, kde-format
