@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-08 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 22:18+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -197,7 +197,7 @@ msgstr "Aboneliklere yeni bir pod yayını ekler."
 #: main.cpp:114
 #, kde-format
 msgid "Podcast URL"
-msgstr "Pod Yayını URL'si"
+msgstr "Pod Yayını URL’si"
 
 #: main.cpp:119 qml/Main.qml:25
 #, kde-format
@@ -507,7 +507,7 @@ msgstr "Keşfet"
 #: qml/DiscoverPage.qml:27
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr "podcastindex.org'da ara"
+msgstr "podcastindex.org’da ara"
 
 #: qml/DiscoverPage.qml:37
 #, kde-format
@@ -673,7 +673,7 @@ msgstr "Pod Yayını Aç"
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr "Bölüm İndirme URL'sini Kopyala"
+msgstr "Bölüm İndirme URL’sini Kopyala"
 
 #: qml/EntryPage.qml:296
 #, kde-format
@@ -750,7 +750,7 @@ msgstr "Ayrıntıları Göster"
 #: qml/FeedDetailsPage.qml:241
 #, kde-format
 msgid "Podcast URL:"
-msgstr "Pod Yayını URL'si:"
+msgstr "Pod Yayını URL’si:"
 
 #: qml/FeedDetailsPage.qml:281
 #, kde-format
@@ -1698,7 +1698,7 @@ msgid ""
 "interface and use those credentials."
 msgstr ""
 "GPodder Sync uygulaması kurulu bir Nextcloud sunucusu ile eşzamanla: %1.<br/"
-">Web arabiriminden Kastlar'a özel bir uygulama parolası oluşturulması ve "
+">Web arabiriminden Kastlar’a özel bir uygulama parolası oluşturulması ve "
 "onun kullanılması önerilir."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
