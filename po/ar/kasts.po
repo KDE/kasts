@@ -1,22 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-08 00:37+0000\n"
-"PO-Revision-Date: 2023-08-19 16:45+0400\n"
+"PO-Revision-Date: 2024-02-12 14:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,16 +29,14 @@ msgid "Your emails"
 msgstr "alfadhel.a@gmail.com"
 
 #: audiomanager.cpp:397
-#, fuzzy, kde-format
-#| msgid "No connection or streaming on metered connection not allowed"
+#, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "لا يوجد اتصال أو البث غير مسموح به على الاتصال المقيد"
+msgstr "البث غير مسموح به على الاتصال المقيد"
 
 #: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "No network connection"
-msgstr "على اتصالات مقيدة"
+msgstr "لا اتّصال بالشّبكة"
 
 #: audiomanager.cpp:546
 #, kde-format
@@ -46,8 +44,7 @@ msgid "Invalid Media"
 msgstr "وسائط غير صحيحة"
 
 #: enclosure.cpp:165
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "تنزيلات المدونة الصوتية غير مسموح به على الاتصال المقيد"
 
@@ -55,13 +52,13 @@ msgstr "تنزيلات المدونة الصوتية غير مسموح به عل
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 و %2"
 
 #: entry.cpp:103 feed.cpp:120
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1، و %2"
 
 #: error.cpp:48
 #, kde-format
@@ -99,10 +96,9 @@ msgid "Error syncing feed and/or episode status"
 msgstr "خطا أثناء مزامنة التغذية مع أو حالة الحلقة"
 
 #: error.cpp:62
-#, fuzzy, kde-format
-#| msgid "Update not allowed on metered connection"
+#, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "التحديث غير مسموح به على الاتصال المحدود"
+msgstr "البث غير مسموح به على الاتصال المحدود"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -366,15 +362,13 @@ msgid "Add Podcast"
 msgstr "إضافة مدونة صوتية"
 
 #: qml/ConnectionCheckAction.qml:22
-#, fuzzy, kde-format
-#| msgid "Podcast updates are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "تحديثات المدونات الصوتية غير مسموح به على الاتصال المقيد"
 
 #: qml/ConnectionCheckAction.qml:56
-#, fuzzy, kde-format
-#| msgid "Select Option"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "اختر خيار"
@@ -383,7 +377,7 @@ msgstr "اختر خيار"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "الشبكة غير قابلة للوصول"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -392,6 +386,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"يبدو أنه لا يمكن الوصول إلى الشبكة. إذا كان هذا غير صحيح، فيمكن تعطيل هذا "
+"التحقق من خلال: الإعدادات > الشبكة."
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -1139,8 +1135,7 @@ msgstr[4] "نقل %1 ملف من أصل %2"
 msgstr[5] "نقل %1 ملف من أصل %2"
 
 #: qml/Main.qml:316
-#, fuzzy, kde-format
-#| msgid "Podcast downloads are currently not allowed on metered connections"
+#, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "تنزيلات المدونة الصوتية غير مسموح به على الاتصال المقيد"
@@ -1268,7 +1263,7 @@ msgstr "المظهر"
 #: qml/Settings/GeneralSettingsPage.qml:33
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "سمة الألوان"
 
 #: qml/Settings/GeneralSettingsPage.qml:49
 #, kde-format
@@ -1468,10 +1463,9 @@ msgid "Network"
 msgstr "الشبكة"
 
 #: qml/Settings/NetworkSettingsPage.qml:32
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgid "Enable network connection checks"
-msgstr "على اتصالات مقيدة"
+msgstr "مكّن عمليات التحقق من اتصال الشبكة"
 
 #: qml/Settings/NetworkSettingsPage.qml:42
 #, kde-format
@@ -1629,7 +1623,7 @@ msgstr "مزامنة كاملة عند جلب المدونات الصوتية"
 #: qml/Settings/SynchronizationSettingsPage.qml:109
 #, kde-format
 msgid "Upload episode play positions on play/pause toggle"
-msgstr ""
+msgstr "حمّل مواضع تشغيل الحلقة عند تشغيل/اللبث"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
 #, kde-format
@@ -1725,6 +1719,9 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"قم بالمزامنة مع خادم نكست كلاود المثبت عليه تطبيق GPodder Sync: %1.<br/>يُنصح "
+"بإنشاء كلمة مرور التطبيق يدويًا لكاستس من خلال واجهة الويب واستخدام بيانات "
+"الاعتماد هذه."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
 #, kde-format
@@ -1825,6 +1822,9 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"هل يجب مزامنة كافة اشتراكات البودكاست الموجودة على حساب gpodder.net عبر كافة "
+"الأجهزة؟\n"
+"إذا كنت لا تعرف ما يعنيه هذا، فمن الأفضل أن تختار \"موافق\"."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
 #, kde-format
@@ -1886,12 +1886,12 @@ msgstr "مزامنة كلمة المرور اجباري"
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
-msgstr ""
+msgstr "تعذر استرداد كلمة المرور للمستخدم \"%1\" على خادم نكست كلاود \"%2\"."
 
 #: qml/SyncPasswordOverlay.qml:50
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
-msgstr ""
+msgstr "تعذر استرداد كلمة المرور للمستخدم \"%1\" على \"gpodder.net\"."
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
@@ -1902,7 +1902,7 @@ msgstr "احباط"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1٪"
 
 #: sync/sync.cpp:178
 #, kde-format
@@ -2085,6 +2085,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"كاستس\n"
+"انقر بالزر الأوسط للتشغيل/التوقف"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
