@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "Sync", &Sync::instance());
     qmlRegisterSingletonInstance("org.kde.kasts", 1, 0, "SystrayIcon", &SystrayIcon::instance());
     qmlRegisterSingletonInstance<ColorSchemer>("org.kde.kasts", 1, 0, "ColorSchemer", &ColorSchemer::instance());
-    if (SettingsManager::self()->colorScheme().isEmpty()) {
+    if (!SettingsManager::self()->colorScheme().isEmpty()) {
         ColorSchemer::instance().apply(SettingsManager::self()->colorScheme());
     }
 
