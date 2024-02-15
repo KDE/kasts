@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 02:28+0000\n"
+"POT-Creation-Date: 2024-02-15 02:20+0000\n"
 "PO-Revision-Date: 2023-12-05 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -204,7 +204,7 @@ msgstr ""
 #: main.cpp:121
 #, fuzzy, kde-format
 #| msgid "© 2020-2021 KDE Community"
-msgid "© 2020–2023 KDE Community"
+msgid "© 2020–2024 KDE Community"
 msgstr "KDE komunita"
 
 #: main.cpp:122
