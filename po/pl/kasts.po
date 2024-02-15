@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 00:37+0000\n"
+"POT-Creation-Date: 2024-02-15 00:37+0000\n"
 "PO-Revision-Date: 2024-01-21 08:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -211,8 +211,9 @@ msgid "Podcast Player"
 msgstr "Odtwarzacz podkastów"
 
 #: main.cpp:123
-#, kde-format
-msgid "© 2020–2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2020–2023 KDE Community"
+msgid "© 2020–2024 KDE Community"
 msgstr "© 2020–2023 Społeczność KDE"
 
 #: main.cpp:124
@@ -903,7 +904,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Zsynchronizuj"
 
-#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:73
+#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:74
 #: qml/Mobile/BottomToolbar.qml:47
 #, kde-format
 msgid "Settings"
@@ -1100,7 +1101,7 @@ msgstr "Śledzone"
 msgid "Episodes"
 msgstr "Odcinki"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1109,7 +1110,7 @@ msgstr[0] "Uaktualniono %2 z %1 podkastu"
 msgstr[1] "Uaktualniono %2 z %1 podkastów"
 msgstr[2] "Uaktualniono %2 z %1 podkastów"
 
-#: qml/Main.qml:252
+#: qml/Main.qml:253
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1118,7 +1119,7 @@ msgstr[0] "Przeniesiono %2 z %1 pliku"
 msgstr[1] "Przeniesiono %2 z %1 plików"
 msgstr[2] "Przeniesiono %2 z %1 plików"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1232,72 +1233,100 @@ msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Poszukaj odcinków…"
 
-#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:47
+#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
 #, kde-format
 msgid "About"
 msgstr "O programie"
 
-#: qml/Settings/GeneralSettingsPage.qml:23
+#: qml/Settings/AppearanceSettingsPage.qml:23 qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: qml/Settings/GeneralSettingsPage.qml:33
+#: qml/Settings/AppearanceSettingsPage.qml:33
 #, kde-format
 msgid "Color theme"
 msgstr "Zestaw barw"
 
-#: qml/Settings/GeneralSettingsPage.qml:49
+#: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
 msgid "Always show podcast titles in subscription view"
 msgstr "Zawsze pokazuj tytuły podkastów w widoku śledzonych"
 
-#: qml/Settings/GeneralSettingsPage.qml:63
+#: qml/Settings/AppearanceSettingsPage.qml:59
+#, fuzzy, kde-format
+#| msgctxt "Label for selecting the color of the tray icon"
+#| msgid "Tray icon type"
+msgctxt "@title Title header for settings related to the tray icon"
+msgid "Tray icon"
+msgstr "Rodzaj ikonu na tacce systemowej"
+
+#: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
 msgid "Show icon in system tray"
 msgstr "Pokaż ikonę na tacce systemowej"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/AppearanceSettingsPage.qml:82
 #, kde-format
 msgid "Minimize to tray instead of closing"
 msgstr "Zminimalizuj na tackę systemową zamiast zamykać"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Rodzaj ikonu na tacce systemowej"
 
-#: qml/Settings/GeneralSettingsPage.qml:92
+#: qml/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Kolorowy"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Jasna"
 
-#: qml/Settings/GeneralSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:101
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Ciemna"
 
-#: qml/Settings/GeneralSettingsPage.qml:104
+#: qml/Settings/AppearanceSettingsPage.qml:111
+#, kde-format
+msgid "Text"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:121
+#, kde-format
+msgid "Use system default"
+msgstr "Użyj domyślnej systemu"
+
+#: qml/Settings/AppearanceSettingsPage.qml:133
+#, kde-format
+msgid "Font size"
+msgstr "Rozmiar czcionki"
+
+#: qml/Settings/AppearanceSettingsPage.qml:140
+#, kde-format
+msgid "Font size:"
+msgstr "Rozmiar czcionki:"
+
+#: qml/Settings/GeneralSettingsPage.qml:23
 #, kde-format
 msgid "Playback settings"
 msgstr "Ustawienia odtwarzania"
 
-#: qml/Settings/GeneralSettingsPage.qml:113
+#: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Wybierz silnik dźwiękowy"
 
-#: qml/Settings/GeneralSettingsPage.qml:143
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -1305,142 +1334,122 @@ msgctxt ""
 msgid "Play time:"
 msgstr "Czas odtwarzania:"
 
-#: qml/Settings/GeneralSettingsPage.qml:145
+#: qml/Settings/GeneralSettingsPage.qml:64
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Pokaż pozostały czas zamiast całkowitego czasu nagrania"
 
-#: qml/Settings/GeneralSettingsPage.qml:155
+#: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr "Dostosuj pozostały czas na podstawie bieżącej szybkości odtwarzania"
 
-#: qml/Settings/GeneralSettingsPage.qml:164
+#: qml/Settings/GeneralSettingsPage.qml:83
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Przedkładaj strumieniowanie nad pobieranie"
 
-#: qml/Settings/GeneralSettingsPage.qml:176
+#: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "Odstęp, o który przewinąć do przodu (w sekundach)"
 
-#: qml/Settings/GeneralSettingsPage.qml:190
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "Odstęp, o który przewinąć do tyłu (w sekundach)"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
 msgid "Queue settings"
 msgstr "Ustawienia kolejki"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Kontynuuj odtwarzanie następnego odcinka po zakończeniu bieżącego"
 
-#: qml/Settings/GeneralSettingsPage.qml:223
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Ustawienia uaktualniania:"
 
-#: qml/Settings/GeneralSettingsPage.qml:225
+#: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Samoczynnie uaktualnij podkasty po uruchomieniu"
 
-#: qml/Settings/GeneralSettingsPage.qml:234
+#: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Uaktualnij dane istniejącego odcinka przy odświeżeniu (wolniejsze)"
 
-#: qml/Settings/GeneralSettingsPage.qml:244
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Samoczynnie zakolejkuj nowe odcinki"
 
-#: qml/Settings/GeneralSettingsPage.qml:259
+#: qml/Settings/GeneralSettingsPage.qml:178
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Samoczynnie pobierz nowe odcinki"
 
-#: qml/Settings/GeneralSettingsPage.qml:272
+#: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Postępowanie z odtworzonymi odcinkami"
 
-#: qml/Settings/GeneralSettingsPage.qml:275
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgid "Do not delete"
 msgstr "Nie usuwaj"
 
-#: qml/Settings/GeneralSettingsPage.qml:276
+#: qml/Settings/GeneralSettingsPage.qml:195
 #, kde-format
 msgid "Delete immediately"
 msgstr "Usuń trwale"
 
-#: qml/Settings/GeneralSettingsPage.qml:277
+#: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Delete at next startup"
 msgstr "Usuń przy następnym uruchomieniu"
 
-#: qml/Settings/GeneralSettingsPage.qml:289
+#: qml/Settings/GeneralSettingsPage.qml:208
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
 "Oznacz odcinek jako odtworzony, gdy pozostało tyle sekund do jego końca"
 
-#: qml/Settings/GeneralSettingsPage.qml:308
+#: qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Wyzeruj miejsce odtwarzania po odtworzeniu odcinka"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "Przy dodawaniu nowego podkastu"
 
-#: qml/Settings/GeneralSettingsPage.qml:326
+#: qml/Settings/GeneralSettingsPage.qml:245
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Oznacz wszystkie odcinki jako odtworzone"
 
-#: qml/Settings/GeneralSettingsPage.qml:337
+#: qml/Settings/GeneralSettingsPage.qml:256
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Oznacz najświeższe odcinki jako nieodtworzone"
 
-#: qml/Settings/GeneralSettingsPage.qml:360
+#: qml/Settings/GeneralSettingsPage.qml:279
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Oznacz wszystkie odcinki jako nieodtworzone"
 
-#: qml/Settings/GeneralSettingsPage.qml:369
-#, kde-format
-msgid "Article"
-msgstr "Artykuł"
-
-#: qml/Settings/GeneralSettingsPage.qml:378
-#, kde-format
-msgid "Font size"
-msgstr "Rozmiar czcionki"
-
-#: qml/Settings/GeneralSettingsPage.qml:385
-#, kde-format
-msgid "Font size:"
-msgstr "Rozmiar czcionki:"
-
-#: qml/Settings/GeneralSettingsPage.qml:401
-#, kde-format
-msgid "Use system default"
-msgstr "Użyj domyślnej systemu"
-
-#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:29
+#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Network"
 msgstr "Sieć"
@@ -1480,17 +1489,17 @@ msgstr "Zezwól na strumieniowanie"
 msgid "General"
 msgstr "Ogólne"
 
-#: qml/Settings/SettingsPage.qml:23
+#: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgid "Storage"
 msgstr "Przestrzeń dyskowa"
 
-#: qml/Settings/SettingsPage.qml:35
+#: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Synchronization"
 msgstr "Synchronizacja"
 
-#: qml/Settings/SettingsPage.qml:41
+#: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Error Log"
 msgstr "Dziennik błędów"
@@ -2107,6 +2116,9 @@ msgstr "Przejdź do przodu"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Article"
+#~ msgstr "Artykuł"
 
 #~ msgid "Podcast downloads not allowed due to user setting"
 #~ msgstr ""

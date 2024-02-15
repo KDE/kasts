@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-08 00:37+0000\n"
+"POT-Creation-Date: 2024-02-15 00:37+0000\n"
 "PO-Revision-Date: 2024-01-13 15:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -213,8 +213,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de pòdcast"
 
 #: main.cpp:123
-#, kde-format
-msgid "© 2020–2023 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2020–2023 KDE Community"
+msgid "© 2020–2024 KDE Community"
 msgstr "© 2020–2023 La comunitat KDE"
 
 #: main.cpp:124
@@ -904,7 +905,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
-#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:73
+#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:74
 #: qml/Mobile/BottomToolbar.qml:47
 #, kde-format
 msgid "Settings"
@@ -1099,7 +1100,7 @@ msgstr "Subscripcions"
 msgid "Episodes"
 msgstr "Episodis"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1107,7 +1108,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 actualitzat de %1 pòdcast"
 msgstr[1] "%2 actualitzats de %1 pòdcast"
 
-#: qml/Main.qml:252
+#: qml/Main.qml:253
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1115,7 +1116,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/Main.qml:316
+#: qml/Main.qml:317
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1229,72 +1230,100 @@ msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Busca episodis…"
 
-#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:47
+#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
 #, kde-format
 msgid "About"
 msgstr "Quant a"
 
-#: qml/Settings/GeneralSettingsPage.qml:23
+#: qml/Settings/AppearanceSettingsPage.qml:23 qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgid "Appearance"
 msgstr "Aparença"
 
-#: qml/Settings/GeneralSettingsPage.qml:33
+#: qml/Settings/AppearanceSettingsPage.qml:33
 #, kde-format
 msgid "Color theme"
 msgstr "Tema de color"
 
-#: qml/Settings/GeneralSettingsPage.qml:49
+#: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
 msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre els títols dels pòdcast en la vista de subscripcions"
 
-#: qml/Settings/GeneralSettingsPage.qml:63
+#: qml/Settings/AppearanceSettingsPage.qml:59
+#, fuzzy, kde-format
+#| msgctxt "Label for selecting the color of the tray icon"
+#| msgid "Tray icon type"
+msgctxt "@title Title header for settings related to the tray icon"
+msgid "Tray icon"
+msgstr "Tipus d'icona de la safata del sistema"
+
+#: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
 msgid "Show icon in system tray"
 msgstr "Mostra la icona en la safata del sistema"
 
-#: qml/Settings/GeneralSettingsPage.qml:75
+#: qml/Settings/AppearanceSettingsPage.qml:82
 #, kde-format
 msgid "Minimize to tray instead of closing"
 msgstr "Minimitza a la safata del sistema en lloc de tancar"
 
-#: qml/Settings/GeneralSettingsPage.qml:87
+#: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
 msgctxt "Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tipus d'icona de la safata del sistema"
 
-#: qml/Settings/GeneralSettingsPage.qml:92
+#: qml/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Acolorit"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Clar"
 
-#: qml/Settings/GeneralSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:101
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Fosc"
 
-#: qml/Settings/GeneralSettingsPage.qml:104
+#: qml/Settings/AppearanceSettingsPage.qml:111
+#, kde-format
+msgid "Text"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:121
+#, kde-format
+msgid "Use system default"
+msgstr "Utilitza la predeterminada del sistema"
+
+#: qml/Settings/AppearanceSettingsPage.qml:133
+#, kde-format
+msgid "Font size"
+msgstr "Mida de la lletra"
+
+#: qml/Settings/AppearanceSettingsPage.qml:140
+#, kde-format
+msgid "Font size:"
+msgstr "Mida de la lletra:"
+
+#: qml/Settings/GeneralSettingsPage.qml:23
 #, kde-format
 msgid "Playback settings"
 msgstr "Configureu la reproducció"
 
-#: qml/Settings/GeneralSettingsPage.qml:113
+#: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgctxt "Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Seleccioneu el dorsal d'àudio"
 
-#: qml/Settings/GeneralSettingsPage.qml:143
+#: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgctxt ""
 "Label for settings related to the play time, e.g. whether the total track "
@@ -1302,143 +1331,123 @@ msgctxt ""
 msgid "Play time:"
 msgstr "Temps de reproducció:"
 
-#: qml/Settings/GeneralSettingsPage.qml:145
+#: qml/Settings/GeneralSettingsPage.qml:64
 #, kde-format
 msgid "Show time left instead of total track time"
 msgstr "Mostra el temps restant en lloc del temps total de la peça"
 
-#: qml/Settings/GeneralSettingsPage.qml:155
+#: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 "Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
-#: qml/Settings/GeneralSettingsPage.qml:164
+#: qml/Settings/GeneralSettingsPage.qml:83
 #, kde-format
 msgid "Prioritize streaming over downloading"
 msgstr "Prioritza la transmissió en continu sobre la baixada"
 
-#: qml/Settings/GeneralSettingsPage.qml:176
+#: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "Interval de salt cap avant (en segons)"
 
-#: qml/Settings/GeneralSettingsPage.qml:190
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "Interval de salt cap arrere (en segons)"
 
-#: qml/Settings/GeneralSettingsPage.qml:205
+#: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
 msgid "Queue settings"
 msgstr "Configureu la cua"
 
-#: qml/Settings/GeneralSettingsPage.qml:215
+#: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format
 msgid "Continue playing next episode after current one finishes"
 msgstr "Continua reproduint l'episodi següent una vegada finalitze l'actual"
 
-#: qml/Settings/GeneralSettingsPage.qml:223
+#: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
 msgctxt "Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Configureu l'actualització:"
 
-#: qml/Settings/GeneralSettingsPage.qml:225
+#: qml/Settings/GeneralSettingsPage.qml:144
 #, kde-format
 msgid "Automatically fetch podcast updates on startup"
 msgstr "Obtín automàticament a l'inici les actualitzacions dels pòdcast"
 
-#: qml/Settings/GeneralSettingsPage.qml:234
+#: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Actualitza les dades dels episodis existents en actualitzar (més lent)"
 
-#: qml/Settings/GeneralSettingsPage.qml:244
+#: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
 msgid "Automatically queue new episodes"
 msgstr "Posa automàticament a la cua els episodis nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:259
+#: qml/Settings/GeneralSettingsPage.qml:178
 #, kde-format
 msgid "Automatically download new episodes"
 msgstr "Baixa automàticament els episodis nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:272
+#: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
 msgid "Played episode behavior"
 msgstr "Comportament dels episodis reproduïts"
 
-#: qml/Settings/GeneralSettingsPage.qml:275
+#: qml/Settings/GeneralSettingsPage.qml:194
 #, kde-format
 msgid "Do not delete"
 msgstr "No els suprimisques"
 
-#: qml/Settings/GeneralSettingsPage.qml:276
+#: qml/Settings/GeneralSettingsPage.qml:195
 #, kde-format
 msgid "Delete immediately"
 msgstr "Suprimix immediatament"
 
-#: qml/Settings/GeneralSettingsPage.qml:277
+#: qml/Settings/GeneralSettingsPage.qml:196
 #, kde-format
 msgid "Delete at next startup"
 msgstr "Suprimix-lo en l'inici següent"
 
-#: qml/Settings/GeneralSettingsPage.qml:289
+#: qml/Settings/GeneralSettingsPage.qml:208
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
 "Marca els episodis com a reproduïts quan reste el temps indicat (en segons)"
 
-#: qml/Settings/GeneralSettingsPage.qml:308
+#: qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
 msgid "Reset play position after an episode is played"
 msgstr "Restablix la posició de reproducció després de reproduir un episodi"
 
-#: qml/Settings/GeneralSettingsPage.qml:317
+#: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
 msgid "When adding new podcasts"
 msgstr "En afegir pòdcast nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:326
+#: qml/Settings/GeneralSettingsPage.qml:245
 #, kde-format
 msgid "Mark all episodes as played"
 msgstr "Marca tots els episodis com a reproduïts"
 
-#: qml/Settings/GeneralSettingsPage.qml:337
+#: qml/Settings/GeneralSettingsPage.qml:256
 #, kde-format
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marca els episodis més recents com a sense reproduir"
 
-#: qml/Settings/GeneralSettingsPage.qml:360
+#: qml/Settings/GeneralSettingsPage.qml:279
 #, kde-format
 msgid "Mark all episodes as unplayed"
 msgstr "Marca tots els episodis com a sense reproduir"
 
-#: qml/Settings/GeneralSettingsPage.qml:369
-#, kde-format
-msgid "Article"
-msgstr "Article"
-
-#: qml/Settings/GeneralSettingsPage.qml:378
-#, kde-format
-msgid "Font size"
-msgstr "Mida de la lletra"
-
-#: qml/Settings/GeneralSettingsPage.qml:385
-#, kde-format
-msgid "Font size:"
-msgstr "Mida de la lletra:"
-
-#: qml/Settings/GeneralSettingsPage.qml:401
-#, kde-format
-msgid "Use system default"
-msgstr "Utilitza la predeterminada del sistema"
-
-#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:29
+#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Network"
 msgstr "Xarxa"
@@ -1478,17 +1487,17 @@ msgstr "Permet la transmissió en continu"
 msgid "General"
 msgstr "General"
 
-#: qml/Settings/SettingsPage.qml:23
+#: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgid "Storage"
 msgstr "Emmagatzematge"
 
-#: qml/Settings/SettingsPage.qml:35
+#: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Synchronization"
 msgstr "Sincronització"
 
-#: qml/Settings/SettingsPage.qml:41
+#: qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Error Log"
 msgstr "Registre d'errors"
@@ -2109,3 +2118,6 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgid "Article"
+#~ msgstr "Article"
