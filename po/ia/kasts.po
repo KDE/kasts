@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the kasts package.
 #
 # SPDX-FileCopyrightText: 2023 giovanni <g.sora@tiscali.it>
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 02:20+0000\n"
-"PO-Revision-Date: 2023-11-09 15:15+0100\n"
+"PO-Revision-Date: 2024-02-15 12:16+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -198,10 +198,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de Podcast"
 
 #: main.cpp:121
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2023 Communitate de KDE"
+msgstr "© 2020–2024 Communitate de KDE"
 
 #: main.cpp:122
 #, kde-format
