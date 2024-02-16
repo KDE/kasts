@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 10:23+0100\n"
+"PO-Revision-Date: 2024-02-15 17:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -212,10 +212,9 @@ msgid "Podcast Player"
 msgstr "Podcast jotzailea"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2023 KDE komunitatea"
+msgstr "© 2020–2024 KDE Komunitatea"
 
 #: main.cpp:124
 #, kde-format
@@ -1250,12 +1249,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Erakutsi beti podcasten izenburuak harpidetza ikuspegian"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Erretiluko ikono mota"
+msgstr "Erretiluko ikonoa"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1294,7 +1291,7 @@ msgstr "Iluna"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "Testua"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 17:35+0100\n"
+"PO-Revision-Date: 2024-02-16 00:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -211,10 +211,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de pódcast"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 la Comunidad KDE"
+msgstr "© 2020-2024 la Comunidad KDE"
 
 #: main.cpp:124
 #, kde-format
@@ -1250,12 +1249,10 @@ msgstr ""
 "Mostrar siempre los títulos de los pódcast en la vista de suscripciones"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Tipo de icono de la bandeja del sistema"
+msgstr "Icono de la bandeja del sistema"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1294,7 +1291,7 @@ msgstr "Oscuro"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format

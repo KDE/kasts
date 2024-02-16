@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-14 21:16+0900\n"
+"PO-Revision-Date: 2024-02-15 17:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -212,10 +212,9 @@ msgid "Podcast Player"
 msgstr "Podcast 播放器"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2023 KDE 社群"
+msgstr "© 2020–2024 KDE 社群"
 
 #: main.cpp:124
 #, kde-format
@@ -1237,12 +1236,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "在訂閱檢視中總是顯示 Podcast 標題"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "系統匣圖示類型"
+msgstr "系統匣圖示"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1281,7 +1278,7 @@ msgstr "暗色"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format

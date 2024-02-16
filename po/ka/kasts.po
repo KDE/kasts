@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 04:49+0100\n"
+"PO-Revision-Date: 2024-02-15 05:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -210,10 +210,9 @@ msgid "Podcast Player"
 msgstr "პოდკასტის დამკვრელი"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 KDE-ის საზოგადოება"
+msgstr "© 2020-2024 KDE-ის საზოგადოება"
 
 #: main.cpp:124
 #, kde-format
@@ -1244,12 +1243,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "გამოწერის ხედში პოდკსტის სათაურების ყოველთვის ჩვენება"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "სისტემის კუთხეში ხატულის ტიპი"
+msgstr "სისტემის კუთხეში ხატულა"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1288,7 +1285,7 @@ msgstr "მუქი"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "ტექსტი"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format

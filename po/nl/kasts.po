@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-13 13:11+0100\n"
+"PO-Revision-Date: 2024-02-15 09:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -209,10 +209,9 @@ msgid "Podcast Player"
 msgstr "Podcastafspeler"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 De KDE gemeenschap"
+msgstr "© 2020-2024 De KDE gemeenschap"
 
 #: main.cpp:124
 #, kde-format
@@ -1243,12 +1242,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Altijd podcasttitels in inschrijvingenweergave tonen"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Type systeemvakpictogram"
+msgstr "Systeemvakpictogram"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1287,7 +1284,7 @@ msgstr "Donker"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format
