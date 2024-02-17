@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-23 13:59+0100\n"
+"PO-Revision-Date: 2024-02-16 18:17+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
@@ -210,10 +210,9 @@ msgid "Podcast Player"
 msgstr "Predvajalnik podcastov"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 Skupnost KDE"
+msgstr "© 2020-2024 Skupnost KDE"
 
 #: main.cpp:124
 #, kde-format
@@ -1258,12 +1257,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Vedno pokaži naslov podcasta v pogledu naročil"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Vrsta ikone pladnja"
+msgstr "Ikona pladnja"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1302,7 +1299,7 @@ msgstr "Temna"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "Besedilo"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format
