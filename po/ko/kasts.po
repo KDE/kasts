@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-02-10 00:29+0100\n"
+"PO-Revision-Date: 2024-02-17 12:42+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -209,10 +209,9 @@ msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2023 KDE Community"
+msgstr "© 2020–2024 KDE Community"
 
 #: main.cpp:124
 #, kde-format
@@ -1236,12 +1235,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "트레이 아이콘 형식"
+msgstr "트레이 아이콘"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1280,7 +1277,7 @@ msgstr "어두움"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "텍스트"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-14 10:49+0100\n"
+"PO-Revision-Date: 2024-02-16 09:16+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -211,10 +211,9 @@ msgid "Podcast Player"
 msgstr "Lettore di podcast"
 
 #: main.cpp:123
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 Comunità KDE"
+msgstr "© 2020–2024 Comunità KDE"
 
 #: main.cpp:124
 #, kde-format
@@ -1249,12 +1248,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre i titoli dei podcast nella vista delle sottoscrizioni"
 
 #: qml/Settings/AppearanceSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Tipo dell'icona nel vassoio di sistema"
+msgstr "Icona del vassoio di sistema"
 
 #: qml/Settings/AppearanceSettingsPage.qml:70
 #, kde-format
@@ -1293,7 +1290,7 @@ msgstr "Scuro"
 #: qml/Settings/AppearanceSettingsPage.qml:111
 #, kde-format
 msgid "Text"
-msgstr ""
+msgstr "Testo"
 
 #: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format
