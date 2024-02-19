@@ -420,7 +420,19 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
-    <release version="24.02.0" date="2024-02-28"/>
+    <release version="24.02.0" date="2024-02-28">
+      <url>https://kde.org/announcements/megarelease/6/#kasts</url>
+      <description>
+        <p>Highlights of changes in 24.02.0:</p>
+        <ul>
+          <li>Kasts has been ported to Qt6 and KDE Frameworks 6.</li>
+          <li>The color scheme can now be selected manually.</li>
+          <li>Fixed several bugs related to images and playback controls.</li>
+          <li>Network checks for metered connections can now be fully disabled.</li>
+          <li>Updating podcasts should now be significantly faster on slow hardware.</li>
+        </ul>
+      </description>
+    </release>
     <release version="23.08.5" date="2024-02-15"/>
     <release version="23.08.4" date="2023-12-07"/>
     <release version="23.08.3" date="2023-11-09"/>
