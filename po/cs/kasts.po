@@ -198,10 +198,9 @@ msgid "Podcast Player"
 msgstr "Přehrávač podcastů"
 
 #: main.cpp:121
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020-2023 Komunita KDE"
+msgstr ""
 
 #: main.cpp:122
 #, kde-format
