@@ -9,7 +9,10 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Multim
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 
 if (NOT ANDROID)
-    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Widgets)
+    if (NOT WIN32)
+        find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus)
+    endif()
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
 endif()
 
 find_package(LIBVLC)
@@ -79,14 +82,16 @@ ecm_qt_declare_logging_category(KMediaSession
 if(ANDROID)
     target_sources(KMediaSession PRIVATE androidlogging.h)
 else()
-    set(KMediaSession_dbus_srcs "")
-    qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
-    qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
-    target_sources(KMediaSession PRIVATE
-        mpris2/mediaplayer2.cpp
-        mpris2/mediaplayer2player.cpp
-        ${KMediaSession_dbus_srcs}
-    )
+    if (NOT WIN32)
+        set(KMediaSession_dbus_srcs "")
+        qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
+        qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+        target_sources(KMediaSession PRIVATE
+            mpris2/mediaplayer2.cpp
+            mpris2/mediaplayer2player.cpp
+            ${KMediaSession_dbus_srcs}
+        )
+    endif()
 endif()
 
 if (LIBVLC_FOUND)
@@ -148,7 +153,7 @@ if (GSTREAMER_FOUND)
     target_link_libraries(KMediaSession PRIVATE PkgConfig::GSTREAMER)
 endif()
 
-if (ANDROID)
+if (ANDROID OR WIN32)
 else()
     target_link_libraries(KMediaSession PRIVATE Qt::DBus)
 endif()

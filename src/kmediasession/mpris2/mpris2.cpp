@@ -11,7 +11,7 @@
 #include "mpris2logging.h"
 
 #include <QDebug>
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 #include <QDBusConnection>
 #endif
 
@@ -22,7 +22,7 @@
 #endif
 
 #include "kmediasession.h"
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 #include "mediaplayer2.h"
 #include "mediaplayer2player.h"
 #endif
@@ -33,7 +33,7 @@ Mpris2::Mpris2(QObject *parent)
 {
     qCDebug(Mpris2Log) << "Mpris2::Mpris2()";
 
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     connect(m_audioPlayer, &KMediaSession::playerNameChanged, this, [this]() {
         bool success = true;
         if (m_mp2) {
@@ -52,7 +52,7 @@ Mpris2::Mpris2(QObject *parent)
 void Mpris2::initDBusService(const QString &playerName)
 {
     qCDebug(Mpris2Log) << "Mpris2::initDBusService(" << playerName << ")";
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 
     QString tryPlayerName = playerName;
     QString mpris2Name(QStringLiteral("org.mpris.MediaPlayer2.") + tryPlayerName);
@@ -63,11 +63,8 @@ void Mpris2::initDBusService(const QString &playerName)
     // or the name is already taken. In that event the MPRIS2 spec wants the
     // following:
     if (!success) {
-#if defined Q_OS_WIN
-        tryPlayerName = tryPlayerName + QLatin1String(".instance") + QString::number(GetCurrentProcessId());
-#else
         tryPlayerName = tryPlayerName + QLatin1String(".instance") + QString::number(getpid());
-#endif
+
         success = QDBusConnection::sessionBus().registerService(QStringLiteral("org.mpris.MediaPlayer2.") + tryPlayerName);
     }
 
@@ -86,7 +83,7 @@ void Mpris2::initDBusService(const QString &playerName)
 bool Mpris2::unregisterDBusService(const QString &playerName)
 {
     bool success = true;
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     QString oldMpris2Name(QStringLiteral("org.mpris.MediaPlayer2.") + playerName);
     success = QDBusConnection::sessionBus().unregisterService(oldMpris2Name);
 
@@ -108,7 +105,7 @@ bool Mpris2::showProgressOnTaskBar() const
 void Mpris2::setShowProgressOnTaskBar(bool value)
 {
     qCDebug(Mpris2Log) << "Mpris2::setShowProgressOnTaskBar" << value << ")";
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     m_mp2p->setShowProgressOnTaskBar(value);
 #endif
     m_ShowProgressOnTaskBar = value;

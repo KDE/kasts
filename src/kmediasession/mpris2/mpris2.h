@@ -14,7 +14,7 @@
 #include <QObject>
 #include <QSharedPointer>
 
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
 class MediaPlayer2Player;
 class MediaPlayer2;
 #endif
@@ -42,7 +42,7 @@ private:
     void initDBusService(const QString &playerName);
     bool unregisterDBusService(const QString &playerName);
 
-#if !defined Q_OS_ANDROID
+#if !defined Q_OS_ANDROID && !defined Q_OS_WIN
     std::unique_ptr<MediaPlayer2> m_mp2;
     std::unique_ptr<MediaPlayer2Player> m_mp2p;
 #endif
