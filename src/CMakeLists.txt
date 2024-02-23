@@ -245,6 +245,13 @@ kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/utils ${CMAKE_CURRENT_SOURCE_DIR}/sync)
 target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KF6::ColorScheme KMediaSession)
 
+if(TARGET KF6::BreezeIcons)
+    target_link_libraries(kasts PRIVATE
+            KF6::BreezeIcons
+    )
+    target_compile_definitions(kasts PRIVATE WITH_BREEZEICONS_LIB)
+endif ()
+
 if(KASTS_FLATPAK)
     target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)
 endif()

@@ -28,6 +28,10 @@
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
+#ifdef WITH_BREEZEICONS_LIB
+#include <BreezeIcons>
+#endif
+
 #ifdef Q_OS_ANDROID
 #include "androidlogging.h"
 #endif
@@ -73,6 +77,10 @@ int main(int argc, char *argv[])
     auto font = app.font();
     font.setPointSize(10);
     app.setFont(font);
+#endif
+
+#ifdef WITH_BREEZEICONS_LIB
+    BreezeIcons::initIcons();
 #endif
 
     QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << QStringLiteral(":custom-icons"));
