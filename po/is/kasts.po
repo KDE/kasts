@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 00:37+0000\n"
-"PO-Revision-Date: 2024-02-19 18:18+0000\n"
+"PO-Revision-Date: 2024-02-19 23:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -227,7 +227,7 @@ msgstr "Bart De Vries"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr ""
+msgstr "Engin sía"
 
 #: models/abstractepisodeproxymodel.cpp:186
 #, kde-format
@@ -287,13 +287,13 @@ msgstr "Titill hlaðvarps"
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "Dagsetning: nýjasta fyrst"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "Dagsetning: elsta fyrst"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -337,18 +337,18 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr ""
+msgstr "Titill hlaðvarps: A → Ö"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr ""
+msgstr "Titill hlaðvarps: Ö → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr ""
+msgstr "Bæta við nýju hlaðvarpi"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
@@ -358,7 +358,7 @@ msgstr "Slóð:"
 #: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
-msgstr ""
+msgstr "Bæta við hlaðvarpi"
 
 #: qml/ConnectionCheckAction.qml:22
 #, kde-format
@@ -370,13 +370,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
-msgstr ""
+msgstr "Veldu valmöguleika"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "Ekki næst í net"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -389,37 +389,37 @@ msgstr ""
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
 msgid "Don't Allow"
-msgstr ""
+msgstr "Ekki leyfa"
 
 #: qml/ConnectionCheckAction.qml:99
 #, kde-format
 msgid "Allow Once"
-msgstr ""
+msgstr "Leyfa einu sinni"
 
 #: qml/ConnectionCheckAction.qml:113
 #, kde-format
 msgid "Always Allow"
-msgstr ""
+msgstr "Leyfa alltaf"
 
 #: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
-msgstr ""
+msgstr "Leita afturábak"
 
 #: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
-msgstr ""
+msgstr "Leita áfram"
 
 #: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
-msgstr ""
+msgstr "Hoppa áfram"
 
 #: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
-msgstr ""
+msgstr "Afspilunarhraði:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
@@ -444,32 +444,32 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr ""
+msgstr "Opna hljóðstyrkstillingar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr ""
+msgstr "Þagga/afþagga"
 
 #: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr ""
+msgstr "Sýna meira"
 
 #: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr ""
+msgstr "Kaflar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Birta upplýsingar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
@@ -480,7 +480,7 @@ msgstr ""
 #: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
 msgid "Chapters"
-msgstr ""
+msgstr "Kaflar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:175
@@ -497,33 +497,33 @@ msgstr ""
 #: qml/DiscoverPage.qml:18 qml/KastsGlobalDrawer.qml:79
 #, kde-format
 msgid "Discover"
-msgstr ""
+msgstr "Uppgötva"
 
 #: qml/DiscoverPage.qml:27
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr ""
+msgstr "Leita á podcastindex.org"
 
 #: qml/DiscoverPage.qml:37
 #, kde-format
 msgid "Search"
-msgstr ""
+msgstr "Leita"
 
 #: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
 #, kde-format
 msgid "Subscribe"
-msgstr ""
+msgstr "Gerast áskrifandi"
 
 #: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
 #, kde-format
 msgid "Subscribed"
-msgstr ""
+msgstr "Í áskrift"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:109
 #, kde-format
 msgid "Downloads"
-msgstr ""
+msgstr "Sóttar skrár"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
@@ -578,13 +578,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
-msgstr ""
+msgstr "Í bið"
 
 #: qml/EntryPage.qml:146
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
-msgstr ""
+msgstr "Spila"
 
 #: qml/EntryPage.qml:155
 #, kde-format
@@ -592,13 +592,13 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "Streymi"
 
 #: qml/EntryPage.qml:167
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
-msgstr ""
+msgstr "Bæta við biðröð"
 
 #: qml/EntryPage.qml:167
 #, kde-format
@@ -686,7 +686,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
-msgstr ""
+msgstr "Leita"
 
 #: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:357
 #, kde-format
