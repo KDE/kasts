@@ -60,7 +60,7 @@
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
   <summary xml:lang="ru">Приложение для прослушивания подкастов</summary>
   <summary xml:lang="sk">Podcastová aplikácia</summary>
-  <summary xml:lang="sl">Aplikacija podcastov</summary>
+  <summary xml:lang="sl">Program za spletne oddaje</summary>
   <summary xml:lang="sv">Poddradioprogram</summary>
   <summary xml:lang="tr">Pod yayını uygulaması</summary>
   <summary xml:lang="uk">Програма для трансляцій</summary>
@@ -124,7 +124,7 @@
     <p xml:lang="pl">Kasts jest dostosowującą się aplikacją do podkastów, która wygląda dobrze na urządzeniach biurkowych i przenośnych.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
     <p xml:lang="ru">Kasts — универсальное приложение для прослушивания подкастов, которое одинаково хорошо выглядит на компьютерах и мобильных устройствах.</p>
-    <p xml:lang="sl">Kasts je konvergentna aplikacija za podcaste za namizje in mobilne naprave.</p>
+    <p xml:lang="sl">Kasts je konvergentni program za spletne oddaje za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
     <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
@@ -150,7 +150,7 @@
     <p xml:lang="pl">Jego głównymi cechami są:</p>
     <p xml:lang="pt">As suas funcionalidades principais são:</p>
     <p xml:lang="ru">Основные возможности:</p>
-    <p xml:lang="sl">Njene glavne zmožnosti so:</p>
+    <p xml:lang="sl">Njegove glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
     <p xml:lang="tr">Temel özellikleri:</p>
     <p xml:lang="uk">Його основні можливості:</p>
@@ -202,7 +202,7 @@
       <li xml:lang="pl">Uwspólnianie postępu w odtwarzaniu z innymi programami przez gpodder.net lub gpodder-nextcloud</li>
       <li xml:lang="pt">Sincronizar as posições de reprodução com outros clientes através do gpodder.net ou do gpodder-nextcloud</li>
       <li xml:lang="ru">Синхронизация позиций воспроизведения с другими клиентами с помощью gpodder.net или gpodder-nextcloud</li>
-      <li xml:lang="sl">Sinhronizacija pozicij predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
+      <li xml:lang="sl">Usklajevanje položajev predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
       <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
       <li xml:lang="uk">Синхронізація позицій відтворення із іншими клієнтами за допомогою gpodder.net або gpodder-nextcloud</li>
@@ -229,7 +229,7 @@
       <li xml:lang="pl">Zmienna szybkość odtwarzania</li>
       <li xml:lang="pt">Velocidade de reprodução variável</li>
       <li xml:lang="ru">Регулируемая скорость воспроизведения</li>
-      <li xml:lang="sl">Variabilna hitrost predvajanja</li>
+      <li xml:lang="sl">Spremenljiva hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
       <li xml:lang="tr">Değişken çalma hızı</li>
       <li xml:lang="uk">Змінна швидкість відтворення</li>
@@ -256,7 +256,7 @@
       <li xml:lang="pl">Poszukaj podkastów</li>
       <li xml:lang="pt">Procurar por 'podcasts'</li>
       <li xml:lang="ru">Поиск подкастов</li>
-      <li xml:lang="sl">Iskanje podkastov</li>
+      <li xml:lang="sl">Iskanje spletnih oddaj</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
       <li xml:lang="tr">Pod yayını arama</li>
       <li xml:lang="uk">Пошук подкастів</li>
@@ -320,7 +320,7 @@
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
       <caption xml:lang="ru">Kasts на компьютере со стандартной строкой заголовка</caption>
-      <caption xml:lang="sl">Kasts na namizju s privzeto letvico glave</caption>
+      <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
@@ -348,7 +348,7 @@
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
       <caption xml:lang="ru">Kasts на компьютере с минимизированной строкой заголовка</caption>
-      <caption xml:lang="sl">Kasts na namizju s strnjeno letvico glave</caption>
+      <caption xml:lang="sl">Kasts na namizju s strnjenim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
