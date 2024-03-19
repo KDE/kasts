@@ -31,30 +31,11 @@
 #ifdef Q_OS_ANDROID
 #include "androidlogging.h"
 #endif
-#include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
-#include "feed.h"
-#include "fetcher.h"
 #include "kasts-version.h"
-#include "models/abstractepisodemodel.h"
-#include "models/abstractepisodeproxymodel.h"
-#include "models/chaptermodel.h"
-#include "models/downloadmodel.h"
-#include "models/entriesproxymodel.h"
-#include "models/episodeproxymodel.h"
-#include "models/errorlogmodel.h"
-#include "models/feedsproxymodel.h"
-#include "models/podcastsearchmodel.h"
-#include "models/queuemodel.h"
 #include "settingsmanager.h"
-#include "sync/sync.h"
-#include "sync/syncutils.h"
 #include "utils/colorschemer.h"
-#include "utils/networkconnectionmanager.h"
-#include "utils/storagemanager.h"
-#include "utils/systrayicon.h"
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
