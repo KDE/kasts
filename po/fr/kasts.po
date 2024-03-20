@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-15 00:37+0000\n"
+"POT-Creation-Date: 2024-03-20 00:37+0000\n"
 "PO-Revision-Date: 2024-02-16 10:17+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -185,42 +185,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Média en cours de lecture"
 
-#: main.cpp:111
+#: main.cpp:92
 #, kde-format
 msgid "Podcast Application"
 msgstr "Application pour podcasts"
 
-#: main.cpp:113
+#: main.cpp:94
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Ajouter un nouveau podcast aux abonnements."
 
-#: main.cpp:114
+#: main.cpp:95
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL du podcast"
 
-#: main.cpp:119 qml/Main.qml:25
+#: main.cpp:100 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:121
+#: main.cpp:102
 #, kde-format
 msgid "Podcast Player"
 msgstr "Lecteur de podcasts"
 
-#: main.cpp:123
+#: main.cpp:104
 #, kde-format
 msgid "© 2020–2024 KDE Community"
 msgstr "© 2020-2024 La communauté de KDE"
 
-#: main.cpp:124
+#: main.cpp:105
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:125
+#: main.cpp:106
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
