@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
         qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
 
+    QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << QStringLiteral(":icons"));
+
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);
@@ -82,8 +84,6 @@ int main(int argc, char *argv[])
 #ifdef WITH_BREEZEICONS_LIB
     BreezeIcons::initIcons();
 #endif
-
-    QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << QStringLiteral(":custom-icons"));
 
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
