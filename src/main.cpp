@@ -22,6 +22,8 @@
 #include <QGuiApplication>
 #else
 #include <QApplication>
+#include <QStyle>
+#include <QStyleFactory>
 #endif
 
 #include <KAboutData>
@@ -63,10 +65,17 @@ int main(int argc, char *argv[])
     QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
-    QApplication app(argc, argv);
+#ifdef Q_OS_WINDOWS
+    // has to be set before instantiating QApplication
+    QApplication::setStyle(QStringLiteral("Breeze"));
+#endif
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
+
+    QApplication app(argc, argv);
+
+    qDebug() << QStyleFactory::keys() << QApplication::style() << QQuickStyle::name();
 #endif
 
 #ifdef Q_OS_WINDOWS
@@ -75,7 +84,6 @@ int main(int argc, char *argv[])
         freopen("CONOUT$", "w", stderr);
     }
 
-    QApplication::setStyle(QStringLiteral("breeze"));
     auto font = app.font();
     font.setPointSize(10);
     app.setFont(font);
