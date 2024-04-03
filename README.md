@@ -10,6 +10,8 @@ Kasts is a convergent podcast application.
 
 The nightly Android version is available in [KDE's nightly F-Droid repository](https://community.kde.org/Android/F-Droid).
 
+Nightly Windows builds can be found [on KDE's ci-build server](https://cdn.kde.org/ci-builds/multimedia/kasts/master/windows/). Stable Windows versions can also be found [on the same server](https://cdn.kde.org/ci-builds/multimedia/kasts/).
+
 # Bug reports
 
 Please don't use GitLab issues for reporting bugs, instead report them [here](https://bugs.kde.org/enter_bug.cgi?format=guided&product=kasts).
