@@ -20,7 +20,7 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         Layout.fillWidth: true
-        title: i18n("Network")
+        title: i18nc("@title Form header for settings related to network connections", "Network")
     }
 
     FormCard.FormCard {
@@ -29,7 +29,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: doNetworkChecks
             checked: SettingsManager.checkNetworkStatus
-            text: i18n("Enable network connection checks")
+            text: i18nc("@option:check", "Enable network connection checks")
             onToggled: {
                 SettingsManager.checkNetworkStatus = checked;
                 SettingsManager.save();
@@ -39,7 +39,7 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         Layout.fillWidth: true
-        title: i18n("On metered connections")
+        title: i18nc("@title Form header for settings related to metered connections", "On metered connections")
     }
 
     FormCard.FormCard {
@@ -49,7 +49,7 @@ FormCard.FormCardPage {
             id: allowMeteredFeedUpdates
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredFeedUpdates
-            text: i18n("Allow podcast updates")
+            text: i18nc("@option:check", "Allow podcast updates")
             onToggled: {
                 SettingsManager.allowMeteredFeedUpdates = checked;
                 SettingsManager.save();
@@ -60,7 +60,7 @@ FormCard.FormCardPage {
             id: allowMeteredEpisodeDownloads
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredEpisodeDownloads
-            text: i18n("Allow episode downloads")
+            text: i18nc("@option:check", "Allow episode downloads")
             onToggled: {
                 SettingsManager.allowMeteredEpisodeDownloads = checked;
                 SettingsManager.save();
@@ -71,7 +71,7 @@ FormCard.FormCardPage {
             id: allowMeteredImageDownloads
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredImageDownloads
-            text: i18n("Allow image downloads")
+            text: i18nc("@option:check", "Allow image downloads")
             onToggled: {
                 SettingsManager.allowMeteredImageDownloads = checked;
                 SettingsManager.save();
@@ -82,7 +82,7 @@ FormCard.FormCardPage {
             id: allowMeteredStreaming
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredStreaming
-            text: i18n("Allow streaming")
+            text: i18nc("@option:check", "Allow streaming")
             onToggled: {
                 SettingsManager.allowMeteredStreaming = checked;
                 SettingsManager.save();

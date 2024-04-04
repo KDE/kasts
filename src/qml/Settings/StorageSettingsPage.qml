@@ -19,7 +19,7 @@ FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: i18n("Storage path")
+        title: i18nc("@title Form header for settings related to storage paths", "Storage path")
         Layout.fillWidth: true
     }
 
@@ -29,13 +29,13 @@ FormCard.FormCardPage {
         FormCard.FormTextDelegate {
             id: storagePath
             visible: Qt.platform.os !== "android" // not functional on android
-            text: i18n("Storage path")
+            text: i18nc("@label showing path used for local storage", "Storage path")
             description: StorageManager.storagePath
 
             trailing: Controls.Button {
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 icon.name: "document-open-folder"
-                text: i18n("Select folder…")
+                text: i18nc("@action:button", "Select folder…")
                 enabled: !defaultStoragePath.checked
                 onClicked: storagePathDialog.open()
             }
@@ -43,7 +43,7 @@ FormCard.FormCardPage {
 
             StorageDirDialog {
                 id: storagePathDialog
-                title: i18n("Select Storage Path")
+                title: i18nc("@title of dialog box", "Select Storage Path")
             }
         }
 
@@ -53,7 +53,7 @@ FormCard.FormCardPage {
             id: defaultStoragePath
             visible: Qt.platform.os !== "android" // not functional on android
             checked: SettingsManager.storagePath == ""
-            text: i18n("Use default path")
+            text: i18nc("@option:check", "Use default path")
             onToggled: {
                 if (checked) {
                     StorageManager.setStoragePath("");
@@ -64,26 +64,26 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         Layout.fillWidth: true
-        title: i18n("Information")
+        title: i18nc("@title Form header for section showing information about local storage", "Information")
     }
 
     FormCard.FormCard {
         Layout.fillWidth: true
 
         FormCard.FormTextDelegate {
-            text: i18n("Podcast downloads")
-            description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
+            text: i18nc("@label showing the storage space used by local podcast downloads", "Podcast downloads")
+            description: i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
         }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormTextDelegate {
-            text: i18n("Image cache")
-            description: i18nc("Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+            text: i18nc("@label showing the storage space used by the image cache", "Image cache")
+            description: i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
 
             trailing: Controls.Button {
                 icon.name: "edit-clear-all"
-                text: i18n("Clear Cache")
+                text: i18nc("@action:button", "Clear Cache")
                 onClicked: StorageManager.clearImageCache();
             }
         }

@@ -20,7 +20,7 @@ FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: i18n("Appearance")
+        title: i18nc("@title Form header for settings related to app appearance", "Appearance")
         Layout.fillWidth: true
     }
 
@@ -30,7 +30,7 @@ FormCard.FormCardPage {
         FormCard.FormComboBoxDelegate {
             Layout.fillWidth: true
             id: colorTheme
-            text: i18n("Color theme")
+            text: i18nc("@label:listbox", "Color theme")
             textRole: "display"
             valueRole: "display"
             model: ColorSchemer.model
@@ -46,7 +46,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: alwaysShowFeedTitles
-            text: i18n("Always show podcast titles in subscription view")
+            text: i18nc("@option:check", "Always show podcast titles in subscription view")
             checked: SettingsManager.alwaysShowFeedTitles
             onToggled: {
                 SettingsManager.alwaysShowFeedTitles = checked;
@@ -67,7 +67,7 @@ FormCard.FormCardPage {
             id: showTrayIcon
             visible: SystrayIcon.available
             enabled: SystrayIcon.available
-            text: i18n("Show icon in system tray")
+            text: i18nc("@option:check", "Show icon in system tray")
             checked: SettingsManager.showTrayIcon
             onToggled: {
                 SettingsManager.showTrayIcon = checked;
@@ -79,7 +79,7 @@ FormCard.FormCardPage {
             id: minimizeToTray
             visible: SystrayIcon.available
             enabled: SettingsManager.showTrayIcon && SystrayIcon.available
-            text: i18n("Minimize to tray instead of closing")
+            text: i18nc("@option:check", "Minimize to tray instead of closing")
             checked: SettingsManager.minimizeToTray
             onToggled: {
                 SettingsManager.minimizeToTray = checked;
@@ -91,7 +91,7 @@ FormCard.FormCardPage {
             id: trayIconType
             visible: SystrayIcon.available
             enabled: SettingsManager.showTrayIcon && SystrayIcon.available
-            text: i18nc("Label for selecting the color of the tray icon", "Tray icon type")
+            text: i18nc("@label:listbox Label for selecting the color of the tray icon", "Tray icon type")
 
             textRole: "text"
             valueRole: "value"
@@ -108,7 +108,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Text")
+        title: i18nc("@title Form header for settings related to text/fonts", "Text")
         Layout.fillWidth: true
     }
 
@@ -118,7 +118,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: useSystemFontCheckBox
             checked: SettingsManager.articleFontUseSystem
-            text: i18n("Use system default")
+            text: i18nc("@option:check", "Use system default")
 
             onToggled: {
                 SettingsManager.articleFontUseSystem = checked;
@@ -130,14 +130,13 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: fontSize
-            text: i18n("Font size")
+            text: i18nc("@label:spinbox", "Font size")
 
             trailing: Controls.SpinBox {
                 id: articleFontSizeSpinBox
 
                 enabled: !useSystemFontCheckBox.checked
                 value: SettingsManager.articleFontSize
-                Kirigami.FormData.label: i18n("Font size:")
                 from: 6
                 to: 20
 

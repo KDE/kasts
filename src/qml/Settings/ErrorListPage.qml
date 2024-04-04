@@ -16,7 +16,7 @@ import org.kde.kasts
 import ".."
 
 FormCard.FormCardPage {
-    title: i18nc("@title", "Error Log")
+    title: i18nc("@title:menu Category in settings", "Error Log")
 
     FormCard.FormHeader {
         title: i18nc("@title", "Error Log")

@@ -20,7 +20,7 @@ FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: i18n("Playback settings")
+        title: i18nc("@title Form header for settings related to playback", "Playback settings")
         Layout.fillWidth: true
     }
 
@@ -29,7 +29,7 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: selectAudioBackend
-            text: i18nc("Label for setting to select audio playback backend", "Select audio backend")
+            text: i18nc("@label:listbox Label for setting to select audio playback backend", "Select audio backend")
 
             textRole: "text"
             valueRole: "value"
@@ -59,7 +59,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showTimeLeft
-            Kirigami.FormData.label: i18nc("Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play time:")
+            Kirigami.FormData.label: i18nc("@option:check Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play time:")
             checked: SettingsManager.toggleRemainingTime
             text: i18n("Show time left instead of total track time")
             onToggled: {
@@ -71,7 +71,7 @@ FormCard.FormCardPage {
             id: adjustTimeLeft
             checked: SettingsManager.adjustTimeLeft
             enabled: SettingsManager.toggleRemainingTime
-            text: i18n("Adjust time left based on current playback speed")
+            text: i18nc("@option:check", "Adjust time left based on current playback speed")
             onToggled: {
                 SettingsManager.adjustTimeLeft = checked;
                 SettingsManager.save();
@@ -80,7 +80,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: prioritizeStreaming
             checked: SettingsManager.prioritizeStreaming
-            text: i18n("Prioritize streaming over downloading")
+            text: i18nc("@option:check", "Prioritize streaming over downloading")
             onToggled: {
                 SettingsManager.prioritizeStreaming = checked;
                 SettingsManager.save();
@@ -121,7 +121,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Queue settings")
+        title: i18nc("@title Form header for settings related to the queue", "Queue settings")
         Layout.fillWidth: true
     }
 
@@ -131,7 +131,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: continuePlayingNextEntry
             checked: SettingsManager.continuePlayingNextEntry
-            text: i18n("Continue playing next episode after current one finishes")
+            text: i18nc("@option:check", "Continue playing next episode after current one finishes")
             onToggled: {
                 SettingsManager.continuePlayingNextEntry = checked;
                 SettingsManager.save();
@@ -139,7 +139,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormCheckDelegate {
             id: refreshOnStartup
-            Kirigami.FormData.label: i18nc("Label for settings related to podcast updates", "Update Settings:")
+            Kirigami.FormData.label: i18nc("@option:check Label for settings related to podcast updates", "Update Settings:")
             checked: SettingsManager.refreshOnStartup
             text: i18n("Automatically fetch podcast updates on startup")
             onToggled: {
@@ -150,7 +150,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: doFullUpdate
             checked: SettingsManager.doFullUpdate
-            text: i18n("Update existing episode data on refresh (slower)")
+            text: i18nc("@option:check", "Update existing episode data on refresh (slower)")
             onToggled: {
                 SettingsManager.doFullUpdate = checked;
                 SettingsManager.save();
@@ -160,7 +160,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: autoQueue
             checked: SettingsManager.autoQueue
-            text: i18n("Automatically queue new episodes")
+            text: i18nc("@option:check", "Automatically queue new episodes")
 
             onToggled: {
                 SettingsManager.autoQueue = checked;
@@ -175,7 +175,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: autoDownload
             checked: SettingsManager.autoDownload
-            text: i18n("Automatically download new episodes")
+            text: i18nc("@option:check", "Automatically download new episodes")
 
             enabled: autoQueue.checked
             onToggled: {
@@ -188,7 +188,7 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: episodeBehavior
-            text: i18n("Played episode behavior")
+            text: i18nc("@label:listbox", "Played episode behavior")
             textRole: "text"
             valueRole: "value"
             model: [{"text": i18n("Do not delete"), "value": 0},
@@ -224,7 +224,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: resetPositionOnPlayed
             checked: SettingsManager.resetPositionOnPlayed
-            text: i18n("Reset play position after an episode is played")
+            text: i18nc("@option:check", "Reset play position after an episode is played")
             onToggled: {
                 SettingsManager.resetPositionOnPlayed = checked;
                 SettingsManager.save();
@@ -233,7 +233,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("When adding new podcasts")
+        title: i18nc("@title Form header for settings triggered by adding new podcasts", "When adding new podcasts")
         Layout.fillWidth: true
     }
 
@@ -242,7 +242,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             checked: SettingsManager.markUnreadOnNewFeed === 0
-            text: i18n("Mark all episodes as played")
+            text: i18nc("@option:radio", "Mark all episodes as played")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 0;
                 SettingsManager.save();
@@ -253,7 +253,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id: markCustomUnreadNumberButton
             checked: SettingsManager.markUnreadOnNewFeed === 1
-            text: i18n("Mark most recent episodes as unplayed")
+            text: i18nc("@option:radio", "Mark most recent episodes as unplayed")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 1;
                 SettingsManager.save();
@@ -276,7 +276,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             checked: SettingsManager.markUnreadOnNewFeed === 2
-            text: i18n("Mark all episodes as unplayed")
+            text: i18nc("@option:radio", "Mark all episodes as unplayed")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 2;
                 SettingsManager.save();

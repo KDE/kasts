@@ -15,6 +15,6 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kasts
 
 FormCard.AboutPage {
-    title: i18n("About")
+    title: i18nc("@title:menu Category in settings", "About")
     aboutData: AboutData
 }
