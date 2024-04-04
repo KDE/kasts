@@ -26,6 +26,7 @@ AddonDelegates.RoundedItemDelegate {
 
     property bool isQueue: false
     property bool isDownloads: false
+    property bool showFeedImage: !SettingsManager.showEpisodeImage
     property QtObject listViewObject: undefined
     property bool selected: false
     property int row: model ? model.row : -1
@@ -195,7 +196,7 @@ AddonDelegates.RoundedItemDelegate {
 
         ImageWithFallback {
             id: img
-            imageSource: entry ? entry.cachedImage : "no-image"
+            imageSource: entry ? ( showFeedImage ? entry.feed.cachedImage : entry.cachedImage ) : "no-image"
             property int size: Kirigami.Units.gridUnit * 3
             Layout.preferredHeight: size
             Layout.preferredWidth: size

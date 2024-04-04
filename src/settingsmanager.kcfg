@@ -35,6 +35,10 @@
             <label>Always show the title of podcast feeds in subscription view</label>
             <default>false</default>
         </entry>
+        <entry name="showEpisodeImage" type="Bool">
+            <label>Show the image of the episode rather than the general podcast image</label>
+            <default>true</default>
+        </entry>
         <entry name="prioritizeStreaming" type="Bool">
             <label>Show streaming button instead of download button</label>
             <default>false</default>

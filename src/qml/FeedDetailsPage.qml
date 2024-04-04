@@ -98,6 +98,7 @@ Kirigami.ScrollablePage {
         model: page.feed.entries ? page.feed.entries : emptyListModel
         delegate: GenericEntryDelegate {
             listViewObject: entryList
+            showFeedImage: false
         }
 
         header: ColumnLayout {

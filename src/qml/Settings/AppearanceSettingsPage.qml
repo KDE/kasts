@@ -53,6 +53,19 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormCheckDelegate {
+            id: showEpisodeImage
+            text: i18nc("@option:check", "Show episode image instead of podcast image in lists")
+            checked: SettingsManager.showEpisodeImage
+            onToggled: {
+                SettingsManager.showEpisodeImage = checked;
+                SettingsManager.save();
+            }
+        }
+
     }
 
     FormCard.FormHeader {
