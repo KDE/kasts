@@ -66,6 +66,17 @@ FormCard.FormCardPage {
             }
         }
 
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormCheckDelegate {
+            id: showPodcastTitle
+            text: i18nc("@option:check", "Show podcast titles in episode lists")
+            checked: SettingsManager.showPodcastTitle
+            onToggled: {
+                SettingsManager.showPodcastTitle = checked;
+                SettingsManager.save();
+            }
+        }
     }
 
     FormCard.FormHeader {

@@ -39,6 +39,10 @@
             <label>Show the image of the episode rather than the general podcast image</label>
             <default>true</default>
         </entry>
+        <entry name="showPodcastTitle" type="Bool">
+            <label>Show the podcast/feed title on the entry delegate</label>
+            <default>false</default>
+        </entry>
         <entry name="prioritizeStreaming" type="Bool">
             <label>Show streaming button instead of download button</label>
             <default>false</default>

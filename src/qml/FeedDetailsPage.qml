@@ -98,7 +98,10 @@ Kirigami.ScrollablePage {
         model: page.feed.entries ? page.feed.entries : emptyListModel
         delegate: GenericEntryDelegate {
             listViewObject: entryList
+            // no need to show the podcast image or title on every delegate
+            // because we're looking at only one podcast right now
             showFeedImage: false
+            showFeedTitle: false
         }
 
         header: ColumnLayout {

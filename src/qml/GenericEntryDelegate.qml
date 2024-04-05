@@ -27,6 +27,7 @@ AddonDelegates.RoundedItemDelegate {
     property bool isQueue: false
     property bool isDownloads: false
     property bool showFeedImage: !SettingsManager.showEpisodeImage
+    property bool showFeedTitle: SettingsManager.showPodcastTitle
     property QtObject listViewObject: undefined
     property bool selected: false
     property int row: model ? model.row : -1
@@ -245,7 +246,7 @@ AddonDelegates.RoundedItemDelegate {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: entry ? (((!isQueue && entry.queueStatus) || entry.favorite ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" )) : ""
+                    text: entry ? (((!isQueue && entry.queueStatus) || entry.favorite ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" ) + ((entry.feed && showFeedTitle) ? "  ·  " + entry.feed.name : "")) : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
