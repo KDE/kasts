@@ -17,7 +17,7 @@ import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: subscriptionPage
-    title: i18nc("@title Podcast subscription list page title", "Subscriptions")
+    title: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             visible: kastsMainWindow.isMobile
-            text: i18nc("@action:intoolbar Open the podcast discover page", "Discover")
+            text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
             icon.name: "search"
             onTriggered: {
                 applicationWindow().pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/DiscoverPage.qml");

@@ -12,7 +12,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    title: i18n("Downloads")
+    title: i18nc("@title of page with list of downloaded episodes", "Downloads")
 
     property var lastEntry: ""
     property string pageName: "downloadpage"

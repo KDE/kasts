@@ -15,7 +15,7 @@ import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: queuepage
-    title: i18nc("@title:column Page showing the list queued items", "Queue")
+    title: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
 
     property var lastEntry: ""
     property string pageName: "queuepage"

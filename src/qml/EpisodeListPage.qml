@@ -14,7 +14,7 @@ import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: episodeListPage
-    title: i18n("Episode List")
+    title: i18nc("@title of page with list of podcast episodes", "Episodes")
 
     property alias episodeList: episodeList
 
@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             icon.name: "download"
-            text: i18n("Downloads")
+            text: i18nc("@title of page with list of downloaded episodes", "Downloads")
             onTriggered: {
                 pushPage("DownloadListPage")
             }

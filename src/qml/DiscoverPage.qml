@@ -15,7 +15,7 @@ import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: page
-    title: i18n("Discover")
+    title: i18nc("@title of page allowing to search for new podcasts online", "Discover")
     property var feedModel: ""
 
     header: RowLayout {

@@ -66,7 +66,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18n("Queue")
+                        text: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
                         icon.name: "source-playlist"
                         checked: currentPage == "QueuePage"
                         onClicked: {
@@ -76,7 +76,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18n("Discover")
+                        text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
                         icon.name: "search"
                         checked: currentPage == "DiscoverPage"
                         onClicked: {
@@ -86,7 +86,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18n("Subscriptions")
+                        text: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
                         icon.name: "bookmarks"
                         checked: currentPage == "FeedListPage"
                         onClicked: {
@@ -96,7 +96,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18n("Episodes")
+                        text: i18nc("@title of page with list of podcast episodes", "Episodes")
                         icon.name: "rss"
                         checked: currentPage == "EpisodeListPage"
                         onClicked: {
@@ -106,7 +106,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18n("Downloads")
+                        text: i18nc("@title of page with list of downloaded episodes", "Downloads")
                         icon.name: "download"
                         checked: currentPage == "DownloadListPage"
                         onClicked: {
@@ -126,7 +126,7 @@ Kirigami.OverlayDrawer {
                 Layout.fillWidth: true
                 display: root.buttonDisplayMode
 
-                text: i18n("Settings")
+                text: i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
                 checked: currentPage == "SettingsPage"
                 onClicked: {
