@@ -275,7 +275,7 @@ Kirigami.ScrollablePage {
         standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-        title: i18n("@title of dialog box", "Sync Login Credentials")
+        title: i18nc("@title of dialog box", "Sync Login Credentials")
 
         onAccepted: {
             if (Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked) {
