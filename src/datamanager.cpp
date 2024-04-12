@@ -367,13 +367,13 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
     for (const QString &url : newUrls) {
         qCDebug(kastsDataManager) << "Adding new feed:" << url;
 
-        QUrl urlFromInput = QUrl::fromUserInput(url);
+        QString urlFromInput = QUrl::fromUserInput(url).toString();
         QSqlQuery query;
         query.prepare(
             QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
                            ":lastUpdated, :new, :notify, :dirname, :lastHash);"));
-        query.bindValue(QStringLiteral(":name"), urlFromInput.toString());
-        query.bindValue(QStringLiteral(":url"), urlFromInput.toString());
+        query.bindValue(QStringLiteral(":name"), urlFromInput);
+        query.bindValue(QStringLiteral(":url"), urlFromInput);
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
         query.bindValue(QStringLiteral(":link"), QLatin1String(""));
         query.bindValue(QStringLiteral(":description"), QLatin1String(""));
@@ -387,14 +387,16 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":lastHash"), QLatin1String(""));
         Database::instance().execute(query);
 
-        m_feeds[urlFromInput.toString()] = nullptr;
-        m_feedmap.append(urlFromInput.toString());
+        // TODO: check whether the entry in the database happened correctly?
+
+        m_feeds[urlFromInput] = new Feed(urlFromInput);
+        m_feedmap.append(urlFromInput);
 
         // Save this action to the database (including timestamp) in order to be
         // able to sync with remote services
-        Sync::instance().storeAddFeedAction(urlFromInput.toString());
+        Sync::instance().storeAddFeedAction(urlFromInput);
 
-        Q_EMIT feedAdded(urlFromInput.toString());
+        Q_EMIT feedAdded(urlFromInput);
     }
 
     if (fetch) {
@@ -631,6 +633,11 @@ void DataManager::exportFeeds(const QString &path)
 
 void DataManager::loadFeed(const QString &feedurl) const
 {
+    if (m_feeds[feedurl]) {
+        // nothing to do if Feed object already exists
+        return;
+    }
+
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT url FROM Feeds WHERE url=:feedurl;"));
     query.bindValue(QStringLiteral(":feedurl"), feedurl);
