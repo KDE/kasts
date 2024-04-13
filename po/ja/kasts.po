@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"POT-Creation-Date: 2024-04-13 00:37+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -122,13 +122,13 @@ msgid "Open"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:368
 #, kde-format
 msgid "Play"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:389
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:391
 #, kde-format
 msgid "Pause"
 msgstr ""
@@ -491,8 +491,9 @@ msgstr ""
 msgid "No track loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:18 qml/KastsGlobalDrawer.qml:79
+#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
 #, kde-format
+msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr ""
 
@@ -506,12 +507,12 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
+#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr ""
 
-#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
+#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr ""
@@ -519,6 +520,7 @@ msgstr ""
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:109
 #, kde-format
+msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
 msgstr ""
 
@@ -673,9 +675,11 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:17
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
+#: qml/Mobile/BottomToolbar.qml:39
 #, kde-format
-msgid "Episode List"
+msgctxt "@title of page with list of podcast episodes"
+msgid "Episodes"
 msgstr ""
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
@@ -685,7 +689,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:357
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr ""
@@ -700,8 +704,7 @@ msgstr ""
 msgid "Error code:"
 msgstr ""
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:19
-#: qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
@@ -723,55 +726,55 @@ msgstr ""
 msgid "Podcast Details"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:120
+#: qml/FeedDetailsPage.qml:124
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:151
+#: qml/FeedDetailsPage.qml:155
 #, kde-format
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:170
+#: qml/FeedDetailsPage.qml:174
 #, kde-format
 msgid "Show Details"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:241
+#: qml/FeedDetailsPage.qml:245
 #, kde-format
 msgid "Podcast URL:"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:285
 #, kde-format
 msgid "Weblink:"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:322
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] ""
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] ""
 
-#: qml/FeedDetailsPage.qml:357
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr ""
@@ -781,16 +784,11 @@ msgstr ""
 msgid "Remove Podcast"
 msgstr ""
 
-#: qml/FeedListPage.qml:20
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
+#: qml/Mobile/BottomToolbar.qml:31
 #, kde-format
-msgctxt "@title Podcast subscription list page title"
+msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr ""
-
-#: qml/FeedListPage.qml:41
-#, kde-format
-msgctxt "@action:intoolbar Open the podcast discover page"
-msgid "Discover"
 msgstr ""
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
@@ -891,8 +889,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr ""
 
-#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:74
-#: qml/Mobile/BottomToolbar.qml:47
+#: qml/FeedListPage.qml:236 qml/Main.qml:74
 #, kde-format
 msgid "Settings"
 msgstr ""
@@ -934,47 +931,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:219
+#: qml/GenericEntryDelegate.qml:221
 #, kde-format
 msgid "Played"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:219
+#: qml/GenericEntryDelegate.qml:221
 #, kde-format
 msgid "Read"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:225
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "New"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:328 qml/GenericEntryListView.qml:262
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:335 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:337 qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:345
+#: qml/GenericEntryDelegate.qml:347
 #, kde-format
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:352
+#: qml/GenericEntryDelegate.qml:354
 #, kde-format
 msgid "Delete Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:359 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:252
 #, kde-format
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:376 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:378 qml/GenericEntryListView.qml:341
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1070,18 +1067,18 @@ msgid "Search in:"
 msgstr ""
 
 #: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
+#: qml/QueuePage.qml:18
 #, kde-format
+msgctxt ""
+"@title of page showing the list queued items; this is the noun 'the queue', "
+"not the verb"
 msgid "Queue"
 msgstr ""
 
-#: qml/KastsGlobalDrawer.qml:89 qml/Mobile/BottomToolbar.qml:31
+#: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
 #, kde-format
-msgid "Subscriptions"
-msgstr ""
-
-#: qml/KastsGlobalDrawer.qml:99 qml/Mobile/BottomToolbar.qml:39
-#, kde-format
-msgid "Episodes"
+msgctxt "@title of dialog with app settings"
+msgid "Settings"
 msgstr ""
 
 #: qml/Main.qml:226
@@ -1178,12 +1175,6 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr ""
 
-#: qml/QueuePage.qml:18
-#, kde-format
-msgctxt "@title:column Page showing the list queued items"
-msgid "Queue"
-msgstr ""
-
 #: qml/QueuePage.qml:62
 #, kde-format
 msgctxt "@info"
@@ -1211,100 +1202,123 @@ msgstr ""
 
 #: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
 #, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "About"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:23 qml/Settings/SettingsPage.qml:23
+#: qml/Settings/AppearanceSettingsPage.qml:23
 #, kde-format
+msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
 msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:33
 #, kde-format
+msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
+msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:59
+#: qml/Settings/AppearanceSettingsPage.qml:61
+#, kde-format
+msgctxt "@option:check"
+msgid "Show episode image instead of podcast image in lists"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:73
+#, kde-format
+msgctxt "@option:check"
+msgid "Show podcast titles in episode lists"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:70
+#: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
+msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:82
+#: qml/Settings/AppearanceSettingsPage.qml:106
 #, kde-format
+msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
-msgctxt "Label for selecting the color of the tray icon"
+msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:99
+#: qml/Settings/AppearanceSettingsPage.qml:123
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:100
+#: qml/Settings/AppearanceSettingsPage.qml:124
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:101
+#: qml/Settings/AppearanceSettingsPage.qml:125
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:111
+#: qml/Settings/AppearanceSettingsPage.qml:135
 #, kde-format
+msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:121
+#: qml/Settings/AppearanceSettingsPage.qml:145
 #, kde-format
+msgctxt "@option:check"
 msgid "Use system default"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:133
+#: qml/Settings/AppearanceSettingsPage.qml:157
 #, kde-format
+msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:140
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
 #, kde-format
-msgid "Font size:"
+msgctxt "@title:menu Category in settings"
+msgid "Error Log"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:23
 #, kde-format
+msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
-msgctxt "Label for setting to select audio playback backend"
+msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgctxt ""
-"Label for settings related to the play time, e.g. whether the total track "
-"time is shown or a countdown of the remaining play time"
+"@option:check Label for settings related to the play time, e.g. whether the "
+"total track time is shown or a countdown of the remaining play time"
 msgid "Play time:"
 msgstr ""
 
@@ -1315,11 +1329,13 @@ msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
+msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:83
 #, kde-format
+msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
 msgstr ""
 
@@ -1337,17 +1353,19 @@ msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
+msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format
+msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:142
 #, kde-format
-msgctxt "Label for settings related to podcast updates"
+msgctxt "@option:check Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr ""
 
@@ -1358,21 +1376,25 @@ msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
+msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:163
 #, kde-format
+msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:178
 #, kde-format
+msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
+msgctxt "@label:listbox"
 msgid "Played episode behavior"
 msgstr ""
 
@@ -1399,229 +1421,286 @@ msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
+msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
+msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:245
 #, kde-format
+msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:256
 #, kde-format
+msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:279
 #, kde-format
+msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:35
+#: qml/Settings/NetworkSettingsPage.qml:23
 #, kde-format
+msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:32
 #, kde-format
+msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:42
 #, kde-format
+msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:52
 #, kde-format
+msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:63
 #, kde-format
+msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
+msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:85
 #, kde-format
+msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "General"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:23
+#, kde-format
+msgctxt "@title:menu Category in settings"
+msgid "Appearance"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "Storage"
+msgstr ""
+
+#: qml/Settings/SettingsPage.qml:35
+#, kde-format
+msgctxt "@title:menu Category in settings"
+msgid "Network"
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:41
 #, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:47
+#: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
-msgid "Error Log"
+msgctxt "@title Form header for settings related to storage paths"
+msgid "Storage path"
 msgstr ""
 
-#: qml/Settings/StorageSettingsPage.qml:22
 #: qml/Settings/StorageSettingsPage.qml:32
 #, kde-format
+msgctxt "@label showing path used for local storage"
 msgid "Storage path"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:38
 #, kde-format
+msgctxt "@action:button"
 msgid "Select folder…"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:46
 #, kde-format
+msgctxt "@title of dialog box"
 msgid "Select Storage Path"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:56
 #, kde-format
+msgctxt "@option:check"
 msgid "Use default path"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
+msgctxt ""
+"@title Form header for section showing information about local storage"
 msgid "Information"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:74
 #, kde-format
+msgctxt "@label showing the storage space used by local podcast downloads"
 msgid "Podcast downloads"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:75
 #: qml/Settings/StorageSettingsPage.qml:82
 #, kde-format
-msgctxt "Using <amount of bytes> of disk space"
+msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:81
 #, kde-format
+msgctxt "@label showing the storage space used by the image cache"
 msgid "Image cache"
 msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:86
 #, kde-format
+msgctxt "@action:button"
 msgid "Clear Cache"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
 #, kde-format
+msgctxt "@label"
 msgid "Account"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
+msgctxt ""
+"@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account \"%1\" on server \"%2\""
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
+msgctxt "@info:status"
 msgid "Syncing disabled"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
+msgctxt "@action:button"
 msgid "Logout"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
+msgctxt "@action:button"
 msgid "Login"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:50
 #, kde-format
+msgctxt "@label"
 msgid "Manually sync"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:53
 #, kde-format
+msgctxt "@action:button"
 msgid "Sync Now"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:65
 #, kde-format
+msgctxt "@info:status"
 msgid "Last full sync with server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:73
 #, kde-format
+msgctxt "@info:status"
 msgid "Last quick upload to sync server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:79
 #, kde-format
+msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:89
 #, kde-format
+msgctxt "@option:check"
 msgid "Do full sync on startup"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
 #, kde-format
+msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:109
 #, kde-format
+msgctxt "@option:check"
 msgid "Upload episode play positions on play/pause toggle"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
 #, kde-format
+msgctxt "@title Form header for advanced settings related to syncing"
 msgid "Advanced options"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:127
 #, kde-format
+msgctxt "@label"
 msgid "Fetch all episode states from server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:130
 #, kde-format
+msgctxt "@action:button"
 msgid "Fetch"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
+msgctxt "@label"
 msgid "Push all local episode states to server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:146
 #, kde-format
+msgctxt "@action:button"
 msgid "Push"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:184
 #, kde-format
+msgctxt "@label"
 msgid "Push all local episode states to server?"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:204
 #, kde-format
+msgctxt "@label"
 msgid ""
 "Please note that pushing the playback state of all local episodes to the "
 "server might take a very long time and/or might overload the server. Also "
@@ -1633,47 +1712,55 @@ msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:228
 #, kde-format
+msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
+msgctxt "@label"
 msgid "gpodder.net"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
+msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:244
 #, kde-format
+msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
+msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:278
 #, kde-format
+msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
+msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
+msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
-msgctxt "argument is a weblink"
+msgctxt "@label argument is a weblink"
 msgid ""
 "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
 ">It is advised to manually create an app password for Kasts through the web "
@@ -1682,98 +1769,115 @@ msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
 #, kde-format
-msgctxt "argument is a weblink"
+msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:331
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Username:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:342
-#: qml/SyncPasswordOverlay.qml:57
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Password:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:357
 #, kde-format
+msgctxt "@option:check"
 msgid "Use custom server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:362
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:396
 #, kde-format
+msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:402
 #, kde-format
+msgctxt "@action:button"
 msgid "Create a new device"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:408
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:418
 #, kde-format
+msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
+msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
+msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
+msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
 #, kde-format
+msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:437
 #, kde-format
+msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:438
 #, kde-format
+msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:443
 #, kde-format
+msgctxt "@action:button"
 msgid "Create Device"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:460
 #, kde-format
+msgctxt "@label"
 msgid "or select an existing device"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:508
 #, kde-format
+msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:530
 #, kde-format
+msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
 "across all devices?\n"
@@ -1782,11 +1886,13 @@ msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
 #, kde-format
+msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
+msgctxt "@label"
 msgid "Perform a first sync now?"
 msgstr ""
 
@@ -1845,6 +1951,11 @@ msgstr ""
 #: qml/SyncPasswordOverlay.qml:50
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+msgstr ""
+
+#: qml/SyncPasswordOverlay.qml:57
+#, kde-format
+msgid "Password:"
 msgstr ""
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91

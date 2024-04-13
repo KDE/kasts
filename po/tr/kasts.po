@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-23 00:37+0000\n"
+"POT-Creation-Date: 2024-04-13 00:37+0000\n"
 "PO-Revision-Date: 2024-02-29 17:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -126,13 +126,13 @@ msgid "Open"
 msgstr "Aç"
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:37
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:368
 #, kde-format
 msgid "Play"
 msgstr "Çal"
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:389
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:391
 #, kde-format
 msgid "Pause"
 msgstr "Duraklat"
@@ -499,8 +499,10 @@ msgstr "Parça Başlığı Yok"
 msgid "No track loaded"
 msgstr "Yüklenen parça yok"
 
-#: qml/DiscoverPage.qml:18 qml/KastsGlobalDrawer.qml:79
-#, kde-format
+#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
+#, fuzzy, kde-format
+#| msgid "Discover"
+msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Keşfet"
 
@@ -514,19 +516,21 @@ msgstr "podcastindex.org’da ara"
 msgid "Search"
 msgstr "Ara"
 
-#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
+#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:156
+#: qml/DiscoverPage.qml:83 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:109
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloads"
+msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
 msgstr "İndirmeler"
 
@@ -681,10 +685,13 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Bağlantı Kopyalandı"
 
-#: qml/EpisodeListPage.qml:17
-#, kde-format
-msgid "Episode List"
-msgstr "Bölüm Listesi"
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
+#: qml/Mobile/BottomToolbar.qml:39
+#, fuzzy, kde-format
+#| msgid "Episodes"
+msgctxt "@title of page with list of podcast episodes"
+msgid "Episodes"
+msgstr "Bölümler"
 
 #: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
@@ -693,7 +700,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Ara"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:357
+#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Kullanılabilir bölüm yok"
@@ -708,8 +715,7 @@ msgstr "Günlüklenen hata yok"
 msgid "Error code:"
 msgstr "Hata kodu:"
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:19
-#: qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
@@ -731,57 +737,57 @@ msgstr "Hata Günlüğünü Göster"
 msgid "Podcast Details"
 msgstr "Pod Yayını Ayrıntıları"
 
-#: qml/FeedDetailsPage.qml:120
+#: qml/FeedDetailsPage.qml:124
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "%1 tarafından"
 
-#: qml/FeedDetailsPage.qml:151
+#: qml/FeedDetailsPage.qml:155
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Pod Yayınını Yenile"
 
-#: qml/FeedDetailsPage.qml:170
+#: qml/FeedDetailsPage.qml:174
 #, kde-format
 msgid "Show Details"
 msgstr "Ayrıntıları Göster"
 
-#: qml/FeedDetailsPage.qml:241
+#: qml/FeedDetailsPage.qml:245
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Pod Yayını URL’si:"
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:285
 #, kde-format
 msgid "Weblink:"
 msgstr "Web bağlantısı:"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:313
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonelik tarihi: %1"
 
-#: qml/FeedDetailsPage.qml:322
+#: qml/FeedDetailsPage.qml:326
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Son güncelleme: %1"
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Bölüm"
 msgstr[1] "%1 Bölüm"
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Çalınmayan"
 msgstr[1] "%1 Çalınmayan"
 
-#: qml/FeedDetailsPage.qml:357
+#: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Hata (%1): %2"
@@ -791,17 +797,13 @@ msgstr "Hata (%1): %2"
 msgid "Remove Podcast"
 msgstr "Pod Yayınını Kaldır"
 
-#: qml/FeedListPage.qml:20
-#, kde-format
-msgctxt "@title Podcast subscription list page title"
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
+#: qml/Mobile/BottomToolbar.qml:31
+#, fuzzy, kde-format
+#| msgid "Subscriptions"
+msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
 msgstr "Abonelikler"
-
-#: qml/FeedListPage.qml:41
-#, kde-format
-msgctxt "@action:intoolbar Open the podcast discover page"
-msgid "Discover"
-msgstr "Keşfet"
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
@@ -901,8 +903,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Eşzamanla"
 
-#: qml/FeedListPage.qml:236 qml/KastsGlobalDrawer.qml:129 qml/Main.qml:74
-#: qml/Mobile/BottomToolbar.qml:47
+#: qml/FeedListPage.qml:236 qml/Main.qml:74
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
@@ -945,47 +946,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Etkin süzgeç: %1"
 
-#: qml/GenericEntryDelegate.qml:219
+#: qml/GenericEntryDelegate.qml:221
 #, kde-format
 msgid "Played"
 msgstr "Çalındı"
 
-#: qml/GenericEntryDelegate.qml:219
+#: qml/GenericEntryDelegate.qml:221
 #, kde-format
 msgid "Read"
 msgstr "Okundu"
 
-#: qml/GenericEntryDelegate.qml:225
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "New"
 msgstr "Yeni"
 
-#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:328 qml/GenericEntryListView.qml:262
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Kuyruktan Kaldır"
 
-#: qml/GenericEntryDelegate.qml:335 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:337 qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Download"
 msgstr "İndir"
 
-#: qml/GenericEntryDelegate.qml:345
+#: qml/GenericEntryDelegate.qml:347
 #, kde-format
 msgid "Cancel Download"
 msgstr "İndirmeyi İptal Et"
 
-#: qml/GenericEntryDelegate.qml:352
+#: qml/GenericEntryDelegate.qml:354
 #, kde-format
 msgid "Delete Download"
 msgstr "İndirmeyi Sil"
 
-#: qml/GenericEntryDelegate.qml:359 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:252
 #, kde-format
 msgid "Add to Queue"
 msgstr "Kuyruğa Ekle"
 
-#: qml/GenericEntryDelegate.qml:376 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:378 qml/GenericEntryListView.qml:341
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1082,19 +1083,21 @@ msgid "Search in:"
 msgstr "Şurada ara:"
 
 #: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
-#, kde-format
+#: qml/QueuePage.qml:18
+#, fuzzy, kde-format
+#| msgid "Queue"
+msgctxt ""
+"@title of page showing the list queued items; this is the noun 'the queue', "
+"not the verb"
 msgid "Queue"
 msgstr "Kuyruk"
 
-#: qml/KastsGlobalDrawer.qml:89 qml/Mobile/BottomToolbar.qml:31
-#, kde-format
-msgid "Subscriptions"
-msgstr "Abonelikler"
-
-#: qml/KastsGlobalDrawer.qml:99 qml/Mobile/BottomToolbar.qml:39
-#, kde-format
-msgid "Episodes"
-msgstr "Bölümler"
+#: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@title of dialog with app settings"
+msgid "Settings"
+msgstr "Ayarlar"
 
 #: qml/Main.qml:226
 #, kde-format
@@ -1194,12 +1197,6 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr "Özelleştir"
 
-#: qml/QueuePage.qml:18
-#, kde-format
-msgctxt "@title:column Page showing the list queued items"
-msgid "Queue"
-msgstr "Kuyruk"
-
 #: qml/QueuePage.qml:62
 #, kde-format
 msgctxt "@info"
@@ -1227,101 +1224,144 @@ msgid "Search episodes…"
 msgstr "Bölümler ara…"
 
 #: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:menu Category in settings"
 msgid "About"
 msgstr "Hakkında"
 
-#: qml/Settings/AppearanceSettingsPage.qml:23 qml/Settings/SettingsPage.qml:23
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
 msgstr "Görünüş"
 
 #: qml/Settings/AppearanceSettingsPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Color theme"
+msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Renk teması"
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Always show podcast titles in subscription view"
+msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Abonelik görünümünde her zaman pod yayını başlıklarını göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:59
+#: qml/Settings/AppearanceSettingsPage.qml:61
+#, kde-format
+msgctxt "@option:check"
+msgid "Show episode image instead of podcast image in lists"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:73
+#, fuzzy, kde-format
+#| msgid "Always show podcast titles in subscription view"
+msgctxt "@option:check"
+msgid "Show podcast titles in episode lists"
+msgstr "Abonelik görünümünde her zaman pod yayını başlıklarını göster"
+
+#: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Tepsi simgesi"
 
-#: qml/Settings/AppearanceSettingsPage.qml:70
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:94
+#, fuzzy, kde-format
+#| msgid "Show icon in system tray"
+msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Sistem tepsisinde simgeyi göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:82
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:106
+#, fuzzy, kde-format
+#| msgid "Minimize to tray instead of closing"
+msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Kapatmak yerine sistem tepsisine küçült"
 
-#: qml/Settings/AppearanceSettingsPage.qml:94
-#, kde-format
-msgctxt "Label for selecting the color of the tray icon"
+#: qml/Settings/AppearanceSettingsPage.qml:118
+#, fuzzy, kde-format
+#| msgctxt "Label for selecting the color of the tray icon"
+#| msgid "Tray icon type"
+msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tepsi simgesi türü"
 
-#: qml/Settings/AppearanceSettingsPage.qml:99
+#: qml/Settings/AppearanceSettingsPage.qml:123
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Renkli"
 
-#: qml/Settings/AppearanceSettingsPage.qml:100
+#: qml/Settings/AppearanceSettingsPage.qml:124
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Açık"
 
-#: qml/Settings/AppearanceSettingsPage.qml:101
+#: qml/Settings/AppearanceSettingsPage.qml:125
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Koyu"
 
-#: qml/Settings/AppearanceSettingsPage.qml:111
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:135
+#, fuzzy, kde-format
+#| msgid "Text"
+msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Metin"
 
-#: qml/Settings/AppearanceSettingsPage.qml:121
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:145
+#, fuzzy, kde-format
+#| msgid "Use system default"
+msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
 
-#: qml/Settings/AppearanceSettingsPage.qml:133
-#, kde-format
+#: qml/Settings/AppearanceSettingsPage.qml:157
+#, fuzzy, kde-format
+#| msgid "Font size"
+msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Yazıtipi boyutu"
 
-#: qml/Settings/AppearanceSettingsPage.qml:140
-#, kde-format
-msgid "Font size:"
-msgstr "Yazıtipi boyutu:"
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
+#, fuzzy, kde-format
+#| msgid "Error Log"
+msgctxt "@title:menu Category in settings"
+msgid "Error Log"
+msgstr "Hata Günlüğü"
 
 #: qml/Settings/GeneralSettingsPage.qml:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Playback settings"
+msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
 msgstr "Çalma ayarları"
 
 #: qml/Settings/GeneralSettingsPage.qml:32
-#, kde-format
-msgctxt "Label for setting to select audio playback backend"
+#, fuzzy, kde-format
+#| msgctxt "Label for setting to select audio playback backend"
+#| msgid "Select audio backend"
+msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Ses arka ucu seç"
 
 #: qml/Settings/GeneralSettingsPage.qml:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Label for settings related to the play time, e.g. whether the total track "
+#| "time is shown or a countdown of the remaining play time"
+#| msgid "Play time:"
 msgctxt ""
-"Label for settings related to the play time, e.g. whether the total track "
-"time is shown or a countdown of the remaining play time"
+"@option:check Label for settings related to the play time, e.g. whether the "
+"total track time is shown or a countdown of the remaining play time"
 msgid "Play time:"
 msgstr "Çalma süresi:"
 
@@ -1331,12 +1371,16 @@ msgid "Show time left instead of total track time"
 msgstr "Toplam parça süresi yerine kalan zamanı göster"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Adjust time left based on current playback speed"
+msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
 msgstr "Kalan zamanı geçerli çalma hızına bağlı olarak ayarla"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Prioritize streaming over downloading"
+msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
 msgstr "İndirme yerine akışa öncelik ver"
 
@@ -1353,18 +1397,24 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Geri sarma aralığı (saniye)"
 
 #: qml/Settings/GeneralSettingsPage.qml:124
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Queue settings"
+msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
 msgstr "Kuyruk ayarları"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Continue playing next episode after current one finishes"
+msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
 msgstr "Şu anda çalınan bittikten sonra sonraki bölümden çalmayı sürdür"
 
 #: qml/Settings/GeneralSettingsPage.qml:142
-#, kde-format
-msgctxt "Label for settings related to podcast updates"
+#, fuzzy, kde-format
+#| msgctxt "Label for settings related to podcast updates"
+#| msgid "Update Settings:"
+msgctxt "@option:check Label for settings related to podcast updates"
 msgid "Update Settings:"
 msgstr "Güncelleme Ayarları:"
 
@@ -1374,22 +1424,30 @@ msgid "Automatically fetch podcast updates on startup"
 msgstr "Başlangıçta pod yayını güncellemelerini kendiliğinden getir"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Update existing episode data on refresh (slower)"
+msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Yenilemede var olan bölüm verisini güncelle (daha yavaş)"
 
 #: qml/Settings/GeneralSettingsPage.qml:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Automatically queue new episodes"
+msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr "Yeni bölümleri kendiliğinden kuyruğa ekle"
 
 #: qml/Settings/GeneralSettingsPage.qml:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Automatically download new episodes"
+msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr "Yeni bölümleri kendiliğinden indir"
 
 #: qml/Settings/GeneralSettingsPage.qml:191
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Played episode behavior"
+msgctxt "@label:listbox"
 msgid "Played episode behavior"
 msgstr "Çalınan bölüm davranışı"
 
@@ -1417,230 +1475,341 @@ msgstr ""
 "türünden)"
 
 #: qml/Settings/GeneralSettingsPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reset play position after an episode is played"
+msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "Bir bölüm çalındıktan sonra çalma konumunu sıfırla"
 
 #: qml/Settings/GeneralSettingsPage.qml:236
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "When adding new podcasts"
+msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Yeni pod yayınları eklerken"
 
 #: qml/Settings/GeneralSettingsPage.qml:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark all episodes as played"
+msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Tüm bölümleri çalındı olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:256
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark most recent episodes as unplayed"
+msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "En son bölümleri çalınmadı olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:279
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mark all episodes as unplayed"
+msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
 msgstr "Tüm bölümleri çalınmadı olarak imle"
 
-#: qml/Settings/NetworkSettingsPage.qml:23 qml/Settings/SettingsPage.qml:35
-#, kde-format
+#: qml/Settings/NetworkSettingsPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Network"
+msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Ağ"
 
 #: qml/Settings/NetworkSettingsPage.qml:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enable network connection checks"
+msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Ağ bağlantısı denetimlerine izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:42
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "On metered connections"
+msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Kısıtlı bağlantılarda"
 
 #: qml/Settings/NetworkSettingsPage.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow podcast updates"
+msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Pod yayını güncellemelerine izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow episode downloads"
+msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Bölüm indirmelere izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow image downloads"
+msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Görsel indirmelere izin ver"
 
 #: qml/Settings/NetworkSettingsPage.qml:85
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow streaming"
+msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Akışa izin ver"
 
 #: qml/Settings/SettingsPage.qml:17
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:menu Category in settings"
 msgid "General"
 msgstr "Genel"
 
+#: qml/Settings/SettingsPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:menu Category in settings"
+msgid "Appearance"
+msgstr "Görünüş"
+
 #: qml/Settings/SettingsPage.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Storage"
+msgctxt "@title:menu Category in settings"
 msgid "Storage"
 msgstr "Depolama"
 
+#: qml/Settings/SettingsPage.qml:35
+#, fuzzy, kde-format
+#| msgid "Network"
+msgctxt "@title:menu Category in settings"
+msgid "Network"
+msgstr "Ağ"
+
 #: qml/Settings/SettingsPage.qml:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Synchronization"
+msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Eşzamanlama"
 
-#: qml/Settings/SettingsPage.qml:47
-#, kde-format
-msgid "Error Log"
-msgstr "Hata Günlüğü"
-
 #: qml/Settings/StorageSettingsPage.qml:22
+#, fuzzy, kde-format
+#| msgid "Storage path"
+msgctxt "@title Form header for settings related to storage paths"
+msgid "Storage path"
+msgstr "Depolama konumu"
+
 #: qml/Settings/StorageSettingsPage.qml:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Storage path"
+msgctxt "@label showing path used for local storage"
 msgid "Storage path"
 msgstr "Depolama konumu"
 
 #: qml/Settings/StorageSettingsPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select folder…"
+msgctxt "@action:button"
 msgid "Select folder…"
 msgstr "Klasör Seç…"
 
 #: qml/Settings/StorageSettingsPage.qml:46
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Storage Path"
+msgctxt "@title of dialog box"
 msgid "Select Storage Path"
 msgstr "Depolama Konumu Seç"
 
 #: qml/Settings/StorageSettingsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use default path"
+msgctxt "@option:check"
 msgid "Use default path"
 msgstr "Öntanımlı konumu kullan"
 
 #: qml/Settings/StorageSettingsPage.qml:67
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Information"
+msgctxt ""
+"@title Form header for section showing information about local storage"
 msgid "Information"
 msgstr "Bilgi"
 
 #: qml/Settings/StorageSettingsPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Podcast downloads"
+msgctxt "@label showing the storage space used by local podcast downloads"
 msgid "Podcast downloads"
 msgstr "Pod yayını indirmeleri"
 
 #: qml/Settings/StorageSettingsPage.qml:75
 #: qml/Settings/StorageSettingsPage.qml:82
-#, kde-format
-msgctxt "Using <amount of bytes> of disk space"
+#, fuzzy, kde-format
+#| msgctxt "Using <amount of bytes> of disk space"
+#| msgid "Using %1 of disk space"
+msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr "%1 disk alanı kullanılıyor"
 
 #: qml/Settings/StorageSettingsPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Image cache"
+msgctxt "@label showing the storage space used by the image cache"
 msgid "Image cache"
 msgstr "Görsel önbelleği"
 
 #: qml/Settings/StorageSettingsPage.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clear Cache"
+msgctxt "@action:button"
 msgid "Clear Cache"
 msgstr "Önbelleği Temizle"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account"
+msgctxt "@label"
 msgid "Account"
 msgstr "Hesap"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Logged into account \"%1\" on server \"%2\""
+msgctxt ""
+"@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account \"%1\" on server \"%2\""
 msgstr "\"%2\" sunucusunda \"%1\" olarak oturum açıldı"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Syncing disabled"
+msgctxt "@info:status"
 msgid "Syncing disabled"
 msgstr "Eşzamanlama devre dışı"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgctxt "@action:button"
 msgid "Logout"
 msgstr "Oturumu Kapat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@action:button"
 msgid "Login"
 msgstr "Oturum Aç"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Manually sync"
+msgctxt "@label"
 msgid "Manually sync"
 msgstr "Elle eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:53
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync Now"
+msgctxt "@action:button"
 msgid "Sync Now"
 msgstr "Şimdi Eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Last full sync with server"
+msgctxt "@info:status"
 msgid "Last full sync with server"
 msgstr "Sunucuyla son tam eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Last quick upload to sync server"
+msgctxt "@info:status"
 msgid "Last quick upload to sync server"
 msgstr "Eşzamanlama sunucusuna son tez yükleme"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:79
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
 msgstr "Otomatik eşzamanlama"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:89
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do full sync on startup"
+msgctxt "@option:check"
 msgid "Do full sync on startup"
 msgstr "Başlangıçta tam eşzamanlama yapma"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Do full sync when fetching podcasts"
+msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
 msgstr "Pod yayınlarını getirirken tam eşzamanlama yap"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:109
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Upload episode play positions on play/pause toggle"
+msgctxt "@option:check"
 msgid "Upload episode play positions on play/pause toggle"
 msgstr "Çal/Duraklat düğmesine bölüm çalma konumlarını yükle"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Advanced options"
+msgctxt "@title Form header for advanced settings related to syncing"
 msgid "Advanced options"
 msgstr "Gelişmiş seçenekler"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fetch all episode states from server"
+msgctxt "@label"
 msgid "Fetch all episode states from server"
 msgstr "Sunucudan tüm bölüm durumlarını getir"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Fetch"
+msgctxt "@action:button"
 msgid "Fetch"
 msgstr "Getir"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push all local episode states to server"
+msgctxt "@label"
 msgid "Push all local episode states to server"
 msgstr "Tüm yerel bölüm durumlarını sunucuya it"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push"
+msgctxt "@action:button"
 msgid "Push"
 msgstr "İt"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:184
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Push all local episode states to server?"
+msgctxt "@label"
 msgid "Push all local episode states to server?"
 msgstr "Tüm bölüm durumları sunucuya itilsin mi?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:204
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Please note that pushing the playback state of all local episodes to the "
+#| "server might take a very long time and/or might overload the server. Also "
+#| "note that this action will overwrite all existing episode states on the "
+#| "server.\n"
+#| "\n"
+#| "Continue?"
+msgctxt "@label"
 msgid ""
 "Please note that pushing the playback state of all local episodes to the "
 "server might take a very long time and/or might overload the server. Also "
@@ -1656,48 +1825,69 @@ msgstr ""
 "Sürdürülsün mü?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:228
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select Sync Provider"
+msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "Eşzamanlama Sağlayıcısı Seç"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:240
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "gpodder.net"
+msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Synchronize with official gpodder.net server"
+msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "Resmi gpodder.net sunucusu ile eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "GPodder Nextcloud"
+msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:245
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Synchronize with GPodder Nextcloud app"
+msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud uygulamasıyla eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:278
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync Login Credentials"
+msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "Eşzamanlama Oturum Açma Bilgileri"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync with GPodder Nextcloud app"
+msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud uygulamasıyla eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync with gpodder.net service"
+msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "gpodder.net hizmetiyle eşzamanla"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
-#, kde-format
-msgctxt "argument is a weblink"
+#, fuzzy, kde-format
+#| msgctxt "argument is a weblink"
+#| msgid ""
+#| "Sync with a Nextcloud server that has the GPodder Sync app installed: %1."
+#| "<br/>It is advised to manually create an app password for Kasts through "
+#| "the web interface and use those credentials."
+msgctxt "@label argument is a weblink"
 msgid ""
 "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/"
 ">It is advised to manually create an app password for Kasts through the web "
@@ -1708,99 +1898,140 @@ msgstr ""
 "onun kullanılması önerilir."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
-#, kde-format
-msgctxt "argument is a weblink"
+#, fuzzy, kde-format
+#| msgctxt "argument is a weblink"
+#| msgid ""
+#| "If you don't already have an account, you should first create one at %1"
+msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Eğer bir hesabınız yoksa %1 adresinde bir tane oluşturmalısınız"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:331
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Kullanıcı adı:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:342
-#: qml/SyncPasswordOverlay.qml:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Parola:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:357
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Use custom server"
+msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "Özel sunucu kullan"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:362
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hostname:"
+msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Makine adı:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:396
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync Device Settings"
+msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "Eşzamanlama Aygıt Ayarları"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:402
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create a new device"
+msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "Yeni bir aygıt oluştur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:408
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Device Name:"
+msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "Aygıt Adı:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:418
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Device Description:"
+msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "Aygıt Açıklaması:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Device Type:"
+msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "Aygıt Türü:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "other"
+msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "diğer"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:435
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "desktop"
+msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "masaüstü"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "laptop"
+msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "dizüstü"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:437
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "server"
+msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "sunucu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:438
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "mobile"
+msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "taşınabilir"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:443
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Create Device"
+msgctxt "@action:button"
 msgid "Create Device"
 msgstr "Aygıt Oluştur"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:460
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "or select an existing device"
+msgctxt "@label"
 msgid "or select an existing device"
 msgstr "veya var olan bir aygıtı seç"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:508
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Device Sync Settings"
+msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "Aygıt Eşzamanlama Ayarları"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:530
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Should all podcast subscriptions on this gpodder.net account be synced "
+#| "across all devices?\n"
+#| "If you don't know what this means, you should probably select \"Ok\"."
+msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
 "across all devices?\n"
@@ -1811,12 +2042,16 @@ msgstr ""
 "Bunun ne anlama geldiğini bilmiyorsanız \"Tamam\"ı seçmeniz yararlı olabilir."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sync Now?"
+msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "Şimdi Eşzamanla?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:572
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Perform a first sync now?"
+msgctxt "@label"
 msgid "Perform a first sync now?"
 msgstr "İlk eşzamanlama gerçekleştirilsin mi?"
 
@@ -1877,6 +2112,11 @@ msgstr ""
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr "\"gpodder.net\" üzerindeki \"%1\" kullanıcısının parolası alınamadı."
+
+#: qml/SyncPasswordOverlay.qml:57
+#, kde-format
+msgid "Password:"
+msgstr "Parola:"
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
@@ -2104,6 +2344,24 @@ msgstr "İleri Atla"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Episode List"
+#~ msgstr "Bölüm Listesi"
+
+#~ msgctxt "@title Podcast subscription list page title"
+#~ msgid "Subscriptions"
+#~ msgstr "Abonelikler"
+
+#~ msgctxt "@action:intoolbar Open the podcast discover page"
+#~ msgid "Discover"
+#~ msgstr "Keşfet"
+
+#~ msgctxt "@title:column Page showing the list queued items"
+#~ msgid "Queue"
+#~ msgstr "Kuyruk"
+
+#~ msgid "Font size:"
+#~ msgstr "Yazıtipi boyutu:"
 
 #~ msgid "Article"
 #~ msgstr "Yazı"
