@@ -113,6 +113,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/Settings/SettingsPage.qml
         qml/Settings/GeneralSettingsPage.qml
         qml/Settings/AppearanceSettingsPage.qml
+        qml/Settings/StorageDirDialog.qml
         qml/Settings/NetworkSettingsPage.qml
         qml/Settings/StorageSettingsPage.qml
         qml/Settings/SynchronizationSettingsPage.qml
@@ -216,21 +217,6 @@ if(ANDROID)
     target_sources(kasts PRIVATE utils/androidlogging.h)
 endif()
 
-if(KASTS_FLATPAK)
-    set_source_files_properties(qml/Settings/StorageDirDialogFlatpak.qml PROPERTIES
-        QT_RESOURCE_ALIAS qml/Settings/StorageDirDialog.qml
-    )
-    qt_target_qml_sources(kasts
-        QML_FILES
-            qml/Settings/StorageDirDialogFlatpak.qml
-    )
-else()
-    qt_target_qml_sources(kasts
-        QML_FILES
-            qml/Settings/StorageDirDialog.qml
-    )
-endif()
-
 ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
     ../icons/16-apps-kasts.png
     ../icons/24-apps-kasts.png
@@ -251,10 +237,6 @@ if(TARGET KF6::BreezeIcons)
     )
     target_compile_definitions(kasts PRIVATE WITH_BREEZEICONS_LIB)
 endif ()
-
-if(KASTS_FLATPAK)
-    target_compile_definitions(kasts PUBLIC KASTS_FLATPAK)
-endif()
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
