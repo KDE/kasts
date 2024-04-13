@@ -59,26 +59,6 @@
             ]
         },
         {
-            "name": "taglib",
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://taglib.github.io/releases/taglib-1.13.1.tar.gz",
-                    "sha256": "c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 1982,
-                        "stable-only": true,
-                        "url-template": "https://taglib.github.io/releases/taglib-$version.tar.gz"
-                    }
-                }
-            ],
-            "config-opts": [
-                "-DBUILD_SHARED_LIBS=ON"
-            ]
-        },
-        {
             "name": "libsecret",
             "buildsystem": "meson",
             "config-opts": [
@@ -90,8 +70,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.2.tar.xz",
-                    "sha256": "e4a341496a0815e64c8d3b8fabab33d7bae7efdeab77b843669731d5b181dcee",
+                    "url": "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.4.tar.xz",
+                    "sha256": "163d08d783be6d4ab9a979ceb5a4fecbc1d9660d3c34168c581301cd53912b20",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "libsecret",
@@ -117,10 +97,10 @@
                 }
             ],
             "config-opts": [
-                "-DBUILD_WITH_QT6=ON",
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib",
                 "-DLIB_INSTALL_DIR=/app/lib",
-                "-DBUILD_TRANSLATIONS=NO"
+                "-DBUILD_TRANSLATIONS=NO",
+                "-DBUILD_WITH_QT6=ON"
             ]
         },
         {
@@ -152,9 +132,6 @@
                     "type": "file",
                     "path": ".patches/run_kasts.sh"
                 }
-            ],
-            "config-opts": [
-                "-DKASTS_FLATPAK=ON"
             ]
         }
     ]
