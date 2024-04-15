@@ -299,6 +299,10 @@
   <provides>
     <binary>kasts</binary>
   </provides>
+  <branding>
+    <color type="primary" scheme_preference="light">#6f9aff</color>
+    <color type="primary" scheme_preference="dark">#4e4a93</color>
+  </branding>
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
@@ -356,7 +360,7 @@
       <caption xml:lang="zh-TW">桌面上的 Kasts，使用最小化標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot>
       <caption>Kasts on a phone</caption>
       <caption xml:lang="ar">كاستس على الهاتف</caption>
       <caption xml:lang="ca">El Kasts a un telèfon</caption>
