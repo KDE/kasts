@@ -44,6 +44,10 @@ Fetcher::Fetcher()
     manager->enableStrictTransportSecurityStore(true);
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
+
+    // setup update timer if required
+    initializeUpdateTimer();
+    connect(SettingsManager::self(), &SettingsManager::autoFeedUpdateIntervalChanged, this, &Fetcher::initializeUpdateTimer);
 }
 
 void Fetcher::fetch(const QString &url)
@@ -241,4 +245,44 @@ QNetworkReply *Fetcher::head(QNetworkRequest &request) const
 void Fetcher::setHeader(QNetworkRequest &request) const
 {
     request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray(" Syndication"));
+}
+
+void Fetcher::initializeUpdateTimer()
+{
+    qCDebug(kastsFetcher) << "Fetcher::setUpdateTimer";
+    qCDebug(kastsFetcher) << "new auto update interval =" << SettingsManager::self()->autoFeedUpdateInterval();
+
+    if (m_updateTimer) {
+        m_updateTimer->stop();
+        disconnect(m_updateTimer, &QTimer::timeout, this, &Fetcher::checkUpdateTimer);
+        delete m_updateTimer;
+    }
+
+    if (SettingsManager::self()->autoFeedUpdateInterval() > 0) {
+        m_updateTriggerTime =
+            QDateTime::currentDateTimeUtc().addSecs(3600 * SettingsManager::self()->autoFeedUpdateInterval()); // update interval specified in hours
+        m_updateTimer = new QTimer(this);
+        m_updateTimer->setTimerType(Qt::VeryCoarseTimer);
+
+        connect(m_updateTimer, &QTimer::timeout, this, &Fetcher::checkUpdateTimer);
+
+        m_updateTimer->start(m_checkInterval); // trigger every ten minutes
+    }
+}
+
+void Fetcher::checkUpdateTimer()
+{
+    qCDebug(kastsFetcher) << "Fetcher::checkUpdateTimer; next automatic feed update in" << m_updateTriggerTime - QDateTime::currentDateTimeUtc();
+
+    // add a few seconds as "fuzzy match" to avoid that the trigger is delayed
+    // by another 10 minutes due to a difference of just a few milliseconds
+    if (QDateTime::currentDateTimeUtc().addSecs(5) > m_updateTriggerTime) {
+        qCDebug(kastsFetcher) << "Trigger for feed update has been reached; updating feeds now";
+        QTimer::singleShot(0, this, &Fetcher::fetchAll);
+
+        // set next update time
+        m_updateTriggerTime =
+            QDateTime::currentDateTimeUtc().addSecs(3600 * SettingsManager::self()->autoFeedUpdateInterval()); // update interval specified in hours
+        qCDebug(kastsFetcher) << "new auto feed update trigger set to" << m_updateTriggerTime;
+    }
 }

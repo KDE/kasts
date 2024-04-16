@@ -5,44 +5,6 @@
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kastsrc" />
     <group name="General">
-        <entry name="ColorScheme" type="String">
-            <label>Color scheme</label>
-        </entry>
-        <entry name="showTrayIcon" type="Bool">
-            <label>Show icon in system tray</label>
-            <default>false</default>
-        </entry>
-        <entry name="trayIconType" type="Enum">
-            <label>Color/type of the tray icon</label>
-            <choices>
-                <choice name="Colorful">
-                    <label>Colorful</label>
-                </choice>
-                <choice name="Light">
-                    <label>Light</label>
-                </choice>
-                <choice name="Dark">
-                    <label>Dark</label>
-                </choice>
-            </choices>
-            <default>Dark</default>
-        </entry>
-        <entry name="minimizeToTray" type="Bool">
-            <label>Minimize to system tray instead of closing application</label>
-            <default>true</default>
-        </entry>
-        <entry name="alwaysShowFeedTitles" type="Bool">
-            <label>Always show the title of podcast feeds in subscription view</label>
-            <default>false</default>
-        </entry>
-        <entry name="showEpisodeImage" type="Bool">
-            <label>Show the image of the episode rather than the general podcast image</label>
-            <default>true</default>
-        </entry>
-        <entry name="showPodcastTitle" type="Bool">
-            <label>Show the podcast/feed title on the entry delegate</label>
-            <default>false</default>
-        </entry>
         <entry name="prioritizeStreaming" type="Bool">
             <label>Show streaming button instead of download button</label>
             <default>false</default>
@@ -70,6 +32,10 @@
         <entry name="autoDownload" type="Bool">
             <label>Automatically download new episodes</label>
             <default>false</default>
+        </entry>
+        <entry name="autoFeedUpdateInterval" type="Int">
+            <label>Interval for automatically updating feeds/podcasts. 0 means never update automatically.</label>
+            <default>0</default>
         </entry>
         <entry name="autoDeleteOnPlayed" type="Enum">
             <label>Setting to select if or when to delete played episode</label>
@@ -124,13 +90,53 @@
             <label>Article font size</label>
             <default>10</default>
         </entry>
-        <entry name="articleFontUseSystem" type="Bool">
-            <label>Use default system font</label>
-            <default>true</default>
-        </entry>
         <entry name="StoragePath" type="Url">
             <label>Custom path to store enclosures and images</label>
             <default></default>
+        </entry>
+    </group>
+    <group name="Appearance">
+        <entry name="ColorScheme" type="String">
+            <label>Color scheme</label>
+        </entry>
+        <entry name="alwaysShowFeedTitles" type="Bool">
+            <label>Always show the title of podcast feeds in subscription view</label>
+            <default>false</default>
+        </entry>
+        <entry name="showEpisodeImage" type="Bool">
+            <label>Show the image of the episode rather than the general podcast image</label>
+            <default>true</default>
+        </entry>
+        <entry name="showPodcastTitle" type="Bool">
+            <label>Show the podcast/feed title on the entry delegate</label>
+            <default>false</default>
+        </entry>
+        <entry name="showTrayIcon" type="Bool">
+            <label>Show icon in system tray</label>
+            <default>false</default>
+        </entry>
+        <entry name="trayIconType" type="Enum">
+            <label>Color/type of the tray icon</label>
+            <choices>
+                <choice name="Colorful">
+                    <label>Colorful</label>
+                </choice>
+                <choice name="Light">
+                    <label>Light</label>
+                </choice>
+                <choice name="Dark">
+                    <label>Dark</label>
+                </choice>
+            </choices>
+            <default>Dark</default>
+        </entry>
+        <entry name="minimizeToTray" type="Bool">
+            <label>Minimize to system tray instead of closing application</label>
+            <default>true</default>
+        </entry>
+        <entry name="articleFontUseSystem" type="Bool">
+            <label>Use default system font</label>
+            <default>true</default>
         </entry>
     </group>
     <group name="Playback Settings">

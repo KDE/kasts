@@ -59,9 +59,8 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showTimeLeft
-            Kirigami.FormData.label: i18nc("@option:check Label for settings related to the play time, e.g. whether the total track time is shown or a countdown of the remaining play time", "Play time:")
             checked: SettingsManager.toggleRemainingTime
-            text: i18n("Show time left instead of total track time")
+            text: i18nc("@option:check Label for setting whether the total track time is shown or a countdown of the remaining play time", "Show time left instead of total track time")
             onToggled: {
                 SettingsManager.toggleRemainingTime = checked;
                 SettingsManager.save();
@@ -121,32 +120,46 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related to the queue", "Queue settings")
+        title: i18nc("@title Form header for settings related podcast updates", "Podcast update settings")
         Layout.fillWidth: true
     }
 
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
-            id: continuePlayingNextEntry
-            checked: SettingsManager.continuePlayingNextEntry
-            text: i18nc("@option:check", "Continue playing next episode after current one finishes")
-            onToggled: {
-                SettingsManager.continuePlayingNextEntry = checked;
+        FormCard.FormComboBoxDelegate {
+            id: autoFeedUpdateInterval
+            text: i18nc("@label:listbox", "Automatically fetch podcast feeds")
+            textRole: "text"
+            valueRole: "value"
+            model: [{"text": i18nc("@item:inlistbox automatic podcast update interval", "Never"), "value": 0},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 1), "value": 1},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 2), "value": 2},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 4), "value": 4},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 8), "value": 8},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 12), "value": 12},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 1), "value": 24},
+                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 3), "value": 72}]
+            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoFeedUpdateInterval)
+            onActivated: {
+                SettingsManager.autoFeedUpdateInterval = currentValue;
                 SettingsManager.save();
             }
         }
+
         FormCard.FormCheckDelegate {
             id: refreshOnStartup
-            Kirigami.FormData.label: i18nc("@option:check Label for settings related to podcast updates", "Update Settings:")
             checked: SettingsManager.refreshOnStartup
-            text: i18n("Automatically fetch podcast updates on startup")
+            text: i18nc("@option:check", "Fetch podcast updates on startup")
             onToggled: {
                 SettingsManager.refreshOnStartup = checked;
                 SettingsManager.save();
             }
         }
+
+
+        FormCard.FormDelegateSeparator { above: refreshOnStartup; below: doFullUpdate }
+
         FormCard.FormCheckDelegate {
             id: doFullUpdate
             checked: SettingsManager.doFullUpdate
@@ -183,17 +196,49 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
+    }
 
-        FormCard.FormDelegateSeparator { above: autoDownload; below: episodeBehavior }
+    FormCard.FormHeader {
+        title: i18nc("@title Form header for settings related to the queue", "Queue settings")
+        Layout.fillWidth: true
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
+
+        FormCard.FormCheckDelegate {
+            id: continuePlayingNextEntry
+            checked: SettingsManager.continuePlayingNextEntry
+            text: i18nc("@option:check", "Continue playing next episode after current one finishes")
+            onToggled: {
+                SettingsManager.continuePlayingNextEntry = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator { above: continuePlayingNextEntry; below: resetPositionOnPlayed }
+
+        FormCard.FormCheckDelegate {
+            id: resetPositionOnPlayed
+            checked: SettingsManager.resetPositionOnPlayed
+            text: i18nc("@option:check", "Reset play position after an episode is played")
+            onToggled: {
+                SettingsManager.resetPositionOnPlayed = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator { above: resetPositionOnPlayed; below: episodeBehavior }
+
 
         FormCard.FormComboBoxDelegate {
             id: episodeBehavior
             text: i18nc("@label:listbox", "Played episode behavior")
             textRole: "text"
             valueRole: "value"
-            model: [{"text": i18n("Do not delete"), "value": 0},
-                    {"text": i18n("Delete immediately"), "value": 1},
-                    {"text": i18n("Delete at next startup"), "value": 2}]
+            model: [{"text": i18nc("@item:inlistbox What to do with played episodes", "Do not delete"), "value": 0},
+                    {"text": i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"), "value": 1},
+                    {"text": i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"), "value": 2}]
             Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
             onActivated: {
                 SettingsManager.autoDeleteOnPlayed = currentValue;
@@ -216,18 +261,6 @@ FormCard.FormCardPage {
                     SettingsManager.markAsPlayedBeforeEnd = value;
                     SettingsManager.save();
                 }
-            }
-        }
-
-        FormCard.FormDelegateSeparator { above: markAsPlayedGracePeriod; below: resetPositionOnPlayed }
-
-        FormCard.FormCheckDelegate {
-            id: resetPositionOnPlayed
-            checked: SettingsManager.resetPositionOnPlayed
-            text: i18nc("@option:check", "Reset play position after an episode is played")
-            onToggled: {
-                SettingsManager.resetPositionOnPlayed = checked;
-                SettingsManager.save();
             }
         }
     }

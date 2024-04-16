@@ -7,11 +7,13 @@
 
 #pragma once
 
+#include <QDateTime>
 #include <QFile>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QObject>
 #include <QQmlEngine>
+#include <QTimer>
 #include <QUrl>
 #include <Syndication/Syndication>
 
@@ -50,6 +52,9 @@ public:
     QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;
 
+    void initializeUpdateTimer();
+    void checkUpdateTimer();
+
 Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);
     void entryUpdated(const QString &feedurl, const QString &id);
@@ -84,4 +89,8 @@ private:
     int m_updateProgress;
     int m_updateTotal;
     bool m_updating;
+
+    const qint64 m_checkInterval = 10 * 60 * 1000; // trigger timer every 10 minutes
+    QTimer *m_updateTimer;
+    QDateTime m_updateTriggerTime;
 };
