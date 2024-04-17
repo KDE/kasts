@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-13 00:37+0000\n"
-"PO-Revision-Date: 2024-04-15 11:18+0000\n"
+"PO-Revision-Date: 2024-04-16 15:39+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -1904,7 +1904,7 @@ msgstr "Samstilla núna?"
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "Framkvæma fyrstu samstillingu núna?"
 
 #: qml/SleepTimerDialog.qml:17
 #, kde-format
@@ -2005,17 +2005,17 @@ msgstr ""
 #: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr ""
+msgstr "I/O hafnað: Get ekki vistað lykilorð."
 
 #: sync/sync.cpp:567 sync/sync.cpp:568
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr ""
+msgstr "I/O hafnað: Get ekki opnað lykilorðaskrá."
 
 #: sync/sync.cpp:650
 #, kde-format
 msgid "Could not create GPodder device"
-msgstr ""
+msgstr "Tókst ekki að búa til GPodder-tæki"
 
 #: sync/sync.cpp:676
 #, kde-format
@@ -2061,7 +2061,7 @@ msgstr "Innri gagnavilla"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr ""
+msgstr "(Skref %1 af %2) Hefja samstillingu"
 
 #: sync/syncjob.cpp:887
 #, kde-format
@@ -2105,7 +2105,7 @@ msgstr ""
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr ""
+msgstr "(Skref %1 af %2) Samstillingu lokið"
 
 #: sync/syncjob.cpp:914
 #, kde-format
