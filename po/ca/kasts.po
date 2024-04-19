@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-19 00:37+0000\n"
 "PO-Revision-Date: 2024-04-13 12:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1334,114 +1334,120 @@ msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Selecció del dorsal d'àudio"
 
-#: qml/Settings/GeneralSettingsPage.qml:62
-#, kde-format
+#: qml/Settings/GeneralSettingsPage.qml:63
+#, fuzzy, kde-format
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for settings related to the play time, e.g. whether the "
-"total track time is shown or a countdown of the remaining play time"
-msgid "Play time:"
-msgstr "Temps de reproducció:"
-
-#: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+"@option:check Label for setting whether the total track time is shown or a "
+"countdown of the remaining play time"
 msgid "Show time left instead of total track time"
 msgstr "Mostra el temps restant en lloc del temps total de la peça"
 
-#: qml/Settings/GeneralSettingsPage.qml:74
+#: qml/Settings/GeneralSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
 msgstr ""
 "Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
-#: qml/Settings/GeneralSettingsPage.qml:83
+#: qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
 msgstr "Prioritza la transmissió en continu sobre la baixada"
 
-#: qml/Settings/GeneralSettingsPage.qml:95
+#: qml/Settings/GeneralSettingsPage.qml:94
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "Interval de salt cap endavant (en segons)"
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "Interval de salt cap enrere (en segons)"
 
-#: qml/Settings/GeneralSettingsPage.qml:124
-#, kde-format
-msgctxt "@title Form header for settings related to the queue"
-msgid "Queue settings"
-msgstr "Configuració de la cua"
+#: qml/Settings/GeneralSettingsPage.qml:123
+#, fuzzy, kde-format
+#| msgid "Podcast update error"
+msgctxt "@title Form header for settings related podcast updates"
+msgid "Podcast update settings"
+msgstr "Error en actualitzar el pòdcast"
 
-#: qml/Settings/GeneralSettingsPage.qml:134
-#, kde-format
-msgctxt "@option:check"
-msgid "Continue playing next episode after current one finishes"
-msgstr "Continua reproduint l'episodi següent una vegada finalitzi l'actual"
-
-#: qml/Settings/GeneralSettingsPage.qml:142
-#, kde-format
-msgctxt "@option:check Label for settings related to podcast updates"
-msgid "Update Settings:"
-msgstr "Configuració de les actualitzacions:"
-
-#: qml/Settings/GeneralSettingsPage.qml:144
-#, kde-format
-msgid "Automatically fetch podcast updates on startup"
+#: qml/Settings/GeneralSettingsPage.qml:132
+#, fuzzy, kde-format
+#| msgid "Automatically fetch podcast updates on startup"
+msgctxt "@label:listbox"
+msgid "Automatically fetch podcast feeds"
 msgstr "Obtén automàticament a l'inici les actualitzacions dels pòdcasts"
 
+#: qml/Settings/GeneralSettingsPage.qml:135
+#, fuzzy, kde-format
+#| msgid "Never"
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Never"
+msgstr "Mai"
+
+#: qml/Settings/GeneralSettingsPage.qml:136
+#: qml/Settings/GeneralSettingsPage.qml:137
+#: qml/Settings/GeneralSettingsPage.qml:138
+#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:140
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every hour"
+msgid_plural "Every %1 hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/Settings/GeneralSettingsPage.qml:141
+#: qml/Settings/GeneralSettingsPage.qml:142
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] ""
+msgstr[1] ""
+
 #: qml/Settings/GeneralSettingsPage.qml:153
+#, fuzzy, kde-format
+#| msgid "Automatically fetch podcast updates on startup"
+msgctxt "@option:check"
+msgid "Fetch podcast updates on startup"
+msgstr "Obtén automàticament a l'inici les actualitzacions dels pòdcasts"
+
+#: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Actualitza les dades dels episodis existents en actualitzar (més lent)"
 
-#: qml/Settings/GeneralSettingsPage.qml:163
+#: qml/Settings/GeneralSettingsPage.qml:176
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr "Posa automàticament a la cua els episodis nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:178
+#: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr "Baixa automàticament els episodis nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:191
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Comportament dels episodis reproduïts"
+msgctxt "@title Form header for settings related to the queue"
+msgid "Queue settings"
+msgstr "Configuració de la cua"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
+#: qml/Settings/GeneralSettingsPage.qml:212
 #, kde-format
-msgid "Do not delete"
-msgstr "No els suprimeixis"
+msgctxt "@option:check"
+msgid "Continue playing next episode after current one finishes"
+msgstr "Continua reproduint l'episodi següent una vegada finalitzi l'actual"
 
-#: qml/Settings/GeneralSettingsPage.qml:195
-#, kde-format
-msgid "Delete immediately"
-msgstr "Suprimeix immediatament"
-
-#: qml/Settings/GeneralSettingsPage.qml:196
-#, kde-format
-msgid "Delete at next startup"
-msgstr "Suprimeix-lo en l'inici següent"
-
-#: qml/Settings/GeneralSettingsPage.qml:208
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
-"Marca els episodis com a reproduïts quan resti el temps indicat (en segons)"
-
-#: qml/Settings/GeneralSettingsPage.qml:227
+#: qml/Settings/GeneralSettingsPage.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
@@ -1449,23 +1455,57 @@ msgstr "Restableix la posició de reproducció després de reproduir un episodi"
 
 #: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Comportament dels episodis reproduïts"
+
+#: qml/Settings/GeneralSettingsPage.qml:239
+#, fuzzy, kde-format
+#| msgid "Do not delete"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "No els suprimeixis"
+
+#: qml/Settings/GeneralSettingsPage.qml:240
+#, fuzzy, kde-format
+#| msgid "Delete immediately"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Suprimeix immediatament"
+
+#: qml/Settings/GeneralSettingsPage.qml:241
+#, fuzzy, kde-format
+#| msgid "Delete at next startup"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Suprimeix-lo en l'inici següent"
+
+#: qml/Settings/GeneralSettingsPage.qml:253
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Marca els episodis com a reproduïts quan resti el temps indicat (en segons)"
+
+#: qml/Settings/GeneralSettingsPage.qml:269
+#, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "En afegir pòdcasts nous"
 
-#: qml/Settings/GeneralSettingsPage.qml:245
+#: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Marca tots els episodis com a reproduïts"
 
-#: qml/Settings/GeneralSettingsPage.qml:256
+#: qml/Settings/GeneralSettingsPage.qml:289
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marca els episodis més recents com a sense reproduir"
 
-#: qml/Settings/GeneralSettingsPage.qml:279
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -2226,6 +2266,16 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgctxt ""
+#~ "@option:check Label for settings related to the play time, e.g. whether "
+#~ "the total track time is shown or a countdown of the remaining play time"
+#~ msgid "Play time:"
+#~ msgstr "Temps de reproducció:"
+
+#~ msgctxt "@option:check Label for settings related to podcast updates"
+#~ msgid "Update Settings:"
+#~ msgstr "Configuració de les actualitzacions:"
 
 #~ msgid "Episode List"
 #~ msgstr "Llista d'episodis"

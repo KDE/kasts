@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-19 00:37+0000\n"
 "PO-Revision-Date: 2024-02-02 17:35+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1354,127 +1354,126 @@ msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "Valitse äänijärjestelmä"
 
-#: qml/Settings/GeneralSettingsPage.qml:62
+#: qml/Settings/GeneralSettingsPage.qml:63
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "Label for settings related to the play time, e.g. whether the total track "
-#| "time is shown or a countdown of the remaining play time"
-#| msgid "Play time:"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for settings related to the play time, e.g. whether the "
-"total track time is shown or a countdown of the remaining play time"
-msgid "Play time:"
-msgstr "Soittoaika:"
-
-#: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+"@option:check Label for setting whether the total track time is shown or a "
+"countdown of the remaining play time"
 msgid "Show time left instead of total track time"
 msgstr "Näytä jäljellä oleva aika raidan kokonaisajan sijaan"
 
-#: qml/Settings/GeneralSettingsPage.qml:74
+#: qml/Settings/GeneralSettingsPage.qml:73
 #, fuzzy, kde-format
 #| msgid "Adjust time left based on current playback speed"
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
 msgstr "Säädä jäljellä olevaa aikaa nykyisen toistonopeuden mukaan"
 
-#: qml/Settings/GeneralSettingsPage.qml:83
+#: qml/Settings/GeneralSettingsPage.qml:82
 #, fuzzy, kde-format
 #| msgid "Prioritize streaming over downloading"
 msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
 msgstr "Suosi suoratoistoa latauksen sijaan"
 
-#: qml/Settings/GeneralSettingsPage.qml:95
+#: qml/Settings/GeneralSettingsPage.qml:94
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "Hyppyaskel eteenpäin (sekunteina)"
 
-#: qml/Settings/GeneralSettingsPage.qml:109
+#: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "Hyppyaskel taaksepäin (sekunteina)"
 
-#: qml/Settings/GeneralSettingsPage.qml:124
+#: qml/Settings/GeneralSettingsPage.qml:123
 #, fuzzy, kde-format
-#| msgid "Queue settings"
-msgctxt "@title Form header for settings related to the queue"
-msgid "Queue settings"
-msgstr "Jonoasetukset"
+#| msgid "Podcast update error"
+msgctxt "@title Form header for settings related podcast updates"
+msgid "Podcast update settings"
+msgstr "Podcast-virkistysvirhe"
 
-#: qml/Settings/GeneralSettingsPage.qml:134
+#: qml/Settings/GeneralSettingsPage.qml:132
 #, fuzzy, kde-format
-#| msgid "Continue playing next episode after current one finishes"
-msgctxt "@option:check"
-msgid "Continue playing next episode after current one finishes"
-msgstr "Jatka seuraavaan jaksoon, kun nykyinen on kuunneltu"
-
-#: qml/Settings/GeneralSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgctxt "Label for settings related to podcast updates"
-#| msgid "Update Settings:"
-msgctxt "@option:check Label for settings related to podcast updates"
-msgid "Update Settings:"
-msgstr "Päivitysasetukset:"
-
-#: qml/Settings/GeneralSettingsPage.qml:144
-#, kde-format
-msgid "Automatically fetch podcast updates on startup"
+#| msgid "Automatically fetch podcast updates on startup"
+msgctxt "@label:listbox"
+msgid "Automatically fetch podcast feeds"
 msgstr "Virkistä podcastit automaattisesti käynnistettäessä"
 
+#: qml/Settings/GeneralSettingsPage.qml:135
+#, fuzzy, kde-format
+#| msgid "Never"
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Never"
+msgstr "Ei koskaan"
+
+#: qml/Settings/GeneralSettingsPage.qml:136
+#: qml/Settings/GeneralSettingsPage.qml:137
+#: qml/Settings/GeneralSettingsPage.qml:138
+#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:140
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every hour"
+msgid_plural "Every %1 hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qml/Settings/GeneralSettingsPage.qml:141
+#: qml/Settings/GeneralSettingsPage.qml:142
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] ""
+msgstr[1] ""
+
 #: qml/Settings/GeneralSettingsPage.qml:153
+#, fuzzy, kde-format
+#| msgid "Automatically fetch podcast updates on startup"
+msgctxt "@option:check"
+msgid "Fetch podcast updates on startup"
+msgstr "Virkistä podcastit automaattisesti käynnistettäessä"
+
+#: qml/Settings/GeneralSettingsPage.qml:166
 #, fuzzy, kde-format
 #| msgid "Update existing episode data on refresh (slower)"
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr "Päivitä olemassa oleva jaksotieto virkistettäessä (hidas)"
 
-#: qml/Settings/GeneralSettingsPage.qml:163
+#: qml/Settings/GeneralSettingsPage.qml:176
 #, fuzzy, kde-format
 #| msgid "Automatically queue new episodes"
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr "Lisää uudet jaksot jonoon automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:178
+#: qml/Settings/GeneralSettingsPage.qml:191
 #, fuzzy, kde-format
 #| msgid "Automatically download new episodes"
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr "Lataa uudet jaksot automaattisesti"
 
-#: qml/Settings/GeneralSettingsPage.qml:191
+#: qml/Settings/GeneralSettingsPage.qml:202
 #, fuzzy, kde-format
-#| msgid "Played episode behavior"
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Toistetun jakson toiminta"
+#| msgid "Queue settings"
+msgctxt "@title Form header for settings related to the queue"
+msgid "Queue settings"
+msgstr "Jonoasetukset"
 
-#: qml/Settings/GeneralSettingsPage.qml:194
-#, kde-format
-msgid "Do not delete"
-msgstr "Älä poista"
+#: qml/Settings/GeneralSettingsPage.qml:212
+#, fuzzy, kde-format
+#| msgid "Continue playing next episode after current one finishes"
+msgctxt "@option:check"
+msgid "Continue playing next episode after current one finishes"
+msgstr "Jatka seuraavaan jaksoon, kun nykyinen on kuunneltu"
 
-#: qml/Settings/GeneralSettingsPage.qml:195
-#, kde-format
-msgid "Delete immediately"
-msgstr "Poista välittömästi"
-
-#: qml/Settings/GeneralSettingsPage.qml:196
-#, kde-format
-msgid "Delete at next startup"
-msgstr "Poista käynnistettäessä uudelleen"
-
-#: qml/Settings/GeneralSettingsPage.qml:208
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
-"Merkitse jaksot toistetuiksi, kun jäljellä on annettu aika (sekunteina)"
-
-#: qml/Settings/GeneralSettingsPage.qml:227
+#: qml/Settings/GeneralSettingsPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Reset play position after an episode is played"
 msgctxt "@option:check"
@@ -1483,26 +1482,61 @@ msgstr "Palata toistokohta, kun jakso on toistettu"
 
 #: qml/Settings/GeneralSettingsPage.qml:236
 #, fuzzy, kde-format
+#| msgid "Played episode behavior"
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Toistetun jakson toiminta"
+
+#: qml/Settings/GeneralSettingsPage.qml:239
+#, fuzzy, kde-format
+#| msgid "Do not delete"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Älä poista"
+
+#: qml/Settings/GeneralSettingsPage.qml:240
+#, fuzzy, kde-format
+#| msgid "Delete immediately"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Poista välittömästi"
+
+#: qml/Settings/GeneralSettingsPage.qml:241
+#, fuzzy, kde-format
+#| msgid "Delete at next startup"
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Poista käynnistettäessä uudelleen"
+
+#: qml/Settings/GeneralSettingsPage.qml:253
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Merkitse jaksot toistetuiksi, kun jäljellä on annettu aika (sekunteina)"
+
+#: qml/Settings/GeneralSettingsPage.qml:269
+#, fuzzy, kde-format
 #| msgid "When adding new podcasts"
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Lisättäessä uusia podcasteja:"
 
-#: qml/Settings/GeneralSettingsPage.qml:245
+#: qml/Settings/GeneralSettingsPage.qml:278
 #, fuzzy, kde-format
 #| msgid "Mark all episodes as played"
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Merkitse kaikki jaksot kuunnelluiksi"
 
-#: qml/Settings/GeneralSettingsPage.qml:256
+#: qml/Settings/GeneralSettingsPage.qml:289
 #, fuzzy, kde-format
 #| msgid "Mark most recent episodes as unplayed"
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi"
 
-#: qml/Settings/GeneralSettingsPage.qml:279
+#: qml/Settings/GeneralSettingsPage.qml:312
 #, fuzzy, kde-format
 #| msgid "Mark all episodes as unplayed"
 msgctxt "@option:radio"
@@ -2343,6 +2377,24 @@ msgstr "Hyppää eteenpäin"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Lopeta"
+
+#, fuzzy
+#~| msgctxt ""
+#~| "Label for settings related to the play time, e.g. whether the total "
+#~| "track time is shown or a countdown of the remaining play time"
+#~| msgid "Play time:"
+#~ msgctxt ""
+#~ "@option:check Label for settings related to the play time, e.g. whether "
+#~ "the total track time is shown or a countdown of the remaining play time"
+#~ msgid "Play time:"
+#~ msgstr "Soittoaika:"
+
+#, fuzzy
+#~| msgctxt "Label for settings related to podcast updates"
+#~| msgid "Update Settings:"
+#~ msgctxt "@option:check Label for settings related to podcast updates"
+#~ msgid "Update Settings:"
+#~ msgstr "Päivitysasetukset:"
 
 #~ msgid "Episode List"
 #~ msgstr "Jaksoluettelo"
