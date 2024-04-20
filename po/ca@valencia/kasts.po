@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-19 00:37+0000\n"
-"PO-Revision-Date: 2024-04-13 12:42+0200\n"
+"PO-Revision-Date: 2024-04-19 08:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1336,8 +1336,7 @@ msgid "Select audio backend"
 msgstr "Seleccioneu el dorsal d'àudio"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
@@ -1370,22 +1369,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Interval de salt cap arrere (en segons)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "S'ha produït un error durant l'actualització del pòdcast"
+msgstr "Configureu les actualitzacions dels pòdcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Obtín automàticament a l'inici les actualitzacions dels pòdcast"
+msgstr "Obtín automàticament les fonts dels pòdcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Mai"
@@ -1399,8 +1395,8 @@ msgstr "Mai"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cada hora"
+msgstr[1] "Cada %1 hores"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1408,15 +1404,14 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cada dia"
+msgstr[1] "Cada %1 dies"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Obtín automàticament a l'inici les actualitzacions dels pòdcast"
+msgstr "Obtín a l'inici les actualitzacions dels pòdcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
@@ -1461,25 +1456,22 @@ msgid "Played episode behavior"
 msgstr "Comportament dels episodis reproduïts"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "No els suprimisques"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Suprimix immediatament"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
-msgstr "Suprimix-lo en l'inici següent"
+msgstr "Suprimix-los en l'inici següent"
 
 #: qml/Settings/GeneralSettingsPage.qml:253
 #, kde-format
@@ -1582,7 +1574,7 @@ msgstr "Xarxa"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
-msgstr "Sincronització"
+msgstr "Sincronitzeu"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
@@ -2267,13 +2259,3 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Temps de reproducció:"
-
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Configureu les actualitzacions:"
