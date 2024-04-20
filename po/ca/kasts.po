@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-15 02:20+0000\n"
-"PO-Revision-Date: 2024-02-15 12:31+0100\n"
+"PO-Revision-Date: 2024-04-19 08:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1370,7 +1370,7 @@ msgstr "Suprimeix immediatament"
 #: qml/Settings/GeneralSettingsPage.qml:276
 #, kde-format
 msgid "Delete at next startup"
-msgstr "Suprimeix-lo en l'inici següent"
+msgstr "Suprimeix-los en l'inici següent"
 
 #: qml/Settings/GeneralSettingsPage.qml:288
 #, kde-format
