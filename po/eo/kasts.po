@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-19 00:37+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
+"PO-Revision-Date: 2024-04-21 17:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1329,13 +1329,12 @@ msgid "Select audio backend"
 msgstr "Elekti sonan backend"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr "Montri tempon restantan anstataŭ totalan traktempon"
+msgstr "Montri tempon restantan anstataŭ suma traktempo"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
 #, kde-format
@@ -1362,22 +1361,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Salti malantaŭen intervalon (en sekundoj)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Eraro pri ĝisdatigo de podkasto"
+msgstr "Metoj pri ĝisdatigo de podkasto"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Aŭtomate alporti podkastajn ĝisdatigojn dum ekfunkciigo"
+msgstr "Aŭtomate ekpreni podkastajn fluojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Neniam"
@@ -1391,8 +1387,8 @@ msgstr "Neniam"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun horon"
+msgstr[1] "Ĉiujn %1 horojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1400,12 +1396,11 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun tagon"
+msgstr[1] "Ĉiujn %1 tagojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
 msgstr "Aŭtomate alporti podkastajn ĝisdatigojn dum ekfunkciigo"
@@ -1453,22 +1448,19 @@ msgid "Played episode behavior"
 msgstr "Konduto de luditaj epizodoj"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Ne forigi"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Forigi tuj"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Forigi ĉe la sekva ekfunkciigo"
@@ -2253,13 +2245,3 @@ msgstr "Salti Antaŭen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Ludtempo:"
-
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Ĝisdatigi Agordojn:"

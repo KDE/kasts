@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-19 00:37+0000\n"
-"PO-Revision-Date: 2024-04-14 20:11+0200\n"
+"PO-Revision-Date: 2024-04-21 00:23+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1335,8 +1335,7 @@ msgid "Select audio backend"
 msgstr "Seleccionar motor de sonido"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
@@ -1368,22 +1367,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Intervalo a saltar hacia atrás (en segundos)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Error de actualización de pódcast"
+msgstr "Preferencias de actualización de pódcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Descargar actualizaciones de pódcast durante el inicio"
+msgstr "Obtener fuentes de pódcast automáticamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Nunca"
@@ -1397,8 +1393,8 @@ msgstr "Nunca"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cada hora"
+msgstr[1] "Cada %1 horas"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1406,15 +1402,14 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Cada día"
+msgstr[1] "Cada %1 días"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Descargar actualizaciones de pódcast durante el inicio"
+msgstr "Obtener actualizaciones de pódcast durante el inicio"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
@@ -1460,22 +1455,19 @@ msgid "Played episode behavior"
 msgstr "Comportamiento de los episodios reproducidos"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "No borrar"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Borrar inmediatamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Borrar durante el próximo inicio"
@@ -1743,7 +1735,7 @@ msgstr "Obtener el estado de todos los episodios del servidor"
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch"
-msgstr "Extraer"
+msgstr "Obtener"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
