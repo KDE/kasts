@@ -25,15 +25,6 @@ Item {
     property bool isLoading: false
     property int imageFillMode: Image.PreserveAspectCrop
     property bool imageResize: true
-    property bool mipmap: false
-
-    // HACK: if mipmap has been set to true, then reset it AFTER image has
-    // changed, otherwise it will be ignored
-    onImageSourceChanged: {
-        if (root.mipmap) {
-            root.mipmap = true;
-        }
-    }
 
     Loader {
         id: imageLoader
@@ -67,10 +58,17 @@ Item {
             anchors.fill: parent
             source: root.imageSource
             fillMode: root.imageFillMode
+            asynchronous: true
+
+            // mipmap = smooth image at smaller sizes than original
+            // needs to be a fixed value; bindings will break the behaviour,
+            // see: https://bugreports-test.qt.io/browse/QTBUG-105277
+            mipmap: true
+
+            // still resizing images despite mipmap for non-resizable images
+            // since it gives much better (i.e. non-blurry) results
             sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : 0
             sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : 0
-            asynchronous: true
-            mipmap: root.mipmap
         }
     }
 
