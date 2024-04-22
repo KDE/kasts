@@ -45,11 +45,11 @@ public:
     Enclosure(Entry *entry);
 
     enum Status {
-        Downloadable,
+        Error = -1,
+        Downloadable = 0,
         Downloading,
         PartiallyDownloaded,
         Downloaded,
-        Error,
     };
     Q_ENUM(Status)
 

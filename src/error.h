@@ -16,8 +16,8 @@ class Error : public QObject
 
 public:
     enum Type {
-        Unknown,
-        FeedUpdate,
+        Unknown = -1,
+        FeedUpdate = 0,
         MediaDownload,
         MeteredNotAllowed,
         InvalidMedia,
