@@ -137,8 +137,10 @@ FocusScope {
                 Layout.preferredWidth: height
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 1.5
                 absoluteRadius: Kirigami.Units.smallSpacing
+
+                // resizing the image is very stuttering when the header is resized; relying on mipmap to do the smoothing
                 imageResize: false
-                mipmap: true
+
                 MouseArea {
                     anchors.fill: parent
                     cursorShape: Qt.PointingHandCursor
