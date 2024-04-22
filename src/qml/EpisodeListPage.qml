@@ -47,7 +47,6 @@ Kirigami.ScrollablePage {
             icon.name: "view-refresh"
             text: i18n("Refresh All Podcasts")
             onTriggered: refreshing = true
-            visible: episodeProxyModel.filterType == AbstractEpisodeProxyModel.NoFilter
         },
         Kirigami.Action {
             id: searchActionButton
@@ -93,6 +92,12 @@ Kirigami.ScrollablePage {
 
         model: EpisodeProxyModel {
             id: episodeProxyModel
+
+            // save and restore filter settings
+            filterType: settings.episodeListFilterType
+            onFilterTypeChanged: {
+                settings.episodeListFilterType = filterType;
+            }
         }
 
         delegate: GenericEntryDelegate {

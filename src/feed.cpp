@@ -15,6 +15,7 @@
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
+#include "models/abstractepisodeproxymodel.h"
 
 Feed::Feed(const QString &feedurl)
     : QObject(&DataManager::instance())
@@ -38,6 +39,7 @@ Feed::Feed(const QString &feedurl)
     m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
     m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
     m_notify = query.value(QStringLiteral("notify")).toBool();
+    int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
     m_dirname = query.value(QStringLiteral("dirname")).toString();
 
     m_errorId = 0;
@@ -97,6 +99,23 @@ Feed::Feed(const QString &feedurl)
     });
 
     m_entries = new EntriesProxyModel(this);
+
+    // restore saved filter
+    AbstractEpisodeProxyModel::FilterType filterType = AbstractEpisodeProxyModel::FilterType(filterTypeValue);
+    if (filterType != m_entries->filterType()) {
+        m_entries->setFilterType(filterType);
+    }
+
+    // save filter to db when changed
+    connect(m_entries, &EntriesProxyModel::filterTypeChanged, this, [this]() {
+        int filterTypeValue = static_cast<int>(m_entries->filterType());
+
+        QSqlQuery writeQuery;
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE url=:feedurl;"));
+        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
+        Database::instance().execute(writeQuery);
+    });
 }
 
 void Feed::updateAuthors()

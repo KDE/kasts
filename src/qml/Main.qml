@@ -93,6 +93,7 @@ Kirigami.ApplicationWindow {
         property int headerSize: Kirigami.Units.gridUnit * 5
         property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
+        property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
     }
 
     function saveWindowLayout() {
