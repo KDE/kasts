@@ -120,34 +120,12 @@ void Enclosure::updateFromDb()
 
 int Enclosure::statusToDb(Enclosure::Status status)
 {
-    switch (status) {
-    case Enclosure::Status::Downloadable:
-        return 0;
-    case Enclosure::Status::Downloading:
-        return 1;
-    case Enclosure::Status::PartiallyDownloaded:
-        return 2;
-    case Enclosure::Status::Downloaded:
-        return 3;
-    default:
-        return -1;
-    }
+    return static_cast<int>(status);
 }
 
 Enclosure::Status Enclosure::dbToStatus(int value)
 {
-    switch (value) {
-    case 0:
-        return Enclosure::Status::Downloadable;
-    case 1:
-        return Enclosure::Status::Downloading;
-    case 2:
-        return Enclosure::Status::PartiallyDownloaded;
-    case 3:
-        return Enclosure::Status::Downloaded;
-    default:
-        return Enclosure::Status::Error;
-    }
+    return Enclosure::Status(value);
 }
 
 void Enclosure::download()
