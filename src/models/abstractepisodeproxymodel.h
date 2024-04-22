@@ -23,7 +23,7 @@ class AbstractEpisodeProxyModel : public QSortFilterProxyModel
 
 public:
     enum FilterType {
-        NoFilter,
+        NoFilter = 0,
         ReadFilter,
         NotReadFilter,
         NewFilter,

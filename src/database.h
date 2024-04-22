@@ -53,6 +53,7 @@ private:
     bool migrateTo7();
     bool migrateTo8();
     bool migrateTo9();
+    bool migrateTo10();
     void cleanup();
     void setWalMode();
 

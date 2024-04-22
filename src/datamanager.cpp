@@ -371,7 +371,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         QSqlQuery query;
         query.prepare(
             QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
-                           ":lastUpdated, :new, :notify, :dirname, :lastHash);"));
+                           ":lastUpdated, :new, :notify, :dirname, :lastHash, :filterType);"));
         query.bindValue(QStringLiteral(":name"), urlFromInput);
         query.bindValue(QStringLiteral(":url"), urlFromInput);
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -385,6 +385,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":notify"), false);
         query.bindValue(QStringLiteral(":dirname"), QLatin1String(""));
         query.bindValue(QStringLiteral(":lastHash"), QLatin1String(""));
+        query.bindValue(QStringLiteral(":filterType"), 0);
         Database::instance().execute(query);
 
         // TODO: check whether the entry in the database happened correctly?
