@@ -71,6 +71,7 @@ set_source_files_properties(../icons/kasts-tray-dark.svg PROPERTIES
 qt_add_resources(kasts "icons"
     FILES
         ../kasts.svg
+        ../icons/media-playback-cloud.svg
         ../icons/kasts-tray-light.svg
         ../icons/kasts-tray-dark.svg
 )
