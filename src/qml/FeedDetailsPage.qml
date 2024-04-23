@@ -121,7 +121,7 @@ Kirigami.ScrollablePage {
 
                 image: isSubscribed ? feed.cachedImage : feed.image
                 title: isSubscribed ? feed.name : feed.title
-                subtitle: authors ? i18nc("by <author(s)>", "by %1", authors) : undefined
+                subtitle: authors ? i18nc("by <author(s)>", "by %1", authors) : ""
             }
 
             // header actions
