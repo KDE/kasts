@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QNetworkAccessManager>
+#include <QNetworkProxy>
 #include <QNetworkProxyFactory>
 #include <QNetworkReply>
 #include <QTime>
@@ -43,7 +44,14 @@ Fetcher::Fetcher()
     manager->setStrictTransportSecurityEnabled(true);
     manager->enableStrictTransportSecurityStore(true);
 
-    QNetworkProxyFactory::setUseSystemConfiguration(true);
+    // First save the original system proxy settings
+    m_systemHttpProxy = qgetenv("http_proxy");
+    m_systemHttpsProxy = qgetenv("https_proxy");
+    m_isSystemProxyDefined = (QNetworkProxy::applicationProxy().type() != QNetworkProxy::ProxyType::NoProxy);
+    qCDebug(kastsFetcher) << "saved system proxy:" << m_systemHttpProxy << m_systemHttpsProxy << m_isSystemProxyDefined;
+
+    // Set network proxy based on saved settings
+    setNetworkProxy();
 
     // setup update timer if required
     initializeUpdateTimer();
@@ -285,4 +293,85 @@ void Fetcher::checkUpdateTimer()
             QDateTime::currentDateTimeUtc().addSecs(3600 * SettingsManager::self()->autoFeedUpdateInterval()); // update interval specified in hours
         qCDebug(kastsFetcher) << "new auto feed update trigger set to" << m_updateTriggerTime;
     }
+}
+
+void Fetcher::setNetworkProxy()
+{
+    SettingsManager *settings = SettingsManager::self();
+    QNetworkProxy proxy;
+
+    // define network proxy environment variable
+    // this is needed for the audio backends which don't obey qt's settings
+    QByteArray appProxy;
+    if (!settings->proxyUser().isEmpty()) {
+        appProxy += QUrl::toPercentEncoding(settings->proxyUser());
+        if (!settings->proxyPassword().isEmpty()) {
+            appProxy += ":" + QUrl::toPercentEncoding(settings->proxyPassword());
+        }
+        appProxy += "@";
+    }
+    appProxy += settings->proxyHost().toLocal8Bit() + ":" + QByteArray::number(settings->proxyPort());
+
+    // type match to ProxyType from config.ksettings
+    switch (settings->proxyType()) {
+    case 1: // No Proxy
+        proxy.setType(QNetworkProxy::NoProxy);
+        QNetworkProxy::setApplicationProxy(proxy);
+
+        // also reset environment variables if they have been set
+        qunsetenv("http_proxy");
+        qunsetenv("https_proxy");
+        break;
+    case 2: // HTTP
+        proxy.setType(QNetworkProxy::HttpProxy);
+        proxy.setHostName(settings->proxyHost());
+        proxy.setPort(settings->proxyPort());
+        proxy.setUser(settings->proxyUser());
+        proxy.setPassword(settings->proxyPassword());
+        QNetworkProxy::setApplicationProxy(proxy);
+
+        // also set it through environment variables for the audio backends
+        appProxy.prepend("http://");
+        qputenv("http_proxy", appProxy);
+        qputenv("https_proxy", appProxy);
+        qCDebug(kastsFetcher) << "appProxy environment variable" << appProxy;
+        break;
+    case 3: // SOCKS 5
+        proxy.setType(QNetworkProxy::Socks5Proxy);
+        proxy.setHostName(settings->proxyHost());
+        proxy.setPort(settings->proxyPort());
+        proxy.setUser(settings->proxyUser());
+        proxy.setPassword(settings->proxyPassword());
+        QNetworkProxy::setApplicationProxy(proxy);
+
+        // also set it through environment variables for the audio backends
+        appProxy.prepend("socks5://");
+        qputenv("http_proxy", appProxy);
+        qputenv("https_proxy", appProxy);
+        qCDebug(kastsFetcher) << "appProxy environment variable" << appProxy;
+        break;
+    case 0: // System Default
+    default:
+        QNetworkProxyFactory::setUseSystemConfiguration(true);
+
+        // also reset env variables that might have been overridden
+        if (!m_systemHttpProxy.isEmpty()) {
+            qputenv("http_proxy", m_systemHttpProxy);
+        } else {
+            qunsetenv("http_proxy");
+        }
+        if (!m_systemHttpProxy.isEmpty()) {
+            qputenv("https_proxy", m_systemHttpsProxy);
+        } else {
+            qunsetenv("https_proxy");
+        }
+        break;
+    }
+
+    qCDebug(kastsFetcher) << "Network proxy set to:" << QNetworkProxy::applicationProxy();
+}
+
+bool Fetcher::isSystemProxyDefined()
+{
+    return m_isSystemProxyDefined;
 }
