@@ -55,6 +55,9 @@ public:
     void initializeUpdateTimer();
     void checkUpdateTimer();
 
+    Q_INVOKABLE void setNetworkProxy();
+    Q_INVOKABLE bool isSystemProxyDefined();
+
 Q_SIGNALS:
     void entryAdded(const QString &feedurl, const QString &id);
     void entryUpdated(const QString &feedurl, const QString &id);
@@ -93,4 +96,8 @@ private:
     const qint64 m_checkInterval = 10 * 60 * 1000; // trigger timer every 10 minutes
     QTimer *m_updateTimer;
     QDateTime m_updateTriggerTime;
+
+    QByteArray m_systemHttpProxy;
+    QByteArray m_systemHttpsProxy;
+    bool m_isSystemProxyDefined;
 };
