@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-23 00:38+0000\n"
+"POT-Creation-Date: 2024-04-24 00:38+0000\n"
 "PO-Revision-Date: 2024-04-20 16:00+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -30,7 +30,7 @@ msgstr "xavier.besnard@kde.org"
 msgid "Streaming on metered connection not allowed"
 msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
 
-#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Aucune connexion réseau"
@@ -40,20 +40,20 @@ msgstr "Aucune connexion réseau"
 msgid "Invalid Media"
 msgstr "Média non valable"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 "Les mises à jour de podcasts sur des connexions facturées ne sont pas "
 "autorisées."
 
-#: entry.cpp:100 feed.cpp:117
+#: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 et %2"
 
-#: entry.cpp:103 feed.cpp:120
+#: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -691,14 +691,14 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Épisodes"
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
+#: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Rechercher"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Aucun épisode disponible"
@@ -1094,7 +1094,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Configuration"
 
-#: qml/Main.qml:226
+#: qml/Main.qml:227
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1102,7 +1102,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 mis à jour du podcast %1"
 msgstr[1] "%2 mis à jour des %1 podcasts"
 
-#: qml/Main.qml:253
+#: qml/Main.qml:254
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1110,7 +1110,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

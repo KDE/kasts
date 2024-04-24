@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-23 00:38+0000\n"
+"POT-Creation-Date: 2024-04-24 00:38+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr ""
@@ -39,18 +39,18 @@ msgstr ""
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:165
+#: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 
-#: entry.cpp:100 feed.cpp:117
+#: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr ""
 
-#: entry.cpp:103 feed.cpp:120
+#: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -682,14 +682,14 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
+#: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr ""
@@ -1081,21 +1081,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr ""
 
-#: qml/Main.qml:226
+#: qml/Main.qml:227
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] ""
 
-#: qml/Main.qml:253
+#: qml/Main.qml:254
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] ""
 
-#: qml/Main.qml:317
+#: qml/Main.qml:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

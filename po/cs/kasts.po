@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-23 00:38+0000\n"
+"POT-Creation-Date: 2024-04-24 00:38+0000\n"
 "PO-Revision-Date: 2023-11-08 14:12+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "vit@pelcak.org"
 msgid "Streaming on metered connection not allowed"
 msgstr "Streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Žádné síťové připojení"
@@ -42,19 +42,19 @@ msgstr "Žádné síťové připojení"
 msgid "Invalid Media"
 msgstr "Neplatné médium"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 "Stahování podcastů při použití měřeného síťového připojení není povoleno"
 
-#: entry.cpp:100 feed.cpp:117
+#: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr ""
 
-#: entry.cpp:103 feed.cpp:120
+#: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -497,11 +497,10 @@ msgid "No track loaded"
 msgstr "Nebyla načtena žádná skladba"
 
 #: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
-#, fuzzy, kde-format
-#| msgid "Discover"
+#, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
-msgstr "Discover"
+msgstr ""
 
 #: qml/DiscoverPage.qml:27
 #, kde-format
@@ -525,11 +524,10 @@ msgstr "Přihlášen"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:109
-#, fuzzy, kde-format
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
-msgstr "Stahování"
+msgstr ""
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
@@ -684,20 +682,19 @@ msgstr "Odkaz zkopírován"
 
 #: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
 #: qml/Mobile/BottomToolbar.qml:39
-#, fuzzy, kde-format
-#| msgid "Episodes"
+#, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
-msgstr "Epizody"
+msgstr ""
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
+#: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "Nejsou k dispozici žádné epizody"
@@ -798,11 +795,10 @@ msgstr "Odstranit podcast"
 
 #: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
 #: qml/Mobile/BottomToolbar.qml:31
-#, fuzzy, kde-format
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr "Přihlášení"
+msgstr ""
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
@@ -1085,22 +1081,20 @@ msgstr "Hledat v:"
 
 #: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
 #: qml/QueuePage.qml:18
-#, fuzzy, kde-format
-#| msgid "Queue"
+#, kde-format
 msgctxt ""
 "@title of page showing the list queued items; this is the noun 'the queue', "
 "not the verb"
 msgid "Queue"
-msgstr "Fronta"
+msgstr ""
 
 #: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
-msgstr "Nastavení"
+msgstr ""
 
-#: qml/Main.qml:226
+#: qml/Main.qml:227
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1109,7 +1103,7 @@ msgstr[0] "Aktualizován %2 z %1 podcastů"
 msgstr[1] "Aktualizovány %2 z %1 podcastů"
 msgstr[2] "Aktualizováno %2 z %1 podcastů"
 
-#: qml/Main.qml:253
+#: qml/Main.qml:254
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1118,7 +1112,7 @@ msgstr[0] "Přesunut %2 z %1 souboru"
 msgstr[1] "Přesunuty %2 ze %1 souborů"
 msgstr[2] "Přesunuto %2 ze %1 souborů"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1227,32 +1221,28 @@ msgid "Search episodes…"
 msgstr "Vyhledávat epizody..."
 
 #: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About"
-msgstr "O aplikaci"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
-msgstr "Vzhled"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Color theme"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
-msgstr "Barevný motiv"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgid "Always show podcast titles in subscription view"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
-msgstr "Vždy zobrazovat názvy podcastů v pohledu přihlášení"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:61
 #, kde-format
@@ -1261,11 +1251,10 @@ msgid "Show episode image instead of podcast image in lists"
 msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Always show podcast titles in subscription view"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
-msgstr "Vždy zobrazovat názvy podcastů v pohledu přihlášení"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -1274,26 +1263,22 @@ msgid "Tray icon"
 msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
-#, fuzzy, kde-format
-#| msgid "Show icon in system tray"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
-msgstr "Zobrazit ikonu v systémovém panelu"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:106
-#, fuzzy, kde-format
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr "Minimalizovat do systémové části panelu namísto zavření"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr "Typ ikony v systémové liště"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:123
 #, kde-format
@@ -1314,70 +1299,60 @@ msgid "Dark"
 msgstr "Tmavý"
 
 #: qml/Settings/AppearanceSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
-msgstr "Text"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:145
-#, fuzzy, kde-format
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
-msgstr "Použít výchozí systémový"
+msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:157
-#, fuzzy, kde-format
-#| msgid "Font size"
+#, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Velikost písma"
 
 #: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Error Log"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
-msgstr "Záznam o chybách"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback settings"
+#, kde-format
 msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
-msgstr "Možnosti přehrávání"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "Label for setting to select audio playback backend"
-#| msgid "Select audio backend"
+#, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Vyberte podpůrnou vrstvu audio"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr "Zobrazit zbývající čas namísto celkové délky skladby"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Adjust time left based on current playback speed"
+#, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
-msgstr "Upravit zbývající čas podle rychlosti přehrávání"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
-msgstr "Preferovat streamování před stahováním"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:94
 #, kde-format
@@ -1392,25 +1367,22 @@ msgid "Skip backward interval (in seconds)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Chyba aktualizace podcastu"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Automaticky stahovat aktualizace podcastů při spuštění"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
-msgstr "Nikdy"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:136
 #: qml/Settings/GeneralSettingsPage.qml:137
@@ -1436,81 +1408,70 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Automaticky stahovat aktualizace podcastů při spuštění"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Update existing episode data on refresh (slower)"
+#, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
-msgstr "Aktualizovat data existující epizody při obnovení (pomalejší)"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:176
-#, fuzzy, kde-format
-#| msgid "Automatically queue new episodes"
+#, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr "Automaticky zařadit nové epizody"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:191
-#, fuzzy, kde-format
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr "Automaticky stahovat nové epizody"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:202
-#, fuzzy, kde-format
-#| msgid "Queue settings"
+#, kde-format
 msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
-msgstr "Nastavení fronty"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgid "Continue playing next episode after current one finishes"
+#, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
-msgstr "Pokračovat v přehrávání následující epizody po přehrání současné"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:224
-#, fuzzy, kde-format
-#| msgid "Reset play position after an episode is played"
+#, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr "Resetovat pozici přehrávání poté, co je epizoda přehrána"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:236
-#, fuzzy, kde-format
-#| msgid "Played episode behavior"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr "Chování přehraných epizod"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
-msgstr "Nemazat"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
-msgstr "Okamžitě smazat"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
-msgstr "Smazat při následujícím spuštění"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:253
 #, kde-format
@@ -1519,196 +1480,168 @@ msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:269
-#, fuzzy, kde-format
-#| msgid "When adding new podcasts"
+#, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
-msgstr "Při přidání nových podcastů"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Mark all episodes as played"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
-msgstr "Označit všechny epizody jako přehrané"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:289
-#, fuzzy, kde-format
-#| msgid "Mark most recent episodes as unplayed"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
-msgstr "Označit nejnovější epizody jako nepřehrané"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:312
-#, fuzzy, kde-format
-#| msgid "Mark all episodes as unplayed"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
-msgstr "Označit všechny epizody jako nepřehrané"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
-msgstr "Síť"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:32
-#, fuzzy, kde-format
-#| msgid "Enable network connection checks"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
-msgstr "Povolit kontroly síťového spojení"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "On metered connections"
+#, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
-msgstr "Na měřených spojeních"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Allow podcast updates"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
-msgstr "Povolit aktualizace podcastů"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
-msgstr "Povolit stahování epizod"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Allow image downloads"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
-msgstr "Povolit stahování obrázků"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Allow streaming"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
-msgstr "Povolit streamování"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:17
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "General"
-msgstr "Obecné"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
-msgstr "Vzhled"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "Storage"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Storage"
-msgstr "Úložiště"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Network"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
-msgstr "Síť"
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Synchronization"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
-msgstr "Synchronizace"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Storage path"
+#, kde-format
 msgctxt "@title Form header for settings related to storage paths"
 msgid "Storage path"
-msgstr "Cesta úložišti"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:32
-#, fuzzy, kde-format
-#| msgid "Storage path"
+#, kde-format
 msgctxt "@label showing path used for local storage"
 msgid "Storage path"
-msgstr "Cesta úložišti"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Select folder…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "Vyberte složku…"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Select Storage Path"
+#, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
-msgstr "Vyberte cestu k úložišti"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "Use default path"
+#, kde-format
 msgctxt "@option:check"
 msgid "Use default path"
-msgstr "Použít výchozí cestu"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgctxt ""
 "@title Form header for section showing information about local storage"
 msgid "Information"
-msgstr "Informace"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Podcast downloads"
+#, kde-format
 msgctxt "@label showing the storage space used by local podcast downloads"
 msgid "Podcast downloads"
-msgstr "Stahování podcastů"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:75
 #: qml/Settings/StorageSettingsPage.qml:82
-#, fuzzy, kde-format
-#| msgctxt "Using <amount of bytes> of disk space"
-#| msgid "Using %1 of disk space"
+#, kde-format
 msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr "Používá %1 místa na disku"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Image cache"
+#, kde-format
 msgctxt "@label showing the storage space used by the image cache"
 msgid "Image cache"
-msgstr "Mezipaměť obrázků"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:86
-#, fuzzy, kde-format
-#| msgid "Clear Cache"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear Cache"
 msgstr "Vyčistit mezipaměť"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgctxt "@label"
 msgid "Account"
-msgstr "Účet"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
@@ -1718,123 +1651,106 @@ msgid "Logged into account \"%1\" on server \"%2\""
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
-#, fuzzy, kde-format
-#| msgid "Syncing disabled"
+#, kde-format
 msgctxt "@info:status"
 msgid "Syncing disabled"
-msgstr "Synchronizace byla vypnuta"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Logout"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout"
 msgstr "Odhlásit se"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Přihlášení"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Manually sync"
+#, kde-format
 msgctxt "@label"
 msgid "Manually sync"
-msgstr "Synchronizovat ručně"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Sync Now"
+#, kde-format
 msgctxt "@action:button"
 msgid "Sync Now"
-msgstr "Synchronizovat nyní"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:65
-#, fuzzy, kde-format
-#| msgid "Last full sync with server"
+#, kde-format
 msgctxt "@info:status"
 msgid "Last full sync with server"
-msgstr "Poslední plná synchronizace se serverem"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Last quick upload to sync server"
+#, kde-format
 msgctxt "@info:status"
 msgid "Last quick upload to sync server"
-msgstr "Poslední rychlé odeslání na synchronizační server"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:79
-#, fuzzy, kde-format
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
-msgstr "Automatická synchronizace"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Do full sync on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr "Provést plnou synchronizaci při spuštění"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgid "Do full sync when fetching podcasts"
+#, kde-format
 msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
-msgstr "Provést plnou synchronizaci při stahování podcastů"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:109
-#, fuzzy, kde-format
-#| msgid "Upload episode play positions on play/pause toggle"
+#, kde-format
 msgctxt "@option:check"
 msgid "Upload episode play positions on play/pause toggle"
-msgstr "Odeslat pozice přehrávání epizod při stisknutí přehrát/pozastavit"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Advanced options"
+#, kde-format
 msgctxt "@title Form header for advanced settings related to syncing"
 msgid "Advanced options"
-msgstr "Rozšířené možnosti"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:127
-#, fuzzy, kde-format
-#| msgid "Fetch all episode states from server"
+#, kde-format
 msgctxt "@label"
 msgid "Fetch all episode states from server"
-msgstr "Stáhnout stavy všech epizod ze serveru"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:130
-#, fuzzy, kde-format
-#| msgid "Fetch"
+#, kde-format
 msgctxt "@action:button"
 msgid "Fetch"
-msgstr "Stáhnout"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Push all local episode states to server"
+#, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server"
-msgstr "Odeslat stavy místních epizod na server"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgid "Push"
+#, kde-format
 msgctxt "@action:button"
 msgid "Push"
 msgstr "Odeslat"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:184
-#, fuzzy, kde-format
-#| msgid "Push all local episode states to server?"
+#, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server?"
-msgstr "Odeslat stavy místních epizod na server?"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:204
 #, kde-format
@@ -1849,18 +1765,16 @@ msgid ""
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:228
-#, fuzzy, kde-format
-#| msgid "Select folder…"
+#, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
-msgstr "Vyberte složku…"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "gpodder.net"
+#, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
-msgstr "gpodder.net"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
@@ -1869,18 +1783,16 @@ msgid "Synchronize with official gpodder.net server"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:244
-#, fuzzy, kde-format
-#| msgid "GPodder Nextcloud"
+#, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
-msgstr "GPodder Nextcloud"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:245
-#, fuzzy, kde-format
-#| msgid "GPodder Nextcloud"
+#, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr "GPodder Nextcloud"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:278
 #, kde-format
@@ -1889,11 +1801,10 @@ msgid "Sync Login Credentials"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
-#, fuzzy, kde-format
-#| msgid "GPodder Nextcloud"
+#, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
-msgstr "GPodder Nextcloud"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
@@ -1917,109 +1828,94 @@ msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:331
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Uživatelské jméno:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:342
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Heslo:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:357
-#, fuzzy, kde-format
-#| msgid "Use custom server"
+#, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
-msgstr "Použít vlastní server"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:362
-#, fuzzy, kde-format
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Název počítače:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:396
-#, fuzzy, kde-format
-#| msgid "Sync Device Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
-msgstr "Synchronizovat nastavení zařízení"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:402
-#, fuzzy, kde-format
-#| msgid "Create a new device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
-msgstr "Vytvořit nové zařízení"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:408
-#, fuzzy, kde-format
-#| msgid "Device Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
-msgstr "Název zařízení:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:418
-#, fuzzy, kde-format
-#| msgid "Device Description:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
-msgstr "Popis zařízení:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
-#, fuzzy, kde-format
-#| msgid "Device Type:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
-msgstr "Typ zařízení:"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:434
-#, fuzzy, kde-format
-#| msgid "other"
+#, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
-msgstr "jiné"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:435
-#, fuzzy, kde-format
-#| msgid "desktop"
+#, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
-msgstr "pracovní plocha"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
-#, fuzzy, kde-format
-#| msgid "laptop"
+#, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
-msgstr "Notebook"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:437
-#, fuzzy, kde-format
-#| msgid "server"
+#, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
-msgstr "server"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:438
-#, fuzzy, kde-format
-#| msgid "mobile"
+#, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
-msgstr "mobilní"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:443
-#, fuzzy, kde-format
-#| msgid "Create Device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
-msgstr "Vytvořit zařízení"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:460
 #, kde-format
@@ -2028,11 +1924,10 @@ msgid "or select an existing device"
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:508
-#, fuzzy, kde-format
-#| msgid "Sync Device Settings"
+#, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
-msgstr "Synchronizovat nastavení zařízení"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:530
 #, kde-format
@@ -2044,11 +1939,10 @@ msgid ""
 msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
-#, fuzzy, kde-format
-#| msgid "Sync Now?"
+#, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
-msgstr "Synchronizovat nyní?"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
@@ -2343,39 +2237,3 @@ msgstr "Přeskočit vpřed"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
-
-#, fuzzy
-#~| msgctxt ""
-#~| "Label for settings related to the play time, e.g. whether the total "
-#~| "track time is shown or a countdown of the remaining play time"
-#~| msgid "Play time:"
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Čas přehrávání:"
-
-#, fuzzy
-#~| msgctxt "Label for settings related to podcast updates"
-#~| msgid "Update Settings:"
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Nastavení aktualizace:"
-
-#~ msgid "Episode List"
-#~ msgstr "Seznam epizod"
-
-#~ msgctxt "@title Podcast subscription list page title"
-#~ msgid "Subscriptions"
-#~ msgstr "Přihlášení"
-
-#~ msgctxt "@action:intoolbar Open the podcast discover page"
-#~ msgid "Discover"
-#~ msgstr "Objevovat"
-
-#~ msgctxt "@title:column Page showing the list queued items"
-#~ msgid "Queue"
-#~ msgstr "Fronta"
-
-#~ msgid "Font size:"
-#~ msgstr "Velikost písma:"

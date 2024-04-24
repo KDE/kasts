@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-23 00:38+0000\n"
+"POT-Creation-Date: 2024-04-24 00:38+0000\n"
 "PO-Revision-Date: 2024-02-15 17:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -33,7 +33,7 @@ msgstr "alfadhel.a@gmail.com"
 msgid "Streaming on metered connection not allowed"
 msgstr "البث غير مسموح به على الاتصال المقيد"
 
-#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "لا اتّصال بالشّبكة"
@@ -43,18 +43,18 @@ msgstr "لا اتّصال بالشّبكة"
 msgid "Invalid Media"
 msgstr "وسائط غير صحيحة"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "تنزيلات المدونة الصوتية غير مسموح به على الاتصال المقيد"
 
-#: entry.cpp:100 feed.cpp:117
+#: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 و %2"
 
-#: entry.cpp:103 feed.cpp:120
+#: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -691,14 +691,14 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "الحلقات"
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
+#: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "ابحث"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr "لا يوجد حلقات متوفرة"
@@ -1113,7 +1113,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: qml/Main.qml:226
+#: qml/Main.qml:227
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1125,7 +1125,7 @@ msgstr[3] "حدثت %1 مدونات من أصل %2"
 msgstr[4] "حدثت %1 مدونة من أصل %2"
 msgstr[5] "حدثت %1 مدونة من أصل %2"
 
-#: qml/Main.qml:253
+#: qml/Main.qml:254
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1137,7 +1137,7 @@ msgstr[3] "نقل %1 ملفات من أصل %2"
 msgstr[4] "نقل %1 ملف من أصل %2"
 msgstr[5] "نقل %1 ملف من أصل %2"
 
-#: qml/Main.qml:317
+#: qml/Main.qml:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
