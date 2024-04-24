@@ -31,5 +31,6 @@ Kirigami.Dialog {
 
     ErrorList {
         id: errorList
+        clip: true
     }
 }
