@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:37+0000\n"
+"POT-Creation-Date: 2024-04-25 02:26+0000\n"
 "PO-Revision-Date: 2023-12-05 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -31,7 +31,7 @@ msgstr "wizzardsk@gmail.com"
 msgid "Streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:406 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Bez sieťového pripojenia"
@@ -41,18 +41,18 @@ msgstr "Bez sieťového pripojenia"
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:165
+#: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 
-#: entry.cpp:100 feed.cpp:117
+#: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr ""
 
-#: entry.cpp:103 feed.cpp:120
+#: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -187,44 +187,44 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Prehrávam hudbu"
 
-#: main.cpp:100
+#: main.cpp:101
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplikácia na podcasty"
 
-#: main.cpp:102
+#: main.cpp:103
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr ""
 
-#: main.cpp:103
+#: main.cpp:104
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgid "Podcast URL"
 msgstr "Pridať Podcast"
 
-#: main.cpp:108 qml/Main.qml:25
+#: main.cpp:109 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:110
+#: main.cpp:111
 #, kde-format
 msgid "Podcast Player"
 msgstr ""
 
-#: main.cpp:112
+#: main.cpp:113
 #, fuzzy, kde-format
 #| msgid "© 2020-2021 KDE Community"
 msgid "© 2020–2024 KDE Community"
 msgstr "KDE komunita"
 
-#: main.cpp:113
+#: main.cpp:114
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:114
+#: main.cpp:115
 #, kde-format
 msgid "Bart De Vries"
 msgstr ""
@@ -721,7 +721,7 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Epizódy"
 
-#: qml/EpisodeListPage.qml:55 qml/FeedDetailsPage.qml:69
+#: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
 #, fuzzy, kde-format
 #| msgid "Episodes"
@@ -729,7 +729,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Hľadať"
 
-#: qml/EpisodeListPage.qml:91 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
 msgstr ""
@@ -1156,7 +1156,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: qml/Main.qml:226
+#: qml/Main.qml:227
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1165,7 +1165,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/Main.qml:253
+#: qml/Main.qml:254
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1174,7 +1174,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/Main.qml:317
+#: qml/Main.qml:318
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1592,52 +1592,124 @@ msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
 msgstr "Prehrať"
 
-#: qml/Settings/NetworkSettingsPage.qml:23
+#: qml/Settings/NetworkSettingsPage.qml:28
 #, fuzzy, kde-format
 #| msgid "Network"
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Sieť"
 
-#: qml/Settings/NetworkSettingsPage.qml:32
+#: qml/Settings/NetworkSettingsPage.qml:37
 #, fuzzy, kde-format
 #| msgid "No network connection"
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Bez sieťového pripojenia"
 
-#: qml/Settings/NetworkSettingsPage.qml:42
+#: qml/Settings/NetworkSettingsPage.qml:47
 #, fuzzy, kde-format
 #| msgid "No network connection"
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Bez sieťového pripojenia"
 
-#: qml/Settings/NetworkSettingsPage.qml:52
+#: qml/Settings/NetworkSettingsPage.qml:57
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Sťahovania"
 
-#: qml/Settings/NetworkSettingsPage.qml:63
+#: qml/Settings/NetworkSettingsPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Sťahovania"
 
-#: qml/Settings/NetworkSettingsPage.qml:74
+#: qml/Settings/NetworkSettingsPage.qml:79
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Sťahovania"
 
-#: qml/Settings/NetworkSettingsPage.qml:85
+#: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:99
+#, fuzzy, kde-format
+#| msgid "Network"
+msgctxt "@title Form header for settings related to network proxies"
+msgid "Network Proxy"
+msgstr "Sieť"
+
+#: qml/Settings/NetworkSettingsPage.qml:104
+#, fuzzy, kde-format
+#| msgid "Use system default"
+msgctxt "@option:radio Network proxy selection"
+msgid "System Default"
+msgstr "Použiť systémovú predvolenú hodnotu"
+
+#: qml/Settings/NetworkSettingsPage.qml:113
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "No Proxy"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:122
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "HTTP"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:131
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "Socks5"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:146
+#, fuzzy, kde-format
+msgctxt "@label:textbox Hostname for proxy config"
+msgid "Host"
+msgstr "Meno hosťa:"
+
+#: qml/Settings/NetworkSettingsPage.qml:157
+#, kde-format
+msgctxt "@label:spinbox Port for proxy config"
+msgid "Port"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:172
+#, fuzzy, kde-format
+msgctxt "@label:textbox Username for proxy config"
+msgid "User"
+msgstr "Užívateľské meno:"
+
+#: qml/Settings/NetworkSettingsPage.qml:183
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox Password for proxy config"
+msgid "Password"
+msgstr "Heslo:"
+
+#: qml/Settings/NetworkSettingsPage.qml:197
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:217
+#, kde-format
+msgctxt "@info:status Warning message related to app proxy settings"
+msgid ""
+"Your system level or app level proxy settings might be ignored by the audio "
+"backend when streaming audio. The settings should still be honored by all "
+"other network related actions, including downloading episodes."
 msgstr ""
 
 #: qml/Settings/SettingsPage.qml:17
