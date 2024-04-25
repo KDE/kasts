@@ -699,8 +699,15 @@ void AudioManager::checkForPendingSeek()
     qCDebug(kastsAudio) << "Seek pending?" << d->m_pendingSeek;
     qCDebug(kastsAudio) << "Current position" << position;
 
+    // FIXME: the LoadedMedia+PlayingState test is a workaround for a broken
+    // qtmultimedia backend; LoadedMedia should never be allowed in the
+    // PlayingState according to docs.  Remove this when upstream is fixed.
+
     // Check if we're supposed to skip to a new position
-    if (d->m_pendingSeek != -1 && d->m_player.mediaStatus() == KMediaSession::BufferedMedia && d->m_player.duration() > 0) {
+    if (d->m_pendingSeek != -1
+        && (d->m_player.mediaStatus() == KMediaSession::BufferedMedia
+            || (d->m_player.mediaStatus() == KMediaSession::LoadedMedia && d->m_player.playbackState() == KMediaSession::PlayingState))
+        && d->m_player.duration() > 0) {
         if (abs(d->m_pendingSeek - position) > 2000) {
             qCDebug(kastsAudio) << "Position seek still pending to position" << d->m_pendingSeek;
             qCDebug(kastsAudio) << "Current reported position and duration" << d->m_player.position() << d->m_player.duration();

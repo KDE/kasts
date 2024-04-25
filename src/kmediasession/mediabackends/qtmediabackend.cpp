@@ -321,7 +321,7 @@ KMediaSession::MediaStatus QtMediaBackendPrivate::translateMediaStatusEnum(QMedi
 
 KMediaSession::PlaybackState QtMediaBackendPrivate::translatePlaybackStateEnum(QMediaPlayer::PlaybackState playbackStateEnum)
 {
-    qCDebug(QtMediaBackendLog) << "QtMediaBackendPrivate::translateMediaStatusEnum(" << playbackStateEnum << ")";
+    qCDebug(QtMediaBackendLog) << "QtMediaBackendPrivate::translatePlaybackStateEnum(" << playbackStateEnum << ")";
 
     switch (playbackStateEnum) {
     case QMediaPlayer::PlaybackState::StoppedState:
