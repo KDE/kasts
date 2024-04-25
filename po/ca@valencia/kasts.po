@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-24 00:38+0000\n"
+"POT-Creation-Date: 2024-04-25 00:38+0000\n"
 "PO-Revision-Date: 2024-04-19 08:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1504,47 +1504,125 @@ msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
 msgstr "Marca tots els episodis com a sense reproduir"
 
-#: qml/Settings/NetworkSettingsPage.qml:23
+#: qml/Settings/NetworkSettingsPage.qml:28
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Xarxa"
 
-#: qml/Settings/NetworkSettingsPage.qml:32
+#: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Activa les comprovacions de connexió de la xarxa"
 
-#: qml/Settings/NetworkSettingsPage.qml:42
+#: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "En les connexions d'ús mesurat"
 
-#: qml/Settings/NetworkSettingsPage.qml:52
+#: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Permet les actualitzacions de pòdcast"
 
-#: qml/Settings/NetworkSettingsPage.qml:63
+#: qml/Settings/NetworkSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Permet les baixades d'episodis"
 
-#: qml/Settings/NetworkSettingsPage.qml:74
+#: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Permet les baixades d'imatges"
 
-#: qml/Settings/NetworkSettingsPage.qml:85
+#: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Permet la transmissió en continu"
+
+#: qml/Settings/NetworkSettingsPage.qml:99
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to network connections"
+#| msgid "Network"
+msgctxt "@title Form header for settings related to network proxies"
+msgid "Network Proxy"
+msgstr "Xarxa"
+
+#: qml/Settings/NetworkSettingsPage.qml:104
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Use system default"
+msgctxt "@option:radio Network proxy selection"
+msgid "System Default"
+msgstr "Utilitza la predeterminada del sistema"
+
+#: qml/Settings/NetworkSettingsPage.qml:113
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "No Proxy"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:122
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "HTTP"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:131
+#, kde-format
+msgctxt "@option:radio Network proxy selection"
+msgid "Socks5"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:146
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Hostname:"
+msgctxt "@label:textbox Hostname for proxy config"
+msgid "Host"
+msgstr "Nom de l'amfitrió:"
+
+#: qml/Settings/NetworkSettingsPage.qml:157
+#, kde-format
+msgctxt "@label:spinbox Port for proxy config"
+msgid "Port"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:172
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Username:"
+msgctxt "@label:textbox Username for proxy config"
+msgid "User"
+msgstr "Nom d'usuari:"
+
+#: qml/Settings/NetworkSettingsPage.qml:183
+#, fuzzy, kde-format
+#| msgid "Password:"
+msgctxt "@label:textbox Password for proxy config"
+msgid "Password"
+msgstr "Contrasenya:"
+
+#: qml/Settings/NetworkSettingsPage.qml:197
+#, kde-format
+msgctxt "@action:button"
+msgid "Apply"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:217
+#, kde-format
+msgctxt "@info:status Warning message related to app proxy settings"
+msgid ""
+"Your system level or app level proxy settings might be ignored by the audio "
+"backend when streaming audio. The settings should still be honored by all "
+"other network related actions, including downloading episodes."
+msgstr ""
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
