@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 00:38+0000\n"
-"PO-Revision-Date: 2024-04-19 11:22+0200\n"
+"PO-Revision-Date: 2024-04-25 13:03+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1538,73 +1538,64 @@ msgid "Allow streaming"
 msgstr "Streaming toestaan"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Netwerk"
+msgstr "Netwerkproxy"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Systeemstandaard gebruiken"
+msgstr "Systeemstandaard"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "Geen proxy"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Hostnaam:"
+msgstr "Host"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Gebruikersnaam:"
+msgstr "Gebruiker"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Wachtwoord:"
+msgstr "Wachtwoord"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1614,6 +1605,10 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"De proxy-instellingen van uw systeemniveau of toepassingsniveau kan door de "
+"audiobackend worden genegeerd bij streaming van audio. De instellingen "
+"zouden nog steeds gehonoreerd moetn worden door alle andere aan het netwerk "
+"gerelateerde acties, inclusief het downloaden van episodes."
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
