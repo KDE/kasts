@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 02:26+0000\n"
-"PO-Revision-Date: 2024-04-13 18:52+0200\n"
+"PO-Revision-Date: 2024-04-27 10:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1338,8 +1338,7 @@ msgid "Select audio backend"
 msgstr "Wybierz silnik dźwiękowy"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
@@ -1371,22 +1370,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Odstęp, o który przewinąć do tyłu (w sekundach)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Błąd uaktualniania podkastu"
+msgstr "Ustawienia uaktualniania podkastów"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Samoczynnie uaktualnij podkasty po uruchomieniu"
+msgstr "Sam pobieraj kanały podkastów"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Nigdy"
@@ -1400,9 +1396,9 @@ msgstr "Nigdy"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Co godzinę"
+msgstr[1] "Co %1 godziny"
+msgstr[2] "Co %1 godzin"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1410,16 +1406,15 @@ msgstr[2] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Codziennie"
+msgstr[1] "Co %1 dni"
+msgstr[2] "Co %1 dni"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Samoczynnie uaktualnij podkasty po uruchomieniu"
+msgstr "Sam pobieraj uaktualnienia do podkastów zaraz po uruchomieniu"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
@@ -1437,7 +1432,7 @@ msgstr "Sam dodaj nowe odcinki do kolejki"
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr "Samoczynnie pobierz nowe odcinki"
+msgstr "Sam pobieraj nowe odcinki"
 
 #: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
@@ -1464,22 +1459,19 @@ msgid "Played episode behavior"
 msgstr "Postępowanie z odtworzonymi odcinkami"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Nie usuwaj"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Usuń trwale"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Usuń przy następnym uruchomieniu"
@@ -1558,73 +1550,64 @@ msgid "Allow streaming"
 msgstr "Zezwól na strumieniowanie"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Sieć"
+msgstr "Pośrednik sieciowy"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Użyj domyślnej systemu"
+msgstr "Domyślne systemowe"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "Brak pośrednika"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Nazwa gospodarza:"
+msgstr "Gospodarz"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Nazwa użytkownika:"
+msgstr "Użytkownik"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Hasło:"
+msgstr "Hasło"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Zastosuj"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1634,6 +1617,10 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"Twoje ustawienia pośrednika na poziomie systemu lub aplikacji mogą nie "
+"zostać uwzględnione przez silnik dźwiękowy podczas strumieniowania dźwięku. "
+"Te ustawienia powinny być uwzględniane przez wszystkie działania związane z "
+"dostępem do sieci, uwzględniając w tym pobieranie odcinków."
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
