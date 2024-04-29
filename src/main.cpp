@@ -63,7 +63,6 @@ int main(int argc, char *argv[])
     QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
-    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     QApplication app(argc, argv);
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
