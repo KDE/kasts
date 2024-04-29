@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-25 02:26+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
+"PO-Revision-Date: 2024-04-27 17:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -479,7 +479,7 @@ msgstr "Montri Informojn"
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr "Sleep Timer"
+msgstr "Dormtempumilo"
 
 #: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
@@ -642,7 +642,7 @@ msgstr "Marki kiel Ludita"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr "Forigi Etikedon \"Nova\""
+msgstr "Forigi \"Novan\" Etikedon"
 
 #: qml/EntryPage.qml:204
 #, kde-format
@@ -715,7 +715,7 @@ msgstr "Erarkodo:"
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr "Registro de eraroj"
+msgstr "Erarprotokolo"
 
 #: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
 #, kde-format
@@ -1329,13 +1329,12 @@ msgid "Select audio backend"
 msgstr "Elekti sonan backend"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
-#, fuzzy, kde-format
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr "Montri tempon restantan anstataŭ totalan traktempon"
+msgstr "Montri tempon restantan anstataŭ suma traktempo"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
 #, kde-format
@@ -1362,22 +1361,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr "Salti malantaŭen intervalon (en sekundoj)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Eraro pri ĝisdatigo de podkasto"
+msgstr "Metoj pri ĝisdatigo de podkasto"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Aŭtomate alporti podkastajn ĝisdatigojn dum ekfunkciigo"
+msgstr "Aŭtomate ekpreni podkastajn fluojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Neniam"
@@ -1391,8 +1387,8 @@ msgstr "Neniam"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun horon"
+msgstr[1] "Ĉiujn %1 horojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1400,12 +1396,11 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ĉiun tagon"
+msgstr[1] "Ĉiujn %1 tagojn"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
 msgstr "Aŭtomate alporti podkastajn ĝisdatigojn dum ekfunkciigo"
@@ -1453,22 +1448,19 @@ msgid "Played episode behavior"
 msgstr "Konduto de luditaj epizodoj"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Ne forigi"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Forigi tuj"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Forigi ĉe la sekva ekfunkciigo"
@@ -1547,73 +1539,64 @@ msgid "Allow streaming"
 msgstr "Permesi streaming"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Reto"
+msgstr "Reta Prokurilo"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Uzi sisteman defaŭlton"
+msgstr "Sistema Defaŭlto"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "Neniu Prokurilo"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Gastnomo:"
+msgstr "Gastiganto"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "Pordo"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Uzantnomo:"
+msgstr "Uzanto"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Pasvorto:"
+msgstr "Pasvorto"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Apliki"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1623,6 +1606,9 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"Via sistemnivela aŭ aplikaĵnivela prokuril-agordo eble estos ignorata de la "
+"son-backend dum aŭdflua elsendado. La agordo ankoraŭ devas esti honorita de "
+"ĉiuj aliaj ret-rilataj agoj, inkluzive de elŝuto de epizodoj."
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
@@ -2331,13 +2317,3 @@ msgstr "Salti Antaŭen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Ludtempo:"
-
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Ĝisdatigi Agordojn:"
