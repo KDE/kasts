@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-25 02:26+0000\n"
+"POT-Creation-Date: 2024-04-30 02:26+0000\n"
 "PO-Revision-Date: 2024-04-23 19:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -184,42 +184,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr ""
 
-#: main.cpp:101
+#: main.cpp:100
 #, kde-format
 msgid "Podcast Application"
 msgstr "播客应用程序"
 
-#: main.cpp:103
+#: main.cpp:102
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "添加新播客到订阅列表。"
 
-#: main.cpp:104
+#: main.cpp:103
 #, kde-format
 msgid "Podcast URL"
 msgstr "播客 URL"
 
-#: main.cpp:109 qml/Main.qml:25
+#: main.cpp:108 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:111
+#: main.cpp:110
 #, kde-format
 msgid "Podcast Player"
 msgstr "播客播放器"
 
-#: main.cpp:113
+#: main.cpp:112
 #, kde-format
 msgid "© 2020–2024 KDE Community"
 msgstr ""
 
-#: main.cpp:114
+#: main.cpp:113
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:115
+#: main.cpp:114
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
