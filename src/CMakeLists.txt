@@ -288,6 +288,7 @@ if(ANDROID)
         view-media-playlist
         source-playlist
         arrow-down
+        arrow-up
         go-next
         overflow-menu
         checkbox
