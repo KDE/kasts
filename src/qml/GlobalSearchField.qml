@@ -10,36 +10,17 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as Addons
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kirigami.delegates as Delegates
 
 import org.kde.kasts
 
-Addons.SearchPopupField {
+Kirigami.SearchField {
     id: globalSearchField
-    spaceAvailableLeft: false
-    spaceAvailableRight: true
 
     autoAccept: false
 
-    popup.width: Math.min(Kirigami.Units.gridUnit * 20, kastsMainWindow.width - Kirigami.Units.gridUnit * 2)
-
     property string searchFilter: ""
-
-    onAccepted: {
-        globalSearchField.searchFilter = globalSearchField.text
-    }
-
-    popup.onClosed: {
-        globalSearchField.text = ""
-    }
-
-    onTextChanged: {
-        if (globalSearchField.text === "") {
-            globalSearchField.searchFilter = "";
-        }
-    }
 
     function openEntry(entry) {
         pushPage("EpisodeListPage");
@@ -62,45 +43,71 @@ Addons.SearchPopupField {
         // if we want to insert the settings action as the rightmost, then it
         // must be defined as first action, which means that we need to save the
         // default clear action and push that as a second action
-        var origAction = searchField.rightActions[0];
-        searchField.rightActions[0] = searchSettingsButton;
-        searchField.rightActions.push(origAction);
+        var origAction = searchDialog.searchFieldRightActions[0];
+        searchDialog.searchFieldRightActions[0] = searchSettingsButton;
+        searchDialog.searchFieldRightActions.push(origAction);
     }
 
-    ListView {
-        id: searchListView
-        reuseItems: true
+    TapHandler {
+        onTapped: {
+            searchDialog.open();
+            searchDialog.forceActiveFocus();
+        }
+        acceptedButtons: Qt.RightButton | Qt.LeftButton
+    }
+    Keys.onPressed: (event) => {
+        if (event.key !== Qt.Key_Tab || event.key !== Qt.Key_Backtab) {
+            searchDialog.open();
+            searchDialog.text = text;
+            searchDialog.forceActiveFocus();
+        }
+    }
+    Keys.priority: Keys.AfterItem
+
+    Kirigami.SearchDialog {
+        id: searchDialog
+
+        parent: Controls.Overlay.overlay
 
         EpisodeProxyModel {
             id: proxyModel
             searchFilter: globalSearchField.searchFilter
         }
 
+        onAccepted: {
+            globalSearchField.searchFilter = searchDialog.text;
+        }
+
+        onTextChanged: {
+            if (searchDialog.text === "") {
+                globalSearchField.searchFilter = "";
+            }
+        }
+
         model: globalSearchField.searchFilter === "" ? null : proxyModel
 
         delegate: AddonDelegates.RoundedItemDelegate {
+            id: albumDelegate
+
+            required property int index
+            required property var entry
+
             contentItem: Delegates.IconTitleSubtitle {
-                icon.source: model.entry.cachedImage
-                title: model.entry.title
-                subtitle: model.entry.feed.name
+                icon.source: albumDelegate.entry.cachedImage
+                title: albumDelegate.entry.title
+                subtitle: albumDelegate.entry.feed.name
             }
             onClicked: {
-                globalSearchField.openEntry(model.entry);
-                globalSearchField.popup.close();
+                globalSearchField.openEntry(albumDelegate.entry);
+                searchDialog.close();
             }
         }
 
-        Kirigami.PlaceholderMessage {
-            id: loadingPlaceholder
-            anchors.fill: parent
-            visible: searchListView.count === 0
-
-            text: i18nc("@info Placeholder text in search box", "No search results")
-        }
+        emptyText: i18nc("@info Placeholder text in search box", "No search results")
 
         Kirigami.Action {
             id: searchSettingsButton
-            visible: globalSearchField.popup.visible
+            visible: searchDialog.visible
             icon.name: "settings-configure"
             text: i18nc("@action:intoolbar", "Advanced Search Options")
 
