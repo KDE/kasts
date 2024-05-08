@@ -1526,20 +1526,16 @@ msgid "Allow streaming"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "网络"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "使用系统默认值"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
@@ -1560,12 +1556,10 @@ msgid "Socks5"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "主机名："
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
@@ -1574,19 +1568,16 @@ msgid "Port"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "用户名："
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "密码："
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format

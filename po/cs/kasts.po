@@ -1576,12 +1576,10 @@ msgid "Socks5"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Název počítače:"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
@@ -1590,25 +1588,22 @@ msgid "Port"
 msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Uživatelské jméno:"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Heslo:"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Použít"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
