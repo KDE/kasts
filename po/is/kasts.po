@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-30 00:38+0000\n"
-"PO-Revision-Date: 2024-04-16 15:39+0000\n"
+"PO-Revision-Date: 2024-05-09 09:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -1357,22 +1357,19 @@ msgid "Skip backward interval (in seconds)"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Villa í uppfærslu á hlaðvarpi"
+msgstr "Uppfærslustillingar á hlaðvörpum"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Ná sjálfkrafa í uppfærslur hlaðvarpa í ræsingu"
+msgstr "Ná sjálfkrafa í streymi hlaðvarpa"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Aldrei"
@@ -1386,8 +1383,8 @@ msgstr "Aldrei"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Á klukkustundar fresti"
+msgstr[1] "Á %1 klukkustunda fresti"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1395,15 +1392,14 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Á hverjum degi"
+msgstr[1] "Á %1 daga fresti"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Ná sjálfkrafa í uppfærslur hlaðvarpa í ræsingu"
+msgstr "Ná í uppfærslur hlaðvarpa í ræsingu"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
@@ -1448,22 +1444,19 @@ msgid "Played episode behavior"
 msgstr "Hegðun spilaðra þátta"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Ekki eyða"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Eyða strax"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Eyða við næstu ræsingu"
@@ -1541,73 +1534,64 @@ msgid "Allow streaming"
 msgstr "Leyfa streymi"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Netkerfi"
+msgstr "Milliþjónn netkerfis"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Nota sjálfgefnar kerfisstillingar"
+msgstr "Sjálfgefið kerfisgildi"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "Enginn milliþjónn"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Vélarheiti:"
+msgstr "Vélarheiti"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "Gátt"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Notandanafn:"
+msgstr "Notandanafn"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Lykilorð:"
+msgstr "Lykilorð"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Virkja"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1775,7 +1759,7 @@ msgstr "Sjálfvirk samstilling"
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "Keyra fulla samstillingu í ræsingu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
 #, kde-format
