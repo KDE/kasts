@@ -106,7 +106,10 @@ Kirigami.ScrollablePage {
 
             contentItem: Kirigami.ActionToolBar {
                 alignment: Qt.AlignLeft
-                background: Item {}
+                background: Rectangle {
+                    color: Kirigami.Theme.highlightColor
+                    width: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading ) ? (parent.width*entry.enclosure.downloadProgress) : 0
+                }
 
                 actions: [
                     Kirigami.Action {
