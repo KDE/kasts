@@ -27,6 +27,7 @@ Kirigami.ApplicationWindow {
     property bool isMobile: Kirigami.Settings.isMobile
     width: isMobile ? 360 : 800
     height: isMobile ? 660 : 600
+    readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
 
     pageStack.clip: true
     pageStack.popHiddenPages: true
@@ -406,5 +407,12 @@ Kirigami.ApplicationWindow {
                 kastsMainWindow.requestActivate();
             }
         }
+    }
+
+    HoverLinkIndicator {
+        id: linkIndicator
+
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
     }
 }

@@ -261,6 +261,26 @@ Kirigami.ScrollablePage {
             onLinkHovered: {
                 cursorShape: Qt.PointingHandCursor;
             }
+            // when hovering a link, show a preview of its URL
+            onHoveredLinkChanged: if (hoveredLink.length > 0) {
+                // when the link points to a timestamp in the current episode, show a time mark
+                // like `12:47` instead of `timestamp://767000`
+                if (hoveredLink.split("://")[0] === "timestamp") {
+                    const timestamp = parseInt(hoveredLink.split("://")[1]);
+                    var isoTime;
+                    // in case the timestamp would be < 1h, don't produce leading zeroes, this looks weird
+                    if (timestamp < 3600*1000) {
+                        var isoTime = new Date(timestamp).toISOString().slice(14, 19);
+                    } else {
+                        var isoTime = new Date(timestamp).toISOString().slice(11, 19);
+                    }
+                    applicationWindow().hoverLinkIndicator.text = i18n("Jump to %1", isoTime);
+                } else {
+                    applicationWindow().hoverLinkIndicator.text = hoveredLink;
+                }
+            } else {
+                applicationWindow().hoverLinkIndicator.text = "";
+            }
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
         }
 
