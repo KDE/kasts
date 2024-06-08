@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-30 02:26+0000\n"
-"PO-Revision-Date: 2024-02-02 17:35+0200\n"
+"PO-Revision-Date: 2024-03-10 11:08+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -209,10 +209,9 @@ msgid "Podcast Player"
 msgstr "Podcast-soitin"
 
 #: main.cpp:112
-#, fuzzy, kde-format
-#| msgid "© 2020–2023 KDE Community"
+#, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2023 KDE-yhteisö"
+msgstr "© 2020–2024 KDE-yhteisö"
 
 #: main.cpp:113
 #, kde-format
@@ -1265,12 +1264,10 @@ msgid "Show podcast titles in episode lists"
 msgstr "Näytä tilausnäkymässä aina podcastien otsikot"
 
 #: qml/Settings/AppearanceSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Label for selecting the color of the tray icon"
-#| msgid "Tray icon type"
+#, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Ilmoituskuvakkeen tyyppi"
+msgstr "Ilmoitusaluekuvake"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, fuzzy, kde-format
