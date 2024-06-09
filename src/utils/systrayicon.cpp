@@ -17,17 +17,17 @@
 #include "kmediasession.h"
 #include "settingsmanager.h"
 
-SystrayIcon::SystrayIcon(QObject *parent)
-    : QSystemTrayIcon(parent)
+SystrayIcon::SystrayIcon()
+    : QObject()
 {
     setIconColor(intToIconColorEnum(SettingsManager::self()->trayIconType()));
-    setToolTip(i18nc("@info:tooltip",
-                     "Kasts\n"
-                     "Middle-click to play/pause"));
+    m_trayIcon.setToolTip(i18nc("@info:tooltip",
+                                "Kasts\n"
+                                "Middle-click to play/pause"));
 
     QMenu *menu = new QMenu();
 
-    connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+    connect(&m_trayIcon, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
             Q_EMIT raiseWindow();
         } else if (reason == QSystemTrayIcon::MiddleClick) {
@@ -37,9 +37,9 @@ SystrayIcon::SystrayIcon(QObject *parent)
 
     connect(SettingsManager::self(), &SettingsManager::showTrayIconChanged, this, [this]() {
         if (SettingsManager::self()->showTrayIcon()) {
-            show();
+            m_trayIcon.show();
         } else {
-            hide();
+            m_trayIcon.hide();
         }
     });
 
@@ -120,15 +120,15 @@ SystrayIcon::SystrayIcon(QObject *parent)
     connect(quitAction, &QAction::triggered, QCoreApplication::instance(), QCoreApplication::quit);
     menu->addAction(quitAction);
 
-    setContextMenu(menu);
+    m_trayIcon.setContextMenu(menu);
 
     if (SettingsManager::self()->showTrayIcon()) {
-        show();
+        m_trayIcon.show();
     }
 }
 #else
-SystrayIcon::SystrayIcon(QObject *parent)
-    : QObject(parent)
+SystrayIcon::SystrayIcon()
+    : QObject()
 {
 }
 #endif
@@ -148,13 +148,13 @@ void SystrayIcon::setIconColor(SystrayIcon::IconColor iconColor)
     // do not specify svg-extension; icon will not be visible due to [QTBUG-53550]
     switch (iconColor) {
     case SystrayIcon::IconColor::Colorful:
-        setIcon(QIcon(QStringLiteral(":/icons/kasts")));
+        m_trayIcon.setIcon(QIcon(QStringLiteral(":/icons/kasts")));
         break;
     case SystrayIcon::IconColor::Light:
-        setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-light")));
+        m_trayIcon.setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-light")));
         break;
     case SystrayIcon::IconColor::Dark:
-        setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-dark")));
+        m_trayIcon.setIcon(QIcon(QStringLiteral(":/icons/kasts-tray-dark")));
         break;
     }
 #endif

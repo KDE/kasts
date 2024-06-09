@@ -12,12 +12,7 @@
 #include <QSystemTrayIcon>
 #endif
 
-class SystrayIcon
-#ifndef Q_OS_ANDROID
-    : public QSystemTrayIcon
-#else
-    : public QObject
-#endif
+class SystrayIcon : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
@@ -52,7 +47,11 @@ Q_SIGNALS:
     void raiseWindow();
 
 private:
-    explicit SystrayIcon(QObject *parent = nullptr);
+#ifndef Q_OS_ANDROID
+    QSystemTrayIcon m_trayIcon;
+#endif
+
+    SystrayIcon();
     int iconColorEnumToInt(IconColor iconColor);
     IconColor intToIconColorEnum(int iconColorCode);
 };
