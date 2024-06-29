@@ -1,36 +1,37 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2024.
+# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-30 02:26+0000\n"
-"PO-Revision-Date: 2024-04-16 15:39+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2024-06-27 15:22+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: audiomanager.cpp:397
 #, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Streymi á gjaldfærðri tengingu er ekki leyft"
+msgstr "Streymi á gagnamældri tengingu er ekki leyft"
 
 #: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
 #, kde-format
@@ -40,12 +41,12 @@ msgstr "Engin nettenging"
 #: audiomanager.cpp:546
 #, kde-format
 msgid "Invalid Media"
-msgstr "Ógildur gagnamiðill"
+msgstr "Ógild miðlaskrá"
 
 #: enclosure.cpp:143
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Niðurhal á hlaðvörpum er ekki leyft á gjaldfærðri tengingu"
+msgstr "Niðurhal á hlaðvörpum ekki leyft á gagnamældri tengingu"
 
 #: entry.cpp:100 feed.cpp:136
 #, kde-format
@@ -67,17 +68,17 @@ msgstr "Villa í uppfærslu á hlaðvarpi"
 #: error.cpp:50
 #, kde-format
 msgid "Media download error"
-msgstr "Villa við að sækja gögn"
+msgstr "Villa við að sækja miðlaskrá"
 
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "Uppfærsla er ekki leyfð á gjaldfærðri tengingu"
+msgstr "Uppfærsla ekki leyfð á gagnamældri tengingu"
 
 #: error.cpp:54
 #, kde-format
 msgid "Invalid media file"
-msgstr "Ógild gagnaskrá"
+msgstr "Ógild miðlaskrá"
 
 #: error.cpp:56
 #, kde-format
@@ -87,22 +88,22 @@ msgstr "Ekkert fannst"
 #: error.cpp:58
 #, kde-format
 msgid "Error moving storage path"
-msgstr "Villa við að færa slóð á gagnageymslu"
+msgstr "Villa við að færa gagnageymsluslóð"
 
 #: error.cpp:60
 #, kde-format
 msgid "Error syncing feed and/or episode status"
-msgstr ""
+msgstr "Villa við samstillingu á stöðu straums og/eða þáttar"
 
 #: error.cpp:62
 #, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Streymi er ekki leyft á gjaldfærðri tengingu "
+msgstr "Streymi ekki leyft á gagnamældri tengingu"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
 msgid "Example KMediaSession Player"
-msgstr ""
+msgstr "Dæmi um KMediaSession-spilara"
 
 #: kmediasession/example-app/qml/Main.qml:72
 #, kde-format
@@ -112,7 +113,7 @@ msgstr "Veldu skrá..."
 #: kmediasession/example-app/qml/Main.qml:78
 #, kde-format
 msgid "Select Media File"
-msgstr "Veldu gagnaskrá"
+msgstr "Velja gagnaskrá"
 
 #: kmediasession/example-app/qml/Main.qml:85
 #, kde-format
@@ -134,7 +135,7 @@ msgstr "Spila"
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:391
 #, kde-format
 msgid "Pause"
-msgstr "Bíða"
+msgstr "Á pásu"
 
 #: kmediasession/example-app/qml/Main.qml:117 qml/SleepTimerDialog.qml:42
 #, kde-format
@@ -144,7 +145,7 @@ msgstr "Stöðva"
 #: kmediasession/example-app/qml/Main.qml:147
 #, kde-format
 msgid "Mute"
-msgstr "Þagga niður"
+msgstr "Þagga"
 
 #: kmediasession/example-app/qml/Main.qml:174
 #, kde-format
@@ -164,12 +165,12 @@ msgstr "Plata: %1"
 #: kmediasession/example-app/qml/Main.qml:191
 #, kde-format
 msgid "Media status: %1"
-msgstr "Staða gagnamiðils: %1"
+msgstr "Staða miðlaskrár: %1"
 
 #: kmediasession/example-app/qml/Main.qml:194
 #, kde-format
 msgid "Playback status: %1"
-msgstr "Staða afspilunar: %1"
+msgstr "Spilunarstaða: %1"
 
 #: kmediasession/example-app/qml/Main.qml:197
 #, kde-format
@@ -181,7 +182,7 @@ msgstr "Villa: %1"
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Spila miðil"
+msgstr "Spila miðlaskrá"
 
 #: main.cpp:100
 #, kde-format
@@ -191,7 +192,7 @@ msgstr "Hlaðvarpsforrit"
 #: main.cpp:102
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Bætir nýju hlaðvarpi í áskriftir."
+msgstr "Bætir nýju hlaðvarpi við áskriftir."
 
 #: main.cpp:103
 #, kde-format
@@ -201,12 +202,12 @@ msgstr "Slóð á hlaðvarp"
 #: main.cpp:108 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
-msgstr "Hlaðvörp"
+msgstr "Kasts"
 
 #: main.cpp:110
 #, kde-format
 msgid "Podcast Player"
-msgstr "Hlaðvarpspilari"
+msgstr "Hlaðvarpsspilari"
 
 #: main.cpp:112
 #, kde-format
@@ -337,13 +338,13 @@ msgstr "Fjöldi eftirlæta: hækkandi"
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Titill hlaðvarps: A → Ö"
+msgstr "Hlaðvarpstitill: A → Ö"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Titill hlaðvarps: Ö → A"
+msgstr "Hlaðvarpstitill: Ö → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -364,19 +365,19 @@ msgstr "Bæta við hlaðvarpi"
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr "Uppfærslur á hlaðvörpum er ekki leyfðar á gjaldfærðum tengingum"
+msgstr "Uppfærslur á hlaðvörpum eru ekki leyfðar á gagnamældum tengingum"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
-msgstr "Veldu valmöguleika"
+msgstr "Velja valmöguleika"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr "Ekki næst í netkerfi"
+msgstr "Ekkert netsamband"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -385,6 +386,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Netsamband virðist ekki vera til staðar. Ef þetta er rangt er hægt að "
+"slökkva á þessari athugun í: Stillingar > Net."
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -419,25 +422,25 @@ msgstr "Hoppa áfram"
 #: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
-msgstr "Afspilunarhraði:"
+msgstr "Spilunarhraði:"
 
 #: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
-msgstr "Sýna lista yfir kafla"
+msgstr "Sýna kaflalista"
 
 #: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr "Birta upplýsingar fyrir þátt"
+msgstr "Sýna upplýsingar um þátt"
 
 #: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr ""
+msgstr "Opna stillingar fyrir tímastillt stopp"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:348
@@ -469,13 +472,13 @@ msgstr "Kaflar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr "Birta upplýsingar"
+msgstr "Sýna upplýsingar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Tímastillt stopp"
 
 #: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
@@ -486,13 +489,13 @@ msgstr "Kaflar"
 #: qml/Mobile/MobilePlayerControls.qml:175
 #, kde-format
 msgid "No Track Title"
-msgstr ""
+msgstr "Enginn titill hljóðskrár"
 
 #: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:185
 #, kde-format
 msgid "No track loaded"
-msgstr ""
+msgstr "Engin hljóðskrá hlaðin inn"
 
 #: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
 #, kde-format
@@ -530,12 +533,12 @@ msgstr "Sóttar skrár"
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Endurlesa öll hlaðvörp"
+msgstr "Endurhlaða öll hlaðvörp"
 
 #: qml/DownloadListPage.qml:55
 #, kde-format
 msgid "No downloads"
-msgstr "Engin niðurhöl"
+msgstr "Engar sóttar skrár"
 
 #: qml/DownloadListPage.qml:71
 #, kde-format
@@ -545,7 +548,7 @@ msgstr "Sæki"
 #: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
-msgstr "Ókláruð niðurhöl"
+msgstr "Óklárað niðurhal"
 
 #: qml/DownloadListPage.qml:73
 #, kde-format
@@ -580,7 +583,7 @@ msgstr "Hætta við niðurhal"
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
-msgstr "Í bið"
+msgstr "Á pásu"
 
 #: qml/EntryPage.qml:146
 #, kde-format
@@ -594,7 +597,7 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr "Streymi"
+msgstr "Streyma"
 
 #: qml/EntryPage.qml:167
 #, kde-format
@@ -620,7 +623,7 @@ msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr "Endurstilla spilunarstaðsetningu"
+msgstr "Endurstilla spilunarstað"
 
 #: qml/EntryPage.qml:197
 #, kde-format
@@ -638,7 +641,7 @@ msgstr "Merkja sem spilað"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr "Fjarlægja \"Nýtt\" merki"
+msgstr "Fjarlægja \"Nýtt\"-merki"
 
 #: qml/EntryPage.qml:204
 #, kde-format
@@ -658,7 +661,7 @@ msgstr "Fjarlægja úr eftirlætum"
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr "Bæta í eftirlæti"
+msgstr "Bæta við eftirlæti"
 
 #: qml/EntryPage.qml:219
 #, kde-format
@@ -670,7 +673,7 @@ msgstr "Opna hlaðvarp"
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "Afrita niðurhalstengil þáttar"
 
 #: qml/EntryPage.qml:296
 #, kde-format
@@ -695,7 +698,7 @@ msgstr "Leita"
 #: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "No episodes available"
-msgstr "Enginr þættir tiltækir"
+msgstr "Engir þættir í boði"
 
 #: qml/ErrorList.qml:30
 #, kde-format
@@ -727,7 +730,7 @@ msgstr "Birta villuskráningu"
 #: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:240
 #, kde-format
 msgid "Podcast Details"
-msgstr "Nánar um hlaðvarp"
+msgstr "Upplýsingar um hlaðvarp"
 
 #: qml/FeedDetailsPage.qml:124
 #, kde-format
@@ -743,7 +746,7 @@ msgstr "Endurlesa hlaðvarp"
 #: qml/FeedDetailsPage.qml:174
 #, kde-format
 msgid "Show Details"
-msgstr "Sýna nánari upplýsingar"
+msgstr "Sýna upplýsingar"
 
 #: qml/FeedDetailsPage.qml:245
 #, kde-format
@@ -782,7 +785,7 @@ msgstr[1] "%1 óspilaðir"
 #: qml/FeedDetailsPage.qml:361
 #, kde-format
 msgid "Error (%1): %2"
-msgstr "Villa (%1): %2"
+msgstr "Villa: (%1): %2"
 
 #: qml/FeedListDelegate.qml:250
 #, kde-format
@@ -800,7 +803,7 @@ msgstr "Áskriftir"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Endurlesa öll hlaðvörp"
+msgstr "Endurhlaða öll hlaðvörp"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
@@ -818,7 +821,7 @@ msgstr "Raða"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Veldu hvernig eigi að raða áskriftum"
+msgstr "Velja hvernig á að raða áskriftum"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
@@ -923,7 +926,7 @@ msgstr[1] "Fjarlægja hlaðvörp"
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
-msgstr "Nánar um hlaðvarp"
+msgstr "Upplýsingar um hlaðvarp"
 
 #: qml/FilterInlineMessage.qml:32
 #, kde-format
@@ -983,7 +986,7 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr "Streymi"
+msgstr "Streyma"
 
 #: qml/GenericEntryListView.qml:136
 #, kde-format
@@ -995,7 +998,7 @@ msgstr "Raða"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr "Veldu hvernig eigi að raða þáttum"
+msgstr "Veldu hvernig á að raða þáttum"
 
 #: qml/GenericEntryListView.qml:187
 #, kde-format
@@ -1039,7 +1042,7 @@ msgstr "Merkja sem \"Nýtt\""
 #: qml/GenericEntryListView.qml:296
 #, kde-format
 msgid "Remove \"New\" Label"
-msgstr "Fjarlægja \"Nýtt\" merki"
+msgstr "Fjarlægja \"Nýtt\"-merki"
 
 #: qml/GenericEntryListView.qml:332
 #, kde-format
@@ -1059,7 +1062,7 @@ msgstr "Engar leitarniðurstöður"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr "Ítarlegir valkostir leitar"
+msgstr "Ítarlegir leitarvalkostir"
 
 #: qml/GlobalSearchField.qml:139 qml/SearchBar.qml:113
 #, kde-format
@@ -1080,7 +1083,7 @@ msgctxt ""
 "@title of page showing the list queued items; this is the noun 'the queue', "
 "not the verb"
 msgid "Queue"
-msgstr "Röð"
+msgstr "Biðröð"
 
 #: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
 #, kde-format
@@ -1108,12 +1111,12 @@ msgstr[1] "Færði %2 af %1 skrám"
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr "Niðurhal á hlaðvörpum er ekki leyfðar á gjaldfærðum tengingum"
+msgstr "Ekki er leyfilegt að sækja hlaðvörp á gagnamældum tengingum"
 
 #: qml/Mobile/MobilePlayerControls.qml:24
 #, kde-format
 msgid "No Track Loaded"
-msgstr ""
+msgstr "Engin hljóðskrá hlaðin inn"
 
 #: qml/Mobile/MobilePlayerControls.qml:145
 #, kde-format
@@ -1134,7 +1137,7 @@ msgstr "Engir kaflar fundust"
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr "Forstillingar afspilunarhraða"
+msgstr "Forstillingar spilunarhraða"
 
 #: qml/PlaybackRateCustomizerDialog.qml:53
 #, kde-format
@@ -1152,19 +1155,19 @@ msgstr "Bæta við"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr "Bæta nýju gildi fyrir afspilunarhraða á listann"
+msgstr "Bæta við nýju gildi fyrir spilunarhraða á listann"
 
 #: qml/PlaybackRateCustomizerDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
-msgstr "Minnka afspilunarhraða"
+msgstr "Draga úr spilunarhraða"
 
 #: qml/PlaybackRateCustomizerDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
-msgstr "Auka afspilunarhraða"
+msgstr "Auka spilunarhraða"
 
 #: qml/PlaybackRateCustomizerDialog.qml:125
 #, kde-format
@@ -1176,7 +1179,7 @@ msgstr "Núverandi forstillingar:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Veldu afspilunarhraða"
+msgstr "Velja spilunarhraða"
 
 #: qml/PlaybackRateMenu.qml:52
 #, kde-format
@@ -1232,43 +1235,43 @@ msgstr "Litastef"
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
-msgstr "Alltaf birta titil hlaðvarpa í áskriftarsýn"
+msgstr "Alltaf sýna hlaðvarpstitla í áskriftaryfirliti"
 
 #: qml/Settings/AppearanceSettingsPage.qml:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr ""
+msgstr "Sýna mynd fyrir þátt í staðinn fyrir mynd hlaðvarps í listum"
 
 #: qml/Settings/AppearanceSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
-msgstr "Birta titla hlaðvarpa í þáttalistum"
+msgstr "Sýna hlaðvarpstitla í þáttalistum"
 
 #: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Táknmynd í kerfisbakka"
+msgstr "Tákn í kerfisbakka"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
-msgstr "Sýna táknmynd í kerfisbakka"
+msgstr "Sýna tákn í kerfisbakka"
 
 #: qml/Settings/AppearanceSettingsPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr "Lágmarka í kerfisbakka í stað þess að loka"
+msgstr "Fela í kerfisbakka í stað þess að loka"
 
 #: qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr "Tegund táknmyndar í kerfisbakka"
+msgstr "Tegund tákns í kerfisbakka"
 
 #: qml/Settings/AppearanceSettingsPage.qml:123
 #, kde-format
@@ -1316,13 +1319,13 @@ msgstr "Villuannáll"
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
-msgstr "Afspilunarstillingar"
+msgstr "Spilunarstillingar"
 
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Veldu hljóðkerfi"
+msgstr "Velja hljóðkerfi"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
 #, kde-format
@@ -1330,49 +1333,46 @@ msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "Sýna tíma sem er eftir af heildartíma hljóðskrár"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "Laga tíma sem eftir er að núverandi spilunarhraða"
 
 #: qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "Setja streymi í forgang fram yfir niðurhal"
 
 #: qml/Settings/GeneralSettingsPage.qml:94
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "Tímabil þegar hoppað er áfram (í sekúndum)"
 
 #: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Tímabil þegar hoppað er til baka (í sekúndum)"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Podcast update error"
+#, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr "Villa í uppfærslu á hlaðvarpi"
+msgstr "Uppfærslustillingar fyrir hlaðvörp"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr "Ná sjálfkrafa í uppfærslur hlaðvarpa í ræsingu"
+msgstr "Sækja hlaðvarpsstrauma sjálfkrafa"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
-#, fuzzy, kde-format
-#| msgid "Never"
+#, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Aldrei"
@@ -1386,8 +1386,8 @@ msgstr "Aldrei"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Á klst. fresti"
+msgstr[1] "Á %1 klst. fresti"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1395,33 +1395,33 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Daglega"
+msgstr[1] "Á %1 daga fresti"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgid "Automatically fetch podcast updates on startup"
+#, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "Ná sjálfkrafa í uppfærslur hlaðvarpa í ræsingu"
+msgstr "Sækja hlaðvarpsuppfærslur sjálfkrafa við ræsingu"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
+"Uppfæra upplýsingar um fyrirliggjandi þætti við endurhleðslu (hægvirkara)"
 
 #: qml/Settings/GeneralSettingsPage.qml:176
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "Setja nýja þætti sjálfkrafa í biðröð"
 
 #: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "Sækja nýja þætti sjálfkrafa"
 
 #: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
@@ -1433,58 +1433,55 @@ msgstr "Stillingar biðraðar"
 #, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
-msgstr ""
+msgstr "Spila næsta þátt þegar sá sem er í spilun er búinn"
 
 #: qml/Settings/GeneralSettingsPage.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "Endurstilla spilunarstöðu þegar búið er að spila þátt"
 
 #: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr "Hegðun spilaðra þátta"
+msgstr "Meðhöndlun þátta sem búið er að spila"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
-#, fuzzy, kde-format
-#| msgid "Do not delete"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Ekki eyða"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
-#, fuzzy, kde-format
-#| msgid "Delete immediately"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Eyða strax"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
-#, fuzzy, kde-format
-#| msgid "Delete at next startup"
+#, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
-msgstr "Eyða við næstu ræsingu"
+msgstr "Eyða næst þegar forritið er opnað"
 
 #: qml/Settings/GeneralSettingsPage.qml:253
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
+msgstr "Merkja þætti sem spilaða þegar tiltekinn tími er eftir (í sekúndum)"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
-msgstr "Þegar bætt er nýju hlaðvarpi"
+msgstr "Þegar nýju hlaðvarpi er bætt við"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "Merkja alla þætti sem spilaða"
 
 #: qml/Settings/GeneralSettingsPage.qml:289
 #, kde-format
@@ -1502,19 +1499,19 @@ msgstr "Merkja alla þætti sem óspilaða"
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
-msgstr "Netkerfi"
+msgstr "Net"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
-msgstr "Virkja athugun á nettengingum"
+msgstr "Virkja athugun á nettengingu"
 
 #: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
-msgstr "Á gjaldfærðum nettengingum"
+msgstr "Á gagnamældri tengingu"
 
 #: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
@@ -1526,13 +1523,13 @@ msgstr "Leyfa uppfærslur á hlaðvörpum"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
-msgstr ""
+msgstr "Leyfa niðurhal á þáttum"
 
 #: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
-msgstr ""
+msgstr "Leyfa niðurhal mynda"
 
 #: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
@@ -1541,73 +1538,64 @@ msgid "Allow streaming"
 msgstr "Leyfa streymi"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to network connections"
-#| msgid "Network"
+#, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Netkerfi"
+msgstr "Milliþjónn"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Use system default"
+#, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Nota sjálfgefnar kerfisstillingar"
+msgstr "Sjálfgefnar kerfisstillingar"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "Enginn milliþjónn"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Hostname:"
+#, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Vélarheiti:"
+msgstr "Vél"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "Tengi"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Username:"
+#, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr "Notandanafn:"
+msgstr "Notandi"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "Lykilorð:"
+msgstr "Lykilorð"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "Virkja"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1617,6 +1605,9 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"Hljóðkerfið kann að hunsa milliþjónsstillingar kerfisins eða forritsins "
+"þegar hljóði er streymt. Stillingarnar ættu að halda gildi sínu við allar "
+"aðrar nettengdar aðgerðir, þ.m.t. niðurhal á þáttum."
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
@@ -1640,7 +1631,7 @@ msgstr "Geymsla"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
-msgstr "Netkerfi"
+msgstr "Net"
 
 #: qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -1664,13 +1655,13 @@ msgstr "Slóð á gagnageymslu"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "Veldu möppu…"
+msgstr "Velja möppu…"
 
 #: qml/Settings/StorageSettingsPage.qml:46
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
-msgstr "Veldu geymsluslóð"
+msgstr "Velja geymsluslóð"
 
 #: qml/Settings/StorageSettingsPage.qml:56
 #, kde-format
@@ -1708,7 +1699,7 @@ msgstr "Biðminni mynda"
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear Cache"
-msgstr "Tæma skyndiminni"
+msgstr "Tæma biðminni"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
 #, kde-format
@@ -1721,7 +1712,7 @@ msgstr "Notandaaðgangur"
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr "Skráð(ur) inn í aðganginn \"%1\" á netþjóninum \"%2\""
+msgstr "Skráð(ur) inn í aðganginn \"%1\" á þjóninum \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
@@ -1757,13 +1748,13 @@ msgstr "Samstilla núna"
 #, kde-format
 msgctxt "@info:status"
 msgid "Last full sync with server"
-msgstr ""
+msgstr "Síðast samstillt að fullu við þjóninn"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "Síðasta skyndiupphleðsla á samstillingarþjón"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:79
 #, kde-format
@@ -1775,19 +1766,19 @@ msgstr "Sjálfvirk samstilling"
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "Samstilla að fullu við ræsingu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
-msgstr "Framkvæma fulla samstillingu við að sækja hlaðvörp"
+msgstr "Samstilla að fullu þegar hlaðvörp eru sótt"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Upload episode play positions on play/pause toggle"
-msgstr ""
+msgstr "Hlaða upp spilunarstöðu þáttar þegar víxlað er á milli spilunar/pásu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
 #, kde-format
@@ -1799,7 +1790,7 @@ msgstr "Ítarlegir valkostir"
 #, kde-format
 msgctxt "@label"
 msgid "Fetch all episode states from server"
-msgstr "Ná stöður allra þátta í frá netþjóni"
+msgstr "Sækja stöðu allra þátta frá þjóni"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:130
 #, kde-format
@@ -1811,7 +1802,7 @@ msgstr "Sækja"
 #, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server"
-msgstr "Ýta stöðum allra þátta á tölvunni yfir á netþjón"
+msgstr "Ýta stöðu allra þátta á tölvunni yfir á þjóninn"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:146
 #, kde-format
@@ -1823,7 +1814,7 @@ msgstr "Ýta"
 #, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server?"
-msgstr "Ýta stöðum allra þátta á tölvunni yfir á netþjón?"
+msgstr "Ýta stöðu allra þátta á tölvunni yfir á netþjón?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:204
 #, kde-format
@@ -1836,12 +1827,18 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Athugaðu að það getur verið tímafrekt að ýta spilunarstöðu allra "
+"hlaðvarpsþátta á tölvunni yfir á þjóninn og/eða sett of mikið álag á "
+"þjóninn. Athugaðu einnig að þessi aðgerð skrifar yfir stöðu allrar þátta sem "
+"fyrir eru á þjóninum.\n"
+"\n"
+"Halda áfram?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:228
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
-msgstr "Veldu þjónustuveitu samstillingar"
+msgstr "Velja samstillingarveitu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
@@ -1853,7 +1850,7 @@ msgstr "gpodder.net"
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
-msgstr ""
+msgstr "Samstilla við opinberan þjón gpodder.net"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:244
 #, kde-format
@@ -1865,13 +1862,13 @@ msgstr "GPodder Nextcloud"
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr ""
+msgstr "Samstilla við GPodder Nextcloud-forrit"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:278
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
-msgstr ""
+msgstr "Samstilla innskráningarauðkenni"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
@@ -1883,7 +1880,7 @@ msgstr "Samstilla við GPodder Nextcloud-forrit"
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
-msgstr "Samstilla við gpodder.net þjónustu"
+msgstr "Samstilla við gpodder.net-þjónustu"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
@@ -1893,12 +1890,16 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"Samstilla við Nextcloud-þjón sem er með uppsett GPodder Sync-forrit: %1.<br/"
+">Það er ráðlegt að útbúa lykilorð fyrir Kasts handvirkt í gegnum vefviðmótið "
+"og nota svo það auðkenni."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
+"Ef þú ert ekki nú þegar með aðgang ættirðu að setja hann upp fyrst á %1"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:331
 #, kde-format
@@ -1928,7 +1929,7 @@ msgstr "Vélarheiti:"
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
-msgstr ""
+msgstr "Stillingar fyrir samstillingu tækis"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:402
 #, kde-format
@@ -2000,7 +2001,7 @@ msgstr "eða veldu fyrirliggjandi tæki"
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
-msgstr ""
+msgstr "Stillingar fyrir samstillingu tækis"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:530
 #, kde-format
@@ -2010,6 +2011,9 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"Á að samstilla allar hlaðvarpsáskriftir á þessum gpodder.net-aðgangi á öllum "
+"tækjum?\n"
+"Ef þú veist ekki hvað þetta þýðir er líklega óhætt að velja \"Í lagi\"."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
 #, kde-format
@@ -2021,12 +2025,12 @@ msgstr "Samstilla núna?"
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
-msgstr "Framkvæma fyrstu samstillingu núna?"
+msgstr "Samstilla í fyrsta sinn núna?"
 
 #: qml/SleepTimerDialog.qml:17
 #, kde-format
 msgid "Sleep Timer"
-msgstr ""
+msgstr "Tímastillt stopp"
 
 #: qml/SleepTimerDialog.qml:27
 #, kde-format
@@ -2041,7 +2045,7 @@ msgstr "Staða: Virkt"
 #: qml/SleepTimerDialog.qml:54
 #, kde-format
 msgid "Status: Inactive"
-msgstr "Staða: VÓvirkt"
+msgstr "Staða: Óvirkt"
 
 #: qml/SleepTimerDialog.qml:60
 #, kde-format
@@ -2066,7 +2070,7 @@ msgstr "Klukkustundir"
 #: qml/SyncPasswordOverlay.qml:25
 #, kde-format
 msgid "Sync Password Required"
-msgstr "Lykilorð samstillingar nauðsynlegt"
+msgstr "Samstillingarlykilorð nauðsynlegt"
 
 #: qml/SyncPasswordOverlay.qml:49
 #, kde-format
@@ -2074,11 +2078,14 @@ msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr ""
+"Ekki tókst að sækja lykilorðið fyrir notandann \"%1\" á Nextcloud-þjóni "
+"\"%2\"."
 
 #: qml/SyncPasswordOverlay.qml:50
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr ""
+"Ekki tókst að sækja lykilorðið fyrir notandann \"%1\" á \"gpodder.net\"."
 
 #: qml/SyncPasswordOverlay.qml:57
 #, kde-format
@@ -2088,7 +2095,7 @@ msgstr "Lykilorð:"
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
 msgid "Abort"
-msgstr "Aflýsa"
+msgstr "Hætta við"
 
 #: qml/VolumeSlider.qml:47
 #, kde-format
@@ -2107,17 +2114,17 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr "Hlaðvörp á %1"
+msgstr "Kasts á %1"
 
 #: sync/sync.cpp:295
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr ""
+msgstr "Innskráning á GPodder-nextcloud þjón tókst ekki"
 
 #: sync/sync.cpp:334
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr ""
+msgstr "Innskráning á GPodder-þjón tókst ekki"
 
 #: sync/sync.cpp:486 sync/sync.cpp:487
 #, kde-format
@@ -2137,37 +2144,37 @@ msgstr "Tókst ekki að búa til GPodder-tæki"
 #: sync/sync.cpp:676
 #, kde-format
 msgid "Could not retrieve synced device status"
-msgstr ""
+msgstr "Tókst ekki að sækja stöðu fyrir samstillt tæki"
 
 #: sync/sync.cpp:727
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr ""
+msgstr "Tókst ekki að sækja áskriftir fyrir tæki %1"
 
 #: sync/sync.cpp:746
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr ""
+msgstr "Tókst ekki að hlaða upp áskriftum fyrir tæki %1"
 
 #: sync/syncjob.cpp:67
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr ""
+msgstr "Tókst ekki að sækja áskriftaruppfærslur frá þjóni"
 
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr ""
+msgstr "Tókst ekki að hlaða upp áskriftarbreytingum á þjón"
 
 #: sync/syncjob.cpp:73
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr ""
+msgstr "Tókst ekki að sækja þáttauppfærslur frá þjóni"
 
 #: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr ""
+msgstr "Tókst ekki að hlaða upp þáttauppfærslur á þjón"
 
 #: sync/syncjob.cpp:79
 #, kde-format
@@ -2184,13 +2191,13 @@ msgstr "(Skref %1 af %2) Hefja samstillingu"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr ""
+msgstr "(Skref %1 af %2) Bið um fjartengdar áskriftaruppfærslur"
 
 #: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr ""
+msgstr "(Skref %1 af %2) Sendi staðbundnar áskriftaruppfærslur"
 
 #: sync/syncjob.cpp:894
 #, kde-format
@@ -2204,19 +2211,19 @@ msgstr[1] "(Skref %3 af %4) Uppfærði %2 af %1 hlaðvörpum"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr ""
+msgstr "(Skref %1 af %2) Bið um fjartengdar þáttauppfærslur"
 
 #: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr ""
+msgstr "(Skref %1 af %2) Virkja fjartengdar breytingar á þáttum"
 
 #: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr ""
+msgstr "(Skref %1 af %2) Sendi staðbundnar þáttauppfærslur"
 
 #: sync/syncjob.cpp:911
 #, kde-format
@@ -2254,7 +2261,7 @@ msgstr "Ný staðsetning"
 #: utils/storagemovejob.cpp:58
 #, kde-format
 msgid "Destination path not writable"
-msgstr "Úttaksslóð er ekki skrifanleg"
+msgstr "Viðtökuslóð er ekki skrifanleg"
 
 #: utils/storagemovejob.cpp:75 utils/storagemovejob.cpp:96
 #, kde-format
@@ -2273,8 +2280,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
-"Hlaðvörp\n"
-"Miðjusmelltu til að spila eða setja í bið"
+"Kasts\n"
+"Miðjusmelltu til að spila/setja á pásu"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
@@ -2292,13 +2299,13 @@ msgstr "Spila"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
-msgstr "Bíða"
+msgstr "Á pásu"
 
 #: utils/systrayicon.cpp:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr "Leita áfram"
+msgstr "Spóla áfram"
 
 #: utils/systrayicon.cpp:102
 #, kde-format
