@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-30 00:38+0000\n"
+"POT-Creation-Date: 2024-07-19 00:39+0000\n"
 "PO-Revision-Date: 2023-02-24 00:58+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1055,25 +1055,25 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/GlobalSearchField.qml:98
+#: qml/GlobalSearchField.qml:106
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:105 qml/SearchBar.qml:53
+#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:139 qml/SearchBar.qml:113
+#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:143 qml/SearchBar.qml:117
+#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
