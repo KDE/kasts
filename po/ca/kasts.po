@@ -2331,34 +2331,3 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Temps de reproducció:"
-
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Configuració de les actualitzacions:"
-
-#~ msgid "Episode List"
-#~ msgstr "Llista d'episodis"
-
-#~ msgctxt "@title Podcast subscription list page title"
-#~ msgid "Subscriptions"
-#~ msgstr "Subscripcions"
-
-#~ msgctxt "@action:intoolbar Open the podcast discover page"
-#~ msgid "Discover"
-#~ msgstr "Descobreix"
-
-#~ msgctxt "@title:column Page showing the list queued items"
-#~ msgid "Queue"
-#~ msgstr "Cua"
-
-#~ msgid "Font size:"
-#~ msgstr "Mida de la lletra:"
-
-#~ msgid "Article"
-#~ msgstr "Article"
