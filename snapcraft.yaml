@@ -41,6 +41,15 @@ parts:
     plugin: cmake
     source: .
     source-type: local
+    build-packages:
+      - libtag1-dev
+      - libvlc-dev
+      - libsecret-1-dev
+    stage-packages:
+      - libtag1v5
+      - libnm0
+      - libsecret-1-0
+      - mpg123
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
