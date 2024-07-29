@@ -45,6 +45,7 @@ parts:
       - libtag1-dev
       - libvlc-dev
       - libsecret-1-dev
+      - libpulse0
     stage-packages:
       - libtag1v5
       - libnm0
