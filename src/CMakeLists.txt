@@ -329,7 +329,7 @@ if(ANDROID)
     )
     ecm_add_android_apk(kasts ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
-    target_link_libraries(kasts PRIVATE Qt::Widgets)
+    target_link_libraries(kasts PRIVATE Qt::Widgets KF6::Crash)
 endif()
 
 install(TARGETS kasts ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

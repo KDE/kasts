@@ -73,6 +73,7 @@ if (ANDROID)
     find_package(Gradle)
 else()
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets DBus)
+    find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Crash)
 endif()
 
 add_definitions(-DQT_NO_CAST_FROM_ASCII

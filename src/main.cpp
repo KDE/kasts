@@ -22,6 +22,8 @@
 #include <QGuiApplication>
 #else
 #include <QApplication>
+
+#include <KCrash>
 #endif
 
 #include <KAboutData>
@@ -113,6 +115,10 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     KAboutData::setApplicationData(about);
+
+#ifndef Q_OS_ANDROID
+    KCrash::initialize();
+#endif
 
     about.setupCommandLine(&parser);
     parser.process(app);
