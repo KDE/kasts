@@ -21,6 +21,8 @@ apps:
       - audio-record
       - network-manager-observe
       - network-status
+environment:
+  ALSA_CONFIG_PATH: "/snap/kf6-core22/current/etc/asound.conf"
 slots:
   session-dbus-interface:
     interface: dbus
