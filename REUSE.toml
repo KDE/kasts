@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2024 Bart De Vries <bart@mogwai.be>
+# SPDX-License-Identifier: CC0-1.0
+
+version = 1
+SPDX-PackageName = "Kasts"
+SPDX-PackageSupplier = "Tobias Fella <tobias.fella@kde.org>"
+
+[[annotations]]
+path = ["src/qtquickcontrols2.conf", "README.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 Tobias Fella <tobias.fella@kde.org>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = ["src/settingsmanager.kcfgc", "src/settingsmanager.kcfg", ".flatpak-manifest.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2021 Bart De Vries <bart@mogwai.be>"
+SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = "android/res/drawable/splash.xml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 Tobias Fella <tobias.fella@kde.org>"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = ["kasts.svg", "kasts-android-square.svg", "icons/kasts-tray-light.svg", "icons/kasts-tray-dark.svg", "logo.png", "android/ic_launcher-playstore.png", "android/res/drawable/kasts.png", "android/res/drawable-v24/ic_launcher_background.xml", "android/res/drawable-v24/ic_launcher_foreground.xml", "android/res/mipmap-hdpi/ic_launcher.png", "android/res/mipmap-mdpi/ic_launcher.png", "android/res/mipmap-xhdpi/ic_launcher.png", "android/res/mipmap-xxhdpi/ic_launcher.png", "android/res/mipmap-xxxhdpi/ic_launcher.png", "icons/16-apps-kasts.png", "icons/24-apps-kasts.png", "icons/32-apps-kasts.png", "icons/48-apps-kasts.png", "icons/64-apps-kasts.png", "icons/128-apps-kasts.png"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2021 Mathis Brüchert <mbblp@protonmail.ch>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "icons/media-playback-cloud.svg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Bart De Vries <bart@mogwai.be>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "android/res/mipmap-anydpi-v26/ic_launcher.xml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "None"
+SPDX-License-Identifier = "CC0-1.0"
