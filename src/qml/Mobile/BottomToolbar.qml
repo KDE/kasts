@@ -13,9 +13,9 @@ import org.kde.kasts
 
 Kirigami.NavigationTabBar {
     id: navBar
+    position: ToolBar.Footer
 
     property alias toolbarHeight: navBar.implicitHeight
-    property bool transparentBackground: false
 
     actions: [
         Kirigami.Action {

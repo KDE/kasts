@@ -141,10 +141,12 @@ Kirigami.ApplicationWindow {
 
     property bool showGlobalDrawer: !isMobile || kastsMainWindow.isWidescreen
 
-    globalDrawer: showGlobalDrawer ? myGlobalDrawer : null
+    globalDrawer: globalDrawerLoader.item
 
-    property Kirigami.OverlayDrawer myGlobalDrawer: KastsGlobalDrawer {
-
+    Loader {
+        id: globalDrawerLoader
+        active: kastsMainWindow.showGlobalDrawer
+        sourceComponent: KastsGlobalDrawer {}
     }
 
     // Implement slots for MPRIS2 signals
@@ -210,7 +212,6 @@ Kirigami.ApplicationWindow {
         height: visible ? implicitHeight : 0
         active: isMobile && !kastsMainWindow.isWidescreen
         sourceComponent: BottomToolbar {
-            transparentBackground: footerLoader.active
             opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
             Behavior on opacity {
                 NumberAnimation { duration: Kirigami.Units.shortDuration }
