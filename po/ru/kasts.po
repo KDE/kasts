@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-02 00:39+0000\n"
 "PO-Revision-Date: 2024-01-27 19:19+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1107,7 +1107,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Настройка"
 
-#: qml/Main.qml:227
+#: qml/Main.qml:228
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1117,7 +1117,7 @@ msgstr[1] "Выполнено обновление подкастов (%2 из %
 msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
 msgstr[3] "Выполнено обновление подкаста (%2 из %1)"
 
-#: qml/Main.qml:254
+#: qml/Main.qml:255
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1127,7 +1127,7 @@ msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[3] "Выполнено перемещение файла (%2 из %1)"
 
-#: qml/Main.qml:318
+#: qml/Main.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-09 00:39+0000\n"
+"POT-Creation-Date: 2024-10-02 00:39+0000\n"
 "PO-Revision-Date: 2024-06-17 21:21+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1087,7 +1087,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Inställningar"
 
-#: qml/Main.qml:227
+#: qml/Main.qml:228
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1095,7 +1095,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Uppdaterade %2 av %1 poddradioprogram"
 msgstr[1] "Uppdaterade %2 av %1 poddradioprogram"
 
-#: qml/Main.qml:254
+#: qml/Main.qml:255
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1103,7 +1103,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Flyttade %2 av %1 fil"
 msgstr[1] "Flyttade %2 av %1 filer"
 
-#: qml/Main.qml:318
+#: qml/Main.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
