@@ -339,6 +339,7 @@
       <caption xml:lang="gl">Kasts no escritorio coa barra de cabeceira predeterminada.</caption>
       <caption xml:lang="he">Kasts בשולחן העבודה עם פס כותרת ברירת המחדל</caption>
       <caption xml:lang="ia">Kasts sur le scriptorio con barra de capite predefinite</caption>
+      <caption xml:lang="id">Kasts di desktop dengan bilah tajuk baku</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ნაგულისხმები თავსართის ზოლით</caption>
       <caption xml:lang="ko">기본 헤더 표시줄이 있는 데스크톱에서의 Kasts</caption>
@@ -369,6 +370,7 @@
       <caption xml:lang="gl">Kasts no escritorio coa barra de cabeceira minimizada.</caption>
       <caption xml:lang="he">Kasts בשולחן העבודה עם פס כותרת ממוזער</caption>
       <caption xml:lang="ia">Kasts sur le scriptorio conbarra de capite minimisate</caption>
+      <caption xml:lang="id">Kasts di desktop dengan bilah tajuk diminimalkan</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
       <caption xml:lang="ka">Kasts -ი სამუშაო კომპიუტერზე ჩაკეცილი თავსართის ზოლით</caption>
       <caption xml:lang="ko">최소화된 헤더 표시줄이 있는 데스크톱에서의 Kasts</caption>
@@ -434,6 +436,7 @@
       <caption xml:lang="gl">Controis do reprodución de Kasts en móbil.</caption>
       <caption xml:lang="he">פקדים לנגן Kasts לניידים</caption>
       <caption xml:lang="ia">Controles de reproductor mobile de Kasts</caption>
+      <caption xml:lang="id">Kontrol pemutar musik Kasts</caption>
       <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
       <caption xml:lang="ka">Kasts-ის მედიის დამკვრელის კონტროლები</caption>
       <caption xml:lang="ko">Kasts 모바일 재생기 제어</caption>
