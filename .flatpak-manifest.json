@@ -2,7 +2,7 @@
     "id": "org.kde.kasts",
     "branch": "master",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.7",
+    "runtime-version": "6.8",
     "sdk": "org.kde.Sdk",
     "command": "kasts",
     "tags": ["nightly"],
@@ -16,7 +16,9 @@
         "--socket=pulseaudio",
         "--own-name=org.mpris.MediaPlayer2.kasts",
         "--talk-name=org.freedesktop.secrets",
-        "--talk-name=org.kde.StatusNotifierWatcher"
+        "--talk-name=org.kde.StatusNotifierWatcher",
+        "--talk-name=org.freedesktop.PowerManagement.Inhibit",
+        "--talk-name=org.gnome.SessionManager"
     ],
     "cleanup": [
         "/include",
@@ -30,6 +32,38 @@
         "/app/lib/vlc/vlc-cache-gen /app/lib/vlc/plugins"
     ],
     "modules": [
+        {
+            "name": "ffmpeg",
+            "config-opts": [
+                "--enable-pic",
+                "--enable-shared",
+                "--disable-doc",
+                "--disable-static",
+                "--enable-gpl",
+                "--disable-libx264",
+                "--disable-libx265",
+                "--enable-libvpx",
+                "--enable-libmp3lame",
+                "--enable-libvorbis",
+                "--enable-libopus"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ffmpeg.org/releases/ffmpeg-4.4.5.tar.xz",
+                    "sha256": "f9514e0d3515aee5a271283df71636e1d1ff7274b15853bcd84e144be416ab07",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 5405,
+                        "version": {
+                            ">=": 4,
+                            "<": 5
+                        },
+                        "url-template": "https://ffmpeg.org/releases/ffmpeg-$version.tar.xz"
+                    }
+                }
+            ]
+        },
         {
             "name": "libvlc",
             "config-opts": [
