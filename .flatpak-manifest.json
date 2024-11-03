@@ -2,7 +2,7 @@
     "id": "org.kde.kasts",
     "branch": "master",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.7",
+    "runtime-version": "6.8",
     "sdk": "org.kde.Sdk",
     "command": "kasts",
     "tags": ["nightly"],
@@ -30,6 +30,75 @@
         "/app/lib/vlc/vlc-cache-gen /app/lib/vlc/plugins"
     ],
     "modules": [
+        {
+            "name": "x264",
+            "config-opts": [
+                "--enable-pic",
+                "--enable-shared"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://code.videolan.org/videolan/x264.git",
+                    "commit": "a8b68ebfaa68621b5ac8907610d3335971839d52"
+                }
+            ]
+        },
+        {
+            "name": "x265",
+            "builddir": "true",
+            "subdir": "source",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+                    "sha256": "a31699c6a89806b74b0151e5e6a7df65de4b49050482fe5ebf8a4379d7af8f29",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 7275,
+                        "url-template": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ffmpeg",
+            "config-opts": [
+                "--enable-pic",
+                "--enable-shared",
+                "--disable-doc",
+                "--disable-static",
+                "--enable-gpl",
+                "--enable-libx264",
+                "--enable-libx265",
+                "--enable-libvpx",
+                "--enable-libmp3lame",
+                "--enable-libvorbis",
+                "--enable-libopus"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ffmpeg.org/releases/ffmpeg-4.4.5.tar.xz",
+                    "sha256": "f9514e0d3515aee5a271283df71636e1d1ff7274b15853bcd84e144be416ab07",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 5405,
+                        "version": {
+                            ">=": 4,
+                            "<": 5
+                        },
+                        "url-template": "https://ffmpeg.org/releases/ffmpeg-$version.tar.xz"
+                    }
+                }
+            ]
+        },
         {
             "name": "libvlc",
             "config-opts": [
