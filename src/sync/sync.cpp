@@ -453,7 +453,6 @@ void Sync::savePasswordToKeyChain(const QString &username, const QString &passwo
 {
     qCDebug(kastsSync) << "Save the password to the keychain for" << username;
 
-#ifndef Q_OS_WINDOWS
     QKeychain::WritePasswordJob *job = new QKeychain::WritePasswordJob(qAppName(), this);
     job->setAutoDelete(false);
     job->setKey(username);
@@ -463,7 +462,6 @@ void Sync::savePasswordToKeyChain(const QString &username, const QString &passwo
         onWritePasswordJobFinished(job, username, password);
     });
     job->start();
-#endif
 }
 
 void Sync::savePasswordToFile(const QString &username, const QString &password)
