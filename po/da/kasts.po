@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-02 00:39+0000\n"
+"POT-Creation-Date: 2024-11-06 00:39+0000\n"
 "PO-Revision-Date: 2024-08-01 14:24+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2124,32 +2124,32 @@ msgstr "Kunne ikke logge ind på GPodder-Nextcloud-server"
 msgid "Could not log into GPodder server"
 msgstr "Kunne ikke logge ind på GPodder-server"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:484 sync/sync.cpp:485
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O afvist: Kan ikke gemme adgangskode."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:565 sync/sync.cpp:566
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O afvist: Kan ikke tilgå adgangskodefil."
 
-#: sync/sync.cpp:650
+#: sync/sync.cpp:648
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Kunne ikke oprette GPodder-enhed"
 
-#: sync/sync.cpp:676
+#: sync/sync.cpp:674
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Kunne ikke hente status for synkroniseret enhed"
 
-#: sync/sync.cpp:727
+#: sync/sync.cpp:725
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Kunne ikke hente abonnementer for enhed %1"
 
-#: sync/sync.cpp:746
+#: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Kunne ikke uploade abonnementer for enhed %1"
