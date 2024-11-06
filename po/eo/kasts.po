@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:39+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2024-05-15 18:50+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2125,32 +2125,32 @@ msgstr "Ne eblis ensaluti en GPodder-nextcloud-servilo"
 msgid "Could not log into GPodder server"
 msgstr "Ne eblis ensaluti en GPodder-servilo"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:484 sync/sync.cpp:485
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O neita: Ne povas konservi pasvorton."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:565 sync/sync.cpp:566
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O neita: Ne povas aliri pasvortdosieron."
 
-#: sync/sync.cpp:650
+#: sync/sync.cpp:648
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Ne eblis krei GPodder-aparaton"
 
-#: sync/sync.cpp:676
+#: sync/sync.cpp:674
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Ne eblis retrovi sinkronigitan aparaton"
 
-#: sync/sync.cpp:727
+#: sync/sync.cpp:725
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Ne eblis retrovi abonojn por aparato %1"
 
-#: sync/sync.cpp:746
+#: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Ne eblis alŝuti abonojn por aparato %1"

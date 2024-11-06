@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:39+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2024-04-25 08:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -2153,33 +2153,33 @@ msgstr "Не вдалося увійти до облікового запису 
 msgid "Could not log into GPodder server"
 msgstr "Не вдалося увійти до сервера GPodder"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:484 sync/sync.cpp:485
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "Заборонено введення-виведення: не вдалося зберегти пароль."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:565 sync/sync.cpp:566
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr ""
 "Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
 
-#: sync/sync.cpp:650
+#: sync/sync.cpp:648
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Не вдалося створити пристрій GPodder"
 
-#: sync/sync.cpp:676
+#: sync/sync.cpp:674
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Не вдалося отримати стан синхронізованого пристрою"
 
-#: sync/sync.cpp:727
+#: sync/sync.cpp:725
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Не вдалося отримати підписки для пристрою %1"
 
-#: sync/sync.cpp:746
+#: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Не вдалося вивантажити підписки для пристрою %1"

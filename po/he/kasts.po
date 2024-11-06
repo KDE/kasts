@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:39+0000\n"
+"POT-Creation-Date: 2024-11-06 02:31+0000\n"
 "PO-Revision-Date: 2024-05-13 17:40+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2136,32 +2136,32 @@ msgstr "לא ניתן להיכנס לשרת GPodder-nextcloud"
 msgid "Could not log into GPodder server"
 msgstr "לא ניתן להיכנס לשרת GPodder"
 
-#: sync/sync.cpp:486 sync/sync.cpp:487
+#: sync/sync.cpp:484 sync/sync.cpp:485
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "קלט/פלט נדחה: אי אפשר לשמור את הסיסמה."
 
-#: sync/sync.cpp:567 sync/sync.cpp:568
+#: sync/sync.cpp:565 sync/sync.cpp:566
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "קלט/פלט נדחה: אי אפשר לגשת לקובץ הסיסמאות."
 
-#: sync/sync.cpp:650
+#: sync/sync.cpp:648
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "לא ניתן ליצור מכשיר GPodder"
 
-#: sync/sync.cpp:676
+#: sync/sync.cpp:674
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "לא ניתן למשוך את מצב המכשיר המסונכרן"
 
-#: sync/sync.cpp:727
+#: sync/sync.cpp:725
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "לא ניתן למשוך את המינויים למכשיר %1"
 
-#: sync/sync.cpp:746
+#: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "לא ניתן להעלות מינויים למכשיר %1"
