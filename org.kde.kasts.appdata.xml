@@ -12,6 +12,7 @@
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
   <name xml:lang="cs">Kasts</name>
+  <name xml:lang="da">Kasts</name>
   <name xml:lang="de">Kasts</name>
   <name xml:lang="en-GB">Kasts</name>
   <name xml:lang="eo">Kasts</name>
@@ -45,6 +46,7 @@
   <summary xml:lang="ca">Aplicació de pòdcast</summary>
   <summary xml:lang="ca-valencia">Aplicació de pòdcast</summary>
   <summary xml:lang="cs">Aplikace pro přehrávání podcastů</summary>
+  <summary xml:lang="da">Podcastprogram</summary>
   <summary xml:lang="de">Podcast-Anwendung</summary>
   <summary xml:lang="en-GB">Podcast application</summary>
   <summary xml:lang="eo">Podkasta aplikaĵo</summary>
@@ -82,6 +84,7 @@
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="cs">Komunita KDE</developer_name>
+  <developer_name xml:lang="da">KDE-fællesskabet</developer_name>
   <developer_name xml:lang="de">Die KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="en-GB">The KDE Community</developer_name>
   <developer_name xml:lang="eo">La KDE-Komunumo</developer_name>
@@ -115,6 +118,7 @@
     <p xml:lang="ar">كاستس تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de pòdcast que funciona bé a l'escriptori i al mòbil.</p>
     <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que treballa bé en l'escriptori i en el mòbil.</p>
+    <p xml:lang="da">Kasts er et konvergerende podcastprogram, der ser godt ud på desktop og mobiler.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="eo">Kasts estas konverĝa podkasta aplikaĵo, kiu aspektas bone sur labortablo kaj poŝtelefono.</p>
     <p xml:lang="es">Kasts es una aplicación convergente de pódcast que se ve bien en el escritorio y en dispositivos móviles.</p>
@@ -143,6 +147,7 @@
     <p xml:lang="ca">Les seves característiques principals són:</p>
     <p xml:lang="ca-valencia">Les seues característiques principals són:</p>
     <p xml:lang="cs">Hlavní vlastnosti jsou:</p>
+    <p xml:lang="da">Dets hovedfunktioner er:</p>
     <p xml:lang="en-GB">Its main features are:</p>
     <p xml:lang="eo">Ĝiaj ĉefaj trajtoj estas:</p>
     <p xml:lang="es">Sus funcionalidades principales son:</p>
@@ -172,6 +177,7 @@
       <li xml:lang="ca">Gestió d'episodis a través de la cua de reproducció</li>
       <li xml:lang="ca-valencia">Gestioneu els episodis a través de la cua de reproducció</li>
       <li xml:lang="cs">Správa epizod přes frontu přehrávání</li>
+      <li xml:lang="da">Episodeadminstration gennem afspilningskø</li>
       <li xml:lang="en-GB">Episode management through play queue</li>
       <li xml:lang="eo">Administrado de epizodoj per ludvico</li>
       <li xml:lang="es">Gestión de episodios mediante cola de reproducción</li>
@@ -199,6 +205,7 @@
       <li xml:lang="ar">مزامنة مواضع التشغيل مع العملاء الآخرين من خلال gpodder.net أو gpodder-nextcloud</li>
       <li xml:lang="ca">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="ca-valencia">Sincronitza la posició de reproducció amb altres clients a través de gpodder.net o gpodder-nextcloud</li>
+      <li xml:lang="da">Synkronisér afspilningsposition med andre klienter gennem gpodder.net eller gpodder-nextcloud</li>
       <li xml:lang="en-GB">Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
       <li xml:lang="eo">Sinkronigi reproduktajn poziciojn kun aliaj klientoj per gpodder.net aŭ gpodder-nextcloud</li>
       <li xml:lang="es">Sincronización de posiciones de reproducción con otros clientes mediante gpodder.net o gpodder-nextcloud</li>
@@ -227,6 +234,7 @@
       <li xml:lang="ca">Velocitat de reproducció variable</li>
       <li xml:lang="ca-valencia">Velocitat de reproducció variable</li>
       <li xml:lang="cs">Měnitelná rychlost přehrávání</li>
+      <li xml:lang="da">Varierende afspilningshastighed</li>
       <li xml:lang="de">Variable Wiedergabegeschwindigkeit</li>
       <li xml:lang="en-GB">Variable playback speed</li>
       <li xml:lang="eo">Varia reprodukta rapido</li>
@@ -256,6 +264,7 @@
       <li xml:lang="ca">Cerca de pòdcasts</li>
       <li xml:lang="ca-valencia">Busca de pòdcast</li>
       <li xml:lang="cs">Hledání podcastů</li>
+      <li xml:lang="da">Søg efter podcasts</li>
       <li xml:lang="de">Nach Podcasts suchen</li>
       <li xml:lang="en-GB">Search for podcasts</li>
       <li xml:lang="eo">Serĉi podkastojn</li>
@@ -285,6 +294,7 @@
       <li xml:lang="ca">Integració completa amb el sistema: p. ex. inhibeix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="ca-valencia">Integració completa amb el sistema: p. ex., inhibix la suspensió del sistema mentre s'està escoltant</li>
       <li xml:lang="cs">Plná integrace do systému: např. potlačení uspání systému při poslechu</li>
+      <li xml:lang="da">Fuld systemintegration: f.eks. tilbagehold systemsuspendering mens der lyttes</li>
       <li xml:lang="de">Volle Systemintegration: z. B. verhindern des Schlafmodus während des Zuhörens</li>
       <li xml:lang="en-GB">Full system integration: e.g. inhibit system suspend while listening</li>
       <li xml:lang="eo">Plena sistema integriĝo: ekz. malhelpi sistemon suspendi dum aŭskultado</li>
@@ -329,6 +339,7 @@
       <caption xml:lang="ar">كاستس على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
+      <caption xml:lang="da">Kast på desktoppen med standard overskriftsbar</caption>
       <caption xml:lang="de">Kasts auf der Arbeitsfläche mit Standard-Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with default header bar</caption>
       <caption xml:lang="eo">Kasts sur la labortablo kun defaŭlta kaplinio</caption>
@@ -360,6 +371,7 @@
       <caption xml:lang="ar">كاستس على سطح المكتب مع شريط رأسي مصغر</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
+      <caption xml:lang="da">Kasts på desktoppen med minimeret overskriftsbar</caption>
       <caption xml:lang="de">Kasts auf der Arbeitsfläche mit minimierter Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with minimised header bar</caption>
       <caption xml:lang="eo">Kasts sur la labortablo kun minimumigita kaplinio</caption>
@@ -392,6 +404,7 @@
       <caption xml:lang="ca">El Kasts a un telèfon</caption>
       <caption xml:lang="ca-valencia">Kasts a un telèfon</caption>
       <caption xml:lang="cs">Kasts na telefonu</caption>
+      <caption xml:lang="da">Kasts på en telefon</caption>
       <caption xml:lang="de">Kasts auf einem Mobiltelefon</caption>
       <caption xml:lang="en-GB">Kasts on a phone</caption>
       <caption xml:lang="eo">Kasts ĉe telefono</caption>
@@ -426,6 +439,7 @@
       <caption xml:lang="ar">متحكمات مشغل كاستس للهاتف</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
+      <caption xml:lang="da">Kasks afspilningskontroller på mobiler</caption>
       <caption xml:lang="de">Kasts zur Steuerung eines Mobilgerätes</caption>
       <caption xml:lang="en-GB">Kasts mobile player controls</caption>
       <caption xml:lang="eo">Kasts ludilaj regiloj por poŝtelefonoj</caption>
