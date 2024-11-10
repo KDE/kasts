@@ -348,5 +348,10 @@ void Database::setWalMode()
 
 void Database::cleanup()
 {
-    // TODO: create database sanity checks, or, alternatively, create database scrub routine
+    // delete rows with empty feed urls, as this should never happen, but could
+    // occur when something goes wrong (like a crash) when trying to add a new
+    // feed
+    QSqlQuery query;
+    query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url is NULL or url='';"));
+    execute(query);
 }
