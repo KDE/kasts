@@ -84,7 +84,10 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
 )
 
 qt_policy(SET QTP0001 NEW)
+if (QT_KNOWN_POLICY_QTP0004)
 qt_policy(SET QTP0004 NEW)
+endif()
+
 ki18n_install(po)
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})
