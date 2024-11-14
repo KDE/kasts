@@ -76,7 +76,6 @@ qt_add_resources(kasts "icons"
         ../icons/kasts-tray-dark.svg
 )
 
-qt_policy(SET QTP0001 NEW)
 qt_add_qml_module(kasts URI org.kde.kasts
     QML_FILES
         qml/Main.qml

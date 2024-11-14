@@ -83,6 +83,8 @@ add_definitions(-DQT_NO_CAST_FROM_ASCII
                 -DQT_USE_QSTRINGBUILDER
 )
 
+qt_policy(SET QTP0001 NEW)
+qt_policy(SET QTP0004 NEW)
 ki18n_install(po)
 
 install(PROGRAMS org.kde.kasts.desktop DESTINATION ${KDE_INSTALL_APPDIR})

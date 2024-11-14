@@ -12,7 +12,6 @@ endif()
 
 add_executable(kmediasession-example main.cpp)
 
-qt_policy(SET QTP0001 NEW)
 qt_add_qml_module(kmediasession-example URI org.kde.kmediasession-example
     QML_FILES
         qml/Main.qml

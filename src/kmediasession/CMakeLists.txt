@@ -39,7 +39,6 @@ add_library(KMediaSession
     mpris2/mpris2.cpp
 )
 
-qt_policy(SET QTP0001 NEW)
 qt_add_qml_module(KMediaSession URI org.kde.kmediasession
     OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/org/kde/kmediasession
 )
