@@ -64,6 +64,7 @@
   <summary xml:lang="nl">Podcastprogramma</summary>
   <summary xml:lang="pl">Aplikacja do podkastów</summary>
   <summary xml:lang="pt">Aplicação de 'podcasts'</summary>
+  <summary xml:lang="pt-BR">Aplicativo de podcast </summary>
   <summary xml:lang="ru">Приложение для прослушивания подкастов</summary>
   <summary xml:lang="sk">Podcastová aplikácia</summary>
   <summary xml:lang="sl">Program za spletne oddaje</summary>
@@ -135,6 +136,7 @@
     <p xml:lang="nl">Kasts is een convergente podcast-toepassing die er goed uitziet op het bureaublad en op de mobiel.</p>
     <p xml:lang="pl">Kasts jest dostosowującą się aplikacją do podkastów, która wygląda dobrze na urządzeniach biurkowych i przenośnych.</p>
     <p xml:lang="pt">O Kasts é uma aplicação de 'podcasts' convergente que parece bonita em computadores e em dispositivos móveis.</p>
+    <p xml:lang="pt-BR">O Kasts é um aplicativo de podcast convergente que fica bem no computadore no celular.</p>
     <p xml:lang="ru">Kasts — универсальное приложение для прослушивания подкастов, которое одинаково хорошо выглядит на компьютерах и мобильных устройствах.</p>
     <p xml:lang="sl">Kasts je konvergentni program za spletne oddaje za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
@@ -164,6 +166,7 @@
     <p xml:lang="nl">De hoofdkenmerken zijn:</p>
     <p xml:lang="pl">Jego głównymi cechami są:</p>
     <p xml:lang="pt">As suas funcionalidades principais são:</p>
+    <p xml:lang="pt-BR">Seus principais recursos são:</p>
     <p xml:lang="ru">Основные возможности:</p>
     <p xml:lang="sl">Njegove glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
@@ -194,6 +197,7 @@
       <li xml:lang="nl">Beheer van episoden via afspeelwachtrij</li>
       <li xml:lang="pl">Zarządzanie odcinkami poprzez kolejkę odtwarzania</li>
       <li xml:lang="pt">Gestão de episódios através da fila de reprodução</li>
+      <li xml:lang="pt-BR">Gerenciamento de episódios por meio da fila de reprodução</li>
       <li xml:lang="ru">Управление выпусками с помощью очереди воспроизведения</li>
       <li xml:lang="sl">Upravljanje z epizodami prek čakalne vrste predvajanj</li>
       <li xml:lang="sv">Avsnittshantering via uppspelningskö</li>
@@ -222,6 +226,7 @@
       <li xml:lang="nl">Afspeelposities synchroniseren met andere clients via gpodder.net of gpodder-nextcloud</li>
       <li xml:lang="pl">Uwspólnianie postępu w odtwarzaniu z innymi programami przez gpodder.net lub gpodder-nextcloud</li>
       <li xml:lang="pt">Sincronizar as posições de reprodução com outros clientes através do gpodder.net ou do gpodder-nextcloud</li>
+      <li xml:lang="pt-BR">Sincronize as posições de reprodução com outros clientes por meio do gpodder.net ou gpodder-nextcloud</li>
       <li xml:lang="ru">Синхронизация позиций воспроизведения с другими клиентами с помощью gpodder.net или gpodder-nextcloud</li>
       <li xml:lang="sl">Usklajevanje položajev predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
@@ -252,6 +257,7 @@
       <li xml:lang="nl">Variabele afspeelsnelheid</li>
       <li xml:lang="pl">Zmienna szybkość odtwarzania</li>
       <li xml:lang="pt">Velocidade de reprodução variável</li>
+      <li xml:lang="pt-BR">Velocidade de reprodução variável</li>
       <li xml:lang="ru">Регулируемая скорость воспроизведения</li>
       <li xml:lang="sl">Spremenljiva hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
@@ -282,6 +288,7 @@
       <li xml:lang="nl">Zoeken naar podcasts</li>
       <li xml:lang="pl">Poszukaj podkastów</li>
       <li xml:lang="pt">Procurar por 'podcasts'</li>
+      <li xml:lang="pt-BR">Pesquisar podcasts</li>
       <li xml:lang="ru">Поиск подкастов</li>
       <li xml:lang="sl">Iskanje spletnih oddaj</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
@@ -312,6 +319,7 @@
       <li xml:lang="nl">Volledige systeemintegratie: bijv. het systeem niet uitschakelen tijdens luisteren</li>
       <li xml:lang="pl">Pełna integracja z systemem, tj. nie usypianie systemu podczas słuchania</li>
       <li xml:lang="pt">Integração total com o sistema: p.ex. inibir a suspensão do sistema enquanto escuta algo</li>
+      <li xml:lang="pt-BR">Integração total do sistema: por exemplo, inibir a suspensão do sistema durantea audição</li>
       <li xml:lang="ru">Полная интеграция с системой: например, запрет перехода в состояние ожидания во время прослушивания</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
@@ -357,6 +365,7 @@
       <caption xml:lang="nl">Kasts op het bureaublad met standaard kopbalk</caption>
       <caption xml:lang="pl">Kasts na biurko z domyślnym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador sem o cabeçalho predefinido</caption>
+      <caption xml:lang="pt-BR">Kasts na área de trabalho com a barra de título padrão</caption>
       <caption xml:lang="ru">Kasts на компьютере со стандартной строкой заголовка</caption>
       <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
@@ -389,6 +398,7 @@
       <caption xml:lang="nl">Kasts op het bureaublad met geminimaliseerde kopbalk</caption>
       <caption xml:lang="pl">Kasts na biurko ze zminimalizowanym paskiem nagłówkowym</caption>
       <caption xml:lang="pt">O Kasts no computador com o cabeçalho minimizado</caption>
+      <caption xml:lang="pt-BR">Kasts na área de trabalho com barra de título minimizada</caption>
       <caption xml:lang="ru">Kasts на компьютере с минимизированной строкой заголовка</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjenim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
@@ -457,6 +467,7 @@
       <caption xml:lang="nl">Besturing van afspeler van Kast mobiel</caption>
       <caption xml:lang="pl">Sterowanie Kastem na urządzeniach przenośnych</caption>
       <caption xml:lang="pt">Controlos do leitor móvel Kasts</caption>
+      <caption xml:lang="pt-BR">Controles do player móvel Kasts</caption>
       <caption xml:lang="ru">Элементы управления мобильного проигрывателя Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
