@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:39+0000\n"
-"PO-Revision-Date: 2024-10-25 18:58+0300\n"
+"PO-Revision-Date: 2024-11-21 09:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -508,7 +508,7 @@ msgstr "Keşfet"
 #: qml/DiscoverPage.qml:27
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr "podcastindex.org’da ara"
+msgstr "podcastindex.org’da ara…"
 
 #: qml/DiscoverPage.qml:37
 #, kde-format
@@ -1329,7 +1329,7 @@ msgstr "Çalma Ayarları"
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Ses arka ucu seç"
+msgstr "Ses arka ucunu seç"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
 #, kde-format
@@ -1480,7 +1480,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
-msgstr "Yeni pod yayınları eklerken"
+msgstr "Pod Yayını Eklerken"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
@@ -1516,7 +1516,7 @@ msgstr "Ağ bağlantısı denetimlerine izin ver"
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
-msgstr "Kısıtlı bağlantılarda"
+msgstr "Kısıtlı Bağlantılarda"
 
 #: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
@@ -1552,7 +1552,7 @@ msgstr "Ağ Vekili"
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Sistem Öntanımlısı"
+msgstr "Sistem öntanımlısı"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
