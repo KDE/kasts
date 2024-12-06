@@ -21,6 +21,7 @@ apps:
       - audio-record
       - network-manager-observe
       - network-status
+      - password-manager-service
 slots:
   session-dbus-interface:
     interface: dbus
