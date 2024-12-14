@@ -8,8 +8,10 @@
 #include "kmediasessionlogging.h"
 
 #include <QDebug>
+#include <QJniObject>
 #include <QTimer>
 #include <QUrl>
+#include <qjnitypes.h>
 
 #include <KAboutData>
 
@@ -24,6 +26,10 @@
 #ifdef HAVE_GST
 #include "mediabackends/gstmediabackend.h"
 #endif
+
+using namespace QtJniTypes;
+
+Q_DECLARE_JNI_CLASS(MediaNotification, "org/kde/kasts/MediaNotification");
 
 class KMediaSessionPrivate
 {
@@ -56,7 +62,7 @@ KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEn
     : QObject(parent)
     , d(std::make_unique<KMediaSessionPrivate>())
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::KMediaSesion begin";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::KMediaSesion begin";
 
     // set up metadata
     d->m_meta = new MetaData(this);
@@ -82,12 +88,12 @@ KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEn
         : desktopEntryName;
     d->m_mpris = std::make_unique<Mpris2>(this);
 
-    qCDebug(KMediaSessionLog) << "KMediaSession::KMediaSession end";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::KMediaSession end";
 }
 
 KMediaSession::~KMediaSession()
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::~KMediaSession";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::~KMediaSession";
 
     d->mPowerInterface.setPreventSleep(false);
 
@@ -102,7 +108,7 @@ KMediaSession::~KMediaSession()
 
 QString KMediaSession::backendName(KMediaSession::MediaBackends backend) const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::backendName()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::backendName()";
     if (d->m_availableBackends.contains(backend)) {
         return d->m_availableBackends[backend];
     }
@@ -111,37 +117,37 @@ QString KMediaSession::backendName(KMediaSession::MediaBackends backend) const
 
 KMediaSession::MediaBackends KMediaSession::currentBackend() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::currentBackend()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::currentBackend()";
     return d->m_player->backend();
 }
 
 QList<KMediaSession::MediaBackends> KMediaSession::availableBackends() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::availableBackends()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::availableBackends()";
     return d->m_availableBackends.keys();
 }
 
 QString KMediaSession::playerName() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::playerName()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::playerName()";
     return d->m_playerName;
 }
 
 QString KMediaSession::desktopEntryName() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::desktopEntryName()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::desktopEntryName()";
     return d->m_desktopEntryName;
 }
 
 bool KMediaSession::mpris2PauseInsteadOfStop() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::mpris2PauseInsteadOfStop()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::mpris2PauseInsteadOfStop()";
     return d->m_mpris2PauseInsteadOfStop;
 }
 
 bool KMediaSession::muted() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::muted()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::muted()";
     if (d->m_player) {
         return d->m_player->muted();
     }
@@ -150,7 +156,7 @@ bool KMediaSession::muted() const
 
 qreal KMediaSession::volume() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::volume()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::volume()";
     if (d->m_player) {
         return d->m_player->volume();
     }
@@ -159,7 +165,7 @@ qreal KMediaSession::volume() const
 
 QUrl KMediaSession::source() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::source()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::source()";
     if (d->m_player) {
         return d->m_player->source();
     }
@@ -168,7 +174,7 @@ QUrl KMediaSession::source() const
 
 KMediaSession::MediaStatus KMediaSession::mediaStatus() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::mediaStatus()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::mediaStatus()";
     if (d->m_player) {
         return d->m_player->mediaStatus();
     }
@@ -177,7 +183,7 @@ KMediaSession::MediaStatus KMediaSession::mediaStatus() const
 
 KMediaSession::PlaybackState KMediaSession::playbackState() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::playbackState()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::playbackState()";
     if (d->m_player) {
         return d->m_player->playbackState();
     }
@@ -186,7 +192,7 @@ KMediaSession::PlaybackState KMediaSession::playbackState() const
 
 qreal KMediaSession::playbackRate() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::playBackRate()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::playBackRate()";
     if (d->m_player) {
         return d->m_player->playbackRate();
     }
@@ -195,19 +201,19 @@ qreal KMediaSession::playbackRate() const
 
 qreal KMediaSession::minimumPlaybackRate() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::minimumPlayBackRate()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::minimumPlayBackRate()";
     return MIN_RATE;
 }
 
 qreal KMediaSession::maximumPlaybackRate() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::maximumPlayBackRate()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::maximumPlayBackRate()";
     return MAX_RATE;
 }
 
 KMediaSession::Error KMediaSession::error() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::error()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::error()";
     if (d->m_player) {
         return d->m_player->error();
     }
@@ -216,7 +222,7 @@ KMediaSession::Error KMediaSession::error() const
 
 qint64 KMediaSession::duration() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::duration()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::duration()";
     if (d->m_player) {
         return d->m_player->duration();
     }
@@ -225,7 +231,7 @@ qint64 KMediaSession::duration() const
 
 qint64 KMediaSession::position() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::position()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::position()";
     if (d->m_player) {
         return d->m_player->position();
     }
@@ -234,7 +240,7 @@ qint64 KMediaSession::position() const
 
 bool KMediaSession::seekable() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::seekable()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::seekable()";
     if (d->m_player) {
         return d->m_player->seekable();
     }
@@ -243,7 +249,7 @@ bool KMediaSession::seekable() const
 
 MetaData *KMediaSession::metaData() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::metaData()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::metaData()";
     if (d->m_meta) {
         return d->m_meta;
     }
@@ -252,7 +258,7 @@ MetaData *KMediaSession::metaData() const
 
 bool KMediaSession::canPlay() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::canPlay()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::canPlay()";
     if (d->m_player) {
         return !d->m_player->source().isEmpty();
     } else {
@@ -262,7 +268,7 @@ bool KMediaSession::canPlay() const
 
 bool KMediaSession::canPause() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::canPause()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::canPause()";
     if (d->m_player) {
         return !d->m_player->source().isEmpty();
     } else {
@@ -272,19 +278,19 @@ bool KMediaSession::canPause() const
 
 bool KMediaSession::canGoNext() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::canGoNext()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::canGoNext()";
     return d->m_canGoNext;
 }
 
 bool KMediaSession::canGoPrevious() const
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::canGoPrevious()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::canGoPrevious()";
     return d->m_canGoPrevious;
 }
 
 void KMediaSession::setCurrentBackend(KMediaSession::MediaBackends backend)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setCurrentBackend(" << backend << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setCurrentBackend(" << backend << ")";
 
     if (!d->m_availableBackends.contains(backend)) {
         return;
@@ -354,7 +360,7 @@ void KMediaSession::setCurrentBackend(KMediaSession::MediaBackends backend)
 
 void KMediaSession::setPlayerName(const QString &name)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setPlayerName(" << name << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setPlayerName(" << name << ")";
     if (name != d->m_playerName) {
         d->m_playerName = name;
         Q_EMIT playerNameChanged(name);
@@ -363,7 +369,7 @@ void KMediaSession::setPlayerName(const QString &name)
 
 void KMediaSession::setDesktopEntryName(const QString &name)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setDesktopEntryName(" << name << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setDesktopEntryName(" << name << ")";
     if (name != d->m_desktopEntryName) {
         d->m_desktopEntryName = name;
         Q_EMIT desktopEntryNameChanged(name);
@@ -372,7 +378,7 @@ void KMediaSession::setDesktopEntryName(const QString &name)
 
 void KMediaSession::setMpris2PauseInsteadOfStop(bool newState)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setMpris2PauseInsteadOfStop(" << newState << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setMpris2PauseInsteadOfStop(" << newState << ")";
     if (newState != d->m_mpris2PauseInsteadOfStop) {
         d->m_mpris2PauseInsteadOfStop = newState;
         Q_EMIT mpris2PauseInsteadOfStopChanged(newState);
@@ -381,7 +387,7 @@ void KMediaSession::setMpris2PauseInsteadOfStop(bool newState)
 
 void KMediaSession::setMuted(bool muted)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setMuted(" << muted << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setMuted(" << muted << ")";
     if (d->m_player) {
         d->m_player->setMuted(muted);
     }
@@ -389,7 +395,7 @@ void KMediaSession::setMuted(bool muted)
 
 void KMediaSession::setVolume(qreal volume)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setVolume(" << volume << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setVolume(" << volume << ")";
     if (d->m_player) {
         d->m_player->setVolume(volume);
     }
@@ -397,7 +403,7 @@ void KMediaSession::setVolume(qreal volume)
 
 void KMediaSession::setSource(const QUrl &source)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setSource(" << source << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setSource(" << source << ")";
     if (d->m_player) {
         metaData()->clear();
         d->m_player->setSource(source);
@@ -410,8 +416,8 @@ void KMediaSession::setSource(const QUrl &source)
 
 void KMediaSession::setPosition(qint64 position)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setPosition(" << position << ")";
-    qCDebug(KMediaSessionLog) << "Seeking: " << position;
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setPosition(" << position << ")";
+    // qCDebug(KMediaSessionLog) << "Seeking: " << position;
     if (d->m_player) {
         d->m_player->setPosition(position);
         QTimer::singleShot(0, this, [this, position]() {
@@ -423,7 +429,7 @@ void KMediaSession::setPosition(qint64 position)
 
 void KMediaSession::setPlaybackRate(qreal rate)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setPlaybackRate(" << rate << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setPlaybackRate(" << rate << ")";
     if (d->m_player) {
         qreal clippedRate = rate > MAX_RATE ? MAX_RATE : (rate < MIN_RATE ? MIN_RATE : rate);
         d->m_player->setPlaybackRate(clippedRate);
@@ -435,7 +441,7 @@ void KMediaSession::setPlaybackRate(qreal rate)
 
 void KMediaSession::setMetaData(MetaData *metaData)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setMetaData(" << metaData << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setMetaData(" << metaData << ")";
     if (metaData && (metaData != d->m_meta)) {
         delete d->m_meta;
         d->m_meta = metaData;
@@ -446,7 +452,7 @@ void KMediaSession::setMetaData(MetaData *metaData)
 
 void KMediaSession::setCanGoNext(bool newState)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setCanGoNext(" << newState << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setCanGoNext(" << newState << ")";
     if (newState != d->m_canGoNext) {
         d->m_canGoNext = newState;
         Q_EMIT canGoNextChanged(d->m_canGoNext);
@@ -455,7 +461,7 @@ void KMediaSession::setCanGoNext(bool newState)
 
 void KMediaSession::setCanGoPrevious(bool newState)
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::setCanGoPrevious(" << newState << ")";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::setCanGoPrevious(" << newState << ")";
     if (newState != d->m_canGoPrevious) {
         d->m_canGoPrevious = newState;
         Q_EMIT canGoPreviousChanged(d->m_canGoPrevious);
@@ -464,7 +470,7 @@ void KMediaSession::setCanGoPrevious(bool newState)
 
 void KMediaSession::pause()
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::pause()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::pause()";
 
     if (d->m_player && !source().isEmpty()) {
         d->m_player->pause();
@@ -474,7 +480,9 @@ void KMediaSession::pause()
 
 void KMediaSession::play()
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::play()";
+    qWarning() << "PLAY";
+    MediaNotification::callStaticMethod<void>("play");
+    // qCDebug(KMediaSessionLog) << "KMediaSession::play()";
 
     if (d->m_player && !source().isEmpty()) {
         d->m_player->play();
@@ -484,7 +492,7 @@ void KMediaSession::play()
 
 void KMediaSession::stop()
 {
-    qCDebug(KMediaSessionLog) << "KMediaSession::stop()";
+    // qCDebug(KMediaSessionLog) << "KMediaSession::stop()";
 
     if (d->m_player && !source().isEmpty()) {
         d->m_player->stop();

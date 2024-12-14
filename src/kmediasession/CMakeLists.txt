@@ -28,6 +28,10 @@ if (BUILD_GSTREAMER_BACKEND)
     pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-1.0)
 endif()
 
+if(ANDROID)
+    add_subdirectory(android)
+endif()
+
 #########################################
 
 add_library(KMediaSession

@@ -9,3 +9,5 @@ kasts.kdev4
 .clang-format
 .cache/
 compile_commands.json
+.qmlls.ini
+kmediasession/.qmlls.ini

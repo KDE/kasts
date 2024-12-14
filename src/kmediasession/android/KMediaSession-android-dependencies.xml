@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: 2024 Volker Krause <vkrause@kde.org>
+SPDX-License-Identifier: BSD-2-Clause
+-->
+<rules>
+    <dependencies>
+        <lib name="KMediaSession">
+            <depends>
+                <jar bundling="1" file="jar/KMediaSession.aar"/>
+            </depends>
+        </lib>
+    </dependencies>
+</rules>
