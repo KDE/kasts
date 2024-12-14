@@ -17,6 +17,7 @@
 #include <QSqlQuery>
 
 #include <attachedpictureframe.h>
+#include <fileref.h>
 #include <id3v2frame.h>
 #include <id3v2tag.h>
 #include <mpegfile.h>
@@ -237,9 +238,18 @@ void Enclosure::processDownloadedFile()
     // if not, correct the filesize in the database
     // otherwise the file will get deleted because of mismatch in signature
     if (m_sizeOnDisk != size()) {
-        qCDebug(kastsEnclosure) << "Correcting enclosure file size mismatch" << m_entry->title() << "from" << size() << "to" << m_sizeOnDisk;
+        qCDebug(kastsEnclosure) << "Correcting enclosure file size mismatch for" << m_entry->title() << "from" << size() << "to" << m_sizeOnDisk;
         setSize(m_sizeOnDisk);
         setStatus(Downloaded);
+    }
+
+    // Check the duration inside the tag, it should be more accurate than the
+    // value from the feed entry
+    TagLib::FileRef f(path().toLatin1().data());
+    int fileduration = f.audioProperties()->lengthInSeconds();
+    if (fileduration > 0 && fileduration != duration()) {
+        qCDebug(kastsEnclosure) << "Correcting enclosure duration mismatch for" << m_entry->title() << "from" << duration() << "to" << fileduration;
+        setDuration(fileduration);
     }
 
     // Unset "new" status of item
