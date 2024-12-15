@@ -3,29 +3,31 @@
 # This file is distributed under the same license as the kasts package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-06 00:39+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: audiomanager.cpp:397
 #, kde-format
@@ -51,13 +53,13 @@ msgstr "मीटर्-युक्ते संयोजने पोड्क
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 तथा %2"
 
 #: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1, तथा %2"
 
 #: error.cpp:48
 #, kde-format
@@ -107,7 +109,7 @@ msgstr "उदाहरणं KMediaSession Player इति"
 #: kmediasession/example-app/qml/Main.qml:72
 #, kde-format
 msgid "Select File…"
-msgstr "सञ्चिकां चिनोतु..."
+msgstr "सञ्चिकां चिनोतु…"
 
 #: kmediasession/example-app/qml/Main.qml:78
 #, kde-format
@@ -181,7 +183,7 @@ msgstr "त्रुटिः %1"
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr ""
+msgstr "मीडिया वादयति"
 
 #: main.cpp:102
 #, kde-format
@@ -227,123 +229,123 @@ msgstr "बार्ट डी व्रीस्"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr ""
+msgstr "न फ़िल्टर"
 
 #: models/abstractepisodeproxymodel.cpp:186
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr ""
+msgstr "प्रकरणाः वाद्यन्ते"
 
 #: models/abstractepisodeproxymodel.cpp:188
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr ""
+msgstr "अप्रचलिताः प्रकरणाः"
 
 #: models/abstractepisodeproxymodel.cpp:190
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
-msgstr ""
+msgstr "\"नव\" इति चिह्निताः प्रकरणाः ।"
 
 #: models/abstractepisodeproxymodel.cpp:192
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
-msgstr ""
+msgstr "\"नवीन\" इति न चिह्निताः प्रकरणाः।"
 
 #: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr ""
+msgstr "प्रिय इति चिह्निताः प्रकरणाः"
 
 #: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr ""
+msgstr "प्रिय इति न चिह्निताः प्रकरणाः"
 
 #: models/abstractepisodeproxymodel.cpp:206
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr ""
+msgstr "शीर्षक"
 
 #: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr ""
+msgstr "वर्णनम्‌"
 
 #: models/abstractepisodeproxymodel.cpp:210
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr ""
+msgstr "पॉडकास्ट शीर्षक"
 
 #: models/abstractepisodeproxymodel.cpp:220
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
-msgstr ""
+msgstr "तिथिः प्रथमं नवीनतरम्"
 
 #: models/abstractepisodeproxymodel.cpp:222
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
-msgstr ""
+msgstr "तिथिः प्रथमं प्राचीनम्"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr ""
+msgstr "अक्रीडितगणना: अवरोहति"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "अक्रीडितगणना: आरोही"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "नवगणना: अवरोहति"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "नवीनगणना: आरोही"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "प्रियगणना : अवरोहण"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "प्रियगणना : आरोही"
 
 #: models/feedsproxymodel.cpp:132
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr ""
+msgstr "पॉडकास्ट् शीर्षकम्: A → Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr ""
+msgstr "पॉडकास्ट शीर्षक: Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -364,19 +366,19 @@ msgstr "Podcast योजयन्तु"
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
-msgstr ""
+msgstr "मीटर्-युक्तेषु संयोजनेषु सम्प्रति पॉडकास्ट्-अद्यतनस्य अनुमतिः नास्ति"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
-msgstr ""
+msgstr "विकल्पं चिनोतु"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "संजालं न प्राप्यते"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -385,6 +387,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"जालं प्राप्तुं न शक्यते इति भाति। यदि एतत् अशुद्धं भवति तर्हि एतत् जाँचम् अस्य माध्यमेन "
+"निष्क्रियं कर्तुं शक्यते: सेटिंग्स् > संजालम् ।"
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -425,39 +429,39 @@ msgstr "प्लेबैक दरः : १."
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
-msgstr ""
+msgstr "अध्यायसूचीं दर्शयतु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
-msgstr ""
+msgstr "प्रकरणस्य सूचनां दर्शयतु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
-msgstr ""
+msgstr "स्लीप् टाइमर् सेटिंग्स् उद्घाटयन्तु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
-msgstr ""
+msgstr "मात्रासेटिंग्स् उद्घाटयन्तु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:378
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr ""
+msgstr "म्यूट् टॉगल कुर्वन्तु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
-msgstr ""
+msgstr "अधिकं दर्शयतु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
@@ -469,7 +473,7 @@ msgstr "अध्यायाः"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "Info दर्शयतु"
 
 #: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
@@ -498,7 +502,7 @@ msgstr "न पटलः भारितः"
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
-msgstr ""
+msgstr "परिनयन"
 
 #: qml/DiscoverPage.qml:27
 #, kde-format
@@ -525,7 +529,7 @@ msgstr "सदस्यता प्राप्त"
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
-msgstr ""
+msgstr "डाउनलोड्स्"
 
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
@@ -556,13 +560,13 @@ msgstr "डाउनलोड् कृतम्"
 #, kde-format
 msgctxt "@title"
 msgid "Episode Details"
-msgstr ""
+msgstr "प्रकरणविवरणम्"
 
 #: qml/EntryPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
-msgstr ""
+msgstr "ब्राउजर् मध्ये उद्घाटयन्तु"
 
 #: qml/EntryPage.qml:121
 #, kde-format
@@ -594,7 +598,7 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "धारा"
 
 #: qml/EntryPage.qml:167
 #, kde-format
@@ -620,7 +624,7 @@ msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr ""
+msgstr "Play Position पुनः सेट् कुर्वन्तु"
 
 #: qml/EntryPage.qml:197
 #, kde-format
@@ -652,38 +656,38 @@ msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "प्रियतः निष्कासयन्तु"
 
 #: qml/EntryPage.qml:211 qml/GenericEntryListView.qml:304
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "प्रियं योजयतु"
 
 #: qml/EntryPage.qml:219
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr ""
+msgstr "पोडकास्ट् उद्घाटयतु"
 
 #: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "प्रतिलिपि एपिसोड डाउनलोड URL"
 
 #: qml/EntryPage.qml:296
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
-msgstr ""
+msgstr "लिङ्क प्रतिलिपिकृत"
 
 #: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
 #: qml/Mobile/BottomToolbar.qml:39
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
-msgstr ""
+msgstr "प्रकरणम्"
 
 #: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
 #: qml/FeedListPage.qml:113
@@ -711,13 +715,13 @@ msgstr "त्रुटिसङ्केतः : १."
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr ""
+msgstr "त्रुटिलेखः"
 
 #: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr ""
+msgstr "सर्वाणि त्रुटयः स्वच्छं कुर्वन्तु"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
@@ -733,7 +737,7 @@ msgstr "पॉडकास्ट विवरण"
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
-msgstr ""
+msgstr "%1 द्वारा"
 
 #: qml/FeedDetailsPage.qml:155
 #, kde-format
@@ -769,15 +773,15 @@ msgstr "अन्तिमम् अद्यतनम्: %1"
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "१ प्रकरणम्"
+msgstr[1] "%1 प्रकरणम्"
 
 #: qml/FeedDetailsPage.qml:339
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "१ अक्रीडितम्"
+msgstr[1] "%1 अप्रचलितम्"
 
 #: qml/FeedDetailsPage.qml:361
 #, kde-format
@@ -794,7 +798,7 @@ msgstr "पोडकास्ट् निष्कासयन्तु"
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr ""
+msgstr "सदस्यता"
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
@@ -806,67 +810,67 @@ msgstr "सर्वाणि पॉडकास्ट् ताजगीं क
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr ""
+msgstr "Podcast योजयतु…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
-msgstr ""
+msgstr "प्रकारं"
 
 #: qml/FeedListPage.qml:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "सदस्यताः कथं क्रमेण स्थापयितव्याः इति चिनोतु"
 
 #: qml/FeedListPage.qml:118
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr ""
+msgstr "आयात पॉडकास्ट्…"
 
 #: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr ""
+msgstr "निर्यातं Podcasts…"
 
 #: qml/FeedListPage.qml:160
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr ""
+msgstr "आयात पॉडकास्ट्"
 
 #: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
-msgstr ""
+msgstr "ओपीएमएल सञ्चिकाः (*.opml) २."
 
 #: qml/FeedListPage.qml:162
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
-msgstr ""
+msgstr "XML सञ्चिकाः (*.xml) २."
 
 #: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
-msgstr ""
+msgstr "सर्वाणि सञ्चिकाः (*) ."
 
 #: qml/FeedListPage.qml:168
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr ""
+msgstr "निर्यातं Podcasts"
 
 #: qml/FeedListPage.qml:186
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr ""
+msgstr "अद्यापि कोऽपि पोड्कास्ट् न योजितः"
 
 #: qml/FeedListPage.qml:186
 #, kde-format
@@ -874,25 +878,25 @@ msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr ""
+msgstr "न कोऽपि पोड्कास्ट् लब्धः"
 
 #: qml/FeedListPage.qml:187
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr ""
+msgstr "पोड्कास्ट् योजयित्वा आरभत:"
 
 #: qml/FeedListPage.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr ""
+msgstr "ऑनलाइन अन्वेषणं कुर्वन्तु"
 
 #: qml/FeedListPage.qml:228
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr ""
+msgstr "समन्वयनम्"
 
 #: qml/FeedListPage.qml:236 qml/Main.qml:74
 #, kde-format
@@ -916,8 +920,8 @@ msgstr "सर्वाणि अचयनं कुर्वन्तु"
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पोडकास्ट् निष्कासयन्तु"
+msgstr[1] "Podcasts निष्कासयन्तु"
 
 #: qml/FeedListPage.qml:412
 #, kde-format
@@ -929,13 +933,13 @@ msgstr "पॉडकास्ट विवरण"
 #, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
-msgstr ""
+msgstr "पुनः सेट् करें"
 
 #: qml/FilterInlineMessage.qml:41
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr ""
+msgstr "सक्रियः फ़िल्टरः %1"
 
 #: qml/GenericEntryDelegate.qml:221
 #, kde-format
@@ -983,19 +987,19 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "धारा"
 
 #: qml/GenericEntryListView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "प्रकारं"
 
 #: qml/GenericEntryListView.qml:138
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "प्रकरणानाम् क्रमणं कथं करणीयम् इति चिनोतु"
 
 #: qml/GenericEntryListView.qml:187
 #, kde-format
@@ -1003,13 +1007,13 @@ msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
 msgid "Filter"
-msgstr ""
+msgstr "फ़िल्टर"
 
 #: qml/GenericEntryListView.qml:189
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr ""
+msgstr "स्थितिनुसारं प्रकरणानाम् छाननं कुर्वन्तु"
 
 #: qml/GenericEntryListView.qml:235
 #, kde-format
@@ -1046,32 +1050,32 @@ msgstr "\"नव\" लेबलं निष्कासयन्तु"
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "डाउनलोड् विलोपयन्तु"
+msgstr[1] "डाउनलोड्स् विलोपयन्तु"
 
 #: qml/GlobalSearchField.qml:106
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr ""
+msgstr "अन्वेषणफलं नास्ति"
 
 #: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:53
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr ""
+msgstr "उन्नत अन्वेषणविकल्पाः"
 
 #: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:113
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "अन्वेषणप्राथमिकता"
 
 #: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr ""
+msgstr "अन्वेषणं कुर्वन्तु:"
 
 #: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
 #: qml/QueuePage.qml:18
@@ -1080,7 +1084,7 @@ msgctxt ""
 "@title of page showing the list queued items; this is the noun 'the queue', "
 "not the verb"
 msgid "Queue"
-msgstr ""
+msgstr "पङ्क्ति"
 
 #: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
 #, kde-format
@@ -1093,22 +1097,22 @@ msgstr "सेटिंग्स्"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Podcast इत्यस्य %2 अद्यतनं कृतम्"
+msgstr[1] "%1 Podcasts इत्यस्य %2 अद्यतनं कृतम्"
 
 #: qml/Main.qml:255
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 सञ्चिकायाः %2 स्थानान्तरितम्"
+msgstr[1] "%1 सञ्चिकानां %2 स्थानान्तरितम्"
 
 #: qml/Main.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
-msgstr ""
+msgstr "सम्प्रति मीटर्-युक्तेषु संयोजनेषु पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"
 
 #: qml/Mobile/MobilePlayerControls.qml:24
 #, kde-format
@@ -1134,195 +1138,195 @@ msgstr "न अध्यायाः लब्धाः"
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr ""
+msgstr "प्लेबैक दर पूर्वनिर्धारित"
 
 #: qml/PlaybackRateCustomizerDialog.qml:53
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "नवीनं पूर्वनिर्धारितम् : १."
 
 #: qml/PlaybackRateCustomizerDialog.qml:65
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "संयोजयति"
 
 #: qml/PlaybackRateCustomizerDialog.qml:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "सूचीयां नूतनं प्लेबैक-दर-मूल्यं योजयन्तु"
 
 #: qml/PlaybackRateCustomizerDialog.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
-msgstr ""
+msgstr "प्लेबैक-दरं न्यूनीकरोतु"
 
 #: qml/PlaybackRateCustomizerDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
-msgstr ""
+msgstr "प्लेबैक-दरं वर्धयन्तु"
 
 #: qml/PlaybackRateCustomizerDialog.qml:125
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr ""
+msgstr "वर्तमान पूर्वनिर्धारित : १."
 
 #: qml/PlaybackRateMenu.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr ""
+msgstr "Playback Rate इति चिनोतु"
 
 #: qml/PlaybackRateMenu.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "अनुकूलित करें"
 
 #: qml/QueuePage.qml:62
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "पङ्क्तिः रिक्तः अस्ति"
 
 #: qml/QueuePage.qml:71
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "१ प्रकरणम्"
+msgstr[1] "%1 प्रकरणम्"
 
 #: qml/QueuePage.qml:71
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr ""
+msgstr "समयः अवशिष्टः"
 
 #: qml/SearchBar.qml:41
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr ""
+msgstr "प्रकरणं अन्वेष्टुम्…"
 
 #: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About"
-msgstr ""
+msgstr "विषये"
 
 #: qml/Settings/AppearanceSettingsPage.qml:23
 #, kde-format
 msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
-msgstr ""
+msgstr "स्वरूपम्‌"
 
 #: qml/Settings/AppearanceSettingsPage.qml:33
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
-msgstr ""
+msgstr "रङ्ग विषय"
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
-msgstr ""
+msgstr "सदैव सदस्यतादृश्ये podcast शीर्षकाणि दर्शयन्तु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:61
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr ""
+msgstr "सूचीषु podcast इमेजस्य स्थाने episode image दर्शयतु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
-msgstr ""
+msgstr "प्रकरणसूचिकासु पॉडकास्ट्-शीर्षकाणि दर्शयन्तु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr ""
+msgstr "ट्रे चिह्न"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "सिस्टम् ट्रे मध्ये चिह्नं दर्शयतु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "बन्दीकरणस्य स्थाने ट्रे यावत् न्यूनीकरोतु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "ट्रे चिह्न प्रकार"
 
 #: qml/Settings/AppearanceSettingsPage.qml:123
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "रङ्गिणी"
 
 #: qml/Settings/AppearanceSettingsPage.qml:124
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "प्रकाशः"
 
 #: qml/Settings/AppearanceSettingsPage.qml:125
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "तिमिर"
 
 #: qml/Settings/AppearanceSettingsPage.qml:135
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
-msgstr ""
+msgstr "पाठ"
 
 #: qml/Settings/AppearanceSettingsPage.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
-msgstr ""
+msgstr "सिस्टम् डिफॉल्ट् इत्यस्य उपयोगं कुर्वन्तु"
 
 #: qml/Settings/AppearanceSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
-msgstr ""
+msgstr "फन्ट् आकारः"
 
 #: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
-msgstr ""
+msgstr "त्रुटिलेखः"
 
 #: qml/Settings/GeneralSettingsPage.qml:23
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
-msgstr ""
+msgstr "प्लेबैक सेटिंग्स्"
 
 #: qml/Settings/GeneralSettingsPage.qml:32
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr ""
+msgstr "श्रव्यपृष्ठभागं चिनोतु"
 
 #: qml/Settings/GeneralSettingsPage.qml:63
 #, kde-format
@@ -1330,43 +1334,43 @@ msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr ""
+msgstr "कुलपटलसमयस्य स्थाने अवशिष्टसमयं दर्शयतु"
 
 #: qml/Settings/GeneralSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "वर्तमानप्लेबैकवेगस्य आधारेण अवशिष्टसमयं समायोजयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Prioritize streaming over downloading"
-msgstr ""
+msgstr "डाउनलोड् करणस्य अपेक्षया स्ट्रीमिंग् इत्यस्य प्राधान्यं ददातु"
 
 #: qml/Settings/GeneralSettingsPage.qml:94
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "अग्रे अन्तरालं त्यजन्तु (सेकेण्ड्-मात्रेषु) ."
 
 #: qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "पश्चात्तापान्तरं (सेकेण्ड्-मात्रेषु) त्यजन्तु ।"
 
 #: qml/Settings/GeneralSettingsPage.qml:123
 #, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr ""
+msgstr "पॉडकास्ट् अपडेट् सेटिंग्स्"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr ""
+msgstr "स्वयमेव पॉडकास्ट् फीड् आनयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
 #, kde-format
@@ -1383,8 +1387,8 @@ msgstr "कदापि न"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "प्रतिघण्टा"
+msgstr[1] "प्रत्येकं %1 घण्टे"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1392,206 +1396,206 @@ msgstr[1] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "प्रतिदिनं"
+msgstr[1] "प्रत्येकं %1 दिवसे"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr ""
+msgstr "स्टार्टअप इत्यत्र podcast अपडेट् आनयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "ताजगीकरणे विद्यमानं प्रकरणदत्तांशं अद्यतनं कुर्वन्तु (मन्दतरम्)"
 
 #: qml/Settings/GeneralSettingsPage.qml:176
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "स्वयमेव नूतनानां प्रकरणानाम् कतारं स्थापयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:191
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "स्वयमेव नवीनाः प्रकरणाः डाउनलोड् कुर्वन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
-msgstr ""
+msgstr "कतारसेटिंग्स्"
 
 #: qml/Settings/GeneralSettingsPage.qml:212
 #, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
-msgstr ""
+msgstr "वर्तमानस्य समाप्तेः अनन्तरं अग्रिमप्रकरणं वादयितुं निरन्तरं कुर्वन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "कस्यचित् प्रकरणस्य वादनस्य अनन्तरं प्लेस्थानं पुनः सेट् कुर्वन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:236
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr ""
+msgstr "प्रकरणव्यवहारं वादयति स्म"
 
 #: qml/Settings/GeneralSettingsPage.qml:239
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
-msgstr ""
+msgstr "न लोपयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:240
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
-msgstr ""
+msgstr "तत्क्षणं विलोपयतु"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
-msgstr ""
+msgstr "अग्रिमे आरम्भे विलोपयन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:253
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
+msgstr "दत्तसमयः अवशिष्टे (सेकेण्ड्-मात्रेषु) यथा वाद्यते तथा प्रकरणानाम् चिह्नं कुर्वन्तु ।"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
-msgstr ""
+msgstr "नूतनानि पोड्कास्ट् योजयित्वा"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
-msgstr ""
+msgstr "सर्वेषां प्रकरणानाम् चिह्नं यथा क्रीडितम्"
 
 #: qml/Settings/GeneralSettingsPage.qml:289
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
-msgstr ""
+msgstr "अद्यतनतमं प्रकरणं अप्रचलितं इति चिह्नं कुर्वन्तु"
 
 #: qml/Settings/GeneralSettingsPage.qml:312
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
-msgstr ""
+msgstr "सर्वेषां प्रकरणानाम् अप्रचलितत्वेन चिह्नं कुर्वन्तु"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
-msgstr ""
+msgstr "जाल"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
-msgstr ""
+msgstr "संजालसंयोजनपरीक्षां सक्षमं कुर्वन्तु"
 
 #: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
-msgstr ""
+msgstr "मीटर्युक्तसंयोजनेषु"
 
 #: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
-msgstr ""
+msgstr "पॉडकास्ट् अपडेट् अनुमन्यताम्"
 
 #: qml/Settings/NetworkSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
-msgstr ""
+msgstr "प्रकरणस्य डाउनलोड् कर्तुं अनुमतिं ददातु"
 
 #: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
-msgstr ""
+msgstr "चित्रस्य डाउनलोड् कर्तुं अनुमतिं ददातु"
 
 #: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
-msgstr ""
+msgstr "स्ट्रीमिंग् अनुमन्यताम्"
 
 #: qml/Settings/NetworkSettingsPage.qml:99
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr ""
+msgstr "संजाल प्रॉक्सी"
 
 #: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr ""
+msgstr "प्रणाली पूर्वनिर्धारित"
 
 #: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr ""
+msgstr "न प्रॉक्सी"
 
 #: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr ""
+msgstr "एचटीटीपी"
 
 #: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr ""
+msgstr "मोजा5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr ""
+msgstr "निमन्त्रकः"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
-msgstr ""
+msgstr "पोताश्रय"
 
 #: qml/Settings/NetworkSettingsPage.qml:172
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
-msgstr ""
+msgstr "उपयोक्ता"
 
 #: qml/Settings/NetworkSettingsPage.qml:183
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr ""
+msgstr "समाभाष्"
 
 #: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
-msgstr ""
+msgstr "आचरतु"
 
 #: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
@@ -1601,213 +1605,216 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"भवतः सिस्टम् स्तरः अथवा एप् स्तरस्य प्रॉक्सी सेटिंग्स् ऑडियो स्ट्रीमिंग् करणसमये श्रव्यपृष्ठभागेन "
+"उपेक्षिताः भवितुम् अर्हन्ति । सेटिङ्ग्स् अद्यापि अन्यैः सर्वैः जालसम्बद्धैः क्रियाभिः, "
+"प्रकरणानाम् अवतरणं सहितं सम्माननीयम् ।"
 
 #: qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
-msgstr ""
+msgstr "स्वरूपम्‌"
 
 #: qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Storage"
-msgstr ""
+msgstr "संग्रहण"
 
 #: qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
-msgstr ""
+msgstr "जाल"
 
 #: qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
-msgstr ""
+msgstr "समन्वयनम्"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
 msgctxt "@title Form header for settings related to storage paths"
 msgid "Storage path"
-msgstr ""
+msgstr "भण्डारणमार्गः"
 
 #: qml/Settings/StorageSettingsPage.qml:32
 #, kde-format
 msgctxt "@label showing path used for local storage"
 msgid "Storage path"
-msgstr ""
+msgstr "भण्डारणमार्गः"
 
 #: qml/Settings/StorageSettingsPage.qml:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr ""
+msgstr "फोल्डर् चयनं कुर्वन्तु…"
 
 #: qml/Settings/StorageSettingsPage.qml:46
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
-msgstr ""
+msgstr "भण्डारणमार्गं चिनोतु"
 
 #: qml/Settings/StorageSettingsPage.qml:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Use default path"
-msgstr ""
+msgstr "पूर्वनिर्धारितमार्गस्य उपयोगं कुर्वन्तु"
 
 #: qml/Settings/StorageSettingsPage.qml:67
 #, kde-format
 msgctxt ""
 "@title Form header for section showing information about local storage"
 msgid "Information"
-msgstr ""
+msgstr "सूचना"
 
 #: qml/Settings/StorageSettingsPage.qml:74
 #, kde-format
 msgctxt "@label showing the storage space used by local podcast downloads"
 msgid "Podcast downloads"
-msgstr ""
+msgstr "पॉडकास्ट् डाउनलोड् भवति"
 
 #: qml/Settings/StorageSettingsPage.qml:75
 #: qml/Settings/StorageSettingsPage.qml:82
 #, kde-format
 msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr ""
+msgstr "डिस्कस्थानस्य %1 इत्यस्य उपयोगेन"
 
 #: qml/Settings/StorageSettingsPage.qml:81
 #, kde-format
 msgctxt "@label showing the storage space used by the image cache"
 msgid "Image cache"
-msgstr ""
+msgstr "चित्रसञ्चयम्"
 
 #: qml/Settings/StorageSettingsPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear Cache"
-msgstr ""
+msgstr "Cache स्वच्छं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
 #, kde-format
 msgctxt "@label"
 msgid "Account"
-msgstr ""
+msgstr "वृतांत्तः"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr ""
+msgstr "\"%2\" सर्वरे \"%1\" खाते प्रवेशः कृतः ।"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:36
 #, kde-format
 msgctxt "@info:status"
 msgid "Syncing disabled"
-msgstr ""
+msgstr "समन्वयनम् अक्षमम्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout"
-msgstr ""
+msgstr "लॉगआउट"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr ""
+msgstr "प्रवेशः"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "Manually sync"
-msgstr ""
+msgstr "मैन्युअल् रूपेण समन्वयनम्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Sync Now"
-msgstr ""
+msgstr "अधुना समन्वययन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:65
 #, kde-format
 msgctxt "@info:status"
 msgid "Last full sync with server"
-msgstr ""
+msgstr "सर्वरेण सह अन्तिमः पूर्णसमन्वयः"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Last quick upload to sync server"
-msgstr ""
+msgstr "समन्वयनसर्वरं प्रति अन्तिमः द्रुत अपलोड्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:79
 #, kde-format
 msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
-msgstr ""
+msgstr "स्वचालित समन्वयनम्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr ""
+msgstr "स्टार्टअप इत्यत्र पूर्णसमन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
-msgstr ""
+msgstr "पोड्कास्ट् आनयन्ते सति पूर्णसमन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Upload episode play positions on play/pause toggle"
-msgstr ""
+msgstr "play/pause toggle इत्यत्र episode play स्थानानि अपलोड् कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:118
 #, kde-format
 msgctxt "@title Form header for advanced settings related to syncing"
 msgid "Advanced options"
-msgstr ""
+msgstr "उन्नतविकल्पाः"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:127
 #, kde-format
 msgctxt "@label"
 msgid "Fetch all episode states from server"
-msgstr ""
+msgstr "सर्वरतः सर्वाणि एपिसोड् स्टेट्स् आनयन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch"
-msgstr ""
+msgstr "उपानी"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:142
 #, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server"
-msgstr ""
+msgstr "सर्वाणि स्थानीयप्रकरणराज्यानि सर्वरं प्रति धक्कायन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:146
 #, kde-format
 msgctxt "@action:button"
 msgid "Push"
-msgstr ""
+msgstr "नोद"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:184
 #, kde-format
 msgctxt "@label"
 msgid "Push all local episode states to server?"
-msgstr ""
+msgstr "सर्वाणि स्थानीयप्रकरणराज्यानि सर्वरं प्रति धक्कायन्तु?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:204
 #, kde-format
@@ -1820,54 +1827,59 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"कृपया ज्ञातव्यं यत् सर्वेषां स्थानीयप्रकरणानाम् प्लेबैकस्थितिं सर्वरं प्रति धक्कायितुं बहुकालं यावत् "
+"समयः भवितुं शक्नोति तथा/वा सर्वरे अतिभारः भवितुम् अर्हति । इदमपि ज्ञातव्यं यत् एषा क्रिया "
+"सर्वरे विद्यमानाः सर्वाणि एपिसोड् अवस्थाः अधिलेखयिष्यति ।\n"
+"\n"
+"अनुवर्तते?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:228
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
-msgstr ""
+msgstr "Sync Provider इति चिनोतु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
-msgstr ""
+msgstr "gpodder.net इति"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
-msgstr ""
+msgstr "आधिकारिक gpodder.net सर्वरेण सह समन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:244
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
-msgstr ""
+msgstr "जीपोडर नेक्स्टक्लाउड"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr ""
+msgstr "GPodder Nextcloud app इत्यनेन सह समन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:278
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
-msgstr ""
+msgstr "प्रवेशप्रमाणपत्राणि समन्वययन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
-msgstr ""
+msgstr "GPodder Nextcloud app इत्यनेन सह समन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:307
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
-msgstr ""
+msgstr "gpodder.net सेवायाः सह समन्वयनं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:318
 #, kde-format
@@ -1877,18 +1889,21 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"Nextcloud सर्वरेण सह समन्वयनं कुर्वन्तु यस्मिन् GPodder Sync एप् संस्थापितम् अस्ति: %1.<br/"
+"> जाल-अन्तरफलकस्य माध्यमेन Kasts कृते एप्-गुप्तशब्दं स्वहस्तेन निर्माय तानि प्रमाणपत्राणि "
+"उपयोक्तुं सल्लाहः दत्तः ।"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
-msgstr ""
+msgstr "यदि भवतां समीपे पूर्वमेव खातं नास्ति तर्हि प्रथमं %1 इत्यत्र एकं रचयितव्यम्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:331
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
-msgstr ""
+msgstr "उपयोक्तृनाम : १."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:342
 #, kde-format
@@ -1900,91 +1915,91 @@ msgstr "समाभाष्:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
-msgstr ""
+msgstr "कस्टम् सर्वरस्य उपयोगं कुर्वन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:362
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
-msgstr ""
+msgstr "होस्टनाम : १."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:396
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
-msgstr ""
+msgstr "डिवाइस सेटिंग्स् समन्वययन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:402
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
-msgstr ""
+msgstr "नूतनं यन्त्रं रचयन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:408
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
-msgstr ""
+msgstr "यन्त्रनाम : १."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:418
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
-msgstr ""
+msgstr "यन्त्रविवरणम् : १."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
-msgstr ""
+msgstr "यन्त्रप्रकारः : १."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:434
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
-msgstr ""
+msgstr "इतर"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
-msgstr ""
+msgstr "डेस्कटॉप् इति"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:436
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
-msgstr ""
+msgstr "लैपटॉप"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:437
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
-msgstr ""
+msgstr "सर्वरः"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:438
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
-msgstr ""
+msgstr "निष्तन्त्री"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
-msgstr ""
+msgstr "उपकरणं रचयन्तु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:460
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
-msgstr ""
+msgstr "अथवा विद्यमानं यन्त्रं चिनोतु"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:508
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
-msgstr ""
+msgstr "उपकरण समन्वयन सेटिंग्स्"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:530
 #, kde-format
@@ -1994,18 +2009,20 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"अस्मिन् gpodder.net खाते सर्वाणि podcast सदस्यतानि सर्वेषु उपकरणेषु समन्वयितव्यानि वा?\n"
+"यदि भवान् न जानाति यत् एतस्य अर्थः किम् अस्ति तर्हि सम्भवतः \"Ok\" इति चिन्वन्तु ।"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
-msgstr ""
+msgstr "इदानीं समन्वयनम्?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "इदानीं प्रथमं समन्वयनं कुर्वन्तु?"
 
 #: qml/SleepTimerDialog.qml:17
 #, kde-format
@@ -2080,7 +2097,7 @@ msgstr "गर्भपातं कुरुत"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: sync/sync.cpp:178
 #, kde-format
@@ -2093,7 +2110,7 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr ""
+msgstr "%1 इत्यत्र कास्ट् करोति"
 
 #: sync/sync.cpp:295
 #, kde-format
@@ -2164,63 +2181,63 @@ msgstr "आन्तरिकदत्तांशदोषः"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) समन्वयनं आरभत"
 
 #: sync/syncjob.cpp:887
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) दूरस्थसदस्यता अद्यतनस्य अनुरोधः"
 
 #: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) स्थानीयसदस्यता अद्यतनं अपलोड् करणम्"
 
 #: sync/syncjob.cpp:894
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "(%4 इत्यस्य %3 चरणम्) %1 पॉडकास्ट् इत्यस्य %2 अद्यतनम्"
+msgstr[1] "(%4 इत्यस्य %3 चरणम्) %1 पॉड्कास्ट् इत्यस्य %2 अद्यतनं कृतम्"
 
 #: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) दूरस्थप्रकरणस्य अद्यतनस्य अनुरोधः"
 
 #: sync/syncjob.cpp:905
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) दूरस्थप्रकरणपरिवर्तनं प्रयोजयन्"
 
 #: sync/syncjob.cpp:908
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) स्थानीयप्रकरणस्य अद्यतनं अपलोड् करणम्"
 
 #: sync/syncjob.cpp:911
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr ""
+msgstr "(%2 तः %1 चरणम्) समन्वयनं समाप्तम्"
 
 #: sync/syncjob.cpp:914
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr ""
+msgstr "समन्वयः निरस्तः अभवत्"
 
 #: sync/syncjob.cpp:918
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
-msgstr ""
+msgstr "त्रुटिना सह समन्वयनं समाप्तम्"
 
 #: utils/enclosuredownloadjob.cpp:33
 #, kde-format
@@ -2259,12 +2276,14 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"कास्त्स्\n"
+"क्रीडितुं/विरामं कर्तुं मध्य-क्लिक् कुर्वन्तु"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
-msgstr ""
+msgstr "पश्चात्तापं अन्वेष्टुम्"
 
 #: utils/systrayicon.cpp:63
 #, kde-format
@@ -2282,16 +2301,16 @@ msgstr "विराम"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
-msgstr ""
+msgstr "अग्रे अन्वेष्टुम्"
 
 #: utils/systrayicon.cpp:102
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
-msgstr ""
+msgstr "अग्रे त्यजन्तु"
 
 #: utils/systrayicon.cpp:117
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr ""
+msgstr "परिजहातु"
