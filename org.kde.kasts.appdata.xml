@@ -22,6 +22,7 @@
   <name xml:lang="fr">Kasts</name>
   <name xml:lang="gl">Kasts</name>
   <name xml:lang="he">Kasts</name>
+  <name xml:lang="hi">डिब्बा</name>
   <name xml:lang="ia">Kasts</name>
   <name xml:lang="id">Kasts</name>
   <name xml:lang="it">Kasts</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="fr">Application de podcasts</summary>
   <summary xml:lang="gl">Aplicación de podcasts.</summary>
   <summary xml:lang="he">יישומון הסכתים</summary>
+  <summary xml:lang="hi">पॉडकास्ट अनुप्रयोग</summary>
   <summary xml:lang="ia">Application de Podcast</summary>
   <summary xml:lang="id">Aplikasi podcast</summary>
   <summary xml:lang="it">Applicazione per podcast</summary>
@@ -100,6 +102,7 @@
   <developer_name xml:lang="fr">La communauté KDE</developer_name>
   <developer_name xml:lang="gl">Comunidade KDE</developer_name>
   <developer_name xml:lang="he">קהילת KDE</developer_name>
+  <developer_name xml:lang="hi">केडीई समुदाय</developer_name>
   <developer_name xml:lang="ia">Le communitate de KDE</developer_name>
   <developer_name xml:lang="id">KDE Community</developer_name>
   <developer_name xml:lang="it">La comunità KDE</developer_name>
@@ -134,6 +137,7 @@
     <p xml:lang="fr">Kasts est une application unifiée pour podcast, fonctionnant bien sur ordinateurs et sur mobile.</p>
     <p xml:lang="gl">Kasts é unha aplicación de podcasts converxente que funciona ben en escritorio e móbil.</p>
     <p xml:lang="he">Kasts הוא יישומון הסכתים אחוד שנראה מעולה גם במחשב וגם במכשירים ניידים.</p>
+    <p xml:lang="hi">कास्ट्स एक एकीकृत पॉडकास्ट एप्लिकेशन है जो डेस्कटॉप और मोबाइल दोनों पर अच्छा दिखता है।</p>
     <p xml:lang="ia">Kasts es un application de podcast convergente que appare belle sur scriptorio e mobile.</p>
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
@@ -165,6 +169,7 @@
     <p xml:lang="fr">Ses principales fonctionnalités sont :</p>
     <p xml:lang="gl">As súas funcionalidades principais son:</p>
     <p xml:lang="he">היכולות העיקריות שלו הן:</p>
+    <p xml:lang="hi">इसकी मुख्य विशेषताएं हैं:</p>
     <p xml:lang="ia">Su characteristicas principal es:</p>
     <p xml:lang="id">Fitur utamanya adalah:</p>
     <p xml:lang="it">Le sue funzionalità principali sono:</p>
@@ -197,6 +202,7 @@
       <li xml:lang="fr">Gestion des épisodes grâce à une file de lecture</li>
       <li xml:lang="gl">Xestión de episodios mediante unha cola de reprodución.</li>
       <li xml:lang="he">ניהול פרקים דרך תור נגינה</li>
+      <li xml:lang="hi">प्ले कतार के माध्यम से एपिसोड प्रबंधन</li>
       <li xml:lang="ia">Gestion de episodio per cauda de reproduction</li>
       <li xml:lang="id">Pengelolaan episode melalui antrean putar</li>
       <li xml:lang="it">Gestione degli episodi attraverso la coda di riproduzione</li>
@@ -227,6 +233,7 @@
       <li xml:lang="fr">Synchroniser les positions de lecture avec d'autres client, grâce à « gpodder.net » ou « gpodder-nextcloud »</li>
       <li xml:lang="gl">Sincronizar a posición de reprodución con outros clientes mediante gpodder.net ou gpodder-nextcloud.</li>
       <li xml:lang="he">סנכרון מקומות הנגינה עם לקוחות אחרים דרך gpodder.net או gpodder-nextcloud</li>
+      <li xml:lang="hi">gpodder.net या gpodder-nextcloud के माध्यम से अन्य क्लाइंट के साथ प्लेबैक स्थिति को सिंक करें</li>
       <li xml:lang="ia">Synchronisa positiones de reproduction con altere clientes per gpodder.net o gpodder-nextcloud</li>
       <li xml:lang="id">Sinkronkan posisi pemutaran dengan klien lain melalui gpodder.net atau gpodder-nextcloud</li>
       <li xml:lang="it">Sincronizza le posizioni di riproduzione con altri client tramite gpodder.net o gpodder-nextcloud</li>
@@ -259,6 +266,7 @@
       <li xml:lang="fr">Vitesse variable de lecture</li>
       <li xml:lang="gl">Velocidade de configuración variábel.</li>
       <li xml:lang="he">מהירות נגינה משתנה</li>
+      <li xml:lang="hi">परिवर्तनीय प्लेबैक गति</li>
       <li xml:lang="ia">Velocitate de repsoduction variabile</li>
       <li xml:lang="id">Kecepatan pemutaran variabel</li>
       <li xml:lang="it">Velocità di riproduzione variabile</li>
@@ -291,6 +299,7 @@
       <li xml:lang="fr">Recherche de podcasts</li>
       <li xml:lang="gl">Buscar podcasts.</li>
       <li xml:lang="he">חיפוש אחר הסכתים</li>
+      <li xml:lang="hi">पॉडकास्ट खोजें</li>
       <li xml:lang="ia">Cerca podcastes</li>
       <li xml:lang="id">Pencarian podcasts</li>
       <li xml:lang="it">Ricerca dei podcast</li>
@@ -323,6 +332,7 @@
       <li xml:lang="fr">Intégration totale avec le système : par exemple, inhibition de la mise en veille du système durant la lecture</li>
       <li xml:lang="gl">Integración completa co sistema. Por exemplo, desactivar a suspensión do sistema durante a reprodución.</li>
       <li xml:lang="he">שילוב מלא מול המערכת: למשל, מניעת השהיית המערכת בזמן האזנה</li>
+      <li xml:lang="hi">पूर्ण सिस्टम एकीकरण: उदाहरण के लिए सुनते समय सिस्टम निलंबन को रोकें</li>
       <li xml:lang="ia">Integration systema complete: p.ex. inhibi suspension de systema quando ascolta</li>
       <li xml:lang="id">Integrasi sistem penuh: mis. menghambat sistem suspensi saat mendengarkan</li>
       <li xml:lang="it">Integrazione completa del sistema: ad es. inibire la sospensione del sistema durante l'ascolto</li>
@@ -370,6 +380,7 @@
       <caption xml:lang="fr">Kasts sur le bureau avec la barre d'en-tête par défaut</caption>
       <caption xml:lang="gl">Kasts no escritorio coa barra de cabeceira predeterminada.</caption>
       <caption xml:lang="he">Kasts בשולחן העבודה עם פס כותרת ברירת המחדל</caption>
+      <caption xml:lang="hi">डेस्कटॉप पर डिफ़ॉल्ट हेडर बार के साथ कास्ट्स</caption>
       <caption xml:lang="ia">Kasts sur le scriptorio con barra de capite predefinite</caption>
       <caption xml:lang="id">Kasts di desktop dengan bilah tajuk baku</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni predefinita</caption>
@@ -404,6 +415,7 @@
       <caption xml:lang="fr">Kasts sur le bureau avec la barre minimale d'en-tête</caption>
       <caption xml:lang="gl">Kasts no escritorio coa barra de cabeceira minimizada.</caption>
       <caption xml:lang="he">Kasts בשולחן העבודה עם פס כותרת ממוזער</caption>
+      <caption xml:lang="hi">डेस्कटॉप पर न्यूनतम हेडर बार के साथ कास्ट्स</caption>
       <caption xml:lang="ia">Kasts sur le scriptorio conbarra de capite minimisate</caption>
       <caption xml:lang="id">Kasts di desktop dengan bilah tajuk diminimalkan</caption>
       <caption xml:lang="it">Kasts sul desktop con barra delle intestazioni minimizzata</caption>
@@ -439,6 +451,7 @@
       <caption xml:lang="fr">Kasts sur un téléphone</caption>
       <caption xml:lang="gl">Kasts nun teléfono.</caption>
       <caption xml:lang="he">Kasts בטלפון</caption>
+      <caption xml:lang="hi">फ़ोन पर कास्ट</caption>
       <caption xml:lang="ia">Kasts sur  un telephono</caption>
       <caption xml:lang="id">Kasts di ponsel</caption>
       <caption xml:lang="it">Kasts su un telefono</caption>
@@ -475,6 +488,7 @@
       <caption xml:lang="fr">Contrôleur Kasts de lecteur mobile</caption>
       <caption xml:lang="gl">Controis do reprodución de Kasts en móbil.</caption>
       <caption xml:lang="he">פקדים לנגן Kasts לניידים</caption>
+      <caption xml:lang="hi">कास्ट्स मोबाइल प्लेयर नियंत्रण</caption>
       <caption xml:lang="ia">Controles de reproductor mobile de Kasts</caption>
       <caption xml:lang="id">Kontrol pemutar musik Kasts</caption>
       <caption xml:lang="it">Controlli del lettore mobile di Kasts</caption>
