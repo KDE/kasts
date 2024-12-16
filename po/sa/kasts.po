@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:41+0000\n"
 "PO-Revision-Date: 2024-12-14 01:48+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "भवतः ईमेलपत्राणि"
 msgid "Streaming on metered connection not allowed"
 msgstr "मीटर् कृते संयोजने स्ट्रीमिंग् अनुमतं नास्ति"
 
-#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "जालसंयोजनं नास्ति"
@@ -44,7 +44,7 @@ msgstr "जालसंयोजनं नास्ति"
 msgid "Invalid Media"
 msgstr "अमान्य मीडिया"
 
-#: enclosure.cpp:143
+#: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "मीटर्-युक्ते संयोजने पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"

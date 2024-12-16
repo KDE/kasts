@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:41+0000\n"
 "PO-Revision-Date: 2024-04-30 23:45+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -35,7 +35,7 @@ msgstr "xalba@ni.eus"
 msgid "Streaming on metered connection not allowed"
 msgstr "Tarifatutako konexioetan ez da korronteak ez daude baimenduta"
 
-#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Sareko konexiorik ez"
@@ -45,7 +45,7 @@ msgstr "Sareko konexiorik ez"
 msgid "Invalid Media"
 msgstr "Komunikabide baliogabea"
 
-#: enclosure.cpp:143
+#: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Tarifatutako konexioetan podcast zama-jaisteak ez daude baimenduta "

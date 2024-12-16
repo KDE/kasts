@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:41+0000\n"
 "PO-Revision-Date: 2024-08-10 13:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -32,7 +32,7 @@ msgstr "adrian@chaves.io"
 msgid "Streaming on metered connection not allowed"
 msgstr "Non se permite a reprodución directa desde conexións contabilizadas."
 
-#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Non hai conexión de rede."
@@ -42,7 +42,7 @@ msgstr "Non hai conexión de rede."
 msgid "Invalid Media"
 msgstr "Contido multimedia non válido"
 
-#: enclosure.cpp:143
+#: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Non se permite descargar podcasts mediante conexións contabilizadas."

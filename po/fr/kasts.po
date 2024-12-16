@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:41+0000\n"
 "PO-Revision-Date: 2024-05-03 12:42+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -30,7 +30,7 @@ msgstr "xavier.besnard@kde.org"
 msgid "Streaming on metered connection not allowed"
 msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
 
-#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Aucune connexion réseau"
@@ -40,7 +40,7 @@ msgstr "Aucune connexion réseau"
 msgid "Invalid Media"
 msgstr "Média non valable"
 
-#: enclosure.cpp:143
+#: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""

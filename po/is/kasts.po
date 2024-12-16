@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-06 00:39+0000\n"
+"POT-Creation-Date: 2024-12-16 00:41+0000\n"
 "PO-Revision-Date: 2024-06-29 14:23+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 msgid "Streaming on metered connection not allowed"
 msgstr "Streymi á gagnamældri tengingu er ekki leyft"
 
-#: audiomanager.cpp:406 enclosure.cpp:147 error.cpp:64
+#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Engin nettenging"
@@ -43,7 +43,7 @@ msgstr "Engin nettenging"
 msgid "Invalid Media"
 msgstr "Ógild miðlaskrá"
 
-#: enclosure.cpp:143
+#: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Niðurhal á hlaðvörpum er ekki leyft á gagnamældri tengingu"
