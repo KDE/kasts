@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:41+0000\n"
-"PO-Revision-Date: 2024-12-24 20:39+0530\n"
+"PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -1499,7 +1499,7 @@ msgstr "सर्वेषां प्रकरणानाम् अप्र�
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
-msgstr "जाल"
+msgstr "जालकृति"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1631,7 +1631,7 @@ msgstr "संग्रहण"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
-msgstr "जाल"
+msgstr "जालकृति"
 
 #: qml/Settings/SettingsPage.qml:41
 #, kde-format
@@ -1655,7 +1655,7 @@ msgstr "भण्डारणमार्गः"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "फोल्डर् चयनं कुर्वन्तु…"
+msgstr "समुच्चय चयनं कुर्वन्तु…"
 
 #: qml/Settings/StorageSettingsPage.qml:46
 #, kde-format
