@@ -19,7 +19,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(KF_MIN_VERSION "6.5.0")
-set(QT_MIN_VERSION "6.4.0")
+set(QT_MIN_VERSION "6.5.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -57,6 +57,12 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami Syndication Config ThreadWeaver ColorScheme)
 
 find_package(KF6 ${KF_MIN_VERSION} QUIET COMPONENTS BreezeIcons)
+
+find_package(KF6KirigamiAddons 1.6.0)
+set_package_properties(KF6KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Required application components and runtime dependency"
+)
 
 find_package(Taglib REQUIRED)
 find_package(Qt6Keychain)

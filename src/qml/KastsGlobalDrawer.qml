@@ -128,10 +128,10 @@ Kirigami.OverlayDrawer {
 
                 text: i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
-                checked: currentPage == "SettingsPage"
+                checked: currentPage == "SettingsView"
                 onClicked: {
                     checked = false;
-                    pushPage("SettingsPage")
+                    pushPage("SettingsView")
                 }
             }
         }

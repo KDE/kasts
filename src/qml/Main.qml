@@ -55,36 +55,29 @@ Kirigami.ApplicationWindow {
 
     property bool isWidescreen: kastsMainWindow.width > kastsMainWindow.height
 
-    function getPage(page) {
-        switch (page) {
-            case "QueuePage": return "qrc:/qt/qml/org/kde/kasts/qml/QueuePage.qml";
-            case "EpisodeListPage": return "qrc:/qt/qml/org/kde/kasts/qml/EpisodeListPage.qml";
-            case "DiscoverPage": return "qrc:/qt/qml/org/kde/kasts/qml/DiscoverPage.qml";
-            case "FeedListPage": return "qrc:/qt/qml/org/kde/kasts/qml/FeedListPage.qml";
-            case "DownloadListPage": return "qrc:/qt/qml/org/kde/kasts/qml/DownloadListPage.qml";
-            case "SettingsPage": return "qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml";
-            default: {
-                currentPage = "FeedListPage";
-                return "qrc:/qt/qml/org/kde/kasts/qml/FeedListPage.qml";
-            }
-        }
-    }
     function pushPage(page) {
-        if (page === "SettingsPage") {
-            pageStack.layers.clear()
-            pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml", {}, {
-                title: i18n("Settings")
-            })
+        if (page === "SettingsView") {
+            settingsView.open()
         } else {
+            var pageObject = Qt.createComponent("org.kde.kasts", page);
+            if (!pageObject) {
+                page = "FeedListPage"
+                pageObject = Qt.createComponent("org.kde.kasts", page);
+            }
             pageStack.clear();
             pageStack.layers.clear();
-            pageStack.push(getPage(page));
+            pageStack.push(pageObject);
             currentPage = page;
         }
     }
 
     KConfig.WindowStateSaver {
         configGroupName: "MainWindow"
+    }
+
+    SettingsView {
+        id: settingsView
+        window: kastsMainWindow
     }
 
     Settings {
@@ -97,7 +90,7 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        pageStack.initialPage = getPage(currentPage);
+        pageStack.initialPage = pushPage(currentPage);
 
         // Delete played enclosures if set in settings
         if (SettingsManager.autoDeleteOnPlayed == 2) {

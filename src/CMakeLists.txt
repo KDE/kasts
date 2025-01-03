@@ -81,7 +81,6 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/Main.qml
         qml/FeedListPage.qml
         qml/EntryPage.qml
-        qml/Settings/AboutPage.qml
         qml/FeedDetailsPage.qml
         qml/AddFeedSheet.qml
         qml/FeedListDelegate.qml
@@ -110,7 +109,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/ConnectionCheckAction.qml
         qml/ChapterListDelegate.qml
         qml/SyncPasswordOverlay.qml
-        qml/Settings/SettingsPage.qml
+        qml/Settings/SettingsView.qml
         qml/Settings/GeneralSettingsPage.qml
         qml/Settings/AppearanceSettingsPage.qml
         qml/Settings/StorageDirDialog.qml
@@ -325,6 +324,7 @@ if(ANDROID)
         view-sort-ascending
         view-sort-descending-name
         view-sort-ascending-name
+        kde-symbolic
     )
     ecm_add_android_apk(kasts ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()

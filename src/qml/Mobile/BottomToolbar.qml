@@ -45,9 +45,9 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "settings-configure"
             text: i18nc("@title of dialog with app settings", "Settings")
-            checked: "SettingsPage" === kastsMainWindow.currentPage
+            checked: "SettingsView" === kastsMainWindow.currentPage
             onTriggered: {
-                pushPage("SettingsPage")
+                pushPage("SettingsView");
             }
         }
     ]
