@@ -12,6 +12,7 @@ import QtQuick.Effects
 import QtCore
 
 import org.kde.kirigami as Kirigami
+import org.kde.config as KConfig
 
 import org.kde.kasts
 import org.kde.kasts.settings
@@ -25,8 +26,9 @@ Kirigami.ApplicationWindow {
     title: i18n("Kasts")
 
     property bool isMobile: Kirigami.Settings.isMobile
-    width: isMobile ? 360 : 800
-    height: isMobile ? 660 : 600
+
+    width: isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
+    height: isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
 
     pageStack.clip: true
     pageStack.popHiddenPages: true
@@ -81,47 +83,20 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    KConfig.WindowStateSaver {
+        configGroupName: "MainWindow"
+    }
+
     Settings {
         id: settings
 
-        property alias x: kastsMainWindow.x
-        property alias y: kastsMainWindow.y
-        property var mobileWidth
-        property var mobileHeight
-        property var desktopWidth
-        property var desktopHeight
         property int headerSize: Kirigami.Units.gridUnit * 5
         property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
         property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
     }
 
-    function saveWindowLayout() {
-        if (isMobile) {
-            settings.mobileWidth = kastsMainWindow.width;
-            settings.mobileHeight = kastsMainWindow.height;
-        } else {
-            settings.desktopWidth = kastsMainWindow.width;
-            settings.desktopHeight = kastsMainWindow.height;
-        }
-    }
-
-    function restoreWindowLayout() {
-        if (isMobile) {
-            if (settings.mobileWidth) kastsMainWindow.width = settings.mobileWidth;
-            if (settings.mobileHeight) kastsMainWindow.height = settings.mobileHeight;
-        } else {
-            if (settings.desktopWidth) kastsMainWindow.width = settings.desktopWidth;
-            if (settings.desktopHeight) kastsMainWindow.height = settings.desktopHeight;
-        }
-    }
-
-    Component.onDestruction: {
-        saveWindowLayout();
-    }
-
     Component.onCompleted: {
-        restoreWindowLayout();
         pageStack.initialPage = getPage(currentPage);
 
         // Delete played enclosures if set in settings
