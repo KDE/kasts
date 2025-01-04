@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:41+0000\n"
+"POT-Creation-Date: 2025-01-04 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -198,7 +198,7 @@ msgstr "सदस्यता में एक नया पॉडकास्�
 msgid "Podcast URL"
 msgstr "पॉडकास्ट यूआरएल"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:110 qml/Main.qml:26
 #, kde-format
 msgid "Kasts"
 msgstr "डिब्बा"
@@ -896,7 +896,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "सिंक्रनाइज़"
 
-#: qml/FeedListPage.qml:236 qml/Main.qml:74
+#: qml/FeedListPage.qml:236
 #, kde-format
 msgid "Settings"
 msgstr "सेटिंग्स"
@@ -1090,7 +1090,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: qml/Main.qml:228
+#: qml/Main.qml:196
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1098,7 +1098,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%1 में से %2 पॉडकास्ट अपडेट किए गए"
 msgstr[1] "%1 में से %2 पॉडकास्ट अपडेट किए गए"
 
-#: qml/Main.qml:255
+#: qml/Main.qml:223
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1106,7 +1106,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%1 में से %2 फ़ाइलें स्थानांतरित की गईं"
 msgstr[1] "%1 में से %2 फ़ाइलें स्थानांतरित की गईं"
 
-#: qml/Main.qml:319
+#: qml/Main.qml:287
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1212,12 +1212,6 @@ msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "एपिसोड खोजें…"
 
-#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
-#, kde-format
-msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "के बारे में"
-
 #: qml/Settings/AppearanceSettingsPage.qml:23
 #, kde-format
 msgctxt "@title Form header for settings related to app appearance"
@@ -1308,7 +1302,7 @@ msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "फ़ॉन्ट आकार"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:48
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
@@ -1607,35 +1601,57 @@ msgstr ""
 "सेटिंग को अनदेखा किया जा सकता है। एपिसोड डाउनलोड करने सहित अन्य सभी नेटवर्क संबंधी "
 "क्रियाओं द्वारा सेटिंग्स का सम्मान किया जाना चाहिए।"
 
-#: qml/Settings/SettingsPage.qml:17
+#: qml/Settings/SettingsView.qml:18
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "General"
 msgstr "सामान्य"
 
-#: qml/Settings/SettingsPage.qml:23
+#: qml/Settings/SettingsView.qml:24
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "उपस्थिति"
 
-#: qml/Settings/SettingsPage.qml:29
+#: qml/Settings/SettingsView.qml:30
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Storage"
 msgstr "भंडारण"
 
-#: qml/Settings/SettingsPage.qml:35
+#: qml/Settings/SettingsView.qml:36
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
 msgstr "नेटवर्क"
 
-#: qml/Settings/SettingsPage.qml:41
+#: qml/Settings/SettingsView.qml:42
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "तुल्यकालन"
+
+#: qml/Settings/SettingsView.qml:54
+#, kde-format
+msgctxt "@title:menu Category in settings"
+msgid "About"
+msgstr "के बारे में"
+
+#: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Category in settings"
+#| msgid "About"
+msgctxt "@title:group"
+msgid "About"
+msgstr "के बारे में"
+
+#: qml/Settings/SettingsView.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Category in settings"
+#| msgid "About"
+msgctxt "@title:menu Category in settings"
+msgid "About KDE"
+msgstr "के बारे में"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format

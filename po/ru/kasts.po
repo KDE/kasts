@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:41+0000\n"
+"POT-Creation-Date: 2025-01-04 00:40+0000\n"
 "PO-Revision-Date: 2024-10-22 11:33+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -200,7 +200,7 @@ msgstr "Добавляет новый подкаст в подписки."
 msgid "Podcast URL"
 msgstr "URL-адрес подкаста"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:110 qml/Main.qml:26
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
@@ -902,7 +902,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
-#: qml/FeedListPage.qml:236 qml/Main.qml:74
+#: qml/FeedListPage.qml:236
 #, kde-format
 msgid "Settings"
 msgstr "Настройка"
@@ -1100,7 +1100,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Настройка"
 
-#: qml/Main.qml:228
+#: qml/Main.qml:196
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1110,7 +1110,7 @@ msgstr[1] "Выполнено обновление подкастов (%2 из %
 msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
 msgstr[3] "Выполнено обновление подкаста (%2 из %1)"
 
-#: qml/Main.qml:255
+#: qml/Main.qml:223
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1120,7 +1120,7 @@ msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[3] "Выполнено перемещение файла (%2 из %1)"
 
-#: qml/Main.qml:319
+#: qml/Main.qml:287
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1228,12 +1228,6 @@ msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Найти выпуски…"
 
-#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
-#, kde-format
-msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "О программе"
-
 #: qml/Settings/AppearanceSettingsPage.qml:23
 #, kde-format
 msgctxt "@title Form header for settings related to app appearance"
@@ -1324,7 +1318,7 @@ msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Размер шрифта"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:48
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
@@ -1632,35 +1626,57 @@ msgstr ""
 "менее, эти параметры будут учитываться при всех остальных связанных с сетью "
 "действиях, включая загрузку выпусков."
 
-#: qml/Settings/SettingsPage.qml:17
+#: qml/Settings/SettingsView.qml:18
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "General"
 msgstr "Основное"
 
-#: qml/Settings/SettingsPage.qml:23
+#: qml/Settings/SettingsView.qml:24
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: qml/Settings/SettingsPage.qml:29
+#: qml/Settings/SettingsView.qml:30
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Storage"
 msgstr "Хранение данных"
 
-#: qml/Settings/SettingsPage.qml:35
+#: qml/Settings/SettingsView.qml:36
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Network"
 msgstr "Сеть"
 
-#: qml/Settings/SettingsPage.qml:41
+#: qml/Settings/SettingsView.qml:42
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Синхронизация"
+
+#: qml/Settings/SettingsView.qml:54
+#, kde-format
+msgctxt "@title:menu Category in settings"
+msgid "About"
+msgstr "О программе"
+
+#: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Category in settings"
+#| msgid "About"
+msgctxt "@title:group"
+msgid "About"
+msgstr "О программе"
+
+#: qml/Settings/SettingsView.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Category in settings"
+#| msgid "About"
+msgctxt "@title:menu Category in settings"
+msgid "About KDE"
+msgstr "О программе"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format

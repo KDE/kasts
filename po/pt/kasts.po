@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 00:41+0000\n"
+"POT-Creation-Date: 2025-01-04 00:40+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -224,7 +224,7 @@ msgstr "Adiciona um novo 'podcast' às subscrições."
 msgid "Podcast URL"
 msgstr "URL do 'Podcast'"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:110 qml/Main.qml:26
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
@@ -972,7 +972,7 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronizar"
 
-#: qml/FeedListPage.qml:236 qml/Main.qml:74
+#: qml/FeedListPage.qml:236
 #, kde-format
 msgid "Settings"
 msgstr "Configuração"
@@ -1173,7 +1173,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Configuração"
 
-#: qml/Main.qml:228
+#: qml/Main.qml:196
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1181,7 +1181,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Foi Actualizado %2 de %1 'Podcast'"
 msgstr[1] "Foram Actualizados %2 de %1 'Podcasts'"
 
-#: qml/Main.qml:255
+#: qml/Main.qml:223
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1189,7 +1189,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Foi Movido %2 de %1 Ficheiro"
 msgstr[1] "Foram Movidos %2 de %1 Ficheiros"
 
-#: qml/Main.qml:319
+#: qml/Main.qml:287
 #, fuzzy, kde-format
 #| msgid "Podcast downloads are currently not allowed on metered connections"
 msgctxt "@info:status"
@@ -1306,13 +1306,6 @@ msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Procurar Episódios"
 
-#: qml/Settings/AboutPage.qml:18 qml/Settings/SettingsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "About"
-msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "Acerca"
-
 #: qml/Settings/AppearanceSettingsPage.qml:23
 #, fuzzy, kde-format
 #| msgid "Appearance"
@@ -1414,7 +1407,7 @@ msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Tamanho da letra"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsPage.qml:47
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:48
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgctxt "@title:menu Category in settings"
@@ -1749,40 +1742,61 @@ msgid ""
 "other network related actions, including downloading episodes."
 msgstr ""
 
-#: qml/Settings/SettingsPage.qml:17
+#: qml/Settings/SettingsView.qml:18
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title:menu Category in settings"
 msgid "General"
 msgstr "Geral"
 
-#: qml/Settings/SettingsPage.qml:23
+#: qml/Settings/SettingsView.qml:24
 #, fuzzy, kde-format
 #| msgid "Appearance"
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "Aparência"
 
-#: qml/Settings/SettingsPage.qml:29
+#: qml/Settings/SettingsView.qml:30
 #, fuzzy, kde-format
 #| msgid "Storage"
 msgctxt "@title:menu Category in settings"
 msgid "Storage"
 msgstr "Armazenamento"
 
-#: qml/Settings/SettingsPage.qml:35
+#: qml/Settings/SettingsView.qml:36
 #, fuzzy, kde-format
 #| msgid "Network"
 msgctxt "@title:menu Category in settings"
 msgid "Network"
 msgstr "Rede"
 
-#: qml/Settings/SettingsPage.qml:41
+#: qml/Settings/SettingsView.qml:42
 #, fuzzy, kde-format
 #| msgid "Synchronization"
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Sincronização"
+
+#: qml/Settings/SettingsView.qml:54
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:menu Category in settings"
+msgid "About"
+msgstr "Acerca"
+
+#: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:group"
+msgid "About"
+msgstr "Acerca"
+
+#: qml/Settings/SettingsView.qml:61
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:menu Category in settings"
+msgid "About KDE"
+msgstr "Acerca"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, fuzzy, kde-format
