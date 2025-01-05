@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:40+0000\n"
-"PO-Revision-Date: 2024-11-21 09:40+0300\n"
+"PO-Revision-Date: 2025-01-04 15:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1645,20 +1645,16 @@ msgid "About"
 msgstr "Hakkında"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Hakkında"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "Hakkında"
+msgstr "KDE Hakkında"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format

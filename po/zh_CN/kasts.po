@@ -1627,20 +1627,16 @@ msgid "About"
 msgstr "关于"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "关于"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "关于"
+msgstr ""
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
