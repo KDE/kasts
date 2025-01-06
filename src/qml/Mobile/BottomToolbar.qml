@@ -17,11 +17,14 @@ Kirigami.NavigationTabBar {
 
     property alias toolbarHeight: navBar.implicitHeight
 
+    // Keep track of the settings page being opened on the layer stack for mobile
+    readonly property bool settingsOpened: kastsMainWindow.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
+
     actions: [
         Kirigami.Action {
             icon.name: "view-media-playlist"
             text: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
-            checked: "QueuePage" === kastsMainWindow.currentPage
+            checked: "QueuePage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("QueuePage");
             }
@@ -29,7 +32,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "bookmarks"
             text: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
-            checked: "FeedListPage" === kastsMainWindow.currentPage
+            checked: "FeedListPage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("FeedListPage");
             }
@@ -37,7 +40,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "rss"
             text: i18nc("@title of page with list of podcast episodes", "Episodes")
-            checked: "EpisodeListPage" === kastsMainWindow.currentPage
+            checked: "EpisodeListPage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("EpisodeListPage")
             }
@@ -45,7 +48,7 @@ Kirigami.NavigationTabBar {
         Kirigami.Action {
             icon.name: "settings-configure"
             text: i18nc("@title of dialog with app settings", "Settings")
-            checked: "SettingsView" === kastsMainWindow.currentPage
+            checked: settingsOpened
             onTriggered: {
                 pushPage("SettingsView");
             }

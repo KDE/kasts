@@ -20,6 +20,10 @@ Kirigami.OverlayDrawer {
     readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
     readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
+    // Keep track of the settings page being opened on the layer stack for mobile
+    readonly property bool settingsOpened: kastsMainWindow.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
+
+
     width: showGlobalDrawer ? (kastsMainWindow.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -68,7 +72,7 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
                         icon.name: "source-playlist"
-                        checked: currentPage == "QueuePage"
+                        checked: currentPage == "QueuePage" && !settingsOpened
                         onClicked: {
                             pushPage("QueuePage")
                         }
@@ -78,7 +82,7 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
                         icon.name: "search"
-                        checked: currentPage == "DiscoverPage"
+                        checked: currentPage == "DiscoverPage" && !settingsOpened
                         onClicked: {
                             pushPage("DiscoverPage")
                         }
@@ -88,7 +92,7 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
                         icon.name: "bookmarks"
-                        checked: currentPage == "FeedListPage"
+                        checked: currentPage == "FeedListPage" && !settingsOpened
                         onClicked: {
                             pushPage("FeedListPage")
                         }
@@ -98,7 +102,7 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: i18nc("@title of page with list of podcast episodes", "Episodes")
                         icon.name: "rss"
-                        checked: currentPage == "EpisodeListPage"
+                        checked: currentPage == "EpisodeListPage" && !settingsOpened
                         onClicked: {
                             pushPage("EpisodeListPage")
                         }
@@ -108,7 +112,7 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: i18nc("@title of page with list of downloaded episodes", "Downloads")
                         icon.name: "download"
-                        checked: currentPage == "DownloadListPage"
+                        checked: currentPage == "DownloadListPage" && !settingsOpened
                         onClicked: {
                             pushPage("DownloadListPage")
                         }
@@ -125,13 +129,12 @@ Kirigami.OverlayDrawer {
             Kirigami.NavigationTabButton {
                 Layout.fillWidth: true
                 display: root.buttonDisplayMode
-
                 text: i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
-                checked: currentPage == "SettingsView"
+                checked:  settingsOpened
                 onClicked: {
-                    checked = false;
-                    pushPage("SettingsView")
+                    if (!kastsMainWindow.isMobile) checked = false;
+                    pushPage("SettingsView");
                 }
             }
         }
