@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:40+0000\n"
-"PO-Revision-Date: 2024-05-13 17:40+0300\n"
+"PO-Revision-Date: 2025-01-04 21:40+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1655,20 +1655,16 @@ msgid "About"
 msgstr "על אודות"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "על אודות"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "על אודות"
+msgstr "על KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
