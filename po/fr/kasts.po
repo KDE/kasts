@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:40+0000\n"
-"PO-Revision-Date: 2024-05-03 12:42+0200\n"
+"POT-Creation-Date: 2025-01-07 00:40+0000\n"
+"PO-Revision-Date: 2025-01-05 09:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -500,7 +500,7 @@ msgstr "Aucun titre de piste"
 msgid "No track loaded"
 msgstr "Aucune piste chargée"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
+#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -527,7 +527,7 @@ msgid "Subscribed"
 msgstr "Abonné"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
-#: qml/KastsGlobalDrawer.qml:109
+#: qml/KastsGlobalDrawer.qml:113
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -684,8 +684,8 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Lien copié"
 
-#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
-#: qml/Mobile/BottomToolbar.qml:39
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:103
+#: qml/Mobile/BottomToolbar.qml:42
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
@@ -795,8 +795,8 @@ msgstr "Erreur (%1) : %2"
 msgid "Remove Podcast"
 msgstr "Supprimer un podcast"
 
-#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
-#: qml/Mobile/BottomToolbar.qml:31
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:93
+#: qml/Mobile/BottomToolbar.qml:34
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
@@ -1079,7 +1079,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Rechercher dans :"
 
-#: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
+#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:26
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt ""
@@ -1088,7 +1088,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "File d'attente"
 
-#: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
+#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:50
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -1651,20 +1651,16 @@ msgid "About"
 msgstr "À propos"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "À propos"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "À propos"
+msgstr "À propos de KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format

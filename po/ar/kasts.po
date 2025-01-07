@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:40+0000\n"
+"POT-Creation-Date: 2025-01-07 00:40+0000\n"
 "PO-Revision-Date: 2025-01-04 17:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -497,7 +497,7 @@ msgstr "لا يوجد عنوان للمقطوعة"
 msgid "No track loaded"
 msgstr "لم يوجد مقطوعة محملة"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
+#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -524,7 +524,7 @@ msgid "Subscribed"
 msgstr "مشترك"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
-#: qml/KastsGlobalDrawer.qml:109
+#: qml/KastsGlobalDrawer.qml:113
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -681,8 +681,8 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "تم نسخ الرابط"
 
-#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
-#: qml/Mobile/BottomToolbar.qml:39
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:103
+#: qml/Mobile/BottomToolbar.qml:42
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
@@ -800,8 +800,8 @@ msgstr "خطأ (%1) : %2"
 msgid "Remove Podcast"
 msgstr "احذف المدونة الصوتية"
 
-#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
-#: qml/Mobile/BottomToolbar.qml:31
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:93
+#: qml/Mobile/BottomToolbar.qml:34
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
@@ -1092,7 +1092,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "ابحث في:"
 
-#: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
+#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:26
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt ""
@@ -1101,7 +1101,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "الطابور"
 
-#: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
+#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:50
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:40+0000\n"
+"POT-Creation-Date: 2025-01-07 00:40+0000\n"
 "PO-Revision-Date: 2024-06-17 21:21+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -493,7 +493,7 @@ msgstr "Ingen spårtitel"
 msgid "No track loaded"
 msgstr "Inget spår inläst"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:79
+#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -520,7 +520,7 @@ msgid "Subscribed"
 msgstr "Prenumererar"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
-#: qml/KastsGlobalDrawer.qml:109
+#: qml/KastsGlobalDrawer.qml:113
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -677,8 +677,8 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Länk kopierad"
 
-#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:99
-#: qml/Mobile/BottomToolbar.qml:39
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:103
+#: qml/Mobile/BottomToolbar.qml:42
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
@@ -788,8 +788,8 @@ msgstr "Fel (%1): %2"
 msgid "Remove Podcast"
 msgstr "Ta bort poddradioprogram"
 
-#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:89
-#: qml/Mobile/BottomToolbar.qml:31
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:93
+#: qml/Mobile/BottomToolbar.qml:34
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
@@ -1072,7 +1072,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Sök i:"
 
-#: qml/KastsGlobalDrawer.qml:69 qml/Mobile/BottomToolbar.qml:23
+#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:26
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt ""
@@ -1081,7 +1081,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "Kö"
 
-#: qml/KastsGlobalDrawer.qml:129 qml/Mobile/BottomToolbar.qml:47
+#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:50
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
