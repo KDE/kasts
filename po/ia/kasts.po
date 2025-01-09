@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2023 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2023, 2025 giovanni <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-07 00:40+0000\n"
-"PO-Revision-Date: 2024-04-25 18:06+0200\n"
+"PO-Revision-Date: 2025-01-08 15:00+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1646,20 +1646,16 @@ msgid "About"
 msgstr "A proposito"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "A proposito"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "A proposito"
+msgstr "A proposito de KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
