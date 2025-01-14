@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(KASTS_VERSION_STRING),
                      i18n("Podcast Player"),
                      KAboutLicense::GPL,
-                     i18n("© 2020–2024 KDE Community"));
+                     i18n("© 2020–2025 KDE Community"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
     KAboutData::setApplicationData(about);
