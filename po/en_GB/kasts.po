@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-07 00:40+0000\n"
+"POT-Creation-Date: 2025-01-15 00:40+0000\n"
 "PO-Revision-Date: 2024-05-19 16:09+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -209,8 +209,9 @@ msgid "Podcast Player"
 msgstr "Podcast Player"
 
 #: main.cpp:114
-#, kde-format
-msgid "© 2020–2024 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2020–2024 KDE Community"
+msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2024 KDE Community"
 
 #: main.cpp:115
