@@ -230,11 +230,7 @@ Kirigami.ScrollablePage {
                     onTriggered: {
                         // not using pushPage here in order to open the sync page
                         // directly
-                        pageStack.layers.clear()
-                        pageStack.pushDialogLayer("qrc:/qt/qml/org/kde/kasts/qml/Settings/SettingsPage.qml", {
-                            defaultPage: "Synchronization" }, {
-                            title: i18n("Settings"),
-                        })
+                        settingsView.open('Synchronization');
                     }
                 }
             }
