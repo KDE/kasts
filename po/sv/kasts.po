@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 12:09+0100\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
+"PO-Revision-Date: 2025-01-15 17:49+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -206,10 +206,9 @@ msgid "Podcast Player"
 msgstr "Poddspelare"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020-2024 KDE-gemenskapen"
+msgstr "© 2020-2025 KDE-gemenskapen"
 
 #: main.cpp:115
 #, kde-format
@@ -894,24 +893,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Synkronisera"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "Inställningar"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Avmarkera alla"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -919,7 +913,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Ta bort poddradioprogram"
 msgstr[1] "Ta bort poddradioprogram"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2328,6 +2322,9 @@ msgstr "Hoppa framåt"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgid "Settings"
+#~ msgstr "Inställningar"
 
 #, fuzzy
 #~| msgctxt ""

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 17:08+0400\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
+"PO-Revision-Date: 2025-01-15 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -202,18 +202,17 @@ msgstr "رابط المدونة الصوتية"
 #: main.cpp:110 qml/Main.qml:26
 #, kde-format
 msgid "Kasts"
-msgstr "كاستس"
+msgstr "كاست"
 
 #: main.cpp:112
 #, kde-format
 msgid "Podcast Player"
-msgstr "مشكل مدونات صوتية"
+msgstr "مشغل مدونات صوتية"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 كيدي مجتمع"
+msgstr "© 2020–2025 مجتمع كيدي"
 
 #: main.cpp:115
 #, kde-format
@@ -906,24 +905,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "زامِن"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "الإعدادات"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "حدّد الكل"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "ألغِ تحديد الكلّ"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -935,7 +929,7 @@ msgstr[3] "احذف المدونات الصوتية"
 msgstr[4] "احذف المدونات الصوتية"
 msgstr[5] "احذف المدونات الصوتية"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -1938,7 +1932,7 @@ msgid ""
 "interface and use those credentials."
 msgstr ""
 "قم بالمزامنة مع خادم نكست كلاود المثبت عليه تطبيق GPodder Sync: %1.<br/>يُنصح "
-"بإنشاء كلمة مرور التطبيق يدويًا لكاستس من خلال واجهة الويب واستخدام بيانات "
+"بإنشاء كلمة مرور التطبيق يدويًا لكاست من خلال واجهة الويب واستخدام بيانات "
 "الاعتماد هذه."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
@@ -2157,7 +2151,7 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr "كاستس على %1"
+msgstr "كاست على %1"
 
 #: sync/sync.cpp:295
 #, kde-format
@@ -2327,7 +2321,7 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
-"كاستس\n"
+"كاست\n"
 "انقر بالزر الأوسط للتشغيل/التوقف"
 
 #: utils/systrayicon.cpp:51
@@ -2365,6 +2359,9 @@ msgstr "تخطي للأمام"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "إنهاء"
+
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
 
 #, fuzzy
 #~| msgctxt ""

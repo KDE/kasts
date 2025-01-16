@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
 "PO-Revision-Date: 2024-08-01 14:24+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -898,24 +898,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Synkronisér"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "Indstillinger"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Vælg alle"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Fravælg alle"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -923,7 +918,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Fjern podcast"
 msgstr[1] "Fjern podcasts"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2333,3 +2328,6 @@ msgstr "Spring fremad"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Afslut"
+
+#~ msgid "Settings"
+#~ msgstr "Indstillinger"

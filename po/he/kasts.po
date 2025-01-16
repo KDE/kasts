@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 21:40+0200\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
+"PO-Revision-Date: 2025-01-15 09:32+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -210,10 +210,9 @@ msgid "Podcast Player"
 msgstr "נגן הסכתים"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 קהילת KDE"
+msgstr "© 2020–2025 קהילת KDE"
 
 #: main.cpp:115
 #, kde-format
@@ -900,24 +899,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "סנכרון"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "הגדרות"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "בחירה בהכול"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "ביטול בחירה"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -927,7 +921,7 @@ msgstr[1] "הסרת הסכתים"
 msgstr[2] "הסרת הסכתים"
 msgstr[3] "הסרת הסכתים"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2343,3 +2337,6 @@ msgstr "דילוג קדימה"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "יציאה"
+
+#~ msgid "Settings"
+#~ msgstr "הגדרות"

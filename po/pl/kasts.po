@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
 "PO-Revision-Date: 2024-04-27 10:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -901,24 +901,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Zsynchronizuj"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "Ustawienia"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Zaznacz wszystkie"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Odznacz wszystkie"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -927,7 +922,7 @@ msgstr[0] "Usuń podkast"
 msgstr[1] "Usuń podkast"
 msgstr[2] "Usuń podkast"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2347,6 +2342,9 @@ msgstr "Przejdź do przodu"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Settings"
+#~ msgstr "Ustawienia"
 
 #~ msgctxt ""
 #~ "@option:check Label for settings related to the play time, e.g. whether "

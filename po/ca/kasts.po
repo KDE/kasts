@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 10:06+0100\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
+"PO-Revision-Date: 2025-01-15 09:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -212,10 +212,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de pòdcast"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 La comunitat KDE"
+msgstr "© 2020–2025 La comunitat KDE"
 
 #: main.cpp:115
 #, kde-format
@@ -902,24 +901,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "Configuració"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Desselecciona-ho tot"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -927,7 +921,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Elimina el pòdcast"
 msgstr[1] "Elimina els pòdcasts"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2344,3 +2338,6 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Settings"
+#~ msgstr "Configuració"

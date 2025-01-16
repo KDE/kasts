@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-15 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 10:44+0200\n"
+"POT-Creation-Date: 2025-01-16 00:40+0000\n"
+"PO-Revision-Date: 2025-01-15 09:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -213,10 +213,9 @@ msgid "Podcast Player"
 msgstr "Програвач трансляцій"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© Спільнота KDE, 2020–2024"
+msgstr "© Спільнота KDE, 2020–2025"
 
 #: main.cpp:115
 #, kde-format
@@ -907,24 +906,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Синхронізувати"
 
-#: qml/FeedListPage.qml:236
-#, kde-format
-msgid "Settings"
-msgstr "Параметри"
-
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Позначити все"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Зняти позначення з усіх"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -934,7 +928,7 @@ msgstr[1] "Вилучити трансляції"
 msgstr[2] "Вилучити трансляції"
 msgstr[3] "Вилучити трансляцію"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -2361,6 +2355,9 @@ msgstr "Перемотати вперед"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Settings"
+#~ msgstr "Параметри"
 
 #~ msgctxt ""
 #~ "@option:check Label for settings related to the play time, e.g. whether "
