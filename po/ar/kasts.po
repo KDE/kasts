@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 03:18+0000\n"
-"PO-Revision-Date: 2024-05-04 12:10+0400\n"
+"PO-Revision-Date: 2025-01-15 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -202,17 +202,17 @@ msgstr "رابط المدونة الصوتية"
 #: main.cpp:110 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
-msgstr "كاستس"
+msgstr "كاست"
 
 #: main.cpp:112
 #, kde-format
 msgid "Podcast Player"
-msgstr "مشكل مدونات صوتية"
+msgstr "مشغل مدونات صوتية"
 
 #: main.cpp:114
 #, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr "© 2020–2024 كيدي مجتمع"
+msgstr "© 2020–2024 مجتمع كيدي"
 
 #: main.cpp:115
 #, kde-format
@@ -1925,7 +1925,7 @@ msgid ""
 "interface and use those credentials."
 msgstr ""
 "قم بالمزامنة مع خادم نكست كلاود المثبت عليه تطبيق GPodder Sync: %1.<br/>يُنصح "
-"بإنشاء كلمة مرور التطبيق يدويًا لكاستس من خلال واجهة الويب واستخدام بيانات "
+"بإنشاء كلمة مرور التطبيق يدويًا لكاست من خلال واجهة الويب واستخدام بيانات "
 "الاعتماد هذه."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:319
@@ -2144,7 +2144,7 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr "كاستس على %1"
+msgstr "كاست على %1"
 
 #: sync/sync.cpp:295
 #, kde-format
@@ -2314,7 +2314,7 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
-"كاستس\n"
+"كاست\n"
 "انقر بالزر الأوسط للتشغيل/التوقف"
 
 #: utils/systrayicon.cpp:51
