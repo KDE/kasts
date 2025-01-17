@@ -7,7 +7,7 @@
   <id>org.kde.kasts</id>
   <content_rating type="oars-1.1"/>
   <name>Kasts</name>
-  <name xml:lang="ar">كاستس</name>
+  <name xml:lang="ar">كاست</name>
   <name xml:lang="ast">Kasts</name>
   <name xml:lang="ca">Kasts</name>
   <name xml:lang="ca-valencia">Kasts</name>
@@ -116,7 +116,7 @@
   <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
   <description>
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
-    <p xml:lang="ar">كاستس تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
+    <p xml:lang="ar">كاست تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de pòdcast que funciona bé a l'escriptori i al mòbil.</p>
     <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que treballa bé en l'escriptori i en el mòbil.</p>
     <p xml:lang="da">Kasts er et konvergerende podcastprogram, der ser godt ud på desktop og mobiler.</p>
@@ -344,7 +344,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
-      <caption xml:lang="ar">كاستس على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
+      <caption xml:lang="ar">كاست على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="da">Kast på desktoppen med standard overskriftsbar</caption>
@@ -377,7 +377,7 @@
     </screenshot>
     <screenshot>
       <caption>Kasts on the desktop with minimized header bar</caption>
-      <caption xml:lang="ar">كاستس على سطح المكتب مع شريط رأسي مصغر</caption>
+      <caption xml:lang="ar">كاست على سطح المكتب مع شريط رأسي مصغر</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="da">Kasts på desktoppen med minimeret overskriftsbar</caption>
@@ -410,7 +410,7 @@
     </screenshot>
     <screenshot>
       <caption>Kasts on a phone</caption>
-      <caption xml:lang="ar">كاستس على الهاتف</caption>
+      <caption xml:lang="ar">كاست على الهاتف</caption>
       <caption xml:lang="ca">El Kasts a un telèfon</caption>
       <caption xml:lang="ca-valencia">Kasts a un telèfon</caption>
       <caption xml:lang="cs">Kasts na telefonu</caption>
@@ -446,7 +446,7 @@
     </screenshot>
     <screenshot>
       <caption>Kasts mobile player controls</caption>
-      <caption xml:lang="ar">متحكمات مشغل كاستس للهاتف</caption>
+      <caption xml:lang="ar">متحكمات مشغل كاست للهاتف</caption>
       <caption xml:lang="ca">Controls del reproductor mòbil del Kasts</caption>
       <caption xml:lang="ca-valencia">Controls del reproductor mòbil de Kasts</caption>
       <caption xml:lang="da">Kasks afspilningskontroller på mobiler</caption>
