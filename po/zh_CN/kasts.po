@@ -212,7 +212,7 @@ msgstr "播客播放器"
 #: main.cpp:114
 #, kde-format
 msgid "© 2020–2024 KDE Community"
-msgstr ""
+msgstr "© 2020-2024 KDE Community"
 
 #: main.cpp:115
 #, kde-format
