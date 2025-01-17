@@ -8,6 +8,7 @@ add_executable(kasts
     main.cpp
     fetcher.cpp
     database.cpp
+    datatypes.cpp
     entry.cpp
     feed.cpp
     enclosure.cpp

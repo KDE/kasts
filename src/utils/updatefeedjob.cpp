@@ -27,6 +27,7 @@
 #include "storagemanager.h"
 
 using namespace ThreadWeaver;
+using namespace DataTypes;
 
 UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent)
     : QObject(parent)
