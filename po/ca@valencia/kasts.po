@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-16 00:40+0000\n"
-"PO-Revision-Date: 2025-01-04 10:06+0100\n"
+"PO-Revision-Date: 2025-01-15 09:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -213,10 +213,9 @@ msgid "Podcast Player"
 msgstr "Reproductor de pòdcast"
 
 #: main.cpp:114
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 La comunitat KDE"
+msgstr "© 2020–2025 La comunitat KDE"
 
 #: main.cpp:115
 #, kde-format
@@ -2340,6 +2339,3 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "Settings"
-#~ msgstr "Configuració"
