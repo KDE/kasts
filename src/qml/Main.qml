@@ -15,7 +15,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
 
 import org.kde.kasts
-import org.kde.kasts.settings
 
 import "Desktop"
 import "Mobile"

@@ -12,7 +12,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.kasts
-import org.kde.kasts.settings
 
 Kirigami.Dialog {
     id: overlay

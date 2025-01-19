@@ -13,7 +13,6 @@ import QtQuick.Window
 import org.kde.kirigami as Kirigami
 
 import org.kde.kasts
-import org.kde.kasts.settings
 
 Item {
     id: root

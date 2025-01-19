@@ -225,7 +225,7 @@ ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
     ../icons/128-apps-kasts.png
 )
 
-kconfig_add_kcfg_files(kasts settingsmanager.kcfgc GENERATE_MOC)
+kconfig_target_kcfg_file(kasts FILE settingsmanager.kcfg CLASS_NAME SettingsManager MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR SINGLETON GENERATE_MOC QML_REGISTRATION)
 
 target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/utils ${CMAKE_CURRENT_SOURCE_DIR}/sync)
 target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KF6::ColorScheme KMediaSession)

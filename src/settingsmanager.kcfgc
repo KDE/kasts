@@ -1,7 +1,0 @@
-File=settingsmanager.kcfg
-ClassName=SettingsManager
-Mutators=true
-DefaultValueGetters=true
-GenerateProperties=true
-ParentInConstructor=true
-Singleton=true

@@ -129,8 +129,6 @@ int main(int argc, char *argv[])
     }
     about.processCommandLine(&parser);
 
-    qmlRegisterSingletonInstance("org.kde.kasts.settings", 1, 0, "SettingsManager", SettingsManager::self());
-
     if (!SettingsManager::self()->colorScheme().isEmpty()) {
         ColorSchemer::instance().apply(SettingsManager::self()->colorScheme());
     }
