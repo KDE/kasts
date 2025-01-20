@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 03:18+0000\n"
-"PO-Revision-Date: 2024-08-10 13:16+0200\n"
+"PO-Revision-Date: 2025-01-19 13:50+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -534,7 +534,7 @@ msgstr "Descargas"
 #: qml/DownloadListPage.qml:31 qml/EpisodeListPage.qml:48
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Anovar todos os podcasts"
+msgstr "Actualizar todos os podcasts"
 
 #: qml/DownloadListPage.qml:55
 #, kde-format
@@ -2019,7 +2019,7 @@ msgid ""
 msgstr ""
 "Quere sincronizar todas as subscricións de podcasts desta conta de gpodder."
 "net en todos os dispositivos?\n"
-"Se non sabe o que significa, probablemente lle cumpra seleccionar «Aceptar»."
+"Se non sabe o que significa, probabelmente lle cumpra seleccionar «Aceptar»."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:552
 #, kde-format
