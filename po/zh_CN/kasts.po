@@ -31,12 +31,12 @@ msgstr ""
 #: audiomanager.cpp:397
 #, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr ""
+msgstr "不允许在按流量计费的连接上播放流媒体"
 
 #: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
-msgstr ""
+msgstr "无网络连接"
 
 #: audiomanager.cpp:546
 #, kde-format
@@ -46,19 +46,19 @@ msgstr "媒体无效"
 #: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr ""
+msgstr "使用计费连接时不允许下载播客"
 
 #: entry.cpp:100 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr ""
+msgstr "%1 和 %2"
 
 #: entry.cpp:103 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr ""
+msgstr "%1，和 %2"
 
 #: error.cpp:48
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "同步订阅源和/或单集状态时出错"
 #: error.cpp:62
 #, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr ""
+msgstr "使用计费连接时不允许播放流媒体"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "播客播放器"
 #: main.cpp:114
 #, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr ""
+msgstr "© 2020-2025 KDE Community"
 
 #: main.cpp:115
 #, kde-format
@@ -377,7 +377,7 @@ msgstr "选择选项"
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
-msgstr ""
+msgstr "无法访问网络"
 
 #: qml/ConnectionCheckAction.qml:67
 #, kde-format
@@ -386,6 +386,7 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"似乎无法访问网络。如果情况并非如此，可以通过：设置 -> 网络来禁用此检查。"
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -1209,7 +1210,7 @@ msgstr "外观"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
-msgstr ""
+msgstr "颜色主题"
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
@@ -1221,19 +1222,19 @@ msgstr "订阅视图总是显示播客标题"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr ""
+msgstr "在列表中显示剧集图像而不是播客图像"
 
 #: qml/Settings/AppearanceSettingsPage.qml:73
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
-msgstr ""
+msgstr "在剧集列表中显示播客标题"
 
 #: qml/Settings/AppearanceSettingsPage.qml:83
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr ""
+msgstr "托盘图标"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
@@ -1275,7 +1276,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
-msgstr ""
+msgstr "文本"
 
 #: qml/Settings/AppearanceSettingsPage.qml:145
 #, kde-format
@@ -1343,13 +1344,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
-msgstr ""
+msgstr "播客更新设置"
 
 #: qml/Settings/GeneralSettingsPage.qml:132
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Automatically fetch podcast feeds"
-msgstr ""
+msgstr "自动获取播客源"
 
 #: qml/Settings/GeneralSettingsPage.qml:135
 #, kde-format
@@ -1366,7 +1367,7 @@ msgstr "从不"
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
-msgstr[0] ""
+msgstr[0] "每 %1 小时"
 
 #: qml/Settings/GeneralSettingsPage.qml:141
 #: qml/Settings/GeneralSettingsPage.qml:142
@@ -1374,13 +1375,13 @@ msgstr[0] ""
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
-msgstr[0] ""
+msgstr[0] "每 %1 天"
 
 #: qml/Settings/GeneralSettingsPage.qml:153
 #, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr ""
+msgstr "启动时获取播客更新"
 
 #: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
@@ -1482,7 +1483,7 @@ msgstr "网络"
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
-msgstr ""
+msgstr "启用网络连接检查"
 
 #: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
@@ -1631,7 +1632,7 @@ msgstr "关于"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr ""
+msgstr "关于 KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:22
 #, kde-format
@@ -2083,7 +2084,7 @@ msgstr "中止"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: sync/sync.cpp:178
 #, kde-format
@@ -2261,6 +2262,8 @@ msgid ""
 "Kasts\n"
 "Middle-click to play/pause"
 msgstr ""
+"Kasts\n"
+"中键单击以播放/暂停"
 
 #: utils/systrayicon.cpp:51
 #, kde-format
@@ -2297,6 +2300,3 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
-
-#~ msgid "Settings"
-#~ msgstr "设置"
