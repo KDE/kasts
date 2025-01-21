@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-16 00:40+0000\n"
-"PO-Revision-Date: 2025-01-16 09:02+0100\n"
+"PO-Revision-Date: 2025-01-20 19:14+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -339,13 +339,13 @@ msgstr "Comptage des favoris : croissant"
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Titre de podcast : A → Z"
+msgstr "Titre de podcast : de A → Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Titre de podcast : Z → A"
+msgstr "Titre de podcast : de Z → A"
 
 #: qml/AddFeedSheet.qml:21
 #, kde-format
@@ -1236,7 +1236,7 @@ msgstr "Toujours afficher les titres des podcasts dans la vue des abonnements"
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr ""
-"Afficher l’image de l’épisode au lieu de l’image du podcast dans les listes"
+"Afficher l'image de l'épisode au lieu de l'image du podcast dans les listes"
 
 #: qml/Settings/AppearanceSettingsPage.qml:73
 #, kde-format
@@ -1605,7 +1605,7 @@ msgid ""
 "other network related actions, including downloading episodes."
 msgstr ""
 "Les paramètres du serveur mandataire au niveau du système ou de "
-"l’application peuvent être ignorés par le moteur audio lors de la diffusion "
+"l'application peuvent être ignorés par le moteur audio lors de la diffusion "
 "audio. Les paramètres doivent toujours être respectés par toutes les autres "
 "actions liées au réseau, y compris pour le téléchargement des épisodes."
 
