@@ -133,7 +133,7 @@ DataManager::DataManager()
 
 Feed *DataManager::getFeed(const int index) const
 {
-    if (index < m_feedmap.size()) {
+    if (index >= 0 && index < m_feedmap.size()) {
         return getFeed(m_feedmap[index]);
     }
     return nullptr;
