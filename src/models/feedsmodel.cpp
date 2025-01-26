@@ -54,20 +54,24 @@ int FeedsModel::rowCount(const QModelIndex &parent) const
 
 QVariant FeedsModel::data(const QModelIndex &index, int role) const
 {
+    const auto feed = DataManager::instance().getFeed(index.row());
+    if (!feed) {
+        return {};
+    }
     switch (role) {
     case FeedRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row()));
+        return QVariant::fromValue(feed);
     case Qt::DisplayRole:
     case UrlRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->url());
+        return QVariant::fromValue(feed->url());
     case TitleRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->name());
+        return QVariant::fromValue(feed->name());
     case UnreadCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->unreadEntryCount());
+        return QVariant::fromValue(feed->unreadEntryCount());
     case NewCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->newEntryCount());
+        return QVariant::fromValue(feed->newEntryCount());
     case FavoriteCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(index.row())->favoriteEntryCount());
+        return QVariant::fromValue(feed->favoriteEntryCount());
     default:
         return QVariant();
     }
