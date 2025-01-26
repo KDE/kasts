@@ -18,27 +18,42 @@ Kirigami.ScrollablePage {
     title: i18nc("@title of page allowing to search for new podcasts online", "Discover")
     property var feedModel: ""
 
-    header: RowLayout {
-        width: parent.width
-        anchors.topMargin: Kirigami.Units.smallSpacing
 
-        Kirigami.SearchField {
-            id: textField
-            placeholderText: i18n("Search podcastindex.org")
-            Layout.fillWidth: true
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Keys.onReturnPressed: {
-                searchButton.clicked()
+    header: Controls.Control {
+        padding: Kirigami.Units.largeSpacing
+
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+
+        background: Rectangle {
+            color: Kirigami.Theme.backgroundColor
+
+            Kirigami.Separator {
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    right: parent.right
+                }
             }
         }
 
-        Controls.Button {
-            id: searchButton
-            text: isWidescreen ? i18n("Search") : ""
-            icon.name: "search"
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-            onClicked: {
-                podcastSearchModel.search(textField.text);
+        contentItem: RowLayout {
+            Kirigami.SearchField {
+                id: textField
+                placeholderText: i18n("Search podcastindex.org")
+                Layout.fillWidth: true
+                Keys.onReturnPressed: {
+                    searchButton.clicked()
+                }
+            }
+
+            Controls.Button {
+                id: searchButton
+                text: isWidescreen ? i18n("Search") : ""
+                icon.name: "search"
+                onClicked: {
+                    podcastSearchModel.search(textField.text);
+                }
             }
         }
     }
