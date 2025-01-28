@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-27 00:40+0000\n"
-"PO-Revision-Date: 2025-01-15 12:13+0300\n"
+"PO-Revision-Date: 2025-01-27 16:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1640,12 +1640,10 @@ msgid "About"
 msgstr "Hakkında"
 
 #: qml/Settings/SettingsView.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:group"
 msgid "About Kasts"
-msgstr "KDE Hakkında"
+msgstr "Kastlar Hakkında"
 
 #: qml/Settings/SettingsView.qml:61
 #, kde-format
