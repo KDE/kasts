@@ -4,21 +4,21 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-27 00:40+0000\n"
-"PO-Revision-Date: 2025-01-27 09:42+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2025-01-28 21:58+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1647,7 +1647,7 @@ msgstr "Quant a"
 #, kde-format
 msgctxt "@title:group"
 msgid "About Kasts"
-msgstr "Quant al Kats"
+msgstr "Quant al Kasts"
 
 #: qml/Settings/SettingsView.qml:61
 #, kde-format
