@@ -51,7 +51,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "aboutKasts"
-            text: i18nc("@title:menu Category in settings", "About")
+            text: i18nc("@title:menu Category in settings", "About Kasts")
             icon.name: "documentinfo"
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage")
             category: i18nc("@title:group", "About Kasts")
