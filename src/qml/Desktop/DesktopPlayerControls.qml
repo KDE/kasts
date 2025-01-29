@@ -100,7 +100,8 @@ FocusScope {
                 visible: headerBar.handlePosition === 0
                 MouseArea {
                     anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
+                    cursorShape: AudioManager.entry ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    enabled: AudioManager.entry
                     onClicked: {
                         headerBar.openFullScreenImage();
                     }
