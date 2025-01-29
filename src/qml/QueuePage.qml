@@ -48,6 +48,35 @@ Kirigami.ScrollablePage {
 
     actions: pageActions
 
+    header: Controls.Control {
+        anchors.right: parent.right
+        anchors.left: parent.left
+
+        padding: Kirigami.Units.largeSpacing
+
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+
+        background: Rectangle {
+            color: Kirigami.Theme.backgroundColor
+
+            Kirigami.Separator {
+                anchors {
+                    left: parent.left
+                    bottom: parent.bottom
+                    right: parent.right
+                }
+            }
+        }
+
+        contentItem: Controls.Label {
+            anchors.fill: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            text: i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
+        }
+    }
+
     GenericEntryListView {
         id: queueList
         reuseItems: true
@@ -60,19 +89,6 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
 
             text: i18nc("@info", "Queue is empty")
-        }
-
-        header: ColumnLayout {
-            anchors.right: parent.right
-            anchors.left: parent.left
-            Controls.Label {
-                Layout.fillWidth: true
-                horizontalAlignment: Text.AlignHCenter
-                text: i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
-            }
-            Kirigami.Separator {
-                Layout.fillWidth: true
-            }
         }
 
         model: QueueModel {
