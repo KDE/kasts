@@ -78,7 +78,7 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             id: prioritizeStreaming
             checked: SettingsManager.prioritizeStreaming
-            text: i18nc("@option:check", "Prioritize streaming over downloading")
+            text: i18nc("@option:check", "Prefer streaming over downloading")
             onToggled: {
                 SettingsManager.prioritizeStreaming = checked;
                 SettingsManager.save();
