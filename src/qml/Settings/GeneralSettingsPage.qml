@@ -29,6 +29,7 @@ FormCard.FormCardPage {
         FormCard.FormComboBoxDelegate {
             id: selectAudioBackend
             text: i18nc("@label:listbox Label for setting to select audio playback backend", "Select audio backend")
+            visible: count > 1
 
             textRole: "text"
             valueRole: "value"
