@@ -18,29 +18,23 @@ import ".."
 FormCard.FormCardPage {
     title: i18nc("@title:menu Category in settings", "Error Log")
 
-    FormCard.FormHeader {
-        title: i18nc("@title", "Error Log")
-        Layout.fillWidth: true
-    }
+    actions: [
+        Kirigami.Action {
+            icon.name: "edit-clear-all"
+            text: i18nc("@action:button", "Clear All")
+            onTriggered: ErrorLogModel.clearAll()
+            enabled: errorList.count > 0
+        }
+    ]
 
     FormCard.FormCard {
         Layout.fillWidth: true
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
 
         FormCard.AbstractFormDelegate {
             background: null
             contentItem: ErrorList {
                 id: errorList
-            }
-        }
-
-        FormCard.FormDelegateSeparator {}
-
-        FormCard.FormTextDelegate {
-            trailing: Controls.Button {
-                icon.name: "edit-clear-all"
-                text: i18nc("@action:button", "Clear All Errors")
-                onClicked: ErrorLogModel.clearAll()
-                enabled: errorList.count > 0
             }
         }
     }
