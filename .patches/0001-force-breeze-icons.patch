@@ -1,0 +1,11 @@
+diff -Naur a/src/main.cpp b/src/main.cpp
+--- a/src/main.cpp	2023-01-29 16:29:55.000000000 +0100
++++ b/src/main.cpp	2023-04-18 10:22:18.341720926 +0200
+@@ -82,6 +82,7 @@
+     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+     }
++    QIcon::setThemeName(QStringLiteral("breeze"));
+ #endif
+ 
+ #ifdef Q_OS_WINDOWS

@@ -6,13 +6,13 @@ SPDX-PackageName = "Kasts"
 SPDX-PackageSupplier = "Tobias Fella <tobias.fella@kde.org>"
 
 [[annotations]]
-path = ["src/qtquickcontrols2.conf", "README.md"]
+path = ["README.md"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2020 Tobias Fella <tobias.fella@kde.org>"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = ["src/settingsmanager.kcfgc", "src/settingsmanager.kcfg", ".flatpak-manifest.json"]
+path = ["src/settingsmanager.kcfg", ".flatpak-manifest.json"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2021 Bart De Vries <bart@mogwai.be>"
 SPDX-License-Identifier = "CC0-1.0"
@@ -40,3 +40,9 @@ path = "android/res/mipmap-anydpi-v26/ic_launcher.xml"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "None"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+path = ".patches/0001-force-breeze-icons.patch"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023 Bart De Vries <bart@mogwai.be>"
+SPDX-License-Identifier = "BSD-2-Clause"
