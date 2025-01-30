@@ -54,7 +54,7 @@ ecm_set_disabled_deprecation_versions(
 )
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg Xml Network)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami Syndication Config ThreadWeaver ColorScheme)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami Syndication Config ThreadWeaver ColorScheme IconThemes)
 
 find_package(KF6 ${KF_MIN_VERSION} QUIET COMPONENTS BreezeIcons)
 

@@ -12,6 +12,7 @@ Dependencies:
     'frameworks/kconfig': '@latest-kf6'
     'frameworks/threadweaver': '@latest-kf6'
     'frameworks/kcolorscheme': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
     'libraries/kirigami-addons': '@latest-kf6'
     'third-party/qtkeychain': '@latest'
 

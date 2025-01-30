@@ -27,6 +27,7 @@
 #endif
 
 #include <KAboutData>
+#include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -53,6 +54,8 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
+    KIconTheme::initTheme();
+
     if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
         qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
     }
