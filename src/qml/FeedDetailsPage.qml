@@ -174,7 +174,7 @@ Kirigami.ScrollablePage {
                             text: i18n("Show Details")
                             checkable: true
                             checked: showMoreInfo
-                            onCheckedChanged: {
+                            onCheckedChanged: (checked) => {
                                 showMoreInfo = checked;
                             }
                         }
@@ -226,50 +226,25 @@ Kirigami.ScrollablePage {
                         lineHeight: 1.2
                     }
 
-                    Item {
+                    RowLayout {
+                        id: feedUrlLayout
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
-                        Layout.preferredHeight: Math.max(feedUrlLayout.height, feedUrlCopyButton.width)
+                        spacing: Kirigami.Units.smallSpacing
                         visible: page.showMoreInfo
-                        height: visible ? implicitHeight : 0
-                        RowLayout {
-                            id: feedUrlLayout
-                            anchors.left: parent.left
-                            anchors.right: feedUrlCopyButton.left
-                            anchors.verticalCenter: parent.verticalCenter
-                            spacing: Kirigami.Units.smallSpacing
-                            TextEdit {
-                                Layout.alignment: Qt.AlignTop
-                                readOnly: true
-                                textFormat:TextEdit.RichText
-                                text: i18n("Podcast URL:")
-                                wrapMode: TextEdit.Wrap
-                                color: Kirigami.Theme.textColor
-                            }
-                            TextEdit {
-                                id: feedUrl
-                                Layout.alignment: Qt.AlignTop
-                                readOnly: true
-                                selectByMouse: !kastsMainWindow.isMobile
-                                textFormat:TextEdit.RichText
-                                text: "<a href='%1'>%1</a>".arg(feed.url)
-                                wrapMode: TextEdit.Wrap
-                                Layout.fillWidth: true
-                                color: Kirigami.Theme.textColor
-                            }
+                        Controls.Label {
+                            Layout.alignment: Qt.AlignTop
+                            textFormat: TextEdit.RichText
+                            text: i18n("Podcast URL:")
+                            wrapMode: TextEdit.Wrap
                         }
-                        Controls.Button {
-                            id: feedUrlCopyButton
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.leftMargin: Kirigami.Units.smallSpacing
-                            icon.name: "edit-copy"
-
-                            onClicked: {
-                                feedUrl.selectAll();
-                                feedUrl.copy();
-                                feedUrl.deselect();
-                            }
+                        Kirigami.UrlButton {
+                            id: feedUrl
+                            Layout.alignment: Qt.AlignTop
+                            url: feed.url
+                            wrapMode: TextEdit.Wrap
+                            horizontalAlignment: Text.AlignLeft
+                            Layout.fillWidth: true
                         }
                     }
                     RowLayout {
@@ -278,67 +253,53 @@ Kirigami.ScrollablePage {
                         visible: page.showMoreInfo
                         height: visible ? implicitHeight : 0
                         spacing: Kirigami.Units.smallSpacing
-                        TextEdit {
+                        Controls.Label {
                             Layout.alignment: Qt.AlignTop
-                            readOnly: true
                             textFormat: TextEdit.RichText
                             text: i18n("Weblink:")
                             wrapMode: TextEdit.Wrap
-                            color: Kirigami.Theme.textColor
                         }
 
-                        TextEdit {
-                            readOnly: true
+                        Kirigami.UrlButton {
                             Layout.alignment: Qt.AlignTop
-                            selectByMouse: !kastsMainWindow.isMobile
-                            textFormat:TextEdit.RichText
-                            text: "<a href='%1'>%1</a>".arg(feed.link)
-                            onLinkActivated: (link) => {
-                                Qt.openUrlExternally(link);
-                            }
+                            url: feed.link
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
-                            color: Kirigami.Theme.textColor
+                            horizontalAlignment: Text.AlignLeft
                         }
                     }
-                    TextEdit {
+                    Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        readOnly: true
                         selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
-                        color: Kirigami.Theme.textColor
                     }
-                    TextEdit {
+                    Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        readOnly: true
                         selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: isSubscribed ? i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
-                        color: Kirigami.Theme.textColor
                     }
-                    TextEdit {
+                    Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        readOnly: true
                         selectByMouse: !kastsMainWindow.isMobile
                         textFormat:TextEdit.RichText
                         text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
                         wrapMode: Text.WordWrap
-                        color: Kirigami.Theme.textColor
                     }
 
                     Item { Layout.fillHeight: true }

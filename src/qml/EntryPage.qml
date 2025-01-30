@@ -223,7 +223,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        TextEdit {
+        Kirigami.SelectableLabel {
             id: textLabel
             Layout.topMargin: Kirigami.Units.gridUnit
             Layout.leftMargin: Kirigami.Units.gridUnit
@@ -232,14 +232,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            readOnly: true
             selectByMouse: !kastsMainWindow.isMobile
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
-            color: Kirigami.Theme.textColor
 
             onLinkActivated: (link) => {
                 if (link.split("://")[0] === "timestamp") {
@@ -256,9 +254,6 @@ Kirigami.ScrollablePage {
                 } else {
                     Qt.openUrlExternally(link)
                 }
-            }
-            onLinkHovered: {
-                cursorShape: Qt.PointingHandCursor;
             }
             onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
         }
