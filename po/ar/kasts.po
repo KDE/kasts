@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:40+0000\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
 "PO-Revision-Date: 2025-01-28 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -126,13 +126,13 @@ msgid "Open"
 msgstr "افتح"
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
 msgstr "شغّل"
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:390
 #, kde-format
 msgid "Pause"
 msgstr "ألبث"
@@ -184,42 +184,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "جاري تشغيل الوسائط"
 
-#: main.cpp:102
+#: main.cpp:105
 #, kde-format
 msgid "Podcast Application"
 msgstr "تطبيق مدونات صوتية"
 
-#: main.cpp:104
+#: main.cpp:107
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "إضافة مدونة صوتية جديدة للاشتراكات."
 
-#: main.cpp:105
+#: main.cpp:108
 #, kde-format
 msgid "Podcast URL"
 msgstr "رابط المدونة الصوتية"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:113 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "كاست"
 
-#: main.cpp:112
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Player"
 msgstr "مشغل مدونات صوتية"
 
-#: main.cpp:114
+#: main.cpp:117
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 مجتمع كيدي"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "Tobias Fella"
 msgstr "توبايس فيلال"
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgid "Bart De Vries"
 msgstr "برات دي فرايس"
@@ -404,94 +404,94 @@ msgstr "السماح مرة واحدة"
 msgid "Always Allow"
 msgstr "السماح دائما"
 
-#: qml/Desktop/DesktopPlayerControls.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
 msgstr "أخر"
 
-#: qml/Desktop/DesktopPlayerControls.qml:139
+#: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
 msgstr "قدم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:148
+#: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
 msgstr "تخطى للأمام"
 
-#: qml/Desktop/DesktopPlayerControls.qml:168
+#: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
 msgstr "معدل التشغيل:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:225
+#: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "عرض قائمة الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:236
+#: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "عرض معلومات الحلقة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:247
+#: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "فتح إعدادات مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "فتح إعدادات الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:293
+#: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "تبديل كتم الصوت"
 
-#: qml/Desktop/DesktopPlayerControls.qml:310
+#: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "عرض المزيد"
 
-#: qml/Desktop/DesktopPlayerControls.qml:340
+#: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:348
+#: qml/Desktop/DesktopPlayerControls.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "عرض المعلومات"
 
-#: qml/Desktop/DesktopPlayerControls.qml:358
+#: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:391
+#: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:417 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "لا يوجد عنوان للمقطوعة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -535,22 +535,24 @@ msgstr "التنزيلات"
 msgid "Refresh All Podcasts"
 msgstr "تحديث جميع المدونات الصوتية"
 
-#: qml/DownloadListPage.qml:55
-#, kde-format
+#: qml/DownloadListPage.qml:56
+#, fuzzy, kde-format
+#| msgid "No downloads"
+msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "لا يوجد تنزيلات"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Downloading"
 msgstr "جاري التنزيل"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "تنزيلات غير مكتملة"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Downloaded"
 msgstr "تم تنزيله"
@@ -669,13 +671,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "افتح المدونة الصوتية"
 
-#: qml/EntryPage.qml:289
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "انسخ رابط تنزيل الحلقة"
 
-#: qml/EntryPage.qml:295
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -695,7 +697,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "ابحث"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "No episodes available"
 msgstr "لا يوجد حلقات متوفرة"
@@ -710,13 +712,13 @@ msgstr "لم يسجل أي خطأ"
 msgid "Error code:"
 msgstr "رمز الخطأ:"
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "سجل الاخطاء"
 
-#: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
+#: qml/ErrorListOverlay.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
@@ -748,27 +750,27 @@ msgstr "تحديث المدونة الصوتية"
 msgid "Show Details"
 msgstr "عرض التفاصيل"
 
-#: qml/FeedDetailsPage.qml:245
+#: qml/FeedDetailsPage.qml:238
 #, kde-format
 msgid "Podcast URL:"
 msgstr "رابط المدونة الصوتية:"
 
-#: qml/FeedDetailsPage.qml:285
+#: qml/FeedDetailsPage.qml:259
 #, kde-format
 msgid "Weblink:"
 msgstr "رابط الشبكة:"
 
-#: qml/FeedDetailsPage.qml:313
+#: qml/FeedDetailsPage.qml:279
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "مشترك منذ: %1"
 
-#: qml/FeedDetailsPage.qml:326
+#: qml/FeedDetailsPage.qml:290
 #, kde-format
 msgid "Last updated: %1"
 msgstr "اخر تحديث في: %1"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -779,7 +781,7 @@ msgstr[3] "%1 حلقات"
 msgstr[4] "%1 حلقة"
 msgstr[5] "%1 حلقة"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -790,7 +792,7 @@ msgstr[3] "غير مشغلات %1"
 msgstr[4] "غير مشغلة %1"
 msgstr[5] "غير مشغلة %1"
 
-#: qml/FeedDetailsPage.qml:361
+#: qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "خطأ (%1) : %2"
@@ -1206,13 +1208,7 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr "تخصيص"
 
-#: qml/QueuePage.qml:62
-#, kde-format
-msgctxt "@info"
-msgid "Queue is empty"
-msgstr "الطابور فارغ"
-
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -1224,11 +1220,17 @@ msgstr[3] "%1 حلقات"
 msgstr[4] "%1 حلقة"
 msgstr[5] "%1 حلقة"
 
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "الوقت المتبقي"
+
+#: qml/QueuePage.qml:91
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr "الطابور فارغ"
 
 #: qml/SearchBar.qml:41
 #, kde-format
@@ -1332,6 +1334,14 @@ msgctxt "@title:menu Category in settings"
 msgid "Error Log"
 msgstr "سجل الاخطاء"
 
+#: qml/Settings/ErrorListPage.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Clear All Errors"
+msgctxt "@action:button"
+msgid "Clear All"
+msgstr "مسح جميع الاخطاء"
+
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
@@ -1359,9 +1369,11 @@ msgid "Adjust time left based on current playback speed"
 msgstr "تعديل الوقت المتبقي بناء على سرعة التشغيل"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Prioritize streaming over downloading"
 msgctxt "@option:check"
-msgid "Prioritize streaming over downloading"
+msgid "Prefer streaming over downloading"
 msgstr "أعطِ الأولوية للبث على التنزيل"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
@@ -1664,10 +1676,12 @@ msgid "Synchronization"
 msgstr "المزامنة"
 
 #: qml/Settings/SettingsView.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "About Kasts"
 msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "عن"
+msgid "About Kasts"
+msgstr "عن كاست"
 
 #: qml/Settings/SettingsView.qml:57
 #, kde-format
@@ -2365,6 +2379,10 @@ msgstr "تخطي للأمام"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "إنهاء"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "About"
+#~ msgstr "عن"
 
 #~ msgid "Settings"
 #~ msgstr "الإعدادات"

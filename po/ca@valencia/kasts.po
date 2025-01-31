@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:40+0000\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
 "PO-Revision-Date: 2025-01-28 21:58+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -129,13 +129,13 @@ msgid "Open"
 msgstr "Obri"
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
 msgstr "Reproduïx"
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:390
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -187,42 +187,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproduïu un fitxer multimèdia"
 
-#: main.cpp:102
+#: main.cpp:105
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicació de pòdcast"
 
-#: main.cpp:104
+#: main.cpp:107
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Afig un pòdcast nou a les subscripcions."
 
-#: main.cpp:105
+#: main.cpp:108
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL del pòdcast"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:113 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de pòdcast"
 
-#: main.cpp:114
+#: main.cpp:117
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 La comunitat KDE"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -409,94 +409,94 @@ msgstr "Permet una vegada"
 msgid "Always Allow"
 msgstr "Permet sempre"
 
-#: qml/Desktop/DesktopPlayerControls.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
 msgstr "Busca arrere"
 
-#: qml/Desktop/DesktopPlayerControls.qml:139
+#: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
 msgstr "Busca avant"
 
-#: qml/Desktop/DesktopPlayerControls.qml:148
+#: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
 msgstr "Salta cap avant"
 
-#: qml/Desktop/DesktopPlayerControls.qml:168
+#: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
 msgstr "Velocitat de reproducció:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:225
+#: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Mostra la llista de capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:236
+#: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Mostra la informació dels episodis"
 
-#: qml/Desktop/DesktopPlayerControls.qml:247
+#: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Obri la configuració del temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Obri la configuració del volum"
 
-#: qml/Desktop/DesktopPlayerControls.qml:293
+#: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Canvia el silenci"
 
-#: qml/Desktop/DesktopPlayerControls.qml:310
+#: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mostra'n més"
 
-#: qml/Desktop/DesktopPlayerControls.qml:340
+#: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:348
+#: qml/Desktop/DesktopPlayerControls.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Mostra la informació"
 
-#: qml/Desktop/DesktopPlayerControls.qml:358
+#: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Temporitzador d'adormir-se"
 
-#: qml/Desktop/DesktopPlayerControls.qml:391
+#: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
 msgid "Chapters"
 msgstr "Capítols"
 
-#: qml/Desktop/DesktopPlayerControls.qml:417 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Peça sense títol"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -540,22 +540,24 @@ msgstr "Baixades"
 msgid "Refresh All Podcasts"
 msgstr "Torna a carregar tots els pòdcast"
 
-#: qml/DownloadListPage.qml:55
-#, kde-format
+#: qml/DownloadListPage.qml:56
+#, fuzzy, kde-format
+#| msgid "No downloads"
+msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "No hi ha cap baixada"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Downloading"
 msgstr "S'està descarregant"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Baixades incompletes"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Downloaded"
 msgstr "S'ha baixat"
@@ -674,13 +676,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Obri un pòdcast"
 
-#: qml/EntryPage.qml:289
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Copia l'URL de baixada de l'episodi"
 
-#: qml/EntryPage.qml:295
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -700,7 +702,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Busca"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "No episodes available"
 msgstr "No hi ha cap episodi disponible"
@@ -715,13 +717,13 @@ msgstr "Sense errors registrats"
 msgid "Error code:"
 msgstr "Codi d'error:"
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Registre d'errors"
 
-#: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
+#: qml/ErrorListOverlay.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
@@ -753,41 +755,41 @@ msgstr "Actualitza els pòdcast"
 msgid "Show Details"
 msgstr "Mostra els detalls"
 
-#: qml/FeedDetailsPage.qml:245
+#: qml/FeedDetailsPage.qml:238
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL del pòdcast:"
 
-#: qml/FeedDetailsPage.qml:285
+#: qml/FeedDetailsPage.qml:259
 #, kde-format
 msgid "Weblink:"
 msgstr "Enllaç web:"
 
-#: qml/FeedDetailsPage.qml:313
+#: qml/FeedDetailsPage.qml:279
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Subscrit des de: %1"
 
-#: qml/FeedDetailsPage.qml:326
+#: qml/FeedDetailsPage.qml:290
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Última actualització: %1"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 sense reproduir"
 msgstr[1] "%1 sense reproduir"
 
-#: qml/FeedDetailsPage.qml:361
+#: qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "S'ha produït un error (%1): %2"
@@ -1189,13 +1191,7 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr "Personalitza"
 
-#: qml/QueuePage.qml:62
-#, kde-format
-msgctxt "@info"
-msgid "Queue is empty"
-msgstr "La cua està buida"
-
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -1203,11 +1199,17 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 episodi"
 msgstr[1] "%1 episodis"
 
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Temps restant"
+
+#: qml/QueuePage.qml:91
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr "La cua està buida"
 
 #: qml/SearchBar.qml:41
 #, kde-format
@@ -1312,6 +1314,14 @@ msgctxt "@title:menu Category in settings"
 msgid "Error Log"
 msgstr "Registre d'errors"
 
+#: qml/Settings/ErrorListPage.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Clear All Errors"
+msgctxt "@action:button"
+msgid "Clear All"
+msgstr "Neteja tots els errors"
+
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
@@ -1340,9 +1350,11 @@ msgstr ""
 "Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Prioritize streaming over downloading"
 msgctxt "@option:check"
-msgid "Prioritize streaming over downloading"
+msgid "Prefer streaming over downloading"
 msgstr "Prioritza la transmissió en continu sobre la baixada"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
@@ -1639,10 +1651,12 @@ msgid "Synchronization"
 msgstr "Sincronitzeu"
 
 #: qml/Settings/SettingsView.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "About Kasts"
 msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "Quant a"
+msgid "About Kasts"
+msgstr "Quant a Kasts"
 
 #: qml/Settings/SettingsView.qml:57
 #, kde-format
@@ -2345,3 +2359,7 @@ msgstr "Salta cap avant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "About"
+#~ msgstr "Quant a"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:40+0000\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
 "PO-Revision-Date: 2025-01-06 18:58+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -126,13 +126,13 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
 msgstr "Ludi"
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:390
 #, kde-format
 msgid "Pause"
 msgstr "Paŭzo"
@@ -184,43 +184,43 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Ludante Komunikilon"
 
-#: main.cpp:102
+#: main.cpp:105
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podkasta Apliko"
 
-#: main.cpp:104
+#: main.cpp:107
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Aldonas novan podkaston al abonoj."
 
-#: main.cpp:105
+#: main.cpp:108
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podkasta URL"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:113 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podkasto-Ludilo"
 
-#: main.cpp:114
+#: main.cpp:117
 #, fuzzy, kde-format
 #| msgid "© 2020–2024 KDE Community"
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2024 KDE-Komunumo"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -406,94 +406,94 @@ msgstr "Permesi Unufoje"
 msgid "Always Allow"
 msgstr "Ĉiam Permesi"
 
-#: qml/Desktop/DesktopPlayerControls.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
 msgstr "Serĉi malantaŭen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:139
+#: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
 msgstr "Serĉi antaŭen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:148
+#: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
 msgstr "Salti antaŭen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:168
+#: qml/Desktop/DesktopPlayerControls.qml:169
 #, kde-format
 msgid "Playback rate:"
 msgstr "Reprodukta frekvenco:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:225
+#: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Montri liston de ĉapitroj"
 
-#: qml/Desktop/DesktopPlayerControls.qml:236
+#: qml/Desktop/DesktopPlayerControls.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Montri epizodajn informojn"
 
-#: qml/Desktop/DesktopPlayerControls.qml:247
+#: qml/Desktop/DesktopPlayerControls.qml:248
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Malfermi agordojn de dorma tempumilo"
 
-#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Malfermi laŭtecajn agordojn"
 
-#: qml/Desktop/DesktopPlayerControls.qml:293
+#: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Baskuligi silenton"
 
-#: qml/Desktop/DesktopPlayerControls.qml:310
+#: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Montri pli"
 
-#: qml/Desktop/DesktopPlayerControls.qml:340
+#: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Ĉapitroj"
 
-#: qml/Desktop/DesktopPlayerControls.qml:348
+#: qml/Desktop/DesktopPlayerControls.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Montri Informojn"
 
-#: qml/Desktop/DesktopPlayerControls.qml:358
+#: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Sleep Timer"
 
-#: qml/Desktop/DesktopPlayerControls.qml:391
+#: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
 msgid "Chapters"
 msgstr "Ĉapitroj"
 
-#: qml/Desktop/DesktopPlayerControls.qml:417 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Neniu Trak-titolo"
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -537,22 +537,24 @@ msgstr "Elŝutoj"
 msgid "Refresh All Podcasts"
 msgstr "Refreŝigi Ĉiujn Podkastojn"
 
-#: qml/DownloadListPage.qml:55
-#, kde-format
+#: qml/DownloadListPage.qml:56
+#, fuzzy, kde-format
+#| msgid "No downloads"
+msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Neniuj elŝutoj"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Downloading"
 msgstr "Elŝutante"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "Nekompletaj Elŝutoj"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:74
 #, kde-format
 msgid "Downloaded"
 msgstr "Elŝutite"
@@ -671,13 +673,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Malfermi Podkaston"
 
-#: qml/EntryPage.qml:289
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Kopii Epizod-Elŝutan URL"
 
-#: qml/EntryPage.qml:295
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -697,7 +699,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Serĉi"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "No episodes available"
 msgstr "Neniuj epizodoj haveblaj"
@@ -712,13 +714,13 @@ msgstr "Neniuj eraroj registritaj"
 msgid "Error code:"
 msgstr "Erarkodo:"
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Registro de eraroj"
 
-#: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
+#: qml/ErrorListOverlay.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
@@ -750,41 +752,41 @@ msgstr "Refreŝigi Podkaston"
 msgid "Show Details"
 msgstr "Montri Detalojn"
 
-#: qml/FeedDetailsPage.qml:245
+#: qml/FeedDetailsPage.qml:238
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podkasta URL:"
 
-#: qml/FeedDetailsPage.qml:285
+#: qml/FeedDetailsPage.qml:259
 #, kde-format
 msgid "Weblink:"
 msgstr "Retligilo:"
 
-#: qml/FeedDetailsPage.qml:313
+#: qml/FeedDetailsPage.qml:279
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Abonita ekde: %1"
 
-#: qml/FeedDetailsPage.qml:326
+#: qml/FeedDetailsPage.qml:290
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Laste ĝisdatigita: %1"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 Epizodo"
 msgstr[1] "%1 Epizodoj"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 Neludita"
 msgstr[1] "%1 Neluditaj"
 
-#: qml/FeedDetailsPage.qml:361
+#: qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Eraro (%1): %2"
@@ -1184,13 +1186,7 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr "Agordi"
 
-#: qml/QueuePage.qml:62
-#, kde-format
-msgctxt "@info"
-msgid "Queue is empty"
-msgstr "Vico estas malplena"
-
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
@@ -1198,11 +1194,17 @@ msgid_plural "%1 Episodes"
 msgstr[0] "1 Epizodo"
 msgstr[1] "%1 Epizodoj"
 
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Tempo restas"
+
+#: qml/QueuePage.qml:91
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr "Vico estas malplena"
 
 #: qml/SearchBar.qml:41
 #, kde-format
@@ -1306,6 +1308,14 @@ msgctxt "@title:menu Category in settings"
 msgid "Error Log"
 msgstr "Erarprotokolo"
 
+#: qml/Settings/ErrorListPage.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Clear All Errors"
+msgctxt "@action:button"
+msgid "Clear All"
+msgstr "Forigi Ĉiujn Erarojn"
+
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
@@ -1333,9 +1343,11 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Alĝustigi restantan tempon surbaze de la nuna reprodukta rapido"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Prioritize streaming over downloading"
 msgctxt "@option:check"
-msgid "Prioritize streaming over downloading"
+msgid "Prefer streaming over downloading"
 msgstr "Prioritatigi streaming super elŝutado"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
@@ -1631,10 +1643,12 @@ msgid "Synchronization"
 msgstr "Sinkronigo"
 
 #: qml/Settings/SettingsView.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Category in settings"
+#| msgid "About KDE"
 msgctxt "@title:menu Category in settings"
-msgid "About"
-msgstr "Pri"
+msgid "About Kasts"
+msgstr "Pri KDE"
 
 #: qml/Settings/SettingsView.qml:57
 #, fuzzy, kde-format
@@ -2333,6 +2347,10 @@ msgstr "Salti Antaŭen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "About"
+#~ msgstr "Pri"
 
 #~ msgid "Settings"
 #~ msgstr "Agordoj"

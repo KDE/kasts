@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-27 00:40+0000\n"
+"POT-Creation-Date: 2025-01-31 00:41+0000\n"
 "PO-Revision-Date: 2023-12-05 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -125,13 +125,13 @@ msgid "Open"
 msgstr "Otvoriť"
 
 #: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
 msgstr "Prehrať"
 
 #: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:390
 #, kde-format
 msgid "Pause"
 msgstr "Pozastaviť"
@@ -187,44 +187,44 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Prehrávam hudbu"
 
-#: main.cpp:102
+#: main.cpp:105
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplikácia na podcasty"
 
-#: main.cpp:104
+#: main.cpp:107
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr ""
 
-#: main.cpp:105
+#: main.cpp:108
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgid "Podcast URL"
 msgstr "Pridať Podcast"
 
-#: main.cpp:110 qml/Main.qml:25
+#: main.cpp:113 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:112
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Player"
 msgstr ""
 
-#: main.cpp:114
+#: main.cpp:117
 #, fuzzy, kde-format
 #| msgid "© 2020-2021 KDE Community"
 msgid "© 2020–2025 KDE Community"
 msgstr "KDE komunita"
 
-#: main.cpp:115
+#: main.cpp:118
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:116
+#: main.cpp:119
 #, kde-format
 msgid "Bart De Vries"
 msgstr ""
@@ -414,48 +414,48 @@ msgstr "Povoliť raz"
 msgid "Always Allow"
 msgstr "Vždy povoliť"
 
-#: qml/Desktop/DesktopPlayerControls.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:121
 #, kde-format
 msgid "Seek backward"
 msgstr "Posunúť dozadu"
 
-#: qml/Desktop/DesktopPlayerControls.qml:139
+#: qml/Desktop/DesktopPlayerControls.qml:140
 #, kde-format
 msgid "Seek forward"
 msgstr "Hľadať dopredu"
 
-#: qml/Desktop/DesktopPlayerControls.qml:148
+#: qml/Desktop/DesktopPlayerControls.qml:149
 #, kde-format
 msgid "Skip forward"
 msgstr "Preskočiť dopredu"
 
-#: qml/Desktop/DesktopPlayerControls.qml:168
+#: qml/Desktop/DesktopPlayerControls.qml:169
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Playback rate:"
 msgstr "Nastavenia"
 
-#: qml/Desktop/DesktopPlayerControls.qml:225
+#: qml/Desktop/DesktopPlayerControls.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:236
+#: qml/Desktop/DesktopPlayerControls.qml:237
 #, fuzzy, kde-format
 #| msgid "Episodes"
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Epizódy"
 
-#: qml/Desktop/DesktopPlayerControls.qml:247
+#: qml/Desktop/DesktopPlayerControls.qml:248
 #, fuzzy, kde-format
 #| msgid "Queue Settings"
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Nastavenia frontu"
 
-#: qml/Desktop/DesktopPlayerControls.qml:261
+#: qml/Desktop/DesktopPlayerControls.qml:262
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, fuzzy, kde-format
 #| msgid "Queue Settings"
@@ -463,50 +463,50 @@ msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Nastavenia frontu"
 
-#: qml/Desktop/DesktopPlayerControls.qml:293
+#: qml/Desktop/DesktopPlayerControls.qml:294
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Prepnúť stlmenie"
 
-#: qml/Desktop/DesktopPlayerControls.qml:310
+#: qml/Desktop/DesktopPlayerControls.qml:311
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Zobraziť ďalších %1"
 
-#: qml/Desktop/DesktopPlayerControls.qml:340
+#: qml/Desktop/DesktopPlayerControls.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Kapitoly"
 
-#: qml/Desktop/DesktopPlayerControls.qml:348
+#: qml/Desktop/DesktopPlayerControls.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Zobraziť informácie"
 
-#: qml/Desktop/DesktopPlayerControls.qml:358
+#: qml/Desktop/DesktopPlayerControls.qml:359
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:391
+#: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
 msgid "Chapters"
 msgstr "Kapitoly"
 
-#: qml/Desktop/DesktopPlayerControls.qml:417 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr ""
 
-#: qml/Desktop/DesktopPlayerControls.qml:422 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -554,25 +554,26 @@ msgstr "Sťahovania"
 msgid "Refresh All Podcasts"
 msgstr "Obnoviť všetky Podcast položky"
 
-#: qml/DownloadListPage.qml:55
+#: qml/DownloadListPage.qml:56
 #, fuzzy, kde-format
 #| msgid "Downloads"
+msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Sťahovania"
 
-#: qml/DownloadListPage.qml:71
+#: qml/DownloadListPage.qml:72
 #, fuzzy, kde-format
 #| msgid "Downloading %1"
 msgid "Downloading"
 msgstr "Preberá sa"
 
-#: qml/DownloadListPage.qml:72
+#: qml/DownloadListPage.qml:73
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Incomplete Downloads"
 msgstr "Stiahnuť"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:74
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "Downloaded"
@@ -700,14 +701,14 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Pridať Podcast"
 
-#: qml/EntryPage.qml:289
+#: qml/EntryPage.qml:284
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Sťahovania"
 
-#: qml/EntryPage.qml:295
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -729,7 +730,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Hľadať"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:361
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "No episodes available"
 msgstr ""
@@ -746,13 +747,13 @@ msgstr "Chybový záznam"
 msgid "Error code:"
 msgstr "Kód chyby: %1 (%2)"
 
-#: qml/ErrorListOverlay.qml:22 qml/Settings/ErrorListPage.qml:22
+#: qml/ErrorListOverlay.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
 msgstr "Chybový záznam"
 
-#: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
+#: qml/ErrorListOverlay.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
@@ -787,29 +788,29 @@ msgstr ""
 msgid "Show Details"
 msgstr "Zobraziť detaily"
 
-#: qml/FeedDetailsPage.qml:245
+#: qml/FeedDetailsPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Add Podcast"
 msgid "Podcast URL:"
 msgstr "Pridať Podcast"
 
-#: qml/FeedDetailsPage.qml:285
+#: qml/FeedDetailsPage.qml:259
 #, kde-format
 msgid "Weblink:"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:313
+#: qml/FeedDetailsPage.qml:279
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Prihlásený od: %1"
 
-#: qml/FeedDetailsPage.qml:326
+#: qml/FeedDetailsPage.qml:290
 #, fuzzy, kde-format
 #| msgid "Last updated: %1"
 msgid "Last updated: %1"
 msgstr "Naposledy aktualizované: %1."
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -819,7 +820,7 @@ msgstr[0] "Epizóda"
 msgstr[1] "Epizódy"
 msgstr[2] "Epizódy"
 
-#: qml/FeedDetailsPage.qml:339
+#: qml/FeedDetailsPage.qml:301
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -827,7 +828,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:361
+#: qml/FeedDetailsPage.qml:322
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
@@ -1251,13 +1252,7 @@ msgctxt "@action:button"
 msgid "Customize"
 msgstr "Prispôsobiť"
 
-#: qml/QueuePage.qml:62
-#, kde-format
-msgctxt "@info"
-msgid "Queue is empty"
-msgstr ""
-
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, fuzzy, kde-format
 #| msgid "1 episode"
 #| msgid_plural "%1 episodes"
@@ -1268,11 +1263,17 @@ msgstr[0] "Epizóda"
 msgstr[1] "Epizódy"
 msgstr[2] "Epizódy"
 
-#: qml/QueuePage.qml:71
+#: qml/QueuePage.qml:76
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
 msgstr "Zostávajúci čas"
+
+#: qml/QueuePage.qml:91
+#, kde-format
+msgctxt "@info"
+msgid "Queue is empty"
+msgstr ""
 
 #: qml/SearchBar.qml:41
 #, fuzzy, kde-format
@@ -1383,6 +1384,13 @@ msgctxt "@title:menu Category in settings"
 msgid "Error Log"
 msgstr "Chybový záznam"
 
+#: qml/Settings/ErrorListPage.qml:24
+#, fuzzy, kde-format
+#| msgid "Select All"
+msgctxt "@action:button"
+msgid "Clear All"
+msgstr "Vybrať všetko"
+
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Settings"
@@ -1415,7 +1423,7 @@ msgstr ""
 #: qml/Settings/GeneralSettingsPage.qml:81
 #, kde-format
 msgctxt "@option:check"
-msgid "Prioritize streaming over downloading"
+msgid "Prefer streaming over downloading"
 msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:93
@@ -1738,7 +1746,7 @@ msgstr "Synchronizácia"
 #, fuzzy, kde-format
 #| msgid "About"
 msgctxt "@title:menu Category in settings"
-msgid "About"
+msgid "About Kasts"
 msgstr "O aplikácii"
 
 #: qml/Settings/SettingsView.qml:57
@@ -2445,6 +2453,12 @@ msgstr "Preskočiť dopredu"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončiť"
+
+#, fuzzy
+#~| msgid "About"
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "About"
+#~ msgstr "O aplikácii"
 
 #~ msgid "Settings"
 #~ msgstr "Nastavenia"
