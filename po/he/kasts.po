@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-27 08:24+0200\n"
+"PO-Revision-Date: 2025-01-31 10:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -534,8 +534,7 @@ msgid "Refresh All Podcasts"
 msgstr "ריענון כל ההסכתים"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "אין הורדות"
@@ -1319,12 +1318,10 @@ msgid "Error Log"
 msgstr "יומן שגיאות"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "פינוי כל השגיאות"
+msgstr "פינוי הכול"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1353,12 +1350,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "התאמת הזמן שנשאר לפי מהירות הנגינה הנוכחית"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "תיעדוף הזרמה על פני הורדה"
+msgstr "עדיף הזרמה על פני הורדה"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1656,9 +1651,7 @@ msgid "Synchronization"
 msgstr "סנכרון"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "על Kasts"

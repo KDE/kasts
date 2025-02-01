@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-27 17:58+0100\n"
+"PO-Revision-Date: 2025-01-31 07:45+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -532,8 +532,7 @@ msgid "Refresh All Podcasts"
 msgstr "Uppdatera alla poddradioprogram"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Inga nerladdningar"
@@ -1305,12 +1304,10 @@ msgid "Error Log"
 msgstr "Fellogg"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Rensa alla fel"
+msgstr "Rensa alla"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1339,12 +1336,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Justera återstående tid baserat på nuvarande uppspelningshastighet"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Prioritera strömning över nerladdning"
+msgstr "Föredra strömning över nerladdning"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1639,9 +1634,7 @@ msgid "Synchronization"
 msgstr "Synkronisering"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Om Kasts"

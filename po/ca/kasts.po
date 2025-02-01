@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-28 21:58+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2025-01-31 10:17+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -540,8 +540,7 @@ msgid "Refresh All Podcasts"
 msgstr "Recarrega tots els pòdcasts"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "No hi ha cap baixada"
@@ -1314,12 +1313,10 @@ msgid "Error Log"
 msgstr "Registre d'errors"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Neteja tots els errors"
+msgstr "Neteja-ho tot"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1349,12 +1346,10 @@ msgstr ""
 "Ajusta el temps restant en funció de la velocitat actual de reproducció"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Prioritza la transmissió en continu sobre la baixada"
+msgstr "Prefereix la transmissió en continu sobre la baixada"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1650,9 +1645,7 @@ msgid "Synchronization"
 msgstr "Sincronització"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Quant al Kasts"

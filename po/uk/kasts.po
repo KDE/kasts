@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-27 10:00+0200\n"
+"PO-Revision-Date: 2025-01-31 09:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -541,8 +541,7 @@ msgid "Refresh All Podcasts"
 msgstr "Оновити усі трансляції"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Немає отриманих даних"
@@ -1328,12 +1327,10 @@ msgid "Error Log"
 msgstr "Журнал помилок"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Вилучити усі записи помилок"
+msgstr "Вилучити все"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1362,9 +1359,7 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Коригувати час, що залишився, на основі поточної швидкості відтворення"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
 msgstr "Пріоритет потокового передавання над отриманням даних"
@@ -1668,9 +1663,7 @@ msgid "Synchronization"
 msgstr "Синхронізація"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Про Kasts"
