@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-28 18:20+0100\n"
+"PO-Revision-Date: 2025-02-01 21:03+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -540,11 +540,10 @@ msgid "Refresh All Podcasts"
 msgstr "Berritu podcast guztiak"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
-msgstr "Zama-jaitsitakorik ez"
+msgstr "Zama-jaitsierarik ez"
 
 #: qml/DownloadListPage.qml:72
 #, kde-format
@@ -1313,12 +1312,10 @@ msgid "Error Log"
 msgstr "Erroreen egunkaria"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Garbitu errore guztiak"
+msgstr "Garbitu dena"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1347,12 +1344,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Doitu falta den denbora, uneko atzera-jotze abiaduran oinarrituta"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Eman lehentasuna korronteei zama-jaistearen gainetik"
+msgstr "Hobetsi igortzea zama-jaistearen gainetik"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1648,9 +1643,7 @@ msgid "Synchronization"
 msgstr "Sinkronizatzea"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Kasts-eri buruz"
