@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-28 08:58+0100\n"
+"PO-Revision-Date: 2025-02-01 10:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -539,8 +539,7 @@ msgid "Refresh All Podcasts"
 msgstr "Rafraîchir tous les podcasts"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Aucun téléchargement"
@@ -1313,12 +1312,10 @@ msgid "Error Log"
 msgstr "Journal d'erreurs"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Effacer toutes les erreurs"
+msgstr "Tout effacer"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1347,12 +1344,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Ajuster le temps restant à partir de la vitesse courante de lecture"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Prioriser la lecture en flux par rapport au téléchargement"
+msgstr "Préférer la lecture de flux par rapport au téléchargement"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1652,9 +1647,7 @@ msgid "Synchronization"
 msgstr "Synchronisation"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "À propos de Kasts"
