@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-27 07:30+0100\n"
+"PO-Revision-Date: 2025-02-03 09:49+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -538,8 +538,7 @@ msgid "Refresh All Podcasts"
 msgstr "Osveži vse spletne oddaje"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Ni prejemov"
@@ -1323,12 +1322,10 @@ msgid "Error Log"
 msgstr "Dnevnik napak"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Počisti vse napake"
+msgstr "Počisti vse"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1357,9 +1354,7 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Prilagodi preostali čas na osnovi hitrosti predvajanja"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
 msgstr "Daj prednost pretakanju v živo pred prejemanjem"
@@ -1662,9 +1657,7 @@ msgid "Synchronization"
 msgstr "Sinhronizacija"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "O Kasts"

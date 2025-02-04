@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-28 19:05+0400\n"
+"PO-Revision-Date: 2025-02-03 16:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -536,8 +536,7 @@ msgid "Refresh All Podcasts"
 msgstr "تحديث جميع المدونات الصوتية"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "لا يوجد تنزيلات"
@@ -1335,12 +1334,10 @@ msgid "Error Log"
 msgstr "سجل الاخطاء"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "مسح جميع الاخطاء"
+msgstr "امسح الكلّ"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1369,12 +1366,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "تعديل الوقت المتبقي بناء على سرعة التشغيل"
 
 #: qml/Settings/GeneralSettingsPage.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "أعطِ الأولوية للبث على التنزيل"
+msgstr "فضّل البث المباشر على التنزيل"
 
 #: qml/Settings/GeneralSettingsPage.qml:93
 #, kde-format
@@ -1676,9 +1671,7 @@ msgid "Synchronization"
 msgstr "المزامنة"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "عن كاست"
