@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -12,7 +14,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kasts
 
 Controls.Control {
-    id: searchFilterBar
+    id: root
 
     required property var proxyModel
     required property var parentKey
@@ -42,12 +44,12 @@ Controls.Control {
         focus: true
         autoAccept: false
         onAccepted: {
-            proxyModel.searchFilter = searchField.text;
+            root.proxyModel.searchFilter = searchField.text;
         }
 
         Kirigami.Action {
             id: searchSettingsButton
-            visible: showSearchFilters
+            visible: root.showSearchFilters
             enabled: visible
             icon.name: "settings-configure"
             text: i18nc("@action:intoolbar", "Advanced Search Options")
@@ -71,7 +73,7 @@ Controls.Control {
         }
 
         Keys.onEscapePressed: (event) => {
-            proxyModel.searchFilter = "";
+            root.proxyModel.searchFilter = "";
             parentKey.checked = false;
             event.accepted = true;
         }
@@ -120,15 +122,19 @@ Controls.Control {
         Repeater {
             model: searchSettingsModel
 
-            Controls.MenuItem {
-                text: model.name
+            delegate: Controls.MenuItem {
+                required property string name
+                required property bool isChecked
+                required property var searchFlags
+
+                text: name
                 checkable: true
-                checked: model.checked
+                checked: isChecked
                 onTriggered: {
                     if (checked) {
-                        proxyModel.searchFlags = proxyModel.searchFlags | model.searchFlag;
+                        root.proxyModel.searchFlags = root.proxyModel.searchFlags | model.searchFlag;
                     } else {
-                        proxyModel.searchFlags = proxyModel.searchFlags & ~model.searchFlag;
+                        root.proxyModel.searchFlags = root.proxyModel.searchFlags & ~model.searchFlag;
                     }
                 }
             }
