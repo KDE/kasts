@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -29,12 +31,12 @@ Item {
         id: imageLoader
         anchors.fill: parent
         visible: false
-        sourceComponent: (imageSource === "no-image" || imageSource === "") ? fallbackImg : (imageSource === "fetching" ? loaderSymbol : realImg )
+        sourceComponent: (root.imageSource === "no-image" || root.imageSource === "") ? fallbackImg : (root.imageSource === "fetching" ? loaderSymbol : realImg )
     }
 
     MultiEffect {
         anchors.fill: parent
-        source: imageLoader.item
+        source: imageLoader.item as Item
         opacity: root.imageOpacity
         maskEnabled: true
         maskThresholdMin: 0.5
@@ -46,7 +48,7 @@ Item {
                 anchors.centerIn: parent
                 width: imageLoader.adapt ? imageLoader.width : Math.min(imageLoader.width, imageLoader.height)
                 height: imageLoader.adapt ? imageLoader.height : width
-                radius: (absoluteRadius > 0) ? absoluteRadius : ( (fractionalRadius > 0) ? Math.min(width, height)*fractionalRadius : 0 )
+                radius: (root.absoluteRadius > 0) ? root.absoluteRadius : ( (root.fractionalRadius > 0) ? Math.min(width, height) * root.fractionalRadius : 0 )
             }
         }
     }
@@ -116,7 +118,7 @@ Item {
 
     Loader {
         anchors.fill: parent
-        active: root.imageTitle !== "" && (SettingsManager.alwaysShowFeedTitles ? true : (imageSource === "no-image" || imageSource === "fetching"))
+        active: root.imageTitle !== "" && (SettingsManager.alwaysShowFeedTitles ? true : (root.imageSource === "no-image" || root.imageSource === "fetching"))
         sourceComponent: imageText
     }
 
@@ -138,7 +140,7 @@ Item {
     }
 
     Loader {
-        active: isLoading
+        active: root.isLoading
         sourceComponent: loaderSymbol
         anchors.fill: parent
     }
