@@ -25,6 +25,20 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
+        FormCard.FormSwitchDelegate {
+            id: defaultStoragePath
+            visible: Qt.platform.os !== "android" // not functional on android
+            checked: SettingsManager.storagePath == ""
+            text: i18nc("@option:check", "Use default path")
+            onToggled: {
+                if (checked) {
+                    StorageManager.setStoragePath("");
+                }
+            }
+        }
+
+        FormCard.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
+
         FormCard.FormTextDelegate {
             id: storagePath
             visible: Qt.platform.os !== "android" // not functional on android
@@ -43,20 +57,6 @@ FormCard.FormCardPage {
             StorageDirDialog {
                 id: storagePathDialog
                 title: i18nc("@title of dialog box", "Select Storage Path")
-            }
-        }
-
-        FormCard.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
-
-        FormCard.FormCheckDelegate {
-            id: defaultStoragePath
-            visible: Qt.platform.os !== "android" // not functional on android
-            checked: SettingsManager.storagePath == ""
-            text: i18nc("@option:check", "Use default path")
-            onToggled: {
-                if (checked) {
-                    StorageManager.setStoragePath("");
-                }
             }
         }
     }

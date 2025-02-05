@@ -56,7 +56,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: showTimeLeft
             checked: SettingsManager.toggleRemainingTime
             text: i18nc("@option:check Label for setting whether the total track time is shown or a countdown of the remaining play time", "Show time left instead of total track time")
@@ -65,7 +65,7 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: adjustTimeLeft
             checked: SettingsManager.adjustTimeLeft
             enabled: SettingsManager.toggleRemainingTime
@@ -75,7 +75,7 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: prioritizeStreaming
             checked: SettingsManager.prioritizeStreaming
             text: i18nc("@option:check", "Prefer streaming over downloading")
@@ -128,7 +128,7 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: autoFeedUpdateInterval
-            text: i18nc("@label:listbox", "Automatically fetch podcast feeds")
+            text: i18nc("@label:listbox", "Periodically retrieve podcast feeds")
             textRole: "text"
             valueRole: "value"
             model: [{"text": i18nc("@item:inlistbox automatic podcast update interval", "Never"), "value": 0},
@@ -146,7 +146,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: refreshOnStartup
             checked: SettingsManager.refreshOnStartup
             text: i18nc("@option:check", "Fetch podcast updates on startup")
@@ -159,7 +159,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator { above: refreshOnStartup; below: doFullUpdate }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: doFullUpdate
             checked: SettingsManager.doFullUpdate
             text: i18nc("@option:check", "Update existing episode data on refresh (slower)")
@@ -169,7 +169,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: autoQueue
             checked: SettingsManager.autoQueue
             text: i18nc("@option:check", "Automatically queue new episodes")
@@ -184,7 +184,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: autoDownload
             checked: SettingsManager.autoDownload
             text: i18nc("@option:check", "Automatically download new episodes")
@@ -205,7 +205,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: continuePlayingNextEntry
             checked: SettingsManager.continuePlayingNextEntry
             text: i18nc("@option:check", "Continue playing next episode after current one finishes")
@@ -217,7 +217,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator { above: continuePlayingNextEntry; below: resetPositionOnPlayed }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: resetPositionOnPlayed
             checked: SettingsManager.resetPositionOnPlayed
             text: i18nc("@option:check", "Reset play position after an episode is played")

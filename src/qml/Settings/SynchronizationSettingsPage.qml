@@ -82,7 +82,7 @@ Kirigami.ScrollablePage {
         FormCard.FormCard {
             Layout.fillWidth: true
 
-            FormCard.FormCheckDelegate {
+            FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.refreshOnStartup
                 text: i18nc("@option:check", "Do full sync on startup")
@@ -92,7 +92,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            FormCard.FormCheckDelegate {
+            FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.syncWhenUpdatingFeeds
                 text: i18nc("@option:check", "Do full sync when fetching podcasts")
@@ -102,7 +102,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            FormCard.FormCheckDelegate {
+            FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.syncWhenPlayerstateChanges
                 text: i18nc("@option:check", "Upload episode play positions on play/pause toggle")

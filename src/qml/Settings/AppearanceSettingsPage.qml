@@ -63,7 +63,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: alwaysShowFeedTitles
             text: i18nc("@option:check", "Always show podcast titles in subscription view")
             checked: SettingsManager.alwaysShowFeedTitles
@@ -73,9 +73,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator {}
-
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: showEpisodeImage
             text: i18nc("@option:check", "Show episode image instead of podcast image in lists")
             checked: SettingsManager.showEpisodeImage
@@ -85,9 +83,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator {}
-
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: showPodcastTitle
             text: i18nc("@option:check", "Show podcast titles in episode lists")
             checked: SettingsManager.showPodcastTitle
@@ -106,7 +102,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: showTrayIcon
             visible: SystrayIcon.available
             enabled: SystrayIcon.available
@@ -118,7 +114,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: minimizeToTray
             visible: SystrayIcon.available
             enabled: SettingsManager.showTrayIcon && SystrayIcon.available
@@ -158,7 +154,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: useSystemFontCheckBox
             checked: SettingsManager.articleFontUseSystem
             text: i18nc("@option:check", "Use system default")

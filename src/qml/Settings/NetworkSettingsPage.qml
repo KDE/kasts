@@ -30,7 +30,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: doNetworkChecks
             checked: SettingsManager.checkNetworkStatus
             text: i18nc("@option:check", "Enable network connection checks")
@@ -49,7 +49,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: allowMeteredFeedUpdates
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredFeedUpdates
@@ -60,7 +60,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: allowMeteredEpisodeDownloads
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredEpisodeDownloads
@@ -71,7 +71,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: allowMeteredImageDownloads
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredImageDownloads
@@ -82,7 +82,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormCheckDelegate {
+        FormCard.FormSwitchDelegate {
             id: allowMeteredStreaming
             enabled: SettingsManager.checkNetworkStatus
             checked: SettingsManager.allowMeteredStreaming
