@@ -172,6 +172,10 @@ Kirigami.ScrollablePage {
         fileMode: FileDialog.SaveFile
     }
 
+    ConnectionCheckAction {
+        id: updateAllFeeds
+    }
+
     GridView {
         id: feedList
         currentIndex: -1

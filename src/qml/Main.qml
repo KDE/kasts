@@ -43,7 +43,7 @@ Kirigami.ApplicationWindow {
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
         if (kastsMainWindow.isMobile) {
-            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( footerLoader.item.contentY == 0 ? miniplayerSize : 0 ) : 0 )
+            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( (footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0 ) : 0 )
         } else {
             return Kirigami.Units.largeSpacing;
         }
@@ -271,12 +271,6 @@ Kirigami.ApplicationWindow {
     // overlay with log of all errors that have happened
     ErrorListOverlay {
         id: errorOverlay
-    }
-
-    // This item can be used to trigger an update of all feeds; it will open an
-    // overlay with options in case the operation is not allowed by the settings
-    ConnectionCheckAction {
-        id: updateAllFeeds
     }
 
     // Overlay with options what to do when metered downloads are not allowed

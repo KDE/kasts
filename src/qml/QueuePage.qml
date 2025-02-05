@@ -96,8 +96,13 @@ Kirigami.ScrollablePage {
         }
 
         delegate: FocusScope {
+            id: focusScope
             width: queueList.width
             height: entryDelegate.height
+
+            required property Entry entry
+            required property int index
+
             GenericEntryDelegate {
                 id: entryDelegate
                 width: parent.width
@@ -105,6 +110,8 @@ Kirigami.ScrollablePage {
                 listView: queueList
                 listViewObject: queueList
                 focus: parent.visualFocus || parent.activeFocus
+                entry: focusScope.entry
+                index: focusScope.index
             }
         }
 
@@ -115,4 +122,9 @@ Kirigami.ScrollablePage {
             }
         }
     }
+
+    ConnectionCheckAction {
+        id: updateAllFeeds
+    }
+
 }

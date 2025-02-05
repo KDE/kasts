@@ -16,12 +16,13 @@ import org.kde.kmediasession
 import org.kde.kasts
 
 AddonDelegates.RoundedItemDelegate {
-    id: listItem
+    id: root
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    visible: entry ? true : false
+    required property Entry entry
+    required property int index
 
     property bool isQueue: false
     property bool isDownloads: false
@@ -29,16 +30,15 @@ AddonDelegates.RoundedItemDelegate {
     property bool showFeedTitle: SettingsManager.showPodcastTitle
     property QtObject listViewObject: undefined
     property bool selected: false
-    property int row: model ? model.row : -1
 
-    property bool showRemoveFromQueueButton: entry ? (!entry.enclosure && entry.queueStatus) : false
-    property bool showDownloadButton: entry ? (entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
-    property bool showCancelDownloadButton: entry ? (entry.enclosure && entry.enclosure.status === Enclosure.Downloading) : false
-    property bool showDeleteDownloadButton: entry ? (isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
-    property bool showAddToQueueButton: entry ? (!isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded) : false
-    property bool showPlayButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
-    property bool showStreamingPlayButton: entry ? (!isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)) : false
-    property bool showPauseButton: entry ? (!isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)) : false
+    property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
+    property bool showDownloadButton: entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+    property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+    property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton : Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
@@ -51,7 +51,7 @@ AddonDelegates.RoundedItemDelegate {
     highlighted: selected
 
     Accessible.role: Accessible.Button
-    Accessible.name: entry ? entry.title : ""
+    Accessible.name: entry.title
     Accessible.onPressAction: {
          delegateTapped();
     }
@@ -65,10 +65,10 @@ AddonDelegates.RoundedItemDelegate {
     // - if our delegate moves
     // - if the model moves and the delegate stays in the same place
     function updateIsSelected() {
-        selected = listViewObject.selectionModel.rowIntersectsSelection(row);
+        selected = listViewObject.selectionModel.rowIntersectsSelection(root.index);
     }
 
-    onRowChanged: {
+    onIndexChanged: {
         updateIsSelected();
     }
 
@@ -103,7 +103,7 @@ AddonDelegates.RoundedItemDelegate {
         acceptedModifiers: Qt.ShiftModifier
 
         onTapped: (eventPoint) => {
-            const modelIndex = listItem.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(index, 0);
 
             // Have to take a detour through c++ since selecting large sets
             // in QML is extremely slow
@@ -120,7 +120,7 @@ AddonDelegates.RoundedItemDelegate {
         acceptedModifiers: Qt.ControlModifier
 
         onTapped: (eventPoint) => {
-            const modelIndex = listItem.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(index, 0);
 
             listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
@@ -136,7 +136,7 @@ AddonDelegates.RoundedItemDelegate {
         onSingleTapped: (eventPoint, button) => {
 
             // Keep track of (currently) selected items
-            const modelIndex = listItem.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(index, 0);
 
             if (listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
                 listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
@@ -152,31 +152,31 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         onLongPressed: {
-            const modelIndex = listItem.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(index, 0);
             listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
     }
 
     contentItem: RowLayout {
         Connections {
-            target: listViewObject.selectionModel
+            target: root.listViewObject.selectionModel
             function onSelectionChanged() {
-                updateIsSelected();
+                root.updateIsSelected();
             }
         }
 
         Connections {
-            target: listViewObject.model
+            target: root.listViewObject.model
             function onLayoutChanged() {
-                updateIsSelected();
+                root.updateIsSelected();
             }
         }
 
         Loader {
-            property var loaderListView: listViewObject
-            property var loaderListItem: listItem
+            property var loaderListView: root.listViewObject
+            property var loaderListItem: root
             sourceComponent: dragHandleComponent
-            active: isQueue
+            active: root.isQueue
         }
 
         Component {
@@ -187,7 +187,7 @@ AddonDelegates.RoundedItemDelegate {
                 onMoveRequested: (oldIndex, newIndex) => {
                     DataManager.moveQueueItem(oldIndex, newIndex);
                     // reset current selection when moving items
-                    var modelIndex = listItem.listView.model.index(newIndex, 0);
+                    var modelIndex = root.listView.model.index(newIndex, 0);
                     listViewObject.currentIndex = newIndex;
                     listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
@@ -196,7 +196,7 @@ AddonDelegates.RoundedItemDelegate {
 
         ImageWithFallback {
             id: img
-            imageSource: entry ? ( showFeedImage ? entry.feed.cachedImage : entry.cachedImage ) : "no-image"
+            imageSource: root.showFeedImage ? root.entry.feed.cachedImage : root.entry.cachedImage
             property int size: Kirigami.Units.gridUnit * 3
             Layout.preferredHeight: size
             Layout.preferredWidth: size
@@ -213,39 +213,39 @@ AddonDelegates.RoundedItemDelegate {
                     Layout.maximumHeight: playedLabel.implicitHeight
                     Layout.maximumWidth:  playedLabel.implicitHeight
                     source: "checkbox"
-                    visible: entry ? entry.read : false
+                    visible: root.entry.read
                 }
                 Controls.Label {
                     id: playedLabel
-                    text: entry ? ((entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·") : ""
+                    text: (root.entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
                     font: Kirigami.Theme.smallFont
-                    visible: entry ? entry.read : false
+                    visible: root.entry.read
                     opacity: 0.7
                 }
                 Controls.Label {
-                    text: entry ? (entry.new ? i18n("New") + "  ·" : "") : ""
+                    text: root.entry.new ? i18n("New") + "  ·" : ""
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
-                    visible: entry ? entry.new : false
+                    visible: root.entry.new
                     opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "starred-symbolic"
-                    visible: entry ? (entry.favorite) : false
+                    visible: root.entry.favorite
                     opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth:  0.8 * supertitle.implicitHeight
                     source: "source-playlist"
-                    visible: entry ? (!isQueue && entry.queueStatus) : false
+                    visible: !root.isQueue && root.entry.queueStatus
                     opacity: 0.7
                 }
                 Controls.Label {
                     id: supertitle
-                    text: entry ? (((!isQueue && entry.queueStatus) || entry.favorite ? "·  " : "") + entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (entry.enclosure ? ( entry.enclosure.size !== 0 ? "  ·  " + entry.enclosure.formattedSize : "") : "" ) + ((entry.feed && showFeedTitle) ? "  ·  " + entry.feed.name : "")) : ""
+                    text: ((!root.isQueue && root.entry.queueStatus) || root.entry.favorite ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? ( root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "" ) + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "")
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -253,19 +253,19 @@ AddonDelegates.RoundedItemDelegate {
                 }
             }
             Controls.Label {
-                text: entry ? entry.title : ""
+                text: root.entry.title
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: entry ? (entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || (isDownloads && entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( entry.enclosure && entry.enclosure.playPosition > 0 ? playProgress : subtitle)) : undefined
+                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: entry ? (entry.enclosure ? entry.enclosure.formattedDuration : "") : ""
+                    text: entry.enclosure ? entry.enclosure.formattedDuration : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -277,7 +277,7 @@ AddonDelegates.RoundedItemDelegate {
                 id: downloadProgress
                 RowLayout {
                     Controls.Label {
-                        text: entry ? entry.enclosure.formattedDownloadSize : ""
+                        text: entry.enclosure.formattedDownloadSize
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -285,11 +285,11 @@ AddonDelegates.RoundedItemDelegate {
                     Controls.ProgressBar {
                         from: 0
                         to: 1
-                        value: entry ? entry.enclosure.downloadProgress : 0
+                        value: entry.enclosure.downloadProgress
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: entry ? entry.enclosure.formattedSize : ""
+                        text: entry.enclosure.formattedSize
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -300,21 +300,21 @@ AddonDelegates.RoundedItemDelegate {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: entry ? entry.enclosure.formattedPlayPosition : ""
+                        text: entry.enclosure.formattedPlayPosition
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
                         from: 0
-                        to: entry ? entry.enclosure.duration : 1
-                        value: entry ? entry.enclosure.playPosition / 1000 : 0
+                        to: entry.enclosure.duration
+                        value: entry.enclosure.playPosition / 1000
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: entry ? ((SettingsManager.toggleRemainingTime)
+                        text: SettingsManager.toggleRemainingTime
                                 ? "-" + entry.enclosure.formattedLeftDuration
-                                : entry.enclosure.formattedDuration) : ""
+                                : entry.enclosure.formattedDuration
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -327,9 +327,9 @@ AddonDelegates.RoundedItemDelegate {
             text: i18n("Remove from Queue")
             icon.name: "list-remove"
             onClicked: {
-                entry.queueStatus = false;
+                root.entry.queueStatus = false;
             }
-            visible: showRemoveFromQueueButton
+            visible: root.showRemoveFromQueueButton
         }
 
         IconOnlyButton {
@@ -339,36 +339,36 @@ AddonDelegates.RoundedItemDelegate {
                 downloadOverlay.entry = entry;
                 downloadOverlay.run();
             }
-            visible: showDownloadButton
+            visible: root.showDownloadButton
         }
 
         IconOnlyButton {
             text: i18n("Cancel Download")
             icon.name: "edit-delete-remove"
-            onClicked: entry.enclosure.cancelDownload()
-            visible: showCancelDownloadButton
+            onClicked: root.entry.enclosure.cancelDownload()
+            visible: root.showCancelDownloadButton
         }
 
         IconOnlyButton {
             text: i18n("Delete Download")
             icon.name: "delete"
-            onClicked: entry.enclosure.deleteFile()
-            visible: showDeleteDownloadButton
+            onClicked: root.entry.enclosure.deleteFile()
+            visible: root.showDeleteDownloadButton
         }
 
         IconOnlyButton {
             text: i18n("Add to Queue")
             icon.name: "media-playlist-append"
-            visible: showAddToQueueButton
-            onClicked: entry.queueStatus = true
+            visible: root.showAddToQueueButton
+            onClicked: root.entry.queueStatus = true
         }
 
         IconOnlyButton {
             text: i18n("Play")
             icon.name: "media-playback-start"
-            visible: showPlayButton
+            visible: root.showPlayButton
             onClicked: {
-                AudioManager.entry = entry;
+                AudioManager.entry = root.entry;
                 AudioManager.play();
             }
         }
@@ -376,12 +376,12 @@ AddonDelegates.RoundedItemDelegate {
         IconOnlyButton {
             text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
             icon.name: "media-playback-cloud"
-            visible: showStreamingPlayButton
+            visible: root.showStreamingPlayButton
             onClicked: {
-                if (!entry.queueStatus) {
-                    entry.queueStatus = true;
+                if (!root.entry.queueStatus) {
+                    root.entry.queueStatus = true;
                 }
-                AudioManager.entry = entry;
+                AudioManager.entry = root.entry;
                 AudioManager.play();
             }
         }
@@ -389,7 +389,7 @@ AddonDelegates.RoundedItemDelegate {
         IconOnlyButton {
             text: i18n("Pause")
             icon.name: "media-playback-pause"
-            visible: showPauseButton
+            visible: root.showPauseButton
             onClicked: AudioManager.pause()
         }
     }

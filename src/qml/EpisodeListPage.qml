@@ -108,4 +108,8 @@ Kirigami.ScrollablePage {
             proxyModel: episodeProxyModel
         }
     }
+
+    ConnectionCheckAction {
+        id: updateAllFeeds
+    }
 }

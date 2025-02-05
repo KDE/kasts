@@ -63,7 +63,7 @@ Kirigami.Dialog {
             Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            text: NetworkConnectionManager.networkReachable ? headingText : i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
+            text: NetworkConnectionManager.networkReachable ? overlay.headingText : i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
             wrapMode: Text.Wrap
             color: NetworkConnectionManager.networkReachable ?Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
@@ -83,8 +83,8 @@ Kirigami.Dialog {
 
             text: i18n("Don't Allow")
             onClicked: {
-                abortAction();
-                close();
+                overlay.abortAction();
+                overlay.close();
             }
         }
 
@@ -97,8 +97,8 @@ Kirigami.Dialog {
 
             text: i18n("Allow Once")
             onClicked: {
-                allowOnceAction();
-                close();
+                overlay.allowOnceAction();
+                overlay.close();
             }
         }
 
@@ -111,8 +111,8 @@ Kirigami.Dialog {
 
             text: i18n("Always Allow")
             onClicked: {
-                alwaysAllowAction();
-                close();
+                overlay.alwaysAllowAction();
+                overlay.close();
             }
         }
     }

@@ -11,12 +11,15 @@
 #include <QObject>
 #include <QString>
 #include <QVector>
+#include <qqmlintegration.h>
 
 #include "models/entriesproxymodel.h"
 
 class Feed : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(QString url READ url CONSTANT)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
@@ -96,7 +99,7 @@ Q_SIGNALS:
     void unreadEntryCountChanged();
     void newEntryCountChanged();
     void favoriteEntryCountChanged();
-    void errorIdChanged(int &errorId);
+    void errorIdChanged(int errorId);
     void errorStringChanged(const QString &errorString);
 
     void refreshingChanged(bool refreshing);

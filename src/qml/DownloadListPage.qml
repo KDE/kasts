@@ -77,4 +77,8 @@ Kirigami.ScrollablePage {
             property: "entry.enclosure.status"
         }
     }
+
+    ConnectionCheckAction {
+        id: updateAllFeeds
+    }
 }
