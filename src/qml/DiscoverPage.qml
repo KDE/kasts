@@ -14,7 +14,8 @@ import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    id: page
+    id: root
+
     title: i18nc("@title of page allowing to search for new podcasts online", "Discover")
     property var feedModel: ""
 
