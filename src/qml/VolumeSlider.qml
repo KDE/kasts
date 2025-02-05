@@ -23,7 +23,7 @@ Controls.Slider {
     Layout.topMargin: Kirigami.Units.smallSpacing
     orientation: Qt.Vertical
     padding: 0
-    enabled: !AudioManager.muted && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+    enabled: !AudioManager.muted && AudioManager.playbackState != AudioManager.StoppedState && AudioManager.canPlay
     from: 0
     to: 100
     value: AudioManager.volume
