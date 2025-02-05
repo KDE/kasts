@@ -17,8 +17,6 @@ Kirigami.ScrollablePage {
     id: root
 
     title: i18nc("@title of page allowing to search for new podcasts online", "Discover")
-    property var feedModel: ""
-
 
     header: Controls.Control {
         padding: Kirigami.Units.largeSpacing
