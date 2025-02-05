@@ -19,6 +19,8 @@
 class Entry : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
     Q_PROPERTY(QString id READ id CONSTANT)
