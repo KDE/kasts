@@ -8,7 +8,6 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
-import org.kde.kirigami as Kirigami
 import org.kde.kirigami.delegates as Delegates
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kmediasession
@@ -21,23 +20,28 @@ AddonDelegates.RoundedItemDelegate {
     property var entry: undefined
     property var overlay: undefined
 
+    required property Chapter chapter
+    required property string title
+    required property string formattedStart
+    required property int start
+
     property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
 
     contentItem: RowLayout {
         Delegates.IconTitleSubtitle {
-            icon.source: model.chapter.cachedImage
-            title: model.title
-            subtitle: model.formattedStart
+            icon.source: root.chapter ? root.chapter.cachedImage : ""
+            title: root.title
+            subtitle: root.formattedStart
             Layout.fillWidth: true
         }
 
         Controls.ToolButton {
-            icon.name: streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
+            icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
             text: i18n("Play")
-            enabled: entry != undefined && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
+            enabled: root.entry != undefined && root.entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: {
-                if (!entry.queueStatus) {
+                if (!root.entry.queueStatus) {
                     entry.queueStatus = true;
                 }
                 if (AudioManager.entry != entry) {
@@ -46,9 +50,9 @@ AddonDelegates.RoundedItemDelegate {
                 if (AudioManager.playbackState !== KMediaSession.PlayingState) {
                     AudioManager.play();
                 }
-                AudioManager.position = start * 1000;
-                if (overlay != undefined) {
-                    overlay.close();
+                AudioManager.position = root.start * 1000;
+                if (root.overlay != undefined) {
+                    root.overlay.close();
                 }
             }
         }

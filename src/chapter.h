@@ -9,12 +9,15 @@
 #include <QDebug>
 #include <QObject>
 #include <QString>
+#include <qqmlintegration.h>
 
 #include "entry.h"
 
 class Chapter : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(Entry *entry READ entry CONSTANT)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
