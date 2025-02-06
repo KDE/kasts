@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 03:18+0000\n"
-"PO-Revision-Date: 2024-10-25 18:58+0300\n"
+"PO-Revision-Date: 2025-02-05 11:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +31,7 @@ msgstr "emir_sari@icloud.com"
 #: audiomanager.cpp:397
 #, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Kısıtlı bağlantılarda akışa izin verilmiyor"
+msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
 
 #: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
@@ -46,7 +46,7 @@ msgstr "Geçersiz Ortam"
 #: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Kısıtlı bağlantılarda pod yayını indirmelerine izin verilmiyor"
+msgstr "Ölçülü bağlantılarda pod yayını indirmelerine izin verilmiyor"
 
 #: entry.cpp:100 feed.cpp:136
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "Ortam indirme hatası"
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "Kısıtlı bağlantıda güncellemeye izin verilmiyor"
+msgstr "Ölçülü bağlantılarda güncellemeye izin verilmiyor"
 
 #: error.cpp:54
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Bölüm durumu ve/veya besleme eşzamanlanırken hata"
 #: error.cpp:62
 #, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Kısıtla bağlantılarda akışa izin verilmiyor"
+msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -366,7 +366,7 @@ msgstr "Pod Yayını Ekle"
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden pod yayını güncellemelerine izin "
+"Şu anda ölçülü bağlantılar üzerinden pod yayını güncellemelerine izin "
 "verilmiyor"
 
 #: qml/ConnectionCheckAction.qml:56
@@ -1114,8 +1114,7 @@ msgstr[1] "%2/%1 Dosya Taşındı"
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
-"verilmiyor"
+"Şu anda ölçülü bağlantılar üzerinden pod yayını indirmelerine izin verilmiyor"
 
 #: qml/Mobile/MobilePlayerControls.qml:24
 #, kde-format
