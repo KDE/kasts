@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-06 00:40+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -209,43 +209,43 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "A Tocar Música"
 
-#: main.cpp:105
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicação de 'Podcasts'"
 
-#: main.cpp:107
+#: main.cpp:117
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Adiciona um novo 'podcast' às subscrições."
 
-#: main.cpp:108
+#: main.cpp:118
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL do 'Podcast'"
 
-#: main.cpp:113 qml/Main.qml:25
+#: main.cpp:123 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:115
+#: main.cpp:125
 #, kde-format
 msgid "Podcast Player"
 msgstr "Leitor de 'Podcasts'"
 
-#: main.cpp:117
+#: main.cpp:127
 #, fuzzy, kde-format
 #| msgid "© 2020-2023 KDE Community"
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020-2023 da Comunidade do KDE"
 
-#: main.cpp:118
+#: main.cpp:128
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:119
+#: main.cpp:129
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -556,29 +556,29 @@ msgstr "Nenhum Título da Faixa"
 msgid "No track loaded"
 msgstr "Nenhuma Faixa Carregada"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, fuzzy, kde-format
 #| msgid "Discover"
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Discover"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:42
 #, kde-format
 msgid "Search podcastindex.org"
 msgstr "Procurar no podcastindex.org"
 
-#: qml/DiscoverPage.qml:52
+#: qml/DiscoverPage.qml:51
 #, kde-format
 msgid "Search"
 msgstr "Procurar"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscrever"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscrita"
@@ -1309,33 +1309,67 @@ msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
 msgstr "Aparência"
 
+#: qml/Settings/AppearanceSettingsPage.qml:31
+#, kde-format
+msgctxt ""
+"@label:listbox Label for selecting the type of GUI for the app (desktop, "
+"mobile or auto)"
+msgid "Optimize interface for mobile/desktop usage"
+msgstr ""
+
 #: qml/Settings/AppearanceSettingsPage.qml:32
+#, kde-format
+msgctxt "@label"
+msgid "This will require a restart of the app to take effect"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:37
+#, kde-format
+msgctxt "Label for the GUI mode selection"
+msgid "Auto"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "desktop"
+msgctxt "Label for the GUI mode selection"
+msgid "Desktop"
+msgstr "computador"
+
+#: qml/Settings/AppearanceSettingsPage.qml:39
+#, fuzzy, kde-format
+#| msgid "mobile"
+msgctxt "Label for the GUI mode selection"
+msgid "Mobile"
+msgstr "telemóvel"
+
+#: qml/Settings/AppearanceSettingsPage.qml:52
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:48
+#: qml/Settings/AppearanceSettingsPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Always show podcast titles in subscription view"
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Mostrar sempre os títulos dos 'podcasts' na área de subscrições"
 
-#: qml/Settings/AppearanceSettingsPage.qml:60
+#: qml/Settings/AppearanceSettingsPage.qml:80
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:72
+#: qml/Settings/AppearanceSettingsPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Always show podcast titles in subscription view"
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Mostrar sempre os títulos dos 'podcasts' na área de subscrições"
 
-#: qml/Settings/AppearanceSettingsPage.qml:82
+#: qml/Settings/AppearanceSettingsPage.qml:102
 #, fuzzy, kde-format
 #| msgctxt "Label for selecting the color of the tray icon"
 #| msgid "Tray icon type"
@@ -1343,21 +1377,21 @@ msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Tipo do ícone da bandeja"
 
-#: qml/Settings/AppearanceSettingsPage.qml:93
+#: qml/Settings/AppearanceSettingsPage.qml:113
 #, fuzzy, kde-format
 #| msgid "Show icon in system tray"
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Mostrar o ícone na bandeja do sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:105
+#: qml/Settings/AppearanceSettingsPage.qml:125
 #, fuzzy, kde-format
 #| msgid "Minimize to tray instead of closing"
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimizar para a bandeja em vez de fechar"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:137
 #, fuzzy, kde-format
 #| msgctxt "Label for selecting the color of the tray icon"
 #| msgid "Tray icon type"
@@ -1365,38 +1399,38 @@ msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tipo do ícone da bandeja"
 
-#: qml/Settings/AppearanceSettingsPage.qml:122
+#: qml/Settings/AppearanceSettingsPage.qml:142
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Colorido"
 
-#: qml/Settings/AppearanceSettingsPage.qml:123
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Claro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:124
+#: qml/Settings/AppearanceSettingsPage.qml:144
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Escuro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:134
+#: qml/Settings/AppearanceSettingsPage.qml:154
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:164
 #, fuzzy, kde-format
 #| msgid "Use system default"
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Usar a predefinição do sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:156
+#: qml/Settings/AppearanceSettingsPage.qml:176
 #, fuzzy, kde-format
 #| msgid "Font size"
 msgctxt "@label:spinbox"

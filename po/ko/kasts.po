@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
+"POT-Creation-Date: 2025-02-06 00:40+0000\n"
 "PO-Revision-Date: 2024-08-20 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -183,43 +183,43 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "미디어 재생 중"
 
-#: main.cpp:105
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 앱"
 
-#: main.cpp:107
+#: main.cpp:117
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:108
+#: main.cpp:118
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:113 qml/Main.qml:25
+#: main.cpp:123 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:115
+#: main.cpp:125
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:117
+#: main.cpp:127
 #, fuzzy, kde-format
 #| msgid "© 2020–2024 KDE Community"
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2024 KDE Community"
 
-#: main.cpp:118
+#: main.cpp:128
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:119
+#: main.cpp:129
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -497,28 +497,28 @@ msgstr "트랙 제목 없음"
 msgid "No track loaded"
 msgstr "불러온 트랙 없음"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "둘러보기"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:42
 #, kde-format
 msgid "Search podcastindex.org"
 msgstr "podcastindex.org 검색"
 
-#: qml/DiscoverPage.qml:52
+#: qml/DiscoverPage.qml:51
 #, kde-format
 msgid "Search"
 msgstr "검색"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
@@ -1209,85 +1209,121 @@ msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
 msgstr "모양"
 
+#: qml/Settings/AppearanceSettingsPage.qml:31
+#, kde-format
+msgctxt ""
+"@label:listbox Label for selecting the type of GUI for the app (desktop, "
+"mobile or auto)"
+msgid "Optimize interface for mobile/desktop usage"
+msgstr ""
+
 #: qml/Settings/AppearanceSettingsPage.qml:32
+#, kde-format
+msgctxt "@label"
+msgid "This will require a restart of the app to take effect"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:37
+#, kde-format
+msgctxt "Label for the GUI mode selection"
+msgid "Auto"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox type of device"
+#| msgid "desktop"
+msgctxt "Label for the GUI mode selection"
+msgid "Desktop"
+msgstr "데스크톱"
+
+#: qml/Settings/AppearanceSettingsPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox type of device"
+#| msgid "mobile"
+msgctxt "Label for the GUI mode selection"
+msgid "Mobile"
+msgstr "휴대폰"
+
+#: qml/Settings/AppearanceSettingsPage.qml:52
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "색 테마"
 
-#: qml/Settings/AppearanceSettingsPage.qml:48
+#: qml/Settings/AppearanceSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:60
+#: qml/Settings/AppearanceSettingsPage.qml:80
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "목록에 에피소드 그림 대신 팟캐스트 그림 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:72
+#: qml/Settings/AppearanceSettingsPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "에피소드 목록에 팟캐스트 제목 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:82
+#: qml/Settings/AppearanceSettingsPage.qml:102
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "트레이 아이콘"
 
-#: qml/Settings/AppearanceSettingsPage.qml:93
+#: qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "시스템 트레이 아이콘 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:105
+#: qml/Settings/AppearanceSettingsPage.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "닫을 때 트레이로 최소화"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:137
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "트레이 아이콘 형식"
 
-#: qml/Settings/AppearanceSettingsPage.qml:122
+#: qml/Settings/AppearanceSettingsPage.qml:142
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "알록달록"
 
-#: qml/Settings/AppearanceSettingsPage.qml:123
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "밝음"
 
-#: qml/Settings/AppearanceSettingsPage.qml:124
+#: qml/Settings/AppearanceSettingsPage.qml:144
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "어두움"
 
-#: qml/Settings/AppearanceSettingsPage.qml:134
+#: qml/Settings/AppearanceSettingsPage.qml:154
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "텍스트"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:164
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "시스템 기본값 사용"
 
-#: qml/Settings/AppearanceSettingsPage.qml:156
+#: qml/Settings/AppearanceSettingsPage.qml:176
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"

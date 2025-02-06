@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:41+0000\n"
-"PO-Revision-Date: 2025-01-31 17:16+0300\n"
+"POT-Creation-Date: 2025-02-06 00:40+0000\n"
+"PO-Revision-Date: 2025-02-05 11:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -31,7 +31,7 @@ msgstr "emir_sari@icloud.com"
 #: audiomanager.cpp:397
 #, kde-format
 msgid "Streaming on metered connection not allowed"
-msgstr "Kısıtlı bağlantılarda akışa izin verilmiyor"
+msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
 
 #: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
 #, kde-format
@@ -46,7 +46,7 @@ msgstr "Geçersiz Ortam"
 #: enclosure.cpp:144
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
-msgstr "Kısıtlı bağlantılarda pod yayını indirmelerine izin verilmiyor"
+msgstr "Ölçülü bağlantılarda pod yayını indirmelerine izin verilmiyor"
 
 #: entry.cpp:100 feed.cpp:136
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "Ortam indirme hatası"
 #: error.cpp:52
 #, kde-format
 msgid "Update not allowed on metered connection"
-msgstr "Kısıtlı bağlantıda güncellemeye izin verilmiyor"
+msgstr "Ölçülü bağlantılarda güncellemeye izin verilmiyor"
 
 #: error.cpp:54
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Bölüm durumu ve/veya besleme eşzamanlanırken hata"
 #: error.cpp:62
 #, kde-format
 msgid "Streaming not allowed on metered connection"
-msgstr "Kısıtla bağlantılarda akışa izin verilmiyor"
+msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -184,42 +184,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Ortam Çalınıyor"
 
-#: main.cpp:105
+#: main.cpp:115
 #, kde-format
 msgid "Podcast Application"
 msgstr "Pod Yayını Uygulaması"
 
-#: main.cpp:107
+#: main.cpp:117
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Aboneliklere yeni bir pod yayını ekler."
 
-#: main.cpp:108
+#: main.cpp:118
 #, kde-format
 msgid "Podcast URL"
 msgstr "Pod Yayını URL’si"
 
-#: main.cpp:113 qml/Main.qml:25
+#: main.cpp:123 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kastlar"
 
-#: main.cpp:115
+#: main.cpp:125
 #, kde-format
 msgid "Podcast Player"
 msgstr "Pod Yayını Çalar"
 
-#: main.cpp:117
+#: main.cpp:127
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 KDE Topluluğu"
 
-#: main.cpp:118
+#: main.cpp:128
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:119
+#: main.cpp:129
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -366,7 +366,7 @@ msgstr "Pod Yayını Ekle"
 msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden pod yayını güncellemelerine izin "
+"Şu anda ölçülü bağlantılar üzerinden pod yayını güncellemelerine izin "
 "verilmiyor"
 
 #: qml/ConnectionCheckAction.qml:55
@@ -499,28 +499,28 @@ msgstr "Parça Başlığı Yok"
 msgid "No track loaded"
 msgstr "Yüklenen parça yok"
 
-#: qml/DiscoverPage.qml:18 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Keşfet"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:42
 #, kde-format
 msgid "Search podcastindex.org"
 msgstr "podcastindex.org’da ara…"
 
-#: qml/DiscoverPage.qml:52
+#: qml/DiscoverPage.qml:51
 #, kde-format
 msgid "Search"
 msgstr "Ara"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
@@ -1110,8 +1110,7 @@ msgstr[1] "%2/%1 Dosya Taşındı"
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
-"Şu anda kısıtlı bağlantılar üzerinden pod yayını indirmelerine izin "
-"verilmiyor"
+"Şu anda ölçülü bağlantılar üzerinden pod yayını indirmelerine izin verilmiyor"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
 #, kde-format
@@ -1219,85 +1218,121 @@ msgctxt "@title Form header for settings related to app appearance"
 msgid "Appearance"
 msgstr "Görünüş"
 
+#: qml/Settings/AppearanceSettingsPage.qml:31
+#, kde-format
+msgctxt ""
+"@label:listbox Label for selecting the type of GUI for the app (desktop, "
+"mobile or auto)"
+msgid "Optimize interface for mobile/desktop usage"
+msgstr ""
+
 #: qml/Settings/AppearanceSettingsPage.qml:32
+#, kde-format
+msgctxt "@label"
+msgid "This will require a restart of the app to take effect"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:37
+#, kde-format
+msgctxt "Label for the GUI mode selection"
+msgid "Auto"
+msgstr ""
+
+#: qml/Settings/AppearanceSettingsPage.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox type of device"
+#| msgid "desktop"
+msgctxt "Label for the GUI mode selection"
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#: qml/Settings/AppearanceSettingsPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox type of device"
+#| msgid "mobile"
+msgctxt "Label for the GUI mode selection"
+msgid "Mobile"
+msgstr "Taşınabilir"
+
+#: qml/Settings/AppearanceSettingsPage.qml:52
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Renk teması"
 
-#: qml/Settings/AppearanceSettingsPage.qml:48
+#: qml/Settings/AppearanceSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Abonelik görünümünde her zaman pod yayını başlıklarını göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:60
+#: qml/Settings/AppearanceSettingsPage.qml:80
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "Listelerde pod yayını görseli yerine bölüm görselini göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:72
+#: qml/Settings/AppearanceSettingsPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Bölüm listelerinde pod yayını başlıklarını göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:82
+#: qml/Settings/AppearanceSettingsPage.qml:102
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Tepsi Simgesi"
 
-#: qml/Settings/AppearanceSettingsPage.qml:93
+#: qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Sistem tepsisinde simge göster"
 
-#: qml/Settings/AppearanceSettingsPage.qml:105
+#: qml/Settings/AppearanceSettingsPage.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Kapatmak yerine sistem tepsisine küçült"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:137
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tepsi simgesi türü"
 
-#: qml/Settings/AppearanceSettingsPage.qml:122
+#: qml/Settings/AppearanceSettingsPage.qml:142
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Renkli"
 
-#: qml/Settings/AppearanceSettingsPage.qml:123
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Açık"
 
-#: qml/Settings/AppearanceSettingsPage.qml:124
+#: qml/Settings/AppearanceSettingsPage.qml:144
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Koyu"
 
-#: qml/Settings/AppearanceSettingsPage.qml:134
+#: qml/Settings/AppearanceSettingsPage.qml:154
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Metin"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:164
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Sistem öntanımlısını kullan"
 
-#: qml/Settings/AppearanceSettingsPage.qml:156
+#: qml/Settings/AppearanceSettingsPage.qml:176
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
@@ -1512,7 +1547,7 @@ msgstr "Ağ bağlantısı denetimlerine izin ver"
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
-msgstr "Kısıtlı Bağlantılarda"
+msgstr "Ölçülü Bağlantılarda"
 
 #: qml/Settings/NetworkSettingsPage.qml:56
 #, kde-format
