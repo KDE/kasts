@@ -8,7 +8,6 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
 import QtQuick.Effects
 import QtQuick.Window
 
@@ -46,8 +45,8 @@ Item {
             height: imageLoader.height
             sourceItem: Rectangle {
                 anchors.centerIn: parent
-                width: imageLoader.adapt ? imageLoader.width : Math.min(imageLoader.width, imageLoader.height)
-                height: imageLoader.adapt ? imageLoader.height : width
+                width: Math.min(imageLoader.width, imageLoader.height)
+                height: width
                 radius: (root.absoluteRadius > 0) ? root.absoluteRadius : ( (root.fractionalRadius > 0) ? Math.min(width, height) * root.fractionalRadius : 0 )
             }
         }
