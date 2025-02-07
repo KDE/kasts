@@ -11,3 +11,4 @@ kasts.kdev4
 compile_commands.json
 src/.qmlls.ini
 src/kmediasession/.qmlls.ini
+.kateproject*
