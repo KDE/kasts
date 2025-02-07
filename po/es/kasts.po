@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:40+0000\n"
-"PO-Revision-Date: 2025-01-31 12:17+0100\n"
+"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"PO-Revision-Date: 2025-02-06 16:35+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -126,7 +126,7 @@ msgstr "O"
 msgid "Open"
 msgstr "Abrir"
 
-#: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:40
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
@@ -1057,19 +1057,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Sin resultados para la búsqueda"
 
-#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:53
+#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:55
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opciones de búsqueda avanzadas"
 
-#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:113
+#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:115
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preferencias de búsqueda"
 
-#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:117
+#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:119
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1208,7 +1208,7 @@ msgctxt "@info"
 msgid "Queue is empty"
 msgstr "La cola está vacía"
 
-#: qml/SearchBar.qml:41
+#: qml/SearchBar.qml:43
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
@@ -1226,35 +1226,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "Optimizar la interfaz para móvil/escritorio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Esto necesitará el reinicio de la aplicación para surtir efecto"
 
 #: qml/Settings/AppearanceSettingsPage.qml:37
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: qml/Settings/AppearanceSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "escritorio"
+msgstr "Escritorio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "móvil"
+msgstr "Móvil"
 
 #: qml/Settings/AppearanceSettingsPage.qml:52
 #, kde-format
@@ -1269,74 +1265,74 @@ msgid "Always show podcast titles in subscription view"
 msgstr ""
 "Mostrar siempre los títulos de los pódcast en la vista de suscripciones"
 
-#: qml/Settings/AppearanceSettingsPage.qml:80
+#: qml/Settings/AppearanceSettingsPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr ""
 "Mostrar la imagen del episodio en lugar de la del pódcast en las listas"
 
-#: qml/Settings/AppearanceSettingsPage.qml:92
+#: qml/Settings/AppearanceSettingsPage.qml:88
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Mostrar los títulos de los pódcast en las listas de episodios"
 
-#: qml/Settings/AppearanceSettingsPage.qml:102
+#: qml/Settings/AppearanceSettingsPage.qml:98
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Icono de la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:113
+#: qml/Settings/AppearanceSettingsPage.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Mostrar icono en la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:125
+#: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimizar en la bandeja del sistema en lugar de cerrar"
 
-#: qml/Settings/AppearanceSettingsPage.qml:137
+#: qml/Settings/AppearanceSettingsPage.qml:133
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tipo de icono de la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:142
+#: qml/Settings/AppearanceSettingsPage.qml:138
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Coloreado"
 
-#: qml/Settings/AppearanceSettingsPage.qml:143
+#: qml/Settings/AppearanceSettingsPage.qml:139
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Claro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Oscuro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:154
+#: qml/Settings/AppearanceSettingsPage.qml:150
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Texto"
 
-#: qml/Settings/AppearanceSettingsPage.qml:164
+#: qml/Settings/AppearanceSettingsPage.qml:160
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Usar el predeterminado del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:176
+#: qml/Settings/AppearanceSettingsPage.qml:172
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
@@ -1405,9 +1401,11 @@ msgid "Podcast update settings"
 msgstr "Preferencias de actualización de pódcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:131
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:listbox"
+#| msgid "Automatically fetch podcast feeds"
 msgctxt "@label:listbox"
-msgid "Automatically fetch podcast feeds"
+msgid "Periodically retrieve podcast feeds"
 msgstr "Obtener fuentes de pódcast automáticamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
@@ -1687,11 +1685,11 @@ msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Acerca de Kasts"
 
-#: qml/Settings/SettingsView.qml:57
+#: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
 msgctxt "@title:group"
-msgid "About Kasts"
-msgstr "Acerca de Kasts"
+msgid "About"
+msgstr "Acerca de"
 
 #: qml/Settings/SettingsView.qml:61
 #, kde-format
@@ -1699,41 +1697,35 @@ msgctxt "@title:menu Category in settings"
 msgid "About KDE"
 msgstr "Acerca de KDE"
 
-#: qml/Settings/SettingsView.qml:64
-#, kde-format
-msgctxt "@title:group"
-msgid "About"
-msgstr "Acerca de"
-
 #: qml/Settings/StorageSettingsPage.qml:21
 #, kde-format
 msgctxt "@title Form header for settings related to storage paths"
 msgid "Storage path"
 msgstr "Ruta de almacenamiento"
 
-#: qml/Settings/StorageSettingsPage.qml:31
+#: qml/Settings/StorageSettingsPage.qml:32
+#, kde-format
+msgctxt "@option:check"
+msgid "Use default path"
+msgstr "Usar la ruta predeterminada"
+
+#: qml/Settings/StorageSettingsPage.qml:45
 #, kde-format
 msgctxt "@label showing path used for local storage"
 msgid "Storage path"
 msgstr "Ruta de almacenamiento"
 
-#: qml/Settings/StorageSettingsPage.qml:37
+#: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
 msgstr "Seleccionar carpeta..."
 
-#: qml/Settings/StorageSettingsPage.qml:45
+#: qml/Settings/StorageSettingsPage.qml:59
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
 msgstr "Seleccionar ruta de almacenamiento"
-
-#: qml/Settings/StorageSettingsPage.qml:55
-#, kde-format
-msgctxt "@option:check"
-msgid "Use default path"
-msgstr "Usar la ruta predeterminada"
 
 #: qml/Settings/StorageSettingsPage.qml:66
 #, kde-format
@@ -2386,6 +2378,10 @@ msgstr "Saltar hacia adelante"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Salir"
+
+#~ msgctxt "@title:group"
+#~ msgid "About Kasts"
+#~ msgstr "Acerca de Kasts"
 
 #~ msgctxt "@title:menu Category in settings"
 #~ msgid "About"

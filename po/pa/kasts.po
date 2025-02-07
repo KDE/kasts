@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-06 00:40+0000\n"
+"POT-Creation-Date: 2025-02-07 00:42+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Open"
 msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:36
+#: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:40
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
@@ -1117,19 +1117,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:53
+#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:55
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:113
+#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:115
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:117
+#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:119
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1272,7 +1272,7 @@ msgctxt "@info"
 msgid "Queue is empty"
 msgstr ""
 
-#: qml/SearchBar.qml:41
+#: qml/SearchBar.qml:43
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgctxt "@label:textbox Placeholder text for episode search field"
@@ -1330,74 +1330,74 @@ msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:80
+#: qml/Settings/AppearanceSettingsPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:92
+#: qml/Settings/AppearanceSettingsPage.qml:88
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:102
+#: qml/Settings/AppearanceSettingsPage.qml:98
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:113
+#: qml/Settings/AppearanceSettingsPage.qml:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:125
+#: qml/Settings/AppearanceSettingsPage.qml:121
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:137
+#: qml/Settings/AppearanceSettingsPage.qml:133
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:142
+#: qml/Settings/AppearanceSettingsPage.qml:138
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:143
+#: qml/Settings/AppearanceSettingsPage.qml:139
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:154
+#: qml/Settings/AppearanceSettingsPage.qml:150
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:164
+#: qml/Settings/AppearanceSettingsPage.qml:160
 #, fuzzy, kde-format
 #| msgid "Use system default"
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "ਸਿਸਟਮ ਦੇ ਮੂਲ ਵਰਤੋਂ"
 
-#: qml/Settings/AppearanceSettingsPage.qml:176
+#: qml/Settings/AppearanceSettingsPage.qml:172
 #, fuzzy, kde-format
 #| msgid "Font size:"
 msgctxt "@label:spinbox"
@@ -1473,7 +1473,7 @@ msgstr "ਪੋਡਕਾਸਟ ਅੱਪਡੇਟ ਗਲਤੀ"
 #, fuzzy, kde-format
 #| msgid "Cancel Download"
 msgctxt "@label:listbox"
-msgid "Automatically fetch podcast feeds"
+msgid "Periodically retrieve podcast feeds"
 msgstr "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
@@ -1762,11 +1762,11 @@ msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: qml/Settings/SettingsView.qml:57
+#: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, fuzzy, kde-format
 #| msgid "About"
 msgctxt "@title:group"
-msgid "About Kasts"
+msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
 #: qml/Settings/SettingsView.qml:61
@@ -1776,13 +1776,6 @@ msgctxt "@title:menu Category in settings"
 msgid "About KDE"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgid "About"
-msgctxt "@title:group"
-msgid "About"
-msgstr "ਇਸ ਬਾਰੇ"
-
 #: qml/Settings/StorageSettingsPage.qml:21
 #, fuzzy, kde-format
 #| msgid "Play Settings"
@@ -1790,32 +1783,32 @@ msgctxt "@title Form header for settings related to storage paths"
 msgid "Storage path"
 msgstr "ਚਲਾਉਣ ਸੈਟਿੰਗਾਂ"
 
-#: qml/Settings/StorageSettingsPage.qml:31
+#: qml/Settings/StorageSettingsPage.qml:32
+#, fuzzy, kde-format
+#| msgid "Use system default"
+msgctxt "@option:check"
+msgid "Use default path"
+msgstr "ਸਿਸਟਮ ਦੇ ਮੂਲ ਵਰਤੋਂ"
+
+#: qml/Settings/StorageSettingsPage.qml:45
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "@label showing path used for local storage"
 msgid "Storage path"
 msgstr "ਚਲਾਉਣ ਸੈਟਿੰਗਾਂ"
 
-#: qml/Settings/StorageSettingsPage.qml:37
+#: qml/Settings/StorageSettingsPage.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
 msgstr ""
 
-#: qml/Settings/StorageSettingsPage.qml:45
+#: qml/Settings/StorageSettingsPage.qml:59
 #, fuzzy, kde-format
 #| msgid "Play Settings"
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
 msgstr "ਚਲਾਉਣ ਸੈਟਿੰਗਾਂ"
-
-#: qml/Settings/StorageSettingsPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Use system default"
-msgctxt "@option:check"
-msgid "Use default path"
-msgstr "ਸਿਸਟਮ ਦੇ ਮੂਲ ਵਰਤੋਂ"
 
 #: qml/Settings/StorageSettingsPage.qml:66
 #, kde-format
@@ -2454,6 +2447,12 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "About"
+#~ msgctxt "@title:group"
+#~ msgid "About Kasts"
+#~ msgstr "ਇਸ ਬਾਰੇ"
 
 #, fuzzy
 #~| msgid "About"
