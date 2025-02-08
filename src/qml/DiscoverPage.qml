@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
                 placeholderText: i18n("Search podcastindex.org")
                 Layout.fillWidth: true
                 Keys.onReturnPressed: {
-                    searchButton.clicked()
+                    searchButton.clicked();
                 }
             }
 
@@ -113,12 +113,12 @@ Kirigami.ScrollablePage {
             Keys.onReturnPressed: clicked()
 
             onClicked: {
-                pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {
+                pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
                     feed: subscribeAction.enabled ? listItem.model : DataManager.getFeed(listItem.url),
                     isSubscribed: !subscribeAction.enabled,
                     subscribeAction: subscribeAction,
                     showMoreInfo: true
-                })
+                });
             }
         }
     }

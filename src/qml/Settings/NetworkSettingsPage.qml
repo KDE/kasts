@@ -213,7 +213,7 @@ FormCard.FormCardPage {
         Layout.fillWidth: true
         type: Kirigami.MessageType.Warning
         visible: currentType < 2 && Fetcher.isSystemProxyDefined()
-        text:  i18nc("@info:status Warning message related to app proxy settings", "Your system level or app level proxy settings might be ignored by the audio backend when streaming audio. The settings should still be honored by all other network related actions, including downloading episodes.")
+        text: i18nc("@info:status Warning message related to app proxy settings", "Your system level or app level proxy settings might be ignored by the audio backend when streaming audio. The settings should still be honored by all other network related actions, including downloading episodes.")
     }
 
     Component.onCompleted: {

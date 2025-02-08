@@ -40,20 +40,20 @@ AddonDelegates.RoundedItemDelegate {
     property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
     property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
 
-    component IconOnlyButton : Controls.ToolButton {
+    component IconOnlyButton: Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
 
         Controls.ToolTip.text: text
         Controls.ToolTip.visible: hovered
         Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-     }
+    }
 
     highlighted: selected
 
     Accessible.role: Accessible.Button
     Accessible.name: entry.title
     Accessible.onPressAction: {
-         delegateTapped();
+        delegateTapped();
     }
 
     Keys.onReturnPressed: {
@@ -64,7 +64,7 @@ AddonDelegates.RoundedItemDelegate {
     // - if the selected indexes changes
     // - if our delegate moves
     // - if the model moves and the delegate stays in the same place
-    function updateIsSelected() {
+    function updateIsSelected(): void {
         selected = listViewObject.selectionModel.rowIntersectsSelection(root.index);
     }
 
@@ -76,7 +76,7 @@ AddonDelegates.RoundedItemDelegate {
         updateIsSelected();
     }
 
-    function delegateTapped() {
+    function delegateTapped(): void {
         // only mark pure rss feeds as read + not new;
         // podcasts should only be marked read once they have been listened to, and only
         // marked as non-new once they've been downloaded
@@ -92,8 +92,8 @@ AddonDelegates.RoundedItemDelegate {
             pageStack.pop();
         }
 
-        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {
-            entry: entry,
+        pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+            entry: entry
         });
     }
 
@@ -102,15 +102,12 @@ AddonDelegates.RoundedItemDelegate {
 
         acceptedModifiers: Qt.ShiftModifier
 
-        onTapped: (eventPoint) => {
+        onTapped: eventPoint => {
             const modelIndex = root.listViewObject.model.index(index, 0);
 
             // Have to take a detour through c++ since selecting large sets
             // in QML is extremely slow
-            listViewObject.selectionModel.select(
-                listViewObject.model.createSelection(modelIndex.row, listViewObject.selectionModel.currentIndex.row),
-                ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows
-            );
+            listViewObject.selectionModel.select(listViewObject.model.createSelection(modelIndex.row, listViewObject.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
         }
     }
 
@@ -119,7 +116,7 @@ AddonDelegates.RoundedItemDelegate {
 
         acceptedModifiers: Qt.ControlModifier
 
-        onTapped: (eventPoint) => {
+        onTapped: eventPoint => {
             const modelIndex = root.listViewObject.model.index(index, 0);
 
             listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
@@ -160,14 +157,14 @@ AddonDelegates.RoundedItemDelegate {
     contentItem: RowLayout {
         Connections {
             target: root.listViewObject.selectionModel
-            function onSelectionChanged() {
+            function onSelectionChanged(): void {
                 root.updateIsSelected();
             }
         }
 
         Connections {
             target: root.listViewObject.model
-            function onLayoutChanged() {
+            function onLayoutChanged(): void {
                 root.updateIsSelected();
             }
         }
@@ -208,16 +205,16 @@ AddonDelegates.RoundedItemDelegate {
             spacing: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
-            RowLayout{
+            RowLayout {
                 Kirigami.Icon {
                     Layout.maximumHeight: playedLabel.implicitHeight
-                    Layout.maximumWidth:  playedLabel.implicitHeight
+                    Layout.maximumWidth: playedLabel.implicitHeight
                     source: "checkbox"
                     visible: root.entry.read
                 }
                 Controls.Label {
                     id: playedLabel
-                    text: (root.entry.enclosure ? i18n("Played") : i18n("Read")) +  "  ·"
+                    text: (root.entry.enclosure ? i18n("Played") : i18n("Read")) + "  ·"
                     font: Kirigami.Theme.smallFont
                     visible: root.entry.read
                     opacity: 0.7
@@ -231,21 +228,21 @@ AddonDelegates.RoundedItemDelegate {
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
-                    Layout.maximumWidth:  0.8 * supertitle.implicitHeight
+                    Layout.maximumWidth: 0.8 * supertitle.implicitHeight
                     source: "starred-symbolic"
                     visible: root.entry.favorite
                     opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
-                    Layout.maximumWidth:  0.8 * supertitle.implicitHeight
+                    Layout.maximumWidth: 0.8 * supertitle.implicitHeight
                     source: "source-playlist"
                     visible: !root.isQueue && root.entry.queueStatus
                     opacity: 0.7
                 }
                 Controls.Label {
                     id: supertitle
-                    text: ((!root.isQueue && root.entry.queueStatus) || root.entry.favorite ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? ( root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "" ) + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "")
+                    text: ((!root.isQueue && root.entry.queueStatus) || root.entry.favorite ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? (root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "")
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -259,7 +256,7 @@ AddonDelegates.RoundedItemDelegate {
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : ( root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
@@ -312,9 +309,7 @@ AddonDelegates.RoundedItemDelegate {
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: SettingsManager.toggleRemainingTime
-                                ? "-" + entry.enclosure.formattedLeftDuration
-                                : entry.enclosure.formattedDuration
+                        text: SettingsManager.toggleRemainingTime ? "-" + entry.enclosure.formattedLeftDuration : entry.enclosure.formattedDuration
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -394,4 +389,3 @@ AddonDelegates.RoundedItemDelegate {
         }
     }
 }
-

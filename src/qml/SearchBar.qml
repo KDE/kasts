@@ -38,8 +38,8 @@ Controls.Control {
     }
 
     contentItem: Kirigami.SearchField {
-        Layout.fillWidth: true
         id: searchField
+        Layout.fillWidth: true
         placeholderText: i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
         focus: true
         autoAccept: false
@@ -72,12 +72,12 @@ Controls.Control {
             searchField.rightActions.push(origAction);
         }
 
-        Keys.onEscapePressed: (event) => {
+        Keys.onEscapePressed: event => {
             root.proxyModel.searchFilter = "";
             parentKey.checked = false;
             event.accepted = true;
         }
-        Keys.onReturnPressed: (event) => {
+        Keys.onReturnPressed: event => {
             accepted();
             event.accepted = true;
         }
@@ -90,16 +90,16 @@ Controls.Control {
     ListModel {
         id: searchSettingsModel
 
-        function reload() {
+        function reload(): void {
             clear();
             if (showSearchFilters) {
-                var searchList = [AbstractEpisodeProxyModel.TitleFlag,
-                                AbstractEpisodeProxyModel.ContentFlag,
-                                AbstractEpisodeProxyModel.FeedNameFlag]
+                var searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
                 for (var i in searchList) {
-                    searchSettingsModel.append({"name": proxyModel.getSearchFlagName(searchList[i]),
-                                                "searchFlag": searchList[i],
-                                                "checked": proxyModel.searchFlags & searchList[i]});
+                    searchSettingsModel.append({
+                        "name": proxyModel.getSearchFlagName(searchList[i]),
+                        "searchFlag": searchList[i],
+                        "checked": proxyModel.searchFlags & searchList[i]
+                    });
                 }
             }
         }

@@ -23,10 +23,12 @@ Kirigami.ScrollablePage {
 
     padding: 0  // needed to get the inline header to fill the page
 
-    function openPodcast() {
+    function openPodcast(): void {
         pushPage("FeedListPage");
         lastFeed = entry.feed.url;
-        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": entry.feed});
+        pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+            feed: entry.feed
+        });
     }
 
     // This function is needed to close the EntryPage if it is opened over the
@@ -34,7 +36,7 @@ Kirigami.ScrollablePage {
     // episode finishes).
     Connections {
         target: entry
-        function onQueueStatusChanged() {
+        function onQueueStatusChanged(): void {
             if (!entry.queueStatus) {
                 // this entry has just been removed from the queue
                 if (pageStack.depth > 1) {
@@ -42,7 +44,7 @@ Kirigami.ScrollablePage {
                         if (pageStack.get(0).lastEntry) {
                             if (pageStack.get(0).lastEntry === entry.id) {
                                 // if this EntryPage was open, then close it
-                                pageStack.pop()
+                                pageStack.pop();
                             }
                         }
                     }
@@ -53,7 +55,7 @@ Kirigami.ScrollablePage {
 
     Connections {
         target: entry.enclosure
-        function onStatusChanged() {
+        function onStatusChanged(): void {
             if (entry.enclosure.status === Enclosure.Downloadable) {
                 // this entry has just been deleted on the downloadpage
                 if (pageStack.depth > 1) {
@@ -61,7 +63,7 @@ Kirigami.ScrollablePage {
                         if (pageStack.get(0).lastEntry) {
                             if (pageStack.get(0).lastEntry === entry.id) {
                                 // if this EntryPage was open, then close it
-                                pageStack.pop()
+                                pageStack.pop();
                             }
                         }
                     }
@@ -167,14 +169,14 @@ Kirigami.ScrollablePage {
                         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
                         visible: entry.enclosure || entry.queueStatus
                         onTriggered: {
-                            if(!entry.queueStatus) {
+                            if (!entry.queueStatus) {
                                 entry.queueStatus = true;
                             } else {
                                 // first change to next track if this one is playing
                                 if (entry.hasEnclosure && entry === AudioManager.entry) {
-                                    AudioManager.next()
+                                    AudioManager.next();
                                 }
-                                entry.queueStatus = false
+                                entry.queueStatus = false;
                             }
                         }
                     },
@@ -196,14 +198,14 @@ Kirigami.ScrollablePage {
                         text: entry.read ? i18nc("@action:intoolbar Button to mark eposide as not played", "Mark as Unplayed") : i18nc("@action:intoolbar Button to mark episode as played", "Mark as Played")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
-                            entry.read = !entry.read
+                            entry.read = !entry.read;
                         }
                     },
                     Kirigami.Action {
                         text: entry.new ? i18nc("@action:intoolbar", "Remove \"New\" Label") : i18nc("@action:intoolbar", "Label as \"New\"")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
-                            entry.new = !entry.new
+                            entry.new = !entry.new;
                         }
                     },
                     Kirigami.Action {
@@ -211,7 +213,7 @@ Kirigami.ScrollablePage {
                         icon.name: !entry.favorite ? "starred-symbolic" : "non-starred-symbolic"
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
-                            entry.favorite = !entry.favorite
+                            entry.favorite = !entry.favorite;
                         }
                     },
                     Kirigami.Action {
@@ -232,14 +234,14 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            selectByMouse: !kastsMainWindow.isMobile
+            selectByMouse: !Kirigami.Settings.isMobile
             text: page.entry.content
             baseUrl: page.entry.baseUrl
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             font.pointSize: SettingsManager && !(SettingsManager.articleFontUseSystem) ? SettingsManager.articleFontSize : Kirigami.Theme.defaultFont.pointSize
 
-            onLinkActivated: (link) => {
+            onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
                     if (AudioManager.entry && AudioManager.entry.enclosure && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || SettingsManager.prioritizeStreaming)) {
                         if (AudioManager.entry !== entry) {
@@ -252,10 +254,12 @@ Kirigami.ScrollablePage {
                         AudioManager.seek(link.split("://")[1]);
                     }
                 } else {
-                    Qt.openUrlExternally(link)
+                    Qt.openUrlExternally(link);
                 }
             }
-            onWidthChanged: { text = entry.adjustedContent(width, font.pixelSize) }
+            onWidthChanged: {
+                text = entry.adjustedContent(width, font.pixelSize);
+            }
         }
 
         ListView {
@@ -298,7 +302,7 @@ Kirigami.ScrollablePage {
                 id: enclosureUrl
                 visible: false
                 readOnly: true
-                textFormat:TextEdit.RichText
+                textFormat: TextEdit.RichText
                 text: entry.hasEnclosure ? entry.enclosure.url : ""
                 color: Kirigami.Theme.textColor
             }

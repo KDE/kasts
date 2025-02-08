@@ -25,11 +25,11 @@ Kirigami.ScrollablePage {
     anchors.margins: 0
     padding: 0
 
-    property var lastFeed: ""
+    property string lastFeed: ""
 
     supportsRefreshing: true
     onRefreshingChanged: {
-        if(refreshing)  {
+        if (refreshing) {
             updateAllFeeds.run();
             refreshing = false;
         }
@@ -37,11 +37,11 @@ Kirigami.ScrollablePage {
 
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
-            visible: kastsMainWindow.isMobile
+            visible: Kirigami.Settings.isMobile
             text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
             icon.name: "search"
             onTriggered: {
-                applicationWindow().pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/DiscoverPage.qml");
+                applicationWindow().pageStack.push(Qt.createComponent("org.kde.kasts", "DiscoverPage"));
             }
         },
         Kirigami.Action {
@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
             text: i18nc("@action:intoolbar", "Add Podcast…")
             icon.name: "list-add"
             onTriggered: {
-                addSheet.open()
+                addSheet.open();
             }
         },
         Kirigami.Action {
@@ -64,7 +64,7 @@ Kirigami.ScrollablePage {
 
             tooltip: i18nc("@info:tooltip", "Select how to sort subscriptions")
 
-            property Controls.ActionGroup sortGroup: Controls.ActionGroup { }
+            property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
 
             property Instantiator repeater: Instantiator {
                 model: ListModel {
@@ -72,18 +72,13 @@ Kirigami.ScrollablePage {
                     // have to use script because i18n doesn't work within ListElement
                     Component.onCompleted: {
                         if (sortActionRoot.visible) {
-                            var sortList = [FeedsProxyModel.UnreadDescending,
-                                            FeedsProxyModel.UnreadAscending,
-                                            FeedsProxyModel.NewDescending,
-                                            FeedsProxyModel.NewAscending,
-                                            FeedsProxyModel.FavoriteDescending,
-                                            FeedsProxyModel.FavoriteAscending,
-                                            FeedsProxyModel.TitleAscending,
-                                            FeedsProxyModel.TitleDescending]
+                            var sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
                             for (var i in sortList) {
-                                sortModel.append({"name": feedsModel.getSortName(sortList[i]),
-                                                "iconName": feedsModel.getSortIconName(sortList[i]),
-                                                "sortType": sortList[i]});
+                                sortModel.append({
+                                    name: feedsModel.getSortName(sortList[i]),
+                                    iconName: feedsModel.getSortIconName(sortList[i]),
+                                    sortType: sortList[i]
+                                });
                             }
                         }
                     }
@@ -246,7 +241,8 @@ Kirigami.ScrollablePage {
         // binding loop, we calculate the number of columns and card width based
         // on the total width of the page itself rather than the width left for
         // the GridView, and then subtract some space
-        property int availableWidth: subscriptionPage.width - !kastsMainWindow.isMobile * Kirigami.Units.gridUnit * 1.3
+        property int availableWidth: subscriptionPage.width - !Kirigami.Settings.isMobile * Kirigami.Units.gridUnit * 1.3
+
         // TODO: get proper width for scrollbar rather than hardcoding it
 
         property int columns: Math.max(1, Math.floor(availableWidth / (minimumCardSize + 2 * cardMargin)))
@@ -265,7 +261,7 @@ Kirigami.ScrollablePage {
             listView: feedList
         }
 
-        property var selectionForContextMenu: []
+        property Kirigami.Action selectionForContextMenu: []
         property ItemSelectionModel selectionModel: ItemSelectionModel {
             id: selectionModel
             model: feedList.model
@@ -279,7 +275,7 @@ Kirigami.ScrollablePage {
         // TODO: Fix the fact that the current item is not highlighted after reset
         Connections {
             target: feedList.model
-            function onModelAboutToBeReset() {
+            function onModelAboutToBeReset(): void {
                 feedList.selectionForContextMenu = [];
                 feedList.selectionModel.clear();
                 feedList.selectionModel.setCurrentIndex(feedList.model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
@@ -287,58 +283,58 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Keys.onPressed: (event) => {
+        Keys.onPressed: event => {
             if (event.matches(StandardKey.SelectAll)) {
                 feedList.selectionModel.select(model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
                 return;
             }
             switch (event.key) {
-                case Qt.Key_Left:
-                    selectRelative(-1, event.modifiers == Qt.ShiftModifier);
-                    return;
-                case Qt.Key_Right:
-                    selectRelative(1, event.modifiers == Qt.ShiftModifier);
-                    return;
-                case Qt.Key_Up:
-                    selectRelative(-columns, event.modifiers == Qt.ShiftModifier);
-                    return;
-                case Qt.Key_Down:
-                    selectRelative(columns, event.modifiers == Qt.ShiftModifier);
-                    return;
-                case Qt.Key_PageUp:
-                    if (!atYBeginning) {
-                        if ((contentY - feedList.height) < 0) {
-                            contentY = 0
-                        } else {
-                            contentY -= feedList.height
-                        }
-                        returnToBounds()
+            case Qt.Key_Left:
+                selectRelative(-1, event.modifiers == Qt.ShiftModifier);
+                return;
+            case Qt.Key_Right:
+                selectRelative(1, event.modifiers == Qt.ShiftModifier);
+                return;
+            case Qt.Key_Up:
+                selectRelative(-columns, event.modifiers == Qt.ShiftModifier);
+                return;
+            case Qt.Key_Down:
+                selectRelative(columns, event.modifiers == Qt.ShiftModifier);
+                return;
+            case Qt.Key_PageUp:
+                if (!atYBeginning) {
+                    if ((contentY - feedList.height) < 0) {
+                        contentY = 0;
+                    } else {
+                        contentY -= feedList.height;
                     }
-                    return;
-                case Qt.Key_PageDown:
-                    if (!atYEnd) {
-                        if ((contentY + feedList.height) > contentHeight - height) {
-                            contentY = contentHeight - height
-                        } else {
-                            contentY += feedList.height
-                        }
-                        returnToBounds()
+                    returnToBounds();
+                }
+                return;
+            case Qt.Key_PageDown:
+                if (!atYEnd) {
+                    if ((contentY + feedList.height) > contentHeight - height) {
+                        contentY = contentHeight - height;
+                    } else {
+                        contentY += feedList.height;
                     }
-                    return;
-                case Qt.Key_Home:
-                    if (!atYBeginning) {
-                        contentY = 0
-                        returnToBounds()
-                    }
-                    return;
-                case Qt.Key_End:
-                    if (!atYEnd) {
-                        contentY = contentHeight - height
-                        returnToBounds()
-                    }
-                    return;
-                default:
-                    break;
+                    returnToBounds();
+                }
+                return;
+            case Qt.Key_Home:
+                if (!atYBeginning) {
+                    contentY = 0;
+                    returnToBounds();
+                }
+                return;
+            case Qt.Key_End:
+                if (!atYEnd) {
+                    contentY = contentHeight - height;
+                    returnToBounds();
+                }
+                return;
+            default:
+                break;
             }
         }
 
@@ -349,7 +345,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        function selectRelative(delta, append) {
+        function selectRelative(delta: int, append: bool): void {
             var nextRow = feedList.currentIndex + delta;
             if (nextRow < 0) {
                 nextRow = feedList.currentIndex;
@@ -366,7 +362,7 @@ Kirigami.ScrollablePage {
 
         // For lack of a better place, we put generic entry list actions here so
         // they can be re-used across the different ListViews.
-        property var selectAllAction: Kirigami.Action {
+        property Kirigami.Action selectAllAction: Kirigami.Action {
             icon.name: "edit-select-all"
             text: i18nc("@action:intoolbar", "Select All")
             visible: true
@@ -375,7 +371,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        property var selectNoneAction: Kirigami.Action {
+        property Kirigami.Action selectNoneAction: Kirigami.Action {
             icon.name: "edit-select-none"
             text: i18nc("@action:intoolbar", "Deselect All")
             visible: feedList.selectionModel.hasSelection
@@ -384,7 +380,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        property var deleteFeedAction: Kirigami.Action {
+        property Kirigami.Action deleteFeedAction: Kirigami.Action {
             icon.name: "delete"
             text: i18ncp("@action:intoolbar", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
@@ -407,21 +403,20 @@ Kirigami.ScrollablePage {
             }
         }
 
-        property var feedDetailsAction: Kirigami.Action {
+        property Kirigami.Action feedDetailsAction: Kirigami.Action {
             icon.name: "documentinfo"
             text: i18nc("@action:intoolbar Open view with more podcast details", "Podcast Details")
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {
-                while(pageStack.depth > 1)
+                while (pageStack.depth > 1)
                     pageStack.pop();
-                pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)});
+                pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+                    feed: feedList.selectionForContextMenu[0].model.data(feedList.selectionForContextMenu[0], FeedsModel.FeedRole)
+                });
             }
         }
 
-        property var contextualActionList: [feedDetailsAction,
-                                            deleteFeedAction,
-                                            selectAllAction,
-                                            selectNoneAction]
+        property list<Kirigami.Action> contextualActionList: [feedDetailsAction, deleteFeedAction, selectAllAction, selectNoneAction]
 
         property Controls.Menu contextMenu: Controls.Menu {
             id: contextMenu

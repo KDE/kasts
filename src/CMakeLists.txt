@@ -15,6 +15,7 @@ add_executable(kasts
     datamanager.cpp
     audiomanager.cpp
     error.cpp
+    windowutils.cpp
     utils/enclosuredownloadjob.cpp
     utils/storagemanager.cpp
     utils/storagemovejob.cpp
@@ -126,6 +127,9 @@ qt_add_qml_module(kasts URI org.kde.kasts
     RESOURCES
         ../icons/media-playback-cloud.svg
         ../kasts.svg
+    DEPENDENCIES
+        org.kde.kmediasession
+        QtCore
 )
 
 ecm_qt_declare_logging_category(kasts

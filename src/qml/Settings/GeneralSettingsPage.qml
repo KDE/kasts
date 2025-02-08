@@ -40,8 +40,10 @@ FormCard.FormCardPage {
             Component.onCompleted: {
                 // have to use Number because QML doesn't know about enum names
                 for (var index in AudioManager.availableBackends) {
-                    backendModel.append({"text": AudioManager.backendName(AudioManager.availableBackends[index]),
-                                         "value": Number(AudioManager.availableBackends[index])});
+                    backendModel.append({
+                        text: AudioManager.backendName(AudioManager.availableBackends[index]),
+                        value: Number(AudioManager.availableBackends[index])
+                    });
 
                     if (Number(AudioManager.availableBackends[index]) === AudioManager.currentBackend) {
                         currentIndex = index;
@@ -131,14 +133,40 @@ FormCard.FormCardPage {
             text: i18nc("@label:listbox", "Periodically retrieve podcast feeds")
             textRole: "text"
             valueRole: "value"
-            model: [{"text": i18nc("@item:inlistbox automatic podcast update interval", "Never"), "value": 0},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 1), "value": 1},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 2), "value": 2},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 4), "value": 4},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 8), "value": 8},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 12), "value": 12},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 1), "value": 24},
-                    {"text": i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 3), "value": 72}]
+            model: [
+                {
+                    text: i18nc("@item:inlistbox automatic podcast update interval", "Never"),
+                    value: 0
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 1),
+                    value: 1
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 2),
+                    value: 2
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 4),
+                    value: 4
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 8),
+                    value: 8
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 12),
+                    value: 12
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 1),
+                    value: 24
+                },
+                {
+                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 3),
+                    value: 72
+                }
+            ]
             Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoFeedUpdateInterval)
             onActivated: {
                 SettingsManager.autoFeedUpdateInterval = currentValue;
@@ -156,8 +184,10 @@ FormCard.FormCardPage {
             }
         }
 
-
-        FormCard.FormDelegateSeparator { above: refreshOnStartup; below: doFullUpdate }
+        FormCard.FormDelegateSeparator {
+            above: refreshOnStartup
+            below: doFullUpdate
+        }
 
         FormCard.FormSwitchDelegate {
             id: doFullUpdate
@@ -215,7 +245,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: continuePlayingNextEntry; below: resetPositionOnPlayed }
+        FormCard.FormDelegateSeparator {
+            above: continuePlayingNextEntry
+            below: resetPositionOnPlayed
+        }
 
         FormCard.FormSwitchDelegate {
             id: resetPositionOnPlayed
@@ -227,17 +260,30 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: resetPositionOnPlayed; below: episodeBehavior }
-
+        FormCard.FormDelegateSeparator {
+            above: resetPositionOnPlayed
+            below: episodeBehavior
+        }
 
         FormCard.FormComboBoxDelegate {
             id: episodeBehavior
             text: i18nc("@label:listbox", "Played episode behavior")
             textRole: "text"
             valueRole: "value"
-            model: [{"text": i18nc("@item:inlistbox What to do with played episodes", "Do not delete"), "value": 0},
-                    {"text": i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"), "value": 1},
-                    {"text": i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"), "value": 2}]
+            model: [
+                {
+                    text: i18nc("@item:inlistbox What to do with played episodes", "Do not delete"),
+                    value: 0
+                },
+                {
+                    text: i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"),
+                    value: 1
+                },
+                {
+                    text: i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"),
+                    value: 2
+                }
+            ]
             Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
             onActivated: {
                 SettingsManager.autoDeleteOnPlayed = currentValue;
@@ -245,7 +291,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: episodeBehavior; below: markAsPlayedGracePeriod }
+        FormCard.FormDelegateSeparator {
+            above: episodeBehavior
+            below: markAsPlayedGracePeriod
+        }
 
         FormCard.FormTextDelegate {
             id: markAsPlayedGracePeriod
@@ -281,7 +330,6 @@ FormCard.FormCardPage {
             }
         }
 
-
         FormCard.FormRadioDelegate {
             id: markCustomUnreadNumberButton
             checked: SettingsManager.markUnreadOnNewFeed === 1
@@ -292,8 +340,8 @@ FormCard.FormCardPage {
             }
 
             trailing: Controls.SpinBox {
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 id: markCustomUnreadNumberSpinBox
+                Layout.rightMargin: Kirigami.Units.gridUnit
                 enabled: markCustomUnreadNumberButton.checked
                 value: SettingsManager.markUnreadOnNewFeedCustomAmount
                 from: 0

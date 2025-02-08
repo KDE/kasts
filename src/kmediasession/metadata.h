@@ -9,14 +9,12 @@
 #include "kmediasession_export.h"
 
 #include <QObject>
-#include <QQmlEngine>
 #include <QString>
 #include <QUrl>
 
 class KMEDIASESSION_EXPORT MetaData : public QObject
 {
     Q_OBJECT
-    QML_ELEMENT
 
     Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged)
     Q_PROPERTY(QString artist READ artist WRITE setArtist NOTIFY artistChanged)

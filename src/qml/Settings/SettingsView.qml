@@ -63,5 +63,5 @@ KirigamiSettings.ConfigurationView {
             page: () => Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage")
             category: i18nc("@title:group", "About")
         }
-     ]
+    ]
 }

@@ -23,14 +23,14 @@ Controls.Slider {
     Layout.topMargin: Kirigami.Units.smallSpacing
     orientation: Qt.Vertical
     padding: 0
-    enabled: !AudioManager.muted && AudioManager.playbackState != AudioManager.StoppedState && AudioManager.canPlay
+    enabled: !AudioManager.muted && AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
     from: 0
     to: 100
     value: AudioManager.volume
     onMoved: AudioManager.volume = value
 
     onPressedChanged: {
-        tooltip.delay = pressed ? 0 : Kirigami.Units.toolTipDelay
+        tooltip.delay = pressed ? 0 : Kirigami.Units.toolTipDelay;
     }
 
     readonly property int wheelEffect: 5
@@ -52,7 +52,7 @@ Controls.Slider {
         anchors.fill: parent
         acceptedButtons: Qt.NoButton
         hoverEnabled: true
-        onWheel: (wheel) => {
+        onWheel: wheel => {
             // Can't use Slider's built-in increase() and decrease() functions here
             // since they go in increments of 0.1 when the slider's stepSize is not
             // defined, which is much too slow. And we don't define a stepSize for
@@ -60,13 +60,11 @@ Controls.Slider {
             if (wheel.angleDelta.y > 0) {
                 // Increase volume
                 volumeSlider.value = Math.min(volumeSlider.to, volumeSlider.value + volumeSlider.wheelEffect);
-
             } else {
                 // Decrease volume
                 volumeSlider.value = Math.max(volumeSlider.from, volumeSlider.value - volumeSlider.wheelEffect);
             }
-            AudioManager.volume = volumeSlider.value
+            AudioManager.volume = volumeSlider.value;
         }
     }
 }
-

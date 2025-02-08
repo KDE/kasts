@@ -29,8 +29,8 @@ Rectangle {
         bottom: parent.bottom
         left: parent.left
         right: parent.right
-        margins: kastsMainWindow.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
-        bottomMargin: bottomMessageSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 )
+        margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
+        bottomMargin: bottomMessageSpacing + (errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0)
     }
 
     color: Kirigami.Theme.activeTextColor
@@ -90,7 +90,7 @@ Rectangle {
             Controls.ToolTip.text: i18n("Abort")
             text: i18n("Abort")
             icon.name: "edit-delete-remove"
-            onClicked: abortAction();
+            onClicked: abortAction()
         }
     }
 
@@ -100,9 +100,8 @@ Rectangle {
         interval: 2000
         repeat: false
 
-        onTriggered:
-        {
-            rootComponent.opacity = 0
+        onTriggered: {
+            rootComponent.opacity = 0;
         }
     }
 
@@ -113,17 +112,18 @@ Rectangle {
         }
     }
 
-    function open() {
+    function open(): void {
         hideTimer.stop();
         opacity = 1;
     }
 
-    function close() {
+    function close(): void {
         hideTimer.start();
     }
 
     // if the abort button is enabled (showAbortButton = true), this function
     // needs to be implemented/overriden to call the correct underlying
     // method/function
-    function abortAction() {}
+    function abortAction(): void {
+    }
 }

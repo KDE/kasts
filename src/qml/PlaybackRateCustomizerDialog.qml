@@ -25,13 +25,15 @@ Kirigami.Dialog {
 
         Component.onCompleted: {
             for (var rate in SettingsManager.playbackRates) {
-                rateModel.append({"value": SettingsManager.playbackRates[rate] / 100.0,
-                                  "name": (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"});
+                rateModel.append({
+                    value: SettingsManager.playbackRates[rate] / 100.0,
+                    name: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"
+                });
             }
         }
     }
 
-    function getRateList() {
+    function getRateList(): void {
         var list = [];
         for (var i = 0; i < rateModel.count; i++) {
             list.push(Math.round(rateModel.get(i).value * 100));
@@ -79,8 +81,10 @@ Kirigami.Dialog {
                         }
                     }
                     if (!found) {
-                        rateModel.insert(insertIndex, {"value": newValue,
-                                                       "name": newValue.toFixed(2) + "x"});
+                        rateModel.insert(insertIndex, {
+                            value: newValue,
+                            name: newValue.toFixed(2) + "x"
+                        });
                     }
                 }
             }

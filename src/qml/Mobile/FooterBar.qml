@@ -54,27 +54,28 @@ Flickable {
         onReleased: footerBar.resetToBoundsOnFlick()
     }
 
-    function close() {
+    function close(): void {
         toClose.restart();
     }
 
-    function resetToBoundsOnFlick() {
+    function resetToBoundsOnFlick(): void {
         if (!atYBeginning || !atYEnd) {
             if (footerBar.verticalVelocity > 0) {
                 toOpen.restart();
             } else if (footerBar.verticalVelocity < 0) {
                 toClose.restart();
-            } else { // i.e. when verticalVelocity === 0
+            } else {
+                // i.e. when verticalVelocity === 0
                 if (contentY > contentHeight / 4) {
                     toOpen.restart();
-                } else  {
+                } else {
                     toClose.restart();
                 }
             }
         }
     }
 
-    function resetToBoundsOnResize() {
+    function resetToBoundsOnResize(): void {
         if (contentY > contentHeight / 4) {
             contentY = contentHeight / 2;
         } else {

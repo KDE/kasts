@@ -17,7 +17,7 @@ import org.kde.kasts
 AddonDelegates.RoundedItemDelegate {
     id: root
 
-    property var entry: undefined
+    property Entry entry: undefined
     property var overlay: undefined
 
     required property Chapter chapter

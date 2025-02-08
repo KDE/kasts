@@ -37,7 +37,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: storagePath; below: defaultStoragePath }
+        FormCard.FormDelegateSeparator {
+            above: storagePath
+            below: defaultStoragePath
+        }
 
         FormCard.FormTextDelegate {
             id: storagePath
@@ -52,7 +55,6 @@ FormCard.FormCardPage {
                 enabled: !defaultStoragePath.checked
                 onClicked: storagePathDialog.open()
             }
-
 
             StorageDirDialog {
                 id: storagePathDialog
@@ -83,7 +85,7 @@ FormCard.FormCardPage {
             trailing: Controls.Button {
                 icon.name: "edit-clear-all"
                 text: i18nc("@action:button", "Clear Cache")
-                onClicked: StorageManager.clearImageCache();
+                onClicked: StorageManager.clearImageCache()
             }
         }
     }

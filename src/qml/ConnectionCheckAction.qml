@@ -23,28 +23,29 @@ Kirigami.Dialog {
 
     // Function to be overloaded where this is instantiated with another purpose
     // than refreshing all feeds
-    function action() {
+    function action(): void {
         Fetcher.fetchAll();
     }
 
     // This function will be executed when "Don't allow" is chosen; can be overloaded
-    function abortAction() { }
+    function abortAction(): void {
+    }
 
     // This function will be executed when the "Allow once" action is chosen; can be overloaded
-    function allowOnceAction() {
-        action()
+    function allowOnceAction(): void {
+        action();
     }
 
     // This function will be executed when the "Always allow" action is chosed; can be overloaded
-    function alwaysAllowAction() {
+    function alwaysAllowAction(): void {
         SettingsManager.allowMeteredFeedUpdates = true;
         SettingsManager.save();
-        action()
+        action();
     }
 
     // this is the function that should be called if the action should be
     // triggered conditionally (on the basis that the condition is passed)
-    function run() {
+    function run(): void {
         if (condition) {
             action();
         } else {
@@ -65,7 +66,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             text: NetworkConnectionManager.networkReachable ? overlay.headingText : i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
             wrapMode: Text.Wrap
-            color: NetworkConnectionManager.networkReachable ?Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
+            color: NetworkConnectionManager.networkReachable ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
 
         Kirigami.Separator {

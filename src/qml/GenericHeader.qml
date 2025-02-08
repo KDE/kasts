@@ -23,8 +23,8 @@ Item {
 
     property bool titleClickable: false
     property bool subtitleClickable: false
-    signal titleClicked()
-    signal subtitleClicked()
+    signal titleClicked
+    signal subtitleClicked
 
     implicitHeight: headerHeight
     implicitWidth: parent.width
@@ -52,7 +52,7 @@ Item {
     }
 
     RowLayout {
-        property int size: root.headerHeight -  2 * margin
+        property int size: root.headerHeight - 2 * margin
         property int margin: Kirigami.Units.gridUnit * 1
         height: size
         anchors.bottom: parent.bottom
@@ -75,9 +75,9 @@ Item {
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
                     fullScreenImageLoader.setSource("qrc:/qt/qml/org/kde/kasts/qml/FullScreenImage.qml", {
-                        "image": root.image,
-                        "description": root.title,
-                        "loader": fullScreenImageLoader
+                        image: root.image,
+                        description: root.title,
+                        loader: fullScreenImageLoader
                     });
                     fullScreenImageLoader.active = true;
                     fullScreenImageLoader.item.open();
@@ -88,7 +88,7 @@ Item {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.leftMargin: parent.margin/2
+            Layout.leftMargin: parent.margin / 2
             Controls.Label {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -137,6 +137,10 @@ Item {
             }
         }
     }
+
+    Loader {
+        id: fullScreenImageLoader
+        active: false
+        visible: active
+    }
 }
-
-

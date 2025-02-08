@@ -18,7 +18,7 @@ Kirigami.NavigationTabBar {
     property alias toolbarHeight: navBar.implicitHeight
 
     // Keep track of the settings page being opened on the layer stack for mobile
-    readonly property bool settingsOpened: kastsMainWindow.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
+    readonly property bool settingsOpened: Kirigami.Settings.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
 
     actions: [
         Kirigami.Action {
@@ -42,7 +42,7 @@ Kirigami.NavigationTabBar {
             text: i18nc("@title of page with list of podcast episodes", "Episodes")
             checked: "EpisodeListPage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
-                pushPage("EpisodeListPage")
+                pushPage("EpisodeListPage");
             }
         },
         Kirigami.Action {

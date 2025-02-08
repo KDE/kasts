@@ -34,9 +34,20 @@ FormCard.FormCardPage {
             textRole: "text"
             valueRole: "value"
 
-            model: [{"text": i18nc("Label for the GUI mode selection", "Auto"), "value": 2},
-                    {"text": i18nc("Label for the GUI mode selection", "Desktop"), "value": 0},
-                    {"text": i18nc("Label for the GUI mode selection", "Mobile"), "value": 1}]
+            model: [
+                {
+                    text: i18nc("Label for the GUI mode selection", "Auto"),
+                    value: 2
+                },
+                {
+                    text: i18nc("Label for the GUI mode selection", "Desktop"),
+                    value: 0
+                },
+                {
+                    text: i18nc("Label for the GUI mode selection", "Mobile"),
+                    value: 1
+                }
+            ]
             Component.onCompleted: currentIndex = indexOfValue(SettingsManager.interfaceMode)
             onActivated: {
                 SettingsManager.interfaceMode = currentValue;
@@ -47,13 +58,13 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormComboBoxDelegate {
-            Layout.fillWidth: true
             id: colorTheme
+            Layout.fillWidth: true
             text: i18nc("@label:listbox", "Color theme")
             textRole: "display"
             valueRole: "display"
             model: ColorSchemer.model
-            Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(SettingsManager.colorScheme);
+            Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(SettingsManager.colorScheme)
             onCurrentValueChanged: {
                 ColorSchemer.apply(currentIndex);
                 SettingsManager.colorScheme = ColorSchemer.nameForIndex(currentIndex);
@@ -135,9 +146,20 @@ FormCard.FormCardPage {
             textRole: "text"
             valueRole: "value"
 
-            model: [{"text": i18nc("Label describing style of tray icon", "Colorful"), "value": 0},
-                    {"text": i18nc("Label describing style of tray icon", "Light"), "value": 1},
-                    {"text": i18nc("Label describing style of tray icon", "Dark"), "value": 2}]
+            model: [
+                {
+                    text: i18nc("Label describing style of tray icon", "Colorful"),
+                    value: 0
+                },
+                {
+                    text: i18nc("Label describing style of tray icon", "Light"),
+                    value: 1
+                },
+                {
+                    text: i18nc("Label describing style of tray icon", "Dark"),
+                    value: 2
+                }
+            ]
             Component.onCompleted: currentIndex = indexOfValue(SettingsManager.trayIconType)
             onActivated: {
                 SettingsManager.trayIconType = currentValue;
@@ -165,7 +187,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { below: fontSize; above: useSystemFontCheckBox }
+        FormCard.FormDelegateSeparator {
+            below: fontSize
+            above: useSystemFontCheckBox
+        }
 
         FormCard.FormTextDelegate {
             id: fontSize

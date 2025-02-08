@@ -5,14 +5,16 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import QtQuick.Effects
 import QtQml.Models
+import QtCore
 
 import org.kde.kirigami as Kirigami
-import org.kde.kmediasession
 
 import org.kde.kasts
 
@@ -29,39 +31,48 @@ FocusScope {
     property int authorCollapseHeight: Kirigami.Units.gridUnit * 4
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
-    function openEntry() {
+    function openEntry(): void {
         if (AudioManager.entry) {
             pushPage("QueuePage");
-            pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {"entry": AudioManager.entry});
+            pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+                entry: AudioManager.entry
+            });
             pageStack.get(0).lastEntry = AudioManager.entry.id;
             var model = pageStack.get(0).queueList.model;
-            for (var i = 0; i <  model.rowCount(); i++) {
+            for (var i = 0; i < model.rowCount(); i++) {
                 var index = model.index(i, 0);
                 if (AudioManager.entry == model.data(index, AbstractEpisodeModel.EntryRole)) {
                     pageStack.get(0).queueList.currentIndex = i;
                     pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
-
                 }
             }
         }
     }
 
-    function openFeed() {
+    function openFeed(): void {
         if (AudioManager.entry) {
             pushPage("FeedListPage");
-            pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": AudioManager.entry.feed});
+            pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+                feed: AudioManager.entry.feed
+            });
         }
     }
 
-    function openFullScreenImage() {
+    function openFullScreenImage(): void {
         var options = {
-            "image": Qt.binding(function() { return headerMetaData.image }),
-            "description": Qt.binding(function() { return headerMetaData.title }),
-            "loader": Qt.binding(function() { return fullScreenImageLoader})
+            image: Qt.binding(function () {
+                return headerMetaData.image;
+            }),
+            description: Qt.binding(function () {
+                return headerMetaData.title;
+            }),
+            loader: Qt.binding(function () {
+                return fullScreenImageLoader;
+            })
         };
         fullScreenImageLoader.setSource("qrc:/qt/qml/org/kde/kasts/qml/FullScreenImage.qml", options);
         fullScreenImageLoader.active = true;
-        fullScreenImageLoader.item.open();
+        (fullScreenImageLoader.item as FullScreenImage).open();
     }
 
     Rectangle {
@@ -74,14 +85,9 @@ FocusScope {
 
     Loader {
         id: backgroundImageLoader
-        active: handlePosition > 0
+        active: headerBar.handlePosition > 0
         anchors.fill: parent
-        sourceComponent: backgroundImageComponent
-    }
-
-    Component {
-        id: backgroundImageComponent
-        MultiEffect {
+        sourceComponent: MultiEffect {
             source: backgroundImage
             anchors.fill: parent
 
@@ -146,7 +152,7 @@ FocusScope {
                     cursorShape: AudioManager.entry ? Qt.PointingHandCursor : Qt.ArrowCursor
                     enabled: AudioManager.entry
                     onClicked: {
-                        openFullScreenImage();
+                        headerBar.openFullScreenImage();
                     }
                 }
             }
@@ -174,7 +180,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            openEntry();
+                            headerBar.openEntry();
                         }
                     }
                 }
@@ -194,13 +200,13 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            openFeed();
+                            headerBar.openFeed();
                         }
                     }
                 }
 
                 Controls.Label {
-                    visible: (headerMetaData.authors) && labelLayout.height > headerBar.authorCollapseHeight
+                    visible: headerMetaData.authors && labelLayout.height > headerBar.authorCollapseHeight
                     Layout.fillWidth: true
                     text: headerMetaData.authors
                     fontSizeMode: Text.Fit
@@ -214,7 +220,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            openFeed();
+                            headerBar.openFeed();
                         }
                     }
                 }
@@ -231,13 +237,25 @@ FocusScope {
         anchors.right: parent.right
 
         onHandlePositionChanged: (y, offset) => {
-            handlePosition = Math.max(0, Math.min(headerBar.maximumHeight, headerBar.height - implicitHeight - offset + y));
-            settings.headerSize = handlePosition;
+            headerBar.handlePosition = Math.max(0, Math.min(headerBar.maximumHeight, headerBar.height - implicitHeight - offset + y));
+            settings.headerSize = headerBar.handlePosition;
         }
     }
 
     Kirigami.Separator {
         width: parent.width
         anchors.bottom: parent.bottom
+    }
+
+    Loader {
+        id: fullScreenImageLoader
+        active: false
+        visible: active
+    }
+
+    Settings {
+        id: settings
+
+        property int headerSize: Kirigami.Units.gridUnit * 5
     }
 }

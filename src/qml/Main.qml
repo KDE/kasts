@@ -19,20 +19,18 @@ import org.kde.kasts
 import "Desktop"
 import "Mobile"
 
-
 Kirigami.ApplicationWindow {
     id: kastsMainWindow
+
     title: i18n("Kasts")
 
-    property bool isMobile: Kirigami.Settings.isMobile
-
-    width: kastsMainWindow.isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
-    height: kastsMainWindow.isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
+    width: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
+    height: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
 
     pageStack.clip: true
     pageStack.popHiddenPages: true
-    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar;
-    pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton;
+    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
+    pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.ShowBackButton
 
     // only have a single page visible at any time
     pageStack.columnView.columnResizeMode: Kirigami.ColumnView.SingleColumn
@@ -42,25 +40,23 @@ Kirigami.ApplicationWindow {
 
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
-        if (kastsMainWindow.isMobile) {
-            return Kirigami.Units.largeSpacing + ( AudioManager.entry ? ( (footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0 ) : 0 )
+        if (Kirigami.Settings.isMobile) {
+            return Kirigami.Units.largeSpacing + (AudioManager.entry ? ((footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0) : 0);
         } else {
             return Kirigami.Units.largeSpacing;
         }
     }
-    property var lastFeed: ""
+    property string lastFeed: ""
     property string currentPage: ""
     property int feedSorting: FeedsProxyModel.UnreadDescending
 
-    property bool isWidescreen: kastsMainWindow.width > kastsMainWindow.height
-
-    function pushPage(page) {
+    function pushPage(page: string): void {
         if (page === "SettingsView") {
             settingsView.open();
         } else {
             var pageObject = Qt.createComponent("org.kde.kasts", page);
             if (!pageObject) {
-                page = "FeedListPage"
+                page = "FeedListPage";
                 pageObject = Qt.createComponent("org.kde.kasts", page);
             }
             pageStack.clear();
@@ -82,7 +78,6 @@ Kirigami.ApplicationWindow {
     Settings {
         id: settings
 
-        property int headerSize: Kirigami.Units.gridUnit * 5
         property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
         property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
@@ -106,7 +101,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property bool showGlobalDrawer: !kastsMainWindow.isMobile || kastsMainWindow.isWidescreen
+    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || WindowUtils.isWidescreen
 
     globalDrawer: globalDrawerLoader.item
 
@@ -119,7 +114,7 @@ Kirigami.ApplicationWindow {
     // Implement slots for MPRIS2 signals
     Connections {
         target: AudioManager
-        function onRaiseWindowRequested() {
+        function onRaiseWindowRequested(): void {
             kastsMainWindow.visible = true;
             kastsMainWindow.show();
             kastsMainWindow.raise();
@@ -128,28 +123,30 @@ Kirigami.ApplicationWindow {
     }
     Connections {
         target: AudioManager
-        function onQuitRequested() {
+        function onQuitRequested(): void {
             kastsMainWindow.close();
         }
     }
 
     header: Loader {
         id: headerLoader
-        active: !kastsMainWindow.isMobile
+        active: !Kirigami.Settings.isMobile
         visible: active
 
-        sourceComponent: HeaderBar { focus: true }
+        sourceComponent: HeaderBar {
+            focus: true
+        }
     }
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (AudioManager.entry && kastsMainWindow.isMobile) ? miniplayerSize + 1 : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entry && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
 
     Loader {
         id: footerLoader
 
         anchors.fill: parent
-        active: AudioManager.entry && kastsMainWindow.isMobile
+        active: AudioManager.entry && Kirigami.Settings.isMobile
         visible: active
         z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
@@ -177,11 +174,13 @@ Kirigami.ApplicationWindow {
         id: bottomToolbarLoader
         visible: active
         height: visible ? implicitHeight : 0
-        active: kastsMainWindow.isMobile && !kastsMainWindow.isWidescreen
+        active: Kirigami.Settings.isMobile && !WindowUtils.isWidescreen
         sourceComponent: BottomToolbar {
             opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
             Behavior on opacity {
-                NumberAnimation { duration: Kirigami.Units.shortDuration }
+                NumberAnimation {
+                    duration: Kirigami.Units.shortDuration
+                }
             }
         }
     }
@@ -191,21 +190,17 @@ Kirigami.ApplicationWindow {
     // not allow to add a BusyIndicator
     UpdateNotification {
         id: updateNotification
-        text: i18ncp("Number of Updated Podcasts",
-                     "Updated %2 of %1 Podcast",
-                     "Updated %2 of %1 Podcasts",
-                     Fetcher.updateTotal,
-                     Fetcher.updateProgress)
+        text: i18ncp("Number of Updated Podcasts", "Updated %2 of %1 Podcast", "Updated %2 of %1 Podcasts", Fetcher.updateTotal, Fetcher.updateProgress)
 
         showAbortButton: true
 
-        function abortAction() {
+        function abortAction(): void {
             Fetcher.cancelFetching();
         }
 
         Connections {
             target: Fetcher
-            function onUpdatingChanged() {
+            function onUpdatingChanged(): void {
                 if (Fetcher.updating) {
                     updateNotification.open();
                 } else {
@@ -218,24 +213,20 @@ Kirigami.ApplicationWindow {
     // Notification to show progress of copying enclosure and images to new location
     UpdateNotification {
         id: moveStorageNotification
-        text: i18ncp("Number of Moved Files",
-                     "Moved %2 of %1 File",
-                     "Moved %2 of %1 Files",
-                     StorageManager.storageMoveTotal,
-                     StorageManager.storageMoveProgress)
+        text: i18ncp("Number of Moved Files", "Moved %2 of %1 File", "Moved %2 of %1 Files", StorageManager.storageMoveTotal, StorageManager.storageMoveProgress)
         showAbortButton: true
 
-        function abortAction() {
+        function abortAction(): void {
             StorageManager.cancelStorageMove();
         }
 
         Connections {
             target: StorageManager
-            function onStorageMoveStarted() {
-                moveStorageNotification.open()
+            function onStorageMoveStarted(): void {
+                moveStorageNotification.open();
             }
-            function onStorageMoveFinished() {
-                moveStorageNotification.close()
+            function onStorageMoveFinished(): void {
+                moveStorageNotification.close();
             }
         }
     }
@@ -246,13 +237,13 @@ Kirigami.ApplicationWindow {
         text: Sync.syncProgressText
         showAbortButton: true
 
-        function abortAction() {
+        function abortAction(): void {
             Sync.abortSync();
         }
 
         Connections {
             target: Sync
-            function onSyncProgressChanged() {
+            function onSyncProgressChanged(): void {
                 if (Sync.syncStatus != SyncUtils.NoSync && Sync.syncProgress === 0) {
                     updateSyncNotification.open();
                 } else if (Sync.syncStatus === SyncUtils.NoSync) {
@@ -261,7 +252,6 @@ Kirigami.ApplicationWindow {
             }
         }
     }
-
 
     // This InlineMessage is used for displaying error messages
     ErrorNotification {
@@ -282,7 +272,7 @@ Kirigami.ApplicationWindow {
         property var entry: undefined
         property var selection: undefined
 
-        function action() {
+        function action(): void {
             if (selection) {
                 DataManager.bulkDownloadEnclosuresByIndex(selection);
             } else if (entry) {
@@ -293,26 +283,22 @@ Kirigami.ApplicationWindow {
             entry = undefined;
         }
 
-        function allowOnceAction() {
+        function allowOnceAction(): void {
             SettingsManager.allowMeteredEpisodeDownloads = true;
             action();
             SettingsManager.allowMeteredEpisodeDownloads = false;
         }
 
-        function alwaysAllowAction() {
+        function alwaysAllowAction(): void {
             SettingsManager.allowMeteredEpisodeDownloads = true;
             SettingsManager.save();
             action();
         }
     }
 
-    SleepTimerDialog {
-        id: sleepTimerDialog
-    }
-
     Connections {
         target: Sync
-        function onPasswordInputRequired() {
+        function onPasswordInputRequired(): void {
             syncPasswordOverlay.open();
         }
     }
@@ -321,20 +307,14 @@ Kirigami.ApplicationWindow {
         id: syncPasswordOverlay
     }
 
-    Loader {
-        id: fullScreenImageLoader
-        active: false
-        visible: active
-    }
-
     //Global Shortcuts
     Shortcut {
-        sequence:  "space"
+        sequence: "space"
         enabled: AudioManager.canPlay
         onActivated: AudioManager.playPause()
     }
     Shortcut {
-        sequence:  "n"
+        sequence: "n"
         enabled: AudioManager.canGoNext
         onActivated: AudioManager.next()
     }
@@ -343,7 +323,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: kastsMainWindow
 
-        function onClosing(close) {
+        function onClosing(close: CloseEvent): void {
             if (SystrayIcon.available && SettingsManager.showTrayIcon && SettingsManager.minimizeToTray) {
                 close.accepted = false;
                 kastsMainWindow.hide();
@@ -357,7 +337,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: SystrayIcon
 
-        function onRaiseWindow() {
+        function onRaiseWindow(): void {
             if (kastsMainWindow.visible) {
                 kastsMainWindow.visible = false;
                 kastsMainWindow.hide();

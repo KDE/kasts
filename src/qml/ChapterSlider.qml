@@ -34,9 +34,15 @@ Control {
 
     // align with the Slider implementations in the major styles
     readonly property bool desktopStyle: styleName === "org.kde.desktop"
-    readonly property color inactiveGrooveColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(inactiveGrooveBorderColor, {alpha: -50}) : Kirigami.Theme.backgroundColor
-    readonly property color activeGrooveColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(activeGrooveBorderColor, {alpha: -50}) : Kirigami.Theme.alternateBackgroundColor
-    readonly property color inactiveGrooveBorderColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(Kirigami.Theme.textColor, {alpha: -80}) : Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.3)
+    readonly property color inactiveGrooveColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(inactiveGrooveBorderColor, {
+        alpha: -50
+    }) : Kirigami.Theme.backgroundColor
+    readonly property color activeGrooveColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(activeGrooveBorderColor, {
+        alpha: -50
+    }) : Kirigami.Theme.alternateBackgroundColor
+    readonly property color inactiveGrooveBorderColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(Kirigami.Theme.textColor, {
+        alpha: -80
+    }) : Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.3)
     readonly property color activeGrooveBorderColor: desktopStyle ? Kirigami.Theme.highlightColor : Kirigami.Theme.focusColor
     readonly property color handleColor: Kirigami.Theme.backgroundColor
     readonly property color handleBorderColor: dragArea.pressed || dragArea.containsMouse ? Kirigami.Theme.focusColor : Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.4)
@@ -52,14 +58,14 @@ Control {
     }
     readonly property int handleSize: desktopStyle ? 20 : fontMetrics.height
 
-    function setPlaybackPosition(x) {
-        AudioManager.position = (Math.max(handle.width / 2, Math.min(x, root.width - handle.width / 2)) - handle.width / 2) / (root.width - handle.width) * duration
+    function setPlaybackPosition(x: int): void {
+        AudioManager.position = (Math.max(handle.width / 2, Math.min(x, root.width - handle.width / 2)) - handle.width / 2) / (root.width - handle.width) * duration;
     }
 
     MouseArea {
         anchors.fill: parent
         onReleased: {
-            setPlaybackPosition(mouseX)
+            setPlaybackPosition(mouseX);
         }
         // TODO: handle scrollwheel
     }
@@ -96,7 +102,7 @@ Control {
                         visible: parent.containsMouse
                     }
                     onReleased: {
-                        setPlaybackPosition(mouseX + parent.x + handle.width / 2)
+                        setPlaybackPosition(mouseX + parent.x + handle.width / 2);
                     }
                 }
                 Rectangle {

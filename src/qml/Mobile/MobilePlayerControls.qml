@@ -103,14 +103,14 @@ Kirigami.Page {
                         id: coverImage
                         anchors {
                             top: parent.top
-                            bottom: kastsMainWindow.isWidescreen ? parent.bottom : undefined
+                            bottom: WindowUtils.isWidescreen ? parent.bottom : undefined
                             left: parent.left
-                            right: kastsMainWindow.isWidescreen ? undefined : parent.right
+                            right: WindowUtils.isWidescreen ? undefined : parent.right
                             margins: 0
-                            topMargin: kastsMainWindow.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
+                            topMargin: WindowUtils.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
                         }
-                        height: Math.min(parent.height - (kastsMainWindow.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
-                        width: kastsMainWindow.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
+                        height: Math.min(parent.height - (WindowUtils.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
+                        width: WindowUtils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
                             imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
@@ -125,12 +125,12 @@ Kirigami.Page {
 
                     Item {
                         anchors {
-                            top: kastsMainWindow.isWidescreen ? parent.top : coverImage.bottom
+                            top: WindowUtils.isWidescreen ? parent.top : coverImage.bottom
                             bottom: parent.bottom
-                            left: kastsMainWindow.isWidescreen ? coverImage.right : parent.left
+                            left: WindowUtils.isWidescreen ? coverImage.right : parent.left
                             right: parent.right
-                            leftMargin: kastsMainWindow.isWidescreen ? parent.textMargin : 0
-                            topMargin: kastsMainWindow.isWidescreen ? 0 : parent.textMargin
+                            leftMargin: WindowUtils.isWidescreen ? parent.textMargin : 0
+                            topMargin: WindowUtils.isWidescreen ? 0 : parent.textMargin
                             bottomMargin: 0
                         }
 
@@ -189,7 +189,7 @@ Kirigami.Page {
                             onLinkHovered: {
                                 cursorShape: Qt.PointingHandCursor;
                             }
-                            onLinkActivated: (link) => {
+                            onLinkActivated: link => {
                                 if (link.split("://")[0] === "timestamp") {
                                     if (AudioManager.entry && AudioManager.entry.enclosure) {
                                         AudioManager.seek(link.split("://")[1]);
@@ -327,7 +327,7 @@ Kirigami.Page {
                         icon.height: contextButtons.iconSize
                         onClicked: {
                             toggle(); // only set the on/off state based on sleep timer state
-                            sleepTimerDialog.open()
+                            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open()
                         }
                     }
                     Controls.ToolButton {
@@ -339,7 +339,7 @@ Kirigami.Page {
                         icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                         icon.width: contextButtons.iconSize
                         icon.height: contextButtons.iconSize
-                        enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                        enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
                         checked: volumePopup.visible
 
                         Controls.ToolTip.visible: hovered
@@ -368,14 +368,13 @@ Kirigami.Page {
 
                                 Controls.ToolButton {
                                     id: muteButton
-                                    enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                                    enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
                                     icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                                     onClicked: AudioManager.muted = !AudioManager.muted
 
                                     Controls.ToolTip.visible: hovered
                                     Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                                     Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
-
                                 }
 
                                 VolumeSlider {
@@ -387,8 +386,8 @@ Kirigami.Page {
                 }
 
                 Loader {
-                    active: !kastsMainWindow.isWidescreen
-                    visible: !kastsMainWindow.isWidescreen
+                    active: !WindowUtils.isWidescreen
+                    visible: !WindowUtils.isWidescreen
                     sourceComponent: slider
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -407,10 +406,9 @@ Kirigami.Page {
                         font: Kirigami.Theme.smallFont
                     }
                     Loader {
-                        active: kastsMainWindow.isWidescreen
+                        active: WindowUtils.isWidescreen
                         sourceComponent: slider
                         Layout.fillWidth: true
-
                     }
                     Item {
                         Layout.alignment: Qt.AlignRight
@@ -421,11 +419,8 @@ Kirigami.Page {
                             padding: Kirigami.Units.largeSpacing
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            text: (SettingsManager.toggleRemainingTime) ?
-                                    "-" + AudioManager.formattedLeftDuration
-                                    : AudioManager.formattedDuration
+                            text: (SettingsManager.toggleRemainingTime) ? "-" + AudioManager.formattedLeftDuration : AudioManager.formattedDuration
                             font: Kirigami.Theme.smallFont
-
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -525,6 +520,5 @@ Kirigami.Page {
 
     PlaybackRateMenu {
         id: playbackRateMenu
-        parentButton: playbackRateButton
     }
 }

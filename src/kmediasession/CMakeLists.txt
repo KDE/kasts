@@ -39,9 +39,10 @@ add_library(KMediaSession
     mpris2/mpris2.cpp
 )
 
-qt_add_qml_module(KMediaSession URI org.kde.kmediasession
-    OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/org/kde/kmediasession
-)
+ecm_add_qml_module(kmediasessionqmlplugin URI "org.kde.kmediasession" GENERATE_PLUGIN_SOURCE)
+target_sources(kmediasessionqmlplugin PRIVATE types.h)
+target_link_libraries(kmediasessionqmlplugin PUBLIC KMediaSession)
+ecm_finalize_qml_module(kmediasessionqmlplugin DESTINATION ${KDE_INSTALL_QMLDIR})
 
 ecm_qt_declare_logging_category(KMediaSession
     HEADER "kmediasessionlogging.h"
@@ -143,6 +144,8 @@ target_link_libraries(KMediaSession PRIVATE
     KF6::CoreAddons
     KF6::I18n
 )
+
+qt_extract_metatypes(KMediaSession)
 
 if (LIBVLC_FOUND)
     target_link_libraries(KMediaSession PRIVATE LIBVLC::LIBVLC)

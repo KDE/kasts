@@ -22,13 +22,15 @@ Kirigami.SearchField {
 
     property string searchFilter: ""
 
-    function openEntry(entry) {
+    function openEntry(entry: Entry): void {
         pushPage("EpisodeListPage");
-        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/EntryPage.qml", {"entry": entry});
+        pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+            entry: entry
+        });
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
-        var episodeModel = pageStack.get(0).episodeList.model
-        for (var i = 0; i <  episodeModel.rowCount(); i++) {
+        var episodeModel = pageStack.get(0).episodeList.model;
+        for (var i = 0; i < episodeModel.rowCount(); i++) {
             var index = episodeModel.index(i, 0);
             if (entry.id == episodeModel.data(index, AbstractEpisodeModel.IdRole)) {
                 pageStack.get(0).episodeList.currentIndex = i;
@@ -55,7 +57,7 @@ Kirigami.SearchField {
         }
         acceptedButtons: Qt.RightButton | Qt.LeftButton
     }
-    Keys.onPressed: (event) => {
+    Keys.onPressed: event => {
         if (event.key !== Qt.Key_Tab || event.key !== Qt.Key_Backtab) {
             searchDialog.open();
             searchDialog.text = text;
@@ -123,15 +125,15 @@ Kirigami.SearchField {
         ListModel {
             id: searchSettingsModel
 
-            function reload() {
+            function reload(): void {
                 clear();
-                var searchList = [AbstractEpisodeProxyModel.TitleFlag,
-                                AbstractEpisodeProxyModel.ContentFlag,
-                                AbstractEpisodeProxyModel.FeedNameFlag]
+                var searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
                 for (var i in searchList) {
-                    searchSettingsModel.append({"name": proxyModel.getSearchFlagName(searchList[i]),
-                                                "searchFlag": searchList[i],
-                                                "checked": proxyModel.searchFlags & searchList[i]});
+                    searchSettingsModel.append({
+                        name: proxyModel.getSearchFlagName(searchList[i]),
+                        searchFlag: searchList[i],
+                        isChecked: proxyModel.searchFlags & searchList[i]
+                    });
                 }
             }
 
@@ -154,14 +156,17 @@ Kirigami.SearchField {
                 model: searchSettingsModel
 
                 Controls.MenuItem {
-                    text: model.name
+                    required property string name
+                    required property var searchFlag
+                    required property bool isChecked
+                    text: name
                     checkable: true
-                    checked: model.checked
+                    checked: isChecked
                     onTriggered: {
                         if (checked) {
-                            proxyModel.searchFlags = proxyModel.searchFlags | model.searchFlag;
+                            proxyModel.searchFlags = proxyModel.searchFlags | searchFlag;
                         } else {
-                            proxyModel.searchFlags = proxyModel.searchFlags & ~model.searchFlag;
+                            proxyModel.searchFlags = proxyModel.searchFlags & ~searchFlag;
                         }
                     }
                 }

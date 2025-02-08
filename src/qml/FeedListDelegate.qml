@@ -36,7 +36,7 @@ Controls.ItemDelegate {
     Accessible.role: Accessible.Button
     Accessible.name: feed.name
     Accessible.onPressAction: {
-         clicked();
+        clicked();
     }
     Keys.onReturnPressed: clicked()
 
@@ -44,7 +44,7 @@ Controls.ItemDelegate {
     // - if the selected indexes changes
     // - if our delegate moves
     // - if the model moves and the delegate stays in the same place
-    function updateIsSelected() {
+    function updateIsSelected(): void {
         selected = listView.selectionModel.rowIntersectsSelection(row);
     }
 
@@ -61,9 +61,7 @@ Controls.ItemDelegate {
         Rectangle {
             id: background
             anchors.fill: parent
-            color: feedDelegate.checked || feedDelegate.highlighted || (feedDelegate.supportsMouseEvents && feedDelegate.pressed)
-                ? feedDelegate.activeBackgroundColor
-                : Kirigami.Theme.backgroundColor
+            color: feedDelegate.checked || feedDelegate.highlighted || (feedDelegate.supportsMouseEvents && feedDelegate.pressed) ? feedDelegate.activeBackgroundColor : Kirigami.Theme.backgroundColor
 
             Rectangle {
                 id: internal
@@ -96,16 +94,16 @@ Controls.ItemDelegate {
         id: mouseArea
         anchors.fill: parent
         anchors.margins: cardMargin + borderWidth
-        implicitWidth:  cardSize - 2 * borderWidth
-        implicitHeight: cardSize  - 2 * borderWidth
+        implicitWidth: cardSize - 2 * borderWidth
+        implicitHeight: cardSize - 2 * borderWidth
 
         acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: (mouse) => {
+        onClicked: mouse => {
             // Keep track of (currently) selected items
             var modelIndex = feedDelegate.listView.model.index(index, 0);
 
             if (feedDelegate.listView.selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
-                feedDelegate.listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
+                feedDelegate.listView.contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
             } else if (mouse.modifiers & Qt.ShiftModifier) {
                 // Have to take a detour through c++ since selecting large sets
                 // in QML is extremely slow
@@ -119,7 +117,7 @@ Controls.ItemDelegate {
             } else if (mouse.button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
                 feedDelegate.listView.selectionForContextMenu = [modelIndex];
-                feedDelegate.listView.contextMenu.popup(null, mouse.x+1, mouse.y+1);
+                feedDelegate.listView.contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
             }
         }
 
@@ -130,14 +128,14 @@ Controls.ItemDelegate {
 
         Connections {
             target: listView.selectionModel
-            function onSelectionChanged() {
+            function onSelectionChanged(): void {
                 updateIsSelected();
             }
         }
 
         Connections {
             target: listView.model
-            function onLayoutAboutToBeChanged() {
+            function onLayoutAboutToBeChanged(): void {
                 if (feedList.currentItem === feedDelegate) {
                     isCurrentItem = true;
                     currentItemUrl = feed.url;
@@ -146,7 +144,7 @@ Controls.ItemDelegate {
                     currentItemUrl = "";
                 }
             }
-            function onLayoutChanged() {
+            function onLayoutChanged(): void {
                 updateIsSelected();
                 if (isCurrentItem) {
                     // yet another hack because "index" is still giving the old
@@ -212,10 +210,12 @@ Controls.ItemDelegate {
     }
 
     onClicked: {
-        lastFeed = feed.url
-        if (pageStack.depth >  1)
+        lastFeed = feed.url;
+        if (pageStack.depth > 1)
             pageStack.pop();
-        pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feed})
+        pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+            feed: feed
+        });
     }
 
     Controls.ToolTip.visible: hovered
@@ -233,8 +233,10 @@ Controls.ItemDelegate {
             Kirigami.Action {
                 onTriggered: {
                     while (pageStack.depth > 1)
-                        pageStack.pop()
-                    pageStack.push("qrc:/qt/qml/org/kde/kasts/qml/FeedDetailsPage.qml", {"feed": feed});
+                        pageStack.pop();
+                    pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+                        feed: feed
+                    });
                 }
                 icon.name: "documentinfo"
                 text: i18n("Podcast Details")
@@ -242,9 +244,9 @@ Controls.ItemDelegate {
             Kirigami.Action {
                 onTriggered: {
                     if (feed.url === lastFeed)
-                        while(pageStack.depth > 1)
-                            pageStack.pop()
-                    DataManager.removeFeed(feed)
+                        while (pageStack.depth > 1)
+                            pageStack.pop();
+                    DataManager.removeFeed(feed);
                 }
                 icon.name: "delete"
                 text: i18n("Remove Podcast")

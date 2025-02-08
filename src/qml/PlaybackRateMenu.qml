@@ -4,43 +4,45 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kasts
 
 Controls.Menu {
-    id: playbackRateMenu
-
-    required property QtObject parentButton
+    id: root
 
     title: i18nc("@title:window", "Select Playback Rate")
 
-    Controls.ButtonGroup { id: playbackRateGroup }
+    Controls.ButtonGroup {
+        id: playbackRateGroup
+    }
 
     // Using instantiator because using Repeater made the separator show up in
     // the wrong place
     Instantiator {
         model: playbackRateModel
 
-        Controls.MenuItem {
-            text: model.value
+        delegate: Controls.MenuItem {
+            required property string value
+            text: value
             checkable: true
-            checked: model.value === AudioManager.playbackRate.toFixed(2)
+            checked: value === AudioManager.playbackRate.toFixed(2)
             Controls.ButtonGroup.group: playbackRateGroup
 
             onTriggered: {
                 if (checked) {
                     AudioManager.playbackRate = value;
                 }
-                playbackRateMenu.dismiss();
+                root.dismiss();
             }
         }
 
-        onObjectAdded: (index, object) => playbackRateMenu.insertItem(index, object)
-        onObjectRemoved: (index, object) => playbackRateMenu.removeItem(object)
+        onObjectAdded: (index, object) => root.insertItem(index, object)
+        onObjectRemoved: (index, object) => root.removeItem(object)
     }
 
     Controls.MenuSeparator {
@@ -50,20 +52,19 @@ Controls.Menu {
     Kirigami.Action {
         text: i18nc("@action:button", "Customize")
         icon.name: "settings-configure"
-        onTriggered: {
-            const dialog = customizeDialog.createObject(parent);
-            dialog.open();
-        }
+        onTriggered: (customizeDialog.createObject(parent) as PlaybackRateCustomizerDialog).open()
     }
 
     ListModel {
         id: playbackRateModel
 
-        function resetModel() {
+        function resetModel(): void {
             playbackRateModel.clear();
             for (var rate in SettingsManager.playbackRates) {
-                playbackRateModel.append({"value": (SettingsManager.playbackRates[rate] / 100.0).toFixed(2),
-                                          "name": (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"});
+                playbackRateModel.append({
+                    value: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2),
+                    name: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"
+                });
             }
         }
 

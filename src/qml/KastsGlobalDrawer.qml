@@ -18,13 +18,12 @@ Kirigami.OverlayDrawer {
 
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
     readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-    readonly property int buttonDisplayMode: kastsMainWindow.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
+    readonly property int buttonDisplayMode: WindowUtils.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
     // Keep track of the settings page being opened on the layer stack for mobile
-    readonly property bool settingsOpened: kastsMainWindow.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
+    readonly property bool settingsOpened: Kirigami.Settings.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
 
-
-    width: showGlobalDrawer ? (kastsMainWindow.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
+    width: showGlobalDrawer ? (WindowUtils.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false
@@ -74,7 +73,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "source-playlist"
                         checked: currentPage == "QueuePage" && !settingsOpened
                         onClicked: {
-                            pushPage("QueuePage")
+                            pushPage("QueuePage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -84,7 +83,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "search"
                         checked: currentPage == "DiscoverPage" && !settingsOpened
                         onClicked: {
-                            pushPage("DiscoverPage")
+                            pushPage("DiscoverPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -94,7 +93,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "bookmarks"
                         checked: currentPage == "FeedListPage" && !settingsOpened
                         onClicked: {
-                            pushPage("FeedListPage")
+                            pushPage("FeedListPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -104,7 +103,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "rss"
                         checked: currentPage == "EpisodeListPage" && !settingsOpened
                         onClicked: {
-                            pushPage("EpisodeListPage")
+                            pushPage("EpisodeListPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -114,7 +113,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "download"
                         checked: currentPage == "DownloadListPage" && !settingsOpened
                         onClicked: {
-                            pushPage("DownloadListPage")
+                            pushPage("DownloadListPage");
                         }
                     }
                 }
@@ -131,9 +130,10 @@ Kirigami.OverlayDrawer {
                 display: root.buttonDisplayMode
                 text: i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
-                checked:  settingsOpened
+                checked: settingsOpened
                 onClicked: {
-                    if (!kastsMainWindow.isMobile) checked = false;
+                    if (!Kirigami.Settings.isMobile)
+                        checked = false;
                     pushPage("SettingsView");
                 }
             }

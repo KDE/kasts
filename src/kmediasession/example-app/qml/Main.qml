@@ -52,8 +52,10 @@ Kirigami.ApplicationWindow {
                 Component.onCompleted: {
                     // have to use Number because QML doesn't know about enum names
                     for (var index in audio.availableBackends) {
-                        backendModel.append({"text": audio.backendName(audio.availableBackends[index]),
-                                             "value": Number(audio.availableBackends[index])});
+                        backendModel.append({
+                            text: audio.backendName(audio.availableBackends[index]),
+                            value: Number(audio.availableBackends[index])
+                        });
 
                         if (Number(audio.availableBackends[index]) === audio.currentBackend) {
                             currentIndex = index;
@@ -102,7 +104,7 @@ Kirigami.ApplicationWindow {
                 enabled: audio.canPlay
                 icon.name: "media-playback-start"
                 onClicked: {
-                    audio.play()
+                    audio.play();
                 }
             }
             Controls.Button {
@@ -110,14 +112,14 @@ Kirigami.ApplicationWindow {
                 enabled: audio.canPause
                 icon.name: "media-playback-pause"
                 onClicked: {
-                    audio.pause()
+                    audio.pause();
                 }
             }
             Controls.Button {
                 text: i18n("Stop")
                 icon.name: "media-playback-stop"
                 onClicked: {
-                    audio.stop()
+                    audio.stop();
                 }
             }
         }
@@ -134,7 +136,7 @@ Kirigami.ApplicationWindow {
                 from: 0
                 to: audio.duration
                 value: audio.position
-                onMoved: audio.position = value;
+                onMoved: audio.position = value
                 enabled: audio.playbackState !== KMediaSession.StoppedState
             }
             Controls.Label {
@@ -157,14 +159,25 @@ Kirigami.ApplicationWindow {
                 from: 0
                 to: 100
                 value: audio.volume
-                onMoved: audio.volume = value;
+                onMoved: audio.volume = value
             }
             Controls.ComboBox {
                 textRole: "text"
                 valueRole: "value"
-                model: [{text: "0.5x", value: 0.5},
-                        {text: "1x", value: 1.0},
-                        {text: "1.5x", value: 1.5}]
+                model: [
+                    {
+                        text: "0.5x",
+                        value: 0.5
+                    },
+                    {
+                        text: "1x",
+                        value: 1.0
+                    },
+                    {
+                        text: "1.5x",
+                        value: 1.5
+                    }
+                ]
                 Component.onCompleted: currentIndex = indexOfValue(audio.playbackRate)
                 onActivated: audio.playbackRate = currentValue
             }
@@ -199,4 +212,3 @@ Kirigami.ApplicationWindow {
         }
     }
 }
-

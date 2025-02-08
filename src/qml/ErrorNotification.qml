@@ -18,7 +18,7 @@ Kirigami.InlineMessage {
         bottom: parent.bottom
         right: parent.right
         left: parent.left
-        margins: kastsMainWindow.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
+        margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
         bottomMargin: bottomMessageSpacing
     }
     type: Kirigami.MessageType.Error
@@ -38,12 +38,12 @@ Kirigami.InlineMessage {
         interval: 10000
         repeat: false
 
-        onTriggered: inlineMessage.visible = false;
+        onTriggered: inlineMessage.visible = false
     }
 
     Connections {
         target: ErrorLogModel
-        function onNewErrorLogged(error) {
+        function onNewErrorLogged(error: Error): void {
             inlineMessage.text = error.description;
             inlineMessage.visible = true;
             hideTimer.start();

@@ -156,7 +156,7 @@ Kirigami.ScrollablePage {
     ConnectionCheckAction {
         id: syncFeedsAndEpisodes
 
-        function action() {
+        function action(): void {
             Sync.doRegularSync();
         }
     }
@@ -166,7 +166,7 @@ Kirigami.ScrollablePage {
     ConnectionCheckAction {
         id: forceSyncFeedsAndEpisodes
 
-        function action() {
+        function action(): void {
             Sync.doForceSync();
         }
     }
@@ -186,7 +186,7 @@ Kirigami.ScrollablePage {
             syncPushAllStatesDialog.close();
             syncPushAllStates.run();
         }
-        onRejected: syncPushAllStatesDialog.close();
+        onRejected: syncPushAllStatesDialog.close()
 
         RowLayout {
             spacing: Kirigami.Units.largeSpacing
@@ -202,7 +202,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: i18nc("@label", "Please note that pushing the playback state of all local episodes to the server might take a very long time and/or might overload the server. Also note that this action will overwrite all existing episode states on the server.\n\nContinue?")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted();
+                Keys.onReturnPressed: accepted()
             }
         }
     }
@@ -212,7 +212,7 @@ Kirigami.ScrollablePage {
     ConnectionCheckAction {
         id: syncPushAllStates
 
-        function action() {
+        function action(): void {
             Sync.doSyncPushAll();
         }
     }
@@ -236,14 +236,18 @@ Kirigami.ScrollablePage {
                     id: providerModel
                 }
                 Component.onCompleted: {
-                    providerModel.append({"name": i18nc("@label", "gpodder.net"),
-                                        "subtitle": i18nc("@label", "Synchronize with official gpodder.net server"),
-                                        "icon": "gpodder",
-                                        "provider": Sync.GPodderNet});
-                    providerModel.append({"name": i18nc("@label", "GPodder Nextcloud"),
-                                        "subtitle": i18nc("@label", "Synchronize with GPodder Nextcloud app"),
-                                        "icon": "kaccounts-nextcloud",
-                                        "provider": Sync.GPodderNextcloud});
+                    providerModel.append({
+                        name: i18nc("@label", "gpodder.net"),
+                        subtitle: i18nc("@label", "Synchronize with official gpodder.net server"),
+                        icon: "gpodder",
+                        provider: Sync.GPodderNet
+                    });
+                    providerModel.append({
+                        name: i18nc("@label", "GPodder Nextcloud"),
+                        subtitle: i18nc("@label", "Synchronize with GPodder Nextcloud app"),
+                        icon: "kaccounts-nextcloud",
+                        provider: Sync.GPodderNextcloud
+                    });
                 }
                 delegate: Delegates.RoundedItemDelegate {
                     id: syncProviderRepeaterDelegate
@@ -280,12 +284,12 @@ Kirigami.ScrollablePage {
             if (Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked) {
                 Sync.hostname = hostnameField.text;
             } else {
-                Sync.hostname = ""
+                Sync.hostname = "";
             }
             Sync.login(usernameField.text, passwordField.text);
             syncLoginOverlay.close();
         }
-        onRejected: syncLoginOverlay.close();
+        onRejected: syncLoginOverlay.close()
 
         Column {
             spacing: Kirigami.Units.largeSpacing
@@ -310,12 +314,10 @@ Kirigami.ScrollablePage {
                         readOnly: true
                         wrapMode: Text.WordWrap
                         textFormat: Text.RichText
-                        onLinkActivated: (link) => {
+                        onLinkActivated: link => {
                             Qt.openUrlExternally(link);
                         }
-                        text: Sync.provider === Sync.GPodderNextcloud ?
-                            i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials." , "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") :
-                            i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
+                        text: Sync.provider === Sync.GPodderNextcloud ? i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials.", "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") : i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
                         color: Kirigami.Theme.textColor
                     }
                 }
@@ -333,7 +335,7 @@ Kirigami.ScrollablePage {
                     id: usernameField
                     Layout.fillWidth: true
                     text: Sync.username
-                    Keys.onReturnPressed: syncLoginOverlay.accepted();
+                    Keys.onReturnPressed: syncLoginOverlay.accepted()
                     // focus: syncLoginOverlay.visible // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                 }
                 Controls.Label {
@@ -345,7 +347,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     echoMode: TextInput.Password
                     text: Sync.password
-                    Keys.onReturnPressed: syncLoginOverlay.accepted();
+                    Keys.onReturnPressed: syncLoginOverlay.accepted()
                 }
                 Controls.CheckBox {
                     id: customServerCheckBox
@@ -361,12 +363,12 @@ Kirigami.ScrollablePage {
                     text: i18nc("@label:textbox", "Hostname:")
                 }
                 Controls.TextField {
-                    visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
                     id: hostnameField
+                    visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
                     Layout.fillWidth: true
                     placeholderText: Sync.provider === Sync.GPodderNet ? "https://gpodder.net" : "https://nextcloud.mydomain.org"
                     text: Sync.hostname
-                    Keys.onReturnPressed: syncLoginOverlay.accepted();
+                    Keys.onReturnPressed: syncLoginOverlay.accepted()
                 }
             }
         }
@@ -374,11 +376,11 @@ Kirigami.ScrollablePage {
 
     Connections {
         target: Sync
-        function onDeviceListReceived() {
+        function onDeviceListReceived(): void {
             syncDeviceOverlay.open();
             syncDeviceOverlay.update();
         }
-        function onLoginSucceeded() {
+        function onLoginSucceeded(): void {
             if (Sync.provider === Sync.GPodderNextcloud) {
                 firstSyncOverlay.open();
             }
@@ -410,7 +412,7 @@ Kirigami.ScrollablePage {
                     id: deviceField
                     Layout.fillWidth: true
                     text: Sync.suggestedDevice
-                    Keys.onReturnPressed: createDeviceButton.clicked();
+                    Keys.onReturnPressed: createDeviceButton.clicked()
                     // focus: syncDeviceOverlay.visible // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                 }
                 Controls.Label {
@@ -420,7 +422,7 @@ Kirigami.ScrollablePage {
                     id: deviceNameField
                     Layout.fillWidth: true
                     text: Sync.suggestedDeviceName
-                    Keys.onReturnPressed: createDeviceButton.clicked();
+                    Keys.onReturnPressed: createDeviceButton.clicked()
                 }
                 Controls.Label {
                     text: i18nc("@label:listbox", "Device Type:")
@@ -430,11 +432,28 @@ Kirigami.ScrollablePage {
                     textRole: "text"
                     valueRole: "value"
                     popup.z: 102 // popup has to go in front of OverlaySheet
-                    model: [{"text": i18nc("@item:inlistbox type of device", "other"), "value": "other"},
-                            {"text": i18nc("@item:inlistbox type of device", "desktop"), "value": "desktop"},
-                            {"text": i18nc("@item:inlistbox type of device", "laptop"), "value": "laptop"},
-                            {"text": i18nc("@item:inlistbox type of device", "server"), "value": "server"},
-                            {"text": i18nc("@item:inlistbox type of device", "mobile"), "value": "mobile"}]
+                    model: [
+                        {
+                            text: i18nc("@item:inlistbox type of device", "other"),
+                            value: "other"
+                        },
+                        {
+                            text: i18nc("@item:inlistbox type of device", "desktop"),
+                            value: "desktop"
+                        },
+                        {
+                            text: i18nc("@item:inlistbox type of device", "laptop"),
+                            value: "laptop"
+                        },
+                        {
+                            text: i18nc("@item:inlistbox type of device", "server"),
+                            value: "server"
+                        },
+                        {
+                            text: i18nc("@item:inlistbox type of device", "mobile"),
+                            value: "mobile"
+                        }
+                    ]
                 }
             }
             Controls.Button {
@@ -464,11 +483,7 @@ Kirigami.ScrollablePage {
 
                 delegate: Delegates.RoundedItemDelegate {
                     text: model.device.caption
-                    icon.name: model.device.type == "desktop" ? "computer" :
-                        model.device.type == "laptop" ? "computer-laptop" :
-                        model.device.type == "server" ? "network-server-database" :
-                        model.device.type == "mobile" ? "smartphone" :
-                        "emblem-music-symbolic"
+                    icon.name: model.device.type == "desktop" ? "computer" : model.device.type == "laptop" ? "computer-laptop" : model.device.type == "server" ? "network-server-database" : model.device.type == "mobile" ? "smartphone" : "emblem-music-symbolic"
                     onClicked: {
                         syncDeviceOverlay.close();
                         Sync.device = model.device.id;
@@ -480,17 +495,19 @@ Kirigami.ScrollablePage {
             }
         }
 
-        function update() {
+        function update(): void {
             deviceListModel.clear();
             for (var index in Sync.deviceList) {
-                deviceListModel.append({"device": Sync.deviceList[index]});
+                deviceListModel.append({
+                    device: Sync.deviceList[index]
+                });
             }
         }
     }
 
     Connections {
         target: Sync
-        function onDeviceCreated() {
+        function onDeviceCreated(): void {
             syncGroupOverlay.open();
         }
     }
@@ -528,7 +545,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted();
+                Keys.onReturnPressed: accepted()
             }
         }
 
@@ -554,7 +571,7 @@ Kirigami.ScrollablePage {
             firstSyncOverlay.close();
             Sync.doRegularSync();
         }
-        onRejected: firstSyncOverlay.close();
+        onRejected: firstSyncOverlay.close()
 
         RowLayout {
             spacing: Kirigami.Units.largeSpacing
@@ -570,7 +587,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: i18nc("@label", "Perform a first sync now?")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted();
+                Keys.onReturnPressed: accepted()
             }
         }
     }

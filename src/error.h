@@ -9,10 +9,13 @@
 #include <QDateTime>
 #include <QObject>
 #include <QString>
+#include <qqmlintegration.h>
 
 class Error : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
 public:
     enum Type {

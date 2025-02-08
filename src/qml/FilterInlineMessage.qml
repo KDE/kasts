@@ -10,7 +10,6 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.kasts
 
-
 Kirigami.InlineMessage {
     required property var proxyModel
 
@@ -18,7 +17,7 @@ Kirigami.InlineMessage {
         horizontalCenter: parent.horizontalCenter
         bottom: parent.bottom
         margins: Kirigami.Units.largeSpacing
-        bottomMargin: Kirigami.Units.largeSpacing + ( errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0 ) + ( updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0 )
+        bottomMargin: Kirigami.Units.largeSpacing + (errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0) + (updateNotification.visible ? updateNotification.height + Kirigami.Units.largeSpacing : 0) + (updateSyncNotification.visible ? updateSyncNotification.height + Kirigami.Units.largeSpacing : 0)
     }
     type: Kirigami.MessageType.Information
     visible: proxyModel.filterType != AbstractEpisodeProxyModel.NoFilter

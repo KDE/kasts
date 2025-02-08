@@ -31,14 +31,14 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             placeholderText: "https://example.com/podcast-feed.rss"
             // focus: addSheet.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
-            Keys.onReturnPressed: addFeedAction.triggered();
+            Keys.onReturnPressed: addFeedAction.triggered()
         }
 
         // This item can be used to trigger the addition of a feed; it will open an
         // overlay with options in case the operation is not allowed by the settings
         ConnectionCheckAction {
             id: addFeed
-            function action() {
+            function action(): void {
                 DataManager.addFeed(urlField.text);
             }
         }

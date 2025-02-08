@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    property QtObject feed;
+    property QtObject feed
     property bool isSubscribed: true
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
 
@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
 
     title: i18n("Podcast Details")
 
-    Keys.onPressed: (event) => {
+    Keys.onPressed: event => {
         if (event.matches(StandardKey.Find)) {
             searchActionButton.checked = true;
         }
@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
 
     onRefreshingChanged: {
         if (refreshing) {
-            updateFeed.run()
+            updateFeed.run();
         }
     }
 
@@ -45,21 +45,21 @@ Kirigami.ScrollablePage {
     ConnectionCheckAction {
         id: updateFeed
 
-        function action() {
-            feed.refresh()
+        function action(): void {
+            feed.refresh();
         }
 
-        function abortAction() {
-            page.refreshing = false
+        function abortAction(): void {
+            page.refreshing = false;
         }
     }
 
     // Make sure that this feed is also showing as "refreshing" on FeedListPage
     Connections {
         target: feed
-        function onRefreshingChanged(refreshing) {
-            if(!refreshing)
-                page.refreshing = refreshing
+        function onRefreshingChanged(refreshing: bool): void {
+            if (!refreshing)
+                page.refreshing = refreshing;
         }
     }
 
@@ -174,7 +174,7 @@ Kirigami.ScrollablePage {
                             text: i18n("Show Details")
                             checkable: true
                             checked: showMoreInfo
-                            onCheckedChanged: (checked) => {
+                            onCheckedChanged: checked => {
                                 showMoreInfo = checked;
                             }
                         }
@@ -192,7 +192,9 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            Kirigami.Separator { Layout.fillWidth: true }
+            Kirigami.Separator {
+                Layout.fillWidth: true
+            }
 
             // podcast description
             Controls.Control {
@@ -274,8 +276,8 @@ Kirigami.ScrollablePage {
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        selectByMouse: !kastsMainWindow.isMobile
-                        textFormat:TextEdit.RichText
+                        selectByMouse: !Kirigami.Settings.isMobile
+                        textFormat: TextEdit.RichText
                         text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
@@ -285,8 +287,8 @@ Kirigami.ScrollablePage {
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        selectByMouse: !kastsMainWindow.isMobile
-                        textFormat:TextEdit.RichText
+                        selectByMouse: !Kirigami.Settings.isMobile
+                        textFormat: TextEdit.RichText
                         text: isSubscribed ? i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
@@ -296,17 +298,21 @@ Kirigami.ScrollablePage {
                         visible: isSubscribed && page.showMoreInfo
                         height: visible ? implicitHeight : 0
 
-                        selectByMouse: !kastsMainWindow.isMobile
-                        textFormat:TextEdit.RichText
+                        selectByMouse: !Kirigami.Settings.isMobile
+                        textFormat: TextEdit.RichText
                         text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
                         wrapMode: Text.WordWrap
                     }
 
-                    Item { Layout.fillHeight: true }
+                    Item {
+                        Layout.fillHeight: true
+                    }
                 }
             }
 
-            Kirigami.Separator { Layout.fillWidth: true }
+            Kirigami.Separator {
+                Layout.fillWidth: true
+            }
 
             Item {
                 Layout.fillHeight: true

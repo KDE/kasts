@@ -23,13 +23,13 @@ Kirigami.ScrollablePage {
 
     supportsRefreshing: true
     onRefreshingChanged: {
-        if(refreshing) {
+        if (refreshing) {
             updateAllFeeds.run();
             refreshing = false;
         }
     }
 
-    Keys.onPressed: (event) => {
+    Keys.onPressed: event => {
         if (event.matches(StandardKey.Find)) {
             searchActionButton.checked = true;
         }
@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
             icon.name: "download"
             text: i18nc("@title of page with list of downloaded episodes", "Downloads")
             onTriggered: {
-                pushPage("DownloadListPage")
+                pushPage("DownloadListPage");
             }
         },
         Kirigami.Action {

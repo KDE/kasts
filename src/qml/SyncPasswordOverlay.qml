@@ -27,7 +27,7 @@ Kirigami.Dialog {
         Sync.password = passwordField2.text;
         syncPasswordOverlay.close();
     }
-    onRejected: syncPasswordOverlay.close();
+    onRejected: syncPasswordOverlay.close()
 
     Column {
         spacing: Kirigami.Units.largeSpacing
@@ -44,9 +44,7 @@ Kirigami.Dialog {
                 Layout.fillWidth: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: Sync.provider === Sync.GPodderNextcloud ?
-                        i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) :
-                        i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
+                text: Sync.provider === Sync.GPodderNextcloud ? i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
                 color: Kirigami.Theme.textColor
             }
         }
@@ -58,7 +56,7 @@ Kirigami.Dialog {
             Controls.TextField {
                 id: passwordField2
                 Layout.fillWidth: true
-                Keys.onReturnPressed: syncPasswordOverlay.accepted();
+                Keys.onReturnPressed: syncPasswordOverlay.accepted()
                 focus: syncPasswordOverlay.visible
                 echoMode: TextInput.Password
                 text: Sync.password

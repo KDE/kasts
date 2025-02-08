@@ -30,7 +30,7 @@ Item {
         id: imageLoader
         anchors.fill: parent
         visible: false
-        sourceComponent: (root.imageSource === "no-image" || root.imageSource === "") ? fallbackImg : (root.imageSource === "fetching" ? loaderSymbol : realImg )
+        sourceComponent: (root.imageSource === "no-image" || root.imageSource === "") ? fallbackImg : (root.imageSource === "fetching" ? loaderSymbol : realImg)
     }
 
     MultiEffect {
@@ -47,7 +47,7 @@ Item {
                 anchors.centerIn: parent
                 width: Math.min(imageLoader.width, imageLoader.height)
                 height: width
-                radius: (root.absoluteRadius > 0) ? root.absoluteRadius : ( (root.fractionalRadius > 0) ? Math.min(width, height) * root.fractionalRadius : 0 )
+                radius: (root.absoluteRadius > 0) ? root.absoluteRadius : ((root.fractionalRadius > 0) ? Math.min(width, height) * root.fractionalRadius : 0)
             }
         }
     }

@@ -7,7 +7,6 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kmediasession
@@ -41,21 +40,21 @@ FocusScope {
         color: Kirigami.Theme.backgroundColor
 
         MouseArea {
-          anchors.fill: parent
-          property int dragStartOffset: 0
+            anchors.fill: parent
+            property int dragStartOffset: 0
 
-          cursorShape: Qt.SizeVerCursor
+            cursorShape: Qt.SizeVerCursor
 
-          onPressed: (mouse) => {
-            dragStartOffset = mouse.y
-          }
+            onPressed: mouse => {
+                dragStartOffset = mouse.y;
+            }
 
-          onPositionChanged: (mouse) => {
-            desktopPlayerControls.handlePositionChanged(mouse.y, dragStartOffset)
-          }
+            onPositionChanged: mouse => {
+                desktopPlayerControls.handlePositionChanged(mouse.y, dragStartOffset);
+            }
 
-          drag.axis: Drag.YAxis
-          drag.threshold: 1
+            drag.axis: Drag.YAxis
+            drag.threshold: 1
         }
     }
 
@@ -75,7 +74,7 @@ FocusScope {
         // this is chosen because the volumeButton is always visible
         property bool tooNarrowExtra: playerControlToolBar.width - (audioButtons.width + 4 * volumeButton.width + (chapterAction.visible ? chapterTextMetric.width : 0) + extraButtonsTextMetric.width) < audioSliderNiceMinimumWidth + 40
 
-        property bool tooNarrowChapter: playerControlToolBar.width - (audioButtons.width + 4 * volumeButton.width + (chapterAction.visible ? chapterTextMetric.width : 0)) < audioSliderNiceMinimumWidth +  20
+        property bool tooNarrowChapter: playerControlToolBar.width - (audioButtons.width + 4 * volumeButton.width + (chapterAction.visible ? chapterTextMetric.width : 0)) < audioSliderNiceMinimumWidth + 20
 
         property bool tooNarrowOverflow: playerControlToolBar.width - (audioButtons.width + 4 * volumeButton.width) < audioSliderNiceMinimumWidth
 
@@ -180,7 +179,7 @@ FocusScope {
         ChapterSlider {
             id: durationSlider
             model: chapterModel
-            enabled: AudioManager.entry && AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+            enabled: AudioManager.entry && AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
         }
@@ -197,9 +196,7 @@ FocusScope {
                 id: endLabel
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: (SettingsManager.toggleRemainingTime) ?
-                        "-" + AudioManager.formattedLeftDuration
-                        : AudioManager.formattedDuration
+                text: SettingsManager.toggleRemainingTime ? "-" + AudioManager.formattedLeftDuration : AudioManager.formattedDuration
             }
 
             MouseArea {
@@ -241,7 +238,7 @@ FocusScope {
                 id: sleepButton
                 action: sleepAction
                 display: playerControlToolBar.tooNarrowExtra ? Controls.AbstractButton.IconOnly : Controls.AbstractButton.TextBesideIcon
-                visible:  !playerControlToolBar.tooNarrowOverflow
+                visible: !playerControlToolBar.tooNarrowOverflow
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -254,7 +251,7 @@ FocusScope {
             Controls.ToolButton {
                 id: volumeButton
                 icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
-                enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
                 checked: volumePopup.visible
 
                 Controls.ToolTip.visible: hovered
@@ -285,14 +282,13 @@ FocusScope {
 
                         Controls.ToolButton {
                             id: volumeButtonVertical
-                            enabled: AudioManager.PlaybackState != AudioManager.StoppedState && AudioManager.canPlay
+                            enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
                             icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                             onClicked: AudioManager.muted = !AudioManager.muted
 
                             Controls.ToolTip.visible: hovered
                             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
                             Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
-
                         }
                     }
                 }
@@ -314,19 +310,18 @@ FocusScope {
                 if (overflowMenu.visible) {
                     overflowMenu.dismiss();
                 } else {
-                    overflowMenu.popup(0, overflowButton.height)
+                    overflowMenu.popup(0, overflowButton.height);
                 }
             }
 
             Controls.Menu {
                 id: overflowMenu
-                contentData: extraActions
+                contentData: desktopPlayerControls.extraActions
                 onVisibleChanged: {
                     if (visible) {
                         for (var i in contentData) {
                             overflowMenu.contentData[i].visible = overflowMenu.contentData[i].action.visible;
-                            overflowMenu.contentData[i].height =
-                            (overflowMenu.contentData[i].action.visible) ? overflowMenu.contentData[i].implicitHeight : 0 // workaround for qqc2-breeze-style
+                            overflowMenu.contentData[i].height = (overflowMenu.contentData[i].action.visible) ? overflowMenu.contentData[i].implicitHeight : 0; // workaround for qqc2-breeze-style
                         }
                     }
                 }
@@ -340,7 +335,7 @@ FocusScope {
         property bool visible: AudioManager.entry && chapterList.count !== 0
         text: i18nc("@action:button", "Chapters")
         icon.name: "view-media-playlist"
-        onTriggered: chapterOverlay.open();
+        onTriggered: chapterOverlay.open()
     }
 
     Kirigami.Action {
@@ -348,7 +343,7 @@ FocusScope {
         property bool visible: AudioManager.entry
         text: i18nc("@action:button", "Show Info")
         icon.name: "documentinfo"
-        onTriggered: entryDetailsOverlay.open();
+        onTriggered: entryDetailsOverlay.open()
     }
 
     Kirigami.Action {
@@ -360,13 +355,11 @@ FocusScope {
         icon.name: "clock"
         onTriggered: {
             toggle(); // only set the on/off state based on sleep timer state
-            sleepTimerDialog.open();
+            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open()
         }
     }
 
-    property var extraActions: [ chapterAction,
-                                 infoAction,
-                                 sleepAction ]
+    property var extraActions: [chapterAction, infoAction, sleepAction]
 
     TextMetrics {
         id: chapterTextMetric
@@ -428,7 +421,7 @@ FocusScope {
             onLinkHovered: {
                 cursorShape: Qt.PointingHandCursor;
             }
-            onLinkActivated: (link) => {
+            onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
                     if (AudioManager.entry && AudioManager.entry.enclosure) {
                         AudioManager.seek(link.split("://")[1]);
@@ -442,6 +435,5 @@ FocusScope {
 
     PlaybackRateMenu {
         id: playbackRateMenu
-        parentButton: playbackRateButton
     }
 }

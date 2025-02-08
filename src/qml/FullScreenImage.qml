@@ -14,7 +14,7 @@ import org.kde.kirigamiaddons.labs.components as Addons
 Addons.AlbumMaximizeComponent {
     id: root
 
-    required property var image
+    required property string image
     required property QtObject loader
     property string description: undefined
 

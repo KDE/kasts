@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
 
     supportsRefreshing: true
     onRefreshingChanged: {
-        if(refreshing) {
+        if (refreshing) {
             updateAllFeeds.run();
             refreshing = false;
         }
@@ -69,10 +69,7 @@ Kirigami.ScrollablePage {
                 required property string section
 
                 // NOTE: the Enclosure.Status enum values get converted to strings
-                label: section == "Downloading" ? i18n("Downloading") :
-                       section == "PartiallyDownloaded" ? i18n("Incomplete Downloads") :
-                       section == "Downloaded" ? i18n("Downloaded") :
-                       ""
+                label: section == "Downloading" ? i18n("Downloading") : section == "PartiallyDownloaded" ? i18n("Incomplete Downloads") : section == "Downloaded" ? i18n("Downloaded") : ""
             }
             property: "entry.enclosure.status"
         }
