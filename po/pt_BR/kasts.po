@@ -2,32 +2,32 @@
 # This file is distributed under the same license as the kasts package.
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021.
-# SPDX-FileCopyrightText: 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # SPDX-FileCopyrightText: 2024 joserafael <joserafaeltic@riseup.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 03:18+0000\n"
-"PO-Revision-Date: 2024-11-16 17:22-0300\n"
-"Last-Translator: joserafael <joserafaeltic@riseup.net>\n"
+"PO-Revision-Date: 2025-02-07 20:14-0300\n"
+"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "José Rafael"
+msgstr "José Rafael, Geraldo Simião"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "joserafaeltic@riseup.net"
+msgstr "joserafaeltic@riseup.net, geraldosimiao@fedoraproject.org"
 
 #: audiomanager.cpp:397
 #, kde-format
@@ -174,18 +174,16 @@ msgid "Playback status: %1"
 msgstr "Status de reprodução: %1"
 
 #: kmediasession/example-app/qml/Main.qml:197
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error: %1"
 msgstr "Erro: %1"
 
 #: kmediasession/powermanagement/powermanagementinterface.cpp:188
 #: kmediasession/powermanagement/powermanagementinterface.cpp:214
-#, fuzzy, kde-format
-#| msgctxt "Explanation for sleep inhibit during play of music"
-#| msgid "Playing Music"
+#, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Reproduzindo música"
+msgstr "Reproduzindo mídia"
 
 #: main.cpp:102
 #, kde-format
@@ -530,8 +528,7 @@ msgstr "Assinante"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:109
-#, fuzzy, kde-format
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
 msgstr "Downloads"
@@ -547,10 +544,9 @@ msgid "No downloads"
 msgstr "Nenhum download"
 
 #: qml/DownloadListPage.qml:71
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgid "Downloading"
-msgstr "Baixando %1"
+msgstr "Baixando"
 
 #: qml/DownloadListPage.qml:72
 #, kde-format
@@ -1103,16 +1099,16 @@ msgstr "Configurações"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Atualizando %2 de %1 podcast"
+msgstr[1] "Atualizando %2 de %1 podcasts"
 
 #: qml/Main.qml:255
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Movido %2 de %1 arquivo"
+msgstr[1] "Movido %2 de %1 arquivos"
 
 #: qml/Main.qml:319
 #, kde-format
@@ -1206,8 +1202,8 @@ msgstr "A fila está vazia"
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 Episodio"
+msgstr[1] "%1 Episódios"
 
 #: qml/QueuePage.qml:71
 #, kde-format
@@ -1481,11 +1477,10 @@ msgstr ""
 "segundos)"
 
 #: qml/Settings/GeneralSettingsPage.qml:269
-#, fuzzy, kde-format
-#| msgid "Add New Podcast"
+#, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
-msgstr "Adicionar novo podcast"
+msgstr "Quando adicionar novos podcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:278
 #, kde-format
