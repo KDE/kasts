@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
-"PO-Revision-Date: 2025-01-31 10:33+0200\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"PO-Revision-Date: 2025-02-07 09:42+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -868,13 +868,13 @@ msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "ייצוא הסכתים"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "עדיין לא נוספו הסכתים"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -882,37 +882,37 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "לא נמצאו הסכתים"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:191
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "כדאי להתחיל על ידי הוספת הסכתים:"
 
-#: qml/FeedListPage.qml:201
+#: qml/FeedListPage.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "חיפוש באינטרנט"
 
-#: qml/FeedListPage.qml:228
+#: qml/FeedListPage.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "סנכרון"
 
-#: qml/FeedListPage.qml:367
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "בחירה בהכול"
 
-#: qml/FeedListPage.qml:376
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "ביטול בחירה"
 
-#: qml/FeedListPage.qml:385
+#: qml/FeedListPage.qml:389
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -922,7 +922,7 @@ msgstr[1] "הסרת הסכתים"
 msgstr[2] "הסרת הסכתים"
 msgstr[3] "הסרת הסכתים"
 
-#: qml/FeedListPage.qml:408
+#: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -1113,7 +1113,7 @@ msgstr[1] "הועברו %2 מתוך שני קבצים"
 msgstr[2] "הועברו %2 מתוך %1 קבצים"
 msgstr[3] "הועברו %2 מתוך %1 קבצים"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1233,32 +1233,28 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "הממשק לשימוש בנייד/שולחן עבודה עבר מיטוב"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "החלת הפעולה הזאת תדרוש את הפעלת היישום מחדש"
 
 #: qml/Settings/AppearanceSettingsPage.qml:37
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "אוטו׳"
 
 #: qml/Settings/AppearanceSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
 msgstr "מחשב שולחני"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
 msgstr "נייד"
@@ -1410,12 +1406,10 @@ msgid "Podcast update settings"
 msgstr "הגדרות עדכון הסכתים"
 
 #: qml/Settings/GeneralSettingsPage.qml:131
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "למשוך ערוצי הסכתים אוטומטית"
+msgstr "למשוך ערוצי הסכתים מדי פעם בפעם"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format

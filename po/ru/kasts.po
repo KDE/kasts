@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
 "PO-Revision-Date: 2024-10-22 11:33+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -873,13 +873,13 @@ msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Экспорт подкастов"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Подкасты ещё не добавлены"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -887,37 +887,37 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "Подкасты не найдены"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:191
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "Начните, добавив подкасты:"
 
-#: qml/FeedListPage.qml:201
+#: qml/FeedListPage.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "Найти в Интернете"
 
-#: qml/FeedListPage.qml:228
+#: qml/FeedListPage.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Синхронизировать"
 
-#: qml/FeedListPage.qml:367
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Выбрать все"
 
-#: qml/FeedListPage.qml:376
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Отменить выбор"
 
-#: qml/FeedListPage.qml:385
+#: qml/FeedListPage.qml:389
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -927,7 +927,7 @@ msgstr[1] "Удалить подкасты"
 msgstr[2] "Удалить подкасты"
 msgstr[3] "Удалить подкаст"
 
-#: qml/FeedListPage.qml:408
+#: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -1118,7 +1118,7 @@ msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[3] "Выполнено перемещение файла (%2 из %1)"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

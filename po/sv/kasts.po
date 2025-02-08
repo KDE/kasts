@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-06 18:26+0100\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"PO-Revision-Date: 2025-02-07 21:38+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -862,13 +862,13 @@ msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Exportera poddradioprogram"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Inga poddradioprogram tillagda ännu"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -876,37 +876,37 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "Inga poddradioprogram hittades"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:191
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "Kom igång genom att lägga till poddradioprogram:"
 
-#: qml/FeedListPage.qml:201
+#: qml/FeedListPage.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "Sök på nätet"
 
-#: qml/FeedListPage.qml:228
+#: qml/FeedListPage.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Synkronisera"
 
-#: qml/FeedListPage.qml:367
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/FeedListPage.qml:376
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Avmarkera alla"
 
-#: qml/FeedListPage.qml:385
+#: qml/FeedListPage.qml:389
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -914,7 +914,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Ta bort poddradioprogram"
 msgstr[1] "Ta bort poddradioprogram"
 
-#: qml/FeedListPage.qml:408
+#: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -1099,7 +1099,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Flyttade %2 av %1 fil"
 msgstr[1] "Flyttade %2 av %1 filer"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1392,12 +1392,10 @@ msgid "Podcast update settings"
 msgstr "Uppdateringsinställningar för poddsändningar"
 
 #: qml/Settings/GeneralSettingsPage.qml:131
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Hämta automatiskt poddsändningskanaler"
+msgstr "Hämta periodiskt poddsändningskanaler"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-06 08:08+0100\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"PO-Revision-Date: 2025-02-07 09:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -870,13 +870,13 @@ msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "Exporta pòdcasts"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "Encara no s'ha afegit cap pòdcast"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -884,37 +884,37 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "No s'ha trobat cap pòdcast"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:191
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "Comenceu afegint pòdcasts:"
 
-#: qml/FeedListPage.qml:201
+#: qml/FeedListPage.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "Cerca en línia"
 
-#: qml/FeedListPage.qml:228
+#: qml/FeedListPage.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "Sincronitza"
 
-#: qml/FeedListPage.qml:367
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Selecciona-ho tot"
 
-#: qml/FeedListPage.qml:376
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Desselecciona-ho tot"
 
-#: qml/FeedListPage.qml:385
+#: qml/FeedListPage.qml:389
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -922,7 +922,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Elimina el pòdcast"
 msgstr[1] "Elimina els pòdcasts"
 
-#: qml/FeedListPage.qml:408
+#: qml/FeedListPage.qml:412
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -1107,7 +1107,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/Main.qml:286
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1402,12 +1402,10 @@ msgid "Podcast update settings"
 msgstr "Configuració de les actualitzacions dels pòdcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:131
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Obtén automàticament les fonts dels pòdcasts"
+msgstr "Recupera periòdicament les fonts dels pòdcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:134
 #, kde-format

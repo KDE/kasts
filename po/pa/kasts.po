@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:42+0000\n"
+"POT-Creation-Date: 2025-02-08 00:40+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -922,13 +922,13 @@ msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr ""
 
-#: qml/FeedListPage.qml:186
+#: qml/FeedListPage.qml:190
 #, fuzzy, kde-format
 #| msgid "Podcast Player"
 msgctxt ""
@@ -937,39 +937,39 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "ਪੋਡਕਾਸਟ ਪਲੇਅਰ"
 
-#: qml/FeedListPage.qml:187
+#: qml/FeedListPage.qml:191
 #, fuzzy, kde-format
 #| msgid "Add New Podcast"
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "ਨਵਾਂ ਪੋਡਕਾਸਟ ਜੋੜੋ"
 
-#: qml/FeedListPage.qml:201
+#: qml/FeedListPage.qml:205
 #, fuzzy, kde-format
 #| msgid "New Episodes"
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
-#: qml/FeedListPage.qml:228
+#: qml/FeedListPage.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr ""
 
-#: qml/FeedListPage.qml:367
+#: qml/FeedListPage.qml:371
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr ""
 
-#: qml/FeedListPage.qml:376
+#: qml/FeedListPage.qml:380
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr ""
 
-#: qml/FeedListPage.qml:385
+#: qml/FeedListPage.qml:389
 #, fuzzy, kde-format
 #| msgid "Remove Podcast"
 msgctxt "@action:intoolbar"
@@ -978,7 +978,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 msgstr[1] "ਪੋਡਕਾਸਟ ਹਟਾਓ"
 
-#: qml/FeedListPage.qml:408
+#: qml/FeedListPage.qml:412
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgctxt "@action:intoolbar Open view with more podcast details"
@@ -1168,7 +1168,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/Main.qml:286
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
