@@ -164,7 +164,7 @@ void AbstractEpisodeProxyModel::setSortType(SortType type)
         case SortType::DateDescending:
             m_currentSort = type;
             setSortRole(AbstractEpisodeModel::UpdatedRole);
-            sort(-1, Qt::DescendingOrder);
+            sort(0, Qt::DescendingOrder);
             break;
         case SortType::DateAscending:
             m_currentSort = type;
