@@ -245,11 +245,13 @@ void Enclosure::processDownloadedFile()
 
     // Check the duration inside the tag, it should be more accurate than the
     // value from the feed entry
-    TagLib::FileRef f(path().toLatin1().data());
-    int fileduration = f.audioProperties()->lengthInSeconds();
-    if (fileduration > 0 && fileduration != duration()) {
-        qCDebug(kastsEnclosure) << "Correcting enclosure duration mismatch for" << m_entry->title() << "from" << duration() << "to" << fileduration;
-        setDuration(fileduration);
+    TagLib::FileRef f(path().toStdString().data());
+    if (!f.isNull() && f.audioProperties()) {
+        int fileduration = f.audioProperties()->lengthInSeconds();
+        if (fileduration > 0 && fileduration != duration()) {
+            qCDebug(kastsEnclosure) << "Correcting enclosure duration mismatch for" << m_entry->title() << "from" << duration() << "to" << fileduration;
+            setDuration(fileduration);
+        }
     }
 
     // Unset "new" status of item
@@ -315,8 +317,8 @@ QString Enclosure::cachedEmbeddedImage() const
         return QStringLiteral("");
     }
 
-    TagLib::MPEG::File f(path().toLatin1().data());
-    if (!f.hasID3v2Tag()) {
+    TagLib::MPEG::File f(path().toStdString().data());
+    if (!f.isValid() || !f.hasID3v2Tag()) {
         return QStringLiteral("");
     }
 
