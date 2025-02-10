@@ -20,6 +20,7 @@ public:
     static WindowUtils *create(QQmlEngine *, QJSEngine *)
     {
         static WindowUtils _instance;
+        QQmlEngine::setObjectOwnership(&_instance, QQmlEngine::CppOwnership);
         return &_instance;
     }
 

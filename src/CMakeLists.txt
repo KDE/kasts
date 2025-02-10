@@ -15,7 +15,6 @@ add_executable(kasts
     datamanager.cpp
     audiomanager.cpp
     error.cpp
-    windowutils.cpp
     utils/enclosuredownloadjob.cpp
     utils/storagemanager.cpp
     utils/storagemovejob.cpp
@@ -24,6 +23,7 @@ add_executable(kasts
     utils/systrayicon.cpp
     utils/networkconnectionmanager.cpp
     utils/colorschemer.cpp
+    utils/windowutils.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
