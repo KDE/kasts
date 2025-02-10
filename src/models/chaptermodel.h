@@ -60,7 +60,7 @@ private:
     void load();
     void loadFromDatabase();
     void loadChaptersFromFile();
-    void loadMPEGChapters(TagLib::MPEG::File &f);
+    void loadMPEGChapters();
 
     Entry *m_entry = nullptr;
     QVector<Chapter *> m_chapters;

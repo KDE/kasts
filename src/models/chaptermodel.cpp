@@ -160,9 +160,11 @@ void ChapterModel::loadFromDatabase()
     }
 }
 
-void ChapterModel::loadMPEGChapters(TagLib::MPEG::File &f)
+void ChapterModel::loadMPEGChapters()
 {
-    if (!f.hasID3v2Tag()) {
+    TagLib::MPEG::File f(m_entry->enclosure()->path().toStdString().data());
+
+    if (!f.isValid() || !f.hasID3v2Tag()) {
         return;
     }
     for (const auto &frame : f.ID3v2Tag()->frameListMap()["CHAP"]) {
@@ -203,13 +205,13 @@ void ChapterModel::loadMPEGChapters(TagLib::MPEG::File &f)
 
 void ChapterModel::loadChaptersFromFile()
 {
-    if (!m_entry || !m_entry->hasEnclosure() || m_entry->enclosure()->path().isEmpty()) {
+    if (!m_entry || !m_entry->hasEnclosure() || m_entry->enclosure()->status() != Enclosure::Status::Downloaded || m_entry->enclosure()->path().isEmpty()) {
         return;
     }
+
     const auto mime = QMimeDatabase().mimeTypeForFile(m_entry->enclosure()->path()).name();
     if (mime == QStringLiteral("audio/mpeg")) {
-        TagLib::MPEG::File f(m_entry->enclosure()->path().toLatin1().data());
-        loadMPEGChapters(f);
+        loadMPEGChapters();
     } // TODO else...
 }
 
