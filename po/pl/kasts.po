@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 03:18+0000\n"
-"PO-Revision-Date: 2024-04-27 10:12+0200\n"
+"PO-Revision-Date: 2025-02-08 17:05+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -1577,7 +1577,7 @@ msgstr "HTTP"
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
-msgstr "Socks5"
+msgstr "cks5"
 
 #: qml/Settings/NetworkSettingsPage.qml:146
 #, kde-format
