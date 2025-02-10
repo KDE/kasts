@@ -51,31 +51,9 @@ void UpdateFeedJob::run(JobPointer, Thread *)
 
     Database::openDatabase(m_url);
 
-    // First check if the RSS file has changed since last update; we do this by
-    // comparing to the SHA1 hash we saved last time
-    bool skipUpdate = false;
-
-    m_newHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
-
-    QSqlQuery query(QSqlDatabase::database(m_url));
-    query.prepare(QStringLiteral("SELECT lastHash FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), m_url);
-    Database::execute(query);
-    if (query.next()) {
-        m_oldHash = query.value(QStringLiteral("lastHash")).toString();
-        qCDebug(kastsFetcher) << "RSS hashes (old and new)" << m_url << m_oldHash << m_newHash;
-        if (m_newHash == m_oldHash) {
-            skipUpdate = true;
-            qCDebug(kastsFetcher) << "same RSS feed hash as last time; skipping feed update for" << m_url;
-        }
-    }
-    query.clear(); // release lock on database
-
-    if (!skipUpdate) {
-        Syndication::DocumentSource document(m_data, m_url);
-        Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
-        processFeed(feed);
-    }
+    Syndication::DocumentSource document(m_data, m_url);
+    Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+    processFeed(feed);
 
     Database::closeDatabase(m_url);
 
@@ -270,24 +248,6 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
 
     writeToDatabase();
-
-    if (m_isNewFeed) {
-        // Finally, reset the new flag to false now that the new feed has been
-        // fully processed.  If we would reset the flag sooner, then too many
-        // episodes will get flagged as new if the initial import gets
-        // interrupted somehow.
-        query.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), m_url);
-        query.bindValue(QStringLiteral(":new"), false);
-        Database::execute(query);
-    }
-
-    if (m_oldHash != m_newHash) {
-        query.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), m_url);
-        query.bindValue(QStringLiteral(":lastHash"), m_newHash);
-        Database::execute(query);
-    }
 
     if (updatedEntries || m_isNewFeed)
         Q_EMIT feedUpdated(m_url);
@@ -675,6 +635,17 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":read"), false);
         writeQuery.bindValue(QStringLiteral(":new"), true);
         writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
+        Database::execute(writeQuery);
+    }
+
+    if (m_isNewFeed) {
+        // Finally, reset the new flag to false now that the new feed has been
+        // fully processed.  If we would reset the flag sooner, then too many
+        // episodes will get flagged as new if the initial import gets
+        // interrupted somehow.
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
+        writeQuery.bindValue(QStringLiteral(":url"), m_url);
+        writeQuery.bindValue(QStringLiteral(":new"), false);
         Database::execute(writeQuery);
     }
 

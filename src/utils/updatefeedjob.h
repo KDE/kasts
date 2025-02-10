@@ -56,7 +56,6 @@ private:
     QString m_url;
     QString m_dirname;
     QByteArray m_data;
-    QString m_oldHash, m_newHash;
 
     bool m_isNewFeed;
     bool m_markUnreadOnNewFeed;
