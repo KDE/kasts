@@ -19,7 +19,7 @@ ListView {
     property bool isQueue: false
     property bool isDownloads: false
 
-    property var selectionForContextMenu: []
+    property list<var> selectionForContextMenu: []
     property var singleSelectedEntry: undefined
     property ItemSelectionModel selectionModel: ItemSelectionModel {
         id: selectionModel
@@ -46,10 +46,10 @@ ListView {
     Connections {
         target: listView.model
         function onModelAboutToBeReset(): void {
-            selectionForContextMenu = [];
+            listView.selectionForContextMenu = [];
             listView.selectionModel.clear();
-            listView.selectionModel.setCurrentIndex(model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
-            currentIndex = 0;
+            listView.selectionModel.setCurrentIndex(listView.selectionModel.model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
+            listView.currentIndex = 0;
         }
     }
 

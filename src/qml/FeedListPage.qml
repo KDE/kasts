@@ -261,7 +261,7 @@ Kirigami.ScrollablePage {
             listView: feedList
         }
 
-        property Kirigami.Action selectionForContextMenu: []
+        property list<var> selectionForContextMenu: []
         property ItemSelectionModel selectionModel: ItemSelectionModel {
             id: selectionModel
             model: feedList.model
