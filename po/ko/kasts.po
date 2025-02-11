@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:40+0000\n"
+"POT-Creation-Date: 2025-02-11 00:41+0000\n"
 "PO-Revision-Date: 2024-08-20 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -104,74 +104,74 @@ msgstr "종량제 연결에서 스트리밍이 허용되지 않음"
 msgid "Example KMediaSession Player"
 msgstr "예제 KMediaSession 재생기"
 
-#: kmediasession/example-app/qml/Main.qml:72
+#: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
 msgstr "파일 선택…"
 
-#: kmediasession/example-app/qml/Main.qml:78
+#: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
 msgid "Select Media File"
 msgstr "미디어 파일 선택"
 
-#: kmediasession/example-app/qml/Main.qml:85
+#: kmediasession/example-app/qml/Main.qml:87
 #, kde-format
 msgid "OR"
 msgstr "또는"
 
-#: kmediasession/example-app/qml/Main.qml:93
+#: kmediasession/example-app/qml/Main.qml:95
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: kmediasession/example-app/qml/Main.qml:101 qml/ChapterListDelegate.qml:40
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:367
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:40
+#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:362
 #, kde-format
 msgid "Play"
 msgstr "재생"
 
-#: kmediasession/example-app/qml/Main.qml:109
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:390
+#: kmediasession/example-app/qml/Main.qml:111
+#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:385
 #, kde-format
 msgid "Pause"
 msgstr "일시 정지"
 
-#: kmediasession/example-app/qml/Main.qml:117 qml/SleepTimerDialog.qml:41
+#: kmediasession/example-app/qml/Main.qml:119 qml/SleepTimerDialog.qml:42
 #, kde-format
 msgid "Stop"
 msgstr "정지"
 
-#: kmediasession/example-app/qml/Main.qml:147
+#: kmediasession/example-app/qml/Main.qml:149
 #, kde-format
 msgid "Mute"
 msgstr "음소거"
 
-#: kmediasession/example-app/qml/Main.qml:174
+#: kmediasession/example-app/qml/Main.qml:187
 #, kde-format
 msgid "Title: %1"
 msgstr "제목: %1"
 
-#: kmediasession/example-app/qml/Main.qml:177
+#: kmediasession/example-app/qml/Main.qml:190
 #, kde-format
 msgid "Artist: %1"
 msgstr "아티스트: %1"
 
-#: kmediasession/example-app/qml/Main.qml:180
+#: kmediasession/example-app/qml/Main.qml:193
 #, kde-format
 msgid "Album: %1"
 msgstr "앨범: %1"
 
-#: kmediasession/example-app/qml/Main.qml:191
+#: kmediasession/example-app/qml/Main.qml:204
 #, kde-format
 msgid "Media status: %1"
 msgstr "미디어 상태: %1"
 
-#: kmediasession/example-app/qml/Main.qml:194
+#: kmediasession/example-app/qml/Main.qml:207
 #, kde-format
 msgid "Playback status: %1"
 msgstr "재생 상태: %1"
 
-#: kmediasession/example-app/qml/Main.qml:197
+#: kmediasession/example-app/qml/Main.qml:210
 #, kde-format
 msgid "Error: %1"
 msgstr "오류: %1"
@@ -367,19 +367,19 @@ msgctxt "@info:status"
 msgid "Podcast updates are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 업데이트가 허용되지 않음"
 
-#: qml/ConnectionCheckAction.qml:55
+#: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
 msgstr "옵션 선택"
 
-#: qml/ConnectionCheckAction.qml:55
+#: qml/ConnectionCheckAction.qml:56
 #, kde-format
 msgctxt "@title:window"
 msgid "Network not reachable"
 msgstr "네트워크에 접근할 수 없음"
 
-#: qml/ConnectionCheckAction.qml:66
+#: qml/ConnectionCheckAction.qml:67
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -389,115 +389,115 @@ msgstr ""
 "네트워크에 접근할 수 없는 것 같습니다. 검사가 잘못되었으면 설정 > 네트워크에"
 "서 비활성화할 수 있습니다."
 
-#: qml/ConnectionCheckAction.qml:84
+#: qml/ConnectionCheckAction.qml:85
 #, kde-format
 msgid "Don't Allow"
 msgstr "허용하지 않음"
 
-#: qml/ConnectionCheckAction.qml:98
+#: qml/ConnectionCheckAction.qml:99
 #, kde-format
 msgid "Allow Once"
 msgstr "한 번만 허용"
 
-#: qml/ConnectionCheckAction.qml:112
+#: qml/ConnectionCheckAction.qml:113
 #, kde-format
 msgid "Always Allow"
 msgstr "항상 허용"
 
-#: qml/Desktop/DesktopPlayerControls.qml:121
+#: qml/Desktop/DesktopPlayerControls.qml:120
 #, kde-format
 msgid "Seek backward"
 msgstr "되감기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:140
+#: qml/Desktop/DesktopPlayerControls.qml:139
 #, kde-format
 msgid "Seek forward"
 msgstr "빨리 감기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:149
+#: qml/Desktop/DesktopPlayerControls.qml:148
 #, kde-format
 msgid "Skip forward"
 msgstr "앞으로 건너뛰기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:169
+#: qml/Desktop/DesktopPlayerControls.qml:168
 #, kde-format
 msgid "Playback rate:"
 msgstr "재생 속도:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:226
+#: qml/Desktop/DesktopPlayerControls.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "챕터 목록 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:237
+#: qml/Desktop/DesktopPlayerControls.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "에피소드 정보 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:248
+#: qml/Desktop/DesktopPlayerControls.qml:245
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "수면 타이머 설정 열기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:262
+#: qml/Desktop/DesktopPlayerControls.qml:259
 #: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "음량 설정 열기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:294
+#: qml/Desktop/DesktopPlayerControls.qml:291
 #: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "음소거 전환"
 
-#: qml/Desktop/DesktopPlayerControls.qml:311
+#: qml/Desktop/DesktopPlayerControls.qml:307
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "더 보기"
 
-#: qml/Desktop/DesktopPlayerControls.qml:341
+#: qml/Desktop/DesktopPlayerControls.qml:336
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:349
+#: qml/Desktop/DesktopPlayerControls.qml:344
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "정보 표시"
 
-#: qml/Desktop/DesktopPlayerControls.qml:359
+#: qml/Desktop/DesktopPlayerControls.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "수면 타이머"
 
-#: qml/Desktop/DesktopPlayerControls.qml:392
+#: qml/Desktop/DesktopPlayerControls.qml:385
 #, kde-format
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:119
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:125
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:423 qml/Desktop/HeaderBar.qml:120
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:126
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
 msgstr "불러온 트랙 없음"
 
-#: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -524,7 +524,7 @@ msgid "Subscribed"
 msgstr "구독 중"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
-#: qml/KastsGlobalDrawer.qml:113
+#: qml/KastsGlobalDrawer.qml:112
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -547,12 +547,12 @@ msgstr "다운로드 없음"
 msgid "Downloading"
 msgstr "다운로드 중"
 
-#: qml/DownloadListPage.qml:73
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Incomplete Downloads"
 msgstr "불완전 다운로드"
 
-#: qml/DownloadListPage.qml:74
+#: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Downloaded"
 msgstr "다운로드됨"
@@ -563,37 +563,37 @@ msgctxt "@title"
 msgid "Episode Details"
 msgstr "에피소드 자세한 정보"
 
-#: qml/EntryPage.qml:112
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "브라우저로 열기"
 
-#: qml/EntryPage.qml:120
+#: qml/EntryPage.qml:122
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "다운로드"
 
-#: qml/EntryPage.qml:129
+#: qml/EntryPage.qml:131
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "다운로드 취소"
 
-#: qml/EntryPage.qml:137
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "일시 정지"
 
-#: qml/EntryPage.qml:145
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "재생"
 
-#: qml/EntryPage.qml:154
+#: qml/EntryPage.qml:156
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -601,25 +601,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "스트림"
 
-#: qml/EntryPage.qml:166
+#: qml/EntryPage.qml:168
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/EntryPage.qml:166
+#: qml/EntryPage.qml:168
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
-#: qml/EntryPage.qml:182
+#: qml/EntryPage.qml:184
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "다운로드 삭제"
 
-#: qml/EntryPage.qml:190
+#: qml/EntryPage.qml:192
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -627,31 +627,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:198
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:198
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/EntryPage.qml:203
+#: qml/EntryPage.qml:205
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/EntryPage.qml:203
+#: qml/EntryPage.qml:205
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:313
+#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -659,31 +659,31 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "책갈피에서 삭제"
 
-#: qml/EntryPage.qml:210 qml/GenericEntryListView.qml:304
+#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "책갈피에 추가"
 
-#: qml/EntryPage.qml:218
+#: qml/EntryPage.qml:220
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "팟캐스트 열기"
 
-#: qml/EntryPage.qml:284
+#: qml/EntryPage.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "에피소드 다운로드 URL 복사"
 
-#: qml/EntryPage.qml:290
+#: qml/EntryPage.qml:294
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "링크 복사됨"
 
-#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:103
+#: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:102
 #: qml/Mobile/BottomToolbar.qml:42
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -691,13 +691,13 @@ msgid "Episodes"
 msgstr "에피소드"
 
 #: qml/EpisodeListPage.qml:54 qml/FeedDetailsPage.qml:69
-#: qml/FeedListPage.qml:113
+#: qml/FeedListPage.qml:108
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "검색"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:322
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:328
 #, kde-format
 msgid "No episodes available"
 msgstr "에피소드 없음"
@@ -729,7 +729,7 @@ msgstr "모든 오류 삭제"
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:240
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
@@ -750,49 +750,49 @@ msgstr "팟캐스트 새로 고침"
 msgid "Show Details"
 msgstr "자세한 정보 표시"
 
-#: qml/FeedDetailsPage.qml:238
+#: qml/FeedDetailsPage.qml:240
 #, kde-format
 msgid "Podcast URL:"
 msgstr "팟캐스트 URL:"
 
-#: qml/FeedDetailsPage.qml:259
+#: qml/FeedDetailsPage.qml:261
 #, kde-format
 msgid "Weblink:"
 msgstr "웹 링크:"
 
-#: qml/FeedDetailsPage.qml:279
+#: qml/FeedDetailsPage.qml:281
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "구독 시작: %1"
 
-#: qml/FeedDetailsPage.qml:290
+#: qml/FeedDetailsPage.qml:292
 #, kde-format
 msgid "Last updated: %1"
 msgstr "마지막 업데이트: %1"
 
-#: qml/FeedDetailsPage.qml:301
+#: qml/FeedDetailsPage.qml:303
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "에피소드 %1개"
 
-#: qml/FeedDetailsPage.qml:301
+#: qml/FeedDetailsPage.qml:303
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1개 재생하지 않음"
 
-#: qml/FeedDetailsPage.qml:322
+#: qml/FeedDetailsPage.qml:328
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "오류(%1): %2"
 
-#: qml/FeedListDelegate.qml:250
+#: qml/FeedListDelegate.qml:252
 #, kde-format
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
 
-#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:93
+#: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:92
 #: qml/Mobile/BottomToolbar.qml:34
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -823,55 +823,55 @@ msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
 msgstr "구독 정렬 방법 선택"
 
-#: qml/FeedListPage.qml:118
+#: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
 msgstr "팟캐스트 가져오기…"
 
-#: qml/FeedListPage.qml:124
+#: qml/FeedListPage.qml:119
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
 msgstr "팟캐스트 내보내기…"
 
-#: qml/FeedListPage.qml:160
+#: qml/FeedListPage.qml:155
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "팟캐스트 가져오기"
 
-#: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
+#: qml/FeedListPage.qml:157 qml/FeedListPage.qml:165
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML 파일 (*.opml)"
 
-#: qml/FeedListPage.qml:162
+#: qml/FeedListPage.qml:157
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML 파일 (*.xml)"
 
-#: qml/FeedListPage.qml:162 qml/FeedListPage.qml:170
+#: qml/FeedListPage.qml:157 qml/FeedListPage.qml:165
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "모든 파일 (*)"
 
-#: qml/FeedListPage.qml:168
+#: qml/FeedListPage.qml:163
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
 msgstr "팟캐스트 내보내기"
 
-#: qml/FeedListPage.qml:190
+#: qml/FeedListPage.qml:185
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
 msgstr "추가한 팟캐스트 없음"
 
-#: qml/FeedListPage.qml:190
+#: qml/FeedListPage.qml:185
 #, kde-format
 msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
@@ -879,102 +879,102 @@ msgctxt ""
 msgid "No podcasts found"
 msgstr "팟캐스트를 찾을 수 없음"
 
-#: qml/FeedListPage.qml:191
+#: qml/FeedListPage.qml:186
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
 msgstr "새 팟캐스트를 추가하여 시작하십시오:"
 
-#: qml/FeedListPage.qml:205
+#: qml/FeedListPage.qml:200
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
 msgstr "온라인에서 검색"
 
-#: qml/FeedListPage.qml:232
+#: qml/FeedListPage.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "동기화"
 
-#: qml/FeedListPage.qml:371
+#: qml/FeedListPage.qml:367
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "모두 선택"
 
-#: qml/FeedListPage.qml:380
+#: qml/FeedListPage.qml:376
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "모두 선택 해제"
 
-#: qml/FeedListPage.qml:389
+#: qml/FeedListPage.qml:385
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
 msgstr[0] "팟캐스트 삭제"
 
-#: qml/FeedListPage.qml:412
+#: qml/FeedListPage.qml:408
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
 
-#: qml/FilterInlineMessage.qml:32
+#: qml/FilterInlineMessage.qml:31
 #, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
 msgstr "초기화"
 
-#: qml/FilterInlineMessage.qml:41
+#: qml/FilterInlineMessage.qml:40
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "활성 필터: %1"
 
-#: qml/GenericEntryDelegate.qml:220
+#: qml/GenericEntryDelegate.qml:217
 #, kde-format
 msgid "Played"
 msgstr "재생됨"
 
-#: qml/GenericEntryDelegate.qml:220
+#: qml/GenericEntryDelegate.qml:217
 #, kde-format
 msgid "Read"
 msgstr "읽음"
 
-#: qml/GenericEntryDelegate.qml:226
+#: qml/GenericEntryDelegate.qml:223
 #, kde-format
 msgid "New"
 msgstr "새로 만들기"
 
-#: qml/GenericEntryDelegate.qml:327 qml/GenericEntryListView.qml:262
+#: qml/GenericEntryDelegate.qml:322 qml/GenericEntryListView.qml:257
 #, kde-format
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
-#: qml/GenericEntryDelegate.qml:336 qml/GenericEntryListView.qml:322
+#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:317
 #, kde-format
 msgid "Download"
 msgstr "다운로드"
 
-#: qml/GenericEntryDelegate.qml:346
+#: qml/GenericEntryDelegate.qml:341
 #, kde-format
 msgid "Cancel Download"
 msgstr "다운로드 취소"
 
-#: qml/GenericEntryDelegate.qml:353
+#: qml/GenericEntryDelegate.qml:348
 #, kde-format
 msgid "Delete Download"
 msgstr "다운로드 삭제"
 
-#: qml/GenericEntryDelegate.qml:360 qml/GenericEntryListView.qml:252
+#: qml/GenericEntryDelegate.qml:355 qml/GenericEntryListView.qml:247
 #, kde-format
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/GenericEntryDelegate.qml:377 qml/GenericEntryListView.qml:341
+#: qml/GenericEntryDelegate.qml:372 qml/GenericEntryListView.qml:336
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -982,13 +982,13 @@ msgctxt ""
 msgid "Stream"
 msgstr "스트림"
 
-#: qml/GenericEntryListView.qml:136
+#: qml/GenericEntryListView.qml:135
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "정렬"
 
-#: qml/GenericEntryListView.qml:138
+#: qml/GenericEntryListView.qml:137
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
@@ -1008,68 +1008,68 @@ msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "상태별로 에피소드 필터"
 
-#: qml/GenericEntryListView.qml:235
+#: qml/GenericEntryListView.qml:230
 #, kde-format
 msgid "Select All"
 msgstr "모두 선택"
 
-#: qml/GenericEntryListView.qml:244
+#: qml/GenericEntryListView.qml:239
 #, kde-format
 msgid "Deselect All"
 msgstr "모두 선택 해제"
 
-#: qml/GenericEntryListView.qml:272
+#: qml/GenericEntryListView.qml:267
 #, kde-format
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/GenericEntryListView.qml:280
+#: qml/GenericEntryListView.qml:275
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/GenericEntryListView.qml:288
+#: qml/GenericEntryListView.qml:283
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
 
-#: qml/GenericEntryListView.qml:296
+#: qml/GenericEntryListView.qml:291
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/GenericEntryListView.qml:332
+#: qml/GenericEntryListView.qml:327
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "다운로드 삭제"
 
-#: qml/GlobalSearchField.qml:106
+#: qml/GlobalSearchField.qml:108
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "검색 결과 없음"
 
-#: qml/GlobalSearchField.qml:112 qml/SearchBar.qml:55
+#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:55
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "고급 검색 옵션"
 
-#: qml/GlobalSearchField.qml:146 qml/SearchBar.qml:115
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:115
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "검색 설정"
 
-#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "다음에서 찾기:"
 
-#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:26
+#: qml/KastsGlobalDrawer.qml:72 qml/Mobile/BottomToolbar.qml:26
 #: qml/QueuePage.qml:18
 #, kde-format
 msgctxt ""
@@ -1078,27 +1078,27 @@ msgctxt ""
 msgid "Queue"
 msgstr "대기열에 추가"
 
-#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:50
+#: qml/KastsGlobalDrawer.qml:131 qml/Mobile/BottomToolbar.qml:50
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "설정"
 
-#: qml/Main.qml:195
+#: qml/Main.qml:193
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/Main.qml:222
+#: qml/Main.qml:216
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/Main.qml:280
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1130,49 +1130,49 @@ msgctxt "@title:window"
 msgid "Playback Rate Presets"
 msgstr "재생 속도 사전 설정"
 
-#: qml/PlaybackRateCustomizerDialog.qml:52
+#: qml/PlaybackRateCustomizerDialog.qml:54
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
 msgstr "새 사전 설정:"
 
-#: qml/PlaybackRateCustomizerDialog.qml:64
+#: qml/PlaybackRateCustomizerDialog.qml:66
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
 msgstr "추가"
 
-#: qml/PlaybackRateCustomizerDialog.qml:67
+#: qml/PlaybackRateCustomizerDialog.qml:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
 msgstr "새 재생 속도를 목록에 추가"
 
-#: qml/PlaybackRateCustomizerDialog.qml:100
+#: qml/PlaybackRateCustomizerDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
 msgstr "재생 속도 감소"
 
-#: qml/PlaybackRateCustomizerDialog.qml:119
+#: qml/PlaybackRateCustomizerDialog.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
 msgstr "재생 속도 증가"
 
-#: qml/PlaybackRateCustomizerDialog.qml:124
+#: qml/PlaybackRateCustomizerDialog.qml:128
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
 msgstr "현재 사전 설정:"
 
-#: qml/PlaybackRateMenu.qml:19
+#: qml/PlaybackRateMenu.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
 msgstr "재생 속도 설정"
 
-#: qml/PlaybackRateMenu.qml:51
+#: qml/PlaybackRateMenu.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
@@ -1223,13 +1223,13 @@ msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:37
+#: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
 msgstr ""
 
-#: qml/Settings/AppearanceSettingsPage.qml:38
+#: qml/Settings/AppearanceSettingsPage.qml:43
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox type of device"
 #| msgid "desktop"
@@ -1237,7 +1237,7 @@ msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
 msgstr "데스크톱"
 
-#: qml/Settings/AppearanceSettingsPage.qml:39
+#: qml/Settings/AppearanceSettingsPage.qml:47
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox type of device"
 #| msgid "mobile"
@@ -1245,85 +1245,85 @@ msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
 msgstr "휴대폰"
 
-#: qml/Settings/AppearanceSettingsPage.qml:52
+#: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "색 테마"
 
-#: qml/Settings/AppearanceSettingsPage.qml:68
+#: qml/Settings/AppearanceSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:78
+#: qml/Settings/AppearanceSettingsPage.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "목록에 에피소드 그림 대신 팟캐스트 그림 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:88
+#: qml/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "에피소드 목록에 팟캐스트 제목 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:98
+#: qml/Settings/AppearanceSettingsPage.qml:109
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "트레이 아이콘"
 
-#: qml/Settings/AppearanceSettingsPage.qml:109
+#: qml/Settings/AppearanceSettingsPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "시스템 트레이 아이콘 표시"
 
-#: qml/Settings/AppearanceSettingsPage.qml:121
+#: qml/Settings/AppearanceSettingsPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "닫을 때 트레이로 최소화"
 
-#: qml/Settings/AppearanceSettingsPage.qml:133
+#: qml/Settings/AppearanceSettingsPage.qml:144
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "트레이 아이콘 형식"
 
-#: qml/Settings/AppearanceSettingsPage.qml:138
+#: qml/Settings/AppearanceSettingsPage.qml:151
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "알록달록"
 
-#: qml/Settings/AppearanceSettingsPage.qml:139
+#: qml/Settings/AppearanceSettingsPage.qml:155
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "밝음"
 
-#: qml/Settings/AppearanceSettingsPage.qml:140
+#: qml/Settings/AppearanceSettingsPage.qml:159
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "어두움"
 
-#: qml/Settings/AppearanceSettingsPage.qml:150
+#: qml/Settings/AppearanceSettingsPage.qml:172
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "텍스트"
 
-#: qml/Settings/AppearanceSettingsPage.qml:160
+#: qml/Settings/AppearanceSettingsPage.qml:182
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "시스템 기본값 사용"
 
-#: qml/Settings/AppearanceSettingsPage.qml:172
+#: qml/Settings/AppearanceSettingsPage.qml:197
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
@@ -1355,7 +1355,7 @@ msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
 msgstr "오디오 백엔드 선택"
 
-#: qml/Settings/GeneralSettingsPage.qml:62
+#: qml/Settings/GeneralSettingsPage.qml:64
 #, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
@@ -1363,13 +1363,13 @@ msgctxt ""
 msgid "Show time left instead of total track time"
 msgstr "총 트랙 시간 대신 남은 시간 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:72
+#: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
 msgstr "현재 재생 속도에 맞춰서 남은 시간 조정"
 
-#: qml/Settings/GeneralSettingsPage.qml:81
+#: qml/Settings/GeneralSettingsPage.qml:83
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Prioritize streaming over downloading"
@@ -1377,25 +1377,25 @@ msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
 msgstr "다운로드보다 스트리밍 우선"
 
-#: qml/Settings/GeneralSettingsPage.qml:93
+#: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "앞으로 탐색 시간(초 단위)"
 
-#: qml/Settings/GeneralSettingsPage.qml:107
+#: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "뒤로 탐색 시간(초 단위)"
 
-#: qml/Settings/GeneralSettingsPage.qml:122
+#: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
 msgctxt "@title Form header for settings related podcast updates"
 msgid "Podcast update settings"
 msgstr "팟캐스트 업데이트 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:131
+#: qml/Settings/GeneralSettingsPage.qml:133
 #, fuzzy, kde-format
 #| msgctxt "@label:listbox"
 #| msgid "Automatically fetch podcast feeds"
@@ -1403,122 +1403,122 @@ msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
 msgstr "자동으로 팟캐스트 피드 가져오기"
 
-#: qml/Settings/GeneralSettingsPage.qml:134
+#: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "하지 않음"
 
-#: qml/Settings/GeneralSettingsPage.qml:135
-#: qml/Settings/GeneralSettingsPage.qml:136
-#: qml/Settings/GeneralSettingsPage.qml:137
-#: qml/Settings/GeneralSettingsPage.qml:138
-#: qml/Settings/GeneralSettingsPage.qml:139
+#: qml/Settings/GeneralSettingsPage.qml:142
+#: qml/Settings/GeneralSettingsPage.qml:146
+#: qml/Settings/GeneralSettingsPage.qml:150
+#: qml/Settings/GeneralSettingsPage.qml:154
+#: qml/Settings/GeneralSettingsPage.qml:158
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
 msgid_plural "Every %1 hours"
 msgstr[0] "매 %1시간"
 
-#: qml/Settings/GeneralSettingsPage.qml:140
-#: qml/Settings/GeneralSettingsPage.qml:141
+#: qml/Settings/GeneralSettingsPage.qml:162
+#: qml/Settings/GeneralSettingsPage.qml:166
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
 msgstr[0] "매 %1일"
 
-#: qml/Settings/GeneralSettingsPage.qml:152
+#: qml/Settings/GeneralSettingsPage.qml:180
 #, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
 msgstr "시작할 때 자동으로 팟캐스트 업데이트 가져오기"
 
-#: qml/Settings/GeneralSettingsPage.qml:165
+#: qml/Settings/GeneralSettingsPage.qml:195
 #, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr "새로 고칠 때 기존 에피소드 데이터 업데이트(느림)"
 
-#: qml/Settings/GeneralSettingsPage.qml:175
+#: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr "자동으로 새 에피소드를 대기열에 추가"
 
-#: qml/Settings/GeneralSettingsPage.qml:190
+#: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr "자동으로 새 에피소드 다운로드"
 
-#: qml/Settings/GeneralSettingsPage.qml:201
+#: qml/Settings/GeneralSettingsPage.qml:231
 #, kde-format
 msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
 msgstr "대기열 설정"
 
-#: qml/Settings/GeneralSettingsPage.qml:211
+#: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
 msgstr "현재 에피소드 재생이 끝난 후 다음 에피소드 계속 재생"
 
-#: qml/Settings/GeneralSettingsPage.qml:223
+#: qml/Settings/GeneralSettingsPage.qml:256
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "에피소드를 재생한 후 재생 위치 초기화"
 
-#: qml/Settings/GeneralSettingsPage.qml:235
+#: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
 msgstr "재생한 에피소드 행동"
 
-#: qml/Settings/GeneralSettingsPage.qml:238
+#: qml/Settings/GeneralSettingsPage.qml:275
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "삭제 안 함"
 
-#: qml/Settings/GeneralSettingsPage.qml:239
+#: qml/Settings/GeneralSettingsPage.qml:279
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "즉시 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:240
+#: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "다음에 시작할 때 삭제"
 
-#: qml/Settings/GeneralSettingsPage.qml:252
+#: qml/Settings/GeneralSettingsPage.qml:301
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr "지정한 시간이 남았을 때 에피소드를 재생한 것으로 표시(초 단위)"
 
-#: qml/Settings/GeneralSettingsPage.qml:268
+#: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "새 팟캐스트를 추가할 때"
 
-#: qml/Settings/GeneralSettingsPage.qml:277
+#: qml/Settings/GeneralSettingsPage.qml:326
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "모든 에피소드를 재생한 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:288
+#: qml/Settings/GeneralSettingsPage.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "최근 에피소드를 재생하지 않은 것으로 표시"
 
-#: qml/Settings/GeneralSettingsPage.qml:311
+#: qml/Settings/GeneralSettingsPage.qml:359
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1704,51 +1704,51 @@ msgctxt "@option:check"
 msgid "Use default path"
 msgstr "기본 경로 사용"
 
-#: qml/Settings/StorageSettingsPage.qml:45
+#: qml/Settings/StorageSettingsPage.qml:48
 #, kde-format
 msgctxt "@label showing path used for local storage"
 msgid "Storage path"
 msgstr "저장 경로"
 
-#: qml/Settings/StorageSettingsPage.qml:51
+#: qml/Settings/StorageSettingsPage.qml:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
 msgstr "폴더 선택…"
 
-#: qml/Settings/StorageSettingsPage.qml:59
+#: qml/Settings/StorageSettingsPage.qml:61
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
 msgstr "저장 경로 선택"
 
-#: qml/Settings/StorageSettingsPage.qml:66
+#: qml/Settings/StorageSettingsPage.qml:68
 #, kde-format
 msgctxt ""
 "@title Form header for section showing information about local storage"
 msgid "Information"
 msgstr "정보"
 
-#: qml/Settings/StorageSettingsPage.qml:73
+#: qml/Settings/StorageSettingsPage.qml:75
 #, kde-format
 msgctxt "@label showing the storage space used by local podcast downloads"
 msgid "Podcast downloads"
 msgstr "팟캐스트 다운로드"
 
-#: qml/Settings/StorageSettingsPage.qml:74
-#: qml/Settings/StorageSettingsPage.qml:81
+#: qml/Settings/StorageSettingsPage.qml:76
+#: qml/Settings/StorageSettingsPage.qml:83
 #, kde-format
 msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
 msgstr "디스크 공간 %1 사용 중"
 
-#: qml/Settings/StorageSettingsPage.qml:80
+#: qml/Settings/StorageSettingsPage.qml:82
 #, kde-format
 msgctxt "@label showing the storage space used by the image cache"
 msgid "Image cache"
 msgstr "그림 캐시"
 
-#: qml/Settings/StorageSettingsPage.qml:85
+#: qml/Settings/StorageSettingsPage.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear Cache"
@@ -1892,49 +1892,49 @@ msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "동기화 공급자 선택"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:239
+#: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:240
+#: qml/Settings/SynchronizationSettingsPage.qml:241
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "공식 gpodder.net 서버와 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:243
+#: qml/Settings/SynchronizationSettingsPage.qml:246
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:244
+#: qml/Settings/SynchronizationSettingsPage.qml:247
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud 앱과 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:277
+#: qml/Settings/SynchronizationSettingsPage.qml:281
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "로그인 자격 증명 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:306
+#: qml/Settings/SynchronizationSettingsPage.qml:310
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud 앱과 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:306
+#: qml/Settings/SynchronizationSettingsPage.qml:310
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "gpodder.net 서비스와 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:317
+#: qml/Settings/SynchronizationSettingsPage.qml:320
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1945,115 +1945,115 @@ msgstr ""
 "GPodder Sync 앱이 설치된 Nextcloud 서버와 동기화할 수 있습니다: %1.<br/>웹 인"
 "터페이스에서 Kasts용 앱 암호를 따로 생성하여 사용하는 것을 추천합니다."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:318
+#: qml/Settings/SynchronizationSettingsPage.qml:320
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "계정이 없으면 %1에서 등록하십시오"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:330
+#: qml/Settings/SynchronizationSettingsPage.qml:332
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:341
+#: qml/Settings/SynchronizationSettingsPage.qml:343
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "암호:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:356
+#: qml/Settings/SynchronizationSettingsPage.qml:358
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "사용자 정의 서버 사용"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:361
+#: qml/Settings/SynchronizationSettingsPage.qml:363
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "호스트 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:395
+#: qml/Settings/SynchronizationSettingsPage.qml:397
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "장치 동기화 설정"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:401
+#: qml/Settings/SynchronizationSettingsPage.qml:403
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "새 장치 만들기"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:407
+#: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "장치 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:417
+#: qml/Settings/SynchronizationSettingsPage.qml:419
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "장치 설명:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:426
+#: qml/Settings/SynchronizationSettingsPage.qml:428
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "장치 종류:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:433
+#: qml/Settings/SynchronizationSettingsPage.qml:437
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "기타"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:434
+#: qml/Settings/SynchronizationSettingsPage.qml:441
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "데스크톱"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:445
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "노트북"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:436
+#: qml/Settings/SynchronizationSettingsPage.qml:449
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "서버"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:437
+#: qml/Settings/SynchronizationSettingsPage.qml:453
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "휴대폰"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:442
+#: qml/Settings/SynchronizationSettingsPage.qml:461
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "장치 만들기"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:459
+#: qml/Settings/SynchronizationSettingsPage.qml:478
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "또는 기존 장치 선택"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:507
+#: qml/Settings/SynchronizationSettingsPage.qml:524
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "장치 동기화 설정"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:529
+#: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2065,54 +2065,54 @@ msgstr ""
 "니까?\n"
 "무엇을 해야 할지 모르겠으면 \"확인\"을 선택하십시오."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:551
+#: qml/Settings/SynchronizationSettingsPage.qml:568
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "지금 동기화?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:571
+#: qml/Settings/SynchronizationSettingsPage.qml:588
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
 msgstr "지금 첫 동기화를 진행하시겠습니까?"
 
-#: qml/SleepTimerDialog.qml:16
+#: qml/SleepTimerDialog.qml:17
 #, kde-format
 msgid "Sleep Timer"
 msgstr "수면 타이머"
 
-#: qml/SleepTimerDialog.qml:26
+#: qml/SleepTimerDialog.qml:27
 #, kde-format
 msgid "Start"
 msgstr "시작"
 
-#: qml/SleepTimerDialog.qml:53
+#: qml/SleepTimerDialog.qml:54
 #, kde-format
 msgid "Status: Active"
 msgstr "상태: 활성"
 
-#: qml/SleepTimerDialog.qml:53
+#: qml/SleepTimerDialog.qml:54
 #, kde-format
 msgid "Status: Inactive"
 msgstr "상태: 비활성"
 
-#: qml/SleepTimerDialog.qml:59
+#: qml/SleepTimerDialog.qml:60
 #, kde-format
 msgid "Remaining time: %1"
 msgstr "남은 시간: %1"
 
-#: qml/SleepTimerDialog.qml:76
+#: qml/SleepTimerDialog.qml:79
 #, kde-format
 msgid "Seconds"
 msgstr "초"
 
-#: qml/SleepTimerDialog.qml:77
+#: qml/SleepTimerDialog.qml:85
 #, kde-format
 msgid "Minutes"
 msgstr "분"
 
-#: qml/SleepTimerDialog.qml:78
+#: qml/SleepTimerDialog.qml:91
 #, kde-format
 msgid "Hours"
 msgstr "시간"
@@ -2122,19 +2122,19 @@ msgstr "시간"
 msgid "Sync Password Required"
 msgstr "동기화 암호 필요"
 
-#: qml/SyncPasswordOverlay.qml:48
+#: qml/SyncPasswordOverlay.qml:47
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr "Nextcloud 서버 \"%2\"의 사용자 \"%1\"의 암호를 가져올 수 없습니다."
 
-#: qml/SyncPasswordOverlay.qml:49
+#: qml/SyncPasswordOverlay.qml:47
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
 msgstr "\"gpodder.net\"의 사용자 \"%1\"의 암호를 가져올 수 없습니다."
 
-#: qml/SyncPasswordOverlay.qml:56
+#: qml/SyncPasswordOverlay.qml:54
 #, kde-format
 msgid "Password:"
 msgstr "암호:"
