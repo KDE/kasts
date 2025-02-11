@@ -22,7 +22,7 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const QString &url, const QByteArray &data, const DataTypes::FeedDetails &oldFeedDetails, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const QString &url, const QByteArray &data, const DataTypes::FeedDetails &feed, QObject *parent = nullptr);
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
@@ -54,12 +54,10 @@ private:
     bool m_abort = false;
 
     QString m_url;
-    QString m_dirname;
     QByteArray m_data;
 
-    bool m_isNewFeed;
     bool m_markUnreadOnNewFeed;
-    DataTypes::FeedDetails m_oldFeedDetails;
+    DataTypes::FeedDetails m_feed, m_updateFeed;
     QVector<DataTypes::EntryDetails> m_entries, m_newEntries, m_updateEntries;
     QVector<DataTypes::AuthorDetails> m_authors, m_newAuthors, m_updateAuthors;
     QVector<DataTypes::EnclosureDetails> m_enclosures, m_newEnclosures, m_updateEnclosures;
