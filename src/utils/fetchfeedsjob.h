@@ -33,6 +33,5 @@ private:
     void fetch();
     void monitorProgress();
 
-    QVector<UpdateFeedJob *> m_feedjobs;
     bool m_abort = false;
 };

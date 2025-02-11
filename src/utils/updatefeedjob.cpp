@@ -19,6 +19,7 @@
 #include <ThreadWeaver/Thread>
 
 #include "database.h"
+#include "datatypes.h"
 #include "enclosure.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
@@ -29,10 +30,11 @@
 using namespace ThreadWeaver;
 using namespace DataTypes;
 
-UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent)
+UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, const FeedDetails &oldFeedDetails, QObject *parent)
     : QObject(parent)
     , m_url(url)
     , m_data(data)
+    , m_oldFeedDetails(oldFeedDetails)
 {
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
@@ -68,20 +70,9 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         return;
 
     // First check if this is a newly added feed and get current name and dirname
-    m_isNewFeed = false;
-    QString oldName, oldDirname;
-    QSqlQuery query(QSqlDatabase::database(m_url));
-    query.prepare(QStringLiteral("SELECT new, name, dirname FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), m_url);
-    Database::execute(query);
-    if (query.next()) {
-        m_isNewFeed = query.value(QStringLiteral("new")).toBool();
-        oldName = query.value(QStringLiteral("name")).toString();
-        oldDirname = query.value(QStringLiteral("dirname")).toString();
-    } else {
-        qCDebug(kastsFetcher) << "Feed not found in database" << m_url;
-        return;
-    }
+    m_isNewFeed = m_oldFeedDetails.isNew;
+    QString oldName = m_oldFeedDetails.name;
+    QString oldDirname = m_oldFeedDetails.dirname;
     if (m_isNewFeed) {
         qCDebug(kastsFetcher) << "New feed" << feed->title();
     }
@@ -90,7 +81,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
-
+    QSqlQuery query(QSqlDatabase::database(m_url));
     query.prepare(QStringLiteral(
         "UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, dirname=:dirname WHERE url=:url;"));
     query.bindValue(QStringLiteral(":name"), feed->title());

@@ -18,6 +18,23 @@ Q_NAMESPACE
 QML_ELEMENT
 
 // structs
+struct FeedDetails {
+    QString name;
+    QString url;
+    QString image;
+    QString link;
+    QString description;
+    int deleteAfterCount = 0;
+    int deleteAfterType = 0;
+    int subscribed;
+    int lastUpdated;
+    bool isNew;
+    bool notify;
+    QString dirname;
+    QString lastHash;
+    int filterType = 0;
+};
+
 struct EntryDetails {
     QString feed;
     QString id;
