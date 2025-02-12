@@ -58,6 +58,8 @@ Controls.ItemDelegate {
 
     background: Rectangle {
         // Background for highlighted / hovered / active items
+        anchors.fill: parent
+
         Rectangle {
             id: background
             anchors.fill: parent
@@ -76,13 +78,12 @@ Controls.ItemDelegate {
         Kirigami.ShadowedRectangle {
             anchors.fill: parent
             anchors.margins: cardMargin
-            anchors.leftMargin: cardMargin
             color: Kirigami.Theme.backgroundColor
 
             radius: Kirigami.Units.smallSpacing
 
-            shadow.size: Kirigami.Units.largeSpacing
-            shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.15)
+            shadow.size: cardMargin
+            shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.25)
             shadow.yOffset: borderWidth * 2
 
             border.width: borderWidth
