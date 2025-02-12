@@ -57,5 +57,8 @@ private:
     void cleanup();
     void setWalMode();
 
+    inline static const int m_timeout = 500000; // retry timeout for db retries in microseconds
+    inline static const int m_timeoutRandomness = 100000; // some randomness on top of retry interval
+    inline static const int m_maxRetries = 5; // maximum amount of db retries
     inline static const QString m_dbName = QStringLiteral("database.db3");
 };

@@ -13,10 +13,12 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QRandomGenerator>
 #include <QRegularExpression>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QStandardPaths>
+#include <QThread>
 #include <QUrl>
 
 #include "settingsmanager.h"
@@ -284,29 +286,41 @@ bool Database::execute(const QString &query, const QString &connectionName)
 
 bool Database::execute(QSqlQuery &query)
 {
+    int retries = 0;
+
     // NOTE that this will execute the query on the database that was specified
     // when the QSqlQuery was created.  There is no way to change that later on.
-    if (!query.exec()) {
-        qWarning() << "Failed to execute SQL Query";
-        qWarning() << query.lastQuery();
-        qWarning() << query.lastError();
-        return false;
+    while (!query.exec()) {
+        if (retries < m_maxRetries) {
+            retries++;
+            qWarning() << "Failed to execute SQL Query; retrying (attempt" << retries << " of" << m_maxRetries << ")";
+            qWarning() << query.lastQuery();
+            qWarning() << query.lastError();
+            QThread::usleep(retries * m_timeout + QRandomGenerator::global()->bounded(-m_timeoutRandomness, m_timeoutRandomness));
+        } else {
+            qWarning() << "Failed to execute SQL Query";
+            qWarning() << query.lastQuery();
+            qWarning() << query.lastError();
+            return false;
+        }
     }
     return true;
 }
 
 bool Database::transaction(const QString &connectionName)
 {
-    // use IMMEDIATE transaction here to avoid deadlocks with writes happening
-    // in different threads
+    // use raw sqlite query to benefit from automatic retries on execute
     QSqlQuery query(QSqlDatabase::database(connectionName));
-    query.prepare(QStringLiteral("BEGIN IMMEDIATE TRANSACTION;"));
+    query.prepare(QStringLiteral("BEGIN TRANSACTION;"));
     return execute(query);
 }
 
 bool Database::commit(const QString &connectionName)
 {
-    return QSqlDatabase::database(connectionName).commit();
+    // use raw sqlite query to benefit from automatic retries on execute
+    QSqlQuery query(QSqlDatabase::database(connectionName));
+    query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
+    return execute(query);
 }
 
 int Database::version()
