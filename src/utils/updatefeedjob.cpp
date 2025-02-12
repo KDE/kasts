@@ -731,6 +731,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name) const
     QStringList dirNameList;
     QSqlQuery query(QSqlDatabase::database(m_url));
     query.prepare(QStringLiteral("SELECT name FROM Feeds;"));
+    Database::execute(query);
     while (query.next()) {
         dirNameList << query.value(QStringLiteral("name")).toString();
     }

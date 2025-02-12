@@ -10,7 +10,6 @@
 #include <QSqlQuery>
 
 #include "database.h"
-#include "datamanager.h"
 
 ErrorLogModel::ErrorLogModel()
     : QAbstractListModel(nullptr)
