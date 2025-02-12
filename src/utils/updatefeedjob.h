@@ -38,7 +38,6 @@ Q_SIGNALS:
     void feedUpdated(const QString &url);
     void entryAdded(const QString &feedurl, const QString &id);
     void entryUpdated(const QString &feedurl, const QString &id);
-    void feedUpdateStatusChanged(const QString &url, bool status);
     void aborting();
     void finished();
 

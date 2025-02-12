@@ -1,4 +1,3 @@
-
 /**
  * SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
  *
@@ -7,6 +6,7 @@
 
 #include "updatefeedjob.h"
 
+#include <QCryptographicHash>
 #include <QDir>
 #include <QDomElement>
 #include <QMultiMap>
@@ -41,7 +41,6 @@ UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, const F
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
     connect(this, &UpdateFeedJob::entryAdded, &Fetcher::instance(), &Fetcher::entryAdded);
     connect(this, &UpdateFeedJob::entryUpdated, &Fetcher::instance(), &Fetcher::entryUpdated);
-    connect(this, &UpdateFeedJob::feedUpdateStatusChanged, &Fetcher::instance(), &Fetcher::feedUpdateStatusChanged);
 }
 
 void UpdateFeedJob::run(JobPointer, Thread *)
@@ -77,13 +76,13 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
     QDateTime current = QDateTime::currentDateTime();
 
-    m_updateFeed = m_feed;
+    m_updateFeed = m_feed; // start from current feed details in database
 
     m_updateFeed.name = feed->title();
-    m_updateFeed.url = m_url;
     m_updateFeed.link = feed->link();
     m_updateFeed.description = feed->description();
     m_updateFeed.lastUpdated = current.toSecsSinceEpoch();
+    m_updateFeed.lastHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
@@ -124,12 +123,10 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     query.bindValue(QStringLiteral(":lastUpdated"), m_updateFeed.lastUpdated);
     query.bindValue(QStringLiteral(":image"), m_updateFeed.image);
     query.bindValue(QStringLiteral(":dirname"), m_updateFeed.dirname);
-
-    // Do the actual database UPDATE of this feed
+    // we only write the new lastHash to the database after entries etc. have
+    // all been updated!
     Database::execute(query);
-
-    bool hasFeedBeenUpdated = false;
-    // TODO: check if any field has changed
+    query.clear(); // make sure this query is not blocking anything anymore
 
     // Now that we have the feed details, we make vectors of the data that's
     // already in the database relating to this feed
@@ -153,6 +150,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         entryDetails.image = query.value(QStringLiteral("image")).toString();
         m_entries += entryDetails;
     }
+    query.clear();
 
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
@@ -170,6 +168,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         enclosureDetails.downloaded = Enclosure::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
         m_enclosures += enclosureDetails;
     }
+    query.clear();
 
     query.prepare(QStringLiteral("SELECT * FROM Authors WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
@@ -183,6 +182,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         authorDetails.email = query.value(QStringLiteral("email")).toString();
         m_authors += authorDetails;
     }
+    query.clear();
 
     query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
@@ -197,13 +197,13 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         chapterDetails.image = query.value(QStringLiteral("image")).toString();
         m_chapters += chapterDetails;
     }
+    query.clear();
 
-    query.clear(); // make sure this query is not blocking anything anymore
-
+    bool authorsChanged = false;
     // Process feed authors
     if (feed->authors().count() > 0) {
         for (auto &author : feed->authors()) {
-            processAuthor(QLatin1String(""), author->name(), QLatin1String(""), QLatin1String(""));
+            authorsChanged = authorsChanged || processAuthor(QLatin1String(""), author->name(), QLatin1String(""), QLatin1String(""));
         }
     } else {
         // Try to find itunes fields if plain author doesn't exist
@@ -223,14 +223,24 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
             qCDebug(kastsFetcher) << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
-            processAuthor(QLatin1String(""), authorname, QLatin1String(""), authoremail);
+            authorsChanged = authorsChanged || processAuthor(QLatin1String(""), authorname, QLatin1String(""), authoremail);
         }
     }
 
     qCDebug(kastsFetcher) << "Updated feed details:" << feed->title();
 
-    // TODO: Only emit signal if the details have really changed
-    Q_EMIT feedDetailsUpdated(m_url, m_updateFeed.name, m_updateFeed.image, m_updateFeed.link, m_updateFeed.description, current, m_updateFeed.dirname);
+    // check if any field has changed and only emit signal if there are changes
+    bool hasFeedBeenUpdated = false;
+    if (m_updateFeed.name != m_feed.name || m_updateFeed.link != m_feed.link || m_updateFeed.image != m_feed.image
+        || m_updateFeed.description != m_feed.description || authorsChanged) {
+        hasFeedBeenUpdated = true;
+    } else {
+        hasFeedBeenUpdated = false;
+    }
+
+    if (hasFeedBeenUpdated) {
+        Q_EMIT feedDetailsUpdated(m_url, m_updateFeed.name, m_updateFeed.image, m_updateFeed.link, m_updateFeed.description, current, m_updateFeed.dirname);
+    }
 
     if (m_abort)
         return;
@@ -535,6 +545,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":favorite"), false);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // update entries
     writeQuery.prepare(
@@ -552,6 +563,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // new authors
     writeQuery.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
@@ -563,6 +575,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // update authors
     writeQuery.prepare(QStringLiteral("UPDATE Authors SET uri=:uri, email=:email WHERE feed=:feed AND id=:id AND name=:name;"));
@@ -574,6 +587,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // new enclosures
     writeQuery.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition, :downloaded);"));
@@ -589,6 +603,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // update enclosures
     writeQuery.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE feed=:feed AND id=:id;"));
@@ -602,6 +617,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // new chapters
     writeQuery.prepare(QStringLiteral("INSERT INTO Chapters VALUES(:feed, :id, :start, :title, :link, :image);"));
@@ -614,6 +630,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // update chapters
     writeQuery.prepare(QStringLiteral("UPDATE Chapters SET title=:title, link=:link, image=:image WHERE feed=:feed AND id=:id AND start=:start;"));
@@ -626,6 +643,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
         Database::execute(writeQuery);
     }
+    writeQuery.clear();
 
     // set custom amount of episodes to unread/new if required
     if (m_feed.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
@@ -636,6 +654,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":new"), true);
         writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
         Database::execute(writeQuery);
+        writeQuery.clear();
     }
 
     if (m_feed.isNew) {
@@ -647,6 +666,15 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":url"), m_url);
         writeQuery.bindValue(QStringLiteral(":new"), false);
         Database::execute(writeQuery);
+        writeQuery.clear();
+    }
+
+    if (m_feed.lastHash != m_updateFeed.lastHash) {
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
+        writeQuery.bindValue(QStringLiteral(":url"), m_url);
+        writeQuery.bindValue(QStringLiteral(":lastHash"), m_updateFeed.lastHash);
+        Database::execute(writeQuery);
+        writeQuery.clear();
     }
 
     if (Database::commit(m_url)) {

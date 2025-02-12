@@ -6,6 +6,7 @@
 
 #include "fetchfeedsjob.h"
 
+#include <QCryptographicHash>
 #include <QSqlQuery>
 #include <QTimer>
 
@@ -112,14 +113,7 @@ void FetchFeedsJob::fetch()
                 } else {
                     UpdateFeedJob *updateFeedJob = new UpdateFeedJob(url, data, oldFeedDetails);
                     connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
-                    connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, url, newHash]() {
-                        // sql update to be replaced by updating the hash along with the rest of the feed details!
-                        QSqlQuery writeQuery;
-                        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
-                        writeQuery.bindValue(QStringLiteral(":url"), url);
-                        writeQuery.bindValue(QStringLiteral(":lastHash"), newHash);
-                        Database::execute(writeQuery);
-
+                    connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, url]() {
                         setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
                         Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
                     });
