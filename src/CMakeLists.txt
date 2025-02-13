@@ -255,6 +255,7 @@ if(ANDROID)
     endif()
 
     kirigami_package_breeze_icons(ICONS
+        ${KIRIGAMI_ADDONS_ICONS}
         window-close
         window-close-symbolic
         delete
