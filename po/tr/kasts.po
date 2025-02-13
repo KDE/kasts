@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 03:18+0000\n"
+"POT-Creation-Date: 2025-02-13 02:43+0000\n"
 "PO-Revision-Date: 2025-02-05 11:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -729,7 +729,7 @@ msgstr "Tüm Hataları Temizle"
 msgid "Show Error Log"
 msgstr "Hata Günlüğünü Göster"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:240
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:241
 #, kde-format
 msgid "Podcast Details"
 msgstr "Pod Yayını Ayrıntıları"
@@ -789,7 +789,7 @@ msgstr[1] "%1 Çalınmayan"
 msgid "Error (%1): %2"
 msgstr "Hata (%1): %2"
 
-#: qml/FeedListDelegate.qml:250
+#: qml/FeedListDelegate.qml:251
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Pod Yayınını Kaldır"

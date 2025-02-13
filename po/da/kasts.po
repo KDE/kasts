@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 03:18+0000\n"
+"POT-Creation-Date: 2025-02-13 02:43+0000\n"
 "PO-Revision-Date: 2024-08-01 14:24+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -727,7 +727,7 @@ msgstr "Ryd alle fejl"
 msgid "Show Error Log"
 msgstr "Vis fejllog"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:240
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:241
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcastdetaljer"
@@ -787,7 +787,7 @@ msgstr[1] "%1 ikke afspillet"
 msgid "Error (%1): %2"
 msgstr "Fejl (%1): %2"
 
-#: qml/FeedListDelegate.qml:250
+#: qml/FeedListDelegate.qml:251
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Fjern podcast"

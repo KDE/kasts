@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-16 03:18+0000\n"
+"POT-Creation-Date: 2025-02-13 02:43+0000\n"
 "PO-Revision-Date: 2024-05-15 18:50+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -728,7 +728,7 @@ msgstr "Forigi Ĉiujn Erarojn"
 msgid "Show Error Log"
 msgstr "Montri Erarprotokolon"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:240
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:241
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podkastaj Detaloj"
@@ -788,7 +788,7 @@ msgstr[1] "%1 Neluditaj"
 msgid "Error (%1): %2"
 msgstr "Eraro (%1): %2"
 
-#: qml/FeedListDelegate.qml:250
+#: qml/FeedListDelegate.qml:251
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Forigi Podkaston"
