@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-07 17:03+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -733,7 +733,7 @@ msgstr "Вилучити усі записи помилок"
 msgid "Show Error Log"
 msgstr "Показати журнал помилок"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
 #, kde-format
 msgid "Podcast Details"
 msgstr "Подробиці щодо подкасту"
@@ -797,7 +797,7 @@ msgstr[3] "1 невідтворений"
 msgid "Error (%1): %2"
 msgstr "Помилка (%1): %2"
 
-#: qml/FeedListDelegate.qml:252
+#: qml/FeedListDelegate.qml:253
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Вилучити трансляцію"

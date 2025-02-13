@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-07-15 15:56+0200\n"
 "Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -733,7 +733,7 @@ msgstr "Alle Fehler entfernen"
 msgid "Show Error Log"
 msgstr "Fehlerprotokoll anzeigen"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast-Details"
@@ -793,7 +793,7 @@ msgstr[1] "%1 nicht gespielt"
 msgid "Error (%1): %2"
 msgstr "Fehler (%1): %2"
 
-#: qml/FeedListDelegate.qml:252
+#: qml/FeedListDelegate.qml:253
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Podcast entfernen"

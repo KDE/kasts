@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2023-12-05 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -765,7 +765,7 @@ msgstr ""
 msgid "Show Error Log"
 msgstr "Chybový záznam"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
 #, fuzzy, kde-format
 #| msgid "Downloads"
 msgid "Podcast Details"
@@ -833,7 +833,7 @@ msgstr[2] ""
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
 
-#: qml/FeedListDelegate.qml:252
+#: qml/FeedListDelegate.qml:253
 #, kde-format
 msgid "Remove Podcast"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-06-29 14:23+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -730,7 +730,7 @@ msgstr "Hreinsa allar villur"
 msgid "Show Error Log"
 msgstr "Birta villuannál"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
 #, kde-format
 msgid "Podcast Details"
 msgstr "Upplýsingar um hlaðvarp"
@@ -790,7 +790,7 @@ msgstr[1] "%1 óspilaðir"
 msgid "Error (%1): %2"
 msgstr "Villa (%1): %2"
 
-#: qml/FeedListDelegate.qml:252
+#: qml/FeedListDelegate.qml:253
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Fjarlægja hlaðvarp"

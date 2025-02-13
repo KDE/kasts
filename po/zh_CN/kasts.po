@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:41+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -535,8 +535,7 @@ msgid "Refresh All Podcasts"
 msgstr "刷新所有播客"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "暂无下载"
@@ -728,7 +727,7 @@ msgstr ""
 msgid "Show Error Log"
 msgstr "显示错误日志"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:242
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
 #, kde-format
 msgid "Podcast Details"
 msgstr "播客详情"
@@ -786,7 +785,7 @@ msgstr[0] "%1 条未播放"
 msgid "Error (%1): %2"
 msgstr "错误 (%1)：%2"
 
-#: qml/FeedListDelegate.qml:252
+#: qml/FeedListDelegate.qml:253
 #, kde-format
 msgid "Remove Podcast"
 msgstr "移除播客"
@@ -1214,35 +1213,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "优化移动端/桌面端使用界面"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "这将需要重启应用程序才能生效"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
 msgstr "桌面"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "移动设备"
+msgstr "移动"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1335,11 +1330,10 @@ msgid "Error Log"
 msgstr "错误日志"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "全部选中"
+msgstr "清除全部"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1371,7 +1365,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr ""
+msgstr "比起下载更倾向于流媒体播放"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1392,12 +1386,10 @@ msgid "Podcast update settings"
 msgstr "播客更新设置"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "自动获取播客源"
+msgstr ""
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1664,12 +1656,10 @@ msgid "Synchronization"
 msgstr "同步"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "关于 KDE"
+msgstr "关于 Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
@@ -2349,14 +2339,3 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "@title:menu Category in settings"
-#~| msgid "About KDE"
-#~ msgctxt "@title:group"
-#~ msgid "About Kasts"
-#~ msgstr "关于 KDE"
-
-#~ msgctxt "@title:menu Category in settings"
-#~ msgid "About"
-#~ msgstr "关于"
