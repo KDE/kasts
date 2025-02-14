@@ -336,7 +336,7 @@ Kirigami.Page {
                         Layout.preferredHeight: contextButtons.buttonSize
                         Layout.maximumWidth: height
                         Layout.preferredWidth: height
-                        icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                        icon.name: AudioManager.muted ? "audio-volume-muted" : (volumeSlider.value > 66 ? "audio-volume-high" : (volumeSlider.value > 33 ? "audio-volume-medium" : "audio-volume-low"))
                         icon.width: contextButtons.iconSize
                         icon.height: contextButtons.iconSize
                         enabled: AudioManager.canPlay
@@ -369,7 +369,7 @@ Kirigami.Page {
                                 Controls.ToolButton {
                                     id: muteButton
                                     enabled: AudioManager.canPlay
-                                    icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                                    icon.name: AudioManager.muted ? "audio-volume-muted" : (volumeSlider.value > 66 ? "audio-volume-high" : (volumeSlider.value > 33 ? "audio-volume-medium" : "audio-volume-low"))
                                     onClicked: AudioManager.muted = !AudioManager.muted
 
                                     Controls.ToolTip.visible: hovered

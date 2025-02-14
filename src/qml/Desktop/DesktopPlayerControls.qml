@@ -250,7 +250,7 @@ FocusScope {
             id: volumeControls
             Controls.ToolButton {
                 id: volumeButton
-                icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                icon.name: AudioManager.muted ? "audio-volume-muted" : (volumeSlider.value > 66 ? "audio-volume-high" : (volumeSlider.value > 33 ? "audio-volume-medium" : "audio-volume-low"))
                 enabled: AudioManager.canPlay
                 checked: volumePopup.visible
 
@@ -283,7 +283,7 @@ FocusScope {
                         Controls.ToolButton {
                             id: volumeButtonVertical
                             enabled: AudioManager.canPlay
-                            icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
+                            icon.name: AudioManager.muted ? "audio-volume-muted" : (volumeSlider.value > 66 ? "audio-volume-high" : (volumeSlider.value > 33 ? "audio-volume-medium" : "audio-volume-low"))
                             onClicked: AudioManager.muted = !AudioManager.muted
 
                             Controls.ToolTip.visible: hovered

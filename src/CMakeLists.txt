@@ -321,8 +321,10 @@ if(ANDROID)
         kaccounts-nextcloud
         clock
         viewimage
-        player-volume-muted
-        player-volume
+        audio-volume-muted
+        audio-volume-high
+        audio-volume-medium
+        audio-volume-lowCO
         application-exit
         starred-symbolic
         non-starred-symbolic
