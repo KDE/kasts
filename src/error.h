@@ -29,6 +29,7 @@ public:
         SyncError,
         MeteredStreamingNotAllowed,
         NoNetwork,
+        Database,
     };
     Q_ENUM(Type)
 
@@ -44,12 +45,12 @@ public:
     Q_PROPERTY(QString description READ description CONSTANT)
 
     Error(Type type,
-          const QString url,
-          const QString id,
+          const QString &url,
+          const QString &id,
           const int code,
-          const QString message,
-          const QDateTime date,
-          const QString title = QStringLiteral(""));
+          const QString &message,
+          const QDateTime &date,
+          const QString &title = QStringLiteral(""));
 
     QString title() const;
     QString description() const;

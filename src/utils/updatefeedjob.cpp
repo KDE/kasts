@@ -11,6 +11,7 @@
 #include <QDomElement>
 #include <QMultiMap>
 #include <QNetworkReply>
+#include <QSqlError>
 #include <QSqlQuery>
 #include <QTextDocumentFragment>
 #include <QTimer>
@@ -21,6 +22,7 @@
 #include "database.h"
 #include "datatypes.h"
 #include "enclosure.h"
+#include "error.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
 #include "kasts-version.h"
@@ -41,6 +43,7 @@ UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, const F
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
     connect(this, &UpdateFeedJob::entryAdded, &Fetcher::instance(), &Fetcher::entryAdded);
     connect(this, &UpdateFeedJob::entryUpdated, &Fetcher::instance(), &Fetcher::entryUpdated);
+    connect(this, &UpdateFeedJob::error, &Fetcher::instance(), &Fetcher::error);
 }
 
 void UpdateFeedJob::run(JobPointer, Thread *)
@@ -125,7 +128,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     query.bindValue(QStringLiteral(":dirname"), m_updateFeed.dirname);
     // we only write the new lastHash to the database after entries etc. have
     // all been updated!
-    Database::execute(query);
+    dbExecute(query);
     query.clear(); // make sure this query is not blocking anything anymore
 
     // Now that we have the feed details, we make vectors of the data that's
@@ -134,7 +137,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     // we can't check for duplicates and we'll keep adding more of the same!
     query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::execute(query);
+    dbExecute(query);
     while (query.next()) {
         EntryDetails entryDetails;
         entryDetails.feed = m_url;
@@ -154,7 +157,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::execute(query);
+    dbExecute(query);
     while (query.next()) {
         EnclosureDetails enclosureDetails;
         enclosureDetails.feed = m_url;
@@ -172,7 +175,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     query.prepare(QStringLiteral("SELECT * FROM Authors WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::execute(query);
+    dbExecute(query);
     while (query.next()) {
         AuthorDetails authorDetails;
         authorDetails.feed = m_url;
@@ -186,7 +189,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE feed=:feed;"));
     query.bindValue(QStringLiteral(":feed"), m_url);
-    Database::execute(query);
+    dbExecute(query);
     while (query.next()) {
         ChapterDetails chapterDetails;
         chapterDetails.feed = m_url;
@@ -525,7 +528,7 @@ void UpdateFeedJob::writeToDatabase()
 {
     QSqlQuery writeQuery(QSqlDatabase::database(m_url));
 
-    Database::transaction(m_url);
+    dbTransaction();
 
     // new entries
     writeQuery.prepare(
@@ -543,7 +546,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
         writeQuery.bindValue(QStringLiteral(":favorite"), false);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -561,7 +564,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
         writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -573,7 +576,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -585,7 +588,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -601,7 +604,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
         writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
         writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -615,7 +618,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), enclosureDetails.title);
         writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -628,7 +631,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -641,7 +644,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
     }
     writeQuery.clear();
 
@@ -653,7 +656,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.bindValue(QStringLiteral(":read"), false);
         writeQuery.bindValue(QStringLiteral(":new"), true);
         writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
         writeQuery.clear();
     }
 
@@ -665,7 +668,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
         writeQuery.bindValue(QStringLiteral(":url"), m_url);
         writeQuery.bindValue(QStringLiteral(":new"), false);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
         writeQuery.clear();
     }
 
@@ -673,11 +676,11 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
         writeQuery.bindValue(QStringLiteral(":url"), m_url);
         writeQuery.bindValue(QStringLiteral(":lastHash"), m_updateFeed.lastHash);
-        Database::execute(writeQuery);
+        dbExecute(writeQuery);
         writeQuery.clear();
     }
 
-    if (Database::commit(m_url)) {
+    if (dbCommit()) {
         QStringList newIds, updateIds;
 
         // emit signals for new entries
@@ -721,7 +724,34 @@ void UpdateFeedJob::writeToDatabase()
     }
 }
 
-QString UpdateFeedJob::generateFeedDirname(const QString &name) const
+bool UpdateFeedJob::dbExecute(QSqlQuery &query)
+{
+    bool state = Database::executeThread(query);
+
+    if (!state) {
+        Q_EMIT error(Error::Type::Database, QString(), QString(), query.lastError().type(), query.lastQuery(), query.lastError().text());
+    }
+
+    return state;
+}
+
+bool UpdateFeedJob::dbTransaction()
+{
+    // use raw sqlite query to benefit from automatic retries on execute
+    QSqlQuery query(QSqlDatabase::database(m_url));
+    query.prepare(QStringLiteral("BEGIN TRANSACTION;"));
+    return dbExecute(query);
+}
+
+bool UpdateFeedJob::dbCommit()
+{
+    // use raw sqlite query to benefit from automatic retries on execute
+    QSqlQuery query(QSqlDatabase::database(m_url));
+    query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
+    return dbExecute(query);
+}
+
+QString UpdateFeedJob::generateFeedDirname(const QString &name)
 {
     // Generate directory name for enclosures based on feed name
     // NOTE: Any changes here require a database migration!
@@ -731,7 +761,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name) const
     QStringList dirNameList;
     QSqlQuery query(QSqlDatabase::database(m_url));
     query.prepare(QStringLiteral("SELECT name FROM Feeds;"));
-    Database::execute(query);
+    dbExecute(query);
     while (query.next()) {
         dirNameList << query.value(QStringLiteral("name")).toString();
     }

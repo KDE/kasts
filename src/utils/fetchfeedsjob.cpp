@@ -59,7 +59,7 @@ void FetchFeedsJob::fetch()
         QSqlQuery query;
         query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
-        if (!Database::execute(query)) {
+        if (!Database::instance().execute(query)) {
             continue;
         }
         if (query.next()) {

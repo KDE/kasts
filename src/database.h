@@ -12,6 +12,8 @@
 #include <QSqlQuery>
 #include <QString>
 
+#include "error.h"
+
 class Database : public QObject
 {
     Q_OBJECT
@@ -33,15 +35,21 @@ public:
     static void openDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
     static void closeDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
 
-    static bool execute(QSqlQuery &query);
-    static bool execute(const QString &query, const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+    bool execute(QSqlQuery &query);
+    bool transaction();
+    bool commit();
 
-    static bool transaction(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
-    static bool commit(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
+    // to be used in separate threads; error reporting has to be done manually in thread!
+    static bool executeThread(QSqlQuery &query);
+
+Q_SIGNALS:
+    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
     Database();
     int version();
+
+    bool execute(const QString &queryString);
 
     bool migrate();
     bool migrateTo1();

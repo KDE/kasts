@@ -9,13 +9,14 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QSqlQuery>
 #include <QString>
 
 #include <Syndication/Syndication>
 #include <ThreadWeaver/Job>
 
 #include "datatypes.h"
-#include "enclosure.h"
+#include "error.h"
 
 class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 {
@@ -40,6 +41,7 @@ Q_SIGNALS:
     void entryUpdated(const QString &feedurl, const QString &id);
     void aborting();
     void finished();
+    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
     void processFeed(Syndication::FeedPtr feed);
@@ -49,7 +51,11 @@ private:
     bool processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
     void writeToDatabase();
 
-    QString generateFeedDirname(const QString &name) const;
+    bool dbExecute(QSqlQuery &query);
+    bool dbTransaction();
+    bool dbCommit();
+
+    QString generateFeedDirname(const QString &name);
     bool m_abort = false;
 
     QString m_url;

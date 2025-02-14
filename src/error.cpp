@@ -14,7 +14,7 @@
 #include "error.h"
 #include "feed.h"
 
-Error::Error(const Type type, const QString url, const QString id, const int code, const QString message, const QDateTime date, const QString title)
+Error::Error(const Type type, const QString &url, const QString &id, const int code, const QString &message, const QDateTime &date, const QString &title)
     : QObject(nullptr)
 {
     this->type = type;
@@ -62,6 +62,8 @@ QString Error::description() const
         return i18n("Streaming not allowed on metered connection");
     case Error::Type::NoNetwork:
         return i18n("No network connection");
+    case Error::Type::Database:
+        return i18n("Database error");
     default:
         return QString();
     }

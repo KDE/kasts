@@ -27,6 +27,8 @@ ErrorLogModel::ErrorLogModel()
                                  QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()),
                                  query.value(QStringLiteral("title")).toString());
         m_errors += error;
+
+        connect(&Database::instance(), &Database::error, this, &ErrorLogModel::monitorErrorMessages);
     }
 }
 
@@ -75,7 +77,7 @@ void ErrorLogModel::monitorErrorMessages(const Error::Type type,
     query.bindValue(QStringLiteral(":message"), errorString);
     query.bindValue(QStringLiteral(":date"), error->date.toSecsSinceEpoch());
     query.bindValue(QStringLiteral(":title"), title);
-    Database::instance().execute(query);
+    Database::executeThread(query); // use this call to avoid an infinite loop when an error occurs
 
     // Send signal to display inline error message
     Q_EMIT newErrorLogged(error);

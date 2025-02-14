@@ -6,6 +6,7 @@
  */
 
 #include "database.h"
+#include "databaselogging.h"
 
 #include <QCryptographicHash>
 #include <QDateTime>
@@ -21,6 +22,7 @@
 #include <QThread>
 #include <QUrl>
 
+#include "error.h"
 #include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
@@ -277,14 +279,41 @@ bool Database::migrateTo10()
     return true;
 }
 
-bool Database::execute(const QString &query, const QString &connectionName)
+bool Database::execute(const QString &queryString)
 {
-    QSqlQuery q(connectionName);
-    q.prepare(query);
+    QSqlQuery q;
+    q.prepare(queryString);
     return execute(q);
 }
 
 bool Database::execute(QSqlQuery &query)
+{
+    bool state = executeThread(query);
+
+    if (!state) {
+        Q_EMIT Database::instance().error(Error::Type::Database, QString(), QString(), query.lastError().type(), query.lastQuery(), query.lastError().text());
+    }
+
+    return state;
+}
+
+bool Database::transaction()
+{
+    // use raw sqlite query to benefit from automatic retries on execute
+    QSqlQuery query;
+    query.prepare(QStringLiteral("BEGIN TRANSACTION;"));
+    return execute(query);
+}
+
+bool Database::commit()
+{
+    // use raw sqlite query to benefit from automatic retries on execute
+    QSqlQuery query;
+    query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
+    return execute(query);
+}
+
+bool Database::executeThread(QSqlQuery &query)
 {
     int retries = 0;
 
@@ -293,34 +322,18 @@ bool Database::execute(QSqlQuery &query)
     while (!query.exec()) {
         if (retries < m_maxRetries) {
             retries++;
-            qWarning() << "Failed to execute SQL Query; retrying (attempt" << retries << " of" << m_maxRetries << ")";
-            qWarning() << query.lastQuery();
-            qWarning() << query.lastError();
+            qCDebug(kastsDatabase) << "Failed to execute SQL Query; retrying (attempt" << retries << " of" << m_maxRetries << ")";
+            qCDebug(kastsDatabase) << query.lastQuery();
+            qCDebug(kastsDatabase) << query.lastError();
             QThread::usleep(retries * m_timeout + QRandomGenerator::global()->bounded(-m_timeoutRandomness, m_timeoutRandomness));
         } else {
-            qWarning() << "Failed to execute SQL Query";
-            qWarning() << query.lastQuery();
-            qWarning() << query.lastError();
+            qCDebug(kastsDatabase) << "Failed to execute SQL Query";
+            qCDebug(kastsDatabase) << query.lastQuery();
+            qCDebug(kastsDatabase) << query.lastError();
             return false;
         }
     }
     return true;
-}
-
-bool Database::transaction(const QString &connectionName)
-{
-    // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(connectionName));
-    query.prepare(QStringLiteral("BEGIN TRANSACTION;"));
-    return execute(query);
-}
-
-bool Database::commit(const QString &connectionName)
-{
-    // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(connectionName));
-    query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
-    return execute(query);
 }
 
 int Database::version()

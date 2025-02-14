@@ -134,6 +134,13 @@ qt_add_qml_module(kasts URI org.kde.kasts
 )
 
 ecm_qt_declare_logging_category(kasts
+    HEADER "databaselogging.h"
+    IDENTIFIER "kastsDatabase"
+    CATEGORY_NAME "org.kde.kasts.database"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
     HEADER "audiologging.h"
     IDENTIFIER "kastsAudio"
     CATEGORY_NAME "org.kde.kasts.audio"
