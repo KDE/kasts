@@ -11,7 +11,6 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kmediasession
-
 import org.kde.kasts
 
 Controls.Slider {
@@ -23,7 +22,7 @@ Controls.Slider {
     Layout.topMargin: Kirigami.Units.smallSpacing
     orientation: Qt.Vertical
     padding: 0
-    enabled: !AudioManager.muted && AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+    enabled: !AudioManager.muted && AudioManager.canPlay
     from: 0
     to: 100
     value: AudioManager.volume

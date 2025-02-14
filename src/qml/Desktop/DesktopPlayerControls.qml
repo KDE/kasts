@@ -179,7 +179,7 @@ FocusScope {
         ChapterSlider {
             id: durationSlider
             model: chapterModel
-            enabled: AudioManager.entry && AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+            enabled: AudioManager.canPlay
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
         }
@@ -251,7 +251,7 @@ FocusScope {
             Controls.ToolButton {
                 id: volumeButton
                 icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
-                enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+                enabled: AudioManager.canPlay
                 checked: volumePopup.visible
 
                 Controls.ToolTip.visible: hovered
@@ -282,7 +282,7 @@ FocusScope {
 
                         Controls.ToolButton {
                             id: volumeButtonVertical
-                            enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+                            enabled: AudioManager.canPlay
                             icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                             onClicked: AudioManager.muted = !AudioManager.muted
 

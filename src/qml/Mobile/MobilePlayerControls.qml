@@ -339,7 +339,7 @@ Kirigami.Page {
                         icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                         icon.width: contextButtons.iconSize
                         icon.height: contextButtons.iconSize
-                        enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+                        enabled: AudioManager.canPlay
                         checked: volumePopup.visible
 
                         Controls.ToolTip.visible: hovered
@@ -368,7 +368,7 @@ Kirigami.Page {
 
                                 Controls.ToolButton {
                                     id: muteButton
-                                    enabled: AudioManager.playbackState != KMediaSession.StoppedState && AudioManager.canPlay
+                                    enabled: AudioManager.canPlay
                                     icon.name: AudioManager.muted ? "player-volume-muted" : "player-volume"
                                     onClicked: AudioManager.muted = !AudioManager.muted
 
