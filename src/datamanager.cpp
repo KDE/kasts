@@ -75,30 +75,6 @@ DataManager::DataManager()
             m_entrymap[feedurl] += query.value(QStringLiteral("id")).toString();
         }
 
-        // Check for "new" entries
-        if (SettingsManager::self()->autoQueue()) {
-            // start an immediate transaction since this non-blocking read query
-            // can change into a blocking write query if the entry needs to be
-            // queued; this can create a deadlock with other concurrent write
-            // operations
-            Database::instance().transaction();
-            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE feed=:feed AND new=:new ORDER BY updated ASC;"));
-            query.bindValue(QStringLiteral(":feed"), feedurl);
-            query.bindValue(QStringLiteral(":new"), true);
-            Database::instance().execute(query);
-            while (query.next()) {
-                QString id = query.value(QStringLiteral("id")).toString();
-                getEntry(id)->setQueueStatusInternal(true);
-                if (SettingsManager::self()->autoDownload()) {
-                    if (getEntry(id) && getEntry(id)->hasEnclosure() && getEntry(id)->enclosure()) {
-                        qCDebug(kastsDataManager) << "Start downloading" << getEntry(id)->title();
-                        getEntry(id)->enclosure()->download();
-                    }
-                }
-            }
-            Database::instance().commit();
-        }
-
         Q_EMIT feedEntriesUpdated(feedurl);
     });
 

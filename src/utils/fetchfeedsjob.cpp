@@ -14,7 +14,9 @@
 #include <ThreadWeaver/Queue>
 
 #include "database.h"
+#include "datamanager.h"
 #include "datatypes.h"
+#include "entry.h"
 #include "error.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
@@ -131,7 +133,31 @@ void FetchFeedsJob::fetch()
 
 void FetchFeedsJob::monitorProgress()
 {
+    // Check if all required feeds have finished updating
     if (processedAmount(KJob::Unit::Items) == totalAmount(KJob::Unit::Items)) {
+        // Check for "new" entries and queue them if necessary
+        if (SettingsManager::self()->autoQueue()) {
+            QSqlQuery query;
+            Database::instance().transaction();
+            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE new=:new ORDER BY updated ASC;"));
+            query.bindValue(QStringLiteral(":new"), true);
+            Database::instance().execute(query);
+            while (query.next()) {
+                QString id = query.value(QStringLiteral("id")).toString();
+                Entry *entry = DataManager::instance().getEntry(id);
+                if (entry) {
+                    entry->setQueueStatusInternal(true);
+                    if (SettingsManager::self()->autoDownload()) {
+                        if (entry && entry->hasEnclosure() && entry->enclosure()) {
+                            qCDebug(kastsFetcher) << "Start downloading queued entry" << entry->title();
+                            entry->enclosure()->download();
+                        }
+                    }
+                }
+            }
+            Database::instance().commit();
+        }
+
         emitResult();
     }
 }
