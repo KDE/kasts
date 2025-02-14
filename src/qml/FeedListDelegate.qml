@@ -173,10 +173,11 @@ Controls.ItemDelegate {
             visible: countProperty > 0
             anchors.top: img.top
             anchors.right: img.right
-            width: actionsButton.width
+            width: Math.max(actionsButton.width, countLabel.width)
             height: actionsButton.height
             color: feedDelegate.activeBackgroundColor
             radius: Kirigami.Units.smallSpacing - 2 * borderWidth
+
         }
 
         Controls.Label {
