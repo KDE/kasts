@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 12:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -98,6 +98,11 @@ msgstr "Fout bij synchroniseren van feed en/of status van episode"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Streamen is niet toegestaan op bemeterde verbinding"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -727,7 +732,7 @@ msgstr "Alle fouten wissen"
 msgid "Show Error Log"
 msgstr "Foutenlog tonen"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast-details"
@@ -787,7 +792,7 @@ msgstr[1] "%1 niet-afgespeeld"
 msgid "Error (%1): %2"
 msgstr "Fout (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Podcast verwijderen"
@@ -2146,7 +2151,7 @@ msgstr "Wachtwoord:"
 msgid "Abort"
 msgstr "Afbreken"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

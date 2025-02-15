@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
-"PO-Revision-Date: 2025-01-27 09:44+0100\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
+"PO-Revision-Date: 2025-02-14 08:04+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -25,7 +25,7 @@ msgstr "Adrián Chaves (Gallaecio)"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "adrian@chaves.io"
+msgstr "adrian@chaves.gal"
 
 #: audiomanager.cpp:397
 #, kde-format
@@ -98,6 +98,11 @@ msgstr "Produciuse un erro ao sincronizar o estado da fonte ou do episodio."
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Non se permite a reprodución directa desde conexións contabilizadas."
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -537,11 +542,10 @@ msgid "Refresh All Podcasts"
 msgstr "Actualizar todos os podcasts"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
-msgstr "Non hai descargas"
+msgstr "Non hai descargas."
 
 #: qml/DownloadListPage.qml:72
 #, kde-format
@@ -730,7 +734,7 @@ msgstr "Borrar todos os erros"
 msgid "Show Error Log"
 msgstr "Amosar o rexistro de erros"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalles do podcast"
@@ -790,7 +794,7 @@ msgstr[1] "%1 sen reproducir"
 msgid "Error (%1): %2"
 msgstr "Erro (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Retirar o podcast"
@@ -1225,35 +1229,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "Optimizar a interface para uso en móbil ou en escritorio."
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Para que isto xurda efecto terá que reiniciar a aplicación."
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "escritorio"
+msgstr "Escritorio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "móbil"
+msgstr "Móbil"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1346,12 +1346,10 @@ msgid "Error Log"
 msgstr "Rexistro de erros"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Borrar todos os erros"
+msgstr "Borralo todo"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1380,12 +1378,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Axustar o tempo restante de acordo coa velocidade de reprodución."
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Priorizar reproducir directamente sobre descargar."
+msgstr "Preferir reproducir directamente en vez de descargar."
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1406,12 +1402,10 @@ msgid "Podcast update settings"
 msgstr "Configuración de actualización de podcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Obter automaticamente as fontes de podcasts"
+msgstr "Obter periodicamente as fontes de podcasts"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1685,9 +1679,7 @@ msgid "Synchronization"
 msgstr "Sincronización"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "About Kasts"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Sobre Kasts"
@@ -2162,7 +2154,7 @@ msgstr "Contrasinal:"
 msgid "Abort"
 msgstr "Interromper"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

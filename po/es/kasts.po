@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 00:05+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -100,6 +100,11 @@ msgstr "Error al sincronizar la fuente y/o el estado de los episodios"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "No se permite emitir en conexiones de uso medido"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -731,7 +736,7 @@ msgstr "Borrar todos los errores"
 msgid "Show Error Log"
 msgstr "Mostrar el registro de errores"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalles del pódcast"
@@ -791,7 +796,7 @@ msgstr[1] "%1 no reproducidos"
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Eliminar pódcast"
@@ -2154,7 +2159,7 @@ msgstr "Contraseña:"
 msgid "Abort"
 msgstr "Interrumpir"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 21:38+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -95,6 +95,11 @@ msgstr "Fel vid synkronisering av kanal och/eller avsnittsstatus"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Strömning tillåts inte för uppmätt anslutning"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -724,7 +729,7 @@ msgstr "Rensa alla fel"
 msgid "Show Error Log"
 msgstr "Visa fellogg"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Information om poddradioprogram"
@@ -784,7 +789,7 @@ msgstr[1] "%1 ospelade"
 msgid "Error (%1): %2"
 msgstr "Fel (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Ta bort poddradioprogram"
@@ -2140,7 +2145,7 @@ msgstr "Lösenord:"
 msgid "Abort"
 msgstr "Avbryt"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

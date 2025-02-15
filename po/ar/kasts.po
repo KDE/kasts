@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-09 10:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -99,6 +99,11 @@ msgstr "خطا أثناء مزامنة التغذية مع أو حالة الح�
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "البث غير مسموح به على الاتصال المحدود"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -728,7 +733,7 @@ msgstr "مسح جميع الاخطاء"
 msgid "Show Error Log"
 msgstr "عرض سجل الاخطاء"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "تفاصيل المدونة الصوتية"
@@ -796,7 +801,7 @@ msgstr[5] "غير مشغلة %1"
 msgid "Error (%1): %2"
 msgstr "خطأ (%1) : %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "احذف المدونة الصوتية"
@@ -2173,7 +2178,7 @@ msgstr "كلمة المرور:"
 msgid "Abort"
 msgstr "احباط"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

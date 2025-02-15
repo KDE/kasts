@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 01:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -101,6 +101,11 @@ msgstr "Jarioa eta/edo atalen egoera sinkronizatzeko errorea"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Korronterik ez da baimentzen tarifatutako konexioan"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -732,7 +737,7 @@ msgstr "Garbitu errore guztiak"
 msgid "Show Error Log"
 msgstr "Erakutsi erroreen egunkaria"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcastaren xehetasunak"
@@ -792,7 +797,7 @@ msgstr[1] "%1 jo gabe"
 msgid "Error (%1): %2"
 msgstr "Errorea (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Kendu podcasta"
@@ -2151,7 +2156,7 @@ msgstr "Pasahitza:"
 msgid "Abort"
 msgstr "Utzi bertan behera"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-08 17:05+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -100,6 +100,11 @@ msgstr "Błąd synchronizacji kanału i/lub stanu odcinka"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Strumieniowanie na sieci taryfowej jest niedozwolone"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -730,7 +735,7 @@ msgstr "Wyczyść wszystkie błędy"
 msgid "Show Error Log"
 msgstr "Pokaż dziennik błędów"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
@@ -792,7 +797,7 @@ msgstr[2] "%1 nieodtworzonych"
 msgid "Error (%1): %2"
 msgstr "Błąd (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Usuń podkast"
@@ -2155,7 +2160,7 @@ msgstr "Hasło:"
 msgid "Abort"
 msgstr "Przerwij"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

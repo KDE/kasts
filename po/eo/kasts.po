@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
-"PO-Revision-Date: 2025-01-06 18:58+0100\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
+"PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -99,6 +99,11 @@ msgstr "Eraro dum sinkronigado de feed kaj/aŭ epizoda stato"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Streaming ne permesita sur mezurita konekto"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -210,10 +215,9 @@ msgid "Podcast Player"
 msgstr "Podkasto-Ludilo"
 
 #: main.cpp:127
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 KDE-Komunumo"
+msgstr "© 2020–2025 KDE-Komunumo"
 
 #: main.cpp:128
 #, kde-format
@@ -538,8 +542,7 @@ msgid "Refresh All Podcasts"
 msgstr "Refreŝigi Ĉiujn Podkastojn"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Neniuj elŝutoj"
@@ -731,7 +734,7 @@ msgstr "Forigi Ĉiujn Erarojn"
 msgid "Show Error Log"
 msgstr "Montri Erarprotokolon"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podkastaj Detaloj"
@@ -791,7 +794,7 @@ msgstr[1] "%1 Neluditaj"
 msgid "Error (%1): %2"
 msgstr "Eraro (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Forigi Podkaston"
@@ -1239,20 +1242,16 @@ msgid "Auto"
 msgstr ""
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
 msgstr "labortablo"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "portebla"
+msgstr "Portebla"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1345,12 +1344,10 @@ msgid "Error Log"
 msgstr "Erarprotokolo"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Forigi Ĉiujn Erarojn"
+msgstr "Forigi Ĉiujn"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1379,12 +1376,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Alĝustigi restantan tempon surbaze de la nuna reprodukta rapido"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Prioritatigi streaming super elŝutado"
+msgstr "Preferi elsendflui anstataŭ elŝuti"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1405,9 +1400,7 @@ msgid "Podcast update settings"
 msgstr "Metoj pri ĝisdatigo de podkasto"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
 msgstr "Aŭtomate ekpreni podkastajn fluojn"
@@ -1681,12 +1674,10 @@ msgid "Synchronization"
 msgstr "Sinkronigo"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "Pri KDE"
+msgstr "Pri Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
@@ -2156,7 +2147,7 @@ msgstr "Pasvorto:"
 msgid "Abort"
 msgstr "Ĉesigi"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
@@ -2377,17 +2368,3 @@ msgstr "Salti Antaŭen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Forlasi"
-
-#, fuzzy
-#~| msgctxt "@title:menu Category in settings"
-#~| msgid "About KDE"
-#~ msgctxt "@title:group"
-#~ msgid "About Kasts"
-#~ msgstr "Pri KDE"
-
-#~ msgctxt "@title:menu Category in settings"
-#~ msgid "About"
-#~ msgstr "Pri"
-
-#~ msgid "Settings"
-#~ msgstr "Agordoj"

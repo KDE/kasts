@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -94,6 +94,11 @@ msgstr ""
 #: error.cpp:62
 #, kde-format
 msgid "Streaming not allowed on metered connection"
+msgstr ""
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
@@ -722,7 +727,7 @@ msgstr ""
 msgid "Show Error Log"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr ""
@@ -780,7 +785,7 @@ msgstr[0] ""
 msgid "Error (%1): %2"
 msgstr ""
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr ""
@@ -2108,7 +2113,7 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-01-24 22:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -101,6 +101,11 @@ msgstr "同步 feed 或集數狀態時發生錯誤"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "未允許透過計量連線進行串流"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -729,7 +734,7 @@ msgstr "清除所有錯誤"
 msgid "Show Error Log"
 msgstr "顯示錯誤紀錄"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcast 詳細資料"
@@ -787,7 +792,7 @@ msgstr[0] "%1 集未播放"
 msgid "Error (%1): %2"
 msgstr "錯誤 (%1)：%2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "移除 Podcast"
@@ -2137,7 +2142,7 @@ msgstr "密碼："
 msgid "Abort"
 msgstr "中止"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

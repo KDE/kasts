@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -98,6 +98,11 @@ msgstr "फ़ीड और/या एपिसोड स्थिति सम�
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "मीटर्ड कनेक्शन पर स्ट्रीमिंग की अनुमति नहीं है"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -729,7 +734,7 @@ msgstr "सभी त्रुटियाँ साफ़ करें"
 msgid "Show Error Log"
 msgstr "त्रुटि लॉग दिखाएँ"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "पॉडकास्ट विवरण"
@@ -789,7 +794,7 @@ msgstr[1] "%1 नहीं चलाया गया"
 msgid "Error (%1): %2"
 msgstr "त्रुटि (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "पॉडकास्ट हटाएँ"
@@ -2155,7 +2160,7 @@ msgstr "पासवर्ड:"
 msgid "Abort"
 msgstr "बीच में बंद करें"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2024-09-03 08:47+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -99,6 +99,11 @@ msgstr ""
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Streamování na měřeném připojení není povoleno"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -727,7 +732,7 @@ msgstr "Smazat všechny chyby"
 msgid "Show Error Log"
 msgstr "Zobrazit záznam chyb"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
@@ -789,7 +794,7 @@ msgstr[2] ""
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Odstranit podcast"
@@ -2132,7 +2137,7 @@ msgstr "Heslo:"
 msgid "Abort"
 msgstr "Přerušit"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

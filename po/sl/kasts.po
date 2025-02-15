@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-15 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 07:11+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -100,6 +100,11 @@ msgstr "Napaka pri usklajevanju vira in/ali stanja epizode"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Pretakanje v živo ni dovoljeno pri merjeni povezavi"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -730,7 +735,7 @@ msgstr "Počisti vse napake"
 msgid "Show Error Log"
 msgstr "Prikaži dnevnik napak"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti spletne oddaje"
@@ -794,7 +799,7 @@ msgstr[3] "%1 nepredvajane"
 msgid "Error (%1): %2"
 msgstr "Napaka (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Odstrani spletno oddajo"
@@ -2162,7 +2167,7 @@ msgstr "Geslo:"
 msgid "Abort"
 msgstr "Prekini"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
