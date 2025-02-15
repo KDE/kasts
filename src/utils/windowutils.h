@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <QQuickItem>
 
 class QWindow;
 
@@ -25,6 +26,7 @@ public:
     }
 
     bool isWidescreen() const;
+    Q_INVOKABLE QQuickItem *focusedWindowItem();
 
 Q_SIGNALS:
     void isWidescreenChanged();

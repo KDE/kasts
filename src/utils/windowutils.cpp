@@ -4,6 +4,7 @@
 #include "windowutils.h"
 
 #include <QGuiApplication>
+#include <QQuickWindow>
 #include <QWindow>
 
 WindowUtils::WindowUtils()
@@ -17,4 +18,14 @@ WindowUtils::WindowUtils()
 bool WindowUtils::isWidescreen() const
 {
     return m_window->width() > m_window->height();
+}
+
+QQuickItem *WindowUtils::focusedWindowItem()
+{
+    const auto window = qobject_cast<QQuickWindow *>(QGuiApplication::focusWindow());
+    if (window) {
+        return window->contentItem();
+    } else {
+        return nullptr;
+    }
 }

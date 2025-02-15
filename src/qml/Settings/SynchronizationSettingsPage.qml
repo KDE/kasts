@@ -182,6 +182,10 @@ Kirigami.ScrollablePage {
 
         title: i18nc("@label", "Push all local episode states to server?")
 
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
+
         onAccepted: {
             syncPushAllStatesDialog.close();
             syncPushAllStates.run();
@@ -225,6 +229,10 @@ Kirigami.ScrollablePage {
         showCloseButton: true
 
         title: i18nc("@label", "Select Sync Provider")
+
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
 
         ColumnLayout {
             spacing: 0
@@ -279,6 +287,10 @@ Kirigami.ScrollablePage {
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
         title: i18nc("@title of dialog box", "Sync Login Credentials")
+
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
 
         onAccepted: {
             if (Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked) {
@@ -395,6 +407,10 @@ Kirigami.ScrollablePage {
         showCloseButton: true
 
         title: i18nc("@title", "Sync Device Settings")
+
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
 
         Column {
             spacing: Kirigami.Units.largeSpacing * 2
@@ -523,6 +539,10 @@ Kirigami.ScrollablePage {
 
         title: i18nc("@title of dialog box", "Device Sync Settings")
 
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
+
         onAccepted: {
             Sync.linkUpAllDevices();
             syncGroupOverlay.close();
@@ -566,6 +586,10 @@ Kirigami.ScrollablePage {
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
         title: i18nc("@title of dialog box", "Sync Now?")
+
+        Component.onCompleted: {
+            parent = WindowUtils.focusedWindowItem();
+        }
 
         onAccepted: {
             firstSyncOverlay.close();
