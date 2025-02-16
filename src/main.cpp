@@ -130,6 +130,8 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
 
 #ifndef Q_OS_ANDROID
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kasts")));
+
     KCrash::initialize();
 #endif
 
