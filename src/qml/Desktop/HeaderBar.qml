@@ -15,10 +15,8 @@ import QtQml.Models
 import QtCore
 
 import org.kde.kirigami as Kirigami
-
 import org.kde.kasts
 
-import ".."
 
 FocusScope {
     id: headerBar
@@ -80,7 +78,7 @@ FocusScope {
         anchors.fill: parent
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Header
-        color: Kirigami.Theme.backgroundColor
+        color: headerBar.handlePosition > 0 ? "#727272" : Kirigami.Theme.backgroundColor // make sure to have a dark enough background in case image is transparent; color is what backgroundImageLoader produces with a white background as input
     }
 
     Loader {
