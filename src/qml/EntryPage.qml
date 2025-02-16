@@ -231,6 +231,9 @@ Kirigami.ScrollablePage {
             Layout.leftMargin: Kirigami.Units.gridUnit
             Layout.rightMargin: Kirigami.Units.gridUnit
             Layout.bottomMargin: Kirigami.Units.gridUnit
+            // maximumWidth needed because otherwise the actual page will be as
+            // wide as the longest unwrapped text and can be scrolled horizontally
+            Layout.maximumWidth: parent.width - Layout.rightMargin - Layout.leftMargin
             Layout.fillWidth: true
             Layout.fillHeight: true
 
@@ -257,6 +260,7 @@ Kirigami.ScrollablePage {
                     Qt.openUrlExternally(link);
                 }
             }
+
             onWidthChanged: {
                 text = entry.adjustedContent(width, font.pixelSize);
             }
