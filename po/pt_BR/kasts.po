@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-16 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 20:14-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -100,6 +100,11 @@ msgstr "Erro ao sincronizar o fonte e/ou o status do episódio"
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Fluxo não permitido em conexão com limite de dados"
+
+#: error.cpp:66
+#, kde-format
+msgid "Database error"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -733,7 +738,7 @@ msgstr "Limpar todos os erros"
 msgid "Show Error Log"
 msgstr "Mostrar registro de erros"
 
-#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:243
+#: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalhes do podcast"
@@ -793,7 +798,7 @@ msgstr[1] "%1 Não reproduzido"
 msgid "Error (%1): %2"
 msgstr "Erro (%1): %2"
 
-#: qml/FeedListDelegate.qml:253
+#: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Remover podcast"
@@ -1885,7 +1890,7 @@ msgctxt "@label"
 msgid "Push all local episode states to server?"
 msgstr "Enviar as informações dos episódios para o servidor?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:203
+#: qml/Settings/SynchronizationSettingsPage.qml:207
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -1903,55 +1908,55 @@ msgstr ""
 "\n"
 "Continuar?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:227
+#: qml/Settings/SynchronizationSettingsPage.qml:231
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "Selecione o provedor de sincronização"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:240
+#: qml/Settings/SynchronizationSettingsPage.qml:248
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:241
+#: qml/Settings/SynchronizationSettingsPage.qml:249
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "Sincronize com o servidor oficial gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:246
+#: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:247
+#: qml/Settings/SynchronizationSettingsPage.qml:255
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Sincronize com o aplicativo GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:281
+#: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "Sincronizar credenciais de login"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:322
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Sincronizar com o app GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:322
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "Sincronizar com o serviço gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:320
+#: qml/Settings/SynchronizationSettingsPage.qml:332
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1963,115 +1968,115 @@ msgstr ""
 "instalado: %1.<br/> É recomendável criar manualmente uma senha de aplicativo "
 "para o Kasts por meio da interface da Web e usar essas credenciais."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:320
+#: qml/Settings/SynchronizationSettingsPage.qml:332
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Se ainda não tiver uma conta, deverá primeiro criar uma em %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:344
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Usuário:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:343
+#: qml/Settings/SynchronizationSettingsPage.qml:355
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Senha:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:358
+#: qml/Settings/SynchronizationSettingsPage.qml:370
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "Usar servidor personalizado"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:363
+#: qml/Settings/SynchronizationSettingsPage.qml:375
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Nome da máquina:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "Sincronizar configurações do dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "Criar um novo dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:425
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "Nome do dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "Descrição do dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:428
+#: qml/Settings/SynchronizationSettingsPage.qml:444
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "Tipo de dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:437
+#: qml/Settings/SynchronizationSettingsPage.qml:453
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "Outro"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:441
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "Área de trabalho"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:445
+#: qml/Settings/SynchronizationSettingsPage.qml:461
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "laptop"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:449
+#: qml/Settings/SynchronizationSettingsPage.qml:465
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "Servidor"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:469
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "móvel"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:477
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "Criar dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:478
+#: qml/Settings/SynchronizationSettingsPage.qml:494
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "ou selecione um dispositivo existente"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:524
+#: qml/Settings/SynchronizationSettingsPage.qml:540
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "Configurações de sincronização do dispositivo"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:546
+#: qml/Settings/SynchronizationSettingsPage.qml:566
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2083,13 +2088,13 @@ msgstr ""
 "sincronizadas em todos os dispositivos?Se você não sabe o que isso "
 "significa, provavelmente deve selecionar “Ok”."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:568
+#: qml/Settings/SynchronizationSettingsPage.qml:588
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "Sincronizar agora?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:612
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
@@ -2164,7 +2169,7 @@ msgstr "Senha:"
 msgid "Abort"
 msgstr "Abortar"
 
-#: qml/VolumeSlider.qml:47
+#: qml/VolumeSlider.qml:46
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-15 00:41+0000\n"
+"POT-Creation-Date: 2025-02-16 00:41+0000\n"
 "PO-Revision-Date: 2024-07-15 15:56+0200\n"
 "Last-Translator: Alois.spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1888,7 +1888,7 @@ msgid "Push all local episode states to server?"
 msgstr ""
 "Sollen alle lokalen Status zu den Episoden zum Server hochgeladen werden?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:203
+#: qml/Settings/SynchronizationSettingsPage.qml:207
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -1900,55 +1900,55 @@ msgid ""
 "Continue?"
 msgstr ""
 
-#: qml/Settings/SynchronizationSettingsPage.qml:227
+#: qml/Settings/SynchronizationSettingsPage.qml:231
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "Abgleichanbieter auswählen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:240
+#: qml/Settings/SynchronizationSettingsPage.qml:248
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:241
+#: qml/Settings/SynchronizationSettingsPage.qml:249
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "Abgleich über offiziellen gpodder.net-Server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:246
+#: qml/Settings/SynchronizationSettingsPage.qml:254
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:247
+#: qml/Settings/SynchronizationSettingsPage.qml:255
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Abgleich über GPodder-Nextcloud-App"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:281
+#: qml/Settings/SynchronizationSettingsPage.qml:289
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "Anmeldedaten für Abgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:322
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Mittels GPodder-Nextcloud-App abgleichen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:310
+#: qml/Settings/SynchronizationSettingsPage.qml:322
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "Mittels gpodder.net-Dienst abgleichen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:320
+#: qml/Settings/SynchronizationSettingsPage.qml:332
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1960,116 +1960,116 @@ msgstr ""
 "hat: %1.<br/>Es wird empfohlen, in der Web-Oberfläche ein Anwendungspasswort "
 "für Kasts einzurichten und zur Anmeldung zu nutzen."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:320
+#: qml/Settings/SynchronizationSettingsPage.qml:332
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr ""
 "Wenn Sie noch kein Konto haben, erstellen Sie sich zuerst eines unter %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:344
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Benutzername:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:343
+#: qml/Settings/SynchronizationSettingsPage.qml:355
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:358
+#: qml/Settings/SynchronizationSettingsPage.qml:370
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "Benutzerdefinierten Server verwenden"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:363
+#: qml/Settings/SynchronizationSettingsPage.qml:375
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Rechnername:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:397
+#: qml/Settings/SynchronizationSettingsPage.qml:409
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "Einstellungen zum Geräteabgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:403
+#: qml/Settings/SynchronizationSettingsPage.qml:419
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "Ein neues Gerät anlegen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:425
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "Gerätename:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:435
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "Gerätebeschreibung:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:428
+#: qml/Settings/SynchronizationSettingsPage.qml:444
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "Gerätetyp:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:437
+#: qml/Settings/SynchronizationSettingsPage.qml:453
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "Andere"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:441
+#: qml/Settings/SynchronizationSettingsPage.qml:457
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "Desktop-Rechner"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:445
+#: qml/Settings/SynchronizationSettingsPage.qml:461
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "Notebook"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:449
+#: qml/Settings/SynchronizationSettingsPage.qml:465
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "Server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:469
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "Mobilgerät"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:477
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "Gerät anlegen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:478
+#: qml/Settings/SynchronizationSettingsPage.qml:494
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "Oder ein bestehendes Gerät auswählen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:524
+#: qml/Settings/SynchronizationSettingsPage.qml:540
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "Einstellungen zum Geräteabgleich"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:546
+#: qml/Settings/SynchronizationSettingsPage.qml:566
 #, fuzzy, kde-format
 #| msgid ""
 #| "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -2086,13 +2086,13 @@ msgstr ""
 "Falls Sie nicht wissen, was das bedeutet, sollten Sie wahrscheinlich „OK“ "
 "wählen."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:568
+#: qml/Settings/SynchronizationSettingsPage.qml:588
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "Jetzt abgleichen?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:612
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
