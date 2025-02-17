@@ -42,7 +42,7 @@ Kirigami.Page {
     background: MultiEffect {
         source: backgroundImage
         anchors.fill: parent
-        opacity: 0.2
+        opacity: GraphicsInfo.api === GraphicsInfo.Software ? 0.05 : 0.2
 
         brightness: 0.3
         saturation: 2
@@ -56,7 +56,7 @@ Kirigami.Page {
             id: backgroundImage
             source: AudioManager.entry.cachedImage
             asynchronous: true
-            visible: false
+            visible: GraphicsInfo.api === GraphicsInfo.Software
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
         }

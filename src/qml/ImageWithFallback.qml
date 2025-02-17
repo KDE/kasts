@@ -29,7 +29,7 @@ Item {
     Loader {
         id: imageLoader
         anchors.fill: parent
-        visible: false
+        visible: GraphicsInfo.api === GraphicsInfo.Software
         sourceComponent: (root.imageSource === "no-image" || root.imageSource === "") ? fallbackImg : (root.imageSource === "fetching" ? loaderSymbol : realImg)
     }
 

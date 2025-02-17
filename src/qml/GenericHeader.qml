@@ -29,14 +29,21 @@ Item {
     implicitHeight: headerHeight
     implicitWidth: parent.width
 
+    Rectangle {
+        //set background color
+        visible: GraphicsInfo.api !== GraphicsInfo.Software
+        anchors.fill: parent
+        color: "#727272" // make sure to have a dark enough background in case image is transparent; color is what backgroundImage produces with a white background as input
+    }
+
     MultiEffect {
         id: backgroundImage
         source: backgroundImageRaw
         anchors.fill: parent
 
-        brightness: -0.15
+        brightness: -0.3
         saturation: 0.6
-        contrast: -0.4
+        contrast: -0.5
         blurMax: 64
         blur: 1.0
         blurEnabled: true
@@ -45,9 +52,16 @@ Item {
         ImageWithFallback {
             id: backgroundImageRaw
             anchors.fill: parent
-            visible: false
+            visible: GraphicsInfo.api === GraphicsInfo.Software
             imageSource: image
             imageResize: false // no "stuttering" on resizing the window
+        }
+
+        Rectangle {
+            visible: GraphicsInfo.api === GraphicsInfo.Software
+            anchors.fill: parent
+            color: "black"
+            opacity: 0.8
         }
     }
 

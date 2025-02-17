@@ -67,6 +67,7 @@ FocusScope {
 
     Rectangle {
         //set background color
+        visible: GraphicsInfo.api !== GraphicsInfo.Software
         anchors.fill: parent
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Header
@@ -92,10 +93,17 @@ FocusScope {
             ImageWithFallback {
                 id: backgroundImage
 
-                visible: false
+                visible: GraphicsInfo.api === GraphicsInfo.Software
                 imageSource: headerMetaData.blurredImage
                 imageResize: false // no "stuttering" on resizing the window
                 anchors.fill: parent
+            }
+
+            Rectangle {
+                visible: GraphicsInfo.api === GraphicsInfo.Software
+                anchors.fill: parent
+                color: "black"
+                opacity: 0.8
             }
         }
     }
