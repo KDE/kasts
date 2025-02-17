@@ -66,6 +66,15 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    function openPodcast(newFeed: Feed): void {
+        pushPage("FeedListPage");
+        lastFeed = newFeed.url;
+        pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage", Component.PreferSynchronous, pageStack.get(0)), {
+            feed: newFeed
+        });
+    }
+
+
     KConfig.WindowStateSaver {
         configGroupName: "MainWindow"
     }

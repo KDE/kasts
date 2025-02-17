@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    property QtObject feed
+    required property QtObject feed
     property bool isSubscribed: true
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
 

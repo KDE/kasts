@@ -32,9 +32,6 @@ FocusScope {
     function openEntry(): void {
         if (AudioManager.entry) {
             pushPage("QueuePage");
-            pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-                entry: AudioManager.entry
-            });
             pageStack.get(0).lastEntry = AudioManager.entry.id;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i < model.rowCount(); i++) {
@@ -44,15 +41,10 @@ FocusScope {
                     pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
             }
-        }
-    }
-
-    function openFeed(): void {
-        if (AudioManager.entry) {
-            pushPage("FeedListPage");
-            pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-                feed: AudioManager.entry.feed
+            pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage", Component.PreferSynchronous, pageStack.get(0)), {
+                entry: AudioManager.entry
             });
+
         }
     }
 
@@ -198,7 +190,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            headerBar.openFeed();
+                            openPodcast(AudioManager.entry.feed);
                         }
                     }
                 }

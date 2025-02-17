@@ -17,19 +17,11 @@ import org.kde.kasts
 Kirigami.ScrollablePage {
     id: page
 
-    property QtObject entry
+    required property QtObject entry
 
     title: i18nc("@title", "Episode Details")
 
     padding: 0  // needed to get the inline header to fill the page
-
-    function openPodcast(): void {
-        pushPage("FeedListPage");
-        lastFeed = entry.feed.url;
-        pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-            feed: entry.feed
-        });
-    }
 
     // This function is needed to close the EntryPage if it is opened over the
     // QueuePage when the episode is removed from the queue (e.g. when the
@@ -83,7 +75,7 @@ Kirigami.ScrollablePage {
             subtitle: entry.feed.name
             subtitleClickable: true
 
-            onSubtitleClicked: page.openPodcast()
+            onSubtitleClicked: openPodcast(entry.feed)
         }
 
         // header actions
@@ -219,7 +211,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
-                        onTriggered: page.openPodcast()
+                        onTriggered: openPodcast(entry.feed)
                     }
                 ]
             }
