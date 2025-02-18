@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:40+0000\n"
+"POT-Creation-Date: 2025-02-18 00:40+0000\n"
 "PO-Revision-Date: 2025-02-07 12:47+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -492,13 +492,13 @@ msgstr "Temporisator de dormir"
 msgid "Chapters"
 msgstr "Capitulos"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:115
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Nulle Titulo de tracia"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:116
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -569,37 +569,37 @@ msgctxt "@title"
 msgid "Episode Details"
 msgstr "Detalios de episodio"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:106
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "Aperi con navigator"
 
-#: qml/EntryPage.qml:122
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "Discarga"
 
-#: qml/EntryPage.qml:131
+#: qml/EntryPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "Cancella Discargamento"
 
-#: qml/EntryPage.qml:139
+#: qml/EntryPage.qml:131
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "Pausa"
 
-#: qml/EntryPage.qml:147
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "Reproduce"
 
-#: qml/EntryPage.qml:156
+#: qml/EntryPage.qml:148
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -607,25 +607,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Fluxo"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Adde a cauda"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Remove ex cauda"
 
-#: qml/EntryPage.qml:184
+#: qml/EntryPage.qml:176
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Dele Discargamento"
 
-#: qml/EntryPage.qml:192
+#: qml/EntryPage.qml:184
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -633,31 +633,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Reassigna Position de Reproducer"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Marca como NonReproducite"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Marca como Reproducite"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Remove etiquetta de \"Nove\""
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Etiquetta como \"Nove\""
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:308
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -665,25 +665,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Remove ex favoritos"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:299
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Adde a favoritos"
 
-#: qml/EntryPage.qml:220
+#: qml/EntryPage.qml:212
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Aperi Podcast"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Copia URL de Discargamento de Epidosio"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1094,7 +1094,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Preferentias"
 
-#: qml/Main.qml:193
+#: qml/Main.qml:202
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1102,7 +1102,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Actualisate %2 de %1 Podcast"
 msgstr[1] "Actualisate %2 de %1 Podcastes"
 
-#: qml/Main.qml:216
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1110,7 +1110,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Movite %2 de %1 file"
 msgstr[1] "Movite %2 de %1 files"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:279
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

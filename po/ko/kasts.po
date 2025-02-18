@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:40+0000\n"
+"POT-Creation-Date: 2025-02-18 00:40+0000\n"
 "PO-Revision-Date: 2024-08-20 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -490,13 +490,13 @@ msgstr "수면 타이머"
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:115
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:116
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -568,37 +568,37 @@ msgctxt "@title"
 msgid "Episode Details"
 msgstr "에피소드 자세한 정보"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:106
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "브라우저로 열기"
 
-#: qml/EntryPage.qml:122
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "다운로드"
 
-#: qml/EntryPage.qml:131
+#: qml/EntryPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "다운로드 취소"
 
-#: qml/EntryPage.qml:139
+#: qml/EntryPage.qml:131
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "일시 정지"
 
-#: qml/EntryPage.qml:147
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "재생"
 
-#: qml/EntryPage.qml:156
+#: qml/EntryPage.qml:148
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -606,25 +606,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "스트림"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "대기열에 추가"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "대기열에서 삭제"
 
-#: qml/EntryPage.qml:184
+#: qml/EntryPage.qml:176
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "다운로드 삭제"
 
-#: qml/EntryPage.qml:192
+#: qml/EntryPage.qml:184
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -632,31 +632,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "재생 위치 초기화"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "재생하지 않은 것으로 표시"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "재생한 것으로 표시"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "\"새 항목\" 이름표 삭제"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "\"새 항목\"으로 표시"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:308
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -664,25 +664,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "책갈피에서 삭제"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:299
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "책갈피에 추가"
 
-#: qml/EntryPage.qml:220
+#: qml/EntryPage.qml:212
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "팟캐스트 열기"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "에피소드 다운로드 URL 복사"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1089,21 +1089,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "설정"
 
-#: qml/Main.qml:193
+#: qml/Main.qml:202
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/Main.qml:216
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:279
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

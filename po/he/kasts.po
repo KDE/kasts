@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:40+0000\n"
+"POT-Creation-Date: 2025-02-18 00:40+0000\n"
 "PO-Revision-Date: 2025-02-15 14:08+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -488,13 +488,13 @@ msgstr "מתזמן שינה"
 msgid "Chapters"
 msgstr "קטעים"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:115
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "אין כותרת לרצועה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:116
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -565,37 +565,37 @@ msgctxt "@title"
 msgid "Episode Details"
 msgstr "פרטי פרק"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:106
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "פתיחה בדפדפן"
 
-#: qml/EntryPage.qml:122
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "הורדה"
 
-#: qml/EntryPage.qml:131
+#: qml/EntryPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "ביטול הורדה"
 
-#: qml/EntryPage.qml:139
+#: qml/EntryPage.qml:131
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "השהיה"
 
-#: qml/EntryPage.qml:147
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "נגינה"
 
-#: qml/EntryPage.qml:156
+#: qml/EntryPage.qml:148
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -603,25 +603,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "הזרמה"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "הוספה לתור"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "הסרה מהתור"
 
-#: qml/EntryPage.qml:184
+#: qml/EntryPage.qml:176
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "מחיקת ההורדה"
 
-#: qml/EntryPage.qml:192
+#: qml/EntryPage.qml:184
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -629,31 +629,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "איפוס מקום הנגינה"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "סימון כלא הושמע"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "סימון כהושמע"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "הסרת התווית „חדש”"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "סימון כ„חדש”"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:308
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -661,25 +661,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "הסרה מהמועדפים"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:299
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "הוספה למועדפים"
 
-#: qml/EntryPage.qml:220
+#: qml/EntryPage.qml:212
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "פתיחת הסכת"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "העתקת כתובת הורדת פרק"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1098,7 +1098,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: qml/Main.qml:193
+#: qml/Main.qml:202
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1108,7 +1108,7 @@ msgstr[1] "עודכנו %2 מתוך שני הסכתים"
 msgstr[2] "עודכנו %2 מתוך %1 הסכתים"
 msgstr[3] "עודכנו %2 מתוך %1 הסכתים"
 
-#: qml/Main.qml:216
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1118,7 +1118,7 @@ msgstr[1] "הועברו %2 מתוך שני קבצים"
 msgstr[2] "הועברו %2 מתוך %1 קבצים"
 msgstr[3] "הועברו %2 מתוך %1 קבצים"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:279
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

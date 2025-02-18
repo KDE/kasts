@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-17 00:40+0000\n"
+"POT-Creation-Date: 2025-02-18 00:40+0000\n"
 "PO-Revision-Date: 2025-02-08 01:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -494,13 +494,13 @@ msgstr "Lokartzeko tenporizadorea"
 msgid "Chapters"
 msgstr "Atalak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:115
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Pistaren titulurik ez"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:116
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -571,37 +571,37 @@ msgctxt "@title"
 msgid "Episode Details"
 msgstr "Atalaren xehetasunak"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:106
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "Ireki arakatzailean"
 
-#: qml/EntryPage.qml:122
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "Zama-jaitsi"
 
-#: qml/EntryPage.qml:131
+#: qml/EntryPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "Utzi zama-jaistea"
 
-#: qml/EntryPage.qml:139
+#: qml/EntryPage.qml:131
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "Etenaldia"
 
-#: qml/EntryPage.qml:147
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "Jo"
 
-#: qml/EntryPage.qml:156
+#: qml/EntryPage.qml:148
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -609,25 +609,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Korrontea"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Gehitu ilaran"
 
-#: qml/EntryPage.qml:168
+#: qml/EntryPage.qml:160
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Kendu ilaratik"
 
-#: qml/EntryPage.qml:184
+#: qml/EntryPage.qml:176
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Ezabatu zama-jaitsiera"
 
-#: qml/EntryPage.qml:192
+#: qml/EntryPage.qml:184
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -635,31 +635,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Berrezarri jotze-kokalekua"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Markatu jo gabeko gisa"
 
-#: qml/EntryPage.qml:198
+#: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Markatu jotako gisa"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Kendu \"Berria\" etiketa"
 
-#: qml/EntryPage.qml:205
+#: qml/EntryPage.qml:197
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Etiketatu \"Berria\" gisa"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:308
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -667,25 +667,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Kendu gogokoen artetik"
 
-#: qml/EntryPage.qml:212 qml/GenericEntryListView.qml:299
+#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Gehitu gogokoetara"
 
-#: qml/EntryPage.qml:220
+#: qml/EntryPage.qml:212
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Ireki podcasta"
 
-#: qml/EntryPage.qml:288
+#: qml/EntryPage.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Kopiatu atala zama-jaisteko URL"
 
-#: qml/EntryPage.qml:294
+#: qml/EntryPage.qml:290
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1096,7 +1096,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: qml/Main.qml:193
+#: qml/Main.qml:202
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1104,7 +1104,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2/%1 podcast eguneratu da"
 msgstr[1] "%2/%1 podcast eguneratu dira"
 
-#: qml/Main.qml:216
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1112,7 +1112,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2/%1 fitxategi mugitu da"
 msgstr[1] "%2/%1 fitxategi mugitu dira"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:279
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
