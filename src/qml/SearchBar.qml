@@ -62,6 +62,7 @@ Controls.Control {
                 }
             }
         }
+
         Component.onCompleted: {
             // rightActions are defined from right-to-left
             // if we want to insert the settings action as the rightmost, then it
@@ -96,9 +97,9 @@ Controls.Control {
                 var searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
                 for (var i in searchList) {
                     searchSettingsModel.append({
-                        "name": proxyModel.getSearchFlagName(searchList[i]),
-                        "searchFlag": searchList[i],
-                        "checked": proxyModel.searchFlags & searchList[i]
+                        name: proxyModel.getSearchFlagName(searchList[i]),
+                        searchFlag: searchList[i],
+                        isChecked: proxyModel.searchFlags & searchList[i]
                     });
                 }
             }
@@ -124,17 +125,17 @@ Controls.Control {
 
             delegate: Controls.MenuItem {
                 required property string name
+                required property var searchFlag
                 required property bool isChecked
-                required property var searchFlags
 
                 text: name
                 checkable: true
                 checked: isChecked
                 onTriggered: {
                     if (checked) {
-                        root.proxyModel.searchFlags = root.proxyModel.searchFlags | model.searchFlag;
+                        root.proxyModel.searchFlags = root.proxyModel.searchFlags | searchFlag;
                     } else {
-                        root.proxyModel.searchFlags = root.proxyModel.searchFlags & ~model.searchFlag;
+                        root.proxyModel.searchFlags = root.proxyModel.searchFlags & ~searchFlag;
                     }
                 }
             }
