@@ -56,7 +56,7 @@ Kirigami.SearchField {
         acceptedButtons: Qt.RightButton | Qt.LeftButton
     }
     Keys.onPressed: (event) => {
-        if (event.key !== Qt.Key_Tab || event.key !== Qt.Key_Backtab) {
+        if (event.key !== Qt.Key_Tab && event.key !== Qt.Key_Backtab) {
             searchDialog.open();
             searchDialog.text = text;
             searchDialog.forceActiveFocus();
