@@ -42,7 +42,9 @@ Fetcher::Fetcher()
     manager = new QNetworkAccessManager(this);
     manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
     manager->setStrictTransportSecurityEnabled(true);
-    manager->enableStrictTransportSecurityStore(true);
+    // HACK TODO: Disable hstsstore temporarily because of malloc crash deep in
+    // qt6 somewhere.  This is to be reenabled once the bug is solved upstream
+    manager->enableStrictTransportSecurityStore(false);
 
     // First save the original system proxy settings
     m_systemHttpProxy = qgetenv("http_proxy");
