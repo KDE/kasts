@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:40+0000\n"
+"POT-Creation-Date: 2025-02-20 00:41+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1066,13 +1066,13 @@ msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opcións avanzadas de busca"
 
-#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:115
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:116
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Configuración da busca"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:120
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"

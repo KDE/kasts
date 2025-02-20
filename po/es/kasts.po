@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-18 00:40+0000\n"
-"PO-Revision-Date: 2025-02-16 20:39+0100\n"
+"POT-Creation-Date: 2025-02-20 00:41+0000\n"
+"PO-Revision-Date: 2025-02-18 02:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -114,7 +114,7 @@ msgstr "Reproductor KMediaSession de ejemplo"
 #: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
-msgstr "Seleccionar archivo..."
+msgstr "Seleccionar archivo…"
 
 #: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
@@ -818,7 +818,7 @@ msgstr "Actualizar todos los pódcast"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Añadir pódcast..."
+msgstr "Añadir pódcast…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
@@ -836,13 +836,13 @@ msgstr "Seleccione cómo se ordenan las suscripciones"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importar pódcast..."
+msgstr "Importar pódcast…"
 
 #: qml/FeedListPage.qml:119
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exportar pódcast..."
+msgstr "Exportar pódcast…"
 
 #: qml/FeedListPage.qml:155
 #, kde-format
@@ -1068,13 +1068,13 @@ msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opciones de búsqueda avanzadas"
 
-#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:115
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:116
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preferencias de búsqueda"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:120
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1217,7 +1217,7 @@ msgstr "La cola está vacía"
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Buscar episodios..."
+msgstr "Buscar episodios…"
 
 #: qml/Settings/AppearanceSettingsPage.qml:22
 #, kde-format
@@ -1722,7 +1722,7 @@ msgstr "Ruta de almacenamiento"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "Seleccionar carpeta..."
+msgstr "Seleccionar carpeta…"
 
 #: qml/Settings/StorageSettingsPage.qml:61
 #, kde-format
