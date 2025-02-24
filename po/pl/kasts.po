@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-20 00:41+0000\n"
-"PO-Revision-Date: 2025-02-08 17:05+0100\n"
+"PO-Revision-Date: 2025-02-23 11:35+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -104,7 +104,7 @@ msgstr "Strumieniowanie na sieci taryfowej jest niedozwolone"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "Błąd bazy danych"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
