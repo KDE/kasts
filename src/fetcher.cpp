@@ -264,8 +264,9 @@ void Fetcher::initializeUpdateTimer()
 
     if (m_updateTimer) {
         m_updateTimer->stop();
-        disconnect(m_updateTimer, &QTimer::timeout, this, &Fetcher::checkUpdateTimer);
-        delete m_updateTimer;
+        m_updateTimer->disconnect();
+        m_updateTimer->deleteLater();
+        m_updateTimer = nullptr;
     }
 
     if (SettingsManager::self()->autoFeedUpdateInterval() > 0) {
