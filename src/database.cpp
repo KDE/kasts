@@ -320,7 +320,8 @@ bool Database::executeThread(QSqlQuery &query)
     // NOTE that this will execute the query on the database that was specified
     // when the QSqlQuery was created.  There is no way to change that later on.
     while (!query.exec()) {
-        if (retries < m_maxRetries) {
+        // only retry if it failed due to the db being locked, see bug 500697
+        if (query.lastError().nativeErrorCode() == QStringLiteral("5") && retries < m_maxRetries) {
             retries++;
             qCDebug(kastsDatabase) << "Failed to execute SQL Query; retrying (attempt" << retries << " of" << m_maxRetries << ")";
             qCDebug(kastsDatabase) << query.lastQuery();
