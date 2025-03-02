@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-13 02:43+0000\n"
-"PO-Revision-Date: 2024-05-15 18:50+0100\n"
+"PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -479,7 +479,7 @@ msgstr "Montri Informojn"
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr "Sleep Timer"
+msgstr "Dormtempumilo (Sleep Timer)"
 
 #: qml/Desktop/DesktopPlayerControls.qml:392
 #, kde-format
@@ -642,7 +642,7 @@ msgstr "Marki kiel Ludita"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr "Forigi Etikedon \"Nova\""
+msgstr "Forigi \"Novan\" Etikedon"
 
 #: qml/EntryPage.qml:204
 #, kde-format
@@ -715,7 +715,7 @@ msgstr "Erarkodo:"
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr "Registro de eraroj"
+msgstr "Erarprotokolo"
 
 #: qml/ErrorListOverlay.qml:26 qml/Settings/ErrorListPage.qml:41
 #, kde-format
