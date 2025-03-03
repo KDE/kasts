@@ -2211,7 +2211,7 @@ msgstr "Non foi posíbel obter as subscricións do dispositivo %1."
 #: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr "Non foi posíbel enviar as subscricións do dispositivo %1."
+msgstr "Non foi posíbel subir as subscricións do dispositivo %1."
 
 #: sync/syncjob.cpp:67
 #, kde-format
@@ -2221,7 +2221,7 @@ msgstr "Non foi posíbel obter as actualizacións de subscricións do servidor."
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "Non foi posíbel enviar os cambios de subscricións ao servidor."
+msgstr "Non foi posíbel subir os cambios de subscricións ao servidor."
 
 #: sync/syncjob.cpp:73
 #, kde-format
@@ -2231,7 +2231,7 @@ msgstr "Non foi posíbel obter as actualizacións de episodios do servidor."
 #: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr "Non foi posíbel enviar as actualizacións de episodios ao servidor."
+msgstr "Non foi posíbel subir as actualizacións de episodios ao servidor."
 
 #: sync/syncjob.cpp:79
 #, kde-format
