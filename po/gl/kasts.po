@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-13 02:43+0000\n"
-"PO-Revision-Date: 2025-02-14 08:04+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-02-16 06:14+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -2160,7 +2160,7 @@ msgstr "Non foi posíbel obter as subscricións do dispositivo %1."
 #: sync/sync.cpp:744
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr "Non foi posíbel enviar as subscricións do dispositivo %1."
+msgstr "Non foi posíbel subir as subscricións do dispositivo %1."
 
 #: sync/syncjob.cpp:67
 #, kde-format
@@ -2170,7 +2170,7 @@ msgstr "Non foi posíbel obter as actualizacións de subscricións do servidor."
 #: sync/syncjob.cpp:70
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "Non foi posíbel enviar os cambios de subscricións ao servidor."
+msgstr "Non foi posíbel subir os cambios de subscricións ao servidor."
 
 #: sync/syncjob.cpp:73
 #, kde-format
@@ -2180,7 +2180,7 @@ msgstr "Non foi posíbel obter as actualizacións de episodios do servidor."
 #: sync/syncjob.cpp:76
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr "Non foi posíbel enviar as actualizacións de episodios ao servidor."
+msgstr "Non foi posíbel subir as actualizacións de episodios ao servidor."
 
 #: sync/syncjob.cpp:79
 #, kde-format
