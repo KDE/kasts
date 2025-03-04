@@ -283,12 +283,15 @@ void Entry::setReadInternal(bool read)
                     m_enclosure->setPlayPosition(0);
                 }
 
-                // 4) Delete episode if that setting is set
+                // 4) Stop download if it's currently running
+                Q_EMIT m_enclosure->cancelDownload();
+
+                // 5) Delete episode if that setting is set
                 if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
                     m_enclosure->deleteFile();
                 }
             }
-            // 5) Log a sync action to sync this state with (gpodder) server
+            // 6) Log a sync action to sync this state with (gpodder) server
             Sync::instance().storePlayedEpisodeAction(m_id);
         }
     }
