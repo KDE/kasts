@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-20 00:41+0000\n"
+"POT-Creation-Date: 2025-03-05 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -103,7 +103,7 @@ msgstr "使用计费连接时不允许播放流媒体"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "数据库异常"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -489,13 +489,13 @@ msgstr ""
 msgid "Chapters"
 msgstr "章节"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:115
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "无曲目标题"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:116
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -1248,7 +1248,7 @@ msgstr "移动"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
-msgstr "颜色主题"
+msgstr "彩色主题"
 
 #: qml/Settings/AppearanceSettingsPage.qml:79
 #, kde-format
@@ -1394,7 +1394,7 @@ msgstr "播客更新设置"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr ""
+msgstr "定期检查播客源"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
