@@ -143,15 +143,20 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
-    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &arguments, const QString & /*workingDirectory*/) {
+    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &arguments, const QString &workingDirectory) {
+        Q_UNUSED(arguments);
+        Q_UNUSED(workingDirectory);
         const auto rootObjects = engine.rootObjects();
         for (auto obj : rootObjects) {
-            if (auto view = qobject_cast<QQuickWindow *>(obj)) {
-                KWindowSystem::updateStartupId(view);
-                KWindowSystem::activateWindow(view);
-
-                // TODO: parse arguments and pass on to app
+            if (auto window = qobject_cast<QQuickWindow *>(obj)) {
+                KWindowSystem::updateStartupId(window);
+                KWindowSystem::activateWindow(window);
+                if (!window->isVisible()) {
+                    window->show();
                 }
+                // TODO: parse arguments and pass on to app
+
+                return;
             }
         }
     });

@@ -243,11 +243,19 @@ target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOU
 target_link_libraries(kasts PRIVATE Qt::Core Qt::Qml Qt::Quick Qt::QuickControls2 Qt::Sql Qt::Svg Qt::Xml Qt::Network KF6::Kirigami KF6::Syndication KF6::CoreAddons KF6::ConfigGui KF6::I18n Taglib::Taglib ${QTKEYCHAIN_LIBRARIES} KF6::ThreadWeaver KF6::ColorScheme KF6::IconThemes KMediaSession)
 
 if(TARGET KF6::BreezeIcons)
-    target_link_libraries(kasts PRIVATE
-            KF6::BreezeIcons
-    )
+    target_link_libraries(kasts PRIVATE KF6::BreezeIcons)
     target_compile_definitions(kasts PRIVATE WITH_BREEZEICONS_LIB)
-endif ()
+endif()
+
+if(TARGET KF6::DBusAddons AND NOT WIN32)
+    target_link_libraries(kasts PRIVATE KF6::DBusAddons)
+    target_compile_definitions(kasts PRIVATE HAVE_KDBUSADDONS)
+endif()
+
+if(TARGET KF6::WindowSystem AND NOT WIN32)
+    target_link_libraries(kasts PRIVATE KF6::WindowSystem)
+    target_compile_definitions(kasts PRIVATE HAVE_WINDOWSYSTEM)
+endif()
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
