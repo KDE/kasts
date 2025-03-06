@@ -65,6 +65,19 @@ set_package_properties(KF6KirigamiAddons PROPERTIES
     PURPOSE "Required application components and runtime dependency"
 )
 
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
+    find_package(KF6DBusAddons ${KF_MIN_VERSION})
+    set_package_properties(KF6DBusAddons PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Single application support"
+    )
+    find_package(KF6WindowSystem ${KF_MIN_VERSION})
+    set_package_properties(KF6WindowSystem PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Misc windowing operations"
+    )
+endif()
+
 find_package(Taglib REQUIRED)
 find_package(Qt6Keychain)
 set_package_properties(Qt6Keychain PROPERTIES

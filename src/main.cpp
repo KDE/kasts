@@ -27,9 +27,15 @@
 #endif
 
 #include <KAboutData>
+#ifdef HAVE_KDBUSADDONS
+#include <KDBusService>
+#endif
 #include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#ifdef HAVE_WINDOWSYSTEM
+#include <KWindowSystem>
+#endif
 
 #ifdef WITH_BREEZEICONS_LIB
 #include <BreezeIcons>
@@ -133,6 +139,22 @@ int main(int argc, char *argv[])
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kasts")));
 
     KCrash::initialize();
+#endif
+
+#ifdef HAVE_KDBUSADDONS
+    KDBusService service(KDBusService::Unique);
+    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &arguments, const QString & /*workingDirectory*/) {
+        const auto rootObjects = engine.rootObjects();
+        for (auto obj : rootObjects) {
+            if (auto view = qobject_cast<QQuickWindow *>(obj)) {
+                KWindowSystem::updateStartupId(view);
+                KWindowSystem::activateWindow(view);
+
+                // TODO: parse arguments and pass on to app
+                }
+            }
+        }
+    });
 #endif
 
     about.setupCommandLine(&parser);

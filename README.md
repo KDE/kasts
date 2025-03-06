@@ -32,6 +32,8 @@ Note: When using versions of Kasts built from git-master, it's possible that the
  - ThreadWeaver
  - KColorScheme
  - KCrash
+ - KDBusAddons
+ - KwindowSystem
  - libVLC (optional, recommended)
  - GStreamer (optional)
 
