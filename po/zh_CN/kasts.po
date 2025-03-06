@@ -1221,7 +1221,7 @@ msgstr "外观"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Color theme"
-msgstr "颜色主题"
+msgstr "彩色主题"
 
 #: qml/Settings/AppearanceSettingsPage.qml:49
 #, kde-format
