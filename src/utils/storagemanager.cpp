@@ -82,7 +82,7 @@ void StorageManager::setStoragePath(QUrl url)
             m_storageMoveTotal = moveJob->totalAmount(KJob::Files);
             Q_EMIT storageMoveTotalChanged(m_storageMoveTotal);
         });
-        connect(moveJob, &KJob::result, this, [=]() {
+        connect(moveJob, &KJob::result, this, [this, moveJob, oldUrl, oldPath, newPath]() {
             if (moveJob->error() != 0) {
                 // Go back to previous old path
                 SettingsManager::self()->setStoragePath(oldUrl);

@@ -199,7 +199,7 @@ void Enclosure::download()
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
 
-    connect(downloadJob, &KJob::processedAmountChanged, this, [=](KJob *kjob, KJob::Unit unit, qulonglong amount) {
+    connect(downloadJob, &KJob::processedAmountChanged, this, [this, resumedAt](KJob *kjob, KJob::Unit unit, qulonglong amount) {
         Q_ASSERT(unit == KJob::Unit::Bytes);
 
         qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));

@@ -66,7 +66,7 @@ void Sync::retrieveCredentialsFromConfig()
         m_hostname = SettingsManager::self()->syncHostname();
         m_provider = static_cast<Provider>(SettingsManager::self()->syncProvider());
 
-        connect(this, &Sync::passwordRetrievalFinished, this, [=](QString password) {
+        connect(this, &Sync::passwordRetrievalFinished, this, [this](QString password) {
             disconnect(this, &Sync::passwordRetrievalFinished, this, nullptr);
             if (!password.isEmpty()) {
                 m_syncEnabled = SettingsManager::self()->syncEnabled();
@@ -213,7 +213,7 @@ void Sync::setPassword(const QString &password)
 {
     // this method is used to set the password if the proper credentials could
     // not be retrieved from the keychain or file
-    connect(this, &Sync::passwordSaveFinished, this, [=]() {
+    connect(this, &Sync::passwordSaveFinished, this, [this]() {
         disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
         QTimer::singleShot(0, this, [this]() {
             retrieveCredentialsFromConfig();
@@ -284,7 +284,7 @@ void Sync::login(const QString &username, const QString &password)
         m_gpodder = new GPodder(username, password, m_hostname, Provider::GPodderNextcloud, this);
 
         SubscriptionRequest *subRequest = m_gpodder->getSubscriptionChanges(0, QStringLiteral(""));
-        connect(subRequest, &SubscriptionRequest::finished, this, [=]() {
+        connect(subRequest, &SubscriptionRequest::finished, this, [this, subRequest, username, password]() {
             if (subRequest->error() || subRequest->aborted()) {
                 if (subRequest->error()) {
                     Q_EMIT error(Error::Type::SyncError,
@@ -298,7 +298,7 @@ void Sync::login(const QString &username, const QString &password)
                     setSyncEnabled(false);
                 }
             } else {
-                connect(this, &Sync::passwordSaveFinished, this, [=](bool success) {
+                connect(this, &Sync::passwordSaveFinished, this, [this, username, password](bool success) {
                     disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
                     if (success) {
                         m_username = username;
@@ -323,7 +323,7 @@ void Sync::login(const QString &username, const QString &password)
         }
 
         DeviceRequest *deviceRequest = m_gpodder->getDevices();
-        connect(deviceRequest, &DeviceRequest::finished, this, [=]() {
+        connect(deviceRequest, &DeviceRequest::finished, this, [this, deviceRequest, username, password]() {
             if (deviceRequest->error() || deviceRequest->aborted()) {
                 if (deviceRequest->error()) {
                     Q_EMIT error(Error::Type::SyncError,
@@ -341,7 +341,7 @@ void Sync::login(const QString &username, const QString &password)
             } else {
                 m_deviceList = deviceRequest->devices();
 
-                connect(this, &Sync::passwordSaveFinished, this, [=](bool success) {
+                connect(this, &Sync::passwordSaveFinished, this, [this, deviceRequest, username, password](bool success) {
                     disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
                     if (success) {
                         m_username = username;
@@ -371,7 +371,7 @@ void Sync::logout()
             return;
         }
         LogoutRequest *logoutRequest = m_gpodder->logout();
-        connect(logoutRequest, &LogoutRequest::finished, this, [=]() {
+        connect(logoutRequest, &LogoutRequest::finished, this, [this, logoutRequest]() {
             if (logoutRequest->error() || logoutRequest->aborted()) {
                 if (logoutRequest->error()) {
                     // Let's not report this error, since it doesn't matter anyway:
@@ -501,7 +501,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
     writeDummyJob->setKey(QStringLiteral("dummy"));
     writeDummyJob->setTextData(QStringLiteral("dummy"));
 
-    QKeychain::WritePasswordJob::connect(writeDummyJob, &QKeychain::Job::finished, this, [=]() {
+    QKeychain::WritePasswordJob::connect(writeDummyJob, &QKeychain::Job::finished, this, [this, writeDummyJob, username]() {
         if (writeDummyJob->error()) {
             qCDebug(kastsSync) << "Could not open keychain: " << qPrintable(writeDummyJob->errorString());
             // fall back to password from file
@@ -513,7 +513,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
             readJob->setAutoDelete(false);
             readJob->setKey(username);
 
-            connect(readJob, &QKeychain::Job::finished, this, [=]() {
+            connect(readJob, &QKeychain::Job::finished, this, [this, readJob, username]() {
                 if (readJob->error() == QKeychain::Error::NoError) {
                     Q_EMIT passwordRetrievalFinished(readJob->textData());
                     // if a password file is present, delete it
@@ -526,7 +526,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
                     if (readJob->error() == QKeychain::Error::EntryNotFound) {
                         if (!password.isEmpty()) {
                             qCDebug(kastsSync) << "Migrating password from file to the keychain for " << username;
-                            connect(this, &Sync::passwordSaveFinished, this, [=](bool saved) {
+                            connect(this, &Sync::passwordSaveFinished, this, [this, username](bool saved) {
                                 disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
                                 bool removed = false;
                                 if (saved) {
@@ -637,7 +637,7 @@ void Sync::registerNewDevice(const QString &id, const QString &caption, const QS
         return;
     }
     UpdateDeviceRequest *updateDeviceRequest = m_gpodder->updateDevice(id, caption, type);
-    connect(updateDeviceRequest, &UpdateDeviceRequest::finished, this, [=]() {
+    connect(updateDeviceRequest, &UpdateDeviceRequest::finished, this, [this, updateDeviceRequest, id, caption]() {
         if (updateDeviceRequest->error() || updateDeviceRequest->aborted()) {
             if (updateDeviceRequest->error()) {
                 Q_EMIT error(Error::Type::SyncError,
@@ -663,7 +663,7 @@ void Sync::linkUpAllDevices()
         return;
     }
     SyncRequest *syncRequest = m_gpodder->getSyncStatus();
-    connect(syncRequest, &SyncRequest::finished, this, [=]() {
+    connect(syncRequest, &SyncRequest::finished, this, [this, syncRequest]() {
         if (syncRequest->error() || syncRequest->aborted()) {
             if (syncRequest->error()) {
                 Q_EMIT error(Error::Type::SyncError,
@@ -689,7 +689,7 @@ void Sync::linkUpAllDevices()
             return;
         }
         UpdateSyncRequest *upSyncRequest = m_gpodder->updateSyncStatus(syncDeviceGroups, QStringList());
-        connect(upSyncRequest, &UpdateSyncRequest::finished, this, [=]() {
+        connect(upSyncRequest, &UpdateSyncRequest::finished, this, [this, upSyncRequest, syncDevices]() {
             // For some reason, the response is always "Internal Server Error"
             // even though the request is processed properly.  So we just
             // continue rather than abort...
@@ -714,7 +714,7 @@ void Sync::linkUpAllDevices()
                     return;
                 }
                 SubscriptionRequest *subRequest = m_gpodder->getSubscriptionChanges(0, device);
-                connect(subRequest, &SubscriptionRequest::finished, this, [=]() {
+                connect(subRequest, &SubscriptionRequest::finished, this, [this, subRequest, device, syncDevices]() {
                     if (subRequest->error() || subRequest->aborted()) {
                         if (subRequest->error()) {
                             Q_EMIT error(Error::Type::SyncError,
