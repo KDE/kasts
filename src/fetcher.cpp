@@ -151,7 +151,7 @@ QString Fetcher::image(const QString &url)
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     QNetworkReply *reply = get(request);
-    connect(reply, &QNetworkReply::finished, this, [=]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, path, url]() {
         if (reply->isOpen() && !reply->error()) {
             QByteArray data = reply->readAll();
             QFile file(path);
@@ -193,7 +193,7 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
         }
     });
 
-    connect(reply, &QNetworkReply::finished, this, [=]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, url, file]() {
         if (reply->isOpen() && file) {
             QByteArray data = reply->readAll();
             file->write(data);

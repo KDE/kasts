@@ -147,7 +147,7 @@ void PodcastSearchModel::search(const QString &text)
     auto hash = QCryptographicHash::hash(hashString.toLatin1(), QCryptographicHash::Sha1);
     request.setRawHeader("Authorization", hash.toHex());
     auto reply = Fetcher::instance().get(request);
-    connect(reply, &QNetworkReply::finished, this, [=]() {
+    connect(reply, &QNetworkReply::finished, this, [this, reply, url]() {
         if (reply->error()) {
             ErrorLogModel::instance().monitorErrorMessages(Error::Type::DiscoverError, url, QString(), reply->error(), reply->errorString(), url);
         } else {

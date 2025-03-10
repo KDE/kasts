@@ -206,7 +206,7 @@ void SyncJob::syncSubscriptions()
     // Check the gpodder service for updates
     SubscriptionRequest *subRequest = m_gpodder->getSubscriptionChanges(subscriptionTimestamp, m_device);
     connect(this, &SyncJob::aborting, subRequest, &SubscriptionRequest::abort);
-    connect(subRequest, &SubscriptionRequest::finished, this, [=]() {
+    connect(subRequest, &SubscriptionRequest::finished, this, [this, subRequest, localAddFeedList, localRemoveFeedList, subscriptionTimestampExists]() {
         if (subRequest->error() || subRequest->aborted()) {
             if (subRequest->aborted()) {
                 Q_EMIT infoMessage(this, getProgressMessage(Aborted));
@@ -307,7 +307,7 @@ void SyncJob::syncSubscriptions()
             setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
             Q_EMIT infoMessage(this, getProgressMessage(SubscriptionUpload));
 
-            QTimer::singleShot(0, this, [=]() {
+            QTimer::singleShot(0, this, [this, localAddFeedList, localRemoveFeedList]() {
                 uploadSubscriptions(localAddFeedList, localRemoveFeedList);
             });
         }
@@ -339,7 +339,7 @@ void SyncJob::uploadSubscriptions(const QStringList &localAddFeedUrlList, const 
         }
         UploadSubscriptionRequest *upSubRequest = m_gpodder->uploadSubscriptionChanges(localAddFeedUrlList, localRemoveFeedUrlList, m_device);
         connect(this, &SyncJob::aborting, upSubRequest, &UploadSubscriptionRequest::abort);
-        connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [=]() {
+        connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [this, upSubRequest]() {
             if (upSubRequest->error() || upSubRequest->aborted()) {
                 if (upSubRequest->aborted()) {
                     Q_EMIT infoMessage(this, getProgressMessage(Aborted));
@@ -395,7 +395,7 @@ void SyncJob::fetchModifiedSubscriptions()
             Q_EMIT infoMessage(this, getProgressMessage(SubscriptionFetch));
         }
     });
-    connect(fetchFeedsJob, &FetchFeedsJob::result, this, [=]() {
+    connect(fetchFeedsJob, &FetchFeedsJob::result, this, [this, fetchFeedsJob]() {
         qCDebug(kastsSync) << "Feed update finished";
         if (fetchFeedsJob->error() || fetchFeedsJob->aborted()) {
             if (fetchFeedsJob->aborted()) {
@@ -446,7 +446,7 @@ void SyncJob::fetchRemoteEpisodeActions()
     // Check the gpodder service for episode action updates
     EpisodeActionRequest *epRequest = m_gpodder->getEpisodeActions(episodeTimestamp, (episodeTimestamp == 0));
     connect(this, &SyncJob::aborting, epRequest, &EpisodeActionRequest::abort);
-    connect(epRequest, &EpisodeActionRequest::finished, this, [=]() {
+    connect(epRequest, &EpisodeActionRequest::finished, this, [this, epRequest]() {
         qCDebug(kastsSync) << "Finished episode action request";
         if (epRequest->error() || epRequest->aborted()) {
             if (epRequest->aborted()) {
@@ -538,7 +538,7 @@ void SyncJob::syncEpisodeStates()
             Q_EMIT infoMessage(this, getProgressMessage(SubscriptionFetch));
         }
     });
-    connect(fetchFeedsJob, &FetchFeedsJob::result, this, [=]() {
+    connect(fetchFeedsJob, &FetchFeedsJob::result, this, [this, fetchFeedsJob, localEpisodeActionHash]() {
         qCDebug(kastsSync) << "Feed update finished";
         if (fetchFeedsJob->error() || fetchFeedsJob->aborted()) {
             if (fetchFeedsJob->aborted()) {
@@ -604,7 +604,7 @@ void SyncJob::uploadEpisodeActionsPartial(const QVector<EpisodeAction> &episodeA
     }
     UploadEpisodeActionRequest *upEpRequest = m_gpodder->uploadEpisodeActions(episodeActionList.mid(startIndex, maxAmountEpisodeUploads));
     connect(this, &SyncJob::aborting, upEpRequest, &UploadEpisodeActionRequest::abort);
-    connect(upEpRequest, &UploadEpisodeActionRequest::finished, this, [=]() {
+    connect(upEpRequest, &UploadEpisodeActionRequest::finished, this, [this, upEpRequest, episodeActionList, startIndex]() {
         qCDebug(kastsSync) << "Finished uploading batch of episode actions to server";
         if (upEpRequest->error() || upEpRequest->aborted()) {
             if (upEpRequest->aborted()) {
