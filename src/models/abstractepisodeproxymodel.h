@@ -43,7 +43,7 @@ public:
     Q_FLAGS(SearchFlags)
 
     enum SortType {
-        DateDescending,
+        DateDescending = 0,
         DateAscending,
     };
     Q_ENUM(SortType)

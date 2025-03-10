@@ -108,6 +108,8 @@ private:
     void updateUnreadEntryCountFromDB();
     void updateNewEntryCountFromDB();
     void updateFavoriteEntryCountFromDB();
+    void initFilterType(int value);
+    void initSortType(int value);
 
     QString m_url;
     QString m_name;
@@ -126,8 +128,6 @@ private:
     int m_unreadEntryCount = -1;
     int m_newEntryCount = -1;
     int m_favoriteEntryCount = -1;
-
-    EntriesProxyModel *m_entries;
-
     bool m_refreshing = false;
+    EntriesProxyModel *m_entries;
 };

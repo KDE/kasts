@@ -90,6 +90,7 @@ Kirigami.ApplicationWindow {
         property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
         property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
+        property int episodeListSortType: AbstractEpisodeProxyModel.DateDescending
     }
 
     Component.onCompleted: {

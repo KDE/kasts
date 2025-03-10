@@ -80,6 +80,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo9());
     if (dbversion < 10)
         TRUE_OR_RETURN(migrateTo10());
+    if (dbversion < 11)
+        TRUE_OR_RETURN(migrateTo11());
     return true;
 }
 
@@ -275,6 +277,16 @@ bool Database::migrateTo10()
     TRUE_OR_RETURN(transaction());
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN filterType INTEGER DEFAULT 0;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 10;")));
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo11()
+{
+    qDebug() << "Migrating database to version 11";
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN sortType INTEGER DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 11;")));
     TRUE_OR_RETURN(commit());
     return true;
 }

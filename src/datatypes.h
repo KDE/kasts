@@ -33,6 +33,7 @@ struct FeedDetails {
     QString dirname;
     QString lastHash;
     int filterType = 0;
+    int sortType = 0;
 };
 
 struct EntryDetails {
