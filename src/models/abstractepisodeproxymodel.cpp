@@ -160,15 +160,14 @@ void AbstractEpisodeProxyModel::setSearchFlags(AbstractEpisodeProxyModel::Search
 void AbstractEpisodeProxyModel::setSortType(SortType type)
 {
     if (type != m_currentSort) {
+        m_currentSort = type;
+        setSortRole(AbstractEpisodeModel::UpdatedRole);
+
         switch (type) {
         case SortType::DateDescending:
-            m_currentSort = type;
-            setSortRole(AbstractEpisodeModel::UpdatedRole);
             sort(0, Qt::DescendingOrder);
             break;
         case SortType::DateAscending:
-            m_currentSort = type;
-            setSortRole(AbstractEpisodeModel::UpdatedRole);
             sort(0, Qt::AscendingOrder);
             break;
         }

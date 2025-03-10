@@ -40,6 +40,7 @@ Feed::Feed(const QString &feedurl)
     m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
     m_notify = query.value(QStringLiteral("notify")).toBool();
     int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
+    int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
     m_dirname = query.value(QStringLiteral("dirname")).toString();
 
     m_errorId = 0;
@@ -100,21 +101,10 @@ Feed::Feed(const QString &feedurl)
 
     m_entries = new EntriesProxyModel(this);
 
-    // restore saved filter
-    AbstractEpisodeProxyModel::FilterType filterType = AbstractEpisodeProxyModel::FilterType(filterTypeValue);
-    if (filterType != m_entries->filterType()) {
-        m_entries->setFilterType(filterType);
-    }
+    initFilterType(filterTypeValue);
 
-    // save filter to db when changed
-    connect(m_entries, &EntriesProxyModel::filterTypeChanged, this, [this]() {
-        int filterTypeValue = static_cast<int>(m_entries->filterType());
-
-        QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE url=:feedurl;"));
-        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
-        writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
-        Database::instance().execute(writeQuery);
+    QTimer::singleShot(0, this, [this, sortTypeValue]() {
+        initSortType(sortTypeValue);
     });
 }
 
@@ -172,6 +162,46 @@ void Feed::updateFavoriteEntryCountFromDB()
     if (!query.next())
         m_favoriteEntryCount = -1;
     m_favoriteEntryCount = query.value(0).toInt();
+}
+
+void Feed::initFilterType(int value)
+{
+    // restore saved filter
+    AbstractEpisodeProxyModel::FilterType filterType = AbstractEpisodeProxyModel::FilterType(value);
+    if (filterType != m_entries->filterType()) {
+        m_entries->setFilterType(filterType);
+    }
+
+    // save filter to db when changed
+    connect(m_entries, &EntriesProxyModel::filterTypeChanged, this, [this]() {
+        int filterTypeValue = static_cast<int>(m_entries->filterType());
+
+        QSqlQuery writeQuery;
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE url=:feedurl;"));
+        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
+        Database::instance().execute(writeQuery);
+    });
+}
+
+void Feed::initSortType(int value)
+{
+    // restore saved sorting
+    AbstractEpisodeProxyModel::SortType sortType = AbstractEpisodeProxyModel::SortType(value);
+    if (sortType != m_entries->sortType()) {
+        m_entries->setSortType(sortType);
+    }
+
+    // save sort to db when changed
+    connect(m_entries, &EntriesProxyModel::sortTypeChanged, this, [this]() {
+        int sortTypeValue = static_cast<int>(m_entries->sortType());
+
+        QSqlQuery writeQuery;
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE url=:feedurl;"));
+        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.bindValue(QStringLiteral(":sortType"), sortTypeValue);
+        Database::instance().execute(writeQuery);
+    });
 }
 
 QString Feed::url() const

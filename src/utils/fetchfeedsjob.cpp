@@ -78,6 +78,7 @@ void FetchFeedsJob::fetch()
             oldFeedDetails.dirname = query.value(QStringLiteral("dirname")).toString();
             oldFeedDetails.lastHash = query.value(QStringLiteral("lastHash")).toString();
             oldFeedDetails.filterType = query.value(QStringLiteral("filterType")).toInt();
+            oldFeedDetails.sortType = query.value(QStringLiteral("sortType")).toInt();
         } else {
             continue;
         }

@@ -98,6 +98,12 @@ Kirigami.ScrollablePage {
             onFilterTypeChanged: {
                 settings.episodeListFilterType = filterType;
             }
+
+            // save and restore sort settings
+            sortType: settings.episodeListSortType
+            onSortTypeChanged: {
+                settings.episodeListSortType = sortType;
+            }
         }
 
         delegate: GenericEntryDelegate {
