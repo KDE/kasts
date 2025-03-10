@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:41+0000\n"
-"PO-Revision-Date: 2025-01-28 09:31+0200\n"
+"PO-Revision-Date: 2025-02-15 19:36+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -214,10 +214,9 @@ msgid "Podcast Player"
 msgstr "Podcast-soitin"
 
 #: main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 KDE-yhteisö"
+msgstr "© 2020–2025 KDE-yhteisö"
 
 #: main.cpp:134
 #, kde-format
@@ -543,8 +542,7 @@ msgid "Refresh All Podcasts"
 msgstr "Virkistä kaikki podcastit"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Ei latauksia"
@@ -1231,35 +1229,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "Optimoi käyttöliittymä mobiili- tai työpöytäkäyttöön"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Tämä vaatii sovelluksen uudelleenkäynnistyksen tullakseen voimaan"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Automaattinen"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "työpöytä"
+msgstr "Työpöytä"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "mobiili"
+msgstr "Mobiili"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1352,12 +1346,10 @@ msgid "Error Log"
 msgstr "Virheloki"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Tyhjennä kaikki virheet"
+msgstr "Tyhjennä kaikki"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1386,9 +1378,7 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Säädä jäljellä olevaa aikaa nykyisen toistonopeuden mukaan"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
 msgstr "Suosi latauksen sijaan suoratoistoa"
@@ -1412,12 +1402,10 @@ msgid "Podcast update settings"
 msgstr "Podcast-päivitysasetukset"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Nouda podcast-syötteet automaattisesti"
+msgstr "Nouda podcast-syötteet määrävälein"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1688,12 +1676,10 @@ msgid "Synchronization"
 msgstr "Tahdistus"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "Tietoa"
+msgstr "Tietoa Kastsista"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
