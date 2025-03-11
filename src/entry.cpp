@@ -356,8 +356,10 @@ void Entry::setFavoriteInternal(bool favorite)
 
 QString Entry::adjustedContent(int width, int fontSize)
 {
+    static QRegularExpression imgRegex(QStringLiteral("<img ((?!width=\"[0-9]+(px)?\").)*(width=\"([0-9]+)(px)?\")?[^>]*>"));
+    static QRegularExpression imgHeightRegex(QStringLiteral("height=\"([0-9]+)(px)?\""));
+
     QString ret(m_content);
-    QRegularExpression imgRegex(QStringLiteral("<img ((?!width=\"[0-9]+(px)?\").)*(width=\"([0-9]+)(px)?\")?[^>]*>"));
 
     QRegularExpressionMatchIterator i = imgRegex.globalMatch(ret);
     while (i.hasNext()) {
@@ -372,7 +374,7 @@ QString Entry::adjustedContent(int width, int fontSize)
         if (widthParameter.length() != 0) {
             if (widthParameter.toInt() > width) {
                 imgTag.replace(match.captured(3), QStringLiteral("width=\"%1\"").arg(width));
-                imgTag.replace(QRegularExpression(QStringLiteral("height=\"([0-9]+)(px)?\"")), QString());
+                imgTag.replace(imgHeightRegex, QString());
             }
         }
         ret.replace(match.captured(), imgTag);
@@ -383,9 +385,9 @@ QString Entry::adjustedContent(int width, int fontSize)
     // Replace strings that look like timestamps into clickable links with scheme
     // "timestamp://".  We will pick these up in the GUI to work like chapter marks
 
-    QRegularExpression imgRegexDate(QStringLiteral("\\d{1,2}(:\\d{2})+"));
+    static QRegularExpression dateRegex(QStringLiteral("\\d{1,2}(:\\d{2})+"));
 
-    i = imgRegexDate.globalMatch(ret);
+    i = dateRegex.globalMatch(ret);
     while (i.hasNext()) {
         QRegularExpressionMatch match = i.next();
         QString timeStamp(match.captured());

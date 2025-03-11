@@ -37,7 +37,8 @@ void DeviceRequest::processResults()
             m_error = 1;
             m_errorString = error->errorString();
         } else if (!m_abort) {
-            for (auto jsonDevice : data.array()) {
+            const QJsonArray array = data.array();
+            for (const QJsonValue &jsonDevice : array) {
                 SyncUtils::Device device;
                 device.id = jsonDevice.toObject().value(QStringLiteral("id")).toString();
                 device.caption = jsonDevice.toObject().value(QStringLiteral("caption")).toString();

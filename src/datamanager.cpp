@@ -191,7 +191,7 @@ void DataManager::removeFeed(const int index)
 void DataManager::removeFeeds(const QStringList &feedurls)
 {
     QList<Feed *> feeds;
-    for (QString feedurl : feedurls) {
+    for (const QString &feedurl : feedurls) {
         Feed *feed = getFeed(feedurl);
         if (feed) {
             feeds << feed;
@@ -203,7 +203,7 @@ void DataManager::removeFeeds(const QStringList &feedurls)
 void DataManager::removeFeeds(const QVariantList feedVariantList)
 {
     QList<Feed *> feeds;
-    for (QVariant feedVariant : feedVariantList) {
+    for (const QVariant &feedVariant : feedVariantList) {
         if (feedVariant.canConvert<Feed *>()) {
             if (feedVariant.value<Feed *>()) {
                 feeds << feedVariant.value<Feed *>();
@@ -340,7 +340,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
     // a preliminary entry into the database.  Those details (as well as entries,
     // authors and enclosures) will be updated by calling Fetcher::fetch() which
     // will trigger a full update of the feed and all related items.
-    for (const QString &url : newUrls) {
+    for (const QString &url : std::as_const(newUrls)) {
         qCDebug(kastsDataManager) << "Adding new feed:" << url;
 
         QString urlFromInput = QUrl::fromUserInput(url).toString();
@@ -355,7 +355,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":description"), QLatin1String(""));
         query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
         query.bindValue(QStringLiteral(":deleteAfterType"), 0);
-        query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentDateTime().toSecsSinceEpoch());
+        query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentSecsSinceEpoch());
         query.bindValue(QStringLiteral(":lastUpdated"), 0);
         query.bindValue(QStringLiteral(":new"), true);
         query.bindValue(QStringLiteral(":notify"), false);
@@ -554,7 +554,6 @@ void DataManager::deletePlayedEnclosures()
     query.bindValue(QStringLiteral(":read"), true);
     Database::instance().execute(query);
     while (query.next()) {
-        QString feed = query.value(QStringLiteral("feed")).toString();
         QString id = query.value(QStringLiteral("id")).toString();
         qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:" << id;
         Entry *entry = getEntry(id);
@@ -648,7 +647,7 @@ bool DataManager::feedExists(const QString &url)
 {
     // using cleanUrl to do "fuzzy" check on the podcast URL
     QString cleanedUrl = cleanUrl(url);
-    for (QString listUrl : m_feedmap) {
+    for (const QString &listUrl : std::as_const(m_feedmap)) {
         if (cleanedUrl == cleanUrl(listUrl)) {
             return true;
         }
@@ -667,12 +666,12 @@ void DataManager::updateQueueListnrs() const
     }
 }
 
-void DataManager::bulkMarkReadByIndex(bool state, QModelIndexList list)
+void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list)
 {
     bulkMarkRead(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkRead(bool state, QStringList list)
+void DataManager::bulkMarkRead(bool state, const QStringList &list)
 {
     Database::instance().transaction();
 
@@ -684,7 +683,7 @@ void DataManager::bulkMarkRead(bool state, QStringList list)
         }
         updateQueueListnrs(); // update queue after modification
     } else { // Mark as unread
-        for (QString id : list) {
+        for (const QString &id : list) {
             getEntry(id)->setReadInternal(state);
         }
     }
@@ -698,15 +697,15 @@ void DataManager::bulkMarkRead(bool state, QStringList list)
     }
 }
 
-void DataManager::bulkMarkNewByIndex(bool state, QModelIndexList list)
+void DataManager::bulkMarkNewByIndex(bool state, const QModelIndexList &list)
 {
     bulkMarkNew(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkNew(bool state, QStringList list)
+void DataManager::bulkMarkNew(bool state, const QStringList &list)
 {
     Database::instance().transaction();
-    for (QString id : list) {
+    for (const QString &id : list) {
         getEntry(id)->setNewInternal(state);
     }
     Database::instance().commit();
@@ -714,15 +713,15 @@ void DataManager::bulkMarkNew(bool state, QStringList list)
     Q_EMIT bulkNewStatusActionFinished();
 }
 
-void DataManager::bulkMarkFavoriteByIndex(bool state, QModelIndexList list)
+void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list)
 {
     bulkMarkFavorite(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkFavorite(bool state, QStringList list)
+void DataManager::bulkMarkFavorite(bool state, const QStringList &list)
 {
     Database::instance().transaction();
-    for (QString id : list) {
+    for (const QString &id : list) {
         getEntry(id)->setFavoriteInternal(state);
     }
     Database::instance().commit();
@@ -730,16 +729,16 @@ void DataManager::bulkMarkFavorite(bool state, QStringList list)
     Q_EMIT bulkFavoriteStatusActionFinished();
 }
 
-void DataManager::bulkQueueStatusByIndex(bool state, QModelIndexList list)
+void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list)
 {
     bulkQueueStatus(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkQueueStatus(bool state, QStringList list)
+void DataManager::bulkQueueStatus(bool state, const QStringList &list)
 {
     Database::instance().transaction();
     if (state) { // i.e. add to queue
-        for (QString id : list) {
+        for (const QString &id : list) {
             getEntry(id)->setQueueStatusInternal(state);
         }
     } else { // i.e. remove from queue
@@ -757,30 +756,30 @@ void DataManager::bulkQueueStatus(bool state, QStringList list)
     Q_EMIT bulkNewStatusActionFinished();
 }
 
-void DataManager::bulkDownloadEnclosuresByIndex(QModelIndexList list)
+void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list)
 {
     bulkDownloadEnclosures(getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkDownloadEnclosures(QStringList list)
+void DataManager::bulkDownloadEnclosures(const QStringList &list)
 {
     bulkQueueStatus(true, list);
-    for (QString id : list) {
+    for (const QString &id : list) {
         if (getEntry(id)->hasEnclosure()) {
             getEntry(id)->enclosure()->download();
         }
     }
 }
 
-void DataManager::bulkDeleteEnclosuresByIndex(QModelIndexList list)
+void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list)
 {
     bulkDeleteEnclosures(getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkDeleteEnclosures(QStringList list)
+void DataManager::bulkDeleteEnclosures(const QStringList &list)
 {
     Database::instance().transaction();
-    for (QString id : list) {
+    for (const QString &id : list) {
         if (getEntry(id)->hasEnclosure()) {
             getEntry(id)->enclosure()->deleteFile();
         }
@@ -806,5 +805,5 @@ QString DataManager::cleanUrl(const QString &url)
     // - http vs https (scheme is actually removed altogether!)
     // - encoded vs non-encoded URLs
     return QUrl(url).authority() + QUrl(url).path(QUrl::FullyDecoded)
-        + (QUrl(url).hasQuery() ? QStringLiteral("?") + QUrl(url).query(QUrl::FullyDecoded) : QStringLiteral(""));
+        + (QUrl(url).hasQuery() ? QStringLiteral("?") + QUrl(url).query(QUrl::FullyDecoded) : QString());
 }

@@ -10,7 +10,8 @@
 WindowUtils::WindowUtils()
     : QObject(nullptr)
 {
-    m_window = QGuiApplication::allWindows()[0];
+    auto allWindows = QGuiApplication::allWindows();
+    m_window = allWindows[0];
     connect(m_window, &QWindow::widthChanged, this, &WindowUtils::isWidescreenChanged);
     connect(m_window, &QWindow::heightChanged, this, &WindowUtils::isWidescreenChanged);
 }

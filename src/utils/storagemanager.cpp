@@ -67,7 +67,8 @@ void StorageManager::setStoragePath(QUrl url)
     if (oldPath != newPath) {
         // make list of dirs to be moved (images/ and enclosures/*/)
         QStringList list = {QStringLiteral("images")};
-        for (const QString &subdir : QDir(oldPath + QStringLiteral("/enclosures/")).entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+        const QStringList subdirs = QDir(oldPath + QStringLiteral("/enclosures/")).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &subdir : subdirs) {
             list << QStringLiteral("enclosures/") + subdir;
         }
         list << QStringLiteral("enclosures");
@@ -119,7 +120,7 @@ QString StorageManager::imagePath(const QString &url) const
 
 QString StorageManager::enclosureDirPath() const
 {
-    return enclosureDirPath(QStringLiteral(""));
+    return enclosureDirPath(QLatin1String(""));
 }
 
 QString StorageManager::enclosureDirPath(const QString &feedname) const
@@ -153,7 +154,7 @@ qint64 StorageManager::dirSize(const QString &path) const
     qint64 size = 0;
     QFileInfoList files = QDir(path).entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
 
-    for (QFileInfo info : files) {
+    for (const QFileInfo &info : std::as_const(files)) {
         if (info.isDir()) {
             size += dirSize(info.filePath());
         }
@@ -173,9 +174,9 @@ void StorageManager::removeImage(const QString &url)
 void StorageManager::clearImageCache()
 {
     qCDebug(kastsStorageManager) << imageDirPath();
-    QStringList images = QDir(imageDirPath()).entryList(QDir::Files);
+    const QStringList images = QDir(imageDirPath()).entryList(QDir::Files);
     qCDebug(kastsStorageManager) << images;
-    for (QString image : images) {
+    for (const QString &image : images) {
         qCDebug(kastsStorageManager) << image;
         QFile(QDir(imageDirPath()).absoluteFilePath(image)).remove();
     }
@@ -209,13 +210,15 @@ QString StorageManager::passwordFilePath(const QString &username) const
 
 QString StorageManager::sanitizedFilePath(const QString &path) const
 {
-    // NOTE: Any changes here require a database migration!
+    // NOTE: Any changes here require a database migration and corresponding
+    // updates in database.cpp (see e.g. migrateTo8())
 
     // Only keep alphanumeric ascii characters; this avoid any kind of issues
     // with the many types of filesystems out there.  Then remove excess whitespace
     // and limit the length of the string.
     QString newPath = path;
-    newPath = newPath.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+    static QRegularExpression asciiRegexp(QStringLiteral("[^a-zA-Z0-9 ._()-]"));
+    newPath = newPath.remove(asciiRegexp).simplified().left(maxFilenameLength);
 
     return newPath.isEmpty() ? QStringLiteral("Noname") : newPath;
 }

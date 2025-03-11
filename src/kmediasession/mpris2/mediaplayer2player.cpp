@@ -97,7 +97,8 @@ QString MediaPlayer2Player::PlaybackStatus() const
             parameters.insert(QStringLiteral("progress"), 0);
         } else {
             parameters.insert(QStringLiteral("progress-visible"), true);
-            parameters.insert(QStringLiteral("progress"), qRound(static_cast<double>(m_position / m_audioPlayer->duration())) / 1000.0);
+            parameters.insert(QStringLiteral("progress"),
+                              qRound(static_cast<double>((m_audioPlayer->duration() > 0) ? m_position / m_audioPlayer->duration() : 0)) / 1000.0);
         }
 
         const QString fullDesktopPath = QStringLiteral("application://") + m_audioPlayer->desktopEntryName() + QStringLiteral(".desktop");
@@ -539,7 +540,8 @@ void MediaPlayer2Player::setShowProgressOnTaskBar(bool value)
         parameters.insert(QStringLiteral("progress"), 0);
     } else {
         parameters.insert(QStringLiteral("progress-visible"), true);
-        parameters.insert(QStringLiteral("progress"), qRound(static_cast<double>(m_position / m_audioPlayer->duration())) / 1000.0);
+        parameters.insert(QStringLiteral("progress"),
+                          qRound(static_cast<double>((m_audioPlayer->duration() > 0) ? m_position / m_audioPlayer->duration() : 0)) / 1000.0);
     }
 
     const QString fullDesktopPath = QStringLiteral("application://") + m_audioPlayer->desktopEntryName() + QStringLiteral(".desktop");

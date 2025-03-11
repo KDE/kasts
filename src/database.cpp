@@ -186,6 +186,8 @@ bool Database::migrateTo8()
     qDebug() << "Migrating database to version 8; this can take a while";
 
     const int maxFilenameLength = 200;
+    static QRegularExpression asciiRegexp(QStringLiteral("[^a-zA-Z0-9 ._()-]"));
+
     QString enclosurePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
     if (!SettingsManager::self()->storagePath().isEmpty()) {
         enclosurePath = SettingsManager::self()->storagePath().toLocalFile();
@@ -202,7 +204,7 @@ bool Database::migrateTo8()
         QString name = query.value(QStringLiteral("name")).toString();
 
         // Generate directory name for enclosures based on feed name
-        QString dirBaseName = name.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+        QString dirBaseName = name.remove(asciiRegexp).simplified().left(maxFilenameLength);
         dirBaseName = dirBaseName.isEmpty() ? QStringLiteral("Noname") : dirBaseName;
         QString dirName = dirBaseName;
 
@@ -229,7 +231,6 @@ bool Database::migrateTo8()
     TRUE_OR_RETURN(execute(query));
     while (query.next()) {
         QString queryTitle = query.value(QStringLiteral("title")).toString();
-        QString queryId = query.value(QStringLiteral("id")).toString();
         QString queryUrl = query.value(QStringLiteral("url")).toString();
         QString feedDirName = query.value(QStringLiteral("dirname")).toString();
 
@@ -238,7 +239,7 @@ bool Database::migrateTo8()
 
         if (QFileInfo::exists(legacyPath) && QFileInfo(legacyPath).isFile()) {
             // Generate filename based on episode name and url hash with feedname as subdirectory
-            QString enclosureFilenameBase = queryTitle.remove(QRegularExpression(QStringLiteral("[^a-zA-Z0-9 ._()-]"))).simplified().left(maxFilenameLength);
+            QString enclosureFilenameBase = queryTitle.remove(asciiRegexp).simplified().left(maxFilenameLength);
             enclosureFilenameBase = enclosureFilenameBase.isEmpty() ? QStringLiteral("Noname") : enclosureFilenameBase;
             enclosureFilenameBase += QStringLiteral(".")
                 + QString::fromStdString(QCryptographicHash::hash(queryUrl.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);

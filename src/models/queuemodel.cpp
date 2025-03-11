@@ -74,7 +74,7 @@ int QueueModel::rowCount(const QModelIndex &parent) const
 int QueueModel::timeLeft() const
 {
     int result = 0;
-    QStringList queue = DataManager::instance().queue();
+    const QStringList queue = DataManager::instance().queue();
     for (const QString &item : queue) {
         Entry *entry = DataManager::instance().getEntry(item);
         if (entry->enclosure()) {

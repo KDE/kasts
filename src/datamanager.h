@@ -11,6 +11,7 @@
 #include <QQmlEngine>
 #include <QString>
 #include <QStringList>
+#include <QtQml/qqmlregistration.h>
 
 #include "entry.h"
 #include "feed.h"
@@ -71,19 +72,19 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, QStringList list);
-    Q_INVOKABLE void bulkMarkNew(bool state, QStringList list);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, QStringList list);
-    Q_INVOKABLE void bulkQueueStatus(bool state, QStringList list);
-    Q_INVOKABLE void bulkDownloadEnclosures(QStringList list);
-    Q_INVOKABLE void bulkDeleteEnclosures(QStringList list);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QStringList &list);
+    Q_INVOKABLE void bulkMarkNew(bool state, const QStringList &list);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QStringList &list);
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QStringList &list);
+    Q_INVOKABLE void bulkDownloadEnclosures(const QStringList &list);
+    Q_INVOKABLE void bulkDeleteEnclosures(const QStringList &list);
 
-    Q_INVOKABLE void bulkMarkReadByIndex(bool state, QModelIndexList list);
-    Q_INVOKABLE void bulkMarkNewByIndex(bool state, QModelIndexList list);
-    Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, QModelIndexList list);
-    Q_INVOKABLE void bulkQueueStatusByIndex(bool state, QModelIndexList list);
-    Q_INVOKABLE void bulkDownloadEnclosuresByIndex(QModelIndexList list);
-    Q_INVOKABLE void bulkDeleteEnclosuresByIndex(QModelIndexList list);
+    Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
+    Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
+    Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list);
+    Q_INVOKABLE void bulkQueueStatusByIndex(bool state, const QModelIndexList &list);
+    Q_INVOKABLE void bulkDownloadEnclosuresByIndex(const QModelIndexList &list);
+    Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list);
 
 Q_SIGNALS:
     void feedAdded(const QString &url);

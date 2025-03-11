@@ -49,14 +49,17 @@ void UpdateSyncRequest::processResults()
             m_error = 1;
             m_errorString = error->errorString();
         } else if (!m_abort) {
-            for (auto jsonGroup : data.object().value(QStringLiteral("synchronized")).toArray()) {
+            const QJsonArray syncArray = data.object().value(QStringLiteral("synchronized")).toArray();
+            for (const QJsonValue &jsonGroup : syncArray) {
                 QStringList syncedGroup;
-                for (auto jsonDevice : jsonGroup.toArray()) {
+                const QJsonArray groupArray = jsonGroup.toArray();
+                for (const QJsonValue &jsonDevice : groupArray) {
                     syncedGroup += jsonDevice.toString();
                 }
                 m_syncedDevices += syncedGroup;
             }
-            for (auto jsonDevice : data.object().value(QStringLiteral("not-synchronized")).toArray()) {
+            const QJsonArray nonsyncArray = data.object().value(QStringLiteral("not-synchronized")).toArray();
+            for (const QJsonValue &jsonDevice : nonsyncArray) {
                 m_unsyncedDevices += jsonDevice.toString();
             }
             m_success = true;

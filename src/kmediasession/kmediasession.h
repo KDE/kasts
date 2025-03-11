@@ -89,7 +89,7 @@ public:
     };
     Q_ENUM(Error)
 
-    explicit KMediaSession(const QString &playerName = QStringLiteral(""), const QString &desktopEntryName = QStringLiteral(""), QObject *parent = nullptr);
+    explicit KMediaSession(const QString &playerName = QLatin1String(""), const QString &desktopEntryName = QLatin1String(""), QObject *parent = nullptr);
     ~KMediaSession();
 
     [[nodiscard]] Q_INVOKABLE QString backendName(KMediaSession::MediaBackends backend) const;

@@ -176,7 +176,7 @@ void ChapterModel::loadMPEGChapters()
         auto hash = QString::fromLatin1(QCryptographicHash::hash(image.toLatin1(), QCryptographicHash::Md5).toHex());
         auto path = QStringLiteral("%1/images/%2").arg(StorageManager::instance().storagePath(), hash);
         if (!apicList.isEmpty()) {
-            if (!QFileInfo(path).exists()) {
+            if (!QFileInfo::exists(path)) {
                 QFile file(path);
                 const auto apic = dynamic_cast<TagLib::ID3v2::AttachedPictureFrame *>(apicList.front())->picture();
                 file.open(QFile::WriteOnly);
