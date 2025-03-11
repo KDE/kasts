@@ -9,8 +9,6 @@
 #include <KLocalizedString>
 
 #include "datamanager.h"
-#include "entry.h"
-#include "models/episodeproxymodel.h"
 
 AbstractEpisodeProxyModel::AbstractEpisodeProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)

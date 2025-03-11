@@ -13,8 +13,8 @@
 #include <QUrl>
 #include <QVariant>
 
-#include "database.h"
 #include "datamanager.h"
+#include "feed.h"
 #include "fetcher.h"
 
 FeedsModel::FeedsModel(QObject *parent)

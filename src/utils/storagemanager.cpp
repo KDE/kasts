@@ -17,7 +17,6 @@
 #include <QRegularExpression>
 #include <QStandardPaths>
 
-#include "enclosure.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "storagemovejob.h"

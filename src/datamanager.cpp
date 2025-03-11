@@ -21,7 +21,7 @@
 #include "entry.h"
 #include "feed.h"
 #include "fetcher.h"
-#include "settingsmanager.h"
+#include "models/episodemodel.h"
 #include "sync/sync.h"
 #include "utils/storagemanager.h"
 

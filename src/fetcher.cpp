@@ -22,7 +22,6 @@
 #include <QTimer>
 
 #include "database.h"
-#include "enclosure.h"
 #include "kasts-version.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"

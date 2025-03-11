@@ -11,8 +11,6 @@
 #include <QSortFilterProxyModel>
 #include <QString>
 
-#include "models/episodemodel.h"
-
 class Entry;
 
 class AbstractEpisodeProxyModel : public QSortFilterProxyModel

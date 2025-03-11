@@ -26,22 +26,18 @@
 #include "database.h"
 #include "datamanager.h"
 #include "entry.h"
-#include "fetcher.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "sync/gpodder/devicerequest.h"
-#include "sync/gpodder/episodeactionrequest.h"
 #include "sync/gpodder/gpodder.h"
 #include "sync/gpodder/logoutrequest.h"
 #include "sync/gpodder/subscriptionrequest.h"
 #include "sync/gpodder/syncrequest.h"
 #include "sync/gpodder/updatedevicerequest.h"
 #include "sync/gpodder/updatesyncrequest.h"
-#include "sync/gpodder/uploadepisodeactionrequest.h"
 #include "sync/gpodder/uploadsubscriptionrequest.h"
 #include "sync/syncjob.h"
 #include "sync/syncutils.h"
-#include "utils/fetchfeedsjob.h"
 #include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
 
@@ -341,7 +337,7 @@ void Sync::login(const QString &username, const QString &password)
             } else {
                 m_deviceList = deviceRequest->devices();
 
-                connect(this, &Sync::passwordSaveFinished, this, [this, deviceRequest, username, password](bool success) {
+                connect(this, &Sync::passwordSaveFinished, this, [this, username, password](bool success) {
                     disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
                     if (success) {
                         m_username = username;

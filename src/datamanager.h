@@ -12,11 +12,9 @@
 #include <QString>
 #include <QStringList>
 
+#include "entry.h"
+#include "feed.h"
 #include "models/abstractepisodeproxymodel.h"
-#include "models/episodemodel.h"
-
-class Entry;
-class Feed;
 
 class DataManager : public QObject
 {
