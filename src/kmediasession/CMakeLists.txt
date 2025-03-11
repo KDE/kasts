@@ -110,7 +110,6 @@ if (LIBVLC_FOUND)
     target_sources(KMediaSession PRIVATE
         mediabackends/vlcmediabackend.cpp
     )
-    set(HAVE_LIBVLC ON)
 endif()
 
 if (GSTREAMER_FOUND)
@@ -129,10 +128,7 @@ if (GSTREAMER_FOUND)
     target_sources(KMediaSession PRIVATE
         mediabackends/gstmediabackend.cpp
     )
-    set(HAVE_GST ON)
 endif()
-
-configure_file(config-kmediasession.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kmediasession.h)
 
 generate_export_header(KMediaSession BASE_NAME KMediaSession)
 
@@ -149,10 +145,12 @@ qt_extract_metatypes(KMediaSession)
 
 if (LIBVLC_FOUND)
     target_link_libraries(KMediaSession PRIVATE LIBVLC::LIBVLC)
+    target_compile_definitions(KMediaSession PRIVATE HAVE_LIBVLC)
 endif()
 
 if (GSTREAMER_FOUND)
     target_link_libraries(KMediaSession PRIVATE PkgConfig::GSTREAMER)
+    target_compile_definitions(KMediaSession PRIVATE HAVE_GST)
 endif()
 
 if (ANDROID OR WIN32)
