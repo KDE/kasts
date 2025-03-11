@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-11 00:41+0000\n"
 "PO-Revision-Date: 2025-02-15 12:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -50,13 +50,13 @@ msgstr "Fitxer multimèdia no vàlid"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Baixades de pòdcast no permeses amb la connexió d'ús mesurat"
 
-#: entry.cpp:100 feed.cpp:136
+#: entry.cpp:100 feed.cpp:126
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 i %2"
 
-#: entry.cpp:103 feed.cpp:139
+#: entry.cpp:103 feed.cpp:129
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -232,73 +232,73 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Sense filtre"
 
-#: models/abstractepisodeproxymodel.cpp:186
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Episodis reproduïts"
 
-#: models/abstractepisodeproxymodel.cpp:188
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Episodis sense reproduir"
 
-#: models/abstractepisodeproxymodel.cpp:190
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodis marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:192
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodis no marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Episodis marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Episodis no marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:206
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Títol"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Descripció"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:209
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Títol del pòdcast"
 
-#: models/abstractepisodeproxymodel.cpp:220
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Data: primer els més nous"
 
-#: models/abstractepisodeproxymodel.cpp:222
+#: models/abstractepisodeproxymodel.cpp:221
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -1097,7 +1097,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Configuració"
 
-#: qml/Main.qml:202
+#: qml/Main.qml:203
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1105,7 +1105,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 actualitzat de %1 pòdcast"
 msgstr[1] "%2 actualitzats de %1 pòdcast"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1113,7 +1113,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/Main.qml:279
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

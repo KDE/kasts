@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -49,13 +49,13 @@ msgstr "अमान्य मीडिया"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "मीटर्-युक्ते संयोजने पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"
 
-#: entry.cpp:100 feed.cpp:136
+#: entry.cpp:100 feed.cpp:126
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 तथा %2"
 
-#: entry.cpp:103 feed.cpp:139
+#: entry.cpp:103 feed.cpp:129
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -231,73 +231,73 @@ msgstr "टोबियास फेला"
 msgid "Bart De Vries"
 msgstr "बार्ट डी व्रीस्"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "न फ़िल्टर"
 
-#: models/abstractepisodeproxymodel.cpp:186
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "प्रकरणाः वाद्यन्ते"
 
-#: models/abstractepisodeproxymodel.cpp:188
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "अप्रचलिताः प्रकरणाः"
 
-#: models/abstractepisodeproxymodel.cpp:190
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "\"नव\" इति चिह्निताः प्रकरणाः ।"
 
-#: models/abstractepisodeproxymodel.cpp:192
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "\"नवीन\" इति न चिह्निताः प्रकरणाः।"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "प्रिय इति चिह्निताः प्रकरणाः"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "प्रिय इति न चिह्निताः प्रकरणाः"
 
-#: models/abstractepisodeproxymodel.cpp:206
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "शीर्षक"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "वर्णनम्‌"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:209
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "पॉडकास्ट शीर्षक"
 
-#: models/abstractepisodeproxymodel.cpp:220
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "तिथिः प्रथमं नवीनतरम्"
 
-#: models/abstractepisodeproxymodel.cpp:222
+#: models/abstractepisodeproxymodel.cpp:221
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -1095,7 +1095,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "सेटिंग्स्"
 
-#: qml/Main.qml:202
+#: qml/Main.qml:203
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1103,7 +1103,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%1 Podcast इत्यस्य %2 अद्यतनं कृतम्"
 msgstr[1] "%1 Podcasts इत्यस्य %2 अद्यतनं कृतम्"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1111,7 +1111,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%1 सञ्चिकायाः %2 स्थानान्तरितम्"
 msgstr[1] "%1 सञ्चिकानां %2 स्थानान्तरितम्"
 
-#: qml/Main.qml:279
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
