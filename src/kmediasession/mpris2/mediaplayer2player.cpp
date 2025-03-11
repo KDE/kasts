@@ -66,14 +66,17 @@ MediaPlayer2Player::MediaPlayer2Player(KMediaSession *audioPlayer, bool showProg
         mProgressIndicatorSignal = QDBusMessage::createSignal(newDesktopName, QStringLiteral("com.canonical.Unity.LauncherEntry"), QStringLiteral("Update"));
     });
 
-    if (m_audioPlayer) {
-        m_volume = m_audioPlayer->volume() / 100;
-        signalPropertiesChange(QStringLiteral("Volume"), Volume());
+    // singleShot used here to execute this code after constructor has finished
+    QTimer::singleShot(0, this, [this]() {
+        if (m_audioPlayer) {
+            m_volume = m_audioPlayer->volume() / 100;
+            signalPropertiesChange(QStringLiteral("Volume"), Volume());
 
-        if (!m_audioPlayer->source().isEmpty()) {
-            setSource(m_audioPlayer->source());
+            if (!m_audioPlayer->source().isEmpty()) {
+                setSource(m_audioPlayer->source());
+            }
         }
-    }
+    });
 }
 
 QString MediaPlayer2Player::PlaybackStatus() const
@@ -236,7 +239,10 @@ QVariantMap MediaPlayer2Player::Metadata() const
 qlonglong MediaPlayer2Player::Position() const
 {
     qCDebug(Mpris2Log) << "MediaPlayer2Player::Position()";
-    return qlonglong(m_audioPlayer->position()) * 1000;
+    if (m_audioPlayer)
+        return qlonglong(m_audioPlayer->position()) * 1000;
+    else
+        return 0;
 }
 
 double MediaPlayer2Player::Rate() const

@@ -21,7 +21,6 @@ ErrorLogModel::ErrorLogModel()
         Error *error = new Error(Error::dbToType(query.value(QStringLiteral("type")).toInt()),
                                  query.value(QStringLiteral("url")).toString(),
                                  query.value(QStringLiteral("id")).toString(),
-
                                  query.value(QStringLiteral("code")).toInt(),
                                  query.value(QStringLiteral("message")).toString(),
                                  QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()),

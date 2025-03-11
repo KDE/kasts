@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <qqmlregistration.h>
+#include <QtQml/qqmlregistration.h>
 
 #include "kmediasession.h"
 #include "metadata.h"

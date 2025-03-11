@@ -13,7 +13,6 @@
 
 #include <KAboutData>
 
-#include "config-kmediasession.h"
 #include "mediabackends/abstractmediabackend.h"
 #include "mediabackends/qtmediabackend.h"
 #include "mpris2/mpris2.h"
