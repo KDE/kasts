@@ -17,7 +17,6 @@
 #include <QUrl>
 #include <Syndication/Syndication>
 
-#include "enclosure.h"
 #include "error.h"
 
 class Fetcher : public QObject

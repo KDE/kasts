@@ -11,6 +11,7 @@
 
 #include "database.h"
 #include "datamanager.h"
+#include "enclosure.h"
 #include "models/episodemodel.h"
 
 DownloadModel::DownloadModel()

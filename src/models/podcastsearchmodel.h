@@ -13,9 +13,6 @@
 #include <QQmlEngine>
 #include <QVariant>
 
-#include "feed.h"
-#include "models/errorlogmodel.h"
-
 class PodcastSearchModel : public QAbstractListModel
 {
     Q_OBJECT

@@ -25,7 +25,6 @@
 #include "error.h"
 #include "fetcher.h"
 #include "fetcherlogging.h"
-#include "kasts-version.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 

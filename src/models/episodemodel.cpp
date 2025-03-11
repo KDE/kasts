@@ -10,7 +10,7 @@
 
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
+#include "feed.h"
 
 EpisodeModel::EpisodeModel(QObject *parent)
     : AbstractEpisodeModel(parent)

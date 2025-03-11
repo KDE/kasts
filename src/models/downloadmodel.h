@@ -13,9 +13,6 @@
 #include <QQmlEngine>
 #include <QVariant>
 
-#include "enclosure.h"
-#include "entry.h"
-
 class DownloadModel : public QAbstractListModel
 {
     Q_OBJECT

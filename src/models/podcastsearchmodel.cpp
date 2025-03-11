@@ -18,6 +18,7 @@
 #include <QVariant>
 
 #include "fetcher.h"
+#include "models/errorlogmodel.h"
 
 PodcastSearchModel::PodcastSearchModel(QObject *parent)
     : QAbstractListModel(parent)

@@ -13,8 +13,6 @@
 #include <QSqlTableModel>
 #include <QUrl>
 
-#include "feed.h"
-
 class FeedsModel : public QAbstractListModel
 {
     Q_OBJECT

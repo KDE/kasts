@@ -11,7 +11,6 @@
 #include <QString>
 #include <QVector>
 
-#include "sync/sync.h"
 #include "sync/syncutils.h"
 
 class LoginRequest;

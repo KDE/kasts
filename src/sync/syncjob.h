@@ -14,7 +14,6 @@
 
 #include <KJob>
 
-#include "error.h"
 #include "sync/syncutils.h"
 
 class GPodder;

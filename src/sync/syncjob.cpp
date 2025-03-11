@@ -15,12 +15,8 @@
 
 #include <KLocalizedString>
 
-#include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
-#include "models/errorlogmodel.h"
-#include "settingsmanager.h"
 #include "sync/gpodder/episodeactionrequest.h"
 #include "sync/gpodder/gpodder.h"
 #include "sync/gpodder/subscriptionrequest.h"

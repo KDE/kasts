@@ -10,7 +10,6 @@
 #include <QVector>
 
 #include "error.h"
-#include "updatefeedjob.h"
 
 class FetchFeedsJob : public KJob
 {
