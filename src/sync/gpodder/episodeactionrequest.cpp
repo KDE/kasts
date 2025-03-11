@@ -46,7 +46,8 @@ void EpisodeActionRequest::processResults()
             m_error = 1;
             m_errorString = error->errorString();
         } else if (!m_abort) {
-            for (const auto &jsonAction : data.object().value(QStringLiteral("actions")).toArray()) {
+            const QJsonArray array = data.object().value(QStringLiteral("actions")).toArray();
+            for (const QJsonValue &jsonAction : array) {
                 SyncUtils::EpisodeAction episodeAction;
                 episodeAction.id = jsonAction.toObject().value(QStringLiteral("guid")).toString();
                 episodeAction.url = jsonAction.toObject().value(QStringLiteral("episode")).toString();

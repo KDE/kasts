@@ -309,17 +309,17 @@ QString Enclosure::cachedEmbeddedImage() const
     }
 
     if (m_status != Downloaded || path().isEmpty()) {
-        return QStringLiteral("");
+        return QLatin1String("");
     }
 
     const auto mime = QMimeDatabase().mimeTypeForFile(path()).name();
     if (mime != QStringLiteral("audio/mpeg")) {
-        return QStringLiteral("");
+        return QLatin1String("");
     }
 
     TagLib::MPEG::File f(path().toStdString().data());
     if (!f.isValid() || !f.hasID3v2Tag()) {
-        return QStringLiteral("");
+        return QLatin1String("");
     }
 
     bool imageFound = false;
@@ -338,7 +338,7 @@ QString Enclosure::cachedEmbeddedImage() const
     if (imageFound) {
         return cachedpath;
     } else {
-        return QStringLiteral("");
+        return QLatin1String("");
     }
 }
 

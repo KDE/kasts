@@ -50,10 +50,13 @@ void SubscriptionRequest::processResults()
             m_error = 1;
             m_errorString = error->errorString();
         } else {
-            for (auto jsonFeed : data.object().value(QStringLiteral("add")).toArray()) {
+            const QJsonArray addArray = data.object().value(QStringLiteral("add")).toArray();
+            for (const QJsonValue &jsonFeed : addArray) {
                 m_add += cleanupUrl(jsonFeed.toString());
             }
-            for (auto jsonFeed : data.object().value(QStringLiteral("remove")).toArray()) {
+
+            const QJsonArray removeArray = data.object().value(QStringLiteral("remove")).toArray();
+            for (const QJsonValue &jsonFeed : removeArray) {
                 m_remove += cleanupUrl(jsonFeed.toString());
             }
             m_timestamp = data.object().value(QStringLiteral("timestamp")).toInt();

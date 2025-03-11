@@ -45,7 +45,8 @@ void UploadSubscriptionRequest::processResults()
             m_error = 1;
             m_errorString = error->errorString();
         } else {
-            for (auto jsonFeed : data.object().value(QStringLiteral("update_urls")).toArray()) {
+            const QJsonArray updateArray = data.object().value(QStringLiteral("update_urls")).toArray();
+            for (const QJsonValue &jsonFeed : updateArray) {
                 m_updateUrls += std::pair<QString, QString>(jsonFeed.toArray().at(0).toString(), jsonFeed.toArray().at(1).toString());
             }
             m_timestamp = data.object().value(QStringLiteral("timestamp")).toInt();

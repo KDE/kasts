@@ -8,7 +8,7 @@
 
 #include <QObject>
 #include <QQmlEngine>
-#include <QtQml>
+#include <QtQml/qqmlregistration.h>
 
 class QAbstractItemModel;
 class KColorSchemeManager;

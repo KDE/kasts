@@ -50,7 +50,7 @@ public:
           const int code,
           const QString &message,
           const QDateTime &date,
-          const QString &title = QStringLiteral(""));
+          const QString &title = QLatin1String(""));
 
     QString title() const;
     QString description() const;

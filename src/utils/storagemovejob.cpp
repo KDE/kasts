@@ -34,12 +34,12 @@ void StorageMoveJob::moveFiles()
 
     QStringList fileList; // this list will contain all files that need to be moved
 
-    for (QString item : m_list) {
+    for (const QString &item : std::as_const(m_list)) {
         // make a list of files to be moved; path is relative to m_from
         if (QFileInfo(m_from + QStringLiteral("/") + item).isDir()) {
             // this item is a dir; now add all files in that subdir
             QStringList tempList = QDir(m_from + QStringLiteral("/") + item + QStringLiteral("/")).entryList(QDir::Files);
-            for (QString file : tempList) {
+            for (const QString &file : std::as_const(tempList)) {
                 fileList += item + QStringLiteral("/") + file;
             }
 
@@ -96,13 +96,13 @@ void StorageMoveJob::moveFiles()
         setErrorText(i18n("Operation aborted by user"));
     } else if (success) {
         // now it's safe to delete all the files from the original location
-        for (QString file : fileList) {
+        for (const QString &file : std::as_const(fileList)) {
             QFile(QDir(m_from).absoluteFilePath(file)).remove();
             qCDebug(kastsStorageMoveJob) << "Removing file" << QDir(m_from).absoluteFilePath(file);
         }
 
         // delete the directories as well
-        for (const QString &item : m_list) {
+        for (const QString &item : std::as_const(m_list)) {
             if (!item.isEmpty() && QFileInfo(m_from + QStringLiteral("/") + item).isDir()) {
                 QDir(m_from).rmdir(item);
             }

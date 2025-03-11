@@ -139,7 +139,7 @@ void PodcastSearchModel::search(const QString &text)
     QNetworkRequest request(QUrl(QStringLiteral("https://api.podcastindex.org/api/1.0/search/byterm?q=%1").arg(text)));
     QString url = QStringLiteral("https://api.podcastindex.org/api/1.0/search/byterm?q=%1").arg(text);
     request.setRawHeader("X-Auth-Key", "BLVCJJSWUJGD3WJQSZ56");
-    auto time = QDateTime::currentDateTime().toSecsSinceEpoch();
+    auto time = QDateTime::currentSecsSinceEpoch();
     request.setRawHeader("X-Auth-Date", QString::number(time).toLatin1());
     QString hashString = QStringLiteral(
                              "BLVCJJSWUJGD3WJQSZ56"

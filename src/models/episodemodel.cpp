@@ -7,6 +7,7 @@
 #include "models/episodemodel.h"
 
 #include <QSqlQuery>
+#include <QTimer>
 
 #include "database.h"
 #include "datamanager.h"
@@ -25,7 +26,10 @@ EpisodeModel::EpisodeModel(QObject *parent)
         endResetModel();
     });
 
-    updateInternalState();
+    QTimer::singleShot(0, this, [this]() {
+        updateInternalState();
+    });
+    ;
 }
 
 QVariant EpisodeModel::data(const QModelIndex &index, int role) const

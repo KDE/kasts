@@ -246,7 +246,7 @@ void Sync::setHostname(const QString &hostname)
             hostUrl.setScheme(QStringLiteral("https"));
             if (hostUrl.authority().isEmpty() && !hostUrl.path().isEmpty()) {
                 hostUrl.setAuthority(hostUrl.path());
-                hostUrl.setPath(QStringLiteral(""));
+                hostUrl.setPath(QLatin1String(""));
             }
             cleanedHostname = hostUrl.toString();
         }
@@ -279,13 +279,13 @@ void Sync::login(const QString &username, const QString &password)
     if (m_provider == Provider::GPodderNextcloud) {
         m_gpodder = new GPodder(username, password, m_hostname, Provider::GPodderNextcloud, this);
 
-        SubscriptionRequest *subRequest = m_gpodder->getSubscriptionChanges(0, QStringLiteral(""));
+        SubscriptionRequest *subRequest = m_gpodder->getSubscriptionChanges(0, QLatin1String(""));
         connect(subRequest, &SubscriptionRequest::finished, this, [this, subRequest, username, password]() {
             if (subRequest->error() || subRequest->aborted()) {
                 if (subRequest->error()) {
                     Q_EMIT error(Error::Type::SyncError,
-                                 QStringLiteral(""),
-                                 QStringLiteral(""),
+                                 QLatin1String(""),
+                                 QLatin1String(""),
                                  subRequest->error(),
                                  subRequest->errorString(),
                                  i18n("Could not log into GPodder-nextcloud server"));
@@ -323,8 +323,8 @@ void Sync::login(const QString &username, const QString &password)
             if (deviceRequest->error() || deviceRequest->aborted()) {
                 if (deviceRequest->error()) {
                     Q_EMIT error(Error::Type::SyncError,
-                                 QStringLiteral(""),
-                                 QStringLiteral(""),
+                                 QLatin1String(""),
+                                 QLatin1String(""),
                                  deviceRequest->error(),
                                  deviceRequest->errorString(),
                                  i18n("Could not log into GPodder server"));
@@ -376,8 +376,8 @@ void Sync::logout()
                     //    shouldn't matter either, since the session probably expired
                     /*
                     Q_EMIT error(Error::Type::SyncError,
-                                QStringLiteral(""),
-                                QStringLiteral(""),
+                                QLatin1String(""),
+                                QLatin1String(""),
                                 logoutRequest->error(),
                                 logoutRequest->errorString(),
                                 i18n("Could not log out of GPodder server"));
@@ -475,7 +475,7 @@ void Sync::savePasswordToFile(const QString &username, const QString &password)
     if (!((fileDir.exists() || fileDir.mkpath(QStringLiteral("."))) && passwordFile.open(QFile::WriteOnly))) {
         Q_EMIT error(Error::Type::SyncError,
                      passwordFile.fileName(),
-                     QStringLiteral(""),
+                     QLatin1String(""),
                      0,
                      i18n("I/O denied: Cannot save password."),
                      i18n("I/O denied: Cannot save password."));
@@ -556,12 +556,12 @@ QString Sync::retrievePasswordFromFile(const QString &username)
     } else {
         Q_EMIT error(Error::Type::SyncError,
                      passwordFile.fileName(),
-                     QStringLiteral(""),
+                     QLatin1String(""),
                      0,
                      i18n("I/O denied: Cannot access password file."),
                      i18n("I/O denied: Cannot access password file."));
 
-        return QStringLiteral("");
+        return QLatin1String("");
     }
 }
 
@@ -637,8 +637,8 @@ void Sync::registerNewDevice(const QString &id, const QString &caption, const QS
         if (updateDeviceRequest->error() || updateDeviceRequest->aborted()) {
             if (updateDeviceRequest->error()) {
                 Q_EMIT error(Error::Type::SyncError,
-                             QStringLiteral(""),
-                             QStringLiteral(""),
+                             QLatin1String(""),
+                             QLatin1String(""),
                              updateDeviceRequest->error(),
                              updateDeviceRequest->errorString(),
                              i18n("Could not create GPodder device"));
@@ -663,8 +663,8 @@ void Sync::linkUpAllDevices()
         if (syncRequest->error() || syncRequest->aborted()) {
             if (syncRequest->error()) {
                 Q_EMIT error(Error::Type::SyncError,
-                             QStringLiteral(""),
-                             QStringLiteral(""),
+                             QLatin1String(""),
+                             QLatin1String(""),
                              syncRequest->error(),
                              syncRequest->errorString(),
                              i18n("Could not retrieve synced device status"));
@@ -673,14 +673,16 @@ void Sync::linkUpAllDevices()
             return;
         }
 
-        QSet<QString> syncDevices;
-        for (const QStringList &group : syncRequest->syncedDevices()) {
-            syncDevices += QSet(group.begin(), group.end());
+        QStringList syncDevices;
+        QVector<QStringList> rawSyncedDevices = syncRequest->syncedDevices();
+        for (const QStringList &group : std::as_const(rawSyncedDevices)) {
+            syncDevices += group;
         }
-        syncDevices += QSet(syncRequest->unsyncedDevices().begin(), syncRequest->unsyncedDevices().end());
+        syncDevices += syncRequest->unsyncedDevices();
 
+        syncDevices.removeDuplicates();
         QVector<QStringList> syncDeviceGroups;
-        syncDeviceGroups += QStringList(syncDevices.values());
+        syncDeviceGroups += syncDevices;
         if (!m_gpodder) {
             return;
         }
@@ -692,8 +694,8 @@ void Sync::linkUpAllDevices()
             if (upSyncRequest->error() || upSyncRequest->aborted()) {
                 if (upSyncRequest->error()) {
                     // Q_EMIT error(Error::Type::SyncError,
-                    //            QStringLiteral(""),
-                    //            QStringLiteral(""),
+                    //            QLatin1String(""),
+                    //            QLatin1String(""),
                     //            upSyncRequest->error(),
                     //            upSyncRequest->errorString(),
                     //            i18n("Could not update synced device status"));
@@ -714,8 +716,8 @@ void Sync::linkUpAllDevices()
                     if (subRequest->error() || subRequest->aborted()) {
                         if (subRequest->error()) {
                             Q_EMIT error(Error::Type::SyncError,
-                                         QStringLiteral(""),
-                                         QStringLiteral(""),
+                                         QLatin1String(""),
+                                         QLatin1String(""),
                                          subRequest->error(),
                                          subRequest->errorString(),
                                          i18n("Could not retrieve subscriptions for device %1", device));
@@ -733,8 +735,8 @@ void Sync::linkUpAllDevices()
                             connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [this, upSubRequest, syncdevice]() {
                                 if (upSubRequest->error()) {
                                     Q_EMIT error(Error::Type::SyncError,
-                                                 QStringLiteral(""),
-                                                 QStringLiteral(""),
+                                                 QLatin1String(""),
+                                                 QLatin1String(""),
                                                  upSubRequest->error(),
                                                  upSubRequest->errorString(),
                                                  i18n("Could not upload subscriptions for device %1", syncdevice));
@@ -768,7 +770,7 @@ void Sync::doSync(SyncStatus status, bool forceFetchAll)
 
     // If a quick upload-only sync is running, abort it
     if (m_syncStatus == SyncStatus::UploadOnlySync) {
-        abortSync();
+        Q_EMIT abortSync();
     }
 
     m_syncStatus = status;
@@ -787,7 +789,7 @@ void Sync::doSync(SyncStatus status, bool forceFetchAll)
     });
     connect(syncJob, &SyncJob::finished, this, [this](KJob *job) {
         if (job->error()) {
-            Q_EMIT error(Error::Type::SyncError, QStringLiteral(""), QStringLiteral(""), job->error(), job->errorText(), job->errorString());
+            Q_EMIT error(Error::Type::SyncError, QLatin1String(""), QLatin1String(""), job->error(), job->errorText(), job->errorString());
         }
         m_syncStatus = SyncStatus::NoSync;
         Q_EMIT syncProgressChanged();

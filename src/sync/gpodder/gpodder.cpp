@@ -49,7 +49,7 @@ GPodder::GPodder(const QString &username, const QString &password, const QString
 
 LoginRequest *GPodder::login()
 {
-    QString url = QStringLiteral("%1/api/2/auth/%2/login.json").arg(baseUrl()).arg(m_username);
+    QString url = QStringLiteral("%1/api/2/auth/%2/login.json").arg(baseUrl(), m_username);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
@@ -61,7 +61,7 @@ LoginRequest *GPodder::login()
 
 LogoutRequest *GPodder::logout()
 {
-    QString url = QStringLiteral("%1/api/2/auth/%2/logout.json").arg(baseUrl()).arg(m_username);
+    QString url = QStringLiteral("%1/api/2/auth/%2/logout.json").arg(baseUrl(), m_username);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
@@ -73,7 +73,7 @@ LogoutRequest *GPodder::logout()
 
 DeviceRequest *GPodder::getDevices()
 {
-    QString url = QStringLiteral("%1/api/2/devices/%2.json").arg(baseUrl()).arg(m_username);
+    QString url = QStringLiteral("%1/api/2/devices/%2.json").arg(baseUrl(), m_username);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
@@ -85,7 +85,7 @@ DeviceRequest *GPodder::getDevices()
 
 UpdateDeviceRequest *GPodder::updateDevice(const QString &id, const QString &caption, const QString &type)
 {
-    QString url = QStringLiteral("%1/api/2/devices/%2/%3.json").arg(baseUrl()).arg(m_username).arg(id);
+    QString url = QStringLiteral("%1/api/2/devices/%2/%3.json").arg(baseUrl(), m_username, id);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
@@ -104,7 +104,7 @@ UpdateDeviceRequest *GPodder::updateDevice(const QString &id, const QString &cap
 }
 SyncRequest *GPodder::getSyncStatus()
 {
-    QString url = QStringLiteral("%1/api/2/sync-devices/%2.json").arg(baseUrl()).arg(m_username);
+    QString url = QStringLiteral("%1/api/2/sync-devices/%2.json").arg(baseUrl(), m_username);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
@@ -116,13 +116,13 @@ SyncRequest *GPodder::getSyncStatus()
 
 UpdateSyncRequest *GPodder::updateSyncStatus(const QVector<QStringList> &syncedDevices, const QStringList &unsyncedDevices)
 {
-    QString url = QStringLiteral("%1/api/2/sync-devices/%2.json").arg(baseUrl()).arg(m_username);
+    QString url = QStringLiteral("%1/api/2/sync-devices/%2.json").arg(baseUrl(), m_username);
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
 
     QJsonArray syncGroupArray;
-    for (QStringList syncGroup : syncedDevices) {
+    for (const QStringList &syncGroup : syncedDevices) {
         syncGroupArray.push_back(QJsonArray::fromStringList(syncGroup));
     }
     QJsonArray unsyncArray = QJsonArray::fromStringList(unsyncedDevices);
@@ -144,9 +144,9 @@ SubscriptionRequest *GPodder::getSubscriptionChanges(const qulonglong &oldtimest
 {
     QString url;
     if (m_provider == SyncUtils::Provider::GPodderNextcloud) {
-        url = QStringLiteral("%1/index.php/apps/gpoddersync/subscriptions?since=%2").arg(baseUrl()).arg(QString::number(oldtimestamp));
+        url = QStringLiteral("%1/index.php/apps/gpoddersync/subscriptions?since=%2").arg(baseUrl(), QString::number(oldtimestamp));
     } else {
-        url = QStringLiteral("%1/api/2/subscriptions/%2/%3.json?since=%4").arg(baseUrl()).arg(m_username).arg(device).arg(QString::number(oldtimestamp));
+        url = QStringLiteral("%1/api/2/subscriptions/%2/%3.json?since=%4").arg(baseUrl(), m_username, device, QString::number(oldtimestamp));
     }
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
@@ -164,7 +164,7 @@ UploadSubscriptionRequest *GPodder::uploadSubscriptionChanges(const QStringList 
     if (m_provider == SyncUtils::Provider::GPodderNextcloud) {
         url = QStringLiteral("%1/index.php/apps/gpoddersync/subscription_change/create").arg(baseUrl());
     } else {
-        url = QStringLiteral("%1/api/2/subscriptions/%2/%3.json").arg(baseUrl()).arg(m_username).arg(device);
+        url = QStringLiteral("%1/api/2/subscriptions/%2/%3.json").arg(baseUrl(), m_username, device);
     }
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
@@ -190,13 +190,10 @@ EpisodeActionRequest *GPodder::getEpisodeActions(const qulonglong &timestamp, bo
 {
     QString url;
     if (m_provider == SyncUtils::Provider::GPodderNextcloud) {
-        url = QStringLiteral("%1/index.php/apps/gpoddersync/episode_action?since=%2").arg(baseUrl()).arg(QString::number(timestamp));
+        url = QStringLiteral("%1/index.php/apps/gpoddersync/episode_action?since=%2").arg(baseUrl(), QString::number(timestamp));
     } else {
         url = QStringLiteral("%1/api/2/episodes/%2.json?since=%3&aggregated=%4")
-                  .arg(baseUrl())
-                  .arg(m_username)
-                  .arg(QString::number(timestamp))
-                  .arg(aggregated ? QStringLiteral("true") : QStringLiteral("false"));
+                  .arg(baseUrl(), m_username, QString::number(timestamp), aggregated ? QStringLiteral("true") : QStringLiteral("false"));
     }
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
@@ -214,14 +211,14 @@ UploadEpisodeActionRequest *GPodder::uploadEpisodeActions(const QVector<SyncUtil
     if (m_provider == SyncUtils::Provider::GPodderNextcloud) {
         url = QStringLiteral("%1/index.php/apps/gpoddersync/episode_action/create").arg(baseUrl());
     } else {
-        url = QStringLiteral("%1/api/2/episodes/%2.json").arg(baseUrl()).arg(m_username);
+        url = QStringLiteral("%1/api/2/episodes/%2.json").arg(baseUrl(), m_username);
     }
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
     addAuthentication(request);
 
     QJsonArray actionArray;
-    for (SyncUtils::EpisodeAction episodeAction : episodeActions) {
+    for (const SyncUtils::EpisodeAction &episodeAction : episodeActions) {
         QJsonObject actionObject;
         actionObject.insert(QStringLiteral("podcast"), episodeAction.podcast);
         if (!episodeAction.url.isEmpty()) {

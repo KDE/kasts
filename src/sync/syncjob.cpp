@@ -144,7 +144,7 @@ void SyncJob::doQuickSync()
     m_localEpisodeActions = getLocalEpisodeActions();
 
     QHash<QString, QHash<QString, EpisodeAction>> localEpisodeActionHash;
-    for (const EpisodeAction &action : m_localEpisodeActions) {
+    for (const EpisodeAction &action : std::as_const(m_localEpisodeActions)) {
         addToHashIfNewer(localEpisodeActionHash, action);
     }
     qCDebug(kastsSync) << "local hash";
@@ -244,7 +244,8 @@ void SyncJob::syncSubscriptions()
 
             removeSubscriptionChangeConflicts(remoteAddFeedList, remoteRemoveFeedList);
 
-            for (const QString &url : subRequest->addList()) {
+            const QStringList addList = subRequest->addList();
+            for (const QString &url : addList) {
                 qCDebug(kastsSync) << "Sync add feed:" << url;
                 if (DataManager::instance().feedExists(url)) {
                     qCDebug(kastsSync) << "this one we have; do nothing";
@@ -254,7 +255,8 @@ void SyncJob::syncSubscriptions()
                 }
             }
 
-            for (const QString &url : subRequest->removeList()) {
+            const QStringList removeList = subRequest->removeList();
+            for (const QString &url : removeList) {
                 qCDebug(kastsSync) << "Sync remove feed:" << url;
                 if (DataManager::instance().feedExists(url)) {
                     qCDebug(kastsSync) << "this one we have; needs to be removed";
@@ -290,7 +292,7 @@ void SyncJob::syncSubscriptions()
             // Add the new feeds to the list of feeds that need to be refreshed.
             // We check with feedExists to make sure not to add the same podcast
             // with a slightly different url
-            for (const QString &url : remoteAddFeedList) {
+            for (const QString &url : std::as_const(remoteAddFeedList)) {
                 if (!DataManager::instance().feedExists(url)) {
                     m_feedsToBeUpdatedSubs += url;
                 }
@@ -461,7 +463,8 @@ void SyncJob::fetchRemoteEpisodeActions()
 
         qCDebug(kastsSync) << newEpisodeTimestamp;
 
-        for (const EpisodeAction &action : epRequest->episodeActions()) {
+        const QVector<EpisodeAction> episodeActions = epRequest->episodeActions();
+        for (const EpisodeAction &action : episodeActions) {
             addToHashIfNewer(m_remoteEpisodeActionHash, action);
 
             qCDebug(kastsSync) << action.podcast << action.url << action.id << action.device << action.action << action.started << action.position
@@ -473,7 +476,7 @@ void SyncJob::fetchRemoteEpisodeActions()
         // Check returned timestamp against current timestamp.  If they aren't
         // close enough (let's take 10 seconds), that means that there are still
         // more episode actions to be fetched from the server.
-        if (newEpisodeTimestamp > (currentTimestamp - 10) || epRequest->episodeActions().isEmpty()) {
+        if (newEpisodeTimestamp > (currentTimestamp - 10) || episodeActions.isEmpty()) {
             QTimer::singleShot(0, this, &SyncJob::syncEpisodeStates);
         } else {
             qCDebug(kastsSync) << "Fetching another batch of episode actions" << newEpisodeTimestamp << currentTimestamp;
@@ -489,7 +492,7 @@ void SyncJob::syncEpisodeStates()
     m_localEpisodeActions = getLocalEpisodeActions();
 
     QHash<QString, QHash<QString, EpisodeAction>> localEpisodeActionHash;
-    for (const EpisodeAction &action : m_localEpisodeActions) {
+    for (const EpisodeAction &action : std::as_const(m_localEpisodeActions)) {
         addToHashIfNewer(localEpisodeActionHash, action);
     }
 
@@ -511,7 +514,8 @@ void SyncJob::syncEpisodeStates()
 
     // Now we update the feeds that need updating (don't update feeds that have
     // already been updated after the subscriptions were updated).
-    for (const QString &url : getFeedsFromHash(m_remoteEpisodeActionHash)) {
+    const QStringList feedsFromHash = getFeedsFromHash(m_remoteEpisodeActionHash);
+    for (const QString &url : feedsFromHash) {
         if (!m_feedsToBeUpdatedSubs.contains(url) && !m_feedsToBeUpdatedEps.contains(url)) {
             m_feedsToBeUpdatedEps += url;
         }
@@ -666,13 +670,13 @@ void SyncJob::removeAppliedSubscriptionChangesFromDB()
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM FeedActions WHERE url=:url AND action=:action;"));
 
-    for (const QString &url : m_localSubscriptionChanges.first) {
+    for (const QString &url : std::as_const(m_localSubscriptionChanges.first)) {
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("add"));
         Database::instance().execute(query);
     }
 
-    for (const QString &url : m_localSubscriptionChanges.second) {
+    for (const QString &url : std::as_const(m_localSubscriptionChanges.second)) {
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("remove"));
         Database::instance().execute(query);
@@ -687,7 +691,7 @@ void SyncJob::removeAppliedEpisodeActionsFromDB()
     query.prepare(
         QStringLiteral("DELETE FROM EpisodeActions WHERE podcast=:podcast AND url=:url AND id=:id AND action=:action AND started=:started AND "
                        "position=:position AND total=:total AND timestamp=:timestamp;"));
-    for (const EpisodeAction &epAction : m_localEpisodeActions) {
+    for (const EpisodeAction &epAction : std::as_const(m_localEpisodeActions)) {
         qCDebug(kastsSync) << "Removing episode action from DB" << epAction.id;
         query.bindValue(QStringLiteral(":podcast"), epAction.podcast);
         query.bindValue(QStringLiteral(":url"), epAction.url);
@@ -821,11 +825,10 @@ void SyncJob::addToHashIfNewer(QHash<QString, QHash<QString, EpisodeAction>> &ep
 
 void SyncJob::removeEpisodeActionConflicts(QHash<QString, QHash<QString, EpisodeAction>> &local, QHash<QString, QHash<QString, EpisodeAction>> &remote)
 {
-    QStringList actions;
-    actions << QStringLiteral("play") << QStringLiteral("download-delete") << QStringLiteral("new");
+    const QStringList actions = {QStringLiteral("play"), QStringLiteral("download-delete"), QStringLiteral("new")};
 
     // We first remove the conflicts from the hash with local changes
-    for (const QHash<QString, EpisodeAction> &hashItem : remote) {
+    for (const QHash<QString, EpisodeAction> &hashItem : std::as_const(remote)) {
         for (const QString &action : actions) {
             QString id = hashItem[action].id;
             if (local.contains(id) && local.value(id).contains(action)) {
@@ -837,7 +840,7 @@ void SyncJob::removeEpisodeActionConflicts(QHash<QString, QHash<QString, Episode
     }
 
     // And now the same for the remote
-    for (const QHash<QString, EpisodeAction> &hashItem : local) {
+    for (const QHash<QString, EpisodeAction> &hashItem : std::as_const(local)) {
         for (const QString &action : actions) {
             QString id = hashItem[action].id;
             if (remote.contains(id) && remote.value(id).contains(action)) {
