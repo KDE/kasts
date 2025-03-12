@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-11 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2025-03-04 13:15+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -231,73 +231,73 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:183
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Iragazkirik ez"
 
-#: models/abstractepisodeproxymodel.cpp:185
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Jotako atalak"
 
-#: models/abstractepisodeproxymodel.cpp:187
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Jo gabeko atalak"
 
-#: models/abstractepisodeproxymodel.cpp:189
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "\"Berria\" gisa markatutako atalak"
 
-#: models/abstractepisodeproxymodel.cpp:191
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "\"Berria\" gisa markatu gabeko atalak"
 
-#: models/abstractepisodeproxymodel.cpp:193
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Gogoko gisa markatutako atalak"
 
-#: models/abstractepisodeproxymodel.cpp:195
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Gogoko gisa markatu gabeko atalak"
 
-#: models/abstractepisodeproxymodel.cpp:205
+#: models/abstractepisodeproxymodel.cpp:203
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Izenburua"
 
-#: models/abstractepisodeproxymodel.cpp:207
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Deskribapena"
 
-#: models/abstractepisodeproxymodel.cpp:209
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Podcastaren izenburua"
 
-#: models/abstractepisodeproxymodel.cpp:219
+#: models/abstractepisodeproxymodel.cpp:217
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Data: berriagoak aurrena"
 
-#: models/abstractepisodeproxymodel.cpp:221
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -2162,12 +2162,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%%1"
 
-#: sync/sync.cpp:178
+#: sync/sync.cpp:174
 #, kde-format
 msgid "Never"
 msgstr "Inoiz ez"
 
-#: sync/sync.cpp:201
+#: sync/sync.cpp:197
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2175,90 +2175,90 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts %1(e)an"
 
-#: sync/sync.cpp:295
+#: sync/sync.cpp:291
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
 
-#: sync/sync.cpp:334
+#: sync/sync.cpp:330
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
 
-#: sync/sync.cpp:484 sync/sync.cpp:485
+#: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "S/I ukatu da: Ezin da pasahitza gorde."
 
-#: sync/sync.cpp:565 sync/sync.cpp:566
+#: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "S/I ukatu da: Ezin da pasahitz-fitxategia atzitu."
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:644
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Ezin izan du «GPodder» gailua sortu"
 
-#: sync/sync.cpp:674
+#: sync/sync.cpp:670
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Ezin izan du ekarri sinkronizatutako gailuaren egoera"
 
-#: sync/sync.cpp:725
+#: sync/sync.cpp:723
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Ezin izan ditu %1 gailuaren harpidetzak ekarri"
 
-#: sync/sync.cpp:744
+#: sync/sync.cpp:742
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Ezin izan ditu %1 gailuaren harpidetzak zama-igo"
 
-#: sync/syncjob.cpp:67
+#: sync/syncjob.cpp:63
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "Ezin izan ditu zerbitzaritik harpidetza eguneratzeak ekarri"
 
-#: sync/syncjob.cpp:70
+#: sync/syncjob.cpp:66
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "Ezin izan ditu harpidetzen aldaketak zerbitzarira zama-igo"
 
-#: sync/syncjob.cpp:73
+#: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "Ezin izan ditu zerbitzaritik atalen eguneratzeak ekarri"
 
-#: sync/syncjob.cpp:76
+#: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "Ezin izan ditu atalen eguneratzeak zerbitzarira zama-igo"
 
-#: sync/syncjob.cpp:79
+#: sync/syncjob.cpp:75
 #, kde-format
 msgid "Internal data error"
 msgstr "Barneko datuen errorea"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:883
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(%1/%2 urratsa) Hasi sinkronizatzen"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(%1/%2 urratsa) Urrutiko harpidetza eguneratzeak eskatzen"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(%1/%2 urratsa) Harpidetzen eguneratze lokalak zama-igotzen"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
@@ -2266,37 +2266,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(%3/%4 urratsa) %2/%1 podcast eguneratu da"
 msgstr[1] "(%3/%4 urratsa) %2/%1 podcast eguneratu dira"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:901
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(%1/%2 urratsa) Atalen urrutiko eguneratzeak eskatzen"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(%1/%2 urratsa) Atalen urrutiko aldaketak aplikatzen"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(%1/%2 urratsa) Atalen eguneratze lokalak zama-igotzen"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(%1/%2 urratsa) Sinkronizazioa amaitu da"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Sinkronizatzea bertan behera utzi da"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:917
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
