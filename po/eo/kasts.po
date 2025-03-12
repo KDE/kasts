@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 02:35+0000\n"
 "PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -48,13 +48,13 @@ msgstr "Nevalida Komunikilo"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Podkastaj elŝutoj ne permesitaj sur mezuritaj konektoj"
 
-#: entry.cpp:100 feed.cpp:136
+#: entry.cpp:100 feed.cpp:126
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 kaj %2"
 
-#: entry.cpp:103 feed.cpp:139
+#: entry.cpp:103 feed.cpp:129
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -229,73 +229,73 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Neniu filtrilo"
 
-#: models/abstractepisodeproxymodel.cpp:186
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Ludis epizodojn"
 
-#: models/abstractepisodeproxymodel.cpp:188
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Neluditaj epizodoj"
 
-#: models/abstractepisodeproxymodel.cpp:190
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Epizodoj markitaj kiel \"Novaj\""
 
-#: models/abstractepisodeproxymodel.cpp:192
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Epizodoj ne markitaj kiel \"Novaj\""
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Epizodoj markitaj kiel Favoritaj"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Epizodoj ne markitaj kiel Favoritaj"
 
-#: models/abstractepisodeproxymodel.cpp:206
+#: models/abstractepisodeproxymodel.cpp:203
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Titolo"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Priskribo"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Podkasta titolo"
 
-#: models/abstractepisodeproxymodel.cpp:220
+#: models/abstractepisodeproxymodel.cpp:217
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Dato: pli nova unue"
 
-#: models/abstractepisodeproxymodel.cpp:222
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -1093,7 +1093,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Agordoj"
 
-#: qml/Main.qml:202
+#: qml/Main.qml:203
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1101,7 +1101,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Ĝisdatigis %2 el %1 Podkasto"
 msgstr[1] "Ĝisdatigis %2 el %1 Podkastoj"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1109,7 +1109,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Movis %2 of %1 Dosiero"
 msgstr[1] "Movis %2 of %1 Dosieroj"
 
-#: qml/Main.qml:279
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -2153,12 +2153,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:178
+#: sync/sync.cpp:174
 #, kde-format
 msgid "Never"
 msgstr "Neniam"
 
-#: sync/sync.cpp:201
+#: sync/sync.cpp:197
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2166,90 +2166,90 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts sur %1"
 
-#: sync/sync.cpp:295
+#: sync/sync.cpp:291
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Ne eblis ensaluti en GPodder-nextcloud-servilo"
 
-#: sync/sync.cpp:334
+#: sync/sync.cpp:330
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Ne eblis ensaluti en GPodder-servilo"
 
-#: sync/sync.cpp:484 sync/sync.cpp:485
+#: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O neita: Ne povas konservi pasvorton."
 
-#: sync/sync.cpp:565 sync/sync.cpp:566
+#: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O neita: Ne povas aliri pasvortdosieron."
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:644
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Ne eblis krei GPodder-aparaton"
 
-#: sync/sync.cpp:674
+#: sync/sync.cpp:670
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Ne eblis retrovi sinkronigitan aparaton"
 
-#: sync/sync.cpp:725
+#: sync/sync.cpp:723
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Ne eblis retrovi abonojn por aparato %1"
 
-#: sync/sync.cpp:744
+#: sync/sync.cpp:742
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Ne eblis alŝuti abonojn por aparato %1"
 
-#: sync/syncjob.cpp:67
+#: sync/syncjob.cpp:63
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "Ne eblis preni abonajn ĝisdatigojn de servilo"
 
-#: sync/syncjob.cpp:70
+#: sync/syncjob.cpp:66
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "Ne eblis alŝuti abonŝanĝojn al servilo"
 
-#: sync/syncjob.cpp:73
+#: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "Ne eblis preni epizodajn ĝisdatigojn de servilo"
 
-#: sync/syncjob.cpp:76
+#: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "Ne eblis alŝuti epizodajn ĝisdatigojn al servilo"
 
-#: sync/syncjob.cpp:79
+#: sync/syncjob.cpp:75
 #, kde-format
 msgid "Internal data error"
 msgstr "Interna datuma eraro"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:883
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Paŝo %1 de %2) Komenci sinkronigon"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(Paŝo %1 de %2) Petante forajn abonajn ĝisdatigojn"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Paŝo %1 de %2) Alŝutante lokajn abonajn ĝisdatigojn"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
@@ -2257,37 +2257,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(Paŝo %3 el %4) Ĝisdatigis %2 el %1 podkasto"
 msgstr[1] "(Paŝo %3 el %4) Ĝisdatigis %2 el %1 podkastoj"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:901
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Paŝo %1 de %2) Petante forajn epizodajn ĝisdatigojn"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(Paŝo %1 de %2) Aplikante forajn epizodajn ŝanĝojn"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Paŝo %1 de %2) Alŝutante lokajn epizodajn ĝisdatigojn"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Paŝo %1 de %2) Finita sinkronigo"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Sinkronigo ĉesigita"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:917
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"

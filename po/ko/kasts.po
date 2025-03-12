@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 02:35+0000\n"
 "PO-Revision-Date: 2024-08-20 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,13 +47,13 @@ msgstr "잘못된 미디어"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
 
-#: entry.cpp:100 feed.cpp:136
+#: entry.cpp:100 feed.cpp:126
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 그리고 %2"
 
-#: entry.cpp:103 feed.cpp:139
+#: entry.cpp:103 feed.cpp:129
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -229,73 +229,73 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "필터 없음"
 
-#: models/abstractepisodeproxymodel.cpp:186
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "재생한 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:188
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "재생하지 않은 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:190
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "\"새 에피소드\"로 표시된 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:192
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "\"새 에피소드\"로 표시되지 않은 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "책갈피에 등록된 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "책갈피에 등록되지 않은 에피소드"
 
-#: models/abstractepisodeproxymodel.cpp:206
+#: models/abstractepisodeproxymodel.cpp:203
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "제목"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "설명"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "팟캐스트 제목"
 
-#: models/abstractepisodeproxymodel.cpp:220
+#: models/abstractepisodeproxymodel.cpp:217
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "날짜: 새로운 것 먼저"
 
-#: models/abstractepisodeproxymodel.cpp:222
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -1089,21 +1089,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "설정"
 
-#: qml/Main.qml:202
+#: qml/Main.qml:203
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/Main.qml:279
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -2155,12 +2155,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:178
+#: sync/sync.cpp:174
 #, kde-format
 msgid "Never"
 msgstr "하지 않음"
 
-#: sync/sync.cpp:201
+#: sync/sync.cpp:197
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2168,127 +2168,127 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1의 Kasts"
 
-#: sync/sync.cpp:295
+#: sync/sync.cpp:291
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:334
+#: sync/sync.cpp:330
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder 서버에 연결할 수 없음"
 
-#: sync/sync.cpp:484 sync/sync.cpp:485
+#: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O 거부됨: 암호를 저장할 수 없습니다."
 
-#: sync/sync.cpp:565 sync/sync.cpp:566
+#: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:644
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder 장치를 만들 수 없음"
 
-#: sync/sync.cpp:674
+#: sync/sync.cpp:670
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "동기화된 장치 상태를 가져올 수 없음"
 
-#: sync/sync.cpp:725
+#: sync/sync.cpp:723
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 장치의 구독을 가져올 수 없음"
 
-#: sync/sync.cpp:744
+#: sync/sync.cpp:742
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 장치의 구독을 업로드할 수 없음"
 
-#: sync/syncjob.cpp:67
+#: sync/syncjob.cpp:63
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "서버에서 원격 구독 업데이트를 가져올 수 없음"
 
-#: sync/syncjob.cpp:70
+#: sync/syncjob.cpp:66
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "서버에 구독 변경을 업로드할 수 없음"
 
-#: sync/syncjob.cpp:73
+#: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "서버에서 에피소드 업데이트를 가져올 수 없음"
 
-#: sync/syncjob.cpp:76
+#: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "서버에 에피소드 업데이트를 업로드할 수 없음"
 
-#: sync/syncjob.cpp:79
+#: sync/syncjob.cpp:75
 #, kde-format
 msgid "Internal data error"
 msgstr "내부 데이터 오류"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:883
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(%2단계 중 %1단계) 동기화 시작"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(%2단계 중 %1단계) 원격 구독 업데이트 요청 중"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(%2단계 중 %1단계) 로컬 구독 업데이트 업로드 중"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(%4단계 중 %3단계) 팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:901
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(%2단계 중 %1단계) 원격 에피소드 업데이트 요청 중"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(%2단계 중 %1단계) 원격 에피소드 변경 적용 중"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(%2단계 중 %1단계) 로컬 에피소드 업데이트 업로드 중"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(%2단계 중 %1단계) 동기화 완료"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "동기화 중단됨"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:917
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"

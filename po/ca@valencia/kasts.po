@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:41+0000\n"
+"POT-Creation-Date: 2025-03-12 02:35+0000\n"
 "PO-Revision-Date: 2025-02-15 12:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -50,13 +50,13 @@ msgstr "Fitxer multimèdia no vàlid"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Baixades de pòdcast no permeses amb la connexió d'ús mesurat"
 
-#: entry.cpp:100 feed.cpp:136
+#: entry.cpp:100 feed.cpp:126
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 i %2"
 
-#: entry.cpp:103 feed.cpp:139
+#: entry.cpp:103 feed.cpp:129
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -232,73 +232,73 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Sense filtre"
 
-#: models/abstractepisodeproxymodel.cpp:186
+#: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Episodis reproduïts"
 
-#: models/abstractepisodeproxymodel.cpp:188
+#: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Episodis sense reproduir"
 
-#: models/abstractepisodeproxymodel.cpp:190
+#: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Episodis marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:192
+#: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Episodis no marcats com a «Nou»"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Episodis marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Episodis no marcats com a preferits"
 
-#: models/abstractepisodeproxymodel.cpp:206
+#: models/abstractepisodeproxymodel.cpp:203
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Títol"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Descripció"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Títol del pòdcast"
 
-#: models/abstractepisodeproxymodel.cpp:220
+#: models/abstractepisodeproxymodel.cpp:217
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Data: primer els més nous"
 
-#: models/abstractepisodeproxymodel.cpp:222
+#: models/abstractepisodeproxymodel.cpp:219
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -1097,7 +1097,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Configuració"
 
-#: qml/Main.qml:202
+#: qml/Main.qml:203
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1105,7 +1105,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 actualitzat de %1 pòdcast"
 msgstr[1] "%2 actualitzats de %1 pòdcast"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:226
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1113,7 +1113,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "S'ha mogut %2 de %1 fitxers"
 msgstr[1] "S'han mogut %2 de %1 fitxers"
 
-#: qml/Main.qml:279
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -2166,12 +2166,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:178
+#: sync/sync.cpp:174
 #, kde-format
 msgid "Never"
 msgstr "Mai"
 
-#: sync/sync.cpp:201
+#: sync/sync.cpp:197
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2179,92 +2179,92 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts a %1"
 
-#: sync/sync.cpp:295
+#: sync/sync.cpp:291
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "No s'ha pogut iniciar la sessió en el servidor Nextcloud de GPodder"
 
-#: sync/sync.cpp:334
+#: sync/sync.cpp:330
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "No s'ha pogut iniciar la sessió en el servidor de GPodder"
 
-#: sync/sync.cpp:484 sync/sync.cpp:485
+#: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "E/S denegada: no s'ha pogut guardar la contrasenya."
 
-#: sync/sync.cpp:565 sync/sync.cpp:566
+#: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "E/S denegada: no s'ha pogut accedir al fitxer de contrasenya."
 
-#: sync/sync.cpp:648
+#: sync/sync.cpp:644
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "No s'ha pogut crear el dispositiu de GPodder"
 
-#: sync/sync.cpp:674
+#: sync/sync.cpp:670
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "No s'ha pogut recuperar l'estat del dispositiu sincronitzat"
 
-#: sync/sync.cpp:725
+#: sync/sync.cpp:723
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "No s'han pogut recuperar les subscripcions per al dispositiu %1"
 
-#: sync/sync.cpp:744
+#: sync/sync.cpp:742
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "No han pogut pujar les subscripcions per al dispositiu %1"
 
-#: sync/syncjob.cpp:67
+#: sync/syncjob.cpp:63
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr ""
 "No s'han pogut recuperar del servidor les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:70
+#: sync/syncjob.cpp:66
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "No han pogut pujar al servidor els canvis de subscripció"
 
-#: sync/syncjob.cpp:73
+#: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "No s'han pogut recuperar del servidor les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:76
+#: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "No s'han pogut pujar al servidor les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:79
+#: sync/syncjob.cpp:75
 #, kde-format
 msgid "Internal data error"
 msgstr "S'ha produït un error intern de dades"
 
-#: sync/syncjob.cpp:884
+#: sync/syncjob.cpp:883
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Pas %1 de %2) Inici de la sincronització"
 
-#: sync/syncjob.cpp:887
+#: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr ""
 "(Pas %1 de %2) Sol·licitud remota de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:890
+#: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions de subscripció"
 
-#: sync/syncjob.cpp:894
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
@@ -2272,37 +2272,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(Pas %3 de %4) Actualitzat %2 de %1 pòdcast"
 msgstr[1] "(Pas %3 de %4) Actualitzats %2 de %1 pòdcast"
 
-#: sync/syncjob.cpp:902
+#: sync/syncjob.cpp:901
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Pas %1 de %2) Sol·licitud remota de les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:905
+#: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(Pas %1 de %2) S'apliquen els canvis remots dels episodis"
 
-#: sync/syncjob.cpp:908
+#: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Pas %1 de %2) Pujada local de les actualitzacions d'episodis"
 
-#: sync/syncjob.cpp:911
+#: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Pas %1 de %2) Sincronització finalitzada"
 
-#: sync/syncjob.cpp:914
+#: sync/syncjob.cpp:913
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Sincronització interrompuda"
 
-#: sync/syncjob.cpp:918
+#: sync/syncjob.cpp:917
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
