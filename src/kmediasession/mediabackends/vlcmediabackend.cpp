@@ -97,6 +97,15 @@ VlcMediaBackend::VlcMediaBackend(QObject *parent)
     const char *cmdLineOption = "--no-video";
     d->mInstance = libvlc_new(1, &cmdLineOption);
 
+    if (!d->mInstance) {
+        // retry without the commandline option
+        d->mInstance = libvlc_new(0, nullptr);
+        if (!d->mInstance) {
+            // give up, probably some essential vlc part is missing
+            qFatal() << "The VLC backend for Kasts is missing crucial dependencies; try installing the full VLC package and restarting Kasts.";
+        }
+    }
+
     libvlc_set_user_agent(d->mInstance, d->mKMediaSession->playerName().toUtf8().constData(), d->mKMediaSession->playerName().toUtf8().constData());
     libvlc_set_app_id(d->mInstance, d->mKMediaSession->desktopEntryName().toUtf8().constData(), "1.0", d->mKMediaSession->playerName().toUtf8().constData());
 
