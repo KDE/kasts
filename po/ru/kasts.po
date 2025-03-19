@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Olesya Gerasimenko <translation-team@basealt.ru>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 # SPDX-FileCopyrightText: 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 02:35+0000\n"
-"PO-Revision-Date: 2024-10-22 11:33+0300\n"
+"PO-Revision-Date: 2025-03-18 11:48+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -59,7 +59,7 @@ msgstr "%1 и %2"
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr "%1, и %2"
+msgstr "%1 и %2"
 
 #: error.cpp:48
 #, kde-format
@@ -104,7 +104,7 @@ msgstr "Потоковая передача данных запрещена пр
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "Ошибка базы данных "
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -216,10 +216,9 @@ msgid "Podcast Player"
 msgstr "Проигрыватель подкастов"
 
 #: main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© Сообщество KDE, 2020–2024"
+msgstr "© Сообщество KDE, 2020–2025"
 
 #: main.cpp:134
 #, kde-format
@@ -543,11 +542,10 @@ msgid "Refresh All Podcasts"
 msgstr "Обновить все подкасты"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
-msgstr "Нет загрузок"
+msgstr "Нет загруженных данных"
 
 #: qml/DownloadListPage.qml:72
 #, kde-format
@@ -1244,34 +1242,32 @@ msgctxt ""
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
 msgstr ""
+"Оптимизация интерфейса для работы на мобильном устройстве или на настольном "
+"компьютере"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Для применения изменений необходимо перезапустить приложение"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Автоматически"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "компьютер"
+msgstr "Настольный компьютер"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "мобильное устройство"
+msgstr "Мобильное устройство"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1364,12 +1360,10 @@ msgid "Error Log"
 msgstr "Журнал ошибок"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Очистить все ошибки"
+msgstr "Очистить список"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1399,9 +1393,7 @@ msgstr ""
 "Корректировать оставшееся время на основе текущей скорости воспроизведения"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
 msgstr "Приоритет потоковой передачи над загрузкой данных"
@@ -1425,12 +1417,10 @@ msgid "Podcast update settings"
 msgstr "Параметры обновления подкастов"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Автоматически получать обновления каналов подкастов"
+msgstr "Периодически получать обновления каналов подкастов"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1708,28 +1698,22 @@ msgid "Synchronization"
 msgstr "Синхронизация"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "О программе"
+msgstr "О программе Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
-msgstr "О программе"
+msgstr "Описание"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "О программе"
+msgstr "О KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:21
 #, kde-format
