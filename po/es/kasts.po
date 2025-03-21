@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-12 02:35+0000\n"
-"PO-Revision-Date: 2025-02-18 02:39+0100\n"
+"PO-Revision-Date: 2025-03-19 14:29+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2163,7 +2163,7 @@ msgstr "Interrumpir"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: sync/sync.cpp:174
 #, kde-format
@@ -2381,217 +2381,3 @@ msgstr "Saltar hacia adelante"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Salir"
-
-#~ msgctxt "@title:group"
-#~ msgid "About Kasts"
-#~ msgstr "Acerca de Kasts"
-
-#~ msgctxt "@title:menu Category in settings"
-#~ msgid "About"
-#~ msgstr "Acerca de"
-
-#~ msgid "Settings"
-#~ msgstr "Preferencias"
-
-#~ msgctxt ""
-#~ "@option:check Label for settings related to the play time, e.g. whether "
-#~ "the total track time is shown or a countdown of the remaining play time"
-#~ msgid "Play time:"
-#~ msgstr "Tiempo de reproducción:"
-
-#~ msgctxt "@option:check Label for settings related to podcast updates"
-#~ msgid "Update Settings:"
-#~ msgstr "Preferencias de actualización:"
-
-#~ msgid "Episode List"
-#~ msgstr "Lista de episodios"
-
-#~ msgctxt "@title Podcast subscription list page title"
-#~ msgid "Subscriptions"
-#~ msgstr "Suscripciones"
-
-#~ msgctxt "@action:intoolbar Open the podcast discover page"
-#~ msgid "Discover"
-#~ msgstr "Descubrir"
-
-#~ msgctxt "@title:column Page showing the list queued items"
-#~ msgid "Queue"
-#~ msgstr "Cola"
-
-#~ msgid "Font size:"
-#~ msgstr "Tamaño del texto:"
-
-#~ msgid "Article"
-#~ msgstr "Artículo"
-
-#~ msgid "Podcast downloads not allowed due to user setting"
-#~ msgstr "No se pueden descargar pódcast por las preferencias del usuario"
-
-#~ msgid "Connection or streaming not allowed on metered connection"
-#~ msgstr "Conexión o emisión no permitida en conexiones de uso medido"
-
-#~ msgid "General Settings"
-#~ msgstr "Preferencias generales"
-
-#~ msgid "Network Settings"
-#~ msgstr "Preferencias de la red"
-
-#~ msgid "Storage Settings"
-#~ msgstr "Preferencias de almacenamiento"
-
-#~ msgid "Synchronization Settings"
-#~ msgstr "Preferencias de sincronización"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Search and Filter"
-#~ msgstr "Buscar y filtrar"
-
-#~ msgctxt "@title:menu"
-#~ msgid "Select Filter"
-#~ msgstr "Seleccionar filtro"
-
-#~ msgid "No Episodes Available"
-#~ msgstr "No hay episodios disponibles"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Volume Settings"
-#~ msgstr "Abrir preferencias del volumen"
-
-#~ msgctxt "@action:button"
-#~ msgid "Toggle Mute"
-#~ msgstr "Conmutar silencio"
-
-#~ msgid "Zoom in"
-#~ msgstr "Ampliar"
-
-#~ msgid "Zoom out"
-#~ msgstr "Reducir"
-
-#~ msgid "Rotate left"
-#~ msgstr "Rotar a la izquierda"
-
-#~ msgid "Rotate right"
-#~ msgstr "Rotar a la derecha"
-
-#~ msgid "Close"
-#~ msgstr "Cerrar"
-
-#~ msgid "Select file..."
-#~ msgstr "Seleccionar archivo..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add Podcast..."
-#~ msgstr "Añadir pódcast..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Import Podcasts..."
-#~ msgstr "Importar pódcast..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Export Podcasts..."
-#~ msgstr "Exportar pódcast..."
-
-#~ msgctxt "@info:status Name of the filter which is active on the ListView"
-#~ msgid "Filter Active: %1"
-#~ msgstr "Filtro activo: %1"
-
-#~ msgid "Select folder..."
-#~ msgstr "Seleccionar carpeta..."
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add Podcast"
-#~ msgstr "Añadir pódcast"
-
-#~ msgctxt "@label:listbox File filter option in file dialog"
-#~ msgid "All Files"
-#~ msgstr "Todos los archivos"
-
-#~ msgctxt "context menu action"
-#~ msgid "Remove Podcast"
-#~ msgid_plural "Remove Podcasts"
-#~ msgstr[0] "Eliminar pódcast"
-#~ msgstr[1] "Eliminar pódcast"
-
-#~ msgid "Errors"
-#~ msgstr "Errores"
-
-#~ msgid "Error log"
-#~ msgstr "Registro de errores"
-
-#~ msgctxt ""
-#~ "Label for settings related to streaming of episodes (as opposed to "
-#~ "playing back locally downloaded files)"
-#~ msgid "Streaming:"
-#~ msgstr "Emisión:"
-
-#~ msgid "New Episodes:"
-#~ msgstr "Nuevos episodios:"
-
-#~ msgid "Played Episodes:"
-#~ msgstr "Episodios reproducidos:"
-
-#~ msgid "Nothing Added to the Queue Yet"
-#~ msgstr "Aún no se ha añadido nada a la cola"
-
-#~ msgctxt "by <Author(s)>"
-#~ msgid "by %1"
-#~ msgstr "por %1"
-
-#~ msgid "Force Sync Now"
-#~ msgstr "Forzar sincronización ahora"
-
-#~ msgid "Podcast updates not allowed due to user setting"
-#~ msgstr "No se pueden actualizar pódcast por las preferencias del usuario"
-
-#~ msgid "All Episodes"
-#~ msgstr "Todos los episodios"
-
-#~ msgctxt "<Podcast Name> - Details"
-#~ msgid "%1 - Details"
-#~ msgstr "%1 - Detalles"
-
-#~ msgid "In Progress"
-#~ msgstr "En proceso"
-
-#~ msgid "Completed"
-#~ msgstr "Completada"
-
-#~ msgid "No Downloaded Episodes"
-#~ msgstr "No se han descargado episodios"
-
-#~ msgid "No Downloads in Progress"
-#~ msgstr "No hay descargas en proceso"
-
-#~ msgid "Check Error Log Tab (under Downloads) for more details"
-#~ msgstr ""
-#~ "Compruebe la pestaña del registro de errores (en «Descargas») para más "
-#~ "detalles"
-
-#~ msgctxt "by <author(s)>"
-#~ msgid "by"
-#~ msgstr "por"
-
-#~ msgid "Remove from queue"
-#~ msgstr "Eliminar de la cola"
-
-#~ msgid "No new episodes"
-#~ msgstr "No hay nuevos episodios"
-
-#~ msgid "Refresh all Podcasts"
-#~ msgstr "Actualizar todos los pódcast"
-
-#~| msgid "Add feed"
-#~ msgid "No feed"
-#~ msgstr "Ninguna emisión web"
-
-#~ msgid "Feed Reader"
-#~ msgstr "Lector de emisiones web"
-
-#~ msgid "Add Feed"
-#~ msgstr "Añadir emisión web"
-
-#~ msgid "No Entries available"
-#~ msgstr "No hay entradas disponibles"
-
-#~ msgid "%1 posts, %2 unread"
-#~ msgstr "%1 publicaciones, %2 sin leer"
