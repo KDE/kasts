@@ -227,37 +227,45 @@ Kirigami.ScrollablePage {
 
         title: i18nc("@label", "Select Sync Provider")
 
+        property list<var> providerModel: [
+            {
+                name: i18nc("@label", "gpodder.net"),
+                subtitle: i18nc("@label", "Synchronize with official gpodder.net server"),
+                iconName: "gpodder",
+                provider: Sync.GPodderNet
+            },
+            {
+                name: i18nc("@label", "GPodder Nextcloud"),
+                subtitle: i18nc("@label", "Synchronize with GPodder Nextcloud app"),
+                iconName: "kaccounts-nextcloud",
+                provider: Sync.GPodderNextcloud
+            }
+        ]
+
         ColumnLayout {
             spacing: 0
 
             Repeater {
                 focus: syncProviderOverlay.visible
 
-                model: ListModel {
-                    id: providerModel
-                }
-                Component.onCompleted: {
-                    providerModel.append({"name": i18nc("@label", "gpodder.net"),
-                                        "subtitle": i18nc("@label", "Synchronize with official gpodder.net server"),
-                                        "icon": "gpodder",
-                                        "provider": Sync.GPodderNet});
-                    providerModel.append({"name": i18nc("@label", "GPodder Nextcloud"),
-                                        "subtitle": i18nc("@label", "Synchronize with GPodder Nextcloud app"),
-                                        "icon": "kaccounts-nextcloud",
-                                        "provider": Sync.GPodderNextcloud});
-                }
+                model: syncProviderOverlay.providerModel
+
                 delegate: Delegates.RoundedItemDelegate {
                     id: syncProviderRepeaterDelegate
+                    required property string name
+                    required property string iconName
+                    required property string subtitle
+                    required property var provider
                     Layout.fillWidth: true
-                    text: model.name
-                    icon.name: model.icon
+                    text: name
+                    icon.name: iconName
                     contentItem: Delegates.SubtitleContentItem {
                         itemDelegate: syncProviderRepeaterDelegate
-                        subtitle: model.subtitle
+                        subtitle: subtitle
                     }
                     Keys.onReturnPressed: clicked()
                     onClicked: {
-                        Sync.provider = model.provider;
+                        Sync.provider = provider;
                         syncProviderOverlay.close();
                         syncLoginOverlay.open();
                     }
@@ -268,7 +276,7 @@ Kirigami.ScrollablePage {
 
     Kirigami.Dialog {
         id: syncLoginOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 25
+        maximumWidth: Kirigami.Units.gridUnit * 30
         padding: Kirigami.Units.largeSpacing
 
         showCloseButton: true
@@ -288,7 +296,7 @@ Kirigami.ScrollablePage {
         }
         onRejected: syncLoginOverlay.close();
 
-        Column {
+        ColumnLayout {
             spacing: Kirigami.Units.largeSpacing
             RowLayout {
                 width: parent.width
@@ -388,7 +396,8 @@ Kirigami.ScrollablePage {
 
     Kirigami.Dialog {
         id: syncDeviceOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 25
+        maximumWidth: Kirigami.Units.gridUnit * 30
+        preferredWidth: Kirigami.Units.gridUnit * 30
         padding: Kirigami.Units.largeSpacing
 
         showCloseButton: true

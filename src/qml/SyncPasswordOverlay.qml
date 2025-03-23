@@ -16,7 +16,7 @@ import org.kde.kasts.settings
 Kirigami.Dialog {
     id: syncPasswordOverlay
     padding: Kirigami.Units.largeSpacing
-    preferredWidth: Kirigami.Units.gridUnit * 20
+    maximumWidth: Kirigami.Units.gridUnit * 25
     parent: applicationWindow().overlay
 
     showCloseButton: true
@@ -30,7 +30,7 @@ Kirigami.Dialog {
     }
     onRejected: syncPasswordOverlay.close();
 
-    Column {
+    ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
         RowLayout {
             width: parent.width
