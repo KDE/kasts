@@ -38,14 +38,14 @@ AddonDelegates.RoundedItemDelegate {
         Controls.ToolButton {
             icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
             text: i18n("Play")
-            enabled: root.entry != undefined && root.entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || streamingButtonVisible)
+            enabled: root.entry != undefined && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: {
                 if (!root.entry.queueStatus) {
-                    entry.queueStatus = true;
+                    root.entry.queueStatus = true;
                 }
-                if (AudioManager.entry != entry) {
-                    AudioManager.entry = entry;
+                if (AudioManager.entry != root.entry) {
+                    AudioManager.entry = root.entry;
                 }
                 if (AudioManager.playbackState !== KMediaSession.PlayingState) {
                     AudioManager.play();

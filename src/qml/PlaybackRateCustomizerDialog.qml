@@ -33,7 +33,7 @@ Kirigami.Dialog {
         }
     }
 
-    function getRateList(): void {
+    function getRateList(): list<int> {
         var list = [];
         for (var i = 0; i < rateModel.count; i++) {
             list.push(Math.round(rateModel.get(i).value * 100));
@@ -134,12 +134,13 @@ Kirigami.Dialog {
             Repeater {
                 model: rateModel
                 delegate: Kirigami.Chip {
+                    required property var value
                     Layout.fillWidth: true
-                    text: model.value.toFixed(2)
+                    text: value.toFixed(2)
                     closable: true
                     onRemoved: {
                         for (var i = 0; i < rateModel.count; i++) {
-                            if (model.value == rateModel.get(i).value) {
+                            if (value == rateModel.get(i).value) {
                                 rateModel.remove(i);
                                 break;
                             }
