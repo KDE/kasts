@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 02:35+0000\n"
+"POT-Creation-Date: 2025-03-24 02:32+0000\n"
 "PO-Revision-Date: 2024-08-01 14:24+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -486,18 +486,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Søvntimer"
 
-#: qml/Desktop/DesktopPlayerControls.qml:385
+#: qml/Desktop/DesktopPlayerControls.qml:387
 #, kde-format
 msgid "Chapters"
 msgstr "Kapitler"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Ingen sportitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -1909,49 +1909,49 @@ msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "Vælg synkroniseringsudbyder"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:239
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:249
+#: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "Synkronisér med den officielle gpodder.net-server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:254
+#: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:255
+#: qml/Settings/SynchronizationSettingsPage.qml:246
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Synkronisér med GPodder Nextcloud-appen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:289
+#: qml/Settings/SynchronizationSettingsPage.qml:293
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "Login-oplysninger for synkronisering"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Synkronisér med GPodder Nextcloud-appen"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "Synkronisér med gpodder.net-tjenesten"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1963,115 +1963,115 @@ msgstr ""
 "installeret: %1.<br/>Det anbefales, at der manuelt oprettes en app-"
 "adgangskode til Kasts via webgrænsefladen og bruge disse oplysninger."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Hvis du ikke allerede har en konto, skal du først oprette en på %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:344
+#: qml/Settings/SynchronizationSettingsPage.qml:348
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Brugernavn:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:355
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:370
+#: qml/Settings/SynchronizationSettingsPage.qml:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "Brug brugerdefineret server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:375
+#: qml/Settings/SynchronizationSettingsPage.qml:379
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Værtsnavn:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:414
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "Indstillinger for synkroniseringsenhed"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "Opret ny enhed"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:425
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "Enhedsnavn:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "Enhedsbeskrivelse"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:444
+#: qml/Settings/SynchronizationSettingsPage.qml:449
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "Enhedstype:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:458
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "andet"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:457
+#: qml/Settings/SynchronizationSettingsPage.qml:462
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "skrivebord"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:466
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "bærbar"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:465
+#: qml/Settings/SynchronizationSettingsPage.qml:470
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "server"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:469
+#: qml/Settings/SynchronizationSettingsPage.qml:474
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "mobil"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:477
+#: qml/Settings/SynchronizationSettingsPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "Opret enhed"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:494
+#: qml/Settings/SynchronizationSettingsPage.qml:499
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "eller vælg en eksisterende enhed"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:540
+#: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "Indstillinger for enhedssynkronisering"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:566
+#: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2083,13 +2083,13 @@ msgstr ""
 "tværs af alle enheder?\n"
 "Hvis du ikke ved, hvad dette betyder, bør du bare vælge \"Ok\"."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:594
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "Synkronisér nu?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:612
+#: qml/Settings/SynchronizationSettingsPage.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"

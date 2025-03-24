@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 02:35+0000\n"
+"POT-Creation-Date: 2025-03-24 02:32+0000\n"
 "PO-Revision-Date: 2024-08-20 22:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -485,18 +485,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "수면 타이머"
 
-#: qml/Desktop/DesktopPlayerControls.qml:385
+#: qml/Desktop/DesktopPlayerControls.qml:387
 #, kde-format
 msgid "Chapters"
 msgstr "챕터"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "트랙 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -1897,49 +1897,49 @@ msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "동기화 공급자 선택"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:239
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:249
+#: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "공식 gpodder.net 서버와 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:254
+#: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:255
+#: qml/Settings/SynchronizationSettingsPage.qml:246
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud 앱과 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:289
+#: qml/Settings/SynchronizationSettingsPage.qml:293
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "로그인 자격 증명 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "GPodder Nextcloud 앱과 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "gpodder.net 서비스와 동기화"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1950,115 +1950,115 @@ msgstr ""
 "GPodder Sync 앱이 설치된 Nextcloud 서버와 동기화할 수 있습니다: %1.<br/>웹 인"
 "터페이스에서 Kasts용 앱 암호를 따로 생성하여 사용하는 것을 추천합니다."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "계정이 없으면 %1에서 등록하십시오"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:344
+#: qml/Settings/SynchronizationSettingsPage.qml:348
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "사용자 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:355
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "암호:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:370
+#: qml/Settings/SynchronizationSettingsPage.qml:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "사용자 정의 서버 사용"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:375
+#: qml/Settings/SynchronizationSettingsPage.qml:379
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "호스트 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:414
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "장치 동기화 설정"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "새 장치 만들기"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:425
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "장치 이름:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "장치 설명:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:444
+#: qml/Settings/SynchronizationSettingsPage.qml:449
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "장치 종류:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:458
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "기타"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:457
+#: qml/Settings/SynchronizationSettingsPage.qml:462
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "데스크톱"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:466
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "노트북"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:465
+#: qml/Settings/SynchronizationSettingsPage.qml:470
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "서버"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:469
+#: qml/Settings/SynchronizationSettingsPage.qml:474
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "휴대폰"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:477
+#: qml/Settings/SynchronizationSettingsPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "장치 만들기"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:494
+#: qml/Settings/SynchronizationSettingsPage.qml:499
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "또는 기존 장치 선택"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:540
+#: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "장치 동기화 설정"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:566
+#: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2070,13 +2070,13 @@ msgstr ""
 "니까?\n"
 "무엇을 해야 할지 모르겠으면 \"확인\"을 선택하십시오."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:594
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "지금 동기화?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:612
+#: qml/Settings/SynchronizationSettingsPage.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"

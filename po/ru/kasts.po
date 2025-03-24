@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 02:35+0000\n"
+"POT-Creation-Date: 2025-03-24 02:32+0000\n"
 "PO-Revision-Date: 2025-03-18 11:48+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -486,18 +486,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Таймер сна"
 
-#: qml/Desktop/DesktopPlayerControls.qml:385
+#: qml/Desktop/DesktopPlayerControls.qml:387
 #, kde-format
 msgid "Chapters"
 msgstr "Главы"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "Нет названия дорожки"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -1918,49 +1918,49 @@ msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "Выбор поставщика услуг синхронизации"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:239
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:249
+#: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "Синхронизировать с официальным сервером gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:254
+#: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "Nextcloud GPodder"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:255
+#: qml/Settings/SynchronizationSettingsPage.qml:246
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "Синхронизировать с приложением Nextcloud GPodder"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:289
+#: qml/Settings/SynchronizationSettingsPage.qml:293
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "Учётные данные для синхронизации"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "Синхронизация с приложением Nextcloud GPodder"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "Синхронизация со службой gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1973,115 +1973,115 @@ msgstr ""
 "приложение для Kasts с помощью веб-интерфейса и использовать эти учётные "
 "данные."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "Если учётной записи ещё нет, следует создать её по адресу %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:344
+#: qml/Settings/SynchronizationSettingsPage.qml:348
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:355
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:370
+#: qml/Settings/SynchronizationSettingsPage.qml:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "Использовать другой сервер"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:375
+#: qml/Settings/SynchronizationSettingsPage.qml:379
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "Имя хоста:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:414
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "Параметры устройства синхронизации"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "Создать новое устройство"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:425
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "Имя устройства:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "Описание устройства:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:444
+#: qml/Settings/SynchronizationSettingsPage.qml:449
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "Тип устройства:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:458
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "другое"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:457
+#: qml/Settings/SynchronizationSettingsPage.qml:462
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "компьютер"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:466
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "ноутбук"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:465
+#: qml/Settings/SynchronizationSettingsPage.qml:470
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "сервер"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:469
+#: qml/Settings/SynchronizationSettingsPage.qml:474
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "мобильное устройство"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:477
+#: qml/Settings/SynchronizationSettingsPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "Создать устройство"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:494
+#: qml/Settings/SynchronizationSettingsPage.qml:499
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "или выбрать существующее устройство"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:540
+#: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "Параметры синхронизации устройств"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:566
+#: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2093,13 +2093,13 @@ msgstr ""
 "gpodder.net на всех устройствах?\n"
 "Если не совсем понятно, что это означает, рекомендуется выбрать «ОК»."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:594
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "Синхронизировать сейчас?"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:612
+#: qml/Settings/SynchronizationSettingsPage.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
