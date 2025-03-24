@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 00:41+0000\n"
+"POT-Creation-Date: 2025-03-24 00:41+0000\n"
 "PO-Revision-Date: 2025-02-17 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -485,18 +485,18 @@ msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "مؤقت النوم"
 
-#: qml/Desktop/DesktopPlayerControls.qml:385
+#: qml/Desktop/DesktopPlayerControls.qml:387
 #, kde-format
 msgid "Chapters"
 msgstr "الفصول"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, kde-format
 msgid "No Track Title"
 msgstr "لا يوجد عنوان للمقطوعة"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, kde-format
 msgid "No track loaded"
@@ -1925,49 +1925,49 @@ msgctxt "@label"
 msgid "Select Sync Provider"
 msgstr "اختر مزود مزامنة"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:248
+#: qml/Settings/SynchronizationSettingsPage.qml:239
 #, kde-format
 msgctxt "@label"
 msgid "gpodder.net"
 msgstr "gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:249
+#: qml/Settings/SynchronizationSettingsPage.qml:240
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
 msgstr "مزامنة مع خادم gpodder.net الرسمي"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:254
+#: qml/Settings/SynchronizationSettingsPage.qml:245
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
 msgstr "GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:255
+#: qml/Settings/SynchronizationSettingsPage.qml:246
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
 msgstr "مزامنة مع تطبيق GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:289
+#: qml/Settings/SynchronizationSettingsPage.qml:293
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
 msgstr "مزامنة بيانات تسجيل الدخول"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
 msgstr "مزامنة مع تطبيق GPodder Nextcloud"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:322
+#: qml/Settings/SynchronizationSettingsPage.qml:326
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
 msgstr "مزامنة مع خدمة gpodder.net"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid ""
@@ -1979,115 +1979,115 @@ msgstr ""
 "بإنشاء كلمة مرور التطبيق يدويًا لكاست من خلال واجهة الويب واستخدام بيانات "
 "الاعتماد هذه."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:332
+#: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
 msgstr "إذا لم يكن لديك مستخدم, يجب إنشاء حساب في %1"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:344
+#: qml/Settings/SynchronizationSettingsPage.qml:348
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "اسم المستخدم:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:355
+#: qml/Settings/SynchronizationSettingsPage.qml:359
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "كلمة السر:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:370
+#: qml/Settings/SynchronizationSettingsPage.qml:374
 #, kde-format
 msgctxt "@option:check"
 msgid "Use custom server"
 msgstr "استخدام خادم مخصص"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:375
+#: qml/Settings/SynchronizationSettingsPage.qml:379
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
 msgstr "اسم المضيف:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:409
+#: qml/Settings/SynchronizationSettingsPage.qml:414
 #, kde-format
 msgctxt "@title"
 msgid "Sync Device Settings"
 msgstr "مزامنة إعدادات الجهاز"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:419
+#: qml/Settings/SynchronizationSettingsPage.qml:424
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a new device"
 msgstr "أنشئ جهاز جديد"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:425
+#: qml/Settings/SynchronizationSettingsPage.qml:430
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Name:"
 msgstr "اسم الجهاز:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:435
+#: qml/Settings/SynchronizationSettingsPage.qml:440
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device Description:"
 msgstr "وصف الجهاز:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:444
+#: qml/Settings/SynchronizationSettingsPage.qml:449
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Device Type:"
 msgstr "نوع الجهاز:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:453
+#: qml/Settings/SynchronizationSettingsPage.qml:458
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "other"
 msgstr "أخرى"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:457
+#: qml/Settings/SynchronizationSettingsPage.qml:462
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "desktop"
 msgstr "حاسب مكتبي"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:461
+#: qml/Settings/SynchronizationSettingsPage.qml:466
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "laptop"
 msgstr "حاسب محمول"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:465
+#: qml/Settings/SynchronizationSettingsPage.qml:470
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "server"
 msgstr "الخادم:"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:469
+#: qml/Settings/SynchronizationSettingsPage.qml:474
 #, kde-format
 msgctxt "@item:inlistbox type of device"
 msgid "mobile"
 msgstr "الجوّال"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:477
+#: qml/Settings/SynchronizationSettingsPage.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Create Device"
 msgstr "أنشئ جهاز"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:494
+#: qml/Settings/SynchronizationSettingsPage.qml:499
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
 msgstr "أو اختر جهاز موجود"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:540
+#: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
 msgstr "إعدادات مزامنة الجهاز"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:566
+#: qml/Settings/SynchronizationSettingsPage.qml:572
 #, kde-format
 msgctxt "@label"
 msgid ""
@@ -2099,13 +2099,13 @@ msgstr ""
 "الأجهزة؟\n"
 "إذا كنت لا تعرف ما يعنيه هذا، فمن الأفضل أن تختار \"موافق\"."
 
-#: qml/Settings/SynchronizationSettingsPage.qml:588
+#: qml/Settings/SynchronizationSettingsPage.qml:594
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
 msgstr "مزامنة الآن؟"
 
-#: qml/Settings/SynchronizationSettingsPage.qml:612
+#: qml/Settings/SynchronizationSettingsPage.qml:618
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
