@@ -25,7 +25,7 @@
 class AudioManagerPrivate
 {
 private:
-    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"));
+    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"), static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
 
     Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
@@ -244,6 +244,10 @@ void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
     KMediaSession::PlaybackState currentState = playbackState();
     qint64 currentRate = playbackRate();
 
+    if (!availableBackends().contains(backend)) {
+        return;
+    }
+
     d->m_player.setCurrentBackend(backend);
 
     setEntry(d->m_entry);
@@ -252,6 +256,8 @@ void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
     }
     // TODO: Fix restoring the current playback rate
     setPlaybackRate(currentRate);
+
+    SettingsManager::self()->setMediabackend(static_cast<int>(backend));
 }
 
 void AudioManager::setEntry(Entry *entry)

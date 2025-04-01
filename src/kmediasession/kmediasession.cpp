@@ -51,7 +51,7 @@ private:
     bool m_canGoPrevious = false;
 };
 
-KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEntryName, QObject *parent)
+KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEntryName, KMediaSession::MediaBackends mediaBackend, QObject *parent)
     : QObject(parent)
     , d(std::make_unique<KMediaSessionPrivate>())
 {
@@ -61,15 +61,19 @@ KMediaSession::KMediaSession(const QString &playerName, const QString &desktopEn
     d->m_meta = new MetaData(this);
     connect(d->m_meta, &MetaData::metaDataChanged, this, &KMediaSession::metaDataChanged);
 
+    if (d->m_availableBackends.contains(mediaBackend)) {
+        setCurrentBackend(mediaBackend);
+    } else {
 #ifdef HAVE_LIBVLC
-    setCurrentBackend(KMediaSession::MediaBackends::Vlc);
+        setCurrentBackend(KMediaSession::MediaBackends::Vlc);
 #else
 #ifdef HAVE_GST
-    setCurrentBackend(KMediaSession::MediaBackends::Gst);
+        setCurrentBackend(KMediaSession::MediaBackends::Gst);
 #else
-    setCurrentBackend(KMediaSession::MediaBackends::Qt);
+        setCurrentBackend(KMediaSession::MediaBackends::Qt);
 #endif
 #endif
+    }
 
     // set up mpris2
     d->m_playerName = playerName.isEmpty()
