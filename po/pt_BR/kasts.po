@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-03 00:41+0000\n"
 "PO-Revision-Date: 2025-02-07 20:14-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,17 +29,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "joserafaeltic@riseup.net, geraldosimiao@fedoraproject.org"
 
-#: audiomanager.cpp:397
+#: audiomanager.cpp:403
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "Não é permitido fazer fluxo em conexão limitada"
 
-#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
+#: audiomanager.cpp:412 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Sem conexão de rede"
 
-#: audiomanager.cpp:546
+#: audiomanager.cpp:552
 #, kde-format
 msgid "Invalid Media"
 msgstr "Mídia inválida"

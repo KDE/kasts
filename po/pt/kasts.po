@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-03 00:41+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: audiomanager.cpp:397
+#: audiomanager.cpp:403
 #, fuzzy, kde-format
 #| msgid "No connection or streaming on metered connection not allowed"
 msgid "Streaming on metered connection not allowed"
@@ -37,13 +37,13 @@ msgstr ""
 "Não existe nenhuma ligação ou a transmissão em ligações móveis limitadas não "
 "é permitida"
 
-#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
+#: audiomanager.cpp:412 enclosure.cpp:148 error.cpp:64
 #, fuzzy, kde-format
 #| msgid "On metered connections"
 msgid "No network connection"
 msgstr "Em ligações com 'plafond'"
 
-#: audiomanager.cpp:546
+#: audiomanager.cpp:552
 #, kde-format
 msgid "Invalid Media"
 msgstr "Conteúdo Inválido"

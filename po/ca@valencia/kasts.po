@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-03 00:41+0000\n"
 "PO-Revision-Date: 2025-02-15 12:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,17 +30,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:397
+#: audiomanager.cpp:403
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "No es permet la transmissió en continu amb una connexió d'ús mesurat"
 
-#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
+#: audiomanager.cpp:412 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "No hi ha cap connexió de xarxa"
 
-#: audiomanager.cpp:546
+#: audiomanager.cpp:552
 #, kde-format
 msgid "Invalid Media"
 msgstr "Fitxer multimèdia no vàlid"

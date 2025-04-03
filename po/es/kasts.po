@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:41+0000\n"
+"POT-Creation-Date: 2025-04-03 00:41+0000\n"
 "PO-Revision-Date: 2025-03-19 14:29+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,17 +29,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: audiomanager.cpp:397
+#: audiomanager.cpp:403
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "No se permite emitir en conexiones de uso medido"
 
-#: audiomanager.cpp:406 enclosure.cpp:148 error.cpp:64
+#: audiomanager.cpp:412 enclosure.cpp:148 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "No hay conexión de red"
 
-#: audiomanager.cpp:546
+#: audiomanager.cpp:552
 #, kde-format
 msgid "Invalid Media"
 msgstr "Medio no válido"
