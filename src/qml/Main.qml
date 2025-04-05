@@ -142,6 +142,8 @@ Kirigami.ApplicationWindow {
         id: headerLoader
         active: !Kirigami.Settings.isMobile
         visible: active
+        anchors.left: parent.left
+        anchors.right: parent.right
 
         sourceComponent: HeaderBar {
             focus: true
