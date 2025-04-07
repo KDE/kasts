@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-06 02:34+0000\n"
-"PO-Revision-Date: 2025-02-15 09:44+0300\n"
+"PO-Revision-Date: 2025-04-07 00:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -134,7 +134,7 @@ msgstr "Aç"
 #: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:362
 #, kde-format
 msgid "Play"
-msgstr "Çal"
+msgstr "Dinle"
 
 #: kmediasession/example-app/qml/Main.qml:111
 #: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:385
@@ -239,19 +239,19 @@ msgstr "Süzgeç yok"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr "Çalınan bölümler"
+msgstr "Dinlenen bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr "Çalınmayan bölümler"
+msgstr "Dinlenmeyen bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
-msgstr "“Yeni” olarak imlenen bölümler"
+msgstr "“Yeni” olarak imlenmiş bölümler"
 
 #: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
@@ -306,14 +306,14 @@ msgstr "Tarih: Önce en eski"
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Çalınmayan sayısı: Azalan"
+msgstr "Dinlenmeyen sayısı: Azalan"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr "Çalınmayan sayısı: Artan"
+msgstr "Dinlenmeyen sayısı: Artan"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
@@ -637,13 +637,13 @@ msgstr "Çalma Konumunu Sıfırla"
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr "Çalındı Olarak İmle"
+msgstr "Dinlenmedi Olarak İmle"
 
 #: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr "Çalındı Olarak İmle"
+msgstr "Dinlendi Olarak İmle"
 
 #: qml/EntryPage.qml:197
 #, kde-format
@@ -759,7 +759,7 @@ msgstr "Ayrıntıları Göster"
 #: qml/FeedDetailsPage.qml:240
 #, kde-format
 msgid "Podcast URL:"
-msgstr "Pod Yayını URL’si:"
+msgstr "Pod yayını URL’si:"
 
 #: qml/FeedDetailsPage.qml:261
 #, kde-format
@@ -787,8 +787,8 @@ msgstr[1] "%1 Bölüm"
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] "1 Çalınmayan"
-msgstr[1] "%1 Çalınmayan"
+msgstr[0] "1 Dinlenmeyen"
+msgstr[1] "%1 Dinlenmeyen"
 
 #: qml/FeedDetailsPage.qml:328
 #, kde-format
@@ -946,7 +946,7 @@ msgstr "Etkin süzgeç: %1"
 #: qml/GenericEntryDelegate.qml:217
 #, kde-format
 msgid "Played"
-msgstr "Çalındı"
+msgstr "Dinlendi"
 
 #: qml/GenericEntryDelegate.qml:217
 #, kde-format
@@ -1030,12 +1030,12 @@ msgstr "Tümünün Seçimini Kaldır"
 #: qml/GenericEntryListView.qml:267
 #, kde-format
 msgid "Mark as Played"
-msgstr "Çalındı Olarak İmle"
+msgstr "Dinlendi Olarak İmle"
 
 #: qml/GenericEntryListView.qml:275
 #, kde-format
 msgid "Mark as Unplayed"
-msgstr "Çalınmadı Olarak İmle"
+msgstr "Dinlenmedi Olarak İmle"
 
 #: qml/GenericEntryListView.qml:283
 #, kde-format
@@ -1468,19 +1468,19 @@ msgstr "Kuyruk Ayarları"
 #, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
-msgstr "Şu anda çalınan bittikten sonra sonraki bölümden çalmayı sürdür"
+msgstr "Şu anda dinlenen bittikten sonra sonraki bölümden dinlemeyi sürdür"
 
 #: qml/Settings/GeneralSettingsPage.qml:256
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr "Bir bölüm çalındıktan sonra çalma konumunu sıfırla"
+msgstr "Bir bölüm dinlendikten sonra çalma konumunu sıfırla"
 
 #: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr "Çalınan bölüm davranışı"
+msgstr "Dinlenmiş bölüm davranışı"
 
 #: qml/Settings/GeneralSettingsPage.qml:275
 #, kde-format
@@ -1505,7 +1505,7 @@ msgstr "Bir sonraki başlangıçta sil"
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
-"Belirtilen süre kadar kalmışsa bölümleri çalındı olarak imle (saniye "
+"Belirtilen süre kadar kalmışsa bölümleri dinlendi olarak imle (saniye "
 "türünden)"
 
 #: qml/Settings/GeneralSettingsPage.qml:317
@@ -1518,19 +1518,19 @@ msgstr "Pod Yayını Eklerken"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
-msgstr "Tüm bölümleri çalındı olarak imle"
+msgstr "Tüm bölümleri dinlendi olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
-msgstr "En son bölümleri çalınmadı olarak imle"
+msgstr "En son bölümleri dinlenmedi olarak imle"
 
 #: qml/Settings/GeneralSettingsPage.qml:359
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
-msgstr "Tüm bölümleri çalınmadı olarak imle"
+msgstr "Tüm bölümleri dinlenmedi olarak imle"
 
 #: qml/Settings/NetworkSettingsPage.qml:27
 #, kde-format
