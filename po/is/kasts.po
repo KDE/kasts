@@ -1,16 +1,16 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2024.
+# SPDX-FileCopyrightText: 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-06 00:41+0000\n"
-"PO-Revision-Date: 2024-06-29 14:23+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-04-06 15:05+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +103,7 @@ msgstr "Streymi ekki leyft á gagnamældri tengingu"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "Gagnagrunnsvilla"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -215,10 +215,9 @@ msgid "Podcast Player"
 msgstr "Hlaðvarpspilari"
 
 #: main.cpp:133
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020–2024 KDE-samfélagið"
+msgstr "© 2020–2025 KDE-samfélagið"
 
 #: main.cpp:134
 #, kde-format
@@ -542,8 +541,7 @@ msgid "Refresh All Podcasts"
 msgstr "Endurhlaða öll hlaðvörp"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Engar sóttar skrár"
@@ -1228,35 +1226,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "Besta viðmótið fyrir notkun á farsíma/vinnutölvu"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Þetta krefst endurræsingar forritsins til að taka gildi"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Sjálfvirkt"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "borðtölva"
+msgstr "Borðtölva"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "farsími"
+msgstr "Farsími"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1349,12 +1343,10 @@ msgid "Error Log"
 msgstr "Villuannáll"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Hreinsa allar villur"
+msgstr "Hreinsa allt"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1383,12 +1375,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Laga tíma sem er eftir að núverandi spilunarhraða"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Setja streymi í forgang fram yfir niðurhal"
+msgstr "Kjósa streymi fram yfir niðurhal"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1409,12 +1399,10 @@ msgid "Podcast update settings"
 msgstr "Uppfærslustillingar fyrir hlaðvörp"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Sækja hlaðvarpsstrauma sjálfkrafa"
+msgstr "Sækja hlaðvarpsstreymi öðru hvoru"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1684,28 +1672,22 @@ msgid "Synchronization"
 msgstr "Samstilling"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "Um hugbúnaðinn"
+msgstr "Um Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Um hugbúnaðinn"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "Um hugbúnaðinn"
+msgstr "Um KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:21
 #, kde-format
