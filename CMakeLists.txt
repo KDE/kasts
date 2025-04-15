@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(KF_MIN_VERSION "6.5.0")
+set(KF_MIN_VERSION "6.12.0")
 set(QT_MIN_VERSION "6.5.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
@@ -116,8 +116,6 @@ install(FILES kasts.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable
 install(FILES icons/kasts-tray-dark.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES icons/kasts-tray-light.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES icons/media-playback-cloud.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/actions)
-
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 
 add_subdirectory(src)
 
