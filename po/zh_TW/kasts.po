@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-23 00:41+0000\n"
-"PO-Revision-Date: 2025-01-24 22:40+0900\n"
+"PO-Revision-Date: 2025-05-03 14:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -105,7 +105,7 @@ msgstr "未允許透過計量連線進行串流"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "資料庫錯誤"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -541,8 +541,7 @@ msgid "Refresh All Podcasts"
 msgstr "重新整理所有 Podcast"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "無下載"
@@ -1220,35 +1219,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "使用適合行動裝置或桌面的介面"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "這會需要應用程式重新啟動才會生效"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "自動"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "桌面"
+msgstr "桌面版"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "手機"
+msgstr "行動版"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1341,12 +1336,10 @@ msgid "Error Log"
 msgstr "錯誤紀錄"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "清除所有錯誤"
+msgstr "全部清除"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1375,12 +1368,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "依目前播放速度計算剩餘時間"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "優先使用串流而非下載"
+msgstr "偏好使用串流而非下載"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1401,12 +1392,10 @@ msgid "Podcast update settings"
 msgstr "Podcast 更新設定"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "自動抓取 Podcast feed"
+msgstr "定期取得 Podcast feed"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1673,12 +1662,10 @@ msgid "Synchronization"
 msgstr "同步"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About KDE"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "關於 KDE"
+msgstr "關於 Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
