@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-23 02:34+0000\n"
-"PO-Revision-Date: 2025-02-15 19:36+0200\n"
+"PO-Revision-Date: 2025-04-20 10:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -102,7 +102,7 @@ msgstr "Suoratoistoa ei sallittu maksullisissa yhteyksissä"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "Tietokantavirhe"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
