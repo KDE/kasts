@@ -70,6 +70,11 @@ Kirigami.ScrollablePage {
         checkable: true
         enabled: page.feed.entries ? true : false
         visible: enabled
+
+        // Make sure to show the searchbar if there is still a searchFilter active
+        Component.onCompleted: {
+            checked = (page.feed.entries ? page.feed.entries.searchFilter != "" : false)
+        }
     }
 
     header: Loader {

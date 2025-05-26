@@ -41,6 +41,7 @@ Controls.Control {
         id: searchField
         Layout.fillWidth: true
         placeholderText: i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
+        text: root.proxyModel.searchFilter
         focus: true
         autoAccept: false
         onAccepted: {
