@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 00:41+0000\n"
+"POT-Creation-Date: 2025-05-27 00:41+0000\n"
 "PO-Revision-Date: 2025-05-03 14:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -518,12 +518,12 @@ msgstr "搜尋 podcastindex.org"
 msgid "Search"
 msgstr "搜尋"
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribe"
 msgstr "訂閱"
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribed"
 msgstr "已訂閱"
@@ -701,7 +701,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "搜尋"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:328
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:333
 #, kde-format
 msgid "No episodes available"
 msgstr "沒有可用的集數"
@@ -738,55 +738,55 @@ msgstr "顯示錯誤紀錄"
 msgid "Podcast Details"
 msgstr "Podcast 詳細資料"
 
-#: qml/FeedDetailsPage.qml:124
+#: qml/FeedDetailsPage.qml:129
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "由：%1"
 
-#: qml/FeedDetailsPage.qml:155
+#: qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "重新整理 Podcast"
 
-#: qml/FeedDetailsPage.qml:174
+#: qml/FeedDetailsPage.qml:179
 #, kde-format
 msgid "Show Details"
 msgstr "顯示詳細資料"
 
-#: qml/FeedDetailsPage.qml:240
+#: qml/FeedDetailsPage.qml:245
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Podcast 網址："
 
-#: qml/FeedDetailsPage.qml:261
+#: qml/FeedDetailsPage.qml:266
 #, kde-format
 msgid "Weblink:"
 msgstr "網頁連結："
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:286
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "訂閱開始日：%1"
 
-#: qml/FeedDetailsPage.qml:292
+#: qml/FeedDetailsPage.qml:297
 #, kde-format
 msgid "Last updated: %1"
 msgstr "上次更新：%1"
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "%1 集"
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1 集未播放"
 
-#: qml/FeedDetailsPage.qml:328
+#: qml/FeedDetailsPage.qml:333
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "錯誤 (%1)：%2"
@@ -1055,19 +1055,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "沒有搜尋結果"
 
-#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:55
+#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "進階搜尋選項"
 
-#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:116
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "搜尋偏好設定"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:120
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:121
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 00:41+0000\n"
+"POT-Creation-Date: 2025-05-27 00:41+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -535,12 +535,12 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, fuzzy, kde-format
 msgid "Subscribe"
 msgstr "ਮੈਂਬਰ ਹੋ: %1"
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, fuzzy, kde-format
 msgid "Subscribed"
 msgstr "ਮੈਂਬਰ ਹੋ: %1"
@@ -738,7 +738,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:328
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:333
 #, fuzzy, kde-format
 #| msgid "No Episodes Available"
 msgid "No episodes available"
@@ -781,60 +781,60 @@ msgstr "ਗਲਤੀ ਦਾ ਲਾਗ"
 msgid "Podcast Details"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: qml/FeedDetailsPage.qml:124
+#: qml/FeedDetailsPage.qml:129
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "%1 ਵਲੋਂ"
 
-#: qml/FeedDetailsPage.qml:155
+#: qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "ਪੋਡਕਾਸਟ ਤਾਜ਼ਾ ਕਰੋ"
 
-#: qml/FeedDetailsPage.qml:174
+#: qml/FeedDetailsPage.qml:179
 #, fuzzy, kde-format
 #| msgid "Details"
 msgid "Show Details"
 msgstr "ਵੇਰਵੇ"
 
-#: qml/FeedDetailsPage.qml:240
+#: qml/FeedDetailsPage.qml:245
 #, fuzzy, kde-format
 #| msgid "Podcast URL"
 msgid "Podcast URL:"
 msgstr "ਪੋਡਕਾਸਟ URL"
 
-#: qml/FeedDetailsPage.qml:261
+#: qml/FeedDetailsPage.qml:266
 #, kde-format
 msgid "Weblink:"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:286
 #, fuzzy, kde-format
 msgid "Subscribed since: %1"
 msgstr "ਮੈਂਬਰ ਹੋ: %1"
 
-#: qml/FeedDetailsPage.qml:292
+#: qml/FeedDetailsPage.qml:297
 #, fuzzy, kde-format
 #| msgid "Last Updated: %1"
 msgid "Last updated: %1"
 msgstr "ਆਖਰੀ ਅੱਪਡੇਟ: %1"
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] ""
 msgstr[1] ""
 
-#: qml/FeedDetailsPage.qml:328
+#: qml/FeedDetailsPage.qml:333
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "ਗ਼ਲਤੀ (%1): %2"
@@ -1122,19 +1122,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:55
+#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:116
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr ""
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:120
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:121
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"

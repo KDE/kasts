@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-23 00:41+0000\n"
+"POT-Creation-Date: 2025-05-27 00:41+0000\n"
 "PO-Revision-Date: 2024-09-03 08:47+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -517,12 +517,12 @@ msgstr "Prohledávat podcastindex.org"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribe"
 msgstr "Zaregistrovat"
 
-#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:160
+#: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribed"
 msgstr "Přihlášen"
@@ -700,7 +700,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:328
+#: qml/EpisodeListPage.qml:90 qml/FeedDetailsPage.qml:333
 #, kde-format
 msgid "No episodes available"
 msgstr "Nejsou k dispozici žádné epizody"
@@ -737,43 +737,43 @@ msgstr "Zobrazit záznam chyb"
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
 
-#: qml/FeedDetailsPage.qml:124
+#: qml/FeedDetailsPage.qml:129
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "od %1"
 
-#: qml/FeedDetailsPage.qml:155
+#: qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Refresh Podcast"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:174
+#: qml/FeedDetailsPage.qml:179
 #, kde-format
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: qml/FeedDetailsPage.qml:240
+#: qml/FeedDetailsPage.qml:245
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL podcastu:"
 
-#: qml/FeedDetailsPage.qml:261
+#: qml/FeedDetailsPage.qml:266
 #, kde-format
 msgid "Weblink:"
 msgstr "Webový odkaz:"
 
-#: qml/FeedDetailsPage.qml:281
+#: qml/FeedDetailsPage.qml:286
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Přihlášen od: %1"
 
-#: qml/FeedDetailsPage.qml:292
+#: qml/FeedDetailsPage.qml:297
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Naposledy aktualizováno: %1"
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
@@ -781,7 +781,7 @@ msgstr[0] "%1 epizoda"
 msgstr[1] "%1 epizody"
 msgstr[2] "%1 epizod"
 
-#: qml/FeedDetailsPage.qml:303
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
@@ -789,7 +789,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: qml/FeedDetailsPage.qml:328
+#: qml/FeedDetailsPage.qml:333
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Chyba (%1): %2"
@@ -1062,19 +1062,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Žádné výsledky hledání"
 
-#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:55
+#: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:56
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Pokročilé možnosti hledání"
 
-#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:116
+#: qml/GlobalSearchField.qml:148 qml/SearchBar.qml:117
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Předvolby hledání"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:120
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:121
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
