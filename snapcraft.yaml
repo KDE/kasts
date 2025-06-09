@@ -62,6 +62,10 @@ parts:
       - mpg123
       - libvlccore9
       - libvlc5
+      - libpulse0
+      - libasound2
+      - libasound2-plugins
+      - libasound2-data
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
