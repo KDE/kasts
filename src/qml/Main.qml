@@ -188,6 +188,7 @@ Kirigami.ApplicationWindow {
         height: visible ? implicitHeight : 0
         active: Kirigami.Settings.isMobile && !WindowUtils.isWidescreen
         sourceComponent: BottomToolbar {
+            visible: opacity > 0
             opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
             Behavior on opacity {
                 NumberAnimation {
