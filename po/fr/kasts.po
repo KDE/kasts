@@ -624,7 +624,7 @@ msgstr "Supprimer de la file d'attente"
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
-msgstr "Supprimer un téléchargement"
+msgstr "Supprimer le téléchargement"
 
 #: qml/EntryPage.qml:184
 #, kde-format
@@ -676,7 +676,7 @@ msgstr "Ajouter aux favoris"
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr "Ouvrir un podcast"
+msgstr "Ouvrir le podcast"
 
 #: qml/EntryPage.qml:284
 #, kde-format
@@ -750,7 +750,7 @@ msgstr "par %1"
 #: qml/FeedDetailsPage.qml:155
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Rafraîchir un podcast"
+msgstr "Rafraîchir le podcast"
 
 #: qml/FeedDetailsPage.qml:174
 #, kde-format
@@ -799,7 +799,7 @@ msgstr "Erreur (%1) : %2"
 #: qml/FeedListDelegate.qml:254
 #, kde-format
 msgid "Remove Podcast"
-msgstr "Supprimer un podcast"
+msgstr "Supprimer le podcast"
 
 #: qml/FeedListPage.qml:20 qml/KastsGlobalDrawer.qml:92
 #: qml/Mobile/BottomToolbar.qml:34
@@ -923,8 +923,8 @@ msgstr "Tout désélectionner"
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] "Supprimer un podcast"
-msgstr[1] "Supprimer des podcasts"
+msgstr[0] "Supprimer le podcast"
+msgstr[1] "Supprimer les podcasts"
 
 #: qml/FeedListPage.qml:408
 #, kde-format
@@ -977,7 +977,7 @@ msgstr "Annuler le téléchargement"
 #: qml/GenericEntryDelegate.qml:348
 #, kde-format
 msgid "Delete Download"
-msgstr "Supprimer un téléchargement"
+msgstr "Supprimer le téléchargement"
 
 #: qml/GenericEntryDelegate.qml:355 qml/GenericEntryListView.qml:247
 #, kde-format
@@ -1053,8 +1053,8 @@ msgstr "Supprimer l'étiquette « Nouveau »"
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
-msgstr[0] "Supprimer un téléchargement"
-msgstr[1] "Supprimer des téléchargements"
+msgstr[0] "Supprimer le téléchargement"
+msgstr[1] "Supprimer les téléchargements"
 
 #: qml/GlobalSearchField.qml:108
 #, kde-format
@@ -2196,7 +2196,7 @@ msgstr "Impossible de se connecter au serveur « GPodder »"
 #: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr "Refus Entrée / Sortie : impossible d'enregistrer un mot de passe."
+msgstr "Refus Entrée / Sortie : impossible d'enregistrer le mot de passe."
 
 #: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
