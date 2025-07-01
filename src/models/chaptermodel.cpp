@@ -15,6 +15,8 @@
 #include <QObject>
 #include <QSqlQuery>
 
+#include <KLocalizedString>
+
 #include <attachedpictureframe.h>
 #include <chapterframe.h>
 
@@ -186,7 +188,9 @@ void ChapterModel::loadMPEGChapters()
         } else {
             image = QString();
         }
-        QString title = QString::fromStdString(chapterFrame->embeddedFrameListMap()["TIT2"].front()->toString().to8Bit(true));
+        const auto frameListMap = chapterFrame->embeddedFrameListMap()["TIT2"];
+        QString title = frameListMap.isEmpty() ? i18nc("@info", "Unnamed chapter")
+                                               : QString::fromStdString(chapterFrame->embeddedFrameListMap()["TIT2"].front()->toString().to8Bit(true));
         int start = chapterFrame->startTime() / 1000;
         Chapter *chapter = new Chapter(m_entry, title, QString(), image, start, this);
         auto originalChapter = std::find_if(m_chapters.begin(), m_chapters.end(), [chapter](auto it) {
