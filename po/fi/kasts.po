@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:42+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2025-04-20 10:31+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -299,6 +299,12 @@ msgstr "Päiväys: uusin ensin"
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Päiväys: vanhin ensin"
+
+#: models/chaptermodel.cpp:192
+#, kde-format
+msgctxt "@info"
+msgid "Unnamed chapter"
+msgstr ""
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format

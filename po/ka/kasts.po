@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:42+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2025-02-15 04:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -300,6 +300,12 @@ msgstr "თარიღი: ჯერ ახლები"
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "თარიღი: ჯერ ძველები"
+
+#: models/chaptermodel.cpp:192
+#, kde-format
+msgctxt "@info"
+msgid "Unnamed chapter"
+msgstr ""
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format

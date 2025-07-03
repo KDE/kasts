@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:42+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -302,6 +302,12 @@ msgstr "तिथिः प्रथमं नवीनतरम्"
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "तिथिः प्रथमं प्राचीनम्"
+
+#: models/chaptermodel.cpp:192
+#, kde-format
+msgctxt "@info"
+msgid "Unnamed chapter"
+msgstr ""
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format

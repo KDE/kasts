@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:42+0000\n"
+"POT-Creation-Date: 2025-07-03 06:56+0000\n"
 "PO-Revision-Date: 2025-02-07 20:14-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -302,6 +302,12 @@ msgstr "Data: mais recente primeiro"
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Data: mais antigo primeiro"
+
+#: models/chaptermodel.cpp:192
+#, kde-format
+msgctxt "@info"
+msgid "Unnamed chapter"
+msgstr ""
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
