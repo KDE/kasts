@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:56+0000\n"
-"PO-Revision-Date: 2025-02-15 09:23+0200\n"
+"PO-Revision-Date: 2025-07-04 12:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -308,7 +308,7 @@ msgstr "Дата: старіші першими"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Глава без назви"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
