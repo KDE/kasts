@@ -1334,7 +1334,7 @@ msgstr "ტექსტი"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
-msgstr "სისტემის ნაგულისხმების გამოყენება"
+msgstr "სისტემის ნაგულისხმევის გამოყენება"
 
 #: qml/Settings/AppearanceSettingsPage.qml:197
 #, kde-format

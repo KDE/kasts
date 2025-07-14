@@ -305,7 +305,7 @@ msgstr "日期：旧的在前"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "未命名章"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
