@@ -64,12 +64,8 @@ FormCard.FormCardPage {
             textRole: "display"
             valueRole: "display"
             model: ColorSchemer.model
-            Component.onCompleted: currentIndex = ColorSchemer.indexForScheme(SettingsManager.colorScheme)
-            onCurrentValueChanged: {
-                ColorSchemer.apply(currentIndex);
-                SettingsManager.colorScheme = ColorSchemer.nameForIndex(currentIndex);
-                SettingsManager.save();
-            }
+            Component.onCompleted: currentIndex = ColorSchemer.indexForCurrentScheme()
+            onCurrentValueChanged: ColorSchemer.apply(currentIndex);
         }
 
         FormCard.FormDelegateSeparator {}
