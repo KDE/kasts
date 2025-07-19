@@ -96,9 +96,6 @@
         </entry>
     </group>
     <group name="Appearance">
-        <entry name="ColorScheme" type="String">
-            <label>Color scheme</label>
-        </entry>
         <entry name="alwaysShowFeedTitles" type="Bool">
             <label>Always show the title of podcast feeds in subscription view</label>
             <default>false</default>

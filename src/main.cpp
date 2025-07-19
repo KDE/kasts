@@ -178,9 +178,7 @@ int main(int argc, char *argv[])
     }
     about.processCommandLine(&parser);
 
-    if (!SettingsManager::self()->colorScheme().isEmpty()) {
-        ColorSchemer::instance().apply(SettingsManager::self()->colorScheme());
-    }
+    ColorSchemer colorschemer;
 
     // Workaround to don't get the app to silently quit when minimized to tray
     app.setQuitLockEnabled(false);
