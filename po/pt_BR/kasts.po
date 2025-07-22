@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-03 06:56+0000\n"
+"POT-Creation-Date: 2025-07-22 00:42+0000\n"
 "PO-Revision-Date: 2025-02-07 20:14-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1274,79 +1274,79 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Tema de cores"
 
-#: qml/Settings/AppearanceSettingsPage.qml:79
+#: qml/Settings/AppearanceSettingsPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Sempre mostrar títulos de podcast na visualização de assinatura"
 
-#: qml/Settings/AppearanceSettingsPage.qml:89
+#: qml/Settings/AppearanceSettingsPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "Mostrar a imagem do episódio em vez da imagem do podcast nas listas"
 
-#: qml/Settings/AppearanceSettingsPage.qml:99
+#: qml/Settings/AppearanceSettingsPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Mostrar títulos de podcast em listas de episódios"
 
-#: qml/Settings/AppearanceSettingsPage.qml:109
+#: qml/Settings/AppearanceSettingsPage.qml:105
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Ícone da bandeja"
 
-#: qml/Settings/AppearanceSettingsPage.qml:120
+#: qml/Settings/AppearanceSettingsPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Mostrar ícone na bandeja do sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:132
+#: qml/Settings/AppearanceSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimizar para a bandeja de ícones em vez de fechar"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tipo de ícone da bandeja"
 
-#: qml/Settings/AppearanceSettingsPage.qml:151
+#: qml/Settings/AppearanceSettingsPage.qml:147
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Colorido"
 
-#: qml/Settings/AppearanceSettingsPage.qml:155
+#: qml/Settings/AppearanceSettingsPage.qml:151
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Claro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:159
+#: qml/Settings/AppearanceSettingsPage.qml:155
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Escuro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:172
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Texto"
 
-#: qml/Settings/AppearanceSettingsPage.qml:182
+#: qml/Settings/AppearanceSettingsPage.qml:178
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Usar o padrão do sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:197
+#: qml/Settings/AppearanceSettingsPage.qml:193
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"

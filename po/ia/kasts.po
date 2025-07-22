@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-03 06:56+0000\n"
+"POT-Creation-Date: 2025-07-22 00:42+0000\n"
 "PO-Revision-Date: 2025-02-18 15:02+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1268,79 +1268,79 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Thema de color"
 
-#: qml/Settings/AppearanceSettingsPage.qml:79
+#: qml/Settings/AppearanceSettingsPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Monstra sempre titulos de podcast in vista de subscriptiones"
 
-#: qml/Settings/AppearanceSettingsPage.qml:89
+#: qml/Settings/AppearanceSettingsPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "Monstra imagine de episodio in loco de imagine de podcast in listas"
 
-#: qml/Settings/AppearanceSettingsPage.qml:99
+#: qml/Settings/AppearanceSettingsPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Monstra titulos de podcast in listas de episodio"
 
-#: qml/Settings/AppearanceSettingsPage.qml:109
+#: qml/Settings/AppearanceSettingsPage.qml:105
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Icone de tabuliero"
 
-#: qml/Settings/AppearanceSettingsPage.qml:120
+#: qml/Settings/AppearanceSettingsPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Monstra le icone in le tabuliero de systema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:132
+#: qml/Settings/AppearanceSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimisa a tabulieroin loco de clauder"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Typo de icone de tabuliero"
 
-#: qml/Settings/AppearanceSettingsPage.qml:151
+#: qml/Settings/AppearanceSettingsPage.qml:147
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Colorate"
 
-#: qml/Settings/AppearanceSettingsPage.qml:155
+#: qml/Settings/AppearanceSettingsPage.qml:151
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Legier"
 
-#: qml/Settings/AppearanceSettingsPage.qml:159
+#: qml/Settings/AppearanceSettingsPage.qml:155
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Obscur"
 
-#: qml/Settings/AppearanceSettingsPage.qml:172
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Texto"
 
-#: qml/Settings/AppearanceSettingsPage.qml:182
+#: qml/Settings/AppearanceSettingsPage.qml:178
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Usa le predefinite de systema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:197
+#: qml/Settings/AppearanceSettingsPage.qml:193
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"

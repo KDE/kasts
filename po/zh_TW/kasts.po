@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-03 06:56+0000\n"
+"POT-Creation-Date: 2025-07-22 00:42+0000\n"
 "PO-Revision-Date: 2025-07-03 23:53+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1257,79 +1257,79 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "顏色主題"
 
-#: qml/Settings/AppearanceSettingsPage.qml:79
+#: qml/Settings/AppearanceSettingsPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "在訂閱檢視中總是顯示 Podcast 標題"
 
-#: qml/Settings/AppearanceSettingsPage.qml:89
+#: qml/Settings/AppearanceSettingsPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "列表中顯示集數圖片而非 Podcast 圖片"
 
-#: qml/Settings/AppearanceSettingsPage.qml:99
+#: qml/Settings/AppearanceSettingsPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "在集數列表中顯示 Podcast 標題"
 
-#: qml/Settings/AppearanceSettingsPage.qml:109
+#: qml/Settings/AppearanceSettingsPage.qml:105
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "系統匣圖示"
 
-#: qml/Settings/AppearanceSettingsPage.qml:120
+#: qml/Settings/AppearanceSettingsPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "在系統匣中顯示圖示"
 
-#: qml/Settings/AppearanceSettingsPage.qml:132
+#: qml/Settings/AppearanceSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "最小化到系統匣而非關閉"
 
-#: qml/Settings/AppearanceSettingsPage.qml:144
+#: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "系統匣圖示類型"
 
-#: qml/Settings/AppearanceSettingsPage.qml:151
+#: qml/Settings/AppearanceSettingsPage.qml:147
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "彩色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:155
+#: qml/Settings/AppearanceSettingsPage.qml:151
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "亮色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:159
+#: qml/Settings/AppearanceSettingsPage.qml:155
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "暗色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:172
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "文字"
 
-#: qml/Settings/AppearanceSettingsPage.qml:182
+#: qml/Settings/AppearanceSettingsPage.qml:178
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "使用系統預設"
 
-#: qml/Settings/AppearanceSettingsPage.qml:197
+#: qml/Settings/AppearanceSettingsPage.qml:193
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
