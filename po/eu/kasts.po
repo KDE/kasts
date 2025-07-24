@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-07-13 15:39+0200\n"
+"PO-Revision-Date: 2025-07-23 13:59+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -115,7 +115,7 @@ msgstr "KMediaSession jotzaile adibidea"
 #: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
-msgstr "Hautatu fitxategia..."
+msgstr "Hautatu fitxategia…"
 
 #: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
@@ -825,7 +825,7 @@ msgstr "Berritu podcast guztiak"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Gehitu podcasta..."
+msgstr "Gehitu podcasta…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
@@ -843,13 +843,13 @@ msgstr "Hautatu harpidetzak nola sailkatu"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Inportatu podcastak..."
+msgstr "Inportatu podcastak…"
 
 #: qml/FeedListPage.qml:119
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Esportatu podcastak..."
+msgstr "Esportatu podcastak…"
 
 #: qml/FeedListPage.qml:155
 #, kde-format
@@ -1224,7 +1224,7 @@ msgstr "Ilara hutsik dago"
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Bilatu atalak..."
+msgstr "Bilatu atalak…"
 
 #: qml/Settings/AppearanceSettingsPage.qml:22
 #, kde-format
@@ -1725,7 +1725,7 @@ msgstr "Biltegiratzearen bide-izena"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "Hautatu karpeta..."
+msgstr "Hautatu karpeta…"
 
 #: qml/Settings/StorageSettingsPage.qml:61
 #, kde-format
