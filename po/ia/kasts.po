@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-03 06:56+0000\n"
-"PO-Revision-Date: 2025-02-18 15:02+0100\n"
+"PO-Revision-Date: 2025-07-30 18:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -305,7 +305,7 @@ msgstr "Data: plus vetere prime"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Capitulo sin nomine"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
