@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-04-20 10:31+0300\n"
+"PO-Revision-Date: 2025-07-20 11:08+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -304,7 +304,7 @@ msgstr "Päiväys: vanhin ensin"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Nimetön luku"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
