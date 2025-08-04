@@ -1380,7 +1380,7 @@ msgstr "سجل الاخطاء"
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "امسح الكلّ"
+msgstr "امحُ الكلّ"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -2160,24 +2160,24 @@ msgstr "ساعات"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr "مزامنة كلمة المرور اجباري"
+msgstr "مزامنة كلمة السر اجباري"
 
 #: qml/SyncPasswordOverlay.qml:47
 #, kde-format
 msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
-msgstr "تعذر استرداد كلمة المرور للمستخدم \"%1\" على خادم نكست كلاود \"%2\"."
+msgstr "تعذر استرداد كلمة السر للمستخدم \"%1\" على خادم نكست كلاود \"%2\"."
 
 #: qml/SyncPasswordOverlay.qml:47
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
-msgstr "تعذر استرداد كلمة المرور للمستخدم \"%1\" على \"gpodder.net\"."
+msgstr "تعذر استرداد كلمة السر للمستخدم \"%1\" على \"gpodder.net\"."
 
 #: qml/SyncPasswordOverlay.qml:54
 #, kde-format
 msgid "Password:"
-msgstr "كلمة المرور:"
+msgstr "كلمة السر:"
 
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
@@ -2216,12 +2216,12 @@ msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder"
 #: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة المرورز"
+msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة السرز"
 
 #: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr "قراء كتابة مرفوضة: لا يمكن الوصول الر ملف كلمة المرور."
+msgstr "قراء كتابة مرفوضة: لا يمكن الوصول الر ملف كلمة السر."
 
 #: sync/sync.cpp:644
 #, kde-format
