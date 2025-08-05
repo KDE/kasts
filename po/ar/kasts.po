@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-07-14 18:51+0400\n"
+"PO-Revision-Date: 2025-08-04 18:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -635,7 +635,7 @@ msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr "أعد تعيين موقع زر التشغيل"
+msgstr "صفّر موقع زر التشغيل"
 
 #: qml/EntryPage.qml:190
 #, kde-format
@@ -1362,7 +1362,7 @@ msgstr "النص"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
-msgstr "استخدام افتراضيات النظام"
+msgstr "استخدام مبدئيات النظام"
 
 #: qml/Settings/AppearanceSettingsPage.qml:193
 #, kde-format
@@ -1477,7 +1477,7 @@ msgstr[5] "كل %1 يوم"
 #, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
-msgstr "اسحب تحديثات المدونة الصوتية آليا عند بدء التشغيل"
+msgstr "اسحب تحديثات المدونة الصوتية آليّا عند بدء التشغيل"
 
 #: qml/Settings/GeneralSettingsPage.qml:195
 #, kde-format
@@ -1489,13 +1489,13 @@ msgstr "حدث بيانات الحلقة الموجودة عند التحديث 
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr "إضافة الحلقات الجديدو تلقائيا للطابور"
+msgstr "إضافة الحلقات الجديدو آليّا للطابور"
 
 #: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr "تنزيل الحلقات الجديدة تلقائيا"
+msgstr "تنزيل الحلقات الجديدة آليّا"
 
 #: qml/Settings/GeneralSettingsPage.qml:231
 #, kde-format
@@ -1621,7 +1621,7 @@ msgstr "وسيط الشّبكة"
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "افتراضيات النظام"
+msgstr "مبدئيات النظام"
 
 #: qml/Settings/NetworkSettingsPage.qml:112
 #, kde-format
@@ -1741,7 +1741,7 @@ msgstr "مسار التخزين"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use default path"
-msgstr "استخدام المسار الافتراضي"
+msgstr "استخدام المسار المبدئي"
 
 #: qml/Settings/StorageSettingsPage.qml:48
 #, kde-format
@@ -1852,7 +1852,7 @@ msgstr "أخر رفع سريع إلى الخادم"
 #, kde-format
 msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
-msgstr "مزامنة تلقائية"
+msgstr "مزامنة آليّة"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:88
 #, kde-format
