@@ -367,7 +367,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Kasts on the desktop with default header bar</caption>
-      <caption xml:lang="ar">كاست على سطح المكتب مع الشريط الرأسي الافتراضي</caption>
+      <caption xml:lang="ar">كاست على سطح المكتب مع الشريط الرأسي المبدئي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="da">Kast på desktoppen med standard overskriftsbar</caption>
