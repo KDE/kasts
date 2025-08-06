@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-08-04 18:48+0400\n"
+"PO-Revision-Date: 2025-08-05 20:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -233,7 +233,7 @@ msgstr "برات دي فرايس"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
-msgstr "دون مرشح"
+msgstr "بلا مرشح"
 
 #: models/abstractepisodeproxymodel.cpp:183
 #, kde-format
@@ -465,7 +465,7 @@ msgstr "فتح إعدادات الصوت"
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
-msgstr "تبديل كتم الصوت"
+msgstr "بدّل حالة الكتم"
 
 #: qml/Desktop/DesktopPlayerControls.qml:307
 #, kde-format
@@ -565,7 +565,7 @@ msgstr "تنزيلات غير مكتملة"
 #: qml/DownloadListPage.qml:72
 #, kde-format
 msgid "Downloaded"
-msgstr "تم تنزيله"
+msgstr "المُنزّل"
 
 #: qml/EntryPage.qml:22
 #, kde-format
@@ -691,7 +691,7 @@ msgstr "انسخ رابط تنزيل الحلقة"
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
-msgstr "تم نسخ الرابط"
+msgstr "نُسخَ الرابط"
 
 #: qml/EpisodeListPage.qml:17 qml/KastsGlobalDrawer.qml:102
 #: qml/Mobile/BottomToolbar.qml:42
@@ -726,18 +726,18 @@ msgstr "رمز الخطأ:"
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr "سجل الاخطاء"
+msgstr "سجل الأخطاء"
 
 #: qml/ErrorListOverlay.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr "مسح جميع الاخطاء"
+msgstr "مسح جميع الأخطاء"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
 msgid "Show Error Log"
-msgstr "عرض سجل الاخطاء"
+msgstr "عرض سجل الأخطاء"
 
 #: qml/FeedDetailsPage.qml:28 qml/FeedListDelegate.qml:244
 #, kde-format
@@ -778,7 +778,7 @@ msgstr "مشترك منذ: %1"
 #: qml/FeedDetailsPage.qml:297
 #, kde-format
 msgid "Last updated: %1"
-msgstr "اخر تحديث في: %1"
+msgstr "آخر تحديث في: %1"
 
 #: qml/FeedDetailsPage.qml:308
 #, kde-format
@@ -909,7 +909,7 @@ msgstr "البدء بإضافة مدونات صوتية:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr "ابحث على الانترنت"
+msgstr "ابحث على الإنترنت"
 
 #: qml/FeedListPage.qml:227
 #, kde-format
@@ -1079,7 +1079,7 @@ msgstr[5] "احذف التنزيلات"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr "لايوجد نتائج للبحث"
+msgstr "لا يوجد نتائج للبحث"
 
 #: qml/GlobalSearchField.qml:114 qml/SearchBar.qml:56
 #, kde-format
@@ -1204,7 +1204,7 @@ msgstr "ارفع معدل التشغيل"
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr "الاعدادات المسبقة الحالية:"
+msgstr "الإعدادات المسبقة الحالية:"
 
 #: qml/PlaybackRateMenu.qml:18
 #, kde-format
@@ -1326,7 +1326,7 @@ msgstr "عرض الرمز في علبة النظام"
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr "تصغير إلى العلبة بدلا من الاغلاق"
+msgstr "تصغير إلى العلبة بدلا من الإغلاق"
 
 #: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
@@ -1374,7 +1374,7 @@ msgstr "حجم الخط"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
-msgstr "سجل الاخطاء"
+msgstr "سجل الأخطاء"
 
 #: qml/Settings/ErrorListPage.qml:24
 #, kde-format
@@ -1400,7 +1400,7 @@ msgctxt ""
 "@option:check Label for setting whether the total track time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total track time"
-msgstr "عرض الوقت المتبقي بدلا من اجمالي الوقت"
+msgstr "عرض الوقت المتبقي بدلا من إجمالي الوقت"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
@@ -1489,7 +1489,7 @@ msgstr "حدث بيانات الحلقة الموجودة عند التحديث 
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr "إضافة الحلقات الجديدو آليّا للطابور"
+msgstr "إضافة الحلقات الجديدة آليّا للطابور"
 
 #: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
@@ -1513,7 +1513,7 @@ msgstr "الاستمرار بتشغيل الحلقة القادمة بعد نه�
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr "اعادة تعيين موقع زر التشغيل بعد تشغيل الحلقة"
+msgstr "صفّر موقع زر التشغيل بعد تشغيل الحلقة"
 
 #: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
@@ -1615,7 +1615,7 @@ msgstr "السماح بالبث"
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "وسيط الشّبكة"
+msgstr "وكيل الشّبكة"
 
 #: qml/Settings/NetworkSettingsPage.qml:103
 #, kde-format
@@ -1627,7 +1627,7 @@ msgstr "مبدئيات النظام"
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
-msgstr "لا وكيل"
+msgstr "لا يوجد وكيل"
 
 #: qml/Settings/NetworkSettingsPage.qml:121
 #, kde-format
@@ -1663,7 +1663,7 @@ msgstr "المستخدم"
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
-msgstr "كلمة السّرّ"
+msgstr "كلمة السر"
 
 #: qml/Settings/NetworkSettingsPage.qml:196
 #, kde-format
@@ -1779,7 +1779,7 @@ msgstr "تنزيلات المدونة الصوتية"
 #, kde-format
 msgctxt "@label Using <amount of bytes> of disk space"
 msgid "Using %1 of disk space"
-msgstr "تم استخدام %1 من مساحة القرص"
+msgstr "مساحة القرص المستخدمة %1"
 
 #: qml/Settings/StorageSettingsPage.qml:82
 #, kde-format
@@ -1858,7 +1858,7 @@ msgstr "مزامنة آليّة"
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr "القيام بمزامنة كاملة اثناء بدء التشغيل"
+msgstr "القيام بمزامنة كاملة أثناء بدء التشغيل"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:98
 #, kde-format
@@ -1919,9 +1919,9 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
-"الرجاء ملاحظة ان رفع حالة التشغيل لجميع الحلقات المحلية إلى الخادم قد يستغرق "
-"وقتا طويلا جدا وقد يتسبب في ضغط الخادم. كما يجب ملاحظة انه سيتم الكتابة على "
-"حالة الحقات الموجودة في الخادم.\n"
+"الرجاء ملاحظة أن رفع حالة التشغيل لجميع الحلقات المحلية إلى الخادم قد يستغرق "
+"وقتا طويلا جدا وقد يتسبب في ضغط على الخادم. كما يجب ملاحظة انه سُيكتب فوق "
+"حالة الحلقات الموجودة في الخادم.\n"
 "\n"
 "هل تريد المتابعة؟"
 
@@ -1981,9 +1981,8 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
-"قم بالمزامنة مع خادم نكست كلاود المثبت عليه تطبيق GPodder Sync: %1.<br/>يُنصح "
-"بإنشاء كلمة مرور التطبيق يدويًا لكاست من خلال واجهة الويب واستخدام بيانات "
-"الاعتماد هذه."
+"زامن مع خادم نكست كلاود المثبت عليه تطبيق GPodder Sync: %1.<br/>يُنصح بإنشاء "
+"كلمة سر التطبيق يدويًا لكاست من خلال واجهة الويب واستخدام بيانات الاعتماد هذه."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
@@ -2115,7 +2114,7 @@ msgstr "مزامنة الآن؟"
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
-msgstr "تنفيذ اول مزامنة الآن؟"
+msgstr "تنفيذ أول مزامنة الآن؟"
 
 #: qml/SleepTimerDialog.qml:17
 #, kde-format
@@ -2160,7 +2159,7 @@ msgstr "ساعات"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr "مزامنة كلمة السر اجباري"
+msgstr "مزامنة كلمة السر إجباري"
 
 #: qml/SyncPasswordOverlay.qml:47
 #, kde-format
@@ -2182,7 +2181,7 @@ msgstr "كلمة السر:"
 #: qml/UpdateNotification.qml:90 qml/UpdateNotification.qml:91
 #, kde-format
 msgid "Abort"
-msgstr "احباط"
+msgstr "أجهض"
 
 #: qml/VolumeSlider.qml:46
 #, kde-format
@@ -2193,7 +2192,7 @@ msgstr "%1٪"
 #: sync/sync.cpp:174
 #, kde-format
 msgid "Never"
-msgstr "مطلقا"
+msgstr "البتة"
 
 #: sync/sync.cpp:197
 #, kde-format
@@ -2216,12 +2215,12 @@ msgstr "لا يمكن تسجيل الدخول إلى خادم GPodder"
 #: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة السرز"
+msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة السر"
 
 #: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr "قراء كتابة مرفوضة: لا يمكن الوصول الر ملف كلمة السر."
+msgstr "قراء كتابة مرفوضة: لا يمكن الوصول إلى ملف كلمة السر."
 
 #: sync/sync.cpp:644
 #, kde-format
@@ -2291,12 +2290,12 @@ msgstr "(الخطوة %1 من %2) رفع تحديثات الاشتراك الم�
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] "(خطوة %3 من %4) تم تحديث %2 من أصل %1 مدونة صوتية"
-msgstr[1] "(خطوة %3 من %4) تم تحديث %2 من أصل مدونة صوتية واحدة"
-msgstr[2] "(خطوة %3 من %4) تم تحديث %2 من أصل مدونتان صوتيتان"
-msgstr[3] "(خطوة %3 من %4) تم تحديث %2 من أصل %1 مدونات صوتية"
-msgstr[4] "(خطوة %3 من %4) تم تحديث %2 من أصل %1 مدونة صوتية"
-msgstr[5] "(خطوة %3 من %4) تم تحديث %2 من أصل %1 مدونة صوتية"
+msgstr[0] "(خطوة %3 من %4) المحدثة %2 من أصل %1 مدونة صوتية"
+msgstr[1] "(خطوة %3 من %4) المحدثة %2 من أصل مدونة صوتية واحدة"
+msgstr[2] "(خطوة %3 من %4) المحدثة %2 من أصل مدونتان صوتيتان"
+msgstr[3] "(خطوة %3 من %4) المحدثة %2 من أصل %1 مدونات صوتية"
+msgstr[4] "(خطوة %3 من %4) المحدثة %2 من أصل %1 مدونة صوتية"
+msgstr[5] "(خطوة %3 من %4) المحدثة %2 من أصل %1 مدونة صوتية"
 
 #: sync/syncjob.cpp:901
 #, kde-format
@@ -2362,7 +2361,7 @@ msgstr "العملية ملغاة بواسطة مستخدم"
 #: utils/storagemovejob.cpp:112
 #, kde-format
 msgid "An error occurred while copying data"
-msgstr "حدث خطأ اثناء نسخ البيانات"
+msgstr "حدث خطأ أثناء نسخ البيانات"
 
 #: utils/systrayicon.cpp:25
 #, kde-format
@@ -2408,7 +2407,7 @@ msgstr "تخطي للأمام"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
-msgstr "إنهاء"
+msgstr "أنهِ"
 
 #~ msgctxt "@title:group"
 #~ msgid "About Kasts"
