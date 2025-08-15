@@ -4,20 +4,21 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021.
 # SPDX-FileCopyrightText: 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # SPDX-FileCopyrightText: 2024 joserafael <joserafaeltic@riseup.net>
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-02-07 20:14-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-08-14 18:24-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -104,7 +105,7 @@ msgstr "Fluxo não permitido em conexão com limite de dados"
 #: error.cpp:66
 #, kde-format
 msgid "Database error"
-msgstr ""
+msgstr "Erro do banco de dados"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -216,10 +217,9 @@ msgid "Podcast Player"
 msgstr "Reprodutor de podcast"
 
 #: main.cpp:140
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "© 2020-2024 Comunidade KDE"
+msgstr "© 2020-2025 Comunidade KDE"
 
 #: main.cpp:141
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "Data: mais antigo primeiro"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Capítulo sem nome"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -551,8 +551,7 @@ msgid "Refresh All Podcasts"
 msgstr "Atualizar todos os podcasts"
 
 #: qml/DownloadListPage.qml:56
-#, fuzzy, kde-format
-#| msgid "No downloads"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Nenhum download"
@@ -1238,35 +1237,31 @@ msgctxt ""
 "@label:listbox Label for selecting the type of GUI for the app (desktop, "
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
-msgstr ""
+msgstr "Otimizar a interface para uso em dispositivos móveis/computadores"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Isso exigirá uma reinicialização do aplicativo para ter efeito"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "desktop"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr "Área de trabalho"
+msgstr "Desktop"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox type of device"
-#| msgid "mobile"
+#, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr "móvel"
+msgstr "Dispositivo móvel"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1359,12 +1354,10 @@ msgid "Error Log"
 msgstr "Registro de erros"
 
 #: qml/Settings/ErrorListPage.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Clear All Errors"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clear All"
-msgstr "Limpar todos os erros"
+msgstr "Limpar tudo"
 
 #: qml/Settings/GeneralSettingsPage.qml:22
 #, kde-format
@@ -1393,12 +1386,10 @@ msgid "Adjust time left based on current playback speed"
 msgstr "Ajuste o tempo restante com base na velocidade de reprodução atual"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Prioritize streaming over downloading"
+#, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr "Priorize o fluxo em vez do download"
+msgstr "Priorize a transmissão em vez do download"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
@@ -1419,12 +1410,10 @@ msgid "Podcast update settings"
 msgstr "Configurações de atualização do podcast"
 
 #: qml/Settings/GeneralSettingsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Automatically fetch podcast feeds"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr "Buscar automaticamente fontes de podcast"
+msgstr "Obter fontes de podcast periodicamente"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1696,28 +1685,22 @@ msgid "Synchronization"
 msgstr "Sincronização"
 
 #: qml/Settings/SettingsView.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr "Sobre"
+msgstr "Sobre o Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Sobre"
 
 #: qml/Settings/SettingsView.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Category in settings"
-#| msgid "About"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr "Sobre"
+msgstr "Sobre o KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:21
 #, kde-format
