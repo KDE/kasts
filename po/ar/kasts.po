@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:42+0000\n"
-"PO-Revision-Date: 2025-08-20 21:49+0400\n"
+"PO-Revision-Date: 2025-08-21 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -197,7 +197,7 @@ msgstr "تطبيق مدونات صوتية"
 #: main.cpp:130
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "إضافة مدونة صوتية جديدة للاشتراكات."
+msgstr "أضف مدونة صوتية جديدة للاشتراكات."
 
 #: main.cpp:131
 #, kde-format
@@ -360,7 +360,7 @@ msgstr "عنوان المدونة الصوتية: ي ← أ"
 #: qml/AddFeedSheet.qml:21
 #, kde-format
 msgid "Add New Podcast"
-msgstr "إضافة مدونة صوتية جديدة"
+msgstr "أضف مدونة صوتية جديدة"
 
 #: qml/AddFeedSheet.qml:27
 #, kde-format
@@ -370,7 +370,7 @@ msgstr "الرابط:"
 #: qml/AddFeedSheet.qml:49
 #, kde-format
 msgid "Add Podcast"
-msgstr "إضافة مدونة صوتية"
+msgstr "أضف مدونة صوتية"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -615,7 +615,7 @@ msgstr "بث"
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
-msgstr "إضافة للطابور"
+msgstr "أضف للطابور"
 
 #: qml/EntryPage.qml:160
 #, kde-format
@@ -829,7 +829,7 @@ msgstr "حدث جميع المدونات الصوتية"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "إضافة مدونة صوتية…"
+msgstr "أضف مدونة صوتية…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
@@ -997,7 +997,7 @@ msgstr "احذف التنزيل"
 #: qml/GenericEntryDelegate.qml:355 qml/GenericEntryListView.qml:247
 #, kde-format
 msgid "Add to Queue"
-msgstr "إضافة للطابور"
+msgstr "أضف للطابور"
 
 #: qml/GenericEntryDelegate.qml:372 qml/GenericEntryListView.qml:336
 #, kde-format
