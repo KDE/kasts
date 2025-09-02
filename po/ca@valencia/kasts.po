@@ -116,12 +116,12 @@ msgstr "Exemple de reproductor KMediaSession"
 #: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
-msgstr "Seleccioneu un fitxer…"
+msgstr "Tria un fitxer…"
 
 #: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
 msgid "Select Media File"
-msgstr "Seleccioneu un fitxer multimèdia"
+msgstr "Trieu un fitxer multimèdia"
 
 #: kmediasession/example-app/qml/Main.qml:87
 #, kde-format
@@ -387,7 +387,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Option"
-msgstr "Seleccioneu una opció"
+msgstr "Trieu una opció"
 
 #: qml/ConnectionCheckAction.qml:56
 #, kde-format
@@ -838,7 +838,7 @@ msgstr "Ordenació"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Seleccioneu com ordenar les subscripcions"
+msgstr "Trieu com ordenar les subscripcions"
 
 #: qml/FeedListPage.qml:113
 #, kde-format
@@ -1010,7 +1010,7 @@ msgstr "Ordena"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr "Seleccioneu com ordenar els episodis"
+msgstr "Trieu com ordenar els episodis"
 
 #: qml/GenericEntryListView.qml:187
 #, kde-format
@@ -1193,7 +1193,7 @@ msgstr "Valors predefinits actuals:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr "Seleccioneu la velocitat de reproducció"
+msgstr "Trieu la velocitat de reproducció"
 
 #: qml/PlaybackRateMenu.qml:53
 #, kde-format
@@ -1372,7 +1372,7 @@ msgstr "Configureu la reproducció"
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Seleccioneu el dorsal d'àudio"
+msgstr "Trieu el dorsal d'àudio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
 #, kde-format
@@ -1728,13 +1728,13 @@ msgstr "Camí d'emmagatzematge"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select folder…"
-msgstr "Selecciona una carpeta…"
+msgstr "Tria una carpeta…"
 
 #: qml/Settings/StorageSettingsPage.qml:61
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Select Storage Path"
-msgstr "Seleccioneu el camí d'emmagatzematge"
+msgstr "Trieu el camí d'emmagatzematge"
 
 #: qml/Settings/StorageSettingsPage.qml:68
 #, kde-format
@@ -1906,7 +1906,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
-msgstr "Seleccioneu el proveïdor de sincronització"
+msgstr "Trieu el proveïdor de sincronització"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:239
 #, kde-format
@@ -2063,7 +2063,7 @@ msgstr "Crea un dispositiu"
 #, kde-format
 msgctxt "@label"
 msgid "or select an existing device"
-msgstr "o seleccioneu un dispositiu existent"
+msgstr "o trieu un dispositiu existent"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:546
 #, kde-format
