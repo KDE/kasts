@@ -8,6 +8,7 @@
 #include <QVariant>
 
 #include <KLocalizedString>
+#include <qtmetamacros.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -16,6 +17,95 @@
 #include "feedlogging.h"
 #include "fetcher.h"
 #include "models/abstractepisodeproxymodel.h"
+
+Feed::Feed(const int feedid)
+    : QObject(&DataManager::instance())
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feedid=:feedid;"));
+    query.bindValue(QStringLiteral(":feedid"), feedid);
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to load feed" << feedid;
+
+    m_feedid = query.value(QStringLiteral("feedid")).toInt();
+    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
+
+    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
+
+    m_url = query.value(QStringLiteral("url")).toString();
+    m_name = query.value(QStringLiteral("name")).toString();
+    m_image = query.value(QStringLiteral("image")).toString();
+    m_link = query.value(QStringLiteral("link")).toString();
+    m_description = query.value(QStringLiteral("description")).toString();
+    int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
+    int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
+    m_dirname = query.value(QStringLiteral("dirname")).toString();
+
+    m_errorId = 0;
+    m_errorString = QLatin1String("");
+
+    updateAuthors();
+    updateUnreadEntryCountFromDB();
+    updateNewEntryCountFromDB();
+    updateFavoriteEntryCountFromDB();
+
+    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const int feedid, bool status) {
+        if (feedid == m_feedid) {
+            setRefreshing(status);
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const int feedid) {
+        if (feedid == m_feedid) {
+            Q_EMIT entryCountChanged();
+            updateUnreadEntryCountFromDB();
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+            Q_EMIT unreadEntryCountChanged();
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT newEntryCountChanged();
+            setErrorId(0);
+            setErrorString(QLatin1String(""));
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const int feedid) {
+        if (feedid == m_feedid) {
+            updateNewEntryCountFromDB();
+            Q_EMIT newEntryCountChanged();
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const int feedid) {
+        if (feedid == m_feedid) {
+            updateFavoriteEntryCountFromDB();
+            Q_EMIT favoriteEntryCountChanged();
+        }
+    });
+    connect(&Fetcher::instance(),
+            &Fetcher::error,
+            this,
+            [this](const Error::Type type, const QString &url, const QString &id, int errorId, const QString &errorString) {
+                Q_UNUSED(type)
+                Q_UNUSED(id)
+                if (url == m_url) {
+                    setErrorId(errorId);
+                    setErrorString(errorString);
+                    setRefreshing(false);
+                }
+            });
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if (url == m_image) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
+    });
+
+    m_entries = new EntriesProxyModel(this);
+
+    initFilterType(filterTypeValue);
+
+    QTimer::singleShot(0, this, [this, sortTypeValue]() {
+        initSortType(sortTypeValue);
+    });
+}
 
 Feed::Feed(const QString &feedurl)
     : QObject(&DataManager::instance())
@@ -27,6 +117,7 @@ Feed::Feed(const QString &feedurl)
     if (!query.next())
         qWarning() << "Failed to load feed" << feedurl;
 
+    m_feedid = query.value(QStringLiteral("feedid")).toInt();
     m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
 
     m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
@@ -36,9 +127,6 @@ Feed::Feed(const QString &feedurl)
     m_image = query.value(QStringLiteral("image")).toString();
     m_link = query.value(QStringLiteral("link")).toString();
     m_description = query.value(QStringLiteral("description")).toString();
-    m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
-    m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
-    m_notify = query.value(QStringLiteral("notify")).toBool();
     int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
     int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
     m_dirname = query.value(QStringLiteral("dirname")).toString();
@@ -113,8 +201,8 @@ void Feed::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id='' AND feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":feed"), m_url);
+    authorQuery.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feedid=:feedid;"));
+    authorQuery.bindValue(QStringLiteral(":feedid"), m_feedid);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
         authors += authorQuery.value(QStringLiteral("name")).toString();
@@ -134,8 +222,8 @@ void Feed::updateAuthors()
 void Feed::updateUnreadEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feedid=:feedid AND read=0;"));
+    query.bindValue(QStringLiteral(":feedid"), m_feedid);
     Database::instance().execute(query);
     if (!query.next())
         m_unreadEntryCount = -1;
@@ -145,8 +233,8 @@ void Feed::updateUnreadEntryCountFromDB()
 void Feed::updateNewEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feedid=:feedid AND new=1;"));
+    query.bindValue(QStringLiteral(":feedid"), m_feedid);
     Database::instance().execute(query);
     if (!query.next())
         m_newEntryCount = -1;
@@ -156,8 +244,8 @@ void Feed::updateNewEntryCountFromDB()
 void Feed::updateFavoriteEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND favorite=1;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feedid=:feedid AND favorite=1;"));
+    query.bindValue(QStringLiteral(":feedid"), m_feedid);
     Database::instance().execute(query);
     if (!query.next())
         m_favoriteEntryCount = -1;
@@ -177,8 +265,8 @@ void Feed::initFilterType(int value)
         int filterTypeValue = static_cast<int>(m_entries->filterType());
 
         QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE url=:feedurl;"));
-        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE feedid=:feedid;"));
+        writeQuery.bindValue(QStringLiteral(":feedid"), m_feedid);
         writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
         Database::instance().execute(writeQuery);
     });
@@ -197,11 +285,16 @@ void Feed::initSortType(int value)
         int sortTypeValue = static_cast<int>(m_entries->sortType());
 
         QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE url=:feedurl;"));
-        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE feedid=:feedid;"));
+        writeQuery.bindValue(QStringLiteral(":feedid"), m_feedid);
         writeQuery.bindValue(QStringLiteral(":sortType"), sortTypeValue);
         Database::instance().execute(writeQuery);
     });
+}
+
+int Feed::feedid() const
+{
+    return m_feedid;
 }
 
 QString Feed::url() const
@@ -239,16 +332,6 @@ QString Feed::authors() const
     return m_authors;
 }
 
-int Feed::deleteAfterCount() const
-{
-    return m_deleteAfterCount;
-}
-
-int Feed::deleteAfterType() const
-{
-    return m_deleteAfterType;
-}
-
 QDateTime Feed::subscribed() const
 {
     return m_subscribed;
@@ -257,11 +340,6 @@ QDateTime Feed::subscribed() const
 QDateTime Feed::lastUpdated() const
 {
     return m_lastUpdated;
-}
-
-bool Feed::notify() const
-{
-    return m_notify;
 }
 
 QString Feed::dirname() const
@@ -304,6 +382,14 @@ QString Feed::errorString() const
     return m_errorString;
 }
 
+void Feed::setUrl(const QString &url)
+{
+    if (url != m_url) {
+        m_url = url;
+        Q_EMIT urlChanged(m_url);
+    }
+}
+
 void Feed::setName(const QString &name)
 {
     if (name != m_name) {
@@ -337,31 +423,11 @@ void Feed::setDescription(const QString &description)
     }
 }
 
-void Feed::setDeleteAfterCount(int count)
-{
-    m_deleteAfterCount = count;
-    Q_EMIT deleteAfterCountChanged(m_deleteAfterCount);
-}
-
-void Feed::setDeleteAfterType(int type)
-{
-    m_deleteAfterType = type;
-    Q_EMIT deleteAfterTypeChanged(m_deleteAfterType);
-}
-
 void Feed::setLastUpdated(const QDateTime &lastUpdated)
 {
     if (lastUpdated != m_lastUpdated) {
         m_lastUpdated = lastUpdated;
         Q_EMIT lastUpdatedChanged(m_lastUpdated);
-    }
-}
-
-void Feed::setNotify(bool notify)
-{
-    if (notify != m_notify) {
-        m_notify = notify;
-        Q_EMIT notifyChanged(m_notify);
     }
 }
 

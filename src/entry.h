@@ -23,6 +23,7 @@ class Entry : public QObject
     QML_UNCREATABLE("")
 
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
+    Q_PROPERTY(int entryid READ entryid CONSTANT)
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QString content READ content NOTIFY contentChanged)
@@ -42,7 +43,9 @@ class Entry : public QObject
 
 public:
     Entry(Feed *feed, const QString &id);
+    Entry(Feed *feed, const int entryid);
 
+    int entryid() const;
     QString id() const;
     QString title() const;
     QString content() const;
@@ -101,6 +104,7 @@ private:
     void setHasEnclosure(bool hasEnclosure, bool emitSignal = true);
     void setImage(const QString &url, bool emitSignal = true);
 
+    int m_entryid;
     Feed *m_feed;
     QString m_id;
     QString m_title;

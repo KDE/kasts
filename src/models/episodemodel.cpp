@@ -76,7 +76,7 @@ void EpisodeModel::updateInternalState()
     m_updated.clear();
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT id, read, new, favorite, title, content, feed, updated FROM Entries ORDER BY updated DESC;"));
+    query.prepare(QStringLiteral("SELECT entryid, id, read, new, favorite, title, content, feed, updated FROM Entries ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_entryIds += query.value(QStringLiteral("id")).toString();

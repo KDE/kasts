@@ -21,6 +21,29 @@
 #include "settingsmanager.h"
 #include "sync/sync.h"
 
+Entry::Entry(Feed *feed, const int entryid)
+    : QObject(&DataManager::instance())
+    , m_entryid(entryid)
+    , m_feed(feed)
+{
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if (url == m_image) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        } else if (m_image.isEmpty() && url == m_feed->image()) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
+        if ((m_feed->url() == url) && (m_id == id)) {
+            updateFromDb();
+        }
+    });
+
+    updateFromDb(false);
+}
+
 Entry::Entry(Feed *feed, const QString &id)
     : QObject(&DataManager::instance())
     , m_feed(feed)
@@ -47,7 +70,7 @@ Entry::Entry(Feed *feed, const QString &id)
 void Entry::updateFromDb(bool emitSignals)
 {
     QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
+    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE id=:id;"));
     entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
     entryQuery.bindValue(QStringLiteral(":id"), m_id);
     Database::instance().execute(entryQuery);
@@ -56,6 +79,7 @@ void Entry::updateFromDb(bool emitSignals)
         return;
     }
 
+    m_entryid = entryQuery.value(QStringLiteral("entryid")).toInt();
     setCreated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt()), emitSignals);
     setUpdated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt()), emitSignals);
     setTitle(entryQuery.value(QStringLiteral("title")).toString(), emitSignals);
@@ -86,9 +110,8 @@ void Entry::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id AND feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":id"), m_id);
-    authorQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    authorQuery.prepare(QStringLiteral("SELECT name FROM EntryAuthors WHERE entryid=:entryid"));
+    authorQuery.bindValue(QStringLiteral(":entryid"), m_entryid);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
         authors += authorQuery.value(QStringLiteral("name")).toString();
@@ -103,6 +126,11 @@ void Entry::updateAuthors()
         m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
     }
     Q_EMIT authorsChanged(m_authors);
+}
+
+int Entry::entryid() const
+{
+    return m_entryid;
 }
 
 QString Entry::id() const
@@ -261,9 +289,8 @@ void Entry::setReadInternal(bool read)
         Q_EMIT readChanged(m_read);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE id=:id AND feed=:feed"));
-        query.bindValue(QStringLiteral(":id"), m_id);
-        query.bindValue(QStringLiteral(":feed"), m_feed->url());
+        query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE entryid=:entryid;"));
+        query.bindValue(QStringLiteral(":entryid"), m_id);
         query.bindValue(QStringLiteral(":read"), m_read);
         Database::instance().execute(query);
 
@@ -316,8 +343,8 @@ void Entry::setNewInternal(bool state)
         Q_EMIT newChanged(m_new);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE id=:id;"));
-        query.bindValue(QStringLiteral(":id"), m_id);
+        query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE entryid=:entryid;"));
+        query.bindValue(QStringLiteral(":entryid"), m_entryid);
         query.bindValue(QStringLiteral(":new"), m_new);
         Database::instance().execute(query);
 
@@ -345,8 +372,8 @@ void Entry::setFavoriteInternal(bool favorite)
         Q_EMIT favoriteChanged(m_favorite);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE id=:id;"));
-        query.bindValue(QStringLiteral(":id"), m_id);
+        query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE entryid=:entryid;"));
+        query.bindValue(QStringLiteral(":entryid"), m_entryid);
         query.bindValue(QStringLiteral(":favorite"), m_favorite);
         Database::instance().execute(query);
 

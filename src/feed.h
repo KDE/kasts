@@ -21,7 +21,8 @@ class Feed : public QObject
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    Q_PROPERTY(QString url READ url CONSTANT)
+    Q_PROPERTY(int feedid READ feedid CONSTANT)
+    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString image READ image NOTIFY imageChanged)
     Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
@@ -40,10 +41,12 @@ class Feed : public QObject
     Q_PROPERTY(EntriesProxyModel *entries MEMBER m_entries CONSTANT)
 
 public:
+    Feed(const int feedid);
     Feed(const QString &feedurl);
 
     void updateAuthors();
 
+    int feedid() const;
     QString url() const;
     QString name() const;
     QString image() const;
@@ -51,11 +54,8 @@ public:
     QString link() const;
     QString description() const;
     QString authors() const;
-    int deleteAfterCount() const;
-    int deleteAfterType() const;
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
-    bool notify() const;
     QString dirname() const;
     int entryCount() const;
     int unreadEntryCount() const;
@@ -67,14 +67,12 @@ public:
 
     bool refreshing() const;
 
+    void setUrl(const QString &url);
     void setName(const QString &name);
     void setImage(const QString &image);
     void setLink(const QString &link);
     void setDescription(const QString &description);
-    void setDeleteAfterCount(int count);
-    void setDeleteAfterType(int type);
     void setLastUpdated(const QDateTime &lastUpdated);
-    void setNotify(bool notify);
     void setDirname(const QString &dirname);
     void setUnreadEntryCount(const int count);
     void setRefreshing(bool refreshing);
@@ -84,16 +82,14 @@ public:
     Q_INVOKABLE void refresh();
 
 Q_SIGNALS:
+    void urlChanged(const QString &url);
     void nameChanged(const QString &name);
     void imageChanged(const QString &image);
     void cachedImageChanged(const QString &imagePath);
     void linkChanged(const QString &link);
     void descriptionChanged(const QString &description);
     void authorsChanged(const QString &authors);
-    void deleteAfterCountChanged(int count);
-    void deleteAfterTypeChanged(int type);
     void lastUpdatedChanged(const QDateTime &lastUpdated);
-    void notifyChanged(bool notify);
     void dirnameChanged(const QString &dirname);
     void entryCountChanged();
     void unreadEntryCountChanged();
@@ -111,17 +107,15 @@ private:
     void initFilterType(int value);
     void initSortType(int value);
 
+    int m_feedid;
     QString m_url;
     QString m_name;
     QString m_image;
     QString m_link;
     QString m_description;
     QString m_authors;
-    int m_deleteAfterCount;
-    int m_deleteAfterType;
     QDateTime m_subscribed;
     QDateTime m_lastUpdated;
-    bool m_notify;
     QString m_dirname;
     int m_errorId;
     QString m_errorString;
