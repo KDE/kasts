@@ -82,6 +82,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo10());
     if (dbversion < 11)
         TRUE_OR_RETURN(migrateTo11());
+    if (dbversion < 12)
+        TRUE_OR_RETURN(migrateTo12());
     return true;
 }
 
@@ -289,6 +291,320 @@ bool Database::migrateTo11()
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN sortType INTEGER DEFAULT 0;")));
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 11;")));
     TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo12()
+{
+    qDebug() << "Migrating database to version 12";
+    // TODO: re-enable TRUE_OR_RETURN(transaction());
+
+    //  Update Feeds table (need to recreate a new one to drop columns)
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feedstemp ("
+                               "    feedid INTEGER PRIMARY KEY AUTOINCREMENT,"
+                               "    name TEXT,"
+                               "    url TEXT,"
+                               "    image TEXT,"
+                               "    link TEXT,"
+                               "    description TEXT,"
+                               "    subscribed INTEGER,"
+                               "    lastUpdated INTEGER,"
+                               "    new BOOL,"
+                               "    dirname TEXT,"
+                               "    lastHash TEXT,"
+                               "    filterType INTEGER DEFAULT 0,"
+                               "    sortType INTEGER DEFAULT 0"
+                               ");")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Feedstemp ("
+                               "    name,"
+                               "    url,"
+                               "    image,"
+                               "    link,"
+                               "    description,"
+                               "    subscribed,"
+                               "    lastUpdated,"
+                               "    new,"
+                               "    dirname,"
+                               "    lastHash,"
+                               "    filterType,"
+                               "    sortType) "
+                               "SELECT"
+                               "    name,"
+                               "    url,"
+                               "    image,"
+                               "    link,"
+                               "    description,"
+                               "    subscribed,"
+                               "    lastUpdated,"
+                               "    new,"
+                               "    dirname,"
+                               "    lastHash,"
+                               "    filterType,"
+                               "    sortType "
+                               "FROM Feeds;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Feeds;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feedstemp RENAME TO Feeds;")));
+
+    // Update FeedActions table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS FeedActionstemp ("
+                               "    feedid INTEGER,"
+                               "    url TEXT,"
+                               "    action TEXT,"
+                               "    timestamp INTEGER,"
+                               "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO FeedActionstemp ("
+                               "    feedid,"
+                               "    url,"
+                               "    action,"
+                               "    timestamp) "
+                               "SELECT"
+                               "    Feeds.feedid,"
+                               "    FeedActions.url,"
+                               "    FeedActions.action,"
+                               "    FeedActions.timestamp "
+                               "FROM FeedActions"
+                               "    JOIN Feeds ON Feeds.url = FeedActions.url;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE FeedActions;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE FeedActionstemp RENAME TO FeedActions;")));
+
+    // Update Entries table (need to create a new one to remove UNIQUE constraint)
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entriestemp ("
+                               "    entryid INTEGER PRIMARY KEY AUTOINCREMENT,"
+                               "    feedid INTEGER,"
+                               "    id TEXT,"
+                               "    title TEXT,"
+                               "    content TEXT,"
+                               "    created INTEGER,"
+                               "    updated INTEGER,"
+                               "    link TEXT,"
+                               "    read BOOL,"
+                               "    new BOOL,"
+                               "    hasEnclosure BOOL,"
+                               "    image TEXT,"
+                               "    favorite BOOL DEFAULT 0,"
+                               "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Entriestemp ("
+                               "    feedid,"
+                               "    id,"
+                               "    title,"
+                               "    content,"
+                               "    created,"
+                               "    updated,"
+                               "    link,"
+                               "    read,"
+                               "    new,"
+                               "    hasEnclosure,"
+                               "    image,"
+                               "    favorite) "
+                               "SELECT"
+                               "    Feeds.feedid,"
+                               "    Entries.id,"
+                               "    Entries.title,"
+                               "    Entries.content,"
+                               "    Entries.created,"
+                               "    Entries.updated,"
+                               "    Entries.link,"
+                               "    Entries.read,"
+                               "    Entries.new,"
+                               "    Entries.hasEnclosure,"
+                               "    Entries.image,"
+                               "    Entries.favorite "
+                               "FROM Entries"
+                               "    JOIN Feeds ON Feeds.url = Entries.feed;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Entries;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entriestemp RENAME TO Entries;")));
+
+    // Update FeedActions table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActionstemp ("
+                               "    entryid INTEGER,"
+                               "    podcast TEXT,"
+                               "    url TEXT,"
+                               "    id TEXT,"
+                               "    action TEXT,"
+                               "    started INTEGER,"
+                               "    position INTEGER,"
+                               "    total INTEGER,"
+                               "    timestamp INTEGER,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO EpisodeActionstemp ("
+                               "    entryid,"
+                               "    podcast,"
+                               "    url,"
+                               "    id,"
+                               "    action,"
+                               "    started,"
+                               "    position,"
+                               "    total,"
+                               "    timestamp) "
+                               "SELECT"
+                               "    Entries.entryid,"
+                               "    EpisodeActions.podcast,"
+                               "    EpisodeActions.url,"
+                               "    EpisodeActions.id,"
+                               "    EpisodeActions.action,"
+                               "    EpisodeActions.started,"
+                               "    EpisodeActions.position,"
+                               "    EpisodeActions.total,"
+                               "    EpisodeActions.timestamp "
+                               "FROM EpisodeActions"
+                               "    JOIN Entries ON Entries.id = EpisodeActions.id;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE EpisodeActions;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE EpisodeActionstemp RENAME TO EpisodeActions;")));
+
+    // Update Enclosures table (need to drop columns)
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosurestemp ("
+                               "    enclosureid INTEGER PRIMARY KEY AUTOINCREMENT,"
+                               "    entryid INTEGER,"
+                               "    feedid INTEGER,"
+                               "    url TEXT, "
+                               "    duration INTEGER,"
+                               "    size INTEGER,"
+                               "    type TEXT,"
+                               "    playposition INTEGER,"
+                               "    downloaded BOOL,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid),"
+                               "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Enclosurestemp ("
+                               "    entryid,"
+                               "    feedid,"
+                               "    url,"
+                               "    duration,"
+                               "    size,"
+                               "    type,"
+                               "    playposition,"
+                               "    downloaded) "
+                               "SELECT"
+                               "    Entries.entryid,"
+                               "    Entries.feedid,"
+                               "    Enclosures.url,"
+                               "    Enclosures.duration,"
+                               "    Enclosures.size,"
+                               "    Enclosures.type,"
+                               "    Enclosures.playposition,"
+                               "    Enclosures.downloaded "
+                               "FROM Enclosures"
+                               "    JOIN Entries ON Entries.id = Enclosures.id;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
+
+    // Update Chapters table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Chapterstemp ("
+                               "    entryid INTEGER,"
+                               "    start INTEGER,"
+                               "    title TEXT,"
+                               "    link TEXT,"
+                               "    image TEXT,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Chapterstemp ("
+                               "    entryid,"
+                               "    start,"
+                               "    title,"
+                               "    link,"
+                               "    image) "
+                               "SELECT"
+                               "    Entries.entryid,"
+                               "    Chapters.start,"
+                               "    Chapters.title,"
+                               "    Chapters.link,"
+                               "    Chapters.image "
+                               "FROM Chapters"
+                               "    JOIN Entries ON Entries.id = Chapters.id;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Chapters;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Chapterstemp RENAME TO Chapters;")));
+
+    // Update Queue table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Queuetemp ("
+                               "    listnr INTEGER,"
+                               "    entryid INTEGER,"
+                               "    playing BOOL,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Queuetemp ("
+                               "    listnr,"
+                               "    entryid,"
+                               "    playing) "
+                               "SELECT"
+                               "    Queue.listnr,"
+                               "    Entries.entryid,"
+                               "    Queue.playing "
+                               "FROM Queue"
+                               "    JOIN Entries ON Entries.id = Queue.id;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Queue;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Queuetemp RENAME TO Queue;")));
+
+    // Split Authors table into FeedAuthors and EntryAuthors
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE FeedAuthors ("
+                               "    feedid INTEGER,"
+                               "    name TEXT,"
+                               "    email TEXT,"
+                               "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE EntryAuthors ("
+                               "    entryid INTEGER,"
+                               "    name TEXT,"
+                               "    email TEXT,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO FeedAuthors ("
+                               "    feedid,"
+                               "    name,"
+                               "    email) "
+                               "SELECT"
+                               "    Feeds.feedid,"
+                               "    Authors.name,"
+                               "    Authors.email "
+                               "FROM Authors"
+                               "    JOIN Feeds ON Feeds.url = Authors.feed "
+                               "WHERE"
+                               "    Authors.id IS NULL OR Authors.id = '';")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO EntryAuthors ("
+                               "    entryid,"
+                               "    name,"
+                               "    email) "
+                               "SELECT"
+                               "    Entries.entryid,"
+                               "    Authors.name,"
+                               "    Authors.email "
+                               "FROM Authors"
+                               "    JOIN Entries ON Entries.id = Authors.id "
+                               "WHERE"
+                               "    Authors.id IS NOT NULL AND Authors.id != '';")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Authors;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 12;")));
+    // TODO: re-enable TRUE_OR_RETURN(commit());
     return true;
 }
 
