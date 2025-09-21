@@ -34,8 +34,10 @@ public:
         return &instance();
     }
 
-    Feed *getFeed(const int index) const;
+    Feed *getFeedByIndex(const int index) const;
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
+    Q_INVOKABLE Feed *getFeed(const int feedid) const;
+    Entry *getEntry(const int entryid) const;
     Entry *getEntry(const int feed_index, const int entry_index) const;
     Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
@@ -110,18 +112,28 @@ Q_SIGNALS:
 
 private:
     DataManager();
+    void loadFeed(const int feedid) const;
     void loadFeed(const QString &feedurl) const;
-    void loadEntry(QString id) const;
+    void loadEntry(const int entryid) const;
+    void loadEntry(const QString &id) const;
     void updateQueueListnrs() const;
 
     QString cleanUrl(const QString &url);
 
     QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
 
-    mutable QHash<QString, Feed *> m_feeds; // hash of pointers to all feeds in db, key = url (lazy loading)
-    mutable QHash<QString, Entry *> m_entries; // hash of pointers to all entries in db, key = id (lazy loading)
+    mutable QHash<int, Feed *> m_feeds; // hash of pointers to all feeds in db, key = feedid (lazy loading)
+    mutable QHash<int, Entry *> m_entries; // hash of pointers to all entries in db, key = entryid (lazy loading)
 
-    QStringList m_feedmap; // list of feedurls in the order that they should appear in feedlist
-    QHash<QString, QStringList> m_entrymap; // list of entries (per feed; key = url) in the order that they should appear in entrylist
-    QStringList m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
+    QList<int> m_feedmap; // list of feedids in the order that they should appear in feedlist
+    QHash<int, QList<int>> m_entrymap; // list of entries (per feed; key = feedid) in the order that they should appear in entrylist
+    QList<int> m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
+
+    // old maps, TODO these should be removed after refactor has been completed
+    mutable QHash<QString, Feed *> m_oldfeeds; // hash of pointers to all feeds in db, key = url (lazy loading)
+    mutable QHash<QString, Entry *> m_oldentries; // hash of pointers to all entries in db, key = id (lazy loading)
+
+    QStringList m_oldfeedmap; // list of feedurls in the order that they should appear in feedlist
+    QHash<QString, QStringList> m_oldentrymap; // list of entries (per feed; key = url) in the order that they should appear in entrylist
+    QStringList m_oldqueuemap; // list of entries/enclosures in the order that they should show up in queuelist
 };

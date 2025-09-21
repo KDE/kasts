@@ -54,7 +54,7 @@ int FeedsModel::rowCount(const QModelIndex &parent) const
 
 QVariant FeedsModel::data(const QModelIndex &index, int role) const
 {
-    const auto feed = DataManager::instance().getFeed(index.row());
+    const auto feed = DataManager::instance().getFeedByIndex(index.row());
     if (!feed) {
         return {};
     }

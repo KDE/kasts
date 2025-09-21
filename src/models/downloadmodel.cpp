@@ -61,8 +61,8 @@ void DownloadModel::updateInternalState()
     m_entryIds.clear();
 
     QSqlQuery query;
-    query.prepare(
-        QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE downloaded=:downloaded ORDER BY updated DESC;"));
+    query.prepare(QStringLiteral(
+        "SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.entryid = Entries.entryid WHERE downloaded=:downloaded ORDER BY updated DESC;"));
 
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
     Database::instance().execute(query);
