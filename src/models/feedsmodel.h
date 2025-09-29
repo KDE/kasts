@@ -12,6 +12,7 @@
 #include <QQmlEngine>
 #include <QSqlTableModel>
 #include <QUrl>
+#include <qnamespace.h>
 
 class FeedsModel : public QAbstractListModel
 {
@@ -21,8 +22,10 @@ class FeedsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        FeedRole = Qt::UserRole,
-        UrlRole,
+        UrlRole = Qt::DisplayRole,
+        FeedIdRole = Qt::UserRole + 1,
+        FeedRole,
+        NameRole,
         TitleRole,
         UnreadCountRole,
         NewCountRole,
@@ -36,5 +39,5 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
 private:
-    void triggerFeedUpdate(const QString &url);
+    void triggerFeedUpdate(const int &feedid);
 };

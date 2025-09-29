@@ -25,7 +25,7 @@ QVariant DownloadModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case EpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
-    case EpisodeModel::Roles::IdRole:
+    case EpisodeModel::Roles::EntryIdRole:
         return QVariant::fromValue(m_entryIds[index.row()]);
     default:
         return QVariant();
@@ -35,6 +35,7 @@ QVariant DownloadModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> DownloadModel::roleNames() const
 {
     return {
+        {EpisodeModel::Roles::EntryIdRole, "entryid"},
         {EpisodeModel::Roles::EntryRole, "entry"},
         {EpisodeModel::Roles::IdRole, "id"},
         {EpisodeModel::Roles::ReadRole, "read"},
@@ -67,19 +68,19 @@ void DownloadModel::updateInternalState()
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloading));
     Database::instance().execute(query);
     while (query.next()) {
-        m_entryIds += query.value(QStringLiteral("id")).toString();
+        m_downloadingIds += query.value(QStringLiteral("entryid")).toInt();
     }
 
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
     Database::instance().execute(query);
     while (query.next()) {
-        m_entryIds += query.value(QStringLiteral("id")).toString();
+        m_partiallyDownloadedIds += query.value(QStringLiteral("entryid")).toInt();
     }
 
     query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
     Database::instance().execute(query);
     while (query.next()) {
-        m_entryIds += query.value(QStringLiteral("id")).toString();
+        m_downloadedIds += query.value(QStringLiteral("entryid")).toInt();
     }
 }
 

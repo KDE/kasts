@@ -8,6 +8,7 @@
 
 #include <QSqlQuery>
 #include <QTimer>
+#include <qstringliteral.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -19,8 +20,8 @@ EpisodeModel::EpisodeModel(QObject *parent)
     // When feed is updated, the entire model needs to be reset because we
     // cannot know where the new entries will be inserted into the list (or that
     // maybe even items have been removed.
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
-        Q_UNUSED(url)
+    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const int feedid) {
+        Q_UNUSED(feedid)
         beginResetModel();
         updateInternalState();
         endResetModel();
@@ -37,10 +38,12 @@ QVariant EpisodeModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case AbstractEpisodeModel::Roles::TitleRole:
         return QVariant::fromValue(m_titles[index.row()]);
+    case AbstractEpisodeModel::Roles::EntryIdRole:
+        return QVariant::fromValue(m_entryIds[index.row()]);
     case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getEntry(m_entryIds[index.row()]));
     case AbstractEpisodeModel::Roles::IdRole:
-        return QVariant::fromValue(m_entryIds[index.row()]);
+        return QVariant::fromValue(m_ids[index.row()]);
     case AbstractEpisodeModel::Roles::ReadRole:
         return QVariant::fromValue(m_read[index.row()]);
     case AbstractEpisodeModel::Roles::NewRole:
@@ -67,6 +70,7 @@ int EpisodeModel::rowCount(const QModelIndex &parent) const
 void EpisodeModel::updateInternalState()
 {
     m_entryIds.clear();
+    m_ids.clear();
     m_read.clear();
     m_new.clear();
     m_favorite.clear();
@@ -76,16 +80,17 @@ void EpisodeModel::updateInternalState()
     m_updated.clear();
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT entryid, id, read, new, favorite, title, content, feed, updated FROM Entries ORDER BY updated DESC;"));
+    query.prepare(QStringLiteral("SELECT entryid, id, read, new, favorite, title, content, feedid, updated FROM Entries ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
-        m_entryIds += query.value(QStringLiteral("id")).toString();
+        m_entryIds += query.value(QStringLiteral("entryid")).toInt();
+        m_ids += query.value(QStringLiteral("id")).toString();
         m_read += query.value(QStringLiteral("read")).toBool();
         m_new += query.value(QStringLiteral("new")).toBool();
         m_favorite += query.value(QStringLiteral("favorite")).toBool();
         m_titles += query.value(QStringLiteral("title")).toString();
         m_contents += query.value(QStringLiteral("content")).toString();
-        m_feedNames += DataManager::instance().getFeed(query.value(QStringLiteral("feed")).toString())->name();
+        m_feedNames += DataManager::instance().getFeed(query.value(QStringLiteral("feedid")).toInt())->name();
         m_updated += query.value(QStringLiteral("updated")).toInt();
     }
 }

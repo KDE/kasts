@@ -18,7 +18,7 @@
 #include "fetcher.h"
 #include "models/abstractepisodeproxymodel.h"
 
-Feed::Feed(const int feedid)
+Feed::Feed(const int &feedid)
     : QObject(&DataManager::instance())
 {
     QSqlQuery query;
@@ -30,9 +30,7 @@ Feed::Feed(const int feedid)
 
     m_feedid = query.value(QStringLiteral("feedid")).toInt();
     m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
-
     m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
-
     m_url = query.value(QStringLiteral("url")).toString();
     m_name = query.value(QStringLiteral("name")).toString();
     m_image = query.value(QStringLiteral("image")).toString();
@@ -59,9 +57,9 @@ Feed::Feed(const int feedid)
         if (feedid == m_feedid) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feedid);
             Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_feedid);
             Q_EMIT newEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
@@ -82,99 +80,10 @@ Feed::Feed(const int feedid)
     connect(&Fetcher::instance(),
             &Fetcher::error,
             this,
-            [this](const Error::Type type, const QString &url, const QString &id, int errorId, const QString &errorString) {
+            [this](const Error::Type type, const int &feedid, const int &entryid, int errorId, const QString &errorString) {
                 Q_UNUSED(type)
-                Q_UNUSED(id)
-                if (url == m_url) {
-                    setErrorId(errorId);
-                    setErrorString(errorString);
-                    setRefreshing(false);
-                }
-            });
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if (url == m_image) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        }
-    });
-
-    m_entries = new EntriesProxyModel(this);
-
-    initFilterType(filterTypeValue);
-
-    QTimer::singleShot(0, this, [this, sortTypeValue]() {
-        initSortType(sortTypeValue);
-    });
-}
-
-Feed::Feed(const QString &feedurl)
-    : QObject(&DataManager::instance())
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:feedurl;"));
-    query.bindValue(QStringLiteral(":feedurl"), feedurl);
-    Database::instance().execute(query);
-    if (!query.next())
-        qWarning() << "Failed to load feed" << feedurl;
-
-    m_feedid = query.value(QStringLiteral("feedid")).toInt();
-    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
-
-    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
-
-    m_url = query.value(QStringLiteral("url")).toString();
-    m_name = query.value(QStringLiteral("name")).toString();
-    m_image = query.value(QStringLiteral("image")).toString();
-    m_link = query.value(QStringLiteral("link")).toString();
-    m_description = query.value(QStringLiteral("description")).toString();
-    int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
-    int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
-    m_dirname = query.value(QStringLiteral("dirname")).toString();
-
-    m_errorId = 0;
-    m_errorString = QLatin1String("");
-
-    updateAuthors();
-    updateUnreadEntryCountFromDB();
-    updateNewEntryCountFromDB();
-    updateFavoriteEntryCountFromDB();
-
-    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const QString &url, bool status) {
-        if (url == m_url) {
-            setRefreshing(status);
-        }
-    });
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
-        if (url == m_url) {
-            Q_EMIT entryCountChanged();
-            updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
-            Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
-            Q_EMIT newEntryCountChanged();
-            setErrorId(0);
-            setErrorString(QLatin1String(""));
-        }
-    });
-    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const QString &url) {
-        if (url == m_url) {
-            updateNewEntryCountFromDB();
-            Q_EMIT newEntryCountChanged();
-        }
-    });
-    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const QString &url) {
-        if (url == m_url) {
-            updateFavoriteEntryCountFromDB();
-            Q_EMIT favoriteEntryCountChanged();
-        }
-    });
-    connect(&Fetcher::instance(),
-            &Fetcher::error,
-            this,
-            [this](const Error::Type type, const QString &url, const QString &id, int errorId, const QString &errorString) {
-                Q_UNUSED(type)
-                Q_UNUSED(id)
-                if (url == m_url) {
+                Q_UNUSED(entryid)
+                if (feedid == m_feedid) {
                     setErrorId(errorId);
                     setErrorString(errorString);
                     setRefreshing(false);
@@ -444,7 +353,7 @@ void Feed::setUnreadEntryCount(const int count)
     if (count != m_unreadEntryCount) {
         m_unreadEntryCount = count;
         Q_EMIT unreadEntryCountChanged();
-        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feedid);
         // TODO: can one of the two slots be removed??
     }
 }
@@ -479,5 +388,5 @@ void Feed::setErrorString(const QString &errorString)
 
 void Feed::refresh()
 {
-    Fetcher::instance().fetch(m_url);
+    Fetcher::instance().fetch(m_feedid);
 }

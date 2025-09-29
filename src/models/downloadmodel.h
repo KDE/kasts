@@ -45,10 +45,10 @@ private:
 
     void updateInternalState();
 
-    QStringList m_downloadingIds;
-    QStringList m_partiallyDownloadedIds;
-    QStringList m_downloadedIds;
-    QStringList m_entryIds;
+    QList<int> m_downloadingIds;
+    QList<int> m_partiallyDownloadedIds;
+    QList<int> m_downloadedIds;
+    QList<int> m_entryIds;
 
     int m_downloadingCount = 0;
     int m_partiallyDownloadedCount = 0;

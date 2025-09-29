@@ -12,6 +12,9 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Queue>
+#include <qobject.h>
+#include <qstringliteral.h>
+#include <qurl.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -26,9 +29,9 @@
 
 using namespace ThreadWeaver;
 
-FetchFeedsJob::FetchFeedsJob(const QStringList &urls, QObject *parent)
+FetchFeedsJob::FetchFeedsJob(const QList<int> &feedids, QObject *parent)
     : KJob(parent)
-    , m_urls(urls)
+    , m_feedids(feedids)
 {
     connect(this, &FetchFeedsJob::processedAmountChanged, this, &FetchFeedsJob::monitorProgress);
     connect(this, &FetchFeedsJob::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
@@ -41,93 +44,94 @@ void FetchFeedsJob::start()
 
 void FetchFeedsJob::fetch()
 {
-    if (m_urls.count() == 0) {
+    if (m_feedids.count() == 0) {
         emitResult();
         return;
     }
 
-    setTotalAmount(KJob::Unit::Items, m_urls.count());
+    setTotalAmount(KJob::Unit::Items, m_feedids.count());
     setProcessedAmount(KJob::Unit::Items, 0);
 
     qCDebug(kastsFetcher) << "Number of feed update threads:" << Queue::instance()->currentNumberOfThreads();
 
-    for (int i = 0; i < m_urls.count(); i++) {
-        QString url = m_urls[i];
+    for (int i = 0; i < m_feedids.count(); i++) {
+        int feedid = m_feedids[i];
+        QString url;
 
         // First get all the required data from the database and do some basic checks
         DataTypes::FeedDetails oldFeedDetails;
         QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:url;"));
-        query.bindValue(QStringLiteral(":url"), url);
+        query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feedid=:feedid;"));
+        query.bindValue(QStringLiteral(":feedid"), feedid);
         if (!Database::instance().execute(query)) {
             continue;
         }
         if (query.next()) {
             DataTypes::FeedDetails feedDetail;
+            oldFeedDetails.feedid = feedid;
+            oldFeedDetails.url = query.value(QStringLiteral("url")).toString();
             oldFeedDetails.name = query.value(QStringLiteral("name")).toString();
-            oldFeedDetails.url = url;
             oldFeedDetails.image = query.value(QStringLiteral("image")).toString();
             oldFeedDetails.link = query.value(QStringLiteral("link")).toString();
             oldFeedDetails.description = query.value(QStringLiteral("description")).toString();
-            oldFeedDetails.deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
-            oldFeedDetails.deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
             oldFeedDetails.subscribed = query.value(QStringLiteral("subscribed")).toInt();
             oldFeedDetails.lastUpdated = query.value(QStringLiteral("lastUpdated")).toInt();
             oldFeedDetails.isNew = query.value(QStringLiteral("new")).toBool();
-            oldFeedDetails.notify = query.value(QStringLiteral("notify")).toBool();
             oldFeedDetails.dirname = query.value(QStringLiteral("dirname")).toString();
             oldFeedDetails.lastHash = query.value(QStringLiteral("lastHash")).toString();
             oldFeedDetails.filterType = query.value(QStringLiteral("filterType")).toInt();
             oldFeedDetails.sortType = query.value(QStringLiteral("sortType")).toInt();
+
+            url = oldFeedDetails.url;
         } else {
             continue;
         }
         query.clear(); // release lock on database
 
         qCDebug(kastsFetcher) << "Starting to fetch" << url;
-        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, true);
+        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feedid, true);
 
         QNetworkRequest request((QUrl(url)));
         request.setTransferTimeout();
 
         QNetworkReply *reply = Fetcher::instance().get(request);
         connect(this, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
-        connect(reply, &QNetworkReply::finished, this, [this, reply, i, url, oldFeedDetails]() {
+        connect(reply, &QNetworkReply::finished, this, [this, reply, i, feedid, oldFeedDetails, url]() {
             qCDebug(kastsFetcher) << "got networkreply for" << reply;
             if (reply->error()) {
                 if (!m_abort) {
                     qCDebug(kastsFetcher) << "Error fetching feed" << reply->errorString();
-                    Q_EMIT logError(Error::Type::FeedUpdate, url, QString(), reply->error(), reply->errorString(), QString());
+                    Q_EMIT logError(Error::Type::FeedUpdate, feedid, 0, reply->error(), reply->errorString(), QString());
                 }
                 setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
+                Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feedid, false);
             } else {
                 QByteArray data = reply->readAll();
 
                 // check if the feed has been really been updated by checking if
                 // the hash is still the same
                 QString newHash = QString::fromLatin1(QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex());
-                qCDebug(kastsFetcher) << "RSS hashes (old and new)" << url << oldFeedDetails.lastHash << newHash;
+                qCDebug(kastsFetcher) << "RSS hashes (old and new)" << feedid << oldFeedDetails.lastHash << newHash;
 
                 if (newHash == oldFeedDetails.lastHash) {
-                    qCDebug(kastsFetcher) << "same RSS feed hash as last time; skipping feed update for" << url;
+                    qCDebug(kastsFetcher) << "same RSS feed hash as last time; skipping feed update for" << feedid;
                     setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                    Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
+                    Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feedid, false);
                 } else {
-                    UpdateFeedJob *updateFeedJob = new UpdateFeedJob(url, data, oldFeedDetails);
+                    UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feedid, data, oldFeedDetails);
                     connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
-                    connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, url]() {
+                    connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, feedid]() {
                         setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
+                        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feedid, false);
                     });
 
                     stream() << updateFeedJob;
-                    qCDebug(kastsFetcher) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
+                    qCDebug(kastsFetcher) << "Just started updateFeedJob" << i + 1 << "for feed" << feedid;
                 }
             }
             reply->deleteLater();
         });
-        qCDebug(kastsFetcher) << "End of retrieveFeed for" << url;
+        qCDebug(kastsFetcher) << "End of retrieveFeed for" << feedid;
     }
     qCDebug(kastsFetcher) << "End of FetchFeedsJob::fetch";
 }
@@ -144,8 +148,8 @@ void FetchFeedsJob::monitorProgress()
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
             while (query.next()) {
-                QString id = query.value(QStringLiteral("id")).toString();
-                Entry *entry = DataManager::instance().getEntry(id);
+                int entryid = query.value(QStringLiteral("entryid")).toInt();
+                Entry *entry = DataManager::instance().getEntry(entryid);
                 if (entry) {
                     entry->setQueueStatusInternal(true);
                     if (SettingsManager::self()->autoDownload()) {

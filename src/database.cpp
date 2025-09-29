@@ -472,20 +472,17 @@ bool Database::migrateTo12()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosurestemp ("
                                "    enclosureid INTEGER PRIMARY KEY AUTOINCREMENT,"
                                "    entryid INTEGER,"
-                               "    feedid INTEGER,"
                                "    url TEXT, "
                                "    duration INTEGER,"
                                "    size INTEGER,"
                                "    type TEXT,"
                                "    playposition INTEGER,"
                                "    downloaded BOOL,"
-                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid),"
-                               "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid);")));
 
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO Enclosurestemp ("
                                "    entryid,"
-                               "    feedid,"
                                "    url,"
                                "    duration,"
                                "    size,"
@@ -494,7 +491,6 @@ bool Database::migrateTo12()
                                "    downloaded) "
                                "SELECT"
                                "    Entries.entryid,"
-                               "    Entries.feedid,"
                                "    Enclosures.url,"
                                "    Enclosures.duration,"
                                "    Enclosures.size,"
@@ -567,13 +563,6 @@ bool Database::migrateTo12()
                                "    email TEXT,"
                                "    FOREIGN KEY(feedid) REFERENCES Feeds(feedid));")));
     TRUE_OR_RETURN(
-        execute(QStringLiteral("CREATE TABLE EntryAuthors ("
-                               "    entryid INTEGER,"
-                               "    name TEXT,"
-                               "    email TEXT,"
-                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
-
-    TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO FeedAuthors ("
                                "    feedid,"
                                "    name,"
@@ -587,6 +576,12 @@ bool Database::migrateTo12()
                                "WHERE"
                                "    Authors.id IS NULL OR Authors.id = '';")));
 
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE EntryAuthors ("
+                               "    entryid INTEGER,"
+                               "    name TEXT,"
+                               "    email TEXT,"
+                               "    FOREIGN KEY(entryid) REFERENCES Entries(entryid));")));
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO EntryAuthors ("
                                "    entryid,"
@@ -602,6 +597,41 @@ bool Database::migrateTo12()
                                "    Authors.id IS NOT NULL AND Authors.id != '';")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Authors;")));
+
+    // Update Error table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errorstemp ("
+                               "    type INTEGER,"
+                               "    feedid INTEGER,"
+                               "    entryid INTEGER,"
+                               "    code INTEGER,"
+                               "    message TEXT,"
+                               "    date INTEGER,"
+                               "    title TEXT);")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Errorstemp ("
+                               "    type,"
+                               "    feedid,"
+                               "    entryid,"
+                               "    code,"
+                               "    message,"
+                               "    date,"
+                               "    title) "
+                               "SELECT"
+                               "    Errors.type,"
+                               "    Feeds.feedid,"
+                               "    Entries.entryid,"
+                               "    Errors.code,"
+                               "    Errors.message,"
+                               "    Errors.date,"
+                               "    Errors.title "
+                               "FROM Errors"
+                               "    JOIN Entries ON Entries.id = Errors.id"
+                               "    JOIN Feeds ON Feeds.url = Errors.url;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Errorstemp RENAME TO Errors;")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 12;")));
     // TODO: re-enable TRUE_OR_RETURN(commit());
@@ -620,7 +650,7 @@ bool Database::execute(QSqlQuery &query)
     bool state = executeThread(query);
 
     if (!state) {
-        Q_EMIT Database::instance().error(Error::Type::Database, QString(), QString(), query.lastError().type(), query.lastQuery(), query.lastError().text());
+        Q_EMIT Database::instance().error(Error::Type::Database, 0, 0, query.lastError().type(), query.lastQuery(), query.lastError().text());
     }
 
     return state;

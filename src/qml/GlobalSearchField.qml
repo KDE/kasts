@@ -32,7 +32,7 @@ Kirigami.SearchField {
         var episodeModel = pageStack.get(0).episodeList.model;
         for (var i = 0; i < episodeModel.rowCount(); i++) {
             var index = episodeModel.index(i, 0);
-            if (entry.id == episodeModel.data(index, AbstractEpisodeModel.IdRole)) {
+            if (entry.id == episodeModel.data(index, AbstractEpisodeModel.EntryIdRole)) {
                 pageStack.get(0).episodeList.currentIndex = i;
                 pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);

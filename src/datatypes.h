@@ -19,17 +19,15 @@ QML_ELEMENT
 
 // structs
 struct FeedDetails {
+    int feedid;
     QString name;
     QString url;
     QString image;
     QString link;
     QString description;
-    int deleteAfterCount = 0;
-    int deleteAfterType = 0;
     int subscribed;
     int lastUpdated;
     bool isNew;
-    bool notify;
     QString dirname;
     QString lastHash;
     int filterType = 0;
@@ -37,7 +35,8 @@ struct FeedDetails {
 };
 
 struct EntryDetails {
-    QString feed;
+    int entryid = 0;
+    int feedid;
     QString id;
     QString title;
     QString content;
@@ -50,29 +49,30 @@ struct EntryDetails {
     QString image;
 };
 
-struct AuthorDetails {
-    QString feed;
-    QString id;
+struct FeedAuthorDetails {
+    int feedid;
     QString name;
-    QString uri;
+    QString email;
+};
+
+struct EntryAuthorDetails {
+    int entryid;
+    QString name;
     QString email;
 };
 
 struct EnclosureDetails {
-    QString feed;
-    QString id;
+    int entryid;
+    QString url;
     int duration;
     int size;
-    QString title;
     QString type;
-    QString url;
     int playPosition;
     Enclosure::Status downloaded;
 };
 
 struct ChapterDetails {
-    QString feed;
-    QString id;
+    int entryid;
     int start;
     QString title;
     QString link;

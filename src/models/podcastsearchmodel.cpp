@@ -150,7 +150,7 @@ void PodcastSearchModel::search(const QString &text)
     auto reply = Fetcher::instance().get(request);
     connect(reply, &QNetworkReply::finished, this, [this, reply, url]() {
         if (reply->error()) {
-            ErrorLogModel::instance().monitorErrorMessages(Error::Type::DiscoverError, url, QString(), reply->error(), reply->errorString(), url);
+            ErrorLogModel::instance().monitorErrorMessages(Error::Type::DiscoverError, 0, 0, reply->error(), reply->errorString(), url);
         } else {
             beginResetModel();
             m_data = QJsonDocument::fromJson(reply->readAll()).object();

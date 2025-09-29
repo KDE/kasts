@@ -20,8 +20,8 @@ EntriesModel::EntriesModel(Feed *feed)
     // When feed is updated, the entire model needs to be reset because we
     // cannot know where the new entries will be inserted into the list (or that
     // maybe even items have been removed.
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
-        if (m_feed->url() == url) {
+    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const int &feedid) {
+        if (m_feed->feedid() == feedid) {
             beginResetModel();
             endResetModel();
         }
@@ -34,6 +34,8 @@ QVariant EntriesModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case AbstractEpisodeModel::Roles::TitleRole:
         return QVariant::fromValue(entry->title());
+    case AbstractEpisodeModel::Roles::EntryIdRole:
+        return QVariant::fromValue(entry->entryid());
     case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(entry);
     case AbstractEpisodeModel::Roles::IdRole:

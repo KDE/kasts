@@ -21,7 +21,8 @@ class AbstractEpisodeModel : public QAbstractListModel
 public:
     enum Roles {
         TitleRole = Qt::DisplayRole,
-        EntryRole = Qt::UserRole + 1,
+        EntryIdRole = Qt::UserRole + 1,
+        EntryRole,
         IdRole,
         ReadRole,
         NewRole,

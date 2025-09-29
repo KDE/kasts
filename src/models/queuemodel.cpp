@@ -57,7 +57,7 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
-    case AbstractEpisodeModel::Roles::IdRole:
+    case AbstractEpisodeModel::Roles::EntryIdRole:
         return QVariant::fromValue(DataManager::instance().queue()[index.row()]);
     default:
         return QVariant();
@@ -74,8 +74,8 @@ int QueueModel::rowCount(const QModelIndex &parent) const
 int QueueModel::timeLeft() const
 {
     int result = 0;
-    const QStringList queue = DataManager::instance().queue();
-    for (const QString &item : queue) {
+    const QList<int> queue = DataManager::instance().queue();
+    for (const int &item : queue) {
         Entry *entry = DataManager::instance().getEntry(item);
         if (entry->enclosure()) {
             result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();

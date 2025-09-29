@@ -95,8 +95,8 @@ public:
     Q_INVOKABLE void doQuickSync(); // only upload pending local episode actions; intended to be run directly after an episode action has been created
 
     // Next are some generic methods to store and apply local changes to be synced
-    void storeAddFeedAction(const QString &url);
-    void storeRemoveFeedAction(const QString &url);
+    void storeAddFeedAction(const int feedid);
+    void storeRemoveFeedAction(const int feedid);
     void storePlayEpisodeAction(const QString &id, const qulonglong started, const qulonglong position);
     void storePlayedEpisodeAction(const QString &id);
     void applySubscriptionChangesLocally(const QStringList &addList, const QStringList &removeList);

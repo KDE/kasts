@@ -32,7 +32,8 @@ public Q_SLOTS:
     void updateInternalState() override;
 
 private:
-    QStringList m_entryIds;
+    QList<int> m_entryIds;
+    QStringList m_ids;
     QVector<bool> m_read;
     QVector<bool> m_new;
     QVector<bool> m_favorite;

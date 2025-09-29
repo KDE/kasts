@@ -16,7 +16,7 @@ class FetchFeedsJob : public KJob
     Q_OBJECT
 
 public:
-    explicit FetchFeedsJob(const QStringList &urls, QObject *parent = nullptr);
+    explicit FetchFeedsJob(const QList<int> &feedids, QObject *parent = nullptr);
 
     void start() override;
     bool aborted();
@@ -24,10 +24,10 @@ public:
 
 Q_SIGNALS:
     void aborting();
-    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void logError(Error::Type type, const int &feedid, const int &entryid, const int errorId, const QString &errorString, const QString &title);
 
 private:
-    QStringList m_urls;
+    QList<int> m_feedids;
 
     void fetch();
     void monitorProgress();

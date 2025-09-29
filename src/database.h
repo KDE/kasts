@@ -43,7 +43,7 @@ public:
     static bool executeThread(QSqlQuery &query);
 
 Q_SIGNALS:
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(Error::Type type, const int &feedid, const int &entryid, const int errorId, const QString &errorString, const QString &title);
 
 private:
     Database();

@@ -25,7 +25,9 @@
 class AudioManagerPrivate
 {
 private:
-    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"), static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
+    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"),
+                                           QStringLiteral("org.kde.kasts"),
+                                           static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
 
     Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
@@ -91,7 +93,7 @@ AudioManager::AudioManager(QObject *parent)
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     // Check if an entry was playing when the program was shut down and restore it
-    if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {
+    if (DataManager::instance().lastPlayingEntry() != -1) {
         setEntry(DataManager::instance().getEntry(DataManager::instance().lastPlayingEntry()));
     }
 }
@@ -142,7 +144,7 @@ KMediaSession::Error AudioManager::error() const
         qCDebug(kastsAudio) << "AudioManager::error" << d->m_player.error();
         // Some error occurred: probably best to unset the lastPlayingEntry to
         // avoid a deadlock when starting up again.
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(-1);
     }
 
     return d->m_player.error();
@@ -341,7 +343,7 @@ void AudioManager::setEntry(Entry *entry)
         }
 
     } else {
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(-1);
         d->m_entry = nullptr;
         Q_EMIT entryChanged(nullptr);
         d->m_player.stop();
@@ -544,7 +546,7 @@ void AudioManager::mediaStatusChanged()
         // save pointer to this bad entry to allow
         // us to delete the enclosure after the track has been unloaded
         Entry *badEntry = d->m_entry;
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(-1);
         stop();
         next();
         if (badEntry && badEntry->enclosure()) {
@@ -644,7 +646,7 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
     d->m_player.setSource(loadUrl);
 
     // save the current playing track in the settingsfile for restoring on startup
-    DataManager::instance().setLastPlayingEntry(d->m_entry->id());
+    DataManager::instance().setLastPlayingEntry(d->m_entry->entryid());
     qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
 
     d->m_player.pause();

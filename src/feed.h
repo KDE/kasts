@@ -41,8 +41,7 @@ class Feed : public QObject
     Q_PROPERTY(EntriesProxyModel *entries MEMBER m_entries CONSTANT)
 
 public:
-    Feed(const int feedid);
-    Feed(const QString &feedurl);
+    Feed(const int &feedid);
 
     void updateAuthors();
 

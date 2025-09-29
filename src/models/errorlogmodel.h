@@ -41,7 +41,7 @@ public:
 
 public:
     void
-    monitorErrorMessages(const Error::Type type, const QString &url, const QString &id, const int errorCode, const QString &errorString, const QString &title);
+    monitorErrorMessages(const Error::Type type, const int feedid, const int entryid, const int errorCode, const QString &errorString, const QString &title);
 
 Q_SIGNALS:
     void newErrorLogged(Error *error);

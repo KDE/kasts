@@ -92,8 +92,8 @@ private:
     bool m_abort = false;
 
     // internal variables used while syncing
-    QStringList m_feedsToBeUpdatedSubs;
-    QStringList m_feedsToBeUpdatedEps;
+    QList<int> m_feedsToBeUpdatedSubs;
+    QList<int> m_feedsToBeUpdatedEps;
     int m_feedUpdateProgress = 0;
     int m_feedUpdateTotal = 0;
     std::pair<QStringList, QStringList> m_localSubscriptionChanges;

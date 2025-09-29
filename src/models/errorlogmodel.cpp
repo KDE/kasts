@@ -19,8 +19,8 @@ ErrorLogModel::ErrorLogModel()
     Database::instance().execute(query);
     while (query.next()) {
         Error *error = new Error(Error::dbToType(query.value(QStringLiteral("type")).toInt()),
-                                 query.value(QStringLiteral("url")).toString(),
-                                 query.value(QStringLiteral("id")).toString(),
+                                 query.value(QStringLiteral("feedid")).toInt(),
+                                 query.value(QStringLiteral("entryid")).toInt(),
                                  query.value(QStringLiteral("code")).toInt(),
                                  query.value(QStringLiteral("message")).toString(),
                                  QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt()),
@@ -53,25 +53,25 @@ int ErrorLogModel::rowCount(const QModelIndex &parent) const
 }
 
 void ErrorLogModel::monitorErrorMessages(const Error::Type type,
-                                         const QString &url,
-                                         const QString &id,
+                                         const int feedid,
+                                         const int entryid,
                                          const int errorCode,
                                          const QString &errorString,
                                          const QString &title)
 {
-    qDebug() << "Error happened:" << type << url << id << errorCode << errorString;
+    qDebug() << "Error happened:" << type << feedid << entryid << errorCode << errorString;
 
-    Error *error = new Error(type, url, id, errorCode, errorString, QDateTime::currentDateTime(), title);
+    Error *error = new Error(type, feedid, entryid, errorCode, errorString, QDateTime::currentDateTime(), title);
     beginInsertRows(QModelIndex(), 0, 0);
     m_errors.prepend(error);
     endInsertRows();
 
     // Also add error to database
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Errors VALUES (:type, :url, :id, :code, :message, :date, :title);"));
+    query.prepare(QStringLiteral("INSERT INTO Errors VALUES (:type, :feedid, :entryid, :code, :message, :date, :title);"));
     query.bindValue(QStringLiteral(":type"), Error::typeToDb(type));
-    query.bindValue(QStringLiteral(":url"), url);
-    query.bindValue(QStringLiteral(":id"), id);
+    query.bindValue(QStringLiteral(":feedid"), feedid);
+    query.bindValue(QStringLiteral(":entryid"), entryid);
     query.bindValue(QStringLiteral(":code"), errorCode);
     query.bindValue(QStringLiteral(":message"), errorString);
     query.bindValue(QStringLiteral(":date"), error->date.toSecsSinceEpoch());

@@ -59,10 +59,10 @@ Fetcher::Fetcher()
     connect(SettingsManager::self(), &SettingsManager::autoFeedUpdateIntervalChanged, this, &Fetcher::initializeUpdateTimer);
 }
 
-void Fetcher::fetch(const QString &url)
+void Fetcher::fetch(const int feedid)
 {
-    QStringList urls(url);
-    fetch(urls);
+    QList<int> feedids(feedid);
+    fetch(feedids);
 }
 
 void Fetcher::fetchAll()
@@ -70,34 +70,34 @@ void Fetcher::fetchAll()
     if (Sync::instance().syncEnabled() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
         Sync::instance().doRegularSync(true);
     } else {
-        QStringList urls;
+        QList<int> feedids;
         QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT url FROM Feeds;"));
+        query.prepare(QStringLiteral("SELECT feedid FROM Feeds;"));
         Database::instance().execute(query);
         while (query.next()) {
-            urls += query.value(0).toString();
+            feedids += query.value(0).toInt();
         }
 
-        if (urls.count() > 0) {
-            fetch(urls);
+        if (feedids.count() > 0) {
+            fetch(feedids);
         }
     }
 }
 
-void Fetcher::fetch(const QStringList &urls)
+void Fetcher::fetch(const QList<int> &feedids)
 {
     if (m_updating)
         return; // update is already running, do nothing
 
     m_updating = true;
     m_updateProgress = 0;
-    m_updateTotal = urls.count();
+    m_updateTotal = feedids.count();
     Q_EMIT updatingChanged(m_updating);
     Q_EMIT updateProgressChanged(m_updateProgress);
     Q_EMIT updateTotalChanged(m_updateTotal);
 
     qCDebug(kastsFetcher) << "Create fetchFeedsJob";
-    FetchFeedsJob *fetchFeedsJob = new FetchFeedsJob(urls, this);
+    FetchFeedsJob *fetchFeedsJob = new FetchFeedsJob(feedids, this);
     connect(this, &Fetcher::cancelFetching, fetchFeedsJob, &FetchFeedsJob::abort);
     connect(fetchFeedsJob, &FetchFeedsJob::processedAmountChanged, this, [this](KJob *job, KJob::Unit unit, qulonglong amount) {
         qCDebug(kastsFetcher) << "FetchFeedsJob::processedAmountChanged:" << amount;

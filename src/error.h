@@ -36,8 +36,8 @@ public:
     static int typeToDb(Type type); // needed to translate Error::Type values to int for sqlite
     static Type dbToType(int value); // needed to translate from int to Error::Type values for sqlite
 
-    Q_PROPERTY(QString url MEMBER url CONSTANT)
-    Q_PROPERTY(QString id MEMBER id CONSTANT)
+    Q_PROPERTY(int feedid MEMBER feedid CONSTANT)
+    Q_PROPERTY(int entryid MEMBER entryid CONSTANT)
     Q_PROPERTY(int code MEMBER code CONSTANT)
     Q_PROPERTY(QString message MEMBER message CONSTANT)
     Q_PROPERTY(QDateTime date MEMBER date CONSTANT)
@@ -45,8 +45,8 @@ public:
     Q_PROPERTY(QString description READ description CONSTANT)
 
     Error(Type type,
-          const QString &url,
-          const QString &id,
+          const int &feedid,
+          const int &entryid,
           const int code,
           const QString &message,
           const QDateTime &date,
@@ -56,8 +56,8 @@ public:
     QString description() const;
 
     Type type;
-    QString url;
-    QString id;
+    int feedid;
+    int entryid;
     int code;
     QString message;
     QDateTime date;

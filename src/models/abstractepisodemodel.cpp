@@ -15,6 +15,7 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
 {
     return {
         {TitleRole, "title"},
+        {EntryIdRole, "entryid"},
         {EntryRole, "entry"},
         {IdRole, "id"},
         {ReadRole, "read"},

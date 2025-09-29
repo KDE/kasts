@@ -12,6 +12,7 @@
 #include <QSqlQuery>
 #include <QUrl>
 #include <QVariant>
+#include <qnamespace.h>
 
 #include "datamanager.h"
 #include "feed.h"
@@ -37,8 +38,10 @@ FeedsModel::FeedsModel(QObject *parent)
 QHash<int, QByteArray> FeedsModel::roleNames() const
 {
     return {
-        {FeedRole, "feed"},
         {UrlRole, "url"},
+        {FeedIdRole, "feedid"},
+        {FeedRole, "feed"},
+        {NameRole, "name"},
         {TitleRole, "title"},
         {UnreadCountRole, "unreadCount"},
         {NewCountRole, "newCount"},
@@ -59,11 +62,14 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     switch (role) {
-    case FeedRole:
-        return QVariant::fromValue(feed);
-    case Qt::DisplayRole:
     case UrlRole:
         return QVariant::fromValue(feed->url());
+    case FeedIdRole:
+        return QVariant::fromValue(feed->feedid());
+    case FeedRole:
+        return QVariant::fromValue(feed);
+    case NameRole:
+        return QVariant::fromValue(feed->name());
     case TitleRole:
         return QVariant::fromValue(feed->name());
     case UnreadCountRole:
@@ -77,10 +83,10 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
     }
 }
 
-void FeedsModel::triggerFeedUpdate(const QString &url)
+void FeedsModel::triggerFeedUpdate(const int &feedid)
 {
     for (int i = 0; i < rowCount(QModelIndex()); i++) {
-        if (data(index(i, 0), UrlRole).toString() == url) {
+        if (data(index(i, 0), FeedIdRole).toInt() == feedid) {
             Q_EMIT dataChanged(index(i, 0), index(i, 0));
             return;
         }
