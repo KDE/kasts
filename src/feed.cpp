@@ -30,9 +30,7 @@ Feed::Feed(const int feedid)
 
     m_feedid = query.value(QStringLiteral("feedid")).toInt();
     m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
-
     m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
-
     m_url = query.value(QStringLiteral("url")).toString();
     m_name = query.value(QStringLiteral("name")).toString();
     m_image = query.value(QStringLiteral("image")).toString();
@@ -59,9 +57,9 @@ Feed::Feed(const int feedid)
         if (feedid == m_feedid) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feedid);
             Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_feedid);
             Q_EMIT newEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
@@ -148,9 +146,9 @@ Feed::Feed(const QString &feedurl)
         if (url == m_url) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feedid);
             Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_feedid);
             Q_EMIT newEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
@@ -444,7 +442,7 @@ void Feed::setUnreadEntryCount(const int count)
     if (count != m_unreadEntryCount) {
         m_unreadEntryCount = count;
         Q_EMIT unreadEntryCountChanged();
-        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feedid);
         // TODO: can one of the two slots be removed??
     }
 }
@@ -479,5 +477,5 @@ void Feed::setErrorString(const QString &errorString)
 
 void Feed::refresh()
 {
-    Fetcher::instance().fetch(m_url);
+    Fetcher::instance().fetch(m_feedid);
 }

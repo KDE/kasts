@@ -16,6 +16,7 @@
 #include <QTimer>
 #include <QUrl>
 #include <Syndication/Syndication>
+#include <qcontainerfwd.h>
 
 #include "error.h"
 
@@ -41,8 +42,8 @@ public:
         return &instance();
     }
 
-    Q_INVOKABLE void fetch(const QString &url);
-    Q_INVOKABLE void fetch(const QStringList &urls);
+    Q_INVOKABLE void fetch(const int feedid);
+    Q_INVOKABLE void fetch(const QList<int> &feedids);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
@@ -58,24 +59,25 @@ public:
     Q_INVOKABLE bool isSystemProxyDefined();
 
 Q_SIGNALS:
-    void entryAdded(const QString &feedurl, const QString &id);
-    void entryUpdated(const QString &feedurl, const QString &id);
-    void feedUpdated(const QString &url);
-    void feedDetailsUpdated(const QString &url,
+    void entryAdded(const int &feedid, const QString &id);
+    void entryUpdated(const int &feedid, const QString &id);
+    void feedUpdated(const int &feedid);
+    void feedDetailsUpdated(const int &feedid,
+                            const QString &url,
                             const QString &name,
                             const QString &image,
                             const QString &link,
                             const QString &description,
                             const QDateTime &lastUpdated,
                             const QString &dirname);
-    void feedUpdateStatusChanged(const QString &url, bool status);
+    void feedUpdateStatusChanged(const int &feedid, bool status);
     void cancelFetching();
 
     void updateProgressChanged(int progress);
     void updateTotalChanged(int nrOfFeeds);
     void updatingChanged(bool state);
 
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(Error::Type type, const int &feedid, const QString &id, const int errorId, const QString &errorString, const QString &title);
     void downloadFinished(QString url) const;
     void foundRedirectedUrl(const QUrl &url, const QUrl &newUrl);
 

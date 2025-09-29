@@ -915,29 +915,29 @@ void Sync::applyEpisodeActionsLocally(const QHash<QString, QHash<QString, Episod
     // with a newer timestamp.  Hence we consider this information not reliable.
 }
 
-void Sync::storeAddFeedAction(const QString &url)
+void Sync::storeAddFeedAction(const int feedid)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:url, :action, :timestamp);"));
-        query.bindValue(QStringLiteral(":url"), url);
+        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:feedid, :action, :timestamp);"));
+        query.bindValue(QStringLiteral(":feedid"), feedid);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("add"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
         Database::instance().execute(query);
-        qCDebug(kastsSync) << "Logged a feed add action for" << url;
+        qCDebug(kastsSync) << "Logged a feed add action for" << feedid;
     }
 }
 
-void Sync::storeRemoveFeedAction(const QString &url)
+void Sync::storeRemoveFeedAction(const int feedid)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:url, :action, :timestamp);"));
-        query.bindValue(QStringLiteral(":url"), url);
+        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:feedid, :action, :timestamp);"));
+        query.bindValue(QStringLiteral(":feedid"), feedid);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("remove"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
         Database::instance().execute(query);
-        qCDebug(kastsSync) << "Logged a feed remove action for" << url;
+        qCDebug(kastsSync) << "Logged a feed remove action for" << feedid;
     }
 }
 
