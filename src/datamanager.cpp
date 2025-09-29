@@ -243,17 +243,18 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
 {
     for (Feed *feed : feeds) {
         if (feed) {
+            const int feedid = feed->feedid();
             const QString feedurl = feed->url();
-            int index = m_oldfeedmap.indexOf(feedurl);
+            int index = m_feedmap.indexOf(feedid);
 
             qCDebug(kastsDataManager) << "deleting feed" << feedurl << "with index" << index;
 
             // Delete the object instances and mappings
             // First delete entries in Queue
             qCDebug(kastsDataManager) << "delete queueentries of" << feedurl;
-            QStringList removeFromQueueList;
-            for (auto &id : m_oldqueuemap) {
-                if (getEntry(id)->feed()->url() == feedurl) {
+            QList<int> removeFromQueueList;
+            for (auto &id : m_queuemap) {
+                if (getEntry(id)->feed()->feedid() == feedid) {
                     if (AudioManager::instance().entry() == getEntry(id)) {
                         AudioManager::instance().next();
                     }
@@ -322,7 +323,7 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
 
             // Save this action to the database (including timestamp) in order to be
             // able to sync with remote services
-            Sync::instance().storeRemoveFeedAction(feedurl);
+            Sync::instance().storeRemoveFeedAction(feedid);
 
             Q_EMIT feedRemoved(index);
         }
@@ -352,6 +353,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
     // First check if the URLs are not empty
     // TODO: Add more checks like checking if URLs exist; however this will mean async...
     QStringList newUrls;
+    QList<int> newFeedids;
     for (const QString &url : urls) {
         if (!url.trimmed().isEmpty() && !feedExists(url)) {
             qCDebug(kastsDataManager) << "Feed already exists or URL is empty" << url.trimmed();
@@ -388,20 +390,24 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         query.bindValue(QStringLiteral(":sortType"), 0);
         Database::instance().execute(query);
 
+        QVariant lastid = query.lastInsertId();
+        Q_ASSERT(lastid.isValid() && !lastid.isNull());
+        int feedid = lastid.toInt();
         // TODO: check whether the entry in the database happened correctly?
 
-        m_oldfeeds[urlFromInput] = new Feed(urlFromInput);
-        m_oldfeedmap.append(urlFromInput);
+        newFeedids.append(feedid);
+        m_feeds[feedid] = new Feed(feedid);
+        m_feedmap.append(feedid);
 
         // Save this action to the database (including timestamp) in order to be
         // able to sync with remote services
-        Sync::instance().storeAddFeedAction(urlFromInput);
+        Sync::instance().storeAddFeedAction(feedid);
 
         Q_EMIT feedAdded(urlFromInput);
     }
 
     if (fetch) {
-        Fetcher::instance().fetch(urls);
+        Fetcher::instance().fetch(newFeedids);
     }
 
     // if settings allow, upload these changes immediately to sync servers
@@ -730,7 +736,7 @@ void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list)
     bulkMarkRead(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkRead(bool state, const QStringList &list)
+void DataManager::bulkMarkRead(bool state, const QList<int> &list)
 {
     Database::instance().transaction();
 
@@ -742,8 +748,8 @@ void DataManager::bulkMarkRead(bool state, const QStringList &list)
         }
         updateQueueListnrs(); // update queue after modification
     } else { // Mark as unread
-        for (const QString &id : list) {
-            getEntry(id)->setReadInternal(state);
+        for (const int &entryid : list) {
+            getEntry(entryid)->setReadInternal(state);
         }
     }
     Database::instance().commit();
@@ -761,11 +767,11 @@ void DataManager::bulkMarkNewByIndex(bool state, const QModelIndexList &list)
     bulkMarkNew(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkNew(bool state, const QStringList &list)
+void DataManager::bulkMarkNew(bool state, const QList<int> &list)
 {
     Database::instance().transaction();
-    for (const QString &id : list) {
-        getEntry(id)->setNewInternal(state);
+    for (const int &entryid : list) {
+        getEntry(entryid)->setNewInternal(state);
     }
     Database::instance().commit();
 
@@ -777,11 +783,11 @@ void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &lis
     bulkMarkFavorite(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkFavorite(bool state, const QStringList &list)
+void DataManager::bulkMarkFavorite(bool state, const QList<int> &list)
 {
     Database::instance().transaction();
-    for (const QString &id : list) {
-        getEntry(id)->setFavoriteInternal(state);
+    for (const int &entryid : list) {
+        getEntry(entryid)->setFavoriteInternal(state);
     }
     Database::instance().commit();
 
@@ -793,11 +799,11 @@ void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list
     bulkQueueStatus(state, getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkQueueStatus(bool state, const QStringList &list)
+void DataManager::bulkQueueStatus(bool state, const QList<int> &list)
 {
     Database::instance().transaction();
     if (state) { // i.e. add to queue
-        for (const QString &id : list) {
+        for (const int &id : list) {
             getEntry(id)->setQueueStatusInternal(state);
         }
     } else { // i.e. remove from queue
@@ -820,12 +826,12 @@ void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list)
     bulkDownloadEnclosures(getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkDownloadEnclosures(const QStringList &list)
+void DataManager::bulkDownloadEnclosures(const QList<int> &list)
 {
     bulkQueueStatus(true, list);
-    for (const QString &id : list) {
-        if (getEntry(id)->hasEnclosure()) {
-            getEntry(id)->enclosure()->download();
+    for (const int &entryid : list) {
+        if (getEntry(entryid)->hasEnclosure()) {
+            getEntry(entryid)->enclosure()->download();
         }
     }
 }
@@ -835,22 +841,22 @@ void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list)
     bulkDeleteEnclosures(getIdsFromModelIndexList(list));
 }
 
-void DataManager::bulkDeleteEnclosures(const QStringList &list)
+void DataManager::bulkDeleteEnclosures(const QList<int> &list)
 {
     Database::instance().transaction();
-    for (const QString &id : list) {
-        if (getEntry(id)->hasEnclosure()) {
-            getEntry(id)->enclosure()->deleteFile();
+    for (const int &entryid : list) {
+        if (getEntry(entryid)->hasEnclosure()) {
+            getEntry(entryid)->enclosure()->deleteFile();
         }
     }
     Database::instance().commit();
 }
 
-QStringList DataManager::getIdsFromModelIndexList(const QModelIndexList &list) const
+QList<int> DataManager::getIdsFromModelIndexList(const QModelIndexList &list) const
 {
-    QStringList ids;
+    QList<int> ids;
     for (QModelIndex index : list) {
-        ids += index.data(EpisodeModel::Roles::IdRole).value<QString>();
+        ids += index.data(EpisodeModel::Roles::IdRole).value<int>();
     }
     qCDebug(kastsDataManager) << "Ids of selection:" << ids;
     return ids;

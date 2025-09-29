@@ -19,6 +19,7 @@ QML_ELEMENT
 
 // structs
 struct FeedDetails {
+    int feedid;
     QString name;
     QString url;
     QString image;
@@ -37,7 +38,7 @@ struct FeedDetails {
 };
 
 struct EntryDetails {
-    QString feed;
+    int feed;
     QString id;
     QString title;
     QString content;
@@ -51,7 +52,7 @@ struct EntryDetails {
 };
 
 struct AuthorDetails {
-    QString feed;
+    int feed;
     QString id;
     QString name;
     QString uri;
@@ -59,7 +60,7 @@ struct AuthorDetails {
 };
 
 struct EnclosureDetails {
-    QString feed;
+    int feed;
     QString id;
     int duration;
     int size;
@@ -71,7 +72,7 @@ struct EnclosureDetails {
 };
 
 struct ChapterDetails {
-    QString feed;
+    int feed;
     QString id;
     int start;
     QString title;

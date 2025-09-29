@@ -41,8 +41,8 @@ public:
         return &instance();
     }
 
-    Q_INVOKABLE void fetch(const QString &url);
-    Q_INVOKABLE void fetch(const QStringList &urls);
+    Q_INVOKABLE void fetch(const int feedid);
+    Q_INVOKABLE void fetch(const QList<int> &feedids);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
     Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
@@ -68,7 +68,7 @@ Q_SIGNALS:
                             const QString &description,
                             const QDateTime &lastUpdated,
                             const QString &dirname);
-    void feedUpdateStatusChanged(const QString &url, bool status);
+    void feedUpdateStatusChanged(const int &feedid, bool status);
     void cancelFetching();
 
     void updateProgressChanged(int progress);

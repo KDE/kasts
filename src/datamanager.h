@@ -74,12 +74,12 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkMarkNew(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkQueueStatus(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkDownloadEnclosures(const QStringList &list);
-    Q_INVOKABLE void bulkDeleteEnclosures(const QStringList &list);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QList<int> &list);
+    Q_INVOKABLE void bulkMarkNew(bool state, const QList<int> &list);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<int> &list);
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<int> &list);
+    Q_INVOKABLE void bulkDownloadEnclosures(const QList<int> &list);
+    Q_INVOKABLE void bulkDeleteEnclosures(const QList<int> &list);
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
@@ -120,7 +120,7 @@ private:
 
     QString cleanUrl(const QString &url);
 
-    QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
+    QList<int> getIdsFromModelIndexList(const QModelIndexList &list) const;
 
     mutable QHash<int, Feed *> m_feeds; // hash of pointers to all feeds in db, key = feedid (lazy loading)
     mutable QHash<int, Entry *> m_entries; // hash of pointers to all entries in db, key = entryid (lazy loading)

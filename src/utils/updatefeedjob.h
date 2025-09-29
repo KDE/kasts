@@ -23,22 +23,23 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const QString &url, const QByteArray &data, const DataTypes::FeedDetails &feed, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const int &feedid, const QByteArray &data, const DataTypes::FeedDetails &feed, QObject *parent = nullptr);
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
 
 Q_SIGNALS:
-    void feedDetailsUpdated(const QString &url,
+    void feedDetailsUpdated(const int &feedid,
+                            const QString &url,
                             const QString &name,
                             const QString &image,
                             const QString &link,
                             const QString &description,
                             const QDateTime &lastUpdated,
                             const QString &dirname);
-    void feedUpdated(const QString &url);
-    void entryAdded(const QString &feedurl, const QString &id);
-    void entryUpdated(const QString &feedurl, const QString &id);
+    void feedUpdated(const int &feedid);
+    void entryAdded(const int &feedid, const QString &id);
+    void entryUpdated(const int &feedid, const QString &id);
     void aborting();
     void finished();
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
@@ -58,7 +59,7 @@ private:
     QString generateFeedDirname(const QString &name);
     bool m_abort = false;
 
-    QString m_url;
+    int m_feedid;
     QByteArray m_data;
 
     bool m_markUnreadOnNewFeed;

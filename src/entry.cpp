@@ -276,7 +276,7 @@ void Entry::setRead(bool read)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setReadInternal on every item to
         // be marked read/unread.  So implement features there.
-        DataManager::instance().bulkMarkRead(read, QStringList(m_id));
+        DataManager::instance().bulkMarkRead(read, QList<int>({m_entryid}));
     }
 }
 
@@ -330,7 +330,7 @@ void Entry::setNew(bool state)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setNewInternal on every item to
         // be marked new/not new.  So implement features there.
-        DataManager::instance().bulkMarkNew(state, QStringList(m_id));
+        DataManager::instance().bulkMarkNew(state, QList<int>({m_entryid}));
     }
 }
 
@@ -359,7 +359,7 @@ void Entry::setFavorite(bool favorite)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setFavoriteInternal on every item to
         // be marked new/not new.  So implement features there.
-        DataManager::instance().bulkMarkFavorite(favorite, QStringList(m_id));
+        DataManager::instance().bulkMarkFavorite(favorite, QList<int>({m_entryid}));
     }
 }
 
@@ -484,7 +484,7 @@ void Entry::setQueueStatus(bool state)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setQueueStatusInternal on every
         // item to be processed.  So implement features there.
-        DataManager::instance().bulkQueueStatus(state, QStringList(m_id));
+        DataManager::instance().bulkQueueStatus(state, QList<int>({m_entryid}));
     }
 }
 
