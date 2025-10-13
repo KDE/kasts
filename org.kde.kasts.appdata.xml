@@ -82,7 +82,7 @@
   <project_group>KDE</project_group>
   <custom>
     <value key="KDE::matrix">#kasts:kde.org</value>
-    <value key="KDE::supporters">Henning Lammert;Marco Ryll;Dominik Barth;zukigay;[Donnie Page](https://noc.social/@pixelstick)</value>
+    <value key="KDE::supporters"> </value>
     <value key="KDE::f_droid">https://community.kde.org/Android/FDroid</value>
   </custom>
   <developer id="org.kde">
