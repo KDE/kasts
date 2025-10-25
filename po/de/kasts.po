@@ -217,10 +217,9 @@ msgid "Podcast Player"
 msgstr "Podcast-Wiedergabe"
 
 #: main.cpp:140
-#, fuzzy, kde-format
-#| msgid "© 2020–2024 KDE Community"
+#, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr "Copyright © 2020–2024 KDE-Gemeinschaft"
+msgstr "© 2020–2025 KDE-Gemeinschaft"
 
 #: main.cpp:141
 #, kde-format
