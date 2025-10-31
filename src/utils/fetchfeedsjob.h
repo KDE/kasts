@@ -7,6 +7,7 @@
 #pragma once
 
 #include <KJob>
+#include <QSqlQuery>
 #include <QVector>
 
 #include "error.h"
@@ -31,6 +32,7 @@ private:
 
     void fetch();
     void monitorProgress();
+    bool dbExecute(QSqlQuery &query);
 
     bool m_abort = false;
 };

@@ -23,7 +23,7 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const QString &url, const QByteArray &data, const DataTypes::FeedDetails &feed, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const QByteArray &data, const DataTypes::FeedDetails &oldFeedDetails, QObject *parent = nullptr);
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
@@ -45,9 +45,9 @@ Q_SIGNALS:
 
 private:
     void processFeed(Syndication::FeedPtr feed);
-    bool processEntry(Syndication::ItemPtr entry);
-    bool processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail);
-    bool processEnclosure(Syndication::EnclosurePtr enclosure, const DataTypes::EntryDetails &newEntry, const DataTypes::EntryDetails &oldEntry);
+    void processEntry(Syndication::ItemPtr feedEntry, QHash<QString, DataTypes::EntryDetails> &entries);
+    void processAuthors(const QString &name, const QString &email, QHash<QString, DataTypes::AuthorDetails> &authors);
+    bool processEnclosure(Syndication::EnclosurePtr feedEnclosure, const DataTypes::EntryDetails &entry, const DataTypes::EntryDetails &oldEntry);
     bool processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
     void writeToDatabase();
 
@@ -62,9 +62,5 @@ private:
     QByteArray m_data;
 
     bool m_markUnreadOnNewFeed;
-    DataTypes::FeedDetails m_feed, m_updateFeed;
-    QVector<DataTypes::EntryDetails> m_entries, m_newEntries, m_updateEntries;
-    QVector<DataTypes::AuthorDetails> m_authors, m_newAuthors, m_updateAuthors;
-    QVector<DataTypes::EnclosureDetails> m_enclosures, m_newEnclosures, m_updateEnclosures;
-    QVector<DataTypes::ChapterDetails> m_chapters, m_newChapters, m_updateChapters;
+    DataTypes::FeedDetails m_oldFeedDetails, m_feedDetails;
 };

@@ -18,6 +18,7 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Thread>
+#include <qcontainerfwd.h>
 
 #include "database.h"
 #include "datatypes.h"
@@ -31,12 +32,13 @@
 using namespace ThreadWeaver;
 using namespace DataTypes;
 
-UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, const FeedDetails &feed, QObject *parent)
+UpdateFeedJob::UpdateFeedJob(const QByteArray &data, const FeedDetails &oldFeedDetails, QObject *parent)
     : QObject(parent)
-    , m_url(url)
     , m_data(data)
-    , m_feed(feed)
+    , m_oldFeedDetails(oldFeedDetails)
 {
+    m_url = oldFeedDetails.url;
+
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
@@ -71,46 +73,46 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         return;
 
     // First check if this is a newly added feed and get current name and dirname
-    if (m_feed.isNew) {
+    if (m_oldFeedDetails.isNew) {
         qCDebug(kastsFetcher) << "New feed" << feed->title();
     }
 
     m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
     QDateTime current = QDateTime::currentDateTime();
 
-    m_updateFeed = m_feed; // start from current feed details in database
+    m_feedDetails = std::as_const(m_oldFeedDetails); // start from current feed details in database
 
-    m_updateFeed.name = feed->title();
-    m_updateFeed.link = feed->link();
-    m_updateFeed.description = feed->description();
-    m_updateFeed.lastUpdated = current.toSecsSinceEpoch();
-    m_updateFeed.lastHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
+    m_feedDetails.name = feed->title();
+    m_feedDetails.link = feed->link();
+    m_feedDetails.description = feed->description();
+    m_feedDetails.lastUpdated = current.toSecsSinceEpoch();
+    m_feedDetails.lastHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = feed->additionalProperties();
 
     // First try the itunes tags, if not, fall back to regular image tag
     if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
-        m_updateFeed.image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+        m_feedDetails.image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
     } else {
-        m_updateFeed.image = feed->image()->url();
+        m_feedDetails.image = feed->image()->url();
     }
 
-    if (m_updateFeed.image.startsWith(QStringLiteral("/"))) {
-        m_updateFeed.image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + m_updateFeed.image;
+    if (m_feedDetails.image.startsWith(QStringLiteral("/"))) {
+        m_feedDetails.image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + m_feedDetails.image;
     }
 
     // if the title has changed, we need to rename the corresponding enclosure
     // download directory name and move the files
-    if (m_feed.name != m_updateFeed.name || m_feed.dirname.isEmpty() || m_feed.isNew) {
-        QString generatedDirname = generateFeedDirname(m_updateFeed.name);
-        if (generatedDirname != m_feed.dirname) {
-            m_updateFeed.dirname = generatedDirname;
+    if (m_oldFeedDetails.name != m_feedDetails.name || m_oldFeedDetails.dirname.isEmpty() || m_oldFeedDetails.isNew) {
+        QString generatedDirname = generateFeedDirname(m_feedDetails.name);
+        if (generatedDirname != m_oldFeedDetails.dirname) {
+            m_feedDetails.dirname = generatedDirname;
             QString enclosurePath = StorageManager::instance().enclosureDirPath();
-            if (QDir(enclosurePath + m_feed.dirname).exists()) {
-                QDir().rename(enclosurePath + m_feed.dirname, enclosurePath + m_updateFeed.dirname);
+            if (QDir(enclosurePath + m_oldFeedDetails.dirname).exists()) {
+                QDir().rename(enclosurePath + m_oldFeedDetails.dirname, enclosurePath + m_feedDetails.dirname);
             } else {
-                QDir().mkpath(enclosurePath + m_updateFeed.dirname);
+                QDir().mkpath(enclosurePath + m_feedDetails.dirname);
             }
         }
     }
@@ -118,94 +120,23 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     QSqlQuery query(QSqlDatabase::database(m_url));
     query.prepare(QStringLiteral(
         "UPDATE Feeds SET name=:name, image=:image, link=:link, description=:description, lastUpdated=:lastUpdated, dirname=:dirname WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":name"), m_updateFeed.name);
-    query.bindValue(QStringLiteral(":url"), m_updateFeed.url);
-    query.bindValue(QStringLiteral(":link"), m_updateFeed.link);
-    query.bindValue(QStringLiteral(":description"), m_updateFeed.description);
-    query.bindValue(QStringLiteral(":lastUpdated"), m_updateFeed.lastUpdated);
-    query.bindValue(QStringLiteral(":image"), m_updateFeed.image);
-    query.bindValue(QStringLiteral(":dirname"), m_updateFeed.dirname);
+    query.bindValue(QStringLiteral(":name"), m_feedDetails.name);
+    query.bindValue(QStringLiteral(":url"), m_feedDetails.url);
+    query.bindValue(QStringLiteral(":link"), m_feedDetails.link);
+    query.bindValue(QStringLiteral(":description"), m_feedDetails.description);
+    query.bindValue(QStringLiteral(":lastUpdated"), m_feedDetails.lastUpdated);
+    query.bindValue(QStringLiteral(":image"), m_feedDetails.image);
+    query.bindValue(QStringLiteral(":dirname"), m_feedDetails.dirname);
     // we only write the new lastHash to the database after entries etc. have
     // all been updated!
     dbExecute(query);
     query.clear(); // make sure this query is not blocking anything anymore
 
-    // Now that we have the feed details, we make vectors of the data that's
-    // already in the database relating to this feed
-    // NOTE: We will do the feed authors after this step, because otherwise
-    // we can't check for duplicates and we'll keep adding more of the same!
-    query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    dbExecute(query);
-    while (query.next()) {
-        EntryDetails entryDetails;
-        entryDetails.feed = m_url;
-        entryDetails.id = query.value(QStringLiteral("id")).toString();
-        entryDetails.title = query.value(QStringLiteral("title")).toString();
-        entryDetails.content = query.value(QStringLiteral("content")).toString();
-        entryDetails.created = query.value(QStringLiteral("created")).toInt();
-        entryDetails.updated = query.value(QStringLiteral("updated")).toInt();
-        entryDetails.read = query.value(QStringLiteral("read")).toBool();
-        entryDetails.isNew = query.value(QStringLiteral("new")).toBool();
-        entryDetails.link = query.value(QStringLiteral("link")).toString();
-        entryDetails.hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
-        entryDetails.image = query.value(QStringLiteral("image")).toString();
-        m_entries += entryDetails;
-    }
-    query.clear();
-
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    dbExecute(query);
-    while (query.next()) {
-        EnclosureDetails enclosureDetails;
-        enclosureDetails.feed = m_url;
-        enclosureDetails.id = query.value(QStringLiteral("id")).toString();
-        enclosureDetails.duration = query.value(QStringLiteral("duration")).toInt();
-        enclosureDetails.size = query.value(QStringLiteral("size")).toInt();
-        enclosureDetails.title = query.value(QStringLiteral("title")).toString();
-        enclosureDetails.type = query.value(QStringLiteral("type")).toString();
-        enclosureDetails.url = query.value(QStringLiteral("url")).toString();
-        enclosureDetails.playPosition = query.value(QStringLiteral("id")).toInt();
-        enclosureDetails.downloaded = Enclosure::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
-        m_enclosures += enclosureDetails;
-    }
-    query.clear();
-
-    query.prepare(QStringLiteral("SELECT * FROM Authors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    dbExecute(query);
-    while (query.next()) {
-        AuthorDetails authorDetails;
-        authorDetails.feed = m_url;
-        authorDetails.id = query.value(QStringLiteral("id")).toString();
-        authorDetails.name = query.value(QStringLiteral("name")).toString();
-        authorDetails.uri = query.value(QStringLiteral("uri")).toString();
-        authorDetails.email = query.value(QStringLiteral("email")).toString();
-        m_authors += authorDetails;
-    }
-    query.clear();
-
-    query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
-    dbExecute(query);
-    while (query.next()) {
-        ChapterDetails chapterDetails;
-        chapterDetails.feed = m_url;
-        chapterDetails.id = query.value(QStringLiteral("id")).toString();
-        chapterDetails.start = query.value(QStringLiteral("start")).toInt();
-        chapterDetails.title = query.value(QStringLiteral("title")).toString();
-        chapterDetails.link = query.value(QStringLiteral("link")).toString();
-        chapterDetails.image = query.value(QStringLiteral("image")).toString();
-        m_chapters += chapterDetails;
-    }
-    query.clear();
-
     bool authorsChanged = false;
     // Process feed authors
     if (feed->authors().count() > 0) {
-        for (auto &author : feed->authors()) {
-            authorsChanged = authorsChanged || processAuthor(QLatin1String(""), author->name(), QLatin1String(""), QLatin1String(""));
+        for (const auto &author : feed->authors()) {
+            processAuthors(author->name(), author->email(), m_feedDetails.authors);
         }
     } else {
         // Try to find itunes fields if plain author doesn't exist
@@ -225,69 +156,46 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
             qCDebug(kastsFetcher) << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
-            authorsChanged = authorsChanged || processAuthor(QLatin1String(""), authorname, QLatin1String(""), authoremail);
+            processAuthors(authorname, authoremail, m_feedDetails.authors);
         }
     }
 
     qCDebug(kastsFetcher) << "Updated feed details:" << feed->title();
 
     // check if any field has changed and only emit signal if there are changes
-    bool hasFeedBeenUpdated = false;
-    if (m_updateFeed.name != m_feed.name || m_updateFeed.link != m_feed.link || m_updateFeed.image != m_feed.image
-        || m_updateFeed.description != m_feed.description || authorsChanged) {
-        hasFeedBeenUpdated = true;
-    } else {
-        hasFeedBeenUpdated = false;
+    if (m_feedDetails.name != m_oldFeedDetails.name || m_feedDetails.link != m_oldFeedDetails.link || m_feedDetails.image != m_oldFeedDetails.image
+        || m_feedDetails.description != m_oldFeedDetails.description || authorsChanged) {
+        m_feedDetails.state = DataTypes::RecordState::Modified;
     }
 
-    if (hasFeedBeenUpdated) {
-        Q_EMIT feedDetailsUpdated(m_url, m_updateFeed.name, m_updateFeed.image, m_updateFeed.link, m_updateFeed.description, current, m_updateFeed.dirname);
+    if (m_feedDetails.state == DataTypes::RecordState::Modified) {
+        Q_EMIT feedDetailsUpdated(m_url,
+                                  m_feedDetails.name,
+                                  m_feedDetails.image,
+                                  m_feedDetails.link,
+                                  m_feedDetails.description,
+                                  current,
+                                  m_feedDetails.dirname);
     }
 
     if (m_abort)
         return;
 
     // Now deal with the entries, enclosures, entry authors and chapter marks
-    bool updatedEntries = false;
     const auto items = feed->items();
-    for (const auto &entry : items) {
+    for (const auto &feedEntry : items) {
         if (m_abort)
             return;
 
-        bool isNewEntry = processEntry(entry);
-        updatedEntries = updatedEntries || isNewEntry;
-    }
-
-    writeToDatabase();
-
-    if (updatedEntries || m_feed.isNew) {
-        Q_EMIT feedUpdated(m_url);
+        processEntry(feedEntry, m_feedDetails.entries);
     }
 
     qCDebug(kastsFetcher) << "done processing feed" << feed;
 }
 
-bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
+void UpdateFeedJob::processEntry(Syndication::ItemPtr entry, QHash<QString, DataTypes::EntryDetails> &entries)
 {
     qCDebug(kastsFetcher) << "Processing" << entry->title();
-    bool isNewEntry = true;
-    bool isUpdateEntry = false;
-    bool isUpdateDependencies = false;
-    EntryDetails currentEntry;
-
-    // check against existing entries and the list of new entries
-    const auto allEntries = m_entries + m_newEntries;
-    for (const EntryDetails &entryDetails : allEntries) {
-        if (entryDetails.id == entry->id()) {
-            isNewEntry = false;
-            currentEntry = entryDetails;
-        }
-    }
-
-    // stop here if doFullUpdate is set to false and this is an existing entry
-    if (!isNewEntry && !SettingsManager::self()->doFullUpdate()) {
-        return false;
-    }
 
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
@@ -298,34 +206,61 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
         qCDebug(kastsFetcher) << key << otherItems.value(key).tagName();
     }
 
-    EntryDetails entryDetails;
-    entryDetails.feed = m_url;
-    entryDetails.id = entry->id();
-    entryDetails.title = QTextDocumentFragment::fromHtml(entry->title()).toPlainText();
-    entryDetails.created = static_cast<int>(entry->datePublished());
-    entryDetails.updated = static_cast<int>(entry->dateUpdated());
-    entryDetails.link = entry->link();
-    entryDetails.hasEnclosure = (entry->enclosures().length() > 0);
-    entryDetails.read = m_feed.isNew ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
-    entryDetails.isNew = !m_feed.isNew; // if new feed, then mark none as new
+    QString id = entry->id();
+    QString title = QTextDocumentFragment::fromHtml(entry->title()).toPlainText();
+    int created = static_cast<int>(entry->datePublished());
+    int updated = static_cast<int>(entry->dateUpdated());
+    QString link = entry->link();
+    bool hasEnclosure = (entry->enclosures().length() > 0);
+    bool read = m_oldFeedDetails.isNew ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
+    bool isNew = !m_oldFeedDetails.isNew; // if new feed, then mark none as new
+    QString content;
+    QString image;
 
     // Take the longest text, either content or description
     if (entry->content().length() > entry->description().length()) {
-        entryDetails.content = entry->content();
+        content = entry->content();
     } else {
-        entryDetails.content = entry->description();
+        content = entry->description();
     }
 
     // Look for image in itunes tags
     if (otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).hasAttribute(QStringLiteral("href"))) {
-        entryDetails.image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
+        image = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdimage")).attribute(QStringLiteral("href"));
     } else if (otherItems.contains(QStringLiteral("http://search.yahoo.com/mrss/thumbnail"))) {
-        entryDetails.image = otherItems.value(QStringLiteral("http://search.yahoo.com/mrss/thumbnail")).attribute(QStringLiteral("url"));
+        image = otherItems.value(QStringLiteral("http://search.yahoo.com/mrss/thumbnail")).attribute(QStringLiteral("url"));
     }
-    if (entryDetails.image.startsWith(QStringLiteral("/"))) {
-        entryDetails.image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + entryDetails.image;
+    if (image.startsWith(QStringLiteral("/"))) {
+        image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + image;
     }
-    qCDebug(kastsFetcher) << "Entry image found" << entryDetails.image;
+    qCDebug(kastsFetcher) << "Entry image found" << image;
+
+    // now we start updating the datastructure
+    if (entries.contains(id)) {
+        // stop here if doFullUpdate is set to false and this is an existing entry
+        if (!SettingsManager::self()->doFullUpdate()) {
+            return;
+        }
+        // TODO: verderdoen vanaf hier
+    } else {
+    }
+
+    bool isNewEntry = true;
+    bool isUpdateEntry = false;
+    bool isUpdateDependencies = false;
+    EntryDetails currentEntry;
+
+    // check against existing entries and the list of new entries
+    for (const EntryDetails &entryDetails : m_feedDetails.entries) {
+        if (entryDetails.id == entry->id()) {
+            isNewEntry = false;
+            currentEntry = entryDetails;
+        }
+    }
+
+    if (!isNewEntry && !SettingsManager::self()->doFullUpdate()) {
+        return false;
+    }
 
     // if this is an existing episode, check if it needs updating
     if (!isNewEntry) {
@@ -392,42 +327,25 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     return isNewEntry | isUpdateEntry | isUpdateDependencies; // this is a new or updated entry, or an enclosure, chapter or author has been changed/added
 }
 
-bool UpdateFeedJob::processAuthor(const QString &entryId, const QString &authorName, const QString &authorUri, const QString &authorEmail)
+void UpdateFeedJob::processAuthors(const QString &name, const QString &email, QHash<QString, DataTypes::AuthorDetails> &authors)
 {
-    bool isNewAuthor = true;
-    bool isUpdateAuthor = false;
-    AuthorDetails currentAuthor;
-
-    // check against existing authors already in database
-    const auto allAuthors = m_authors + m_newAuthors;
-    for (const AuthorDetails &authorDetails : allAuthors) {
-        if ((authorDetails.id == entryId) && (authorDetails.name == authorName)) {
-            isNewAuthor = false;
-            currentAuthor = authorDetails;
-        }
-    }
-
-    AuthorDetails authorDetails;
-    authorDetails.feed = m_url;
-    authorDetails.id = entryId;
-    authorDetails.name = authorName;
-    authorDetails.uri = authorUri;
-    authorDetails.email = authorEmail;
-
-    if (!isNewAuthor) {
-        if ((currentAuthor.uri != authorDetails.uri) || (currentAuthor.email != authorDetails.email)) {
-            qCDebug(kastsFetcher) << "author details have been updated for:" << entryId << authorName;
-            isUpdateAuthor = true;
-            m_updateAuthors += authorDetails;
+    if (authors.contains(name)) {
+        if (authors[name].email == email) {
+            authors[name].state = DataTypes::RecordState::Unmodified;
+            qCDebug(kastsFetcher) << "author details are unchanged:" << name << email;
         } else {
-            qCDebug(kastsFetcher) << "author details are unchanged:" << entryId << authorName;
+            authors[name].email = email;
+            authors[name].state = DataTypes::RecordState::Modified;
+            qCDebug(kastsFetcher) << "author details have been updated for:" << name << email;
         }
     } else {
-        qCDebug(kastsFetcher) << "this is a new author:" << entryId << authorName;
-        m_newAuthors += authorDetails;
+        AuthorDetails newAuthor;
+        newAuthor.name = name;
+        newAuthor.email = email;
+        newAuthor.state = DataTypes::RecordState::New;
+        authors[name] = newAuthor;
+        qCDebug(kastsFetcher) << "this is a new author:" << name << email;
     }
-
-    return isNewAuthor | isUpdateAuthor;
 }
 
 bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, const EntryDetails &newEntry, const EntryDetails &oldEntry)
@@ -468,8 +386,8 @@ bool UpdateFeedJob::processEnclosure(Syndication::EnclosurePtr enclosure, const 
 
         // Check if entry title or enclosure URL has changed
         if (newEntry.title != oldEntry.title) {
-            QString oldFilename = StorageManager::instance().enclosurePath(oldEntry.title, currentEnclosure.url, m_updateFeed.dirname);
-            QString newFilename = StorageManager::instance().enclosurePath(newEntry.title, enclosureDetails.url, m_updateFeed.dirname);
+            QString oldFilename = StorageManager::instance().enclosurePath(oldEntry.title, currentEnclosure.url, m_feedDetails.dirname);
+            QString newFilename = StorageManager::instance().enclosurePath(newEntry.title, enclosureDetails.url, m_feedDetails.dirname);
 
             if (oldFilename != newFilename) {
                 if (currentEnclosure.url == enclosureDetails.url) {
@@ -655,7 +573,7 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // set custom amount of episodes to unread/new if required
-    if (m_feed.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
+    if (m_oldFeedDetails.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
         writeQuery.prepare(QStringLiteral(
             "UPDATE Entries SET read=:read, new=:new WHERE id in (SELECT id FROM Entries WHERE feed =:feed ORDER BY updated DESC LIMIT :recentUnread);"));
         writeQuery.bindValue(QStringLiteral(":feed"), m_url);
@@ -666,7 +584,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.clear();
     }
 
-    if (m_feed.isNew) {
+    if (m_oldFeedDetails.isNew) {
         // Finally, reset the new flag to false now that the new feed has been
         // fully processed.  If we would reset the flag sooner, then too many
         // episodes will get flagged as new if the initial import gets
@@ -678,10 +596,10 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.clear();
     }
 
-    if (m_feed.lastHash != m_updateFeed.lastHash) {
+    if (m_oldFeedDetails.lastHash != m_feedDetails.lastHash) {
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
         writeQuery.bindValue(QStringLiteral(":url"), m_url);
-        writeQuery.bindValue(QStringLiteral(":lastHash"), m_updateFeed.lastHash);
+        writeQuery.bindValue(QStringLiteral(":lastHash"), m_feedDetails.lastHash);
         dbExecute(writeQuery);
         writeQuery.clear();
     }
