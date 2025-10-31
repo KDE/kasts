@@ -17,7 +17,59 @@ namespace DataTypes
 Q_NAMESPACE
 QML_ELEMENT
 
+// enums
+enum RecordState {
+    Unmodified = 0,
+    New,
+    Modified,
+    RemovedFromFeed,
+};
+Q_ENUM_NS(RecordState)
+
 // structs
+struct AuthorDetails {
+    QString name;
+    QString email;
+    RecordState state;
+};
+
+struct EnclosureDetails {
+    int duration;
+    int size;
+    QString title;
+    QString type;
+    QString url;
+    int playPosition;
+    Enclosure::Status downloaded;
+    RecordState state;
+};
+
+struct ChapterDetails {
+    int start;
+    QString title;
+    QString link;
+    QString image;
+    RecordState state;
+};
+
+struct EntryDetails {
+    QString feed;
+    QString id;
+    QString title;
+    QString content;
+    int created;
+    int updated;
+    QString link;
+    bool read;
+    bool isNew;
+    bool hasEnclosure;
+    QString image;
+    QHash<QString, AuthorDetails> authors; // key = author name
+    QHash<QString, EnclosureDetails> enclosures; // key = enclosure url
+    QHash<int, ChapterDetails> chapters; // key = start
+    RecordState state;
+};
+
 struct FeedDetails {
     QString name;
     QString url;
@@ -34,48 +86,8 @@ struct FeedDetails {
     QString lastHash;
     int filterType = 0;
     int sortType = 0;
-};
-
-struct EntryDetails {
-    QString feed;
-    QString id;
-    QString title;
-    QString content;
-    int created;
-    int updated;
-    QString link;
-    bool read;
-    bool isNew;
-    bool hasEnclosure;
-    QString image;
-};
-
-struct AuthorDetails {
-    QString feed;
-    QString id;
-    QString name;
-    QString uri;
-    QString email;
-};
-
-struct EnclosureDetails {
-    QString feed;
-    QString id;
-    int duration;
-    int size;
-    QString title;
-    QString type;
-    QString url;
-    int playPosition;
-    Enclosure::Status downloaded;
-};
-
-struct ChapterDetails {
-    QString feed;
-    QString id;
-    int start;
-    QString title;
-    QString link;
-    QString image;
+    QHash<QString, AuthorDetails> authors; // key = author name
+    QHash<QString, EntryDetails> entries; // key = id from feed
+    RecordState state;
 };
 }

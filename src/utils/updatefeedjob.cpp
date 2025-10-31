@@ -18,6 +18,7 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Thread>
+#include <utility>
 
 #include "database.h"
 #include "datatypes.h"
@@ -33,10 +34,10 @@ using namespace DataTypes;
 
 UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, const FeedDetails &feed, QObject *parent)
     : QObject(parent)
-    , m_url(url)
     , m_data(data)
-    , m_feed(feed)
+    , m_oldFeed(feed)
 {
+    m_url = m_oldFeed.url;
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
@@ -71,14 +72,14 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         return;
 
     // First check if this is a newly added feed and get current name and dirname
-    if (m_feed.isNew) {
+    if (m_oldFeed.isNew) {
         qCDebug(kastsFetcher) << "New feed" << feed->title();
     }
 
     m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
     QDateTime current = QDateTime::currentDateTime();
 
-    m_updateFeed = m_feed; // start from current feed details in database
+    m_updateFeed = std::as_const(m_oldFeed); // start from current feed details in database
 
     m_updateFeed.name = feed->title();
     m_updateFeed.link = feed->link();
@@ -102,13 +103,14 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // if the title has changed, we need to rename the corresponding enclosure
     // download directory name and move the files
-    if (m_feed.name != m_updateFeed.name || m_feed.dirname.isEmpty() || m_feed.isNew) {
+    // TODO: The rename should happen simultaneously with the write to the database rather than here
+    if (m_oldFeed.name != m_updateFeed.name || m_oldFeed.dirname.isEmpty() || m_oldFeed.isNew) {
         QString generatedDirname = generateFeedDirname(m_updateFeed.name);
-        if (generatedDirname != m_feed.dirname) {
+        if (generatedDirname != m_oldFeed.dirname) {
             m_updateFeed.dirname = generatedDirname;
             QString enclosurePath = StorageManager::instance().enclosureDirPath();
-            if (QDir(enclosurePath + m_feed.dirname).exists()) {
-                QDir().rename(enclosurePath + m_feed.dirname, enclosurePath + m_updateFeed.dirname);
+            if (QDir(enclosurePath + m_oldFeed.dirname).exists()) {
+                QDir().rename(enclosurePath + m_oldFeed.dirname, enclosurePath + m_updateFeed.dirname);
             } else {
                 QDir().mkpath(enclosurePath + m_updateFeed.dirname);
             }
@@ -159,8 +161,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     dbExecute(query);
     while (query.next()) {
         EnclosureDetails enclosureDetails;
-        enclosureDetails.feed = m_url;
-        enclosureDetails.id = query.value(QStringLiteral("id")).toString();
+        QString id = query.value(QStringLiteral("id")).toString();
         enclosureDetails.duration = query.value(QStringLiteral("duration")).toInt();
         enclosureDetails.size = query.value(QStringLiteral("size")).toInt();
         enclosureDetails.title = query.value(QStringLiteral("title")).toString();
@@ -233,8 +234,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // check if any field has changed and only emit signal if there are changes
     bool hasFeedBeenUpdated = false;
-    if (m_updateFeed.name != m_feed.name || m_updateFeed.link != m_feed.link || m_updateFeed.image != m_feed.image
-        || m_updateFeed.description != m_feed.description || authorsChanged) {
+    if (m_updateFeed.name != m_oldFeed.name || m_updateFeed.link != m_oldFeed.link || m_updateFeed.image != m_oldFeed.image
+        || m_updateFeed.description != m_oldFeed.description || authorsChanged) {
         hasFeedBeenUpdated = true;
     } else {
         hasFeedBeenUpdated = false;
@@ -260,7 +261,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     writeToDatabase();
 
-    if (updatedEntries || m_feed.isNew) {
+    if (updatedEntries || m_oldFeed.isNew) {
         Q_EMIT feedUpdated(m_url);
     }
 
@@ -306,8 +307,8 @@ bool UpdateFeedJob::processEntry(Syndication::ItemPtr entry)
     entryDetails.updated = static_cast<int>(entry->dateUpdated());
     entryDetails.link = entry->link();
     entryDetails.hasEnclosure = (entry->enclosures().length() > 0);
-    entryDetails.read = m_feed.isNew ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
-    entryDetails.isNew = !m_feed.isNew; // if new feed, then mark none as new
+    entryDetails.read = m_oldFeed.isNew ? m_markUnreadOnNewFeed : false; // if new feed, then check settings
+    entryDetails.isNew = !m_oldFeed.isNew; // if new feed, then mark none as new
 
     // Take the longest text, either content or description
     if (entry->content().length() > entry->description().length()) {
@@ -655,7 +656,7 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // set custom amount of episodes to unread/new if required
-    if (m_feed.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
+    if (m_oldFeed.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
         writeQuery.prepare(QStringLiteral(
             "UPDATE Entries SET read=:read, new=:new WHERE id in (SELECT id FROM Entries WHERE feed =:feed ORDER BY updated DESC LIMIT :recentUnread);"));
         writeQuery.bindValue(QStringLiteral(":feed"), m_url);
@@ -666,7 +667,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.clear();
     }
 
-    if (m_feed.isNew) {
+    if (m_oldFeed.isNew) {
         // Finally, reset the new flag to false now that the new feed has been
         // fully processed.  If we would reset the flag sooner, then too many
         // episodes will get flagged as new if the initial import gets
@@ -678,7 +679,7 @@ void UpdateFeedJob::writeToDatabase()
         writeQuery.clear();
     }
 
-    if (m_feed.lastHash != m_updateFeed.lastHash) {
+    if (m_oldFeed.lastHash != m_updateFeed.lastHash) {
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
         writeQuery.bindValue(QStringLiteral(":url"), m_url);
         writeQuery.bindValue(QStringLiteral(":lastHash"), m_updateFeed.lastHash);

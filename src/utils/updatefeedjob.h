@@ -61,6 +61,8 @@ private:
     QString m_url;
     QByteArray m_data;
 
+    DataTypes::FeedDetails m_oldFeed;
+
     bool m_markUnreadOnNewFeed;
     DataTypes::FeedDetails m_feed, m_updateFeed;
     QVector<DataTypes::EntryDetails> m_entries, m_newEntries, m_updateEntries;
