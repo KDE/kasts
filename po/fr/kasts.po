@@ -1298,19 +1298,19 @@ msgstr "Boîte à miniatures"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
-msgstr "Afficher une icône dans la boîte à miniatures"
+msgstr "Afficher une icône dans la boite à miniatures"
 
 #: qml/Settings/AppearanceSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr "Minimiser dans la boîte à miniatures au lien de la fermeture."
+msgstr "Minimiser dans la boite à miniatures au lien de la fermeture."
 
 #: qml/Settings/AppearanceSettingsPage.qml:140
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr "Type de boîte à miniatures"
+msgstr "Type de boite à miniatures"
 
 #: qml/Settings/AppearanceSettingsPage.qml:147
 #, kde-format
