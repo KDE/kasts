@@ -2388,7 +2388,3 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgctxt "@title:group"
-#~ msgid "About Kasts"
-#~ msgstr "Quant al Kasts"
