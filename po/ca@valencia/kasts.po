@@ -65,12 +65,12 @@ msgstr "%1, i %2"
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr "S'ha produït un error durant l'actualització del pòdcast"
+msgstr "S'ha produït un error mentre s'actualitzava el pòdcast"
 
 #: error.cpp:50
 #, kde-format
 msgid "Media download error"
-msgstr "S'ha produït un error en la baixada dels elements multimèdia"
+msgstr "S'ha produït un error durant la baixada dels elements multimèdia"
 
 #: error.cpp:52
 #, kde-format
@@ -90,7 +90,7 @@ msgstr "No s'ha trobat res"
 #: error.cpp:58
 #, kde-format
 msgid "Error moving storage path"
-msgstr "S'ha produït un error en moure el camí d'emmagatzematge"
+msgstr "S'ha produït un error mentre es movia el camí d'emmagatzematge"
 
 #: error.cpp:60
 #, kde-format
@@ -2342,7 +2342,7 @@ msgstr "L'operació ha sigut interrompuda per l'usuari"
 #: utils/storagemovejob.cpp:112
 #, kde-format
 msgid "An error occurred while copying data"
-msgstr "S'ha produït un error en copiar les dades"
+msgstr "S'ha produït un error mentre es copiaven les dades"
 
 #: utils/systrayicon.cpp:25
 #, kde-format
