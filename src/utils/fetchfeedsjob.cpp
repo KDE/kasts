@@ -12,7 +12,6 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Queue>
-#include <qsqlerror.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -57,11 +56,11 @@ void FetchFeedsJob::fetch()
         const QString url = m_urls[i];
 
         // First get all the required data from the database and do some basic checks
-        DataTypes::FeedDetails oldFeedDetails;
+        FeedDetails oldFeedDetails;
         QSqlQuery query;
         query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:url;"));
         query.bindValue(QStringLiteral(":url"), url);
-        if (!Database::instance().execute(query)) {
+        if (!dbExecute(query)) {
             continue;
         }
         if (query.next()) {
@@ -207,6 +206,9 @@ void FetchFeedsJob::fetch()
                     connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, url]() {
                         setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
                         Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
+                    });
+                    connect(updateFeedJob, &UpdateFeedJob::resultsAvailable, this, [](FeedDetails feedDetails) {
+                        qCDebug(kastsFetcher) << "Got results back from UpdateFeedJob" << feedDetails.url;
                     });
 
                     stream() << updateFeedJob;

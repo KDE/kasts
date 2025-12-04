@@ -41,6 +41,7 @@ Q_SIGNALS:
     void entryUpdated(const QString &feedurl, const QString &id);
     void aborting();
     void finished();
+    void resultsAvailable(DataTypes::FeedDetails feedDetails);
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
@@ -48,10 +49,10 @@ private:
     void processEntry(const Syndication::ItemPtr feedEntry, QHash<QString, DataTypes::EntryDetails> &entries);
     void processAuthor(const QString &name, const QString &email, QHash<QString, DataTypes::AuthorDetails> &authors);
     void processEnclosure(const Syndication::EnclosurePtr enclosure,
-                          QHash<QString, DataTypes::EnclosureDetails> &enclosures,
                           const QString &oldEntryTitle,
-                          const QString &newEntryTitle);
-    bool processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image);
+                          const QString &newEntryTitle,
+                          QHash<QString, DataTypes::EnclosureDetails> &enclosures);
+    void processChapter(const int &start, const QString &title, const QString &link, const QString &image, QHash<int, DataTypes::ChapterDetails> &chapters);
     void writeToDatabase();
 
     bool dbExecute(QSqlQuery &query);
@@ -67,3 +68,5 @@ private:
     bool m_markUnreadOnNewFeed;
     DataTypes::FeedDetails m_oldFeedDetails, m_feedDetails;
 };
+
+Q_DECLARE_METATYPE(DataTypes::FeedDetails)

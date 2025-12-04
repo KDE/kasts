@@ -18,8 +18,6 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Thread>
-#include <qcontainerfwd.h>
-#include <qlatin1stringview.h>
 
 #include "database.h"
 #include "datatypes.h"
@@ -41,6 +39,7 @@ UpdateFeedJob::UpdateFeedJob(const QByteArray &data, const FeedDetails &oldFeedD
     m_url = oldFeedDetails.url;
 
     // connect to signals in Fetcher such that GUI can pick up the changes
+    // TODO: Clean out the unnecessary signals
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
     connect(this, &UpdateFeedJob::entryAdded, &Fetcher::instance(), &Fetcher::entryAdded);
@@ -62,8 +61,8 @@ void UpdateFeedJob::run(JobPointer, Thread *)
     processFeed(feed);
 
     Database::closeDatabase(m_url);
-
     Q_EMIT finished();
+    Q_EMIT resultsAvailable(m_feedDetails);
 }
 
 void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
@@ -167,9 +166,6 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     if (m_feedDetails.name != m_oldFeedDetails.name || m_feedDetails.link != m_oldFeedDetails.link || m_feedDetails.image != m_oldFeedDetails.image
         || m_feedDetails.description != m_oldFeedDetails.description || authorsChanged) {
         m_feedDetails.state = DataTypes::RecordState::Modified;
-    }
-
-    if (m_feedDetails.state == DataTypes::RecordState::Modified) {
         Q_EMIT feedDetailsUpdated(m_url,
                                   m_feedDetails.name,
                                   m_feedDetails.image,
@@ -218,6 +214,9 @@ void UpdateFeedJob::processEntry(const Syndication::ItemPtr entry, QHash<QString
     QString content;
     QString image;
 
+    // This is needed to be able to rename enclosures of the entry title changes
+    QString oldTitle = title;
+
     // Take the longest text, either content or description
     if (entry->content().length() > entry->description().length()) {
         content = entry->content();
@@ -244,6 +243,7 @@ void UpdateFeedJob::processEntry(const Syndication::ItemPtr entry, QHash<QString
         }
         if ((entries[id].title != title) || (entries[id].content != content) || (entries[id].created != created) || (entries[id].updated != updated)
             || (entries[id].link != link) || (entries[id].hasEnclosure != hasEnclosure) || (entries[id].image != image)) {
+            oldTitle = entries[id].title; // save old title for later on
             entries[id].title = title;
             entries[id].content = content;
             entries[id].created = created;
@@ -308,8 +308,7 @@ void UpdateFeedJob::processEntry(const Syndication::ItemPtr entry, QHash<QString
                 }
                 qCDebug(kastsFetcher) << "Found chapter mark:" << start << "; in seconds:" << startInt;
                 QString images = element.attribute(QStringLiteral("image"));
-                // TODO: verderdoen vanaf hier na het refactoren van processChapter en processEnclosure
-                processChapter(entry->id(), startInt, title, entry->link(), images);
+                processChapter(startInt, title, entry->link(), images, entries[id].chapters);
             }
         }
     }
@@ -318,11 +317,9 @@ void UpdateFeedJob::processEntry(const Syndication::ItemPtr entry, QHash<QString
     // only process first enclosure if there are multiple (e.g. mp3 and ogg);
     // the first one is probably the podcast author's preferred version
     // TODO: handle more than one enclosure?
-    if (entry->enclosures().count() > 0) {
-        isUpdateDependencies = isUpdateDependencies | processEnclosure(entry->enclosures()[0], entryDetails, currentEntry);
+    for (auto &enclosure : entry->enclosures()) {
+        processEnclosure(enclosure, oldTitle, title, entries[id].enclosures);
     }
-
-    return isNewEntry | isUpdateEntry | isUpdateDependencies; // this is a new or updated entry, or an enclosure, chapter or author has been changed/added
 }
 
 void UpdateFeedJob::processAuthor(const QString &name, const QString &email, QHash<QString, DataTypes::AuthorDetails> &authors)
@@ -347,9 +344,9 @@ void UpdateFeedJob::processAuthor(const QString &name, const QString &email, QHa
 }
 
 void UpdateFeedJob::processEnclosure(const Syndication::EnclosurePtr enclosure,
-                                     QHash<QString, DataTypes::EnclosureDetails> &enclosures,
                                      const QString &oldEntryTitle,
-                                     const QString &newEntryTitle)
+                                     const QString &newEntryTitle,
+                                     QHash<QString, DataTypes::EnclosureDetails> &enclosures)
 {
     int duration = enclosure->duration();
     int size = enclosure->length();
@@ -395,248 +392,237 @@ void UpdateFeedJob::processEnclosure(const Syndication::EnclosurePtr enclosure,
     }
 }
 
-bool UpdateFeedJob::processChapter(const QString &entryId, const int &start, const QString &chapterTitle, const QString &link, const QString &image)
+void UpdateFeedJob::processChapter(const int &start, const QString &title, const QString &link, const QString &image, QHash<int, ChapterDetails> &chapters)
 {
-    bool isNewChapter = true;
-    bool isUpdateChapter = false;
-    ChapterDetails currentChapter;
-
-    // check against existing enclosures already in database
-    const auto allChapters = m_chapters + m_newChapters;
-    for (const ChapterDetails &chapterDetails : allChapters) {
-        if ((chapterDetails.id == entryId) && (chapterDetails.start == start)) {
-            isNewChapter = false;
-            currentChapter = chapterDetails;
-        }
-    }
-
-    ChapterDetails chapterDetails;
-    chapterDetails.feed = m_url;
-    chapterDetails.id = entryId;
-    chapterDetails.start = start;
-    chapterDetails.title = chapterTitle;
-    chapterDetails.link = link;
-    chapterDetails.image = image;
-
-    if (!isNewChapter) {
-        if ((currentChapter.title != chapterDetails.title) || (currentChapter.link != chapterDetails.link) || (currentChapter.image != chapterDetails.image)) {
-            qCDebug(kastsFetcher) << "chapter details have been updated for:" << entryId << start;
-            isUpdateChapter = true;
-            m_updateChapters += chapterDetails;
+    if (chapters.contains(start)) {
+        if ((chapters[start].title != title) || (chapters[start].link != link) || (chapters[start].image != image)) {
+            chapters[start].title = title;
+            chapters[start].link = link;
+            chapters[start].image = image;
+            chapters[start].state = DataTypes::RecordState::Modified;
+            qCDebug(kastsFetcher) << "chapter details have been updated for:" << start;
         } else {
-            qCDebug(kastsFetcher) << "chapter details are unchanged:" << entryId << start;
+            chapters[start].state = DataTypes::RecordState::Unmodified;
+            qCDebug(kastsFetcher) << "chapter details are unchanged:" << start;
         }
     } else {
-        qCDebug(kastsFetcher) << "this is a new chapter:" << entryId << start;
-        m_newChapters += chapterDetails;
-    }
-
-    return isNewChapter | isUpdateChapter;
-}
-
-void UpdateFeedJob::writeToDatabase()
-{
-    QSqlQuery writeQuery(QSqlDatabase::database(m_url));
-
-    dbTransaction();
-
-    // new entries
-    writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
-    for (const EntryDetails &entryDetails : std::as_const(m_newEntries)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
-        writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
-        writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
-        writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
-        writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
-        writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
-        writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
-        writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
-        writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
-        writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
-        writeQuery.bindValue(QStringLiteral(":favorite"), false);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // update entries
-    writeQuery.prepare(
-        QStringLiteral("UPDATE Entries SET title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
-                       "image=:image WHERE id=:id AND feed=:feed;"));
-    for (const EntryDetails &entryDetails : std::as_const(m_updateEntries)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
-        writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
-        writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
-        writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
-        writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
-        writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
-        writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
-        writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // new authors
-    writeQuery.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
-    for (const AuthorDetails &authorDetails : std::as_const(m_newAuthors)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), authorDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), authorDetails.id);
-        writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
-        writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
-        writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // update authors
-    writeQuery.prepare(QStringLiteral("UPDATE Authors SET uri=:uri, email=:email WHERE feed=:feed AND id=:id AND name=:name;"));
-    for (const AuthorDetails &authorDetails : std::as_const(m_updateAuthors)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), authorDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), authorDetails.id);
-        writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
-        writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
-        writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // new enclosures
-    writeQuery.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition, :downloaded);"));
-    for (const EnclosureDetails &enclosureDetails : std::as_const(m_newEnclosures)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), enclosureDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), enclosureDetails.id);
-        writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
-        writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
-        writeQuery.bindValue(QStringLiteral(":title"), enclosureDetails.title);
-        writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
-        writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
-        writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
-        writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // update enclosures
-    writeQuery.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE feed=:feed AND id=:id;"));
-    for (const EnclosureDetails &enclosureDetails : std::as_const(m_updateEnclosures)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), enclosureDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), enclosureDetails.id);
-        writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
-        writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
-        writeQuery.bindValue(QStringLiteral(":title"), enclosureDetails.title);
-        writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
-        writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // new chapters
-    writeQuery.prepare(QStringLiteral("INSERT INTO Chapters VALUES(:feed, :id, :start, :title, :link, :image);"));
-    for (const ChapterDetails &chapterDetails : std::as_const(m_newChapters)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), chapterDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), chapterDetails.id);
-        writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
-        writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
-        writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
-        writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // update chapters
-    writeQuery.prepare(QStringLiteral("UPDATE Chapters SET title=:title, link=:link, image=:image WHERE feed=:feed AND id=:id AND start=:start;"));
-    for (const ChapterDetails &chapterDetails : std::as_const(m_updateChapters)) {
-        writeQuery.bindValue(QStringLiteral(":feed"), chapterDetails.feed);
-        writeQuery.bindValue(QStringLiteral(":id"), chapterDetails.id);
-        writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
-        writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
-        writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
-        writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
-        dbExecute(writeQuery);
-    }
-    writeQuery.clear();
-
-    // set custom amount of episodes to unread/new if required
-    if (m_oldFeedDetails.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
-        writeQuery.prepare(QStringLiteral(
-            "UPDATE Entries SET read=:read, new=:new WHERE id in (SELECT id FROM Entries WHERE feed =:feed ORDER BY updated DESC LIMIT :recentUnread);"));
-        writeQuery.bindValue(QStringLiteral(":feed"), m_url);
-        writeQuery.bindValue(QStringLiteral(":read"), false);
-        writeQuery.bindValue(QStringLiteral(":new"), true);
-        writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
-        dbExecute(writeQuery);
-        writeQuery.clear();
-    }
-
-    if (m_oldFeedDetails.isNew) {
-        // Finally, reset the new flag to false now that the new feed has been
-        // fully processed.  If we would reset the flag sooner, then too many
-        // episodes will get flagged as new if the initial import gets
-        // interrupted somehow.
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
-        writeQuery.bindValue(QStringLiteral(":url"), m_url);
-        writeQuery.bindValue(QStringLiteral(":new"), false);
-        dbExecute(writeQuery);
-        writeQuery.clear();
-    }
-
-    if (m_oldFeedDetails.lastHash != m_feedDetails.lastHash) {
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
-        writeQuery.bindValue(QStringLiteral(":url"), m_url);
-        writeQuery.bindValue(QStringLiteral(":lastHash"), m_feedDetails.lastHash);
-        dbExecute(writeQuery);
-        writeQuery.clear();
-    }
-
-    if (dbCommit()) {
-        QStringList newIds, updateIds;
-
-        // emit signals for new entries
-        for (const EntryDetails &entryDetails : std::as_const(m_newEntries)) {
-            if (!newIds.contains(entryDetails.id)) {
-                newIds += entryDetails.id;
-            }
-        }
-
-        for (const QString &id : std::as_const(newIds)) {
-            Q_EMIT entryAdded(m_url, id);
-        }
-
-        // emit signals for updated entries or entries with new/updated authors,
-        // enclosures or chapters
-        for (const EntryDetails &entryDetails : std::as_const(m_updateEntries)) {
-            if (!updateIds.contains(entryDetails.id) && !newIds.contains(entryDetails.id)) {
-                updateIds += entryDetails.id;
-            }
-        }
-        const auto allEnclosures = m_newEnclosures + m_updateEnclosures;
-        for (const EnclosureDetails &enclosureDetails : allEnclosures) {
-            if (!updateIds.contains(enclosureDetails.id) && !newIds.contains(enclosureDetails.id)) {
-                updateIds += enclosureDetails.id;
-            }
-        }
-        const auto allAuthors = m_newAuthors + m_updateAuthors;
-        for (const AuthorDetails &authorDetails : allAuthors) {
-            if (!updateIds.contains(authorDetails.id) && !newIds.contains(authorDetails.id)) {
-                updateIds += authorDetails.id;
-            }
-        }
-        const auto allChapters = m_newChapters + m_updateChapters;
-        for (const ChapterDetails &chapterDetails : allChapters) {
-            if (!updateIds.contains(chapterDetails.id) && !newIds.contains(chapterDetails.id)) {
-                updateIds += chapterDetails.id;
-            }
-        }
-
-        for (const QString &id : std::as_const(updateIds)) {
-            qCDebug(kastsFetcher) << "updated episode" << id;
-            Q_EMIT entryUpdated(m_url, id);
-        }
+        ChapterDetails newChapter;
+        newChapter.start = start;
+        newChapter.title = title;
+        newChapter.link = link;
+        newChapter.image = image;
+        newChapter.state = DataTypes::RecordState::New;
+        chapters[start] = newChapter;
+        qCDebug(kastsFetcher) << "this is a new chapter:" << start;
     }
 }
 
+// void UpdateFeedJob::writeToDatabase()
+// {
+//     QSqlQuery writeQuery(QSqlDatabase::database(m_url));
+//
+//     dbTransaction();
+//
+//     // new entries
+//     writeQuery.prepare(
+//         QStringLiteral("INSERT INTO Entries VALUES (:feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image,
+//         :favorite);"));
+//     for (const EntryDetails &entryDetails : std::as_const(m_newEntries)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
+//         writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
+//         writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
+//         writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
+//         writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
+//         writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
+//         writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
+//         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
+//         writeQuery.bindValue(QStringLiteral(":favorite"), false);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // update entries
+//     writeQuery.prepare(
+//         QStringLiteral("UPDATE Entries SET title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
+//                        "image=:image WHERE id=:id AND feed=:feed;"));
+//     for (const EntryDetails &entryDetails : std::as_const(m_updateEntries)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
+//         writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
+//         writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
+//         writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
+//         writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
+//         writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // new authors
+//     writeQuery.prepare(QStringLiteral("INSERT INTO Authors VALUES(:feed, :id, :name, :uri, :email);"));
+//     for (const AuthorDetails &authorDetails : std::as_const(m_newAuthors)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), authorDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), authorDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+//         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
+//         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // update authors
+//     writeQuery.prepare(QStringLiteral("UPDATE Authors SET uri=:uri, email=:email WHERE feed=:feed AND id=:id AND name=:name;"));
+//     for (const AuthorDetails &authorDetails : std::as_const(m_updateAuthors)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), authorDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), authorDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+//         writeQuery.bindValue(QStringLiteral(":uri"), authorDetails.uri);
+//         writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // new enclosures
+//     writeQuery.prepare(QStringLiteral("INSERT INTO Enclosures VALUES (:feed, :id, :duration, :size, :title, :type, :url, :playposition, :downloaded);"));
+//     for (const EnclosureDetails &enclosureDetails : std::as_const(m_newEnclosures)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), enclosureDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), enclosureDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
+//         writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
+//         writeQuery.bindValue(QStringLiteral(":title"), enclosureDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
+//         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
+//         writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
+//         writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // update enclosures
+//     writeQuery.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE feed=:feed AND
+//     id=:id;")); for (const EnclosureDetails &enclosureDetails : std::as_const(m_updateEnclosures)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), enclosureDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), enclosureDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
+//         writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
+//         writeQuery.bindValue(QStringLiteral(":title"), enclosureDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
+//         writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // new chapters
+//     writeQuery.prepare(QStringLiteral("INSERT INTO Chapters VALUES(:feed, :id, :start, :title, :link, :image);"));
+//     for (const ChapterDetails &chapterDetails : std::as_const(m_newChapters)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), chapterDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), chapterDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
+//         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
+//         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // update chapters
+//     writeQuery.prepare(QStringLiteral("UPDATE Chapters SET title=:title, link=:link, image=:image WHERE feed=:feed AND id=:id AND start=:start;"));
+//     for (const ChapterDetails &chapterDetails : std::as_const(m_updateChapters)) {
+//         writeQuery.bindValue(QStringLiteral(":feed"), chapterDetails.feed);
+//         writeQuery.bindValue(QStringLiteral(":id"), chapterDetails.id);
+//         writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
+//         writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
+//         writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
+//         writeQuery.bindValue(QStringLiteral(":image"), chapterDetails.image);
+//         dbExecute(writeQuery);
+//     }
+//     writeQuery.clear();
+//
+//     // set custom amount of episodes to unread/new if required
+//     if (m_oldFeedDetails.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0))
+//     {
+//         writeQuery.prepare(QStringLiteral(
+//             "UPDATE Entries SET read=:read, new=:new WHERE id in (SELECT id FROM Entries WHERE feed =:feed ORDER BY updated DESC LIMIT :recentUnread);"));
+//         writeQuery.bindValue(QStringLiteral(":feed"), m_url);
+//         writeQuery.bindValue(QStringLiteral(":read"), false);
+//         writeQuery.bindValue(QStringLiteral(":new"), true);
+//         writeQuery.bindValue(QStringLiteral(":recentUnread"), SettingsManager::self()->markUnreadOnNewFeedCustomAmount());
+//         dbExecute(writeQuery);
+//         writeQuery.clear();
+//     }
+//
+//     if (m_oldFeedDetails.isNew) {
+//         // Finally, reset the new flag to false now that the new feed has been
+//         // fully processed.  If we would reset the flag sooner, then too many
+//         // episodes will get flagged as new if the initial import gets
+//         // interrupted somehow.
+//         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET new=:new WHERE url=:url;"));
+//         writeQuery.bindValue(QStringLiteral(":url"), m_url);
+//         writeQuery.bindValue(QStringLiteral(":new"), false);
+//         dbExecute(writeQuery);
+//         writeQuery.clear();
+//     }
+//
+//     if (m_oldFeedDetails.lastHash != m_feedDetails.lastHash) {
+//         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET lastHash=:lastHash WHERE url=:url;"));
+//         writeQuery.bindValue(QStringLiteral(":url"), m_url);
+//         writeQuery.bindValue(QStringLiteral(":lastHash"), m_feedDetails.lastHash);
+//         dbExecute(writeQuery);
+//         writeQuery.clear();
+//     }
+//
+//     if (dbCommit()) {
+//         QStringList newIds, updateIds;
+//
+//         // emit signals for new entries
+//         for (const EntryDetails &entryDetails : std::as_const(m_newEntries)) {
+//             if (!newIds.contains(entryDetails.id)) {
+//                 newIds += entryDetails.id;
+//             }
+//         }
+//
+//         for (const QString &id : std::as_const(newIds)) {
+//             Q_EMIT entryAdded(m_url, id);
+//         }
+//
+//         // emit signals for updated entries or entries with new/updated authors,
+//         // enclosures or chapters
+//         for (const EntryDetails &entryDetails : std::as_const(m_updateEntries)) {
+//             if (!updateIds.contains(entryDetails.id) && !newIds.contains(entryDetails.id)) {
+//                 updateIds += entryDetails.id;
+//             }
+//         }
+//         const auto allEnclosures = m_newEnclosures + m_updateEnclosures;
+//         for (const EnclosureDetails &enclosureDetails : allEnclosures) {
+//             if (!updateIds.contains(enclosureDetails.id) && !newIds.contains(enclosureDetails.id)) {
+//                 updateIds += enclosureDetails.id;
+//             }
+//         }
+//         const auto allAuthors = m_newAuthors + m_updateAuthors;
+//         for (const AuthorDetails &authorDetails : allAuthors) {
+//             if (!updateIds.contains(authorDetails.id) && !newIds.contains(authorDetails.id)) {
+//                 updateIds += authorDetails.id;
+//             }
+//         }
+//         const auto allChapters = m_newChapters + m_updateChapters;
+//         for (const ChapterDetails &chapterDetails : allChapters) {
+//             if (!updateIds.contains(chapterDetails.id) && !newIds.contains(chapterDetails.id)) {
+//                 updateIds += chapterDetails.id;
+//             }
+//         }
+//
+//         for (const QString &id : std::as_const(updateIds)) {
+//             qCDebug(kastsFetcher) << "updated episode" << id;
+//             Q_EMIT entryUpdated(m_url, id);
+//         }
+//     }
+// }
+
+// TODO: Remove all the database stuff
 bool UpdateFeedJob::dbExecute(QSqlQuery &query)
 {
     bool state = Database::executeThread(query);
