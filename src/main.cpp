@@ -17,6 +17,7 @@
 #include <QStringList>
 #include <QSysInfo>
 #include <QVariant>
+#include <klocalizedqmlcontext.h>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -31,7 +32,7 @@
 #include <KDBusService>
 #endif
 #include <KIconTheme>
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowSystem>
@@ -106,13 +107,14 @@ int main(int argc, char *argv[])
     BreezeIcons::initIcons();
 #endif
 
+    KLocalizedString::setApplicationDomain("kasts");
+
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    KLocalizedString::setApplicationDomain("kasts");
+    KLocalization::setupLocalizedContext(&engine);
 
     // pass name of style to qml
     engine.rootContext()->setContextProperty(QStringLiteral("styleName"), QQuickStyle::name());
