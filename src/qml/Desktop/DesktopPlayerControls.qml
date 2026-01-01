@@ -405,12 +405,12 @@ FocusScope {
 
         showCloseButton: false
 
-        title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
+        title: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Title")
         padding: Kirigami.Units.largeSpacing
 
         Controls.Label {
             id: text
-            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No track loaded")
+            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText

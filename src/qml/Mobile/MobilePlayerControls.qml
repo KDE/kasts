@@ -20,7 +20,7 @@ import ".."
 Kirigami.Page {
     id: playerControls
 
-    title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Loaded")
+    title: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Loaded")
     clip: true
     Layout.margins: 0
 
@@ -171,7 +171,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
+                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Title")
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -181,7 +181,7 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No track loaded")
+                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText

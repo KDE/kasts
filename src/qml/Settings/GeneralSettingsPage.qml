@@ -61,7 +61,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: showTimeLeft
             checked: SettingsManager.toggleRemainingTime
-            text: i18nc("@option:check Label for setting whether the total track time is shown or a countdown of the remaining play time", "Show time left instead of total track time")
+            text: i18nc("@option:check Label for setting whether the total episode time is shown or a countdown of the remaining play time", "Show time left instead of total episode time")
             onToggled: {
                 SettingsManager.toggleRemainingTime = checked;
                 SettingsManager.save();

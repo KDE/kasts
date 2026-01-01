@@ -120,8 +120,8 @@ FocusScope {
 
         property string image: AudioManager.entry ? ((desktopPlayerControls.chapterModel.currentChapter && desktopPlayerControls.chapterModel.currentChapter !== undefined) ? desktopPlayerControls.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
         property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
-        property string title: AudioManager.entry ? AudioManager.entry.title : i18n("No Track Title")
-        property string feed: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No track loaded")
+        property string title: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Title")
+        property string feed: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No episode loaded")
         property string authors: AudioManager.entry ? AudioManager.entry.feed.authors : ""
 
         implicitHeight: headerBar.handlePosition
