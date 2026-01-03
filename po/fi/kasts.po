@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-07-20 11:08+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -498,15 +498,17 @@ msgstr "Luvut"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Raidalla ei ole otsikkoa"
+#, fuzzy, kde-format
+#| msgid "Episode List"
+msgid "No Episode Title"
+msgstr "Jaksoluettelo"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "Ei ladattua raitaa"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "Ei jaksoja saatavilla"
 
 # *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
@@ -1124,9 +1126,10 @@ msgstr ""
 "Podcastien lataamista ei toistaiseksi sallita maksullisissa yhteyksissä "
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Ei ladattua raitaa"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "Ei jaksoja saatavilla"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1370,11 +1373,15 @@ msgid "Select audio backend"
 msgstr "Valitse äänijärjestelmä"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Näytä raidan kokonaisajan sijaan jäljellä oleva aika"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2375,6 +2382,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Lopeta"
 
+#~ msgid "No Track Title"
+#~ msgstr "Raidalla ei ole otsikkoa"
+
+#~ msgid "No track loaded"
+#~ msgstr "Ei ladattua raitaa"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Ei ladattua raitaa"
+
 #, fuzzy
 #~| msgctxt "@title:menu Category in settings"
 #~| msgid "About"
@@ -2406,9 +2422,6 @@ msgstr "Lopeta"
 #~ msgctxt "@option:check Label for settings related to podcast updates"
 #~ msgid "Update Settings:"
 #~ msgstr "Päivitysasetukset:"
-
-#~ msgid "Episode List"
-#~ msgstr "Jaksoluettelo"
 
 #~ msgctxt "@title Podcast subscription list page title"
 #~ msgid "Subscriptions"

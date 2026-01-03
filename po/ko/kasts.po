@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-07-21 00:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -497,15 +497,17 @@ msgstr "챕터"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "트랙 제목 없음"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No Episode Title"
+msgstr "에피소드 없음"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "불러온 트랙 없음"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "에피소드 없음"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1114,9 +1116,10 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "불러온 트랙 없음"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No Episode Loaded"
+msgstr "에피소드 없음"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1359,11 +1362,15 @@ msgid "Select audio backend"
 msgstr "오디오 백엔드 선택"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "총 트랙 시간 대신 남은 시간 표시"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2358,6 +2365,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "끝내기"
 
+#~ msgid "No Track Title"
+#~ msgstr "트랙 제목 없음"
+
+#~ msgid "No track loaded"
+#~ msgstr "불러온 트랙 없음"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "불러온 트랙 없음"
+
 #, fuzzy
 #~| msgctxt "@title:menu Category in settings"
 #~| msgid "About"
@@ -2440,9 +2456,6 @@ msgstr "끝내기"
 #~ msgctxt "@title:menu"
 #~ msgid "Select Filter"
 #~ msgstr "필터 선택"
-
-#~ msgid "No Episodes Available"
-#~ msgstr "에피소드 없음"
 
 #, fuzzy
 #~| msgid "General Settings"

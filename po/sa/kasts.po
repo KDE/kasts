@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -500,15 +500,17 @@ msgstr "अध्यायाः"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "No Track Title नास्ति"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "कोऽपि प्रकरणः उपलब्धः नास्ति"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "न पटलः भारितः"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "कोऽपि प्रकरणः उपलब्धः नास्ति"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1124,9 +1126,10 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "सम्प्रति मीटर्-युक्तेषु संयोजनेषु पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "No Track Loaded इति"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "कोऽपि प्रकरणः उपलब्धः नास्ति"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1376,11 +1379,15 @@ msgid "Select audio backend"
 msgstr "श्रव्यपृष्ठभागं चिनोतु"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "कुलपटलसमयस्य स्थाने अवशिष्टसमयं दर्शयतु"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2389,6 +2396,15 @@ msgstr "अग्रे त्यजन्तु"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "परिजहातु"
+
+#~ msgid "No Track Title"
+#~ msgstr "No Track Title नास्ति"
+
+#~ msgid "No track loaded"
+#~ msgstr "न पटलः भारितः"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "No Track Loaded इति"
 
 #, fuzzy
 #~| msgctxt "@title:menu Category in settings"

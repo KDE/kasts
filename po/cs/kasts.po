@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2024-09-03 08:47+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -497,15 +497,17 @@ msgstr "Kapitoly"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Žádný název skladby"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "Nejsou k dispozici žádné epizody"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "Nebyla načtena žádná skladba"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "Nejsou k dispozici žádné epizody"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1127,9 +1129,10 @@ msgstr ""
 "Stahování podcastů při použití měřeného síťového připojení není povoleno"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Nebyla nalezena žádná skladba"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "Nejsou k dispozici žádné epizody"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1374,11 +1377,15 @@ msgid "Select audio backend"
 msgstr "Vyberte podpůrnou vrstvu audio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Zobrazit zbývající čas namísto celkové délky skladby"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2365,3 +2372,12 @@ msgstr "Přeskočit vpřed"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "No Track Title"
+#~ msgstr "Žádný název skladby"
+
+#~ msgid "No track loaded"
+#~ msgstr "Nebyla načtena žádná skladba"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Nebyla nalezena žádná skladba"

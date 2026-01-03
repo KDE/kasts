@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-11-08 21:10-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -503,15 +503,17 @@ msgstr "Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Título de faixa indisponível"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "Nenhum episódio disponível"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "Nenhuma faixa carregada"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "Nenhum episódio disponível"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1127,9 +1129,10 @@ msgstr ""
 "Atualmente, os downloads de podcast não são permitidos em conexões limitadas"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Nenhuma faixa carregada"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "Nenhum episódio disponível"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1373,11 +1376,15 @@ msgid "Select audio backend"
 msgstr "Selecione infraestrutura de áudio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Mostrar o tempo restante em vez do tempo total da trilha"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2381,6 +2388,15 @@ msgstr "Pular"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "No Track Title"
+#~ msgstr "Título de faixa indisponível"
+
+#~ msgid "No track loaded"
+#~ msgstr "Nenhuma faixa carregada"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Nenhuma faixa carregada"
 
 #, fuzzy
 #~| msgctxt "@title:menu Category in settings"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -499,15 +499,17 @@ msgstr "Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Non hai título de pista"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "Non hai episodios dispoñíbeis"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "Non se cargou ningunha pista"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "Non hai episodios dispoñíbeis"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1124,9 +1126,10 @@ msgstr ""
 "contabilizadas."
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Non se cargou ningunha pista"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "Non hai episodios dispoñíbeis"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1370,11 +1373,15 @@ msgid "Select audio backend"
 msgstr "Seleccionar o motor de son"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Amosar o tempo restante en vez da duración total."
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2381,6 +2388,15 @@ msgstr "Saltar cara adiante"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Saír"
+
+#~ msgid "No Track Title"
+#~ msgstr "Non hai título de pista"
+
+#~ msgid "No track loaded"
+#~ msgstr "Non se cargou ningunha pista"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Non se cargou ningunha pista"
 
 #~ msgctxt "@title:group"
 #~ msgid "About Kasts"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-08-21 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -498,15 +498,17 @@ msgstr "الفصول"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "لا يوجد عنوان للمقطوعة"
+#, fuzzy, kde-format
+#| msgid "Episode List"
+msgid "No Episode Title"
+msgstr "قائمة الحلقات"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "لم يوجد مقطوعة محملة"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "لا يوجد حلقات متوفرة"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1145,9 +1147,10 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "تنزيلات المدونة الصوتية غير مسموح به على الاتصال المقيد"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "لا يوجد مسار محمل"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "لا يوجد حلقات متوفرة"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1395,11 +1398,15 @@ msgid "Select audio backend"
 msgstr "اختر خلفية الصوت"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "عرض الوقت المتبقي بدلا من إجمالي الوقت"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2409,6 +2416,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "أنهِ"
 
+#~ msgid "No Track Title"
+#~ msgstr "لا يوجد عنوان للمقطوعة"
+
+#~ msgid "No track loaded"
+#~ msgstr "لم يوجد مقطوعة محملة"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "لا يوجد مسار محمل"
+
 #~ msgctxt "@title:group"
 #~ msgid "About Kasts"
 #~ msgstr "عن كاست"
@@ -2437,9 +2453,6 @@ msgstr "أنهِ"
 #~ msgctxt "@option:check Label for settings related to podcast updates"
 #~ msgid "Update Settings:"
 #~ msgstr "إعدادات التحديث:"
-
-#~ msgid "Episode List"
-#~ msgstr "قائمة الحلقات"
 
 #~ msgctxt "@title Podcast subscription list page title"
 #~ msgid "Subscriptions"

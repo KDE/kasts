@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-07-03 16:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -502,15 +502,17 @@ msgstr "Capítols"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Sense títol de peça"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "No hi ha cap episodi disponible"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "No s'ha carregat cap peça"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "No hi ha cap episodi disponible"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1127,9 +1129,10 @@ msgstr ""
 "mesurat"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "No s'ha carregat cap peça"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "No hi ha cap episodi disponible"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1374,11 +1377,15 @@ msgid "Select audio backend"
 msgstr "Selecció del dorsal d'àudio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Mostra el temps restant en lloc del temps total de la peça"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2388,6 +2395,15 @@ msgstr "Salta cap endavant"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "No Track Title"
+#~ msgstr "Sense títol de peça"
+
+#~ msgid "No track loaded"
+#~ msgstr "No s'ha carregat cap peça"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "No s'ha carregat cap peça"
 
 #~ msgctxt "@title:group"
 #~ msgid "About Kasts"

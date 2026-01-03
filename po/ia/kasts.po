@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2025-10-27 16:05+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -500,15 +500,17 @@ msgstr "Capitulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Nulle Titulo de tracia"
+#, fuzzy, kde-format
+#| msgid "Episode List"
+msgid "No Episode Title"
+msgstr "Lista de Episodio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "Nulle tracia cargate"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "Nulle episodio disponibile"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1125,9 +1127,10 @@ msgstr ""
 "consumo"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Nulle tracia cargate"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "Nulle episodio disponibile"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1371,11 +1374,15 @@ msgid "Select audio backend"
 msgstr "Selige retro-administration audio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Monstra tempore lassate in loco de tempore de tracia total"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2383,6 +2390,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Quita"
 
+#~ msgid "No Track Title"
+#~ msgstr "Nulle Titulo de tracia"
+
+#~ msgid "No track loaded"
+#~ msgstr "Nulle tracia cargate"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Nulle tracia cargate"
+
 #~ msgctxt "@title:group"
 #~ msgid "About Kasts"
 #~ msgstr "A proposito de Kasts"
@@ -2403,9 +2419,6 @@ msgstr "Quita"
 #~ msgctxt "@option:check Label for settings related to podcast updates"
 #~ msgid "Update Settings:"
 #~ msgstr "Actualisa preferentias:"
-
-#~ msgid "Episode List"
-#~ msgstr "Lista de Episodio"
 
 #~ msgctxt "@title Podcast subscription list page title"
 #~ msgid "Subscriptions"

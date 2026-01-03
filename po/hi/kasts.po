@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -498,15 +498,17 @@ msgstr "अध्याय"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "कोई ट्रैक शीर्षक नहीं"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Title"
+msgstr "कोई एपिसोड उपलब्ध नहीं है"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, kde-format
-msgid "No track loaded"
-msgstr "कोई ट्रैक लोड नहीं हुआ"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No episode loaded"
+msgstr "कोई एपिसोड उपलब्ध नहीं है"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1122,9 +1124,10 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "मीटर्ड कनेक्शन पर पॉडकास्ट डाउनलोड की अनुमति फिलहाल नहीं है"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "कोई ट्रैक लोड नहीं हुआ"
+#, fuzzy, kde-format
+#| msgid "No episodes available"
+msgid "No Episode Loaded"
+msgstr "कोई एपिसोड उपलब्ध नहीं है"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1374,11 +1377,15 @@ msgid "Select audio backend"
 msgstr "ऑडियो बैकएंड चुनें"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Label for setting whether the total track time is shown or "
+#| "a countdown of the remaining play time"
+#| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "कुल ट्रैक समय के बजाय बचा हुआ समय दिखाएँ"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2387,6 +2394,15 @@ msgstr "छोड़कर आगे बढ़ो"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "छोड़ना"
+
+#~ msgid "No Track Title"
+#~ msgstr "कोई ट्रैक शीर्षक नहीं"
+
+#~ msgid "No track loaded"
+#~ msgstr "कोई ट्रैक लोड नहीं हुआ"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "कोई ट्रैक लोड नहीं हुआ"
 
 #, fuzzy
 #~| msgctxt "@title:menu Category in settings"

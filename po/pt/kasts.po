@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:42+0000\n"
+"POT-Creation-Date: 2026-01-03 00:42+0000\n"
 "PO-Revision-Date: 2023-06-10 10:20+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -556,16 +556,17 @@ msgstr "Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, kde-format
-msgid "No Track Title"
-msgstr "Nenhum Título da Faixa"
+#, fuzzy, kde-format
+#| msgid "Episode List"
+msgid "No Episode Title"
+msgstr "Lista de Episódios"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, fuzzy, kde-format
-#| msgid "No Track Loaded"
-msgid "No track loaded"
-msgstr "Nenhuma Faixa Carregada"
+#| msgid "No Episodes Available"
+msgid "No episode loaded"
+msgstr "Sem Episódios Disponíveis"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, fuzzy, kde-format
@@ -1206,9 +1207,10 @@ msgstr ""
 "'plafonds'"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, kde-format
-msgid "No Track Loaded"
-msgstr "Nenhuma Faixa Carregada"
+#, fuzzy, kde-format
+#| msgid "No Episodes Available"
+msgid "No Episode Loaded"
+msgstr "Sem Episódios Disponíveis"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1482,9 +1484,9 @@ msgstr "Seleccionar a Infra-Estrutura de Áudio"
 #, fuzzy, kde-format
 #| msgid "Show time left instead of total track time"
 msgctxt ""
-"@option:check Label for setting whether the total track time is shown or a "
+"@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
-msgid "Show time left instead of total track time"
+msgid "Show time left instead of total episode time"
 msgstr "Mostrar o tempo restante em vez do tempo total da faixa"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
@@ -2631,6 +2633,17 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Sair"
 
+#~ msgid "No Track Title"
+#~ msgstr "Nenhum Título da Faixa"
+
+#, fuzzy
+#~| msgid "No Track Loaded"
+#~ msgid "No track loaded"
+#~ msgstr "Nenhuma Faixa Carregada"
+
+#~ msgid "No Track Loaded"
+#~ msgstr "Nenhuma Faixa Carregada"
+
 #, fuzzy
 #~| msgid "About"
 #~ msgctxt "@title:group"
@@ -2663,9 +2676,6 @@ msgstr "Sair"
 #~ msgctxt "@option:check Label for settings related to podcast updates"
 #~ msgid "Update Settings:"
 #~ msgstr "Configuração da Actualização:"
-
-#~ msgid "Episode List"
-#~ msgstr "Lista de Episódios"
 
 #~ msgctxt "@title Podcast subscription list page title"
 #~ msgid "Subscriptions"
