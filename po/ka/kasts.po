@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 14:41+0200\n"
+"PO-Revision-Date: 2026-01-03 03:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -498,17 +498,15 @@ msgstr "თავები"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "Episode List"
+#, kde-format
 msgid "No Episode Title"
-msgstr "ეპიზოდების სია"
+msgstr "ეპიზოდის სათაურის გარეშე"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "ეპიზოდების გარეშე"
+msgstr "ჩატვირთული ეპიზოდების გარეშე"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1123,10 +1121,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "გაზომვად შეერთებებზე გადმოწერები განახლებები ამჟამად დაშვებული არაა"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "ეპიზოდების გარეშე"
+msgstr "ჩატვირთული ეპიზოდის გარეშე"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1370,16 +1367,12 @@ msgid "Select audio backend"
 msgstr "აირჩიეთ აუდიოს უკანაბოლო"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "ტრეკის სრული დროის მაგიერ დარჩენილი დროის ჩვენება"
+msgstr "დარჩენილი დროის ჩვენება ეპიზოდის სრული დროის მაგიერ"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format

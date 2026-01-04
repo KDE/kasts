@@ -1,15 +1,15 @@
 # Spanish translations for kasts.po package.
-# Copyright (C) 2021-2025 This file is copyright:
+# Copyright (C) 2021-2026 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 # Automatically generated, 2021.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:42+0000\n"
-"PO-Revision-Date: 2025-11-22 19:12+0100\n"
+"PO-Revision-Date: 2026-01-03 16:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -501,17 +501,15 @@ msgstr "Capítulos"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "No hay episodios disponibles"
+msgstr "No hay ningún título de episodio"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "No hay episodios disponibles"
+msgstr "No se ha cargado ningún episodio"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1128,10 +1126,9 @@ msgstr ""
 "medido"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "No hay episodios disponibles"
+msgstr "No se ha cargado ningún episodio"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1377,16 +1374,12 @@ msgid "Select audio backend"
 msgstr "Seleccionar motor de sonido"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Mostrar el tiempo que queda en lugar del tiempo total de la pista"
+msgstr "Mostrar el tiempo que queda en lugar del tiempo total del episodio"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
@@ -2394,12 +2387,3 @@ msgstr "Saltar hacia adelante"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Salir"
-
-#~ msgid "No Track Title"
-#~ msgstr "Ningún título de pista"
-
-#~ msgid "No track loaded"
-#~ msgstr "Ninguna pista cargada"
-
-#~ msgid "No Track Loaded"
-#~ msgstr "Ninguna pista cargada"

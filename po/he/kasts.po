@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:42+0000\n"
-"PO-Revision-Date: 2025-07-04 13:38+0300\n"
+"PO-Revision-Date: 2026-01-03 15:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -496,17 +496,15 @@ msgstr "קטעים"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "אין פרקים זמינים"
+msgstr "אין כותרת פרק"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "אין פרקים זמינים"
+msgstr "לא נטען פרק"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1133,10 +1131,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "הורדות הסכתים אסורות כרגע דרך חיבורים מוגבלים"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "אין פרקים זמינים"
+msgstr "לא נטען פרק"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1382,16 +1379,12 @@ msgid "Select audio backend"
 msgstr "בחירת מנגנון שמע"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "הצגת הזמן שנותר במקום זמן הרצועה הכללי"
+msgstr "הצגת הזמן שנותר במקום זמן הפרק הכללי"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format

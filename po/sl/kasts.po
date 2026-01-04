@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:42+0000\n"
-"PO-Revision-Date: 2025-07-03 10:06+0200\n"
+"PO-Revision-Date: 2026-01-03 10:16+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -500,17 +500,15 @@ msgstr "Poglavja"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "Episode List"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Seznam epizod"
+msgstr "Ni naslova epizode"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Nobenih epizod ni na voljo"
+msgstr "Nobene epizode ni naložene"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1137,10 +1135,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Prejemi spletnih oddaj trenutno niso dovoljeni pri merjenih povezavah"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Nobenih epizod ni na voljo"
+msgstr "Nobene epizode ni naložene"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1386,16 +1383,12 @@ msgid "Select audio backend"
 msgstr "Izberite zvočno zaledje"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Prikazuj preostali čas namesto celotnega časa sledi"
+msgstr "Prikazuj preostali čas namesto celotnega časa epizode"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
