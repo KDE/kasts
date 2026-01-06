@@ -497,17 +497,15 @@ msgstr "章节"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "无可播放剧集"
+msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "无可播放剧集"
+msgstr ""
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1116,10 +1114,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "使用计费连接时不允许下载播客"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "无可播放剧集"
+msgstr ""
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -2353,12 +2350,3 @@ msgstr ""
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr ""
-
-#~ msgid "No Track Title"
-#~ msgstr "无曲目标题"
-
-#~ msgid "No track loaded"
-#~ msgstr "未加载音轨"
-
-#~ msgid "No Track Loaded"
-#~ msgstr "未加载曲目"
