@@ -79,6 +79,7 @@
   <project_license>GPL-2.0-or-later</project_license>
   <url type="homepage">https://apps.kde.org/kasts/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kasts</url>
+  <url type="vcs-browser">https://invent.kde.org/multimedia/kasts/</url>
   <project_group>KDE</project_group>
   <custom>
     <value key="KDE::matrix">#kasts:kde.org</value>
