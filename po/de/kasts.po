@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:42+0000\n"
-"PO-Revision-Date: 2026-01-03 22:48+0100\n"
+"PO-Revision-Date: 2026-01-06 18:36+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -501,17 +501,15 @@ msgstr "Kapitel"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Keine Episoden verfügbar"
+msgstr "Kein Episodentitel"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Keine Episoden verfügbar"
+msgstr "Keine Episode geladen"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1126,10 +1124,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Herunterladen ist über getaktete Verbindungen nicht erlaubt"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No Episodes Available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Keine Episoden verfügbar"
+msgstr "Keine Episode geladen"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1374,16 +1371,12 @@ msgid "Select audio backend"
 msgstr "Audiomodul auswählen"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Restzeit statt Gesamtzeit anzeigen"
+msgstr "Verbleibende Zeit statt Gesamtzeit der Episode anzeigen"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
