@@ -48,7 +48,7 @@ Q_SIGNALS:
 
 private:
 #ifndef Q_OS_ANDROID
-    QSystemTrayIcon m_trayIcon;
+    QSystemTrayIcon *m_trayIcon;
 #endif
 
     SystrayIcon();
