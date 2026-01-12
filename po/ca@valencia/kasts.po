@@ -1589,7 +1589,7 @@ msgstr "Permet la transmissió en continu"
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
-msgstr "Amfitrió intermediari de la xarxa"
+msgstr "Servidor intermediari de la xarxa"
 
 #: qml/Settings/NetworkSettingsPage.qml:103
 #, kde-format
@@ -1653,9 +1653,9 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
-"La configuració de l'amfitrió intermediari pel que fa al sistema o pel que "
-"fa a l'aplicació pot ser ignorada pel dorsal d'àudio quan es transmet àudio. "
-"La configuració encara hauria de ser respectada per totes les altres accions "
+"La configuració del servidor intermediari pel que fa al sistema o pel que fa "
+"a l'aplicació pot ser ignorada pel dorsal d'àudio quan es transmet àudio. La "
+"configuració encara hauria de ser respectada per totes les altres accions "
 "relacionades amb la xarxa, inclosa la baixada d'episodis."
 
 #: qml/Settings/SettingsView.qml:18
