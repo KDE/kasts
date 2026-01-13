@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2026-01-13 10:55+0000\n"
 "PO-Revision-Date: 2026-01-04 14:09+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2334,7 +2334,7 @@ msgstr "Bewerking afgebroken door gebruiker"
 msgid "An error occurred while copying data"
 msgstr "Er deed zich een fout voor tijdens het kopiëren van gegevens"
 
-#: utils/systrayicon.cpp:25
+#: utils/systrayicon.cpp:27
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2344,37 +2344,37 @@ msgstr ""
 "Kasts\n"
 "Middenklik om af te spelen/pauzeren"
 
-#: utils/systrayicon.cpp:51
+#: utils/systrayicon.cpp:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "Achterwaarts zoeken"
 
-#: utils/systrayicon.cpp:63
+#: utils/systrayicon.cpp:65
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "Afspelen"
 
-#: utils/systrayicon.cpp:71
+#: utils/systrayicon.cpp:73
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "Pauzeren"
 
-#: utils/systrayicon.cpp:90
+#: utils/systrayicon.cpp:92
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "Voorwaarts zoeken"
 
-#: utils/systrayicon.cpp:102
+#: utils/systrayicon.cpp:104
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "Vooruit springen"
 
-#: utils/systrayicon.cpp:117
+#: utils/systrayicon.cpp:119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"

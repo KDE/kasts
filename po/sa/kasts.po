@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:40+0000\n"
+"POT-Creation-Date: 2026-01-13 10:55+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2344,7 +2344,7 @@ msgstr "उपयोक्तृद्वारा संचालनं नि�
 msgid "An error occurred while copying data"
 msgstr "दत्तांशस्य प्रतिलिपिं कुर्वन् त्रुटिः अभवत्"
 
-#: utils/systrayicon.cpp:25
+#: utils/systrayicon.cpp:27
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -2354,37 +2354,37 @@ msgstr ""
 "कास्त्स्\n"
 "क्रीडितुं/विरामं कर्तुं मध्य-क्लिक् कुर्वन्तु"
 
-#: utils/systrayicon.cpp:51
+#: utils/systrayicon.cpp:53
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Backward"
 msgstr "पश्चात्तापं अन्वेष्टुम्"
 
-#: utils/systrayicon.cpp:63
+#: utils/systrayicon.cpp:65
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Play"
 msgstr "क्रीडतु"
 
-#: utils/systrayicon.cpp:71
+#: utils/systrayicon.cpp:73
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Pause"
 msgstr "विराम"
 
-#: utils/systrayicon.cpp:90
+#: utils/systrayicon.cpp:92
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Seek Forward"
 msgstr "अग्रे अन्वेष्टुम्"
 
-#: utils/systrayicon.cpp:102
+#: utils/systrayicon.cpp:104
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Skip Forward"
 msgstr "अग्रे त्यजन्तु"
 
-#: utils/systrayicon.cpp:117
+#: utils/systrayicon.cpp:119
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Quit"
