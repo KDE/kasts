@@ -12,6 +12,7 @@
 #include <QAudio>
 #include <QDir>
 #include <QGuiApplication>
+#include <QObject>
 #include <QTimer>
 
 #include "kmediasession.h"
@@ -78,6 +79,8 @@ public:
     void signalErrorChange(KMediaSession::Error errorCode);
 
     void parseMetaData();
+
+    QString encodedUrl(const QString &url) const;
 };
 
 static void vlc_callback(const struct libvlc_event_t *p_event, void *p_data)
@@ -288,7 +291,7 @@ void VlcMediaBackend::setSource(const QUrl &source)
         d->mMedia = libvlc_media_new_path(d->mInstance, QDir::toNativeSeparators(source.toLocalFile()).toUtf8().constData());
     } else {
         qCDebug(VlcMediaBackendLog) << "VlcMediaBackend::setSource reading remote resource";
-        d->mMedia = libvlc_media_new_location(d->mInstance, source.url().toUtf8().constData());
+        d->mMedia = libvlc_media_new_location(d->mInstance, d->encodedUrl(source.url()).toUtf8().constData());
     }
 
     if (!d->mMedia) {
@@ -705,4 +708,10 @@ void VlcMediaBackendPrivate::parseMetaData()
     if (mMedia && mKMediaSession->metaData()->artworkUrl().isEmpty()) {
         mKMediaSession->metaData()->setArtworkUrl(QUrl(QString::fromUtf8(libvlc_media_get_meta(mMedia, libvlc_meta_ArtworkURL))));
     }
+}
+
+QString VlcMediaBackendPrivate::encodedUrl(const QString &url) const
+{
+    QString newUrl = url;
+    return newUrl.replace(QStringLiteral(" "), QStringLiteral("%20"));
 }
