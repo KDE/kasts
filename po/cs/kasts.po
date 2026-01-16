@@ -1,21 +1,21 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2026 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:40+0000\n"
-"PO-Revision-Date: 2024-09-03 08:47+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-01-09 09:32+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -93,7 +93,7 @@ msgstr "Chyba při změně místa úložiště"
 #: error.cpp:60
 #, kde-format
 msgid "Error syncing feed and/or episode status"
-msgstr ""
+msgstr "Chyba při synchronizaci kanálu nebo stavu epizody"
 
 #: error.cpp:62
 #, kde-format
@@ -197,7 +197,7 @@ msgstr "Aplikace pro přehrávání podcastů"
 #: main.cpp:132
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr ""
+msgstr "Přidá nový podcast k odběrům."
 
 #: main.cpp:133
 #, kde-format
@@ -217,7 +217,7 @@ msgstr "Přehrávač podcastů"
 #: main.cpp:142
 #, kde-format
 msgid "© 2020–2025 KDE Community"
-msgstr ""
+msgstr "© 2020–2025 KDE Community"
 
 #: main.cpp:143
 #, kde-format
@@ -305,45 +305,45 @@ msgstr "Datum: starší dříve"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Kapitola bez názvu"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr ""
+msgstr "Nepřehrané: sestupně"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr ""
+msgstr "Nepřehrané: vzestupně"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of new episodes"
 msgid "New count: descending"
-msgstr ""
+msgstr "Nové: sestupně"
 
 #: models/feedsproxymodel.cpp:126
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of new episodes"
 msgid "New count: ascending"
-msgstr ""
+msgstr "Nové: vzestupně"
 
 #: models/feedsproxymodel.cpp:128
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by decreasing number of favorites"
 msgid "Favorite count: descending"
-msgstr ""
+msgstr "Oblíbené: sestupně"
 
 #: models/feedsproxymodel.cpp:130
 #, kde-format
 msgctxt "@label:chooser Sort podcasts by increasing number of favorites"
 msgid "Favorite count: ascending"
-msgstr ""
+msgstr "Oblíbené: vzestupně"
 
 #: models/feedsproxymodel.cpp:132
 #, kde-format
@@ -398,6 +398,8 @@ msgid ""
 "It seems the network cannot be reached. If this is incorrect, this check can "
 "be disabled through: Settings > Network."
 msgstr ""
+"Zdá se, že síť není dostupná. Pokud to není správné, lze tuto kontrolu "
+"deaktivovat v: Nastavení > Síť."
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -513,7 +515,7 @@ msgstr "Nejsou k dispozici žádné epizody"
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
-msgstr "Discover"
+msgstr "Prozkoumat"
 
 #: qml/DiscoverPage.qml:42
 #, kde-format
@@ -528,12 +530,12 @@ msgstr "Hledat"
 #: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribe"
-msgstr "Zaregistrovat"
+msgstr "Přihlásit se k odběru"
 
 #: qml/DiscoverPage.qml:97 qml/FeedDetailsPage.qml:165
 #, kde-format
 msgid "Subscribed"
-msgstr "Přihlášen"
+msgstr "Odebíráno"
 
 #: qml/DownloadListPage.qml:15 qml/EpisodeListPage.qml:41
 #: qml/KastsGlobalDrawer.qml:112
@@ -551,7 +553,7 @@ msgstr "Obnovit všechny podcasty"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No downloads"
-msgstr ""
+msgstr "Žádné stahování"
 
 #: qml/DownloadListPage.qml:72
 #, kde-format
@@ -610,7 +612,7 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr "Proud"
+msgstr "Streamovat"
 
 #: qml/EntryPage.qml:160
 #, kde-format
@@ -754,7 +756,7 @@ msgstr "od %1"
 #: qml/FeedDetailsPage.qml:160
 #, kde-format
 msgid "Refresh Podcast"
-msgstr ""
+msgstr "Obnovit podcasty"
 
 #: qml/FeedDetailsPage.qml:179
 #, kde-format
@@ -774,7 +776,7 @@ msgstr "Webový odkaz:"
 #: qml/FeedDetailsPage.qml:286
 #, kde-format
 msgid "Subscribed since: %1"
-msgstr "Přihlášen od: %1"
+msgstr "Odebíráno od: %1"
 
 #: qml/FeedDetailsPage.qml:297
 #, kde-format
@@ -793,9 +795,9 @@ msgstr[2] "%1 epizod"
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 nepřehraná"
+msgstr[1] "%1 nepřehrané"
+msgstr[2] "%1 nepřehraných"
 
 #: qml/FeedDetailsPage.qml:333
 #, kde-format
@@ -812,7 +814,7 @@ msgstr "Odstranit podcast"
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr "Přihlášení"
+msgstr "Odběry"
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:38
 #, kde-format
@@ -836,7 +838,7 @@ msgstr "Seřadit"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr ""
+msgstr "Vyberte způsob řazení odběrů"
 
 #: qml/FeedListPage.qml:113
 #, kde-format
@@ -898,7 +900,7 @@ msgstr "Nebyly nalezeny žádné podcasty."
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr ""
+msgstr "Začněte přidáním podcastů:"
 
 #: qml/FeedListPage.qml:200
 #, kde-format
@@ -997,7 +999,7 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr "Proud"
+msgstr "Stream"
 
 #: qml/GenericEntryListView.qml:135
 #, kde-format
@@ -1048,12 +1050,12 @@ msgstr "Označit jako nepřehrané"
 #: qml/GenericEntryListView.qml:283
 #, kde-format
 msgid "Label as \"New\""
-msgstr ""
+msgstr "Označit jako \"Nové\""
 
 #: qml/GenericEntryListView.qml:291
 #, kde-format
 msgid "Remove \"New\" Label"
-msgstr ""
+msgstr "Odstranit označení \"Nové\""
 
 #: qml/GenericEntryListView.qml:327
 #, kde-format
@@ -1153,7 +1155,7 @@ msgstr "Nebyly nalezeny žádné kapitoly"
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr ""
+msgstr "Předvolby rychlosti přehrávání"
 
 #: qml/PlaybackRateCustomizerDialog.qml:54
 #, kde-format
@@ -1171,7 +1173,7 @@ msgstr "Přidat"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "Přidat novou hodnotu rychlosti přehrávání do seznamu"
 
 #: qml/PlaybackRateCustomizerDialog.qml:104
 #, kde-format
@@ -1243,30 +1245,31 @@ msgctxt ""
 "mobile or auto)"
 msgid "Optimize interface for mobile/desktop usage"
 msgstr ""
+"Optimalizace rozhraní pro použití na mobilních zařízeních/stolních počítačích"
 
 #: qml/Settings/AppearanceSettingsPage.qml:32
 #, kde-format
 msgctxt "@label"
 msgid "This will require a restart of the app to take effect"
-msgstr ""
+msgstr "Aby se tato změna projevila, je nutné aplikaci restartovat"
 
 #: qml/Settings/AppearanceSettingsPage.qml:39
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: qml/Settings/AppearanceSettingsPage.qml:43
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #: qml/Settings/AppearanceSettingsPage.qml:47
 #, kde-format
 msgctxt "Label for the GUI mode selection"
 msgid "Mobile"
-msgstr ""
+msgstr "Mobilní"
 
 #: qml/Settings/AppearanceSettingsPage.qml:63
 #, kde-format
@@ -1374,19 +1377,15 @@ msgstr "Možnosti přehrávání"
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr "Vyberte podpůrnou vrstvu audio"
+msgstr "Vyberte podpůrnou vrstvu pro audio"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Zobrazit zbývající čas namísto celkové délky skladby"
+msgstr "Zobrazit zbývající čas namísto celkové délky epizody"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
@@ -1398,19 +1397,19 @@ msgstr "Upravit zbývající čas podle rychlosti přehrávání"
 #, kde-format
 msgctxt "@option:check"
 msgid "Prefer streaming over downloading"
-msgstr ""
+msgstr "Upřednostňovat streamování před stahováním"
 
 #: qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "Interval přeskočení vpřed (v sekundách)"
 
 #: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "Interval přeskočení vzad (v sekundách)"
 
 #: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
@@ -1422,7 +1421,7 @@ msgstr "Aktualizace nastavení podcastu"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
-msgstr ""
+msgstr "Pravidelně načítat podcastové kanály"
 
 #: qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -1523,7 +1522,7 @@ msgstr "Smazat při následujícím spuštění"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
+msgstr "Označit epizody jako přehrané, když zbývá daný čas (v sekundách)"
 
 #: qml/Settings/GeneralSettingsPage.qml:317
 #, kde-format
@@ -1659,6 +1658,10 @@ msgid ""
 "backend when streaming audio. The settings should still be honored by all "
 "other network related actions, including downloading episodes."
 msgstr ""
+"Nastavení proxy na úrovni systému nebo aplikace může být při streamování "
+"zvuku ignorováno zvukovou podpůrnou vrstvou. Nastavení by však mělo být "
+"respektováno všemi ostatními akcemi souvisejícími se sítí, včetně stahování "
+"epizod."
 
 #: qml/Settings/SettingsView.qml:18
 #, kde-format
@@ -1694,7 +1697,7 @@ msgstr "Synchronizace"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
-msgstr ""
+msgstr "O aplikaci Kasts"
 
 #: qml/Settings/SettingsView.qml:57 qml/Settings/SettingsView.qml:64
 #, kde-format
@@ -1706,7 +1709,7 @@ msgstr "O aplikaci"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
-msgstr ""
+msgstr "O prostředí KDE"
 
 #: qml/Settings/StorageSettingsPage.qml:21
 #, kde-format
@@ -1781,7 +1784,7 @@ msgstr "Účet"
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account \"%1\" on server \"%2\""
-msgstr ""
+msgstr "Přihlášen k účtu \"%1\" na serveru \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:35
 #, kde-format
@@ -1896,6 +1899,11 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
+"Upozorňujeme, že odeslání stavu přehrávání všech lokálních epizod na server "
+"může trvat velmi dlouho nebo může způsobit přetížení serveru. Upozorňujeme "
+"také, že tato akce přepíše všechny existující stavy epizod na serveru.\n"
+"\n"
+"Pokračovat?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:231
 #, kde-format
@@ -1953,12 +1961,15 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
+"Synchronizovat se serverem Nextcloud, na kterém je nainstalována aplikace "
+"GPodder Sync: %1.<br/>Doporučujeme ručně vytvořit heslo aplikace pro Kasts "
+"prostřednictvím webového rozhraní a použít tyto přihlašovací údaje."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:336
 #, kde-format
 msgctxt "@label argument is a weblink"
 msgid "If you don't already have an account, you should first create one at %1"
-msgstr ""
+msgstr "Pokud ještě nemáte účet, měli byste si jej nejprve vytvořit na %1"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:348
 #, kde-format
@@ -2070,6 +2081,9 @@ msgid ""
 "across all devices?\n"
 "If you don't know what this means, you should probably select \"Ok\"."
 msgstr ""
+"Mají být všechna odběry podcastů na tomto účtu gpodder.net synchronizována "
+"na všech zařízeních?\n"
+"Pokud nevíte, co to znamená, měli byste pravděpodobně vybrat možnost \"OK\"."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:594
 #, kde-format
@@ -2081,7 +2095,7 @@ msgstr "Synchronizovat nyní?"
 #, kde-format
 msgctxt "@label"
 msgid "Perform a first sync now?"
-msgstr ""
+msgstr "Provést nyní první synchronizaci?"
 
 #: qml/SleepTimerDialog.qml:17
 #, kde-format
@@ -2126,7 +2140,7 @@ msgstr "Hodiny"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr ""
+msgstr "Vyžadováno heslo pro synchronizaci"
 
 #: qml/SyncPasswordOverlay.qml:47
 #, kde-format
@@ -2134,11 +2148,12 @@ msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr ""
+"Heslo pro uživatele \"%1\" na Nextcloud serveru \"%2\" nebylo možné načíst."
 
 #: qml/SyncPasswordOverlay.qml:47
 #, kde-format
 msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
-msgstr ""
+msgstr "Heslo pro uživatele \"%1\" na \"gpodder.net\" nebylo možné načíst."
 
 #: qml/SyncPasswordOverlay.qml:54
 #, kde-format
@@ -2167,67 +2182,67 @@ msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
 "the hostname"
 msgid "Kasts on %1"
-msgstr ""
+msgstr "Kasts na %1"
 
 #: sync/sync.cpp:291
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
-msgstr ""
+msgstr "Nelze se přihlásit k serveru GPodder-nextcloud"
 
 #: sync/sync.cpp:330
 #, kde-format
 msgid "Could not log into GPodder server"
-msgstr ""
+msgstr "Nelze se přihlásit k serveru GPodder"
 
 #: sync/sync.cpp:480 sync/sync.cpp:481
 #, kde-format
 msgid "I/O denied: Cannot save password."
-msgstr ""
+msgstr "I/O zamítnuto: Nelze uložit heslo."
 
 #: sync/sync.cpp:561 sync/sync.cpp:562
 #, kde-format
 msgid "I/O denied: Cannot access password file."
-msgstr ""
+msgstr "I/O zamítnuto: Nelze přistupovat k souboru hesel."
 
 #: sync/sync.cpp:644
 #, kde-format
 msgid "Could not create GPodder device"
-msgstr ""
+msgstr "Nelze vytvořit zařízení GPodder"
 
 #: sync/sync.cpp:670
 #, kde-format
 msgid "Could not retrieve synced device status"
-msgstr ""
+msgstr "Nelze načíst stav synchronizovaného zařízení"
 
 #: sync/sync.cpp:723
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
-msgstr ""
+msgstr "Nelze načíst odběry pro zařízení %1"
 
 #: sync/sync.cpp:742
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
-msgstr ""
+msgstr "Nelze nahrát odběry pro zařízení %1"
 
 #: sync/syncjob.cpp:63
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr ""
+msgstr "Nelze načíst aktualizace odběrů ze serveru"
 
 #: sync/syncjob.cpp:66
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr ""
+msgstr "Nelze nahrát změny odběrů na server"
 
 #: sync/syncjob.cpp:69
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr ""
+msgstr "Nelze načíst aktualizace epizod ze serveru"
 
 #: sync/syncjob.cpp:72
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr ""
+msgstr "Nelze nahrát aktualizace epizod na server"
 
 #: sync/syncjob.cpp:75
 #, kde-format
@@ -2238,52 +2253,52 @@ msgstr "Vnitřní chyba dat"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr ""
+msgstr "(Krok %1 z %2) Start synchronizace"
 
 #: sync/syncjob.cpp:886
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr ""
+msgstr "(Krok %1 z %2) Žádost o aktualizace vzdálených odběrů"
 
 #: sync/syncjob.cpp:889
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr ""
+msgstr "(Krok %1 z %2) Nahrávání aktualizací místních odběrů"
 
 #: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "(Krok %3 of %4) Aktualizován %2 z %1 podcastů"
+msgstr[1] "(Krok %3 of %4) Aktualizovány %2 z %1 podcastů"
+msgstr[2] "(Krok %3 of %4) Aktualizováno %2 z %1 podcastů"
 
 #: sync/syncjob.cpp:901
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr ""
+msgstr "(Krok %1 z %2) Žádost o aktualizace vzdálených epizod"
 
 #: sync/syncjob.cpp:904
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
-msgstr ""
+msgstr "(Krok %1 z %2) Aplikování změn vzdálených epizod"
 
 #: sync/syncjob.cpp:907
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr ""
+msgstr "(Krok %1 z %2) Nahrávání aktualizací lokálních epizod"
 
 #: sync/syncjob.cpp:910
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr ""
+msgstr "(Krok %1 z %2) Synchronizace dokončena"
 
 #: sync/syncjob.cpp:913
 #, kde-format
@@ -2372,12 +2387,3 @@ msgstr "Přeskočit vpřed"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgid "No Track Title"
-#~ msgstr "Žádný název skladby"
-
-#~ msgid "No track loaded"
-#~ msgstr "Nebyla načtena žádná skladba"
-
-#~ msgid "No Track Loaded"
-#~ msgstr "Nebyla nalezena žádná skladba"

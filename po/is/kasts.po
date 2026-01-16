@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:40+0000\n"
-"PO-Revision-Date: 2025-04-06 15:05+0000\n"
+"PO-Revision-Date: 2026-01-15 16:46+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -305,7 +305,7 @@ msgstr "Dagsetning: elsta fyrst"
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
-msgstr ""
+msgstr "Nafnlaus kafli"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -498,17 +498,15 @@ msgstr "Kaflar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Engir þættir í boði"
+msgstr "Enginn titill þáttar"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Engir þættir í boði"
+msgstr "Engum þætti hlaðið inn"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1123,10 +1121,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Ekki er leyft sem stendur að sækja hlaðvörp á gagnamældum tengingum"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Engir þættir í boði"
+msgstr "Engum þætti hlaðið inn"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1370,16 +1367,12 @@ msgid "Select audio backend"
 msgstr "Velja hljóðkerfi"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Sýna tíma sem er eftir af heildartíma hljóðskrár"
+msgstr "Sýna tíma sem er eftir í stað heildartíma þáttar"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
