@@ -12,8 +12,6 @@ import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
 
-import org.kde.kasts
-
 /*
  * This visually mimics the Kirigami.InlineMessage due to the
  * BusyIndicator, which is not supported by the InlineMessage.

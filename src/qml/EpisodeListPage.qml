@@ -38,6 +38,7 @@ Kirigami.ScrollablePage {
 
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
+            visible: Kirigami.Settings.isMobile
             icon.name: "download"
             text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
             onTriggered: {

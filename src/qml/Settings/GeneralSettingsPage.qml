@@ -13,7 +13,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.ki18n
 
-import org.kde.kmediasession
 import org.kde.kasts
 
 FormCard.FormCardPage {

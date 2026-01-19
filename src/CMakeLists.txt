@@ -82,6 +82,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
     QML_FILES
         qml/Main.qml
         qml/FeedListPage.qml
+        qml/FeedListGridView.qml
         qml/EntryPage.qml
         qml/FeedDetailsPage.qml
         qml/AddFeedSheet.qml
@@ -131,6 +132,9 @@ qt_add_qml_module(kasts URI org.kde.kasts
     DEPENDENCIES
         org.kde.kmediasession
         QtCore
+        QtQuick
+    IMPORTS
+        org.kde.config
 )
 
 ecm_qt_declare_logging_category(kasts
