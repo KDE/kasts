@@ -9,6 +9,7 @@
 #include <QCommandLineParser>
 #include <QIcon>
 #include <QLoggingCategory>
+#include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
@@ -47,6 +48,7 @@
 #endif
 #include "database.h"
 #include "datamanager.h"
+#include "datatypes.h"
 #include "kasts-version.h"
 #include "settingsmanager.h"
 #include "utils/colorschemer.h"
@@ -90,6 +92,9 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 #endif
+
+    // Register DataTypes so they can be used in signals
+    qRegisterMetaType<DataTypes::FeedDetails>();
 
 #ifdef Q_OS_WINDOWS
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {

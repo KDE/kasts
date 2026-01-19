@@ -17,23 +17,53 @@ namespace DataTypes
 Q_NAMESPACE
 QML_ELEMENT
 
+// enums
+enum RecordState {
+    Unmodified = 0,
+    New,
+    Modified,
+    Deleted,
+};
+Q_ENUM_NS(RecordState)
+
 // structs
-struct FeedDetails {
+struct AuthorDetails {
     QString name;
+    QString email;
+    RecordState state;
+
+    // Fields that are only used in case state == Modified
+    QString oldEmail;
+};
+
+struct EnclosureDetails {
+    int duration;
+    int size;
+    QString title; // TODO: to be removed
+    QString type;
     QString url;
-    QString image;
+    int playPosition;
+    Enclosure::Status downloaded;
+    RecordState state;
+
+    // Fields that are only used in case state == Modified
+    int oldDuration;
+    int oldSize;
+    QString oldType;
+    QString oldUrl;
+};
+
+struct ChapterDetails {
+    int start;
+    QString title;
     QString link;
-    QString description;
-    int deleteAfterCount = 0;
-    int deleteAfterType = 0;
-    int subscribed;
-    int lastUpdated;
-    bool isNew;
-    bool notify;
-    QString dirname;
-    QString lastHash;
-    int filterType = 0;
-    int sortType = 0;
+    QString image;
+    RecordState state;
+
+    // Fields that are only used in case state == Modified
+    QString oldTitle;
+    QString oldLink;
+    QString oldImage;
 };
 
 struct EntryDetails {
@@ -48,34 +78,49 @@ struct EntryDetails {
     bool isNew;
     bool hasEnclosure;
     QString image;
+    QHash<QString, AuthorDetails> authors; // key = author name
+    QHash<QString, EnclosureDetails> enclosures; // key = enclosure url
+    QHash<int, ChapterDetails> chapters; // key = start
+    RecordState state;
+
+    // Fields that are only used in case state == Modified
+    QString oldTitle;
+    QString oldContent;
+    int oldCreated;
+    int oldUpdated;
+    QString oldLink;
+    bool oldHasEnclosure; // TODO: probably don't need this since there is the enclosure QHash anyway
+    QString oldImage;
 };
 
-struct AuthorDetails {
-    QString feed;
-    QString id;
+struct FeedDetails {
     QString name;
-    QString uri;
-    QString email;
-};
-
-struct EnclosureDetails {
-    QString feed;
-    QString id;
-    int duration;
-    int size;
-    QString title;
-    QString type;
     QString url;
-    int playPosition;
-    Enclosure::Status downloaded;
-};
-
-struct ChapterDetails {
-    QString feed;
-    QString id;
-    int start;
-    QString title;
-    QString link;
     QString image;
+    QString link;
+    QString description;
+    int deleteAfterCount = 0; // TODO: to be removed
+    int deleteAfterType = 0; // TODO: to be removed
+    int subscribed;
+    int lastUpdated;
+    bool isNew;
+    bool notify; // TODO: to be removed
+    QString dirname;
+    QString lastHash;
+    int filterType = 0;
+    int sortType = 0;
+    QHash<QString, AuthorDetails> authors; // key = author name
+    QHash<QString, EntryDetails> entries; // key = id from feed
+    RecordState state;
+
+    // Fields that are only used in case state == Modified
+    QString oldName;
+    QString oldUrl;
+    QString oldImage;
+    QString oldLink;
+    QString oldDescription;
+    int oldLastUpdated;
+    QString oldDirname;
+    QString oldLastHash;
 };
 }

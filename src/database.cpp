@@ -314,7 +314,7 @@ bool Database::transaction()
 {
     // use raw sqlite query to benefit from automatic retries on execute
     QSqlQuery query;
-    query.prepare(QStringLiteral("BEGIN TRANSACTION;"));
+    query.prepare(QStringLiteral("BEGIN IMMEDIATE TRANSACTION;"));
     return execute(query);
 }
 
