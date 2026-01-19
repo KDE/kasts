@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -113,7 +115,7 @@ Kirigami.ApplicationWindow {
 
     property bool showGlobalDrawer: !Kirigami.Settings.isMobile || WindowUtils.isWidescreen
 
-    globalDrawer: globalDrawerLoader.item
+    globalDrawer: globalDrawerLoader.item as globalDrawer
 
     Loader {
         id: globalDrawerLoader
@@ -160,18 +162,18 @@ Kirigami.ApplicationWindow {
         anchors.fill: parent
         active: AudioManager.entryuid > 0 && Kirigami.Settings.isMobile
         visible: active
-        z: (!item || item.contentY === 0) ? -1 : 999
+        z: (!item || (item as Flickable).contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
             contentHeight: kastsMainWindow.height * 2
             focus: true
-            contentToPlayerSpacing: footer.active ? footer.item.height + 1 : 0
+            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as Controls.Control).height + 1 : 0
         }
     }
 
     Loader {
         id: footerShadowLoader
-        active: footer.active && !footerLoader.active
-        anchors.fill: footer
+        active: bottomToolbarLoader.active && !footerLoader.active
+        anchors.fill: bottomToolbarLoader
 
         sourceComponent: MultiEffect {
             source: bottomToolbarLoader
@@ -189,7 +191,7 @@ Kirigami.ApplicationWindow {
         active: Kirigami.Settings.isMobile && !WindowUtils.isWidescreen
         sourceComponent: BottomToolbar {
             visible: opacity > 0
-            opacity: (!footerLoader.item || footerLoader.item.contentY === 0) ? 1 : 0
+            opacity: (!footerLoader.item || (footerLoader.item as Flickable).contentY === 0) ? 1 : 0
             Behavior on opacity {
                 NumberAnimation {
                     duration: Kirigami.Units.shortDuration
