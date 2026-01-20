@@ -64,7 +64,6 @@ Enclosure::Enclosure(Entry *entry)
 
     m_duration = query.value(QStringLiteral("duration")).toInt();
     m_size = query.value(QStringLiteral("size")).toInt();
-    m_title = query.value(QStringLiteral("title")).toString();
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
     m_playposition = query.value(QStringLiteral("playposition")).toLongLong();
@@ -107,10 +106,6 @@ void Enclosure::updateFromDb()
         if (m_size != query.value(QStringLiteral("size")).toInt()) {
             m_size = query.value(QStringLiteral("size")).toInt();
             Q_EMIT sizeChanged();
-        }
-        if (m_title != query.value(QStringLiteral("title")).toString()) {
-            m_title = query.value(QStringLiteral("title")).toString();
-            Q_EMIT titleChanged(m_title);
         }
         if (m_type != query.value(QStringLiteral("type")).toString()) {
             m_type = query.value(QStringLiteral("type")).toString();

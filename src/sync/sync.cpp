@@ -919,7 +919,7 @@ void Sync::storeAddFeedAction(const QString &url)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:url, :action, :timestamp);"));
+        query.prepare(QStringLiteral("INSERT INTO FeedActions (url, action, timestamp) VALUES (:url, :action, :timestamp);"));
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("add"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
@@ -932,7 +932,7 @@ void Sync::storeRemoveFeedAction(const QString &url)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("INSERT INTO FeedActions VALUES (:url, :action, :timestamp);"));
+        query.prepare(QStringLiteral("INSERT INTO FeedActions (url, action, timestamp) VALUES (:url, :action, :timestamp);"));
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("remove"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
@@ -952,7 +952,9 @@ void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, c
                 (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // workaround for episodes with bad metadata on gpodder server
 
             QSqlQuery query;
-            query.prepare(QStringLiteral("INSERT INTO EpisodeActions VALUES (:podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
+            query.prepare(
+                QStringLiteral("INSERT INTO EpisodeActions (podcast, url, id, action, started, position, total, timestamp) VALUES (:podcast, :url, :id, "
+                               ":action, :started, :position, :total, :timestamp);"));
             query.bindValue(QStringLiteral(":podcast"), entry->feed()->url());
             query.bindValue(QStringLiteral(":url"), entry->enclosure()->url());
             query.bindValue(QStringLiteral(":id"), entry->id());
@@ -1014,7 +1016,9 @@ void Sync::retrieveAllLocalEpisodeStates()
     QSqlQuery writeQuery;
     Database::instance().transaction();
     for (SyncUtils::EpisodeAction &action : actions) {
-        writeQuery.prepare(QStringLiteral("INSERT INTO EpisodeActions VALUES (:podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
+        writeQuery.prepare(
+            QStringLiteral("INSERT INTO EpisodeActions (podcast, url, id, action, started, position, total, timestamp) VALUES (:podcast, :url, :id, :action, "
+                           ":started, :position, :total, :timestamp);"));
         writeQuery.bindValue(QStringLiteral(":podcast"), action.podcast);
         writeQuery.bindValue(QStringLiteral(":url"), action.url);
         writeQuery.bindValue(QStringLiteral(":id"), action.id);

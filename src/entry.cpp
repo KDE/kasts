@@ -56,6 +56,7 @@ void Entry::updateFromDb(bool emitSignals)
         return;
     }
 
+    m_entryuid = entryQuery.value(QStringLiteral("entryuid")).toLongLong();
     setCreated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt()), emitSignals);
     setUpdated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt()), emitSignals);
     setTitle(entryQuery.value(QStringLiteral("title")).toString(), emitSignals);
@@ -86,7 +87,7 @@ void Entry::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id=:id AND feed=:feed"));
+    authorQuery.prepare(QStringLiteral("SELECT name FROM EntryAuthors WHERE id=:id AND feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":id"), m_id);
     authorQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
     Database::instance().execute(authorQuery);
@@ -103,6 +104,11 @@ void Entry::updateAuthors()
         m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
     }
     Q_EMIT authorsChanged(m_authors);
+}
+
+qint64 Entry::entryuid() const
+{
+    return m_entryuid;
 }
 
 QString Entry::id() const

@@ -656,7 +656,7 @@ void SyncJob::updateDBTimestamp(const qulonglong &timestamp, const QString &time
         if (timestampExists) {
             query.prepare(QStringLiteral("UPDATE SyncTimeStamps SET timestamp=:timestamp WHERE syncservice=:syncservice;"));
         } else {
-            query.prepare(QStringLiteral("INSERT INTO SyncTimeStamps VALUES (:syncservice, :timestamp);"));
+            query.prepare(QStringLiteral("INSERT INTO SyncTimeStamps (syncservice, timestamp) VALUES (:syncservice, :timestamp);"));
         }
         query.bindValue(QStringLiteral(":syncservice"), timestampLabel);
         query.bindValue(QStringLiteral(":timestamp"), timestamp + 1); // add 1 second to avoid fetching our own previously sent updates next time

@@ -68,7 +68,7 @@ void ErrorLogModel::monitorErrorMessages(const Error::Type type,
 
     // Also add error to database
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Errors VALUES (:type, :url, :id, :code, :message, :date, :title);"));
+    query.prepare(QStringLiteral("INSERT INTO Errors (type, url, id, code, message, date, title) VALUES (:type, :url, :id, :code, :message, :date, :title);"));
     query.bindValue(QStringLiteral(":type"), Error::typeToDb(type));
     query.bindValue(QStringLiteral(":url"), url);
     query.bindValue(QStringLiteral(":id"), id);
