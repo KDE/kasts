@@ -269,8 +269,13 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             query.bindValue(QStringLiteral(":url"), feedurl);
             Database::instance().execute(query);
 
-            // Delete Authors
-            query.prepare(QStringLiteral("DELETE FROM Authors WHERE feed=:feed;"));
+            // Delete FeedAuthors
+            query.prepare(QStringLiteral("DELETE FROM FeedAuthors WHERE feed=:feed;"));
+            query.bindValue(QStringLiteral(":feed"), feedurl);
+            Database::instance().execute(query);
+
+            // Delete EntryAuthors
+            query.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE feed=:feed;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             Database::instance().execute(query);
 
@@ -279,13 +284,13 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             query.bindValue(QStringLiteral(":feed"), feedurl);
             Database::instance().execute(query);
 
-            // Delete Entries
-            query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
+            // Delete Enclosures
+            query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             Database::instance().execute(query);
 
-            // Delete Enclosures
-            query.prepare(QStringLiteral("DELETE FROM Enclosures WHERE feed=:feed;"));
+            // Delete Entries
+            query.prepare(QStringLiteral("DELETE FROM Entries WHERE feed=:feed;"));
             query.bindValue(QStringLiteral(":feed"), feedurl);
             Database::instance().execute(query);
 
@@ -346,19 +351,16 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         QString urlFromInput = QUrl::fromUserInput(url).toString();
         QSqlQuery query;
         query.prepare(
-            QStringLiteral("INSERT INTO Feeds VALUES (:name, :url, :image, :link, :description, :deleteAfterCount, :deleteAfterType, :subscribed, "
-                           ":lastUpdated, :new, :notify, :dirname, :lastHash, :filterType, :sortType);"));
+            QStringLiteral("INSERT INTO Feeds (name, url, image, link, description, subscribed, lastUpdated, new, dirname, lastHash, filterType, sortType) "
+                           "VALUES (:name, :url, :image, :link, :description, :subscribed, :lastUpdated, :new, :dirname, :lastHash, :filterType, :sortType);"));
         query.bindValue(QStringLiteral(":name"), urlFromInput);
         query.bindValue(QStringLiteral(":url"), urlFromInput);
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
         query.bindValue(QStringLiteral(":link"), QLatin1String(""));
         query.bindValue(QStringLiteral(":description"), QLatin1String(""));
-        query.bindValue(QStringLiteral(":deleteAfterCount"), 0);
-        query.bindValue(QStringLiteral(":deleteAfterType"), 0);
         query.bindValue(QStringLiteral(":subscribed"), QDateTime::currentSecsSinceEpoch());
         query.bindValue(QStringLiteral(":lastUpdated"), 0);
         query.bindValue(QStringLiteral(":new"), true);
-        query.bindValue(QStringLiteral(":notify"), false);
         query.bindValue(QStringLiteral(":dirname"), QLatin1String(""));
         query.bindValue(QStringLiteral(":lastHash"), QLatin1String(""));
         query.bindValue(QStringLiteral(":filterType"), 0);
@@ -437,9 +439,9 @@ void DataManager::addToQueue(const QString &id)
 
     // Add to Queue database
     QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Queue VALUES (:index, :feedurl, :id, :playing);"));
+    query.prepare(QStringLiteral("INSERT INTO Queue (listnr, entryuid, id, playing) VALUES (:index, :entryuid, :id, :playing);"));
     query.bindValue(QStringLiteral(":index"), index);
-    query.bindValue(QStringLiteral(":feedurl"), getEntry(id)->feed()->url());
+    query.bindValue(QStringLiteral(":entryuid"), getEntry(id)->entryuid());
     query.bindValue(QStringLiteral(":id"), id);
     query.bindValue(QStringLiteral(":playing"), false);
     Database::instance().execute(query);
