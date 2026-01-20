@@ -27,7 +27,6 @@ class Enclosure : public QObject
     Q_PROPERTY(qint64 size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)
     Q_PROPERTY(qint64 sizeOnDisk READ sizeOnDisk NOTIFY sizeOnDiskChanged)
-    Q_PROPERTY(QString title MEMBER m_title NOTIFY titleChanged)
     Q_PROPERTY(QString type MEMBER m_type NOTIFY typeChanged)
     Q_PROPERTY(QString url READ url NOTIFY urlChanged)
     Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
@@ -80,7 +79,6 @@ public:
     void checkSizeOnDisk();
 
 Q_SIGNALS:
-    void titleChanged(const QString &title);
     void typeChanged(const QString &type);
     void urlChanged(const QString &url);
     void pathChanged(const QString &path);
@@ -102,7 +100,6 @@ private:
     qint64 m_duration;
     qint64 m_size = 0;
     qint64 m_sizeOnDisk = 0;
-    QString m_title;
     QString m_type;
     QString m_url;
     qint64 m_playposition;

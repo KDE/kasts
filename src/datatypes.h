@@ -37,9 +37,9 @@ struct AuthorDetails {
 };
 
 struct EnclosureDetails {
+    qint64 enclosureuid;
     int duration;
     int size;
-    QString title; // TODO: to be removed
     QString type;
     QString url;
     int playPosition;
@@ -67,7 +67,9 @@ struct ChapterDetails {
 };
 
 struct EntryDetails {
-    QString feed;
+    qint64 entryuid;
+    qint64 feeduid;
+    QString feed; // TODO: to be removed after refactor
     QString id;
     QString title;
     QString content;
@@ -94,17 +96,15 @@ struct EntryDetails {
 };
 
 struct FeedDetails {
+    qint64 feeduid;
     QString name;
     QString url;
     QString image;
     QString link;
     QString description;
-    int deleteAfterCount = 0; // TODO: to be removed
-    int deleteAfterType = 0; // TODO: to be removed
     int subscribed;
     int lastUpdated;
     bool isNew;
-    bool notify; // TODO: to be removed
     QString dirname;
     QString lastHash;
     int filterType = 0;
