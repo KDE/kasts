@@ -31,14 +31,12 @@ Feed::Feed(const QString &feedurl)
 
     m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
 
+    m_feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
     m_url = query.value(QStringLiteral("url")).toString();
     m_name = query.value(QStringLiteral("name")).toString();
     m_image = query.value(QStringLiteral("image")).toString();
     m_link = query.value(QStringLiteral("link")).toString();
     m_description = query.value(QStringLiteral("description")).toString();
-    m_deleteAfterCount = query.value(QStringLiteral("deleteAfterCount")).toInt();
-    m_deleteAfterType = query.value(QStringLiteral("deleteAfterType")).toInt();
-    m_notify = query.value(QStringLiteral("notify")).toBool();
     int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
     int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
     m_dirname = query.value(QStringLiteral("dirname")).toString();
@@ -113,7 +111,7 @@ void Feed::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM Authors WHERE id='' AND feed=:feed"));
+    authorQuery.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feed=:feed"));
     authorQuery.bindValue(QStringLiteral(":feed"), m_url);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
@@ -204,6 +202,11 @@ void Feed::initSortType(int value)
     });
 }
 
+qint64 Feed::feeduid() const
+{
+    return m_feeduid;
+}
+
 QString Feed::url() const
 {
     return m_url;
@@ -239,16 +242,6 @@ QString Feed::authors() const
     return m_authors;
 }
 
-int Feed::deleteAfterCount() const
-{
-    return m_deleteAfterCount;
-}
-
-int Feed::deleteAfterType() const
-{
-    return m_deleteAfterType;
-}
-
 QDateTime Feed::subscribed() const
 {
     return m_subscribed;
@@ -257,11 +250,6 @@ QDateTime Feed::subscribed() const
 QDateTime Feed::lastUpdated() const
 {
     return m_lastUpdated;
-}
-
-bool Feed::notify() const
-{
-    return m_notify;
 }
 
 QString Feed::dirname() const
@@ -337,31 +325,11 @@ void Feed::setDescription(const QString &description)
     }
 }
 
-void Feed::setDeleteAfterCount(int count)
-{
-    m_deleteAfterCount = count;
-    Q_EMIT deleteAfterCountChanged(m_deleteAfterCount);
-}
-
-void Feed::setDeleteAfterType(int type)
-{
-    m_deleteAfterType = type;
-    Q_EMIT deleteAfterTypeChanged(m_deleteAfterType);
-}
-
 void Feed::setLastUpdated(const QDateTime &lastUpdated)
 {
     if (lastUpdated != m_lastUpdated) {
         m_lastUpdated = lastUpdated;
         Q_EMIT lastUpdatedChanged(m_lastUpdated);
-    }
-}
-
-void Feed::setNotify(bool notify)
-{
-    if (notify != m_notify) {
-        m_notify = notify;
-        Q_EMIT notifyChanged(m_notify);
     }
 }
 
