@@ -16,7 +16,6 @@
 
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
 #include "error.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
@@ -32,6 +31,12 @@ FetchFeedsJob::FetchFeedsJob(const QStringList &urls, QObject *parent)
 {
     connect(this, &FetchFeedsJob::processedAmountChanged, this, &FetchFeedsJob::monitorProgress);
     connect(this, &FetchFeedsJob::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+
+    // ThreadWeaver queue for feed refresh
+    m_queue = new Queue(this);
+    if (SettingsManager::self()->maximumFeedDownloads() > 0) {
+        m_queue->setMaximumNumberOfThreads(SettingsManager::self()->maximumFeedDownloads());
+    }
 }
 
 void FetchFeedsJob::start()
@@ -49,7 +54,7 @@ void FetchFeedsJob::fetch()
     setTotalAmount(KJob::Unit::Items, m_urls.count());
     setProcessedAmount(KJob::Unit::Items, 0);
 
-    qCDebug(kastsUpdater) << "Number of feed update threads:" << Queue::instance()->currentNumberOfThreads();
+    qCDebug(kastsUpdater) << "Maximum number of feed update threads:" << m_queue->maximumNumberOfThreads();
 
     // First get the last hashes from the database to know which feeds have actually been updated
     QSqlQuery query;
@@ -104,7 +109,7 @@ void FetchFeedsJob::fetch()
                         Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
                     });
 
-                    Queue::instance()->stream() << updateFeedJob;
+                    m_queue->stream() << updateFeedJob;
                     qCDebug(kastsUpdater) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
                 }
             }
@@ -117,6 +122,8 @@ void FetchFeedsJob::fetch()
 
 void FetchFeedsJob::monitorProgress()
 {
+    qCDebug(kastsUpdater) << "Number of current feed update threads:" << m_queue->currentNumberOfThreads();
+
     // Check if all required feeds have finished updating
     if (processedAmount(KJob::Unit::Items) == totalAmount(KJob::Unit::Items)) {
         // Check for "new" entries and queue them if necessary

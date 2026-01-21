@@ -25,6 +25,32 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         Layout.fillWidth: true
+        title: KI18n.i18nc("@title Form header for download related settings", "Downloads")
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
+
+        FormCard.FormTextDelegate {
+            id: maximumFeedDownloads
+            text: KI18n.i18nc("@label:spinbox", "Maximum number of parallel subscription downloads")
+            description: KI18n.i18nc("@label Description related to maximum parallel subscription downloads", "Set to '0' for automatic")
+            textItem.wrapMode: Text.Wrap
+            trailing: Controls.SpinBox {
+                Layout.rightMargin: Kirigami.Units.gridUnit
+                value: SettingsManager.maximumFeedDownloads
+                from: 0
+                to: 32
+                onValueModified: {
+                    SettingsManager.maximumFeedDownloads = value;
+                    SettingsManager.save();
+                }
+            }
+        }
+    }
+
+    FormCard.FormHeader {
+        Layout.fillWidth: true
         title: KI18n.i18nc("@title Form header for settings related to network connections", "Network")
     }
 

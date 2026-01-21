@@ -188,6 +188,10 @@
         </entry>
     </group>
     <group name="Network">
+        <entry name="maximumFeedDownloads" type="Int">
+            <label>Maximum amount of parallel feed downloads (0 = auto)</label>
+            <default>2</default>
+        </entry>
         <entry name="checkNetworkStatus" type="Bool">
             <label>Check for network and metered connection status</label>
             <default>true</default>
