@@ -8,6 +8,7 @@
 
 #include <KJob>
 #include <QVector>
+#include <threadweaver/queue.h>
 
 #include "error.h"
 
@@ -31,6 +32,8 @@ private:
 
     void fetch();
     void monitorProgress();
+
+    ThreadWeaver::Queue *m_queue;
 
     bool m_abort = false;
 };

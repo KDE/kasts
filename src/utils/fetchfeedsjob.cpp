@@ -33,6 +33,9 @@ FetchFeedsJob::FetchFeedsJob(const QStringList &urls, QObject *parent)
 {
     connect(this, &FetchFeedsJob::processedAmountChanged, this, &FetchFeedsJob::monitorProgress);
     connect(this, &FetchFeedsJob::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+
+    m_queue = new Queue(this);
+    m_queue->setMaximumNumberOfThreads(5);
 }
 
 void FetchFeedsJob::start()
@@ -105,7 +108,7 @@ void FetchFeedsJob::fetch()
                         Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
                     });
 
-                    Queue::instance()->stream() << updateFeedJob;
+                    m_queue->stream() << updateFeedJob;
                     qCDebug(kastsFetcher) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
                 }
             }
