@@ -27,7 +27,9 @@ EpisodeModel::EpisodeModel(QObject *parent)
     });
 
     QTimer::singleShot(0, this, [this]() {
+        beginResetModel();
         updateInternalState();
+        endResetModel();
     });
     ;
 }
