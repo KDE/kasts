@@ -388,6 +388,7 @@ bool Database::migrateTo12()
                                "    hasEnclosure BOOL,"
                                "    image TEXT,"
                                "    favorite BOOL DEFAULT 0,"
+                               "    playposition INTEGER,"
                                "    FOREIGN KEY(feeduid) REFERENCES Feeds(feeduid));")));
 
     TRUE_OR_RETURN(
@@ -507,6 +508,14 @@ bool Database::migrateTo12()
 
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
+
+    // We will enable the deletion of old enclosures, so we have to make sure that we don't lose any playpositions
+    TRUE_OR_RETURN(execute(QStringLiteral(
+        "UPDATE Enclosures SET playposition=multEnclosure.playmax FROM (SELECT Enclosures.id, MAX(Enclosures.playposition) AS playmax FROM Enclosures GROUP "
+        "BY Enclosures.id HAVING Count(*)>1) AS multEnclosure WHERE multEnclosure.id = Enclosures.id;")));
+    TRUE_OR_RETURN(execute(
+        QStringLiteral("UPDATE Entries SET playposition=multEnclosure.playmax FROM (SELECT Entries.id, MAX(Enclosures.playposition) as playmax FROM "
+                       "Entries JOIN Enclosures ON Enclosures.id=Entries.id GROUP BY Enclosures.id) as multEnclosure WHERE multEnclosure.id = Entries.id;")));
 
     // Update Chapters table
     TRUE_OR_RETURN(

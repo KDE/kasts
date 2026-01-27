@@ -183,6 +183,13 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
+    HEADER "updaterlogging.h"
+    IDENTIFIER "kastsUpdater"
+    CATEGORY_NAME "org.kde.kasts.updater"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
     HEADER "synclogging.h"
     IDENTIFIER "kastsSync"
     CATEGORY_NAME "org.kde.kasts.sync"

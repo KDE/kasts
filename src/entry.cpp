@@ -220,11 +220,11 @@ void Entry::setLink(const QString &link, bool emitSignal)
 void Entry::setHasEnclosure(bool hasEnclosure, bool emitSignal)
 {
     if (hasEnclosure) {
-        // if there is already an enclosure, it will be updated through separate
-        // signals if required
-        if (!m_enclosure) {
-            m_enclosure = new Enclosure(this);
+        // refresh enclosure anyway since we don't know whether it's been updated.
+        if (m_enclosure) {
+            delete m_enclosure;
         }
+        m_enclosure = new Enclosure(this);
     } else {
         delete m_enclosure;
         m_enclosure = nullptr;
