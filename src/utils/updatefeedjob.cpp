@@ -31,9 +31,9 @@
 #include "enclosure.h"
 #include "error.h"
 #include "fetcher.h"
-#include "fetcherlogging.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
+#include "updaterlogging.h"
 
 using namespace ThreadWeaver;
 using namespace DataTypes;
@@ -71,7 +71,7 @@ void UpdateFeedJob::run(JobPointer, Thread *)
 
 void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 {
-    qCDebug(kastsFetcher) << "get old feed data from DB for" << m_url;
+    qCDebug(kastsUpdater) << "get old feed data from DB for" << m_url;
 
     // First get all the required data from the database and do some basic checks
     QSqlQuery query(QSqlDatabase::database(m_url));
@@ -232,14 +232,14 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
     query.finish();
 
-    qCDebug(kastsFetcher) << "start process feed" << feed;
+    qCDebug(kastsUpdater) << "start process feed" << feed;
 
     if (feed.isNull())
         return;
 
     // First check if this is a newly added feed and get current name and dirname
     if (m_feed.isNew) {
-        qCDebug(kastsFetcher) << "New feed" << feed->title();
+        qCDebug(kastsUpdater) << "New feed" << feed->title();
     }
 
     m_markUnreadOnNewFeed = !(SettingsManager::self()->markUnreadOnNewFeed() == 2);
@@ -285,7 +285,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     // Process feed authors
     authorsChanged = authorsChanged || processFeedAuthors(feed->authors(), otherItems);
 
-    qCDebug(kastsFetcher) << "Updated feed details:" << feed->title();
+    qCDebug(kastsUpdater) << "Updated feed details:" << feed->title();
 
     // check if any field has changed and only emit signal if there are changes
     bool hasFeedBeenUpdated = false;
@@ -320,7 +320,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         Q_EMIT feedUpdated(m_url);
     }
 
-    qCDebug(kastsFetcher) << "done processing feed" << feed;
+    qCDebug(kastsUpdater) << "done processing feed" << feed;
 }
 
 bool UpdateFeedJob::processFeedAuthors(const QList<Syndication::PersonPtr> &authors, const QMultiMap<QString, QDomElement> &otherItems)
@@ -346,7 +346,7 @@ bool UpdateFeedJob::processFeedAuthors(const QList<Syndication::PersonPtr> &auth
             }
         } else {
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-            qCDebug(kastsFetcher) << "authorname" << authorname;
+            qCDebug(kastsUpdater) << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
             isNewOrModified = isNewOrModified || processFeedAuthor(authorname, authoremail);
@@ -365,10 +365,10 @@ bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email)
             isNewOrModified = true;
             m_feed.authors[name].email = email;
             m_feed.authors[name].state = RecordState::Modified;
-            qCDebug(kastsFetcher) << "author details have been updated for feed:" << m_url << name;
+            qCDebug(kastsUpdater) << "author details have been updated for feed:" << m_url << name;
         } else {
             m_feed.authors[name].state = RecordState::Unmodified;
-            qCDebug(kastsFetcher) << "author details are unchanged:" << m_url << name;
+            qCDebug(kastsUpdater) << "author details are unchanged:" << m_url << name;
         }
     } else {
         isNewOrModified = true;
@@ -377,7 +377,7 @@ bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email)
         authorDetails.email = email;
         authorDetails.state = RecordState::New;
         m_feed.authors[name] = authorDetails;
-        qCDebug(kastsFetcher) << "this is a new author:" << m_url << name;
+        qCDebug(kastsUpdater) << "this is a new author:" << m_url << name;
     }
 
     return isNewOrModified;
@@ -385,7 +385,7 @@ bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email)
 
 bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
 {
-    qCDebug(kastsFetcher) << "Processing" << entry->title();
+    qCDebug(kastsUpdater) << "Processing" << entry->title();
     bool isNewOrModified = false;
     bool isUpdateDependencies = false;
     QString id = entry->id();
@@ -407,8 +407,8 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
 
     const auto uniqueKeys = otherItems.uniqueKeys();
     for (const QString &key : uniqueKeys) {
-        qCDebug(kastsFetcher) << "other elements";
-        qCDebug(kastsFetcher) << key << otherItems.value(key).tagName();
+        qCDebug(kastsUpdater) << "other elements";
+        qCDebug(kastsUpdater) << key << otherItems.value(key).tagName();
     }
 
     QString title = QTextDocumentFragment::fromHtml(entry->title()).toPlainText();
@@ -437,7 +437,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
     if (image.startsWith(QStringLiteral("/"))) {
         image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + image;
     }
-    qCDebug(kastsFetcher) << "Entry image found" << image;
+    qCDebug(kastsUpdater) << "Entry image found" << image;
 
     // now we start updating the datastructure
     if (!isNewOrModified) {
@@ -453,10 +453,10 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
             m_feed.entries[id].hasEnclosure = hasEnclosure;
             m_feed.entries[id].image = image;
             m_feed.entries[id].state = RecordState::Modified;
-            qCDebug(kastsFetcher) << "episode details have been updated:" << id;
+            qCDebug(kastsUpdater) << "episode details have been updated:" << id;
         } else {
             m_feed.entries[id].state = RecordState::Unmodified;
-            qCDebug(kastsFetcher) << "episode details are unchanged:" << id;
+            qCDebug(kastsUpdater) << "episode details are unchanged:" << id;
         }
     } else {
         isNewOrModified = true;
@@ -476,7 +476,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
         entryDetails.image = image;
         entryDetails.state = RecordState::New;
         m_feed.entries[id] = entryDetails;
-        qCDebug(kastsFetcher) << "this is a new episode:" << id;
+        qCDebug(kastsUpdater) << "this is a new episode:" << id;
     }
 
     // Process authors
@@ -520,10 +520,10 @@ bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, c
             isNewOrModified = true;
             m_feed.entries[id].authors[name].email = email;
             m_feed.entries[id].authors[name].state = RecordState::Modified;
-            qCDebug(kastsFetcher) << "author details have been updated for:" << id << name;
+            qCDebug(kastsUpdater) << "author details have been updated for:" << id << name;
         } else {
             m_feed.entries[id].authors[name].state = RecordState::Unmodified;
-            qCDebug(kastsFetcher) << "author details are unchanged:" << id << name;
+            qCDebug(kastsUpdater) << "author details are unchanged:" << id << name;
         }
     } else {
         isNewOrModified = true;
@@ -532,7 +532,7 @@ bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, c
         authorDetails.email = email;
         authorDetails.state = RecordState::New;
         m_feed.entries[id].authors[name] = authorDetails;
-        qCDebug(kastsFetcher) << "this is a new author:" << id << name;
+        qCDebug(kastsUpdater) << "this is a new author:" << id << name;
     }
 
     return isNewOrModified;
@@ -557,10 +557,10 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
                 isUpdateEnclosure = true;
                 m_feed.entries[id].enclosures[url].type = type;
                 m_feed.entries[id].enclosures[url].state = RecordState::Modified;
-                qCDebug(kastsFetcher) << "enclosure details have been updated for:" << id << url;
+                qCDebug(kastsUpdater) << "enclosure details have been updated for:" << id << url;
             } else {
                 m_feed.entries[id].enclosures[url].state = RecordState::Unmodified;
-                qCDebug(kastsFetcher) << "enclosure details are unchanged:" << id << url;
+                qCDebug(kastsUpdater) << "enclosure details are unchanged:" << id << url;
             }
 
             // Check if entry title or enclosure URL has changed
@@ -580,7 +580,7 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
             enclosureDetails.downloaded = Enclosure::Downloadable;
             enclosureDetails.state = RecordState::New;
             m_feed.entries[id].enclosures[url] = enclosureDetails;
-            qCDebug(kastsFetcher) << "this is a new enclosure:" << id << url;
+            qCDebug(kastsUpdater) << "this is a new enclosure:" << id << url;
         }
         anyEnclosureUpdated = anyEnclosureUpdated | isNewEnclosure | isUpdateEnclosure;
     }
@@ -609,7 +609,7 @@ bool UpdateFeedJob::processChapters(const QString &id, const QMultiMap<QString, 
                     // strip off decimal point if it's present
                     startInt = part.split(QStringLiteral("."))[0].toInt() + startInt * 60;
                 }
-                qCDebug(kastsFetcher) << "Found chapter mark:" << start << "; in seconds:" << startInt;
+                qCDebug(kastsUpdater) << "Found chapter mark:" << start << "; in seconds:" << startInt;
                 QString image = element.attribute(QStringLiteral("image"));
 
                 bool isNewOrModified = false;
@@ -623,10 +623,10 @@ bool UpdateFeedJob::processChapters(const QString &id, const QMultiMap<QString, 
                         m_feed.entries[id].chapters[startInt].link = link;
                         m_feed.entries[id].chapters[startInt].image = image;
                         m_feed.entries[id].chapters[startInt].state = RecordState::Modified;
-                        qCDebug(kastsFetcher) << "chapter details have been updated for:" << id << start;
+                        qCDebug(kastsUpdater) << "chapter details have been updated for:" << id << start;
                     } else {
                         m_feed.entries[id].chapters[startInt].state = RecordState::Unmodified;
-                        qCDebug(kastsFetcher) << "chapter details are unchanged:" << id << start;
+                        qCDebug(kastsUpdater) << "chapter details are unchanged:" << id << start;
                     }
                 } else {
                     isNewOrModified = true;
@@ -636,7 +636,7 @@ bool UpdateFeedJob::processChapters(const QString &id, const QMultiMap<QString, 
                     chapterDetails.image = image;
                     chapterDetails.state = RecordState::New;
                     m_feed.entries[id].chapters[startInt] = chapterDetails;
-                    qCDebug(kastsFetcher) << "this is a new chapter:" << id << start;
+                    qCDebug(kastsUpdater) << "this is a new chapter:" << id << start;
                 }
                 newOrModifiedChapters = newOrModifiedChapters | isNewOrModified;
             }
@@ -696,6 +696,18 @@ void UpdateFeedJob::writeToDatabase()
     }
     writeQuery.clear();
 
+    // deleted removed feed authors
+    writeQuery.prepare(QStringLiteral("DELETE FROM FeedAuthors WHERE feeduid=:feeduid and name=:name;"));
+    for (const AuthorDetails &authorDetails : std::as_const(m_feed.authors)) {
+        if (authorDetails.state == RecordState::Deleted) {
+            writeQuery.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
+            writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+            dbExecute(writeQuery);
+            qCDebug(kastsUpdater) << "deleted old feed author:" << m_feed.feeduid << authorDetails.name;
+        }
+    }
+    writeQuery.clear();
+
     // new entries
     writeQuery.prepare(
         QStringLiteral("INSERT INTO Entries (feeduid, feed, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite) VALUES "
@@ -721,7 +733,7 @@ void UpdateFeedJob::writeToDatabase()
                 if (lastId.isValid()) {
                     m_feed.entries[entryDetails.id].entryuid = lastId.toLongLong(); // TODO: check if this is ok wrt 'detaching'
                 } else {
-                    qCDebug(kastsFetcher) << "new episode did not get a valid entryuid" << entryDetails.id;
+                    qCDebug(kastsUpdater) << "new episode did not get a valid entryuid" << entryDetails.id;
                 }
             }
         }
@@ -754,7 +766,7 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.prepare(QStringLiteral("INSERT INTO EntryAuthors (entryuid, feed, id, name, email) VALUES (:entryuid, :feed, :id, :name, :email);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
-            qCDebug(kastsFetcher) << "new episode did not get a valid entryuid; skipping authors for id:" << entryDetails.id;
+            qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping authors for id:" << entryDetails.id;
         } else {
             for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
                 if (authorDetails.state == RecordState::New) {
@@ -788,13 +800,30 @@ void UpdateFeedJob::writeToDatabase()
     }
     writeQuery.clear();
 
+    // delete entry authors that were removed
+    writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
+    for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
+        if (entryDetails.state != RecordState::Deleted) {
+            for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
+                if (authorDetails.state == RecordState::Deleted) {
+                    updateIds.insert(entryDetails.id);
+                    writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
+                    writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+                    dbExecute(writeQuery);
+                    qCDebug(kastsUpdater) << "deleted old entry author:" << m_feed.feeduid << entryDetails.entryuid << authorDetails.name;
+                }
+            }
+        }
+    }
+    writeQuery.clear();
+
     // new enclosures
     writeQuery.prepare(
         QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, feed, id, url, duration, size, type, playposition, downloaded) VALUES (:entryuid, :feeduid, "
                        ":feed, :id, :url, :duration, :size, :type, :playposition, :downloaded);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
-            qCDebug(kastsFetcher) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
+            qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
         } else {
             for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
                 if (enclosureDetails.state == RecordState::New) {
@@ -838,12 +867,28 @@ void UpdateFeedJob::writeToDatabase()
     }
     writeQuery.clear();
 
+    // delete removed enclosures
+    writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
+    for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
+        if (entryDetails.state != RecordState::Deleted) {
+            for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+                if (enclosureDetails.state == RecordState::Deleted) {
+                    updateIds.insert(entryDetails.id);
+                    writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
+                    dbExecute(writeQuery);
+                    qCDebug(kastsUpdater) << "deleted old enclosure:" << m_feed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
+                }
+            }
+        }
+    }
+    writeQuery.clear();
+
     // new chapters
     writeQuery.prepare(
         QStringLiteral("INSERT INTO Chapters (entryuid, feed, id, start, title, link, image) VALUES (:entryuid, :feed, :id, :start, :title, :link, :image);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
-            qCDebug(kastsFetcher) << "new episode did not get a valid entryuid; skipping chapters for id:" << entryDetails.id;
+            qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping chapters for id:" << entryDetails.id;
         } else {
             for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
                 if (chapterDetails.state == RecordState::New) {
@@ -882,6 +927,9 @@ void UpdateFeedJob::writeToDatabase()
     }
     writeQuery.clear();
 
+    // We don't delete chapters that haven't been found anymore, since they could also have been added through other means
+    // e.g. id3 tags.
+
     // set custom amount of episodes to unread/new if required
     if (m_feed.isNew && (SettingsManager::self()->markUnreadOnNewFeed() == 1) && (SettingsManager::self()->markUnreadOnNewFeedCustomAmount() > 0)) {
         writeQuery.prepare(
@@ -918,14 +966,14 @@ void UpdateFeedJob::writeToDatabase()
     if (dbCommit()) {
         // emit signals for new entries
         for (const QString &id : std::as_const(newIds)) {
-            qCDebug(kastsFetcher) << "new episode" << id;
+            qCDebug(kastsUpdater) << "new episode" << id;
             Q_EMIT entryAdded(m_url, id);
         }
 
         // emit signals for updated entries or entries with new/updated authors,
         // enclosures or chapters
         for (const QString &id : std::as_const(updateIds)) {
-            qCDebug(kastsFetcher) << "updated episode" << id;
+            qCDebug(kastsUpdater) << "updated episode" << id;
             Q_EMIT entryUpdated(m_url, id);
         }
     }
