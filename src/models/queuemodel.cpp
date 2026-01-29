@@ -7,11 +7,13 @@
 #include "models/queuemodel.h"
 #include "models/queuemodellogging.h"
 
+#include <QSqlQuery>
 #include <QThread>
 
 #include <KFormat>
 
 #include "audiomanager.h"
+#include "database.h"
 #include "datamanager.h"
 #include "entry.h"
 #include "settingsmanager.h"
@@ -50,6 +52,8 @@ QueueModel::QueueModel(QObject *parent)
         Q_UNUSED(position)
         Q_EMIT timeLeftChanged();
     });
+
+    updateInternalState();
 }
 
 QVariant QueueModel::data(const QModelIndex &index, int role) const
@@ -108,7 +112,14 @@ QString QueueModel::getSortIconName(AbstractEpisodeProxyModel::SortType type)
 
 void QueueModel::updateInternalState()
 {
-    // nothing to do; DataManager already has the updated data.
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT entryuid FROM Queue ORDER BY listnr;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_queuemap += query.value(QStringLiteral("entryuid")).toLongLong();
+    }
+    query.finish();
+    qCDebug(kastsQueueModel) << "Queuemap contains:" << m_queuemap;
 }
 
 // Hack to get a QItemSelection in QML

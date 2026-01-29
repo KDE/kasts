@@ -13,6 +13,7 @@
 #include <QString>
 #include <QVariant>
 
+#include "datatypes.h"
 #include "models/abstractepisodemodel.h"
 #include "models/abstractepisodeproxymodel.h"
 
@@ -47,4 +48,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void timeLeftChanged();
+
+private:
+    QList<qint64> m_queuemap;
+    // QHash<qint64, DataTypes::EntryDetails> m_queuemap;
 };

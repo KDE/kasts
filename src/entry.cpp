@@ -13,6 +13,7 @@
 #include <QUrl>
 
 #include <KLocalizedString>
+#include <qobject.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -41,13 +42,8 @@ Entry::Entry(Feed *feed, const QString &id)
         }
     });
 
-    updateFromDb(false);
-}
-
-void Entry::updateFromDb(bool emitSignals)
-{
     QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
+    entryQuery.prepare(QStringLiteral("SELECT entryuid, feeduid FROM Entries WHERE feed=:feed AND id=:id;"));
     entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
     entryQuery.bindValue(QStringLiteral(":id"), m_id);
     Database::instance().execute(entryQuery);
@@ -57,6 +53,50 @@ void Entry::updateFromDb(bool emitSignals)
     }
 
     m_entryuid = entryQuery.value(QStringLiteral("entryuid")).toLongLong();
+    m_feeduid = entryQuery.value(QStringLiteral("feeduid")).toLongLong();
+
+    updateFromDb(false);
+}
+
+Entry::Entry(const qint64 entryuid)
+    : QObject()
+    , m_entryuid(entryuid)
+{
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if (url == m_image) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        } else if (m_image.isEmpty() && url == m_feed->image()) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
+        if ((m_feed->url() == url) && (m_id == id)) {
+            updateFromDb();
+        }
+    });
+
+    updateFromDb(false);
+}
+
+void Entry::updateFromDb(bool emitSignals)
+{
+    QSqlQuery entryQuery;
+    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE entryuid=:entryuid;"));
+    entryQuery.bindValue(QStringLiteral(":entryuid"), m_entryuid);
+    Database::instance().execute(entryQuery);
+    if (!entryQuery.next()) {
+        qWarning() << "No element with entryuid" << m_entryuid;
+        return;
+    }
+
+    // TODO: to be removed after refactor
+    m_id = entryQuery.value(QStringLiteral("id")).toString();
+    m_feedurl = entryQuery.value(QStringLiteral("feed")).toString();
+    m_feed = DataManager::instance().getFeed(m_feedurl);
+
+    m_feeduid = entryQuery.value(QStringLiteral("feeduid")).toLongLong();
     setCreated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt()), emitSignals);
     setUpdated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt()), emitSignals);
     setTitle(entryQuery.value(QStringLiteral("title")).toString(), emitSignals);

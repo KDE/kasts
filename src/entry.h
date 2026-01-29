@@ -43,6 +43,7 @@ class Entry : public QObject
 
 public:
     Entry(Feed *feed, const QString &id);
+    explicit Entry(const qint64 entryuid);
 
     qint64 entryuid() const;
     QString id() const;
@@ -104,7 +105,9 @@ private:
     void setImage(const QString &url, bool emitSignal = true);
 
     Feed *m_feed;
+    QString m_feedurl;
     qint64 m_entryuid;
+    qint64 m_feeduid;
     QString m_id;
     QString m_title;
     QString m_content;

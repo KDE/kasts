@@ -98,13 +98,6 @@ DataManager::DataManager()
         }
     }
     // qCDebug(kastsDataManager) << "entrymap contains:" << m_entrymap;
-
-    query.prepare(QStringLiteral("SELECT id FROM Queue ORDER BY listnr;"));
-    Database::instance().execute(query);
-    while (query.next()) {
-        m_queuemap += query.value(QStringLiteral("id")).toString();
-    }
-    qCDebug(kastsDataManager) << "Queuemap contains:" << m_queuemap;
 }
 
 Feed *DataManager::getFeed(const int index) const
