@@ -154,10 +154,14 @@ QString Fetcher::image(const QString &url)
         if (reply->isOpen() && !reply->error()) {
             QByteArray data = reply->readAll();
             QFile file(path);
-            file.open(QIODevice::WriteOnly);
-            file.write(data);
-            file.close();
-            Q_EMIT downloadFinished(url);
+
+            // TODO: We currently don't handle the case where we can't store the image locally.
+            // Maybe we should emit an error?  But this would probably flood the error log.
+            if (file.open(QIODevice::WriteOnly)) {
+                file.write(data);
+                file.close();
+                Q_EMIT downloadFinished(url);
+            }
         }
         m_ongoingImageDownloads.remove(url);
         reply->deleteLater();
@@ -170,6 +174,8 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout();
 
+    bool fileOpenSuccess = false;
+
     QFile *file = new QFile(filePath);
     if (file->exists() && file->size() > 0) {
         // try to resume download
@@ -177,10 +183,14 @@ QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) co
         qCDebug(kastsFetcher) << "Resuming download at" << resumedAt << "bytes";
         QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(resumedAt) + QByteArray("-");
         request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
-        file->open(QIODevice::WriteOnly | QIODevice::Append);
+        fileOpenSuccess = file->open(QIODevice::WriteOnly | QIODevice::Append);
     } else {
         qCDebug(kastsFetcher) << "Starting new download";
-        file->open(QIODevice::WriteOnly);
+        fileOpenSuccess = file->open(QIODevice::WriteOnly);
+    }
+
+    if (!fileOpenSuccess) {
+        return nullptr;
     }
 
     QNetworkReply *reply = get(request);

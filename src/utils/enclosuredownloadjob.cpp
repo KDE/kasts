@@ -30,6 +30,13 @@ void EnclosureDownloadJob::startDownload()
 {
     m_reply = Fetcher::instance().download(m_url, m_filename);
 
+    if (!m_reply) {
+        setError(1);
+        setErrorText(QStringLiteral("Cannot open file to write download to %1").arg(m_filename));
+        emitResult();
+        return;
+    }
+
     Q_EMIT description(this, i18n("Downloading %1", m_title));
 
     connect(m_reply, &QNetworkReply::downloadProgress, this, [this](qint64 received, qint64 total) {

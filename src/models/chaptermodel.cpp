@@ -181,9 +181,12 @@ void ChapterModel::loadMPEGChapters()
             if (!QFileInfo::exists(path)) {
                 QFile file(path);
                 const auto apic = dynamic_cast<TagLib::ID3v2::AttachedPictureFrame *>(apicList.front())->picture();
-                file.open(QFile::WriteOnly);
-                file.write(QByteArray(apic.data(), apic.size()));
-                file.close();
+                if (file.open(QFile::WriteOnly)) {
+                    file.write(QByteArray(apic.data(), apic.size()));
+                    file.close();
+                } else {
+                    image = QString();
+                }
             }
         } else {
             image = QString();

@@ -328,10 +328,11 @@ QString Enclosure::cachedEmbeddedImage() const
         QByteArray data(pictureFrame->picture().data(), pictureFrame->picture().size());
         if (!data.isEmpty() && QImage().loadFromData(data)) {
             QFile file(cachedpath);
-            file.open(QIODevice::WriteOnly);
-            file.write(data);
-            file.close();
-            imageFound = true;
+            if (file.open(QIODevice::WriteOnly)) {
+                file.write(data);
+                file.close();
+                imageFound = true;
+            }
         }
     }
 

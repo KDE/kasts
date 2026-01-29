@@ -568,44 +568,46 @@ void DataManager::importFeeds(const QString &path)
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
 
-    file.open(QIODevice::ReadOnly);
-
-    QStringList urls;
-    QXmlStreamReader xmlReader(&file);
-    while (!xmlReader.atEnd()) {
-        xmlReader.readNext();
-        if (xmlReader.tokenType() == 4 && xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
-            urls += xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString();
+    if (file.open(QIODevice::ReadOnly)) {
+        QStringList urls;
+        QXmlStreamReader xmlReader(&file);
+        while (!xmlReader.atEnd()) {
+            xmlReader.readNext();
+            if (xmlReader.tokenType() == 4 && xmlReader.attributes().hasAttribute(QStringLiteral("xmlUrl"))) {
+                urls += xmlReader.attributes().value(QStringLiteral("xmlUrl")).toString();
+            }
         }
+        qCDebug(kastsDataManager) << "Start importing urls:" << urls;
+        addFeeds(urls);
     }
-    qCDebug(kastsDataManager) << "Start importing urls:" << urls;
-    addFeeds(urls);
+    // TODO: Report error when file cannot be opened
 }
 
 void DataManager::exportFeeds(const QString &path)
 {
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
-    file.open(QIODevice::WriteOnly);
-
-    QXmlStreamWriter xmlWriter(&file);
-    xmlWriter.setAutoFormatting(true);
-    xmlWriter.writeStartDocument(QStringLiteral("1.0"));
-    xmlWriter.writeStartElement(QStringLiteral("opml"));
-    xmlWriter.writeAttribute(QStringLiteral("version"), QStringLiteral("1.0"));
-    xmlWriter.writeEmptyElement(QStringLiteral("head"));
-    xmlWriter.writeStartElement(QStringLiteral("body"));
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT url, name FROM Feeds;"));
-    Database::instance().execute(query);
-    while (query.next()) {
-        xmlWriter.writeEmptyElement(QStringLiteral("outline"));
-        xmlWriter.writeAttribute(QStringLiteral("xmlUrl"), query.value(0).toString());
-        xmlWriter.writeAttribute(QStringLiteral("title"), query.value(1).toString());
+    if (file.open(QIODevice::WriteOnly)) {
+        QXmlStreamWriter xmlWriter(&file);
+        xmlWriter.setAutoFormatting(true);
+        xmlWriter.writeStartDocument(QStringLiteral("1.0"));
+        xmlWriter.writeStartElement(QStringLiteral("opml"));
+        xmlWriter.writeAttribute(QStringLiteral("version"), QStringLiteral("1.0"));
+        xmlWriter.writeEmptyElement(QStringLiteral("head"));
+        xmlWriter.writeStartElement(QStringLiteral("body"));
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT url, name FROM Feeds;"));
+        Database::instance().execute(query);
+        while (query.next()) {
+            xmlWriter.writeEmptyElement(QStringLiteral("outline"));
+            xmlWriter.writeAttribute(QStringLiteral("xmlUrl"), query.value(0).toString());
+            xmlWriter.writeAttribute(QStringLiteral("title"), query.value(1).toString());
+        }
+        xmlWriter.writeEndElement();
+        xmlWriter.writeEndElement();
+        xmlWriter.writeEndDocument();
     }
-    xmlWriter.writeEndElement();
-    xmlWriter.writeEndElement();
-    xmlWriter.writeEndDocument();
+    // TODO: Report error when file could not be opened
 }
 
 void DataManager::loadFeed(const QString &feedurl) const
