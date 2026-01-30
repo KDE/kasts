@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the kasts package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:57+0000\n"
+"POT-Creation-Date: 2026-01-30 00:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -302,7 +301,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr ""
 
-#: models/chaptermodel.cpp:192
+#: models/chaptermodel.cpp:195
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -2279,7 +2278,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr ""
 
-#: utils/enclosuredownloadjob.cpp:33
+#: utils/enclosuredownloadjob.cpp:40
 #, kde-format
 msgid "Downloading %1"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:57+0000\n"
+"POT-Creation-Date: 2026-01-30 00:43+0000\n"
 "PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -301,7 +301,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Dato: pli malnova unue"
 
-#: models/chaptermodel.cpp:192
+#: models/chaptermodel.cpp:195
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -2306,7 +2306,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Sinkronigo finiĝis kun eraro"
 
-#: utils/enclosuredownloadjob.cpp:33
+#: utils/enclosuredownloadjob.cpp:40
 #, kde-format
 msgid "Downloading %1"
 msgstr "Elŝutante %1"
