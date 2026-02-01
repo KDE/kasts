@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the kasts package.
 #
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-30 00:43+0000\n"
-"PO-Revision-Date: 2025-08-18 11:49+0300\n"
+"PO-Revision-Date: 2026-01-31 11:17+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.07.90\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -499,17 +499,15 @@ msgstr "Главы"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:174
-#, fuzzy, kde-format
-#| msgid "Episode List"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Список выпусков"
+msgstr "Название выпуска отсутствует"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
 #: qml/Mobile/MobilePlayerControls.qml:184
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Нет доступных выпусков"
+msgstr "Ни один выпуск не загружен"
 
 #: qml/DiscoverPage.qml:19 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:82
 #, kde-format
@@ -1136,10 +1134,9 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Загрузка подкастов запрещена при лимитном подключении"
 
 #: qml/Mobile/MobilePlayerControls.qml:23
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Нет доступных выпусков"
+msgstr "Ни один выпуск не загружен"
 
 #: qml/Mobile/MobilePlayerControls.qml:144
 #, kde-format
@@ -1387,16 +1384,12 @@ msgid "Select audio backend"
 msgstr "Выбор звукового модуля"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Показывать оставшееся время вместо общей длительности дорожки"
+msgstr "Показывать оставшееся время вместо общей длительности выпуска"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
