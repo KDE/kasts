@@ -42,7 +42,8 @@ class Entry : public QObject
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
 public:
-    Entry(Feed *feed, const QString &id);
+    Entry(Feed *feed, const QString &id, QObject *parent = nullptr);
+    Entry(const qint64 entryuid, QObject *parent = nullptr);
 
     qint64 entryuid() const;
     QString id() const;
@@ -103,8 +104,9 @@ private:
     void setHasEnclosure(bool hasEnclosure, bool emitSignal = true);
     void setImage(const QString &url, bool emitSignal = true);
 
-    Feed *m_feed;
+    QPointer<Feed> m_feed;
     qint64 m_entryuid;
+    qint64 m_feeduid;
     QString m_id;
     QString m_title;
     QString m_content;

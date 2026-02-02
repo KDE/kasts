@@ -24,6 +24,7 @@ class Enclosure : public QObject
     QML_ELEMENT
     QML_UNCREATABLE("")
 
+    Q_PROPERTY(qint64 enclosureuid READ enclosureuid CONSTANT)
     Q_PROPERTY(qint64 size READ size WRITE setSize NOTIFY sizeChanged)
     Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)
     Q_PROPERTY(qint64 sizeOnDisk READ sizeOnDisk NOTIFY sizeOnDiskChanged)
@@ -58,6 +59,7 @@ public:
     Q_INVOKABLE void download();
     Q_INVOKABLE void deleteFile();
 
+    qint64 enclosureuid() const;
     QString path() const;
     QString url() const;
     Status status() const;
@@ -96,6 +98,8 @@ private:
     void updateFromDb();
     void processDownloadedFile();
 
+    qint64 m_enclosureuid;
+    qint64 m_entryuid;
     Entry *m_entry;
     qint64 m_duration;
     qint64 m_size = 0;

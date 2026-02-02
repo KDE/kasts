@@ -406,7 +406,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
 
         // TODO: check whether the entry in the database happened correctly?
 
-        m_feeds[feeduid] = new Feed(url);
+        m_feeds[feeduid] = new Feed(feeduid);
         m_feedmap.append(feeduid);
 
         // Save this action to the database (including timestamp) in order to be
@@ -665,33 +665,17 @@ void DataManager::loadFeed(const qint64 feeduid) const
         return;
     }
 
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT feeduid, url FROM Feeds WHERE feeduid=:feeduid;"));
-    query.bindValue(QStringLiteral(":feeduid"), feeduid);
-    Database::instance().execute(query);
-    if (!query.next()) {
-        qWarning() << "Failed to load feed" << feeduid;
-    } else {
-        const QString feedurl = query.value(QStringLiteral("url")).toString();
-        m_feeds[feeduid] = new Feed(feedurl);
-    }
+    m_feeds[feeduid] = new Feed(feeduid);
 }
 
 void DataManager::loadEntry(const qint64 entryuid) const
 {
-    Feed *feed = nullptr;
-    // First find the feed that this entry belongs to
-    QHashIterator<qint64, QList<qint64>> i(m_entrymap);
-    while (i.hasNext()) {
-        i.next();
-        if (i.value().contains(entryuid))
-            feed = getFeed(i.key());
-    }
-    if (!feed) {
-        qCDebug(kastsDataManager) << "Failed to find feed belonging to entry" << entryuid;
+    if (m_entries[entryuid]) {
+        // nothing to do if Entry object already exists
         return;
     }
-    m_entries[entryuid] = new Entry(feed, getIdFromEntryuid(entryuid));
+
+    m_entries[entryuid] = new Entry(entryuid);
 }
 
 bool DataManager::feedExists(const QString &url)
@@ -708,7 +692,6 @@ bool DataManager::feedExists(const QString &url)
 
 void DataManager::updateQueueListnrs() const
 {
-    Database::instance().transaction();
     QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Queue SET listnr=:i WHERE entryuid=:entryuid;"));
     for (int i = 0; i < m_queuemap.count(); i++) {
@@ -716,7 +699,6 @@ void DataManager::updateQueueListnrs() const
         query.bindValue(QStringLiteral(":entryuid"), m_queuemap[i]);
         Database::instance().execute(query);
     }
-    Database::instance().commit();
 }
 
 void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list)

@@ -41,7 +41,7 @@ class Feed : public QObject
     Q_PROPERTY(EntriesProxyModel *entries MEMBER m_entries CONSTANT)
 
 public:
-    Feed(const QString &feedurl);
+    explicit Feed(const qint64 feeduid, QObject *parent = nullptr);
 
     void updateAuthors();
 
