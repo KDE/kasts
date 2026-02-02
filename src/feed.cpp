@@ -17,15 +17,16 @@
 #include "fetcher.h"
 #include "models/abstractepisodeproxymodel.h"
 
-Feed::Feed(const QString &feedurl)
-    : QObject(&DataManager::instance())
+Feed::Feed(const qint64 feeduid, QObject *parent)
+    : QObject(parent)
 {
+    parent = &Database::instance();
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:feedurl;"));
-    query.bindValue(QStringLiteral(":feedurl"), feedurl);
+    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), feeduid);
     Database::instance().execute(query);
     if (!query.next())
-        qWarning() << "Failed to load feed" << feedurl;
+        qWarning() << "Failed to load feed" << feeduid;
 
     m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
 
@@ -111,8 +112,8 @@ void Feed::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":feed"), m_url);
+    authorQuery.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
+    authorQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
         authors += authorQuery.value(QStringLiteral("name")).toString();
@@ -132,8 +133,8 @@ void Feed::updateAuthors()
 void Feed::updateUnreadEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND read=0;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid AND read=0;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     Database::instance().execute(query);
     if (!query.next())
         m_unreadEntryCount = -1;
@@ -143,8 +144,8 @@ void Feed::updateUnreadEntryCountFromDB()
 void Feed::updateNewEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND new=1;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND new=1;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     Database::instance().execute(query);
     if (!query.next())
         m_newEntryCount = -1;
@@ -154,8 +155,8 @@ void Feed::updateNewEntryCountFromDB()
 void Feed::updateFavoriteEntryCountFromDB()
 {
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feed=:feed AND favorite=1;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND favorite=1;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     Database::instance().execute(query);
     if (!query.next())
         m_favoriteEntryCount = -1;
@@ -175,8 +176,8 @@ void Feed::initFilterType(int value)
         int filterTypeValue = static_cast<int>(m_entries->filterType());
 
         QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE url=:feedurl;"));
-        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE feeduid=:feeduid;"));
+        writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
         writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
         Database::instance().execute(writeQuery);
     });
@@ -195,8 +196,8 @@ void Feed::initSortType(int value)
         int sortTypeValue = static_cast<int>(m_entries->sortType());
 
         QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE url=:feedurl;"));
-        writeQuery.bindValue(QStringLiteral(":feedurl"), m_url);
+        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE feeduid=:feeduid;"));
+        writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
         writeQuery.bindValue(QStringLiteral(":sortType"), sortTypeValue);
         Database::instance().execute(writeQuery);
     });

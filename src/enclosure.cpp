@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QFile>
 #include <QFileInfo>
+#include <QHash>
 #include <QImage>
 #include <QMimeDatabase>
 #include <QNetworkReply>
@@ -53,15 +54,19 @@ Enclosure::Enclosure(Entry *entry)
     // DataManager; this is required to avoid a dependency loop on startup
     connect(&DataManager::instance(), &DataManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
 
+    // TODO: this will just take the first enclosure found; we should handle
+    // multiple ones
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
-    query.bindValue(QStringLiteral(":id"), entry->id());
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid"));
+    query.bindValue(QStringLiteral(":entryuid"), entry->entryuid());
     Database::instance().execute(query);
 
     if (!query.next()) {
         return;
     }
 
+    m_entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+    m_enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
     m_duration = query.value(QStringLiteral("duration")).toInt();
     m_size = query.value(QStringLiteral("size")).toInt();
     m_type = query.value(QStringLiteral("type")).toString();
@@ -81,8 +86,8 @@ void Enclosure::updateFromDb()
     // notably untrustworthy.  We generally get them from the files themselves
     // at the time they are downloaded.
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE id=:id"));
-    query.bindValue(QStringLiteral(":id"), m_entry->id());
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE enclosureuid=:enclosureuid"));
+    query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
     Database::instance().execute(query);
 
     if (!query.next()) {
@@ -278,6 +283,11 @@ void Enclosure::deleteFile()
     Q_EMIT sizeOnDiskChanged();
 }
 
+qint64 Enclosure::enclosureuid() const
+{
+    return m_enclosureuid;
+}
+
 QString Enclosure::url() const
 {
     return m_url;
@@ -363,12 +373,13 @@ void Enclosure::setStatus(Enclosure::Status status)
     if (m_status != status) {
         m_status = status;
 
+        Database::instance().transaction();
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE id=:id AND feed=:feed;"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
-        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE enclosureuid=:enclosureuid;"));
+        query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":downloaded"), statusToDb(m_status));
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT statusChanged(m_entry, m_status);
     }
@@ -383,12 +394,13 @@ void Enclosure::setPlayPosition(const qint64 &position)
         // let's only save the play position to the database every 15 seconds
         if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
             qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
+            Database::instance().transaction();
             QSqlQuery query;
-            query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE id=:id AND feed=:feed"));
-            query.bindValue(QStringLiteral(":id"), m_entry->id());
-            query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+            query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE enclosureuid=:enclosureuid;"));
+            query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
             query.bindValue(QStringLiteral(":playposition"), m_playposition);
             Database::instance().execute(query);
+            Database::instance().commit();
             m_playposition_dbsave = m_playposition;
 
             // Also store position change to make sure that it can be synced to
@@ -407,12 +419,13 @@ void Enclosure::setDuration(const qint64 &duration)
 
         // also save to database
         qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
+        Database::instance().transaction();
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE id=:id AND feed=:feed"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
-        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE enclosureuid=:enclosureuid;"));
+        query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":duration"), m_duration);
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT durationChanged();
     }
@@ -424,12 +437,13 @@ void Enclosure::setSize(const qint64 &size)
         m_size = size;
 
         // also save to database
+        Database::instance().transaction();
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE id=:id AND feed=:feed"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
-        query.bindValue(QStringLiteral(":feed"), m_entry->feed()->url());
+        query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE enclosureuid=:enclosureuid;"));
+        query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":size"), m_size);
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT sizeChanged();
     }

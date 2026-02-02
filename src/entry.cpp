@@ -21,11 +21,12 @@
 #include "settingsmanager.h"
 #include "sync/sync.h"
 
-Entry::Entry(Feed *feed, const QString &id)
-    : QObject(&DataManager::instance())
-    , m_feed(feed)
-    , m_id(id)
+Entry::Entry(const qint64 entryuid, QObject *parent)
+    : QObject(parent)
+    , m_entryuid(entryuid)
 {
+    parent = &DataManager::instance(); // TODO: check whether we can have these autodestroyed to save memory
+
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
@@ -44,19 +45,58 @@ Entry::Entry(Feed *feed, const QString &id)
     updateFromDb(false);
 }
 
-void Entry::updateFromDb(bool emitSignals)
+Entry::Entry(Feed *feed, const QString &id, QObject *parent)
+    : QObject(parent)
+    , m_feed(feed)
+    , m_id(id)
 {
+    parent = &DataManager::instance(); // TODO: check whether we can have these autodestroyed to save memory
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+        if (url == m_image) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        } else if (m_image.isEmpty() && url == m_feed->image()) {
+            Q_EMIT imageChanged(url);
+            Q_EMIT cachedImageChanged(cachedImage());
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
+        if ((m_feed->url() == url) && (m_id == id)) {
+            updateFromDb();
+        }
+    });
+
     QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed AND id=:id;"));
-    entryQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    entryQuery.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE id=:id;"));
     entryQuery.bindValue(QStringLiteral(":id"), m_id);
     Database::instance().execute(entryQuery);
     if (!entryQuery.next()) {
-        qWarning() << "No element with index" << m_id << "found in feed" << m_feed->url();
+        qWarning() << "No element with entryuid" << m_id;
+        return;
+    }
+    m_entryuid = entryQuery.value(QStringLiteral("entryuid")).toLongLong();
+
+    updateFromDb(false);
+}
+
+void Entry::updateFromDb(bool emitSignals)
+{
+    QSqlQuery entryQuery;
+    entryQuery.prepare(QStringLiteral("SELECT * FROM Entries WHERE entryuid=:entryuid;"));
+    entryQuery.bindValue(QStringLiteral(":entryuid"), m_entryuid);
+    Database::instance().execute(entryQuery);
+    if (!entryQuery.next()) {
+        qWarning() << "No element with entryuid" << m_entryuid;
         return;
     }
 
-    m_entryuid = entryQuery.value(QStringLiteral("entryuid")).toLongLong();
+    m_feeduid = entryQuery.value(QStringLiteral("feeduid")).toLongLong();
+    // TODO: can we get rid of the feed pointer?
+    if (m_feed == nullptr) {
+        m_feed = DataManager::instance().getFeed(m_feeduid);
+    }
+
+    m_id = entryQuery.value(QStringLiteral("id")).toString();
     setCreated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("created")).toInt()), emitSignals);
     setUpdated(QDateTime::fromSecsSinceEpoch(entryQuery.value(QStringLiteral("updated")).toInt()), emitSignals);
     setTitle(entryQuery.value(QStringLiteral("title")).toString(), emitSignals);
@@ -87,9 +127,8 @@ void Entry::updateAuthors()
     QStringList authors;
 
     QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM EntryAuthors WHERE id=:id AND feed=:feed"));
-    authorQuery.bindValue(QStringLiteral(":id"), m_id);
-    authorQuery.bindValue(QStringLiteral(":feed"), m_feed->url());
+    authorQuery.prepare(QStringLiteral("SELECT name FROM EntryAuthors WHERE entryuid=:entryuid;"));
+    authorQuery.bindValue(QStringLiteral(":entryuid"), m_entryuid);
     Database::instance().execute(authorQuery);
     while (authorQuery.next()) {
         authors += authorQuery.value(QStringLiteral("name")).toString();
@@ -267,9 +306,8 @@ void Entry::setReadInternal(bool read)
         Q_EMIT readChanged(m_read);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE id=:id AND feed=:feed"));
-        query.bindValue(QStringLiteral(":id"), m_id);
-        query.bindValue(QStringLiteral(":feed"), m_feed->url());
+        query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE entryuid=:entryuid;"));
+        query.bindValue(QStringLiteral(":entryuid"), m_entryuid);
         query.bindValue(QStringLiteral(":read"), m_read);
         Database::instance().execute(query);
 
@@ -322,8 +360,8 @@ void Entry::setNewInternal(bool state)
         Q_EMIT newChanged(m_new);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE id=:id;"));
-        query.bindValue(QStringLiteral(":id"), m_id);
+        query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE entryuid=:entryuid;"));
+        query.bindValue(QStringLiteral(":entryuid"), m_entryuid);
         query.bindValue(QStringLiteral(":new"), m_new);
         Database::instance().execute(query);
 
@@ -351,8 +389,8 @@ void Entry::setFavoriteInternal(bool favorite)
         Q_EMIT favoriteChanged(m_favorite);
 
         QSqlQuery query;
-        query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE id=:id;"));
-        query.bindValue(QStringLiteral(":id"), m_id);
+        query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE entryuid=:entryuid;"));
+        query.bindValue(QStringLiteral(":entryuid"), m_entryuid);
         query.bindValue(QStringLiteral(":favorite"), m_favorite);
         Database::instance().execute(query);
 
