@@ -8,6 +8,7 @@
 
 #include <QHash>
 #include <QObject>
+#include <QPointer>
 #include <QQmlEngine>
 #include <QString>
 #include <QStringList>
@@ -34,11 +35,16 @@ public:
         return &instance();
     }
 
+    Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
+    Q_INVOKABLE Entry *getEntry(const qint64 entryuid) const;
+
+    // TODO: to be removed
     Feed *getFeed(const int index) const;
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
     Entry *getEntry(const int feed_index, const int entry_index) const;
     Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
+
     int feedCount() const;
     QStringList getIdList(const Feed *feed) const;
     int entryCount(const int feed_index) const;
@@ -110,18 +116,24 @@ Q_SIGNALS:
 
 private:
     DataManager();
-    void loadFeed(const QString &feedurl) const;
-    void loadEntry(QString id) const;
+    void loadFeed(const qint64 feeduid) const;
+    void loadEntry(const qint64 entryuid) const;
     void updateQueueListnrs() const;
+
+    // TODO: probably needs to be removed after refactor
+    QString getIdFromEntryuid(const qint64 entryuid) const;
+    qint64 getEntryuidFromId(const QString &id) const;
+    QString getUrlFromFeeduid(const qint64 feeduid) const;
+    qint64 getFeeduidFromUrl(const QString &url) const;
 
     QString cleanUrl(const QString &url);
 
     QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
 
-    mutable QHash<QString, Feed *> m_feeds; // hash of pointers to all feeds in db, key = url (lazy loading)
-    mutable QHash<QString, Entry *> m_entries; // hash of pointers to all entries in db, key = id (lazy loading)
+    mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
+    mutable QHash<qint64, QPointer<Entry>> m_entries; // hash of pointers to all entries in db, key = entryuid (lazy loading)
 
-    QStringList m_feedmap; // list of feedurls in the order that they should appear in feedlist
-    QHash<QString, QStringList> m_entrymap; // list of entries (per feed; key = url) in the order that they should appear in entrylist
-    QStringList m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
+    QList<qint64> m_feedmap; // list of feedurls in the order that they should appear in feedlist
+    QHash<qint64, QList<qint64>> m_entrymap; // list of entries (per feed; key = feeduid) in the order that they should appear in entrylist
+    QList<qint64> m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
 };
