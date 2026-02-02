@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-30 00:43+0000\n"
-"PO-Revision-Date: 2026-01-06 18:36+0100\n"
+"PO-Revision-Date: 2026-01-27 17:12+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -189,7 +189,7 @@ msgstr "Fehler: %1"
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr "Mediendatei abspielen"
+msgstr "Mediendatei wird wiedergegeben"
 
 #: main.cpp:135
 #, kde-format
@@ -241,13 +241,13 @@ msgstr "Kein Filter"
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
-msgstr "Abgespielte Episoden"
+msgstr "Wiedergegebene Episoden"
 
 #: models/abstractepisodeproxymodel.cpp:185
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
-msgstr "Ungespielte Episoden"
+msgstr "Nicht wiedergegebene Episoden"
 
 #: models/abstractepisodeproxymodel.cpp:187
 #, kde-format
@@ -314,14 +314,14 @@ msgstr "Unbenanntes Kapitel"
 msgctxt ""
 "@label:chooser Sort podcasts by decreasing number of unplayed episodes"
 msgid "Unplayed count: descending"
-msgstr "Anzahl ungespielt: absteigend"
+msgstr "Anzahl nicht wiedergegeben: absteigend"
 
 #: models/feedsproxymodel.cpp:122
 #, kde-format
 msgctxt ""
 "@label:chooser Sort podcasts by increasing number of unplayed episodes"
 msgid "Unplayed count: ascending"
-msgstr "Anzahl ungespielt: aufsteigend"
+msgstr "Anzahl nicht wiedergegeben: aufsteigend"
 
 #: models/feedsproxymodel.cpp:124
 #, kde-format
@@ -644,13 +644,13 @@ msgstr "Wiedergabeposition zurücksetzen"
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr "Als ungespielt markieren"
+msgstr "Als nicht wiedergegeben markieren"
 
 #: qml/EntryPage.qml:190
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr "Als gespielt markieren"
+msgstr "Als wiedergegeben markieren"
 
 #: qml/EntryPage.qml:197
 #, kde-format
@@ -794,8 +794,8 @@ msgstr[1] "%1 Episoden"
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
-msgstr[0] "1 ungespielt"
-msgstr[1] "%1 ungespielt"
+msgstr[0] "1 nicht wiedergegeben"
+msgstr[1] "%1 nicht wiedergegeben"
 
 #: qml/FeedDetailsPage.qml:333
 #, kde-format
@@ -953,7 +953,7 @@ msgstr "Aktiver Filter: %1"
 #: qml/GenericEntryDelegate.qml:217
 #, kde-format
 msgid "Played"
-msgstr "Abgespielt"
+msgstr "Wiedergegeben"
 
 #: qml/GenericEntryDelegate.qml:217
 #, kde-format
@@ -1037,12 +1037,12 @@ msgstr "Auswahl aufheben"
 #: qml/GenericEntryListView.qml:267
 #, kde-format
 msgid "Mark as Played"
-msgstr "Als gespielt markieren"
+msgstr "Als wiedergegeben markieren"
 
 #: qml/GenericEntryListView.qml:275
 #, kde-format
 msgid "Mark as Unplayed"
-msgstr "Als ungespielt markieren"
+msgstr "Als nicht wiedergegeben markieren"
 
 #: qml/GenericEntryListView.qml:283
 #, kde-format
@@ -1362,7 +1362,7 @@ msgstr "Alles löschen"
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
-msgstr "Wiedergabe-Einstellungen"
+msgstr "Wiedergabeeinstellungen"
 
 #: qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
@@ -1485,13 +1485,14 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr "Abspielposition zurücksetzen, nachdem eine Episode abgespielt wurde"
+msgstr ""
+"Wiedergabeposition zurücksetzen, nachdem eine Episode widergegeben wurde"
 
 #: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr "Verhalten abgespielter Episoden"
+msgstr "Verhalten wiedergegebener Episoden"
 
 #: qml/Settings/GeneralSettingsPage.qml:275
 #, kde-format
@@ -1516,7 +1517,7 @@ msgstr "Beim nächsten Start löschen"
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
 msgstr ""
-"Episoden als abgespielt markieren, wenn die angegebene Zeit verbleibt (in "
+"Episoden als wiedergegeben markieren, wenn die angegebene Zeit verbleibt (in "
 "Sekunden)"
 
 #: qml/Settings/GeneralSettingsPage.qml:317
@@ -1529,19 +1530,19 @@ msgstr "Beim Hinzufügen neuer Podcasts"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
-msgstr "Alle Episoden als abgespielt markieren"
+msgstr "Alle Episoden als wiedergegeben markieren"
 
 #: qml/Settings/GeneralSettingsPage.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
-msgstr "Neueste Episoden als ungespielt markieren"
+msgstr "Neueste Episoden als nicht wiedergegeben markieren"
 
 #: qml/Settings/GeneralSettingsPage.qml:359
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
-msgstr "Alle Episoden als ungespielt markieren"
+msgstr "Alle Episoden als nicht wiedergegeben markieren"
 
 #: qml/Settings/NetworkSettingsPage.qml:27
 #, kde-format
@@ -1897,7 +1898,7 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
-"Bitte beachten Sie, dass das Hochladen der Abspielzustände aller lokalen "
+"Bitte beachten Sie, dass das Hochladen der Wiedergabezustände aller lokalen "
 "Episoden zum Server sehr lange dauern könnte und den Server möglicherweise "
 "überlastet. Beachten Sie außerdem, dass diese Aktion alle auf dem Server "
 "existierenden Episodenzustände überschreibt.\n"
