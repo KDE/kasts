@@ -42,8 +42,8 @@ class Entry : public QObject
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
 public:
-    Entry(Feed *feed, const QString &id, QObject *parent = nullptr);
     Entry(const qint64 entryuid, QObject *parent = nullptr);
+    ~Entry();
 
     qint64 entryuid() const;
     QString id() const;

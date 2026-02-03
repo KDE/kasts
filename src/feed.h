@@ -32,7 +32,6 @@ class Feed : public QObject
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
-    Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount WRITE setUnreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int favoriteEntryCount READ favoriteEntryCount NOTIFY favoriteEntryCountChanged)
@@ -42,6 +41,7 @@ class Feed : public QObject
 
 public:
     explicit Feed(const qint64 feeduid, QObject *parent = nullptr);
+    ~Feed();
 
     void updateAuthors();
 
@@ -56,7 +56,6 @@ public:
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
     QString dirname() const;
-    int entryCount() const;
     int unreadEntryCount() const;
     int newEntryCount() const;
     int favoriteEntryCount() const;

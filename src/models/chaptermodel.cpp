@@ -22,11 +22,14 @@
 
 #include "audiomanager.h"
 #include "database.h"
+#include "objectslogging.h"
 #include "utils/storagemanager.h"
 
 ChapterModel::ChapterModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qCDebug(kastsObjects) << "ChapterModel object constructed";
+
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this]() {
         if (!m_entry || m_entry != AudioManager::instance().entry() || m_chapters.isEmpty()) {
             return;
@@ -48,7 +51,11 @@ ChapterModel::ChapterModel(QObject *parent)
 
 ChapterModel::~ChapterModel()
 {
+    qCDebug(kastsObjects) << "ChapterModel object destructed";
     qDeleteAll(m_chapters.begin(), m_chapters.end());
+    if (m_entry) {
+        delete m_entry;
+    }
 }
 
 QVariant ChapterModel::data(const QModelIndex &index, int role) const
@@ -78,6 +85,11 @@ QVariant ChapterModel::data(const QModelIndex &index, int role) const
             } else {
                 return QVariant::fromValue(m_duration / 1000 - m_chapters.at(row)->start());
             }
+        case EntryRole:
+            // The static cast is needed because the QPointer-wrapped pointer is not recognized by qml
+            return QVariant::fromValue(static_cast<Entry *>(m_entry));
+        case EntryuidRole:
+            return QVariant::fromValue(m_entryuid);
 
         default:
             return QVariant();
@@ -106,25 +118,33 @@ QHash<int, QByteArray> ChapterModel::roleNames() const
         {FormattedStartTimeRole, "formattedStart"},
         {ChapterRole, "chapter"},
         {DurationRole, "duration"},
+        {EntryRole, "entry"},
+        {EntryuidRole, "entryuid"},
     };
 }
 
-Entry *ChapterModel::entry() const
+qint64 ChapterModel::entryuid() const
 {
-    return m_entry;
+    return m_entryuid;
 }
 
-void ChapterModel::setEntry(Entry *entry)
+void ChapterModel::setEntryuid(const qint64 entryuid)
 {
-    if (entry) {
-        m_entry = entry;
-    } else {
-        qDeleteAll(m_chapters.begin(), m_chapters.end());
-        m_chapters.clear();
-        m_entry = nullptr;
+    // delete current entry if it's set
+    if (m_entry) {
+        delete m_entry;
     }
+
+    if (entryuid > 0) {
+        m_entry = new Entry(entryuid);
+        m_entryuid = entryuid;
+    } else {
+        m_entry = nullptr;
+        m_entryuid = 0;
+    }
+
     load();
-    Q_EMIT entryChanged();
+    Q_EMIT entryuidChanged();
 }
 
 void ChapterModel::load()
@@ -147,8 +167,8 @@ void ChapterModel::loadFromDatabase()
 {
     if (m_entry) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE id=:id ORDER BY start ASC;"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE entryuid=:entryuid ORDER BY start ASC;"));
+        query.bindValue(QStringLiteral(":entryuid"), m_entry->entryuid());
         Database::instance().execute(query);
         while (query.next()) {
             Chapter *chapter = new Chapter(m_entry,

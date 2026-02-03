@@ -7,6 +7,7 @@
 #include "chapter.h"
 
 #include "fetcher.h"
+#include "objectslogging.h"
 
 Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const QString &image, const int &start, QObject *parent)
     : QObject(parent)
@@ -16,12 +17,18 @@ Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const 
     , m_image(image)
     , m_start(start)
 {
+    qCDebug(kastsObjects) << "Chapter object constructed: entryuid" << m_entry->entryuid() << ", chapter start" << m_start;
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());
         }
     });
+}
+
+Chapter::~Chapter()
+{
+    qCDebug(kastsObjects) << "Chapter object destructed: entryuid" << m_entry->entryuid() << ", chapter start" << m_start;
 }
 
 Entry *Chapter::entry() const

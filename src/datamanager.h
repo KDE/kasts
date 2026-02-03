@@ -39,38 +39,27 @@ public:
     Q_INVOKABLE Entry *getEntry(const qint64 entryuid) const;
 
     // TODO: to be removed
-    Feed *getFeed(const int index) const;
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
-    Entry *getEntry(const int feed_index, const int entry_index) const;
-    Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
     int feedCount() const;
-    QStringList getIdList(const Feed *feed) const;
-    int entryCount(const int feed_index) const;
-    int entryCount(const Feed *feed) const;
     Q_INVOKABLE void addFeed(const QString &url);
-    void addFeed(const QString &url, const bool fetch);
-    void addFeeds(const QStringList &urls);
     void addFeeds(const QStringList &urls, const bool fetch);
     Q_INVOKABLE void removeFeed(Feed *feed);
-    void removeFeed(const int index);
     void removeFeeds(const QStringList &feedurls);
     Q_INVOKABLE void removeFeeds(const QVariantList feedsVariantList);
     void removeFeeds(const QList<Feed *> &feeds);
 
     Entry *getQueueEntry(int index) const;
-    int queueCount() const;
-    QStringList queue() const;
-    bool entryInQueue(const Entry *entry);
-    bool entryInQueue(const QString &id) const;
+    QList<qint64> queue() const;
+    bool entryInQueue(const qint64 entryuid);
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
-    void addToQueue(const QString &id);
-    void removeFromQueue(const QString &id);
+    void addToQueue(const qint64 entryuid);
+    void removeFromQueue(const qint64 entryuid);
     Q_INVOKABLE void sortQueue(AbstractEpisodeProxyModel::SortType sortType);
 
-    Q_INVOKABLE QString lastPlayingEntry();
-    Q_INVOKABLE void setLastPlayingEntry(const QString &id);
+    Q_INVOKABLE qint64 lastPlayingEntry();
+    Q_INVOKABLE void setLastPlayingEntry(const qint64 entryuid);
 
     Q_INVOKABLE void deletePlayedEnclosures();
 
@@ -78,12 +67,12 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkMarkNew(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkQueueStatus(bool state, const QStringList &list);
-    Q_INVOKABLE void bulkDownloadEnclosures(const QStringList &list);
-    Q_INVOKABLE void bulkDeleteEnclosures(const QStringList &list);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &list);
+    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &list);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &list);
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &list);
+    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &list);
+    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &list);
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
@@ -93,17 +82,17 @@ public:
     Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list);
 
 Q_SIGNALS:
-    void feedAdded(const QString &url);
-    void feedRemoved(const int &index);
-    void feedEntriesUpdated(const QString &url);
-    void queueEntryAdded(const int &index, const QString &id);
-    void queueEntryRemoved(const int &index, const QString &id);
+    void feedAdded(const qint64 feeduid);
+    void feedRemoved(const qint64 feeduid);
+    void feedEntriesUpdated(const qint64 feeduid);
+    void queueEntryAdded(const int &index, const qint64 entryuid);
+    void queueEntryRemoved(const int &index, const qint64 entryuid);
     void queueEntryMoved(const int &from, const int &to);
     void queueSorted();
 
-    void unreadEntryCountChanged(const QString &url);
-    void newEntryCountChanged(const QString &url);
-    void favoriteEntryCountChanged(const QString &url);
+    void unreadEntryCountChanged(const qint64 feeduid);
+    void newEntryCountChanged(const qint64 feeduid);
+    void favoriteEntryCountChanged(const qint64 feeduid);
 
     void bulkReadStatusActionFinished();
     void bulkNewStatusActionFinished();
@@ -113,6 +102,7 @@ Q_SIGNALS:
     // required to avoid a dependency loop on startup
     // TODO: find less hackish solution
     void playbackRateChanged();
+    void playPositionChanged(const qint64 entryuid, const qint64 position);
 
 private:
     DataManager();
@@ -121,19 +111,15 @@ private:
     void updateQueueListnrs() const;
 
     // TODO: probably needs to be removed after refactor
-    QString getIdFromEntryuid(const qint64 entryuid) const;
-    qint64 getEntryuidFromId(const QString &id) const;
-    QString getUrlFromFeeduid(const qint64 feeduid) const;
     qint64 getFeeduidFromUrl(const QString &url) const;
+    qint64 getEntryuidFromId(const QString &id) const;
 
     QString cleanUrl(const QString &url);
 
-    QStringList getIdsFromModelIndexList(const QModelIndexList &list) const;
+    QList<qint64> getEntryuidsFromModelIndexList(const QModelIndexList &list) const;
 
     mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
     mutable QHash<qint64, QPointer<Entry>> m_entries; // hash of pointers to all entries in db, key = entryuid (lazy loading)
 
-    QList<qint64> m_feedmap; // list of feedurls in the order that they should appear in feedlist
-    QHash<qint64, QList<qint64>> m_entrymap; // list of entries (per feed; key = feeduid) in the order that they should appear in entrylist
     QList<qint64> m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
 };

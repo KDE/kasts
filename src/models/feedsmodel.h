@@ -13,6 +13,8 @@
 #include <QSqlTableModel>
 #include <QUrl>
 
+#include "datatypes.h"
+
 class FeedsModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -21,7 +23,8 @@ class FeedsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        FeedRole = Qt::UserRole,
+        FeeduidRole = Qt::UserRole,
+        FeedRole,
         UrlRole,
         TitleRole,
         UnreadCountRole,
@@ -36,5 +39,9 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
 private:
-    void triggerFeedUpdate(const QString &url);
+    void triggerFeedUpdate(const qint64 feeduid);
+
+    void updateFeed(const qint64 feeduid);
+
+    QList<DataTypes::FeedDetails> m_feeds;
 };

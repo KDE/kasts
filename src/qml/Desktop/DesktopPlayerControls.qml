@@ -99,8 +99,8 @@ FocusScope {
                 visible: headerBar.handlePosition === 0
                 MouseArea {
                     anchors.fill: parent
-                    cursorShape: AudioManager.entry ? Qt.PointingHandCursor : Qt.ArrowCursor
-                    enabled: AudioManager.entry
+                    cursorShape: AudioManager.entryuid > 0 ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    enabled: AudioManager.entryuid > 0
                     onClicked: {
                         headerBar.openFullScreenImage();
                     }
@@ -332,7 +332,7 @@ FocusScope {
     // Actions which will be used to create buttons on toolbar or in overflow menu
     Kirigami.Action {
         id: chapterAction
-        property bool visible: AudioManager.entry && chapterList.count !== 0
+        property bool visible: AudioManager.entryuid > 0 && chapterList.count !== 0
         text: i18nc("@action:button", "Chapters")
         icon.name: "view-media-playlist"
         onTriggered: chapterOverlay.open()
@@ -340,7 +340,7 @@ FocusScope {
 
     Kirigami.Action {
         id: infoAction
-        property bool visible: AudioManager.entry
+        property bool visible: AudioManager.entryuid > 0
         text: i18nc("@action:button", "Show Info")
         icon.name: "documentinfo"
         onTriggered: entryDetailsOverlay.open()
@@ -355,7 +355,7 @@ FocusScope {
         icon.name: "clock"
         onTriggered: {
             toggle(); // only set the on/off state based on sleep timer state
-            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open()
+            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open();
         }
     }
 
@@ -373,7 +373,7 @@ FocusScope {
 
     ChapterModel {
         id: chapterModel
-        entry: AudioManager.entry ? AudioManager.entry : null
+        entryuid: AudioManager.entryuid
         duration: AudioManager.duration
     }
 
@@ -393,7 +393,6 @@ FocusScope {
 
             model: chapterModel
             delegate: ChapterListDelegate {
-                entry: AudioManager.entry ? AudioManager.entry : null
                 overlay: chapterOverlay
             }
         }
@@ -405,14 +404,14 @@ FocusScope {
 
         showCloseButton: false
 
-        title: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Title")
+        title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Title")
         padding: Kirigami.Units.largeSpacing
 
         Controls.Label {
             id: text
-            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
+            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
-            baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
+            baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             onLinkHovered: {
@@ -420,7 +419,7 @@ FocusScope {
             }
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
-                    if (AudioManager.entry && AudioManager.entry.enclosure) {
+                    if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {
                         AudioManager.seek(link.split("://")[1]);
                     }
                 } else {

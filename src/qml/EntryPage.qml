@@ -18,6 +18,7 @@ Kirigami.ScrollablePage {
     id: page
 
     required property QtObject entry
+    property int entryuid: entry ? entry.entryuid : 0
 
     title: i18nc("@title", "Episode Details")
 
@@ -34,7 +35,7 @@ Kirigami.ScrollablePage {
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).pageName === "queuepage") {
                         if (pageStack.get(0).lastEntry) {
-                            if (pageStack.get(0).lastEntry === entry.id) {
+                            if (pageStack.get(0).lastEntry === entryuid) {
                                 // if this EntryPage was open, then close it
                                 pageStack.pop();
                             }
@@ -53,7 +54,7 @@ Kirigami.ScrollablePage {
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).pageName === "downloadpage") {
                         if (pageStack.get(0).lastEntry) {
-                            if (pageStack.get(0).lastEntry === entry.id) {
+                            if (pageStack.get(0).lastEntry === entryuid) {
                                 // if this EntryPage was open, then close it
                                 pageStack.pop();
                             }
@@ -129,7 +130,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18nc("@action:intoolbar Button to pause the playback of the episode", "Pause")
-                        visible: entry.enclosure && entry.queueStatus && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
+                        visible: entry.enclosure && entry.queueStatus && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
                         icon.name: "media-playback-pause"
                         onTriggered: {
                             AudioManager.pause();
@@ -137,22 +138,22 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18nc("@action:intoolbar Button to start playback of the episode", "Play")
-                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-start"
                         onTriggered: {
-                            AudioManager.entry = entry;
+                            AudioManager.entryuid = entryuid;
                             AudioManager.play();
                         }
                     },
                     Kirigami.Action {
                         text: i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
-                        visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-cloud"
                         onTriggered: {
                             if (!entry.queueStatus) {
                                 entry.queueStatus = true;
                             }
-                            AudioManager.entry = entry;
+                            AudioManager.entryuid = entryuid;
                             AudioManager.play();
                         }
                     },
@@ -165,7 +166,7 @@ Kirigami.ScrollablePage {
                                 entry.queueStatus = true;
                             } else {
                                 // first change to next track if this one is playing
-                                if (entry.hasEnclosure && entry === AudioManager.entry) {
+                                if (entry.hasEnclosure && entryuid === AudioManager.entryuid) {
                                     AudioManager.next();
                                 }
                                 entry.queueStatus = false;
@@ -239,11 +240,11 @@ Kirigami.ScrollablePage {
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
                     if (AudioManager.entry && AudioManager.entry.enclosure && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || SettingsManager.prioritizeStreaming)) {
-                        if (AudioManager.entry !== entry) {
+                        if (AudioManager.entryuid !== entryuid) {
                             if (!entry.queueStatus) {
                                 entry.queueStatus = true;
                             }
-                            AudioManager.entry = entry;
+                            AudioManager.entryuid = entryuid;
                             AudioManager.play();
                         }
                         AudioManager.seek(link.split("://")[1]);
@@ -268,11 +269,9 @@ Kirigami.ScrollablePage {
             Layout.rightMargin: Kirigami.Units.gridUnit
             Layout.bottomMargin: Kirigami.Units.gridUnit
             model: ChapterModel {
-                entry: page.entry
+                entryuid: page.entry.entryuid
             }
-            delegate: ChapterListDelegate {
-                entry: page.entry
-            }
+            delegate: ChapterListDelegate {}
         }
 
         Controls.Button {

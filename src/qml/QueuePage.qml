@@ -17,7 +17,7 @@ Kirigami.ScrollablePage {
     id: queuepage
     title: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
 
-    property string lastEntry: ""
+    property int lastEntry: 0
     property string pageName: "queuepage"
     property alias queueList: queueList
 

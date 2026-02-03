@@ -134,16 +134,16 @@ qt_add_qml_module(kasts URI org.kde.kasts
 )
 
 ecm_qt_declare_logging_category(kasts
-    HEADER "databaselogging.h"
-    IDENTIFIER "kastsDatabase"
-    CATEGORY_NAME "org.kde.kasts.database"
+    HEADER "audiologging.h"
+    IDENTIFIER "kastsAudio"
+    CATEGORY_NAME "org.kde.kasts.audio"
     DEFAULT_SEVERITY Info
 )
 
 ecm_qt_declare_logging_category(kasts
-    HEADER "audiologging.h"
-    IDENTIFIER "kastsAudio"
-    CATEGORY_NAME "org.kde.kasts.audio"
+    HEADER "databaselogging.h"
+    IDENTIFIER "kastsDatabase"
+    CATEGORY_NAME "org.kde.kasts.database"
     DEFAULT_SEVERITY Info
 )
 
@@ -183,20 +183,6 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
-    HEADER "updaterlogging.h"
-    IDENTIFIER "kastsUpdater"
-    CATEGORY_NAME "org.kde.kasts.updater"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(kasts
-    HEADER "synclogging.h"
-    IDENTIFIER "kastsSync"
-    CATEGORY_NAME "org.kde.kasts.sync"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(kasts
     HEADER "models/downloadmodellogging.h"
     IDENTIFIER "kastsDownloadModel"
     CATEGORY_NAME "org.kde.kasts.downloadmodel"
@@ -207,6 +193,20 @@ ecm_qt_declare_logging_category(kasts
     HEADER "models/queuemodellogging.h"
     IDENTIFIER "kastsQueueModel"
     CATEGORY_NAME "org.kde.kasts.queuemodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "networkconnectionmanagerlogging.h"
+    IDENTIFIER "kastsNetworkConnectionManager"
+    CATEGORY_NAME "org.kde.kasts.networkconnectionmanager"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "objectslogging.h"
+    IDENTIFIER "kastsObjects"
+    CATEGORY_NAME "org.kde.kasts.objects"
     DEFAULT_SEVERITY Info
 )
 
@@ -225,11 +225,19 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
-    HEADER "networkconnectionmanagerlogging.h"
-    IDENTIFIER "kastsNetworkConnectionManager"
-    CATEGORY_NAME "org.kde.kasts.networkconnectionmanager"
+    HEADER "synclogging.h"
+    IDENTIFIER "kastsSync"
+    CATEGORY_NAME "org.kde.kasts.sync"
     DEFAULT_SEVERITY Info
 )
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "updaterlogging.h"
+    IDENTIFIER "kastsUpdater"
+    CATEGORY_NAME "org.kde.kasts.updater"
+    DEFAULT_SEVERITY Info
+)
+
 
 if(ANDROID)
     target_sources(kasts PRIVATE utils/androidlogging.h)

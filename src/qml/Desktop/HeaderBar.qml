@@ -17,7 +17,6 @@ import QtCore
 import org.kde.kirigami as Kirigami
 import org.kde.kasts
 
-
 FocusScope {
     id: headerBar
     height: headerMetaData.implicitHeight + desktopPlayerControls.implicitHeight
@@ -30,21 +29,20 @@ FocusScope {
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
     function openEntry(): void {
-        if (AudioManager.entry) {
+        if (AudioManager.entryuid > 0) {
             pushPage("QueuePage");
-            pageStack.get(0).lastEntry = AudioManager.entry.id;
+            pageStack.get(0).lastEntry = AudioManager.entry.entryuid;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i < model.rowCount(); i++) {
                 var index = model.index(i, 0);
-                if (AudioManager.entry == model.data(index, AbstractEpisodeModel.EntryRole)) {
+                if (AudioManager.entryuid == model.data(index, AbstractEpisodeModel.EntryuidRole)) {
                     pageStack.get(0).queueList.currentIndex = i;
                     pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
             }
             pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage", Component.PreferSynchronous, pageStack.get(0)), {
-                entry: AudioManager.entry
+                entryuid: AudioManager.entryuid
             });
-
         }
     }
 
@@ -147,8 +145,8 @@ FocusScope {
 
                 MouseArea {
                     anchors.fill: parent
-                    cursorShape: AudioManager.entry ? Qt.PointingHandCursor : Qt.ArrowCursor
-                    enabled: AudioManager.entry
+                    cursorShape: AudioManager.entryuid > 0 ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    enabled: AudioManager.entryuid > 0
                     onClicked: {
                         headerBar.openFullScreenImage();
                     }
@@ -198,7 +196,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            openPodcast(AudioManager.entry.feed);
+                            openPodcast(AudioManager.entry.feeduid);
                         }
                     }
                 }

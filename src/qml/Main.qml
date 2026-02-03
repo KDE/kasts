@@ -41,7 +41,7 @@ Kirigami.ApplicationWindow {
     property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
     property int bottomMessageSpacing: {
         if (Kirigami.Settings.isMobile) {
-            return Kirigami.Units.largeSpacing + (AudioManager.entry ? ((footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0) : 0);
+            return Kirigami.Units.largeSpacing + (AudioManager.entryuid > 0 ? ((footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0) : 0);
         } else {
             return Kirigami.Units.largeSpacing;
         }
@@ -73,7 +73,6 @@ Kirigami.ApplicationWindow {
             feed: newFeed
         });
     }
-
 
     KConfig.WindowStateSaver {
         configGroupName: "MainWindow"
@@ -152,13 +151,13 @@ Kirigami.ApplicationWindow {
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (AudioManager.entry && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entryuid > 0 && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
 
     Loader {
         id: footerLoader
 
         anchors.fill: parent
-        active: AudioManager.entry && Kirigami.Settings.isMobile
+        active: AudioManager.entryuid > 0 && Kirigami.Settings.isMobile
         visible: active
         z: (!item || item.contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {

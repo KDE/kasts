@@ -23,6 +23,7 @@ AddonDelegates.RoundedItemDelegate {
 
     required property Entry entry
     required property int index
+    property int entryuid: entry ? entry.entryuid : 0
 
     property bool isQueue: false
     property bool isDownloads: false
@@ -32,13 +33,13 @@ AddonDelegates.RoundedItemDelegate {
     property bool selected: false
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showDownloadButton: entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
     property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
     property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entry !== entry || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entry === entry && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton: Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
@@ -85,7 +86,7 @@ AddonDelegates.RoundedItemDelegate {
             entry.new = false;
         }
         if (isQueue || isDownloads) {
-            lastEntry = entry.id;
+            lastEntry = entryuid;
         }
 
         if (pageStack.depth > (currentPage === "FeedListPage" ? 2 : 1)) {
@@ -363,7 +364,7 @@ AddonDelegates.RoundedItemDelegate {
             icon.name: "media-playback-start"
             visible: root.showPlayButton
             onClicked: {
-                AudioManager.entry = root.entry;
+                AudioManager.entryuid = root.entryuid;
                 AudioManager.play();
             }
         }
@@ -376,7 +377,7 @@ AddonDelegates.RoundedItemDelegate {
                 if (!root.entry.queueStatus) {
                     root.entry.queueStatus = true;
                 }
-                AudioManager.entry = root.entry;
+                AudioManager.entryuid = root.entryuid;
                 AudioManager.play();
             }
         }

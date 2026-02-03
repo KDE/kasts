@@ -25,15 +25,13 @@ QueueModel::QueueModel(QObject *parent)
         endMoveRows();
         qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](int pos, const QString &id) {
-        Q_UNUSED(id)
+    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](int pos) {
         beginInsertRows(QModelIndex(), pos, pos);
         endInsertRows();
         Q_EMIT timeLeftChanged();
         qCDebug(kastsQueueModel) << "Added entry at pos" << pos;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](int pos, const QString &id) {
-        Q_UNUSED(id)
+    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](int pos) {
         beginRemoveRows(QModelIndex(), pos, pos);
         endRemoveRows();
         Q_EMIT timeLeftChanged();
@@ -57,7 +55,7 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
-    case AbstractEpisodeModel::Roles::IdRole:
+    case AbstractEpisodeModel::Roles::EntryuidRole:
         return QVariant::fromValue(DataManager::instance().queue()[index.row()]);
     default:
         return QVariant();
@@ -67,15 +65,15 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
 int QueueModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    qCDebug(kastsQueueModel) << "queueCount is" << DataManager::instance().queueCount();
-    return DataManager::instance().queueCount();
+    qCDebug(kastsQueueModel) << "queueCount is" << DataManager::instance().queue().count();
+    return DataManager::instance().queue().count();
 }
 
-int QueueModel::timeLeft() const
+qint64 QueueModel::timeLeft() const
 {
     int result = 0;
-    const QStringList queue = DataManager::instance().queue();
-    for (const QString &item : queue) {
+    const QList<qint64> queue = DataManager::instance().queue();
+    for (const qint64 &item : queue) {
         Entry *entry = DataManager::instance().getEntry(item);
         if (entry->enclosure()) {
             result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();

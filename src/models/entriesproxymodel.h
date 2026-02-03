@@ -21,12 +21,8 @@ class EntriesProxyModel : public AbstractEpisodeProxyModel
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    Q_PROPERTY(Feed *feed READ feed CONSTANT)
-
 public:
-    explicit EntriesProxyModel(Feed *feed);
-
-    Feed *feed() const;
+    explicit EntriesProxyModel(const qint64 feeduid, QObject *parent = nullptr);
 
 private:
     EntriesModel *m_entriesModel;

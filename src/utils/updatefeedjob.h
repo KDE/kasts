@@ -32,16 +32,17 @@ public:
     void abort();
 
 Q_SIGNALS:
-    void feedDetailsUpdated(const QString &url,
+    void feedDetailsUpdated(const qint64 feeduid,
+                            const QString &url,
                             const QString &name,
                             const QString &image,
                             const QString &link,
                             const QString &description,
                             const QDateTime &lastUpdated,
                             const QString &dirname);
-    void feedUpdated(const QString &url);
-    void entryAdded(const QString &feedurl, const QString &id);
-    void entryUpdated(const QString &feedurl, const QString &id);
+    void feedUpdated(const qint64 feeduid);
+    void entryAdded(const qint64 entryuid);
+    void entryUpdated(const qint64 entryuid);
     void aborting();
     void finished();
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);

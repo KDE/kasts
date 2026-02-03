@@ -43,6 +43,7 @@ class Enclosure : public QObject
 
 public:
     Enclosure(Entry *entry);
+    ~Enclosure();
 
     enum Status {
         Error = -1,

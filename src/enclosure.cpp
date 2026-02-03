@@ -31,6 +31,7 @@
 #include "fetcher.h"
 #include "models/downloadmodel.h"
 #include "models/errorlogmodel.h"
+#include "objectslogging.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
 #include "utils/enclosuredownloadjob.h"
@@ -44,8 +45,8 @@ Enclosure::Enclosure(Entry *entry)
     connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
-        if ((m_entry->feed()->url() == url) && (m_entry->id() == id)) {
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
+        if (m_entry->entryuid() == entryuid) {
             updateFromDb();
         }
     });
@@ -53,6 +54,12 @@ Enclosure::Enclosure(Entry *entry)
     // we use the relayed signal from AudioManager::playbackRateChanged by
     // DataManager; this is required to avoid a dependency loop on startup
     connect(&DataManager::instance(), &DataManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
+    connect(&DataManager::instance(), &DataManager::playPositionChanged, this, [this](const qint64 entryuid, const qint64 position) {
+        if (entryuid == m_entryuid) {
+            m_playposition = position;
+            Q_EMIT playPositionChanged();
+        }
+    });
 
     // TODO: this will just take the first enclosure found; we should handle
     // multiple ones
@@ -76,6 +83,13 @@ Enclosure::Enclosure(Entry *entry)
     m_playposition_dbsave = m_playposition;
 
     checkSizeOnDisk();
+
+    qCDebug(kastsObjects) << "Enclosure object" << m_enclosureuid << "constructed (corresponding entryuid is" << m_entryuid << ")";
+}
+
+Enclosure::~Enclosure()
+{
+    qCDebug(kastsObjects) << "Enclosure object" << m_enclosureuid << "destructed (corresponding entryuid is" << m_entryuid << ")";
 }
 
 void Enclosure::updateFromDb()
@@ -269,7 +283,7 @@ void Enclosure::deleteFile()
     qCDebug(kastsEnclosure) << "Trying to delete enclosure file" << path();
     if (AudioManager::instance().entry() && (m_entry == AudioManager::instance().entry())) {
         qCDebug(kastsEnclosure) << "Track is still playing; let's unload it before deleting";
-        AudioManager::instance().setEntry(nullptr);
+        AudioManager::instance().setEntryuid(0);
     }
 
     // First check if file still exists; you never know what has happened
@@ -373,13 +387,11 @@ void Enclosure::setStatus(Enclosure::Status status)
     if (m_status != status) {
         m_status = status;
 
-        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":downloaded"), statusToDb(m_status));
         Database::instance().execute(query);
-        Database::instance().commit();
 
         Q_EMIT statusChanged(m_entry, m_status);
     }
@@ -394,13 +406,11 @@ void Enclosure::setPlayPosition(const qint64 &position)
         // let's only save the play position to the database every 15 seconds
         if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
             qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
-            Database::instance().transaction();
             QSqlQuery query;
             query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE enclosureuid=:enclosureuid;"));
             query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
             query.bindValue(QStringLiteral(":playposition"), m_playposition);
             Database::instance().execute(query);
-            Database::instance().commit();
             m_playposition_dbsave = m_playposition;
 
             // Also store position change to make sure that it can be synced to
@@ -419,13 +429,11 @@ void Enclosure::setDuration(const qint64 &duration)
 
         // also save to database
         qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
-        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":duration"), m_duration);
         Database::instance().execute(query);
-        Database::instance().commit();
 
         Q_EMIT durationChanged();
     }
@@ -437,13 +445,11 @@ void Enclosure::setSize(const qint64 &size)
         m_size = size;
 
         // also save to database
-        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":size"), m_size);
         Database::instance().execute(query);
-        Database::instance().commit();
 
         Q_EMIT sizeChanged();
     }

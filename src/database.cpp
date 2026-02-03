@@ -297,7 +297,7 @@ bool Database::migrateTo11()
 bool Database::migrateTo12()
 {
     qDebug() << "Migrating database to version 12";
-    // TODO: re-enable TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(transaction());
 
     //  Update Feeds table (need to recreate a new one to drop columns)
     TRUE_OR_RETURN(
@@ -376,7 +376,6 @@ bool Database::migrateTo12()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entriestemp ("
                                "    entryuid INTEGER PRIMARY KEY,"
                                "    feeduid INTEGER,"
-                               "    feed TEXT," // TODO: remove after refactor
                                "    id TEXT,"
                                "    title TEXT,"
                                "    content TEXT,"
@@ -394,7 +393,6 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO Entriestemp ("
                                "    feeduid,"
-                               "    feed," // TODO: remove after refactor
                                "    id,"
                                "    title,"
                                "    content,"
@@ -408,7 +406,6 @@ bool Database::migrateTo12()
                                "    favorite) "
                                "SELECT"
                                "    Feeds.feeduid,"
-                               "    Entries.feed," // TODO: remove after refactor
                                "    Entries.id,"
                                "    Entries.title,"
                                "    Entries.content,"
@@ -469,8 +466,6 @@ bool Database::migrateTo12()
                                "    enclosureuid INTEGER PRIMARY KEY,"
                                "    entryuid INTEGER,"
                                "    feeduid INTEGER,"
-                               "    feed TEXT," // TODO: remove after refactor
-                               "    id TEXT," // TODO: remove after refactor
                                "    url TEXT, "
                                "    duration INTEGER,"
                                "    size INTEGER,"
@@ -484,8 +479,6 @@ bool Database::migrateTo12()
         execute(QStringLiteral("INSERT INTO Enclosurestemp ("
                                "    entryuid,"
                                "    feeduid,"
-                               "    feed," // TODO: remove after refactor
-                               "    id," // TODO: remove after refactor
                                "    url,"
                                "    duration,"
                                "    size,"
@@ -495,8 +488,6 @@ bool Database::migrateTo12()
                                "SELECT"
                                "    Entries.entryuid,"
                                "    Entries.feeduid,"
-                               "    Enclosures.feed," // TODO: remove after refactor
-                               "    Enclosures.id," // TODO: remove after refactor
                                "    Enclosures.url,"
                                "    Enclosures.duration,"
                                "    Enclosures.size,"
@@ -510,19 +501,19 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
 
     // We will enable the deletion of old enclosures, so we have to make sure that we don't lose any playpositions
-    TRUE_OR_RETURN(execute(QStringLiteral(
-        "UPDATE Enclosures SET playposition=multEnclosure.playmax FROM (SELECT Enclosures.id, MAX(Enclosures.playposition) AS playmax FROM Enclosures GROUP "
-        "BY Enclosures.id HAVING Count(*)>1) AS multEnclosure WHERE multEnclosure.id = Enclosures.id;")));
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("UPDATE Enclosures SET playposition=multEnclosure.playmax FROM (SELECT Enclosures.entryuid, MAX(Enclosures.playposition) AS "
+                               "playmax FROM Enclosures GROUP "
+                               "BY Enclosures.entryuid HAVING Count(*)>1) AS multEnclosure WHERE multEnclosure.entryuid = Enclosures.entryuid;")));
     TRUE_OR_RETURN(execute(
-        QStringLiteral("UPDATE Entries SET playposition=multEnclosure.playmax FROM (SELECT Entries.id, MAX(Enclosures.playposition) as playmax FROM "
-                       "Entries JOIN Enclosures ON Enclosures.id=Entries.id GROUP BY Enclosures.id) as multEnclosure WHERE multEnclosure.id = Entries.id;")));
+        QStringLiteral("UPDATE Entries SET playposition=multEnclosure.playmax FROM (SELECT Entries.entryuid, MAX(Enclosures.playposition) as playmax FROM "
+                       "Entries JOIN Enclosures ON Enclosures.entryuid=Entries.entryuid GROUP BY Enclosures.entryuid) as multEnclosure WHERE "
+                       "multEnclosure.entryuid = Entries.entryuid;")));
 
     // Update Chapters table
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Chapterstemp ("
                                "    entryuid INTEGER,"
-                               "    feed TEXT," // TODO: remove after refactor
-                               "    id TEXT," // TODO: remove after refactor
                                "    start INTEGER,"
                                "    title TEXT,"
                                "    link TEXT,"
@@ -532,16 +523,12 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO Chapterstemp ("
                                "    entryuid,"
-                               "    feed," // TODO: remove after refactor
-                               "    id," // TODO: remove after refactor
                                "    start,"
                                "    title,"
                                "    link,"
                                "    image) "
                                "SELECT"
                                "    Entries.entryuid,"
-                               "    Chapters.feed," // TODO: remove after refactor
-                               "    Chapters.id," // TODO: remove after refactor
                                "    Chapters.start,"
                                "    Chapters.title,"
                                "    Chapters.link,"
@@ -557,7 +544,6 @@ bool Database::migrateTo12()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Queuetemp ("
                                "    listnr INTEGER,"
                                "    entryuid INTEGER,"
-                               "    id TEXT," // TODO: remove after refactor
                                "    playing BOOL,"
                                "    FOREIGN KEY(entryuid) REFERENCES Entries(entryuid));")));
 
@@ -565,12 +551,10 @@ bool Database::migrateTo12()
         execute(QStringLiteral("INSERT INTO Queuetemp ("
                                "    listnr,"
                                "    entryuid,"
-                               "    id," // TODO: remove after refactor
                                "    playing) "
                                "SELECT"
                                "    Queue.listnr,"
                                "    Entries.entryuid,"
-                               "    Queue.id," // TODO: remove after refactor
                                "    Queue.playing "
                                "FROM Queue"
                                "    JOIN Entries ON Entries.id = Queue.id;")));
@@ -582,15 +566,12 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE FeedAuthors ("
                                "    feeduid INTEGER,"
-                               "    feed TEXT," // TODO: remove after refactor
                                "    name TEXT,"
                                "    email TEXT,"
                                "    FOREIGN KEY(feeduid) REFERENCES Feeds(feeduid));")));
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE EntryAuthors ("
                                "    entryuid INTEGER,"
-                               "    feed TEXT," // TODO: remove after refactor
-                               "    id TEXT," // TODO: remove after refactor
                                "    name TEXT,"
                                "    email TEXT,"
                                "    FOREIGN KEY(entryuid) REFERENCES Entries(entryuid));")));
@@ -598,12 +579,10 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO FeedAuthors ("
                                "    feeduid,"
-                               "    feed," // TODO: remove after refactor
                                "    name,"
                                "    email) "
                                "SELECT"
                                "    Feeds.feeduid,"
-                               "    Authors.feed," // TODO: remove after refactor
                                "    Authors.name,"
                                "    Authors.email "
                                "FROM Authors"
@@ -614,14 +593,10 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(
         execute(QStringLiteral("INSERT INTO EntryAuthors ("
                                "    entryuid,"
-                               "    feed," // TODO: remove after refactor
-                               "    id," // TODO: remove after refactor
                                "    name,"
                                "    email) "
                                "SELECT"
                                "    Entries.entryuid,"
-                               "    Authors.feed," // TODO: remove after refactor
-                               "    Authors.id," // TODO: remove after refactor
                                "    Authors.name,"
                                "    Authors.email "
                                "FROM Authors"
@@ -632,7 +607,7 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Authors;")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 12;")));
-    // TODO: re-enable TRUE_OR_RETURN(commit());
+    TRUE_OR_RETURN(commit());
     return true;
 }
 

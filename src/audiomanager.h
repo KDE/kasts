@@ -16,6 +16,7 @@
 #include <QUrl>
 
 #include <KFormat>
+#include <qtmetamacros.h>
 
 #include "entry.h"
 #include "error.h"
@@ -31,6 +32,7 @@ class AudioManager : public QObject
     Q_PROPERTY(KMediaSession::MediaBackends currentBackend READ currentBackend WRITE setCurrentBackend NOTIFY currentBackendChanged)
     Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)
 
+    Q_PROPERTY(qint64 entryuid READ entryuid WRITE setEntryuid NOTIFY entryuidChanged)
     Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
@@ -71,6 +73,7 @@ public:
     [[nodiscard]] KMediaSession::MediaBackends currentBackend() const;
     [[nodiscard]] QList<KMediaSession::MediaBackends> availableBackends() const;
 
+    [[nodiscard]] qint64 entryuid() const;
     [[nodiscard]] Entry *entry() const;
     [[nodiscard]] bool muted() const;
     [[nodiscard]] qreal volume() const;
@@ -103,58 +106,60 @@ public:
 Q_SIGNALS:
     void currentBackendChanged(KMediaSession::MediaBackends backend);
 
+    void entryuidChanged(const qint64 entryuid);
     void entryChanged(Entry *entry);
-    void mutedChanged(bool muted);
+    void mutedChanged(const bool muted);
     void volumeChanged();
     void sourceChanged();
-    void statusChanged(KMediaSession::MediaStatus status);
-    void playbackStateChanged(KMediaSession::PlaybackState state);
-    void playbackRateChanged(qreal rate);
-    void errorChanged(KMediaSession::Error error);
-    void durationChanged(qint64 duration);
-    void positionChanged(qint64 position);
-    void seekableChanged(bool seekable);
+    void statusChanged(const KMediaSession::MediaStatus status);
+    void playbackStateChanged(const KMediaSession::PlaybackState state);
+    void playbackRateChanged(const qreal rate);
+    void errorChanged(const KMediaSession::Error error);
+    void durationChanged(const qint64 duration);
+    void positionChanged(const qint64 position);
+    void seekableChanged(const bool seekable);
     void canPlayChanged();
     void canPauseChanged();
     void canSkipForwardChanged();
     void canSkipBackwardChanged();
     void canGoNextChanged();
 
-    void sleepTimerChanged(qint64 duration);
-    void remainingSleepTimeChanged(qint64 duration);
+    void sleepTimerChanged(const qint64 duration);
+    void remainingSleepTimeChanged(const qint64 duration);
 
     void isStreamingChanged();
 
-    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void logError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
     // mpris2 signals
     void raiseWindowRequested();
     void quitRequested();
 
 public Q_SLOTS:
-    void setCurrentBackend(KMediaSession::MediaBackends backend);
+    void setCurrentBackend(const KMediaSession::MediaBackends backend);
 
+    void setEntryuid(const qint64 entryuid);
     void setEntry(Entry *entry);
-    void setMuted(bool muted);
-    void setVolume(qreal volume);
-    void setPosition(qint64 position);
-    void setPlaybackRate(qreal rate);
+    void setMuted(const bool muted);
+    void setVolume(const qreal volume);
+    void setPosition(const qint64 position);
+    void setPlaybackRate(const qreal rate);
     void play();
     void pause();
     void playPause();
     void stop();
-    void seek(qint64 position);
+    void seek(const qint64 position);
     void skipBackward();
     void skipForward();
     void next();
 
-    void setSleepTimer(qint64 duration);
+    void setSleepTimer(const qint64 duration);
     void stopSleepTimer();
 
 private Q_SLOTS:
 
     void mediaStatusChanged();
-    void playerDurationChanged(qint64 duration);
+    void playerDurationChanged(const qint64 duration);
     void playerMutedChanged();
     void playerVolumeChanged();
     void savePlayPosition();
