@@ -21,7 +21,8 @@ class FeedsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        FeedRole = Qt::UserRole,
+        FeeduidRole = Qt::UserRole,
+        FeedRole,
         UrlRole,
         TitleRole,
         UnreadCountRole,
@@ -36,5 +37,5 @@ public:
     int rowCount(const QModelIndex &parent) const override;
 
 private:
-    void triggerFeedUpdate(const QString &url);
+    void triggerFeedUpdate(const qint64 feeduid);
 };

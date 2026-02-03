@@ -36,8 +36,8 @@ Entry::Entry(const qint64 entryuid, QObject *parent)
             Q_EMIT cachedImageChanged(cachedImage());
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
-        if ((m_feed->url() == url) && (m_id == id)) {
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
+        if (m_entryuid == entryuid) {
             updateFromDb();
         }
     });
@@ -60,8 +60,8 @@ Entry::Entry(Feed *feed, const QString &id, QObject *parent)
             Q_EMIT cachedImageChanged(cachedImage());
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
-        if ((m_feed->url() == url) && (m_id == id)) {
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
+        if (m_entryuid == entryuid) {
             updateFromDb();
         }
     });
@@ -366,7 +366,7 @@ void Entry::setNewInternal(bool state)
         Database::instance().execute(query);
 
         // Q_EMIT m_feed->newEntryCountChanged();  // TODO: signal and slots to be implemented
-        Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->url());
+        Q_EMIT DataManager::instance().newEntryCountChanged(m_feed->feeduid());
     }
 }
 
@@ -394,7 +394,7 @@ void Entry::setFavoriteInternal(bool favorite)
         query.bindValue(QStringLiteral(":favorite"), m_favorite);
         Database::instance().execute(query);
 
-        Q_EMIT DataManager::instance().favoriteEntryCountChanged(m_feed->url());
+        Q_EMIT DataManager::instance().favoriteEntryCountChanged(m_feed->feeduid());
     }
 }
 

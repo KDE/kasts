@@ -101,9 +101,9 @@ Q_SIGNALS:
     void queueEntryMoved(const int &from, const int &to);
     void queueSorted();
 
-    void unreadEntryCountChanged(const QString &url);
-    void newEntryCountChanged(const QString &url);
-    void favoriteEntryCountChanged(const QString &url);
+    void unreadEntryCountChanged(const qint64 feeduid);
+    void newEntryCountChanged(const qint64 feeduid);
+    void favoriteEntryCountChanged(const qint64 feeduid);
 
     void bulkReadStatusActionFinished();
     void bulkNewStatusActionFinished();

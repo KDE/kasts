@@ -32,7 +32,8 @@ DataManager::DataManager()
     connect(&Fetcher::instance(),
             &Fetcher::feedDetailsUpdated,
             this,
-            [this](const QString &url,
+            [this](const qint64 feeduid,
+                   const QString &url,
                    const QString &name,
                    const QString &image,
                    const QString &link,
@@ -40,7 +41,7 @@ DataManager::DataManager()
                    const QDateTime &lastUpdated,
                    const QString &dirname) {
                 qCDebug(kastsDataManager) << "Start updating feed details for" << url;
-                Feed *feed = getFeed(url);
+                Feed *feed = getFeed(feeduid);
                 if (feed != nullptr) {
                     feed->setName(name);
                     feed->setImage(image);
@@ -57,19 +58,16 @@ DataManager::DataManager()
                     feed->setRefreshing(true);
                 }
             });
-    connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const QString &feedurl, const QString &id) {
-        Q_UNUSED(feedurl)
+    connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const qint64 entryuid) {
         // Only add the new entry to m_entries
         // we will repopulate m_entrymap once all new entries have been added,
         // such that m_entrymap will show all new entries in the correct order
-        qint64 entryuid = getEntryuidFromId(id);
         m_entries[entryuid] = nullptr;
     });
-    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const QString &feedurl) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         // Update m_entrymap for feedurl, such that the new and old entries show
         // up in the correct order
         // TODO: put this code into a separate method and re-use this in the constructor
-        qint64 feeduid = getFeeduidFromUrl(feedurl);
         QSqlQuery query;
         m_entrymap[feeduid].clear();
         query.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE feeduid=:feeduid ORDER BY updated DESC;"));
@@ -79,7 +77,7 @@ DataManager::DataManager()
             m_entrymap[feeduid] += query.value(QStringLiteral("entryuid")).toLongLong();
         }
 
-        Q_EMIT feedEntriesUpdated(feedurl);
+        Q_EMIT feedEntriesUpdated(getUrlFromFeeduid(feeduid));
     });
 
     // Only read unique feedurls and entry ids from the database.

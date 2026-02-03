@@ -44,8 +44,8 @@ Enclosure::Enclosure(Entry *entry)
     connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const QString &url, const QString &id) {
-        if ((m_entry->feed()->url() == url) && (m_entry->id() == id)) {
+    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
+        if (m_entry->entryuid() == entryuid) {
             updateFromDb();
         }
     });

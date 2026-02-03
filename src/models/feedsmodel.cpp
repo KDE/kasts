@@ -12,6 +12,7 @@
 #include <QSqlQuery>
 #include <QUrl>
 #include <QVariant>
+#include <qvariant.h>
 
 #include "datamanager.h"
 #include "feed.h"
@@ -37,6 +38,7 @@ FeedsModel::FeedsModel(QObject *parent)
 QHash<int, QByteArray> FeedsModel::roleNames() const
 {
     return {
+        {FeeduidRole, "feeduid"},
         {FeedRole, "feed"},
         {UrlRole, "url"},
         {TitleRole, "title"},
@@ -59,6 +61,8 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     switch (role) {
+    case FeeduidRole:
+        return QVariant::fromValue(feed->feeduid());
     case FeedRole:
         return QVariant::fromValue(feed);
     case Qt::DisplayRole:
@@ -77,10 +81,10 @@ QVariant FeedsModel::data(const QModelIndex &index, int role) const
     }
 }
 
-void FeedsModel::triggerFeedUpdate(const QString &url)
+void FeedsModel::triggerFeedUpdate(const qint64 feeduid)
 {
     for (int i = 0; i < rowCount(QModelIndex()); i++) {
-        if (data(index(i, 0), UrlRole).toString() == url) {
+        if (data(index(i, 0), FeeduidRole).toLongLong() == feeduid) {
             Q_EMIT dataChanged(index(i, 0), index(i, 0));
             return;
         }

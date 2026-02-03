@@ -59,22 +59,22 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
         if (url == m_url) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
             Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_url);
+            Q_EMIT DataManager::instance().newEntryCountChanged(m_feeduid);
             Q_EMIT newEntryCountChanged();
             setErrorId(0);
             setErrorString(QLatin1String(""));
         }
     });
-    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const QString &url) {
-        if (url == m_url) {
+    connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const qint64 feeduid) {
+        if (feeduid == m_feeduid) {
             updateNewEntryCountFromDB();
             Q_EMIT newEntryCountChanged();
         }
     });
-    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const QString &url) {
-        if (url == m_url) {
+    connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const qint64 feeduid) {
+        if (feeduid == m_feeduid) {
             updateFavoriteEntryCountFromDB();
             Q_EMIT favoriteEntryCountChanged();
         }
@@ -347,7 +347,7 @@ void Feed::setUnreadEntryCount(const int count)
     if (count != m_unreadEntryCount) {
         m_unreadEntryCount = count;
         Q_EMIT unreadEntryCountChanged();
-        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_url);
+        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
         // TODO: can one of the two slots be removed??
     }
 }

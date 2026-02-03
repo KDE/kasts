@@ -313,11 +313,11 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     writeToDatabase();
 
     if (hasFeedBeenUpdated) {
-        Q_EMIT feedDetailsUpdated(m_url, m_feed.name, m_feed.image, m_feed.link, m_feed.description, current, m_feed.dirname);
+        Q_EMIT feedDetailsUpdated(m_feed.feeduid, m_url, m_feed.name, m_feed.image, m_feed.link, m_feed.description, current, m_feed.dirname);
     }
 
     if (updatedEntries || m_feed.isNew) {
-        Q_EMIT feedUpdated(m_url);
+        Q_EMIT feedUpdated(m_feed.feeduid);
     }
 
     qCDebug(kastsUpdater) << "done processing feed" << feed;
@@ -648,7 +648,7 @@ bool UpdateFeedJob::processChapters(const QString &id, const QMultiMap<QString, 
 
 void UpdateFeedJob::writeToDatabase()
 {
-    QSet<QString> newIds, updateIds;
+    QSet<qint64> newEntryuids, updatedEntryuids;
 
     QSqlQuery writeQuery(QSqlDatabase::database(m_url));
 
@@ -714,7 +714,6 @@ void UpdateFeedJob::writeToDatabase()
                        "(:feeduid, :feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.state == RecordState::New) {
-            newIds.insert(entryDetails.id);
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
             writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
             writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -732,6 +731,7 @@ void UpdateFeedJob::writeToDatabase()
                 QVariant lastId = writeQuery.lastInsertId();
                 if (lastId.isValid()) {
                     m_feed.entries[entryDetails.id].entryuid = lastId.toLongLong(); // TODO: check if this is ok wrt 'detaching'
+                    newEntryuids.insert(lastId.toLongLong());
                 } else {
                     qCDebug(kastsUpdater) << "new episode did not get a valid entryuid" << entryDetails.id;
                 }
@@ -746,7 +746,7 @@ void UpdateFeedJob::writeToDatabase()
         "image=:image WHERE entryuid=:entryuid;"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.state == RecordState::Modified) {
-            updateIds.insert(entryDetails.id);
+            updatedEntryuids.insert(entryDetails.entryuid);
             writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
             writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
             writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -770,7 +770,7 @@ void UpdateFeedJob::writeToDatabase()
         } else {
             for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
                 if (authorDetails.state == RecordState::New) {
-                    updateIds.insert(entryDetails.id);
+                    updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
                     writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -788,7 +788,7 @@ void UpdateFeedJob::writeToDatabase()
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
             if (authorDetails.state == RecordState::Modified) {
-                updateIds.insert(entryDetails.id);
+                updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
                 writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -806,7 +806,7 @@ void UpdateFeedJob::writeToDatabase()
         if (entryDetails.state != RecordState::Deleted) {
             for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
                 if (authorDetails.state == RecordState::Deleted) {
-                    updateIds.insert(entryDetails.id);
+                    updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
                     dbExecute(writeQuery);
@@ -827,7 +827,7 @@ void UpdateFeedJob::writeToDatabase()
         } else {
             for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
                 if (enclosureDetails.state == RecordState::New) {
-                    updateIds.insert(entryDetails.id);
+                    updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
                     writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
@@ -852,7 +852,7 @@ void UpdateFeedJob::writeToDatabase()
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
             if (enclosureDetails.state == RecordState::Modified) {
-                updateIds.insert(entryDetails.id);
+                updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
@@ -873,7 +873,7 @@ void UpdateFeedJob::writeToDatabase()
         if (entryDetails.state != RecordState::Deleted) {
             for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
                 if (enclosureDetails.state == RecordState::Deleted) {
-                    updateIds.insert(entryDetails.id);
+                    updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
                     dbExecute(writeQuery);
                     qCDebug(kastsUpdater) << "deleted old enclosure:" << m_feed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
@@ -892,7 +892,7 @@ void UpdateFeedJob::writeToDatabase()
         } else {
             for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
                 if (chapterDetails.state == RecordState::New) {
-                    updateIds.insert(entryDetails.id);
+                    updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
                     writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -913,7 +913,7 @@ void UpdateFeedJob::writeToDatabase()
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
             if (chapterDetails.state == RecordState::Modified) {
-                updateIds.insert(entryDetails.id);
+                updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
                 writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -965,16 +965,16 @@ void UpdateFeedJob::writeToDatabase()
 
     if (dbCommit()) {
         // emit signals for new entries
-        for (const QString &id : std::as_const(newIds)) {
-            qCDebug(kastsUpdater) << "new episode" << id;
-            Q_EMIT entryAdded(m_url, id);
+        for (const qint64 entryuid : std::as_const(newEntryuids)) {
+            qCDebug(kastsUpdater) << "new episode" << entryuid;
+            Q_EMIT entryAdded(entryuid);
         }
 
         // emit signals for updated entries or entries with new/updated authors,
         // enclosures or chapters
-        for (const QString &id : std::as_const(updateIds)) {
-            qCDebug(kastsUpdater) << "updated episode" << id;
-            Q_EMIT entryUpdated(m_url, id);
+        for (const qint64 entryuid : std::as_const(updatedEntryuids)) {
+            qCDebug(kastsUpdater) << "updated episode" << entryuid;
+            Q_EMIT entryUpdated(entryuid);
         }
     }
 }
