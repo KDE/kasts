@@ -16,11 +16,17 @@
 EpisodeModel::EpisodeModel(QObject *parent)
     : AbstractEpisodeModel(parent)
 {
-    // When feed is updated, the entire model needs to be reset because we
-    // cannot know where the new entries will be inserted into the list (or that
-    // maybe even items have been removed.
+    // When feed is updated or removed, the entire model needs to be reset
+    // because we cannot know where the new entries will be inserted into the
+    // list (or that maybe even items have been removed.
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
         Q_UNUSED(url)
+        beginResetModel();
+        updateInternalState();
+        endResetModel();
+    });
+    connect(&DataManager::instance(), &DataManager::feedRemoved, this, [this](const int &index) {
+        Q_UNUSED(index)
         beginResetModel();
         updateInternalState();
         endResetModel();
