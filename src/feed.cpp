@@ -258,11 +258,6 @@ QString Feed::dirname() const
     return m_dirname;
 }
 
-int Feed::entryCount() const
-{
-    return DataManager::instance().entryCount(m_feeduid);
-}
-
 int Feed::unreadEntryCount() const
 {
     return m_unreadEntryCount;

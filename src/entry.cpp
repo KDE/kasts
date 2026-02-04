@@ -492,12 +492,12 @@ QString Entry::cachedImage() const
 
 bool Entry::queueStatus() const
 {
-    return DataManager::instance().entryInQueue(this);
+    return DataManager::instance().entryInQueue(m_entryuid);
 }
 
 void Entry::setQueueStatus(bool state)
 {
-    if (state != DataManager::instance().entryInQueue(this)) {
+    if (state != DataManager::instance().entryInQueue(m_entryuid)) {
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setQueueStatusInternal on every
         // item to be processed.  So implement features there.

@@ -153,11 +153,6 @@ int DataManager::feedCount() const
     return m_feedmap.count();
 }
 
-int DataManager::entryCount(const qint64 feeduid) const
-{
-    return m_entrymap[feeduid].count();
-}
-
 void DataManager::removeFeed(Feed *feed)
 {
     QList<Feed *> feeds;
@@ -410,14 +405,9 @@ QStringList DataManager::queue() const
     return queueids;
 }
 
-bool DataManager::entryInQueue(const Entry *entry)
+bool DataManager::entryInQueue(const qint64 entryuid)
 {
-    return entryInQueue(entry->id());
-}
-
-bool DataManager::entryInQueue(const QString &id) const
-{
-    return m_queuemap.contains(getEntryuidFromId(id));
+    return m_queuemap.contains(entryuid);
 }
 
 void DataManager::moveQueueItem(const int from, const int to)
@@ -462,7 +452,7 @@ void DataManager::addToQueue(const QString &id)
 void DataManager::removeFromQueue(const QString &id)
 {
     const qint64 entryuid = getEntryuidFromId(id);
-    if (!entryInQueue(id)) {
+    if (!entryInQueue(entryuid)) {
         return;
     }
 

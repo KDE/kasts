@@ -44,7 +44,6 @@ public:
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
     int feedCount() const;
-    int entryCount(const qint64 feeduid) const;
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
@@ -58,8 +57,7 @@ public:
     Entry *getQueueEntry(int index) const;
     int queueCount() const;
     QStringList queue() const;
-    bool entryInQueue(const Entry *entry);
-    bool entryInQueue(const QString &id) const;
+    bool entryInQueue(const qint64 entryuid);
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
     void addToQueue(const QString &id);
     void removeFromQueue(const QString &id);

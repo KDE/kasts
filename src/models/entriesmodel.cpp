@@ -15,7 +15,6 @@
 #include "database.h"
 #include "datamanager.h"
 #include "datatypes.h"
-#include "feed.h"
 
 EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
     : AbstractEpisodeModel(parent) // TODO: probably needs another parent?
@@ -25,9 +24,7 @@ EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
     // cannot know where the new entries will be inserted into the list (or that
     // maybe even items have been removed.
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
-        qDebug() << "ping" << feeduid;
         if (m_feeduid == feeduid) {
-            qDebug() << "found!";
             beginResetModel();
             updateInternalState();
             endResetModel();
@@ -75,11 +72,6 @@ int EntriesModel::rowCount(const QModelIndex &parent) const
     return m_entries.count();
 }
 
-Feed *EntriesModel::feed() const
-{
-    return DataManager::instance().getFeed(m_feeduid);
-}
-
 void EntriesModel::updateInternalState()
 {
     m_entries.clear();
@@ -106,6 +98,7 @@ void EntriesModel::updateInternalState()
         m_entries += entryDetails;
     }
     query.finish();
+
     query.prepare(QStringLiteral("SELECT name FROM Feeds WHERE feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     Database::instance().execute(query);

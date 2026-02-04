@@ -12,6 +12,7 @@
 #include <QVariant>
 #include <QVector>
 
+#include "datatypes.h"
 #include "models/abstractepisodemodel.h"
 
 class EpisodeModel : public AbstractEpisodeModel
@@ -32,12 +33,6 @@ public Q_SLOTS:
     void updateInternalState() override;
 
 private:
-    QStringList m_entryIds;
-    QVector<bool> m_read;
-    QVector<bool> m_new;
-    QVector<bool> m_favorite;
-    QStringList m_titles;
-    QStringList m_contents;
+    QList<DataTypes::EntryDetails> m_entries;
     QStringList m_feedNames;
-    QList<int> m_updated;
 };

@@ -26,8 +26,6 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent) const override;
 
-    Feed *feed() const;
-
 public Q_SLOTS:
     void updateInternalState() override;
 

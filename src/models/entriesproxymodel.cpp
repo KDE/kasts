@@ -10,7 +10,6 @@
 #include <QModelIndex>
 #include <QString>
 
-#include "feed.h"
 #include "models/entriesmodel.h"
 
 EntriesProxyModel::EntriesProxyModel(const qint64 feeduid, QObject *parent)
@@ -18,9 +17,4 @@ EntriesProxyModel::EntriesProxyModel(const qint64 feeduid, QObject *parent)
 {
     m_entriesModel = new EntriesModel(feeduid, parent);
     setSourceModel(m_entriesModel);
-}
-
-Feed *EntriesProxyModel::feed() const
-{
-    return m_entriesModel->feed();
 }
