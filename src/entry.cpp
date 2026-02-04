@@ -45,40 +45,6 @@ Entry::Entry(const qint64 entryuid, QObject *parent)
     updateFromDb(false);
 }
 
-Entry::Entry(Feed *feed, const QString &id, QObject *parent)
-    : QObject(parent)
-    , m_feed(feed)
-    , m_id(id)
-{
-    parent = &DataManager::instance(); // TODO: check whether we can have these autodestroyed to save memory
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if (url == m_image) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        } else if (m_image.isEmpty() && url == m_feed->image()) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        }
-    });
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
-        if (m_entryuid == entryuid) {
-            updateFromDb();
-        }
-    });
-
-    QSqlQuery entryQuery;
-    entryQuery.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE id=:id;"));
-    entryQuery.bindValue(QStringLiteral(":id"), m_id);
-    Database::instance().execute(entryQuery);
-    if (!entryQuery.next()) {
-        qWarning() << "No element with entryuid" << m_id;
-        return;
-    }
-    m_entryuid = entryQuery.value(QStringLiteral("entryuid")).toLongLong();
-
-    updateFromDb(false);
-}
-
 void Entry::updateFromDb(bool emitSignals)
 {
     QSqlQuery entryQuery;
@@ -293,7 +259,7 @@ void Entry::setRead(bool read)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setReadInternal on every item to
         // be marked read/unread.  So implement features there.
-        DataManager::instance().bulkMarkRead(read, QStringList(m_id));
+        DataManager::instance().bulkMarkRead(read, QList<qint64>({m_entryuid}));
     }
 }
 
@@ -347,7 +313,7 @@ void Entry::setNew(bool state)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setNewInternal on every item to
         // be marked new/not new.  So implement features there.
-        DataManager::instance().bulkMarkNew(state, QStringList(m_id));
+        DataManager::instance().bulkMarkNew(state, QList<qint64>({m_entryuid}));
     }
 }
 
@@ -376,7 +342,7 @@ void Entry::setFavorite(bool favorite)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setFavoriteInternal on every item to
         // be marked new/not new.  So implement features there.
-        DataManager::instance().bulkMarkFavorite(favorite, QStringList(m_id));
+        DataManager::instance().bulkMarkFavorite(favorite, QList<qint64>({m_entryuid}));
     }
 }
 
@@ -501,7 +467,7 @@ void Entry::setQueueStatus(bool state)
         // Making a detour through DataManager to make bulk operations more
         // performant.  DataManager will call setQueueStatusInternal on every
         // item to be processed.  So implement features there.
-        DataManager::instance().bulkQueueStatus(state, QStringList(m_id));
+        DataManager::instance().bulkQueueStatus(state, QList<qint64>({m_entryuid}));
     }
 }
 
@@ -510,11 +476,11 @@ void Entry::setQueueStatusInternal(bool state)
     // Make sure that operations done here can be wrapped inside an sqlite
     // transaction.  I.e. no calls that trigger a SELECT operation.
     if (state) {
-        DataManager::instance().addToQueue(m_id);
+        DataManager::instance().addToQueue(m_entryuid);
         // Set status to unplayed/unread when adding item to the queue
         setReadInternal(false);
     } else {
-        DataManager::instance().removeFromQueue(m_id);
+        DataManager::instance().removeFromQueue(m_entryuid);
         // Unset "new" state
         setNewInternal(false);
     }

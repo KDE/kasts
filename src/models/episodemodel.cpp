@@ -34,7 +34,6 @@ EpisodeModel::EpisodeModel(QObject *parent)
         updateInternalState();
         endResetModel();
     });
-    ;
 }
 
 QVariant EpisodeModel::data(const QModelIndex &index, int role) const
@@ -42,6 +41,8 @@ QVariant EpisodeModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case AbstractEpisodeModel::Roles::TitleRole:
         return QVariant::fromValue(m_entries[index.row()].title);
+    case AbstractEpisodeModel::Roles::EntryuidRole:
+        return QVariant::fromValue(m_entries[index.row()].entryuid);
     case AbstractEpisodeModel::Roles::EntryRole:
         return QVariant::fromValue(DataManager::instance().getEntry(m_entries[index.row()].entryuid));
     case AbstractEpisodeModel::Roles::IdRole:

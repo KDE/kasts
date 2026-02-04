@@ -13,6 +13,8 @@
 #include <QQmlEngine>
 #include <QVariant>
 
+#include "datatypes.h"
+
 class DownloadModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -45,13 +47,6 @@ private:
 
     void updateInternalState();
 
-    QStringList m_downloadingIds;
-    QStringList m_partiallyDownloadedIds;
-    QStringList m_downloadedIds;
-    QStringList m_entryIds;
-
-    int m_downloadingCount = 0;
-    int m_partiallyDownloadedCount = 0;
-    int m_downloadedCount = 0;
-    int m_entryCount = 0;
+    QList<DataTypes::EntryDetails> m_entries;
+    QStringList m_feedNames;
 };

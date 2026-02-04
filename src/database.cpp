@@ -557,7 +557,6 @@ bool Database::migrateTo12()
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Queuetemp ("
                                "    listnr INTEGER,"
                                "    entryuid INTEGER,"
-                               "    id TEXT," // TODO: remove after refactor
                                "    playing BOOL,"
                                "    FOREIGN KEY(entryuid) REFERENCES Entries(entryuid));")));
 
@@ -565,12 +564,10 @@ bool Database::migrateTo12()
         execute(QStringLiteral("INSERT INTO Queuetemp ("
                                "    listnr,"
                                "    entryuid,"
-                               "    id," // TODO: remove after refactor
                                "    playing) "
                                "SELECT"
                                "    Queue.listnr,"
                                "    Entries.entryuid,"
-                               "    Queue.id," // TODO: remove after refactor
                                "    Queue.playing "
                                "FROM Queue"
                                "    JOIN Entries ON Entries.id = Queue.id;")));

@@ -13,6 +13,8 @@
 #include <QSqlTableModel>
 #include <QUrl>
 
+#include "datatypes.h"
+
 class FeedsModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -38,4 +40,8 @@ public:
 
 private:
     void triggerFeedUpdate(const qint64 feeduid);
+
+    void updateFeed(const qint64 feeduid);
+
+    QList<DataTypes::FeedDetails> m_feeds;
 };

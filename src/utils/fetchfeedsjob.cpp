@@ -123,12 +123,12 @@ void FetchFeedsJob::monitorProgress()
         if (SettingsManager::self()->autoQueue()) {
             QSqlQuery query;
             Database::instance().transaction();
-            query.prepare(QStringLiteral("SELECT id FROM Entries WHERE new=:new ORDER BY updated ASC;"));
+            query.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE new=:new ORDER BY updated ASC;"));
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
             while (query.next()) {
-                QString id = query.value(QStringLiteral("id")).toString();
-                Entry *entry = DataManager::instance().getEntry(id);
+                qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+                Entry *entry = DataManager::instance().getEntry(entryuid);
                 if (entry) {
                     entry->setQueueStatusInternal(true);
                     if (SettingsManager::self()->autoDownload()) {

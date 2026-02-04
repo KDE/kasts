@@ -25,8 +25,11 @@
 class AudioManagerPrivate
 {
 private:
-    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"), QStringLiteral("org.kde.kasts"), static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
+    KMediaSession m_player = KMediaSession(QStringLiteral("kasts"),
+                                           QStringLiteral("org.kde.kasts"),
+                                           static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
 
+    qint64 m_entryuid = 0;
     Entry *m_entry = nullptr;
     bool m_readyToPlay = false;
     bool m_isSeekable = false;
@@ -91,8 +94,8 @@ AudioManager::AudioManager(QObject *parent)
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     // Check if an entry was playing when the program was shut down and restore it
-    if (DataManager::instance().lastPlayingEntry() != QStringLiteral("none")) {
-        setEntry(DataManager::instance().getEntry(DataManager::instance().lastPlayingEntry()));
+    if (DataManager::instance().lastPlayingEntry() > 0) {
+        setEntryuid(DataManager::instance().lastPlayingEntry());
     }
 }
 
@@ -114,6 +117,11 @@ QList<KMediaSession::MediaBackends> AudioManager::availableBackends() const
 {
     qCDebug(kastsAudio) << "AudioManager::availableBackends()";
     return d->m_player.availableBackends();
+}
+
+qint64 AudioManager::entryuid() const
+{
+    return d->m_entryuid;
 }
 
 Entry *AudioManager::entry() const
@@ -142,7 +150,7 @@ KMediaSession::Error AudioManager::error() const
         qCDebug(kastsAudio) << "AudioManager::error" << d->m_player.error();
         // Some error occurred: probably best to unset the lastPlayingEntry to
         // avoid a deadlock when starting up again.
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(0);
     }
 
     return d->m_player.error();
@@ -237,7 +245,7 @@ KMediaSession::MediaStatus AudioManager::status() const
     return d->m_player.mediaStatus();
 }
 
-void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
+void AudioManager::setCurrentBackend(const KMediaSession::MediaBackends backend)
 {
     qCDebug(kastsAudio) << "AudioManager::setCurrentBackend(" << backend << ")";
 
@@ -258,6 +266,16 @@ void AudioManager::setCurrentBackend(KMediaSession::MediaBackends backend)
     setPlaybackRate(currentRate);
 
     SettingsManager::self()->setMediabackend(static_cast<int>(backend));
+}
+void AudioManager::setEntryuid(const qint64 entryuid)
+{
+    qCDebug(kastsAudio) << "begin AudioManager::setEntryuid";
+    Entry *entry = new Entry(entryuid, this);
+    if (entry) {
+        setEntry(entry);
+    } else {
+        setEntry(nullptr);
+    }
 }
 
 void AudioManager::setEntry(Entry *entry)
@@ -295,7 +313,6 @@ void AudioManager::setEntry(Entry *entry)
             d->m_continuePlayback = continuePlaying;
         }
     }
-
     // do some checks on the new entry to see whether it's valid and not corrupted
     if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
         && (entry->enclosure()->status() == Enclosure::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
@@ -330,7 +347,9 @@ void AudioManager::setEntry(Entry *entry)
                     }
 
                     d->m_entry = entry;
+                    d->m_entryuid = entry->entryuid();
                     Q_EMIT entryChanged(entry);
+                    Q_EMIT entryuidChanged(d->m_entryuid);
 
                     // call method which will try to make sure that the stream will skip
                     // to the previously save position and make sure that the duration
@@ -341,9 +360,11 @@ void AudioManager::setEntry(Entry *entry)
         }
 
     } else {
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(0);
         d->m_entry = nullptr;
+        d->m_entryuid = 0;
         Q_EMIT entryChanged(nullptr);
+        Q_EMIT entryuidChanged(0);
         d->m_player.stop();
         d->m_player.setSource(QUrl());
         d->m_readyToPlay = false;
@@ -359,19 +380,19 @@ void AudioManager::setEntry(Entry *entry)
     }
 }
 
-void AudioManager::setMuted(bool muted)
+void AudioManager::setMuted(const bool muted)
 {
     d->m_player.setMuted(muted);
 }
 
-void AudioManager::setVolume(qreal volume)
+void AudioManager::setVolume(const qreal volume)
 {
     qCDebug(kastsAudio) << "AudioManager::setVolume" << volume;
 
     d->m_player.setVolume(qRound(volume));
 }
 
-void AudioManager::setPosition(qint64 position)
+void AudioManager::setPosition(const qint64 position)
 {
     qCDebug(kastsAudio) << "AudioManager::setPosition" << position;
 
@@ -463,7 +484,7 @@ void AudioManager::stop()
     Q_EMIT seekableChanged(d->m_isSeekable);
 }
 
-void AudioManager::seek(qint64 position)
+void AudioManager::seek(const qint64 position)
 {
     qCDebug(kastsAudio) << "AudioManager::seek" << position;
 
@@ -495,7 +516,7 @@ void AudioManager::skipBackward()
 bool AudioManager::canGoNext() const
 {
     if (d->m_entry) {
-        int index = DataManager::instance().queue().indexOf(d->m_entry->id());
+        int index = DataManager::instance().queue().indexOf(d->m_entry->entryuid());
         if (index >= 0) {
             // check if there is a next track
             if (index < DataManager::instance().queue().count() - 1) {
@@ -519,7 +540,7 @@ bool AudioManager::canGoNext() const
 void AudioManager::next()
 {
     if (canGoNext()) {
-        int index = DataManager::instance().queue().indexOf(d->m_entry->id());
+        int index = DataManager::instance().queue().indexOf(d->m_entry->entryuid());
         qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
         setEntry(DataManager::instance().getEntry(DataManager::instance().queue()[index + 1]));
     } else {
@@ -544,7 +565,7 @@ void AudioManager::mediaStatusChanged()
         // save pointer to this bad entry to allow
         // us to delete the enclosure after the track has been unloaded
         Entry *badEntry = d->m_entry;
-        DataManager::instance().setLastPlayingEntry(QStringLiteral("none"));
+        DataManager::instance().setLastPlayingEntry(0);
         stop();
         next();
         if (badEntry && badEntry->enclosure()) {
@@ -554,7 +575,7 @@ void AudioManager::mediaStatusChanged()
     }
 }
 
-void AudioManager::playerDurationChanged(qint64 duration)
+void AudioManager::playerDurationChanged(const qint64 duration)
 {
     qCDebug(kastsAudio) << "AudioManager::playerDurationChanged" << duration;
 
@@ -616,7 +637,9 @@ void AudioManager::setEntryInfo(Entry *entry)
 
     d->m_player.setSource(QUrl());
     d->m_entry = entry;
+    d->m_entryuid = entry->entryuid();
     Q_EMIT entryChanged(entry);
+    Q_EMIT entryuidChanged(d->m_entryuid);
 
     qint64 newDuration = entry->enclosure()->duration() * 1000;
     qint64 newPosition = entry->enclosure()->playPosition();
@@ -644,7 +667,7 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
     d->m_player.setSource(loadUrl);
 
     // save the current playing track in the settingsfile for restoring on startup
-    DataManager::instance().setLastPlayingEntry(d->m_entry->id());
+    DataManager::instance().setLastPlayingEntry(d->m_entryuid);
     qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
 
     d->m_player.pause();
@@ -791,7 +814,7 @@ qint64 AudioManager::remainingSleepTime() const
     }
 }
 
-void AudioManager::setSleepTimer(qint64 duration)
+void AudioManager::setSleepTimer(const qint64 duration)
 {
     if (duration > 0) {
         if (d->m_sleepTimer) {
