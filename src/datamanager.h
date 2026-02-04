@@ -41,14 +41,10 @@ public:
     // TODO: to be removed
     Feed *getFeed(const int index) const;
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
-    Entry *getEntry(const int feed_index, const int entry_index) const;
-    Entry *getEntry(const Feed *feed, const int entry_index) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
     int feedCount() const;
-    QStringList getIdList(const Feed *feed) const;
-    int entryCount(const int feed_index) const;
-    int entryCount(const Feed *feed) const;
+    int entryCount(const qint64 feeduid) const;
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeed(const QString &url, const bool fetch);
     void addFeeds(const QStringList &urls);
@@ -95,7 +91,7 @@ public:
 Q_SIGNALS:
     void feedAdded(const QString &url);
     void feedRemoved(const int &index);
-    void feedEntriesUpdated(const QString &url);
+    void feedEntriesUpdated(const qint64 feeduid);
     void queueEntryAdded(const int &index, const QString &id);
     void queueEntryRemoved(const int &index, const QString &id);
     void queueEntryMoved(const int &from, const int &to);

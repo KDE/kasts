@@ -78,6 +78,7 @@ struct EntryDetails {
     QString link;
     bool read;
     bool isNew;
+    bool favorite;
     bool hasEnclosure;
     QString image;
     QHash<QString, AuthorDetails> authors; // key = author name

@@ -55,8 +55,8 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             setRefreshing(status);
         }
     });
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const QString &url) {
-        if (url == m_url) {
+    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
+        if (feeduid == m_feeduid) {
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
             Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
@@ -98,7 +98,7 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
         }
     });
 
-    m_entries = new EntriesProxyModel(this);
+    m_entries = new EntriesProxyModel(m_feeduid, this);
 
     initFilterType(filterTypeValue);
 
@@ -260,7 +260,7 @@ QString Feed::dirname() const
 
 int Feed::entryCount() const
 {
-    return DataManager::instance().entryCount(this);
+    return DataManager::instance().entryCount(m_feeduid);
 }
 
 int Feed::unreadEntryCount() const

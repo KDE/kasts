@@ -13,10 +13,10 @@
 #include "feed.h"
 #include "models/entriesmodel.h"
 
-EntriesProxyModel::EntriesProxyModel(Feed *feed)
-    : AbstractEpisodeProxyModel(feed)
+EntriesProxyModel::EntriesProxyModel(const qint64 feeduid, QObject *parent)
+    : AbstractEpisodeProxyModel(parent)
 {
-    m_entriesModel = new EntriesModel(feed);
+    m_entriesModel = new EntriesModel(feeduid, parent);
     setSourceModel(m_entriesModel);
 }
 

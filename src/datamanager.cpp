@@ -77,7 +77,7 @@ DataManager::DataManager()
             m_entrymap[feeduid] += query.value(QStringLiteral("entryuid")).toLongLong();
         }
 
-        Q_EMIT feedEntriesUpdated(getUrlFromFeeduid(feeduid));
+        Q_EMIT feedEntriesUpdated(feeduid);
     });
 
     // Only read unique feedurls and entry ids from the database.
@@ -143,22 +143,6 @@ Entry *DataManager::getEntry(const qint64 entryuid) const
     return nullptr;
 }
 
-Entry *DataManager::getEntry(const int feed_index, const int entry_index) const
-{
-    if (feed_index < m_feedmap.size() && entry_index < m_entrymap[m_feedmap[feed_index]].size()) {
-        return getEntry(m_entrymap[m_feedmap[feed_index]][entry_index]);
-    }
-    return nullptr;
-}
-
-Entry *DataManager::getEntry(const Feed *feed, const int entry_index) const
-{
-    if (feed && entry_index < m_entrymap[feed->feeduid()].size()) {
-        return getEntry(m_entrymap[feed->feeduid()][entry_index]);
-    }
-    return nullptr;
-}
-
 Entry *DataManager::getEntry(const QString &id) const
 {
     return getEntry(getEntryuidFromId(id));
@@ -169,24 +153,9 @@ int DataManager::feedCount() const
     return m_feedmap.count();
 }
 
-QStringList DataManager::getIdList(const Feed *feed) const
+int DataManager::entryCount(const qint64 feeduid) const
 {
-    QStringList entrymap;
-    const QList<qint64> constList = m_entrymap[feed->feeduid()];
-    for (const qint64 entryuid : constList) {
-        entrymap.append(getIdFromEntryuid(entryuid));
-    }
-    return entrymap;
-}
-
-int DataManager::entryCount(const int feed_index) const
-{
-    return m_entrymap[m_feedmap[feed_index]].count();
-}
-
-int DataManager::entryCount(const Feed *feed) const
-{
-    return m_entrymap[feed->feeduid()].count();
+    return m_entrymap[feeduid].count();
 }
 
 void DataManager::removeFeed(Feed *feed)

@@ -24,7 +24,7 @@ class EntriesProxyModel : public AbstractEpisodeProxyModel
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
 
 public:
-    explicit EntriesProxyModel(Feed *feed);
+    explicit EntriesProxyModel(const qint64 feeduid, QObject *parent = nullptr);
 
     Feed *feed() const;
 
