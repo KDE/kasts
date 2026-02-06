@@ -17,7 +17,8 @@ import org.kde.kasts
 AddonDelegates.RoundedItemDelegate {
     id: root
 
-    property Entry entry: undefined
+    required property Entry entry
+    required property int entryuid
     property var overlay: undefined
 
     required property Chapter chapter
@@ -25,7 +26,7 @@ AddonDelegates.RoundedItemDelegate {
     required property string formattedStart
     required property int start
 
-    property bool streamingButtonVisible: entry != undefined && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entry === entry)
+    property bool streamingButtonVisible: entryuid > 0 && entry && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
 
     contentItem: RowLayout {
         Delegates.IconTitleSubtitle {
@@ -38,14 +39,14 @@ AddonDelegates.RoundedItemDelegate {
         Controls.ToolButton {
             icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
             text: i18n("Play")
-            enabled: root.entry != undefined && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
+            enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: {
                 if (!root.entry.queueStatus) {
                     root.entry.queueStatus = true;
                 }
-                if (AudioManager.entry != root.entry) {
-                    AudioManager.entry = root.entry;
+                if (AudioManager.entryuid != root.entryuid) {
+                    AudioManager.entryuid = root.entryuid;
                 }
                 if (AudioManager.playbackState !== KMediaSession.PlayingState) {
                     AudioManager.play();

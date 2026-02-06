@@ -340,7 +340,7 @@ ListView {
             if (!listView.singleSelectedEntry.queueStatus) {
                 singleSelectedEntry.queueStatus = true;
             }
-            AudioManager.entry = singleSelectedEntry;
+            AudioManager.entryuid = singleSelectedEntry.entryuid;
             AudioManager.play();
         }
     }

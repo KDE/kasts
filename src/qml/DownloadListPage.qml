@@ -14,7 +14,7 @@ import org.kde.kasts
 Kirigami.ScrollablePage {
     title: i18nc("@title of page with list of downloaded episodes", "Downloads")
 
-    property var lastEntry: ""
+    property int lastEntry: 0
     property string pageName: "downloadpage"
 
     supportsRefreshing: true

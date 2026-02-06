@@ -78,6 +78,10 @@ QVariant ChapterModel::data(const QModelIndex &index, int role) const
             } else {
                 return QVariant::fromValue(m_duration / 1000 - m_chapters.at(row)->start());
             }
+        case EntryRole:
+            return QVariant::fromValue(m_entry);
+        case EntryuidRole:
+            return QVariant::fromValue(m_entryuid);
 
         default:
             return QVariant();
@@ -106,7 +110,33 @@ QHash<int, QByteArray> ChapterModel::roleNames() const
         {FormattedStartTimeRole, "formattedStart"},
         {ChapterRole, "chapter"},
         {DurationRole, "duration"},
+        {EntryRole, "entry"},
+        {EntryuidRole, "entryuid"},
     };
+}
+
+qint64 ChapterModel::entryuid() const
+{
+    return m_entryuid;
+}
+
+void ChapterModel::setEntryuid(const qint64 entryuid)
+{
+    if (entryuid > 0) {
+        m_entry = new Entry(entryuid);
+        m_entryuid = entryuid;
+    } else {
+        qDeleteAll(m_chapters.begin(), m_chapters.end());
+        m_chapters.clear();
+        if (m_entry) {
+            delete m_entry;
+        }
+        m_entry = nullptr;
+        m_entryuid = 0;
+    }
+    load();
+    Q_EMIT entryChanged();
+    Q_EMIT entryuidChanged();
 }
 
 Entry *ChapterModel::entry() const
@@ -118,13 +148,16 @@ void ChapterModel::setEntry(Entry *entry)
 {
     if (entry) {
         m_entry = entry;
+        m_entryuid = entry->entryuid();
     } else {
         qDeleteAll(m_chapters.begin(), m_chapters.end());
         m_chapters.clear();
         m_entry = nullptr;
+        m_entryuid = 0;
     }
     load();
     Q_EMIT entryChanged();
+    Q_EMIT entryuidChanged();
 }
 
 void ChapterModel::load()

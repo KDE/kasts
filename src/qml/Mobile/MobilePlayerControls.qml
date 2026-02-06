@@ -20,7 +20,7 @@ import ".."
 Kirigami.Page {
     id: playerControls
 
-    title: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Loaded")
+    title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Loaded")
     clip: true
     Layout.margins: 0
 
@@ -113,7 +113,7 @@ Kirigami.Page {
                         width: WindowUtils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
                             anchors.margins: 0
@@ -141,7 +141,7 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.margins: 0
                             Controls.Label {
-                                text: AudioManager.entry ? AudioManager.entry.title : i18n("No Title")
+                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -149,7 +149,7 @@ Kirigami.Page {
                             }
 
                             Controls.Label {
-                                text: AudioManager.entry ? AudioManager.entry.feed.name : i18n("No podcast title")
+                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.feed.name : i18n("No podcast title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -171,7 +171,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: AudioManager.entry ? AudioManager.entry.title : i18n("No Episode Title")
+                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Title")
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -181,9 +181,9 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: AudioManager.entry ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
+                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
                             verticalAlignment: Text.AlignTop
-                            baseUrl: AudioManager.entry ? AudioManager.entry.baseUrl : ""
+                            baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
                             wrapMode: Text.WordWrap
                             onLinkHovered: {
@@ -191,7 +191,7 @@ Kirigami.Page {
                             }
                             onLinkActivated: link => {
                                 if (link.split("://")[0] === "timestamp") {
-                                    if (AudioManager.entry && AudioManager.entry.enclosure) {
+                                    if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {
                                         AudioManager.seek(link.split("://")[1]);
                                     }
                                 } else {
@@ -222,15 +222,13 @@ Kirigami.Page {
                         id: chapterList
                         model: ChapterModel {
                             id: chapterModel
-                            entry: AudioManager.entry ? AudioManager.entry : null
+                            entryuid: AudioManager.entryuid
                             duration: AudioManager.duration / 1000
                         }
                         clip: true
                         visible: chapterList.count !== 0
                         anchors.fill: parent
-                        delegate: ChapterListDelegate {
-                            entry: AudioManager.entry ? AudioManager.entry : null
-                        }
+                        delegate: ChapterListDelegate {}
                     }
                 }
             }
@@ -267,7 +265,7 @@ Kirigami.Page {
                     property int buttonSize: bottomRow.buttonSize
 
                     Controls.ToolButton {
-                        visible: AudioManager.entry
+                        visible: AudioManager.entryuid > 0
                         checked: swipeView.currentIndex === 0
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
@@ -282,7 +280,7 @@ Kirigami.Page {
                     }
 
                     Controls.ToolButton {
-                        visible: AudioManager.entry
+                        visible: AudioManager.entryuid > 0
                         checked: swipeView.currentIndex === 1
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
@@ -297,7 +295,7 @@ Kirigami.Page {
                     }
 
                     Controls.ToolButton {
-                        visible: AudioManager.entry && chapterList.count !== 0
+                        visible: AudioManager.entryuid > 0 && chapterList.count !== 0
                         checked: swipeView.currentIndex === 2
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize
@@ -327,7 +325,7 @@ Kirigami.Page {
                         icon.height: contextButtons.iconSize
                         onClicked: {
                             toggle(); // only set the on/off state based on sleep timer state
-                            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open()
+                            (Qt.createComponent("org.kde.kasts", "SleepTimerDialog").createObject(Controls.Overlay.overlay) as SleepTimerDialog).open();
                         }
                     }
                     Controls.ToolButton {

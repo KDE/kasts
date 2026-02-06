@@ -22,7 +22,7 @@ Item {
     property int buttonsize: Kirigami.Units.gridUnit * 1.5
     height: miniplayerheight + progressbarheight
 
-    visible: AudioManager.entry
+    visible: AudioManager.entryuid > 0
 
     // progress bar for limited width (phones)
     Rectangle {
@@ -38,7 +38,7 @@ Item {
 
     ChapterModel {
         id: chapterModel
-        entry: AudioManager.entry ?? undefined
+        entryuid: AudioManager.entryuid
     }
 
     RowLayout {
@@ -57,7 +57,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: AudioManager.entry ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                    imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
                     Layout.fillHeight: true
                     Layout.preferredWidth: height
                 }
