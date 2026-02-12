@@ -180,8 +180,8 @@ void ChapterModel::loadFromDatabase()
 {
     if (m_entry) {
         QSqlQuery query;
-        query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE id=:id ORDER BY start ASC;"));
-        query.bindValue(QStringLiteral(":id"), m_entry->id());
+        query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE entryuid=:entryuid ORDER BY start ASC;"));
+        query.bindValue(QStringLiteral(":entryuid"), m_entry->entryuid());
         Database::instance().execute(query);
         while (query.next()) {
             Chapter *chapter = new Chapter(m_entry,

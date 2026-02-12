@@ -69,7 +69,7 @@ int QueueModel::rowCount(const QModelIndex &parent) const
     return DataManager::instance().queue().count();
 }
 
-int QueueModel::timeLeft() const
+qint64 QueueModel::timeLeft() const
 {
     int result = 0;
     const QList<qint64> queue = DataManager::instance().queue();

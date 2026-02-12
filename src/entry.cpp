@@ -22,11 +22,10 @@
 #include "sync/sync.h"
 
 Entry::Entry(const qint64 entryuid, QObject *parent)
-    : QObject(parent)
+    : QObject(&DataManager::instance()) // TODO: remove explicit parenting after refactor
     , m_entryuid(entryuid)
 {
-    parent = &DataManager::instance(); // TODO: check whether we can have these autodestroyed to save memory
-
+    Q_UNUSED(parent)
     connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);

@@ -225,7 +225,7 @@ UploadEpisodeActionRequest *GPodder::uploadEpisodeActions(const QVector<SyncUtil
             actionObject.insert(QStringLiteral("episode"), episodeAction.url);
         } else if (!episodeAction.id.isEmpty()) {
             QSqlQuery query;
-            query.prepare(QStringLiteral("SELECT url FROM Enclosures WHERE id=:id;"));
+            query.prepare(QStringLiteral("SELECT url FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid WHERE Entries.id=:id;"));
             query.bindValue(QStringLiteral(":id"), episodeAction.id);
             Database::instance().execute(query);
             if (!query.next()) {

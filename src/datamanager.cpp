@@ -73,33 +73,24 @@ DataManager::DataManager()
     query.prepare(QStringLiteral("SELECT feeduid FROM Feeds;"));
     Database::instance().execute(query);
     while (query.next()) {
-        m_feedmap += query.value(QStringLiteral("feeduid")).toLongLong();
         m_feeds[query.value(QStringLiteral("feeduid")).toLongLong()] = nullptr;
     }
+    query.finish();
 
-    for (auto &feeduid : m_feedmap) {
-        query.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE feeduid=:feeduid ORDER BY updated DESC;"));
-        query.bindValue(QStringLiteral(":feeduid"), feeduid);
-        Database::instance().execute(query);
-        while (query.next()) {
-            m_entries[query.value(QStringLiteral("entryuid")).toLongLong()] = nullptr;
-        }
+    query.prepare(QStringLiteral("SELECT entryuid FROM Entries ORDER BY updated DESC;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_entries[query.value(QStringLiteral("entryuid")).toLongLong()] = nullptr;
     }
+    query.finish();
 
     query.prepare(QStringLiteral("SELECT entryuid FROM Queue ORDER BY listnr;"));
     Database::instance().execute(query);
     while (query.next()) {
         m_queuemap += query.value(QStringLiteral("entryuid")).toLongLong();
     }
+    query.finish();
     qCDebug(kastsDataManager) << "Queuemap contains:" << m_queuemap;
-}
-
-Feed *DataManager::getFeed(const int index) const
-{
-    if (index >= 0 && index < m_feedmap.size()) {
-        return getFeed(m_feedmap[index]);
-    }
-    return nullptr;
 }
 
 Feed *DataManager::getFeed(const qint64 feeduid) const
@@ -135,7 +126,7 @@ Entry *DataManager::getEntry(const QString &id) const
 
 int DataManager::feedCount() const
 {
-    return m_feedmap.count();
+    return m_feeds.count();
 }
 
 void DataManager::removeFeed(Feed *feed)
@@ -176,9 +167,8 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
         if (feed) {
             const QString feedurl = feed->url();
             const qint16 feeduid = feed->feeduid();
-            int index = m_feedmap.indexOf(feeduid);
 
-            qCDebug(kastsDataManager) << "deleting feed" << feedurl << "with index" << index;
+            qCDebug(kastsDataManager) << "deleting feed" << feeduid << "with url" << feedurl;
 
             // Delete the object instances and mappings
             // First delete entries in Queue
@@ -223,8 +213,7 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             }
             if (!feed->image().isEmpty())
                 StorageManager::instance().removeImage(feed->image());
-            m_feeds.remove(m_feedmap[index]); // remove from m_feeds
-            m_feedmap.removeAt(index); // remove from m_feedmap
+            m_feeds.remove(feeduid); // remove from m_feeds
             delete feed; // remove the pointer
 
             // Then delete everything from the database
@@ -286,17 +275,7 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
 
 void DataManager::addFeed(const QString &url)
 {
-    addFeed(url, true);
-}
-
-void DataManager::addFeed(const QString &url, const bool fetch)
-{
-    addFeeds(QStringList(url), fetch);
-}
-
-void DataManager::addFeeds(const QStringList &urls)
-{
-    addFeeds(urls, true);
+    addFeeds(QStringList(url), true);
 }
 
 void DataManager::addFeeds(const QStringList &urls, const bool fetch)
@@ -353,7 +332,6 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch)
         // TODO: check whether the entry in the database happened correctly?
 
         m_feeds[feeduid] = new Feed(feeduid);
-        m_feedmap.append(feeduid);
 
         // Save this action to the database (including timestamp) in order to be
         // able to sync with remote services
@@ -424,8 +402,6 @@ void DataManager::addToQueue(const qint64 entryuid)
 
 void DataManager::removeFromQueue(const qint64 entryuid)
 {
-    // TODO: to be removed after refactor
-    const QString id = getIdFromEntryuid(entryuid);
     if (!entryInQueue(entryuid)) {
         return;
     }
@@ -554,7 +530,7 @@ void DataManager::importFeeds(const QString &path)
             }
         }
         qCDebug(kastsDataManager) << "Start importing urls:" << urls;
-        addFeeds(urls);
+        addFeeds(urls, true);
     }
     // TODO: Report error when file cannot be opened
 }
@@ -778,18 +754,6 @@ QString DataManager::cleanUrl(const QString &url)
         + (QUrl(url).hasQuery() ? QStringLiteral("?") + QUrl(url).query(QUrl::FullyDecoded) : QString());
 }
 
-QString DataManager::getIdFromEntryuid(const qint64 entryuid) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT id FROM Entries WHERE entryuid=:entryuid;"));
-    query.bindValue(QStringLiteral(":entryuid"), entryuid);
-    Database::instance().execute(query);
-    if (!query.next()) {
-        return QStringLiteral("");
-    }
-    return query.value(QStringLiteral("id")).toString();
-}
-
 qint64 DataManager::getEntryuidFromId(const QString &id) const
 {
     QSqlQuery query;
@@ -800,18 +764,6 @@ qint64 DataManager::getEntryuidFromId(const QString &id) const
         return 0;
     }
     return query.value(QStringLiteral("entryuid")).toLongLong();
-}
-
-QString DataManager::getUrlFromFeeduid(const qint64 feeduid) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT url FROM Feeds WHERE feeduid=:feeduid;"));
-    query.bindValue(QStringLiteral(":feeduid"), feeduid);
-    Database::instance().execute(query);
-    if (!query.next()) {
-        return QStringLiteral("");
-    }
-    return query.value(QStringLiteral("url")).toString();
 }
 
 qint64 DataManager::getFeeduidFromUrl(const QString &url) const

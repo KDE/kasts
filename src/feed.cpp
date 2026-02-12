@@ -8,6 +8,7 @@
 #include <QVariant>
 
 #include <KLocalizedString>
+#include <qtpreprocessorsupport.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -18,9 +19,9 @@
 #include "models/abstractepisodeproxymodel.h"
 
 Feed::Feed(const qint64 feeduid, QObject *parent)
-    : QObject(parent)
+    : QObject(&DataManager::instance()) // TODO: remove explicit parenting after refactor
 {
-    parent = &Database::instance();
+    Q_UNUSED(parent)
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), feeduid);

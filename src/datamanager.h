@@ -38,18 +38,12 @@ public:
     Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
     Q_INVOKABLE Entry *getEntry(const qint64 entryuid) const;
 
-    qint64 getFeeduidFromUrl(const QString &url) const;
-    QString getIdFromEntryuid(const qint64 entryuid) const;
-
     // TODO: to be removed
-    Feed *getFeed(const int index) const;
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
     int feedCount() const;
     Q_INVOKABLE void addFeed(const QString &url);
-    void addFeed(const QString &url, const bool fetch);
-    void addFeeds(const QStringList &urls);
     void addFeeds(const QStringList &urls, const bool fetch);
     Q_INVOKABLE void removeFeed(Feed *feed);
     void removeFeeds(const QStringList &feedurls);
@@ -116,8 +110,8 @@ private:
     void updateQueueListnrs() const;
 
     // TODO: probably needs to be removed after refactor
+    qint64 getFeeduidFromUrl(const QString &url) const;
     qint64 getEntryuidFromId(const QString &id) const;
-    QString getUrlFromFeeduid(const qint64 feeduid) const;
 
     QString cleanUrl(const QString &url);
 
@@ -126,6 +120,5 @@ private:
     mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
     mutable QHash<qint64, QPointer<Entry>> m_entries; // hash of pointers to all entries in db, key = entryuid (lazy loading)
 
-    QList<qint64> m_feedmap; // list of feedurls in the order that they should appear in feedlist
     QList<qint64> m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
 };

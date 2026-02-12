@@ -112,8 +112,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     query.finish(); // release lock on database
 
     // now we do the feed authors
-    query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feeduid=:feed;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
         AuthorDetails authorDetails;
@@ -130,14 +130,13 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // Now that we have the feed details, we make vectors of the data that's
     // already in the database relating to this feed
-    query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT * FROM Entries WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
         EntryDetails entryDetails;
         entryDetails.entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
         entryDetails.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
-        entryDetails.feed = m_url;
         entryDetails.id = query.value(QStringLiteral("id")).toString();
         entryDetails.title = query.value(QStringLiteral("title")).toString();
         entryDetails.content = query.value(QStringLiteral("content")).toString();
@@ -163,8 +162,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
     query.finish();
 
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures JOIN Entries ON Entries.entryuid = Enclosures.entryuid WHERE Enclosures.feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
         EnclosureDetails enclosureDetails;
@@ -190,8 +189,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
     query.finish();
 
-    query.prepare(QStringLiteral("SELECT id, name, email FROM EntryAuthors WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT id, name, email FROM EntryAuthors JOIN Entries ON Entries.entryuid = EntryAuthors.entryuid WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
         AuthorDetails authorDetails;
@@ -209,8 +208,8 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
     }
     query.finish();
 
-    query.prepare(QStringLiteral("SELECT * FROM Chapters WHERE feed=:feed;"));
-    query.bindValue(QStringLiteral(":feed"), m_url);
+    query.prepare(QStringLiteral("SELECT * FROM Chapters JOIN Entries ON Entries.entryuid = Chapters.entryuid WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
         ChapterDetails chapterDetails;
@@ -463,7 +462,6 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
         EntryDetails entryDetails;
         entryDetails.entryuid = 0; // to be replaced by autoincremented value when added to DB
         entryDetails.feeduid = m_feed.feeduid;
-        entryDetails.feed = m_url;
         entryDetails.id = id;
         entryDetails.title = title;
         entryDetails.content = content;
@@ -672,11 +670,10 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear(); // make sure this writeQuery is not blocking anything anymore
 
     // new feed authors
-    writeQuery.prepare(QStringLiteral("INSERT INTO FeedAuthors (feeduid, feed, name, email) VALUES (:feeduid, :feed, :name, :email);"));
+    writeQuery.prepare(QStringLiteral("INSERT INTO FeedAuthors (feeduid, name, email) VALUES (:feeduid, :name, :email);"));
     for (const AuthorDetails &authorDetails : std::as_const(m_feed.authors)) {
         if (authorDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
-            writeQuery.bindValue(QStringLiteral(":feed"), m_url);
             writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
             writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
             dbExecute(writeQuery);
@@ -710,12 +707,11 @@ void UpdateFeedJob::writeToDatabase()
 
     // new entries
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries (feeduid, feed, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite) VALUES "
-                       "(:feeduid, :feed, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
+        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite) VALUES "
+                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
-            writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
             writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
             writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
             writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
@@ -741,14 +737,13 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // update entries
-    writeQuery.prepare(QStringLiteral(
-        "UPDATE Entries SET id=:id, feed=:feed, title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
-        "image=:image WHERE entryuid=:entryuid;"));
+    writeQuery.prepare(
+        QStringLiteral("UPDATE Entries SET id=:id, title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
+                       "image=:image WHERE entryuid=:entryuid;"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.state == RecordState::Modified) {
             updatedEntryuids.insert(entryDetails.entryuid);
             writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-            writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
             writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
             writeQuery.bindValue(QStringLiteral(":title"), entryDetails.title);
             writeQuery.bindValue(QStringLiteral(":content"), entryDetails.content);
@@ -763,7 +758,7 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // new authors
-    writeQuery.prepare(QStringLiteral("INSERT INTO EntryAuthors (entryuid, feed, id, name, email) VALUES (:entryuid, :feed, :id, :name, :email);"));
+    writeQuery.prepare(QStringLiteral("INSERT INTO EntryAuthors (entryuid, name, email) VALUES (:entryuid, :name, :email);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping authors for id:" << entryDetails.id;
@@ -772,8 +767,6 @@ void UpdateFeedJob::writeToDatabase()
                 if (authorDetails.state == RecordState::New) {
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                    writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                    writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                     writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
                     writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
                     dbExecute(writeQuery);
@@ -784,14 +777,12 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // update authors
-    writeQuery.prepare(QStringLiteral("UPDATE EntryAuthors SET id=:id, feed=:feed, email=:email WHERE entryuid=:entryuid AND name=:name;"));
+    writeQuery.prepare(QStringLiteral("UPDATE EntryAuthors SET email=:email WHERE entryuid=:entryuid AND name=:name;"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
             if (authorDetails.state == RecordState::Modified) {
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                 writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
                 writeQuery.bindValue(QStringLiteral(":email"), authorDetails.email);
                 dbExecute(writeQuery);
@@ -819,8 +810,8 @@ void UpdateFeedJob::writeToDatabase()
 
     // new enclosures
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, feed, id, url, duration, size, type, playposition, downloaded) VALUES (:entryuid, :feeduid, "
-                       ":feed, :id, :url, :duration, :size, :type, :playposition, :downloaded);"));
+        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, playposition, downloaded) VALUES (:entryuid, :feeduid, "
+                       ":url, :duration, :size, :type, :playposition, :downloaded);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
@@ -830,8 +821,6 @@ void UpdateFeedJob::writeToDatabase()
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
-                    writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                    writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                     writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
                     writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
                     writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
@@ -847,7 +836,7 @@ void UpdateFeedJob::writeToDatabase()
 
     // update enclosures
     writeQuery.prepare(
-        QStringLiteral("UPDATE Enclosures SET id=:id, feed=:feed, duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE entryuid=:entryuid "
+        QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE entryuid=:entryuid "
                        "AND enclosureuid=:enclosureuid;"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
@@ -855,8 +844,6 @@ void UpdateFeedJob::writeToDatabase()
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                 writeQuery.bindValue(QStringLiteral(":duration"), enclosureDetails.duration);
                 writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
                 writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
@@ -884,8 +871,7 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // new chapters
-    writeQuery.prepare(
-        QStringLiteral("INSERT INTO Chapters (entryuid, feed, id, start, title, link, image) VALUES (:entryuid, :feed, :id, :start, :title, :link, :image);"));
+    writeQuery.prepare(QStringLiteral("INSERT INTO Chapters (entryuid, start, title, link, image) VALUES (:entryuid, :start, :title, :link, :image);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping chapters for id:" << entryDetails.id;
@@ -894,8 +880,6 @@ void UpdateFeedJob::writeToDatabase()
                 if (chapterDetails.state == RecordState::New) {
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                    writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                    writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                     writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
                     writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
                     writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);
@@ -908,15 +892,12 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // update chapters
-    writeQuery.prepare(
-        QStringLiteral("UPDATE Chapters SET id=:id, feed=:feed, title=:title, link=:link, image=:image WHERE entryuid=:entryuid AND start=:start;"));
+    writeQuery.prepare(QStringLiteral("UPDATE Chapters SET title=:title, link=:link, image=:image WHERE entryuid=:entryuid AND start=:start;"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
             if (chapterDetails.state == RecordState::Modified) {
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                writeQuery.bindValue(QStringLiteral(":feed"), entryDetails.feed);
-                writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
                 writeQuery.bindValue(QStringLiteral(":start"), chapterDetails.start);
                 writeQuery.bindValue(QStringLiteral(":title"), chapterDetails.title);
                 writeQuery.bindValue(QStringLiteral(":link"), chapterDetails.link);

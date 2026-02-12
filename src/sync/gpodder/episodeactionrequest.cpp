@@ -77,7 +77,10 @@ void EpisodeActionRequest::processResults()
                 // We also retrieve the feedUrl from the database to avoid problems with
                 // different URLs pointing to the same feed (e.g. http vs https)
                 QSqlQuery query;
-                query.prepare(QStringLiteral("SELECT id, feed, url FROM Enclosures WHERE url=:url OR url=:decodeurl OR id=:id;"));
+                query.prepare(QStringLiteral(
+                    "SELECT Enclosures.url, Entries.id, Feeds.url FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON "
+                    "Feeds.feeduid=Entries.feeduid WHERE Enclosures.url=:url OR "
+                    "Enclosures.url=:decodeurl OR Entries.id=:id;"));
                 query.bindValue(QStringLiteral(":url"), episodeAction.url);
                 query.bindValue(QStringLiteral(":decodeurl"), cleanupUrl(episodeAction.url));
                 query.bindValue(QStringLiteral(":id"), episodeAction.id);
@@ -88,9 +91,9 @@ void EpisodeActionRequest::processResults()
                 }
                 do {
                     SyncUtils::EpisodeAction action = episodeAction;
-                    action.id = query.value(QStringLiteral("id")).toString();
-                    action.podcast = query.value(QStringLiteral("feed")).toString();
-                    action.url = query.value(QStringLiteral("url")).toString();
+                    action.id = query.value(QStringLiteral("Entries.id")).toString();
+                    action.podcast = query.value(QStringLiteral("Feeds.url")).toString();
+                    action.url = query.value(QStringLiteral("Enclosures.url")).toString();
                     m_episodeActions += action;
                 } while (query.next());
             }

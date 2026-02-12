@@ -12,6 +12,7 @@
 #include <QQmlEngine>
 #include <QString>
 #include <QVariant>
+#include <qtypes.h>
 
 #include "models/abstractepisodemodel.h"
 #include "models/abstractepisodeproxymodel.h"
@@ -34,7 +35,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent) const override;
 
-    int timeLeft() const;
+    qint64 timeLeft() const;
     QString formattedTimeLeft() const;
 
     Q_INVOKABLE static QString getSortName(AbstractEpisodeProxyModel::SortType type);

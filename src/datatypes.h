@@ -69,7 +69,6 @@ struct ChapterDetails {
 struct EntryDetails {
     qint64 entryuid;
     qint64 feeduid;
-    QString feed; // TODO: to be removed after refactor
     QString id;
     QString title;
     QString content;
