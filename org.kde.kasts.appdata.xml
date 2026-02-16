@@ -498,9 +498,17 @@
       <description>
         <ul>
           <li>Fixed occasional crashes when updating podcasts after app has been open for a while.</li>
+          <li xml:lang="ka">გასწორდა პოდკასტების განახლებისას აპლიკაციის ხანგრძლივი მუშაობის შემდეგ წარმოქმნილი პერიოდული ავარიული გათიშვები.</li>
+          <li xml:lang="pt-BR">Corrigido um problema que causava travamentos ocasionais ao atualizar podcasts após o aplicativo estar aberto por um tempo.</li>
           <li>Fixed a crash happening when resetting the sleep timer.</li>
+          <li xml:lang="ka">გასწორდა ძილის ტაიმერის ჩამოყრისას წარმოქმნილი ავარიული გათიშვა.</li>
+          <li xml:lang="pt-BR">Corrigido um erro que causava o fechamento inesperado do jogo ao redefinir o temporizador de suspensão.</li>
           <li>Fixed the sort order functionality on episode lists.</li>
+          <li xml:lang="ka">გასწორდა ეპიზოდების სიებში დალაგების რიგის ფუნქციონალი.</li>
+          <li xml:lang="pt-BR">Corrigida a funcionalidade de ordenação nas listas de episódios.</li>
           <li>Fixed visual glitches in the header image and in the subscription list.</li>
+          <li xml:lang="ka">გასწორდა თავსართის სურათსა და გამოწერების სიაში არსებული ვიზუალური ხარვეზები.</li>
+          <li xml:lang="pt-BR">Corrigidos problemas visuais na imagem do cabeçalho e na lista de assinaturas.</li>
         </ul>
       </description>
     </release>
@@ -520,12 +528,24 @@
       <url>https://kde.org/announcements/megarelease/6/#kasts</url>
       <description>
         <p>Highlights of changes in 24.02.0:</p>
+        <p xml:lang="ka">24.02.0 ვერსიის ცვლილებების მიმოხილვა:</p>
+        <p xml:lang="pt-BR">Alterações em destaque na versão 24.02.0:</p>
         <ul>
           <li>Kasts has been ported to Qt6 and KDE Frameworks 6.</li>
+          <li xml:lang="ka">Kasts გადატანილია Qt6-ზე და KDE Frameworks 6-ზე.</li>
+          <li xml:lang="pt-BR">O Kasts foi portado para Qt6 e KDE Frameworks 6.</li>
           <li>The color scheme can now be selected manually.</li>
+          <li xml:lang="ka">ფერების სქემის შერჩევა ახლა უკვე ხელით შეგიძლიათ.</li>
+          <li xml:lang="pt-BR">Agora é possível selecionar o esquema de cores manualmente.</li>
           <li>Fixed several bugs related to images and playback controls.</li>
+          <li xml:lang="ka">გასწორდა სურათებთან და დაკვრის მართვის ღილაკებთან დაკავშირებული რამდენიმე ხარვეზი.</li>
+          <li xml:lang="pt-BR">Corrigidos diversos erros relacionados a imagens e controles de reprodução.</li>
           <li>Network checks for metered connections can now be fully disabled.</li>
+          <li xml:lang="ka">ახლა უკვე შესაძლებელია შეზღუდული კავშირებისთვის ქსელის შემოწმების სრულად გათიშვა.</li>
+          <li xml:lang="pt-BR">Agora é possível desativar completamente as verificações de rede para conexões com tarifação limitada.</li>
           <li>Updating podcasts should now be significantly faster on slow hardware.</li>
+          <li xml:lang="ka">სუსტ აპარატურაზე პოდკასტების განახლება ახლა უკვე საგრძნობლად სწრაფია.</li>
+          <li xml:lang="pt-BR">A atualização de podcasts agora deve ser significativamente mais rápida em computadores com hardware mais lento.</li>
         </ul>
       </description>
     </release>
@@ -543,16 +563,36 @@
       <url>https://plasma-mobile.org/2023/01/30/january-blog-post/</url>
       <description>
         <p>New features and bugfixes in this release:</p>
+        <p xml:lang="ka">ახალი ფუნქციები და შეცდომების გასწორება ამ ვერსიაში:</p>
+        <p xml:lang="pt-BR">Novas funcionalidades e correções de bugs nesta versão:</p>
         <ul>
           <li>The header bar player controls have been redesigned, partly based on the design of Elisa. The header bar is resizeable and can be fully collapsed to just a minimal toolbar.</li>
+          <li xml:lang="ka">თავსართის პანელის დაკვრის მართვის ღილაკები განახლდა, ნაწილობრივ Elisa-ს დიზაინზე დაყრდნობით. თავსართის პანელი ახლა უკვე ზომაში ცვლადია და შესაძლებელია მისი სრულად ჩაკეცვა მინიმალისტურ ხელსაწყოთა ზოლამდე.</li>
+          <li xml:lang="pt-BR">Os controles de reprodução na barra de cabeçalho foram redesenhados, em parte com base no design do Elisa. A barra de cabeçalho pode ser redimensionada e recolhida completamente, restando apenas uma barra de ferramentas minimalista.</li>
           <li>The left sidebar menu in desktop mode has been redesigned. It's now using similar buttons to the ones used in the bottom navigation bar in mobile mode.</li>
+          <li xml:lang="ka">კომპიუტერის რეჟიმში მარცხენა გვერდითი პანელის მენიუ თავიდან გადაკეთდა და ახლა ის იყენებს მსგავს ღილაკებს, როგორიც მობილურ რეჟიმში ქვედა ნავიგაციის ზოლში გამოიყენება.</li>
+          <li xml:lang="pt-BR">O menu lateral esquerdo no modo desktop foi redesenhado. Agora, ele usa botões semelhantes aos da barra de navegação inferior no modo mobile.</li>
           <li>The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
+          <li xml:lang="ka">აუდიოს უკანაბოლო თავიდნა იქნა დაწერილი. მას ახლა ერთზე მეტი უკანაბოლოს აღქმა შეუძლია: libVLC, gstreamer და Qt Multimedia. Kasts გამოიყენებს libVLC-ს ნაგულისხმევ უკანაბოლოდ, როცა ის ხელმისაწვდომია, რაც გადაწყვეტს საერთო პრობლემებს: ხმის მართვა ახლა ხელმისაწვდომია მთავარი ხელსაწყოტა პანელიდან და გადახვევის შემთხვევაში აუდიო აღარ დაეკიდება.</li>
+          <li xml:lang="pt-BR">O backend de áudio foi reescrito do zero. Agora ele pode lidar com múltiplos backends: libVLC, gstreamer e Qt Multimedia. O Kasts usará o libVLC como backend padrão quando disponível, o que deve resolver problemas comuns: o controle de volume agora está disponível na barra de ferramentas principal e a busca não deve mais causar travamentos no áudio.</li>
           <li>The settings menu was ported to the new form components.</li>
+          <li xml:lang="ka">მორგების მენიუ გადმოტანილია ახალი ფორმის კომპონენტებში.</li>
+          <li xml:lang="pt-BR">O menu de configurações foi adaptado para os novos componentes do formulário.</li>
           <li>Support for chapter images was added.</li>
+          <li xml:lang="ka">დაემატა თავის გამოსახულებების მარდაჭერა.</li>
+          <li xml:lang="pt-BR">Foi adicionado suporte para imagens nos capítulos.</li>
           <li>Timestamps mentioned in episode descriptions are now clickable, which will make the audio jump to that point in the episode.</li>
+          <li xml:lang="ka">ეპიზოდების აღწერაში მითითებული დროის ნიშნულები ახლა უკვე დაწკაპუნებადია, რაც აუდიოს შესაბამის მონაკვეთზე გადახვევას უზრუნველყოფს.</li>
+          <li xml:lang="pt-BR">Os marcadores de tempo mencionados nas descrições dos episódios agora são clicáveis, o que fará com que o áudio avance para esse ponto específico do episódio.</li>
           <li>Images in headers are now clickable. This will open a fullscreen view of the image in question.</li>
+          <li xml:lang="ka">თავსართებში არსებული სურათები ახლა უკვე დაწკაპუნებადია, რაც მათ სრულ ეკრანზე გახსნას ხდის შესაძლებელს.</li>
+          <li xml:lang="pt-BR">Agora é possível clicar nas imagens dos cabeçalhos. Isso abrirá uma visualização em tela cheia da imagem em questão.</li>
           <li>The subscribe button is now disabled when a podcast has just been added.</li>
+          <li xml:lang="ka">პოდკასტის დამატებისთანავე გამოწერის ღილაკი ახლა გათიშული იქნება.</li>
+          <li xml:lang="pt-BR">O botão de inscrição agora fica desativado quando um podcast acaba de ser adicionado.</li>
           <li>Several issues with right-to-left language layouts were solved.</li>
+          <li xml:lang="ka">გასწორდა მარჯვნიდან მარცხნივ მიმართული ენების განლაგებასთან დაკავშირებული რამდენიმე ხარვეზი.</li>
+          <li xml:lang="pt-BR">Diversos problemas relacionados a layouts de idioma da direita para a esquerda foram resolvidos.</li>
         </ul>
       </description>
     </release>
@@ -564,12 +604,26 @@
       <description>
         <ul>
           <li>The interface is simplified by only showing one page at a time instead of adding columns, and by combining the podcast page with the podcast episode list page.</li>
+          <li xml:lang="ka">ინტერფეისი გამარტივდა სვეტების დამატების ნაცვლად, მხოლოდ, ერთი გვერდის ერთდროულად ჩვენებით და პოდკასტის გვერდისა და ეპიზოდების სიის გვერდის გაერთიანებით.</li>
+          <li xml:lang="pt-BR">A interface foi simplificada exibindo apenas uma página por vez, em vez de adicionar colunas, e combinando a página do podcast com a página da lista de episódios do podcast.</li>
           <li>The podcast and episode info pages are improved by adding a button toolbar (moving actions out of the app header) and by reworking the information layout.</li>
+          <li xml:lang="ka">გაუმჯობესდა პოდკასტებისა და ეპიზოდების საინფორმაციო გვერდები ღილაკების ხელსაწყოთა ზოლის დამატებითა და ინფორმაციის განლაგების გადამუშავებით (მოქმედებები აპლიკაციის თავსართიდან გადატანილ იქნა).</li>
+          <li xml:lang="pt-BR">As páginas de informações sobre podcasts e episódios foram aprimoradas com a adição de uma barra de ferramentas com botões (removendo as ações do cabeçalho do aplicativo) e com a reformulação do layout das informações.</li>
           <li>A sleep timer has been implemented.</li>
+          <li xml:lang="ka">მოხდა ძილის ტაიმერის განხორციელება.</li>
+          <li xml:lang="pt-BR">Um temporizador de sono foi implementado.</li>
           <li>The app will now remember the position and size of its window.</li>
+          <li xml:lang="ka">ახლა პროგრამა დაიმახსოვრებს თავისი ფანჯრის მდებარეობას და ზომას.</li>
+          <li xml:lang="pt-BR">O aplicativo agora se lembrará da posição e do tamanho da sua janela.</li>
           <li>Kasts now has the ability to push all local episode states to the sync server.</li>
+          <li xml:lang="ka">Kasts-ს ახლა უკვე აქვს შესაძლებლობა, ეპიზოდების ყველა ლოკალური მდგომარეობა სინქრონიზაციის სერვერზე ატვირთოს.</li>
+          <li xml:lang="pt-BR">O Kasts agora tem a capacidade de enviar todos os estados locais dos episódios para o servidor de sincronização.</li>
           <li>A setting has been added to tell Kasts how many recent episodes should be marked as unplayed when adding a new podcast.</li>
+          <li xml:lang="ka">დაემატა პარამეტრი იმის მისათითებლად, თუ რამდენი ბოლო ეპიზოდი მოინიშნოს დაუკვრელად ახალი პოდკასტის დამატებისას.</li>
+          <li xml:lang="pt-BR">Foi adicionada uma configuração para indicar ao Kasts quantos episódios recentes devem ser marcados como não reproduzidos ao adicionar um novo podcast.</li>
           <li>Several small UI bugs and glitches were solved.</li>
+          <li xml:lang="ka">გასწორდა რამდენიმე პატარა ინტერფეისის შეცდომა.</li>
+          <li xml:lang="pt-BR">Diversos pequenos erros e falhas na interface do usuário foram corrigidos.</li>
         </ul>
       </description>
     </release>
@@ -578,13 +632,29 @@
       <description>
         <ul>
           <li>The podcast update routine has been completely overhauled, solving several bugs.  It's now using multithreading, and it will also update existing episode information.</li>
+          <li xml:lang="ka">პოდკასტების განახლების რუტინა სრულად გადამუშავდა, რითაც რამდენიმე ხარვეზი გასწორდა. ახლა ის მრავალნაკადიანობას იყენებს და ასევე უზრუნველყოფს არსებული ეპიზოდების ინფორმაციის განახლებას.</li>
+          <li xml:lang="pt-BR">A rotina de atualização do podcast foi completamente reformulada, corrigindo diversos bugs. Agora utiliza multithreading e também atualiza as informações dos episódios existentes.</li>
           <li>General improvements were made to make sure that the app fits well on small screens in both portrait and landscape mode.</li>
+          <li xml:lang="ka">განხორციელდა ზოგადი გაუმჯობესებები იმის უზრუნველსაყოფად, რომ აპლიკაცია კარგად მოერგოს მცირე ზომის ეკრანებს როგორც ვერტიკალურ, ისე ჰორიზონტალურ რეჟიმში.</li>
+          <li xml:lang="pt-BR">Foram feitas melhorias gerais para garantir que o aplicativo se adapte bem a telas pequenas, tanto no modo retrato quanto no modo paisagem.</li>
           <li>Episode images will now be retrieved from id3v2tag if available.</li>
+          <li xml:lang="ka">ხელმისაწვდომობის შემთხვევაში ახლა უკვე შესაძლებელია ეპიზოდების სურათების ამოღება ჭდიდან id3v2tag.</li>
+          <li xml:lang="pt-BR">As imagens dos episódios agora serão obtidas a partir da tag id3v2, se disponíveis.</li>
           <li>New episodes will be added to the queue in ascending chronological order (rather than descending) per podcast.</li>
+          <li xml:lang="ka">თითოეული პოდკასტისთვის ახალი ეპიზოდები რიგში კლებადობის ნაცვლად ზრდადი ქრონოლოგიური თანმიმდევრობით დაემატება.</li>
+          <li xml:lang="pt-BR">Novos episódios serão adicionados à fila em ordem cronológica crescente (em vez de decrescente) para cada podcast.</li>
           <li>A switch has been introduced to optionally adjust the time left on episodes based on the current playback rate.</li>
+          <li xml:lang="ka">დაემატა გადამრთველი, რომლის მეშვეობითაც, სურვილისამებრ, ეპიზოდების დარჩენილი დროის მიმდინარე დაკვრის სიჩქარეზე დაყრდნობით კორექტირებაა შესაძლებელი.</li>
+          <li xml:lang="pt-BR">Foi adicionada uma opção para ajustar o tempo restante dos episódios com base na taxa de reprodução atual.</li>
           <li>The episode details pages now have a context action to go straight to the list of episodes for that podcast.</li>
+          <li xml:lang="ka">ეპიზოდების დეტალების გვერდებს დაემატა კონტექსტური მოქმედება, რაც მოცემული პოდკასტის ეპიზოდების სიაზე პირდაპირ გადასვლას უზრუნველყოფს.</li>
+          <li xml:lang="pt-BR">As páginas de detalhes do episódio agora possuem uma ação contextual que leva diretamente à lista de episódios daquele podcast.</li>
           <li>It's now possible to sync with custom GPodder servers (i.e. other than the official gpodder.net instance).</li>
+          <li xml:lang="ka">GPodder-ის მორგებულ სერვერებთან (მაგალითად, gpodder.net-ის ოფიციალური ეგზემპლარის გარდა სხვა სერვერებთან) სინქრონიზაცია ახლა უკვე შესაძლებელია.</li>
+          <li xml:lang="pt-BR">Agora é possível sincronizar com servidores GPodder personalizados (ou seja, diferentes da instância oficial gpodder.net).</li>
           <li>Podcasts can now again be updated even when the sync server is unavailable. This was a bug in previous versions.</li>
+          <li xml:lang="ka">პოდკასტების განახლება, სინქრონიზაციის სერვერის მიუწვდომლობის შემთხვევაშიც კი, ახლა უკვე კვლავ შესაძლებელია. ეს წინა ვერსიებში არსებული ხარვეზი იყო.</li>
+          <li xml:lang="pt-BR">Agora é possível atualizar podcasts mesmo quando o servidor de sincronização estiver indisponível. Isso era um bug em versões anteriores.</li>
         </ul>
       </description>
     </release>
@@ -593,6 +663,8 @@
       <description>
         <ul>
           <li>General code quality improvements and bugfixes</li>
+          <li xml:lang="ka">კოდის ხარისხის ზოგადი გაუმჯობესება და შეცდომების გასწორება</li>
+          <li xml:lang="pt-BR">Melhorias gerais na qualidade do código e correções de bugs</li>
         </ul>
       </description>
     </release>
@@ -601,21 +673,43 @@
       <description>
         <ul>
           <li>Various User interface improvements</li>
+          <li xml:lang="ka">ინტერფეისის სხვადასხვა ნაწილის გაუმჯობესება</li>
+          <li xml:lang="pt-BR">Várias melhorias na interface do usuário</li>
           <li>Keep fetching episode actions until we get the current timestamp</li>
+          <li xml:lang="ka">ეპიზოდის ქმედებების გამოთხოვის გაგრძელება მიმდინარე დროის შტამპის მიღებამდე</li>
+          <li xml:lang="pt-BR">Continuar buscando as ações do episódio até obter o carimbo de data/hora atual</li>
           <li>Re-enable icons for gpodder and nextcloud</li>
+          <li xml:lang="ka">ხატულების თავიდან ჩართვა gpodder-ისთვის და nextcloud-ისთვის</li>
+          <li xml:lang="pt-BR">Reativação dos ícones para gpodder e nextcloud</li>
         </ul>
       </description>
     </release>
     <release version="21.12" date="2021-12-07">
       <description>
         <p>New features in this release:</p>
+        <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
+        <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
+        <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <ul>
           <li>Support for chapters, both RSS feed and MP3 tags encoded chapters are supported</li>
+          <li xml:lang="ka">დაემატა თავების მხარდაჭერა; მხარდაჭერილია ორივე, RSS ლენტიდან და MP3 ჭდეებიდან ამოკითხული თავები</li>
+          <li xml:lang="pt-BR">Suporte para capítulos, tanto feeds RSS quanto capítulos codificados em tags MP3</li>
           <li>Several improvements in user interface</li>
+          <li xml:lang="ka">მომხმარებლის ინტერფეისის რამდენიმე გაუმჯობესება</li>
+          <li xml:lang="pt-BR">Diversas melhorias na interface do usuário</li>
           <li>Optimization and improvements for backend</li>
+          <li xml:lang="ka">ოპტიმიზაცია და გაუმჯობესებები უკანაბოლოსთვის</li>
+          <li xml:lang="pt-BR">Otimização e melhorias para o backend</li>
           <li>Reworked settings page</li>
+          <li xml:lang="ka">გადამუშავდა მორგების გვერდი</li>
+          <li xml:lang="pt-BR">Página de configurações reformulada</li>
           <li>Support for syncing subscriptions and episode play position using gpodder.net or nextcloud-gpodder app</li>
+          <li xml:lang="ka">დაემატა გამოწერებისა და ეპიზოდების დაკვრის პოზიციის სინქრონიზაციის მხარდაჭერა gpodder.net-ის ან nextcloud-gpodder აპლიკაციის გამოყენებით</li>
+          <li xml:lang="pt-BR">Suporte para sincronização de assinaturas e posição de reprodução de episódios usando gpodder.net ou o aplicativo nextcloud-gpodder</li>
           <li>Several bugfixes.</li>
+          <li xml:lang="he">מגוון תיקוני תקלות.</li>
+          <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
+          <li xml:lang="pt-BR">Várias correções de bugs.</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/12/07/plasma-mobile-gear-21-12/</url>
@@ -623,20 +717,40 @@
     <release version="21.08" date="2021-08-31">
       <description>
         <p>Next to some minor bugfixes, it is now possible to change the location where the downloaded podcast episodes and cached images are saved. These files can take up a lot of disk space, so it's nice to be able to store them elsewhere on systems with limited home folder disk space. The related settings now show the disk space used by episodes and images, and allow to clear the image cache.</p>
+        <p xml:lang="ka">მცირე ხარვეზების გასწორებასთან ერთად, ახლა უკვე შესაძლებელია ჩამოტვირთული პოდკასტების ეპიზოდებისა და დაკეშილი სურათების შენახვის ადგილის შეცვლა. რადგან ეს ფაილები დიდ ადგილს იკავებს, მათი სხვაგან შენახვა მოსახერხებელია იმ სისტემებისთვის, რომლებსაც საწყის საქაღალდეში შეზღუდული სივრცე აქვთ. შესაბამისი პარამეტრები ახლა უკვე აჩვენებს ეპიზოდებისა და სურათების მიერ დაკავებულ ადგილს და იძლევა სურათების ქეშის გასუფთავების საშუალებას.</p>
+        <p xml:lang="pt-BR">Além de algumas pequenas correções de bugs, agora é possível alterar o local onde os episódios de podcast baixados e as imagens em cache são salvos. Esses arquivos podem ocupar muito espaço em disco, então é ótimo poder armazená-los em outro local em sistemas com espaço limitado na pasta pessoal. As configurações relacionadas agora mostram o espaço em disco usado por episódios e imagens e permitem limpar o cache de imagens.</p>
       </description>
       <url>https://www.plasma-mobile.org/2021/08/31/plasma-mobile-gear-21-08/</url>
     </release>
     <release version="21.07" date="2021-07-20">
       <description>
         <p>New features in this release:</p>
+        <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
+        <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
+        <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <ul>
           <li>Discover page to search for podcasts on podcastindex.org</li>
+          <li xml:lang="ka">აღმოჩენის გვერდი პოდკასტების podcastindex.org-ზე საძებნელად</li>
+          <li xml:lang="pt-BR">Página de descobrimento para pesquisar podcasts em podcastindex.org</li>
           <li>Podcast downloads can now be resumed.</li>
+          <li xml:lang="ka">პოდკასტის გადმოწერები ახლა შეგიძლიათ, გააგრძელოთ.</li>
+          <li xml:lang="pt-BR">Os downloads de podcasts já podem ser retomados.</li>
           <li>Updated playback speed settings dialog.</li>
+          <li xml:lang="ka">გასწორდა დაკვრის სიჩქარის მორგების დიალოგი.</li>
+          <li xml:lang="pt-BR">Diálogo de configurações de velocidade de reprodução atualizado.</li>
           <li>Settings to allow/disallow network access on metered connections.</li>
+          <li xml:lang="ka">დაემატა პარამეტრები შეზღუდული კავშირის დროს ქსელზე წვდომის ნებართვის მისაცემად ან ასაკრძალად.</li>
+          <li xml:lang="pt-BR">Configurações para permitir/bloquear o acesso à rede em conexões limitadas.</li>
           <li>More descriptive error notifications from which the complete list of errors can be opened.</li>
+          <li xml:lang="ka">დაემატა შეცდომების უფრო დეტალური შეტყობინებები, საიდანაც შეცდომების სრული სიის გახსნაა შესაძლებელი.</li>
+          <li xml:lang="pt-BR">Notificações de erro mais descritivas, a partir das quais é possível abrir a lista completa de erros.</li>
           <li>Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
+          <li xml:lang="ka">განხორციელდა რამდენიმე მცირე გაუმჯობესება: მენიუს ელემენტების გამოკვეთა, მინიშნებები და კლავიატურის მალსახმობები</li>
+          <li xml:lang="pt-BR">Diversas melhorias menores: destaque de itens de menu, dicas de ferramentas, teclas de atalho</li>
           <li>Several bugfixes.</li>
+          <li xml:lang="he">מגוון תיקוני תקלות.</li>
+          <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
+          <li xml:lang="pt-BR">Várias correções de bugs.</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/07/20/plasma-mobile-gear-21-07/</url>
@@ -644,11 +758,24 @@
     <release version="21.06" date="2021-06-10">
       <description>
         <p>First release of Kasts, a Kirigami-based convergent podcast player.  Released as part of Plasma Mobile Gear 21.06.  It features:</p>
+        <p xml:lang="ka">Kasts-ის პირველი გამოშვება, რომელიც Kirigami-ზე დაფუძნებული კონვერგენტული პოდკასტების დამკვრელია. ის Plasma Mobile Gear 21.06-ის ნაწილად გამოიცა. მასში შედის:</p>
+        <p xml:lang="pt-BR">Primeira versão do Kasts, um reprodutor de podcasts convergente baseado em Kirigami. Lançado como parte do Plasma Mobile Gear 21.06. Inclui:</p>
         <ul>
           <li>a play queue</li>
+          <li xml:lang="he">תור נגינה</li>
+          <li xml:lang="ka">დაკვრის რიგი</li>
+          <li xml:lang="pt-BR">uma fila de reprodução</li>
           <li>notification panel and lockscreen media controls</li>
+          <li xml:lang="he">לוח התראות ופקדי מדיה על מסך נעילה</li>
+          <li xml:lang="ka">გაფრთხილების პანელის და დაბლოკვის ეკრანის მედიის კონტროლის ელემენტები</li>
+          <li xml:lang="pt-BR">painel de notificações e controles de mídia da tela de bloqueio</li>
           <li>inhibits systemd suspend while listening to podcasts</li>
+          <li xml:lang="ka">აკრძალავს პოდკასტების მოსმენისას სისტემის დაძინებას</li>
+          <li xml:lang="pt-BR">inibe a suspensão do systemd durante a reprodução de podcasts</li>
+          <li xml:lang="uk">успадковує присипляння systemd під час прослуховування трансляцій</li>
           <li>convergent UI; looks good on mobile and desktop</li>
+          <li xml:lang="ka">კონვერგენტული ინტერფეისი. კარგად გამოიყურება როგორც მობილურზე, ისე კომპიუტერზე</li>
+          <li xml:lang="pt-BR">interface convergente; visual atraente em dispositivos móveis e desktops</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
