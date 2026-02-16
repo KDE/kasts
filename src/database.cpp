@@ -297,9 +297,13 @@ bool Database::migrateTo11()
 bool Database::migrateTo12()
 {
     qDebug() << "Migrating database to version 12";
+
+    // First make a backup of the database just in case migration fails.
+    createBackup(QStringLiteral("v11"));
+
     TRUE_OR_RETURN(transaction());
 
-    //  Update Feeds table (need to recreate a new one to drop columns)
+    // Update Feeds table (need to recreate a new one to drop columns)
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Feedstemp ("
                                "    feeduid INTEGER PRIMARY KEY,"
@@ -667,6 +671,20 @@ bool Database::executeThread(QSqlQuery &query)
         }
     }
     return true;
+}
+
+void Database::createBackup(const QString &suffix)
+{
+    QString databaseFile = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + m_dbName;
+    QString databaseBackupFile = databaseFile + QStringLiteral(".") + suffix;
+
+    if (QFile::exists(databaseFile)) {
+        if (QFile::copy(databaseFile, databaseBackupFile)) {
+            qDebug() << "Created backup of database:" << databaseBackupFile;
+        } else {
+            qDebug() << "Unable to create backup of database before migration";
+        }
+    }
 }
 
 int Database::version()

@@ -64,6 +64,8 @@ private:
     bool migrateTo10();
     bool migrateTo11();
     bool migrateTo12();
+
+    void createBackup(const QString &suffix);
     void cleanup();
     void setWalMode();
 
