@@ -10,12 +10,14 @@ import QtQuick
 import QtQuick.Controls as Controls
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
+
 import org.kde.kasts
 
 Controls.Menu {
     id: root
 
-    title: i18nc("@title:window", "Select Playback Rate")
+    title: KI18n.i18nc("@title:window", "Select Playback Rate")
 
     Controls.ButtonGroup {
         id: playbackRateGroup
@@ -50,7 +52,7 @@ Controls.Menu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:button", "Customize")
+        text: KI18n.i18nc("@action:button", "Customize")
         icon.name: "settings-configure"
         onTriggered: (customizeDialog.createObject(parent) as PlaybackRateCustomizerDialog).open()
     }

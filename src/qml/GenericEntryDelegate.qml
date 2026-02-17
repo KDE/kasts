@@ -11,6 +11,7 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.ki18n
 
 import org.kde.kmediasession
 import org.kde.kasts
@@ -215,13 +216,13 @@ AddonDelegates.RoundedItemDelegate {
                 }
                 Controls.Label {
                     id: playedLabel
-                    text: (root.entry.enclosure ? i18n("Played") : i18n("Read")) + "  ·"
+                    text: (root.entry.enclosure ? KI18n.i18n("Played") : KI18n.i18n("Read")) + "  ·"
                     font: Kirigami.Theme.smallFont
                     visible: root.entry.read
                     opacity: 0.7
                 }
                 Controls.Label {
-                    text: root.entry.new ? i18n("New") + "  ·" : ""
+                    text: root.entry.new ? KI18n.i18n("New") + "  ·" : ""
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
                     visible: root.entry.new
@@ -320,7 +321,7 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         IconOnlyButton {
-            text: i18n("Remove from Queue")
+            text: KI18n.i18n("Remove from Queue")
             icon.name: "list-remove"
             onClicked: {
                 root.entry.queueStatus = false;
@@ -329,7 +330,7 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         IconOnlyButton {
-            text: i18n("Download")
+            text: KI18n.i18n("Download")
             icon.name: "download"
             onClicked: {
                 downloadOverlay.entry = entry;
@@ -339,28 +340,28 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         IconOnlyButton {
-            text: i18n("Cancel Download")
+            text: KI18n.i18n("Cancel Download")
             icon.name: "edit-delete-remove"
             onClicked: root.entry.enclosure.cancelDownload()
             visible: root.showCancelDownloadButton
         }
 
         IconOnlyButton {
-            text: i18n("Delete Download")
+            text: KI18n.i18n("Delete Download")
             icon.name: "delete"
             onClicked: root.entry.enclosure.deleteFile()
             visible: root.showDeleteDownloadButton
         }
 
         IconOnlyButton {
-            text: i18n("Add to Queue")
+            text: KI18n.i18n("Add to Queue")
             icon.name: "media-playlist-append"
             visible: root.showAddToQueueButton
             onClicked: root.entry.queueStatus = true
         }
 
         IconOnlyButton {
-            text: i18n("Play")
+            text: KI18n.i18n("Play")
             icon.name: "media-playback-start"
             visible: root.showPlayButton
             onClicked: {
@@ -370,7 +371,7 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         IconOnlyButton {
-            text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
+            text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
             icon.name: "media-playback-cloud"
             visible: root.showStreamingPlayButton
             onClicked: {
@@ -383,7 +384,7 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         IconOnlyButton {
-            text: i18n("Pause")
+            text: KI18n.i18n("Pause")
             icon.name: "media-playback-pause"
             visible: root.showPauseButton
             onClicked: AudioManager.pause()

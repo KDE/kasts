@@ -9,6 +9,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -21,7 +22,7 @@ Kirigami.Dialog {
     showCloseButton: true
     standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
 
-    title: i18n("Sync Password Required")
+    title: KI18n.i18n("Sync Password Required")
 
     onAccepted: {
         Sync.password = passwordField2.text;
@@ -44,14 +45,14 @@ Kirigami.Dialog {
                 Layout.fillWidth: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: Sync.provider === Sync.GPodderNextcloud ? i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
+                text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : KI18n.i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
                 color: Kirigami.Theme.textColor
             }
         }
         RowLayout {
             width: parent.width
             Controls.Label {
-                text: i18n("Password:")
+                text: KI18n.i18n("Password:")
             }
             Controls.TextField {
                 id: passwordField2

@@ -9,12 +9,14 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
+
 import org.kde.kasts
 
 Kirigami.Dialog {
     id: root
 
-    title: i18n("Sleep Timer")
+    title: KI18n.i18n("Sleep Timer")
     padding: Kirigami.Units.largeSpacing
     closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
     standardButtons: Kirigami.Dialog.NoButton
@@ -24,7 +26,7 @@ Kirigami.Dialog {
     customFooterActions: [
         Kirigami.Action {
             enabled: !root.timerActive
-            text: i18n("Start")
+            text: KI18n.i18n("Start")
             icon.name: "dialog-ok"
             onTriggered: {
                 root.close();
@@ -39,7 +41,7 @@ Kirigami.Dialog {
         },
         Kirigami.Action {
             enabled: root.timerActive
-            text: i18n("Stop")
+            text: KI18n.i18n("Stop")
             icon.name: "dialog-cancel"
             onTriggered: {
                 root.close();
@@ -51,13 +53,13 @@ Kirigami.Dialog {
     ColumnLayout {
         id: content
         Controls.Label {
-            text: root.timerActive ? i18n("Status: Active") : i18n("Status: Inactive")
+            text: root.timerActive ? KI18n.i18n("Status: Active") : KI18n.i18n("Status: Inactive")
         }
 
         Controls.Label {
             opacity: root.timerActive ? 1 : 0.5
             Layout.bottomMargin: Kirigami.Units.largeSpacing
-            text: i18n("Remaining time: %1", AudioManager.formattedRemainingSleepTime)
+            text: KI18n.i18n("Remaining time: %1", AudioManager.formattedRemainingSleepTime)
         }
 
         RowLayout {
@@ -76,19 +78,19 @@ Kirigami.Dialog {
                 valueRole: "value"
                 model: [
                     {
-                        text: i18n("Seconds"),
+                        text: KI18n.i18n("Seconds"),
                         value: 0,
                         secs: 1,
                         max: 24 * 60 * 60
                     },
                     {
-                        text: i18n("Minutes"),
+                        text: KI18n.i18n("Minutes"),
                         value: 1,
                         secs: 60,
                         max: 24 * 60
                     },
                     {
-                        text: i18n("Hours"),
+                        text: KI18n.i18n("Hours"),
                         value: 2,
                         secs: 60 * 60,
                         max: 24

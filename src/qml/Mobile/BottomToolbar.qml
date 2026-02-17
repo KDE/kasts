@@ -8,6 +8,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -23,7 +24,7 @@ Kirigami.NavigationTabBar {
     actions: [
         Kirigami.Action {
             icon.name: "view-media-playlist"
-            text: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
+            text: KI18n.i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
             checked: "QueuePage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("QueuePage");
@@ -31,7 +32,7 @@ Kirigami.NavigationTabBar {
         },
         Kirigami.Action {
             icon.name: "bookmarks"
-            text: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
+            text: KI18n.i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
             checked: "FeedListPage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("FeedListPage");
@@ -39,7 +40,7 @@ Kirigami.NavigationTabBar {
         },
         Kirigami.Action {
             icon.name: "rss"
-            text: i18nc("@title of page with list of podcast episodes", "Episodes")
+            text: KI18n.i18nc("@title of page with list of podcast episodes", "Episodes")
             checked: "EpisodeListPage" === kastsMainWindow.currentPage && !settingsOpened
             onTriggered: {
                 pushPage("EpisodeListPage");
@@ -47,7 +48,7 @@ Kirigami.NavigationTabBar {
         },
         Kirigami.Action {
             icon.name: "settings-configure"
-            text: i18nc("@title of dialog with app settings", "Settings")
+            text: KI18n.i18nc("@title of dialog with app settings", "Settings")
             checked: settingsOpened
             onTriggered: {
                 pushPage("SettingsView");

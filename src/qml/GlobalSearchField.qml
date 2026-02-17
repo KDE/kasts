@@ -12,6 +12,7 @@ import QtQml.Models
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kirigami.delegates as Delegates
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -105,13 +106,13 @@ Kirigami.SearchField {
             }
         }
 
-        emptyText: i18nc("@info Placeholder text in search box", "No search results")
+        emptyText: KI18n.i18nc("@info Placeholder text in search box", "No search results")
 
         Kirigami.Action {
             id: searchSettingsButton
             visible: searchDialog.visible
             icon.name: "settings-configure"
-            text: i18nc("@action:intoolbar", "Advanced Search Options")
+            text: KI18n.i18nc("@action:intoolbar", "Advanced Search Options")
 
             onTriggered: {
                 if (searchSettingsMenu.visible) {
@@ -145,11 +146,11 @@ Kirigami.SearchField {
         Controls.Menu {
             id: searchSettingsMenu
 
-            title: i18nc("@title:menu", "Search Preferences")
+            title: KI18n.i18nc("@title:menu", "Search Preferences")
 
             Controls.Label {
                 padding: Kirigami.Units.smallSpacing
-                text: i18nc("@title:group Group of fields in which can be searched", "Search in:")
+                text: KI18n.i18nc("@title:group Group of fields in which can be searched", "Search in:")
             }
 
             Repeater {

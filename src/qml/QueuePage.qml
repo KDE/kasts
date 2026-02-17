@@ -10,12 +10,13 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: queuepage
-    title: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
+    title: KI18n.i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
 
     property int lastEntry: 0
     property string pageName: "queuepage"
@@ -35,7 +36,7 @@ Kirigami.ScrollablePage {
     readonly property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             icon.name: "view-refresh"
-            text: i18nc("@action:intoolbar", "Refresh All Podcasts")
+            text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
             onTriggered: refreshing = true
         }
     ]
@@ -73,7 +74,7 @@ Kirigami.ScrollablePage {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
+            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
         }
     }
 
@@ -88,7 +89,7 @@ Kirigami.ScrollablePage {
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
 
-            text: i18nc("@info", "Queue is empty")
+            text: KI18n.i18nc("@info", "Queue is empty")
         }
 
         model: QueueModel {

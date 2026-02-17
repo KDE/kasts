@@ -11,8 +11,9 @@ import QtQuick.Layouts
 import QtQuick.Effects
 
 import org.kde.kirigami as Kirigami
-import org.kde.kmediasession
+import org.kde.ki18n
 
+import org.kde.kmediasession
 import org.kde.kasts
 
 import ".."
@@ -20,7 +21,7 @@ import ".."
 Kirigami.Page {
     id: playerControls
 
-    title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Loaded")
+    title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Loaded")
     clip: true
     Layout.margins: 0
 
@@ -141,7 +142,7 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.margins: 0
                             Controls.Label {
-                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Title")
+                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -149,7 +150,7 @@ Kirigami.Page {
                             }
 
                             Controls.Label {
-                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.feed.name : i18n("No podcast title")
+                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.feed.name : KI18n.i18n("No podcast title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -171,7 +172,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Title")
+                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -181,7 +182,7 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
+                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : KI18n.i18n("No episode loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
@@ -215,7 +216,7 @@ Kirigami.Page {
                         width: parent.width
                         anchors.centerIn: parent
 
-                        text: i18n("No chapters found")
+                        text: KI18n.i18n("No chapters found")
                     }
 
                     ListView {
@@ -342,7 +343,7 @@ Kirigami.Page {
 
                         Controls.ToolTip.visible: hovered
                         Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                        Controls.ToolTip.text: i18nc("@action:button", "Open volume settings")
+                        Controls.ToolTip.text: KI18n.i18nc("@action:button", "Open volume settings")
 
                         onClicked: {
                             if (volumePopup.visible) {
@@ -372,7 +373,7 @@ Kirigami.Page {
 
                                     Controls.ToolTip.visible: hovered
                                     Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                                    Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
+                                    Controls.ToolTip.text: KI18n.i18nc("@action:button", "Toggle mute")
                                 }
 
                                 VolumeSlider {

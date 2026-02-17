@@ -10,6 +10,8 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
+
 import org.kde.kmediasession
 import org.kde.kasts
 
@@ -43,7 +45,7 @@ Controls.Slider {
         delay: volumeSlider.pressed ? 0 : Kirigami.Units.toolTipDelay
         closePolicy: Controls.Popup.NoAutoClose
         timeout: -1
-        text: i18nc("Volume as a percentage", "%1%", Math.round(volumeSlider.value))
+        text: KI18n.i18nc("Volume as a percentage", "%1%", Math.round(volumeSlider.value))
     }
 
     MouseArea {

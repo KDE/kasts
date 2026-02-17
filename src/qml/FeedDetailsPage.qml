@@ -10,6 +10,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -25,7 +26,7 @@ Kirigami.ScrollablePage {
 
     property bool showMoreInfo: false
 
-    title: i18n("Podcast Details")
+    title: KI18n.i18n("Podcast Details")
 
     Keys.onPressed: event => {
         if (event.matches(StandardKey.Find)) {
@@ -66,14 +67,14 @@ Kirigami.ScrollablePage {
     actions: Kirigami.Action {
         id: searchActionButton
         icon.name: "search"
-        text: i18nc("@action:intoolbar", "Search")
+        text: KI18n.i18nc("@action:intoolbar", "Search")
         checkable: true
         enabled: page.feed.entries ? true : false
         visible: enabled
 
         // Make sure to show the searchbar if there is still a searchFilter active
         Component.onCompleted: {
-            checked = (page.feed.entries ? page.feed.entries.searchFilter != "" : false)
+            checked = (page.feed.entries ? page.feed.entries.searchFilter != "" : false);
         }
     }
 
@@ -126,7 +127,7 @@ Kirigami.ScrollablePage {
 
                 image: isSubscribed ? feed.cachedImage : feed.image
                 title: isSubscribed ? feed.name : feed.title
-                subtitle: authors ? i18nc("by <author(s)>", "by %1", authors) : ""
+                subtitle: authors ? KI18n.i18nc("by <author(s)>", "by %1", authors) : ""
             }
 
             // header actions
@@ -157,12 +158,12 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             visible: isSubscribed
                             icon.name: "view-refresh"
-                            text: i18n("Refresh Podcast")
+                            text: KI18n.i18n("Refresh Podcast")
                             onTriggered: page.refreshing = true
                         },
                         Kirigami.Action {
                             icon.name: "kt-add-feeds"
-                            text: enabled ? i18n("Subscribe") : i18n("Subscribed")
+                            text: enabled ? KI18n.i18n("Subscribe") : KI18n.i18n("Subscribed")
                             enabled: !DataManager.feedExists(feed.url)
                             visible: !isSubscribed
                             onTriggered: {
@@ -176,7 +177,7 @@ Kirigami.ScrollablePage {
                         },
                         Kirigami.Action {
                             icon.name: "documentinfo"
-                            text: i18n("Show Details")
+                            text: KI18n.i18n("Show Details")
                             checkable: true
                             checked: showMoreInfo
                             onCheckedChanged: checked => {
@@ -242,7 +243,7 @@ Kirigami.ScrollablePage {
                         Controls.Label {
                             Layout.alignment: Qt.AlignTop
                             textFormat: TextEdit.RichText
-                            text: i18n("Podcast URL:")
+                            text: KI18n.i18n("Podcast URL:")
                             wrapMode: TextEdit.Wrap
                         }
                         Kirigami.UrlButton {
@@ -263,7 +264,7 @@ Kirigami.ScrollablePage {
                         Controls.Label {
                             Layout.alignment: Qt.AlignTop
                             textFormat: TextEdit.RichText
-                            text: i18n("Weblink:")
+                            text: KI18n.i18n("Weblink:")
                             wrapMode: TextEdit.Wrap
                         }
 
@@ -283,7 +284,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: isSubscribed ? i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: isSubscribed ? KI18n.i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
@@ -294,7 +295,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: isSubscribed ? i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: isSubscribed ? KI18n.i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
@@ -305,7 +306,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
+                        text: KI18n.i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
                         wrapMode: Text.WordWrap
                     }
 
@@ -330,7 +331,7 @@ Kirigami.ScrollablePage {
 
                     width: Kirigami.Units.gridUnit * 20
 
-                    text: feed.errorId === 0 ? i18n("No episodes available") : i18n("Error (%1): %2", feed.errorId, feed.errorString)
+                    text: feed.errorId === 0 ? KI18n.i18n("No episodes available") : KI18n.i18n("Error (%1): %2", feed.errorId, feed.errorString)
                     icon.name: feed.errorId === 0 ? "" : "data-error"
                 }
             }

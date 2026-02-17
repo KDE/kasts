@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -27,7 +28,7 @@ ListView {
         visible: errorList.count == 0
         anchors.centerIn: parent
 
-        text: i18n("No errors logged")
+        text: KI18n.i18n("No errors logged")
     }
 
     delegate: AddonDelegates.RoundedItemDelegate {
@@ -59,7 +60,7 @@ ListView {
                     opacity: 1
                 }
                 Controls.Label {
-                    text: i18n("Error code:") + " " + error.code + (error.message ? "  ·  " + error.message : "")
+                    text: KI18n.i18n("Error code:") + " " + error.code + (error.message ? "  ·  " + error.message : "")
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont

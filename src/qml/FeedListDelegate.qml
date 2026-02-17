@@ -12,6 +12,7 @@ import QtQuick.Effects
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -177,7 +178,6 @@ Controls.ItemDelegate {
             height: actionsButton.height
             color: feedDelegate.activeBackgroundColor
             radius: Kirigami.Units.smallSpacing - 2 * borderWidth
-
         }
 
         Controls.Label {
@@ -241,7 +241,7 @@ Controls.ItemDelegate {
                     });
                 }
                 icon.name: "documentinfo"
-                text: i18n("Podcast Details")
+                text: KI18n.i18n("Podcast Details")
             },
             Kirigami.Action {
                 onTriggered: {
@@ -251,7 +251,7 @@ Controls.ItemDelegate {
                     DataManager.removeFeed(feed);
                 }
                 icon.name: "delete"
-                text: i18n("Remove Podcast")
+                text: KI18n.i18n("Remove Podcast")
             }
         ]
     }

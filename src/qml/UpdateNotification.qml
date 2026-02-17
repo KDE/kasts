@@ -8,7 +8,10 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
+
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
+
 import org.kde.kasts
 
 /*
@@ -87,8 +90,8 @@ Rectangle {
             visible: showAbortButton
             Controls.ToolTip.visible: hovered
             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-            Controls.ToolTip.text: i18n("Abort")
-            text: i18n("Abort")
+            Controls.ToolTip.text: KI18n.i18n("Abort")
+            text: KI18n.i18n("Abort")
             icon.name: "edit-delete-remove"
             onClicked: abortAction()
         }

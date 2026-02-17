@@ -12,12 +12,13 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: subscriptionPage
-    title: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
+    title: KI18n.i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
@@ -38,20 +39,20 @@ Kirigami.ScrollablePage {
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             visible: Kirigami.Settings.isMobile
-            text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
+            text: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
             icon.name: "search"
             onTriggered: {
                 applicationWindow().pageStack.push(Qt.createComponent("org.kde.kasts", "DiscoverPage"));
             }
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar", "Refresh All Podcasts")
+            text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
             icon.name: "view-refresh"
             onTriggered: refreshing = true
         },
         Kirigami.Action {
             id: addAction
-            text: i18nc("@action:intoolbar", "Add Podcast…")
+            text: KI18n.i18nc("@action:intoolbar", "Add Podcast…")
             icon.name: "list-add"
             onTriggered: {
                 addSheet.open();
@@ -60,16 +61,16 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             id: sortActionRoot
             icon.name: "view-sort"
-            text: i18nc("@action:intoolbar Open menu with options to sort subscriptions", "Sort")
+            text: KI18n.i18nc("@action:intoolbar Open menu with options to sort subscriptions", "Sort")
 
-            tooltip: i18nc("@info:tooltip", "Select how to sort subscriptions")
+            tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort subscriptions")
 
             property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
 
             property Instantiator repeater: Instantiator {
                 model: ListModel {
                     id: sortModel
-                    // have to use script because i18n doesn't work within ListElement
+                    // have to use script because KI18n.i18n doesn't work within ListElement
                     Component.onCompleted: {
                         if (sortActionRoot.visible) {
                             var sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
@@ -105,18 +106,18 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             id: searchActionButton
             icon.name: "search"
-            text: i18nc("@action:intoolbar", "Search")
+            text: KI18n.i18nc("@action:intoolbar", "Search")
             checkable: true
         },
         Kirigami.Action {
             id: importAction
-            text: i18nc("@action:intoolbar", "Import Podcasts…")
+            text: KI18n.i18nc("@action:intoolbar", "Import Podcasts…")
             icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: importDialog.open()
         },
         Kirigami.Action {
-            text: i18nc("@action:intoolbar", "Export Podcasts…")
+            text: KI18n.i18nc("@action:intoolbar", "Export Podcasts…")
             icon.name: "document-export"
             displayHint: Kirigami.DisplayHint.AlwaysHide
             onTriggered: exportDialog.open()
@@ -152,17 +153,17 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: importDialog
-        title: i18nc("@title:window", "Import Podcasts")
+        title: KI18n.i18nc("@title:window", "Import Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), i18nc("@label:listbox File filter option in file dialog", "XML Files (*.xml)"), i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
+        nameFilters: [KI18n.i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), KI18n.i18nc("@label:listbox File filter option in file dialog", "XML Files (*.xml)"), KI18n.i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
         onAccepted: DataManager.importFeeds(file)
     }
 
     FileDialog {
         id: exportDialog
-        title: i18nc("@title:window", "Export Podcasts")
+        title: KI18n.i18nc("@title:window", "Export Podcasts")
         folder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-        nameFilters: [i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
+        nameFilters: [KI18n.i18nc("@label:listbox File filter option in file dialog", "OPML Files (*.opml)"), KI18n.i18nc("@label:listbox File filter option in file dialog", "All Files (*)")]
         onAccepted: DataManager.exportFeeds(file)
         fileMode: FileDialog.SaveFile
     }
@@ -182,8 +183,8 @@ Kirigami.ScrollablePage {
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
             type: feedsModel.searchFilter === "" ? Kirigami.PlaceholderMessage.Actionable : Kirigami.PlaceholderMessage.Informational
-            text: feedsModel.searchFilter === "" ? i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet") : i18nc("@info Placeholder message for podcast list when no podcast matches the search criteria", "No podcasts found")
-            explanation: feedsModel.searchFilter === "" ? i18nc("@info:tipoftheday", "Get started by adding podcasts:") : null
+            text: feedsModel.searchFilter === "" ? KI18n.i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet") : KI18n.i18nc("@info Placeholder message for podcast list when no podcast matches the search criteria", "No podcasts found")
+            explanation: feedsModel.searchFilter === "" ? KI18n.i18nc("@info:tipoftheday", "Get started by adding podcasts:") : null
 
             readonly property int buttonSize: Math.max(discoverButton.implicitWidth, addButton.implicitWidth, importButton.implicitWidth, syncButton.implicitWidth)
 
@@ -197,7 +198,7 @@ Kirigami.ScrollablePage {
                 Layout.topMargin: Kirigami.Units.gridUnit
                 action: Kirigami.Action {
                     icon.name: "search"
-                    text: i18nc("@action:button", "Search Online")
+                    text: KI18n.i18nc("@action:button", "Search Online")
                     onTriggered: pushPage("DiscoverPage")
                 }
             }
@@ -224,7 +225,7 @@ Kirigami.ScrollablePage {
                 Layout.preferredWidth: placeholderMessage.buttonSize
                 Layout.alignment: Qt.AlignHCenter
                 action: Kirigami.Action {
-                    text: i18nc("@action:button", "Synchronize")
+                    text: KI18n.i18nc("@action:button", "Synchronize")
                     icon.name: "state-sync"
                     onTriggered: {
                         // not using pushPage here in order to open the sync page
@@ -364,7 +365,7 @@ Kirigami.ScrollablePage {
         // they can be re-used across the different ListViews.
         property Kirigami.Action selectAllAction: Kirigami.Action {
             icon.name: "edit-select-all"
-            text: i18nc("@action:intoolbar", "Select All")
+            text: KI18n.i18nc("@action:intoolbar", "Select All")
             visible: true
             onTriggered: {
                 feedList.selectionModel.select(feedList.model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
@@ -373,7 +374,7 @@ Kirigami.ScrollablePage {
 
         property Kirigami.Action selectNoneAction: Kirigami.Action {
             icon.name: "edit-select-none"
-            text: i18nc("@action:intoolbar", "Deselect All")
+            text: KI18n.i18nc("@action:intoolbar", "Deselect All")
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 feedList.selectionModel.clearSelection();
@@ -382,7 +383,7 @@ Kirigami.ScrollablePage {
 
         property Kirigami.Action deleteFeedAction: Kirigami.Action {
             icon.name: "delete"
-            text: i18ncp("@action:intoolbar", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
+            text: KI18n.i18ncp("@action:intoolbar", "Remove Podcast", "Remove Podcasts", feedList.selectionForContextMenu.length)
             visible: feedList.selectionModel.hasSelection
             onTriggered: {
                 // First get an array of pointers to the feeds to be deleted
@@ -405,7 +406,7 @@ Kirigami.ScrollablePage {
 
         property Kirigami.Action feedDetailsAction: Kirigami.Action {
             icon.name: "documentinfo"
-            text: i18nc("@action:intoolbar Open view with more podcast details", "Podcast Details")
+            text: KI18n.i18nc("@action:intoolbar Open view with more podcast details", "Podcast Details")
             visible: feedList.selectionModel.hasSelection && (feedList.selectionForContextMenu.length == 1)
             onTriggered: {
                 while (pageStack.depth > 1)

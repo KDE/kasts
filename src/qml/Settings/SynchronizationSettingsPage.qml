@@ -12,6 +12,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -31,11 +32,11 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: accountStatus
-                text: i18nc("@label", "Account")
-                description: Sync.syncEnabled ? i18nc("@info:status Shows which sync account and sync server the user is logged into", "Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : i18nc("@info:status", "Syncing disabled")
+                text: KI18n.i18nc("@label", "Account")
+                description: Sync.syncEnabled ? KI18n.i18nc("@info:status Shows which sync account and sync server the user is logged into", "Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : KI18n.i18nc("@info:status", "Syncing disabled")
 
                 trailing: Controls.Button {
-                    text: Sync.syncEnabled ? i18nc("@action:button", "Logout") : i18nc("@action:button", "Login")
+                    text: Sync.syncEnabled ? KI18n.i18nc("@action:button", "Logout") : KI18n.i18nc("@action:button", "Login")
                     onClicked: {
                         Sync.syncEnabled ? Sync.logout() : syncProviderOverlay.open();
                     }
@@ -46,10 +47,10 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: manualSync
-                text: i18nc("@label", "Manually sync")
+                text: KI18n.i18nc("@label", "Manually sync")
 
                 trailing: Controls.Button {
-                    text: i18nc("@action:button", "Sync Now")
+                    text: KI18n.i18nc("@action:button", "Sync Now")
                     enabled: Sync.syncEnabled
                     onClicked: {
                         syncFeedsAndEpisodes.run();
@@ -61,7 +62,7 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: lastFullSync
-                text: i18nc("@info:status", "Last full sync with server")
+                text: KI18n.i18nc("@info:status", "Last full sync with server")
                 description: Sync.lastSuccessfulDownloadSync
             }
 
@@ -69,13 +70,13 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: lastQuickUpload
-                text: i18nc("@info:status", "Last quick upload to sync server")
+                text: KI18n.i18nc("@info:status", "Last quick upload to sync server")
                 description: Sync.lastSuccessfulUploadSync
             }
         }
 
         FormCard.FormHeader {
-            title: i18nc("@title Form header for settings related to automatic syncing", "Automatic syncing")
+            title: KI18n.i18nc("@title Form header for settings related to automatic syncing", "Automatic syncing")
             Layout.fillWidth: true
         }
 
@@ -85,7 +86,7 @@ Kirigami.ScrollablePage {
             FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.refreshOnStartup
-                text: i18nc("@option:check", "Do full sync on startup")
+                text: KI18n.i18nc("@option:check", "Do full sync on startup")
                 onToggled: {
                     SettingsManager.refreshOnStartup = checked;
                     SettingsManager.save();
@@ -95,7 +96,7 @@ Kirigami.ScrollablePage {
             FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.syncWhenUpdatingFeeds
-                text: i18nc("@option:check", "Do full sync when fetching podcasts")
+                text: KI18n.i18nc("@option:check", "Do full sync when fetching podcasts")
                 onToggled: {
                     SettingsManager.syncWhenUpdatingFeeds = checked;
                     SettingsManager.save();
@@ -105,7 +106,7 @@ Kirigami.ScrollablePage {
             FormCard.FormSwitchDelegate {
                 enabled: Sync.syncEnabled
                 checked: SettingsManager.syncWhenPlayerstateChanges
-                text: i18nc("@option:check", "Upload episode play positions on play/pause toggle")
+                text: KI18n.i18nc("@option:check", "Upload episode play positions on play/pause toggle")
                 onToggled: {
                     SettingsManager.syncWhenPlayerstateChanges = checked;
                     SettingsManager.save();
@@ -114,7 +115,7 @@ Kirigami.ScrollablePage {
         }
 
         FormCard.FormHeader {
-            title: i18nc("@title Form header for advanced settings related to syncing", "Advanced options")
+            title: KI18n.i18nc("@title Form header for advanced settings related to syncing", "Advanced options")
             Layout.fillWidth: true
         }
 
@@ -123,10 +124,10 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: fetchAllEpisodeStates
-                text: i18nc("@label", "Fetch all episode states from server")
+                text: KI18n.i18nc("@label", "Fetch all episode states from server")
 
                 trailing: Controls.Button {
-                    text: i18nc("@action:button", "Fetch")
+                    text: KI18n.i18nc("@action:button", "Fetch")
                     enabled: Sync.syncEnabled
                     onClicked: {
                         forceSyncFeedsAndEpisodes.run();
@@ -138,11 +139,11 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: fetchLocalEpisodeStates
-                text: i18nc("@label", "Push all local episode states to server")
+                text: KI18n.i18nc("@label", "Push all local episode states to server")
 
                 trailing: Controls.Button {
                     enabled: Sync.syncEnabled
-                    text: i18nc("@action:button", "Push")
+                    text: KI18n.i18nc("@action:button", "Push")
                     onClicked: {
                         syncPushAllStatesDialog.open();
                     }
@@ -180,7 +181,7 @@ Kirigami.ScrollablePage {
         standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-        title: i18nc("@label", "Push all local episode states to server?")
+        title: KI18n.i18nc("@label", "Push all local episode states to server?")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -204,7 +205,7 @@ Kirigami.ScrollablePage {
                 Layout.fillHeight: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: i18nc("@label", "Please note that pushing the playback state of all local episodes to the server might take a very long time and/or might overload the server. Also note that this action will overwrite all existing episode states on the server.\n\nContinue?")
+                text: KI18n.i18nc("@label", "Please note that pushing the playback state of all local episodes to the server might take a very long time and/or might overload the server. Also note that this action will overwrite all existing episode states on the server.\n\nContinue?")
                 color: Kirigami.Theme.textColor
                 Keys.onReturnPressed: accepted()
             }
@@ -228,7 +229,7 @@ Kirigami.ScrollablePage {
 
         showCloseButton: true
 
-        title: i18nc("@label", "Select Sync Provider")
+        title: KI18n.i18nc("@label", "Select Sync Provider")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -236,14 +237,14 @@ Kirigami.ScrollablePage {
 
         property list<var> providerModel: [
             {
-                name: i18nc("@label", "gpodder.net"),
-                subtitle: i18nc("@label", "Synchronize with official gpodder.net server"),
+                name: KI18n.i18nc("@label", "gpodder.net"),
+                subtitle: KI18n.i18nc("@label", "Synchronize with official gpodder.net server"),
                 iconName: "gpodder",
                 provider: Sync.GPodderNet
             },
             {
-                name: i18nc("@label", "GPodder Nextcloud"),
-                subtitle: i18nc("@label", "Synchronize with GPodder Nextcloud app"),
+                name: KI18n.i18nc("@label", "GPodder Nextcloud"),
+                subtitle: KI18n.i18nc("@label", "Synchronize with GPodder Nextcloud app"),
                 iconName: "kaccounts-nextcloud",
                 provider: Sync.GPodderNextcloud
             }
@@ -290,7 +291,7 @@ Kirigami.ScrollablePage {
         standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-        title: i18nc("@title of dialog box", "Sync Login Credentials")
+        title: KI18n.i18nc("@title of dialog box", "Sync Login Credentials")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -323,7 +324,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Heading {
                         clip: true
                         level: 2
-                        text: Sync.provider === Sync.GPodderNextcloud ? i18nc("@label", "Sync with GPodder Nextcloud app") : i18nc("@label", "Sync with gpodder.net service")
+                        text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18nc("@label", "Sync with GPodder Nextcloud app") : KI18n.i18nc("@label", "Sync with gpodder.net service")
                     }
                     TextEdit {
                         Layout.fillWidth: true
@@ -333,7 +334,7 @@ Kirigami.ScrollablePage {
                         onLinkActivated: link => {
                             Qt.openUrlExternally(link);
                         }
-                        text: Sync.provider === Sync.GPodderNextcloud ? i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials.", "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") : i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
+                        text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials.", "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") : KI18n.i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
                         color: Kirigami.Theme.textColor
                     }
                 }
@@ -345,7 +346,7 @@ Kirigami.ScrollablePage {
                 columnSpacing: Kirigami.Units.smallSpacing
                 Controls.Label {
                     Layout.alignment: Qt.AlignRight
-                    text: i18nc("@label:textbox", "Username:")
+                    text: KI18n.i18nc("@label:textbox", "Username:")
                 }
                 Controls.TextField {
                     id: usernameField
@@ -356,7 +357,7 @@ Kirigami.ScrollablePage {
                 }
                 Controls.Label {
                     Layout.alignment: Qt.AlignRight
-                    text: i18nc("@label:textbox", "Password:")
+                    text: KI18n.i18nc("@label:textbox", "Password:")
                 }
                 Controls.TextField {
                     id: passwordField
@@ -371,12 +372,12 @@ Kirigami.ScrollablePage {
                     Layout.column: 1
                     visible: Sync.provider === Sync.GPodderNet
                     checked: false
-                    text: i18nc("@option:check", "Use custom server")
+                    text: KI18n.i18nc("@option:check", "Use custom server")
                 }
                 Controls.Label {
                     visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
                     Layout.alignment: Qt.AlignRight
-                    text: i18nc("@label:textbox", "Hostname:")
+                    text: KI18n.i18nc("@label:textbox", "Hostname:")
                 }
                 Controls.TextField {
                     id: hostnameField
@@ -411,7 +412,7 @@ Kirigami.ScrollablePage {
 
         showCloseButton: true
 
-        title: i18nc("@title", "Sync Device Settings")
+        title: KI18n.i18nc("@title", "Sync Device Settings")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -421,13 +422,13 @@ Kirigami.ScrollablePage {
             spacing: Kirigami.Units.largeSpacing * 2
             Kirigami.Heading {
                 level: 2
-                text: i18nc("@action:button", "Create a new device")
+                text: KI18n.i18nc("@action:button", "Create a new device")
             }
             GridLayout {
                 columns: 2
                 width: parent.width
                 Controls.Label {
-                    text: i18nc("@label:textbox", "Device Name:")
+                    text: KI18n.i18nc("@label:textbox", "Device Name:")
                 }
                 Controls.TextField {
                     id: deviceField
@@ -437,7 +438,7 @@ Kirigami.ScrollablePage {
                     // focus: syncDeviceOverlay.visible // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
                 }
                 Controls.Label {
-                    text: i18nc("@label:textbox", "Device Description:")
+                    text: KI18n.i18nc("@label:textbox", "Device Description:")
                 }
                 Controls.TextField {
                     id: deviceNameField
@@ -446,7 +447,7 @@ Kirigami.ScrollablePage {
                     Keys.onReturnPressed: createDeviceButton.clicked()
                 }
                 Controls.Label {
-                    text: i18nc("@label:listbox", "Device Type:")
+                    text: KI18n.i18nc("@label:listbox", "Device Type:")
                 }
                 Controls.ComboBox {
                     id: deviceTypeField
@@ -455,23 +456,23 @@ Kirigami.ScrollablePage {
                     popup.z: 102 // popup has to go in front of OverlaySheet
                     model: [
                         {
-                            text: i18nc("@item:inlistbox type of device", "other"),
+                            text: KI18n.i18nc("@item:inlistbox type of device", "other"),
                             value: "other"
                         },
                         {
-                            text: i18nc("@item:inlistbox type of device", "desktop"),
+                            text: KI18n.i18nc("@item:inlistbox type of device", "desktop"),
                             value: "desktop"
                         },
                         {
-                            text: i18nc("@item:inlistbox type of device", "laptop"),
+                            text: KI18n.i18nc("@item:inlistbox type of device", "laptop"),
                             value: "laptop"
                         },
                         {
-                            text: i18nc("@item:inlistbox type of device", "server"),
+                            text: KI18n.i18nc("@item:inlistbox type of device", "server"),
                             value: "server"
                         },
                         {
-                            text: i18nc("@item:inlistbox type of device", "mobile"),
+                            text: KI18n.i18nc("@item:inlistbox type of device", "mobile"),
                             value: "mobile"
                         }
                     ]
@@ -479,7 +480,7 @@ Kirigami.ScrollablePage {
             }
             Controls.Button {
                 id: createDeviceButton
-                text: i18nc("@action:button", "Create Device")
+                text: KI18n.i18nc("@action:button", "Create Device")
                 icon.name: "list-add"
                 onClicked: {
                     Sync.registerNewDevice(deviceField.text, deviceNameField.text, deviceTypeField.currentValue);
@@ -496,7 +497,7 @@ Kirigami.ScrollablePage {
                     topPadding: Kirigami.Units.gridUnit
                     bottomPadding: Kirigami.Units.largeSpacing
                     level: 2
-                    text: i18nc("@label", "or select an existing device")
+                    text: KI18n.i18nc("@label", "or select an existing device")
                 }
                 model: ListModel {
                     id: deviceListModel
@@ -543,7 +544,7 @@ Kirigami.ScrollablePage {
         standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-        title: i18nc("@title of dialog box", "Device Sync Settings")
+        title: KI18n.i18nc("@title of dialog box", "Device Sync Settings")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -569,7 +570,7 @@ Kirigami.ScrollablePage {
                 Layout.fillHeight: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
+                text: KI18n.i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
                 color: Kirigami.Theme.textColor
                 Keys.onReturnPressed: accepted()
             }
@@ -591,7 +592,7 @@ Kirigami.ScrollablePage {
         standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
         closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-        title: i18nc("@title of dialog box", "Sync Now?")
+        title: KI18n.i18nc("@title of dialog box", "Sync Now?")
 
         Component.onCompleted: {
             parent = WindowUtils.focusedWindowItem();
@@ -615,7 +616,7 @@ Kirigami.ScrollablePage {
                 Layout.fillHeight: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: i18nc("@label", "Perform a first sync now?")
+                text: KI18n.i18nc("@label", "Perform a first sync now?")
                 color: Kirigami.Theme.textColor
                 Keys.onReturnPressed: accepted()
             }

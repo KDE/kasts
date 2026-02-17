@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -18,7 +19,7 @@ Kirigami.Dialog {
     parent: applicationWindow().overlay
     closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
-    property string headingText: i18nc("@info:status", "Podcast updates are currently not allowed on metered connections")
+    property string headingText: KI18n.i18nc("@info:status", "Podcast updates are currently not allowed on metered connections")
     property bool condition: NetworkConnectionManager.feedUpdatesAllowed
 
     // Function to be overloaded where this is instantiated with another purpose
@@ -53,7 +54,7 @@ Kirigami.Dialog {
         }
     }
 
-    title: NetworkConnectionManager.networkReachable ? i18nc("@title:window", "Select Option") : i18nc("@title:window", "Network not reachable")
+    title: NetworkConnectionManager.networkReachable ? KI18n.i18nc("@title:window", "Select Option") : KI18n.i18nc("@title:window", "Network not reachable")
 
     ColumnLayout {
         spacing: 0
@@ -64,7 +65,7 @@ Kirigami.Dialog {
             Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            text: NetworkConnectionManager.networkReachable ? overlay.headingText : i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
+            text: NetworkConnectionManager.networkReachable ? overlay.headingText : KI18n.i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
             wrapMode: Text.Wrap
             color: NetworkConnectionManager.networkReachable ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
@@ -82,7 +83,7 @@ Kirigami.Dialog {
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-            text: i18n("Don't Allow")
+            text: KI18n.i18n("Don't Allow")
             onClicked: {
                 overlay.abortAction();
                 overlay.close();
@@ -96,7 +97,7 @@ Kirigami.Dialog {
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-            text: i18n("Allow Once")
+            text: KI18n.i18n("Allow Once")
             onClicked: {
                 overlay.allowOnceAction();
                 overlay.close();
@@ -110,7 +111,7 @@ Kirigami.Dialog {
             leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-            text: i18n("Always Allow")
+            text: KI18n.i18n("Always Allow")
             onClicked: {
                 overlay.alwaysAllowAction();
                 overlay.close();

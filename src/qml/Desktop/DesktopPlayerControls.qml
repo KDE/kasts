@@ -9,8 +9,9 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kmediasession
+import org.kde.ki18n
 
+import org.kde.kmediasession
 import org.kde.kasts
 
 import ".."
@@ -117,7 +118,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18n("Seek backward")
+                Controls.ToolTip.text: KI18n.i18n("Seek backward")
             }
             Controls.ToolButton {
                 id: playButton
@@ -127,7 +128,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: AudioManager.playbackState === KMediaSession.PlayingState ? i18n("Pause") : i18n("Play")
+                Controls.ToolTip.text: AudioManager.playbackState === KMediaSession.PlayingState ? KI18n.i18n("Pause") : KI18n.i18n("Play")
             }
             Controls.ToolButton {
                 icon.name: "media-seek-forward"
@@ -136,7 +137,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18n("Seek forward")
+                Controls.ToolTip.text: KI18n.i18n("Seek forward")
             }
             Controls.ToolButton {
                 icon.name: "media-skip-forward"
@@ -145,7 +146,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18n("Skip forward")
+                Controls.ToolTip.text: KI18n.i18n("Skip forward")
             }
             Controls.ToolButton {
                 id: playbackRateButton
@@ -165,7 +166,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18n("Playback rate:") + " " + AudioManager.playbackRate.toFixed(2) + "x"
+                Controls.ToolTip.text: KI18n.i18n("Playback rate:") + " " + AudioManager.playbackRate.toFixed(2) + "x"
             }
         }
 
@@ -220,7 +221,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Show chapter list")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Show chapter list")
             }
 
             Controls.ToolButton {
@@ -231,7 +232,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Show episode info")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Show episode info")
             }
 
             Controls.ToolButton {
@@ -242,7 +243,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Open sleep timer settings")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Open sleep timer settings")
             }
         }
 
@@ -256,7 +257,7 @@ FocusScope {
 
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Open volume settings")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Open volume settings")
 
                 onClicked: {
                     if (volumePopup.visible) {
@@ -288,7 +289,7 @@ FocusScope {
 
                             Controls.ToolTip.visible: hovered
                             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                            Controls.ToolTip.text: i18nc("@action:button", "Toggle mute")
+                            Controls.ToolTip.text: KI18n.i18nc("@action:button", "Toggle mute")
                         }
                     }
                 }
@@ -304,7 +305,7 @@ FocusScope {
 
             Controls.ToolTip.visible: hovered
             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-            Controls.ToolTip.text: i18nc("@action:button", "Show more")
+            Controls.ToolTip.text: KI18n.i18nc("@action:button", "Show more")
 
             onClicked: {
                 if (overflowMenu.visible) {
@@ -333,7 +334,7 @@ FocusScope {
     Kirigami.Action {
         id: chapterAction
         property bool visible: AudioManager.entryuid > 0 && chapterList.count !== 0
-        text: i18nc("@action:button", "Chapters")
+        text: KI18n.i18nc("@action:button", "Chapters")
         icon.name: "view-media-playlist"
         onTriggered: chapterOverlay.open()
     }
@@ -341,7 +342,7 @@ FocusScope {
     Kirigami.Action {
         id: infoAction
         property bool visible: AudioManager.entryuid > 0
-        text: i18nc("@action:button", "Show Info")
+        text: KI18n.i18nc("@action:button", "Show Info")
         icon.name: "documentinfo"
         onTriggered: entryDetailsOverlay.open()
     }
@@ -351,7 +352,7 @@ FocusScope {
         checkable: true
         checked: AudioManager.remainingSleepTime > 0
         property bool visible: true
-        text: i18nc("@action:button", "Sleep Timer")
+        text: KI18n.i18nc("@action:button", "Sleep Timer")
         icon.name: "clock"
         onTriggered: {
             toggle(); // only set the on/off state based on sleep timer state
@@ -384,7 +385,7 @@ FocusScope {
 
         showCloseButton: false
 
-        title: i18n("Chapters")
+        title: KI18n.i18n("Chapters")
 
         ListView {
             id: chapterList
@@ -404,12 +405,12 @@ FocusScope {
 
         showCloseButton: false
 
-        title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : i18n("No Episode Title")
+        title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
         padding: Kirigami.Units.largeSpacing
 
         Controls.Label {
             id: text
-            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : i18n("No episode loaded")
+            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : KI18n.i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText

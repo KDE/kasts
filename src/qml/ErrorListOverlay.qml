@@ -9,6 +9,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -19,11 +20,11 @@ Kirigami.Dialog {
 
     showCloseButton: true
 
-    title: i18nc("@title", "Error Log")
+    title: KI18n.i18nc("@title", "Error Log")
     standardButtons: Kirigami.Dialog.NoButton
 
     customFooterActions: Kirigami.Action {
-        text: i18nc("@action:button", "Clear All Errors")
+        text: KI18n.i18nc("@action:button", "Clear All Errors")
         icon.name: "edit-clear-all"
         onTriggered: ErrorLogModel.clearAll()
         enabled: errorList.count > 0

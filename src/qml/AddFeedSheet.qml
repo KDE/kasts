@@ -9,6 +9,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -18,13 +19,13 @@ Kirigami.Dialog {
     showCloseButton: true
     standardButtons: Kirigami.Dialog.NoButton
 
-    title: i18n("Add New Podcast")
+    title: KI18n.i18n("Add New Podcast")
     padding: Kirigami.Units.largeSpacing
     preferredWidth: Kirigami.Units.gridUnit * 20
 
     ColumnLayout {
         Controls.Label {
-            text: i18n("Url:")
+            text: KI18n.i18n("Url:")
         }
         Controls.TextField {
             id: urlField
@@ -46,7 +47,7 @@ Kirigami.Dialog {
 
     customFooterActions: Kirigami.Action {
         id: addFeedAction
-        text: i18n("Add Podcast")
+        text: KI18n.i18n("Add Podcast")
         enabled: urlField.text
         onTriggered: {
             addSheet.close();

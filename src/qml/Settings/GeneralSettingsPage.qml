@@ -11,15 +11,16 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kmediasession
+import org.kde.ki18n
 
+import org.kde.kmediasession
 import org.kde.kasts
 
 FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related to playback", "Playback settings")
+        title: KI18n.i18nc("@title Form header for settings related to playback", "Playback settings")
         Layout.fillWidth: true
     }
 
@@ -28,7 +29,7 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: selectAudioBackend
-            text: i18nc("@label:listbox Label for setting to select audio playback backend", "Select audio backend")
+            text: KI18n.i18nc("@label:listbox Label for setting to select audio playback backend", "Select audio backend")
 
             textRole: "text"
             valueRole: "value"
@@ -61,7 +62,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: showTimeLeft
             checked: SettingsManager.toggleRemainingTime
-            text: i18nc("@option:check Label for setting whether the total episode time is shown or a countdown of the remaining play time", "Show time left instead of total episode time")
+            text: KI18n.i18nc("@option:check Label for setting whether the total episode time is shown or a countdown of the remaining play time", "Show time left instead of total episode time")
             onToggled: {
                 SettingsManager.toggleRemainingTime = checked;
                 SettingsManager.save();
@@ -71,7 +72,7 @@ FormCard.FormCardPage {
             id: adjustTimeLeft
             checked: SettingsManager.adjustTimeLeft
             enabled: SettingsManager.toggleRemainingTime
-            text: i18nc("@option:check", "Adjust time left based on current playback speed")
+            text: KI18n.i18nc("@option:check", "Adjust time left based on current playback speed")
             onToggled: {
                 SettingsManager.adjustTimeLeft = checked;
                 SettingsManager.save();
@@ -80,7 +81,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: prioritizeStreaming
             checked: SettingsManager.prioritizeStreaming
-            text: i18nc("@option:check", "Prefer streaming over downloading")
+            text: KI18n.i18nc("@option:check", "Prefer streaming over downloading")
             onToggled: {
                 SettingsManager.prioritizeStreaming = checked;
                 SettingsManager.save();
@@ -92,7 +93,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             id: skipForwardStep
-            text: i18nc("@label:spinbox", "Skip forward interval (in seconds)")
+            text: KI18n.i18nc("@label:spinbox", "Skip forward interval (in seconds)")
             trailing: Controls.SpinBox {
                 Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.skipForward
@@ -106,7 +107,7 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             id: skipBackwardInterval
-            text: i18nc("@label:spinbox", "Skip backward interval (in seconds)")
+            text: KI18n.i18nc("@label:spinbox", "Skip backward interval (in seconds)")
             trailing: Controls.SpinBox {
                 Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.skipBackward
@@ -121,7 +122,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related podcast updates", "Podcast update settings")
+        title: KI18n.i18nc("@title Form header for settings related podcast updates", "Podcast update settings")
         Layout.fillWidth: true
     }
 
@@ -130,40 +131,40 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: autoFeedUpdateInterval
-            text: i18nc("@label:listbox", "Periodically retrieve podcast feeds")
+            text: KI18n.i18nc("@label:listbox", "Periodically retrieve podcast feeds")
             textRole: "text"
             valueRole: "value"
             model: [
                 {
-                    text: i18nc("@item:inlistbox automatic podcast update interval", "Never"),
+                    text: KI18n.i18nc("@item:inlistbox automatic podcast update interval", "Never"),
                     value: 0
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 1),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 1),
                     value: 1
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 2),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 2),
                     value: 2
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 4),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 4),
                     value: 4
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 8),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 8),
                     value: 8
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 12),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every hour", "Every %1 hours", 12),
                     value: 12
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 1),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 1),
                     value: 24
                 },
                 {
-                    text: i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 3),
+                    text: KI18n.i18ncp("@item:inlistbox automatic podcast update interval", "Every day", "Every %1 days", 3),
                     value: 72
                 }
             ]
@@ -177,7 +178,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: refreshOnStartup
             checked: SettingsManager.refreshOnStartup
-            text: i18nc("@option:check", "Fetch podcast updates on startup")
+            text: KI18n.i18nc("@option:check", "Fetch podcast updates on startup")
             onToggled: {
                 SettingsManager.refreshOnStartup = checked;
                 SettingsManager.save();
@@ -192,7 +193,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: doFullUpdate
             checked: SettingsManager.doFullUpdate
-            text: i18nc("@option:check", "Update existing episode data on refresh (slower)")
+            text: KI18n.i18nc("@option:check", "Update existing episode data on refresh (slower)")
             onToggled: {
                 SettingsManager.doFullUpdate = checked;
                 SettingsManager.save();
@@ -202,7 +203,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: autoQueue
             checked: SettingsManager.autoQueue
-            text: i18nc("@option:check", "Automatically queue new episodes")
+            text: KI18n.i18nc("@option:check", "Automatically queue new episodes")
 
             onToggled: {
                 SettingsManager.autoQueue = checked;
@@ -217,7 +218,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: autoDownload
             checked: SettingsManager.autoDownload
-            text: i18nc("@option:check", "Automatically download new episodes")
+            text: KI18n.i18nc("@option:check", "Automatically download new episodes")
 
             enabled: autoQueue.checked
             onToggled: {
@@ -228,7 +229,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related to the queue", "Queue settings")
+        title: KI18n.i18nc("@title Form header for settings related to the queue", "Queue settings")
         Layout.fillWidth: true
     }
 
@@ -238,7 +239,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: continuePlayingNextEntry
             checked: SettingsManager.continuePlayingNextEntry
-            text: i18nc("@option:check", "Continue playing next episode after current one finishes")
+            text: KI18n.i18nc("@option:check", "Continue playing next episode after current one finishes")
             onToggled: {
                 SettingsManager.continuePlayingNextEntry = checked;
                 SettingsManager.save();
@@ -253,7 +254,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: resetPositionOnPlayed
             checked: SettingsManager.resetPositionOnPlayed
-            text: i18nc("@option:check", "Reset play position after an episode is played")
+            text: KI18n.i18nc("@option:check", "Reset play position after an episode is played")
             onToggled: {
                 SettingsManager.resetPositionOnPlayed = checked;
                 SettingsManager.save();
@@ -267,20 +268,20 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: episodeBehavior
-            text: i18nc("@label:listbox", "Played episode behavior")
+            text: KI18n.i18nc("@label:listbox", "Played episode behavior")
             textRole: "text"
             valueRole: "value"
             model: [
                 {
-                    text: i18nc("@item:inlistbox What to do with played episodes", "Do not delete"),
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Do not delete"),
                     value: 0
                 },
                 {
-                    text: i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"),
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"),
                     value: 1
                 },
                 {
-                    text: i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"),
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"),
                     value: 2
                 }
             ]
@@ -298,7 +299,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: markAsPlayedGracePeriod
-            text: i18nc("@label:spinbox", "Mark episodes as played when the given time is remaining (in seconds)")
+            text: KI18n.i18nc("@label:spinbox", "Mark episodes as played when the given time is remaining (in seconds)")
             textItem.wrapMode: Text.Wrap
             trailing: Controls.SpinBox {
                 Layout.rightMargin: Kirigami.Units.gridUnit
@@ -314,7 +315,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings triggered by adding new podcasts", "When adding new podcasts")
+        title: KI18n.i18nc("@title Form header for settings triggered by adding new podcasts", "When adding new podcasts")
         Layout.fillWidth: true
     }
 
@@ -323,7 +324,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             checked: SettingsManager.markUnreadOnNewFeed === 0
-            text: i18nc("@option:radio", "Mark all episodes as played")
+            text: KI18n.i18nc("@option:radio", "Mark all episodes as played")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 0;
                 SettingsManager.save();
@@ -333,7 +334,7 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id: markCustomUnreadNumberButton
             checked: SettingsManager.markUnreadOnNewFeed === 1
-            text: i18nc("@option:radio", "Mark most recent episodes as unplayed")
+            text: KI18n.i18nc("@option:radio", "Mark most recent episodes as unplayed")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 1;
                 SettingsManager.save();
@@ -356,7 +357,7 @@ FormCard.FormCardPage {
 
         FormCard.FormRadioDelegate {
             checked: SettingsManager.markUnreadOnNewFeed === 2
-            text: i18nc("@option:radio", "Mark all episodes as unplayed")
+            text: KI18n.i18nc("@option:radio", "Mark all episodes as unplayed")
             onToggled: {
                 SettingsManager.markUnreadOnNewFeed = 2;
                 SettingsManager.save();

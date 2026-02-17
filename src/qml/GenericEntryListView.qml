@@ -10,6 +10,7 @@ import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -132,16 +133,16 @@ ListView {
         visible: !isDownloads
         enabled: visible
         icon.name: "view-sort"
-        text: i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
+        text: KI18n.i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
 
-        tooltip: i18nc("@info:tooltip", "Select how to sort episodes")
+        tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort episodes")
 
         property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
 
         property Instantiator repeater: Instantiator {
             model: ListModel {
                 id: sortModel
-                // have to use script because i18n doesn't work within ListElement
+                // have to use script because KI18n.i18n doesn't work within ListElement
                 Component.onCompleted: {
                     if (sortActionRoot.visible) {
                         var sortList = [AbstractEpisodeProxyModel.DateDescending, AbstractEpisodeProxyModel.DateAscending];
@@ -184,16 +185,16 @@ ListView {
         visible: !listView.isDownloads && !listView.isQueue
         enabled: visible
         icon.name: "view-filter"
-        text: i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
+        text: KI18n.i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
 
-        tooltip: i18nc("@info:tooltip", "Filter episodes by status")
+        tooltip: KI18n.i18nc("@info:tooltip", "Filter episodes by status")
 
         property Controls.ActionGroup filterGroup: Controls.ActionGroup {}
 
         property Instantiator repeater: Instantiator {
             model: ListModel {
                 id: filterModel
-                // have to use script because i18n doesn't work within ListElement
+                // have to use script because KI18n.i18n doesn't work within ListElement
                 Component.onCompleted: {
                     if (filterActionRoot.visible) {
                         var filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter];
@@ -227,7 +228,7 @@ ListView {
 
     readonly property Kirigami.Action selectAllAction: Kirigami.Action {
         icon.name: "edit-select-all"
-        text: i18n("Select All")
+        text: KI18n.i18n("Select All")
         visible: true
         onTriggered: {
             listView.selectionModel.select(model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
@@ -236,7 +237,7 @@ ListView {
 
     readonly property Kirigami.Action selectNoneAction: Kirigami.Action {
         icon.name: "edit-select-none"
-        text: i18n("Deselect All")
+        text: KI18n.i18n("Deselect All")
         visible: listView.selectionModel.hasSelection
         onTriggered: {
             listView.selectionModel.clearSelection();
@@ -244,7 +245,7 @@ ListView {
     }
 
     readonly property Kirigami.Action addToQueueAction: Kirigami.Action {
-        text: i18n("Add to Queue")
+        text: KI18n.i18n("Add to Queue")
         icon.name: "media-playlist-append"
         visible: listView.selectionModel.hasSelection && !listView.isQueue && (listView.singleSelectedEntry ? !listView.singleSelectedEntry.queueStatus : true)
         //visible: listView.selectionModel.hasSelection && !listView.isQueue
@@ -254,7 +255,7 @@ ListView {
     }
 
     readonly property Kirigami.Action removeFromQueueAction: Kirigami.Action {
-        text: i18n("Remove from Queue")
+        text: KI18n.i18n("Remove from Queue")
         icon.name: "list-remove"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? listView.singleSelectedEntry.queueStatus : true)
         //visible: listView.selectionModel.hasSelection
@@ -264,7 +265,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markPlayedAction: Kirigami.Action {
-        text: i18n("Mark as Played")
+        text: KI18n.i18n("Mark as Played")
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? !listView.singleSelectedEntry.read : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(true, listView.selectionForContextMenu);
@@ -272,7 +273,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markNotPlayedAction: Kirigami.Action {
-        text: i18n("Mark as Unplayed")
+        text: KI18n.i18n("Mark as Unplayed")
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? listView.singleSelectedEntry.read : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(false, listView.selectionForContextMenu);
@@ -280,7 +281,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markNewAction: Kirigami.Action {
-        text: i18n("Label as \"New\"")
+        text: KI18n.i18n("Label as \"New\"")
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? !listView.singleSelectedEntry.new : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(true, listView.selectionForContextMenu);
@@ -288,7 +289,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markNotNewAction: Kirigami.Action {
-        text: i18n("Remove \"New\" Label")
+        text: KI18n.i18n("Remove \"New\" Label")
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? listView.singleSelectedEntry.new : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(false, listView.selectionForContextMenu);
@@ -296,7 +297,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markFavoriteAction: Kirigami.Action {
-        text: i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
+        text: KI18n.i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
         icon.name: "starred-symbolic"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? !listView.singleSelectedEntry.favorite : true)
         onTriggered: {
@@ -305,7 +306,7 @@ ListView {
     }
 
     readonly property Kirigami.Action markNotFavoriteAction: Kirigami.Action {
-        text: i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
+        text: KI18n.i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
         icon.name: "non-starred-symbolic"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? listView.singleSelectedEntry.favorite : true)
         onTriggered: {
@@ -314,7 +315,7 @@ ListView {
     }
 
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
-        text: i18n("Download")
+        text: KI18n.i18n("Download")
         icon.name: "download"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? (listView.singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : true)
         onTriggered: {
@@ -324,7 +325,7 @@ ListView {
     }
 
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
-        text: i18ncp("context menu action", "Delete Download", "Delete Downloads", listView.selectionForContextMenu.length)
+        text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", listView.selectionForContextMenu.length)
         icon.name: "delete"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? (listView.singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true)
         onTriggered: {
@@ -333,7 +334,7 @@ ListView {
     }
 
     readonly property Kirigami.Action streamAction: Kirigami.Action {
-        text: i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
+        text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
         visible: listView.selectionModel.hasSelection && (listView.singleSelectedEntry ? (listView.singleSelectedEntry.hasEnclosure ? singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false)
         onTriggered: {

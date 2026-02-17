@@ -9,6 +9,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as Controls
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -27,7 +28,7 @@ Kirigami.InlineMessage {
     actions: [
         Kirigami.Action {
             icon.name: "error"
-            text: i18n("Show Error Log")
+            text: KI18n.i18n("Show Error Log")
             onTriggered: errorOverlay.open()
         }
     ]
