@@ -11,6 +11,7 @@ import QtQuick.Layouts
 import org.kde.kirigami.delegates as Delegates
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kmediasession
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -38,7 +39,7 @@ AddonDelegates.RoundedItemDelegate {
 
         Controls.ToolButton {
             icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
-            text: i18n("Play")
+            text: KI18n.i18n("Play")
             enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: {

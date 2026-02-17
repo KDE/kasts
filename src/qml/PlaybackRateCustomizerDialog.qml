@@ -9,11 +9,14 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
+
+import org.kde.kmediasession
 import org.kde.kasts
 
 Kirigami.Dialog {
     id: customizeRatesDialog
-    title: i18nc("@title:window", "Playback Rate Presets")
+    title: KI18n.i18nc("@title:window", "Playback Rate Presets")
     padding: Kirigami.Units.largeSpacing
     preferredWidth: Kirigami.Units.gridUnit * 16 + Kirigami.Units.smallSpacing
 
@@ -51,7 +54,7 @@ Kirigami.Dialog {
             Layout.fillWidth: true
             Controls.Label {
                 Layout.fillWidth: true
-                text: i18nc("@info Label for controls to add new playback rate preset", "New Preset:")
+                text: KI18n.i18nc("@info Label for controls to add new playback rate preset", "New Preset:")
             }
 
             Kirigami.Chip {
@@ -63,10 +66,10 @@ Kirigami.Dialog {
             Controls.Button {
                 id: addButton
                 icon.name: "list-add"
-                text: i18nc("@action:button Add new playback rate value to list", "Add")
+                text: KI18n.i18nc("@action:button Add new playback rate value to list", "Add")
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@info:tooltip", "Add new playback rate value to list")
+                Controls.ToolTip.text: KI18n.i18nc("@info:tooltip", "Add new playback rate value to list")
                 onClicked: {
                     var found = false;
                     var insertIndex = 0;
@@ -101,7 +104,7 @@ Kirigami.Dialog {
                 onClicked: rateSlider.value = Math.max(0.0, rateSlider.value - 0.05)
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Decrease playback rate")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Decrease playback rate")
             }
 
             Controls.Slider {
@@ -120,12 +123,12 @@ Kirigami.Dialog {
                 onClicked: rateSlider.value = Math.min(3.0, rateSlider.value + 0.05)
                 Controls.ToolTip.visible: hovered
                 Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-                Controls.ToolTip.text: i18nc("@action:button", "Increase playback rate")
+                Controls.ToolTip.text: KI18n.i18nc("@action:button", "Increase playback rate")
             }
         }
 
         Controls.Label {
-            text: i18nc("@title:group List of custom playback rates", "Current Presets:")
+            text: KI18n.i18nc("@title:group List of custom playback rates", "Current Presets:")
         }
 
         GridLayout {

@@ -9,12 +9,13 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: episodeListPage
-    title: i18nc("@title of page with list of podcast episodes", "Episodes")
+    title: KI18n.i18nc("@title of page with list of podcast episodes", "Episodes")
 
     property alias episodeList: episodeList
 
@@ -38,20 +39,20 @@ Kirigami.ScrollablePage {
     property list<Kirigami.Action> pageActions: [
         Kirigami.Action {
             icon.name: "download"
-            text: i18nc("@title of page with list of downloaded episodes", "Downloads")
+            text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
             onTriggered: {
                 pushPage("DownloadListPage");
             }
         },
         Kirigami.Action {
             icon.name: "view-refresh"
-            text: i18n("Refresh All Podcasts")
+            text: KI18n.i18n("Refresh All Podcasts")
             onTriggered: refreshing = true
         },
         Kirigami.Action {
             id: searchActionButton
             icon.name: "search"
-            text: i18nc("@action:intoolbar", "Search")
+            text: KI18n.i18nc("@action:intoolbar", "Search")
             checkable: true
         }
     ]
@@ -87,7 +88,7 @@ Kirigami.ScrollablePage {
             width: Kirigami.Units.gridUnit * 20
             anchors.centerIn: parent
 
-            text: i18n("No episodes available")
+            text: KI18n.i18n("No episodes available")
         }
 
         model: EpisodeProxyModel {

@@ -7,6 +7,7 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -28,7 +29,7 @@ Kirigami.InlineMessage {
         Kirigami.Action {
             id: resetButton
             icon.name: "edit-delete-remove"
-            text: i18nc("@action:button Reset filters active on ListView", "Reset")
+            text: KI18n.i18nc("@action:button Reset filters active on ListView", "Reset")
             onTriggered: {
                 proxyModel.filterType = AbstractEpisodeProxyModel.NoFilter;
             }
@@ -37,6 +38,6 @@ Kirigami.InlineMessage {
 
     TextMetrics {
         id: textMetrics
-        text: i18nc("@info:status Name of the filter which is active on the ListView", "Active filter: %1", proxyModel.filterName)
+        text: KI18n.i18nc("@info:status Name of the filter which is active on the ListView", "Active filter: %1", proxyModel.filterName)
     }
 }

@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -69,7 +70,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
+                        text: KI18n.i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
                         icon.name: "source-playlist"
                         checked: currentPage == "QueuePage" && !settingsOpened
                         onClicked: {
@@ -79,7 +80,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18nc("@title of page allowing to search for new podcasts online", "Discover")
+                        text: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
                         icon.name: "search"
                         checked: currentPage == "DiscoverPage" && !settingsOpened
                         onClicked: {
@@ -89,7 +90,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
+                        text: KI18n.i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
                         icon.name: "bookmarks"
                         checked: currentPage == "FeedListPage" && !settingsOpened
                         onClicked: {
@@ -99,7 +100,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18nc("@title of page with list of podcast episodes", "Episodes")
+                        text: KI18n.i18nc("@title of page with list of podcast episodes", "Episodes")
                         icon.name: "rss"
                         checked: currentPage == "EpisodeListPage" && !settingsOpened
                         onClicked: {
@@ -109,7 +110,7 @@ Kirigami.OverlayDrawer {
                     Kirigami.NavigationTabButton {
                         Layout.fillWidth: true
                         display: root.buttonDisplayMode
-                        text: i18nc("@title of page with list of downloaded episodes", "Downloads")
+                        text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
                         icon.name: "download"
                         checked: currentPage == "DownloadListPage" && !settingsOpened
                         onClicked: {
@@ -128,7 +129,7 @@ Kirigami.OverlayDrawer {
             Kirigami.NavigationTabButton {
                 Layout.fillWidth: true
                 display: root.buttonDisplayMode
-                text: i18nc("@title of dialog with app settings", "Settings")
+                text: KI18n.i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
                 checked: settingsOpened
                 onClicked: {

@@ -10,13 +10,14 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.ki18n
 
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
     id: root
 
-    title: i18nc("@title of page allowing to search for new podcasts online", "Discover")
+    title: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
 
     header: Controls.Control {
         padding: Kirigami.Units.largeSpacing
@@ -39,7 +40,7 @@ Kirigami.ScrollablePage {
         contentItem: RowLayout {
             Kirigami.SearchField {
                 id: textField
-                placeholderText: i18n("Search podcastindex.org")
+                placeholderText: KI18n.i18n("Search podcastindex.org")
                 Layout.fillWidth: true
                 Keys.onReturnPressed: {
                     searchButton.clicked();
@@ -48,7 +49,7 @@ Kirigami.ScrollablePage {
 
             Controls.Button {
                 id: searchButton
-                text: WindowUtils.isWidescreen ? i18n("Search") : ""
+                text: WindowUtils.isWidescreen ? KI18n.i18n("Search") : ""
                 icon.name: "search"
                 onClicked: {
                     podcastSearchModel.search(textField.text);
@@ -94,7 +95,7 @@ Kirigami.ScrollablePage {
 
                 Controls.ToolButton {
                     id: subscribeAction
-                    text: enabled ? i18n("Subscribe") : i18n("Subscribed")
+                    text: enabled ? KI18n.i18n("Subscribe") : KI18n.i18n("Subscribed")
                     icon.name: "kt-add-feeds"
                     display: Controls.ToolButton.IconOnly
                     enabled: !DataManager.feedExists(listItem.url)

@@ -11,13 +11,14 @@ import QtMultimedia
 import Qt.labs.platform
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kmediasession
 
 Kirigami.ApplicationWindow {
     id: root
 
-    title: i18n("Example KMediaSession Player")
+    title: KI18n.i18n("Example KMediaSession Player")
 
     KMediaSession {
         id: audio
@@ -71,20 +72,20 @@ Kirigami.ApplicationWindow {
         RowLayout {
             Controls.Button {
                 icon.name: "document-open-folder"
-                text: i18n("Select File…")
+                text: KI18n.i18n("Select File…")
                 onClicked: filePathDialog.open()
             }
 
             FileDialog {
                 id: filePathDialog
-                title: i18n("Select Media File")
+                title: KI18n.i18n("Select Media File")
                 currentFile: audio.source
                 onAccepted: {
                     audio.source = filePathDialog.file;
                 }
             }
             Controls.Label {
-                text: i18n("OR")
+                text: KI18n.i18n("OR")
             }
             Controls.TextField {
                 id: urlField
@@ -92,7 +93,7 @@ Kirigami.ApplicationWindow {
                 text: audio.source
             }
             Controls.Button {
-                text: i18n("Open")
+                text: KI18n.i18n("Open")
                 onClicked: {
                     audio.source = urlField.text;
                 }
@@ -100,7 +101,7 @@ Kirigami.ApplicationWindow {
         }
         RowLayout {
             Controls.Button {
-                text: i18n("Play")
+                text: KI18n.i18n("Play")
                 enabled: audio.canPlay
                 icon.name: "media-playback-start"
                 onClicked: {
@@ -108,7 +109,7 @@ Kirigami.ApplicationWindow {
                 }
             }
             Controls.Button {
-                text: i18n("Pause")
+                text: KI18n.i18n("Pause")
                 enabled: audio.canPause
                 icon.name: "media-playback-pause"
                 onClicked: {
@@ -116,7 +117,7 @@ Kirigami.ApplicationWindow {
                 }
             }
             Controls.Button {
-                text: i18n("Stop")
+                text: KI18n.i18n("Stop")
                 icon.name: "media-playback-stop"
                 onClicked: {
                     audio.stop();
@@ -146,7 +147,7 @@ Kirigami.ApplicationWindow {
         }
         RowLayout {
             Controls.CheckBox {
-                text: i18n("Mute")
+                text: KI18n.i18n("Mute")
                 enabled: audio.playbackState !== KMediaSession.StoppedState
                 checked: audio.muted
                 onToggled: audio.muted = checked
@@ -184,13 +185,13 @@ Kirigami.ApplicationWindow {
         }
         ColumnLayout {
             Controls.Label {
-                text: i18n("Title: %1", audio.metaData.title)
+                text: KI18n.i18n("Title: %1", audio.metaData.title)
             }
             Controls.Label {
-                text: i18n("Artist: %1", audio.metaData.artist)
+                text: KI18n.i18n("Artist: %1", audio.metaData.artist)
             }
             Controls.Label {
-                text: i18n("Album: %1", audio.metaData.album)
+                text: KI18n.i18n("Album: %1", audio.metaData.album)
             }
             Image {
                 fillMode: Image.PreserveAspectFit
@@ -201,13 +202,13 @@ Kirigami.ApplicationWindow {
         }
         ColumnLayout {
             Controls.Label {
-                text: i18n("Media status: %1", audio.mediaStatus)
+                text: KI18n.i18n("Media status: %1", audio.mediaStatus)
             }
             Controls.Label {
-                text: i18n("Playback status: %1", audio.playbackState)
+                text: KI18n.i18n("Playback status: %1", audio.playbackState)
             }
             Controls.Label {
-                text: i18n("Error: %1", audio.error)
+                text: KI18n.i18n("Error: %1", audio.error)
             }
         }
     }

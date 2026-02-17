@@ -10,8 +10,9 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kmediasession
+import org.kde.ki18n
 
+import org.kde.kmediasession
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
@@ -20,7 +21,7 @@ Kirigami.ScrollablePage {
     required property QtObject entry
     property int entryuid: entry ? entry.entryuid : 0
 
-    title: i18nc("@title", "Episode Details")
+    title: KI18n.i18nc("@title", "Episode Details")
 
     padding: 0  // needed to get the inline header to fill the page
 
@@ -104,7 +105,7 @@ Kirigami.ScrollablePage {
 
                 actions: [
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to open an episode URL in browser", "Open in Browser")
+                        text: KI18n.i18nc("@action:intoolbar Button to open an episode URL in browser", "Open in Browser")
                         visible: !entry.enclosure
                         icon.name: "globe"
                         onTriggered: {
@@ -112,7 +113,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to start episode download", "Download")
+                        text: KI18n.i18nc("@action:intoolbar Button to start episode download", "Download")
                         visible: entry.enclosure && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded)
                         icon.name: "download"
                         onTriggered: {
@@ -121,7 +122,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to cancel ongoing download of episode", "Cancel Download")
+                        text: KI18n.i18nc("@action:intoolbar Button to cancel ongoing download of episode", "Cancel Download")
                         visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
                         icon.name: "edit-delete-remove"
                         onTriggered: {
@@ -129,7 +130,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to pause the playback of the episode", "Pause")
+                        text: KI18n.i18nc("@action:intoolbar Button to pause the playback of the episode", "Pause")
                         visible: entry.enclosure && entry.queueStatus && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
                         icon.name: "media-playback-pause"
                         onTriggered: {
@@ -137,7 +138,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to start playback of the episode", "Play")
+                        text: KI18n.i18nc("@action:intoolbar Button to start playback of the episode", "Play")
                         visible: entry.enclosure && entry.enclosure.status === Enclosure.Downloaded && entry.queueStatus && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-start"
                         onTriggered: {
@@ -146,7 +147,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
+                        text: KI18n.i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
                         visible: entry.enclosure && entry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-cloud"
                         onTriggered: {
@@ -158,7 +159,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: !entry.queueStatus ? i18nc("@action:intoolbar Button to add an episode to the play queue", "Add to Queue") : i18nc("@action:intoolbar Button to remove an episode from the play queue", "Remove from Queue")
+                        text: !entry.queueStatus ? KI18n.i18nc("@action:intoolbar Button to add an episode to the play queue", "Add to Queue") : KI18n.i18nc("@action:intoolbar Button to remove an episode from the play queue", "Remove from Queue")
                         icon.name: !entry.queueStatus ? "media-playlist-append" : "list-remove"
                         visible: entry.enclosure || entry.queueStatus
                         onTriggered: {
@@ -174,7 +175,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to remove the downloaded episode audio file", "Delete Download")
+                        text: KI18n.i18nc("@action:intoolbar Button to remove the downloaded episode audio file", "Delete Download")
                         icon.name: "delete"
                         visible: entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || entry.enclosure.status === Enclosure.PartiallyDownloaded)
                         onTriggered: {
@@ -182,27 +183,27 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to reset the play position of an episode to the start", "Reset Play Position")
+                        text: KI18n.i18nc("@action:intoolbar Button to reset the play position of an episode to the start", "Reset Play Position")
                         visible: entry.enclosure && entry.enclosure.playPosition > 1000
                         onTriggered: entry.enclosure.playPosition = 0
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                     },
                     Kirigami.Action {
-                        text: entry.read ? i18nc("@action:intoolbar Button to mark eposide as not played", "Mark as Unplayed") : i18nc("@action:intoolbar Button to mark episode as played", "Mark as Played")
+                        text: entry.read ? KI18n.i18nc("@action:intoolbar Button to mark eposide as not played", "Mark as Unplayed") : KI18n.i18nc("@action:intoolbar Button to mark episode as played", "Mark as Played")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
                             entry.read = !entry.read;
                         }
                     },
                     Kirigami.Action {
-                        text: entry.new ? i18nc("@action:intoolbar", "Remove \"New\" Label") : i18nc("@action:intoolbar", "Label as \"New\"")
+                        text: entry.new ? KI18n.i18nc("@action:intoolbar", "Remove \"New\" Label") : KI18n.i18nc("@action:intoolbar", "Label as \"New\"")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
                             entry.new = !entry.new;
                         }
                     },
                     Kirigami.Action {
-                        text: entry.favorite ? i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites") : i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
+                        text: entry.favorite ? KI18n.i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites") : KI18n.i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
                         icon.name: !entry.favorite ? "starred-symbolic" : "non-starred-symbolic"
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: {
@@ -210,7 +211,7 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
-                        text: i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
+                        text: KI18n.i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: openPodcast(entry.feed)
                     }
@@ -280,7 +281,7 @@ Kirigami.ScrollablePage {
             Layout.bottomMargin: Kirigami.Units.gridUnit
             visible: entry.hasEnclosure
 
-            text: i18nc("@action:button", "Copy Episode Download URL")
+            text: KI18n.i18nc("@action:button", "Copy Episode Download URL")
             height: enclosureUrl.height
             width: enclosureUrl.height
             icon.name: "edit-copy"

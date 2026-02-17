@@ -11,15 +11,16 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kmediasession
+import org.kde.ki18n
 
+import org.kde.kmediasession
 import org.kde.kasts
 
 FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related to app appearance", "Appearance")
+        title: KI18n.i18nc("@title Form header for settings related to app appearance", "Appearance")
         Layout.fillWidth: true
     }
 
@@ -28,23 +29,23 @@ FormCard.FormCardPage {
 
         FormCard.FormComboBoxDelegate {
             id: interfaceMode
-            text: i18nc("@label:listbox Label for selecting the type of GUI for the app (desktop, mobile or auto)", "Optimize interface for mobile/desktop usage")
-            description: i18nc("@label", "This will require a restart of the app to take effect")
+            text: KI18n.i18nc("@label:listbox Label for selecting the type of GUI for the app (desktop, mobile or auto)", "Optimize interface for mobile/desktop usage")
+            description: KI18n.i18nc("@label", "This will require a restart of the app to take effect")
 
             textRole: "text"
             valueRole: "value"
 
             model: [
                 {
-                    text: i18nc("Label for the GUI mode selection", "Auto"),
+                    text: KI18n.i18nc("Label for the GUI mode selection", "Auto"),
                     value: 2
                 },
                 {
-                    text: i18nc("Label for the GUI mode selection", "Desktop"),
+                    text: KI18n.i18nc("Label for the GUI mode selection", "Desktop"),
                     value: 0
                 },
                 {
-                    text: i18nc("Label for the GUI mode selection", "Mobile"),
+                    text: KI18n.i18nc("Label for the GUI mode selection", "Mobile"),
                     value: 1
                 }
             ]
@@ -60,19 +61,19 @@ FormCard.FormCardPage {
         FormCard.FormComboBoxDelegate {
             id: colorTheme
             Layout.fillWidth: true
-            text: i18nc("@label:listbox", "Color theme")
+            text: KI18n.i18nc("@label:listbox", "Color theme")
             textRole: "display"
             valueRole: "display"
             model: ColorSchemer.model
             Component.onCompleted: currentIndex = ColorSchemer.indexForCurrentScheme()
-            onCurrentValueChanged: ColorSchemer.apply(currentIndex);
+            onCurrentValueChanged: ColorSchemer.apply(currentIndex)
         }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormSwitchDelegate {
             id: alwaysShowFeedTitles
-            text: i18nc("@option:check", "Always show podcast titles in subscription view")
+            text: KI18n.i18nc("@option:check", "Always show podcast titles in subscription view")
             checked: SettingsManager.alwaysShowFeedTitles
             onToggled: {
                 SettingsManager.alwaysShowFeedTitles = checked;
@@ -82,7 +83,7 @@ FormCard.FormCardPage {
 
         FormCard.FormSwitchDelegate {
             id: showEpisodeImage
-            text: i18nc("@option:check", "Show episode image instead of podcast image in lists")
+            text: KI18n.i18nc("@option:check", "Show episode image instead of podcast image in lists")
             checked: SettingsManager.showEpisodeImage
             onToggled: {
                 SettingsManager.showEpisodeImage = checked;
@@ -92,7 +93,7 @@ FormCard.FormCardPage {
 
         FormCard.FormSwitchDelegate {
             id: showPodcastTitle
-            text: i18nc("@option:check", "Show podcast titles in episode lists")
+            text: KI18n.i18nc("@option:check", "Show podcast titles in episode lists")
             checked: SettingsManager.showPodcastTitle
             onToggled: {
                 SettingsManager.showPodcastTitle = checked;
@@ -102,7 +103,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Title header for settings related to the tray icon", "Tray icon")
+        title: KI18n.i18nc("@title Title header for settings related to the tray icon", "Tray icon")
         Layout.fillWidth: true
     }
 
@@ -113,7 +114,7 @@ FormCard.FormCardPage {
             id: showTrayIcon
             visible: SystrayIcon.available
             enabled: SystrayIcon.available
-            text: i18nc("@option:check", "Show icon in system tray")
+            text: KI18n.i18nc("@option:check", "Show icon in system tray")
             checked: SettingsManager.showTrayIcon
             onToggled: {
                 SettingsManager.showTrayIcon = checked;
@@ -125,7 +126,7 @@ FormCard.FormCardPage {
             id: minimizeToTray
             visible: SystrayIcon.available
             enabled: SettingsManager.showTrayIcon && SystrayIcon.available
-            text: i18nc("@option:check", "Minimize to tray instead of closing")
+            text: KI18n.i18nc("@option:check", "Minimize to tray instead of closing")
             checked: SettingsManager.minimizeToTray
             onToggled: {
                 SettingsManager.minimizeToTray = checked;
@@ -137,22 +138,22 @@ FormCard.FormCardPage {
             id: trayIconType
             visible: SystrayIcon.available
             enabled: SettingsManager.showTrayIcon && SystrayIcon.available
-            text: i18nc("@label:listbox Label for selecting the color of the tray icon", "Tray icon type")
+            text: KI18n.i18nc("@label:listbox Label for selecting the color of the tray icon", "Tray icon type")
 
             textRole: "text"
             valueRole: "value"
 
             model: [
                 {
-                    text: i18nc("Label describing style of tray icon", "Colorful"),
+                    text: KI18n.i18nc("Label describing style of tray icon", "Colorful"),
                     value: 0
                 },
                 {
-                    text: i18nc("Label describing style of tray icon", "Light"),
+                    text: KI18n.i18nc("Label describing style of tray icon", "Light"),
                     value: 1
                 },
                 {
-                    text: i18nc("Label describing style of tray icon", "Dark"),
+                    text: KI18n.i18nc("Label describing style of tray icon", "Dark"),
                     value: 2
                 }
             ]
@@ -165,7 +166,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title Form header for settings related to text/fonts", "Text")
+        title: KI18n.i18nc("@title Form header for settings related to text/fonts", "Text")
         Layout.fillWidth: true
     }
 
@@ -175,7 +176,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: useSystemFontCheckBox
             checked: SettingsManager.articleFontUseSystem
-            text: i18nc("@option:check", "Use system default")
+            text: KI18n.i18nc("@option:check", "Use system default")
 
             onToggled: {
                 SettingsManager.articleFontUseSystem = checked;
@@ -190,7 +191,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: fontSize
-            text: i18nc("@label:spinbox", "Font size")
+            text: KI18n.i18nc("@label:spinbox", "Font size")
 
             trailing: Controls.SpinBox {
                 id: articleFontSizeSpinBox

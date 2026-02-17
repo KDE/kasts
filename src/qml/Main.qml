@@ -13,6 +13,7 @@ import QtCore
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -22,7 +23,7 @@ import "Mobile"
 Kirigami.ApplicationWindow {
     id: kastsMainWindow
 
-    title: i18n("Kasts")
+    title: KI18n.i18n("Kasts")
 
     width: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
     height: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
@@ -202,7 +203,7 @@ Kirigami.ApplicationWindow {
     // not allow to add a BusyIndicator
     UpdateNotification {
         id: updateNotification
-        text: i18ncp("Number of Updated Podcasts", "Updated %2 of %1 Podcast", "Updated %2 of %1 Podcasts", Fetcher.updateTotal, Fetcher.updateProgress)
+        text: KI18n.i18ncp("Number of Updated Podcasts", "Updated %2 of %1 Podcast", "Updated %2 of %1 Podcasts", Fetcher.updateTotal, Fetcher.updateProgress)
 
         showAbortButton: true
 
@@ -225,7 +226,7 @@ Kirigami.ApplicationWindow {
     // Notification to show progress of copying enclosure and images to new location
     UpdateNotification {
         id: moveStorageNotification
-        text: i18ncp("Number of Moved Files", "Moved %2 of %1 File", "Moved %2 of %1 Files", StorageManager.storageMoveTotal, StorageManager.storageMoveProgress)
+        text: KI18n.i18ncp("Number of Moved Files", "Moved %2 of %1 File", "Moved %2 of %1 Files", StorageManager.storageMoveTotal, StorageManager.storageMoveProgress)
         showAbortButton: true
 
         function abortAction(): void {
@@ -279,7 +280,7 @@ Kirigami.ApplicationWindow {
     ConnectionCheckAction {
         id: downloadOverlay
 
-        headingText: i18nc("@info:status", "Podcast downloads are currently not allowed on metered connections")
+        headingText: KI18n.i18nc("@info:status", "Podcast downloads are currently not allowed on metered connections")
         condition: NetworkConnectionManager.episodeDownloadsAllowed
         property var entry: undefined
         property var selection: undefined

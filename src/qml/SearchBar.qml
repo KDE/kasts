@@ -9,7 +9,9 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -40,7 +42,7 @@ Controls.Control {
     contentItem: Kirigami.SearchField {
         id: searchField
         Layout.fillWidth: true
-        placeholderText: i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
+        placeholderText: KI18n.i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
         text: root.proxyModel.searchFilter
         focus: true
         autoAccept: false
@@ -53,7 +55,7 @@ Controls.Control {
             visible: root.showSearchFilters
             enabled: visible
             icon.name: "settings-configure"
-            text: i18nc("@action:intoolbar", "Advanced Search Options")
+            text: KI18n.i18nc("@action:intoolbar", "Advanced Search Options")
 
             onTriggered: {
                 if (searchSettingsMenu.visible) {
@@ -114,11 +116,11 @@ Controls.Control {
     Controls.Menu {
         id: searchSettingsMenu
 
-        title: i18nc("@title:menu", "Search Preferences")
+        title: KI18n.i18nc("@title:menu", "Search Preferences")
 
         Controls.Label {
             padding: Kirigami.Units.smallSpacing
-            text: i18nc("@title:group Group of fields in which can be searched", "Search in:")
+            text: KI18n.i18nc("@title:group Group of fields in which can be searched", "Search in:")
         }
 
         Repeater {
