@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import Qt.labs.platform
@@ -94,11 +96,11 @@ Kirigami.ScrollablePage {
                     icon.name: iconName
                     text: name
                     checkable: true
-                    checked: kastsMainWindow.feedSorting === sortType
+                    checked: root.Controls.ApplicationWindow.window ? (root.Controls.ApplicationWindow.window as Main).feedSorting === sortType : false
                     Controls.ActionGroup.group: sortActionRoot.sortGroup
 
                     onTriggered: {
-                        kastsMainWindow.feedSorting = sortType;
+                        (root.Controls.ApplicationWindow.window as Main).feedSorting = sortType;
                     }
                 }
 
@@ -257,7 +259,7 @@ Kirigami.ScrollablePage {
 
         model: FeedsProxyModel {
             id: feedsModel
-            sortType: kastsMainWindow.feedSorting
+            sortType: root.Controls.ApplicationWindow.window ? (root.Controls.ApplicationWindow.window as Main).feedSorting : 0
         }
 
         delegate: FeedListDelegate {
@@ -284,7 +286,7 @@ Kirigami.ScrollablePage {
                 feedList.selectionForContextMenu = [];
                 feedList.selectionModel.clear();
                 feedList.selectionModel.setCurrentIndex(feedList.model.index(0, 0), ItemSelectionModel.Current); // Only set current item; don't select it
-                currentIndex = 0;
+                feedList.currentIndex = 0;
             }
         }
 

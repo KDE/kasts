@@ -15,7 +15,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kasts
 
 Flickable {
-    id: footerBar
+    id: root
 
     property bool portrait: (contentZone.height / contentZone.width) > 0.7
 
@@ -27,15 +27,15 @@ Flickable {
 
     NumberAnimation on contentY {
         id: toOpen
-        from: contentY
-        to: contentHeight / 2
+        from: root.contentY
+        to: root.contentHeight / 2
         duration: Kirigami.Units.longDuration * 2
         easing.type: Easing.OutCubic
         running: false
     }
     NumberAnimation on contentY {
         id: toClose
-        from: contentY
+        from: root.contentY
         to: 0
         duration: Kirigami.Units.longDuration * 2
         easing.type: Easing.OutCubic
@@ -51,7 +51,7 @@ Flickable {
             toClose.stop();
             propagateComposedEvents = true;
         }
-        onReleased: footerBar.resetToBoundsOnFlick()
+        onReleased: root.resetToBoundsOnFlick()
     }
 
     function close(): void {
@@ -60,9 +60,9 @@ Flickable {
 
     function resetToBoundsOnFlick(): void {
         if (!atYBeginning || !atYEnd) {
-            if (footerBar.verticalVelocity > 0) {
+            if (root.verticalVelocity > 0) {
                 toOpen.restart();
-            } else if (footerBar.verticalVelocity < 0) {
+            } else if (root.verticalVelocity < 0) {
                 toClose.restart();
             } else {
                 // i.e. when verticalVelocity === 0
@@ -112,11 +112,11 @@ Flickable {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: kastsMainWindow.height + kastsMainWindow.miniplayerSize + contentToPlayerSpacing
+        height: (root.Controls.ApplicationWindow.window as Main).height + (root.Controls.ApplicationWindow.window as Main).miniplayerSize + root.contentToPlayerSpacing
         spacing: 0
 
         Controls.Control {
-            implicitHeight: kastsMainWindow.miniplayerSize + contentToPlayerSpacing
+            implicitHeight: (root.Controls.ApplicationWindow.window as Main).miniplayerSize + root.contentToPlayerSpacing
             Layout.fillWidth: true
             padding: 0
 
@@ -145,7 +145,7 @@ Flickable {
 
             MinimizedPlayerControls {
                 id: playControlItem
-                height: kastsMainWindow.miniplayerSize
+                height: (root.Controls.ApplicationWindow.window as Main).miniplayerSize
                 focus: true
                 anchors.left: parent.left
                 anchors.right: parent.right
