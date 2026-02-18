@@ -710,6 +710,7 @@
           <li xml:lang="ka">ინტერფეისი გამარტივდა სვეტების დამატების ნაცვლად, მხოლოდ, ერთი გვერდის ერთდროულად ჩვენებით და პოდკასტის გვერდისა და ეპიზოდების სიის გვერდის გაერთიანებით.</li>
           <li xml:lang="pt-BR">A interface foi simplificada exibindo apenas uma página por vez, em vez de adicionar colunas, e combinando a página do podcast com a página da lista de episódios do podcast.</li>
           <li xml:lang="ru">Интерфейс упрощён за счёт отображения только одной страницы за раз вместо добавления столбцов, а также за счёт объединения страницы подкаста со страницей списка выпусков подкаста;</li>
+          <li xml:lang="sl">Vmesnik je poenostavljen tako, da se namesto dodajanja stolpcev prikazuje le ena stran naenkrat, stran podkasta pa je združena s stranjo s seznamom epizod podkasta.</li>
           <li>The podcast and episode info pages are improved by adding a button toolbar (moving actions out of the app header) and by reworking the information layout.</li>
           <li xml:lang="ar">حُسّنت صفحات معلومات المدونة والحلقات عبر إضافة شريط أدوات للأزرار (نقل الإجراءات خارج ترويسة التطبيق) وإعادة صياغة تخطيط المعلومات.</li>
           <li xml:lang="ca">Les pàgines d'informació del pòdcast i d'episodis s'han millorat afegint una barra d'eines de botons (moure accions fora de la capçalera de l'aplicació) i refent la disposició de la informació.</li>
