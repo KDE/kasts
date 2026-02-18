@@ -941,6 +941,7 @@
           <li xml:lang="ar">منع تعليق النظام عبر systemd أثناء الاستماع إلى المدونات الصوتية</li>
           <li xml:lang="ca">inhibeix la suspensió del sistema mentre s'està escoltant pòdcasts</li>
           <li xml:lang="ca-valencia">inhibix la suspensió del sistema mentre s'està escoltant pòdcast</li>
+          <li xml:lang="ia">inhibi suspension de systema quando ascolta podcasts</li>
           <li xml:lang="nl">voorkomt dat systemd pauzeren wordt geactiveerd tijdens het luisteren naar podcasts</li>
           <li xml:lang="pt-BR">inibe a suspensão do systemd durante a reprodução de podcasts</li>
           <li xml:lang="ru">Запрещён переход в режим ожидания systemd при прослушивании подкастов;</li>
