@@ -6,8 +6,6 @@
  */
 
 import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigamiaddons.settings as KirigamiSettings
 import org.kde.ki18n

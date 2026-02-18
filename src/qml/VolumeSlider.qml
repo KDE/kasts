@@ -7,12 +7,10 @@
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
 
-import org.kde.kmediasession
 import org.kde.kasts
 
 Controls.Slider {

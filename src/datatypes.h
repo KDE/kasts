@@ -96,6 +96,8 @@ struct EntryDetails {
 };
 
 struct FeedDetails {
+    QML_VALUE_TYPE(feedDetails) // needed to expose this type to qml
+
     qint64 feeduid;
     QString name;
     QString url;

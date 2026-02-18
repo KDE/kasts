@@ -17,10 +17,10 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    id: subscriptionPage
+    id: root
     title: KI18n.i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     anchors.margins: 0
@@ -42,13 +42,13 @@ Kirigami.ScrollablePage {
             text: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
             icon.name: "search"
             onTriggered: {
-                applicationWindow().pageStack.push(Qt.createComponent("org.kde.kasts", "DiscoverPage"));
+                ((root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).push(Qt.createComponent("org.kde.kasts", "DiscoverPage"));
             }
         },
         Kirigami.Action {
             text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
             icon.name: "view-refresh"
-            onTriggered: refreshing = true
+            onTriggered: root.refreshing = true
         },
         Kirigami.Action {
             id: addAction
@@ -86,15 +86,19 @@ Kirigami.ScrollablePage {
                 }
 
                 Kirigami.Action {
+                    required property string iconName
+                    required property string name
+                    required property int sortType
+
                     visible: sortActionRoot.visible
-                    icon.name: model.iconName
-                    text: model.name
+                    icon.name: iconName
+                    text: name
                     checkable: true
-                    checked: kastsMainWindow.feedSorting === model.sortType
+                    checked: kastsMainWindow.feedSorting === sortType
                     Controls.ActionGroup.group: sortActionRoot.sortGroup
 
                     onTriggered: {
-                        kastsMainWindow.feedSorting = model.sortType;
+                        kastsMainWindow.feedSorting = sortType;
                     }
                 }
 
@@ -199,7 +203,7 @@ Kirigami.ScrollablePage {
                 action: Kirigami.Action {
                     icon.name: "search"
                     text: KI18n.i18nc("@action:button", "Search Online")
-                    onTriggered: pushPage("DiscoverPage")
+                    onTriggered: (root.Controls.ApplicationWindow.window as Main).pushPage("DiscoverPage")
                 }
             }
 
@@ -242,7 +246,7 @@ Kirigami.ScrollablePage {
         // binding loop, we calculate the number of columns and card width based
         // on the total width of the page itself rather than the width left for
         // the GridView, and then subtract some space
-        property int availableWidth: subscriptionPage.width - !Kirigami.Settings.isMobile * Kirigami.Units.gridUnit * 1.3
+        property int availableWidth: root.width - !Kirigami.Settings.isMobile * Kirigami.Units.gridUnit * 1.3
 
         // TODO: get proper width for scrollbar rather than hardcoding it
 

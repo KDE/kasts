@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -198,7 +200,7 @@ Kirigami.ScrollablePage {
             Kirigami.Icon {
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 4
-                source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                source: Sync.provider === SyncUtils.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
             }
             TextEdit {
                 Layout.fillWidth: true
@@ -207,7 +209,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: KI18n.i18nc("@label", "Please note that pushing the playback state of all local episodes to the server might take a very long time and/or might overload the server. Also note that this action will overwrite all existing episode states on the server.\n\nContinue?")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted()
+                Keys.onReturnPressed: syncPushAllStatesDialog.accepted()
             }
         }
     }
@@ -240,13 +242,13 @@ Kirigami.ScrollablePage {
                 name: KI18n.i18nc("@label", "gpodder.net"),
                 subtitle: KI18n.i18nc("@label", "Synchronize with official gpodder.net server"),
                 iconName: "gpodder",
-                provider: Sync.GPodderNet
+                provider: SyncUtils.GPodderNet
             },
             {
                 name: KI18n.i18nc("@label", "GPodder Nextcloud"),
                 subtitle: KI18n.i18nc("@label", "Synchronize with GPodder Nextcloud app"),
                 iconName: "kaccounts-nextcloud",
-                provider: Sync.GPodderNextcloud
+                provider: SyncUtils.GPodderNextcloud
             }
         ]
 
@@ -298,7 +300,7 @@ Kirigami.ScrollablePage {
         }
 
         onAccepted: {
-            if (Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked) {
+            if (Sync.provider === SyncUtils.GPodderNextcloud || customServerCheckBox.checked) {
                 Sync.hostname = hostnameField.text;
             } else {
                 Sync.hostname = "";
@@ -316,7 +318,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Icon {
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 4
-                    source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                    source: Sync.provider === SyncUtils.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -324,7 +326,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Heading {
                         clip: true
                         level: 2
-                        text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18nc("@label", "Sync with GPodder Nextcloud app") : KI18n.i18nc("@label", "Sync with gpodder.net service")
+                        text: Sync.provider === SyncUtils.GPodderNextcloud ? KI18n.i18nc("@label", "Sync with GPodder Nextcloud app") : KI18n.i18nc("@label", "Sync with gpodder.net service")
                     }
                     TextEdit {
                         Layout.fillWidth: true
@@ -334,7 +336,7 @@ Kirigami.ScrollablePage {
                         onLinkActivated: link => {
                             Qt.openUrlExternally(link);
                         }
-                        text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials.", "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") : KI18n.i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
+                        text: Sync.provider === SyncUtils.GPodderNextcloud ? KI18n.i18nc("@label argument is a weblink", "Sync with a Nextcloud server that has the GPodder Sync app installed: %1.<br/>It is advised to manually create an app password for Kasts through the web interface and use those credentials.", "<a href=\"https://apps.nextcloud.com/apps/gpoddersync\">https://apps.nextcloud.com/apps/gpoddersync</a>") : KI18n.i18nc("@label argument is a weblink", "If you don't already have an account, you should first create one at %1", "<a href=\"https://gpodder.net\">https://gpodder.net</a>")
                         color: Kirigami.Theme.textColor
                     }
                 }
@@ -370,20 +372,20 @@ Kirigami.ScrollablePage {
                     id: customServerCheckBox
                     Layout.row: 2
                     Layout.column: 1
-                    visible: Sync.provider === Sync.GPodderNet
+                    visible: Sync.provider === SyncUtils.GPodderNet
                     checked: false
                     text: KI18n.i18nc("@option:check", "Use custom server")
                 }
                 Controls.Label {
-                    visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
+                    visible: Sync.provider === SyncUtils.GPodderNextcloud || customServerCheckBox.checked
                     Layout.alignment: Qt.AlignRight
                     text: KI18n.i18nc("@label:textbox", "Hostname:")
                 }
                 Controls.TextField {
                     id: hostnameField
-                    visible: Sync.provider === Sync.GPodderNextcloud || customServerCheckBox.checked
+                    visible: Sync.provider === SyncUtils.GPodderNextcloud || customServerCheckBox.checked
                     Layout.fillWidth: true
-                    placeholderText: Sync.provider === Sync.GPodderNet ? "https://gpodder.net" : "https://nextcloud.mydomain.org"
+                    placeholderText: Sync.provider === SyncUtils.GPodderNet ? "https://gpodder.net" : "https://nextcloud.mydomain.org"
                     text: Sync.hostname
                     Keys.onReturnPressed: syncLoginOverlay.accepted()
                 }
@@ -398,7 +400,7 @@ Kirigami.ScrollablePage {
             syncDeviceOverlay.update();
         }
         function onLoginSucceeded(): void {
-            if (Sync.provider === Sync.GPodderNextcloud) {
+            if (Sync.provider === SyncUtils.GPodderNextcloud) {
                 firstSyncOverlay.open();
             }
         }
@@ -572,7 +574,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: KI18n.i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted()
+                Keys.onReturnPressed: syncGroupOverlay.accepted()
             }
         }
 
@@ -609,7 +611,7 @@ Kirigami.ScrollablePage {
             Kirigami.Icon {
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 4
-                source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                source: Sync.provider === SyncUtils.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
             }
             TextEdit {
                 Layout.fillWidth: true
@@ -618,7 +620,7 @@ Kirigami.ScrollablePage {
                 wrapMode: Text.WordWrap
                 text: KI18n.i18nc("@label", "Perform a first sync now?")
                 color: Kirigami.Theme.textColor
-                Keys.onReturnPressed: accepted()
+                Keys.onReturnPressed: firstSyncOverlay.accepted()
             }
         }
     }

@@ -54,6 +54,7 @@ struct EpisodeAction {
 
 struct Device {
     Q_GADGET
+    QML_VALUE_TYPE(device)
 public:
     QString id;
     QString caption;

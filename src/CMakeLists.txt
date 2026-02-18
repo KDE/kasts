@@ -131,6 +131,9 @@ qt_add_qml_module(kasts URI org.kde.kasts
     DEPENDENCIES
         org.kde.kmediasession
         QtCore
+        QtQuick
+    IMPORTS
+        org.kde.config
 )
 
 ecm_qt_declare_logging_category(kasts

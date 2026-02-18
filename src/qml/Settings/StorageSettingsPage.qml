@@ -29,7 +29,7 @@ FormCard.FormCardPage {
         FormCard.FormSwitchDelegate {
             id: defaultStoragePath
             visible: Qt.platform.os !== "android" // not functional on android
-            checked: SettingsManager.storagePath == ""
+            checked: SettingsManager.storagePath === ""
             text: KI18n.i18nc("@option:check", "Use default path")
             onToggled: {
                 if (checked) {
