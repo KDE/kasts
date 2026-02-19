@@ -82,6 +82,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
     QML_FILES
         qml/Main.qml
         qml/FeedListPage.qml
+        qml/FeedListGridView.qml
         qml/EntryPage.qml
         qml/FeedDetailsPage.qml
         qml/AddFeedSheet.qml

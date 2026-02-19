@@ -1,6 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
- * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
+ * SPDX-FileCopyrightText: 2021-2026 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -48,7 +48,7 @@ Controls.ItemDelegate {
     // - if our delegate moves
     // - if the model moves and the delegate stays in the same place
     function updateIsSelected(): void {
-        selected = listView.selectionModel.rowIntersectsSelection(row);
+        selected = (root.listView as FeedListGridView).selectionModel.rowIntersectsSelection(row);
     }
 
     onRowChanged: {
@@ -104,41 +104,41 @@ Controls.ItemDelegate {
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         onClicked: mouse => {
             // Keep track of (currently) selected items
-            var modelIndex = (root.GridView.view.model as FeedsProxyModel).index(root.index, 0);
+            var modelIndex = ((root.listView as FeedListGridView).model as FeedsProxyModel).index(root.index, 0);
 
-            if (root.GridView.view.selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
-                root.listView.contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
+            if ((root.listView as FeedListGridView).selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
+                (root.listView as FeedListGridView).contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
             } else if (mouse.modifiers & Qt.ShiftModifier) {
                 // Have to take a detour through c++ since selecting large sets
                 // in QML is extremely slow
-                root.listView.selectionModel.select(root.listView.model.createSelection(modelIndex.row, root.listView.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                (root.listView as FeedListGridView).selectionModel.select((root.listView as FeedListGridView).model.createSelection(modelIndex.row, (root.listView as FeedListGridView).selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
             } else if (mouse.modifiers & Qt.ControlModifier) {
-                root.listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+                (root.listView as FeedListGridView).selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
             } else if (mouse.button == Qt.LeftButton) {
-                root.listView.currentIndex = index;
-                root.listView.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                (root.listView as FeedListGridView).currentIndex = root.index;
+                (root.listView as FeedListGridView).selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 root.clicked();
             } else if (mouse.button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
-                root.listView.selectionForContextMenu = [modelIndex];
-                root.listView.contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
+                (root.listView as FeedListGridView).selectionForContextMenu = [modelIndex];
+                (root.listView as FeedListGridView).contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
             }
         }
 
         onPressAndHold: {
-            var modelIndex = (root.GridView.view.model as FeedsProxyModel).index(root.index, 0);
-            root.listView.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+            var modelIndex = ((root.listView as FeedListGridView).model as FeedsProxyModel).index(root.index, 0);
+            (root.listView as FeedListGridView).selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
 
         Connections {
-            target: root.listView.selectionModel
+            target: (root.listView as FeedListGridView).selectionModel
             function onSelectionChanged(): void {
                 root.updateIsSelected();
             }
         }
 
         Connections {
-            target: root.GridView.view.model as FeedsProxyModel
+            target: (root.listView as FeedListGridView).model as FeedsProxyModel
             function onLayoutAboutToBeChanged(): void {
                 if (root.GridView.view.currentItem === root) {
                     root.isCurrentItem = true;
@@ -153,10 +153,10 @@ Controls.ItemDelegate {
                 if (root.isCurrentItem) {
                     // yet another hack because "index" is still giving the old
                     // value here; so we have to manually find the new index.
-                    var mymodel = (root.GridView.view.model as FeedsProxyModel);
+                    var mymodel = ((root.listView as FeedListGridView).model as FeedsProxyModel);
                     for (var i = 0; i < mymodel.rowCount(); i++) {
                         if (mymodel.data(mymodel.index(i, 0), FeedsModel.UrlRole) == root.currentItemUrl) {
-                            mymodel.currentIndex = i;
+                            (root.listView as FeedListGridView).currentIndex = i;
                         }
                     }
                 }

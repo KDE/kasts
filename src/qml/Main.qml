@@ -8,8 +8,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQuick.Controls as Controls
-import QtQuick.Layouts
 import QtQuick.Effects
 import QtCore
 
@@ -81,8 +79,7 @@ Kirigami.ApplicationWindow {
         configGroupName: "MainWindow"
     }
 
-    SettingsView {
-        id: settingsView
+    property var settingsView: SettingsView {
         window: kastsMainWindow
     }
 
