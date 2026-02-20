@@ -54,8 +54,6 @@ public:
     QList<qint64> queue() const;
     bool entryInQueue(const qint64 entryuid);
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
-    void addToQueue(const qint64 entryuid);
-    void removeFromQueue(const qint64 entryuid);
     Q_INVOKABLE void sortQueue(AbstractEpisodeProxyModel::SortType sortType);
 
     Q_INVOKABLE qint64 lastPlayingEntry();
@@ -67,12 +65,12 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &list);
-    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &list);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids);
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
@@ -85,15 +83,20 @@ Q_SIGNALS:
     void feedAdded(const qint64 feeduid);
     void feedRemoved(const qint64 feeduid);
     void feedEntriesUpdated(const qint64 feeduid);
-    void queueEntryAdded(const int &index, const qint64 entryuid);
+    void queueEntriesAdded(const qint64 beginPos, const qint64 endPos, const QList<qint64> &entryuids);
     void queueEntryRemoved(const int &index, const qint64 entryuid);
     void queueEntryMoved(const int &from, const int &to);
     void queueSorted();
+
+    void entryNewStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryFavoriteStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryQueueStatusChanged(bool state, const QList<qint64> &entryuids);
 
     void unreadEntryCountChanged(const qint64 feeduid);
     void newEntryCountChanged(const qint64 feeduid);
     void favoriteEntryCountChanged(const qint64 feeduid);
 
+    // TODO: remove these signals and replace them with entryXxxxStatusChanged
     void bulkReadStatusActionFinished();
     void bulkNewStatusActionFinished();
     void bulkFavoriteStatusActionFinished();

@@ -25,11 +25,11 @@ QueueModel::QueueModel(QObject *parent)
         endMoveRows();
         qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](int pos) {
-        beginInsertRows(QModelIndex(), pos, pos);
+    connect(&DataManager::instance(), &DataManager::queueEntriesAdded, this, [this](const qint64 beginPos, const qint64 endPos) {
+        beginInsertRows(QModelIndex(), beginPos, endPos);
         endInsertRows();
         Q_EMIT timeLeftChanged();
-        qCDebug(kastsQueueModel) << "Added entry at pos" << pos;
+        qCDebug(kastsQueueModel) << "Added entry at from-to positions:" << beginPos << endPos;
     });
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](int pos) {
         beginRemoveRows(QModelIndex(), pos, pos);

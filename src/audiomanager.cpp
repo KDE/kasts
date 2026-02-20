@@ -88,7 +88,7 @@ AudioManager::AudioManager(QObject *parent)
     connect(this, &AudioManager::playbackRateChanged, &DataManager::instance(), &DataManager::playbackRateChanged);
 
     connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, &AudioManager::canGoNextChanged);
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, &AudioManager::canGoNextChanged);
+    connect(&DataManager::instance(), &DataManager::queueEntriesAdded, this, &AudioManager::canGoNextChanged);
     connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, &AudioManager::canGoNextChanged);
     // we'll send custom seekableChanged signal to work around possible backend glitches
 

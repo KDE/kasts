@@ -130,7 +130,7 @@ void FetchFeedsJob::monitorProgress()
                 qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
                 Entry *entry = DataManager::instance().getEntry(entryuid);
                 if (entry) {
-                    entry->setQueueStatusInternal(true);
+                    DataManager::instance().bulkQueueStatus(true, QList<qint64>({entryuid}));
                     if (SettingsManager::self()->autoDownload()) {
                         if (entry && entry->hasEnclosure() && entry->enclosure()) {
                             qCDebug(kastsUpdater) << "Start downloading queued entry" << entry->title();
