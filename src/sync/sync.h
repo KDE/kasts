@@ -98,9 +98,11 @@ public:
     void storeAddFeedAction(const QString &url);
     void storeRemoveFeedAction(const QString &url);
     void storePlayEpisodeAction(const QString &id, const qulonglong started, const qulonglong position);
-    void storePlayedEpisodeAction(const QString &id);
     void applySubscriptionChangesLocally(const QStringList &addList, const QStringList &removeList);
     void applyEpisodeActionsLocally(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &episodeActionHash);
+
+    // new actions based on uids; should replace the ones above after refactor
+    void storePlayedEpisodeAction(const QList<qint64> &entryuids);
 
 Q_SIGNALS:
     void syncEnabledChanged();

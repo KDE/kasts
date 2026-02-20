@@ -72,11 +72,6 @@ public:
 
     Q_INVOKABLE QString adjustedContent(int width, int fontSize);
 
-    void setNewInternal(bool state);
-    void setReadInternal(bool read);
-    void setFavoriteInternal(bool favorite);
-    void setQueueStatusInternal(bool state);
-
 Q_SIGNALS:
     void titleChanged(const QString &title);
     void contentChanged(const QString &content);

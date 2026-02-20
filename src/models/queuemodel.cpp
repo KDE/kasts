@@ -25,17 +25,20 @@ QueueModel::QueueModel(QObject *parent)
         endMoveRows();
         qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryAdded, this, [this](int pos) {
-        beginInsertRows(QModelIndex(), pos, pos);
+    connect(&DataManager::instance(), &DataManager::queueEntriesAdded, this, [this](const qint64 beginPos, const qint64 endPos) {
+        beginInsertRows(QModelIndex(), beginPos, endPos);
         endInsertRows();
         Q_EMIT timeLeftChanged();
-        qCDebug(kastsQueueModel) << "Added entry at pos" << pos;
+        qCDebug(kastsQueueModel) << "Added entry at from-to positions:" << beginPos << endPos;
     });
-    connect(&DataManager::instance(), &DataManager::queueEntryRemoved, this, [this](int pos) {
-        beginRemoveRows(QModelIndex(), pos, pos);
-        endRemoveRows();
+    connect(&DataManager::instance(), &DataManager::queueEntriesRemoved, this, [this](const QList<qint64> &removedIndices) {
+        // TODO: use resetmodel or layouttobechanged instead!
+        for (const qint64 pos : std::as_const(removedIndices)) {
+            beginRemoveRows(QModelIndex(), pos, pos);
+            endRemoveRows();
+            qCDebug(kastsQueueModel) << "Removed entry at pos" << pos;
+        }
         Q_EMIT timeLeftChanged();
-        qCDebug(kastsQueueModel) << "Removed entry at pos" << pos;
     });
     connect(&DataManager::instance(), &DataManager::queueSorted, this, [this]() {
         beginResetModel();

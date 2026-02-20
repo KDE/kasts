@@ -12,7 +12,6 @@
 #include <QQmlEngine>
 #include <QString>
 #include <QVariant>
-#include <qtypes.h>
 
 #include "models/abstractepisodemodel.h"
 #include "models/abstractepisodeproxymodel.h"

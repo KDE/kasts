@@ -32,7 +32,7 @@ class Feed : public QObject
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
-    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount WRITE setUnreadEntryCount NOTIFY unreadEntryCountChanged)
+    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int favoriteEntryCount READ favoriteEntryCount NOTIFY favoriteEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
@@ -71,7 +71,6 @@ public:
     void setDescription(const QString &description);
     void setLastUpdated(const QDateTime &lastUpdated);
     void setDirname(const QString &dirname);
-    void setUnreadEntryCount(const int count);
     void setRefreshing(bool refreshing);
     void setErrorId(int errorId);
     void setErrorString(const QString &errorString);

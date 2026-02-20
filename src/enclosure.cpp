@@ -50,6 +50,13 @@ Enclosure::Enclosure(Entry *entry)
             updateFromDb();
         }
     });
+    connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, [this](const QList<qint64> &positions, const QList<qint64> &entryuids) {
+        if (entryuids.contains(m_entryuid)) {
+            qint64 index = entryuids.indexOf(m_entryuid);
+            m_playposition = positions[index];
+            Q_EMIT playPositionChanged();
+        }
+    });
 
     // we use the relayed signal from AudioManager::playbackRateChanged by
     // DataManager; this is required to avoid a dependency loop on startup

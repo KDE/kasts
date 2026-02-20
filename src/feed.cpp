@@ -73,6 +73,12 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             setErrorString(QLatin1String(""));
         }
     });
+    connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [this](const qint64 feeduid) {
+        if (feeduid == m_feeduid) {
+            updateUnreadEntryCountFromDB();
+            Q_EMIT unreadEntryCountChanged();
+        }
+    });
     connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
             updateNewEntryCountFromDB();
@@ -345,16 +351,6 @@ void Feed::setDirname(const QString &dirname)
     if (dirname != m_dirname) {
         m_dirname = dirname;
         Q_EMIT dirnameChanged(m_dirname);
-    }
-}
-
-void Feed::setUnreadEntryCount(const int count)
-{
-    if (count != m_unreadEntryCount) {
-        m_unreadEntryCount = count;
-        Q_EMIT unreadEntryCountChanged();
-        Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
-        // TODO: can one of the two slots be removed??
     }
 }
 

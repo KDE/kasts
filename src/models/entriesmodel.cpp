@@ -10,7 +10,6 @@
 #include <QSqlQuery>
 #include <QString>
 #include <QTimer>
-#include <qhashfunctions.h>
 
 #include "database.h"
 #include "datamanager.h"

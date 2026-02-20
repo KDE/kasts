@@ -25,6 +25,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/episodemodel.h"
+#include "settingsmanager.h"
 #include "sync/sync.h"
 #include "utils/storagemanager.h"
 
@@ -122,11 +123,6 @@ Entry *DataManager::getEntry(const qint64 entryuid) const
 Entry *DataManager::getEntry(const QString &id) const
 {
     return getEntry(getEntryuidFromId(id));
-}
-
-int DataManager::feedCount() const
-{
-    return m_feeds.count();
 }
 
 void DataManager::removeFeed(Feed *feed)
@@ -375,59 +371,6 @@ void DataManager::moveQueueItem(const int from, const int to)
     Q_EMIT queueEntryMoved(from, to);
 }
 
-void DataManager::addToQueue(const qint64 entryuid)
-{
-    // If item is already in queue, then stop here
-    if (m_queuemap.contains(entryuid))
-        return;
-
-    // Add to internal queuemap data structure
-    m_queuemap += entryuid;
-    qCDebug(kastsDataManager) << "Queue mapping is now:" << m_queuemap;
-
-    // Get index of this entry
-    const int index = m_queuemap.indexOf(entryuid); // add new entry to end of queue
-
-    // Add to Queue database
-    QSqlQuery query;
-    query.prepare(QStringLiteral("INSERT INTO Queue (listnr, entryuid, playing) VALUES (:index, :entryuid, :playing);"));
-    query.bindValue(QStringLiteral(":index"), index);
-    query.bindValue(QStringLiteral(":entryuid"), entryuid);
-    query.bindValue(QStringLiteral(":playing"), false);
-    Database::instance().execute(query);
-
-    // Make sure that the QueueModel is aware of the changes
-    Q_EMIT queueEntryAdded(index, entryuid);
-}
-
-void DataManager::removeFromQueue(const qint64 entryuid)
-{
-    if (!entryInQueue(entryuid)) {
-        return;
-    }
-
-    const int index = m_queuemap.indexOf(entryuid);
-    qCDebug(kastsDataManager) << "Queuemap is now:" << m_queuemap;
-    qCDebug(kastsDataManager) << "Queue index of item to be removed" << index;
-
-    // Move to next track if it's currently playing
-    if (AudioManager::instance().entry() == getEntry(entryuid)) {
-        AudioManager::instance().next();
-    }
-
-    // Remove the item from the internal data structure
-    m_queuemap.removeAt(index);
-
-    // Then make sure that the database Queue table reflects these changes
-    QSqlQuery query;
-    query.prepare(QStringLiteral("DELETE FROM Queue WHERE entryuid=:entryuid;"));
-    query.bindValue(QStringLiteral(":entryuid"), entryuid);
-    Database::instance().execute(query);
-
-    // Make sure that the QueueModel is aware of the change so it can update
-    Q_EMIT queueEntryRemoved(index, entryuid);
-}
-
 void DataManager::sortQueue(AbstractEpisodeProxyModel::SortType sortType)
 {
     QString columnName;
@@ -456,8 +399,8 @@ void DataManager::sortQueue(AbstractEpisodeProxyModel::SortType sortType)
     }
 
     Database::instance().transaction();
+    query.prepare(QStringLiteral("UPDATE Queue SET listnr=:listnr WHERE entryuid=:entryuid;"));
     for (int i = 0; i < m_queuemap.length(); i++) {
-        query.prepare(QStringLiteral("UPDATE Queue SET listnr=:listnr WHERE entryuid=:entryuid;"));
         query.bindValue(QStringLiteral(":entryuid"), newQueuemap[i]);
         query.bindValue(QStringLiteral(":listnr"), i);
         Database::instance().execute(query);
@@ -617,25 +560,60 @@ void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list)
     bulkMarkRead(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkRead(bool state, const QList<qint64> &list)
+void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
 {
-    Database::instance().transaction();
+    QSet<qint64> feeduids;
 
-    if (state) { // Mark as read
-        // This needs special attention as the DB operations are very intensive.
-        // Reversing the loop is much faster
-        for (int i = list.count() - 1; i >= 0; i--) {
-            getEntry(list[i])->setReadInternal(state);
-        }
-        updateQueueListnrs(); // update queue after modification
-    } else { // Mark as unread
-        for (const qint64 &entryuid : std::as_const(list)) {
-            getEntry(entryuid)->setReadInternal(state);
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Entries SET read=:read WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        query.bindValue(QStringLiteral(":read"), state);
+        Database::instance().execute(query);
+    }
+
+    if (state && SettingsManager::self()->resetPositionOnPlayed()) {
+        query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid;"));
+        for (const qint64 &entryuid : std::as_const(entryuids)) {
+            query.bindValue(QStringLiteral(":entryuid"), entryuid);
+            query.bindValue(QStringLiteral(":playposition"), 0);
+            Database::instance().execute(query);
         }
     }
     Database::instance().commit();
 
-    Q_EMIT bulkReadStatusActionFinished();
+    query.prepare(QStringLiteral("SELECT feeduid FROM Entries WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        Database::instance().execute(query);
+        while (query.next()) {
+            feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
+        }
+    }
+
+    // Emit the signals to also update instantiated entry/enclosure/feed objects
+    Q_EMIT entryReadStatusChanged(state, entryuids);
+    if (state && SettingsManager::self()->resetPositionOnPlayed()) {
+        Q_EMIT entryPlayPositionsChanged(QList<qint64>(entryuids.count(), 0), entryuids);
+    }
+    for (const qint64 &feeduid : std::as_const(feeduids)) {
+        Q_EMIT unreadEntryCountChanged(feeduid);
+    }
+
+    // Follow-up actions in case entry is marked as read
+    if (state) {
+        // 1) Remove item from queue (will also automatically 2) unset the new status)
+        bulkQueueStatus(false, entryuids);
+
+        // 5) Delete episode if that setting is set
+        if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
+            bulkDeleteEnclosures(entryuids);
+        }
+
+        // 6) Log a sync action to sync this state with (gpodder) server
+        Sync::instance().storePlayedEpisodeAction(entryuids);
+    }
 
     // if settings allow, upload these changes immediately to sync servers
     if (state) {
@@ -648,15 +626,33 @@ void DataManager::bulkMarkNewByIndex(bool state, const QModelIndexList &list)
     bulkMarkNew(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkNew(bool state, const QList<qint64> &list)
+void DataManager::bulkMarkNew(bool state, const QList<qint64> &entryuids)
 {
+    QSet<qint64> feeduids;
+
     Database::instance().transaction();
-    for (const qint64 &entryuid : std::as_const(list)) {
-        getEntry(entryuid)->setNewInternal(state);
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Entries SET new=:new WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        query.bindValue(QStringLiteral(":new"), state);
+        Database::instance().execute(query);
     }
     Database::instance().commit();
 
-    Q_EMIT bulkNewStatusActionFinished();
+    query.prepare(QStringLiteral("SELECT feeduid FROM Entries WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        Database::instance().execute(query);
+        while (query.next()) {
+            feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
+        }
+    }
+
+    Q_EMIT entryNewStatusChanged(state, entryuids);
+    for (const qint64 &feeduid : std::as_const(feeduids)) {
+        Q_EMIT newEntryCountChanged(feeduid);
+    }
 }
 
 void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list)
@@ -664,15 +660,33 @@ void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &lis
     bulkMarkFavorite(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkFavorite(bool state, const QList<qint64> &list)
+void DataManager::bulkMarkFavorite(bool state, const QList<qint64> &entryuids)
 {
+    QSet<qint64> feeduids;
+
     Database::instance().transaction();
-    for (const qint64 &entryuid : std::as_const(list)) {
-        getEntry(entryuid)->setFavoriteInternal(state);
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Entries SET favorite=:favorite WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        query.bindValue(QStringLiteral(":favorite"), state);
+        Database::instance().execute(query);
     }
     Database::instance().commit();
 
-    Q_EMIT bulkFavoriteStatusActionFinished();
+    query.prepare(QStringLiteral("SELECT feeduid FROM Entries WHERE entryuid=:entryuid;"));
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        Database::instance().execute(query);
+        while (query.next()) {
+            feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
+        }
+    }
+
+    Q_EMIT entryFavoriteStatusChanged(state, entryuids);
+    for (const qint64 &feeduid : std::as_const(feeduids)) {
+        Q_EMIT favoriteEntryCountChanged(feeduid);
+    }
 }
 
 void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list)
@@ -680,26 +694,96 @@ void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list
     bulkQueueStatus(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkQueueStatus(bool state, const QList<qint64> &list)
+void DataManager::bulkQueueStatus(bool state, const QList<qint64> &entryuids)
 {
-    Database::instance().transaction();
-    if (state) { // i.e. add to queue
-        for (const qint64 &entryuid : std::as_const(list)) {
-            getEntry(entryuid)->setQueueStatusInternal(state);
-        }
-    } else { // i.e. remove from queue
-        // This needs special attention as the DB operations are very intensive.
-        // Reversing the loop is much faster.
-        for (int i = list.count() - 1; i >= 0; i--) {
-            qCDebug(kastsDataManager) << "getting entry" << list[i];
-            getEntry(list[i])->setQueueStatusInternal(state);
-        }
-        updateQueueListnrs();
-    }
-    Database::instance().commit();
+    QList<qint64> updatedEntryuids;
 
-    Q_EMIT bulkReadStatusActionFinished();
-    Q_EMIT bulkNewStatusActionFinished();
+    if (state) { // i.e. add to queue
+        const qint64 beginQueueIndex = m_queuemap.count();
+        qint64 currentQueueIndex = beginQueueIndex - 1; // This counter will immediately be incremented in the loop
+
+        Database::instance().transaction();
+        QSqlQuery query;
+        query.prepare(QStringLiteral("INSERT INTO Queue (listnr, entryuid, playing) VALUES (:listnr, :entryuid, :playing);"));
+        for (const qint64 entryuid : std::as_const(entryuids)) {
+            // If item is already in queue, then don't do anything
+            if (!m_queuemap.contains(entryuid)) {
+                ++currentQueueIndex; // Increment index first because it's needed as listnr in the database
+                updatedEntryuids += entryuid;
+
+                // Add to Queue database
+                query.bindValue(QStringLiteral(":listnr"), currentQueueIndex);
+                query.bindValue(QStringLiteral(":entryuid"), entryuid);
+                query.bindValue(QStringLiteral(":playing"), false);
+                Database::instance().execute(query);
+
+                // Add to internal queuemap data structure
+                m_queuemap += entryuid;
+            }
+        }
+        Database::instance().commit();
+
+        // Make sure that the QueueModel is aware of the changes
+        if (currentQueueIndex >= beginQueueIndex) {
+            Q_EMIT queueEntriesAdded(beginQueueIndex, currentQueueIndex, updatedEntryuids);
+        }
+
+        // Follow-up action: set entry to unread
+        bulkMarkRead(false, entryuids);
+
+    } else { // i.e. remove from queue
+        QList<qint64> removedIndices;
+
+        Database::instance().transaction();
+        QSqlQuery query;
+        query.prepare(QStringLiteral("DELETE FROM Queue WHERE entryuid=:entryuid;"));
+        // doing a reverse loop here to avoid constantly resetting the currently playing track, which is expensive
+        for (auto i = entryuids.rbegin(); i != entryuids.rend(); ++i) {
+            qint64 entryuid = *i;
+            // If item is not in queue then don't do anything
+            if (m_queuemap.contains(entryuid)) {
+                updatedEntryuids += entryuid;
+
+                const int index = m_queuemap.indexOf(entryuid);
+
+                // keep track of queue index for queuemodel to remove those rows
+                removedIndices += index;
+
+                qCDebug(kastsDataManager) << "Queuemap is now:" << m_queuemap;
+                qCDebug(kastsDataManager) << "Queue index of item to be removed" << index;
+
+                // Move to next track if it's currently playing
+                if (AudioManager::instance().entryuid() == entryuid) {
+                    AudioManager::instance().next();
+                }
+
+                // Remove the item from the internal data structure
+                m_queuemap.removeAt(index);
+
+                // Then make sure that the database Queue table reflects these changes
+                query.bindValue(QStringLiteral(":entryuid"), entryuid);
+                Database::instance().execute(query);
+
+                // TODO: this section needs to go outside of the for-loop after
+                // refactoring of the queue; it would currently cause problems because
+                // the queuemodel is informed too late about the removal of rows
+                // Make sure that the QueueModel is aware of the change so it can update
+                // Q_EMIT queueEntriesRemoved(removedIndices, updatedEntryuids);
+                Q_EMIT queueEntriesRemoved(QList<qint64>({index}), QList<qint64>({entryuid}));
+                qCDebug(kastsDataManager) << "Queue entries to be removed" << removedIndices << updatedEntryuids;
+
+                updateQueueListnrs();
+            }
+        }
+        Database::instance().commit();
+
+        // Unset "new" state
+        bulkMarkNew(false, updatedEntryuids);
+    }
+
+    qCDebug(kastsDataManager) << "Queue mapping is now:" << m_queuemap;
+
+    Q_EMIT entryQueueStatusChanged(state, updatedEntryuids);
 }
 
 void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list)
@@ -707,10 +791,10 @@ void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list)
     bulkDownloadEnclosures(getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkDownloadEnclosures(const QList<qint64> &list)
+void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids)
 {
-    bulkQueueStatus(true, list);
-    for (const qint64 &entryuid : std::as_const(list)) {
+    bulkQueueStatus(true, entryuids);
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
         if (getEntry(entryuid)->hasEnclosure()) {
             getEntry(entryuid)->enclosure()->download();
         }
@@ -722,15 +806,17 @@ void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list)
     bulkDeleteEnclosures(getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkDeleteEnclosures(const QList<qint64> &list)
+void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids)
 {
-    Database::instance().transaction();
-    for (const qint64 &entryuid : std::as_const(list)) {
+    // TODO: use database directly here?
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
         if (getEntry(entryuid)->hasEnclosure()) {
+            if (getEntry(entryuid)->enclosure()->status() == Enclosure::Downloading) {
+                getEntry(entryuid)->enclosure()->cancelDownload();
+            }
             getEntry(entryuid)->enclosure()->deleteFile();
         }
     }
-    Database::instance().commit();
 }
 
 QList<qint64> DataManager::getEntryuidsFromModelIndexList(const QModelIndexList &list) const

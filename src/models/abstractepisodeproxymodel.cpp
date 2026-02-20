@@ -101,9 +101,9 @@ AbstractEpisodeProxyModel::SortType AbstractEpisodeProxyModel::sortType() const
 void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 {
     if (type != m_currentFilter) {
-        disconnect(&DataManager::instance(), &DataManager::bulkReadStatusActionFinished, this, nullptr);
-        disconnect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, nullptr);
-        disconnect(&DataManager::instance(), &DataManager::bulkFavoriteStatusActionFinished, this, nullptr);
+        disconnect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, nullptr);
+        disconnect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, nullptr);
+        disconnect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, nullptr);
 
         beginResetModel();
         m_currentFilter = type;
@@ -112,19 +112,19 @@ void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 
         // connect to signals which indicate that read/new statuses have been updated
         if (type == ReadFilter || type == NotReadFilter) {
-            connect(&DataManager::instance(), &DataManager::bulkReadStatusActionFinished, this, [this]() {
+            connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this]() {
                 beginResetModel();
                 dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
                 endResetModel();
             });
         } else if (type == NewFilter || type == NotNewFilter) {
-            connect(&DataManager::instance(), &DataManager::bulkNewStatusActionFinished, this, [this]() {
+            connect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, [this]() {
                 beginResetModel();
                 dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
                 endResetModel();
             });
         } else if (type == FavoriteFilter || type == NotFavoriteFilter) {
-            connect(&DataManager::instance(), &DataManager::bulkFavoriteStatusActionFinished, this, [this]() {
+            connect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, [this]() {
                 beginResetModel();
                 dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
                 endResetModel();

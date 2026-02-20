@@ -122,7 +122,6 @@ void FetchFeedsJob::monitorProgress()
         // Check for "new" entries and queue them if necessary
         if (SettingsManager::self()->autoQueue()) {
             QSqlQuery query;
-            Database::instance().transaction();
             query.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE new=:new ORDER BY updated ASC;"));
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
@@ -130,7 +129,7 @@ void FetchFeedsJob::monitorProgress()
                 qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
                 Entry *entry = DataManager::instance().getEntry(entryuid);
                 if (entry) {
-                    entry->setQueueStatusInternal(true);
+                    DataManager::instance().bulkQueueStatus(true, QList<qint64>({entryuid}));
                     if (SettingsManager::self()->autoDownload()) {
                         if (entry && entry->hasEnclosure() && entry->enclosure()) {
                             qCDebug(kastsUpdater) << "Start downloading queued entry" << entry->title();
@@ -139,7 +138,6 @@ void FetchFeedsJob::monitorProgress()
                     }
                 }
             }
-            Database::instance().commit();
         }
 
         emitResult();

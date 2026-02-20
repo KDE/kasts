@@ -42,7 +42,6 @@ public:
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
-    int feedCount() const;
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeeds(const QStringList &urls, const bool fetch);
     Q_INVOKABLE void removeFeed(Feed *feed);
@@ -54,8 +53,6 @@ public:
     QList<qint64> queue() const;
     bool entryInQueue(const qint64 entryuid);
     Q_INVOKABLE void moveQueueItem(const int from, const int to);
-    void addToQueue(const qint64 entryuid);
-    void removeFromQueue(const qint64 entryuid);
     Q_INVOKABLE void sortQueue(AbstractEpisodeProxyModel::SortType sortType);
 
     Q_INVOKABLE qint64 lastPlayingEntry();
@@ -67,12 +64,12 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &list);
-    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &list);
-    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &list);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids);
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
@@ -85,24 +82,28 @@ Q_SIGNALS:
     void feedAdded(const qint64 feeduid);
     void feedRemoved(const qint64 feeduid);
     void feedEntriesUpdated(const qint64 feeduid);
-    void queueEntryAdded(const int &index, const qint64 entryuid);
-    void queueEntryRemoved(const int &index, const qint64 entryuid);
+    void queueEntriesAdded(const qint64 beginPos, const qint64 endPos, const QList<qint64> &entryuids);
+    void queueEntriesRemoved(const QList<qint64> &positions, const QList<qint64> &entryuids);
     void queueEntryMoved(const int &from, const int &to);
     void queueSorted();
+
+    void entryReadStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryNewStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryFavoriteStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryQueueStatusChanged(bool state, const QList<qint64> &entryuids);
+    void entryPlayPositionsChanged(const QList<qint64> &positions, const QList<qint64> &entryuids);
 
     void unreadEntryCountChanged(const qint64 feeduid);
     void newEntryCountChanged(const qint64 feeduid);
     void favoriteEntryCountChanged(const qint64 feeduid);
 
-    void bulkReadStatusActionFinished();
-    void bulkNewStatusActionFinished();
-    void bulkFavoriteStatusActionFinished();
-
     // this will relay the AudioManager::playbackRateChanged signal; this is
     // required to avoid a dependency loop on startup
     // TODO: find less hackish solution
     void playbackRateChanged();
+    // This is needed because there can be multiple instances of the same entry/enclosure; we want to keep them synced
     void playPositionChanged(const qint64 entryuid, const qint64 position);
+    // TODO: set the playposition only through datamanager; that way the position will automatically be synced with all instances
 
 private:
     DataManager();
@@ -110,7 +111,7 @@ private:
     void loadEntry(const qint64 entryuid) const;
     void updateQueueListnrs() const;
 
-    // TODO: probably needs to be removed after refactor
+    // TODO: probably needs to be updated after refactor
     qint64 getFeeduidFromUrl(const QString &url) const;
     qint64 getEntryuidFromId(const QString &id) const;
 

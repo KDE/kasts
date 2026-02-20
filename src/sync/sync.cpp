@@ -970,14 +970,16 @@ void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, c
     }
 }
 
-void Sync::storePlayedEpisodeAction(const QString &id)
+void Sync::storePlayedEpisodeAction(const QList<qint64> &entryuids)
 {
-    if (syncEnabled() && m_allowSyncActionLogging) {
-        if (DataManager::instance().getEntry(id)->hasEnclosure()) {
-            Entry *entry = DataManager::instance().getEntry(id);
-            const qulonglong duration =
-                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
-            storePlayEpisodeAction(id, duration * 1000, duration * 1000);
+    for (const qint64 entryuid : entryuids) {
+        if (syncEnabled() && m_allowSyncActionLogging) {
+            if (DataManager::instance().getEntry(entryuid)->hasEnclosure()) {
+                Entry *entry = DataManager::instance().getEntry(entryuid);
+                const qulonglong duration =
+                    (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
+                storePlayEpisodeAction(entry->id(), duration * 1000, duration * 1000);
+            }
         }
     }
 }
