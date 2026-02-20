@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-30 00:43+0000\n"
+"POT-Creation-Date: 2026-02-20 00:44+0000\n"
 "PO-Revision-Date: 2026-01-09 09:32+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -27,34 +27,34 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
 
-#: audiomanager.cpp:403
+#: audiomanager.cpp:432
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "Streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:412 enclosure.cpp:148 error.cpp:64
+#: audiomanager.cpp:441 enclosure.cpp:162 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Žádné síťové připojení"
 
-#: audiomanager.cpp:552
+#: audiomanager.cpp:584
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neplatné médium"
 
-#: enclosure.cpp:144
+#: enclosure.cpp:158
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 "Stahování podcastů při použití měřeného síťového připojení není povoleno"
 
-#: entry.cpp:100 feed.cpp:126
+#: entry.cpp:114 feed.cpp:136
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 a %2"
 
-#: entry.cpp:103 feed.cpp:129
+#: entry.cpp:117 feed.cpp:139
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -130,14 +130,14 @@ msgstr "NEBO"
 msgid "Open"
 msgstr "Otevřít"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:40
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:362
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:41
+#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:363
 #, kde-format
 msgid "Play"
 msgstr "Přehrát"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:385
+#: qml/Desktop/DesktopPlayerControls.qml:130 qml/GenericEntryDelegate.qml:386
 #, kde-format
 msgid "Pause"
 msgstr "Pozastavit"
@@ -301,7 +301,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Datum: starší dříve"
 
-#: models/chaptermodel.cpp:195
+#: models/chaptermodel.cpp:215
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -455,14 +455,14 @@ msgid "Open sleep timer settings"
 msgstr "Otevřít nastavení časování uspání"
 
 #: qml/Desktop/DesktopPlayerControls.qml:259
-#: qml/Mobile/MobilePlayerControls.qml:347
+#: qml/Mobile/MobilePlayerControls.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Otevřít nastavení hlasitosti"
 
 #: qml/Desktop/DesktopPlayerControls.qml:291
-#: qml/Mobile/MobilePlayerControls.qml:377
+#: qml/Mobile/MobilePlayerControls.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -497,14 +497,14 @@ msgstr "Časovač uspání"
 msgid "Chapters"
 msgstr "Kapitoly"
 
-#: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:407 qml/Desktop/HeaderBar.qml:121
 #: qml/Mobile/MobilePlayerControls.qml:174
 #, fuzzy, kde-format
 #| msgid "No episodes available"
 msgid "No Episode Title"
 msgstr "Nejsou k dispozici žádné epizody"
 
-#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:412 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:184
 #, fuzzy, kde-format
 #| msgid "No episodes available"
@@ -570,43 +570,43 @@ msgstr "Nedokončená stahování"
 msgid "Downloaded"
 msgstr "Staženo"
 
-#: qml/EntryPage.qml:22
+#: qml/EntryPage.qml:23
 #, kde-format
 msgctxt "@title"
 msgid "Episode Details"
 msgstr "Podrobnosti epizody"
 
-#: qml/EntryPage.qml:106
+#: qml/EntryPage.qml:107
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "Otevřít v prohlížeči"
 
-#: qml/EntryPage.qml:114
+#: qml/EntryPage.qml:115
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "Stáhnout"
 
-#: qml/EntryPage.qml:123
+#: qml/EntryPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "Zrušit stahování"
 
-#: qml/EntryPage.qml:131
+#: qml/EntryPage.qml:132
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: qml/EntryPage.qml:139
+#: qml/EntryPage.qml:140
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "Přehrát"
 
-#: qml/EntryPage.qml:148
+#: qml/EntryPage.qml:149
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -614,25 +614,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Streamovat"
 
-#: qml/EntryPage.qml:160
+#: qml/EntryPage.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Zařadit do fronty"
 
-#: qml/EntryPage.qml:160
+#: qml/EntryPage.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Odstranit z fronty"
 
-#: qml/EntryPage.qml:176
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Smazat stahování"
 
-#: qml/EntryPage.qml:184
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -640,31 +640,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Resetovat polohu přehrávání"
 
-#: qml/EntryPage.qml:190
+#: qml/EntryPage.qml:191
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Označit jako nepřehrané"
 
-#: qml/EntryPage.qml:190
+#: qml/EntryPage.qml:191
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Označit jako přehrané"
 
-#: qml/EntryPage.qml:197
+#: qml/EntryPage.qml:198
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Odstranit \"Nový\" popisek"
 
-#: qml/EntryPage.qml:197
+#: qml/EntryPage.qml:198
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Označit jako \"Nové\""
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:308
+#: qml/EntryPage.qml:205 qml/GenericEntryListView.qml:308
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -672,25 +672,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
-#: qml/EntryPage.qml:204 qml/GenericEntryListView.qml:299
+#: qml/EntryPage.qml:205 qml/GenericEntryListView.qml:299
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
-#: qml/EntryPage.qml:212
+#: qml/EntryPage.qml:213
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Otevřít podcast"
 
-#: qml/EntryPage.qml:284
+#: qml/EntryPage.qml:283
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Zkopírovat odkaz pro stahování epizod"
 
-#: qml/EntryPage.qml:290
+#: qml/EntryPage.qml:289
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -953,47 +953,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Aktivní filtr: %1"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Played"
 msgstr "Přehráno"
 
-#: qml/GenericEntryDelegate.qml:217
+#: qml/GenericEntryDelegate.qml:218
 #, kde-format
 msgid "Read"
 msgstr "Čtení"
 
-#: qml/GenericEntryDelegate.qml:223
+#: qml/GenericEntryDelegate.qml:224
 #, kde-format
 msgid "New"
 msgstr "Nový"
 
-#: qml/GenericEntryDelegate.qml:322 qml/GenericEntryListView.qml:257
+#: qml/GenericEntryDelegate.qml:323 qml/GenericEntryListView.qml:257
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Odstranit z fronty"
 
-#: qml/GenericEntryDelegate.qml:331 qml/GenericEntryListView.qml:317
+#: qml/GenericEntryDelegate.qml:332 qml/GenericEntryListView.qml:317
 #, kde-format
 msgid "Download"
 msgstr "Stáhnout"
 
-#: qml/GenericEntryDelegate.qml:341
+#: qml/GenericEntryDelegate.qml:342
 #, kde-format
 msgid "Cancel Download"
 msgstr "Zrušit stahování"
 
-#: qml/GenericEntryDelegate.qml:348
+#: qml/GenericEntryDelegate.qml:349
 #, kde-format
 msgid "Delete Download"
 msgstr "Smazat stahování"
 
-#: qml/GenericEntryDelegate.qml:355 qml/GenericEntryListView.qml:247
+#: qml/GenericEntryDelegate.qml:356 qml/GenericEntryListView.qml:247
 #, kde-format
 msgid "Add to Queue"
 msgstr "Zařadit do fronty"
 
-#: qml/GenericEntryDelegate.qml:372 qml/GenericEntryListView.qml:336
+#: qml/GenericEntryDelegate.qml:373 qml/GenericEntryListView.qml:336
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1105,7 +1105,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: qml/Main.qml:206
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1114,7 +1114,7 @@ msgstr[0] "Aktualizován %2 z %1 podcastů"
 msgstr[1] "Aktualizovány %2 z %1 podcastů"
 msgstr[2] "Aktualizováno %2 z %1 podcastů"
 
-#: qml/Main.qml:229
+#: qml/Main.qml:228
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1123,7 +1123,7 @@ msgstr[0] "Přesunut %2 z %1 souboru"
 msgstr[1] "Přesunuty %2 ze %1 souborů"
 msgstr[2] "Přesunuto %2 ze %1 souborů"
 
-#: qml/Main.qml:283
+#: qml/Main.qml:282
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
