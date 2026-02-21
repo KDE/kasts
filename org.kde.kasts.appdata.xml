@@ -497,6 +497,7 @@
           <li xml:lang="pt-BR">Corrigido um problema que causava travamentos ocasionais ao atualizar podcasts após o aplicativo estar aberto por um tempo.</li>
           <li xml:lang="ru">Исправлены периодические аварийные завершения при обновлении подкастов после длительной работы приложения;</li>
           <li xml:lang="sl">Odpravljena občasna sesutja pri posodabljanju podkastov, potem ko je bila aplikacija nekaj časa odprta.</li>
+          <li xml:lang="uk">Усунено рідкісні аварійні завершення роботи при оновленні трансляцій після того, як програма пропрацює певний час.</li>
           <li>Fixed a crash happening when resetting the sleep timer.</li>
           <li xml:lang="ar">إصلاح انهيار يحدث عند إعادة ضبط مؤقت النوم.</li>
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
@@ -504,6 +505,7 @@
           <li xml:lang="pt-BR">Corrigido um erro que causava o fechamento inesperado do jogo ao redefinir o temporizador de suspensão.</li>
           <li xml:lang="ru">Исправлено аварийное завершение при сбросе таймера сна;</li>
           <li xml:lang="sl">Popravljena napaka, ki je povzročala sesutje pri ponastavitvi časovnika spanja.</li>
+          <li xml:lang="uk">Усунено аварійне завершення роботи при скиданні таймера присипляння.</li>
           <li>Fixed the sort order functionality on episode lists.</li>
           <li xml:lang="ar">إصلاح وظيفة ترتيب الفرز في قوائم الحلقات.</li>
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
@@ -599,6 +601,7 @@
         <p xml:lang="ar">مزايا جديدة وإصلاحات في هذا الإصدار:</p>
         <p xml:lang="ca">Característiques noves i correccions d'errors en aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves i esmenes d'errors en esta versió:</p>
+        <p xml:lang="ia">Nove characteristicas e correctiones de faltas in iste version:</p>
         <p xml:lang="pt-BR">Novas funcionalidades e correções de bugs nesta versão:</p>
         <p xml:lang="ru">Новые возможности и исправления ошибок в этом выпуске:</p>
         <p xml:lang="sl">Nove zmožnosti in popravki napak v tej izdaji:</p>
@@ -813,6 +816,8 @@
           <li xml:lang="ar">تحسينات متنوعة على واجهة المستخدم</li>
           <li xml:lang="ca">Diverses millores de la interfície d'usuari</li>
           <li xml:lang="ca-valencia">Diverses millores de la interfície d'usuari</li>
+          <li xml:lang="he">מגוון שיפורי ממשק משתמש</li>
+          <li xml:lang="ia">Varie melioramentos de interfacie de usator</li>
           <li xml:lang="pt-BR">Várias melhorias na interface do usuário</li>
           <li xml:lang="ru">Различные улучшения пользовательского интерфейса;</li>
           <li xml:lang="sl">Različne izboljšave uporabniškega vmesnika</li>
@@ -855,6 +860,7 @@
           <li xml:lang="ar">عدة تحسينات في واجهة المستخدم</li>
           <li xml:lang="ca">Diverses millores a la interfície d'usuari</li>
           <li xml:lang="ca-valencia">Diverses millores en la interfície d'usuari</li>
+          <li xml:lang="he">מגוון שיפורים בממשק המשתמש</li>
           <li xml:lang="pt-BR">Diversas melhorias na interface do usuário</li>
           <li xml:lang="ru">Несколько улучшений в пользовательском интерфейсе;</li>
           <li xml:lang="sl">Več izboljšav uporabniškega vmesnika</li>
@@ -869,6 +875,7 @@
           <li xml:lang="ar">إعادة صياغة لصفحة الإعدادات</li>
           <li xml:lang="ca">Pàgina de configuració reelaborada</li>
           <li xml:lang="ca-valencia">Pàgina de configuració reelaborada</li>
+          <li xml:lang="he">עמוד ההגדרות עבר שיפוץ</li>
           <li xml:lang="pt-BR">Página de configurações reformulada</li>
           <li xml:lang="ru">Переработана страница параметров;</li>
           <li xml:lang="sl">Predelana stran z nastavitvami</li>
@@ -918,6 +925,7 @@
           <li xml:lang="ar">صفحة الاكتشاف للبحث عن المدونات الصوتية على podcastindex.org</li>
           <li xml:lang="ca">Pàgina de descoberta per a cercar pòdcasts a podcastindex.org</li>
           <li xml:lang="ca-valencia">Pàgina de descoberta per a buscar pòdcast a podcastindex.org</li>
+          <li xml:lang="he">עמוד הגילוי יחפש הסכתים ב־podcastindex.org</li>
           <li xml:lang="pt-BR">Página de descobrimento para pesquisar podcasts em podcastindex.org</li>
           <li xml:lang="ru">Страница «Поиск» для поиска подкастов на сайте podcastindex.org;</li>
           <li xml:lang="sl">Stran raziskovalca za iskanje podkastov na podcastindex.org</li>
@@ -925,6 +933,7 @@
           <li xml:lang="ar">أصبح بالإمكان استئناف تنزيل المدونات الصوتية.</li>
           <li xml:lang="ca">Ara es poden reprendre les baixades de pòdcasts.</li>
           <li xml:lang="ca-valencia">Ara es poden reprendre les baixades de pòdcast.</li>
+          <li xml:lang="he">מעתה ניתן לחדש הורדות הסכתים.</li>
           <li xml:lang="pt-BR">Os downloads de podcasts já podem ser retomados.</li>
           <li xml:lang="ru">Возобновление загрузки подкастов;</li>
           <li xml:lang="sl">Prenos podkastov je zdaj mogoče nadaljevati.</li>
@@ -932,6 +941,7 @@
           <li xml:lang="ar">تحديث مربع حوار إعدادات سرعة التشغيل.</li>
           <li xml:lang="ca">S'ha actualitzat el diàleg de configuració de la velocitat de reproducció.</li>
           <li xml:lang="ca-valencia">S'ha actualitzat el diàleg de configuració de la velocitat de reproducció.</li>
+          <li xml:lang="he">חלונית הגדרות מהירות הנגינה עודכנה.</li>
           <li xml:lang="pt-BR">Diálogo de configurações de velocidade de reprodução atualizado.</li>
           <li xml:lang="ru">Обновлён диалог настройки скорости воспроизведения;</li>
           <li xml:lang="sl">Posodobljeno pogovorno okno z nastavitvami hitrosti predvajanja.</li>
