@@ -60,6 +60,8 @@ Item {
             fillMode: root.imageFillMode
             asynchronous: true
             mipmap: true
+            sourceSize.width: 1024
+            sourceSize.height: 1024
         }
     }
 
