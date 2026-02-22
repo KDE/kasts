@@ -542,6 +542,7 @@
         <p xml:lang="ar">أبرز التغييرات في 24.02.0:</p>
         <p xml:lang="ca">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="ca-valencia">El més destacat dels canvis a la 24.02.0:</p>
+        <p xml:lang="he">השינויים העיקריים ב־24.02.0:</p>
         <p xml:lang="pt-BR">Alterações em destaque na versão 24.02.0:</p>
         <p xml:lang="ru">Основные изменения в версии 24.02.0:</p>
         <p xml:lang="sl">Poudarki sprememb v različici 24.02.0:</p>
@@ -550,6 +551,7 @@
           <li xml:lang="ar">نُقل كاست إلى Qt6 وأطر عمل كيدي 6.</li>
           <li xml:lang="ca">El Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="ca-valencia">Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
+          <li xml:lang="he">היישום Kasts הוסב ל־Qt6 ולתשתיות KDE‏ 6.</li>
           <li xml:lang="pt-BR">O Kasts foi portado para Qt6 e KDE Frameworks 6.</li>
           <li xml:lang="ru">Kasts перенесён на Qt6 и KDE Frameworks 6;</li>
           <li xml:lang="sl">Kasts je bil prenesen na Qt6 in KDE Frameworks 6.</li>
@@ -557,6 +559,7 @@
           <li xml:lang="ar">أصبح بالإمكان اختيار مخطط الألوان يدويًا.</li>
           <li xml:lang="ca">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="ca-valencia">L'esquema de color ara es pot seleccionar manualment.</li>
+          <li xml:lang="he">אפשר לבחור את ערכת הצבעים ידנית מעתה.</li>
           <li xml:lang="pt-BR">Agora é possível selecionar o esquema de cores manualmente.</li>
           <li xml:lang="ru">Цветовую схему теперь можно выбрать вручную;</li>
           <li xml:lang="sl">Barvno shemo je zdaj mogoče izbrati ročno.</li>
@@ -564,6 +567,7 @@
           <li xml:lang="ar">إصلاح عدة علل متعلقة بالصور ومتحكمات التشغيل.</li>
           <li xml:lang="ca">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="ca-valencia">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
+          <li xml:lang="he">מגוון תקלות שקשורות בפקדי תמונות ונגינה תוקנו.</li>
           <li xml:lang="pt-BR">Corrigidos diversos erros relacionados a imagens e controles de reprodução.</li>
           <li xml:lang="ru">Исправлены несколько ошибок, связанных с изображениями и элементами управления воспроизведением;</li>
           <li xml:lang="sl">Popravljenih več napak, povezanih s slikami in kontrolami predvajanja.</li>
@@ -571,6 +575,7 @@
           <li xml:lang="ar">أصبح بالإمكان تعطيل فحص الشبكة للاتصالات المحدودة بالكامل.</li>
           <li xml:lang="ca">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="ca-valencia">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
+          <li xml:lang="he">אפשר לכבות לחלוטין בדיקות רשת לאיתור רשתות מדודות.</li>
           <li xml:lang="pt-BR">Agora é possível desativar completamente as verificações de rede para conexões com tarifação limitada.</li>
           <li xml:lang="ru">Проверку сетевых подключений с тарификацией теперь можно полностью отключить;</li>
           <li xml:lang="sl">Preverjanje omrežja za merjene povezave je zdaj mogoče popolnoma onemogočiti.</li>
@@ -578,6 +583,7 @@
           <li xml:lang="ar">أصبح تحديث المدونات الصوتية أسرع بكثير على الأجهزة البطيئة.</li>
           <li xml:lang="ca">L'actualització dels pòdcasts ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="ca-valencia">L'actualització dels pòdcast ara hauria de ser significativament més ràpida en maquinari lent.</li>
+          <li xml:lang="he">עדכון הסכתים אמור להיות מהיר משמעותית מעתה על גבי חומרה איטית.</li>
           <li xml:lang="pt-BR">A atualização de podcasts agora deve ser significativamente mais rápida em computadores com hardware mais lento.</li>
           <li xml:lang="ru">Обновление подкастов на медленном оборудовании теперь выполняется значительно быстрее;</li>
           <li xml:lang="sl">Posodabljanje podkastov bi moralo biti zdaj bistveno hitrejše na počasni strojni opremi.</li>
@@ -601,6 +607,7 @@
         <p xml:lang="ar">مزايا جديدة وإصلاحات في هذا الإصدار:</p>
         <p xml:lang="ca">Característiques noves i correccions d'errors en aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves i esmenes d'errors en esta versió:</p>
+        <p xml:lang="he">יכולות ותיקוני תקלות חדשים במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas e correctiones de faltas in iste version:</p>
         <p xml:lang="pt-BR">Novas funcionalidades e correções de bugs nesta versão:</p>
         <p xml:lang="ru">Новые возможности и исправления ошибок в этом выпуске:</p>
@@ -638,6 +645,7 @@
           <li xml:lang="ar">أُضيفت ميزة دعم صور الفصول.</li>
           <li xml:lang="ca">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="ca-valencia">S'ha afegit la implementació per a les imatges de capítols.</li>
+          <li xml:lang="he">נוספה תמיכה בתמונות למקטעים.</li>
           <li xml:lang="pt-BR">Foi adicionado suporte para imagens nos capítulos.</li>
           <li xml:lang="ru">Добавлена поддержка изображений глав;</li>
           <li xml:lang="sl">Dodana je bila podpora za slike poglavij.</li>
@@ -666,6 +674,7 @@
           <li xml:lang="ar">حُلّت عدة مشكلات في تخطيطات اللغات التي تُكتب من اليمين إلى اليسار.</li>
           <li xml:lang="ca">S'han resolt diversos problemes amb les disposicions d'idiomes de dreta a esquerra.</li>
           <li xml:lang="ca-valencia">S'han resolt diversos problemes amb les disposicions d'idiomes de dreta a esquerra.</li>
+          <li xml:lang="he">נפתרו מגוון תקלות עם פריסות לשפות שנכתבות מימין לשמאל.</li>
           <li xml:lang="pt-BR">Diversos problemas relacionados a layouts de idioma da direita para a esquerda foram resolvidos.</li>
           <li xml:lang="ru">Исправлено несколько проблем с раскладками для языков с письмом справа налево;</li>
           <li xml:lang="sl">Odpravljenih je bilo več težav z jezikovnimi postavitvami od desne proti levi.</li>
@@ -697,6 +706,7 @@
           <li xml:lang="ar">نُفّذ مؤقت للنوم.</li>
           <li xml:lang="ca">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha implementat un temporitzador de son.</li>
+          <li xml:lang="he">קוצב זמן לשינה מומש מחדש.</li>
           <li xml:lang="pt-BR">Um temporizador de sono foi implementado.</li>
           <li xml:lang="ru">Реализован таймер сна;</li>
           <li xml:lang="sl">Vgrajen je bil časovnik za spanje.</li>
@@ -704,6 +714,7 @@
           <li xml:lang="ar">سيحفظ التطبيق الآن موضع وحجم نافذته.</li>
           <li xml:lang="ca">L'aplicació recordarà ara la posició i la mida de la seva finestra.</li>
           <li xml:lang="ca-valencia">L'aplicació recordarà ara la posició i la mida de la seua finestra.</li>
+          <li xml:lang="he">היישום יזכור את המקום ואת הגודל של החלון שלו.</li>
           <li xml:lang="pt-BR">O aplicativo agora se lembrará da posição e do tamanho da sua janela.</li>
           <li xml:lang="ru">Реализовано сохранение положения и размера окна;</li>
           <li xml:lang="sl">Aplikacija si bo zdaj zapomnila položaj in velikost svojega okna.</li>
@@ -1009,6 +1020,7 @@
           <li xml:lang="ar">منع تعليق النظام عبر systemd أثناء الاستماع إلى المدونات الصوتية</li>
           <li xml:lang="ca">inhibeix la suspensió del sistema mentre s'està escoltant pòdcasts</li>
           <li xml:lang="ca-valencia">inhibix la suspensió del sistema mentre s'està escoltant pòdcast</li>
+          <li xml:lang="he">מניעת השהיית המערכת בזמן האזנה להסכתים</li>
           <li xml:lang="ia">inhibi suspension de systema quando ascolta podcasts</li>
           <li xml:lang="nl">voorkomt dat systemd pauzeren wordt geactiveerd tijdens het luisteren naar podcasts</li>
           <li xml:lang="pt-BR">inibe a suspensão do systemd durante a reprodução de podcasts</li>
