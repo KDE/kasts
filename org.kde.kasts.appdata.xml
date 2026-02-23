@@ -672,6 +672,7 @@
           <li xml:lang="ru">Модуль воспроизведения аудио был полностью переписан; теперь он поддерживает несколько механизмов: libVLC, gstreamer и Qt Multimedia. Kasts по умолчанию использует libVLC, если он доступен, что должно решить распространённые проблемы: регулировка громкости теперь доступна из главной панели инструментов, а перемотка больше не должна приводить к зависанию звука;</li>
           <li xml:lang="sl">Zvočni zaledni sistem je bil popolnoma napisan na novo. Zdaj lahko podpira več zalednih sistemov: libVLC, gstreamer in Qt Multimedia. Kasts bo uporabljal libVLC kot privzeti zaledni sistem, ko bo na voljo, kar bi moralo rešiti pogoste težave: nadzor glasnosti je zdaj na voljo prek glavne orodne vrstice, iskanje pa ne bi smelo več povzročati prekinitev zvoka.</li>
           <li xml:lang="tr">The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
+          <li xml:lang="uk">Модуль обробки звуку було переписано з нуля. Тепер він може працювати із декількома модулями: libVLC, gstreamer та Qt Multimedia. Kasts використовуватиме libVLC як типовий модуль, коли він доступний, що має вирішити поширені проблеми: керування гучністю у новій версії доступне через головну панель інструментів, а пошук більше не повинен призводити до зависання звуку.</li>
           <li>The settings menu was ported to the new form components.</li>
           <li xml:lang="ar">نُقلت قائمة الإعدادات إلى مكونات النماذج الجديدة.</li>
           <li xml:lang="ca">El menú de configuració s'ha adaptat als components nous de formulari.</li>
@@ -701,6 +702,7 @@
           <li xml:lang="ru">Метки времени в описаниях выпусков теперь можно щёлкать мышью для перехода к соответствующему моменту в аудио;</li>
           <li xml:lang="sl">Časovne žige, omenjene v opisih epizod, je zdaj mogoče klikniti, in bo zvok preskočil na to mesto v epizodi.</li>
           <li xml:lang="tr">Timestamps mentioned in episode descriptions are now clickable, which will make the audio jump to that point in the episode.</li>
+          <li xml:lang="uk">Позначки часу, згадані в описах епізодів, тепер можна натискати, що перемикати звук на потрібний момент в епізоді.</li>
           <li>Images in headers are now clickable. This will open a fullscreen view of the image in question.</li>
           <li xml:lang="ar">أصبحت الصور في الترويسات قابلة للنقر. سيفتح هذا عرضًا بملء الشاشة للصورة المعنية.</li>
           <li xml:lang="ca">Les imatges de les capçaleres ara s'hi pot fer clic. Això obrirà una vista a pantalla completa de la imatge en qüestió.</li>
@@ -720,6 +722,7 @@
           <li xml:lang="ru">Кнопка подписки отключается при добавлении подкаста;</li>
           <li xml:lang="sl">Gumb za naročnino je zdaj onemogočen, ko je bil podkast pravkar dodan.</li>
           <li xml:lang="tr">The subscribe button is now disabled when a podcast has just been added.</li>
+          <li xml:lang="uk">У новій версії кнопку підписки буде вимкнено, якщо подкаст було додано щойно.</li>
           <li>Several issues with right-to-left language layouts were solved.</li>
           <li xml:lang="ar">حُلّت عدة مشكلات في تخطيطات اللغات التي تُكتب من اليمين إلى اليسار.</li>
           <li xml:lang="ca">S'han resolt diversos problemes amb les disposicions d'idiomes de dreta a esquerra.</li>
@@ -729,6 +732,7 @@
           <li xml:lang="ru">Исправлено несколько проблем с раскладками для языков с письмом справа налево;</li>
           <li xml:lang="sl">Odpravljenih je bilo več težav z jezikovnimi postavitvami od desne proti levi.</li>
           <li xml:lang="tr">Several issues with right-to-left language layouts were solved.</li>
+          <li xml:lang="uk">Виправлено декілька проблем із компонуваннями для мов із записом справа ліворуч.</li>
         </ul>
       </description>
     </release>
@@ -766,6 +770,7 @@
           <li xml:lang="ru">Реализован таймер сна;</li>
           <li xml:lang="sl">Vgrajen je bil časovnik za spanje.</li>
           <li xml:lang="tr">A sleep timer has been implemented.</li>
+          <li xml:lang="uk">Реалізовано таймер присипляння.</li>
           <li>The app will now remember the position and size of its window.</li>
           <li xml:lang="ar">سيحفظ التطبيق الآن موضع وحجم نافذته.</li>
           <li xml:lang="ca">L'aplicació recordarà ara la posició i la mida de la seva finestra.</li>
@@ -775,6 +780,7 @@
           <li xml:lang="ru">Реализовано сохранение положения и размера окна;</li>
           <li xml:lang="sl">Aplikacija si bo zdaj zapomnila položaj in velikost svojega okna.</li>
           <li xml:lang="tr">The app will now remember the position and size of its window.</li>
+          <li xml:lang="uk">У новій версії програма запам'ятовує розташування та розміри свого вікна.</li>
           <li>Kasts now has the ability to push all local episode states to the sync server.</li>
           <li xml:lang="ar">يمتلك كاست الآن القدرة على دفع جميع حالات الحلقات المحلية إلى خادم المزامنة.</li>
           <li xml:lang="ca">El Kasts ara té la capacitat d'empènyer tots els estats dels episodis locals al servidor de sincronització.</li>
@@ -784,6 +790,7 @@
           <li xml:lang="ru">Добавлена возможность отправки всех локальных состояний эпизодов на сервер синхронизации;</li>
           <li xml:lang="sl">Kasts ima zdaj možnost pošiljanja vseh lokalnih stanj epizod na strežnik za sinhronizacijo.</li>
           <li xml:lang="tr">Kasts now has the ability to push all local episode states to the sync server.</li>
+          <li xml:lang="uk">Нова версія Kasts здатна надсилати усі локальні стани епізодів на сервер синхронізації.</li>
           <li>A setting has been added to tell Kasts how many recent episodes should be marked as unplayed when adding a new podcast.</li>
           <li xml:lang="ar">أُضيف إعداد لإخبار كاست بعدد الحلقات الأخيرة التي يجب وسمها كغير مشغلة عند إضافة مدونة صوتية جديدة.</li>
           <li xml:lang="ca">S'ha afegit una opció per a indicar al Kasts quants episodis recents s'han de marcar com a no reproduïts en afegir un pòdcast nou.</li>
