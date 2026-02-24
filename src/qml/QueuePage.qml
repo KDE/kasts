@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", queueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + queueModel.formattedTimeLeft
+            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", QueueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + QueueModel.formattedTimeLeft
         }
     }
 
@@ -92,9 +92,7 @@ Kirigami.ScrollablePage {
             text: KI18n.i18nc("@info", "Queue is empty")
         }
 
-        model: QueueModel {
-            id: queueModel
-        }
+        model: QueueModel
 
         delegate: FocusScope {
             id: focusScope

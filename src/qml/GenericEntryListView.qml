@@ -167,7 +167,7 @@ ListView {
 
                 onTriggered: {
                     if (isQueue) {
-                        DataManager.sortQueue(model.sortType);
+                        QueueModel.sortQueue(model.sortType);
                     } else {
                         listView.model.sortType = model.sortType;
                     }

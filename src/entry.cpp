@@ -19,8 +19,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "objectslogging.h"
-#include "settingsmanager.h"
-#include "sync/sync.h"
+#include "queuemodel.h"
 
 Entry::Entry(const qint64 entryuid, QObject *parent)
     : QObject(&DataManager::instance()) // TODO: remove explicit parenting after refactor
@@ -406,12 +405,12 @@ QString Entry::cachedImage() const
 
 bool Entry::queueStatus() const
 {
-    return DataManager::instance().entryInQueue(m_entryuid);
+    return QueueModel::instance().entryInQueue(m_entryuid);
 }
 
 void Entry::setQueueStatus(bool state)
 {
-    if (state != DataManager::instance().entryInQueue(m_entryuid)) {
+    if (state != QueueModel::instance().entryInQueue(m_entryuid)) {
         // All changes to the underlying data is done through DataManager to make it much more performant
         // The individual entry objects get updated through signals after DataManager has made the changes
         DataManager::instance().bulkQueueStatus(state, QList<qint64>({m_entryuid}));

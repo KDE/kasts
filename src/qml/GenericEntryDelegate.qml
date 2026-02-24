@@ -184,7 +184,7 @@ AddonDelegates.RoundedItemDelegate {
                 listItem: loaderListItem
                 listView: loaderListView
                 onMoveRequested: (oldIndex, newIndex) => {
-                    DataManager.moveQueueItem(oldIndex, newIndex);
+                    QueueModel.moveQueueItem(oldIndex, newIndex);
                     // reset current selection when moving items
                     var modelIndex = root.listView.model.index(newIndex, 0);
                     listViewObject.currentIndex = newIndex;

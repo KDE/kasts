@@ -49,12 +49,7 @@ public:
     Q_INVOKABLE void removeFeeds(const QVariantList feedsVariantList);
     void removeFeeds(const QList<Feed *> &feeds);
 
-    Entry *getQueueEntry(int index) const;
-    QList<qint64> queue() const;
-    bool entryInQueue(const qint64 entryuid);
-    Q_INVOKABLE void moveQueueItem(const int from, const int to);
-    Q_INVOKABLE void sortQueue(AbstractEpisodeProxyModel::SortType sortType);
-
+    // TODO: remove afer queuemodel refactor
     Q_INVOKABLE qint64 lastPlayingEntry();
     Q_INVOKABLE void setLastPlayingEntry(const qint64 entryuid);
 
@@ -82,10 +77,6 @@ Q_SIGNALS:
     void feedAdded(const qint64 feeduid);
     void feedRemoved(const qint64 feeduid);
     void feedEntriesUpdated(const qint64 feeduid);
-    void queueEntriesAdded(const qint64 beginPos, const qint64 endPos, const QList<qint64> &entryuids);
-    void queueEntriesRemoved(const QList<qint64> &positions, const QList<qint64> &entryuids);
-    void queueEntryMoved(const int &from, const int &to);
-    void queueSorted();
 
     void entryReadStatusChanged(bool state, const QList<qint64> &entryuids);
     void entryNewStatusChanged(bool state, const QList<qint64> &entryuids);
@@ -109,7 +100,6 @@ private:
     DataManager();
     void loadFeed(const qint64 feeduid) const;
     void loadEntry(const qint64 entryuid) const;
-    void updateQueueListnrs() const;
 
     // TODO: probably needs to be updated after refactor
     qint64 getFeeduidFromUrl(const QString &url) const;
@@ -121,6 +111,4 @@ private:
 
     mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
     mutable QHash<qint64, QPointer<Entry>> m_entries; // hash of pointers to all entries in db, key = entryuid (lazy loading)
-
-    QList<qint64> m_queuemap; // list of entries/enclosures in the order that they should show up in queuelist
 };

@@ -10,56 +10,45 @@
 #include <QThread>
 
 #include <KFormat>
+#include <QSqlQuery>
+#include <qabstractitemmodel.h>
+#include <utility>
 
 #include "audiomanager.h"
+#include "database.h"
 #include "datamanager.h"
 #include "entry.h"
+#include "objectslogging.h"
 #include "settingsmanager.h"
 
 QueueModel::QueueModel(QObject *parent)
     : AbstractEpisodeModel(parent)
 {
-    connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, [this](int from, int to_orig) {
-        int to = (from < to_orig) ? to_orig + 1 : to_orig;
-        beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
-        endMoveRows();
-        qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to;
-    });
-    connect(&DataManager::instance(), &DataManager::queueEntriesAdded, this, [this](const qint64 beginPos, const qint64 endPos) {
-        beginInsertRows(QModelIndex(), beginPos, endPos);
-        endInsertRows();
-        Q_EMIT timeLeftChanged();
-        qCDebug(kastsQueueModel) << "Added entry at from-to positions:" << beginPos << endPos;
-    });
-    connect(&DataManager::instance(), &DataManager::queueEntriesRemoved, this, [this](const QList<qint64> &removedIndices) {
-        // TODO: use resetmodel or layouttobechanged instead!
-        for (const qint64 pos : std::as_const(removedIndices)) {
-            beginRemoveRows(QModelIndex(), pos, pos);
-            endRemoveRows();
-            qCDebug(kastsQueueModel) << "Removed entry at pos" << pos;
-        }
-        Q_EMIT timeLeftChanged();
-    });
-    connect(&DataManager::instance(), &DataManager::queueSorted, this, [this]() {
-        beginResetModel();
-        endResetModel();
-        qCDebug(kastsQueueModel) << "Queue was sorted";
-    });
     // Connect positionChanged to make sure that the remaining playing time in
     // the queue header is up-to-date
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](qint64 position) {
         Q_UNUSED(position)
         Q_EMIT timeLeftChanged();
     });
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT entryuid FROM Queue ORDER BY listnr;"));
+    Database::instance().execute(query);
+    while (query.next()) {
+        m_queue += query.value(QStringLiteral("entryuid")).toLongLong();
+    }
+    query.finish();
+    qCDebug(kastsQueueModel) << "m_queue contains:" << m_queue;
+    qCDebug(kastsObjects) << "QueueModel object" << this << "constructed";
 }
 
 QVariant QueueModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
     case AbstractEpisodeModel::Roles::EntryRole:
-        return QVariant::fromValue(DataManager::instance().getQueueEntry(index.row()));
+        return QVariant::fromValue(getQueueEntry(index.row()));
     case AbstractEpisodeModel::Roles::EntryuidRole:
-        return QVariant::fromValue(DataManager::instance().queue()[index.row()]);
+        return QVariant::fromValue(m_queue[index.row()]);
     default:
         return QVariant();
     }
@@ -68,15 +57,14 @@ QVariant QueueModel::data(const QModelIndex &index, int role) const
 int QueueModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    qCDebug(kastsQueueModel) << "queueCount is" << DataManager::instance().queue().count();
-    return DataManager::instance().queue().count();
+    qCDebug(kastsQueueModel) << "queueCount is" << m_queue.count();
+    return m_queue.count();
 }
 
 qint64 QueueModel::timeLeft() const
 {
     int result = 0;
-    const QList<qint64> queue = DataManager::instance().queue();
-    for (const qint64 &item : queue) {
+    for (const qint64 &item : std::as_const(m_queue)) {
         Entry *entry = DataManager::instance().getEntry(item);
         if (entry->enclosure()) {
             result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();
@@ -116,4 +104,211 @@ void QueueModel::updateInternalState()
 QItemSelection QueueModel::createSelection(int rowa, int rowb)
 {
     return QItemSelection(index(rowa, 0), index(rowb, 0));
+}
+
+void QueueModel::addToQueue(const QList<qint64> &entryuids)
+{
+    const qint64 beginQueueIndex = m_queue.count();
+
+    // Figure out how many entries actually have to be added (excluding the ones already in the queue)
+    qint64 endQueueIndex = beginQueueIndex - 1;
+    for (const qint64 entryuid : std::as_const(entryuids)) {
+        if (m_queue.contains(entryuid)) {
+            ++endQueueIndex;
+        }
+    }
+
+    beginInsertRows(QModelIndex(), beginQueueIndex, endQueueIndex);
+
+    qint64 currentQueueIndex = beginQueueIndex - 1; // Counter to be used inside the for loop to keep track of index
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("INSERT INTO Queue (listnr, entryuid, playing) VALUES (:listnr, :entryuid, :playing);"));
+    for (const qint64 entryuid : std::as_const(entryuids)) {
+        // If item is already in queue, then don't do anything
+        if (!m_queue.contains(entryuid)) {
+            ++currentQueueIndex; // Increment index first because it's needed as listnr in the database
+
+            // Add to Queue database
+            query.bindValue(QStringLiteral(":listnr"), currentQueueIndex);
+            query.bindValue(QStringLiteral(":entryuid"), entryuid);
+            query.bindValue(QStringLiteral(":playing"), false);
+            Database::instance().execute(query);
+
+            // Add to internal queuemap data structure
+            m_queue += entryuid;
+        }
+    }
+    Database::instance().commit();
+
+    endInsertRows();
+
+    Q_EMIT timeLeftChanged();
+    qCDebug(kastsQueueModel) << "Added entry at from-to positions:" << beginQueueIndex << endQueueIndex;
+    qCDebug(kastsQueueModel) << "m_queue is now:" << m_queue;
+}
+
+void QueueModel::removeFromQueue(const QList<qint64> &entryuids)
+{
+    // As long as the amount of items to be removed is low, we can use beginRemoveRows
+    // Otherwise we use resetModel
+    bool useResetModel = entryuids.count() > 50;
+
+    // First we check whether the currently playing track needs to be removed
+    // and, if so, skip to the next track on the queue that isn't going to be
+    // removed either.
+    if (entryuids.contains(AudioManager::instance().entryuid())) {
+        qint64 index = m_queue.indexOf(AudioManager::instance().entryuid()) + 1;
+        Q_ASSERT(index > -1);
+
+        while (index < m_queue.count() && entryuids.contains(m_queue[index])) {
+            ++index;
+        }
+
+        // index should now contain the index of the next track that isn't going
+        // to be removed
+        if (index < m_queue.count() && m_queue[index] > -1) {
+            AudioManager::instance().setEntryuid(m_queue[index]);
+        } else {
+            AudioManager::instance().setEntryuid(0);
+        }
+    }
+
+    if (useResetModel) {
+        beginResetModel();
+    }
+
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("DELETE FROM Queue WHERE entryuid=:entryuid;"));
+    // doing a reverse loop here to avoid constantly resetting the currently playing track, which is expensive
+    for (auto i = entryuids.rbegin(); i != entryuids.rend(); ++i) {
+        qint64 entryuid = *i;
+        // If item is not in queue then don't do anything
+        if (m_queue.contains(entryuid)) {
+            const int index = m_queue.indexOf(entryuid);
+            qCDebug(kastsQueueModel) << "m_queue is now:" << m_queue;
+            qCDebug(kastsQueueModel) << "Queue index of item to be removed" << index;
+
+            if (!useResetModel) {
+                beginRemoveRows(QModelIndex(), index, index);
+            }
+
+            // Remove the item from the internal data structure
+            m_queue.removeAt(index);
+
+            // Then make sure that the database Queue table reflects these changes
+            query.bindValue(QStringLiteral(":entryuid"), entryuid);
+            Database::instance().execute(query);
+
+            qCDebug(kastsQueueModel) << "Removed entry at index" << index;
+            qCDebug(kastsQueueModel) << "queueCount is" << m_queue.count();
+
+            if (!useResetModel) {
+                endRemoveRows();
+            }
+        }
+    }
+    Database::instance().commit();
+
+    updateQueueListnrs();
+
+    if (useResetModel) {
+        endResetModel();
+    }
+
+    qCDebug(kastsQueueModel) << "m_queue is now:" << m_queue;
+    Q_EMIT timeLeftChanged();
+}
+
+void QueueModel::moveQueueItem(const qint64 from, const qint64 to_orig)
+{
+    int to = (from < to_orig) ? to_orig + 1 : to_orig;
+    beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
+    // First move the items in the internal data structure
+    m_queue.move(from, to_orig);
+
+    // Then make sure that the database Queue table reflects these changes
+    updateQueueListnrs();
+
+    endMoveRows();
+
+    qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to_orig;
+
+    // Send this signal mainly to inform AudioManager about a change in the queue
+    Q_EMIT DataManager::instance().entryQueueStatusChanged(true, QList<qint64>());
+}
+
+Entry *QueueModel::getQueueEntry(int index) const
+{
+    return DataManager::instance().getEntry(m_queue[index]);
+}
+
+QList<qint64> QueueModel::queue() const
+{
+    return m_queue;
+}
+
+bool QueueModel::entryInQueue(const qint64 entryuid) const
+{
+    return m_queue.contains(entryuid);
+}
+
+void QueueModel::sortQueue(const AbstractEpisodeProxyModel::SortType sortType)
+{
+    beginResetModel();
+
+    QString columnName;
+    QString order;
+
+    switch (sortType) {
+    case AbstractEpisodeProxyModel::SortType::DateAscending:
+        order = QStringLiteral("ASC");
+        columnName = QStringLiteral("updated");
+        break;
+    case AbstractEpisodeProxyModel::SortType::DateDescending:
+        order = QStringLiteral("DESC");
+        columnName = QStringLiteral("updated");
+        break;
+    }
+
+    QList<qint64> new_queue;
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Queue INNER JOIN Entries ON Queue.entryuid = Entries.entryuid ORDER BY %1 %2;").arg(columnName, order));
+    Database::instance().execute(query);
+
+    while (query.next()) {
+        qCDebug(kastsQueueModel) << "new queue order:" << query.value(QStringLiteral("entryuid")).toLongLong();
+        new_queue += query.value(QStringLiteral("entryuid")).toLongLong();
+    }
+
+    Database::instance().transaction();
+    query.prepare(QStringLiteral("UPDATE Queue SET listnr=:listnr WHERE entryuid=:entryuid;"));
+    for (int i = 0; i < m_queue.length(); i++) {
+        query.bindValue(QStringLiteral(":entryuid"), new_queue[i]);
+        query.bindValue(QStringLiteral(":listnr"), i);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    m_queue.clear();
+    m_queue = new_queue;
+
+    endResetModel();
+
+    qCDebug(kastsQueueModel) << "Queue was sorted";
+}
+
+void QueueModel::updateQueueListnrs() const
+{
+    QSqlQuery query;
+    Database::instance().transaction();
+    query.prepare(QStringLiteral("UPDATE Queue SET listnr=:i WHERE entryuid=:entryuid;"));
+    for (int i = 0; i < m_queue.count(); i++) {
+        query.bindValue(QStringLiteral(":i"), i);
+        query.bindValue(QStringLiteral(":entryuid"), m_queue[i]);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
 }

@@ -19,6 +19,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
+#include "queuemodel.h"
 #include "settingsmanager.h"
 #include "utils/networkconnectionmanager.h"
 
@@ -87,9 +88,7 @@ AudioManager::AudioManager(QObject *parent)
 
     connect(this, &AudioManager::playbackRateChanged, &DataManager::instance(), &DataManager::playbackRateChanged);
 
-    connect(&DataManager::instance(), &DataManager::queueEntryMoved, this, &AudioManager::canGoNextChanged);
-    connect(&DataManager::instance(), &DataManager::queueEntriesAdded, this, &AudioManager::canGoNextChanged);
-    connect(&DataManager::instance(), &DataManager::queueEntriesRemoved, this, &AudioManager::canGoNextChanged);
+    connect(&DataManager::instance(), &DataManager::entryQueueStatusChanged, this, &AudioManager::canGoNextChanged);
     // we'll send custom seekableChanged signal to work around possible backend glitches
 
     connect(this, &AudioManager::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
@@ -524,11 +523,11 @@ void AudioManager::skipBackward()
 bool AudioManager::canGoNext() const
 {
     if (d->m_entry) {
-        int index = DataManager::instance().queue().indexOf(d->m_entryuid);
+        int index = QueueModel::instance().queue().indexOf(d->m_entryuid);
         if (index >= 0) {
             // check if there is a next track
-            if (index < DataManager::instance().queue().count() - 1) {
-                Entry *next_entry = new Entry(DataManager::instance().queue()[index + 1]);
+            if (index < QueueModel::instance().queue().count() - 1) {
+                Entry *next_entry = new Entry(QueueModel::instance().queue()[index + 1]);
                 if (next_entry && next_entry->enclosure()) {
                     qCDebug(kastsAudio) << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
                     if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
@@ -551,9 +550,9 @@ bool AudioManager::canGoNext() const
 void AudioManager::next()
 {
     if (canGoNext()) {
-        int index = DataManager::instance().queue().indexOf(d->m_entryuid);
-        qCDebug(kastsAudio) << "Skipping to" << DataManager::instance().queue()[index + 1];
-        setEntryuid(DataManager::instance().queue()[index + 1]);
+        int index = QueueModel::instance().queue().indexOf(d->m_entryuid);
+        qCDebug(kastsAudio) << "Skipping to" << QueueModel::instance().queue()[index + 1];
+        setEntryuid(QueueModel::instance().queue()[index + 1]);
     } else {
         qCDebug(kastsAudio) << "Next track cannot be played, changing entryuid to 0";
         setEntryuid(0);
