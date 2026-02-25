@@ -32,6 +32,7 @@ class Feed : public QObject
     Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
     Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
+    Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
     Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
     Q_PROPERTY(int favoriteEntryCount READ favoriteEntryCount NOTIFY favoriteEntryCountChanged)
@@ -56,6 +57,7 @@ public:
     QDateTime subscribed() const;
     QDateTime lastUpdated() const;
     QString dirname() const;
+    int entryCount() const;
     int unreadEntryCount() const;
     int newEntryCount() const;
     int favoriteEntryCount() const;
@@ -96,6 +98,7 @@ Q_SIGNALS:
     void refreshingChanged(bool refreshing);
 
 private:
+    void updateEntryCountFromDB();
     void updateUnreadEntryCountFromDB();
     void updateNewEntryCountFromDB();
     void updateFavoriteEntryCountFromDB();
@@ -114,6 +117,7 @@ private:
     QString m_dirname;
     int m_errorId;
     QString m_errorString;
+    int m_entryCount = -1;
     int m_unreadEntryCount = -1;
     int m_newEntryCount = -1;
     int m_favoriteEntryCount = -1;

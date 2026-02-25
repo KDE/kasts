@@ -52,6 +52,7 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     m_errorString = QLatin1String("");
 
     updateAuthors();
+    updateEntryCountFromDB();
     updateUnreadEntryCountFromDB();
     updateNewEntryCountFromDB();
     updateFavoriteEntryCountFromDB();
@@ -63,6 +64,7 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     });
     connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
+            updateEntryCountFromDB();
             Q_EMIT entryCountChanged();
             updateUnreadEntryCountFromDB();
             Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
@@ -145,6 +147,17 @@ void Feed::updateAuthors()
         m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
     }
     Q_EMIT authorsChanged(m_authors);
+}
+
+void Feed::updateEntryCountFromDB()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+    Database::instance().execute(query);
+    if (!query.next())
+        m_entryCount = -1;
+    m_entryCount = query.value(0).toInt();
 }
 
 void Feed::updateUnreadEntryCountFromDB()
@@ -273,6 +286,11 @@ QDateTime Feed::lastUpdated() const
 QString Feed::dirname() const
 {
     return m_dirname;
+}
+
+int Feed::entryCount() const
+{
+    return m_entryCount;
 }
 
 int Feed::unreadEntryCount() const
