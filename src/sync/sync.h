@@ -102,7 +102,8 @@ public:
     void applyEpisodeActionsLocally(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &episodeActionHash);
 
     // new actions based on uids; should replace the ones above after refactor
-    void storePlayedEpisodeAction(const QList<qint64> &entryuids);
+    void storePlayedEpisodeActions(const QList<qint64> &entryuids);
+    void storePlayEpisodeActions(const QList<qint64> &entryuids, const QList<qint64> &startPositions, const QList<qint64> &endPositions);
 
 Q_SIGNALS:
     void syncEnabledChanged();

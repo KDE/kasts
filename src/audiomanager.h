@@ -115,8 +115,8 @@ Q_SIGNALS:
     void playbackStateChanged(const KMediaSession::PlaybackState state);
     void playbackRateChanged(const qreal rate);
     void errorChanged(const KMediaSession::Error error);
-    void durationChanged(const qint64 duration);
-    void positionChanged(const qint64 position);
+    void durationChanged(const qint64 duration, const qint64 entryuid);
+    void positionChanged(const qint64 position, const qint64 entryuid);
     void seekableChanged(const bool seekable);
     void canPlayChanged();
     void canPauseChanged();
@@ -162,7 +162,7 @@ private Q_SLOTS:
     void playerDurationChanged(const qint64 duration);
     void playerMutedChanged();
     void playerVolumeChanged();
-    void savePlayPosition();
+    void savePlayPositionToDB(const qint64 position, const qint64 entryuid);
     void setEntryInfo(Entry *entry);
     void prepareAudio(const QUrl &loadUrl);
     void checkForPendingSeek();

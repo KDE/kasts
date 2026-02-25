@@ -12,6 +12,7 @@
 #include <KFormat>
 #include <QSqlQuery>
 #include <qabstractitemmodel.h>
+#include <qhashfunctions.h>
 #include <utility>
 
 #include "audiomanager.h"
@@ -26,10 +27,7 @@ QueueModel::QueueModel(QObject *parent)
 {
     // Connect positionChanged to make sure that the remaining playing time in
     // the queue header is up-to-date
-    connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](qint64 position) {
-        Q_UNUSED(position)
-        Q_EMIT timeLeftChanged();
-    });
+    connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, &QueueModel::timeLeftChanged);
 
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT entryuid FROM Queue ORDER BY listnr;"));
@@ -63,14 +61,20 @@ int QueueModel::rowCount(const QModelIndex &parent) const
 
 qint64 QueueModel::timeLeft() const
 {
-    int result = 0;
-    for (const qint64 &item : std::as_const(m_queue)) {
-        Entry *entry = DataManager::instance().getEntry(item);
-        if (entry->enclosure()) {
-            result += entry->enclosure()->duration() * 1000 - entry->enclosure()->playPosition();
-        }
+    qint64 result = 0;
+
+    QSqlQuery query;
+    query.prepare(
+        QStringLiteral("SELECT SUM(Enclosures.duration), SUM(Enclosures.playPosition) FROM Queue JOIN Enclosures ON Enclosures.entryuid = Queue.entryuid"));
+    Database::instance().execute(query);
+    if (query.next()) {
+        qint64 total_duration = 1000 * query.value(QStringLiteral("SUM(Enclosures.duration)")).toLongLong();
+        qint64 total_playedtime = query.value(QStringLiteral("SUM(Enclosures.playPosition)")).toLongLong();
+        result = total_duration - total_playedtime;
+        qCDebug(kastsQueueModel) << "timeLeft is" << result;
     }
-    qCDebug(kastsQueueModel) << "timeLeft is" << result;
+    query.finish();
+
     return result;
 }
 
@@ -82,7 +86,7 @@ QString QueueModel::formattedTimeLeft() const
         rate = (rate > 0.0) ? rate : 1.0;
     }
     static KFormat format;
-    return format.formatDuration(timeLeft() / rate);
+    return format.formatDuration(timeLeft() / rate, KFormat::HideSeconds | KFormat::InitialDuration);
 }
 
 QString QueueModel::getSortName(AbstractEpisodeProxyModel::SortType type)

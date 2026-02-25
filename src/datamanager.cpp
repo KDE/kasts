@@ -468,12 +468,12 @@ bool DataManager::feedExists(const QString &url)
     return false;
 }
 
-void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list)
+void DataManager::bulkMarkReadByIndex(bool state, const QModelIndexList &list) const
 {
     bulkMarkRead(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
+void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids) const
 {
     QSet<qint64> feeduids;
 
@@ -484,15 +484,6 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
         query.bindValue(QStringLiteral(":entryuid"), entryuid);
         query.bindValue(QStringLiteral(":read"), state);
         Database::instance().execute(query);
-    }
-
-    if (state && SettingsManager::self()->resetPositionOnPlayed()) {
-        query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid;"));
-        for (const qint64 &entryuid : std::as_const(entryuids)) {
-            query.bindValue(QStringLiteral(":entryuid"), entryuid);
-            query.bindValue(QStringLiteral(":playposition"), 0);
-            Database::instance().execute(query);
-        }
     }
     Database::instance().commit();
 
@@ -508,7 +499,7 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
     // Emit the signals to also update instantiated entry/enclosure/feed objects
     Q_EMIT entryReadStatusChanged(state, entryuids);
     if (state && SettingsManager::self()->resetPositionOnPlayed()) {
-        Q_EMIT entryPlayPositionsChanged(QList<qint64>(entryuids.count(), 0), entryuids);
+        bulkSavePlayPositions(QList<qint64>(entryuids.count(), 0), entryuids);
     }
     for (const qint64 &feeduid : std::as_const(feeduids)) {
         Q_EMIT unreadEntryCountChanged(feeduid);
@@ -525,7 +516,7 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
         }
 
         // 6) Log a sync action to sync this state with (gpodder) server
-        Sync::instance().storePlayedEpisodeAction(entryuids);
+        Sync::instance().storePlayedEpisodeActions(entryuids);
     }
 
     // if settings allow, upload these changes immediately to sync servers
@@ -534,12 +525,12 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids)
     }
 }
 
-void DataManager::bulkMarkNewByIndex(bool state, const QModelIndexList &list)
+void DataManager::bulkMarkNewByIndex(bool state, const QModelIndexList &list) const
 {
     bulkMarkNew(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkNew(bool state, const QList<qint64> &entryuids)
+void DataManager::bulkMarkNew(bool state, const QList<qint64> &entryuids) const
 {
     QSet<qint64> feeduids;
 
@@ -568,12 +559,12 @@ void DataManager::bulkMarkNew(bool state, const QList<qint64> &entryuids)
     }
 }
 
-void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list)
+void DataManager::bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list) const
 {
     bulkMarkFavorite(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkMarkFavorite(bool state, const QList<qint64> &entryuids)
+void DataManager::bulkMarkFavorite(bool state, const QList<qint64> &entryuids) const
 {
     QSet<qint64> feeduids;
 
@@ -602,12 +593,12 @@ void DataManager::bulkMarkFavorite(bool state, const QList<qint64> &entryuids)
     }
 }
 
-void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list)
+void DataManager::bulkQueueStatusByIndex(bool state, const QModelIndexList &list) const
 {
     bulkQueueStatus(state, getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkQueueStatus(bool state, const QList<qint64> &entryuids)
+void DataManager::bulkQueueStatus(bool state, const QList<qint64> &entryuids) const
 {
     if (state) { // i.e. add to queue
         QueueModel::instance().addToQueue(entryuids);
@@ -625,12 +616,12 @@ void DataManager::bulkQueueStatus(bool state, const QList<qint64> &entryuids)
     Q_EMIT entryQueueStatusChanged(state, entryuids);
 }
 
-void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list)
+void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list) const
 {
     bulkDownloadEnclosures(getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids)
+void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
 {
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
@@ -640,12 +631,12 @@ void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids)
     }
 }
 
-void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list)
+void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const
 {
     bulkDeleteEnclosures(getEntryuidsFromModelIndexList(list));
 }
 
-void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids)
+void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
 {
     // TODO: use database directly here?
     for (const qint64 &entryuid : std::as_const(entryuids)) {
@@ -656,6 +647,29 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids)
             getEntry(entryuid)->enclosure()->deleteFile();
         }
     }
+}
+
+void DataManager::bulkSavePlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const
+{
+    Q_ASSERT(playPositions.count() == entryuids.count());
+
+    QSqlQuery query;
+    Database::instance().transaction();
+    // TODO: switch to saving the position on the entry?
+    query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        query.bindValue(QStringLiteral(":playposition"), playPositions[i]);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    qCDebug(kastsDataManager) << "Saved playpositions for entries:" << entryuids << ", positions:" << playPositions;
+    Q_EMIT entryPlayPositionsChanged(playPositions, entryuids);
+
+    // Also store position change to make sure that it can be synced to
+    // e.g. gpodder
+    Sync::instance().storePlayEpisodeActions(entryuids, playPositions, playPositions);
 }
 
 QList<qint64> DataManager::getEntryuidsFromModelIndexList(const QModelIndexList &list) const

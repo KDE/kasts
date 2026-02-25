@@ -970,17 +970,29 @@ void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, c
     }
 }
 
-void Sync::storePlayedEpisodeAction(const QList<qint64> &entryuids)
+void Sync::storePlayedEpisodeActions(const QList<qint64> &entryuids)
 {
     for (const qint64 entryuid : entryuids) {
         if (syncEnabled() && m_allowSyncActionLogging) {
             if (DataManager::instance().getEntry(entryuid)->hasEnclosure()) {
+                // TODO: refactor to use DB instead of creating objects
                 Entry *entry = DataManager::instance().getEntry(entryuid);
                 const qulonglong duration =
                     (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
                 storePlayEpisodeAction(entry->id(), duration * 1000, duration * 1000);
             }
         }
+    }
+}
+
+void Sync::storePlayEpisodeActions(const QList<qint64> &entryuids, const QList<qint64> &startPositions, const QList<qint64> &endPositions)
+{
+    Q_ASSERT(entryuids.count() == startPositions.count());
+    Q_ASSERT(entryuids.count() == endPositions.count());
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        // TODO: put content of storePlayEpisodeAction in here after refactor to entryuids is done
+        Entry *entry = DataManager::instance().getEntry(entryuids[i]);
+        storePlayEpisodeAction(entry->id(), startPositions[i], endPositions[i]);
     }
 }
 

@@ -59,42 +59,35 @@ public:
     Q_INVOKABLE void exportFeeds(const QString &path);
     Q_INVOKABLE bool feedExists(const QString &url);
 
-    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &entryuids);
-    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &entryuids);
-    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &entryuids);
-    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids);
-    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids);
-    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids);
+    Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSavePlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
 
-    Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list);
-    Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list);
-    Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list);
-    Q_INVOKABLE void bulkQueueStatusByIndex(bool state, const QModelIndexList &list);
-    Q_INVOKABLE void bulkDownloadEnclosuresByIndex(const QModelIndexList &list);
-    Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list);
+    Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkQueueStatusByIndex(bool state, const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkDownloadEnclosuresByIndex(const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const;
 
 Q_SIGNALS:
     void feedAdded(const qint64 feeduid);
     void feedRemoved(const qint64 feeduid);
     void feedEntriesUpdated(const qint64 feeduid);
 
-    void entryReadStatusChanged(bool state, const QList<qint64> &entryuids);
-    void entryNewStatusChanged(bool state, const QList<qint64> &entryuids);
-    void entryFavoriteStatusChanged(bool state, const QList<qint64> &entryuids);
-    void entryQueueStatusChanged(bool state, const QList<qint64> &entryuids);
-    void entryPlayPositionsChanged(const QList<qint64> &positions, const QList<qint64> &entryuids);
+    void entryReadStatusChanged(bool state, const QList<qint64> &entryuids) const;
+    void entryNewStatusChanged(bool state, const QList<qint64> &entryuids) const;
+    void entryFavoriteStatusChanged(bool state, const QList<qint64> &entryuids) const;
+    void entryQueueStatusChanged(bool state, const QList<qint64> &entryuids) const;
+    void entryPlayPositionsChanged(const QList<qint64> &positions, const QList<qint64> &entryuids) const;
 
-    void unreadEntryCountChanged(const qint64 feeduid);
-    void newEntryCountChanged(const qint64 feeduid);
-    void favoriteEntryCountChanged(const qint64 feeduid);
-
-    // this will relay the AudioManager::playbackRateChanged signal; this is
-    // required to avoid a dependency loop on startup
-    // TODO: find less hackish solution
-    void playbackRateChanged();
-    // This is needed because there can be multiple instances of the same entry/enclosure; we want to keep them synced
-    void playPositionChanged(const qint64 entryuid, const qint64 position);
-    // TODO: set the playposition only through datamanager; that way the position will automatically be synced with all instances
+    void unreadEntryCountChanged(const qint64 feeduid) const;
+    void newEntryCountChanged(const qint64 feeduid) const;
+    void favoriteEntryCountChanged(const qint64 feeduid) const;
 
 private:
     DataManager();

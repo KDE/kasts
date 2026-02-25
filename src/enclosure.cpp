@@ -33,7 +33,6 @@
 #include "models/errorlogmodel.h"
 #include "objectslogging.h"
 #include "settingsmanager.h"
-#include "sync/sync.h"
 #include "utils/enclosuredownloadjob.h"
 #include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
@@ -50,6 +49,7 @@ Enclosure::Enclosure(Entry *entry)
             updateFromDb();
         }
     });
+    connect(&AudioManager::instance(), &AudioManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
     connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, [this](const QList<qint64> &positions, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             qint64 index = entryuids.indexOf(m_entryuid);
@@ -57,11 +57,9 @@ Enclosure::Enclosure(Entry *entry)
             Q_EMIT playPositionChanged();
         }
     });
-
-    // we use the relayed signal from AudioManager::playbackRateChanged by
-    // DataManager; this is required to avoid a dependency loop on startup
-    connect(&DataManager::instance(), &DataManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
-    connect(&DataManager::instance(), &DataManager::playPositionChanged, this, [this](const qint64 entryuid, const qint64 position) {
+    // This connection is there to keep other objects of the currently playing
+    // enclosure in sync without writing the position to the DB (yet)
+    connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](const qint64 position, const qint64 entryuid) {
         if (entryuid == m_entryuid) {
             m_playposition = position;
             Q_EMIT playPositionChanged();
@@ -408,24 +406,8 @@ void Enclosure::setPlayPosition(const qint64 &position)
 {
     if (m_playposition != position) {
         m_playposition = position;
+        DataManager::instance().bulkSavePlayPositions(QList<qint64>(QList<qint64>({position})), QList<qint64>({m_entryuid}));
         qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
-
-        // let's only save the play position to the database every 15 seconds
-        if ((abs(m_playposition - m_playposition_dbsave) > 15000) || position == 0) {
-            qCDebug(kastsEnclosure) << "save playPosition to database" << position << m_entry->title();
-            QSqlQuery query;
-            query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE enclosureuid=:enclosureuid;"));
-            query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
-            query.bindValue(QStringLiteral(":playposition"), m_playposition);
-            Database::instance().execute(query);
-            m_playposition_dbsave = m_playposition;
-
-            // Also store position change to make sure that it can be synced to
-            // e.g. gpodder
-            Sync::instance().storePlayEpisodeAction(m_entry->id(), m_playposition_dbsave, m_playposition);
-        }
-
-        Q_EMIT playPositionChanged();
     }
 }
 
