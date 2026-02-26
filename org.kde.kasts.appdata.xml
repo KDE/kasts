@@ -503,6 +503,7 @@
           <li xml:lang="ar">إصلاح انهيار يحدث عند إعادة ضبط مؤقت النوم.</li>
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
+          <li xml:lang="ia">Corrigite un fracasso occurrente quando reinitialisante le temporisator de dormir.</li>
           <li xml:lang="it">Corretto un arresto anomalo che si verificava quando si reimpostava il timer di sospensione.</li>
           <li xml:lang="pt-BR">Corrigido um erro que causava o fechamento inesperado do jogo ao redefinir o temporizador de suspensão.</li>
           <li xml:lang="ru">Исправлено аварийное завершение при сбросе таймера сна;</li>
@@ -512,6 +513,7 @@
           <li xml:lang="ar">إصلاح وظيفة ترتيب الفرز في قوائم الحلقات.</li>
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="ca-valencia">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
+          <li xml:lang="ia">Corrigite leordine de ordinar functionalitate sur listas de episodios.</li>
           <li xml:lang="it">Corretta la funzionalità di ordinamento negli elenchi degli episodi.</li>
           <li xml:lang="pt-BR">Corrigida a funcionalidade de ordenação nas listas de episódios.</li>
           <li xml:lang="ru">Исправлена сортировка списков эпизодов;</li>
@@ -521,6 +523,7 @@
           <li xml:lang="ar">إصلاح مشكلات بصرية في صورة الترويسة وقائمة الاشتراكات.</li>
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
+          <li xml:lang="ia">Corrigite defectos visual in le imagine capite e in le lista de subscriptiones.</li>
           <li xml:lang="it">Risolti i problemi visivi nell'immagine dell'intestazione e nell'elenco degli abbonamenti.</li>
           <li xml:lang="pt-BR">Corrigidos problemas visuais na imagem do cabeçalho e na lista de assinaturas.</li>
           <li xml:lang="ru">Исправлены визуальные дефекты в изображении заголовка и в списке подписок;</li>
@@ -549,6 +552,7 @@
         <p xml:lang="ca">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="ca-valencia">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="he">השינויים העיקריים ב־24.02.0:</p>
+        <p xml:lang="ia">Punctos in evidentia de cambiamentos in 24.02.0:</p>
         <p xml:lang="it">Punti salienti delle modifiche nella versione 24.02.0:</p>
         <p xml:lang="pt-BR">Alterações em destaque na versão 24.02.0:</p>
         <p xml:lang="ru">Основные изменения в версии 24.02.0:</p>
@@ -560,6 +564,7 @@
           <li xml:lang="ca">El Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="ca-valencia">Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="he">היישום Kasts הוסב ל־Qt6 ולתשתיות KDE‏ 6.</li>
+          <li xml:lang="ia">Kasts ha essite porteta a Qt6 e KDE Framework 6.</li>
           <li xml:lang="it">Kasts è stato convertito in Qt6 e KDE Frameworks 6.</li>
           <li xml:lang="pt-BR">O Kasts foi portado para Qt6 e KDE Frameworks 6.</li>
           <li xml:lang="ru">Kasts перенесён на Qt6 и KDE Frameworks 6;</li>
@@ -570,6 +575,7 @@
           <li xml:lang="ca">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="ca-valencia">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="he">אפשר לבחור את ערכת הצבעים ידנית מעתה.</li>
+          <li xml:lang="ia">Le schema de color pote nunc esser selectionate manualmente.</li>
           <li xml:lang="it">Ora è possibile selezionare manualmente la combinazione di colori.</li>
           <li xml:lang="pt-BR">Agora é possível selecionar o esquema de cores manualmente.</li>
           <li xml:lang="ru">Цветовую схему теперь можно выбрать вручную;</li>
@@ -580,6 +586,7 @@
           <li xml:lang="ca">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="ca-valencia">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="he">מגוון תקלות שקשורות בפקדי תמונות ונגינה תוקנו.</li>
+          <li xml:lang="ia">Corrigite multe faltas affin a imagines e controlos de reproduction (playback).</li>
           <li xml:lang="it">Corretti diversi bug relativi alle immagini e ai controlli di riproduzione.</li>
           <li xml:lang="pt-BR">Corrigidos diversos erros relacionados a imagens e controles de reprodução.</li>
           <li xml:lang="ru">Исправлены несколько ошибок, связанных с изображениями и элементами управления воспроизведением;</li>
@@ -590,6 +597,7 @@
           <li xml:lang="ca">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="ca-valencia">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="he">אפשר לכבות לחלוטין בדיקות רשת לאיתור רשתות מדודות.</li>
+          <li xml:lang="ia">Verificas de rete perconnexiones a consumo pote ora esser completemente dishabilitate.</li>
           <li xml:lang="it">Ora è possibile disattivare completamente i controlli di rete per le connessioni a consumo.</li>
           <li xml:lang="pt-BR">Agora é possível desativar completamente as verificações de rede para conexões com tarifação limitada.</li>
           <li xml:lang="ru">Проверку сетевых подключений с тарификацией теперь можно полностью отключить;</li>
@@ -600,6 +608,7 @@
           <li xml:lang="ca">L'actualització dels pòdcasts ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="ca-valencia">L'actualització dels pòdcast ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="he">עדכון הסכתים אמור להיות מהיר משמעותית מעתה על גבי חומרה איטית.</li>
+          <li xml:lang="ia">Actualisar podcasts deberea esser ora significativemente plus rapide sur hardware lente.</li>
           <li xml:lang="it">L'aggiornamento dei podcast dovrebbe ora essere notevolmente più rapido su hardware lento.</li>
           <li xml:lang="pt-BR">A atualização de podcasts agora deve ser significativamente mais rápida em computadores com hardware mais lento.</li>
           <li xml:lang="ru">Обновление подкастов на медленном оборудовании теперь выполняется значительно быстрее;</li>
@@ -675,6 +684,7 @@
           <li xml:lang="ca">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="ca-valencia">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="he">נוספה תמיכה בתמונות למקטעים.</li>
+          <li xml:lang="ia">Supporto perimagines de capitulo esseva addite.</li>
           <li xml:lang="it">È stato aggiunto il supporto per le immagini dei capitoli.</li>
           <li xml:lang="pt-BR">Foi adicionado suporte para imagens nos capítulos.</li>
           <li xml:lang="ru">Добавлена поддержка изображений глав;</li>
@@ -753,6 +763,7 @@
           <li xml:lang="ca">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="he">קוצב זמן לשינה מומש מחדש.</li>
+          <li xml:lang="ia">Un temporisator de dormir ha essite implementate.</li>
           <li xml:lang="it">È stato implementato un timer di spegnimento.</li>
           <li xml:lang="pt-BR">Um temporizador de sono foi implementado.</li>
           <li xml:lang="ru">Реализован таймер сна;</li>
