@@ -501,6 +501,7 @@
           <li xml:lang="ar">إصلاح انهيارات عرضية عند تحديث المدونات الصوتية بعد بقاء التطبيق مفتوحًا لفترة.</li>
           <li xml:lang="ca">S'han corregit fallades ocasionals en actualitzar pòdcasts després que l'aplicació estigui oberta durant un temps.</li>
           <li xml:lang="ca-valencia">S'han corregit fallades ocasionals en actualitzar pòdcast després que l'aplicació estiga oberta durant un temps.</li>
+          <li xml:lang="ia">Corrigite fracassos occasional quando il actualisa podcasts post que un app ha essite aperite per alcun tempore. </li>
           <li xml:lang="it">Corretti arresti anomali occasionali che si verificavano durante l'aggiornamento dei podcast dopo che l'applicazione era rimasta aperta per un po'.</li>
           <li xml:lang="ka">გასწორდა პოდკასტების განახლებისას აპლიკაციის ხანგრძლივი მუშაობის შემდეგ წარმოქმნილი პერიოდული ავარიული გათიშვები.</li>
           <li xml:lang="pt-BR">Corrigido um problema que causava travamentos ocasionais ao atualizar podcasts após o aplicativo estar aberto por um tempo.</li>
@@ -513,6 +514,7 @@
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="he">תוקנה קריסה שהתרחשה בעת איפוס קוצב זמן השינה.</li>
+          <li xml:lang="ia">Corrigite un fracasso occurrente quando reinitialisante le temporisator de dormir.</li>
           <li xml:lang="it">Corretto un arresto anomalo che si verificava quando si reimpostava il timer di sospensione.</li>
           <li xml:lang="ka">გასწორდა ძილის ტაიმერის ჩამოყრისას წარმოქმნილი ავარიული გათიშვა.</li>
           <li xml:lang="pt-BR">Corrigido um erro que causava o fechamento inesperado do jogo ao redefinir o temporizador de suspensão.</li>
@@ -525,6 +527,7 @@
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="ca-valencia">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="he">תוקנה יכולת מיון הפרקים ברשימות.</li>
+          <li xml:lang="ia">Corrigite leordine de ordinar functionalitate sur listas de episodios.</li>
           <li xml:lang="it">Corretta la funzionalità di ordinamento negli elenchi degli episodi.</li>
           <li xml:lang="ka">გასწორდა ეპიზოდების სიებში დალაგების რიგის ფუნქციონალი.</li>
           <li xml:lang="pt-BR">Corrigida a funcionalidade de ordenação nas listas de episódios.</li>
@@ -537,6 +540,7 @@
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="he">תוקנו פגמים חזותיים בתמונת הכותרת וברשימת המינויים.</li>
+          <li xml:lang="ia">Corrigite defectos visual in le imagine capite e in le lista de subscriptiones.</li>
           <li xml:lang="it">Risolti i problemi visivi nell'immagine dell'intestazione e nell'elenco degli abbonamenti.</li>
           <li xml:lang="ka">გასწორდა თავსართის სურათსა და გამოწერების სიაში არსებული ვიზუალური ხარვეზები.</li>
           <li xml:lang="pt-BR">Corrigidos problemas visuais na imagem do cabeçalho e na lista de assinaturas.</li>
@@ -567,6 +571,7 @@
         <p xml:lang="ca">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="ca-valencia">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="he">השינויים העיקריים ב־24.02.0:</p>
+        <p xml:lang="ia">Punctos in evidentia de cambiamentos in 24.02.0:</p>
         <p xml:lang="it">Punti salienti delle modifiche nella versione 24.02.0:</p>
         <p xml:lang="ka">24.02.0 ვერსიის ცვლილებების მიმოხილვა:</p>
         <p xml:lang="pt-BR">Alterações em destaque na versão 24.02.0:</p>
@@ -580,6 +585,7 @@
           <li xml:lang="ca">El Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="ca-valencia">Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="he">היישום Kasts הוסב ל־Qt6 ולתשתיות KDE‏ 6.</li>
+          <li xml:lang="ia">Kasts ha essite porteta a Qt6 e KDE Framework 6.</li>
           <li xml:lang="it">Kasts è stato convertito in Qt6 e KDE Frameworks 6.</li>
           <li xml:lang="ka">Kasts გადატანილია Qt6-ზე და KDE Frameworks 6-ზე.</li>
           <li xml:lang="pt-BR">O Kasts foi portado para Qt6 e KDE Frameworks 6.</li>
@@ -592,6 +598,7 @@
           <li xml:lang="ca">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="ca-valencia">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="he">אפשר לבחור את ערכת הצבעים ידנית מעתה.</li>
+          <li xml:lang="ia">Le schema de color pote nunc esser selectionate manualmente.</li>
           <li xml:lang="it">Ora è possibile selezionare manualmente la combinazione di colori.</li>
           <li xml:lang="ka">ფერების სქემის შერჩევა ახლა უკვე ხელით შეგიძლიათ.</li>
           <li xml:lang="pt-BR">Agora é possível selecionar o esquema de cores manualmente.</li>
@@ -604,6 +611,7 @@
           <li xml:lang="ca">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="ca-valencia">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="he">מגוון תקלות שקשורות בפקדי תמונות ונגינה תוקנו.</li>
+          <li xml:lang="ia">Corrigite multe faltas affin a imagines e controlos de reproduction (playback).</li>
           <li xml:lang="it">Corretti diversi bug relativi alle immagini e ai controlli di riproduzione.</li>
           <li xml:lang="ka">გასწორდა სურათებთან და დაკვრის მართვის ღილაკებთან დაკავშირებული რამდენიმე ხარვეზი.</li>
           <li xml:lang="pt-BR">Corrigidos diversos erros relacionados a imagens e controles de reprodução.</li>
@@ -616,6 +624,7 @@
           <li xml:lang="ca">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="ca-valencia">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="he">אפשר לכבות לחלוטין בדיקות רשת לאיתור רשתות מדודות.</li>
+          <li xml:lang="ia">Verificas de rete perconnexiones a consumo pote ora esser completemente dishabilitate.</li>
           <li xml:lang="it">Ora è possibile disattivare completamente i controlli di rete per le connessioni a consumo.</li>
           <li xml:lang="ka">ახლა უკვე შესაძლებელია შეზღუდული კავშირებისთვის ქსელის შემოწმების სრულად გათიშვა.</li>
           <li xml:lang="pt-BR">Agora é possível desativar completamente as verificações de rede para conexões com tarifação limitada.</li>
@@ -628,6 +637,7 @@
           <li xml:lang="ca">L'actualització dels pòdcasts ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="ca-valencia">L'actualització dels pòdcast ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="he">עדכון הסכתים אמור להיות מהיר משמעותית מעתה על גבי חומרה איטית.</li>
+          <li xml:lang="ia">Actualisar podcasts deberea esser ora significativemente plus rapide sur hardware lente.</li>
           <li xml:lang="it">L'aggiornamento dei podcast dovrebbe ora essere notevolmente più rapido su hardware lento.</li>
           <li xml:lang="ka">სუსტ აპარატურაზე პოდკასტების განახლება ახლა უკვე საგრძნობლად სწრაფია.</li>
           <li xml:lang="pt-BR">A atualização de podcasts agora deve ser significativamente mais rápida em computadores com hardware mais lento.</li>
@@ -656,6 +666,7 @@
         <p xml:lang="ca">Característiques noves i correccions d'errors en aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves i esmenes d'errors en esta versió:</p>
         <p xml:lang="he">יכולות ותיקוני תקלות חדשים במהדורה הזאת:</p>
+        <p xml:lang="ia">Nove characteristicas e correctiones de faltas in iste version:</p>
         <p xml:lang="it">Nuove funzionalità e correzioni di bug in questa versione:</p>
         <p xml:lang="ka">ახალი ფუნქციები და შეცდომების გასწორება ამ ვერსიაში:</p>
         <p xml:lang="pt-BR">Novas funcionalidades e correções de bugs nesta versão:</p>
@@ -715,6 +726,7 @@
           <li xml:lang="ca">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="ca-valencia">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="he">נוספה תמיכה בתמונות מקטעים.</li>
+          <li xml:lang="ia">Supporto perimagines de capitulo esseva addite.</li>
           <li xml:lang="it">È stato aggiunto il supporto per le immagini dei capitoli.</li>
           <li xml:lang="ka">დაემატა თავის გამოსახულებების მარდაჭერა.</li>
           <li xml:lang="pt-BR">Foi adicionado suporte para imagens nos capítulos.</li>
@@ -808,6 +820,7 @@
           <li xml:lang="ca">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="he">קוצב זמן לשינה מומש מחדש.</li>
+          <li xml:lang="ia">Un temporisator de dormir ha essite implementate.</li>
           <li xml:lang="it">È stato implementato un timer di spegnimento.</li>
           <li xml:lang="ka">მოხდა ძილის ტაიმერის განხორციელება.</li>
           <li xml:lang="pt-BR">Um temporizador de sono foi implementado.</li>
@@ -992,6 +1005,7 @@
           <li xml:lang="ca">Diverses millores de la interfície d'usuari</li>
           <li xml:lang="ca-valencia">Diverses millores de la interfície d'usuari</li>
           <li xml:lang="he">מגוון שיפורי ממשק משתמש</li>
+          <li xml:lang="ia">Varie melioramentos de interfacie de usator</li>
           <li xml:lang="it">Vari miglioramenti dell'interfaccia utente</li>
           <li xml:lang="ka">ინტერფეისის სხვადასხვა ნაწილის გაუმჯობესება</li>
           <li xml:lang="pt-BR">Várias melhorias na interface do usuário</li>
@@ -1052,6 +1066,7 @@
           <li xml:lang="ru">Поддержка глав: поддерживаются главы из RSS-каналов и меток MP3;</li>
           <li xml:lang="sl">Podpora za poglavja, podprta so tako poglavja, kodirana z viri RSS kot tudi z oznakami MP3</li>
           <li xml:lang="tr">Support for chapters, both RSS feed and MP3 tags encoded chapters are supported</li>
+          <li xml:lang="uk">Підтримка розділів, передбачено підтримку розділів, закодовані як у RSS-каналі, так і у мітках MP3</li>
           <li>Several improvements in user interface</li>
           <li xml:lang="ar">عدة تحسينات في واجهة المستخدم</li>
           <li xml:lang="ca">Diverses millores a la interfície d'usuari</li>
@@ -1063,6 +1078,7 @@
           <li xml:lang="ru">Несколько улучшений в пользовательском интерфейсе;</li>
           <li xml:lang="sl">Več izboljšav uporabniškega vmesnika</li>
           <li xml:lang="tr">Several improvements in user interface</li>
+          <li xml:lang="uk">Декілька удосконалень у інтерфейсі користувача</li>
           <li>Optimization and improvements for backend</li>
           <li xml:lang="ar">تحسين وتطوير للخلفية</li>
           <li xml:lang="ca">Optimització i millores del dorsal</li>
@@ -1074,6 +1090,7 @@
           <li xml:lang="ru">Оптимизация и улучшения модуля;</li>
           <li xml:lang="sl">Optimizacija in izboljšave za zaledni sistem</li>
           <li xml:lang="tr">Optimization and improvements for backend</li>
+          <li xml:lang="uk">Оптимізація та удосконалення у модулі обробки</li>
           <li>Reworked settings page</li>
           <li xml:lang="ar">إعادة صياغة لصفحة الإعدادات</li>
           <li xml:lang="ca">Pàgina de configuració reelaborada</li>
@@ -1085,6 +1102,7 @@
           <li xml:lang="ru">Переработана страница параметров;</li>
           <li xml:lang="sl">Predelana stran z nastavitvami</li>
           <li xml:lang="tr">Reworked settings page</li>
+          <li xml:lang="uk">Перероблено сторінку параметрів</li>
           <li>Support for syncing subscriptions and episode play position using gpodder.net or nextcloud-gpodder app</li>
           <li xml:lang="ar">دعم مزامنة الاشتراكات وموضع تشغيل الحلقات باستخدام gpodder.net أو تطبيق nextcloud-gpodder</li>
           <li xml:lang="ca">Suport per a sincronitzar subscripcions i posició de reproducció d'episodis utilitzant gpodder.net o l'aplicació nextcloud-gpodder</li>
@@ -1096,6 +1114,7 @@
           <li xml:lang="ru">Синхронизация подписок и позиций воспроизведения эпизодов с использованием сервиса gpodder.net или приложения nextcloud-gpodder;</li>
           <li xml:lang="sl">Podpora za sinhronizacijo naročnin in položaja predvajanja epizod z uporabo aplikacije gpodder.net ali nextcloud-gpodder</li>
           <li xml:lang="tr">Support for syncing subscriptions and episode play position using gpodder.net or nextcloud-gpodder app</li>
+          <li xml:lang="uk">Реалізовано підтримку синхронізацію підписок та позицій відтворення у епізодах за допомогою програми gpodder.net або nextcloud-gpodder</li>
           <li>Several bugfixes.</li>
           <li xml:lang="ar">إصلاح عدة علل.</li>
           <li xml:lang="ca">Diverses correccions d'errors.</li>
@@ -1124,6 +1143,7 @@
         <p xml:lang="ru">Помимо исправления нескольких незначительных ошибок, теперь можно изменить каталог для сохранения загруженных выпусков подкастов и кэшированных изображений. Эти файлы могут занимать много места на диске, поэтому возможность хранить их в другом месте полезна в системах с ограниченным дисковым пространством домашней папки. В соответствующих настройках теперь отображается объём дискового пространства, занятый выпусками и изображениями, а также доступна очистка кэша изображений.</p>
         <p xml:lang="sl">Poleg nekaj manjših popravkov napak je zdaj mogoče spremeniti lokacijo, kamor se shranjujejo prenesene epizode podkastov in predpomnjene slike. Te datoteke lahko zavzamejo veliko prostora na disku, zato je lepo, da jih lahko shranite drugje v sistemih z omejenim prostorom na disku v domači mapi. Sorodne nastavitve zdaj prikazujejo prostor na disku, ki ga zasedajo epizode in slike, ter omogočajo brisanje predpomnilnika slik.</p>
         <p xml:lang="tr">Next to some minor bugfixes, it is now possible to change the location where the downloaded podcast episodes and cached images are saved. These files can take up a lot of disk space, so it's nice to be able to store them elsewhere on systems with limited home folder disk space. The related settings now show the disk space used by episodes and images, and allow to clear the image cache.</p>
+        <p xml:lang="uk">Окрім деяких незначних виправлень вад, тепер можна змінити місце, де зберігаються завантажені епізоди подкастів та кешовані зображення. Ці файли можуть займати багато місця на диску, тому зручно мати можливість зберігати їх в іншому місці на системах з обмеженим дисковим простором домашньої теки. У пов'язаних параметрах тепер буде показано місце на диску, яке використовується епізодами та зображеннями, і можна буде очистити кеш зображень.</p>
       </description>
       <url>https://www.plasma-mobile.org/2021/08/31/plasma-mobile-gear-21-08/</url>
     </release>
@@ -1153,6 +1173,7 @@
           <li xml:lang="ru">Страница «Поиск» для поиска подкастов на сайте podcastindex.org;</li>
           <li xml:lang="sl">Stran raziskovalca za iskanje podkastov na podcastindex.org</li>
           <li xml:lang="tr">Discover page to search for podcasts on podcastindex.org</li>
+          <li xml:lang="uk">Реалізовано сторінку ознайомлення для пошуку подкастів на podcastindex.org</li>
           <li>Podcast downloads can now be resumed.</li>
           <li xml:lang="ar">أصبح بالإمكان استئناف تنزيل المدونات الصوتية.</li>
           <li xml:lang="ca">Ara es poden reprendre les baixades de pòdcasts.</li>
@@ -1188,6 +1209,7 @@
           <li xml:lang="ru">Настройки разрешения/запрета сетевого доступа при учёте трафика;</li>
           <li xml:lang="sl">Nastavitve za dovoljenje/preprečevanje dostopa do omrežja za merjene povezave.</li>
           <li xml:lang="tr">Settings to allow/disallow network access on metered connections.</li>
+          <li xml:lang="uk">Пункт параметрів для вмикання або вимикання доступу до мережі на тарифікованих з'єднаннях.</li>
           <li>More descriptive error notifications from which the complete list of errors can be opened.</li>
           <li xml:lang="ar">إشعارات خطأ أكثر وصفًا يمكن من خلالها فتح قائمة كاملة بالأخطاء.</li>
           <li xml:lang="ca">Notificacions d'error més descriptives de les quals es pot obrir la llista completa d'errors.</li>
@@ -1199,6 +1221,7 @@
           <li xml:lang="ru">Более информативные уведомления об ошибках; полный список ошибок можно просмотреть;</li>
           <li xml:lang="sl">Bolj opisna obvestila o napakah, iz katerih je mogoče odpreti celoten seznam napak.</li>
           <li xml:lang="tr">More descriptive error notifications from which the complete list of errors can be opened.</li>
+          <li xml:lang="uk">Докладніші сповіщення про помилки, з яких можна відкрити повний список помилок.</li>
           <li>Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
           <li xml:lang="ar">عدة تحسينات أصغر: تمييز عناصر القائمة، وتلميحات الأدوات، ومفاتيح الاختصار</li>
           <li xml:lang="ca">Diverses millores més petites: ressaltat d'elements de menú, consells d'eina, dreceres</li>
@@ -1210,6 +1233,7 @@
           <li xml:lang="ru">Несколько мелких улучшений: подсветка пунктов меню, всплывающие подсказки, комбинации клавиш;</li>
           <li xml:lang="sl">Nekaj ​​manjših izboljšav: označevanje elementov menija, orodni namigi, bližnjice</li>
           <li xml:lang="tr">Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
+          <li xml:lang="uk">Декілька незначних удосконалень: підсвічування пунктів меню, підказки, клавіатурні скорочення</li>
           <li>Several bugfixes.</li>
           <li xml:lang="ar">إصلاح عدة علل.</li>
           <li xml:lang="ca">Diverses correccions d'errors.</li>
@@ -1239,6 +1263,7 @@
         <p xml:lang="ru">Представлен первый выпуск Kasts — универсального подкаст-плеера на основе Kirigami. Выпущен в составе Plasma Mobile Gear 21.06. Добавлены возможности:</p>
         <p xml:lang="sl">Prva izdaja Kastsa, konvergentnega predvajalnika podkastov, ki temelji na Kirigamiju. Izdana kot del Plasma Mobile Gear 21.06. Vsebuje:</p>
         <p xml:lang="tr">First release of Kasts, a Kirigami-based convergent podcast player. Released as part of Plasma Mobile Gear 21.06. It features:</p>
+        <p xml:lang="uk">Перший випуск Kasts, однорідного програвача подкастів на основі Kirigami. Випущено як частину Plasma Mobile Gear 21.06. У випуску:</p>
         <ul>
           <li>a play queue</li>
           <li xml:lang="ar">طابور تشغيل</li>
@@ -1251,6 +1276,7 @@
           <li xml:lang="ru">очередь воспроизведения;</li>
           <li xml:lang="sl">čakalno vrsto za predvajanje</li>
           <li xml:lang="tr">a play queue</li>
+          <li xml:lang="uk">черга відтворення</li>
           <li>notification panel and lockscreen media controls</li>
           <li xml:lang="ar">لوحة إشعارات ومتحكمات وسائط لشاشة القفل</li>
           <li xml:lang="ca">controls multimèdia del plafó de notificacions i de la pantalla de bloqueig</li>
@@ -1263,6 +1289,7 @@
           <li xml:lang="ru">управление воспроизведением в панели уведомлений и на экране блокировки;</li>
           <li xml:lang="sl">obvestilno ploščo in nadzor medijev na zaklenjenem zaslonu</li>
           <li xml:lang="tr">notification panel and lockscreen media controls</li>
+          <li xml:lang="uk">панель сповіщень і керування відтворення з екрана блокування</li>
           <li>inhibits systemd suspend while listening to podcasts</li>
           <li xml:lang="ar">منع تعليق النظام عبر systemd أثناء الاستماع إلى المدونات الصوتية</li>
           <li xml:lang="ca">inhibeix la suspensió del sistema mentre s'està escoltant pòdcasts</li>
@@ -1289,6 +1316,7 @@
           <li xml:lang="ru">Универсальный интерфейс; одинаково хорошо выглядит на мобильных устройствах и настольных компьютерах;</li>
           <li xml:lang="sl">konvergenten uporabniški vmesnik; je videti dobro na mobilnih napravah in namiznih računalnikih</li>
           <li xml:lang="tr">convergent UI; looks good on mobile and desktop</li>
+          <li xml:lang="uk">однорідний інтерфейс; чудово виглядає на мобільних пристроях та робочих станціях</li>
         </ul>
       </description>
       <url>https://www.plasma-mobile.org/2021/06/10/plasma-mobile-update-june/</url>
