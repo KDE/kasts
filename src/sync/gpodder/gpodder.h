@@ -41,7 +41,7 @@ public:
     SubscriptionRequest *getSubscriptionChanges(const qulonglong &oldtimestamp, const QString &device);
     UploadSubscriptionRequest *uploadSubscriptionChanges(const QStringList &add, const QStringList &remove, const QString &device);
     EpisodeActionRequest *getEpisodeActions(const qulonglong &timestamp, bool aggregated = false);
-    UploadEpisodeActionRequest *uploadEpisodeActions(const QVector<SyncUtils::EpisodeAction> &episodeActions);
+    UploadEpisodeActionRequest *uploadEpisodeActions(const QList<SyncUtils::EpisodeAction> &episodeActions);
 
 private:
     QString baseUrl();

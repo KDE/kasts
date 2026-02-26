@@ -121,22 +121,21 @@ void FetchFeedsJob::monitorProgress()
     if (processedAmount(KJob::Unit::Items) == totalAmount(KJob::Unit::Items)) {
         // Check for "new" entries and queue them if necessary
         if (SettingsManager::self()->autoQueue()) {
+            QList<qint64> entryuids;
             QSqlQuery query;
             query.prepare(QStringLiteral("SELECT entryuid FROM Entries WHERE new=:new ORDER BY updated ASC;"));
             query.bindValue(QStringLiteral(":new"), true);
             Database::instance().execute(query);
             while (query.next()) {
-                qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
-                Entry *entry = DataManager::instance().getEntry(entryuid);
-                if (entry) {
-                    DataManager::instance().bulkQueueStatus(true, QList<qint64>({entryuid}));
-                    if (SettingsManager::self()->autoDownload()) {
-                        if (entry && entry->hasEnclosure() && entry->enclosure()) {
-                            qCDebug(kastsUpdater) << "Start downloading queued entry" << entry->title();
-                            entry->enclosure()->download();
-                        }
-                    }
-                }
+                entryuids += query.value(QStringLiteral("entryuid")).toLongLong();
+            }
+
+            qCDebug(kastsUpdater) << "Queueing new entries:" << entryuids;
+            DataManager::instance().bulkQueueStatus(true, entryuids);
+
+            if (SettingsManager::self()->autoDownload()) {
+                qCDebug(kastsUpdater) << "Start downloading queued entries:" << entryuids;
+                DataManager::instance().bulkDownloadEnclosures(entryuids);
             }
         }
 

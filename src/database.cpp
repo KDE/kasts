@@ -84,6 +84,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo11());
     if (dbversion < 12)
         TRUE_OR_RETURN(migrateTo12());
+    if (dbversion < 13)
+        TRUE_OR_RETURN(migrateTo13());
     return true;
 }
 
@@ -427,7 +429,7 @@ bool Database::migrateTo12()
     TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Entries;")));
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entriestemp RENAME TO Entries;")));
 
-    // Update FeedActions table
+    // Update EpisodeActions table
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActionstemp ("
                                "    entryuid INTEGER DEFAULT 0," // entryuid might not exist for e.g. new feeds, so we can not make this a reference
@@ -615,6 +617,64 @@ bool Database::migrateTo12()
     return true;
 }
 
+bool Database::migrateTo13()
+{
+    qDebug() << "Migrating database to version 13";
+
+    // No backup needed, because version 12 was never released
+
+    // TRUE_OR_RETURN(transaction());
+    // Update EpisodeActions table
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActionstemp ("
+                               "    entryuid INTEGER DEFAULT 0," // entryuid might not exist for e.g. new feeds, so we can not make this a reference
+                               "    feeduid INTEGER DEFAULT 0," // feeduid might not exist for e.g. new feeds, so we can not make this a reference
+                               "    podcast TEXT,"
+                               "    url TEXT,"
+                               "    id TEXT,"
+                               "    action TEXT,"
+                               "    started INTEGER,"
+                               "    position INTEGER,"
+                               "    total INTEGER,"
+                               "    durationdb INTEGER,"
+                               "    timestamp INTEGER);")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO EpisodeActionstemp ("
+                               "    entryuid,"
+                               "    feeduid,"
+                               "    podcast,"
+                               "    url,"
+                               "    id,"
+                               "    action,"
+                               "    started,"
+                               "    position,"
+                               "    total,"
+                               "    durationdb,"
+                               "    timestamp) "
+                               "SELECT"
+                               "    Entries.entryuid,"
+                               "    Entries.feeduid,"
+                               "    EpisodeActions.podcast,"
+                               "    EpisodeActions.url,"
+                               "    EpisodeActions.id,"
+                               "    EpisodeActions.action,"
+                               "    EpisodeActions.started,"
+                               "    EpisodeActions.position,"
+                               "    EpisodeActions.total,"
+                               "    Enclosures.duration,"
+                               "    EpisodeActions.timestamp "
+                               "FROM EpisodeActions"
+                               "    JOIN Entries ON Entries.id = EpisodeActions.id"
+                               "    JOIN Enclosures ON Enclosures.url = EpisodeActions.url;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE EpisodeActions;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE EpisodeActionstemp RENAME TO EpisodeActions;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 13;")));
+    // TRUE_OR_RETURN(commit());
+    return true;
+}
 bool Database::execute(const QString &queryString)
 {
     QSqlQuery q;

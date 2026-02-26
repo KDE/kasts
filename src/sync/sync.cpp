@@ -20,12 +20,13 @@
 #include <KFormat>
 #include <KLocalizedString>
 
+#include <qhashfunctions.h>
+#include <qobject.h>
 #include <qt6keychain/keychain.h>
 
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "sync/gpodder/devicerequest.h"
@@ -861,50 +862,76 @@ void Sync::applySubscriptionChangesLocally(const QStringList &addList, const QSt
     m_allowSyncActionLogging = true;
 }
 
-void Sync::applyEpisodeActionsLocally(const QHash<QString, QHash<QString, EpisodeAction>> &episodeActionHash)
+void Sync::applyEpisodeActionsLocally(const QHash<QString, QHash<qint64, EpisodeAction>> &episodeActionHash)
 {
     m_allowSyncActionLogging = false;
 
-    for (const QHash<QString, EpisodeAction> &actions : episodeActionHash) {
-        for (const EpisodeAction &action : actions) {
-            if (action.action == QStringLiteral("play")) {
-                Entry *entry = DataManager::instance().getEntry(action.id);
-                if (entry && entry->hasEnclosure()) {
-                    qCDebug(kastsSync) << action.position << action.total << static_cast<qint64>(action.position) << entry->enclosure()->duration()
-                                       << SettingsManager::self()->markAsPlayedBeforeEnd();
-                    if ((action.position >= action.total - SettingsManager::self()->markAsPlayedBeforeEnd()
-                         || static_cast<qint64>(action.position) >= entry->enclosure()->duration() - SettingsManager::self()->markAsPlayedBeforeEnd())
-                        && action.total > 0) {
-                        // Episode has been played
-                        qCDebug(kastsSync) << "mark as played:" << entry->title();
-                        entry->setRead(true);
-                    } else if (action.position > 0 && static_cast<qint64>(action.position) * 1000 >= entry->enclosure()->duration()) {
-                        // Episode is being listened to
-                        qCDebug(kastsSync) << "set play position and add to queue:" << entry->title();
-                        entry->enclosure()->setPlayPosition(action.position * 1000);
-                        entry->setQueueStatus(true);
-                        if (AudioManager::instance().entry() == entry) {
-                            AudioManager::instance().setPosition(action.position * 1000);
-                        }
-                    } else {
-                        // Episode has not been listened to yet
-                        qCDebug(kastsSync) << "reset play position:" << entry->title();
-                        entry->enclosure()->setPlayPosition(0);
-                    }
+    if (episodeActionHash.contains(QStringLiteral("play"))) {
+        QList<qint64> playedUids; // This is for episodes to be marked as read
+        QList<qint64> positions, playUids; // This is for the positions and uids that needs their position altered
+        QList<qint64> queueUids; // This is for entries that have to be added to the queue
+
+        for (const EpisodeAction &action : episodeActionHash[QStringLiteral("play")]) {
+            // TODO: Need to continue refactor from here!!!!
+            if (action.action == QStringLiteral("play")) { // This should be the case anyway
+                qCDebug(kastsSync) << action.position << action.total << static_cast<qint64>(action.position) << action.durationdb
+                                   << SettingsManager::self()->markAsPlayedBeforeEnd();
+                if ((action.position >= action.total - SettingsManager::self()->markAsPlayedBeforeEnd()
+                     || static_cast<qint64>(action.position) >= action.durationdb - SettingsManager::self()->markAsPlayedBeforeEnd())
+                    && action.total > 0) {
+                    // Episode has been played
+                    qCDebug(kastsSync) << "episode to be marked as played:" << action.entryuid;
+                    playedUids += action.entryuid;
+                } else if (action.position > 0 && static_cast<qint64>(action.position) * 1000 >= action.durationdb) {
+                    // Episode is being listened to; fuzzy matching where entry should have played longer than 0.1% of total duration
+                    qCDebug(kastsSync) << "set play position and add to queue:" << action.entryuid;
+                    queueUids += action.entryuid;
+                    playUids += action.entryuid;
+                    positions += action.position * 1000;
+                } else {
+                    // Episode has not been listened to yet
+                    qCDebug(kastsSync) << "reset play position:" << action.entryuid;
+                    playUids += action.entryuid;
+                    positions += 0;
                 }
             }
-
-            if (action.action == QStringLiteral("delete")) {
-                Entry *entry = DataManager::instance().getEntry(action.id);
-                if (entry && entry->hasEnclosure()) {
-                    // "delete" means that at least the Episode has been played
-                    qCDebug(kastsSync) << "mark as played:" << entry->title();
-                    entry->setRead(true);
-                }
-            }
-
-            QCoreApplication::processEvents(); // keep the main thread semi-responsive
         }
+        Q_ASSERT(playUids.count() == positions.count());
+
+        qCDebug(kastsSync) << "episodes to be marked as played:" << playedUids;
+        qCDebug(kastsSync) << "episodes that need their position altered (uid list):" << playUids;
+        qCDebug(kastsSync) << "episodes that need their position altered (position list):" << positions;
+        qCDebug(kastsSync) << "episodes that need to be added to the queue" << queueUids;
+
+        DataManager::instance().bulkMarkRead(true, playedUids);
+        DataManager::instance().bulkSetPlayPositions(positions, playUids);
+        DataManager::instance().bulkQueueStatus(true, queueUids);
+
+        // Finally update the play position of the currently playing track, if it's needed
+        qint64 playingIndex = playUids.indexOf(AudioManager::instance().entryuid());
+        if (playingIndex > -1) {
+            qCDebug(kastsSync) << "changing position of the currently playing track" << playUids[playingIndex] << "to position" << positions[playingIndex];
+            AudioManager::instance().setPosition(positions[playingIndex]);
+        }
+    }
+
+    if (episodeActionHash.contains(QStringLiteral("download-delete"))) {
+        // commented out because this action are broken in gpodder.net
+        // below is the old, non-functional code for reference; it's still
+        // entry-object based
+
+        // if (action.action == QStringLiteral("delete")) {
+        //     Entry *entry = DataManager::instance().getEntry(action.id);
+        //     if (entry && entry->hasEnclosure()) {
+        //         // "delete" means that at least the Episode has been played
+        //         qCDebug(kastsSync) << "mark as played:" << entry->title();
+        //         entry->setRead(true);
+        //     }
+        // }
+    }
+
+    if (episodeActionHash.contains(QStringLiteral("new"))) {
+        // commented out because this action are broken in gpodder.net
     }
 
     m_allowSyncActionLogging = true;
@@ -919,69 +946,31 @@ void Sync::storeAddFeedAction(const QString &url)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
         QSqlQuery query;
+        Database::instance().transaction();
         query.prepare(QStringLiteral("INSERT INTO FeedActions (url, action, timestamp) VALUES (:url, :action, :timestamp);"));
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("add"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
         Database::instance().execute(query);
+        Database::instance().commit();
         qCDebug(kastsSync) << "Logged a feed add action for" << url;
     }
 }
 
-void Sync::storeRemoveFeedAction(const QString &url)
+void Sync::storeRemoveFeedAction(const qint64 &feeduid)
 {
     if (syncEnabled() && m_allowSyncActionLogging) {
+        Database::instance().transaction();
         QSqlQuery query;
-        query.prepare(QStringLiteral("INSERT INTO FeedActions (url, action, timestamp) VALUES (:url, :action, :timestamp);"));
-        query.bindValue(QStringLiteral(":url"), url);
+        query.prepare(
+            QStringLiteral("INSERT INTO FeedActions (feeduid, url, action, timestamp) SELECT :feeduid, Feeds.url, :action, :timestamp FROM Feeds WHERE "
+                           "Feeds.feeduid = :feeduid;"));
+        query.bindValue(QStringLiteral(":feeduid"), feeduid);
         query.bindValue(QStringLiteral(":action"), QStringLiteral("remove"));
         query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
         Database::instance().execute(query);
-        qCDebug(kastsSync) << "Logged a feed remove action for" << url;
-    }
-}
-
-void Sync::storePlayEpisodeAction(const QString &id, const qulonglong started, const qulonglong position)
-{
-    if (syncEnabled() && m_allowSyncActionLogging) {
-        Entry *entry = DataManager::instance().getEntry(id);
-        if (entry && entry->hasEnclosure()) {
-            const qulonglong started_sec = started / 1000; // convert to seconds
-            const qulonglong position_sec = position / 1000; // convert to seconds
-            const qulonglong total =
-                (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // workaround for episodes with bad metadata on gpodder server
-
-            QSqlQuery query;
-            query.prepare(
-                QStringLiteral("INSERT INTO EpisodeActions (podcast, url, id, action, started, position, total, timestamp) VALUES (:podcast, :url, :id, "
-                               ":action, :started, :position, :total, :timestamp);"));
-            query.bindValue(QStringLiteral(":podcast"), entry->feed()->url());
-            query.bindValue(QStringLiteral(":url"), entry->enclosure()->url());
-            query.bindValue(QStringLiteral(":id"), entry->id());
-            query.bindValue(QStringLiteral(":action"), QStringLiteral("play"));
-            query.bindValue(QStringLiteral(":started"), started_sec);
-            query.bindValue(QStringLiteral(":position"), position_sec);
-            query.bindValue(QStringLiteral(":total"), total);
-            query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
-            Database::instance().execute(query);
-
-            qCDebug(kastsSync) << "Logged an episode play action for" << entry->title() << "play position changed:" << started_sec << position_sec << total;
-        }
-    }
-}
-
-void Sync::storePlayedEpisodeActions(const QList<qint64> &entryuids)
-{
-    for (const qint64 entryuid : entryuids) {
-        if (syncEnabled() && m_allowSyncActionLogging) {
-            if (DataManager::instance().getEntry(entryuid)->hasEnclosure()) {
-                // TODO: refactor to use DB instead of creating objects
-                Entry *entry = DataManager::instance().getEntry(entryuid);
-                const qulonglong duration =
-                    (entry->enclosure()->duration() > 0) ? entry->enclosure()->duration() : 1; // crazy workaround for episodes with bad metadata
-                storePlayEpisodeAction(entry->id(), duration * 1000, duration * 1000);
-            }
-        }
+        Database::instance().commit();
+        qCDebug(kastsSync) << "Logged a feed remove action for feeduid" << feeduid;
     }
 }
 
@@ -989,19 +978,120 @@ void Sync::storePlayEpisodeActions(const QList<qint64> &entryuids, const QList<q
 {
     Q_ASSERT(entryuids.count() == startPositions.count());
     Q_ASSERT(entryuids.count() == endPositions.count());
-    for (qint64 i = 0; i < entryuids.count(); ++i) {
-        // TODO: put content of storePlayEpisodeAction in here after refactor to entryuids is done
-        Entry *entry = DataManager::instance().getEntry(entryuids[i]);
-        storePlayEpisodeAction(entry->id(), startPositions[i], endPositions[i]);
+
+    if (syncEnabled() && m_allowSyncActionLogging) {
+        Database::instance().transaction();
+        QSqlQuery query;
+        query.prepare(
+            QStringLiteral("WITH Enclmin AS (SELECT "
+                           "    entryuid, "
+                           "    url, "
+                           "    CASE WHEN Enclosures.duration > 0 "
+                           "        THEN Enclosures.duration "
+                           "        ELSE 1 END AS durmin "
+                           "    FROM Enclosures)"
+                           "INSERT INTO EpisodeActions ("
+                           "    entryuid, "
+                           "    feeduid, "
+                           "    podcast, "
+                           "    url, "
+                           "    id, "
+                           "    action, "
+                           "    started, "
+                           "    position, "
+                           "    total, "
+                           "    durationdb,"
+                           "    timestamp) "
+                           "SELECT"
+                           "    Entries.entryuid, "
+                           "    Entries.feeduid, "
+                           "    Feeds.url, "
+                           "    Enclmin.url, "
+                           "    Entries.id, "
+                           "    :action, "
+                           "    :started,"
+                           "    :position, "
+                           "    Enclmin.durmin, "
+                           "    Enclmin.durmin, "
+                           "    :timestamp "
+                           "FROM Entries "
+                           "    JOIN Feeds ON Feeds.feeduid = Entries.feeduid "
+                           "    JOIN Enclmin ON Enclmin.entryuid = Entries.entryuid "
+                           "WHERE Entries.entryuid=:entryuid;"));
+        for (qint64 i = 0; i < entryuids.count(); ++i) {
+            const qulonglong started_sec = startPositions[i] / 1000; // convert to seconds
+            const qulonglong position_sec = endPositions[i] / 1000; // convert to seconds
+
+            query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+            query.bindValue(QStringLiteral(":action"), QStringLiteral("play"));
+            query.bindValue(QStringLiteral(":started"), started_sec);
+            query.bindValue(QStringLiteral(":position"), position_sec);
+            query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
+            Database::instance().execute(query);
+
+            qCDebug(kastsSync) << "Logged an episode play action for" << entryuids[i] << "play position changed:" << started_sec << position_sec;
+        }
+        Database::instance().commit();
+    }
+}
+
+void Sync::storePlayedEpisodeActions(const QList<qint64> &entryuids)
+{
+    if (syncEnabled() && m_allowSyncActionLogging) {
+        Database::instance().transaction();
+        QSqlQuery query;
+        query.prepare(
+            QStringLiteral("WITH Enclmin AS (SELECT "
+                           "    entryuid, "
+                           "    url, "
+                           "    CASE WHEN Enclosures.duration > 0 "
+                           "        THEN Enclosures.duration "
+                           "        ELSE 1 END AS durmin "
+                           "    FROM Enclosures)"
+                           "INSERT INTO EpisodeActions ("
+                           "    entryuid, "
+                           "    feeduid, "
+                           "    podcast, "
+                           "    url, "
+                           "    id, "
+                           "    action, "
+                           "    started, "
+                           "    position, "
+                           "    total, "
+                           "    durationdb, "
+                           "    timestamp) "
+                           "SELECT"
+                           "    Entries.entryuid, "
+                           "    Entries.feeduid, "
+                           "    Feeds.url, "
+                           "    Enclmin.url, "
+                           "    Entries.id, "
+                           "    :action, "
+                           "    Enclmin.durmin,"
+                           "    Enclmin.durmin,"
+                           "    Enclmin.durmin,"
+                           "    Enclmin.durmin,"
+                           "    :timestamp "
+                           "FROM Entries "
+                           "    JOIN Feeds ON Feeds.feeduid = Entries.feeduid "
+                           "    JOIN Enclmin ON Enclmin.entryuid = Entries.entryuid "
+                           "WHERE Entries.entryuid=:entryuid;"));
+        for (const qint64 entryuid : entryuids) {
+            query.bindValue(QStringLiteral(":entryuid"), entryuid);
+            query.bindValue(QStringLiteral(":action"), QStringLiteral("play"));
+            query.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
+            Database::instance().execute(query);
+        }
+        Database::instance().commit();
     }
 }
 
 void Sync::retrieveAllLocalEpisodeStates()
 {
-    QVector<SyncUtils::EpisodeAction> actions;
+    QList<SyncUtils::EpisodeAction> actions;
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.id = Entries.id WHERE Entries.hasEnclosure = 1;"));
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.entryuid = Entries.entryuid;"));
     Database::instance().execute(query);
     while (query.next()) {
         qulonglong position_sec = query.value(QStringLiteral("playposition")).toInt() / 1000;
@@ -1014,12 +1104,15 @@ void Sync::retrieveAllLocalEpisodeStates()
         }
         if (position_sec > 0 && duration > 0) {
             SyncUtils::EpisodeAction action;
+            action.entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+            action.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
             action.podcast = query.value(QStringLiteral("feed")).toString();
             action.id = query.value(QStringLiteral("id")).toString();
             action.url = query.value(QStringLiteral("url")).toString();
             action.started = position_sec;
             action.position = position_sec;
             action.total = duration;
+            action.durationdb = duration;
 
             actions << action;
 
@@ -1030,9 +1123,11 @@ void Sync::retrieveAllLocalEpisodeStates()
     QSqlQuery writeQuery;
     Database::instance().transaction();
     for (SyncUtils::EpisodeAction &action : actions) {
-        writeQuery.prepare(
-            QStringLiteral("INSERT INTO EpisodeActions (podcast, url, id, action, started, position, total, timestamp) VALUES (:podcast, :url, :id, :action, "
-                           ":started, :position, :total, :timestamp);"));
+        writeQuery.prepare(QStringLiteral(
+            "INSERT INTO EpisodeActions (entryuid, feeduid, podcast, url, id, action, started, position, total, durationdb, timestamp) VALUES (:entryuid, "
+            ":feeduid, :podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
+        writeQuery.bindValue(QStringLiteral(":entryuid"), action.entryuid);
+        writeQuery.bindValue(QStringLiteral(":feeduid"), action.feeduid);
         writeQuery.bindValue(QStringLiteral(":podcast"), action.podcast);
         writeQuery.bindValue(QStringLiteral(":url"), action.url);
         writeQuery.bindValue(QStringLiteral(":id"), action.id);
@@ -1040,6 +1135,7 @@ void Sync::retrieveAllLocalEpisodeStates()
         writeQuery.bindValue(QStringLiteral(":started"), action.started);
         writeQuery.bindValue(QStringLiteral(":position"), action.position);
         writeQuery.bindValue(QStringLiteral(":total"), action.total);
+        writeQuery.bindValue(QStringLiteral(":durationdb"), action.durationdb);
         writeQuery.bindValue(QStringLiteral(":timestamp"), QDateTime::currentSecsSinceEpoch());
         Database::instance().execute(writeQuery);
     }

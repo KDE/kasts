@@ -42,6 +42,10 @@ public:
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
     Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
+    // routines for fuzzy matching of feeds and entries/enclosures to uids
+    // returns a list because there can be more than one result per input value
+    QList<QList<qint64>> findEntryuids(const QStringList &ids, const QStringList &enclosureUrls = QStringList()) const;
+
     Q_INVOKABLE void addFeed(const QString &url);
     void addFeeds(const QStringList &urls, const bool fetch);
     Q_INVOKABLE void removeFeed(Feed *feed);
@@ -65,7 +69,7 @@ public:
     Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids) const;
-    Q_INVOKABLE void bulkSavePlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSetPlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list) const;
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list) const;

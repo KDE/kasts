@@ -53,6 +53,7 @@ Enclosure::Enclosure(Entry *entry)
     connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, [this](const QList<qint64> &positions, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             qint64 index = entryuids.indexOf(m_entryuid);
+            Q_ASSERT(index > -1);
             m_playposition = positions[index];
             Q_EMIT playPositionChanged();
         }
@@ -392,11 +393,13 @@ void Enclosure::setStatus(Enclosure::Status status)
     if (m_status != status) {
         m_status = status;
 
+        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":downloaded"), statusToDb(m_status));
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT statusChanged(m_entry, m_status);
     }
@@ -406,7 +409,7 @@ void Enclosure::setPlayPosition(const qint64 &position)
 {
     if (m_playposition != position) {
         m_playposition = position;
-        DataManager::instance().bulkSavePlayPositions(QList<qint64>(QList<qint64>({position})), QList<qint64>({m_entryuid}));
+        DataManager::instance().bulkSetPlayPositions(QList<qint64>(QList<qint64>({position})), QList<qint64>({m_entryuid}));
         qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
     }
 }
@@ -417,12 +420,14 @@ void Enclosure::setDuration(const qint64 &duration)
         m_duration = duration;
 
         // also save to database
+        Database::instance().transaction();
         qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":duration"), m_duration);
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT durationChanged();
     }
@@ -434,11 +439,13 @@ void Enclosure::setSize(const qint64 &size)
         m_size = size;
 
         // also save to database
+        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE enclosureuid=:enclosureuid;"));
         query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
         query.bindValue(QStringLiteral(":size"), m_size);
         Database::instance().execute(query);
+        Database::instance().commit();
 
         Q_EMIT sizeChanged();
     }

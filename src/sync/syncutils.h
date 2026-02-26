@@ -41,6 +41,8 @@ Q_ENUM_NS(SyncStatus)
 
 // structs
 struct EpisodeAction {
+    qint64 entryuid;
+    qint64 feeduid;
     QString podcast;
     QString url;
     QString id;
@@ -49,6 +51,7 @@ struct EpisodeAction {
     qulonglong started;
     qulonglong position;
     qulonglong total;
+    qint64 durationdb; // This holds the duration of the enclosure as determined by Kasts
     qulonglong timestamp;
 };
 

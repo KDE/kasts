@@ -20,12 +20,12 @@ class EpisodeActionRequest : public GenericRequest
 public:
     EpisodeActionRequest(SyncUtils::Provider provider, QNetworkReply *reply, QObject *parent);
 
-    QVector<SyncUtils::EpisodeAction> episodeActions() const;
+    QList<SyncUtils::EpisodeAction> episodeActions() const;
     qulonglong timestamp() const;
 
 private:
     void processResults() override;
 
-    QVector<SyncUtils::EpisodeAction> m_episodeActions;
+    QList<SyncUtils::EpisodeAction> m_episodeActions;
     qulonglong m_timestamp = 0;
 };

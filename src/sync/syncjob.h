@@ -67,23 +67,23 @@ private:
     void fetchModifiedSubscriptions();
     void fetchRemoteEpisodeActions();
     void syncEpisodeStates();
-    void uploadEpisodeActions(const QVector<SyncUtils::EpisodeAction> &episodeActions);
-    void uploadEpisodeActionsPartial(const QVector<SyncUtils::EpisodeAction> &episodeActionList, const int startIndex);
+    void uploadEpisodeActions(const QList<SyncUtils::EpisodeAction> &episodeActions);
+    void uploadEpisodeActionsPartial(const QList<SyncUtils::EpisodeAction> &episodeActionList, const int startIndex);
     void updateDBTimestamp(const qulonglong &timestamp, const QString &timestampLabel);
 
     void removeAppliedSubscriptionChangesFromDB();
     void removeAppliedEpisodeActionsFromDB();
 
     std::pair<QStringList, QStringList> getLocalSubscriptionChanges() const; // First list are additions, second are removals
-    QVector<SyncUtils::EpisodeAction> getLocalEpisodeActions() const;
+    QList<SyncUtils::EpisodeAction> getLocalEpisodeActions() const;
 
     void removeSubscriptionChangeConflicts(QStringList &addList, QStringList &removeList);
-    QVector<SyncUtils::EpisodeAction> createListFromHash(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &episodeActionHash);
-    void addToHashIfNewer(QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &episodeActionHash, const SyncUtils::EpisodeAction &episodeAction);
-    void removeEpisodeActionConflicts(QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &local,
-                                      QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &remote);
-    QStringList getFeedsFromHash(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &hash);
-    void debugEpisodeActionHash(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &hash);
+    QList<SyncUtils::EpisodeAction> createListFromHash(const QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &episodeActionHash);
+    void addToHashIfNewer(QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &episodeActionHash, const SyncUtils::EpisodeAction &episodeAction);
+    void removeEpisodeActionConflicts(QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &local,
+                                      QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &remote);
+    QSet<QString> getFeedsFromHash(const QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &hash);
+    void debugEpisodeActionHash(const QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &hash);
 
     SyncUtils::SyncStatus m_syncStatus = SyncUtils::SyncStatus::NoSync;
     GPodder *m_gpodder = nullptr;
@@ -97,8 +97,8 @@ private:
     int m_feedUpdateProgress = 0;
     int m_feedUpdateTotal = 0;
     std::pair<QStringList, QStringList> m_localSubscriptionChanges;
-    QVector<SyncUtils::EpisodeAction> m_localEpisodeActions;
-    QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> m_remoteEpisodeActionHash;
+    QList<SyncUtils::EpisodeAction> m_localEpisodeActions;
+    QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> m_remoteEpisodeActionHash;
 
     // needed for UI notifications
     QString getProgressMessage(SyncJobStatus status) const;

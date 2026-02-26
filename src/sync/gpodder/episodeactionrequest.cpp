@@ -15,6 +15,7 @@
 #include <QVector>
 
 #include "database.h"
+#include "datamanager.h"
 #include "synclogging.h"
 
 EpisodeActionRequest::EpisodeActionRequest(SyncUtils::Provider provider, QNetworkReply *reply, QObject *parent)
@@ -22,7 +23,7 @@ EpisodeActionRequest::EpisodeActionRequest(SyncUtils::Provider provider, QNetwor
 {
 }
 
-QVector<SyncUtils::EpisodeAction> EpisodeActionRequest::episodeActions() const
+QList<SyncUtils::EpisodeAction> EpisodeActionRequest::episodeActions() const
 {
     return m_episodeActions;
 }
@@ -47,6 +48,8 @@ void EpisodeActionRequest::processResults()
             m_errorString = error->errorString();
         } else if (!m_abort) {
             const QJsonArray array = data.object().value(QStringLiteral("actions")).toArray();
+            QList<SyncUtils::EpisodeAction> episodeActions;
+            QStringList ids, enclosureUrls;
             for (const QJsonValue &jsonAction : array) {
                 SyncUtils::EpisodeAction episodeAction;
                 episodeAction.id = jsonAction.toObject().value(QStringLiteral("guid")).toString();
@@ -67,35 +70,50 @@ void EpisodeActionRequest::processResults()
                 episodeAction.timestamp = static_cast<qulonglong>(
                     QDateTime::fromString(actionTimestamp.section(QStringLiteral("."), 0, 0), QStringLiteral("yyyy-MM-dd'T'hh:mm:ss")).toMSecsSinceEpoch()
                     / 1000);
+                episodeActions += episodeAction;
 
-                // Now we try to find the id for the entry based on either the GUID
-                // or the episode download URL.  We also try to match with a percent-
-                // decoded version of the URL.
-                // There can be several hits (e.g. different entries pointing to the
-                // same download URL; we add all of them to make sure everything's
-                // consistent.
-                // We also retrieve the feedUrl from the database to avoid problems with
-                // different URLs pointing to the same feed (e.g. http vs https)
-                QSqlQuery query;
-                query.prepare(QStringLiteral(
-                    "SELECT Enclosures.url, Entries.id, Feeds.url FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON "
-                    "Feeds.feeduid=Entries.feeduid WHERE Enclosures.url=:url OR "
-                    "Enclosures.url=:decodeurl OR Entries.id=:id;"));
-                query.bindValue(QStringLiteral(":url"), episodeAction.url);
-                query.bindValue(QStringLiteral(":decodeurl"), cleanupUrl(episodeAction.url));
-                query.bindValue(QStringLiteral(":id"), episodeAction.id);
-                Database::instance().execute(query);
-                if (!query.next()) {
-                    qCDebug(kastsSync) << "cannot find episode with url:" << episodeAction.url;
-                    continue;
+                // We will use these lists to find the entryuids of these episodes later on
+                ids += episodeAction.id;
+                enclosureUrls += episodeAction.url;
+            }
+            Q_ASSERT(ids.count() == episodeActions.count());
+            Q_ASSERT(ids.count() == enclosureUrls.count());
+
+            // Fuzzy match ids and enclosure urls to find entryuids
+            // There might be more than one result from each query, so we add
+            // all of them to keep things consistent and to not lose any information
+            QList<QList<qint64>> entryuids = DataManager::instance().findEntryuids(ids, enclosureUrls);
+            Q_ASSERT(ids.count() == entryuids.count());
+
+            // Now update the entryuid, enclosure url, feeduid and feed url
+            for (qint64 i = 0; i < episodeActions.count(); ++i) {
+                for (const qint64 entryuid : std::as_const(entryuids[i])) {
+                    if (entryuid > 0) {
+                        // Let's retrieve the info from the DB for the entryuids
+                        QSqlQuery query;
+                        query.prepare(
+                            QStringLiteral("SELECT Entries.entryuid, Entries.feeduid, Entries.id, Enclosures.url, Feeds.url, Enclosures.duration "
+                                           "FROM Enclosures "
+                                           "    JOIN Entries ON Entries.entryuid=Enclosures.entryuid "
+                                           "    JOIN Feeds ON Feeds.feeduid=Entries.feeduid "
+                                           "WHERE "
+                                           "    Enclosures.entryuid=:entryuid;"));
+                        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+                        Database::instance().execute(query);
+                        if (query.next()) {
+                            SyncUtils::EpisodeAction action = episodeActions[i];
+                            action.entryuid = query.value(QStringLiteral("Entries.entryuid")).toLongLong();
+                            action.feeduid = query.value(QStringLiteral("Entries.feeduid")).toLongLong();
+                            action.id = query.value(QStringLiteral("Entries.id")).toString();
+                            action.podcast = query.value(QStringLiteral("Feeds.url")).toString();
+                            action.url = query.value(QStringLiteral("Enclosures.url")).toString();
+                            action.durationdb = query.value(QStringLiteral("Enclosures.duration")).toLongLong();
+                            m_episodeActions += action;
+                            qCDebug(kastsSync) << "Found matching entryuids" << entryuid << "for" << action.id;
+                            Q_ASSERT(entryuid == action.entryuid);
+                        }
+                    }
                 }
-                do {
-                    SyncUtils::EpisodeAction action = episodeAction;
-                    action.id = query.value(QStringLiteral("Entries.id")).toString();
-                    action.podcast = query.value(QStringLiteral("Feeds.url")).toString();
-                    action.url = query.value(QStringLiteral("Enclosures.url")).toString();
-                    m_episodeActions += action;
-                } while (query.next());
             }
             m_timestamp = data.object().value(QStringLiteral("timestamp")).toInt();
         }

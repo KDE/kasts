@@ -205,11 +205,13 @@ void Feed::initFilterType(int value)
     connect(m_entries, &EntriesProxyModel::filterTypeChanged, this, [this]() {
         int filterTypeValue = static_cast<int>(m_entries->filterType());
 
+        Database::instance().transaction();
         QSqlQuery writeQuery;
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE feeduid=:feeduid;"));
         writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
         writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
         Database::instance().execute(writeQuery);
+        Database::instance().commit();
     });
 }
 
@@ -225,11 +227,13 @@ void Feed::initSortType(int value)
     connect(m_entries, &EntriesProxyModel::sortTypeChanged, this, [this]() {
         int sortTypeValue = static_cast<int>(m_entries->sortType());
 
+        Database::instance().transaction();
         QSqlQuery writeQuery;
         writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE feeduid=:feeduid;"));
         writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
         writeQuery.bindValue(QStringLiteral(":sortType"), sortTypeValue);
         Database::instance().execute(writeQuery);
+        Database::instance().commit();
     });
 }
 

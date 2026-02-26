@@ -96,14 +96,11 @@ public:
 
     // Next are some generic methods to store and apply local changes to be synced
     void storeAddFeedAction(const QString &url);
-    void storeRemoveFeedAction(const QString &url);
-    void storePlayEpisodeAction(const QString &id, const qulonglong started, const qulonglong position);
-    void applySubscriptionChangesLocally(const QStringList &addList, const QStringList &removeList);
-    void applyEpisodeActionsLocally(const QHash<QString, QHash<QString, SyncUtils::EpisodeAction>> &episodeActionHash);
-
-    // new actions based on uids; should replace the ones above after refactor
+    void storeRemoveFeedAction(const qint64 &feeduid);
     void storePlayedEpisodeActions(const QList<qint64> &entryuids);
     void storePlayEpisodeActions(const QList<qint64> &entryuids, const QList<qint64> &startPositions, const QList<qint64> &endPositions);
+    void applySubscriptionChangesLocally(const QStringList &addList, const QStringList &removeList);
+    void applyEpisodeActionsLocally(const QHash<QString, QHash<qint64, SyncUtils::EpisodeAction>> &episodeActionHash);
 
 Q_SIGNALS:
     void syncEnabledChanged();

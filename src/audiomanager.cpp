@@ -650,7 +650,7 @@ void AudioManager::savePlayPositionToDB(const qint64 position, const qint64 entr
             d->m_lastSignificantPosition = position;
 
             // Also make sure to save the current play position to the database
-            DataManager::instance().bulkSavePlayPositions(QList<qint64>({position}), QList<qint64>({entryuid}));
+            DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({entryuid}));
         }
     }
 }

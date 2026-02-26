@@ -14,6 +14,8 @@
 #include <QTimer>
 
 #include <KLocalizedString>
+#include <qhashfunctions.h>
+#include <qobject.h>
 
 #include "database.h"
 #include "datamanager.h"
@@ -143,7 +145,7 @@ void SyncJob::doQuickSync()
     // store these actions in member variable to be able to delete these exact same changes from DB when processed
     m_localEpisodeActions = getLocalEpisodeActions();
 
-    QHash<QString, QHash<QString, EpisodeAction>> localEpisodeActionHash;
+    QHash<QString, QHash<qint64, EpisodeAction>> localEpisodeActionHash;
     for (const EpisodeAction &action : std::as_const(m_localEpisodeActions)) {
         addToHashIfNewer(localEpisodeActionHash, action);
     }
@@ -463,12 +465,12 @@ void SyncJob::fetchRemoteEpisodeActions()
 
         qCDebug(kastsSync) << newEpisodeTimestamp;
 
-        const QVector<EpisodeAction> episodeActions = epRequest->episodeActions();
+        const QList<EpisodeAction> episodeActions = epRequest->episodeActions();
         for (const EpisodeAction &action : episodeActions) {
             addToHashIfNewer(m_remoteEpisodeActionHash, action);
 
-            qCDebug(kastsSync) << action.podcast << action.url << action.id << action.device << action.action << action.started << action.position
-                               << action.total << action.timestamp;
+            qCDebug(kastsSync) << action.entryuid << action.feeduid << action.podcast << action.url << action.id << action.device << action.action
+                               << action.started << action.position << action.total << action.durationdb << action.timestamp;
         }
 
         updateDBTimestamp(newEpisodeTimestamp, episodeTimestampLabel);
@@ -491,7 +493,7 @@ void SyncJob::syncEpisodeStates()
 
     m_localEpisodeActions = getLocalEpisodeActions();
 
-    QHash<QString, QHash<QString, EpisodeAction>> localEpisodeActionHash;
+    QHash<QString, QHash<qint64, EpisodeAction>> localEpisodeActionHash;
     for (const EpisodeAction &action : std::as_const(m_localEpisodeActions)) {
         addToHashIfNewer(localEpisodeActionHash, action);
     }
@@ -514,7 +516,7 @@ void SyncJob::syncEpisodeStates()
 
     // Now we update the feeds that need updating (don't update feeds that have
     // already been updated after the subscriptions were updated).
-    const QStringList feedsFromHash = getFeedsFromHash(m_remoteEpisodeActionHash);
+    const QSet<QString> feedsFromHash = getFeedsFromHash(m_remoteEpisodeActionHash);
     for (const QString &url : feedsFromHash) {
         if (!m_feedsToBeUpdatedSubs.contains(url) && !m_feedsToBeUpdatedEps.contains(url)) {
             m_feedsToBeUpdatedEps += url;
@@ -559,7 +561,7 @@ void SyncJob::syncEpisodeStates()
         Sync::instance().applyEpisodeActionsLocally(m_remoteEpisodeActionHash);
 
         // Upload the local changes to the server
-        QVector<EpisodeAction> localEpisodeActionList = createListFromHash(localEpisodeActionHash);
+        QList<EpisodeAction> localEpisodeActionList = createListFromHash(localEpisodeActionHash);
 
         setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
         Q_EMIT infoMessage(this, getProgressMessage(EpisodeUpload));
@@ -571,14 +573,14 @@ void SyncJob::syncEpisodeStates()
     fetchFeedsJob->start();
 }
 
-void SyncJob::uploadEpisodeActions(const QVector<EpisodeAction> &episodeActions)
+void SyncJob::uploadEpisodeActions(const QList<EpisodeAction> &episodeActions)
 {
     // We have to upload episode actions in batches because otherwise the server
     // will reject them.
     uploadEpisodeActionsPartial(episodeActions, 0);
 }
 
-void SyncJob::uploadEpisodeActionsPartial(const QVector<EpisodeAction> &episodeActionList, const int startIndex)
+void SyncJob::uploadEpisodeActionsPartial(const QList<EpisodeAction> &episodeActionList, const int startIndex)
 {
     if (episodeActionList.count() == 0) {
         // nothing to upload; we don't have to contact the server
@@ -645,6 +647,7 @@ void SyncJob::updateDBTimestamp(const qulonglong &timestamp, const QString &time
 {
     if (timestamp > 1) { // only accept timestamp if it's larger than zero
         bool timestampExists = false;
+        Database::instance().transaction();
         QSqlQuery query;
         query.prepare(QStringLiteral("SELECT timestamp FROM SyncTimeStamps WHERE syncservice=:syncservice;"));
         query.bindValue(QStringLiteral(":syncservice"), timestampLabel);
@@ -661,6 +664,7 @@ void SyncJob::updateDBTimestamp(const qulonglong &timestamp, const QString &time
         query.bindValue(QStringLiteral(":syncservice"), timestampLabel);
         query.bindValue(QStringLiteral(":timestamp"), timestamp + 1); // add 1 second to avoid fetching our own previously sent updates next time
         Database::instance().execute(query);
+        Database::instance().commit();
     }
 }
 
@@ -725,11 +729,11 @@ void SyncJob::removeSubscriptionChangeConflicts(QStringList &addList, QStringLis
     }
 }
 
-QVector<EpisodeAction> SyncJob::createListFromHash(const QHash<QString, QHash<QString, EpisodeAction>> &episodeActionHash)
+QList<EpisodeAction> SyncJob::createListFromHash(const QHash<QString, QHash<qint64, EpisodeAction>> &episodeActionHash)
 {
-    QVector<EpisodeAction> episodeActionList;
+    QList<EpisodeAction> episodeActionList;
 
-    for (const QHash<QString, EpisodeAction> &actions : episodeActionHash) {
+    for (const QHash<qint64, EpisodeAction> &actions : episodeActionHash) {
         for (const EpisodeAction &action : actions) {
             if (action.action == QStringLiteral("play")) {
                 episodeActionList << action;
@@ -760,13 +764,15 @@ std::pair<QStringList, QStringList> SyncJob::getLocalSubscriptionChanges() const
     return localChanges;
 }
 
-QVector<EpisodeAction> SyncJob::getLocalEpisodeActions() const
+QList<EpisodeAction> SyncJob::getLocalEpisodeActions() const
 {
-    QVector<EpisodeAction> localEpisodeActions;
+    QList<EpisodeAction> localEpisodeActions;
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT * FROM EpisodeActions;"));
     Database::instance().execute(query);
     while (query.next()) {
+        qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+        qint64 feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         QString podcast = query.value(QStringLiteral("podcast")).toString();
         QString url = query.value(QStringLiteral("url")).toString();
         QString id = query.value(QStringLiteral("id")).toString();
@@ -774,101 +780,84 @@ QVector<EpisodeAction> SyncJob::getLocalEpisodeActions() const
         qulonglong started = query.value(QStringLiteral("started")).toULongLong();
         qulonglong position = query.value(QStringLiteral("position")).toULongLong();
         qulonglong total = query.value(QStringLiteral("total")).toULongLong();
+        qint64 durationdb = query.value(QStringLiteral("durationdb")).toLongLong();
         qulonglong timestamp = query.value(QStringLiteral("timestamp")).toULongLong();
-        EpisodeAction episodeAction = {podcast, url, id, m_device, action, started, position, total, timestamp};
+        EpisodeAction episodeAction = {entryuid, feeduid, podcast, url, id, m_device, action, started, position, total, durationdb, timestamp};
         localEpisodeActions += episodeAction;
     }
 
     return localEpisodeActions;
 }
 
-void SyncJob::addToHashIfNewer(QHash<QString, QHash<QString, EpisodeAction>> &episodeActionHash, const EpisodeAction &episodeAction)
+void SyncJob::addToHashIfNewer(QHash<QString, QHash<qint64, EpisodeAction>> &episodeActionHash, const EpisodeAction &episodeAction)
 {
-    if (episodeAction.action == QStringLiteral("play")) {
-        if (episodeActionHash.contains(episodeAction.id) && episodeActionHash[episodeAction.id].contains(QStringLiteral("play"))) {
-            if (episodeActionHash[episodeAction.id][QStringLiteral("play")].timestamp <= episodeAction.timestamp) {
-                episodeActionHash[episodeAction.id][QStringLiteral("play")] = episodeAction;
-            }
-        } else {
-            episodeActionHash[episodeAction.id][QStringLiteral("play")] = episodeAction;
-        }
+    QString action = episodeAction.action;
+    if (action == QStringLiteral("delete") || action == QStringLiteral("download")) {
+        action = QStringLiteral("download-delete");
     }
 
-    if (episodeAction.action == QStringLiteral("download") || episodeAction.action == QStringLiteral("delete")) {
-        if (episodeActionHash.contains(episodeAction.id)) {
-            if (episodeActionHash[episodeAction.id].contains(QStringLiteral("download"))) {
-                if (episodeActionHash[episodeAction.id][QStringLiteral("download")].timestamp <= episodeAction.timestamp) {
-                    episodeActionHash[episodeAction.id][QStringLiteral("download-delete")] = episodeAction;
-                }
-            } else if (episodeActionHash[episodeAction.id].contains(QStringLiteral("delete"))) {
-                if (episodeActionHash[episodeAction.id][QStringLiteral("delete")].timestamp <= episodeAction.timestamp) {
-                    episodeActionHash[episodeAction.id][QStringLiteral("download-delete")] = episodeAction;
-                }
-            } else {
-                episodeActionHash[episodeAction.id][QStringLiteral("download-delete")] = episodeAction;
-            }
-        } else {
-            episodeActionHash[episodeAction.id][QStringLiteral("download-delete")] = episodeAction;
+    if (episodeActionHash.contains(action) && episodeActionHash[action].contains(episodeAction.entryuid)) {
+        if (episodeActionHash[action][episodeAction.entryuid].timestamp <= episodeAction.timestamp) {
+            episodeActionHash[action][episodeAction.entryuid] = episodeAction;
         }
-    }
-
-    if (episodeAction.action == QStringLiteral("new")) {
-        if (episodeActionHash.contains(episodeAction.id) && episodeActionHash[episodeAction.id].contains(QStringLiteral("new"))) {
-            if (episodeActionHash[episodeAction.id][QStringLiteral("new")].timestamp <= episodeAction.timestamp) {
-                episodeActionHash[episodeAction.id][QStringLiteral("new")] = episodeAction;
-            }
-        } else {
-            episodeActionHash[episodeAction.id][QStringLiteral("new")] = episodeAction;
-        }
+    } else {
+        episodeActionHash[action][episodeAction.entryuid] = episodeAction;
     }
 }
 
-void SyncJob::removeEpisodeActionConflicts(QHash<QString, QHash<QString, EpisodeAction>> &local, QHash<QString, QHash<QString, EpisodeAction>> &remote)
+void SyncJob::removeEpisodeActionConflicts(QHash<QString, QHash<qint64, EpisodeAction>> &local, QHash<QString, QHash<qint64, EpisodeAction>> &remote)
 {
     const QStringList actions = {QStringLiteral("play"), QStringLiteral("download-delete"), QStringLiteral("new")};
 
     // We first remove the conflicts from the hash with local changes
-    for (const QHash<QString, EpisodeAction> &hashItem : std::as_const(remote)) {
-        for (const QString &action : actions) {
-            QString id = hashItem[action].id;
-            if (local.contains(id) && local.value(id).contains(action)) {
-                if (local[id][action].timestamp < remote[id][action].timestamp) {
-                    local[id].remove(action);
+    for (const QString &action : actions) {
+        if (remote.contains(action)) {
+            for (const EpisodeAction &hashItem : std::as_const(remote[action])) {
+                qint64 entryuid = hashItem.entryuid;
+                if (local.contains(action) && local[action].contains(entryuid)) {
+                    if (local[action][entryuid].timestamp < remote[action][entryuid].timestamp) {
+                        local[action].remove(entryuid);
+                        qCDebug(kastsSync) << "removed local episode action with lower timestamp:" << entryuid;
+                    }
                 }
             }
         }
     }
 
     // And now the same for the remote
-    for (const QHash<QString, EpisodeAction> &hashItem : std::as_const(local)) {
-        for (const QString &action : actions) {
-            QString id = hashItem[action].id;
-            if (remote.contains(id) && remote.value(id).contains(action)) {
-                if (remote[id][action].timestamp < local[id][action].timestamp) {
-                    remote[id].remove(action);
+    for (const QString &action : actions) {
+        if (local.contains(action)) {
+            for (const EpisodeAction &hashItem : std::as_const(local[action])) {
+                qint64 entryuid = hashItem.entryuid;
+                if (remote.contains(action) && remote[action].contains(entryuid)) {
+                    if (remote[action][entryuid].timestamp < local[action][entryuid].timestamp) {
+                        remote[action].remove(entryuid);
+                        qCDebug(kastsSync) << "removed remote episode action with lower timestamp:" << entryuid;
+                    }
                 }
             }
         }
     }
 }
 
-QStringList SyncJob::getFeedsFromHash(const QHash<QString, QHash<QString, EpisodeAction>> &hash)
+QSet<QString> SyncJob::getFeedsFromHash(const QHash<QString, QHash<qint64, EpisodeAction>> &hash)
 {
-    QStringList feedUrls;
-    for (const QHash<QString, EpisodeAction> &actionList : hash) {
-        for (const EpisodeAction &action : actionList) {
+    // TODO: Can we switch to feeduids here?
+    QSet<QString> feedUrls;
+    for (const QHash<qint64, EpisodeAction> &actions : hash) {
+        for (const EpisodeAction &action : actions) {
             feedUrls += action.podcast;
         }
     }
     return feedUrls;
 }
 
-void SyncJob::debugEpisodeActionHash(const QHash<QString, QHash<QString, EpisodeAction>> &hash)
+void SyncJob::debugEpisodeActionHash(const QHash<QString, QHash<qint64, EpisodeAction>> &hash)
 {
-    for (const QHash<QString, EpisodeAction> &hashItem : hash) {
+    for (const QHash<qint64, EpisodeAction> &hashItem : hash) {
         for (const EpisodeAction &action : hashItem) {
-            qCDebug(kastsSync) << action.podcast << action.url << action.id << action.device << action.action << action.started << action.position
-                               << action.total << action.timestamp;
+            qCDebug(kastsSync) << action.entryuid << action.feeduid << action.podcast << action.url << action.id << action.device << action.action
+                               << action.started << action.position << action.total << action.durationdb << action.timestamp;
         }
     }
 }

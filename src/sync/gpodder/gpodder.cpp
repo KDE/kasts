@@ -205,7 +205,7 @@ EpisodeActionRequest *GPodder::getEpisodeActions(const qulonglong &timestamp, bo
     return episodeActionRequest;
 }
 
-UploadEpisodeActionRequest *GPodder::uploadEpisodeActions(const QVector<SyncUtils::EpisodeAction> &episodeActions)
+UploadEpisodeActionRequest *GPodder::uploadEpisodeActions(const QList<SyncUtils::EpisodeAction> &episodeActions)
 {
     QString url;
     if (m_provider == SyncUtils::Provider::GPodderNextcloud) {
