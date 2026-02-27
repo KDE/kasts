@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:45+0000\n"
+"POT-Creation-Date: 2026-02-27 00:42+0000\n"
 "PO-Revision-Date: 2026-02-04 00:37+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,13 +47,13 @@ msgstr "잘못된 미디어"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
 
-#: entry.cpp:137 feed.cpp:142
+#: entry.cpp:137 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 그리고 %2"
 
-#: entry.cpp:140 feed.cpp:145
+#: entry.cpp:140 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"

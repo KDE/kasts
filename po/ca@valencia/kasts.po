@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-25 00:45+0000\n"
+"POT-Creation-Date: 2026-02-27 00:42+0000\n"
 "PO-Revision-Date: 2026-01-03 09:00+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -50,13 +50,13 @@ msgstr "Fitxer multimèdia no vàlid"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Baixades de pòdcast no permeses amb la connexió d'ús mesurat"
 
-#: entry.cpp:137 feed.cpp:142
+#: entry.cpp:137 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 i %2"
 
-#: entry.cpp:140 feed.cpp:145
+#: entry.cpp:140 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
