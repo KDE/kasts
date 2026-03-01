@@ -13,6 +13,7 @@
 #include <QString>
 #include <QStringList>
 #include <QtQml/qqmlregistration.h>
+#include <qtmetamacros.h>
 
 #include "entry.h"
 #include "feed.h"
@@ -70,6 +71,9 @@ public:
     Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkSetPlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSetEnclosureDurations(const QList<qint64> &durations, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSetEnclosureStatuses(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const;
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list) const;
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list) const;
@@ -88,6 +92,9 @@ Q_SIGNALS:
     void entryFavoriteStatusChanged(bool state, const QList<qint64> &entryuids) const;
     void entryQueueStatusChanged(bool state, const QList<qint64> &entryuids) const;
     void entryPlayPositionsChanged(const QList<qint64> &positions, const QList<qint64> &entryuids) const;
+    void enclosureDurationsChanged(const QList<qint64> &durations, const QList<qint64> &entryuids) const;
+    void enclosureSizesChanged(const QList<qint64> &sizes, const QList<qint64> &entryuids) const;
+    void enclosureStatusesChanged(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const;
 
     void unreadEntryCountChanged(const qint64 feeduid) const;
     void newEntryCountChanged(const qint64 feeduid) const;
