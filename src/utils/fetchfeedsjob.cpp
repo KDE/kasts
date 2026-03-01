@@ -16,7 +16,6 @@
 
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
 #include "error.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
