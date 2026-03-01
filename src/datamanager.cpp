@@ -17,6 +17,7 @@
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
+#include <qassert.h>
 #include <qhashfunctions.h>
 #include <utility>
 
@@ -615,6 +616,7 @@ void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list) con
 
 void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
 {
+    // TODO: move away from instantiation of entries
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
         if (getEntry(entryuid)->hasEnclosure()) {
@@ -662,6 +664,62 @@ void DataManager::bulkSetPlayPositions(const QList<qint64> &playPositions, const
     // Also store position change to make sure that it can be synced to
     // e.g. gpodder
     Sync::instance().storePlayEpisodeActions(entryuids, playPositions, playPositions);
+}
+
+void DataManager::bulkSetEnclosureDurations(const QList<qint64> &durations, const QList<qint64> &entryuids) const
+{
+    Q_ASSERT(durations.count() == entryuids.count());
+
+    // also save to database
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        query.bindValue(QStringLiteral(":duration"), durations[i]);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    qCDebug(kastsDataManager) << "Updated entry durations for entries:" << entryuids << ", durations:" << durations;
+    Q_EMIT enclosureDurationsChanged(durations, entryuids);
+}
+
+void DataManager::bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<qint64> &entryuids) const
+{
+    Q_ASSERT(sizes.count() == entryuids.count());
+
+    // also save to database
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        query.bindValue(QStringLiteral(":size"), sizes[i]);
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    qCDebug(kastsDataManager) << "Updated entry enclosure sizes for entries:" << entryuids << ", durations:" << sizes;
+    Q_EMIT enclosureSizesChanged(sizes, entryuids);
+}
+
+void DataManager::bulkSetEnclosureStatuses(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const
+{
+    Q_ASSERT(statuses.count() == entryuids.count());
+
+    Database::instance().transaction();
+    QSqlQuery query;
+    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(statuses[i]));
+        Database::instance().execute(query);
+    }
+    Database::instance().commit();
+
+    qCDebug(kastsDataManager) << "Updated entry enclosure statuses for entries:" << entryuids << ", statuses:" << statuses;
+    Q_EMIT enclosureStatusesChanged(statuses, entryuids);
 }
 
 QList<qint64> DataManager::getEntryuidsFromModelIndexList(const QModelIndexList &list) const
