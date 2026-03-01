@@ -18,6 +18,7 @@
 #include <Syndication/Syndication>
 
 #include "error.h"
+#include "utils/networkaccessmanager.h"
 
 class Fetcher : public QObject
 {
@@ -83,12 +84,9 @@ Q_SIGNALS:
 private:
     Fetcher();
 
-    QNetworkReply *head(QNetworkRequest &request) const;
-    void setHeader(QNetworkRequest &request) const;
-
     QSet<QString> m_ongoingImageDownloads;
 
-    QNetworkAccessManager *manager;
+    NetworkAccessManager *m_manager;
     int m_updateProgress;
     int m_updateTotal;
     bool m_updating;

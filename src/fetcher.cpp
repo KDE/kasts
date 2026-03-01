@@ -22,7 +22,6 @@
 #include <QTimer>
 
 #include "database.h"
-#include "kasts-version.h"
 #include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
@@ -38,12 +37,7 @@ Fetcher::Fetcher()
     m_updateTotal = -1;
     m_updating = false;
 
-    manager = new QNetworkAccessManager(this);
-    manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-    manager->setStrictTransportSecurityEnabled(true);
-    // HACK TODO: Disable hstsstore temporarily because of malloc crash deep in
-    // qt6 somewhere.  This is to be reenabled once the bug is solved upstream
-    manager->enableStrictTransportSecurityStore(false);
+    m_manager = new NetworkAccessManager(this);
 
     // First save the original system proxy settings
     m_systemHttpProxy = qgetenv("http_proxy");
@@ -229,7 +223,7 @@ void Fetcher::getRedirectedUrl(const QUrl &url)
     QNetworkRequest request((QUrl(url)));
     request.setTransferTimeout(5000); // wait 5 seconds; it will fall back to original url otherwise
 
-    QNetworkReply *reply = head(request);
+    QNetworkReply *reply = m_manager->head(request);
 
     connect(reply, &QNetworkReply::finished, this, [this, reply, url]() {
         qCDebug(kastsFetcher) << "finished looking for redirect; this is the old url and the redirected url:" << url << reply->url();
@@ -244,26 +238,12 @@ void Fetcher::getRedirectedUrl(const QUrl &url)
 
 QNetworkReply *Fetcher::get(QNetworkRequest &request) const
 {
-    setHeader(request);
-    return manager->get(request);
+    return m_manager->get(request);
 }
 
 QNetworkReply *Fetcher::post(QNetworkRequest &request, const QByteArray &data) const
 {
-    setHeader(request);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/json"));
-    return manager->post(request, data);
-}
-
-QNetworkReply *Fetcher::head(QNetworkRequest &request) const
-{
-    setHeader(request);
-    return manager->head(request);
-}
-
-void Fetcher::setHeader(QNetworkRequest &request) const
-{
-    request.setRawHeader(QByteArray("User-Agent"), QByteArray("Kasts/") + QByteArray(KASTS_VERSION_STRING) + QByteArray(" Syndication"));
+    return m_manager->post(request, data);
 }
 
 void Fetcher::initializeUpdateTimer()

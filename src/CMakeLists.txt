@@ -6,22 +6,23 @@ add_subdirectory(kmediasession)
 
 add_executable(kasts
     main.cpp
-    fetcher.cpp
-    database.cpp
-    datatypes.cpp
-    entry.cpp
-    feed.cpp
-    enclosure.cpp
-    chapter.cpp
-    datamanager.cpp
     audiomanager.cpp
+    chapter.cpp
+    database.cpp
+    datamanager.cpp
+    datatypes.cpp
+    enclosure.cpp
+    entry.cpp
     error.cpp
+    feed.cpp
+    fetcher.cpp
     utils/enclosuredownloadjob.cpp
     utils/storagemanager.cpp
     utils/storagemovejob.cpp
     utils/updatefeedjob.cpp
     utils/fetchfeedsjob.cpp
     utils/systrayicon.cpp
+    utils/networkaccessmanager.cpp
     utils/networkconnectionmanager.cpp
     utils/colorschemer.cpp
     utils/windowutils.cpp
