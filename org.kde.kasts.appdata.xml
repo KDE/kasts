@@ -503,6 +503,7 @@
           <li xml:lang="ca">S'han corregit fallades ocasionals en actualitzar pòdcasts després que l'aplicació estigui oberta durant un temps.</li>
           <li xml:lang="ca-valencia">S'han corregit fallades ocasionals en actualitzar pòdcast després que l'aplicació estiga oberta durant un temps.</li>
           <li xml:lang="fr">Correction de plantages occasionnels lors de la mise à jour des podcasts après le maintien ouvert de l'application pendant un certain temps.</li>
+          <li xml:lang="he">תוקנו קריסות שקרו מדי פעם בפעם בעת עדכון הסכתים לאחר שהיישום היה פתוח במשך זמן מה.</li>
           <li xml:lang="ia">Corrigite fracassos occasional quando il actualisa podcasts post que un app ha essite aperite per alcun tempore. </li>
           <li xml:lang="it">Corretti arresti anomali occasionali che si verificavano durante l'aggiornamento dei podcast dopo che l'applicazione era rimasta aperta per un po'.</li>
           <li xml:lang="ka">გასწორდა პოდკასტების განახლებისას აპლიკაციის ხანგრძლივი მუშაობის შემდეგ წარმოქმნილი პერიოდული ავარიული გათიშვები.</li>
@@ -692,6 +693,7 @@
           <li xml:lang="ca">S'han redissenyat els controls del reproductor de la barra de capçalera, en part basats en el disseny de l'Elisa. La barra de capçalera es pot canviar de mida i es pot reduir completament a una barra d'eines mínima.</li>
           <li xml:lang="ca-valencia">S'han redissenyat els controls del reproductor de la barra de capçalera, en part basats en el disseny d'Elisa. La barra de capçalera es pot canviar de mida i es pot reduir completament a una barra d'eines mínima.</li>
           <li xml:lang="fr">Les contrôles du lecteur dans la barre d'en-tête ont été repensés, en partie sur la conception graphique de Elisa. La barre d'en-tête est redimensionnable et peut être entièrement réduite à une barre minimale d'outils.</li>
+          <li xml:lang="he">פקדי הנגינה בסרגל הכותרת עוצבו מחדש, חלקית על בסיס העיצוב של Elisa. סרגל הכותרת גמיש וניתן לצמצום עד כדי סרגל כלים מזערי.</li>
           <li xml:lang="ia">Le controlos de executor de barra de capite ha essite redesignate, in parte sur le designo de Elisa. Le barra de capite es redimensionabile e pote esser completemente plicate a sol un minime barra de instrumento.</li>
           <li xml:lang="it">I controlli del lettore nella barra dell'intestazione sono stati riprogettati, in parte basandosi sul design di Elisa. La barra dell'intestazione è ridimensionabile e può essere completamente ridotta a una barra degli strumenti minimale.</li>
           <li xml:lang="ka">თავსართის პანელის დაკვრის მართვის ღილაკები განახლდა, ნაწილობრივ Elisa-ს დიზაინზე დაყრდნობით. თავსართის პანელი ახლა უკვე ზომაში ცვლადია და შესაძლებელია მისი სრულად ჩაკეცვა მინიმალისტურ ხელსაწყოთა ზოლამდე.</li>
@@ -705,6 +707,7 @@
           <li xml:lang="ca">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
           <li xml:lang="ca-valencia">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
           <li xml:lang="fr">Le menu de la barre latérale gauche en mode de bureau a été repensé. Il utilise désormais des boutons similaires à ceux utilisés dans la barre de navigation inférieure en mode mobile.</li>
+          <li xml:lang="he">תפריט סרגל הצד הימני במצב שולחן עבודה עוצב מחדש. מעתה הוא משתמש בכפתורים דומים לאלו שיש היום בסרגל הניווט התחתון במצב לניידים.</li>
           <li xml:lang="ia">Le menu de barra lateral sinistre in modo de scriptorio ha essite redesignate. Il ora usa buttones simile a los usate in le barra de navigation de basso in modo mobile.</li>
           <li xml:lang="it">Il menu della barra laterale sinistra in modalità desktop è stato riprogettato. Ora presenta pulsanti simili a quelli utilizzati nella barra di navigazione inferiore in modalità mobile.</li>
           <li xml:lang="ka">კომპიუტერის რეჟიმში მარცხენა გვერდითი პანელის მენიუ თავიდან გადაკეთდა და ახლა ის იყენებს მსგავს ღილაკებს, როგორიც მობილურ რეჟიმში ქვედა ნავიგაციის ზოლში გამოიყენება.</li>
@@ -840,6 +843,7 @@
           <li xml:lang="ca">Les pàgines d'informació del pòdcast i d'episodis s'han millorat afegint una barra d'eines de botons (moure accions fora de la capçalera de l'aplicació) i refent la disposició de la informació.</li>
           <li xml:lang="ca-valencia">Les pàgines d'informació del pòdcast i d'episodis s'han millorat afegint una barra d'eines de botons (moure accions fora de la capçalera de l'aplicació) i refent la disposició de la informació.</li>
           <li xml:lang="fr">Les pages d'informations sur le podcast et les épisodes ont été améliorées en ajoutant une barre d'outils avec des boutons (Déplaçant les actions hors de l'en-tête de l'application) et en retravaillant la disposition des informations.</li>
+          <li xml:lang="he">עמודי פרטי ההסכת והפרק השתפרו על ידי הוספת סרגל כלים (תוך העברת פעולות מחוץ לכותרת העליונה של היישום) ועבודה מחדש על פריסת תצוגת המידע.</li>
           <li xml:lang="ia">Le paginas de info de podcast e episodio ed meliorate per adder un barr  de instrumento de button (movente actiones foras delcapite del app) e per reelaborar le disposition de information.</li>
           <li xml:lang="it">Le pagine informative sui podcast e sugli episodi sono state migliorate aggiungendo una barra degli strumenti con pulsanti (spostando le azioni fuori dall'intestazione dell'applicazione) e rielaborando la disposizione delle informazioni.</li>
           <li xml:lang="ka">გაუმჯობესდა პოდკასტებისა და ეპიზოდების საინფორმაციო გვერდები ღილაკების ხელსაწყოთა ზოლის დამატებითა და ინფორმაციის განლაგების გადამუშავებით (მოქმედებები აპლიკაციის თავსართიდან გადატანილ იქნა).</li>
@@ -881,6 +885,7 @@
           <li xml:lang="ca">El Kasts ara té la capacitat d'empènyer tots els estats dels episodis locals al servidor de sincronització.</li>
           <li xml:lang="ca-valencia">Kasts ara té la capacitat d'empényer tots els estats dels episodis locals al servidor de sincronització.</li>
           <li xml:lang="fr">Kasts possède maintenant la capacité de synchroniser tous les états locaux des épisodes avec le serveur de synchronisation.</li>
+          <li xml:lang="he">ל־Kasts יש כרגע את היכולת לדחוף את כל מצבי הפרקים המקומיים לשרת הסנכרון.</li>
           <li xml:lang="ia">Kasts nunc ha le habilitate a pulsar omne statos de episodio local al servitor de sync.</li>
           <li xml:lang="it">Kasts ora ha la possibilità di inviare tutti gli stati degli episodi locali al server di sincronizzazione.</li>
           <li xml:lang="ka">Kasts-ს ახლა უკვე აქვს შესაძლებლობა, ეპიზოდების ყველა ლოკალური მდგომარეობა სინქრონიზაციის სერვერზე ატვირთოს.</li>
@@ -894,6 +899,7 @@
           <li xml:lang="ca">S'ha afegit una opció per a indicar al Kasts quants episodis recents s'han de marcar com a no reproduïts en afegir un pòdcast nou.</li>
           <li xml:lang="ca-valencia">S'ha afegit una opció per a indicar a Kasts quants episodis recents s'han de marcar com a no reproduïts en afegir un pòdcast nou.</li>
           <li xml:lang="fr">Un paramètre a été ajouté pour indiquer à Kasts combien d'épisodes récents doivent être marqués comme non lus lors de l'ajout d'un nouveau podcast.</li>
+          <li xml:lang="he">נוספה הגדרה להנחות את Kasts כמה פרקים אחרונים לסמן שלא התנגנו בעת הוספת הסכת חדש.</li>
           <li xml:lang="ia">Un preferentia ha essite addite per dicer a Kasts comomulte episodios recente deberea esser marcate como non reproducite quando on adde un nove podcast.</li>
           <li xml:lang="it">È stata aggiunta un'impostazione per indicare a Kasts quanti episodi recenti devono essere contrassegnati come non riprodotti quando si aggiunge un nuovo podcast.</li>
           <li xml:lang="ka">დაემატა პარამეტრი იმის მისათითებლად, თუ რამდენი ბოლო ეპიზოდი მოინიშნოს დაუკვრელად ახალი პოდკასტის დამატებისას.</li>
@@ -928,6 +934,7 @@
           <li xml:lang="ca">La rutina d'actualització de pòdcasts s'ha revisat completament, solucionant diversos errors. Ara fa servir multifil, i també actualitzarà la informació dels episodis existents.</li>
           <li xml:lang="ca-valencia">La rutina d'actualització de pòdcast s'ha revisat completament, solucionant diversos errors. Ara utilitza multifil, i també actualitzarà la informació dels episodis existents.</li>
           <li xml:lang="fr">La routine de mise à jour du podcast a été complètement repensée, résolvant plusieurs bogues. Elle utilise maintenant le multi-processus et mettra également à jour les informations des épisodes existants.</li>
+          <li xml:lang="he">שגרת עדכון ההסכתים שוכתבה לחלוטין, מה שפותר כמה תקלות. מעתה היא משתמשת בריבוי תהליכונים והיא גם מעדכנת פרטים של פרקים קיימים.</li>
           <li xml:lang="ia">Le routine de actualisar de podcast ha essite completemente refacite, solvente multe faltas.Ilnunc esusante multithreading, e il tamben actualisara information  de episodio existente.</li>
           <li xml:lang="it">La routine di aggiornamento del podcast è stata completamente rivista, risolvendo diversi bug. Ora utilizza il multithreading e aggiornerà anche le informazioni sugli episodi esistenti.</li>
           <li xml:lang="ka">პოდკასტების განახლების რუტინა სრულად გადამუშავდა, რითაც რამდენიმე ხარვეზი გასწორდა. ახლა ის მრავალნაკადიანობას იყენებს და ასევე უზრუნველყოფს არსებული ეპიზოდების ინფორმაციის განახლებას.</li>
@@ -941,6 +948,7 @@
           <li xml:lang="ca">S'han fet millores generals per a assegurar-se que l'aplicació s'ajusta bé en pantalles petites tant en el mode retrat com en l'apaïsat.</li>
           <li xml:lang="ca-valencia">S'han fet millores generals per a assegurar-se que l'aplicació s'ajusta bé en pantalles xicotetes tant en el mode retrat com en l'apaïsat.</li>
           <li xml:lang="fr">Des améliorations générales ont été apportées pour s'assurer que l'application s'adapte bien aux petits écrans en mode portrait comme en mode paysage.</li>
+          <li xml:lang="he">בוצעו שיפורים כלליים כדי לוודא שהיישום תואם בצורה מיטבית למסכים קטנים גם לאורך וגם לרוחב.</li>
           <li xml:lang="ia">Meliorementos general esseva facite pro facer secur que le app se adapta ben sur parve schermosin ambes modo de orientation verticale horizontal.</li>
           <li xml:lang="it">Sono stati apportati miglioramenti generali per garantire che l'applicazione si adatti bene agli schermi di piccole dimensioni, sia in modalità verticale che orizzontale.</li>
           <li xml:lang="ka">განხორციელდა ზოგადი გაუმჯობესებები იმის უზრუნველსაყოფად, რომ აპლიკაცია კარგად მოერგოს მცირე ზომის ეკრანებს როგორც ვერტიკალურ, ისე ჰორიზონტალურ რეჟიმში.</li>
@@ -982,6 +990,7 @@
           <li xml:lang="ca">S'ha introduït un commutador per a ajustar opcionalment el temps que queda dels episodis en funció de la velocitat de reproducció actual.</li>
           <li xml:lang="ca-valencia">S'ha introduït un commutador per a ajustar de manera opcional el temps que queda dels episodis en funció de la velocitat de reproducció actual.</li>
           <li xml:lang="fr">Un interrupteur a été introduit pour ajuster éventuellement le temps restant des épisodes en fonction de la vitesse de lecture courante.</li>
+          <li xml:lang="he">נוסף מתג כדי להתאים את הזמן שנשאר בפרקים לפי קצב הנגינה הנוכחי.</li>
           <li xml:lang="ia">Un commutator ha essite introducite per adaptar optionalmente le tempore lassate sur episodios basate sur le taxa currente de reproduction.</li>
           <li xml:lang="it">È stato introdotto un interruttore che consente di regolare facoltativamente il tempo rimanente degli episodi in base alla velocità di riproduzione attuale.</li>
           <li xml:lang="ka">დაემატა გადამრთველი, რომლის მეშვეობითაც, სურვილისამებრ, ეპიზოდების დარჩენილი დროის მიმდინარე დაკვრის სიჩქარეზე დაყრდნობით კორექტირებაა შესაძლებელი.</li>
@@ -1217,6 +1226,7 @@
         <p xml:lang="ca">Al costat d'algunes correccions d'errors menors, ara és possible canviar la ubicació on es desen els episodis de pòdcast descarregats i les imatges a la memòria cau. Aquests fitxers poden ocupar molt espai de disc, de manera que és millor poder emmagatzemar-los en altres llocs als sistemes amb espai limitat de disc de la carpeta personal. Els paràmetres relacionats ara mostren l'espai de disc utilitzat pels episodis i les imatges, i permet netejar la memòria cau de les imatges.</p>
         <p xml:lang="ca-valencia">Al costat d'algunes esmenes d'errors menors, ara és possible canviar la ubicació on es guarden els episodis de pòdcast descarregats i les imatges a la memòria cau. Estos fitxers poden ocupar molt espai de disc, de manera que és millor poder emmagatzemar-los en altres llocs als sistemes amb espai limitat de disc de la carpeta personal. Els paràmetres relacionats ara mostren l'espai de disc utilitzat pels episodis i les imatges, i permet netejar la memòria cau de les imatges.</p>
         <p xml:lang="fr">En plus de quelques corrections de bogues mineurs, il est désormais possible de modifier l'emplacement où les épisodes de podcasts téléchargés et les images mises en cache sont enregistrés. Ces fichiers peuvent occuper beaucoup d'espace disque. Par conséquent, il est donc agréable de pouvoir les enregistrer ailleurs que sur des systèmes avec un espace disque limité pour le dossier personnel. Les paramètres associés affichent désormais l'espace disque utilisé par les épisodes et les images et permettent de vider le cache des images.</p>
+        <p xml:lang="he">נוסף על כמה תיקוני תקלות, ניתן מעתה לשנות את מקום שמירת פרקי ההסכתים שירדו והתמונות שנשמרו באחסון. הקבצים האלו יכולים לתפוס מקום רב בנפח הכונן, כך שנחמד לאחסן אותם במקום אחר במערכות עם מקום מוגבל בכונן תיקיית הביתה. ההגדרות הקשורות מציגות מעתה את המקום בכונן שתופסים פרקים ותמונות ומאפשרות למחוק את מטמון התמונות.</p>
         <p xml:lang="ia">Apud alcun correctiones minor de faltas, il es nunc possibile cambiar le location ubi le episodios de podcast discargate e imagines ponite in cache es salveguardate. Iste files pote prentìder multe spatio de disco, assi il es agradabile esser capace a immagazinar los alibi sur systemas con limitate spatio de disco de dossier domo. Le preferentias affin nunc monstra le spatio de disco usate per episodioe e imagines, e te permitte clarar le cache de imagine.</p>
         <p xml:lang="it">Oltre ad alcune correzioni di bug minori, ora è possibile modificare la posizione in cui vengono salvati gli episodi dei podcast scaricati e le immagini memorizzate nella cache. Questi file possono occupare molto spazio su disco, quindi è utile poterli salvare altrove su sistemi con spazio limitato nella cartella home. Le impostazioni correlate ora mostrano lo spazio su disco utilizzato da episodi e immagini e consentono di svuotare la cache delle immagini.</p>
         <p xml:lang="ka">მცირე ხარვეზების გასწორებასთან ერთად, ახლა უკვე შესაძლებელია ჩამოტვირთული პოდკასტების ეპიზოდებისა და დაკეშილი სურათების შენახვის ადგილის შეცვლა. რადგან ეს ფაილები დიდ ადგილს იკავებს, მათი სხვაგან შენახვა მოსახერხებელია იმ სისტემებისთვის, რომლებსაც საწყის საქაღალდეში შეზღუდული სივრცე აქვთ. შესაბამისი პარამეტრები ახლა უკვე აჩვენებს ეპიზოდებისა და სურათების მიერ დაკავებულ ადგილს და იძლევა სურათების ქეშის გასუფთავების საშუალებას.</p>
