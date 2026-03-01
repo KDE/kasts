@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:42+0000\n"
+"POT-Creation-Date: 2026-03-01 00:45+0000\n"
 "PO-Revision-Date: 2026-01-05 02:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -30,33 +30,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:445
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "未允許透過計量連線進行串流"
 
-#: audiomanager.cpp:441 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "沒有網路連線"
 
-#: audiomanager.cpp:584
+#: audiomanager.cpp:597
 #, kde-format
 msgid "Invalid Media"
 msgstr "無效的媒體"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "未允許透過計量連線下載 Podcast"
 
-#: entry.cpp:137 feed.cpp:144
+#: entry.cpp:136 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 和 %2"
 
-#: entry.cpp:140 feed.cpp:147
+#: entry.cpp:139 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -2141,12 +2141,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:174
+#: sync/sync.cpp:175
 #, kde-format
 msgid "Never"
 msgstr "永不"
 
-#: sync/sync.cpp:197
+#: sync/sync.cpp:198
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2154,127 +2154,127 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1 上的 Kasts"
 
-#: sync/sync.cpp:291
+#: sync/sync.cpp:292
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "無法登入 GPodder-nextcloud 伺服器"
 
-#: sync/sync.cpp:330
+#: sync/sync.cpp:331
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "無法登入 GPodder 伺服器"
 
-#: sync/sync.cpp:480 sync/sync.cpp:481
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O 被拒絕：無法儲存密碼。"
 
-#: sync/sync.cpp:561 sync/sync.cpp:562
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O 被拒絕：無法存取密碼檔案。"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:645
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "無法建立 GPodder 裝置"
 
-#: sync/sync.cpp:670
+#: sync/sync.cpp:671
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "無法取得已同步裝置狀態"
 
-#: sync/sync.cpp:723
+#: sync/sync.cpp:724
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "無法從裝置 %1 取得訂閱"
 
-#: sync/sync.cpp:742
+#: sync/sync.cpp:743
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "無法為 %1 上傳訂閱"
 
-#: sync/syncjob.cpp:63
+#: sync/syncjob.cpp:65
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "無法從伺服器取得訂閱更新"
 
-#: sync/syncjob.cpp:66
+#: sync/syncjob.cpp:68
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "無法上傳訂閱變更至伺服器"
 
-#: sync/syncjob.cpp:69
+#: sync/syncjob.cpp:71
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "無法從伺服器取得集數更新"
 
-#: sync/syncjob.cpp:72
+#: sync/syncjob.cpp:74
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "無法上傳集數更新至伺服器"
 
-#: sync/syncjob.cpp:75
+#: sync/syncjob.cpp:77
 #, kde-format
 msgid "Internal data error"
 msgstr "內部資料錯誤"
 
-#: sync/syncjob.cpp:883
+#: sync/syncjob.cpp:872
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "（步驟 %1/%2）開始同步"
 
-#: sync/syncjob.cpp:886
+#: sync/syncjob.cpp:875
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "（步驟 %1/%2）正在請求遠端訂閱更新"
 
-#: sync/syncjob.cpp:889
+#: sync/syncjob.cpp:878
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "（步驟 %1/%2）正在上傳本地訂閱更新"
 
-#: sync/syncjob.cpp:893
+#: sync/syncjob.cpp:882
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "（步驟 %3/%4）已更新 %2 個 Podcast，共 %1 個"
 
-#: sync/syncjob.cpp:901
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "（步驟 %1/%2）正在請求遠端集數更新"
 
-#: sync/syncjob.cpp:904
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "（步驟 %1/%2）正在套用遠端集數變更"
 
-#: sync/syncjob.cpp:907
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "（步驟 %1/%2）正在上傳本地集數更新"
 
-#: sync/syncjob.cpp:910
+#: sync/syncjob.cpp:899
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "（步驟 %1/%2）已完成同步"
 
-#: sync/syncjob.cpp:913
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "同步已中止"
 
-#: sync/syncjob.cpp:917
+#: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"

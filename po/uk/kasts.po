@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:42+0000\n"
+"POT-Creation-Date: 2026-03-01 00:45+0000\n"
 "PO-Revision-Date: 2026-01-04 11:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -28,36 +28,36 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:445
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr ""
 "Потокове передавання даних на з'єднанні з обліком передавання даних "
 "заборонено"
 
-#: audiomanager.cpp:441 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Немає з'єднання з мережею"
 
-#: audiomanager.cpp:584
+#: audiomanager.cpp:597
 #, kde-format
 msgid "Invalid Media"
 msgstr "Некоректне мультимедіа"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 "Отримання трансляцій заборонено через використання вимірюваного з'єднання"
 
-#: entry.cpp:137 feed.cpp:144
+#: entry.cpp:136 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 і %2"
 
-#: entry.cpp:140 feed.cpp:147
+#: entry.cpp:139 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -2187,12 +2187,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:174
+#: sync/sync.cpp:175
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
 
-#: sync/sync.cpp:197
+#: sync/sync.cpp:198
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2200,91 +2200,91 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts на %1"
 
-#: sync/sync.cpp:291
+#: sync/sync.cpp:292
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "Не вдалося увійти до облікового запису на сервері GPodder-nextcloud"
 
-#: sync/sync.cpp:330
+#: sync/sync.cpp:331
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "Не вдалося увійти до сервера GPodder"
 
-#: sync/sync.cpp:480 sync/sync.cpp:481
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "Заборонено введення-виведення: не вдалося зберегти пароль."
 
-#: sync/sync.cpp:561 sync/sync.cpp:562
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr ""
 "Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:645
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "Не вдалося створити пристрій GPodder"
 
-#: sync/sync.cpp:670
+#: sync/sync.cpp:671
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "Не вдалося отримати стан синхронізованого пристрою"
 
-#: sync/sync.cpp:723
+#: sync/sync.cpp:724
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "Не вдалося отримати підписки для пристрою %1"
 
-#: sync/sync.cpp:742
+#: sync/sync.cpp:743
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "Не вдалося вивантажити підписки для пристрою %1"
 
-#: sync/syncjob.cpp:63
+#: sync/syncjob.cpp:65
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "Не вдалося отримати оновлення підписок з сервера"
 
-#: sync/syncjob.cpp:66
+#: sync/syncjob.cpp:68
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "Не вдалося вивантажити зміни у підписках на сервер"
 
-#: sync/syncjob.cpp:69
+#: sync/syncjob.cpp:71
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "Не вдалося отримати оновлення епізодів з сервера"
 
-#: sync/syncjob.cpp:72
+#: sync/syncjob.cpp:74
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "Не вдалося вивантажити оновлення епізодів на сервер"
 
-#: sync/syncjob.cpp:75
+#: sync/syncjob.cpp:77
 #, kde-format
 msgid "Internal data error"
 msgstr "Помилка внутрішньої обробки даних"
 
-#: sync/syncjob.cpp:883
+#: sync/syncjob.cpp:872
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(Крок %1 з %2) Починаємо синхронізацію"
 
-#: sync/syncjob.cpp:886
+#: sync/syncjob.cpp:875
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(Крок %1 з %2) Надсилаємо запит щодо віддалених оновлень підписок"
 
-#: sync/syncjob.cpp:889
+#: sync/syncjob.cpp:878
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(Крок %1 з %2) Вивантажуємо локальні оновлення підписок"
 
-#: sync/syncjob.cpp:893
+#: sync/syncjob.cpp:882
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
@@ -2294,37 +2294,37 @@ msgstr[1] "(Крок %3 з %4) Оновлено %2 %1 трансляцій"
 msgstr[2] "(Крок %3 з %4) Оновлено %2 %1 трансляцій"
 msgstr[3] "(Крок %3 з %4) Оновлено %2 %1 трансляції"
 
-#: sync/syncjob.cpp:901
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(Крок %1 з %2) Надсилаємо запит щодо віддалених оновлень епізодів"
 
-#: sync/syncjob.cpp:904
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(Крок %1 з %2) Застосовуємо віддалені зміни у епізодах"
 
-#: sync/syncjob.cpp:907
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(Крок %1 з %2) Вивантажуємо локальні оновлення епізодів"
 
-#: sync/syncjob.cpp:910
+#: sync/syncjob.cpp:899
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(Крок %1 з %2) Синхронізацію завершено"
 
-#: sync/syncjob.cpp:913
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "Синхронізацію перервано"
 
-#: sync/syncjob.cpp:917
+#: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"

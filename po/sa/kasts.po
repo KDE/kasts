@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-27 00:42+0000\n"
+"POT-Creation-Date: 2026-03-01 00:45+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,33 +29,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: audiomanager.cpp:432
+#: audiomanager.cpp:445
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "मीटर् कृते संयोजने स्ट्रीमिंग् अनुमतं नास्ति"
 
-#: audiomanager.cpp:441 enclosure.cpp:169 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "जालसंयोजनं नास्ति"
 
-#: audiomanager.cpp:584
+#: audiomanager.cpp:597
 #, kde-format
 msgid "Invalid Media"
 msgstr "अमान्य मीडिया"
 
-#: enclosure.cpp:165
+#: enclosure.cpp:164
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "मीटर्-युक्ते संयोजने पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"
 
-#: entry.cpp:137 feed.cpp:144
+#: entry.cpp:136 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 तथा %2"
 
-#: entry.cpp:140 feed.cpp:147
+#: entry.cpp:139 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -2181,12 +2181,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: sync/sync.cpp:174
+#: sync/sync.cpp:175
 #, kde-format
 msgid "Never"
 msgstr "कदापि न"
 
-#: sync/sync.cpp:197
+#: sync/sync.cpp:198
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2194,90 +2194,90 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "%1 इत्यत्र कास्ट् करोति"
 
-#: sync/sync.cpp:291
+#: sync/sync.cpp:292
 #, kde-format
 msgid "Could not log into GPodder-nextcloud server"
 msgstr "GPodder-nextcloud सर्वरे प्रवेशं कर्तुं न शक्तवान्"
 
-#: sync/sync.cpp:330
+#: sync/sync.cpp:331
 #, kde-format
 msgid "Could not log into GPodder server"
 msgstr "GPodder सर्वरे प्रवेशं कर्तुं न शक्तवान्"
 
-#: sync/sync.cpp:480 sync/sync.cpp:481
+#: sync/sync.cpp:481 sync/sync.cpp:482
 #, kde-format
 msgid "I/O denied: Cannot save password."
 msgstr "I/O अङ्गीकृतम्: गुप्तशब्दं रक्षितुं न शक्यते।"
 
-#: sync/sync.cpp:561 sync/sync.cpp:562
+#: sync/sync.cpp:562 sync/sync.cpp:563
 #, kde-format
 msgid "I/O denied: Cannot access password file."
 msgstr "I/O अङ्गीकृतम्: गुप्तशब्दसञ्चिकां प्राप्तुं न शक्यते।"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:645
 #, kde-format
 msgid "Could not create GPodder device"
 msgstr "GPodder यन्त्रं निर्मातुं न शक्तवान्"
 
-#: sync/sync.cpp:670
+#: sync/sync.cpp:671
 #, kde-format
 msgid "Could not retrieve synced device status"
 msgstr "समन्वयितयन्त्रस्य स्थितिं प्राप्तुं न शक्तवान्"
 
-#: sync/sync.cpp:723
+#: sync/sync.cpp:724
 #, kde-format
 msgid "Could not retrieve subscriptions for device %1"
 msgstr "%1 उपकरणस्य सदस्यतां प्राप्तुं न शक्तम्"
 
-#: sync/sync.cpp:742
+#: sync/sync.cpp:743
 #, kde-format
 msgid "Could not upload subscriptions for device %1"
 msgstr "%1 उपकरणस्य सदस्यतां अपलोड् कर्तुं न शक्तम्"
 
-#: sync/syncjob.cpp:63
+#: sync/syncjob.cpp:65
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
 msgstr "सर्वरात् सदस्यता-अद्यतनं पुनः प्राप्तुं न शक्तवान्"
 
-#: sync/syncjob.cpp:66
+#: sync/syncjob.cpp:68
 #, kde-format
 msgid "Could not upload subscription changes to server"
 msgstr "सदस्यतापरिवर्तनं सर्वरे अपलोड् कर्तुं न शक्तवान्"
 
-#: sync/syncjob.cpp:69
+#: sync/syncjob.cpp:71
 #, kde-format
 msgid "Could not retrieve episode updates from server"
 msgstr "सर्वरतः एपिसोड् अपडेट् पुनः प्राप्तुं न शक्तवान्"
 
-#: sync/syncjob.cpp:72
+#: sync/syncjob.cpp:74
 #, kde-format
 msgid "Could not upload episode updates to server"
 msgstr "सर्वरे एपिसोड् अपडेट् अपलोड् कर्तुं न शक्तवान्"
 
-#: sync/syncjob.cpp:75
+#: sync/syncjob.cpp:77
 #, kde-format
 msgid "Internal data error"
 msgstr "आन्तरिकदत्तांशदोषः"
 
-#: sync/syncjob.cpp:883
+#: sync/syncjob.cpp:872
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
 msgstr "(%2 तः %1 चरणम्) समन्वयनं आरभत"
 
-#: sync/syncjob.cpp:886
+#: sync/syncjob.cpp:875
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
 msgstr "(%2 तः %1 चरणम्) दूरस्थसदस्यता अद्यतनस्य अनुरोधः"
 
-#: sync/syncjob.cpp:889
+#: sync/syncjob.cpp:878
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
 msgstr "(%2 तः %1 चरणम्) स्थानीयसदस्यता अद्यतनं अपलोड् करणम्"
 
-#: sync/syncjob.cpp:893
+#: sync/syncjob.cpp:882
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
@@ -2285,37 +2285,37 @@ msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
 msgstr[0] "(%4 इत्यस्य %3 चरणम्) %1 पॉडकास्ट् इत्यस्य %2 अद्यतनम्"
 msgstr[1] "(%4 इत्यस्य %3 चरणम्) %1 पॉड्कास्ट् इत्यस्य %2 अद्यतनं कृतम्"
 
-#: sync/syncjob.cpp:901
+#: sync/syncjob.cpp:890
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
 msgstr "(%2 तः %1 चरणम्) दूरस्थप्रकरणस्य अद्यतनस्य अनुरोधः"
 
-#: sync/syncjob.cpp:904
+#: sync/syncjob.cpp:893
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Applying remote episode changes"
 msgstr "(%2 तः %1 चरणम्) दूरस्थप्रकरणपरिवर्तनं प्रयोजयन्"
 
-#: sync/syncjob.cpp:907
+#: sync/syncjob.cpp:896
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
 msgstr "(%2 तः %1 चरणम्) स्थानीयप्रकरणस्य अद्यतनं अपलोड् करणम्"
 
-#: sync/syncjob.cpp:910
+#: sync/syncjob.cpp:899
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
 msgstr "(%2 तः %1 चरणम्) समन्वयनं समाप्तम्"
 
-#: sync/syncjob.cpp:913
+#: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
 msgstr "समन्वयः निरस्तः अभवत्"
 
-#: sync/syncjob.cpp:917
+#: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
