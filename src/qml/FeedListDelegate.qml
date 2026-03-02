@@ -168,6 +168,7 @@ Controls.ItemDelegate {
             anchors.fill: parent
             imageSource: root.feed.cachedImage
             imageTitle: root.feed.name
+            imageResize: false // no "stuttering" on resizing the window
             isLoading: root.feed.refreshing
             absoluteRadius: Kirigami.Units.smallSpacing - root.borderWidth
         }

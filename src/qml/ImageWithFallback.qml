@@ -59,9 +59,13 @@ Item {
             source: root.imageSource
             fillMode: root.imageFillMode
             asynchronous: true
-            mipmap: true
-            sourceSize.width: 1024
-            sourceSize.height: 1024
+            mipmap: !root.imageResize
+            // Resize images; preferably to the size that they will be shown (i.e.
+            // when imageResize == true), otherwise set a maximum value that is
+            // about twice as large as the largest size these fallback images
+            // will ever have (this is mainly the MobilePlayerControls)
+            sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
+            sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
         }
     }
 

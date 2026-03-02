@@ -83,7 +83,7 @@ GridView {
         }
     }
 
-    property int minimumCardSize: 150
+    property int minimumCardSize: Kirigami.Units.gridUnit * 8
     property int cardMargin: Kirigami.Units.largeSpacing
     // In order to account for the scrollbar popping up and creating a
     // binding loop, we calculate the number of columns and card width based

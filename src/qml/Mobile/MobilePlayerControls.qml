@@ -115,6 +115,7 @@ Kirigami.Page {
 
                         ImageWithFallback {
                             imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                            imageResize: false // prevent stuttering when resizing
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
                             anchors.margins: 0
