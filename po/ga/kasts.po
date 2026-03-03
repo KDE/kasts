@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-01 00:45+0000\n"
+"POT-Creation-Date: 2026-03-03 00:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -452,14 +452,14 @@ msgid "Open sleep timer settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:260
-#: qml/Mobile/MobilePlayerControls.qml:346
+#: qml/Mobile/MobilePlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:292
-#: qml/Mobile/MobilePlayerControls.qml:376
+#: qml/Mobile/MobilePlayerControls.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -495,13 +495,13 @@ msgid "Chapters"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:122
-#: qml/Mobile/MobilePlayerControls.qml:175
+#: qml/Mobile/MobilePlayerControls.qml:176
 #, kde-format
 msgid "No Episode Title"
 msgstr ""
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:123
-#: qml/Mobile/MobilePlayerControls.qml:185
+#: qml/Mobile/MobilePlayerControls.qml:186
 #, kde-format
 msgid "No episode loaded"
 msgstr ""
@@ -737,7 +737,7 @@ msgstr ""
 msgid "Show Error Log"
 msgstr ""
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:249
+#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:250
 #, kde-format
 msgid "Podcast Details"
 msgstr ""
@@ -797,7 +797,7 @@ msgstr[1] ""
 msgid "Error (%1): %2"
 msgstr ""
 
-#: qml/FeedListDelegate.qml:260
+#: qml/FeedListDelegate.qml:261
 #, kde-format
 msgid "Remove Podcast"
 msgstr ""
@@ -1123,17 +1123,17 @@ msgstr ""
 msgid "No Episode Loaded"
 msgstr ""
 
-#: qml/Mobile/MobilePlayerControls.qml:145
+#: qml/Mobile/MobilePlayerControls.qml:146
 #, kde-format
 msgid "No Title"
 msgstr ""
 
-#: qml/Mobile/MobilePlayerControls.qml:153
+#: qml/Mobile/MobilePlayerControls.qml:154
 #, kde-format
 msgid "No podcast title"
 msgstr ""
 
-#: qml/Mobile/MobilePlayerControls.qml:219
+#: qml/Mobile/MobilePlayerControls.qml:220
 #, kde-format
 msgid "No chapters found"
 msgstr ""
