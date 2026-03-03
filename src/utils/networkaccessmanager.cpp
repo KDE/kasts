@@ -5,12 +5,15 @@
  */
 
 #include "networkaccessmanager.h"
+#include "networkaccesslogging.h"
 
+#include <QFile>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
 #include "kasts-version.h"
+#include "objectslogging.h"
 
 NetworkAccessManager::NetworkAccessManager(QObject *parent)
     : QObject(parent)
@@ -21,6 +24,13 @@ NetworkAccessManager::NetworkAccessManager(QObject *parent)
     // HACK TODO: Disable hstsstore temporarily because of malloc crash deep in
     // qt6 somewhere.  This is to be reenabled once the bug is solved upstream
     m_manager->enableStrictTransportSecurityStore(false);
+
+    qCDebug(kastsObjects) << "constructed NetworkAccessManager" << this;
+}
+
+NetworkAccessManager::~NetworkAccessManager()
+{
+    qCDebug(kastsObjects) << "destructed NetworkAccessManager" << this;
 }
 
 QNetworkReply *NetworkAccessManager::get(QNetworkRequest &request) const

@@ -18,7 +18,7 @@ Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const 
     , m_start(start)
 {
     qCDebug(kastsObjects) << "Chapter object constructed: entryuid" << m_entry->entryuid() << ", chapter start" << m_start;
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());

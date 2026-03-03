@@ -31,13 +31,13 @@
 
 Fetcher::Fetcher()
 {
+    m_manager = new NetworkAccessManager(this);
+
     connect(this, &Fetcher::error, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 
     m_updateProgress = -1;
     m_updateTotal = -1;
     m_updating = false;
-
-    m_manager = new NetworkAccessManager(this);
 
     // First save the original system proxy settings
     m_systemHttpProxy = qgetenv("http_proxy");
@@ -154,68 +154,13 @@ QString Fetcher::image(const QString &url)
             if (file.open(QIODevice::WriteOnly)) {
                 file.write(data);
                 file.close();
-                Q_EMIT downloadFinished(url);
+                Q_EMIT imageDownloadFinished(url);
             }
         }
         m_ongoingImageDownloads.remove(url);
         reply->deleteLater();
     });
     return QLatin1String("fetching");
-}
-
-QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
-{
-    QNetworkRequest request((QUrl(url)));
-    request.setTransferTimeout();
-
-    bool fileOpenSuccess = false;
-
-    QFile *file = new QFile(filePath);
-    if (file->exists() && file->size() > 0) {
-        // try to resume download
-        int resumedAt = file->size();
-        qCDebug(kastsFetcher) << "Resuming download at" << resumedAt << "bytes";
-        QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(resumedAt) + QByteArray("-");
-        request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
-        fileOpenSuccess = file->open(QIODevice::WriteOnly | QIODevice::Append);
-    } else {
-        qCDebug(kastsFetcher) << "Starting new download";
-        fileOpenSuccess = file->open(QIODevice::WriteOnly);
-    }
-
-    if (!fileOpenSuccess) {
-        return nullptr;
-    }
-
-    QNetworkReply *reply = get(request);
-
-    connect(reply, &QNetworkReply::readyRead, this, [=]() {
-        if (reply->isOpen() && file) {
-            QByteArray data = reply->readAll();
-            file->write(data);
-        }
-    });
-
-    connect(reply, &QNetworkReply::finished, this, [this, reply, url, file]() {
-        if (reply->isOpen() && file) {
-            QByteArray data = reply->readAll();
-            file->write(data);
-            file->close();
-
-            Q_EMIT downloadFinished(url);
-        }
-
-        // clean up; close file if still open in case something has gone wrong
-        if (file) {
-            if (file->isOpen()) {
-                file->close();
-            }
-            delete file;
-        }
-        reply->deleteLater();
-    });
-
-    return reply;
 }
 
 void Fetcher::getRedirectedUrl(const QUrl &url)

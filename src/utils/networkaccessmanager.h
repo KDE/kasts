@@ -17,12 +17,11 @@ class NetworkAccessManager : public QObject
 
 public:
     NetworkAccessManager(QObject *parent = nullptr);
+    ~NetworkAccessManager();
 
     QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;
     QNetworkReply *head(QNetworkRequest &request) const;
-
-Q_SIGNALS:
 
 private:
     void setHeader(QNetworkRequest &request) const;

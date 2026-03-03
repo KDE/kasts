@@ -34,6 +34,7 @@
 #include "objectslogging.h"
 #include "settingsmanager.h"
 #include "utils/enclosuredownloadjob.h"
+#include "utils/enclosuredownloadmanager.h"
 #include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
 
@@ -195,8 +196,7 @@ void Enclosure::download()
     }
 
     checkSizeOnDisk();
-    EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, path(), m_entry->title());
-    downloadJob->start();
+    EnclosureDownloadJob *downloadJob = EnclosureDownloadManager::instance().download(m_url, path());
 
     qint64 resumedAt = m_sizeOnDisk;
     m_downloadProgress = 0;
@@ -205,7 +205,7 @@ void Enclosure::download()
     m_entry->feed()->setErrorId(0);
     m_entry->feed()->setErrorString(QString());
 
-    connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
+    connect(downloadJob, &EnclosureDownloadJob::finished, this, [this, downloadJob]() {
         checkSizeOnDisk();
         if (downloadJob->error() == 0) {
             processDownloadedFile();
@@ -232,7 +232,7 @@ void Enclosure::download()
     });
 
     connect(this, &Enclosure::cancelDownload, this, [this, downloadJob]() {
-        downloadJob->doKill();
+        downloadJob->requestAbort();
         checkSizeOnDisk();
         QFile file(path());
         if (file.exists() && file.size() > 0) {
@@ -243,10 +243,8 @@ void Enclosure::download()
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
 
-    connect(downloadJob, &KJob::processedAmountChanged, this, [this, resumedAt](KJob *kjob, KJob::Unit unit, qulonglong amount) {
-        Q_ASSERT(unit == KJob::Unit::Bytes);
-
-        qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));
+    connect(downloadJob, &EnclosureDownloadJob::processedAmountChanged, this, [this, resumedAt](qulonglong amount, qulonglong totalAmount) {
+        qint64 totalSize = static_cast<qint64>(totalAmount);
         qint64 currentSize = static_cast<qint64>(amount);
 
         if ((totalSize > 0) && (m_size != totalSize + resumedAt)) {

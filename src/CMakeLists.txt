@@ -17,6 +17,7 @@ add_executable(kasts
     feed.cpp
     fetcher.cpp
     utils/enclosuredownloadjob.cpp
+    utils/enclosuredownloadmanager.cpp
     utils/storagemanager.cpp
     utils/storagemovejob.cpp
     utils/updatefeedjob.cpp
@@ -202,6 +203,13 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
+    HEADER "networkaccesslogging.h"
+    IDENTIFIER "kastsNetworkAccess"
+    CATEGORY_NAME "org.kde.kasts.networkaccess"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
     HEADER "networkconnectionmanagerlogging.h"
     IDENTIFIER "kastsNetworkConnectionManager"
     CATEGORY_NAME "org.kde.kasts.networkconnectionmanager"
@@ -242,7 +250,6 @@ ecm_qt_declare_logging_category(kasts
     CATEGORY_NAME "org.kde.kasts.updater"
     DEFAULT_SEVERITY Info
 )
-
 
 if(ANDROID)
     target_sources(kasts PRIVATE utils/androidlogging.h)

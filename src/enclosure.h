@@ -51,6 +51,7 @@ public:
         Downloading,
         PartiallyDownloaded,
         Downloaded,
+        Queued, // TODO: make these resume on app startup
     };
     Q_ENUM(Status)
 

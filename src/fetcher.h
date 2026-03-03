@@ -46,7 +46,6 @@ public:
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
-    Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
     void getRedirectedUrl(const QUrl &url);
 
     QNetworkReply *get(QNetworkRequest &request) const;
@@ -78,7 +77,7 @@ Q_SIGNALS:
     void updatingChanged(bool state);
 
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
-    void downloadFinished(QString url) const;
+    void imageDownloadFinished(QString url) const;
     void foundRedirectedUrl(const QUrl &url, const QUrl &newUrl);
 
 private:

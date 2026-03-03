@@ -105,7 +105,7 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
                     setRefreshing(false);
                 }
             });
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::imageDownloadFinished, this, [this](QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());
