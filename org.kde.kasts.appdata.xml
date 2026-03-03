@@ -1010,6 +1010,7 @@
           <li xml:lang="ia">Nove episodios essera addite alcauda in ordine chronologic ascendente (plus tosto que descendente) per podcast.</li>
           <li xml:lang="it">I nuovi episodi saranno aggiunti alla coda in ordine cronologico crescente (anziché decrescente) per podcast.</li>
           <li xml:lang="ka">თითოეული პოდკასტისთვის ახალი ეპიზოდები რიგში კლებადობის ნაცვლად ზრდადი ქრონოლოგიური თანმიმდევრობით დაემატება.</li>
+          <li xml:lang="nl">Nieuwe afleveringen zullen aan de wachtrij in aflopende chronologische volgorde toegevoegd worden (in plaats van oplopend) per podcast.</li>
           <li xml:lang="pt-BR">Novos episódios serão adicionados à fila em ordem cronológica crescente (em vez de decrescente) para cada podcast.</li>
           <li xml:lang="ru">Новые выпуски добавляются в очередь в порядке возрастания даты выпуска (а не убывания) для каждого подкаста;</li>
           <li xml:lang="sl">Nove epizode bodo dodane v čakalno vrsto v naraščajočem kronološkem vrstnem redu (namesto padajočega) za vsak podkast.</li>
@@ -1024,6 +1025,7 @@
           <li xml:lang="ia">Un commutator ha essite introducite per adaptar optionalmente le tempore lassate sur episodios basate sur le taxa currente de reproduction.</li>
           <li xml:lang="it">È stato introdotto un interruttore che consente di regolare facoltativamente il tempo rimanente degli episodi in base alla velocità di riproduzione attuale.</li>
           <li xml:lang="ka">დაემატა გადამრთველი, რომლის მეშვეობითაც, სურვილისამებრ, ეპიზოდების დარჩენილი დროის მიმდინარე დაკვრის სიჩქარეზე დაყრდნობით კორექტირებაა შესაძლებელი.</li>
+          <li xml:lang="nl">Een schakelaar is geïntroduceerd om optioneel de resterende tijd aan te passen op afleveringen gebaseerd op de huidige afspeelsnelheid.</li>
           <li xml:lang="pt-BR">Foi adicionada uma opção para ajustar o tempo restante dos episódios com base na taxa de reprodução atual.</li>
           <li xml:lang="ru">Добавлен переключатель для настройки оставшегося времени эпизодов с учётом текущей скорости воспроизведения;</li>
           <li xml:lang="sl">Uvedeno je bilo stikalo za izbirno prilagajanje preostalega časa epizod glede na trenutno hitrost predvajanja.</li>
@@ -1038,6 +1040,7 @@
           <li xml:lang="ia">Le paginas de detalios de episodio,nunc ha un action de contexto per vader directe al lista de episodios per ille podcast.</li>
           <li xml:lang="it">Le pagine dei dettagli degli episodi ora dispongono di un'azione contestuale per andare direttamente all'elenco degli episodi di quel podcast.</li>
           <li xml:lang="ka">ეპიზოდების დეტალების გვერდებს დაემატა კონტექსტური მოქმედება, რაც მოცემული პოდკასტის ეპიზოდების სიაზე პირდაპირ გადასვლას უზრუნველყოფს.</li>
+          <li xml:lang="nl">De pagina's met afleveringendetails hebben een contextactie om direct naar de lijst met afleveringen voor die podcast te gaan.</li>
           <li xml:lang="pt-BR">As páginas de detalhes do episódio agora possuem uma ação contextual que leva diretamente à lista de episódios daquele podcast.</li>
           <li xml:lang="ru">На страницах сведений о выпуске добавлено контекстное действие для перехода к списку выпусков этого подкаста;</li>
           <li xml:lang="sl">Strani s podrobnostmi o epizodi imajo zdaj kontekstno dejanje, s katerim se lahko neposredno premaknete na seznam epizod za ta podcast.</li>
@@ -1052,6 +1055,7 @@
           <li xml:lang="ia">Il es ora possibilesynchronisar con servitores de GPodder personalisate (i.e. altere que le instantia official de  gpodder.net).</li>
           <li xml:lang="it">Ora è possibile sincronizzarsi con server GPodder personalizzati (ovvero diversi dall'istanza ufficiale gpodder.net).</li>
           <li xml:lang="ka">GPodder-ის მორგებულ სერვერებთან (მაგალითად, gpodder.net-ის ოფიციალური ეგზემპლარის გარდა სხვა სერვერებთან) სინქრონიზაცია ახლა უკვე შესაძლებელია.</li>
+          <li xml:lang="nl">Het is nu mogelijk om te synchroniseren met eigen GPodder-servers (d.w.z. andere dan het officiële gpodder.net exemplaar).</li>
           <li xml:lang="pt-BR">Agora é possível sincronizar com servidores GPodder personalizados (ou seja, diferentes da instância oficial gpodder.net).</li>
           <li xml:lang="ru">Добавлена возможность синхронизации с пользовательскими серверами GPodder, отличными от официального gpodder.net;</li>
           <li xml:lang="sl">Zdaj je mogoče sinhronizirati s strežniki GPodder po meri (tj. z drugimi, razen z uradnim pojavkom gpodder.net).</li>
@@ -1066,6 +1070,7 @@
           <li xml:lang="ia">Podcasts pote ora novemente esser actualiste anque quando le servitor de synchronisation non es disponibile. Isto esseva un falta nel version precedente.</li>
           <li xml:lang="it">Ora i podcast possono essere aggiornati anche quando il server di sincronizzazione non è disponibile. Questo era un bug nelle versioni precedenti.</li>
           <li xml:lang="ka">პოდკასტების განახლება, სინქრონიზაციის სერვერის მიუწვდომლობის შემთხვევაშიც კი, ახლა უკვე კვლავ შესაძლებელია. ეს წინა ვერსიებში არსებული ხარვეზი იყო.</li>
+          <li xml:lang="nl">Podcasts kunnen nu opnieuw bijgewerkt worden zelfs wanneer de synchronisatieserver niet beschikbaar is. Dit was een fout in eerdere versies.</li>
           <li xml:lang="pt-BR">Agora é possível atualizar podcasts mesmo quando o servidor de sincronização estiver indisponível. Isso era um bug em versões anteriores.</li>
           <li xml:lang="ru">Подкасты теперь можно обновлять, даже если сервер синхронизации недоступен. Эта ошибка присутствовала в предыдущих версиях;</li>
           <li xml:lang="sl">Podcaste je zdaj mogoče posodabljati, tudi če strežnik za sinhronizacijo ni na voljo. To je bila napaka v prejšnjih različicah.</li>
