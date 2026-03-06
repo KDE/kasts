@@ -7,30 +7,29 @@
 #include "fetchfeedsjob.h"
 
 #include <QCryptographicHash>
+#include <QObject>
 #include <QSqlQuery>
 #include <QTimer>
 
 #include <KLocalizedString>
-#include <QObject>
 #include <ThreadWeaver/Queue>
+#include <utility>
 
 #include "database.h"
 #include "datamanager.h"
-#include "error.h"
 #include "fetcher.h"
-#include "models/errorlogmodel.h"
 #include "settingsmanager.h"
 #include "updatefeedjob.h"
 #include "updaterlogging.h"
 
 using namespace ThreadWeaver;
 
+// TODO: refactor to feeduids
 FetchFeedsJob::FetchFeedsJob(const QStringList &urls, QObject *parent)
     : KJob(parent)
     , m_urls(urls)
 {
     connect(this, &FetchFeedsJob::processedAmountChanged, this, &FetchFeedsJob::monitorProgress);
-    connect(this, &FetchFeedsJob::logError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
 }
 
 void FetchFeedsJob::start()
@@ -45,71 +44,44 @@ void FetchFeedsJob::fetch()
         return;
     }
 
-    setTotalAmount(KJob::Unit::Items, m_urls.count());
+    // First get the last hashes from the database to know which feeds have actually been updated
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT feeduid FROM Feeds WHERE url=:url;"));
+    for (const QString &url : std::as_const(m_urls)) {
+        query.bindValue(QStringLiteral(":url"), url);
+        if (!Database::instance().execute(query)) {
+            return;
+        }
+        if (query.next()) {
+            m_feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
+        }
+    }
+    query.finish(); // release lock on database
+
+    qCDebug(kastsUpdater) << "list of feeduids to fetch" << m_feeduids;
+
+    setTotalAmount(KJob::Unit::Items, m_feeduids.count());
     setProcessedAmount(KJob::Unit::Items, 0);
 
     qCDebug(kastsUpdater) << "Number of feed update threads:" << Queue::instance()->currentNumberOfThreads();
 
-    // First get the last hashes from the database to know which feeds have actually been updated
-    QSqlQuery query;
-    QHash<QString, QString> lastHashes;
-    query.prepare(QStringLiteral("SELECT url, lastHash FROM Feeds;"));
-    if (!Database::instance().execute(query)) {
-        return;
-    }
-    if (query.next()) {
-        lastHashes[query.value(QStringLiteral("url")).toString()] = query.value(QStringLiteral("lastHash")).toString();
-    }
-    query.finish(); // release lock on database
-
-    for (int i = 0; i < m_urls.count(); i++) {
+    for (int i = 0; i < m_feeduids.count(); i++) {
         QString url = m_urls[i];
-        QString lastHash = lastHashes[url];
+        qint64 feeduid = m_feeduids[i];
 
-        qCDebug(kastsUpdater) << "Starting to fetch" << url;
-        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, true);
+        qCDebug(kastsUpdater) << "Starting to fetch" << feeduid;
+        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, true);
 
-        QNetworkRequest request((QUrl(url)));
-        request.setTransferTimeout();
-
-        QNetworkReply *reply = Fetcher::instance().get(request);
-        connect(this, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
-        connect(reply, &QNetworkReply::finished, this, [this, reply, i, url, lastHash]() {
-            qCDebug(kastsUpdater) << "got networkreply for" << reply;
-            if (reply->error()) {
-                if (!m_abort) {
-                    qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
-                    Q_EMIT logError(Error::Type::FeedUpdate, url, QString(), reply->error(), reply->errorString(), QString());
-                }
-                setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
-            } else {
-                QByteArray data = reply->readAll();
-
-                // check if the feed has been really been updated by checking if
-                // the hash is still the same
-                QString newHash = QString::fromLatin1(QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex());
-                qCDebug(kastsUpdater) << "RSS hashes (old and new)" << url << lastHash << newHash;
-
-                if (newHash == lastHash) {
-                    qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << url;
-                    setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                    Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
-                } else {
-                    UpdateFeedJob *updateFeedJob = new UpdateFeedJob(url, data);
-                    connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
-                    connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, url]() {
-                        setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-                        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(url, false);
-                    });
-
-                    Queue::instance()->stream() << updateFeedJob;
-                    qCDebug(kastsUpdater) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
-                }
-            }
-            reply->deleteLater();
+        UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feeduid); //, this);
+        connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
+        connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, feeduid]() {
+            // TODO: add error processing
+            setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
+            Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, false);
         });
-        qCDebug(kastsUpdater) << "End of retrieveFeed for" << url;
+
+        Queue::instance()->stream() << updateFeedJob;
+        qCDebug(kastsUpdater) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
     }
     qCDebug(kastsUpdater) << "End of FetchFeedsJob::fetch";
 }
@@ -118,6 +90,8 @@ void FetchFeedsJob::monitorProgress()
 {
     // Check if all required feeds have finished updating
     if (processedAmount(KJob::Unit::Items) == totalAmount(KJob::Unit::Items)) {
+        // TODO: this should actually be done after syncing has finished...
+
         // Check for "new" entries and queue them if necessary
         if (SettingsManager::self()->autoQueue()) {
             QList<qint64> entryuids;
