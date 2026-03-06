@@ -9,8 +9,6 @@
 #include <KJob>
 #include <QVector>
 
-#include "error.h"
-
 class FetchFeedsJob : public KJob
 {
     Q_OBJECT
@@ -24,10 +22,10 @@ public:
 
 Q_SIGNALS:
     void aborting();
-    void logError(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
     QStringList m_urls;
+    QList<qint64> m_feeduids;
 
     void fetch();
     void monitorProgress();

@@ -57,8 +57,8 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     updateNewEntryCountFromDB();
     updateFavoriteEntryCountFromDB();
 
-    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const QString &url, bool status) {
-        if (url == m_url) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const qint64 feeduid, bool status) {
+        if (feeduid == m_feeduid) {
             setRefreshing(status);
         }
     });
