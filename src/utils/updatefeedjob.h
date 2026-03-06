@@ -6,9 +6,6 @@
 
 #pragma once
 
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#include <QNetworkRequest>
 #include <QSqlQuery>
 #include <QString>
 
@@ -26,7 +23,7 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const qint64 feeduid, QObject *parent = nullptr);
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
@@ -48,6 +45,7 @@ Q_SIGNALS:
     void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
 
 private:
+    bool downloadFeed();
     void processFeed(Syndication::FeedPtr feed);
     bool processFeedAuthors(const QList<Syndication::PersonPtr> &authors, const QMultiMap<QString, QDomElement> &otherItems);
     bool processFeedAuthor(const QString &name, const QString &email);
@@ -65,6 +63,7 @@ private:
     QString generateFeedDirname(const QString &name);
     bool m_abort = false;
 
+    qint64 m_feeduid;
     QString m_url;
     QByteArray m_data;
 

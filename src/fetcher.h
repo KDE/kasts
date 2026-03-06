@@ -70,7 +70,7 @@ Q_SIGNALS:
                             const QString &description,
                             const QDateTime &lastUpdated,
                             const QString &dirname);
-    void feedUpdateStatusChanged(const QString &url, bool status);
+    void feedUpdateStatusChanged(const qint64 feeduid, bool status);
     void cancelFetching();
 
     void updateProgressChanged(int progress);

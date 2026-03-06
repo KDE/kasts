@@ -14,7 +14,9 @@
 #include <QLoggingCategory>
 #include <QMultiHash>
 #include <QMultiMap>
+#include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QObject>
 #include <QSet>
 #include <QSqlError>
@@ -31,6 +33,7 @@
 #include "enclosure.h"
 #include "error.h"
 #include "fetcher.h"
+#include "fetchfeedsjob.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "updaterlogging.h"
@@ -38,10 +41,9 @@
 using namespace ThreadWeaver;
 using namespace DataTypes;
 
-UpdateFeedJob::UpdateFeedJob(const QString &url, const QByteArray &data, QObject *parent)
+UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, QObject *parent)
     : QObject(parent)
-    , m_url(url)
-    , m_data(data)
+    , m_feeduid(feeduid)
 {
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
@@ -58,33 +60,39 @@ void UpdateFeedJob::run(JobPointer, Thread *)
         return;
     }
 
-    Database::openDatabase(m_url);
+    Database::openDatabase(QString::number(m_feeduid));
 
-    Syndication::DocumentSource document(m_data, m_url);
-    Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
-    processFeed(feed);
+    if (downloadFeed()) {
+        Syndication::DocumentSource document(m_data, m_url);
+        Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+        processFeed(feed);
+    } else {
+        // TODO: add some kind of error reporting
+    }
 
-    Database::closeDatabase(m_url);
+    Database::closeDatabase(QString::number(m_feeduid));
 
     Q_EMIT finished();
 }
 
-void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
+bool UpdateFeedJob::downloadFeed()
 {
-    qCDebug(kastsUpdater) << "get old feed data from DB for" << m_url;
+    qCDebug(kastsUpdater) << "get old feed data from DB for" << m_feeduid;
 
-    // First get all the required data from the database and do some basic checks
-    QSqlQuery query(QSqlDatabase::database(m_url));
-    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE url=:url;"));
-    query.bindValue(QStringLiteral(":url"), m_url);
+    // First get the current data from the DB, we'll check the lastHash to decide
+    // whether we actually have to update the feed or can simply skip it
+    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
+    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     if (!dbExecute(query)) {
-        return;
+        qCDebug(kastsUpdater) << "No feed found with feeduid" << m_feeduid;
+        return false;
     }
     if (query.next()) {
         DataTypes::FeedDetails feedDetail;
         m_feed.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         m_feed.name = query.value(QStringLiteral("name")).toString();
-        m_feed.url = m_url;
+        m_feed.url = query.value(QStringLiteral("url")).toString();
         m_feed.image = query.value(QStringLiteral("image")).toString();
         m_feed.link = query.value(QStringLiteral("link")).toString();
         m_feed.description = query.value(QStringLiteral("description")).toString();
@@ -96,6 +104,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         m_feed.filterType = query.value(QStringLiteral("filterType")).toInt();
         m_feed.sortType = query.value(QStringLiteral("sortType")).toInt();
         m_feed.state = RecordState::Unmodified;
+        m_url = m_feed.url;
 
         // already set the content of all the "old" fields
         m_feed.oldName = m_feed.name;
@@ -107,11 +116,70 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
         m_feed.oldDirname = m_feed.dirname;
         m_feed.oldLastHash = m_feed.lastHash;
     } else {
-        return;
+        return false;
     }
     query.finish(); // release lock on database
 
-    // now we do the feed authors
+    // we continue to retrieve the updated feed
+    // note that this has to be done with an eventloop to do the network
+    // request/reply in a blocking way since we're in a separate thread
+    // managed by ThreadWeaver
+    QEventLoop loop;
+    NetworkAccessManager manager;
+    bool continueProcessFeed = false;
+
+    QNetworkRequest request((QUrl(m_url)));
+    request.setTransferTimeout();
+    QNetworkReply *reply = manager.get(request);
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+
+    // HACK: if this object is parented by a FetchFeedsJob, then also connect
+    // its "aborting" signal to the qnetworkreply; it's done this way because
+    // we cannot connect signals to "this" inside a ThreadWeaver job
+    FetchFeedsJob *fetchfeedjob = qobject_cast<FetchFeedsJob *>(parent());
+    if (fetchfeedjob) {
+        connect(fetchfeedjob, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
+    }
+
+    qCDebug(kastsUpdater) << "Eventloop started for" << m_feeduid;
+    loop.exec();
+    qCDebug(kastsUpdater) << "Eventloop finished" << m_feeduid;
+
+    qCDebug(kastsUpdater) << "got networkreply for" << reply;
+    if (reply->error()) {
+        if (!m_abort) {
+            qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
+            Q_EMIT error(Error::Type::FeedUpdate, m_url, QString(), reply->error(), reply->errorString(), QString());
+        } else {
+            qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
+        }
+        continueProcessFeed = false;
+    } else {
+        m_data = reply->readAll();
+
+        // check if the feed has been really been updated by checking if
+        // the hash is still the same
+        QString newHash = QString::fromLatin1(QCryptographicHash::hash(m_data, QCryptographicHash::Sha256).toHex());
+        qCDebug(kastsUpdater) << "RSS hashes (old and new)" << m_feeduid << m_feed.lastHash << newHash;
+
+        if (newHash == m_feed.lastHash) {
+            qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << m_feeduid;
+            continueProcessFeed = false;
+        } else {
+            continueProcessFeed = true;
+        }
+    }
+    delete reply;
+    return continueProcessFeed;
+}
+
+void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
+{
+    // Now that we now we have to update everything, we continue retrieving the
+    // old data from the database
+
+    // retrieve feed authors
+    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
     query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feeduid=:feed;"));
     query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
@@ -648,7 +716,7 @@ void UpdateFeedJob::writeToDatabase()
 {
     QSet<qint64> newEntryuids, updatedEntryuids;
 
-    QSqlQuery writeQuery(QSqlDatabase::database(m_url));
+    QSqlQuery writeQuery(QSqlDatabase::database(QString::number(m_feeduid)));
 
     dbTransaction();
 
@@ -974,7 +1042,7 @@ bool UpdateFeedJob::dbExecute(QSqlQuery &query)
 bool UpdateFeedJob::dbTransaction()
 {
     // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(m_url));
+    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
     query.prepare(QStringLiteral("BEGIN IMMEDIATE TRANSACTION;"));
     return dbExecute(query);
 }
@@ -982,7 +1050,7 @@ bool UpdateFeedJob::dbTransaction()
 bool UpdateFeedJob::dbCommit()
 {
     // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(m_url));
+    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
     query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
     return dbExecute(query);
 }
@@ -995,7 +1063,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name)
     QString dirName = dirBaseName;
 
     QStringList dirNameList;
-    QSqlQuery query(QSqlDatabase::database(m_url));
+    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
     query.prepare(QStringLiteral("SELECT name FROM Feeds;"));
     dbExecute(query);
     while (query.next()) {
