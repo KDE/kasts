@@ -510,6 +510,7 @@
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="fr">Correction d'un plantage survenant lors de la réinitialisation du minuteur de veille.</li>
+          <li xml:lang="he">תוקנה קריסה שקרתה בעת איפוס מתזמן השינה.</li>
           <li xml:lang="ia">Corrigite un fracasso occurrente quando reinitialisante le temporisator de dormir.</li>
           <li xml:lang="it">Corretto un arresto anomalo che si verificava quando si reimpostava il timer di sospensione.</li>
           <li xml:lang="ka">გასწორდა ძილის ტაიმერის ჩამოყრისას წარმოქმნილი ავარიული გათიშვა.</li>
@@ -523,6 +524,7 @@
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="ca-valencia">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="fr">Correction du fonctionnement de l'ordre de tri dans les listes d'épisodes.</li>
+          <li xml:lang="he">תוקנה יכולת אופן המיון ברשימות הפרקים.</li>
           <li xml:lang="ia">Corrigite leordine de ordinar functionalitate sur listas de episodios.</li>
           <li xml:lang="it">Corretta la funzionalità di ordinamento negli elenchi degli episodi.</li>
           <li xml:lang="ka">გასწორდა ეპიზოდების სიებში დალაგების რიგის ფუნქციონალი.</li>
@@ -536,6 +538,7 @@
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="fr">Correction des problèmes visuels dans l'image d'en-tête et dans la liste d'abonnements.</li>
+          <li xml:lang="he">תוקנו תקלות חזותיות בתמונת הכותרת וברשימת המינויים.</li>
           <li xml:lang="ia">Corrigite defectos visual in le imagine capite e in le lista de subscriptiones.</li>
           <li xml:lang="it">Risolti i problemi visivi nell'immagine dell'intestazione e nell'elenco degli abbonamenti.</li>
           <li xml:lang="ka">გასწორდა თავსართის სურათსა და გამოწერების სიაში არსებული ვიზუალური ხარვეზები.</li>
@@ -725,6 +728,7 @@
           <li xml:lang="ca">El menú de configuració s'ha adaptat als components nous de formulari.</li>
           <li xml:lang="ca-valencia">El menú de configuració s'ha adaptat als components nous de formulari.</li>
           <li xml:lang="fr">Le menu de configuration a été porté sur de nouveaux composants de formulaire.</li>
+          <li xml:lang="he">תפריט ההגדרות הוסב לרכיבי הצורה החדשים.</li>
           <li xml:lang="ia">Le menu de preferentias esseva portate al nove componentes de forma.</li>
           <li xml:lang="it">Il menu delle impostazioni è stato trasferito ai nuovi componenti del modulo.</li>
           <li xml:lang="ka">მორგების მენიუ გადმოტანილია ახალი ფორმის კომპონენტებში.</li>
@@ -780,6 +784,7 @@
           <li xml:lang="ca">El botó de subscripció ara està desactivat quan s'acaba d'afegir un pòdcast.</li>
           <li xml:lang="ca-valencia">El botó de subscripció ara està desactivat quan s'acaba d'afegir un pòdcast.</li>
           <li xml:lang="fr">Le bouton d'abonnement est maintenant désactivé lors de l'ajout d'un podcast.</li>
+          <li xml:lang="he">כפתור ההרשמה למינוי הושבת לאחר שהסכת נוסף.</li>
           <li xml:lang="ia">Le button de subscriber es nunc dishabilitate quandoun podcast ha essite justo addite.</li>
           <li xml:lang="it">Il pulsante d'iscrizione è ora disattivato quando un podcast è appena stato aggiunto.</li>
           <li xml:lang="ka">პოდკასტის დამატებისთანავე გამოწერის ღილაკი ახლა გათიშული იქნება.</li>
@@ -901,6 +906,7 @@
           <li xml:lang="ca">S'han solucionat diversos errors petits d'interfície d'usuari i errors visuals.</li>
           <li xml:lang="ca-valencia">S'han solucionat diversos errors petits d'interfície d'usuari i errors visuals.</li>
           <li xml:lang="fr">Plusieurs petits bogues et problèmes de l'interface utilisateur ont été résolus.</li>
+          <li xml:lang="he">מגוון תקלות ממשק משתמש קטנות נפתרו.</li>
           <li xml:lang="ia">Multe parve faltas de UI e problemas esseva solvite.</li>
           <li xml:lang="it">Sono stati risolti diversi piccoli bug e problemi dell'interfaccia utente.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე პატარა ინტერფეისის შეცდომა.</li>
@@ -949,6 +955,7 @@
           <li xml:lang="ca">Les imatges dels episodis ara es recuperaran de «id3v2tag» si estan disponibles.</li>
           <li xml:lang="ca-valencia">Les imatges dels episodis ara es recuperaran de «id3v2tag» si estan disponibles.</li>
           <li xml:lang="fr">Les images des épisodes seront désormais chargées depuis id3v2tag s'il ce dernier est disponible.</li>
+          <li xml:lang="he">תמונות הפרקים מתקבלות מעתה מ־id3v2tag אם ניתן.</li>
           <li xml:lang="ia">Imagines de episodio essera nunc recuperate ex  id3v2tag si disponibile.</li>
           <li xml:lang="it">Le immagini degli episodi, se disponibili, saranno ora recuperate da id3v2tag.</li>
           <li xml:lang="ka">ხელმისაწვდომობის შემთხვევაში ახლა უკვე შესაძლებელია ეპიზოდების სურათების ამოღება ჭდიდან id3v2tag.</li>
@@ -962,6 +969,7 @@
           <li xml:lang="ca">Els episodis nous s'afegiran a la cua en ordre cronològic ascendent (en lloc de descendent) per pòdcast.</li>
           <li xml:lang="ca-valencia">Els episodis nous s'afegiran a la cua en ordre cronològic ascendent (en lloc de descendent) per pòdcast.</li>
           <li xml:lang="fr">De nouveaux épisodes seront ajoutés à la file d'attente par ordre chronologique croissant (Plutôt que décroissant) pour chaque podcast.</li>
+          <li xml:lang="he">פרקים חדשים יתווספו לתור בסדר כרונולוגי עולה (במקום יורד) לכל הסכת.</li>
           <li xml:lang="ia">Nove episodios essera addite alcauda in ordine chronologic ascendente (plus tosto que descendente) per podcast.</li>
           <li xml:lang="it">I nuovi episodi saranno aggiunti alla coda in ordine cronologico crescente (anziché decrescente) per podcast.</li>
           <li xml:lang="ka">თითოეული პოდკასტისთვის ახალი ეპიზოდები რიგში კლებადობის ნაცვლად ზრდადი ქრონოლოგიური თანმიმდევრობით დაემატება.</li>
