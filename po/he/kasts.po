@@ -1110,7 +1110,7 @@ msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "עודכנו %1 מתוך הסכת"
-msgstr[1] "עודכנו %2 מתוך שני הסכתים"
+msgstr[1] "עודכנו %1 מתוך שני הסכתים"
 msgstr[2] "עודכנו %2 מתוך %1 הסכתים"
 msgstr[3] "עודכנו %2 מתוך %1 הסכתים"
 
