@@ -1092,6 +1092,7 @@
           <li xml:lang="ia">Melioramentos general de qualitate de codice e correctiones de faltas</li>
           <li xml:lang="it">Miglioramenti generali della qualità del codice e correzioni di bug</li>
           <li xml:lang="ka">კოდის ხარისხის ზოგადი გაუმჯობესება და შეცდომების გასწორება</li>
+          <li xml:lang="nl">Algemene verbeteringen in de codekwaliteit en reparaties van fouten</li>
           <li xml:lang="pt-BR">Melhorias gerais na qualidade do código e correções de bugs</li>
           <li xml:lang="ru">Улучшение качества кода и исправление ошибок;</li>
           <li xml:lang="sl">Splošne izboljšave kakovosti kode in popravki napak</li>
@@ -1113,6 +1114,7 @@
           <li xml:lang="ia">Varie perfectionamentos de interfacie de usator</li>
           <li xml:lang="it">Vari miglioramenti dell'interfaccia utente</li>
           <li xml:lang="ka">ინტერფეისის სხვადასხვა ნაწილის გაუმჯობესება</li>
+          <li xml:lang="nl">Diverse verbeteringen aan de gebruikersinterface</li>
           <li xml:lang="pt-BR">Várias melhorias na interface do usuário</li>
           <li xml:lang="ru">Различные улучшения пользовательского интерфейса;</li>
           <li xml:lang="sl">Različne izboljšave uporabniškega vmesnika</li>
@@ -1127,6 +1129,7 @@
           <li xml:lang="ia">Mantene cerca de actiones de episodio usque nos obtene le marca de tempore currente</li>
           <li xml:lang="it">Continua a recuperare le azioni degli episodi finché non otteniamo la marca temporale attuale</li>
           <li xml:lang="ka">ეპიზოდის ქმედებების გამოთხოვის გაგრძელება მიმდინარე დროის შტამპის მიღებამდე</li>
+          <li xml:lang="nl">Blijf de acties van de aflevering ophalen totdat we het huidige tijdstempel hebben</li>
           <li xml:lang="pt-BR">Continuar buscando as ações do episódio até obter o carimbo de data/hora atual</li>
           <li xml:lang="ru">Продолжать получать действия с эпизодами до тех пор, пока не будет получена текущая метка времени;</li>
           <li xml:lang="sl">Nadaljuje s pridobivanjem dejanj epizode, dokler ne dobi trenutnega časovnega žiga</li>
@@ -1141,6 +1144,7 @@
           <li xml:lang="ia">Re-habilita icones per gpodder e nextcloud</li>
           <li xml:lang="it">Riattiva le icone per gpodder e nextcloud</li>
           <li xml:lang="ka">ხატულების თავიდან ჩართვა gpodder-ისთვის და nextcloud-ისთვის</li>
+          <li xml:lang="nl">Schakel de pictogrammen voor gpodder en nextcloud weer in</li>
           <li xml:lang="pt-BR">Reativação dos ícones para gpodder e nextcloud</li>
           <li xml:lang="ru">Повторное включение значков для gpodder и nextcloud;</li>
           <li xml:lang="sl">Ponovno omogoča ikone za gpodder in nextcloud</li>
@@ -1160,6 +1164,7 @@
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
         <p xml:lang="it">Nuove funzionalità di questa versione:</p>
         <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
+        <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
@@ -1175,6 +1180,7 @@
           <li xml:lang="ia">Supporto per capitulos, capitulos codificate de ambes  syndication RSS e etiquettas MP3 es supportate </li>
           <li xml:lang="it">Supporto per capitoli, sono supportati sia le fonti RSS che i capitoli codificati con tag MP3</li>
           <li xml:lang="ka">დაემატა თავების მხარდაჭერა; მხარდაჭერილია ორივე, RSS ლენტიდან და MP3 ჭდეებიდან ამოკითხული თავები</li>
+          <li xml:lang="nl">Ondersteuning voor hoofdstukken, zowel RSS-feeds als hoofdstukken gecodeerd met MP3-tags worden ondersteund</li>
           <li xml:lang="pt-BR">Suporte para capítulos, tanto feeds RSS quanto capítulos codificados em tags MP3</li>
           <li xml:lang="ru">Поддержка глав: поддерживаются главы из RSS-каналов и меток MP3;</li>
           <li xml:lang="sl">Podpora za poglavja, podprta so tako poglavja, kodirana z viri RSS kot tudi z oznakami MP3</li>
@@ -1189,6 +1195,7 @@
           <li xml:lang="ia">Multe perfectionamentos in interfacie de usator</li>
           <li xml:lang="it">Diversi miglioramenti nell'interfaccia utente</li>
           <li xml:lang="ka">მომხმარებლის ინტერფეისის რამდენიმე გაუმჯობესება</li>
+          <li xml:lang="nl">Verschillende verbeteringen in gebruikersinterface</li>
           <li xml:lang="pt-BR">Diversas melhorias na interface do usuário</li>
           <li xml:lang="ru">Несколько улучшений в пользовательском интерфейсе;</li>
           <li xml:lang="sl">Več izboljšav uporabniškega vmesnika</li>
@@ -1203,6 +1210,7 @@
           <li xml:lang="ia">Optimization e perfectionamentos per retro administration (backend)</li>
           <li xml:lang="it">Ottimizzazione e miglioramenti per il motore</li>
           <li xml:lang="ka">ოპტიმიზაცია და გაუმჯობესებები უკანაბოლოსთვის</li>
+          <li xml:lang="nl">Optimalisatie en verbeteringen voor de backend</li>
           <li xml:lang="pt-BR">Otimização e melhorias para o backend</li>
           <li xml:lang="ru">Оптимизация и улучшения модуля;</li>
           <li xml:lang="sl">Optimizacija in izboljšave za zaledni sistem</li>
@@ -1217,6 +1225,7 @@
           <li xml:lang="ia">Pagina de preferentias reelaborate</li>
           <li xml:lang="it">Pagina delle impostazioni riprogettata</li>
           <li xml:lang="ka">გადამუშავდა მორგების გვერდი</li>
+          <li xml:lang="nl">Instellingenpagina herzien</li>
           <li xml:lang="pt-BR">Página de configurações reformulada</li>
           <li xml:lang="ru">Переработана страница параметров;</li>
           <li xml:lang="sl">Predelana stran z nastavitvami</li>
@@ -1231,6 +1240,7 @@
           <li xml:lang="ia">Supporto per synchronisar subscriptiones e position de reproducer episodio usante app de gpodder.net o nextcloud-gpodder</li>
           <li xml:lang="it">Supporto per la sincronizzazione degli abbonamenti e della posizione di riproduzione degli episodi tramite gpodder.net o l'applicazione nextcloud-gpodder</li>
           <li xml:lang="ka">დაემატა გამოწერებისა და ეპიზოდების დაკვრის პოზიციის სინქრონიზაციის მხარდაჭერა gpodder.net-ის ან nextcloud-gpodder აპლიკაციის გამოყენებით</li>
+          <li xml:lang="nl">Ondersteuning voor het synchroniseren van abonnementen en de afspeelpositie van afleveringen met gpodder.net of de nextcloud-gpodder-toepassing.</li>
           <li xml:lang="pt-BR">Suporte para sincronização de assinaturas e posição de reprodução de episódios usando gpodder.net ou o aplicativo nextcloud-gpodder</li>
           <li xml:lang="ru">Синхронизация подписок и позиций воспроизведения эпизодов с использованием сервиса gpodder.net или приложения nextcloud-gpodder;</li>
           <li xml:lang="sl">Podpora za sinhronizacijo naročnin in položaja predvajanja epizod z uporabo aplikacije gpodder.net ali nextcloud-gpodder</li>
@@ -1245,6 +1255,7 @@
           <li xml:lang="ia">Multe correctiones de faltas.</li>
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
+          <li xml:lang="nl">Verschillende reparaties van fouten.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
           <li xml:lang="sl">Več popravkov hroščev.</li>
@@ -1265,6 +1276,7 @@
         <p xml:lang="ia">Apud alcun correctiones minor de faltas, il es nunc possibile cambiar le location ubi le episodios de podcast discargate e imagines ponite in cache es salveguardate. Iste files pote prentìder multe spatio de disco, assi il es agradabile esser capace a immagazinar los alibi sur systemas con limitate spatio de disco de dossier domo. Le preferentias affin nunc monstra le spatio de disco usate per episodioe e imagines, e te permitte clarar le cache de imagine.</p>
         <p xml:lang="it">Oltre ad alcune correzioni di bug minori, ora è possibile modificare la posizione in cui vengono salvati gli episodi dei podcast scaricati e le immagini memorizzate nella cache. Questi file possono occupare molto spazio su disco, quindi è utile poterli salvare altrove su sistemi con spazio limitato nella cartella home. Le impostazioni correlate ora mostrano lo spazio su disco utilizzato da episodi e immagini e consentono di svuotare la cache delle immagini.</p>
         <p xml:lang="ka">მცირე ხარვეზების გასწორებასთან ერთად, ახლა უკვე შესაძლებელია ჩამოტვირთული პოდკასტების ეპიზოდებისა და დაკეშილი სურათების შენახვის ადგილის შეცვლა. რადგან ეს ფაილები დიდ ადგილს იკავებს, მათი სხვაგან შენახვა მოსახერხებელია იმ სისტემებისთვის, რომლებსაც საწყის საქაღალდეში შეზღუდული სივრცე აქვთ. შესაბამისი პარამეტრები ახლა უკვე აჩვენებს ეპიზოდებისა და სურათების მიერ დაკავებულ ადგილს და იძლევა სურათების ქეშის გასუფთავების საშუალებას.</p>
+        <p xml:lang="nl">Naast enkele kleine reparaties van fouten is het nu mogelijk om de locatie te wijzigen waar de gedownloade podcastafleveringen en gecachede afbeeldingen worden opgeslagen. Deze bestanden kunnen veel schijfruimte in beslag nemen, dus het is prettig om ze elders te kunnen opslaan op systemen met beperkte schijfruimte in de thuismap. De bijbehorende instellingen tonen nu de schijfruimte die door afleveringen en afbeeldingen wordt gebruikt en maken het mogelijk om de afbeeldingscache te wissen.</p>
         <p xml:lang="pt-BR">Além de algumas pequenas correções de bugs, agora é possível alterar o local onde os episódios de podcast baixados e as imagens em cache são salvos. Esses arquivos podem ocupar muito espaço em disco, então é ótimo poder armazená-los em outro local em sistemas com espaço limitado na pasta pessoal. As configurações relacionadas agora mostram o espaço em disco usado por episódios e imagens e permitem limpar o cache de imagens.</p>
         <p xml:lang="ru">Помимо исправления нескольких незначительных ошибок, теперь можно изменить каталог для сохранения загруженных выпусков подкастов и кэшированных изображений. Эти файлы могут занимать много места на диске, поэтому возможность хранить их в другом месте полезна в системах с ограниченным дисковым пространством домашней папки. В соответствующих настройках теперь отображается объём дискового пространства, занятый выпусками и изображениями, а также доступна очистка кэша изображений.</p>
         <p xml:lang="sl">Poleg nekaj manjših popravkov napak je zdaj mogoče spremeniti lokacijo, kamor se shranjujejo prenesene epizode podkastov in predpomnjene slike. Te datoteke lahko zavzamejo veliko prostora na disku, zato je lepo, da jih lahko shranite drugje v sistemih z omejenim prostorom na disku v domači mapi. Sorodne nastavitve zdaj prikazujejo prostor na disku, ki ga zasedajo epizode in slike, ter omogočajo brisanje predpomnilnika slik.</p>
@@ -1284,6 +1296,7 @@
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
         <p xml:lang="it">Nuove funzionalità di questa versione:</p>
         <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
+        <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
@@ -1299,6 +1312,7 @@
           <li xml:lang="ia">Pagina de disporerir per cercar podcasts sur podcastindex.org</li>
           <li xml:lang="it">Pagina per cercare podcast su podcastindex.org</li>
           <li xml:lang="ka">აღმოჩენის გვერდი პოდკასტების podcastindex.org-ზე საძებნელად</li>
+          <li xml:lang="nl">Ontdek de pagina om podcasts te zoeken op podcastindex.org</li>
           <li xml:lang="pt-BR">Página de descobrimento para pesquisar podcasts em podcastindex.org</li>
           <li xml:lang="ru">Страница «Поиск» для поиска подкастов на сайте podcastindex.org;</li>
           <li xml:lang="sl">Stran raziskovalca za iskanje podkastov na podcastindex.org</li>
@@ -1313,6 +1327,7 @@
           <li xml:lang="ia">Discargamentos depodvasts ora pote esser reprendite.</li>
           <li xml:lang="it">Ora è possibile riprendere lo scaricamento dei podcast.</li>
           <li xml:lang="ka">პოდკასტის გადმოწერები ახლა შეგიძლიათ, გააგრძელოთ.</li>
+          <li xml:lang="nl">Downloads van podcasts kunnen hersteld worden.</li>
           <li xml:lang="pt-BR">Os downloads de podcasts já podem ser retomados.</li>
           <li xml:lang="ru">Возобновление загрузки подкастов;</li>
           <li xml:lang="sl">Prenos podkastov je zdaj mogoče nadaljevati.</li>
@@ -1327,6 +1342,7 @@
           <li xml:lang="ia">Actualisate le Dialogo de preferentias de velocitate de reproduction. </li>
           <li xml:lang="it">Finestra delle impostazioni della velocità di riproduzione aggiornata.</li>
           <li xml:lang="ka">გასწორდა დაკვრის სიჩქარის მორგების დიალოგი.</li>
+          <li xml:lang="nl">Het dialoogvenster voor de afspeelsnelheidsinstellingen is bijgewerkt.</li>
           <li xml:lang="pt-BR">Diálogo de configurações de velocidade de reprodução atualizado.</li>
           <li xml:lang="ru">Обновлён диалог настройки скорости воспроизведения;</li>
           <li xml:lang="sl">Posodobljeno pogovorno okno z nastavitvami hitrosti predvajanja.</li>
@@ -1341,6 +1357,7 @@
           <li xml:lang="ia">Preferentias per permitter/non permitter accesso de rete sur connexione a consumo.</li>
           <li xml:lang="it">Impostazioni per consentire/non consentire l'accesso alla rete sulle connessioni a consumo.</li>
           <li xml:lang="ka">დაემატა პარამეტრები შეზღუდული კავშირის დროს ქსელზე წვდომის ნებართვის მისაცემად ან ასაკრძალად.</li>
+          <li xml:lang="nl">Instellingen om netwerktoegang op verbindingen met datalimiet toe te staan/te weigeren.</li>
           <li xml:lang="pt-BR">Configurações para permitir/bloquear o acesso à rede em conexões limitadas.</li>
           <li xml:lang="ru">Настройки разрешения/запрета сетевого доступа при учёте трафика;</li>
           <li xml:lang="sl">Nastavitve za dovoljenje/preprečevanje dostopa do omrežja za merjene povezave.</li>
@@ -1355,6 +1372,7 @@
           <li xml:lang="ia">Notificationes de error plus descriptive ab le qual le lista complete de errores pote esser aperite.</li>
           <li xml:lang="it">Notifiche di errore più descrittive dalle quali è possibile aprire l'elenco completo degli errori.</li>
           <li xml:lang="ka">დაემატა შეცდომების უფრო დეტალური შეტყობინებები, საიდანაც შეცდომების სრული სიის გახსნაა შესაძლებელი.</li>
+          <li xml:lang="nl">Meer gedetailleerde foutmeldingen, van waaruit de volledige lijst met fouten kan worden geopend.</li>
           <li xml:lang="pt-BR">Notificações de erro mais descritivas, a partir das quais é possível abrir a lista completa de erros.</li>
           <li xml:lang="ru">Более информативные уведомления об ошибках; полный список ошибок можно просмотреть;</li>
           <li xml:lang="sl">Bolj opisna obvestila o napakah, iz katerih je mogoče odpreti celoten seznam napak.</li>
@@ -1369,6 +1387,7 @@
           <li xml:lang="ia">Multe parve perfectionamentos: evidentias de elemento de menu, consilios de instrumento,claves calide(hotkeys)</li>
           <li xml:lang="it">Diversi piccoli miglioramenti: evidenziazione delle voci di menu, suggerimenti, tasti di scelta rapida</li>
           <li xml:lang="ka">განხორციელდა რამდენიმე მცირე გაუმჯობესება: მენიუს ელემენტების გამოკვეთა, მინიშნებები და კლავიატურის მალსახმობები</li>
+          <li xml:lang="nl">Enkele kleinere verbeteringen: accentuering van menu-items, tekstballonnen, sneltoetsen</li>
           <li xml:lang="pt-BR">Diversas melhorias menores: destaque de itens de menu, dicas de ferramentas, teclas de atalho</li>
           <li xml:lang="ru">Несколько мелких улучшений: подсветка пунктов меню, всплывающие подсказки, комбинации клавиш;</li>
           <li xml:lang="sl">Nekaj ​​manjših izboljšav: označevanje elementov menija, orodni namigi, bližnjice</li>
@@ -1383,6 +1402,7 @@
           <li xml:lang="ia">Multe correctiones de faltas.</li>
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
+          <li xml:lang="nl">Verschillende reparaties van fouten.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
           <li xml:lang="sl">Več popravkov hroščev.</li>
@@ -1403,6 +1423,7 @@
         <p xml:lang="ia">Prime version (release) de Kasts,un executor de podcast convergente basate sur Kirigami. Relaxate como parte de Plasma Mobile Gear 21.06. Il presenta:</p>
         <p xml:lang="it">Prima versione di Kasts, un lettore podcast convergente basato su Kirigami. Rilasciato come parte di Plasma Mobile Gear 21.06. Include:</p>
         <p xml:lang="ka">Kasts-ის პირველი გამოშვება, რომელიც Kirigami-ზე დაფუძნებული კონვერგენტული პოდკასტების დამკვრელია. ის Plasma Mobile Gear 21.06-ის ნაწილად გამოიცა. მასში შედის:</p>
+        <p xml:lang="nl">Eerste uitgave van Kasts, een op Kirigami gebaseerde, convergente podcastspeler. Uitgebracht als onderdeel van Plasma Mobile Gear 21.06. Bevat:</p>
         <p xml:lang="pt-BR">Primeira versão do Kasts, um reprodutor de podcasts convergente baseado em Kirigami. Lançado como parte do Plasma Mobile Gear 21.06. Inclui:</p>
         <p xml:lang="ru">Представлен первый выпуск Kasts — универсального подкаст-плеера на основе Kirigami. Выпущен в составе Plasma Mobile Gear 21.06. Добавлены возможности:</p>
         <p xml:lang="sl">Prva izdaja Kastsa, konvergentnega predvajalnika podkastov, ki temelji na Kirigamiju. Izdana kot del Plasma Mobile Gear 21.06. Vsebuje:</p>
@@ -1418,6 +1439,7 @@
           <li xml:lang="ia">un cauda a reproducer</li>
           <li xml:lang="it">una coda di riproduzione</li>
           <li xml:lang="ka">დაკვრის რიგი</li>
+          <li xml:lang="nl">een afspeelwachtrij</li>
           <li xml:lang="pt-BR">uma fila de reprodução</li>
           <li xml:lang="ru">очередь воспроизведения;</li>
           <li xml:lang="sl">čakalno vrsto za predvajanje</li>
