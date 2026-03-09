@@ -48,9 +48,10 @@ public:
     enum Status {
         Error = -1,
         Downloadable = 0,
-        Downloading,
-        PartiallyDownloaded,
-        Downloaded,
+        Downloading = 1,
+        Queued = 2,
+        PartiallyDownloaded = 3,
+        Downloaded = 4,
     };
     Q_ENUM(Status)
 

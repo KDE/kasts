@@ -13,10 +13,12 @@
 #include <QNetworkReply>
 #include <QObject>
 #include <QQmlEngine>
+#include <QQueue>
 #include <QTimer>
 #include <QUrl>
 #include <Syndication/Syndication>
 
+#include "enclosuredownloadjob.h"
 #include "error.h"
 #include "utils/networkaccessmanager.h"
 
@@ -46,8 +48,9 @@ public:
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
     Q_INVOKABLE QString image(const QString &url);
-    Q_INVOKABLE QNetworkReply *download(const QString &url, const QString &fileName) const;
-    void getRedirectedUrl(const QUrl &url);
+
+    EnclosureDownloadJob *enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title);
+    void processEnclosureDownloadQueue();
 
     QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;
@@ -55,6 +58,7 @@ public:
     void initializeUpdateTimer();
     void checkUpdateTimer();
 
+    void getRedirectedUrl(const QUrl &url);
     Q_INVOKABLE void setNetworkProxy();
     Q_INVOKABLE bool isSystemProxyDefined();
 
@@ -85,6 +89,8 @@ private:
     Fetcher();
 
     QSet<QString> m_ongoingImageDownloads;
+    QSet<EnclosureDownloadJob *> m_ongoingEnclosureDownloads;
+    QQueue<EnclosureDownloadJob *> m_enclosureDownloadQueue;
 
     NetworkAccessManager *m_manager;
     int m_updateProgress;

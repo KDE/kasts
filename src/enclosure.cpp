@@ -79,6 +79,8 @@ Enclosure::Enclosure(Entry *entry)
             qint64 index = entryuids.indexOf(m_entryuid);
             Q_ASSERT(index > -1);
             m_status = statuses[index];
+            m_downloadProgress = 0;
+            m_downloadSize = 0;
             Q_EMIT statusChanged(m_entry, m_status);
         }
     });
@@ -112,7 +114,8 @@ Enclosure::Enclosure(Entry *entry)
     m_status = dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
     m_playposition_dbsave = m_playposition;
 
-    checkSizeOnDisk();
+    // using qtimer to do this update after the constructor so the signals can be picked up correctly
+    QTimer::singleShot(0, this, &Enclosure::checkSizeOnDisk);
 
     qCDebug(kastsObjects) << "Enclosure object" << m_enclosureuid << "constructed (corresponding entryuid is" << m_entryuid << ")";
 }
@@ -179,6 +182,7 @@ void Enclosure::download()
         return;
     }
 
+    // TODO: move this check to fetcher; needs error refactoring to use uids
     if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
         if (NetworkConnectionManager::instance().networkReachable()) {
             Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
@@ -195,11 +199,11 @@ void Enclosure::download()
     }
 
     checkSizeOnDisk();
-    EnclosureDownloadJob *downloadJob = new EnclosureDownloadJob(m_url, path(), m_entry->title());
-    downloadJob->start();
+    EnclosureDownloadJob *downloadJob = Fetcher::instance().enqueueEnclosureDownload(m_entryuid, m_url, path(), m_entry->title());
 
     qint64 resumedAt = m_sizeOnDisk;
     m_downloadProgress = 0;
+    m_downloadSize = 0;
     Q_EMIT downloadProgressChanged();
 
     m_entry->feed()->setErrorId(0);
@@ -246,6 +250,8 @@ void Enclosure::download()
     connect(downloadJob, &KJob::processedAmountChanged, this, [this, resumedAt](KJob *kjob, KJob::Unit unit, qulonglong amount) {
         Q_ASSERT(unit == KJob::Unit::Bytes);
 
+        setStatus(Status::Downloading);
+
         qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));
         qint64 currentSize = static_cast<qint64>(amount);
 
@@ -263,7 +269,7 @@ void Enclosure::download()
         qCDebug(kastsEnclosure) << "m_size" << m_size;
     });
 
-    setStatus(Downloading);
+    setStatus(Queued);
 }
 
 void Enclosure::processDownloadedFile()
@@ -325,6 +331,7 @@ void Enclosure::deleteFile()
     setStatus(Downloadable);
     m_sizeOnDisk = 0;
     Q_EMIT sizeOnDiskChanged();
+    Q_EMIT downloadProgressChanged();
 }
 
 qint64 Enclosure::enclosureuid() const

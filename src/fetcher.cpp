@@ -163,59 +163,40 @@ QString Fetcher::image(const QString &url)
     return QLatin1String("fetching");
 }
 
-QNetworkReply *Fetcher::download(const QString &url, const QString &filePath) const
+EnclosureDownloadJob *Fetcher::enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title)
 {
-    QNetworkRequest request((QUrl(url)));
-    request.setTransferTimeout();
-
-    bool fileOpenSuccess = false;
-
-    QFile *file = new QFile(filePath);
-    if (file->exists() && file->size() > 0) {
-        // try to resume download
-        int resumedAt = file->size();
-        qCDebug(kastsFetcher) << "Resuming download at" << resumedAt << "bytes";
-        QByteArray rangeHeaderValue = QByteArray("bytes=") + QByteArray::number(resumedAt) + QByteArray("-");
-        request.setRawHeader(QByteArray("Range"), rangeHeaderValue);
-        fileOpenSuccess = file->open(QIODevice::WriteOnly | QIODevice::Append);
-    } else {
-        qCDebug(kastsFetcher) << "Starting new download";
-        fileOpenSuccess = file->open(QIODevice::WriteOnly);
-    }
-
-    if (!fileOpenSuccess) {
-        return nullptr;
-    }
-
-    QNetworkReply *reply = get(request);
-
-    connect(reply, &QNetworkReply::readyRead, this, [=]() {
-        if (reply->isOpen() && file) {
-            QByteArray data = reply->readAll();
-            file->write(data);
+    QPointer<EnclosureDownloadJob> newDownloadJob = new EnclosureDownloadJob(entryuid, url, path, title);
+    connect(newDownloadJob, &EnclosureDownloadJob::finished, this, [this, newDownloadJob]() {
+        // This is called whenever a DownloadEnclosureJob has finished
+        if (m_ongoingEnclosureDownloads.contains(newDownloadJob)) {
+            qCDebug(kastsFetcher) << "EnclosureDownloadJob removed from ongoingDownloads:" << newDownloadJob;
+            m_ongoingEnclosureDownloads.remove(newDownloadJob);
         }
+        if (m_enclosureDownloadQueue.contains(newDownloadJob)) {
+            qCDebug(kastsFetcher) << "EnclosureDownloadJob removed from m_enclosureDownloadQueue:" << newDownloadJob;
+            m_enclosureDownloadQueue.remove(m_enclosureDownloadQueue.indexOf(newDownloadJob));
+        }
+
+        processEnclosureDownloadQueue();
     });
 
-    connect(reply, &QNetworkReply::finished, this, [this, reply, url, file]() {
-        if (reply->isOpen() && file) {
-            QByteArray data = reply->readAll();
-            file->write(data);
-            file->close();
+    m_enclosureDownloadQueue.enqueue(newDownloadJob);
+    processEnclosureDownloadQueue();
 
-            Q_EMIT downloadFinished(url);
+    return newDownloadJob;
+}
+
+void Fetcher::processEnclosureDownloadQueue()
+{
+    while (m_ongoingEnclosureDownloads.count() < SettingsManager::self()->maximumParallelEpisodeDownloads() && !m_enclosureDownloadQueue.isEmpty()) {
+        qCDebug(kastsFetcher) << "Current m_enclosureDownloadQueue.count()" << m_ongoingEnclosureDownloads.count();
+        QPointer<EnclosureDownloadJob> newJob = m_enclosureDownloadQueue.dequeue();
+        if (newJob && newJob->status() == EnclosureDownloadJob::Status::Queued) {
+            qCDebug(kastsFetcher) << "Starting queued EnclosureDownloadJob" << newJob;
+            m_ongoingEnclosureDownloads += newJob;
+            newJob->start();
         }
-
-        // clean up; close file if still open in case something has gone wrong
-        if (file) {
-            if (file->isOpen()) {
-                file->close();
-            }
-            delete file;
-        }
-        reply->deleteLater();
-    });
-
-    return reply;
+    }
 }
 
 void Fetcher::getRedirectedUrl(const QUrl &url)

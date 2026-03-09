@@ -35,7 +35,7 @@ AddonDelegates.RoundedItemDelegate {
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
     property bool showDownloadButton: entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
-    property bool showCancelDownloadButton: entry.enclosure && entry.enclosure.status === Enclosure.Downloading
+    property bool showCancelDownloadButton: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || entry.enclosure.status == Enclosure.Queued)
     property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
     property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
@@ -258,7 +258,7 @@ AddonDelegates.RoundedItemDelegate {
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || root.entry.enclosure.status === Enclosure.Queued || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
@@ -276,12 +276,14 @@ AddonDelegates.RoundedItemDelegate {
                 id: downloadProgress
                 RowLayout {
                     Controls.Label {
+                        visible: entry.enclosure.status != Enclosure.Queued
                         text: entry.enclosure.formattedDownloadSize
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
+                        indeterminate: entry.enclosure.status == Enclosure.Queued
                         from: 0
                         to: 1
                         value: entry.enclosure.downloadProgress
