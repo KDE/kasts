@@ -13,6 +13,7 @@
 
 #include <KLocalizedString>
 #include <ThreadWeaver/Queue>
+#include <ThreadWeaver/ThreadWeaver>
 #include <utility>
 
 #include "database.h"
@@ -44,6 +45,8 @@ void FetchFeedsJob::fetch()
         return;
     }
 
+    QHash<QString, QList<qint64>> feeduidsPerHost;
+
     // First get the last hashes from the database to know which feeds have actually been updated
     QSqlQuery query;
     query.prepare(QStringLiteral("SELECT feeduid FROM Feeds WHERE url=:url;"));
@@ -53,35 +56,42 @@ void FetchFeedsJob::fetch()
             return;
         }
         if (query.next()) {
-            m_feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
+            qint64 feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
+            m_feeduids += feeduid;
+            feeduidsPerHost[QUrl(url).host()] += feeduid;
         }
     }
     query.finish(); // release lock on database
 
     qCDebug(kastsUpdater) << "list of feeduids to fetch" << m_feeduids;
+    qCDebug(kastsUpdater) << "list of feeduids per host" << feeduidsPerHost;
 
     setTotalAmount(KJob::Unit::Items, m_feeduids.count());
     setProcessedAmount(KJob::Unit::Items, 0);
 
     qCDebug(kastsUpdater) << "Number of feed update threads:" << Queue::instance()->currentNumberOfThreads();
 
-    for (int i = 0; i < m_feeduids.count(); i++) {
-        QString url = m_urls[i];
-        qint64 feeduid = m_feeduids[i];
+    // we make sure to download and process feeds from the same host in sequence
+    // because otherwise there is a chance that we get temporarily banned for
+    // too many simultaneous downloads
+    for (const QList<qint64> &feeduids : std::as_const(feeduidsPerHost)) {
+        ThreadWeaver::Sequence *s = new ThreadWeaver::Sequence;
+        for (const qint64 feeduid : std::as_const(feeduids)) {
+            qCDebug(kastsUpdater) << "Starting to fetch" << feeduid;
+            Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, true);
 
-        qCDebug(kastsUpdater) << "Starting to fetch" << feeduid;
-        Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, true);
+            UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feeduid, this);
+            connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
+            connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, feeduid]() {
+                // TODO: add error processing
+                setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
+                Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, false);
+            });
 
-        UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feeduid); //, this);
-        connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
-        connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, feeduid]() {
-            // TODO: add error processing
-            setProcessedAmount(KJob::Unit::Items, processedAmount(KJob::Unit::Items) + 1);
-            Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, false);
-        });
-
-        Queue::instance()->stream() << updateFeedJob;
-        qCDebug(kastsUpdater) << "Just started updateFeedJob" << i + 1 << "for feed" << url;
+            *s << updateFeedJob;
+            qCDebug(kastsUpdater) << "Enqueued updateFeedJob for feed" << feeduid;
+        }
+        Queue::instance()->stream() << s;
     }
     qCDebug(kastsUpdater) << "End of FetchFeedsJob::fetch";
 }

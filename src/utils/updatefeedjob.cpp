@@ -413,7 +413,7 @@ bool UpdateFeedJob::processFeedAuthors(const QList<Syndication::PersonPtr> &auth
             }
         } else {
             authorname = otherItems.value(QStringLiteral("http://www.itunes.com/dtds/podcast-1.0.dtdauthor")).text();
-            qCDebug(kastsUpdater) << "authorname" << authorname;
+            // qCDebug(kastsUpdater) << "authorname" << authorname;
         }
         if (!authorname.isEmpty()) {
             isNewOrModified = isNewOrModified || processFeedAuthor(authorname, authoremail);
@@ -472,11 +472,11 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
     // Retrieve "other" fields; this will include the "itunes" tags
     QMultiMap<QString, QDomElement> otherItems = entry->additionalProperties();
 
-    const auto uniqueKeys = otherItems.uniqueKeys();
-    for (const QString &key : uniqueKeys) {
-        qCDebug(kastsUpdater) << "other elements";
-        qCDebug(kastsUpdater) << key << otherItems.value(key).tagName();
-    }
+    // const auto uniqueKeys = otherItems.uniqueKeys();
+    // for (const QString &key : uniqueKeys) {
+    //     qCDebug(kastsUpdater) << "other elements";
+    //     qCDebug(kastsUpdater) << key << otherItems.value(key).tagName();
+    // }
 
     QString title = QTextDocumentFragment::fromHtml(entry->title()).toPlainText();
     int created = static_cast<int>(entry->datePublished());
@@ -504,7 +504,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry)
     if (image.startsWith(QStringLiteral("/"))) {
         image = QUrl(m_url).adjusted(QUrl::RemovePath).toString() + image;
     }
-    qCDebug(kastsUpdater) << "Entry image found" << image;
+    // qCDebug(kastsUpdater) << "Entry image found" << image;
 
     // now we start updating the datastructure
     if (!isNewOrModified) {
