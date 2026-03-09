@@ -6,22 +6,42 @@
 
 #pragma once
 
-#include <KJob>
 #include <QNetworkReply>
+#include <QObject>
+#include <QString>
+
+#include <KJob>
 
 class EnclosureDownloadJob : public KJob
 {
+    Q_OBJECT
+
 public:
-    explicit EnclosureDownloadJob(const QString &url, const QString &filename, const QString &title, QObject *parent = nullptr);
+    enum Status {
+        Queued,
+        Downloading,
+        Canceled,
+    };
+    Q_ENUM(Status)
+
+    explicit EnclosureDownloadJob(const qint64 entryuid, const QString &url, const QString &filename, const QString &title, QObject *parent = nullptr);
+    ~EnclosureDownloadJob();
 
     void start() override;
     bool doKill() override;
+    Status status() const;
+
+Q_SIGNALS:
+    void statusChanged(EnclosureDownloadJob::Status status);
 
 private:
+    void startDownload();
+    QNetworkReply *getNetworkReply(const QString &url, const QString &filePath) const;
+
+    qint64 m_entryuid;
     QString m_url;
     QString m_filename;
     QString m_title;
     QNetworkReply *m_reply = nullptr;
-
-    void startDownload();
+    Status m_status = Queued;
 };

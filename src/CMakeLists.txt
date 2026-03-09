@@ -160,6 +160,13 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
+    HEADER "enclosuredownloadlogging.h"
+    IDENTIFIER "kastsEnclosureDownload"
+    CATEGORY_NAME "org.kde.kasts.enclosuredownload"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
     HEADER "enclosurelogging.h"
     IDENTIFIER "kastsEnclosure"
     CATEGORY_NAME "org.kde.kasts.enclosure"

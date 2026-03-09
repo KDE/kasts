@@ -86,6 +86,8 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo12());
     if (dbversion < 13)
         TRUE_OR_RETURN(migrateTo13());
+    if (dbversion < 14)
+        TRUE_OR_RETURN(migrateTo14());
     return true;
 }
 
@@ -477,7 +479,7 @@ bool Database::migrateTo12()
                                "    size INTEGER,"
                                "    type TEXT,"
                                "    playposition INTEGER,"
-                               "    downloaded BOOL,"
+                               "    downloaded INTEGER,"
                                "    FOREIGN KEY(entryuid) REFERENCES Entries(entryuid),"
                                "    FOREIGN KEY(feeduid) REFERENCES Feeds(feeduid));")));
 
@@ -623,7 +625,7 @@ bool Database::migrateTo13()
 
     // No backup needed, because version 12 was never released
 
-    // TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(transaction());
     // Update EpisodeActions table
     TRUE_OR_RETURN(
         execute(QStringLiteral("CREATE TABLE IF NOT EXISTS EpisodeActionstemp ("
@@ -672,7 +674,30 @@ bool Database::migrateTo13()
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE EpisodeActionstemp RENAME TO EpisodeActions;")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 13;")));
-    // TRUE_OR_RETURN(commit());
+    TRUE_OR_RETURN(commit());
+    return true;
+}
+
+bool Database::migrateTo14()
+{
+    qDebug() << "Migrating database to version 14";
+
+    // No backup needed, because version 13 was never released
+
+    TRUE_OR_RETURN(transaction());
+    // Because of a mistake in the original schema 12, the downloaded column might
+    // still be of type BOOL; we correct it for the instances that might have
+    // already gone through this migration
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures RENAME COLUMN downloaded TO olddownloaded;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaded INTEGER;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=olddownloaded;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures DROP COLUMN olddownloaded;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=4 WHERE downloaded=3;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("UPDATE Enclosures SET downloaded=3 WHERE downloaded=2;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 14;")));
+    TRUE_OR_RETURN(commit());
     return true;
 }
 bool Database::execute(const QString &queryString)

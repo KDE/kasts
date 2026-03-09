@@ -80,7 +80,12 @@ void DownloadModel::monitorDownloadStatus()
 void DownloadModel::updateInternalState()
 {
     m_entries.clear();
-    const QList<Enclosure::Status> statuses = {Enclosure::Status::Downloading, Enclosure::Status::PartiallyDownloaded, Enclosure::Status::Downloaded};
+    const QList<Enclosure::Status> statuses = {
+        Enclosure::Status::Downloading,
+        Enclosure::Status::Queued,
+        Enclosure::Status::PartiallyDownloaded,
+        Enclosure::Status::Downloaded,
+    };
 
     QSqlQuery query;
     query.prepare(
