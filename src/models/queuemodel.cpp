@@ -117,7 +117,7 @@ void QueueModel::addToQueue(const QList<qint64> &entryuids)
     // Figure out how many entries actually have to be added (excluding the ones already in the queue)
     qint64 endQueueIndex = beginQueueIndex - 1;
     for (const qint64 entryuid : std::as_const(entryuids)) {
-        if (m_queue.contains(entryuid)) {
+        if (!m_queue.contains(entryuid)) {
             ++endQueueIndex;
         }
     }
