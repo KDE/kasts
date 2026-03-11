@@ -588,13 +588,22 @@ void AudioManager::mediaStatusChanged()
     if (d->m_player.mediaStatus() == KMediaSession::InvalidMedia) {
         // save pointer to this bad entry to allow
         // us to delete the enclosure after the track has been unloaded
-        Entry *badEntry = d->m_entry;
+        qint64 badEntryuid = d->m_entryuid;
         DataManager::instance().setLastPlayingEntry(0);
         stop();
         next();
-        if (badEntry && badEntry->enclosure()) {
-            badEntry->enclosure()->deleteFile();
-            Q_EMIT logError(Error::Type::InvalidMedia, badEntry->feed()->url(), badEntry->id(), KMediaSession::InvalidMedia, i18n("Invalid Media"), QString());
+        Entry *badEntry = new Entry(badEntryuid);
+        if (badEntry) {
+            if (badEntry->enclosure()) {
+                badEntry->enclosure()->deleteFile();
+                Q_EMIT logError(Error::Type::InvalidMedia,
+                                badEntry->feed()->url(),
+                                badEntry->id(),
+                                KMediaSession::InvalidMedia,
+                                i18n("Invalid Media"),
+                                QString());
+            }
+            delete badEntry;
         }
     }
 }
