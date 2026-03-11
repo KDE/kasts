@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:45+0000\n"
+"POT-Creation-Date: 2026-03-11 02:44+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -32,7 +32,7 @@ msgstr "adrian@chaves.gal"
 msgid "Streaming on metered connection not allowed"
 msgstr "Non se permite a reprodución directa desde conexións contabilizadas."
 
-#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Non hai conexión de rede."
@@ -42,7 +42,7 @@ msgstr "Non hai conexión de rede."
 msgid "Invalid Media"
 msgstr "Contido multimedia non válido"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:192
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Non se permite descargar podcasts mediante conexións contabilizadas."
@@ -130,13 +130,13 @@ msgid "Open"
 msgstr "Abrir"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"
 msgstr "Reproducir"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:389
 #, kde-format
 msgid "Pause"
 msgstr "Pausar"
@@ -556,19 +556,35 @@ msgid "No downloads"
 msgstr "Non hai descargas."
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloading"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Descargando"
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Incomplete Downloads"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Descargas incompletas"
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloaded"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Descargado"
+
+#: qml/DownloadListPage.qml:74
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title of page showing the list queued items; this is the noun 'the "
+#| "queue', not the verb"
+#| msgid "Queue"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
+msgstr "Cola"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -965,32 +981,32 @@ msgstr "Lido"
 msgid "New"
 msgstr "Novo"
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:258
+#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:258
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Retirar da cola"
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:318
+#: qml/GenericEntryDelegate.qml:335 qml/GenericEntryListView.qml:318
 #, kde-format
 msgid "Download"
 msgstr "Descargar"
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:345
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancelar a descarga"
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:352
 #, kde-format
 msgid "Delete Download"
 msgstr "Eliminar a descarga"
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:248
+#: qml/GenericEntryDelegate.qml:359 qml/GenericEntryListView.qml:248
 #, kde-format
 msgid "Add to Queue"
 msgstr "Engadir á cola"
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:337
+#: qml/GenericEntryDelegate.qml:376 qml/GenericEntryListView.qml:337
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1547,108 +1563,122 @@ msgid "Mark all episodes as unplayed"
 msgstr "Marcar todos os episodios como non reproducidos."
 
 #: qml/Settings/NetworkSettingsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of downloaded episodes"
+#| msgid "Downloads"
+msgctxt "@title Form header for download related settings"
+msgid "Downloads"
+msgstr "Descargas"
+
+#: qml/Settings/NetworkSettingsPage.qml:36
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Rede"
 
-#: qml/Settings/NetworkSettingsPage.qml:37
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Activar as comprobacións de conexións de rede."
 
-#: qml/Settings/NetworkSettingsPage.qml:47
+#: qml/Settings/NetworkSettingsPage.qml:72
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Nas conexións contabilizadas"
 
-#: qml/Settings/NetworkSettingsPage.qml:57
+#: qml/Settings/NetworkSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Permitir as actualizacións de podcasts."
 
-#: qml/Settings/NetworkSettingsPage.qml:68
+#: qml/Settings/NetworkSettingsPage.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Permitir as descargas de episodios."
 
-#: qml/Settings/NetworkSettingsPage.qml:79
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Permitir as descargas de imaxes."
 
-#: qml/Settings/NetworkSettingsPage.qml:90
+#: qml/Settings/NetworkSettingsPage.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Permitir reproducir directamente."
 
-#: qml/Settings/NetworkSettingsPage.qml:99
+#: qml/Settings/NetworkSettingsPage.qml:124
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "Mandatario de rede"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:129
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "Predeterminado do sistema"
 
-#: qml/Settings/NetworkSettingsPage.qml:113
+#: qml/Settings/NetworkSettingsPage.qml:138
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "Sen mandatario"
 
-#: qml/Settings/NetworkSettingsPage.qml:122
+#: qml/Settings/NetworkSettingsPage.qml:147
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: qml/Settings/NetworkSettingsPage.qml:131
+#: qml/Settings/NetworkSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "Socks5"
 
-#: qml/Settings/NetworkSettingsPage.qml:146
+#: qml/Settings/NetworkSettingsPage.qml:171
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "Servidor"
 
-#: qml/Settings/NetworkSettingsPage.qml:157
+#: qml/Settings/NetworkSettingsPage.qml:182
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "Porto"
 
-#: qml/Settings/NetworkSettingsPage.qml:172
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "Persoa usuaria"
 
-#: qml/Settings/NetworkSettingsPage.qml:183
+#: qml/Settings/NetworkSettingsPage.qml:208
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "Contrasinal"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: qml/Settings/NetworkSettingsPage.qml:217
+#: qml/Settings/NetworkSettingsPage.qml:242
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -2313,7 +2343,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "A sincronización rematou cun erro."
 
-#: utils/enclosuredownloadjob.cpp:40
+#: utils/enclosuredownloadjob.cpp:54
 #, kde-format
 msgid "Downloading %1"
 msgstr "Descargando %1"
