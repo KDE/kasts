@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:45+0000\n"
+"POT-Creation-Date: 2026-03-11 00:45+0000\n"
 "PO-Revision-Date: 2021-05-08 21:05-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr ""
@@ -39,7 +39,7 @@ msgstr ""
 msgid "Invalid Media"
 msgstr ""
 
-#: enclosure.cpp:164
+#: enclosure.cpp:192
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
@@ -127,13 +127,13 @@ msgid "Open"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:389
 #, kde-format
 msgid "Pause"
 msgstr ""
@@ -548,17 +548,26 @@ msgstr ""
 
 #: qml/DownloadListPage.qml:74
 #, kde-format
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr ""
 
 #: qml/DownloadListPage.qml:74
 #, kde-format
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr ""
 
 #: qml/DownloadListPage.qml:74
 #, kde-format
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
+msgstr ""
+
+#: qml/DownloadListPage.qml:74
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
 msgstr ""
 
 #: qml/EntryPage.qml:24
@@ -953,32 +962,32 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:258
+#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:258
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:318
+#: qml/GenericEntryDelegate.qml:335 qml/GenericEntryListView.qml:318
 #, kde-format
 msgid "Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:345
 #, kde-format
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:352
 #, kde-format
 msgid "Delete Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:248
+#: qml/GenericEntryDelegate.qml:359 qml/GenericEntryListView.qml:248
 #, kde-format
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:337
+#: qml/GenericEntryDelegate.qml:376 qml/GenericEntryListView.qml:337
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1520,107 +1529,119 @@ msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:28
 #, kde-format
+msgctxt "@title Form header for download related settings"
+msgid "Downloads"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:36
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:53
+#, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:37
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:47
+#: qml/Settings/NetworkSettingsPage.qml:72
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:57
+#: qml/Settings/NetworkSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:68
+#: qml/Settings/NetworkSettingsPage.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:79
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:90
+#: qml/Settings/NetworkSettingsPage.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:99
+#: qml/Settings/NetworkSettingsPage.qml:124
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:129
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:113
+#: qml/Settings/NetworkSettingsPage.qml:138
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:122
+#: qml/Settings/NetworkSettingsPage.qml:147
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:131
+#: qml/Settings/NetworkSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:146
+#: qml/Settings/NetworkSettingsPage.qml:171
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:157
+#: qml/Settings/NetworkSettingsPage.qml:182
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:172
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:183
+#: qml/Settings/NetworkSettingsPage.qml:208
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr ""
 
-#: qml/Settings/NetworkSettingsPage.qml:217
+#: qml/Settings/NetworkSettingsPage.qml:242
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -2264,7 +2285,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr ""
 
-#: utils/enclosuredownloadjob.cpp:40
+#: utils/enclosuredownloadjob.cpp:54
 #, kde-format
 msgid "Downloading %1"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:45+0000\n"
+"POT-Creation-Date: 2026-03-11 00:45+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "skkalwar999@gmail.com"
 msgid "Streaming on metered connection not allowed"
 msgstr "मीटर् कृते संयोजने स्ट्रीमिंग् अनुमतं नास्ति"
 
-#: audiomanager.cpp:454 enclosure.cpp:168 error.cpp:64
+#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "जालसंयोजनं नास्ति"
@@ -44,7 +44,7 @@ msgstr "जालसंयोजनं नास्ति"
 msgid "Invalid Media"
 msgstr "अमान्य मीडिया"
 
-#: enclosure.cpp:164
+#: enclosure.cpp:192
 #, kde-format
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "मीटर्-युक्ते संयोजने पोड्कास्ट्-अवलोकनस्य अनुमतिः नास्ति"
@@ -132,13 +132,13 @@ msgid "Open"
 msgstr "उद्घाटित"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:364
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"
 msgstr "क्रीडतु"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:387
+#: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:389
 #, kde-format
 msgid "Pause"
 msgstr "विराम"
@@ -558,19 +558,35 @@ msgid "No downloads"
 msgstr "डाउनलोड् न भवति"
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloading"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "डाउनलोड् करणम्"
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Incomplete Downloads"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "अपूर्ण डाउनलोड्स"
 
 #: qml/DownloadListPage.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloaded"
+msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "डाउनलोड् कृतम्"
+
+#: qml/DownloadListPage.qml:74
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title of page showing the list queued items; this is the noun 'the "
+#| "queue', not the verb"
+#| msgid "Queue"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
+msgstr "पङ्क्ति"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -967,32 +983,32 @@ msgstr "पठतु"
 msgid "New"
 msgstr "नूतनम्‌"
 
-#: qml/GenericEntryDelegate.qml:324 qml/GenericEntryListView.qml:258
+#: qml/GenericEntryDelegate.qml:326 qml/GenericEntryListView.qml:258
 #, kde-format
 msgid "Remove from Queue"
 msgstr "कतारात् निष्कासयन्तु"
 
-#: qml/GenericEntryDelegate.qml:333 qml/GenericEntryListView.qml:318
+#: qml/GenericEntryDelegate.qml:335 qml/GenericEntryListView.qml:318
 #, kde-format
 msgid "Download"
 msgstr "अवाहरन"
 
-#: qml/GenericEntryDelegate.qml:343
+#: qml/GenericEntryDelegate.qml:345
 #, kde-format
 msgid "Cancel Download"
 msgstr "डाउनलोड् रद्दं कुर्वन्तु"
 
-#: qml/GenericEntryDelegate.qml:350
+#: qml/GenericEntryDelegate.qml:352
 #, kde-format
 msgid "Delete Download"
 msgstr "डाउनलोड् विलोपयन्तु"
 
-#: qml/GenericEntryDelegate.qml:357 qml/GenericEntryListView.qml:248
+#: qml/GenericEntryDelegate.qml:359 qml/GenericEntryListView.qml:248
 #, kde-format
 msgid "Add to Queue"
 msgstr "कतारं योजयतु"
 
-#: qml/GenericEntryDelegate.qml:374 qml/GenericEntryListView.qml:337
+#: qml/GenericEntryDelegate.qml:376 qml/GenericEntryListView.qml:337
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1554,108 +1570,122 @@ msgid "Mark all episodes as unplayed"
 msgstr "सर्वेषां प्रकरणानाम् अप्रचलितत्वेन चिह्नं कुर्वन्तु"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of downloaded episodes"
+#| msgid "Downloads"
+msgctxt "@title Form header for download related settings"
+msgid "Downloads"
+msgstr "डाउनलोड्स्"
+
+#: qml/Settings/NetworkSettingsPage.qml:36
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "जालकृति"
 
-#: qml/Settings/NetworkSettingsPage.qml:37
+#: qml/Settings/NetworkSettingsPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "संजालसंयोजनपरीक्षां सक्षमं कुर्वन्तु"
 
-#: qml/Settings/NetworkSettingsPage.qml:47
+#: qml/Settings/NetworkSettingsPage.qml:72
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "मीटर्युक्तसंयोजनेषु"
 
-#: qml/Settings/NetworkSettingsPage.qml:57
+#: qml/Settings/NetworkSettingsPage.qml:82
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "पॉडकास्ट् अपडेट् अनुमन्यताम्"
 
-#: qml/Settings/NetworkSettingsPage.qml:68
+#: qml/Settings/NetworkSettingsPage.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "प्रकरणस्य डाउनलोड् कर्तुं अनुमतिं ददातु"
 
-#: qml/Settings/NetworkSettingsPage.qml:79
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "चित्रस्य डाउनलोड् कर्तुं अनुमतिं ददातु"
 
-#: qml/Settings/NetworkSettingsPage.qml:90
+#: qml/Settings/NetworkSettingsPage.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "स्ट्रीमिंग् अनुमन्यताम्"
 
-#: qml/Settings/NetworkSettingsPage.qml:99
+#: qml/Settings/NetworkSettingsPage.qml:124
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "संजाल प्रॉक्सी"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:129
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "प्रणाली पूर्वनिर्धारित"
 
-#: qml/Settings/NetworkSettingsPage.qml:113
+#: qml/Settings/NetworkSettingsPage.qml:138
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "न प्रॉक्सी"
 
-#: qml/Settings/NetworkSettingsPage.qml:122
+#: qml/Settings/NetworkSettingsPage.qml:147
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "एचटीटीपी"
 
-#: qml/Settings/NetworkSettingsPage.qml:131
+#: qml/Settings/NetworkSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "मोजा5"
 
-#: qml/Settings/NetworkSettingsPage.qml:146
+#: qml/Settings/NetworkSettingsPage.qml:171
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "निमन्त्रकः"
 
-#: qml/Settings/NetworkSettingsPage.qml:157
+#: qml/Settings/NetworkSettingsPage.qml:182
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "पोताश्रय"
 
-#: qml/Settings/NetworkSettingsPage.qml:172
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "उपयोक्ता"
 
-#: qml/Settings/NetworkSettingsPage.qml:183
+#: qml/Settings/NetworkSettingsPage.qml:208
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "समाभाष्"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "आचरतु"
 
-#: qml/Settings/NetworkSettingsPage.qml:217
+#: qml/Settings/NetworkSettingsPage.qml:242
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -2321,7 +2351,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "त्रुटिना सह समन्वयनं समाप्तम्"
 
-#: utils/enclosuredownloadjob.cpp:40
+#: utils/enclosuredownloadjob.cpp:54
 #, kde-format
 msgid "Downloading %1"
 msgstr "%1 डाउनलोड् करणम्"
