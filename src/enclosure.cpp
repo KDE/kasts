@@ -317,7 +317,7 @@ void Enclosure::processDownloadedFile()
 void Enclosure::deleteFile()
 {
     qCDebug(kastsEnclosure) << "Trying to delete enclosure file" << path();
-    if (AudioManager::instance().entry() && (m_entry == AudioManager::instance().entry())) {
+    if (m_entryuid == AudioManager::instance().entryuid()) {
         qCDebug(kastsEnclosure) << "Track is still playing; let's unload it before deleting";
         AudioManager::instance().setEntryuid(0);
     }
