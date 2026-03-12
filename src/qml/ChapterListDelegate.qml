@@ -29,6 +29,12 @@ AddonDelegates.RoundedItemDelegate {
 
     property bool streamingButtonVisible: entryuid > 0 && entry && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
 
+    Accessible.role: Accessible.Button
+    Accessible.name: title
+    Accessible.onPressAction: {
+        clicked();
+    }
+
     contentItem: RowLayout {
         Delegates.IconTitleSubtitle {
             icon.source: root.chapter ? root.chapter.cachedImage : ""
@@ -42,21 +48,20 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Play")
             enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
-            onClicked: {
-                if (!root.entry.queueStatus) {
-                    root.entry.queueStatus = true;
-                }
-                if (AudioManager.entryuid != root.entryuid) {
-                    AudioManager.entryuid = root.entryuid;
-                }
-                if (AudioManager.playbackState !== KMediaSession.PlayingState) {
-                    AudioManager.play();
-                }
-                AudioManager.position = root.start * 1000;
-                if (root.overlay != undefined) {
-                    root.overlay.close();
-                }
-            }
+            onClicked: root.clicked()
         }
+    }
+
+    onClicked: {
+        if (!root.entry.queueStatus) {
+            root.entry.queueStatus = true;
+        }
+        if (AudioManager.entryuid != root.entryuid) {
+            AudioManager.entryuid = root.entryuid;
+        }
+        if (AudioManager.playbackState !== KMediaSession.PlayingState) {
+            AudioManager.play();
+        }
+        AudioManager.position = root.start * 1000;
     }
 }

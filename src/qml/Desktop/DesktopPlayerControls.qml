@@ -383,7 +383,7 @@ FocusScope {
         preferredWidth: Kirigami.Units.gridUnit * 30
         preferredHeight: Kirigami.Units.gridUnit * 25
 
-        showCloseButton: false
+        showCloseButton: true
 
         title: KI18n.i18n("Chapters")
 
@@ -403,7 +403,7 @@ FocusScope {
         id: entryDetailsOverlay
         preferredWidth: Kirigami.Units.gridUnit * 30
 
-        showCloseButton: false
+        showCloseButton: true
 
         title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
         padding: Kirigami.Units.largeSpacing
