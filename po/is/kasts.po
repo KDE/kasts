@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
 "PO-Revision-Date: 2026-01-15 16:46+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -38,7 +38,7 @@ msgstr "Streymi á gagnamældri tengingu er ekki leyft"
 msgid "No network connection"
 msgstr "Engin nettenging"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ógild miðlaskrá"

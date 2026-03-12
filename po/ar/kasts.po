@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
 "PO-Revision-Date: 2026-01-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -38,7 +38,7 @@ msgstr "البث غير مسموح به على الاتصال المقيد"
 msgid "No network connection"
 msgstr "لا اتّصال بالشّبكة"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "وسائط غير صحيحة"

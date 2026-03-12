@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
 "PO-Revision-Date: 2026-01-03 03:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,7 +38,7 @@ msgstr "გაზომვად შეერთებებზე სტრი�
 msgid "No network connection"
 msgstr "ქსელური შეერთებების გარეშე"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "არასწორი მედია"

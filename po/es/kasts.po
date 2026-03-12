@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
-"PO-Revision-Date: 2026-01-03 16:43+0100\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
+"PO-Revision-Date: 2026-03-12 00:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,7 +39,7 @@ msgstr "No se permite emitir en conexiones de uso medido"
 msgid "No network connection"
 msgstr "No hay conexión de red"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Medio no válido"
@@ -556,35 +556,28 @@ msgid "No downloads"
 msgstr "No hay descargas"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Descargando"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Descargas incompletas"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Descargado"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Cola"
+msgstr "En cola"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1560,9 +1553,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Marcar todos los episodios como no reproducidos"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Descargas"
@@ -1571,7 +1562,7 @@ msgstr "Descargas"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Número máximo de descargas de episodios en paralelo"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format

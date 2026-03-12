@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
 "PO-Revision-Date: 2026-01-31 11:17+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -39,7 +39,7 @@ msgstr "Потоковая передача запрещена при лимит
 msgid "No network connection"
 msgstr "Нет сетевого соединения"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Некорректное мультимедиа"

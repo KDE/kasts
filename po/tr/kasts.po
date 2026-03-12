@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 02:44+0000\n"
-"PO-Revision-Date: 2026-03-09 21:44+0300\n"
+"POT-Creation-Date: 2026-03-12 02:36+0000\n"
+"PO-Revision-Date: 2026-03-11 13:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -38,7 +38,7 @@ msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
 msgid "No network connection"
 msgstr "Ağ bağlantısı yok"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Geçersiz Ortam"
@@ -555,35 +555,28 @@ msgid "No downloads"
 msgstr "İndirme yok"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "İndiriliyor"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Tamamlanmayan İndirmeler"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "İndirildi"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Kuyruk"
+msgstr "Kuyrukta"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1555,18 +1548,16 @@ msgid "Mark all episodes as unplayed"
 msgstr "Tüm bölümleri dinlenmedi olarak imle"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
-msgstr "İndirilenler"
+msgstr "İndirmeler"
 
 #: qml/Settings/NetworkSettingsPage.qml:36
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "En çok paralel bölüm indirme sayısı"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
