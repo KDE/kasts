@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 00:45+0000\n"
-"PO-Revision-Date: 2026-01-03 10:16+0100\n"
+"POT-Creation-Date: 2026-03-12 00:43+0000\n"
+"PO-Revision-Date: 2026-03-11 06:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -39,7 +39,7 @@ msgstr "Pretakanje v živo na merjeni povezavi ni dovoljeno"
 msgid "No network connection"
 msgstr "Ni omrežne povezave"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neveljavni medij"
@@ -555,35 +555,28 @@ msgid "No downloads"
 msgstr "Ni prejemov"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Prejemanje"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Nepopolni prejemi"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Prejeto"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Čakalna vrsta"
+msgstr "V čakalni vrsti"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1571,9 +1564,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Označi vse epizode kot nepredvajane"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Prejemi"
@@ -1582,7 +1573,7 @@ msgstr "Prejemi"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Maksimalno število vzporednih prejemov epizod"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format

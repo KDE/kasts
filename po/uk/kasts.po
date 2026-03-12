@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-11 00:45+0000\n"
-"PO-Revision-Date: 2026-01-04 11:45+0200\n"
+"POT-Creation-Date: 2026-03-12 00:43+0000\n"
+"PO-Revision-Date: 2026-03-11 12:44+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "No network connection"
 msgstr "Немає з'єднання з мережею"
 
-#: audiomanager.cpp:597
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Некоректне мультимедіа"
@@ -558,35 +558,28 @@ msgid "No downloads"
 msgstr "Немає отриманих даних"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Отримання"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Неповні отримання"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Отримано"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Черга"
+msgstr "У черзі"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1577,18 +1570,16 @@ msgid "Mark all episodes as unplayed"
 msgstr "Позначити усі епізоди як невідтворені"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
-msgstr "Отримане"
+msgstr "Отримання"
 
 #: qml/Settings/NetworkSettingsPage.qml:36
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Максимальна кількість потоків паралельного отримання епізодів"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
