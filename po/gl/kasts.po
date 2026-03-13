@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 02:36+0000\n"
+"POT-Creation-Date: 2026-03-13 02:38+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -129,7 +129,7 @@ msgstr "OU"
 msgid "Open"
 msgstr "Abrir"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"

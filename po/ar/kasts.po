@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 02:36+0000\n"
-"PO-Revision-Date: 2026-01-08 11:45+0400\n"
+"POT-Creation-Date: 2026-03-13 02:38+0000\n"
+"PO-Revision-Date: 2026-03-12 10:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -130,7 +130,7 @@ msgstr "أو"
 msgid "Open"
 msgstr "افتح"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"
@@ -553,35 +553,28 @@ msgid "No downloads"
 msgstr "لا يوجد تنزيلات"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
-msgstr "جاري التنزيل"
+msgstr "ينزّل"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "تنزيلات غير مكتملة"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "المُنزّل"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "الطابور"
+msgstr "المصطفّ"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1586,9 +1579,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "تعليم جميع الحلقات الجديدة كغير مشغلة"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "التنزيلات"
@@ -1597,7 +1588,7 @@ msgstr "التنزيلات"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "أقصى عدد حلقات يمكن تنزيلها بالتوازي"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
