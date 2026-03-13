@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 00:43+0000\n"
+"POT-Creation-Date: 2026-03-13 00:42+0000\n"
 "PO-Revision-Date: 2026-01-05 02:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -132,7 +132,7 @@ msgstr "或"
 msgid "Open"
 msgstr "開啟"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:42
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
 #: qml/Desktop/DesktopPlayerControls.qml:131 qml/GenericEntryDelegate.qml:366
 #, kde-format
 msgid "Play"
