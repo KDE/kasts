@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-13 02:38+0000\n"
-"PO-Revision-Date: 2026-01-15 16:46+0000\n"
+"PO-Revision-Date: 2026-03-13 13:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -553,35 +553,28 @@ msgid "No downloads"
 msgstr "Engar sóttar skrár"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Sæki"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
-msgstr "Óklárað niðurhal"
+msgstr "Ófullgert niðurhal"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Sótt"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Biðröð"
+msgstr "Í biðröð"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1550,9 +1543,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Merkja alla þætti sem óspilaða"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Sóttar skrár"
@@ -1561,7 +1552,7 @@ msgstr "Sóttar skrár"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Hámarksfjöldi samhliða niðurhala á þáttum"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
