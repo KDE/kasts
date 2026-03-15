@@ -111,6 +111,7 @@
     <p xml:lang="hi">कास्ट्स एक एकीकृत पॉडकास्ट एप्लिकेशन है जो डेस्कटॉप और मोबाइल दोनों पर अच्छा दिखता है।</p>
     <p xml:lang="ia">Kasts es un application de podcast convergente que appare belle sur scriptorio e mobile.</p>
     <p xml:lang="id">Kasts adalah aplikasi podcast konvergen yang terlihat bagus di desktop dan seluler.</p>
+    <p xml:lang="is">Kasts er þægilegt hlaðvarpsforrit sem lítur vel út á bæði borðtölvum og snjalltækjum.</p>
     <p xml:lang="it">Kasts è un'applicazione podcast convergente che va bene su desktop e mobile.</p>
     <p xml:lang="ka">Kasts პოდკასტების კონვერგენტული აპლიკაციაა, რომელიც ორივე, კომპიუტერზე და მობილურზე, კარგად გამოიყურება.</p>
     <p xml:lang="ko">Kasts는 데스크톱과 모바일 양쪽에서 작동하는 팟캐스트 앱입니다.</p>
@@ -1162,6 +1163,7 @@
         <p xml:lang="fr">Nouvelles fonctionnalités dans cette version :</p>
         <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
+        <p xml:lang="is">Nýir eiginleikar í þessari útgáfu:</p>
         <p xml:lang="it">Nuove funzionalità di questa versione:</p>
         <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
@@ -1253,6 +1255,7 @@
           <li xml:lang="fr">Plusieurs corrections de bogues.</li>
           <li xml:lang="he">מגוון תיקוני תקלות.</li>
           <li xml:lang="ia">Multe correctiones de faltas.</li>
+          <li xml:lang="is">Ýmsar villuleiðréttingar.</li>
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
@@ -1294,6 +1297,7 @@
         <p xml:lang="fr">Nouvelles fonctionnalités dans cette version :</p>
         <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
+        <p xml:lang="is">Nýir eiginleikar í þessari útgáfu:</p>
         <p xml:lang="it">Nuove funzionalità di questa versione:</p>
         <p xml:lang="ka">ახალი ფუნქციები ამ გამოცემაში:</p>
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
@@ -1400,6 +1404,7 @@
           <li xml:lang="fr">Plusieurs corrections de bogues.</li>
           <li xml:lang="he">מגוון תיקוני תקלות.</li>
           <li xml:lang="ia">Multe correctiones de faltas.</li>
+          <li xml:lang="is">Ýmsar villuleiðréttingar.</li>
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
