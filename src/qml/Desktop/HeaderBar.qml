@@ -32,7 +32,7 @@ FocusScope {
     function openEntry(): void {
         if (AudioManager.entryuid > 0) {
             pushPage("QueuePage");
-            pageStack.get(0).lastEntry = AudioManager.entry.entryuid;
+            pageStack.get(0).lastEntry = AudioManager.entryuid;
             var model = pageStack.get(0).queueList.model;
             for (var i = 0; i < model.rowCount(); i++) {
                 var index = model.index(i, 0);

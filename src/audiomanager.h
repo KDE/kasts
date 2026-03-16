@@ -33,7 +33,7 @@ class AudioManager : public QObject
     Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)
 
     Q_PROPERTY(qint64 entryuid READ entryuid WRITE setEntryuid NOTIFY entryuidChanged)
-    Q_PROPERTY(Entry *entry READ entry WRITE setEntry NOTIFY entryChanged)
+    Q_PROPERTY(Entry *entry READ entry NOTIFY entryChanged)
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(KMediaSession::MediaStatus status READ status NOTIFY statusChanged)
@@ -139,7 +139,6 @@ public Q_SLOTS:
     void setCurrentBackend(const KMediaSession::MediaBackends backend);
 
     void setEntryuid(const qint64 entryuid);
-    void setEntry(Entry *entry);
     void setMuted(const bool muted);
     void setVolume(const qreal volume);
     void setPosition(const qint64 position);

@@ -31,7 +31,7 @@ ChapterModel::ChapterModel(QObject *parent)
     qCDebug(kastsObjects) << "ChapterModel object constructed";
 
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this]() {
-        if (!m_entry || m_entry != AudioManager::instance().entry() || m_chapters.isEmpty()) {
+        if (!m_entry || m_entryuid != AudioManager::instance().entryuid() || m_chapters.isEmpty()) {
             return;
         }
         if (m_chapters[m_currentChapter]

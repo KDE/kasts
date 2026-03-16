@@ -284,17 +284,7 @@ void AudioManager::setCurrentBackend(const KMediaSession::MediaBackends backend)
 void AudioManager::setEntryuid(const qint64 entryuid)
 {
     qCDebug(kastsAudio) << "begin AudioManager::setEntryuid" << entryuid;
-    if (entryuid > 0) {
-        Entry *entry = new Entry(entryuid, this);
-        setEntry(entry);
-    } else {
-        setEntry(nullptr);
-    }
-}
 
-void AudioManager::setEntry(Entry *entry)
-{
-    qCDebug(kastsAudio) << "begin AudioManager::setEntry";
     // First unset current track and save playing state, such that any signal
     // that still fires doesn't operate on the wrong track.
 
@@ -332,6 +322,11 @@ void AudioManager::setEntry(Entry *entry)
 
         // Now we can safely delete the old entry object
         delete oldEntry;
+    }
+
+    Entry *entry = nullptr;
+    if (entryuid > 0) {
+        entry = new Entry(entryuid, this);
     }
 
     // do some checks on the new entry to see whether it's valid and not corrupted
