@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -11,11 +13,10 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
 
-import org.kde.kmediasession
 import org.kde.kasts
 
 Kirigami.Dialog {
-    id: customizeRatesDialog
+    id: root
     title: KI18n.i18nc("@title:window", "Playback Rate Presets")
     padding: Kirigami.Units.largeSpacing
     preferredWidth: Kirigami.Units.gridUnit * 16 + Kirigami.Units.smallSpacing
@@ -23,8 +24,9 @@ Kirigami.Dialog {
     closePolicy: Controls.Popup.CloseOnEscape
     standardButtons: Kirigami.Dialog.Save | Kirigami.Dialog.Cancel
 
+    readonly property ListModel rateModel: _rateModel
     ListModel {
-        id: rateModel
+        id: _rateModel
 
         Component.onCompleted: {
             for (var rate in SettingsManager.playbackRates) {
@@ -47,7 +49,7 @@ Kirigami.Dialog {
     ColumnLayout {
         id: playbackRateList
 
-        implicitWidth: customizeRatesDialog.width
+        implicitWidth: root.width
         spacing: Kirigami.Units.largeSpacing
 
         RowLayout {
@@ -74,17 +76,17 @@ Kirigami.Dialog {
                     var found = false;
                     var insertIndex = 0;
                     var newValue = (Math.round(rateSlider.value * 20) / 20.0);
-                    for (var i = 0; i < rateModel.count; i++) {
-                        if (newValue == rateModel.get(i).value) {
+                    for (var i = 0; i < root.rateModel.count; i++) {
+                        if (newValue == root.rateModel.get(i).value) {
                             found = true;
                             break;
                         }
-                        if (newValue > rateModel.get(i).value) {
+                        if (newValue > root.rateModel.get(i).value) {
                             insertIndex = i + 1;
                         }
                     }
                     if (!found) {
-                        rateModel.insert(insertIndex, {
+                        root.rateModel.insert(insertIndex, {
                             value: newValue,
                             name: newValue.toFixed(2) + "x"
                         });
@@ -135,16 +137,16 @@ Kirigami.Dialog {
             columns: 4
             Layout.fillWidth: true
             Repeater {
-                model: rateModel
+                model: root.rateModel
                 delegate: Kirigami.Chip {
                     required property var value
                     Layout.fillWidth: true
                     text: value.toFixed(2)
                     closable: true
                     onRemoved: {
-                        for (var i = 0; i < rateModel.count; i++) {
-                            if (value == rateModel.get(i).value) {
-                                rateModel.remove(i);
+                        for (var i = 0; i < root.rateModel.count; i++) {
+                            if (value == root.rateModel.get(i).value) {
+                                root.rateModel.remove(i);
                                 break;
                             }
                         }

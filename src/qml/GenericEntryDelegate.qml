@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -19,18 +21,20 @@ import org.kde.kasts
 AddonDelegates.RoundedItemDelegate {
     id: root
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     required property Entry entry
     required property int index
     property int entryuid: entry ? entry.entryuid : 0
 
+    readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
+
     property bool isQueue: false
     property bool isDownloads: false
     property bool showFeedImage: !SettingsManager.showEpisodeImage
     property bool showFeedTitle: SettingsManager.showPodcastTitle
-    property QtObject listViewObject: undefined
+    property GenericEntryListView listViewObject: undefined
     property bool selected: false
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
@@ -87,15 +91,15 @@ AddonDelegates.RoundedItemDelegate {
             entry.new = false;
         }
         if (isQueue || isDownloads) {
-            lastEntry = entryuid;
+            root.lastEntry = entryuid;
         }
 
-        if (pageStack.depth > (currentPage === "FeedListPage" ? 2 : 1)) {
-            pageStack.pop();
+        if (mainWindow.pageStack.depth > (mainWindow.currentPage === "FeedListPage" ? 2 : 1)) {
+            mainWindow.pageStack.pop();
         }
 
-        pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entry: entry
+        mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+            entryuid: entryuid
         });
     }
 
@@ -105,11 +109,11 @@ AddonDelegates.RoundedItemDelegate {
         acceptedModifiers: Qt.ShiftModifier
 
         onTapped: eventPoint => {
-            const modelIndex = root.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(root.index, 0);
 
             // Have to take a detour through c++ since selecting large sets
             // in QML is extremely slow
-            listViewObject.selectionModel.select(listViewObject.model.createSelection(modelIndex.row, listViewObject.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+            root.listViewObject.selectionModel.select(root.listViewObject.model.createSelection(modelIndex.row, root.listViewObject.selectionModel.currentIndex.row), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
         }
     }
 
@@ -119,9 +123,9 @@ AddonDelegates.RoundedItemDelegate {
         acceptedModifiers: Qt.ControlModifier
 
         onTapped: eventPoint => {
-            const modelIndex = root.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(root.index, 0);
 
-            listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+            root.listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
     }
 
@@ -135,24 +139,24 @@ AddonDelegates.RoundedItemDelegate {
         onSingleTapped: (eventPoint, button) => {
 
             // Keep track of (currently) selected items
-            const modelIndex = root.listViewObject.model.index(index, 0);
+            const modelIndex = root.listViewObject.model.index(root.index, 0);
 
-            if (listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
-                listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
+            if (root.listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
+                root.listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
             } else if (button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
-                listViewObject.selectionForContextMenu = [modelIndex];
-                listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
+                root.listViewObject.selectionForContextMenu = [modelIndex];
+                root.listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
             } else if (button == Qt.LeftButton || button == Qt.NoButton) {
-                listViewObject.currentIndex = index;
-                listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
-                delegateTapped();
+                root.listViewObject.currentIndex = root.index;
+                root.listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                root.delegateTapped();
             }
         }
 
         onLongPressed: {
-            const modelIndex = root.listViewObject.model.index(index, 0);
-            listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+            const modelIndex = root.listViewObject.model.index(root.index, 0);
+            root.listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
         }
     }
 
@@ -172,8 +176,6 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         Loader {
-            property var loaderListView: root.listViewObject
-            property var loaderListItem: root
             sourceComponent: dragHandleComponent
             active: root.isQueue
         }
@@ -181,14 +183,14 @@ AddonDelegates.RoundedItemDelegate {
         Component {
             id: dragHandleComponent
             Kirigami.ListItemDragHandle {
-                listItem: loaderListItem
-                listView: loaderListView
+                listItem: root
+                listView: root.listViewObject
                 onMoveRequested: (oldIndex, newIndex) => {
                     QueueModel.moveQueueItem(oldIndex, newIndex);
                     // reset current selection when moving items
                     var modelIndex = root.listView.model.index(newIndex, 0);
-                    listViewObject.currentIndex = newIndex;
-                    listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                    root.listViewObject.currentIndex = newIndex;
+                    root.listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
             }
         }
@@ -264,33 +266,32 @@ AddonDelegates.RoundedItemDelegate {
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: entry.enclosure ? entry.enclosure.formattedDuration : ""
+                    text: root.entry.enclosure ? root.entry.enclosure.formattedDuration : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
-                    visible: !downloadProgress.visible
                 }
             }
             Component {
                 id: downloadProgress
                 RowLayout {
                     Controls.Label {
-                        visible: entry.enclosure.status != Enclosure.Queued
-                        text: entry.enclosure.formattedDownloadSize
+                        visible: root.entry.enclosure.status != Enclosure.Queued
+                        text: root.entry.enclosure.formattedDownloadSize
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
-                        indeterminate: entry.enclosure.status == Enclosure.Queued
+                        indeterminate: root.entry.enclosure.status == Enclosure.Queued
                         from: 0
                         to: 1
-                        value: entry.enclosure.downloadProgress
+                        value: root.entry.enclosure.downloadProgress
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: entry.enclosure.formattedSize
+                        text: root.entry.enclosure.formattedSize
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -301,19 +302,19 @@ AddonDelegates.RoundedItemDelegate {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: entry.enclosure.formattedPlayPosition
+                        text: root.entry.enclosure.formattedPlayPosition
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
                         from: 0
-                        to: entry.enclosure.duration
-                        value: entry.enclosure.playPosition / 1000
+                        to: root.entry.enclosure.duration
+                        value: root.entry.enclosure.playPosition / 1000
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: SettingsManager.toggleRemainingTime ? "-" + entry.enclosure.formattedLeftDuration : entry.enclosure.formattedDuration
+                        text: SettingsManager.toggleRemainingTime ? "-" + root.entry.enclosure.formattedLeftDuration : root.entry.enclosure.formattedDuration
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -335,8 +336,8 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Download")
             icon.name: "download"
             onClicked: {
-                downloadOverlay.entry = entry;
-                downloadOverlay.run();
+                root.mainWindow.downloadOverlay.entry = root.entry;
+                root.mainWindow.downloadOverlay.run();
             }
             visible: root.showDownloadButton
         }

@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -29,7 +31,7 @@ Control {
 
     // metrics used by the default font
     property var fontMetrics: FontMetrics {
-        property real fullWidthCharWidth: fontMetrics.tightBoundingRect('＿').width
+        property real fullWidthCharWidth: root.fontMetrics.tightBoundingRect('＿').width
     }
 
     // align with the Slider implementations in the major styles
@@ -65,7 +67,7 @@ Control {
     MouseArea {
         anchors.fill: parent
         onReleased: {
-            setPlaybackPosition(mouseX);
+            root.setPlaybackPosition(mouseX);
         }
         // TODO: handle scrollwheel
     }
@@ -79,43 +81,49 @@ Control {
         Repeater {
             id: chapters
             delegate: Rectangle {
+                id: delegate
+
+                required property int start
+                required property int duration
+                required property string title
+
                 // If we're not dragging, use the more precise method using the AudioManager. If we're dragging, this doesn't work because the AudioManager isn't updated while dragging
-                readonly property bool isCurrent: dragArea.drag.active ? (x - 1.01 <= handle.centerX && handle.centerX < x + width) : (model.start * 1000 <= AudioManager.position && (model.start + model.duration) * 1000 > AudioManager.position)
-                readonly property bool isPrevious: dragArea.drag.active ? (x + width < handle.centerX) : ((model.start + model.duration) * 1000 < AudioManager.position)
-                Layout.preferredWidth: model.duration * 1000 / root.duration * (layout.width - chapters.count + 1)
-                Layout.preferredHeight: grooveSize
+                readonly property bool isCurrent: dragArea.drag.active ? (x - 1.01 <= handle.centerX && handle.centerX < x + width) : (start * 1000 <= AudioManager.position && (start + duration) * 1000 > AudioManager.position)
+                readonly property bool isPrevious: dragArea.drag.active ? (x + width < handle.centerX) : ((start + duration) * 1000 < AudioManager.position)
+                Layout.preferredWidth: duration * 1000 / root.duration * (layout.width - chapters.count + 1)
+                Layout.preferredHeight: root.grooveSize
                 Layout.alignment: Qt.AlignVCenter
                 radius: height / 2
 
                 z: 1
-                color: inactiveGrooveColor
+                color: root.inactiveGrooveColor
                 border {
                     width: 1
-                    color: inactiveGrooveBorderColor
+                    color: root.inactiveGrooveBorderColor
                 }
                 MouseArea {
                     anchors.fill: parent
                     hoverEnabled: true
                     z: 0
                     ToolTip {
-                        text: model.title
-                        visible: parent.containsMouse
+                        text: delegate.title
+                        visible: (parent as MouseArea).containsMouse
                     }
                     onReleased: {
-                        setPlaybackPosition(mouseX + parent.x + handle.width / 2);
+                        root.setPlaybackPosition(mouseX + parent.x + handle.width / 2);
                     }
                 }
                 Rectangle {
-                    visible: isCurrent || isPrevious
+                    visible: delegate.isCurrent || delegate.isPrevious
                     anchors.left: parent.left
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    width: isCurrent ? handle.centerX - parent.x : parent.width
+                    width: delegate.isCurrent ? handle.centerX - parent.x : parent.width
                     radius: parent.height / 2
-                    color: activeGrooveColor
+                    color: root.activeGrooveColor
                     border {
                         width: 1
-                        color: activeGrooveBorderColor
+                        color: root.activeGrooveBorderColor
                     }
                 }
             }
@@ -123,14 +131,14 @@ Control {
     }
 
     Rectangle {
-        color: inactiveGrooveColor
+        color: root.inactiveGrooveColor
         visible: chapters.count === 0
         border {
             width: 1
-            color: inactiveGrooveBorderColor
+            color: root.inactiveGrooveBorderColor
         }
         width: parent.width - handle.width
-        height: grooveSize
+        height: root.grooveSize
         radius: height / 2
         anchors.centerIn: parent
         Rectangle {
@@ -139,10 +147,10 @@ Control {
             anchors.bottom: parent.bottom
             width: handle.centerX - parent.x
             radius: parent.height / 2
-            color: activeGrooveColor
+            color: root.activeGrooveColor
             border {
                 width: 1
-                color: activeGrooveBorderColor
+                color: root.activeGrooveBorderColor
             }
         }
     }
@@ -159,9 +167,9 @@ Control {
         width: height
         radius: width / 2
         anchors.verticalCenter: root.verticalCenter
-        color: handleColor
+        color: root.handleColor
         border.width: 1
-        border.color: handleBorderColor
+        border.color: root.handleBorderColor
         x: dragArea.drag.active ? 0 : root.value / root.duration * (root.width - handle.width)
         z: 2
 
@@ -176,7 +184,7 @@ Control {
                 maximumX: root.width - handle.width
                 threshold: 0
             }
-            onReleased: setPlaybackPosition(handle.x + handle.width / 2)
+            onReleased: root.setPlaybackPosition(handle.x + handle.width / 2)
         }
     }
 }

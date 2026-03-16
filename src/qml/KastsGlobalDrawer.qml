@@ -2,11 +2,14 @@
 // SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Controls as QQC2
+import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.settings as KirigamiSettings
 import org.kde.ki18n
 
 import org.kde.kasts
@@ -14,22 +17,22 @@ import org.kde.kasts
 Kirigami.OverlayDrawer {
     id: root
     modal: false
-    closePolicy: QQC2.Popup.NoAutoClose
-    edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
+    closePolicy: Controls.Popup.NoAutoClose
+    edge: Application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
 
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
     readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
     readonly property int buttonDisplayMode: WindowUtils.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
     // Keep track of the settings page being opened on the layer stack for mobile
-    readonly property bool settingsOpened: Kirigami.Settings.isMobile && pageStack.layers.depth >= 2 && pageStack.layers.currentItem.title === "Settings"
+    readonly property bool settingsOpened: Kirigami.Settings.isMobile && (Controls.ApplicationWindow.window as Main).pageStack.layers.depth >= 2 && ((Controls.ApplicationWindow.window as Main).pageStack.layers.currentItem as KirigamiSettings.ConfigurationView).title === "Settings"
 
-    width: showGlobalDrawer ? (WindowUtils.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
+    width: (Controls.ApplicationWindow.window as Main).showGlobalDrawer ? (WindowUtils.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false
 
-    readonly property var rootSafeMargins: QQC2.ApplicationWindow.window.SafeArea.margins
+    readonly property var rootSafeMargins: Controls.ApplicationWindow.window.SafeArea.margins
     leftPadding: edge === Qt.LeftEdge ? rootSafeMargins.left : 0
     rightPadding: edge === Qt.RightEdge ? rootSafeMargins.right : 0
     topPadding: rootSafeMargins.top
@@ -37,14 +40,14 @@ Kirigami.OverlayDrawer {
 
     contentItem: Loader {
         id: sidebarColumn
-        active: showGlobalDrawer
+        active: (root.Controls.ApplicationWindow.window as Main).showGlobalDrawer
 
         sourceComponent: ColumnLayout {
             spacing: 0
 
-            QQC2.ToolBar {
+            Controls.ToolBar {
                 Layout.fillWidth: true
-                Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
+                Layout.preferredHeight: (root.Controls.ApplicationWindow.window as Main).pageStack.globalToolBar.preferredHeight
 
                 leftPadding: Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.smallSpacing
@@ -54,13 +57,13 @@ Kirigami.OverlayDrawer {
                 contentItem: GlobalSearchField {}
             }
 
-            QQC2.ScrollView {
+            Controls.ScrollView {
                 id: scrollView
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                QQC2.ScrollBar.vertical.policy: QQC2.ScrollBar.AlwaysOff
-                QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+                Controls.ScrollBar.vertical.policy: Controls.ScrollBar.AlwaysOff
+                Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
                 contentWidth: -1 // disable horizontal scroll
 
                 ColumnLayout {
@@ -73,9 +76,9 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: KI18n.i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
                         icon.name: "source-playlist"
-                        checked: currentPage == "QueuePage" && !settingsOpened
+                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "QueuePage" && !root.settingsOpened
                         onClicked: {
-                            pushPage("QueuePage");
+                            (root.Controls.ApplicationWindow.window as Main).pushPage("QueuePage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -83,9 +86,9 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
                         icon.name: "search"
-                        checked: currentPage == "DiscoverPage" && !settingsOpened
+                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "DiscoverPage" && !root.settingsOpened
                         onClicked: {
-                            pushPage("DiscoverPage");
+                            (root.Controls.ApplicationWindow.window as Main).pushPage("DiscoverPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -93,9 +96,9 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: KI18n.i18nc("@title of page with list of podcast subscriptions", "Subscriptions")
                         icon.name: "bookmarks"
-                        checked: currentPage == "FeedListPage" && !settingsOpened
+                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "FeedListPage" && !root.settingsOpened
                         onClicked: {
-                            pushPage("FeedListPage");
+                            (root.Controls.ApplicationWindow.window as Main).pushPage("FeedListPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -103,9 +106,9 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: KI18n.i18nc("@title of page with list of podcast episodes", "Episodes")
                         icon.name: "rss"
-                        checked: currentPage == "EpisodeListPage" && !settingsOpened
+                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "EpisodeListPage" && !root.settingsOpened
                         onClicked: {
-                            pushPage("EpisodeListPage");
+                            (root.Controls.ApplicationWindow.window as Main).pushPage("EpisodeListPage");
                         }
                     }
                     Kirigami.NavigationTabButton {
@@ -113,9 +116,9 @@ Kirigami.OverlayDrawer {
                         display: root.buttonDisplayMode
                         text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
                         icon.name: "download"
-                        checked: currentPage == "DownloadListPage" && !settingsOpened
+                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "DownloadListPage" && !root.settingsOpened
                         onClicked: {
-                            pushPage("DownloadListPage");
+                            (root.Controls.ApplicationWindow.window as Main).pushPage("DownloadListPage");
                         }
                     }
                 }
@@ -132,11 +135,11 @@ Kirigami.OverlayDrawer {
                 display: root.buttonDisplayMode
                 text: KI18n.i18nc("@title of dialog with app settings", "Settings")
                 icon.name: "settings-configure"
-                checked: settingsOpened
+                checked: root.settingsOpened
                 onClicked: {
                     if (!Kirigami.Settings.isMobile)
                         checked = false;
-                    pushPage("SettingsView");
+                    (root.Controls.ApplicationWindow.window as Main).pushPage("SettingsView");
                 }
             }
         }

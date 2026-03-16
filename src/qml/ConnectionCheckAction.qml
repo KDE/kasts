@@ -15,8 +15,7 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.Dialog {
-    id: overlay
-    parent: applicationWindow().overlay
+    id: root
     closePolicy: Kirigami.Dialog.CloseOnEscape | Kirigami.Dialog.CloseOnPressOutside
 
     property string headingText: KI18n.i18nc("@info:status", "Podcast updates are currently not allowed on metered connections")
@@ -50,7 +49,7 @@ Kirigami.Dialog {
         if (condition) {
             action();
         } else {
-            overlay.open();
+            root.open();
         }
     }
 
@@ -65,7 +64,7 @@ Kirigami.Dialog {
             Layout.leftMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
             Layout.fillWidth: true
-            text: NetworkConnectionManager.networkReachable ? overlay.headingText : KI18n.i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
+            text: NetworkConnectionManager.networkReachable ? root.headingText : KI18n.i18nc("@info:status", "It seems the network cannot be reached. If this is incorrect, this check can be disabled through: Settings > Network.")
             wrapMode: Text.Wrap
             color: NetworkConnectionManager.networkReachable ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
         }
@@ -85,8 +84,8 @@ Kirigami.Dialog {
 
             text: KI18n.i18n("Don't Allow")
             onClicked: {
-                overlay.abortAction();
-                overlay.close();
+                root.abortAction();
+                root.close();
             }
         }
 
@@ -99,8 +98,8 @@ Kirigami.Dialog {
 
             text: KI18n.i18n("Allow Once")
             onClicked: {
-                overlay.allowOnceAction();
-                overlay.close();
+                root.allowOnceAction();
+                root.close();
             }
         }
 
@@ -113,8 +112,8 @@ Kirigami.Dialog {
 
             text: KI18n.i18n("Always Allow")
             onClicked: {
-                overlay.alwaysAllowAction();
-                overlay.close();
+                root.alwaysAllowAction();
+                root.close();
             }
         }
     }

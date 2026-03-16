@@ -23,10 +23,13 @@ Flickable {
 
     property int contentToPlayerSpacing: 0
 
+    property alias toOpen: _toOpen
+    property alias toClose: _toClose
+
     boundsBehavior: Flickable.StopAtBounds
 
     NumberAnimation on contentY {
-        id: toOpen
+        id: _toOpen
         from: root.contentY
         to: root.contentHeight / 2
         duration: Kirigami.Units.longDuration * 2
@@ -34,7 +37,7 @@ Flickable {
         running: false
     }
     NumberAnimation on contentY {
-        id: toClose
+        id: _toClose
         from: root.contentY
         to: 0
         duration: Kirigami.Units.longDuration * 2
@@ -47,8 +50,8 @@ Flickable {
         anchors.fill: contentZone
         propagateComposedEvents: true
         onPressed: {
-            toOpen.stop();
-            toClose.stop();
+            root.toOpen.stop();
+            root.toClose.stop();
             propagateComposedEvents = true;
         }
         onReleased: root.resetToBoundsOnFlick()
@@ -149,6 +152,9 @@ Flickable {
 
             MinimizedPlayerControls {
                 id: playControlItem
+
+                openAnimation: root.toOpen
+                closeAnimation: root.toClose
                 height: (root.Controls.ApplicationWindow.window as Main).miniplayerSize
                 focus: true
                 anchors.left: parent.left
@@ -159,6 +165,9 @@ Flickable {
 
         MobilePlayerControls {
             id: mobileTrackPlayer
+
+            openAnimation: root.toOpen
+            closeAnimation: root.toClose
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.topMargin: contentZone.rootSafeMargins.top

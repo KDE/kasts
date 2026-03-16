@@ -53,7 +53,7 @@ Item {
             id: backgroundImageRaw
             anchors.fill: parent
             visible: GraphicsInfo.api === GraphicsInfo.Software
-            imageSource: image
+            imageSource: root.image
             imageResize: false // no "stuttering" on resizing the window
         }
 
@@ -78,12 +78,14 @@ Item {
 
         ImageWithFallback {
             id: frontImage
+
             property int size: root.headerHeight - 2 * parent.margin
-            imageSource: image
+            imageSource: root.image
             Layout.maximumHeight: size
             Layout.maximumWidth: size
             Layout.minimumHeight: size
             Layout.minimumWidth: size
+
             absoluteRadius: Kirigami.Units.smallSpacing
             MouseArea {
                 anchors.fill: parent
@@ -95,7 +97,7 @@ Item {
                         loader: fullScreenImageLoader
                     });
                     fullScreenImageLoader.active = true;
-                    fullScreenImageLoader.item.open();
+                    (fullScreenImageLoader.item as FullScreenImage).open();
                 }
             }
         }
@@ -107,7 +109,7 @@ Item {
             Controls.Label {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: title
+                text: root.title
                 fontSizeMode: Text.Fit
                 font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.4)
                 minimumPointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.2)
@@ -130,8 +132,8 @@ Item {
 
             Controls.Label {
                 Layout.fillWidth: true
-                visible: subtitle !== ""
-                text: subtitle
+                visible: root.subtitle !== ""
+                text: root.subtitle
                 fontSizeMode: Text.Fit
                 font.pointSize: Kirigami.Theme.defaultFont.pointSize
                 minimumPointSize: Kirigami.Theme.defaultFont.pointSize

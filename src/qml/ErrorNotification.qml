@@ -5,7 +5,6 @@
  */
 
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as Controls
 
 import org.kde.kirigami as Kirigami
@@ -14,13 +13,13 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.InlineMessage {
-    id: inlineMessage
+    id: root
     anchors {
         bottom: parent.bottom
         right: parent.right
         left: parent.left
         margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
-        bottomMargin: bottomMessageSpacing
+        bottomMargin: (root.Controls.ApplicationWindow.window as Main).bottomMessageSpacing
     }
     type: Kirigami.MessageType.Error
     showCloseButton: true
@@ -29,7 +28,7 @@ Kirigami.InlineMessage {
         Kirigami.Action {
             icon.name: "error"
             text: KI18n.i18n("Show Error Log")
-            onTriggered: errorOverlay.open()
+            onTriggered: (root.Controls.ApplicationWindow.window as Main).errorOverlay.open()
         }
     ]
 
@@ -39,14 +38,14 @@ Kirigami.InlineMessage {
         interval: 10000
         repeat: false
 
-        onTriggered: inlineMessage.visible = false
+        onTriggered: root.visible = false
     }
 
     Connections {
         target: ErrorLogModel
         function onNewErrorLogged(error: Error): void {
-            inlineMessage.text = error.description;
-            inlineMessage.visible = true;
+            root.text = error.description;
+            root.visible = true;
             hideTimer.start();
         }
     }

@@ -17,7 +17,6 @@ Kirigami.Dialog {
     id: syncPasswordOverlay
     padding: Kirigami.Units.largeSpacing
     maximumWidth: Kirigami.Units.gridUnit * 25
-    parent: applicationWindow().overlay
 
     showCloseButton: true
     standardButtons: Controls.DialogButtonBox.Ok | Controls.DialogButtonBox.Cancel
@@ -38,14 +37,14 @@ Kirigami.Dialog {
             Kirigami.Icon {
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 4
-                source: Sync.provider === Sync.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
+                source: Sync.provider === SyncUtils.GPodderNextcloud ? "kaccounts-nextcloud" : "gpodder"
             }
             TextEdit {
                 id: passwordField
                 Layout.fillWidth: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: Sync.provider === Sync.GPodderNextcloud ? KI18n.i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : KI18n.i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
+                text: Sync.provider === SyncUtils.GPodderNextcloud ? KI18n.i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : KI18n.i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
                 color: Kirigami.Theme.textColor
             }
         }

@@ -5,8 +5,6 @@
  */
 
 import QtQuick
-import QtQuick.Controls as Controls
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
@@ -14,7 +12,7 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.Dialog {
-    id: errorOverlay
+    id: root
     preferredWidth: Kirigami.Units.gridUnit * 25
     preferredHeight: Kirigami.Units.gridUnit * 16
 

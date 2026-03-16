@@ -216,7 +216,7 @@ Controls.ItemDelegate {
     }
 
     onClicked: {
-        (Controls.ApplicationWindow.window as Main).lastFeed = root.feed.url;
+        (Controls.ApplicationWindow.window as Main).lastFeeduid = root.feed.feeduid;
         var appPageStack = (Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
         if (appPageStack.depth > 1)
             appPageStack.pop();
@@ -252,7 +252,7 @@ Controls.ItemDelegate {
             Kirigami.Action {
                 onTriggered: {
                     var appPageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
-                    if (root.feed.url === (root.Controls.ApplicationWindow.window as Main).lastFeed)
+                    if (root.feed.feeduid === (root.Controls.ApplicationWindow.window as Main).lastFeeduid)
                         while (appPageStack.depth > 1)
                             appPageStack.pop();
                     DataManager.removeFeed(root.feed);

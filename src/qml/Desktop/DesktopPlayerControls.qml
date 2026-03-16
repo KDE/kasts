@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -17,7 +19,7 @@ import org.kde.kasts
 import ".."
 
 FocusScope {
-    id: desktopPlayerControls
+    id: root
     implicitHeight: playerControlToolBar.implicitHeight + Kirigami.Units.largeSpacing * 2
 
     property alias chapterModel: chapterModel
@@ -51,7 +53,7 @@ FocusScope {
             }
 
             onPositionChanged: mouse => {
-                desktopPlayerControls.handlePositionChanged(mouse.y, dragStartOffset);
+                root.handlePositionChanged(mouse.y, dragStartOffset);
             }
 
             drag.axis: Drag.YAxis
@@ -317,7 +319,7 @@ FocusScope {
 
             Controls.Menu {
                 id: overflowMenu
-                contentData: desktopPlayerControls.extraActions
+                contentData: root.extraActions
                 onVisibleChanged: {
                     if (visible) {
                         for (var i in contentData) {

@@ -27,8 +27,6 @@ Kirigami.ScrollablePage {
     anchors.margins: 0
     padding: 0
 
-    property string lastFeed: ""
-
     supportsRefreshing: true
     onRefreshingChanged: {
         if (refreshing) {

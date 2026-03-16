@@ -32,6 +32,10 @@ ListView {
     }
 
     delegate: AddonDelegates.RoundedItemDelegate {
+        id: delegate
+
+        required property Error error
+
         highlighted: false
         hoverEnabled: false
         contentItem: RowLayout {
@@ -46,21 +50,21 @@ ListView {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
                 Controls.Label {
-                    text: error.description + "  ·  " + error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                    text: delegate.error.description + "  ·  " + delegate.error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + delegate.error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
                 }
                 Controls.Label {
-                    text: error.title
+                    text: delegate.error.title
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font.weight: Font.Normal
                     opacity: 1
                 }
                 Controls.Label {
-                    text: KI18n.i18n("Error code:") + " " + error.code + (error.message ? "  ·  " + error.message : "")
+                    text: KI18n.i18n("Error code:") + " " + delegate.error.code + (delegate.error.message ? "  ·  " + delegate.error.message : "")
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont

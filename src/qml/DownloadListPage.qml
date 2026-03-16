@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Controls as Controls
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
@@ -14,6 +14,8 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
+    id: root
+
     title: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
 
     property int lastEntry: 0
@@ -31,7 +33,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             icon.name: "view-refresh"
             text: KI18n.i18n("Refresh All Podcasts")
-            onTriggered: refreshing = true
+            onTriggered: root.refreshing = true
         }
     ]
 
@@ -71,7 +73,7 @@ Kirigami.ScrollablePage {
                 required property string section
 
                 // NOTE: the Enclosure.Status enum values get converted to strings
-                label: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : ""
+                text: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : ""
             }
             property: "entry.enclosure.status"
         }

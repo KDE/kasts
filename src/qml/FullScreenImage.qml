@@ -5,10 +5,7 @@
  */
 
 import QtQuick
-import QtQuick.Controls as Controls
-import QtQuick.Layouts
 
-import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as Addons
 
 Addons.AlbumMaximizeComponent {
@@ -21,9 +18,8 @@ Addons.AlbumMaximizeComponent {
     property list<Addons.AlbumModelItem> mymodel: [
         Addons.AlbumModelItem {
             type: Addons.AlbumModelItem.Image
-            source: image
-            // tempSource: "path/to/tempSource"
-            caption: description
+            source: root.image
+            caption: root.description
         }
     ]
 

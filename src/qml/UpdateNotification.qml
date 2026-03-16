@@ -19,7 +19,7 @@ import org.kde.ki18n
  * the InlineMessage in the future.
  */
 Rectangle {
-    id: rootComponent
+    id: root
 
     required property string text
     property bool showAbortButton: false
@@ -31,7 +31,7 @@ Rectangle {
         left: parent.left
         right: parent.right
         margins: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 4
-        bottomMargin: bottomMessageSpacing + (errorNotification.visible ? errorNotification.height + Kirigami.Units.largeSpacing : 0)
+        bottomMargin: (root.Controls.ApplicationWindow.window as Main).bottomMessageSpacing + ((root.Controls.ApplicationWindow.window as Main).errorNotification.visible ? (root.Controls.ApplicationWindow.window as Main).errorNotification.height + Kirigami.Units.largeSpacing : 0)
     }
 
     color: Kirigami.Theme.activeTextColor
@@ -52,12 +52,12 @@ Rectangle {
 
         color: Kirigami.Theme.backgroundColor
 
-        radius: rootComponent.radius * 0.60
+        radius: root.radius * 0.60
     }
 
     Rectangle {
         anchors.fill: bgFillRect
-        color: rootComponent.color
+        color: root.color
         opacity: 0.20
         radius: bgFillRect.radius
     }
@@ -73,7 +73,7 @@ Rectangle {
 
         Controls.Label {
             id: feedUpdateCountLabel
-            text: rootComponent.text
+            text: root.text
             color: Kirigami.Theme.textColor
             wrapMode: Text.WordWrap
 
@@ -85,13 +85,13 @@ Rectangle {
             id: abortButton
             Layout.alignment: Qt.AlignVCenter
             Layout.rightMargin: Kirigami.Units.largeSpacing
-            visible: showAbortButton
+            visible: root.showAbortButton
             Controls.ToolTip.visible: hovered
             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
             Controls.ToolTip.text: KI18n.i18n("Abort")
             text: KI18n.i18n("Abort")
             icon.name: "edit-delete-remove"
-            onClicked: abortAction()
+            onClicked: root.abortAction()
         }
     }
 
@@ -102,7 +102,7 @@ Rectangle {
         repeat: false
 
         onTriggered: {
-            rootComponent.opacity = 0;
+            root.opacity = 0;
         }
     }
 

@@ -17,6 +17,11 @@ import org.kde.kasts
 import ".."
 
 Item {
+    id: root
+
+    required property NumberAnimation openAnimation
+    required property NumberAnimation closeAnimation
+
     property int miniplayerheight: Kirigami.Units.gridUnit * 3
     property int progressbarheight: Kirigami.Units.gridUnit / 6
     property int buttonsize: Kirigami.Units.gridUnit * 1.5
@@ -100,16 +105,16 @@ Item {
                 id: trackClick
                 anchors.fill: parent
                 hoverEnabled: true
-                onClicked: toOpen.restart()
+                onClicked: root.openAnimation.restart()
             }
         }
         Controls.Button {
             id: playButton
             icon.name: AudioManager.playbackState === KMediaSession.PlayingState ? "media-playback-pause" : "media-playback-start"
-            icon.height: parent.parent.buttonsize
-            icon.width: parent.parent.buttonsize
+            icon.height: root.buttonsize
+            icon.width: root.buttonsize
             flat: true
-            Layout.preferredHeight: parent.parent.miniplayerheight - Kirigami.Units.smallSpacing * 2
+            Layout.preferredHeight: root.miniplayerheight - Kirigami.Units.smallSpacing * 2
             Layout.preferredWidth: height
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing

@@ -5,21 +5,24 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
+import QtCore
+
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
 
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    id: episodeListPage
+    id: root
     title: KI18n.i18nc("@title of page with list of podcast episodes", "Episodes")
 
     property alias episodeList: episodeList
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     supportsRefreshing: true
@@ -42,13 +45,13 @@ Kirigami.ScrollablePage {
             icon.name: "download"
             text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
             onTriggered: {
-                pushPage("DownloadListPage");
+                (root.Controls.ApplicationWindow.window as Main).pushPage("DownloadListPage");
             }
         },
         Kirigami.Action {
             icon.name: "view-refresh"
             text: KI18n.i18n("Refresh All Podcasts")
-            onTriggered: refreshing = true
+            onTriggered: root.refreshing = true
         },
         Kirigami.Action {
             id: searchActionButton
@@ -83,6 +86,9 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
         reuseItems: true
 
+        property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
+        property int episodeListSortType: AbstractEpisodeProxyModel.DateDescending
+
         Kirigami.PlaceholderMessage {
             visible: episodeList.count === 0
 
@@ -98,13 +104,13 @@ Kirigami.ScrollablePage {
             // save and restore filter settings
             filterType: settings.episodeListFilterType
             onFilterTypeChanged: {
-                settings.episodeListFilterType = filterType;
+                episodeList.episodeListFilterType = filterType;
             }
 
             // save and restore sort settings
             sortType: settings.episodeListSortType
             onSortTypeChanged: {
-                settings.episodeListSortType = sortType;
+                episodeList.episodeListSortType = sortType;
             }
         }
 
@@ -114,6 +120,13 @@ Kirigami.ScrollablePage {
 
         FilterInlineMessage {
             proxyModel: episodeProxyModel
+        }
+
+        Settings {
+            id: settings
+
+            property alias episodeListFilterType: episodeList.episodeListFilterType
+            property alias episodeListSortType: episodeList.episodeListSortType
         }
     }
 

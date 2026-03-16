@@ -15,9 +15,9 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    id: page
+    id: root
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     required property QtObject feed
@@ -47,20 +47,20 @@ Kirigami.ScrollablePage {
         id: updateFeed
 
         function action(): void {
-            feed.refresh();
+            root.feed.refresh();
         }
 
         function abortAction(): void {
-            page.refreshing = false;
+            root.refreshing = false;
         }
     }
 
     // Make sure that this feed is also showing as "refreshing" on FeedListPage
     Connections {
-        target: feed
+        target: root.feed
         function onRefreshingChanged(refreshing: bool): void {
             if (!refreshing)
-                page.refreshing = refreshing;
+                root.refreshing = refreshing;
         }
     }
 
@@ -69,12 +69,12 @@ Kirigami.ScrollablePage {
         icon.name: "search"
         text: KI18n.i18nc("@action:intoolbar", "Search")
         checkable: true
-        enabled: page.feed.entries ? true : false
+        enabled: root.feed.entries ? true : false
         visible: enabled
 
         // Make sure to show the searchbar if there is still a searchFilter active
         Component.onCompleted: {
-            checked = (page.feed.entries ? page.feed.entries.searchFilter != "" : false);
+            checked = (root.feed.entries ? root.feed.entries.searchFilter != "" : false);
         }
     }
 
@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
         visible: active
 
         sourceComponent: SearchBar {
-            proxyModel: page.feed.entries ? page.feed.entries : emptyListModel
+            proxyModel: root.feed.entries ? root.feed.entries : emptyListModel
             parentKey: searchActionButton
         }
     }
@@ -101,7 +101,7 @@ Kirigami.ScrollablePage {
         reuseItems: true
         currentIndex: -1
 
-        model: page.feed.entries ? page.feed.entries : emptyListModel
+        model: root.feed.entries ? root.feed.entries : emptyListModel
         delegate: GenericEntryDelegate {
             listViewObject: entryList
             // no need to show the podcast image or title on every delegate
@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
                             visible: isSubscribed
                             icon.name: "view-refresh"
                             text: KI18n.i18n("Refresh Podcast")
-                            onTriggered: page.refreshing = true
+                            onTriggered: root.refreshing = true
                         },
                         Kirigami.Action {
                             icon.name: "kt-add-feeds"
@@ -224,8 +224,8 @@ Kirigami.ScrollablePage {
                     Controls.Label {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
-                        textFormat: page.showMoreInfo ? TextEdit.RichText : Text.StyledText
-                        maximumLineCount: page.showMoreInfo ? undefined : 2
+                        textFormat: root.showMoreInfo ? TextEdit.RichText : Text.StyledText
+                        maximumLineCount: root.showMoreInfo ? undefined : 2
                         elide: Text.ElideRight
                         text: feed.description
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize
@@ -239,7 +239,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
                         spacing: Kirigami.Units.smallSpacing
-                        visible: page.showMoreInfo
+                        visible: root.showMoreInfo
                         Controls.Label {
                             Layout.alignment: Qt.AlignTop
                             textFormat: TextEdit.RichText
@@ -258,7 +258,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
-                        visible: page.showMoreInfo
+                        visible: root.showMoreInfo
                         height: visible ? implicitHeight : 0
                         spacing: Kirigami.Units.smallSpacing
                         Controls.Label {
@@ -279,7 +279,7 @@ Kirigami.ScrollablePage {
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && page.showMoreInfo
+                        visible: isSubscribed && root.showMoreInfo
                         height: visible ? implicitHeight : 0
 
                         selectByMouse: !Kirigami.Settings.isMobile
@@ -290,7 +290,7 @@ Kirigami.ScrollablePage {
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && page.showMoreInfo
+                        visible: isSubscribed && root.showMoreInfo
                         height: visible ? implicitHeight : 0
 
                         selectByMouse: !Kirigami.Settings.isMobile
@@ -301,7 +301,7 @@ Kirigami.ScrollablePage {
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && page.showMoreInfo
+                        visible: isSubscribed && root.showMoreInfo
                         height: visible ? implicitHeight : 0
 
                         selectByMouse: !Kirigami.Settings.isMobile
@@ -338,7 +338,7 @@ Kirigami.ScrollablePage {
         }
 
         FilterInlineMessage {
-            proxyModel: page.feed.entries ? page.feed.entries : emptyListModel
+            proxyModel: root.feed.entries ? root.feed.entries : emptyListModel
         }
     }
 }

@@ -114,7 +114,7 @@ Kirigami.ScrollablePage {
             Keys.onReturnPressed: clicked()
 
             onClicked: {
-                pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+                (Controls.ApplicationWindow.window as Main).pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
                     feed: subscribeAction.enabled ? listItem.model : DataManager.getFeed(listItem.url),
                     isSubscribed: !subscribeAction.enabled,
                     subscribeAction: subscribeAction,

@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -19,7 +21,11 @@ import org.kde.kasts
 import ".."
 
 Kirigami.Page {
-    id: playerControls
+    id: root
+
+    required property NumberAnimation openAnimation
+    required property NumberAnimation closeAnimation
+    property alias chapterModel: _chapterModel
 
     title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Loaded")
     clip: true
@@ -36,7 +42,7 @@ Kirigami.Page {
     Component {
         id: slider
         ChapterSlider {
-            model: chapterModel
+            model: root.chapterModel
         }
     }
 
@@ -80,7 +86,7 @@ Kirigami.Page {
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 0
             Layout.bottomMargin: Kirigami.Units.largeSpacing
-            onClicked: toClose.restart()
+            onClicked: root.closeAnimation.restart()
         }
 
         Controls.SwipeView {
@@ -114,7 +120,7 @@ Kirigami.Page {
                         width: WindowUtils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((root.chapterModel.currentChapter && root.chapterModel.currentChapter !== undefined) ? root.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
                             imageResize: false // prevent stuttering when resizing
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
@@ -223,7 +229,7 @@ Kirigami.Page {
                     ListView {
                         id: chapterList
                         model: ChapterModel {
-                            id: chapterModel
+                            id: _chapterModel
                             entryuid: AudioManager.entryuid
                             duration: AudioManager.duration / 1000
                         }

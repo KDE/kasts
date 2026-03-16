@@ -4,9 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
@@ -17,26 +18,27 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.SearchField {
-    id: globalSearchField
+    id: root
 
     autoAccept: false
 
     property string searchFilter: ""
 
-    function openEntry(entry: Entry): void {
-        pushPage("EpisodeListPage");
-        pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entry: entry
+    function openEntry(entryuid: int): void {
+        var mainWindow = (Controls.ApplicationWindow.window as Main);
+        mainWindow.pushPage("EpisodeListPage");
+        mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+            entryuid: entryuid
         });
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
-        var episodeModel = pageStack.get(0).episodeList.model;
+        var episodeModel = mainWindow.pageStack.get(0).episodeList.model;
         for (var i = 0; i < episodeModel.rowCount(); i++) {
             var index = episodeModel.index(i, 0);
-            if (entry.id == episodeModel.data(index, AbstractEpisodeModel.IdRole)) {
-                pageStack.get(0).episodeList.currentIndex = i;
-                pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
-                pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);
+            if (entryuid == episodeModel.data(index, AbstractEpisodeModel.EntryuidRole)) {
+                mainWindow.pageStack.get(0).episodeList.currentIndex = i;
+                mainWindow.pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                mainWindow.pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);
             }
         }
     }
@@ -74,26 +76,27 @@ Kirigami.SearchField {
 
         EpisodeProxyModel {
             id: proxyModel
-            searchFilter: globalSearchField.searchFilter
+            searchFilter: root.searchFilter
         }
 
         onAccepted: {
-            globalSearchField.searchFilter = searchDialog.text;
+            root.searchFilter = searchDialog.text;
         }
 
         onTextChanged: {
             if (searchDialog.text === "") {
-                globalSearchField.searchFilter = "";
+                root.searchFilter = "";
             }
         }
 
-        model: globalSearchField.searchFilter === "" ? null : proxyModel
+        model: root.searchFilter === "" ? null : proxyModel
 
         delegate: AddonDelegates.RoundedItemDelegate {
             id: albumDelegate
 
             required property int index
             required property var entry
+            required property int entryuid
 
             contentItem: Delegates.IconTitleSubtitle {
                 icon.source: albumDelegate.entry.cachedImage
@@ -101,7 +104,7 @@ Kirigami.SearchField {
                 subtitle: albumDelegate.entry.feed.name
             }
             onClicked: {
-                globalSearchField.openEntry(albumDelegate.entry);
+                root.openEntry(albumDelegate.entryuid);
                 searchDialog.close();
             }
         }

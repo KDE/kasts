@@ -14,8 +14,8 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.Dialog {
-    id: addSheet
-    parent: applicationWindow().overlay
+    id: root
+
     showCloseButton: true
     standardButtons: Kirigami.Dialog.NoButton
 
@@ -50,7 +50,7 @@ Kirigami.Dialog {
         text: KI18n.i18n("Add Podcast")
         enabled: urlField.text
         onTriggered: {
-            addSheet.close();
+            root.close();
             addFeed.run();
         }
     }

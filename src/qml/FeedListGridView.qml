@@ -242,7 +242,7 @@ GridView {
             }
             var appPageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
             for (var i in feeds) {
-                if ((root.Controls.ApplicationWindow.window as Main).lastFeed === feeds[i].url) {
+                if ((root.Controls.ApplicationWindow.window as Main).lastFeeduid === feeds[i].feeduid) {
                     while (appPageStack.depth > 1) {
                         appPageStack.pop();
                     }

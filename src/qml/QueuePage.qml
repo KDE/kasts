@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Layouts
-import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
@@ -15,14 +15,14 @@ import org.kde.ki18n
 import org.kde.kasts
 
 Kirigami.ScrollablePage {
-    id: queuepage
+    id: root
     title: KI18n.i18nc("@title of page showing the list queued items; this is the noun 'the queue', not the verb", "Queue")
 
     property int lastEntry: 0
     property string pageName: "queuepage"
     property alias queueList: queueList
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     supportsRefreshing: true
@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             icon.name: "view-refresh"
             text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
-            onTriggered: refreshing = true
+            onTriggered: root.refreshing = true
         }
     ]
 
@@ -96,7 +96,7 @@ Kirigami.ScrollablePage {
 
         delegate: FocusScope {
             id: focusScope
-            width: queueList.width
+            width: root.queueList.width
             height: entryDelegate.height
 
             required property Entry entry
@@ -106,9 +106,9 @@ Kirigami.ScrollablePage {
                 id: entryDelegate
                 width: parent.width
                 isQueue: true
-                listView: queueList
-                listViewObject: queueList
-                focus: parent.visualFocus || parent.activeFocus
+                listView: root.queueList
+                listViewObject: root.queueList
+                focus: parent.activeFocus
                 entry: focusScope.entry
                 index: focusScope.index
             }

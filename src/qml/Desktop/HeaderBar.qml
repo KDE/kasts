@@ -31,17 +31,18 @@ FocusScope {
 
     function openEntry(): void {
         if (AudioManager.entryuid > 0) {
-            pushPage("QueuePage");
-            pageStack.get(0).lastEntry = AudioManager.entryuid;
-            var model = pageStack.get(0).queueList.model;
+            var mainWindow = headerBar.Controls.ApplicationWindow.window as Main;
+            mainWindow.pushPage("QueuePage");
+            mainWindow.pageStack.get(0).lastEntry = AudioManager.entryuid;
+            var model = mainWindow.pageStack.get(0).queueList.model;
             for (var i = 0; i < model.rowCount(); i++) {
                 var index = model.index(i, 0);
                 if (AudioManager.entryuid == model.data(index, AbstractEpisodeModel.EntryuidRole)) {
-                    pageStack.get(0).queueList.currentIndex = i;
-                    pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                    mainWindow.pageStack.get(0).queueList.currentIndex = i;
+                    mainWindow.pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
             }
-            pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage", Component.PreferSynchronous, pageStack.get(0)), {
+            mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage", Component.PreferSynchronous, mainWindow.pageStack.get(0)), {
                 entryuid: AudioManager.entryuid
             });
         }
@@ -117,6 +118,7 @@ FocusScope {
 
         visible: opacity === 0 ? false : true
 
+        // property string image: root.image
         property string image: AudioManager.entry ? ((desktopPlayerControls.chapterModel.currentChapter && desktopPlayerControls.chapterModel.currentChapter !== undefined) ? desktopPlayerControls.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
         property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
         property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
@@ -197,7 +199,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            openPodcast(AudioManager.entry.feeduid);
+                            (headerBar.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
                         }
                     }
                 }
@@ -217,7 +219,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            headerBar.openFeed();
+                            (headerBar.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
                         }
                     }
                 }

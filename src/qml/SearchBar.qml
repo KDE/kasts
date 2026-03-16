@@ -78,7 +78,7 @@ Controls.Control {
 
         Keys.onEscapePressed: event => {
             root.proxyModel.searchFilter = "";
-            parentKey.checked = false;
+            root.parentKey.checked = false;
             event.accepted = true;
         }
         Keys.onReturnPressed: event => {

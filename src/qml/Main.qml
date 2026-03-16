@@ -47,7 +47,7 @@ Kirigami.ApplicationWindow {
             return Kirigami.Units.largeSpacing;
         }
     }
-    property string lastFeed: ""
+    property int lastFeeduid: 0
     property string currentPage: ""
     property int feedSorting: FeedsProxyModel.UnreadDescending
 
@@ -67,11 +67,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    function openPodcast(newFeed: Feed): void {
+    function openPodcast(newFeeduid: int): void {
         pushPage("FeedListPage");
-        lastFeed = newFeed.url;
+        lastFeeduid = newFeeduid;
         pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage", Component.PreferSynchronous, pageStack.get(0)), {
-            feed: newFeed
+            feed: DataManager.getFeed(newFeeduid)
         });
     }
 
@@ -84,12 +84,8 @@ Kirigami.ApplicationWindow {
     }
 
     Settings {
-        id: settings
-
         property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
-        property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
-        property int episodeListSortType: AbstractEpisodeProxyModel.DateDescending
     }
 
     Component.onCompleted: {
@@ -201,7 +197,7 @@ Kirigami.ApplicationWindow {
     // It mimicks the behaviour of an InlineMessage, because InlineMessage does
     // not allow to add a BusyIndicator
     UpdateNotification {
-        id: updateNotification
+        id: _updateNotification
         text: KI18n.i18ncp("Number of Updated Podcasts", "Updated %2 of %1 Podcast", "Updated %2 of %1 Podcasts", Fetcher.updateTotal, Fetcher.updateProgress)
 
         showAbortButton: true
@@ -214,13 +210,14 @@ Kirigami.ApplicationWindow {
             target: Fetcher
             function onUpdatingChanged(): void {
                 if (Fetcher.updating) {
-                    updateNotification.open();
+                    _updateNotification.open();
                 } else {
-                    updateNotification.close();
+                    _updateNotification.close();
                 }
             }
         }
     }
+    property UpdateNotification updateNotification: _updateNotification
 
     // Notification to show progress of copying enclosure and images to new location
     UpdateNotification {
@@ -245,7 +242,7 @@ Kirigami.ApplicationWindow {
 
     // Notification that shows the progress of feed and episode syncing
     UpdateNotification {
-        id: updateSyncNotification
+        id: _updateSyncNotification
         text: Sync.syncProgressText
         showAbortButton: true
 
@@ -257,28 +254,29 @@ Kirigami.ApplicationWindow {
             target: Sync
             function onSyncProgressChanged(): void {
                 if (Sync.syncStatus != SyncUtils.NoSync && Sync.syncProgress === 0) {
-                    updateSyncNotification.open();
+                    _updateSyncNotification.open();
                 } else if (Sync.syncStatus === SyncUtils.NoSync) {
-                    updateSyncNotification.close();
+                    _updateSyncNotification.close();
                 }
             }
         }
     }
+    property UpdateNotification updateSyncNotification: _updateSyncNotification
 
     // This InlineMessage is used for displaying error messages
     ErrorNotification {
-        id: errorNotification
+        id: _errorNotification
     }
+    property ErrorNotification errorNotification: _errorNotification
 
     // overlay with log of all errors that have happened
     ErrorListOverlay {
-        id: errorOverlay
+        id: _errorListOverlay
     }
+    property ErrorListOverlay errorOverlay: _errorListOverlay
 
     // Overlay with options what to do when metered downloads are not allowed
-    ConnectionCheckAction {
-        id: downloadOverlay
-
+    property ConnectionCheckAction downloadOverlay: ConnectionCheckAction {
         headingText: KI18n.i18nc("@info:status", "Podcast downloads are currently not allowed on metered connections")
         condition: NetworkConnectionManager.episodeDownloadsAllowed
         property var entry: undefined
