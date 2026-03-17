@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:42+0000\n"
+"POT-Creation-Date: 2026-03-17 00:42+0000\n"
 "PO-Revision-Date: 2026-01-20 20:46+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -24,17 +24,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: audiomanager.cpp:445
+#: audiomanager.cpp:440
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "Strömning är inte tillåten för uppmätt anslutning"
 
-#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Ingen nätverksanslutning"
 
-#: audiomanager.cpp:603
+#: audiomanager.cpp:598
 #, kde-format
 msgid "Invalid Media"
 msgstr "Ogiltigt media"

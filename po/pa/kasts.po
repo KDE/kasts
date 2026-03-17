@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:42+0000\n"
+"POT-Creation-Date: 2026-03-17 00:42+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -27,18 +27,18 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alam yellow @gmail.com"
 
-#: audiomanager.cpp:445
+#: audiomanager.cpp:440
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr ""
 
-#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "No network connection"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: audiomanager.cpp:603
+#: audiomanager.cpp:598
 #, kde-format
 msgid "Invalid Media"
 msgstr ""
