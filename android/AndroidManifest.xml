@@ -49,7 +49,7 @@
             <meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/splash"/>
 
             <!-- Background running -->
-            <meta-data android:name="android.app.background_running" android:value="false"/>
+            <meta-data android:name="android.app.background_running" android:value="true"/>
 
             <!-- auto screen scale factor -->
             <meta-data android:name="android.app.auto_screen_scale_factor" android:value="true"/>
