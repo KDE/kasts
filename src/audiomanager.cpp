@@ -59,6 +59,7 @@ private:
     qint64 m_remainingSleepTime = -1;
 
     bool m_isStreaming = false;
+    bool m_tryingRedirectedUrl = false;
 
     friend class AudioManager;
 };
@@ -333,7 +334,6 @@ void AudioManager::setEntryuid(const qint64 entryuid)
     if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
         && (entry->enclosure()->status() == Enclosure::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
         qCDebug(kastsAudio) << "Going to change source";
-
         setEntryInfo(entry);
 
         if (entry->enclosure()->status() == Enclosure::Downloaded) { // i.e. local file
@@ -342,37 +342,18 @@ void AudioManager::setEntryuid(const qint64 entryuid)
                 Q_EMIT isStreamingChanged();
             }
 
-            // call method which will try to make sure that the stream will skip
-            // to the previously save position and make sure that the duration
-            // and position are reported correctly
             prepareAudio(QUrl::fromLocalFile(entry->enclosure()->path()));
         } else {
-            // i.e. streaming; we first want to resolve the real URL, following
-            // redirects
-            QUrl loadUrl = QUrl(entry->enclosure()->url());
-            Fetcher::instance().getRedirectedUrl(loadUrl);
-            connect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, [this, entry, loadUrl](const QUrl &oldUrl, const QUrl &newUrl) {
-                qCDebug(kastsAudio) << oldUrl << newUrl;
-                if (loadUrl == oldUrl) {
-                    bool signalDisconnect = disconnect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, nullptr);
-                    qCDebug(kastsAudio) << "disconnected" << signalDisconnect;
+            // i.e. streaming
+            // we try the original url first; if this fails, we try again with
+            // a url that has been resolved with respect to redirects
+            if (!d->m_isStreaming) {
+                d->m_isStreaming = true;
+                Q_EMIT isStreamingChanged();
+            }
 
-                    if (!d->m_isStreaming) {
-                        d->m_isStreaming = true;
-                        Q_EMIT isStreamingChanged();
-                    }
-
-                    d->m_entry = entry;
-                    d->m_entryuid = entry->entryuid();
-                    Q_EMIT entryChanged(entry);
-                    Q_EMIT entryuidChanged(d->m_entryuid);
-
-                    // call method which will try to make sure that the stream will skip
-                    // to the previously save position and make sure that the duration
-                    // and position are reported correctly
-                    prepareAudio(newUrl);
-                }
-            });
+            d->m_tryingRedirectedUrl = false;
+            prepareAudio(QUrl(entry->enclosure()->url()));
         }
 
     } else {
@@ -581,24 +562,49 @@ void AudioManager::mediaStatusChanged()
     // loaded again when the application is restarted, skip to next track and
     // delete the enclosure
     if (d->m_player.mediaStatus() == KMediaSession::InvalidMedia) {
-        // save pointer to this bad entry to allow
-        // us to delete the enclosure after the track has been unloaded
-        qint64 badEntryuid = d->m_entryuid;
-        DataManager::instance().setLastPlayingEntry(0);
-        stop();
-        next();
-        Entry *badEntry = new Entry(badEntryuid);
-        if (badEntry) {
-            if (badEntry->enclosure()) {
-                badEntry->enclosure()->deleteFile();
-                Q_EMIT logError(Error::Type::InvalidMedia,
-                                badEntry->feed()->url(),
-                                badEntry->id(),
-                                KMediaSession::InvalidMedia,
-                                i18n("Invalid Media"),
-                                QString());
+        // if we're streaming and we haven't tried already, we try one more time
+        // with the url after resolving all redirects
+        if (d->m_isStreaming && !d->m_tryingRedirectedUrl) {
+            // call method which will try to make sure that the stream will skip
+            // to the previously save position and make sure that the duration
+            // and position are reported correctly
+            // i.e. streaming; we first want to resolve the real URL, following
+            // redirects
+            d->m_tryingRedirectedUrl = true;
+            QUrl loadUrl = QUrl(d->m_entry->enclosure()->url());
+            Fetcher::instance().getRedirectedUrl(loadUrl);
+            connect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, [this, loadUrl](const QUrl &oldUrl, const QUrl &newUrl) {
+                qCDebug(kastsAudio) << oldUrl << newUrl;
+                if (loadUrl == oldUrl) {
+                    bool signalDisconnect = disconnect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, nullptr);
+                    qCDebug(kastsAudio) << "disconnected" << signalDisconnect;
+
+                    // call method which will try to make sure that the stream will skip
+                    // to the previously save position and make sure that the duration
+                    // and position are reported correctly
+                    prepareAudio(newUrl);
+                }
+            });
+        } else { // not streaming or already tried the redirected url
+            // save pointer to this bad entry to allow
+            // us to delete the enclosure after the track has been unloaded
+            qint64 badEntryuid = d->m_entryuid;
+            DataManager::instance().setLastPlayingEntry(0);
+            stop();
+            next();
+            Entry *badEntry = new Entry(badEntryuid);
+            if (badEntry) {
+                if (badEntry->enclosure()) {
+                    badEntry->enclosure()->deleteFile();
+                    Q_EMIT logError(Error::Type::InvalidMedia,
+                                    badEntry->feed()->url(),
+                                    badEntry->id(),
+                                    KMediaSession::InvalidMedia,
+                                    i18n("Invalid Media"),
+                                    QString());
+                }
+                delete badEntry;
             }
-            delete badEntry;
         }
     }
 }
