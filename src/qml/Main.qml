@@ -163,7 +163,7 @@ Kirigami.ApplicationWindow {
         sourceComponent: FooterBar {
             contentHeight: kastsMainWindow.height * 2
             focus: true
-            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : 0
+            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : kastsMainWindow.SafeArea.margins.bottom
         }
     }
 

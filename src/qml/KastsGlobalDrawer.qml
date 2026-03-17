@@ -29,10 +29,11 @@ Kirigami.OverlayDrawer {
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false
 
-    leftPadding: 0
-    rightPadding: 0
-    topPadding: 0
-    bottomPadding: 0
+    readonly property var rootSafeMargins: QQC2.ApplicationWindow.window.SafeArea.margins
+    leftPadding: edge === Qt.LeftEdge ? rootSafeMargins.left : 0
+    rightPadding: edge === Qt.RightEdge ? rootSafeMargins.right : 0
+    topPadding: rootSafeMargins.top
+    bottomPadding: rootSafeMargins.bottom
 
     contentItem: Loader {
         id: sidebarColumn
