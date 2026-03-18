@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:42+0000\n"
-"PO-Revision-Date: 2026-01-09 09:32+0100\n"
+"POT-Creation-Date: 2026-03-18 00:44+0000\n"
+"PO-Revision-Date: 2026-03-16 11:53+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,29 +15,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filípek@gmail.com"
 
-#: audiomanager.cpp:440
+#: audiomanager.cpp:421
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "Streamování na měřeném připojení není povoleno"
 
-#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Žádné síťové připojení"
 
-#: audiomanager.cpp:598
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Neplatné médium"
@@ -499,19 +499,17 @@ msgstr "Kapitoly"
 
 #: qml/Desktop/DesktopPlayerControls.qml:408 qml/Desktop/HeaderBar.qml:122
 #: qml/Mobile/MobilePlayerControls.qml:176
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Nejsou k dispozici žádné epizody"
+msgstr "Žádný název epizody"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:123
 #: qml/Mobile/MobilePlayerControls.qml:186
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Nejsou k dispozici žádné epizody"
+msgstr "Žádná epizoda nebyla načtena"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:84
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -538,7 +536,7 @@ msgid "Subscribed"
 msgstr "Odebíráno"
 
 #: qml/DownloadListPage.qml:17 qml/EpisodeListPage.qml:43
-#: qml/KastsGlobalDrawer.qml:113
+#: qml/KastsGlobalDrawer.qml:114
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -556,35 +554,28 @@ msgid "No downloads"
 msgstr "Žádné stahování"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Stahování"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Nedokončená stahování"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Staženo"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Fronta"
+msgstr "Ve frontě"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -712,7 +703,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Odkaz zkopírován"
 
-#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:103
+#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:104
 #: qml/Mobile/BottomToolbar.qml:44
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -884,7 +875,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
 
-#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:93
+#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:94
 #: qml/Mobile/BottomToolbar.qml:36
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1106,7 +1097,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Hledat v:"
 
-#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:28
+#: qml/KastsGlobalDrawer.qml:74 qml/Mobile/BottomToolbar.qml:28
 #: qml/QueuePage.qml:19
 #, kde-format
 msgctxt ""
@@ -1115,7 +1106,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "Fronta"
 
-#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:52
+#: qml/KastsGlobalDrawer.qml:133 qml/Mobile/BottomToolbar.qml:52
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -1147,10 +1138,9 @@ msgstr ""
 "Stahování podcastů při použití měřeného síťového připojení není povoleno"
 
 #: qml/Mobile/MobilePlayerControls.qml:24
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Nejsou k dispozici žádné epizody"
+msgstr "Žádná epizoda nebyla načtena"
 
 #: qml/Mobile/MobilePlayerControls.qml:146
 #, kde-format
@@ -1565,9 +1555,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Označit všechny epizody jako nepřehrané"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Stahování"
@@ -1576,7 +1564,7 @@ msgstr "Stahování"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Maximální počet souběžných stahování epizod"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format

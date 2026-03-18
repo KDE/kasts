@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:42+0000\n"
+"POT-Creation-Date: 2026-03-18 00:44+0000\n"
 "PO-Revision-Date: 2026-03-11 05:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,17 +28,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: audiomanager.cpp:440
+#: audiomanager.cpp:421
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "გაზომვად შეერთებებზე სტრიმინგი დაშვებული არაა"
 
-#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "ქსელური შეერთებების გარეშე"
 
-#: audiomanager.cpp:598
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "არასწორი მედია"
@@ -508,7 +508,7 @@ msgstr "ეპიზოდის სათაურის გარეშე"
 msgid "No episode loaded"
 msgstr "ჩატვირთული ეპიზოდების გარეშე"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:84
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -535,7 +535,7 @@ msgid "Subscribed"
 msgstr "გამოწერილია"
 
 #: qml/DownloadListPage.qml:17 qml/EpisodeListPage.qml:43
-#: qml/KastsGlobalDrawer.qml:113
+#: qml/KastsGlobalDrawer.qml:114
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -702,7 +702,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "ბმული დაკოპირებულია"
 
-#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:103
+#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:104
 #: qml/Mobile/BottomToolbar.qml:44
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -871,7 +871,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "პოდკასტის დეტალები"
 
-#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:93
+#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:94
 #: qml/Mobile/BottomToolbar.qml:36
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1092,7 +1092,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "ძებნა:"
 
-#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:28
+#: qml/KastsGlobalDrawer.qml:74 qml/Mobile/BottomToolbar.qml:28
 #: qml/QueuePage.qml:19
 #, kde-format
 msgctxt ""
@@ -1101,7 +1101,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "რიგი"
 
-#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:52
+#: qml/KastsGlobalDrawer.qml:133 qml/Mobile/BottomToolbar.qml:52
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"

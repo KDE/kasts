@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:42+0000\n"
-"PO-Revision-Date: 2026-01-03 15:13+0100\n"
+"POT-Creation-Date: 2026-03-18 00:44+0000\n"
+"PO-Revision-Date: 2026-03-11 15:58+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -27,17 +27,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: audiomanager.cpp:440
+#: audiomanager.cpp:421
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "La trasmissione su connessione a consumo non è consentita"
 
-#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Nessuna connessione di rete"
 
-#: audiomanager.cpp:598
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "Supporto non valido"
@@ -511,7 +511,7 @@ msgstr "Nessun titolo dell'episodio"
 msgid "No episode loaded"
 msgstr "Nessun episodio caricato"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:84
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -538,7 +538,7 @@ msgid "Subscribed"
 msgstr "Sottoscritto"
 
 #: qml/DownloadListPage.qml:17 qml/EpisodeListPage.qml:43
-#: qml/KastsGlobalDrawer.qml:113
+#: qml/KastsGlobalDrawer.qml:114
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -556,35 +556,28 @@ msgid "No downloads"
 msgstr "Nessuno scaricamento"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Scaricamento"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Scaricamenti incompleti"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Scaricato"
 
 #: qml/DownloadListPage.qml:74
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Coda"
+msgstr "Accodato"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -712,7 +705,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Collegamento copiato"
 
-#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:103
+#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:104
 #: qml/Mobile/BottomToolbar.qml:44
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -881,7 +874,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Dettagli del podcast"
 
-#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:93
+#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:94
 #: qml/Mobile/BottomToolbar.qml:36
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1102,7 +1095,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Cerca in:"
 
-#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:28
+#: qml/KastsGlobalDrawer.qml:74 qml/Mobile/BottomToolbar.qml:28
 #: qml/QueuePage.qml:19
 #, kde-format
 msgctxt ""
@@ -1111,7 +1104,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "Coda"
 
-#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:52
+#: qml/KastsGlobalDrawer.qml:133 qml/Mobile/BottomToolbar.qml:52
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -1562,9 +1555,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Marca tutti gli episodi come non riprodotti"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Scaricamenti"
@@ -1573,7 +1564,7 @@ msgstr "Scaricamenti"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Numero massimo di scaricamenti di episodi paralleli"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format

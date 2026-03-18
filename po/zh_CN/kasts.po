@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:42+0000\n"
+"POT-Creation-Date: 2026-03-18 00:44+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -28,17 +28,17 @@ msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, tds00@qq.com, wordless@echo.moe, staronthedky@kde.org"
 
-#: audiomanager.cpp:440
+#: audiomanager.cpp:421
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "不允许在按流量计费的连接上播放流媒体"
 
-#: audiomanager.cpp:449 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "无网络连接"
 
-#: audiomanager.cpp:598
+#: audiomanager.cpp:603
 #, kde-format
 msgid "Invalid Media"
 msgstr "媒体无效"
@@ -507,7 +507,7 @@ msgstr ""
 msgid "No episode loaded"
 msgstr ""
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:83
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:43 qml/KastsGlobalDrawer.qml:84
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -534,7 +534,7 @@ msgid "Subscribed"
 msgstr "已订阅"
 
 #: qml/DownloadListPage.qml:17 qml/EpisodeListPage.qml:43
-#: qml/KastsGlobalDrawer.qml:113
+#: qml/KastsGlobalDrawer.qml:114
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
@@ -701,7 +701,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr ""
 
-#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:103
+#: qml/EpisodeListPage.qml:18 qml/KastsGlobalDrawer.qml:104
 #: qml/Mobile/BottomToolbar.qml:44
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -867,7 +867,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr ""
 
-#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:93
+#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:94
 #: qml/Mobile/BottomToolbar.qml:36
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1087,7 +1087,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr ""
 
-#: qml/KastsGlobalDrawer.qml:73 qml/Mobile/BottomToolbar.qml:28
+#: qml/KastsGlobalDrawer.qml:74 qml/Mobile/BottomToolbar.qml:28
 #: qml/QueuePage.qml:19
 #, kde-format
 msgctxt ""
@@ -1096,7 +1096,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "加入队列"
 
-#: qml/KastsGlobalDrawer.qml:132 qml/Mobile/BottomToolbar.qml:52
+#: qml/KastsGlobalDrawer.qml:133 qml/Mobile/BottomToolbar.qml:52
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
