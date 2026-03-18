@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 02:38+0000\n"
+"POT-Creation-Date: 2026-03-18 02:48+0000\n"
 "PO-Revision-Date: 2026-01-04 12:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -30,17 +30,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: audiomanager.cpp:445
+#: audiomanager.cpp:426
 #, kde-format
 msgid "Streaming on metered connection not allowed"
 msgstr "Tarifatutako konexioetan ez da korronteak ez daude baimenduta"
 
-#: audiomanager.cpp:454 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:435 enclosure.cpp:196 error.cpp:64
 #, kde-format
 msgid "No network connection"
 msgstr "Sareko konexiorik ez"
 
-#: audiomanager.cpp:603
+#: audiomanager.cpp:608
 #, kde-format
 msgid "Invalid Media"
 msgstr "Komunikabide baliogabea"
