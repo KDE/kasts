@@ -503,6 +503,7 @@
           <li xml:lang="ar">إصلاح انهيارات عرضية عند تحديث المدونات الصوتية بعد بقاء التطبيق مفتوحًا لفترة.</li>
           <li xml:lang="ca">S'han corregit fallades ocasionals en actualitzar pòdcasts després que l'aplicació estigui oberta durant un temps.</li>
           <li xml:lang="ca-valencia">S'han corregit fallades ocasionals en actualitzar pòdcast després que l'aplicació estiga oberta durant un temps.</li>
+          <li xml:lang="cs">Opraveny občasné pády při aktualizaci podcastů po delším otevření aplikace.</li>
           <li xml:lang="fr">Correction de plantages occasionnels lors de la mise à jour des podcasts après le maintien ouvert de l'application pendant un certain temps.</li>
           <li xml:lang="he">תוקנו קריסות שקרו מדי פעם בפעם בעת עדכון הסכתים לאחר שהיישום היה פתוח במשך זמן מה.</li>
           <li xml:lang="ia">Corrigite fracassos occasional quando il actualisa podcasts post que un app ha essite aperite per alcun tempore. </li>
@@ -518,6 +519,7 @@
           <li xml:lang="ar">إصلاح انهيار يحدث عند إعادة ضبط مؤقت النوم.</li>
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
+          <li xml:lang="cs">Opravena chyba způsobující pád aplikace při resetování časovače spánku.</li>
           <li xml:lang="fr">Correction d'un plantage survenant lors de la réinitialisation du minuteur de veille.</li>
           <li xml:lang="he">תוקנה קריסה שהתרחשה בעת איפוס קוצב זמן השינה.</li>
           <li xml:lang="ia">Corrigite un fracasso occurrente quando reinitialisante le temporisator de dormir.</li>
@@ -533,6 +535,7 @@
           <li xml:lang="ar">إصلاح وظيفة ترتيب الفرز في قوائم الحلقات.</li>
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="ca-valencia">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
+          <li xml:lang="cs">Opravena funkce řazení v seznamech epizod.</li>
           <li xml:lang="fr">Correction du fonctionnement de l'ordre de tri dans les listes d'épisodes.</li>
           <li xml:lang="he">תוקנה יכולת מיון הפרקים ברשימות.</li>
           <li xml:lang="ia">Corrigite leordine de ordinar functionalitate sur listas de episodios.</li>
@@ -548,6 +551,7 @@
           <li xml:lang="ar">إصلاح مشكلات بصرية في صورة الترويسة وقائمة الاشتراكات.</li>
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
+          <li xml:lang="cs">Opraveny vizuální chyby v hlavičkovém obrázku a v seznamu odběrů.</li>
           <li xml:lang="fr">Correction des problèmes visuels dans l'image d'en-tête et dans la liste d'abonnements.</li>
           <li xml:lang="he">תוקנו פגמים חזותיים בתמונת הכותרת וברשימת המינויים.</li>
           <li xml:lang="ia">Corrigite defectos visual in le imagine capite e in le lista de subscriptiones.</li>
@@ -581,6 +585,7 @@
         <p xml:lang="ar">أبرز التغييرات في 24.02.0:</p>
         <p xml:lang="ca">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="ca-valencia">El més destacat dels canvis a la 24.02.0:</p>
+        <p xml:lang="cs">Hlavní změny ve verzi 24.02.0:</p>
         <p xml:lang="fr">Principales modifications dans la version 24.02.0 :</p>
         <p xml:lang="he">השינויים העיקריים ב־24.02.0:</p>
         <p xml:lang="ia">Punctos in evidentia de cambiamentos in 24.02.0:</p>
@@ -597,6 +602,7 @@
           <li xml:lang="ar">نُقل كاست إلى Qt6 وأطر عمل كيدي 6.</li>
           <li xml:lang="ca">El Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="ca-valencia">Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
+          <li xml:lang="cs">Kasts byl portován na Qt6 a KDE Frameworks 6.</li>
           <li xml:lang="fr">Kasts a été porté sur Qt6 et l'environnement de développement de KDE en version 6.</li>
           <li xml:lang="he">היישום Kasts הוסב ל־Qt6 ולתשתיות KDE‏ 6.</li>
           <li xml:lang="ia">Kasts ha essite porteta a Qt6 e KDE Framework 6.</li>
@@ -612,6 +618,7 @@
           <li xml:lang="ar">أصبح بالإمكان اختيار مخطط الألوان يدويًا.</li>
           <li xml:lang="ca">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="ca-valencia">L'esquema de color ara es pot seleccionar manualment.</li>
+          <li xml:lang="cs">Barevné schéma lze nyní vybrat ručně.</li>
           <li xml:lang="fr">Le thème de couleurs peut maintenant être sélectionné manuellement.</li>
           <li xml:lang="he">אפשר לבחור את ערכת הצבעים ידנית מעתה.</li>
           <li xml:lang="ia">Le schema de color pote nunc esser selectionate manualmente.</li>
@@ -627,6 +634,7 @@
           <li xml:lang="ar">إصلاح عدة علل متعلقة بالصور ومتحكمات التشغيل.</li>
           <li xml:lang="ca">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="ca-valencia">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
+          <li xml:lang="cs">Opraveno několik chyb souvisejících s obrázky a ovládacími prvky přehrávání.</li>
           <li xml:lang="fr">Correction de plusieurs bogues liés aux images et aux contrôles de lecture.</li>
           <li xml:lang="he">מגוון תקלות שקשורות בפקדי תמונות ונגינה תוקנו.</li>
           <li xml:lang="ia">Corrigite multe faltas affin a imagines e controlos de reproduction (playback).</li>
@@ -642,6 +650,7 @@
           <li xml:lang="ar">أصبح بالإمكان تعطيل فحص الشبكة للاتصالات المحدودة بالكامل.</li>
           <li xml:lang="ca">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
           <li xml:lang="ca-valencia">Les comprovacions de xarxa per a connexions mesurades ara es poden desactivar completament.</li>
+          <li xml:lang="cs">Síťové kontroly pro připojení s měřeným přenosem dat lze nyní zcela deaktivovat.</li>
           <li xml:lang="fr">Les vérifications réseau pour les connexions à volume limité peuvent désormais être complètement désactivées.</li>
           <li xml:lang="he">אפשר לכבות לחלוטין בדיקות רשת לאיתור רשתות מדודות.</li>
           <li xml:lang="ia">Verificas de rete perconnexiones a consumo pote ora esser completemente dishabilitate.</li>
@@ -657,6 +666,7 @@
           <li xml:lang="ar">أصبح تحديث المدونات الصوتية أسرع بكثير على الأجهزة البطيئة.</li>
           <li xml:lang="ca">L'actualització dels pòdcasts ara hauria de ser significativament més ràpida en maquinari lent.</li>
           <li xml:lang="ca-valencia">L'actualització dels pòdcast ara hauria de ser significativament més ràpida en maquinari lent.</li>
+          <li xml:lang="cs">Aktualizace podcastů by nyní měla být na pomalém hardwaru výrazně rychlejší.</li>
           <li xml:lang="fr">La mise à jour des podcasts devrait maintenant être beaucoup plus rapide sur du matériel lent.</li>
           <li xml:lang="he">עדכון הסכתים אמור להיות מהיר משמעותית מעתה על גבי חומרה איטית.</li>
           <li xml:lang="ia">Actualisar podcasts deberea esser ora significativemente plus rapide sur hardware lente.</li>
@@ -688,6 +698,7 @@
         <p xml:lang="ar">مزايا جديدة وإصلاحات في هذا الإصدار:</p>
         <p xml:lang="ca">Característiques noves i correccions d'errors en aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves i esmenes d'errors en esta versió:</p>
+        <p xml:lang="cs">Nové funkce a opravy chyb v této verzi:</p>
         <p xml:lang="fr">Nouvelles fonctionnalités et corrections de bogues dans cette version :</p>
         <p xml:lang="he">יכולות ותיקוני תקלות חדשים במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas e correctiones de faltas in iste version:</p>
@@ -704,6 +715,7 @@
           <li xml:lang="ar">أُعيد تصميم متحكمات مشغل شريط الترويسة، استنادًا جزئيًا إلى تصميم إليزا. شريط الترويسة قابل لتغيير الحجم ويمكن طيه بالكامل ليصبح شريط أدوات أدنى.</li>
           <li xml:lang="ca">S'han redissenyat els controls del reproductor de la barra de capçalera, en part basats en el disseny de l'Elisa. La barra de capçalera es pot canviar de mida i es pot reduir completament a una barra d'eines mínima.</li>
           <li xml:lang="ca-valencia">S'han redissenyat els controls del reproductor de la barra de capçalera, en part basats en el disseny d'Elisa. La barra de capçalera es pot canviar de mida i es pot reduir completament a una barra d'eines mínima.</li>
+          <li xml:lang="cs">Ovládací prvky přehrávače v záhlaví byly přepracovány, částečně na základě designu aplikace Elisa. Záhlaví je možné změnit a lze jej zcela sbalit na minimální lištu nástrojů.</li>
           <li xml:lang="fr">Les contrôles du lecteur dans la barre d'en-tête ont été repensés, en partie sur la conception graphique de Elisa. La barre d'en-tête est redimensionnable et peut être entièrement réduite à une barre minimale d'outils.</li>
           <li xml:lang="he">פקדי הנגינה בסרגל הכותרת עוצבו מחדש, חלקית על בסיס העיצוב של Elisa. סרגל הכותרת גמיש וניתן לצמצום עד כדי סרגל כלים מזערי.</li>
           <li xml:lang="ia">Le controlos de executor de barra de capite ha essite redesignate, in parte sur le designo de Elisa. Le barra de capite es redimensionabile e pote esser completemente plicate a sol un minime barra de instrumento.</li>
@@ -719,6 +731,7 @@
           <li xml:lang="ar">أُعيد تصميم قائمة الشريط الجانبي الأيسر في وضع الحاسوب. وهي تستخدم الآن أزرارًا مشابهة لتلك المستخدمة في شريط التنقل السفلي في وضع الهاتف.</li>
           <li xml:lang="ca">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
           <li xml:lang="ca-valencia">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
+          <li xml:lang="cs">Levé postranní menu v režimu pro stolní počítače bylo přepracováno. Nyní používá podobná tlačítka jako ta, která se používají v dolní navigační liště v mobilním režimu.</li>
           <li xml:lang="fr">Le menu de la barre latérale gauche en mode de bureau a été repensé. Il utilise désormais des boutons similaires à ceux utilisés dans la barre de navigation inférieure en mode mobile.</li>
           <li xml:lang="he">תפריט סרגל הצד הימני במצב שולחן עבודה עוצב מחדש. מעתה הוא משתמש בכפתורים דומים לאלו שיש היום בסרגל הניווט התחתון במצב לניידים.</li>
           <li xml:lang="ia">Le menu de barra lateral sinistre in modo de scriptorio ha essite redesignate. Il ora usa buttones simile a los usate in le barra de navigation de basso in modo mobile.</li>
@@ -734,6 +747,7 @@
           <li xml:lang="ar">أُعيدت كتابة خلفية الصوت من الصفر. يمكنها الآن التعامل مع خلفيات متعددة: libVLC وgstreamer وQt Multimedia. سيستخدم كاست libVLC كخلفية مبدئية عند توفرها، مما سيحل مشكلات شائعة: التحكم في الصوت متاح الآن عبر شريط الأدوات الرئيسي، ولن يؤدي السعي في المسار إلى تعليق الصوت.</li>
           <li xml:lang="ca">El dorsal d'àudio s'ha reescrit des de zero. Ara pot gestionar diversos dorsals: libVLC, gstreamer i Qt Multimedia. El Kasts utilitzarà la libVLC com a dorsal predeterminat quan estigui disponible, cosa que hauria de resoldre problemes habituals: el control de volum ara està disponible a través de la barra d'eines principal i la cerca ja no hauria de fer que l'àudio es pengi.</li>
           <li xml:lang="ca-valencia">El dorsal d'àudio s'ha reescrit des de zero. Ara pot gestionar diversos dorsals: libVLC, gstreamer i Qt Multimedia. Kasts utilitzarà la libVLC com a dorsal predeterminat quan estiga disponible, cosa que hauria de resoldre problemes habituals: el control de volum ara està disponible a través de la barra d'eines principal i la busca ja no hauria de fer que l'àudio es penge.</li>
+          <li xml:lang="cs">Zvuková podpůrná vrstva byla přepracována od základu. Nyní podporuje více podpůrných vrstev: libVLC, gstreamer a Qt Multimedia. Kasts bude používat libVLC jako výchozí podpůrnou vrstvu, pokud je k dispozici, což by mělo vyřešit běžné problémy: ovládání hlasitosti je nyní dostupné přes hlavní panel nástrojů a vyhledávání by již nemělo způsobovat zamrzání zvuku.</li>
           <li xml:lang="fr">Le moteur audio a été réécrit à partir de zéro. Il peut désormais gérer plusieurs moteurs : libVLC, gstreamer et Qt Multimedia. Kasts utilisera la bibliothèque « libVLC » comme moteur par défaut lorsqu'il est disponible, ce qui devrait résoudre les problèmes courants : le contrôle du volume est désormais accessible grâce à la barre d'outils principale et la recherche ne devrait plus faire suspendre l'audio.</li>
           <li xml:lang="he">מנגנון השמע נכתב מאפס. מעתה הוא יכול לטפל במגוון מנגנונים: libVLC,‏ gstreamer ו־Qt Multimedia.‏ Kasts ישתמש ב־libVLC כמנגנון ברירת המחדל כשזה זמין, מה שאמור לפתור בעיות נפוצות: בקרת שמע זמינה מעתה דרך סרגל הכלים הראשי וחתירה לא אמורה יותר לתקוע את ההשמעה.</li>
           <li xml:lang="ia">Le retro administration (backend) del audio  ha essite rescribite ex novo. Il pote ora manear multiple backends:  libVLC, gstreamer e Qt Multimedia. Kasts usara libVLC como backend predefinite quando disponibile, lo que deberea solver problemas commun: controlode volumine es nunc disponibile trans le barra de instrumento principal e le cercar (seeking) non deberea plus facer que le audio se interrumpe. </li>
@@ -749,6 +763,7 @@
           <li xml:lang="ar">نُقلت قائمة الإعدادات إلى مكونات النماذج الجديدة.</li>
           <li xml:lang="ca">El menú de configuració s'ha adaptat als components nous de formulari.</li>
           <li xml:lang="ca-valencia">El menú de configuració s'ha adaptat als components nous de formulari.</li>
+          <li xml:lang="cs">Nabídka nastavení byla převedena do nových komponent formuláře.</li>
           <li xml:lang="fr">Le menu de configuration a été porté sur de nouveaux composants de formulaire.</li>
           <li xml:lang="he">תפריט ההגדרות הוסב לרכיבי הטפסים החדשים.</li>
           <li xml:lang="ia">Le menu de preferentias esseva portate al nove componentes de forma.</li>
@@ -764,6 +779,7 @@
           <li xml:lang="ar">أُضيفت ميزة دعم صور الفصول.</li>
           <li xml:lang="ca">S'ha afegit la implementació per a les imatges de capítols.</li>
           <li xml:lang="ca-valencia">S'ha afegit la implementació per a les imatges de capítols.</li>
+          <li xml:lang="cs">Byla přidána podpora pro obrázky kapitol.</li>
           <li xml:lang="fr">La prise en charge des images de chapitre a été ajoutée.</li>
           <li xml:lang="he">נוספה תמיכה בתמונות מקטעים.</li>
           <li xml:lang="ia">Supporto perimagines de capitulo esseva addite.</li>
@@ -779,6 +795,7 @@
           <li xml:lang="ar">أصبحت الأختام الزمنية المذكورة في أوصاف الحلقات قابلة للنقر، مما يجعل الصوت يقفز إلى تلك النقطة في الحلقة.</li>
           <li xml:lang="ca">Les marques de temps esmentades a les descripcions dels episodis ara s'hi pot fer clic, cosa que farà que l'àudio salti a aquest punt de l'episodi.</li>
           <li xml:lang="ca-valencia">Les marques de temps esmentades a les descripcions dels episodis ara s'hi pot clicar, cosa que farà que l'àudio salte a este punt de l'episodi.</li>
+          <li xml:lang="cs">Časové značky uvedené v popisech epizod jsou nyní klikatelné, což způsobí přeskočení zvuku na dané místo v epizodě.</li>
           <li xml:lang="fr">Les horodatages mentionnés dans les descriptions d'épisodes sont désormais cliquables, ce qui permettra de positionner l'audio directement à ce moment de l'épisode.</li>
           <li xml:lang="he">חותמות זמן שהוזכרו בתיאורי פרק זמינים כעת ללחיצה, מה שיגרום לשמע לקפוץ לנקודה הזאת בפרק.</li>
           <li xml:lang="ia">Le marcas temporal mentionate in descriptiones de episodio es ora cliccabile, lo que facerà possibile saltar  a ille puncto in le episodio.</li>
@@ -794,6 +811,7 @@
           <li xml:lang="ar">أصبحت الصور في الترويسات قابلة للنقر. سيفتح هذا عرضًا بملء الشاشة للصورة المعنية.</li>
           <li xml:lang="ca">Les imatges de les capçaleres ara s'hi pot fer clic. Això obrirà una vista a pantalla completa de la imatge en qüestió.</li>
           <li xml:lang="ca-valencia">Les imatges de les capçaleres ara s'hi pot clicar. Açò obrirà una vista a pantalla completa de la imatge en qüestió.</li>
+          <li xml:lang="cs">Obrázky v záhlaví jsou nyní klikatelné. Tím se otevře celoobrazovkové zobrazení daného obrázku.</li>
           <li xml:lang="fr">Les images dans les en-têtes sont maintenant cliquables. Cela ouvrira un affichage en mode Plein écran de l'image sélectionnée.</li>
           <li xml:lang="he">התמונות בכותרות לחיצות מעתה. הן תפתחנה תצוגה במסך מלא של התמונה המבוקשת.</li>
           <li xml:lang="ia">Imagines in capites es nunc cliccabile. Isto aperira un vista de schermo plen del imagine in question.</li>
@@ -809,6 +827,7 @@
           <li xml:lang="ar">زُر الاشتراك معطل الآن عند إضافة مدونة صوتية للتو.</li>
           <li xml:lang="ca">El botó de subscripció ara està desactivat quan s'acaba d'afegir un pòdcast.</li>
           <li xml:lang="ca-valencia">El botó de subscripció ara està desactivat quan s'acaba d'afegir un pòdcast.</li>
+          <li xml:lang="cs">Tlačítko pro přihlášení k odběru je nyní deaktivováno, pokud byl podcast právě přidán.</li>
           <li xml:lang="fr">Le bouton d'abonnement est maintenant désactivé lors de l'ajout d'un podcast.</li>
           <li xml:lang="he">כפתור המינוי מושבת כעת כאשר הסכת נוסף זה עתה.</li>
           <li xml:lang="ia">Le button de subscriber es nunc dishabilitate quandoun podcast ha essite justo addite.</li>
@@ -824,6 +843,7 @@
           <li xml:lang="ar">حُلّت عدة مشكلات في تخطيطات اللغات التي تُكتب من اليمين إلى اليسار.</li>
           <li xml:lang="ca">S'han resolt diversos problemes amb les disposicions d'idiomes de dreta a esquerra.</li>
           <li xml:lang="ca-valencia">S'han resolt diversos problemes amb les disposicions d'idiomes de dreta a esquerra.</li>
+          <li xml:lang="cs">Bylo vyřešeno několik problémů s rozložením jazyků psaných zprava doleva.</li>
           <li xml:lang="fr">Plusieurs problèmes liés aux dispositions des langues de droite à gauche ont été résolus.</li>
           <li xml:lang="he">נפתרו מגוון תקלות עם פריסות לשפות שנכתבות מימין לשמאל.</li>
           <li xml:lang="ia">Multe problemas con dispositiones de linguage de dextera a sinistra esseva solvite.</li>
@@ -849,6 +869,7 @@
           <li xml:lang="ar">بُسّطت الواجهة عبر إظهار صفحة واحدة فقط في كل مرة بدلًا من إضافة أعمدة، ودمج صفحة المدونة الصوتية مع صفحة قائمة حلقات المدونة.</li>
           <li xml:lang="ca">La interfície se simplifica mostrant només una pàgina alhora en lloc d'afegir columnes, i combinant la pàgina del pòdcast amb la pàgina de la llista d'episodis del pòdcast.</li>
           <li xml:lang="ca-valencia">La interfície se simplifica mostrant només una pàgina alhora en lloc d'afegir columnes, i combinant la pàgina del pòdcast amb la pàgina de la llista d'episodis del pòdcast.</li>
+          <li xml:lang="cs">Rozhraní je zjednodušeno tím, že se zobrazuje pouze jedna stránka najednou namísto přidávání sloupců a kombinováním stránky podcastu se stránkou seznamu epizod podcastu.</li>
           <li xml:lang="fr">L'interface a été simplifiée en n'affichant qu'une seule page à la fois au lieu d'ajouter des colonnes et en combinant la page du podcast avec la page de la liste des épisodes du podcast.</li>
           <li xml:lang="he">הממשק עבר פישוט לידי כך שמוצג רק עמוד אחת כל פעם במקום להוסיף עמודים, ועל ידי שילוב עמוד ההסכתים עם עמוד רשימת פרקי ההסכתים.</li>
           <li xml:lang="ia">Le interfacie es simplificate permonstrar solmente un pagina alvice in loco de adder columnas,e per combinar le pagina de podcast con le pagina de lista de episodio de podcast.</li>
@@ -864,6 +885,7 @@
           <li xml:lang="ar">حُسّنت صفحات معلومات المدونة والحلقات عبر إضافة شريط أدوات للأزرار (نقل الإجراءات خارج ترويسة التطبيق) وإعادة صياغة تخطيط المعلومات.</li>
           <li xml:lang="ca">Les pàgines d'informació del pòdcast i d'episodis s'han millorat afegint una barra d'eines de botons (moure accions fora de la capçalera de l'aplicació) i refent la disposició de la informació.</li>
           <li xml:lang="ca-valencia">Les pàgines d'informació del pòdcast i d'episodis s'han millorat afegint una barra d'eines de botons (moure accions fora de la capçalera de l'aplicació) i refent la disposició de la informació.</li>
+          <li xml:lang="cs">Stránky s informacemi o podcastech a epizodách byly vylepšeny přidáním panelu tlačítek (přesunutím akcí z hlavičky aplikace) a přepracováním rozložení informací.</li>
           <li xml:lang="fr">Les pages d'informations sur le podcast et les épisodes ont été améliorées en ajoutant une barre d'outils avec des boutons (Déplaçant les actions hors de l'en-tête de l'application) et en retravaillant la disposition des informations.</li>
           <li xml:lang="he">עמודי פרטי ההסכת והפרק השתפרו על ידי הוספת סרגל כלים (תוך העברת פעולות מחוץ לכותרת העליונה של היישום) ועבודה מחדש על פריסת תצוגת המידע.</li>
           <li xml:lang="ia">Le paginas de info de podcast e episodio ed meliorate per adder un barr  de instrumento de button (movente actiones foras delcapite del app) e per reelaborar le disposition de information.</li>
@@ -879,6 +901,7 @@
           <li xml:lang="ar">نُفّذ مؤقت للنوم.</li>
           <li xml:lang="ca">S'ha implementat un temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha implementat un temporitzador de son.</li>
+          <li xml:lang="cs">Byla implementována funkce časovače vypnutí.</li>
           <li xml:lang="fr">Une minuterie pour la veille a été mise en place.</li>
           <li xml:lang="he">קוצב זמן לשינה מומש מחדש.</li>
           <li xml:lang="ia">Un temporisator de dormir ha essite implementate.</li>
@@ -894,6 +917,7 @@
           <li xml:lang="ar">سيحفظ التطبيق الآن موضع وحجم نافذته.</li>
           <li xml:lang="ca">L'aplicació recordarà ara la posició i la mida de la seva finestra.</li>
           <li xml:lang="ca-valencia">L'aplicació recordarà ara la posició i la mida de la seua finestra.</li>
+          <li xml:lang="cs">Aplikace si nyní zapamatuje polohu a velikost svého okna.</li>
           <li xml:lang="fr">L'application se souviendra désormais de la position et de la taille de sa fenêtre.</li>
           <li xml:lang="he">היישום יזכור את המקום ואת הגודל של החלון שלו.</li>
           <li xml:lang="ia">Leappnunc memorera le position e grandor de su fenestra</li>
@@ -909,6 +933,7 @@
           <li xml:lang="ar">يمتلك كاست الآن القدرة على دفع جميع حالات الحلقات المحلية إلى خادم المزامنة.</li>
           <li xml:lang="ca">El Kasts ara té la capacitat d'empènyer tots els estats dels episodis locals al servidor de sincronització.</li>
           <li xml:lang="ca-valencia">Kasts ara té la capacitat d'empényer tots els estats dels episodis locals al servidor de sincronització.</li>
+          <li xml:lang="cs">Kasts nyní má schopnost odesílat všechny lokální stavy epizod na synchronizační server.</li>
           <li xml:lang="fr">Kasts possède maintenant la capacité de synchroniser tous les états locaux des épisodes avec le serveur de synchronisation.</li>
           <li xml:lang="he">ל־Kasts יש כרגע את היכולת לדחוף את כל מצבי הפרקים המקומיים לשרת הסנכרון.</li>
           <li xml:lang="ia">Kasts nunc ha le habilitate a pulsar omne statos de episodio local al servitor de sync.</li>
@@ -924,6 +949,7 @@
           <li xml:lang="ar">أُضيف إعداد لإخبار كاست بعدد الحلقات الأخيرة التي يجب وسمها كغير مشغلة عند إضافة مدونة صوتية جديدة.</li>
           <li xml:lang="ca">S'ha afegit una opció per a indicar al Kasts quants episodis recents s'han de marcar com a no reproduïts en afegir un pòdcast nou.</li>
           <li xml:lang="ca-valencia">S'ha afegit una opció per a indicar a Kasts quants episodis recents s'han de marcar com a no reproduïts en afegir un pòdcast nou.</li>
+          <li xml:lang="cs">Bylo přidáno nastavení, které určuje, kolik posledních epizod má být při přidání nového podcastu označeno jako nepřehrané.</li>
           <li xml:lang="fr">Un paramètre a été ajouté pour indiquer à Kasts combien d'épisodes récents doivent être marqués comme non lus lors de l'ajout d'un nouveau podcast.</li>
           <li xml:lang="he">נוספה הגדרה להנחות את Kasts כמה פרקים אחרונים לסמן שלא התנגנו בעת הוספת הסכת חדש.</li>
           <li xml:lang="ia">Un preferentia ha essite addite per dicer a Kasts comomulte episodios recente deberea esser marcate como non reproducite quando on adde un nove podcast.</li>
@@ -939,6 +965,7 @@
           <li xml:lang="ar">حُلّت عدة علل ومشكلات صغيرة في واجهة المستخدم.</li>
           <li xml:lang="ca">S'han solucionat diversos errors petits d'interfície d'usuari i errors visuals.</li>
           <li xml:lang="ca-valencia">S'han solucionat diversos errors petits d'interfície d'usuari i errors visuals.</li>
+          <li xml:lang="cs">Bylo vyřešeno několik drobných chyb a závad v uživatelském rozhraní.</li>
           <li xml:lang="fr">Plusieurs petits bogues et problèmes de l'interface utilisateur ont été résolus.</li>
           <li xml:lang="he">מגוון תקלות ופגמים חזותיים בממשק המשתמש תוקנו.</li>
           <li xml:lang="ia">Multe parve faltas de UI e problemas esseva solvite.</li>
@@ -961,6 +988,7 @@
           <li xml:lang="ar">أُجريت مراجعة شاملة لروتين تحديث المدونات الصوتية، مما حَلّ عدة علل. وهو يستخدم الآن تعدد الخيوط، وسيقوم أيضًا بتحديث معلومات الحلقات الموجودة.</li>
           <li xml:lang="ca">La rutina d'actualització de pòdcasts s'ha revisat completament, solucionant diversos errors. Ara fa servir multifil, i també actualitzarà la informació dels episodis existents.</li>
           <li xml:lang="ca-valencia">La rutina d'actualització de pòdcast s'ha revisat completament, solucionant diversos errors. Ara utilitza multifil, i també actualitzarà la informació dels episodis existents.</li>
+          <li xml:lang="cs">Rutina aktualizace podcastů byla kompletně přepracována, čímž bylo vyřešeno několik chyb. Nyní využívá multithreading a aktualizuje také existující informace o epizodách.</li>
           <li xml:lang="fr">La routine de mise à jour du podcast a été complètement repensée, résolvant plusieurs bogues. Elle utilise maintenant le multi-processus et mettra également à jour les informations des épisodes existants.</li>
           <li xml:lang="he">שגרת עדכון ההסכתים שוכתבה לחלוטין, מה שפותר כמה תקלות. מעתה היא משתמשת בריבוי תהליכונים והיא גם מעדכנת פרטים של פרקים קיימים.</li>
           <li xml:lang="ia">Le routine de actualisar de podcast ha essite completemente refacite, solvente multe faltas.Ilnunc esusante multithreading, e il tamben actualisara information  de episodio existente.</li>
@@ -976,6 +1004,7 @@
           <li xml:lang="ar">أُجريت تحسينات عامة للتأكد من أن التطبيق يناسب الشاشات الصغيرة في كلا الوضعين الطولي والعرضي.</li>
           <li xml:lang="ca">S'han fet millores generals per a assegurar-se que l'aplicació s'ajusta bé en pantalles petites tant en el mode retrat com en l'apaïsat.</li>
           <li xml:lang="ca-valencia">S'han fet millores generals per a assegurar-se que l'aplicació s'ajusta bé en pantalles xicotetes tant en el mode retrat com en l'apaïsat.</li>
+          <li xml:lang="cs">Byly provedeny obecné úpravy, aby aplikace dobře fungovala na malých obrazovkách v režimu na výšku i na šířku.</li>
           <li xml:lang="fr">Des améliorations générales ont été apportées pour s'assurer que l'application s'adapte bien aux petits écrans en mode portrait comme en mode paysage.</li>
           <li xml:lang="he">בוצעו שיפורים כלליים כדי לוודא שהיישום תואם בצורה מיטבית למסכים קטנים גם לאורך וגם לרוחב.</li>
           <li xml:lang="ia">Meliorementos general esseva facite pro facer secur que le app se adapta ben sur parve schermosin ambes modo de orientation verticale horizontal.</li>
@@ -991,6 +1020,7 @@
           <li xml:lang="ar">ستُجلب صور الحلقات الآن من وسم id3v2tag إن وجد.</li>
           <li xml:lang="ca">Les imatges dels episodis ara es recuperaran de «id3v2tag» si estan disponibles.</li>
           <li xml:lang="ca-valencia">Les imatges dels episodis ara es recuperaran de «id3v2tag» si estan disponibles.</li>
+          <li xml:lang="cs">Obrázky epizod budou nyní načítány z id3v2tag, pokud jsou k dispozici.</li>
           <li xml:lang="fr">Les images des épisodes seront désormais chargées depuis id3v2tag s'il ce dernier est disponible.</li>
           <li xml:lang="he">תמונות פרקים ייאספו מעתה מ־id3v2tag אם תהיינה זמינות.</li>
           <li xml:lang="ia">Imagines de episodio essera nunc recuperate ex  id3v2tag si disponibile.</li>
@@ -1006,6 +1036,7 @@
           <li xml:lang="ar">ستُضاف الحلقات الجديدة إلى الطابور بترتيب زمني تصاعدي (بدلًا من التنازلي) لكل مدونة صوتية.</li>
           <li xml:lang="ca">Els episodis nous s'afegiran a la cua en ordre cronològic ascendent (en lloc de descendent) per pòdcast.</li>
           <li xml:lang="ca-valencia">Els episodis nous s'afegiran a la cua en ordre cronològic ascendent (en lloc de descendent) per pòdcast.</li>
+          <li xml:lang="cs">Nové epizody budou přidávány do fronty v chronologickém pořadí vzestupném (nikoli sestupném) podle podcastu.</li>
           <li xml:lang="fr">De nouveaux épisodes seront ajoutés à la file d'attente par ordre chronologique croissant (Plutôt que décroissant) pour chaque podcast.</li>
           <li xml:lang="he">פרקים חדשים יתווספו לתור לפי סדר כרונולוגי עולה (במקום יורד) לכל הסכת.</li>
           <li xml:lang="ia">Nove episodios essera addite alcauda in ordine chronologic ascendente (plus tosto que descendente) per podcast.</li>
@@ -1021,6 +1052,7 @@
           <li xml:lang="ar">قُدّم مفتاح لضبط الوقت المتبقي في الحلقات اختياريًا بناءً على معدل التشغيل الحالي.</li>
           <li xml:lang="ca">S'ha introduït un commutador per a ajustar opcionalment el temps que queda dels episodis en funció de la velocitat de reproducció actual.</li>
           <li xml:lang="ca-valencia">S'ha introduït un commutador per a ajustar de manera opcional el temps que queda dels episodis en funció de la velocitat de reproducció actual.</li>
+          <li xml:lang="cs">Byl zaveden přepínač, který volitelně upravuje zbývající čas epizod na základě aktuální rychlosti přehrávání.</li>
           <li xml:lang="fr">Un interrupteur a été introduit pour ajuster éventuellement le temps restant des épisodes en fonction de la vitesse de lecture courante.</li>
           <li xml:lang="he">נוסף מתג כדי להתאים את הזמן שנשאר בפרקים לפי קצב הנגינה הנוכחי.</li>
           <li xml:lang="ia">Un commutator ha essite introducite per adaptar optionalmente le tempore lassate sur episodios basate sur le taxa currente de reproduction.</li>
@@ -1036,6 +1068,7 @@
           <li xml:lang="ar">تمتلك صفحات تفاصيل الحلقة الآن إجراء سياق للذهاب مباشرة إلى قائمة حلقات تلك المدونة.</li>
           <li xml:lang="ca">Les pàgines de detall dels episodis ara tenen una acció contextual per anar directament a la llista d'episodis d'aquest pòdcast.</li>
           <li xml:lang="ca-valencia">Les pàgines de detall dels episodis ara tenen una acció contextual per a anar directament a la llista d'episodis d'este pòdcast.</li>
+          <li xml:lang="cs">Stránky s podrobnostmi o epizodách nyní obsahují kontextovou akci, která vás přenese přímo na seznam epizod daného podcastu.</li>
           <li xml:lang="fr">Les pages de détails des épisodes disposent désormais d'une action contextuelle permettant d'aller directement à la liste des épisodes de ce podcast.</li>
           <li xml:lang="he">לעמודי פרטי הפרקים יש מעתה פעולת הקשר </li>
           <li xml:lang="ia">Le paginas de detalios de episodio,nunc ha un action de contexto per vader directe al lista de episodios per ille podcast.</li>
@@ -1051,6 +1084,7 @@
           <li xml:lang="ar">أصبح من الممكن المزامنة مع خوادم GPodder مخصصة (أي غير النسخة الرسمية gpodder.net).</li>
           <li xml:lang="ca">Ara és possible sincronitzar amb servidors GPodder personalitzats (és a dir, diferents de la instància oficial de gpodder.net).</li>
           <li xml:lang="ca-valencia">Ara és possible sincronitzar amb servidors GPodder personalitzats (és a dir, diferents de la instància oficial de gpodder.net).</li>
+          <li xml:lang="cs">Nyní je možné synchronizovat s vlastními servery GPodder (tj. jinými než oficiální instancí gpodder.net).</li>
           <li xml:lang="fr">Il est maintenant possible de se synchroniser avec des serveurs GPodder personnalisés (C'est-à-dire autres que l'instance officielle gpodder.net).</li>
           <li xml:lang="he">מעתה ניתן לסנכרן מול שרתי GPodder (כלומר חוץ מהעותק הרשמי של gpodder.net).</li>
           <li xml:lang="ia">Il es ora possibilesynchronisar con servitores de GPodder personalisate (i.e. altere que le instantia official de  gpodder.net).</li>
@@ -1066,6 +1100,7 @@
           <li xml:lang="ar">أصبح بالإمكان تحديث المدونات الصوتية مرة أخرى حتى عند عدم توفر خادم المزامنة. كانت هذه علة في الإصدارات السابقة.</li>
           <li xml:lang="ca">Els pòdcasts ara es poden actualitzar de nou fins i tot quan el servidor de sincronització no està disponible. Això era un error a les versions anteriors.</li>
           <li xml:lang="ca-valencia">Els pòdcast ara es poden actualitzar de nou fins i tot quan el servidor de sincronització no està disponible. Açò era un error a les versions anteriors.</li>
+          <li xml:lang="cs">Podcasty lze nyní opět aktualizovat, i když synchronizační server není k dispozici. V předchozích verzích se jednalo o chybu.</li>
           <li xml:lang="fr">Les podcasts peuvent désormais être mis à jour même lorsque le serveur de synchronisation est indisponible. Il s'agissait d'un bogue dans les versions précédentes.</li>
           <li xml:lang="he">מעתה אפשר שוב לעדכן הסכתים אפילו כששרת הסנכרון לא זמין. זאת הייתה תקלה בגרסאות הקודמות.</li>
           <li xml:lang="ia">Podcasts pote ora novemente esser actualiste anque quando le servitor de synchronisation non es disponibile. Isto esseva un falta nel version precedente.</li>
@@ -1088,6 +1123,7 @@
           <li xml:lang="ar">تحسينات عامة على جودة الكود وإصلاحات للعلل</li>
           <li xml:lang="ca">Millores generals de la qualitat del codi i correccions d'errors</li>
           <li xml:lang="ca-valencia">Millores generals de la qualitat del codi i esmenes d'errors</li>
+          <li xml:lang="cs">Obecná vylepšení kvality kódu a opravy chyb</li>
           <li xml:lang="fr">Améliorations générales de la qualité du code et corrections de bogues</li>
           <li xml:lang="he">שיפורי איכות קוד כלליים ותיקוני תקלות</li>
           <li xml:lang="ia">Melioramentos general de qualitate de codice e correctiones de faltas</li>
@@ -1110,6 +1146,7 @@
           <li xml:lang="ar">تحسينات متنوعة على واجهة المستخدم</li>
           <li xml:lang="ca">Diverses millores de la interfície d'usuari</li>
           <li xml:lang="ca-valencia">Diverses millores de la interfície d'usuari</li>
+          <li xml:lang="cs">Různá vylepšení uživatelského rozhraní</li>
           <li xml:lang="fr">Diverses améliorations de l'interface utilisateur</li>
           <li xml:lang="he">מגוון שיפורי ממשק משתמש</li>
           <li xml:lang="ia">Varie perfectionamentos de interfacie de usator</li>
@@ -1125,6 +1162,7 @@
           <li xml:lang="ar">الاستمرار في جلب إجراءات الحلقات حتى الحصول على الختم الزمني الحالي</li>
           <li xml:lang="ca">Continua recuperant les accions d'episodis fins que s'obté la marca horària actual</li>
           <li xml:lang="ca-valencia">Continua recuperant les accions d'episodis fins que s'obté la marca horària actual</li>
+          <li xml:lang="cs">Načtené epizody se uchovávají, pokud se nezíská aktuální časové razítko</li>
           <li xml:lang="fr">Continuer à récupérer les actions des épisodes jusqu'à obtenir l'horodatage courant</li>
           <li xml:lang="he">ממשיך למשוך את פעולות הפרק עד שחותמת הזמן הנוכחית מתקבלת</li>
           <li xml:lang="ia">Mantene cerca de actiones de episodio usque nos obtene le marca de tempore currente</li>
@@ -1140,6 +1178,7 @@
           <li xml:lang="ar">إعادة تفعيل أيقونات gpodder وnextcloud</li>
           <li xml:lang="ca">Torna a habilitar les icones del «gpodder» i «nextcloud»</li>
           <li xml:lang="ca-valencia">Torna a habilitar les icones del «gpodder» i «nextcloud»</li>
+          <li xml:lang="cs">Znovu povoleny ikony pro gpodder a nextcloud</li>
           <li xml:lang="fr">Réactiver les icônes pour gpodder et nextcloud</li>
           <li xml:lang="he">הופעלו מחדש סמלים ל־gpodder ול־nextcloud</li>
           <li xml:lang="ia">Re-habilita icones per gpodder e nextcloud</li>
@@ -1160,6 +1199,7 @@
         <p xml:lang="ar">مزايا جديدة في هذا الإصدار:</p>
         <p xml:lang="ca">Característiques noves d'aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves d'esta versió:</p>
+        <p xml:lang="cs">Nové funkce v této verzi:</p>
         <p xml:lang="fr">Nouvelles fonctionnalités dans cette version :</p>
         <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
@@ -1177,6 +1217,7 @@
           <li xml:lang="ar">دعم الفصول، كلاً من فصول خلاصة RSS وفصول وسوم MP3 المرمزة مدعومة</li>
           <li xml:lang="ca">Admet capítols, tant els capítols codificats amb RSS com amb etiquetes MP3</li>
           <li xml:lang="ca-valencia">Admet capítols, tant els capítols codificats amb RSS com amb etiquetes MP3</li>
+          <li xml:lang="cs">Podpora kapitol, podporovány jsou jak kapitoly zakódované v RSS kanálu, tak i v MP3 tagu.</li>
           <li xml:lang="fr">Prise en charge des chapitres. Les flux « RSS » ainsi que les chapitres encodés dans les étiquettes « MP3 » sont pris en charge</li>
           <li xml:lang="he">תמיכה בחלוקה למקטים, יש תמיכה גם במקטעים מקודדים בערוצי RSS ובתגיות MP3.</li>
           <li xml:lang="ia">Supporto per capitulos, capitulos codificate de ambes  syndication RSS e etiquettas MP3 es supportate </li>
@@ -1192,6 +1233,7 @@
           <li xml:lang="ar">عدة تحسينات في واجهة المستخدم</li>
           <li xml:lang="ca">Diverses millores a la interfície d'usuari</li>
           <li xml:lang="ca-valencia">Diverses millores en la interfície d'usuari</li>
+          <li xml:lang="cs">Několik vylepšení uživatelského rozhraní</li>
           <li xml:lang="fr">Plusieurs améliorations de l'interface utilisateur</li>
           <li xml:lang="he">מגוון שיפורים בממשק המשתמש</li>
           <li xml:lang="ia">Multe perfectionamentos in interfacie de usator</li>
@@ -1207,6 +1249,7 @@
           <li xml:lang="ar">تحسين وتطوير للخلفية</li>
           <li xml:lang="ca">Optimització i millores del dorsal</li>
           <li xml:lang="ca-valencia">Optimització i millores del dorsal</li>
+          <li xml:lang="cs">Optimalizace a vylepšení podpůrné vrstvy</li>
           <li xml:lang="fr">Optimisation et améliorations pour le moteur</li>
           <li xml:lang="he">מיטוב ושיפורים במנגנון</li>
           <li xml:lang="ia">Optimization e perfectionamentos per retro administration (backend)</li>
@@ -1222,6 +1265,7 @@
           <li xml:lang="ar">إعادة صياغة لصفحة الإعدادات</li>
           <li xml:lang="ca">Pàgina de configuració reelaborada</li>
           <li xml:lang="ca-valencia">Pàgina de configuració reelaborada</li>
+          <li xml:lang="cs">Přepracována stránka nastavení</li>
           <li xml:lang="fr">Refonte de la page de configuration</li>
           <li xml:lang="he">עמוד ההגדרות עבר שיפוץ</li>
           <li xml:lang="ia">Pagina de preferentias reelaborate</li>
@@ -1237,6 +1281,7 @@
           <li xml:lang="ar">دعم مزامنة الاشتراكات وموضع تشغيل الحلقات باستخدام gpodder.net أو تطبيق nextcloud-gpodder</li>
           <li xml:lang="ca">Suport per a sincronitzar subscripcions i posició de reproducció d'episodis utilitzant gpodder.net o l'aplicació nextcloud-gpodder</li>
           <li xml:lang="ca-valencia">Suport per a sincronitzar subscripcions i posició de reproducció d'episodis utilitzant gpodder.net o l'aplicació nextcloud-gpodder</li>
+          <li xml:lang="cs">Podpora synchronizace odběrů a pozice přehrávání epizod pomocí aplikace gpodder.net nebo nextcloud-gpodder.</li>
           <li xml:lang="fr">Prise en charge de la synchronisation des abonnements et de la position de lecture des épisodes e utilisant l'application gpodder.net ou nextcloud-gpodder</li>
           <li xml:lang="he">תמיכה סנכרון מינויים ומקום נגינת פרק באמצעות gpodder.net או היישומון nextcloud-gpodder</li>
           <li xml:lang="ia">Supporto per synchronisar subscriptiones e position de reproducer episodio usante app de gpodder.net o nextcloud-gpodder</li>
@@ -1252,6 +1297,7 @@
           <li xml:lang="ar">إصلاح عدة علل.</li>
           <li xml:lang="ca">Diverses correccions d'errors.</li>
           <li xml:lang="ca-valencia">Diverses esmenes d'errors.</li>
+          <li xml:lang="cs">Několik oprav chyb.</li>
           <li xml:lang="fr">Plusieurs corrections de bogues.</li>
           <li xml:lang="he">מגוון תיקוני תקלות.</li>
           <li xml:lang="ia">Multe correctiones de faltas.</li>
@@ -1274,6 +1320,7 @@
         <p xml:lang="ar">إلى جانب بعض إصلاحات العلل الطفيفة، أصبح من الممكن الآن تغيير الموقع الذي تُحفظ فيه حلقات المدونات الصوتية المنزلة والصور المخبأة. يمكن لهذه الملفات أن تشغل مساحة كبيرة من القرص، لذا من الجيد التمكن من تخزينها في مكان آخر على الأنظمة ذات مساحة مجلد المنزل المحدودة. تظهر الإعدادات ذات الصلة الآن مساحة القرص المستخدمة من قبل الحلقات والصور، وتسمح بمسح الخبيئة للصور.</p>
         <p xml:lang="ca">Al costat d'algunes correccions d'errors menors, ara és possible canviar la ubicació on es desen els episodis de pòdcast descarregats i les imatges a la memòria cau. Aquests fitxers poden ocupar molt espai de disc, de manera que és millor poder emmagatzemar-los en altres llocs als sistemes amb espai limitat de disc de la carpeta personal. Els paràmetres relacionats ara mostren l'espai de disc utilitzat pels episodis i les imatges, i permet netejar la memòria cau de les imatges.</p>
         <p xml:lang="ca-valencia">Al costat d'algunes esmenes d'errors menors, ara és possible canviar la ubicació on es guarden els episodis de pòdcast descarregats i les imatges a la memòria cau. Estos fitxers poden ocupar molt espai de disc, de manera que és millor poder emmagatzemar-los en altres llocs als sistemes amb espai limitat de disc de la carpeta personal. Els paràmetres relacionats ara mostren l'espai de disc utilitzat pels episodis i les imatges, i permet netejar la memòria cau de les imatges.</p>
+        <p xml:lang="cs">Kromě několika drobných oprav chyb je nyní možné změnit umístění, kam se ukládají stažené epizody podcastů a obrázky v mezipaměti. Tyto soubory mohou zabírat hodně místa na disku, takže je příjemné mít možnost je ukládat jinde na systémech s omezeným prostorem v domovské složce. Související nastavení nyní zobrazuje místo na disku použité epizodami a obrázky a umožňuje vymazat mezipaměť obrázků.</p>
         <p xml:lang="fr">En plus de quelques corrections de bogues mineurs, il est désormais possible de modifier l'emplacement où les épisodes de podcasts téléchargés et les images mises en cache sont enregistrés. Ces fichiers peuvent occuper beaucoup d'espace disque. Par conséquent, il est donc agréable de pouvoir les enregistrer ailleurs que sur des systèmes avec un espace disque limité pour le dossier personnel. Les paramètres associés affichent désormais l'espace disque utilisé par les épisodes et les images et permettent de vider le cache des images.</p>
         <p xml:lang="he">נוסף על כמה תיקוני תקלות, ניתן מעתה לשנות את מקום שמירת פרקי ההסכתים שירדו והתמונות שנשמרו באחסון. הקבצים האלו יכולים לתפוס מקום רב בנפח הכונן, כך שנחמד לאחסן אותם במקום אחר במערכות עם מקום מוגבל בכונן תיקיית הביתה. ההגדרות הקשורות מציגות מעתה את המקום בכונן שתופסים פרקים ותמונות ומאפשרות למחוק את מטמון התמונות.</p>
         <p xml:lang="ia">Apud alcun correctiones minor de faltas, il es nunc possibile cambiar le location ubi le episodios de podcast discargate e imagines ponite in cache es salveguardate. Iste files pote prentìder multe spatio de disco, assi il es agradabile esser capace a immagazinar los alibi sur systemas con limitate spatio de disco de dossier domo. Le preferentias affin nunc monstra le spatio de disco usate per episodioe e imagines, e te permitte clarar le cache de imagine.</p>
@@ -1294,6 +1341,7 @@
         <p xml:lang="ar">مزايا جديدة في هذا الإصدار:</p>
         <p xml:lang="ca">Característiques noves d'aquesta versió:</p>
         <p xml:lang="ca-valencia">Característiques noves d'esta versió:</p>
+        <p xml:lang="cs">Nové funkce v této verzi:</p>
         <p xml:lang="fr">Nouvelles fonctionnalités dans cette version :</p>
         <p xml:lang="he">יכולות חדשות במהדורה הזאת:</p>
         <p xml:lang="ia">Nove characteristicas in iste version:</p>
@@ -1311,6 +1359,7 @@
           <li xml:lang="ar">صفحة الاكتشاف للبحث عن المدونات الصوتية على podcastindex.org</li>
           <li xml:lang="ca">Pàgina de descoberta per a cercar pòdcasts a podcastindex.org</li>
           <li xml:lang="ca-valencia">Pàgina de descoberta per a buscar pòdcast a podcastindex.org</li>
+          <li xml:lang="cs">Stránka pro vyhledávání podcastů na podcastindex.org</li>
           <li xml:lang="fr">Page de découverte pour la recherche de podcasts sur le site « podcastindex.org »</li>
           <li xml:lang="he">עמוד הגילוי יחפש הסכתים ב־podcastindex.org</li>
           <li xml:lang="ia">Pagina de disporerir per cercar podcasts sur podcastindex.org</li>
@@ -1326,6 +1375,7 @@
           <li xml:lang="ar">أصبح بالإمكان استئناف تنزيل المدونات الصوتية.</li>
           <li xml:lang="ca">Ara es poden reprendre les baixades de pòdcasts.</li>
           <li xml:lang="ca-valencia">Ara es poden reprendre les baixades de pòdcast.</li>
+          <li xml:lang="cs">Stahování podcastů lze nyní obnovit.</li>
           <li xml:lang="fr">Les téléchargements de podcasts peuvent désormais être repris.</li>
           <li xml:lang="he">מעתה ניתן לחדש הורדות הסכתים.</li>
           <li xml:lang="ia">Discargamentos depodvasts ora pote esser reprendite.</li>
@@ -1341,6 +1391,7 @@
           <li xml:lang="ar">تحديث مربع حوار إعدادات سرعة التشغيل.</li>
           <li xml:lang="ca">S'ha actualitzat el diàleg de configuració de la velocitat de reproducció.</li>
           <li xml:lang="ca-valencia">S'ha actualitzat el diàleg de configuració de la velocitat de reproducció.</li>
+          <li xml:lang="cs">Aktualizované nastavení rychlosti přehrávání.</li>
           <li xml:lang="fr">Mise à jour de la boîte de dialogue concernant les paramètres de vitesse de lecture.</li>
           <li xml:lang="he">חלונית הגדרות מהירות הנגינה עודכנה.</li>
           <li xml:lang="ia">Actualisate le Dialogo de preferentias de velocitate de reproduction. </li>
@@ -1356,6 +1407,7 @@
           <li xml:lang="ar">إعدادات للسماح/عدم السماح بالوصول إلى الشبكة في الاتصالات المحدودة.</li>
           <li xml:lang="ca">Configuració per a permetre/desactivar l'accés a la xarxa en les connexions mesurades.</li>
           <li xml:lang="ca-valencia">Configuració per a permetre/desactivar l'accés a la xarxa en les connexions mesurades.</li>
+          <li xml:lang="cs">Nastavení pro povolení/zakázání přístupu k síti u měřených připojení.</li>
           <li xml:lang="fr">Configuration pour autoriser / refuser l'accès au réseau sur les connexions à volume limité.</li>
           <li xml:lang="he">הגדרות לאפשר/לחסום גישה לרשת בחיבורים מדודים.</li>
           <li xml:lang="ia">Preferentias per permitter/non permitter accesso de rete sur connexione a consumo.</li>
@@ -1371,6 +1423,7 @@
           <li xml:lang="ar">إشعارات خطأ أكثر وصفًا يمكن من خلالها فتح قائمة كاملة بالأخطاء.</li>
           <li xml:lang="ca">Notificacions d'error més descriptives de les quals es pot obrir la llista completa d'errors.</li>
           <li xml:lang="ca-valencia">Notificacions d'error més descriptives de les quals es pot obrir la llista completa d'errors.</li>
+          <li xml:lang="cs">Podrobnější hlášení o chybách, ze kterých lze otevřít kompletní seznam chyb.</li>
           <li xml:lang="fr">Des notifications plus descriptives d'erreurs à partir desquelles la liste complète des erreurs peut être consultée.</li>
           <li xml:lang="he">התראות שגיאות מפורטות יותר מהן ניתן לפתוח את רשימות השגיאות המלאה.</li>
           <li xml:lang="ia">Notificationes de error plus descriptive ab le qual le lista complete de errores pote esser aperite.</li>
@@ -1386,6 +1439,7 @@
           <li xml:lang="ar">عدة تحسينات أصغر: تمييز عناصر القائمة، وتلميحات الأدوات، ومفاتيح الاختصار</li>
           <li xml:lang="ca">Diverses millores més petites: ressaltat d'elements de menú, consells d'eina, dreceres</li>
           <li xml:lang="ca-valencia">Diverses millores més xicotetes: ressaltat d'elements de menú, consells d'eina, dreceres</li>
+          <li xml:lang="cs">Několik menších vylepšení: zvýraznění položek nabídky, popisky, klávesové zkratky</li>
           <li xml:lang="fr">Plusieurs petites améliorations : mise en évidence des éléments de menu, info-bulles, raccourcis clavier</li>
           <li xml:lang="he">מגוון שיפורים קטנים: הדגשת פריטים בתפריט, חלוניות עצה, מקשים חמים</li>
           <li xml:lang="ia">Multe parve perfectionamentos: evidentias de elemento de menu, consilios de instrumento,claves calide(hotkeys)</li>
@@ -1401,6 +1455,7 @@
           <li xml:lang="ar">إصلاح عدة علل.</li>
           <li xml:lang="ca">Diverses correccions d'errors.</li>
           <li xml:lang="ca-valencia">Diverses esmenes d'errors.</li>
+          <li xml:lang="cs">Několik oprav chyb.</li>
           <li xml:lang="fr">Plusieurs corrections de bogues.</li>
           <li xml:lang="he">מגוון תיקוני תקלות.</li>
           <li xml:lang="ia">Multe correctiones de faltas.</li>
@@ -1423,6 +1478,7 @@
         <p xml:lang="ar">الإصدار الأول من كاست، مشغل مدونات صوتية متقارب يعتمد على كيريغامي (Kirigami). أُصدر كجزء من Plasma Mobile Gear 21.06. وهو يتميز بـ:</p>
         <p xml:lang="ca">Primer llançament del Kasts, un reproductor de pòdcast convergent basat en el Kirigami. S'ha publicat com a part del Plasma Mobile Gear 21.06. Característiques:</p>
         <p xml:lang="ca-valencia">Primer llançament de Kasts, un reproductor de pòdcast convergent basat en Kirigami. S'ha publicat com a part de Plasma Mobile Gear 21.06. Característiques:</p>
+        <p xml:lang="cs">První vydání Kasts, konvergentního přehrávače podcastů založeného na Kirigami. Vydáno jako součást Plasma Mobile Gear 21.06. Obsahuje:</p>
         <p xml:lang="fr">Première version de Kasts, un lecteur de podcasts convergent conçu à partir de Kirigami. Publiée dans le cadre de Plasma Mobile Gear 21.06, l'application intègre :</p>
         <p xml:lang="he">המהדורה הראשונה של Kasts, נגן הסכתים מסתגל מבוסס Kirigami. יצא לאור כחלק מ־Plasma Mobile Gear 21.06. יכולתיו הן:</p>
         <p xml:lang="ia">Prime version (release) de Kasts,un executor de podcast convergente basate sur Kirigami. Relaxate como parte de Plasma Mobile Gear 21.06. Il presenta:</p>
@@ -1439,6 +1495,7 @@
           <li xml:lang="ar">طابور تشغيل</li>
           <li xml:lang="ca">una cua de reproducció</li>
           <li xml:lang="ca-valencia">una cua de reproducció</li>
+          <li xml:lang="cs">frontu přehrávání</li>
           <li xml:lang="fr">une file d'attente de lecture</li>
           <li xml:lang="he">תור נגינה</li>
           <li xml:lang="ia">un cauda a reproducer</li>
@@ -1454,6 +1511,7 @@
           <li xml:lang="ar">لوحة إشعارات ومتحكمات وسائط لشاشة القفل</li>
           <li xml:lang="ca">controls multimèdia del plafó de notificacions i de la pantalla de bloqueig</li>
           <li xml:lang="ca-valencia">controls multimèdia del quadro de notificacions i de la pantalla de bloqueig</li>
+          <li xml:lang="cs">notifikační panel a ovládací prvky médií na uzamčené obrazovce</li>
           <li xml:lang="fr">Panneau de notifications et commandes multimédia de l'écran de verrouillage</li>
           <li xml:lang="he">לוח התראות ופקדי מדיה על מסך נעילה</li>
           <li xml:lang="ia">pannello de notification e controlos de media de bloco de schermo</li>
@@ -1469,6 +1527,7 @@
           <li xml:lang="ar">منع تعليق النظام عبر systemd أثناء الاستماع إلى المدونات الصوتية</li>
           <li xml:lang="ca">inhibeix la suspensió del sistema mentre s'està escoltant pòdcasts</li>
           <li xml:lang="ca-valencia">inhibix la suspensió del sistema mentre s'està escoltant pòdcast</li>
+          <li xml:lang="cs">zabraňuje pozastavení systemd při poslechu podcastů</li>
           <li xml:lang="fr">Inhibe la mise en veille de « systemd » durant l'écoute de podcasts</li>
           <li xml:lang="he">מניעת השהיית המערכת בזמן האזנה להסכתים</li>
           <li xml:lang="ia">inhibi suspension de systema quando ascolta podcasts</li>
@@ -1484,6 +1543,7 @@
           <li xml:lang="ar">واجهة مستخدم متقاربة؛ تظهر بشكل جميل على الهاتف والحاسوب</li>
           <li xml:lang="ca">IU convergent; es veu bé en el mòbil i l'escriptori</li>
           <li xml:lang="ca-valencia">IU convergent; es veu bé en el mòbil i l'escriptori</li>
+          <li xml:lang="cs">konvergentní uživatelské rozhraní; vypadá dobře na mobilních zařízeních i stolních počítačích</li>
           <li xml:lang="fr">interface utilisateur convergente, afin d'avoir la même apparence élégante sur périphériques mobile et de bureau</li>
           <li xml:lang="he">ממשק משתמש מסתגל, נראה טוב במכשירים ניידים ומחשבים</li>
           <li xml:lang="ia">UI convergente: ilsemblabon sur mobile e scriptorio</li>
