@@ -26,7 +26,7 @@ Item {
     signal titleClicked
     signal subtitleClicked
 
-    implicitHeight: headerHeight
+    implicitHeight: Math.max(headerHeight, genericHeaderRow.implicitHeight + 2 * genericHeaderRow.margin)
     implicitWidth: parent.width
 
     Rectangle {
@@ -66,9 +66,9 @@ Item {
     }
 
     RowLayout {
-        property int size: root.headerHeight - 2 * margin
+        id: genericHeaderRow
         property int margin: Kirigami.Units.gridUnit * 1
-        height: size
+        Layout.fillHeight: true
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -78,11 +78,12 @@ Item {
 
         ImageWithFallback {
             id: frontImage
+            property int size: root.headerHeight - 2 * parent.margin
             imageSource: image
-            Layout.maximumHeight: parent.size
-            Layout.maximumWidth: parent.size
-            Layout.minimumHeight: parent.size
-            Layout.minimumWidth: parent.size
+            Layout.maximumHeight: size
+            Layout.maximumWidth: size
+            Layout.minimumHeight: size
+            Layout.minimumWidth: size
             absoluteRadius: Kirigami.Units.smallSpacing
             MouseArea {
                 anchors.fill: parent
