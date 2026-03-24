@@ -21,8 +21,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "6.12.0")
+set(QT_MIN_VERSION "6.10.0")
+set(KF_MIN_VERSION "6.20.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -55,10 +55,11 @@ ecm_setup_version(${PROJECT_VERSION}
 
 ecm_set_disabled_deprecation_versions(
     QT 6.11.0
-    KF 6.26.0
+    KF 6.30.0
 )
 
 find_package(Qt6 ${QT_MIN_VERSION}
+    CONFIG
     REQUIRED
     NO_MODULE
     COMPONENTS

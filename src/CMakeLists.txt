@@ -268,7 +268,17 @@ ecm_qt_declare_logging_category(kasts
 )
 
 if(ANDROID)
-    target_sources(kasts PRIVATE utils/androidlogging.h)
+    target_sources(kasts PRIVATE
+        utils/androidlogging.h
+        android/androidcoverimageprovider.cpp
+        android/androidmusiclistener.cpp
+        android/androidfilelisting.cpp
+        android/androidplayer.cpp
+        android/androidplayerjni.cpp
+    )
+    target_include_directories(kasts PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/android
+    )
 endif()
 
 ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
@@ -353,7 +363,9 @@ endif()
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
+        Qt::Quick
         OpenSSL::SSL
+        jnigraphics
         log
     )
     if(SQLite3_FOUND)

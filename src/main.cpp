@@ -2,7 +2,8 @@
  * SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
  * SPDX-FileCopyrightText: 2021 Bart De Vries <bart@mogwai.be>
  *
- * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+ * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR
+ * LicenseRef-KDE-Accepted-GPL
  */
 
 #include <QCommandLineOption>
@@ -66,150 +67,170 @@
 Q_DECL_EXPORT
 #endif
 
-int main(int argc, char *argv[])
-{
-    // Check if we need to force the interface to mobile or desktop, or stick
-    // with the built-in Kirigami setting
-    if (SettingsManager::self() && SettingsManager::self()->interfaceMode() != 2) {
-        if (SettingsManager::self()->interfaceMode() == 0) {
-            qunsetenv("QT_QUICK_CONTROLS_MOBILE");
-        } else if (SettingsManager::self()->interfaceMode() == 1) {
-            qputenv("QT_QUICK_CONTROLS_MOBILE", "1");
-        }
+int main(int argc, char *argv[]) {
+  // Check if we need to force the interface to mobile or desktop, or stick
+  // with the built-in Kirigami setting
+  if (SettingsManager::self() &&
+      SettingsManager::self()->interfaceMode() != 2) {
+    if (SettingsManager::self()->interfaceMode() == 0) {
+      qunsetenv("QT_QUICK_CONTROLS_MOBILE");
+    } else if (SettingsManager::self()->interfaceMode() == 1) {
+      qputenv("QT_QUICK_CONTROLS_MOBILE", "1");
     }
+  }
 
-    if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) && qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
-        qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
-    }
+  if (QSysInfo::currentCpuArchitecture().contains(QStringLiteral("arm")) &&
+      qEnvironmentVariableIsEmpty("QT_ENABLE_GLYPH_CACHE_WORKAROUND")) {
+    qputenv("QT_ENABLE_GLYPH_CACHE_WORKAROUND", "1");
+  }
 
-    QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths() << QStringLiteral(":icons"));
+  QIcon::setFallbackSearchPaths(QIcon::fallbackSearchPaths()
+                                << QStringLiteral(":icons"));
 
 #ifdef Q_OS_ANDROID
-    QGuiApplication app(argc, argv);
-    qInstallMessageHandler(myMessageHandler);
-    QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
+  QGuiApplication app(argc, argv);
+  qInstallMessageHandler(myMessageHandler);
+  QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
 #else
-    QApplication app(argc, argv);
+  QApplication app(argc, argv);
 #endif
 
 #ifdef WITH_BREEZEICONS_LIB
-    BreezeIcons::initIcons();
+  BreezeIcons::initIcons();
 #endif
 
-    KirigamiAppDefaults::apply(&app);
+  KirigamiAppDefaults::apply(&app);
 
-    KLocalizedString::setApplicationDomain("kasts");
+  KLocalizedString::setApplicationDomain("kasts");
 
-    QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
-    QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
+  QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
+  QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
+  QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
 
-    // migrate settings to new location
-    {
-        QSettings oldSettings(QStringLiteral("KDE"), QStringLiteral("kasts"));
-        KConfig stateConfig(QStringLiteral("kastsstaterc"), KConfig::SimpleConfig, QStandardPaths::GenericStateLocation);
+#ifdef Q_OS_ANDROID
+  QJniObject::callStaticMethod<void>(
+      "org/kde/kasts/KastsService", "startMyService",
+      QNativeInterface::QAndroidApplication::context());
+#endif
 
-        if (oldSettings.contains("lastOpenedPage")) {
-            const QString lastOpenedPage = oldSettings.value("lastOpenedPage").toString();
-            oldSettings.remove("lastOpenedPage");
-            stateConfig.group(QStringLiteral("General")).writeEntry("lastOpenedPage", lastOpenedPage);
-        }
+  // migrate settings to new location
+  {
+    QSettings oldSettings(QStringLiteral("KDE"), QStringLiteral("kasts"));
+    KConfig stateConfig(QStringLiteral("kastsstaterc"), KConfig::SimpleConfig,
+                        QStandardPaths::GenericStateLocation);
 
-        if (oldSettings.contains("headerSize")) {
-            const int headerSize = oldSettings.value("headerSize").toInt();
-            oldSettings.remove("headerSize");
-            stateConfig.group(QStringLiteral("General")).writeEntry("headerSize", headerSize);
-        }
-
-        if (oldSettings.contains("episodeListFilterType")) {
-            const int episodeListFilterType = oldSettings.value("episodeListFilterType").toInt();
-            oldSettings.remove("episodeListFilterType");
-            stateConfig.group(QStringLiteral("General")).writeEntry("episodeListFilterType", episodeListFilterType);
-        }
-
-        if (oldSettings.contains("episodeListSortType")) {
-            const int episodeListSortType = oldSettings.value("episodeListSortType").toInt();
-            oldSettings.remove("episodeListSortType");
-            stateConfig.group(QStringLiteral("General")).writeEntry("episodeListSortType", episodeListSortType);
-        }
-
-        if (oldSettings.contains("feedSorting")) {
-            const int feedSorting = oldSettings.value("feedSorting").toInt();
-            oldSettings.remove("feedSorting");
-            stateConfig.group(QStringLiteral("General")).writeEntry("feedSorting", feedSorting);
-        }
+    if (oldSettings.contains("lastOpenedPage")) {
+      const QString lastOpenedPage =
+          oldSettings.value("lastOpenedPage").toString();
+      oldSettings.remove("lastOpenedPage");
+      stateConfig.group(QStringLiteral("General"))
+          .writeEntry("lastOpenedPage", lastOpenedPage);
     }
 
-    QQmlApplicationEngine engine;
-    NetworkAccessManagerFactory networkAccessManagerFactory;
-    engine.setNetworkAccessManagerFactory(&networkAccessManagerFactory);
-    KLocalization::setupLocalizedContext(&engine);
+    if (oldSettings.contains("headerSize")) {
+      const int headerSize = oldSettings.value("headerSize").toInt();
+      oldSettings.remove("headerSize");
+      stateConfig.group(QStringLiteral("General"))
+          .writeEntry("headerSize", headerSize);
+    }
 
-    QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("Podcast Application"));
-    QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add"),
-                                     i18n("Adds a new podcast to subscriptions."),
-                                     i18n("Podcast URL"),
-                                     QStringLiteral("none"));
-    parser.addOption(addFeedOption);
+    if (oldSettings.contains("episodeListFilterType")) {
+      const int episodeListFilterType =
+          oldSettings.value("episodeListFilterType").toInt();
+      oldSettings.remove("episodeListFilterType");
+      stateConfig.group(QStringLiteral("General"))
+          .writeEntry("episodeListFilterType", episodeListFilterType);
+    }
 
-    KAboutData about(QStringLiteral("kasts"),
-                     i18n("Kasts"),
-                     QStringLiteral(KASTS_VERSION_STRING),
-                     i18n("Podcast Player"),
-                     KAboutLicense::GPL,
-                     i18n("© 2020–2025 KDE Community"));
-    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
-    about.addAuthor(i18n("Bart De Vries"), QString(), QStringLiteral("bart@mogwai.be"));
-    KAboutData::setApplicationData(about);
+    if (oldSettings.contains("episodeListSortType")) {
+      const int episodeListSortType =
+          oldSettings.value("episodeListSortType").toInt();
+      oldSettings.remove("episodeListSortType");
+      stateConfig.group(QStringLiteral("General"))
+          .writeEntry("episodeListSortType", episodeListSortType);
+    }
+
+    if (oldSettings.contains("feedSorting")) {
+      const int feedSorting = oldSettings.value("feedSorting").toInt();
+      oldSettings.remove("feedSorting");
+      stateConfig.group(QStringLiteral("General"))
+          .writeEntry("feedSorting", feedSorting);
+    }
+  }
+
+  QQmlApplicationEngine engine;
+  NetworkAccessManagerFactory networkAccessManagerFactory;
+  engine.setNetworkAccessManagerFactory(&networkAccessManagerFactory);
+  KLocalization::setupLocalizedContext(&engine);
+
+  QCommandLineParser parser;
+  parser.setApplicationDescription(i18n("Podcast Application"));
+  QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a")
+                                                 << QStringLiteral("add"),
+                                   i18n("Adds a new podcast to subscriptions."),
+                                   i18n("Podcast URL"), QStringLiteral("none"));
+  parser.addOption(addFeedOption);
+
+  KAboutData about(QStringLiteral("kasts"), i18n("Kasts"),
+                   QStringLiteral(KASTS_VERSION_STRING), i18n("Podcast Player"),
+                   KAboutLicense::GPL, i18n("© 2020–2025 KDE Community"));
+  about.addAuthor(i18n("Tobias Fella"), QString(),
+                  QStringLiteral("tobias.fella@kde.org"),
+                  QStringLiteral("https://tobiasfella.de"));
+  about.addAuthor(i18n("Bart De Vries"), QString(),
+                  QStringLiteral("bart@mogwai.be"));
+  KAboutData::setApplicationData(about);
 
 #ifndef Q_OS_ANDROID
-    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kasts")));
+  QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kasts")));
 #endif
 
 #ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
-    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &arguments, const QString &workingDirectory) {
+  KDBusService service(KDBusService::Unique);
+  QObject::connect(
+      &service, &KDBusService::activateRequested, &engine,
+      [&engine](const QStringList &arguments, const QString &workingDirectory) {
         Q_UNUSED(arguments);
         Q_UNUSED(workingDirectory);
         const auto rootObjects = engine.rootObjects();
         for (auto obj : rootObjects) {
-            if (auto window = qobject_cast<QQuickWindow *>(obj)) {
-                KWindowSystem::updateStartupId(window);
-                KWindowSystem::activateWindow(window);
-                if (!window->isVisible()) {
-                    window->show();
-                }
-                // TODO: parse arguments and pass on to app
-
-                return;
+          if (auto window = qobject_cast<QQuickWindow *>(obj)) {
+            KWindowSystem::updateStartupId(window);
+            KWindowSystem::activateWindow(window);
+            if (!window->isVisible()) {
+              window->show();
             }
+            // TODO: parse arguments and pass on to app
+
+            return;
+          }
         }
-    });
+      });
 #endif
 
-    about.setupCommandLine(&parser);
-    parser.process(app);
-    QString feedURL = parser.value(addFeedOption);
-    Database::instance();
-    if (feedURL != QStringLiteral("none")) {
-        DataManager::instance().addFeed(feedURL);
-    }
-    about.processCommandLine(&parser);
+  about.setupCommandLine(&parser);
+  parser.process(app);
+  QString feedURL = parser.value(addFeedOption);
+  Database::instance();
+  if (feedURL != QStringLiteral("none")) {
+    DataManager::instance().addFeed(feedURL);
+  }
+  about.processCommandLine(&parser);
 
-    ColorSchemer colorschemer;
+  ColorSchemer colorschemer;
 
-    // Workaround to don't get the app to silently quit when minimized to tray
-    app.setQuitLockEnabled(false);
+  // Workaround to don't get the app to silently quit when minimized to tray
+  app.setQuitLockEnabled(false);
 
-    // Make sure that settings are saved before the application exits
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, SettingsManager::self(), &SettingsManager::save);
+  // Make sure that settings are saved before the application exits
+  QObject::connect(&app, &QCoreApplication::aboutToQuit,
+                   SettingsManager::self(), &SettingsManager::save);
 
-    engine.loadFromModule("org.kde.kasts", "Main");
+  engine.loadFromModule("org.kde.kasts", "Main");
 
-    if (engine.rootObjects().isEmpty()) {
-        return -1;
-    }
+  if (engine.rootObjects().isEmpty()) {
+    return -1;
+  }
 
-    return app.exec();
+  return app.exec();
 }
