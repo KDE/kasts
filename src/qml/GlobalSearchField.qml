@@ -23,17 +23,17 @@ Kirigami.SearchField {
 
     property string searchFilter: ""
 
-    function openEntry(entry: Entry): void {
+    function openEntry(entryuid: int): void {
         pushPage("EpisodeListPage");
         pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entry: entry
+            entryuid: entryuid
         });
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
         var episodeModel = pageStack.get(0).episodeList.model;
         for (var i = 0; i < episodeModel.rowCount(); i++) {
             var index = episodeModel.index(i, 0);
-            if (entry.id == episodeModel.data(index, AbstractEpisodeModel.IdRole)) {
+            if (entryuid == episodeModel.data(index, AbstractEpisodeModel.EntryuidRole)) {
                 pageStack.get(0).episodeList.currentIndex = i;
                 pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);
@@ -94,6 +94,7 @@ Kirigami.SearchField {
 
             required property int index
             required property var entry
+            required property int entryuid
 
             contentItem: Delegates.IconTitleSubtitle {
                 icon.source: albumDelegate.entry.cachedImage
@@ -101,7 +102,7 @@ Kirigami.SearchField {
                 subtitle: albumDelegate.entry.feed.name
             }
             onClicked: {
-                globalSearchField.openEntry(albumDelegate.entry);
+                globalSearchField.openEntry(albumDelegate.entryuid);
                 searchDialog.close();
             }
         }

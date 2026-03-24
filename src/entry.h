@@ -24,6 +24,7 @@ class Entry : public QObject
 
     Q_PROPERTY(Feed *feed READ feed CONSTANT)
     Q_PROPERTY(qint64 entryuid READ entryuid CONSTANT)
+    Q_PROPERTY(qint64 feeduid READ feeduid CONSTANT)
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QString content READ content NOTIFY contentChanged)
@@ -46,6 +47,7 @@ public:
     ~Entry();
 
     qint64 entryuid() const;
+    qint64 feeduid() const;
     QString id() const;
     QString title() const;
     QString content() const;

@@ -146,6 +146,11 @@ qint64 Entry::entryuid() const
     return m_entryuid;
 }
 
+qint64 Entry::feeduid() const
+{
+    return m_feeduid;
+}
+
 QString Entry::id() const
 {
     return m_id;

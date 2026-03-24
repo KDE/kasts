@@ -18,8 +18,8 @@ import org.kde.kasts
 Kirigami.ScrollablePage {
     id: page
 
-    required property QtObject entry
-    property int entryuid: entry ? entry.entryuid : 0
+    required property int entryuid
+    property Entry entry: DataManager.getEntry(entryuid)
 
     title: KI18n.i18nc("@title", "Episode Details")
 
@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
             subtitle: entry.feed.name
             subtitleClickable: true
 
-            onSubtitleClicked: openPodcast(entry.feed)
+            onSubtitleClicked: openPodcast(entry.feeduid)
         }
 
         // header actions
@@ -213,7 +213,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
-                        onTriggered: openPodcast(entry.feed)
+                        onTriggered: openPodcast(entry.feeduid)
                     }
                 ]
             }

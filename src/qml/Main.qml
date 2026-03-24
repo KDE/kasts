@@ -67,11 +67,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    function openPodcast(newFeed: Feed): void {
+    function openPodcast(newFeeduid: int): void {
         pushPage("FeedListPage");
-        lastFeed = newFeed.url;
+        lastFeed = newFeeduid;
         pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage", Component.PreferSynchronous, pageStack.get(0)), {
-            feed: newFeed
+            feed: DataManager.getFeed(newFeeduid)
         });
     }
 

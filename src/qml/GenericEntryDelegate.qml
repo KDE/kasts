@@ -95,7 +95,7 @@ AddonDelegates.RoundedItemDelegate {
         }
 
         pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entry: entry
+            entryuid: entryuid
         });
     }
 
