@@ -252,7 +252,17 @@ ecm_qt_declare_logging_category(kasts
 
 
 if(ANDROID)
-    target_sources(kasts PRIVATE utils/androidlogging.h)
+    target_sources(kasts PRIVATE
+        utils/androidlogging.h
+        android/androidcoverimageprovider.cpp
+        android/androidmusiclistener.cpp
+        android/androidfilelisting.cpp
+        android/androidplayer.cpp
+        android/androidplayerjni.cpp
+    )
+    target_include_directories(kasts PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/android
+    )
 endif()
 
 ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
@@ -264,9 +274,24 @@ ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
     ../icons/128-apps-kasts.png
 )
 
-kconfig_target_kcfg_file(kasts FILE settingsmanager.kcfg CLASS_NAME SettingsManager MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR SINGLETON GENERATE_MOC QML_REGISTRATION)
+kconfig_target_kcfg_file(kasts
+    FILE settingsmanager.kcfg
+    CLASS_NAME SettingsManager
+    MUTATORS
+    GENERATE_PROPERTIES
+    DEFAULT_VALUE_GETTERS
+    PARENT_IN_CONSTRUCTOR
+    SINGLETON
+    GENERATE_MOC
+    QML_REGISTRATION
+)
 
-target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/utils ${CMAKE_CURRENT_SOURCE_DIR}/sync)
+target_include_directories(kasts PRIVATE
+    ${CMAKE_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/models
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/sync
+)
 target_link_libraries(kasts
     PRIVATE
         Qt::Core
@@ -308,7 +333,10 @@ endif()
 
 if(ANDROID)
     target_link_libraries(kasts PRIVATE
+        Qt::CorePrivate
+        Qt::Quick
         OpenSSL::SSL
+        jnigraphics
         log
     )
     if(SQLite3_FOUND)
