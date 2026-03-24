@@ -339,6 +339,49 @@ QString Entry::adjustedContent(int width, int fontSize)
 
     ret.replace(QStringLiteral("<img"), QStringLiteral("<br /> <img"));
 
+    // check image sources with no basepath; these will make qt6 crash because
+    // it will try to retrieve them as if they were local resources
+    static QRegularExpression imgSrcUrlRegex(QStringLiteral("<img .*?src=\"([\\S]+)\".*?>"));
+
+    i = imgSrcUrlRegex.globalMatch(ret);
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+
+        QUrl imgSrcUrl = QUrl(match.captured(1));
+        QUrl linkUrl = QUrl(m_link);
+
+        if (imgSrcUrl.host().isEmpty()) {
+            if (false) { // TODO: only for debugging; remove later (!linkUrl.authority().isEmpty()) {
+                // if no host is set, then transplant the scheme and authority from
+                // the episode link url; it's a wild guess, but it will keep qt from
+                // trying to get it from the local resources and crashing
+                QString imgTag(match.captured());
+                QString linkTruncatedPath = linkUrl.path().left(linkUrl.path().lastIndexOf(QStringLiteral("/")) + 1);
+                QString imgPath = imgSrcUrl.path();
+                if (imgPath[0] == QStringLiteral("/")) {
+                    imgPath.removeAt(0);
+                }
+
+                qCDebug(kastsEntry) << imgSrcUrl << linkUrl << imgTag << linkTruncatedPath << imgPath;
+
+                imgSrcUrl.setPath(linkTruncatedPath + imgPath);
+                imgSrcUrl.setAuthority(linkUrl.authority());
+                imgSrcUrl.setScheme(linkUrl.scheme());
+                qCDebug(kastsEntry) << imgSrcUrl;
+
+                imgTag.replace(match.captured(1), imgSrcUrl.toString());
+                ret.replace(match.captured(), imgTag);
+
+                qCDebug(kastsEntry) << imgTag;
+            } else {
+                // if there's no link to extract the basepath from, we simply
+                // remove the image altogether
+                ret.replace(match.captured(), QStringLiteral(""));
+                qCDebug(kastsEntry) << "Removed image with no host/basepath" << match.captured();
+            }
+        }
+    }
+
     // Replace strings that look like timestamps into clickable links with scheme
     // "timestamp://".  We will pick these up in the GUI to work like chapter marks
 
