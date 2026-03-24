@@ -1482,6 +1482,7 @@
         <p xml:lang="fr">Première version de Kasts, un lecteur de podcasts convergent conçu à partir de Kirigami. Publiée dans le cadre de Plasma Mobile Gear 21.06, l'application intègre :</p>
         <p xml:lang="he">המהדורה הראשונה של Kasts, נגן הסכתים מסתגל מבוסס Kirigami. יצא לאור כחלק מ־Plasma Mobile Gear 21.06. יכולתיו הן:</p>
         <p xml:lang="ia">Prime version (release) de Kasts,un executor de podcast convergente basate sur Kirigami. Relaxate como parte de Plasma Mobile Gear 21.06. Il presenta:</p>
+        <p xml:lang="is">Fyrsta útgáfa af Kasts, hlaðvarpsspilara byggðum á Kirigami. Gefið út sem hluti af Plasma Mobile Gear 21.06. Helstu eiginleikar þess eru:</p>
         <p xml:lang="it">Prima versione di Kasts, un lettore podcast convergente basato su Kirigami. Rilasciato come parte di Plasma Mobile Gear 21.06. Include:</p>
         <p xml:lang="ka">Kasts-ის პირველი გამოშვება, რომელიც Kirigami-ზე დაფუძნებული კონვერგენტული პოდკასტების დამკვრელია. ის Plasma Mobile Gear 21.06-ის ნაწილად გამოიცა. მასში შედის:</p>
         <p xml:lang="nl">Eerste uitgave van Kasts, een op Kirigami gebaseerde, convergente podcastspeler. Uitgebracht als onderdeel van Plasma Mobile Gear 21.06. Bevat:</p>
@@ -1499,6 +1500,7 @@
           <li xml:lang="fr">une file d'attente de lecture</li>
           <li xml:lang="he">תור נגינה</li>
           <li xml:lang="ia">un cauda a reproducer</li>
+          <li xml:lang="is">afspilunarbiðröð</li>
           <li xml:lang="it">una coda di riproduzione</li>
           <li xml:lang="ka">დაკვრის რიგი</li>
           <li xml:lang="nl">een afspeelwachtrij</li>
@@ -1515,6 +1517,7 @@
           <li xml:lang="fr">Panneau de notifications et commandes multimédia de l'écran de verrouillage</li>
           <li xml:lang="he">לוח התראות ופקדי מדיה על מסך נעילה</li>
           <li xml:lang="ia">pannello de notification e controlos de media de bloco de schermo</li>
+          <li xml:lang="is">tilkynningaspjald og margmiðlunarstýringar á læsiskjá</li>
           <li xml:lang="it">pannello delle notifiche e controlli multimediali della schermata di blocco</li>
           <li xml:lang="ka">გაფრთხილების პანელის და დაბლოკვის ეკრანის მედიის კონტროლის ელემენტები</li>
           <li xml:lang="nl">besturing van meldingenpaneel en vergrendelscherm van media</li>
@@ -1531,6 +1534,7 @@
           <li xml:lang="fr">Inhibe la mise en veille de « systemd » durant l'écoute de podcasts</li>
           <li xml:lang="he">מניעת השהיית המערכת בזמן האזנה להסכתים</li>
           <li xml:lang="ia">inhibi suspension de systema quando ascolta podcasts</li>
+          <li xml:lang="is">hindrar svæfingu frá systemd á meðan hlustað er á hlaðvörp</li>
           <li xml:lang="it">inibisce la sospensione di systemd durante l'ascolto di podcast</li>
           <li xml:lang="ka">აკრძალავს პოდკასტების მოსმენისას სისტემის დაძინებას</li>
           <li xml:lang="nl">voorkomt dat systemd pauzeren wordt geactiveerd tijdens het luisteren naar podcasts</li>
@@ -1547,6 +1551,7 @@
           <li xml:lang="fr">interface utilisateur convergente, afin d'avoir la même apparence élégante sur périphériques mobile et de bureau</li>
           <li xml:lang="he">ממשק משתמש מסתגל, נראה טוב במכשירים ניידים ומחשבים</li>
           <li xml:lang="ia">UI convergente: ilsemblabon sur mobile e scriptorio</li>
+          <li xml:lang="is">samleitið viðmót, lítur vel út á símum og tölvum</li>
           <li xml:lang="it">interfaccia utente convergente; ha un bell'aspetto su dispositivi mobili e desktop</li>
           <li xml:lang="ka">კონვერგენტული ინტერფეისი. კარგად გამოიყურება როგორც მობილურზე, ისე კომპიუტერზე</li>
           <li xml:lang="nl">convergente UI; ziet er goed uit op mobiel en bureaublad</li>
