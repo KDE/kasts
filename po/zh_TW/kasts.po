@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 02:48+0000\n"
+"POT-Creation-Date: 2026-03-25 02:47+0000\n"
 "PO-Revision-Date: 2026-01-05 02:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1071,25 +1071,25 @@ msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "刪除下載"
 
-#: qml/GlobalSearchField.qml:109
+#: qml/GlobalSearchField.qml:110
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "沒有搜尋結果"
 
-#: qml/GlobalSearchField.qml:115 qml/SearchBar.qml:58
+#: qml/GlobalSearchField.qml:116 qml/SearchBar.qml:58
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "進階搜尋選項"
 
-#: qml/GlobalSearchField.qml:149 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:150 qml/SearchBar.qml:119
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "搜尋偏好設定"
 
-#: qml/GlobalSearchField.qml:153 qml/SearchBar.qml:123
+#: qml/GlobalSearchField.qml:154 qml/SearchBar.qml:123
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
