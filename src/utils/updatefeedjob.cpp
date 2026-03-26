@@ -180,7 +180,7 @@ void UpdateFeedJob::processFeed(Syndication::FeedPtr feed)
 
     // retrieve feed authors
     QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
-    query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feeduid=:feed;"));
+    query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), m_feed.feeduid);
     dbExecute(query);
     while (query.next()) {
