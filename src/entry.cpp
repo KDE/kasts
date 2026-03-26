@@ -356,7 +356,7 @@ QString Entry::adjustedContent(int width, int fontSize)
         QUrl linkUrl = QUrl(m_link);
 
         if (imgSrcUrl.host().isEmpty()) {
-            if (false) { // TODO: only for debugging; remove later (!linkUrl.authority().isEmpty()) {
+            if (!linkUrl.authority().isEmpty()) {
                 // if no host is set, then transplant the scheme and authority from
                 // the episode link url; it's a wild guess, but it will keep qt from
                 // trying to get it from the local resources and crashing
