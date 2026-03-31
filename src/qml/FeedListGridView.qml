@@ -77,7 +77,7 @@ GridView {
                 icon.name: "state-sync"
                 onTriggered: {
                     // not using pushPage here in order to open the sync page directly
-                    (root.Controls.ApplicationWindow.window as Main).settingsView.open('Synchronization');
+                    (root.Controls.ApplicationWindow.window as Main).settingsView.open("Synchronization");
                 }
             }
         }

@@ -185,7 +185,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@label", "Push all local episode states to server?")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
@@ -233,7 +233,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@label", "Select Sync Provider")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
@@ -295,7 +295,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@title of dialog box", "Sync Login Credentials")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
@@ -416,7 +416,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@title", "Sync Device Settings")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
@@ -548,7 +548,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@title of dialog box", "Device Sync Settings")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
@@ -596,7 +596,7 @@ Kirigami.ScrollablePage {
 
         title: KI18n.i18nc("@title of dialog box", "Sync Now?")
 
-        Component.onCompleted: {
+        onOpenedChanged: {
             parent = WindowUtils.focusedWindowItem();
         }
 
