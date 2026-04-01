@@ -128,7 +128,7 @@ msgstr ""
 #: kmediasession/example-app/qml/Main.qml:95
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "打开"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
 #: qml/Desktop/DesktopPlayerControls.qml:133 qml/GenericEntryDelegate.qml:367
@@ -145,12 +145,12 @@ msgstr "暂停"
 #: kmediasession/example-app/qml/Main.qml:119 qml/SleepTimerDialog.qml:44
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: kmediasession/example-app/qml/Main.qml:149
 #, kde-format
 msgid "Mute"
-msgstr ""
+msgstr "静音"
 
 #: kmediasession/example-app/qml/Main.qml:187
 #, kde-format
@@ -187,7 +187,7 @@ msgstr "错误：%1"
 #, kde-format
 msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
-msgstr ""
+msgstr "正在播放媒体"
 
 #: main.cpp:131
 #, kde-format
@@ -251,37 +251,37 @@ msgstr "未播放的单集："
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
-msgstr ""
+msgstr "标记为“新”的单集"
 
 #: models/abstractepisodeproxymodel.cpp:189
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
-msgstr ""
+msgstr "未标为“新”的单集"
 
 #: models/abstractepisodeproxymodel.cpp:191
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
-msgstr ""
+msgstr "标记为收藏的剧集"
 
 #: models/abstractepisodeproxymodel.cpp:193
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
-msgstr ""
+msgstr "未标为收藏的剧集"
 
 #: models/abstractepisodeproxymodel.cpp:203
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: models/abstractepisodeproxymodel.cpp:205
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: models/abstractepisodeproxymodel.cpp:207
 #, kde-format
@@ -476,19 +476,19 @@ msgstr "显示更多"
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
-msgstr ""
+msgstr "章节"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
-msgstr ""
+msgstr "显示信息"
 
 #: qml/Desktop/DesktopPlayerControls.qml:357
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
-msgstr ""
+msgstr "睡眠定时"
 
 #: qml/Desktop/DesktopPlayerControls.qml:390
 #, kde-format
@@ -499,13 +499,13 @@ msgstr "章节"
 #: qml/Mobile/MobilePlayerControls.qml:182
 #, kde-format
 msgid "No Episode Title"
-msgstr ""
+msgstr "单集无标题"
 
 #: qml/Desktop/DesktopPlayerControls.qml:415 qml/Desktop/HeaderBar.qml:125
 #: qml/Mobile/MobilePlayerControls.qml:192
 #, kde-format
 msgid "No episode loaded"
-msgstr ""
+msgstr "未加载单集"
 
 #: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:87
 #, kde-format
@@ -555,19 +555,19 @@ msgstr "暂无下载"
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
-msgstr ""
+msgstr "下载中"
 
 #: qml/DownloadListPage.qml:76
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
-msgstr ""
+msgstr "未完成的下载"
 
 #: qml/DownloadListPage.qml:76
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
-msgstr ""
+msgstr "已下载"
 
 #: qml/DownloadListPage.qml:76
 #, kde-format
@@ -579,37 +579,37 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Episode Details"
-msgstr ""
+msgstr "单集详情"
 
 #: qml/EntryPage.qml:110
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
-msgstr ""
+msgstr "用浏览器打开"
 
 #: qml/EntryPage.qml:118
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #: qml/EntryPage.qml:127
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
-msgstr ""
+msgstr "取消下载"
 
 #: qml/EntryPage.qml:135
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
-msgstr ""
+msgstr "暂停"
 
 #: qml/EntryPage.qml:143
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: qml/EntryPage.qml:152
 #, kde-format
@@ -617,25 +617,25 @@ msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
 "than downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "流式播放"
 
 #: qml/EntryPage.qml:164
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
-msgstr ""
+msgstr "加入播放队列"
 
 #: qml/EntryPage.qml:164
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
-msgstr ""
+msgstr "从播放队列中移除"
 
 #: qml/EntryPage.qml:180
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
-msgstr ""
+msgstr "删除下载"
 
 #: qml/EntryPage.qml:188
 #, kde-format
@@ -643,31 +643,31 @@ msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
 "start"
 msgid "Reset Play Position"
-msgstr ""
+msgstr "重置播放进度"
 
 #: qml/EntryPage.qml:194
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
-msgstr ""
+msgstr "标记为未播放"
 
 #: qml/EntryPage.qml:194
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
-msgstr ""
+msgstr "标记为已播放"
 
 #: qml/EntryPage.qml:201
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
-msgstr ""
+msgstr "移除“新”标记"
 
 #: qml/EntryPage.qml:201
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
-msgstr ""
+msgstr "标记为“新”"
 
 #: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:316
 #, kde-format
@@ -675,31 +675,31 @@ msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
 "episode"
 msgid "Remove from Favorites"
-msgstr ""
+msgstr "从收藏中移除"
 
 #: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:307
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
-msgstr ""
+msgstr "加入收藏"
 
 #: qml/EntryPage.qml:216
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr ""
+msgstr "打开播客"
 
 #: qml/EntryPage.qml:286
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
-msgstr ""
+msgstr "复制单集下载 URL"
 
 #: qml/EntryPage.qml:292
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
-msgstr ""
+msgstr "链接已复制"
 
 #: qml/EpisodeListPage.qml:21 qml/KastsGlobalDrawer.qml:107
 #: qml/Mobile/BottomToolbar.qml:44
@@ -713,7 +713,7 @@ msgstr "单集"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:334
 #, kde-format
@@ -734,13 +734,13 @@ msgstr "错误代码： "
 #, kde-format
 msgctxt "@title"
 msgid "Error Log"
-msgstr ""
+msgstr "错误日志"
 
 #: qml/ErrorListOverlay.qml:25
 #, kde-format
 msgctxt "@action:button"
 msgid "Clear All Errors"
-msgstr ""
+msgstr "清除所有错误"
 
 #: qml/ErrorNotification.qml:30
 #, kde-format
@@ -766,7 +766,7 @@ msgstr "刷新播客"
 #: qml/FeedDetailsPage.qml:180
 #, kde-format
 msgid "Show Details"
-msgstr ""
+msgstr "显示详情"
 
 #: qml/FeedDetailsPage.qml:246
 #, kde-format
@@ -814,7 +814,7 @@ msgstr "移除播客"
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr ""
+msgstr "尚未添加播客"
 
 #: qml/FeedListGridView.qml:34
 #, kde-format
@@ -822,50 +822,50 @@ msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr ""
+msgstr "未找到播客"
 
 #: qml/FeedListGridView.qml:35
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr ""
+msgstr "从添加播客开始："
 
 #: qml/FeedListGridView.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Online"
-msgstr ""
+msgstr "在线搜索"
 
 #: qml/FeedListGridView.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr ""
+msgstr "同步"
 
 #: qml/FeedListGridView.qml:215
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
-msgstr ""
+msgstr "全部选中"
 
 #: qml/FeedListGridView.qml:224
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
-msgstr ""
+msgstr "全部不选"
 
 #: qml/FeedListGridView.qml:233
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] ""
+msgstr[0] "移除播客"
 
 #: qml/FeedListGridView.qml:257
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
-msgstr ""
+msgstr "播客详情"
 
 #: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:97
 #: qml/Mobile/BottomToolbar.qml:36
@@ -878,7 +878,7 @@ msgstr "订阅"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr ""
+msgstr "刷新所有播客"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
@@ -902,55 +902,55 @@ msgstr "选择如何排序订阅"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr ""
+msgstr "导入播客中..."
 
 #: qml/FeedListPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr ""
+msgstr "导出播客中..."
 
 #: qml/FeedListPage.qml:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr ""
+msgstr "导入播客"
 
 #: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
-msgstr ""
+msgstr "OPML 文件 (*.opml)"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
-msgstr ""
+msgstr "XML 文件 (*.xml)"
 
 #: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
-msgstr ""
+msgstr "所有文件(*)"
 
 #: qml/FeedListPage.qml:167
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr ""
+msgstr "导出播客"
 
 #: qml/FilterInlineMessage.qml:34
 #, kde-format
 msgctxt "@action:button Reset filters active on ListView"
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: qml/FilterInlineMessage.qml:43
 #, kde-format
 msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
-msgstr ""
+msgstr "起效过滤器：%1"
 
 #: qml/GenericEntryDelegate.qml:221
 #, kde-format
@@ -998,19 +998,19 @@ msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
 "downloading it first"
 msgid "Stream"
-msgstr ""
+msgstr "流式播放"
 
 #: qml/GenericEntryListView.qml:136
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
-msgstr ""
+msgstr "排序"
 
 #: qml/GenericEntryListView.qml:138
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
-msgstr ""
+msgstr "选择如何排序单集"
 
 #: qml/GenericEntryListView.qml:192
 #, kde-format
@@ -1018,13 +1018,13 @@ msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
 "status (played, new, etc.)"
 msgid "Filter"
-msgstr ""
+msgstr "过滤器"
 
 #: qml/GenericEntryListView.qml:194
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
-msgstr ""
+msgstr "按状态过滤单集"
 
 #: qml/GenericEntryListView.qml:238
 #, kde-format
@@ -1067,25 +1067,25 @@ msgstr[0] "删除下载"
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
-msgstr ""
+msgstr "无搜索结果"
 
 #: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:58
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
-msgstr ""
+msgstr "高级搜索选项"
 
 #: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
-msgstr ""
+msgstr "搜索首选项"
 
 #: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:123
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr ""
+msgstr "搜索范围："
 
 #: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:28
 #: qml/QueuePage.qml:19
@@ -1125,7 +1125,7 @@ msgstr "使用计费连接时不允许下载播客"
 #: qml/Mobile/MobilePlayerControls.qml:30
 #, kde-format
 msgid "No Episode Loaded"
-msgstr ""
+msgstr "未加载单集"
 
 #: qml/Mobile/MobilePlayerControls.qml:152
 #, kde-format
@@ -1135,91 +1135,91 @@ msgstr "无标题"
 #: qml/Mobile/MobilePlayerControls.qml:160
 #, kde-format
 msgid "No podcast title"
-msgstr ""
+msgstr "无播客标题"
 
 #: qml/Mobile/MobilePlayerControls.qml:226
 #, kde-format
 msgid "No chapters found"
-msgstr ""
+msgstr "未找到章节"
 
 #: qml/PlaybackRateCustomizerDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Playback Rate Presets"
-msgstr ""
+msgstr "播放速率预设"
 
 #: qml/PlaybackRateCustomizerDialog.qml:59
 #, kde-format
 msgctxt "@info Label for controls to add new playback rate preset"
 msgid "New Preset:"
-msgstr ""
+msgstr "新的预设："
 
 #: qml/PlaybackRateCustomizerDialog.qml:71
 #, kde-format
 msgctxt "@action:button Add new playback rate value to list"
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: qml/PlaybackRateCustomizerDialog.qml:74
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add new playback rate value to list"
-msgstr ""
+msgstr "在列表中添加新的播放速率值"
 
 #: qml/PlaybackRateCustomizerDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease playback rate"
-msgstr ""
+msgstr "减缓播放速率"
 
 #: qml/PlaybackRateCustomizerDialog.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase playback rate"
-msgstr ""
+msgstr "加快播放速率"
 
 #: qml/PlaybackRateCustomizerDialog.qml:133
 #, kde-format
 msgctxt "@title:group List of custom playback rates"
 msgid "Current Presets:"
-msgstr ""
+msgstr "当前预设："
 
 #: qml/PlaybackRateMenu.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Playback Rate"
-msgstr ""
+msgstr "选择播放速率"
 
 #: qml/PlaybackRateMenu.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Customize"
-msgstr ""
+msgstr "自定义"
 
 #: qml/QueuePage.qml:77
 #, kde-format
 msgctxt "@info:progress"
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
-msgstr[0] ""
+msgstr[0] "%1 个单集"
 
 #: qml/QueuePage.qml:77
 #, kde-format
 msgctxt "@info:progress"
 msgid "Time Left"
-msgstr ""
+msgstr "剩余时间"
 
 #: qml/QueuePage.qml:92
 #, kde-format
 msgctxt "@info"
 msgid "Queue is empty"
-msgstr ""
+msgstr "播放列表为空"
 
 #: qml/SearchBar.qml:45
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr ""
+msgstr "搜索单集中..."
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
 #, kde-format
@@ -1275,7 +1275,7 @@ msgstr "订阅视图总是显示播客标题"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr "在列表中显示剧集图像而不是播客图像"
+msgstr "在列表中显示单集封面而非播客封面"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
@@ -1293,37 +1293,37 @@ msgstr "托盘图标"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
-msgstr ""
+msgstr "在系统托盘上显示图标"
 
 #: qml/Settings/AppearanceSettingsPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
-msgstr ""
+msgstr "最小化到托盘而非关闭"
 
 #: qml/Settings/AppearanceSettingsPage.qml:139
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
-msgstr ""
+msgstr "托盘图标类型"
 
 #: qml/Settings/AppearanceSettingsPage.qml:146
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
-msgstr ""
+msgstr "彩色"
 
 #: qml/Settings/AppearanceSettingsPage.qml:150
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
-msgstr ""
+msgstr "亮色"
 
 #: qml/Settings/AppearanceSettingsPage.qml:154
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "暗色"
 
 #: qml/Settings/AppearanceSettingsPage.qml:167
 #, kde-format
@@ -1341,7 +1341,7 @@ msgstr "使用系统默认值"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
-msgstr ""
+msgstr "字体大小"
 
 #: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:47
 #, kde-format
@@ -1359,13 +1359,13 @@ msgstr "清除全部"
 #, kde-format
 msgctxt "@title Form header for settings related to playback"
 msgid "Playback settings"
-msgstr ""
+msgstr "播放设置"
 
 #: qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
 msgctxt "@label:listbox Label for setting to select audio playback backend"
 msgid "Select audio backend"
-msgstr ""
+msgstr "选择音频后端"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
 #, kde-format
@@ -1373,7 +1373,7 @@ msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr ""
+msgstr "显示剩余时间而非单集总时长"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
