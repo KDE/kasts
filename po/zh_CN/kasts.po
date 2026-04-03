@@ -1379,7 +1379,7 @@ msgstr "显示剩余时间而非单集总时长"
 #, kde-format
 msgctxt "@option:check"
 msgid "Adjust time left based on current playback speed"
-msgstr ""
+msgstr "根据当前播放速率调整剩余时间"
 
 #: qml/Settings/GeneralSettingsPage.qml:83
 #, kde-format
@@ -1391,13 +1391,13 @@ msgstr "比起下载更倾向于流媒体播放"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
-msgstr ""
+msgstr "快进间隔（秒）"
 
 #: qml/Settings/GeneralSettingsPage.qml:109
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
-msgstr ""
+msgstr "快退间隔（秒）"
 
 #: qml/Settings/GeneralSettingsPage.qml:124
 #, kde-format
@@ -1446,25 +1446,25 @@ msgstr "启动时获取播客更新"
 #, kde-format
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
-msgstr ""
+msgstr "刷新时更新现有单集数据（更慢）"
 
 #: qml/Settings/GeneralSettingsPage.qml:205
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
-msgstr ""
+msgstr "自动将新单集加入播放队列"
 
 #: qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
-msgstr ""
+msgstr "自动下载新单集"
 
 #: qml/Settings/GeneralSettingsPage.qml:231
 #, kde-format
 msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
-msgstr ""
+msgstr "播放队列设置"
 
 #: qml/Settings/GeneralSettingsPage.qml:241
 #, kde-format
@@ -1476,31 +1476,31 @@ msgstr "当前剧集播放完成后，继续播放下一剧集"
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
-msgstr ""
+msgstr "单集播放后重置播放位置"
 
 #: qml/Settings/GeneralSettingsPage.qml:270
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
-msgstr ""
+msgstr "已播放单集行为"
 
 #: qml/Settings/GeneralSettingsPage.qml:275
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
-msgstr ""
+msgstr "不要删除"
 
 #: qml/Settings/GeneralSettingsPage.qml:279
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
-msgstr ""
+msgstr "立即删除"
 
 #: qml/Settings/GeneralSettingsPage.qml:283
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
-msgstr ""
+msgstr "下一次启动时删除"
 
 #: qml/Settings/GeneralSettingsPage.qml:301
 #, kde-format
