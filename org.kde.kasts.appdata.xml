@@ -504,6 +504,7 @@
           <li xml:lang="ca">S'han corregit fallades ocasionals en actualitzar pòdcasts després que l'aplicació estigui oberta durant un temps.</li>
           <li xml:lang="ca-valencia">S'han corregit fallades ocasionals en actualitzar pòdcast després que l'aplicació estiga oberta durant un temps.</li>
           <li xml:lang="cs">Opraveny občasné pády při aktualizaci podcastů po delším otevření aplikace.</li>
+          <li xml:lang="es">Se han corregido los fallos ocasionales que se producían al actualizar los pódcast después de que la aplicación llevara un tiempo abierta.</li>
           <li xml:lang="fr">Correction de plantages occasionnels lors de la mise à jour des podcasts après le maintien ouvert de l'application pendant un certain temps.</li>
           <li xml:lang="he">תוקנו קריסות שקרו מדי פעם בפעם בעת עדכון הסכתים לאחר שהיישום היה פתוח במשך זמן מה.</li>
           <li xml:lang="ia">Corrigite fracassos occasional quando il actualisa podcasts post que un app ha essite aperite per alcun tempore. </li>
@@ -520,6 +521,7 @@
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
           <li xml:lang="cs">Opravena chyba způsobující pád aplikace při resetování časovače spánku.</li>
+          <li xml:lang="es">Se ha corregido un error que provocaba un fallo al reiniciar el temporizador de suspensión.</li>
           <li xml:lang="fr">Correction d'un plantage survenant lors de la réinitialisation du minuteur de veille.</li>
           <li xml:lang="he">תוקנה קריסה שהתרחשה בעת איפוס קוצב זמן השינה.</li>
           <li xml:lang="ia">Corrigite un fracasso occurrente quando reinitialisante le temporisator de dormir.</li>
@@ -536,6 +538,7 @@
           <li xml:lang="ca">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="ca-valencia">S'ha corregit la funcionalitat d'ordenació a les llistes d'episodis.</li>
           <li xml:lang="cs">Opravena funkce řazení v seznamech epizod.</li>
+          <li xml:lang="es">Se ha corregido la funcionalidad del orden de la lista de episodios.</li>
           <li xml:lang="fr">Correction du fonctionnement de l'ordre de tri dans les listes d'épisodes.</li>
           <li xml:lang="he">תוקנה יכולת מיון הפרקים ברשימות.</li>
           <li xml:lang="ia">Corrigite leordine de ordinar functionalitate sur listas de episodios.</li>
@@ -552,6 +555,7 @@
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="cs">Opraveny vizuální chyby v hlavičkovém obrázku a v seznamu odběrů.</li>
+          <li xml:lang="es">Se han corregido defectos visuales en la imagen de la cabecera y en la lista de suscripciones.</li>
           <li xml:lang="fr">Correction des problèmes visuels dans l'image d'en-tête et dans la liste d'abonnements.</li>
           <li xml:lang="he">תוקנו פגמים חזותיים בתמונת הכותרת וברשימת המינויים.</li>
           <li xml:lang="ia">Corrigite defectos visual in le imagine capite e in le lista de subscriptiones.</li>
@@ -586,6 +590,7 @@
         <p xml:lang="ca">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="ca-valencia">El més destacat dels canvis a la 24.02.0:</p>
         <p xml:lang="cs">Hlavní změny ve verzi 24.02.0:</p>
+        <p xml:lang="es">Puntos destacados de los cambios de la versión 24.02.0:</p>
         <p xml:lang="fr">Principales modifications dans la version 24.02.0 :</p>
         <p xml:lang="he">השינויים העיקריים ב־24.02.0:</p>
         <p xml:lang="ia">Punctos in evidentia de cambiamentos in 24.02.0:</p>
@@ -603,6 +608,7 @@
           <li xml:lang="ca">El Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="ca-valencia">Kasts s'ha adaptat a les Qt6 i als Frameworks 6 de KDE.</li>
           <li xml:lang="cs">Kasts byl portován na Qt6 a KDE Frameworks 6.</li>
+          <li xml:lang="es">Kasts se ha portado a Qt6 y KDE Frameworks 6.</li>
           <li xml:lang="fr">Kasts a été porté sur Qt6 et l'environnement de développement de KDE en version 6.</li>
           <li xml:lang="he">היישום Kasts הוסב ל־Qt6 ולתשתיות KDE‏ 6.</li>
           <li xml:lang="ia">Kasts ha essite porteta a Qt6 e KDE Framework 6.</li>
@@ -619,6 +625,7 @@
           <li xml:lang="ca">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="ca-valencia">L'esquema de color ara es pot seleccionar manualment.</li>
           <li xml:lang="cs">Barevné schéma lze nyní vybrat ručně.</li>
+          <li xml:lang="es">El esquema de color se puede seleccionar ahora manualmente.</li>
           <li xml:lang="fr">Le thème de couleurs peut maintenant être sélectionné manuellement.</li>
           <li xml:lang="he">אפשר לבחור את ערכת הצבעים ידנית מעתה.</li>
           <li xml:lang="ia">Le schema de color pote nunc esser selectionate manualmente.</li>
@@ -635,6 +642,7 @@
           <li xml:lang="ca">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="ca-valencia">S'han corregit diversos errors relacionats amb les imatges i els controls de reproducció.</li>
           <li xml:lang="cs">Opraveno několik chyb souvisejících s obrázky a ovládacími prvky přehrávání.</li>
+          <li xml:lang="es">Se han corregido varios fallos relacionados con imágenes y con los controles de reproducción.</li>
           <li xml:lang="fr">Correction de plusieurs bogues liés aux images et aux contrôles de lecture.</li>
           <li xml:lang="he">מגוון תקלות שקשורות בפקדי תמונות ונגינה תוקנו.</li>
           <li xml:lang="ia">Corrigite multe faltas affin a imagines e controlos de reproduction (playback).</li>
