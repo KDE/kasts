@@ -163,20 +163,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Loader {
-        id: footerShadowLoader
-        active: bottomToolbarLoader.active && !footerLoader.active
-        anchors.fill: bottomToolbarLoader
-
-        sourceComponent: MultiEffect {
-            source: bottomToolbarLoader
-            shadowEnabled: true
-            shadowScale: 1.1
-            blurMax: 10
-            shadowColor: Qt.rgba(0.0, 0.0, 0.0, 0.1)
-        }
-    }
-
     footer: Loader {
         id: bottomToolbarLoader
         visible: active

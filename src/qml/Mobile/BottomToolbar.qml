@@ -16,7 +16,6 @@ Kirigami.NavigationTabBar {
     id: root
     position: Controls.ToolBar.Footer
 
-    property alias toolbarHeight: root.implicitHeight
     property var mymain: Controls.ApplicationWindow.window as Main
 
     // Keep track of the settings page being opened on the layer stack for mobile
