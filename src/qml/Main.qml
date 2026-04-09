@@ -106,7 +106,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || WindowUtils.isWidescreen
+    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || Utils.isWidescreen
 
     globalDrawer: globalDrawerLoader.item as globalDrawer
 
@@ -137,8 +137,8 @@ Kirigami.ApplicationWindow {
         id: headerLoader
         active: !Kirigami.Settings.isMobile
         visible: active
-        anchors.left: qtAbove69 ? parent.left : undefined
-        anchors.right: qtAbove69 ? parent.right : undefined
+        anchors.left: Utils.qtAbove69 ? parent.left : undefined
+        anchors.right: Utils.qtAbove69 ? parent.right : undefined
 
         sourceComponent: HeaderBar {
             focus: true
@@ -167,7 +167,7 @@ Kirigami.ApplicationWindow {
         id: bottomToolbarLoader
         visible: active
         height: visible ? implicitHeight : 0
-        active: Kirigami.Settings.isMobile && !WindowUtils.isWidescreen
+        active: Kirigami.Settings.isMobile && !Utils.isWidescreen
         sourceComponent: BottomToolbar {
             visible: opacity > 0
             opacity: (!footerLoader.item || (footerLoader.item as Flickable).contentY === 0) ? 1 : 0

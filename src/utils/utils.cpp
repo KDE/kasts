@@ -1,27 +1,42 @@
 // SPDX-FileCopyrightText: 2025 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
-#include "windowutils.h"
+#include "utils.h"
 
 #include <QGuiApplication>
+#include <QQuickStyle>
 #include <QQuickWindow>
 #include <QWindow>
 
-WindowUtils::WindowUtils()
+Utils::Utils()
     : QObject(nullptr)
 {
     auto allWindows = QGuiApplication::allWindows();
     m_window = allWindows[0];
-    connect(m_window, &QWindow::widthChanged, this, &WindowUtils::isWidescreenChanged);
-    connect(m_window, &QWindow::heightChanged, this, &WindowUtils::isWidescreenChanged);
+    connect(m_window, &QWindow::widthChanged, this, &Utils::isWidescreenChanged);
+    connect(m_window, &QWindow::heightChanged, this, &Utils::isWidescreenChanged);
 }
 
-bool WindowUtils::isWidescreen() const
+bool Utils::isWidescreen() const
 {
     return m_window->width() > m_window->height();
 }
 
-QQuickItem *WindowUtils::focusedWindowItem()
+bool Utils::qtAbove69() const
+{
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+    return true;
+#else
+    return false;
+#endif
+}
+
+QString Utils::styleName() const
+{
+    return QQuickStyle::name();
+}
+
+QQuickItem *Utils::focusedWindowItem()
 {
     const auto window = qobject_cast<QQuickWindow *>(QGuiApplication::focusWindow());
     if (window) {

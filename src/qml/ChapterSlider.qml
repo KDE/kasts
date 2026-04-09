@@ -35,7 +35,7 @@ Control {
     }
 
     // align with the Slider implementations in the major styles
-    readonly property bool desktopStyle: styleName === "org.kde.desktop"
+    readonly property bool desktopStyle: Utils.styleName === "org.kde.desktop"
     readonly property color inactiveGrooveColor: desktopStyle ? Kirigami.ColorUtils.scaleColor(inactiveGrooveBorderColor, {
         alpha: -50
     }) : Kirigami.Theme.backgroundColor

@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
 
             Controls.Button {
                 id: searchButton
-                text: WindowUtils.isWidescreen ? KI18n.i18n("Search") : ""
+                text: Utils.isWidescreen ? KI18n.i18n("Search") : ""
                 icon.name: "search"
                 onClicked: {
                     podcastSearchModel.search(textField.text);

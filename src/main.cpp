@@ -117,16 +117,6 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
 
-    // pass name of style to qml
-    engine.rootContext()->setContextProperty(QStringLiteral("styleName"), QQuickStyle::name());
-
-    // pass to qml whether qt version is higher or equal to 6.9
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
-    engine.rootContext()->setContextProperty(QStringLiteral("qtAbove69"), true);
-#else
-    engine.rootContext()->setContextProperty(QStringLiteral("qtAbove69"), false);
-#endif
-
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Podcast Application"));
     QCommandLineOption addFeedOption(QStringList() << QStringLiteral("a") << QStringLiteral("add"),

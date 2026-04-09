@@ -25,7 +25,7 @@ add_executable(kasts
     utils/networkaccessmanager.cpp
     utils/networkconnectionmanager.cpp
     utils/colorschemer.cpp
-    utils/windowutils.cpp
+    utils/utils.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
     models/chaptermodel.cpp
