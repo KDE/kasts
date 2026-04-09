@@ -19,7 +19,7 @@ import org.kde.ki18n
 import org.kde.kasts
 
 FocusScope {
-    id: headerBar
+    id: root
     height: headerMetaData.implicitHeight + desktopPlayerControls.implicitHeight
 
     property int handlePosition: settings.headerSize
@@ -29,9 +29,16 @@ FocusScope {
     property int authorCollapseHeight: Kirigami.Units.gridUnit * 4
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
+    property string image: AudioManager.entry ? ((root.desktopPlayerControls.chapterModel.currentChapter && root.desktopPlayerControls.chapterModel.currentChapter !== undefined) ? root.desktopPlayerControls.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+    property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
+    property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
+
+    property Item headerMetaData: _headerMetaData
+    property DesktopPlayerControls desktopPlayerControls: _desktopPlayerControls
+
     function openEntry(): void {
         if (AudioManager.entryuid > 0) {
-            var mainWindow = headerBar.Controls.ApplicationWindow.window as Main;
+            var mainWindow = root.Controls.ApplicationWindow.window as Main;
             mainWindow.pushPage("QueuePage");
             mainWindow.pageStack.get(0).lastEntry = AudioManager.entryuid;
             var model = mainWindow.pageStack.get(0).queueList.model;
@@ -51,10 +58,10 @@ FocusScope {
     function openFullScreenImage(): void {
         var options = {
             image: Qt.binding(function () {
-                return headerMetaData.image;
+                return root.image;
             }),
             description: Qt.binding(function () {
-                return headerMetaData.title;
+                return root.title;
             }),
             loader: Qt.binding(function () {
                 return fullScreenImageLoader;
@@ -71,12 +78,12 @@ FocusScope {
         anchors.fill: parent
         Kirigami.Theme.inherit: false
         Kirigami.Theme.colorSet: Kirigami.Theme.Header
-        color: headerBar.handlePosition > 0 ? "#727272" : Kirigami.Theme.backgroundColor // make sure to have a dark enough background in case image is transparent; color is what backgroundImageLoader produces with a white background as input
+        color: root.handlePosition > 0 ? "#727272" : Kirigami.Theme.backgroundColor // make sure to have a dark enough background in case image is transparent; color is what backgroundImageLoader produces with a white background as input
     }
 
     Loader {
         id: backgroundImageLoader
-        active: headerBar.handlePosition > 0
+        active: root.handlePosition > 0
         anchors.fill: parent
         sourceComponent: MultiEffect {
             source: backgroundImage
@@ -94,7 +101,7 @@ FocusScope {
                 id: backgroundImage
 
                 visible: GraphicsInfo.api === GraphicsInfo.Software
-                imageSource: headerMetaData.blurredImage
+                imageSource: root.blurredImage
                 imageResize: false // no "stuttering" on resizing the window
                 anchors.fill: parent
             }
@@ -109,35 +116,34 @@ FocusScope {
     }
 
     Item {
-        id: headerMetaData
+        id: _headerMetaData
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
 
-        opacity: height - headerBar.disappearHeight > Kirigami.Units.largeSpacing ? 1 : (height - headerBar.disappearHeight < 0 ? 0 : (height - headerBar.disappearHeight) / Kirigami.Units.largeSpacing)
+        opacity: height - root.disappearHeight > Kirigami.Units.largeSpacing ? 1 : (height - root.disappearHeight < 0 ? 0 : (height - root.disappearHeight) / Kirigami.Units.largeSpacing)
 
         visible: opacity === 0 ? false : true
 
-        // property string image: root.image
-        property string image: AudioManager.entry ? ((desktopPlayerControls.chapterModel.currentChapter && desktopPlayerControls.chapterModel.currentChapter !== undefined) ? desktopPlayerControls.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
-        property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
-        property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
+        property string image: root.image
+        property string blurredImage: root.blurredImage
+        property string title: root.title
         property string feed: AudioManager.entry ? AudioManager.entry.feed.name : KI18n.i18n("No episode loaded")
         property string authors: AudioManager.entry ? AudioManager.entry.feed.authors : ""
 
-        implicitHeight: headerBar.handlePosition
+        implicitHeight: root.handlePosition
         implicitWidth: parent.width
 
         RowLayout {
             property int margin: Kirigami.Units.gridUnit * 1
             anchors.fill: parent
             anchors.margins: margin
-            anchors.topMargin: parent.height > headerBar.minimumImageSize + 2 * margin ? margin : (parent.height - headerBar.minimumImageSize) / 2
-            anchors.bottomMargin: parent.height > headerBar.minimumImageSize + 2 * margin ? margin : (parent.height - headerBar.minimumImageSize) / 2
+            anchors.topMargin: parent.height > root.minimumImageSize + 2 * margin ? margin : (parent.height - root.minimumImageSize) / 2
+            anchors.bottomMargin: parent.height > root.minimumImageSize + 2 * margin ? margin : (parent.height - root.minimumImageSize) / 2
 
             ImageWithFallback {
                 id: frontImage
-                imageSource: headerMetaData.image
+                imageSource: _headerMetaData.image
                 Layout.fillHeight: true
                 Layout.preferredWidth: height
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 1.5
@@ -151,7 +157,7 @@ FocusScope {
                     cursorShape: AudioManager.entryuid > 0 ? Qt.PointingHandCursor : Qt.ArrowCursor
                     enabled: AudioManager.entryuid > 0
                     onClicked: {
-                        headerBar.openFullScreenImage();
+                        root.openFullScreenImage();
                     }
                 }
             }
@@ -165,7 +171,7 @@ FocusScope {
                 Controls.Label {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    text: headerMetaData.title
+                    text: _headerMetaData.title
                     fontSizeMode: Text.Fit
                     font.pointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.4)
                     minimumPointSize: Math.round(Kirigami.Theme.defaultFont.pointSize * 1.1)
@@ -179,15 +185,15 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            headerBar.openEntry();
+                            root.openEntry();
                         }
                     }
                 }
 
                 Controls.Label {
-                    visible: labelLayout.height > headerBar.subtitleCollapseHeight
+                    visible: labelLayout.height > root.subtitleCollapseHeight
                     Layout.fillWidth: true
-                    text: headerMetaData.feed
+                    text: _headerMetaData.feed
                     fontSizeMode: Text.Fit
                     font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
                     minimumPointSize: Kirigami.Theme.defaultFont.pointSize
@@ -199,15 +205,15 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            (headerBar.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
+                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
                         }
                     }
                 }
 
                 Controls.Label {
-                    visible: headerMetaData.authors && labelLayout.height > headerBar.authorCollapseHeight
+                    visible: _headerMetaData.authors && labelLayout.height > root.authorCollapseHeight
                     Layout.fillWidth: true
-                    text: headerMetaData.authors
+                    text: _headerMetaData.authors
                     fontSizeMode: Text.Fit
                     font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
                     minimumPointSize: Kirigami.Theme.defaultFont.pointSize
@@ -219,7 +225,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            (headerBar.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
+                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
                         }
                     }
                 }
@@ -228,16 +234,17 @@ FocusScope {
     }
 
     DesktopPlayerControls {
-        id: desktopPlayerControls
+        id: _desktopPlayerControls
+        anchors.top: root.headerMetaData.bottom
+        anchors.bottom: root.bottom
+        anchors.left: root.left
+        anchors.right: root.right
 
-        anchors.top: headerMetaData.bottom
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
+        headerBar: root as HeaderBar
 
         onHandlePositionChanged: (y, offset) => {
-            headerBar.handlePosition = Math.max(0, Math.min(headerBar.maximumHeight, headerBar.height - implicitHeight - offset + y));
-            settings.headerSize = headerBar.handlePosition;
+            root.handlePosition = Math.max(0, Math.min(root.maximumHeight, root.height - implicitHeight - offset + y));
+            settings.headerSize = root.handlePosition;
         }
     }
 

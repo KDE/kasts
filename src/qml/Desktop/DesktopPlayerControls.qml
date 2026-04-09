@@ -22,6 +22,7 @@ FocusScope {
     id: root
     implicitHeight: playerControlToolBar.implicitHeight + Kirigami.Units.largeSpacing * 2
 
+    property HeaderBar headerBar: undefined
     property alias chapterModel: chapterModel
     /*
      * Emmited when User uses the Item as a handle to resize the layout.
@@ -88,7 +89,7 @@ FocusScope {
         Loader {
             Layout.fillHeight: true
             Layout.preferredWidth: height
-            active: headerBar.handlePosition === 0
+            active: (root.headerBar as HeaderBar).handlePosition === 0
             visible: active
             sourceComponent: imageComponent
         }
@@ -97,15 +98,15 @@ FocusScope {
             id: imageComponent
             ImageWithFallback {
                 id: frontImage
-                imageSource: headerMetaData.image
+                imageSource: (root.headerBar as HeaderBar).image
                 absoluteRadius: Kirigami.Units.smallSpacing
-                visible: headerBar.handlePosition === 0
+                visible: (root.headerBar as HeaderBar).handlePosition === 0
                 MouseArea {
                     anchors.fill: parent
                     cursorShape: AudioManager.entryuid > 0 ? Qt.PointingHandCursor : Qt.ArrowCursor
                     enabled: AudioManager.entryuid > 0
                     onClicked: {
-                        headerBar.openFullScreenImage();
+                        root.headerBar.openFullScreenImage();
                     }
                 }
             }
@@ -335,7 +336,7 @@ FocusScope {
     // Actions which will be used to create buttons on toolbar or in overflow menu
     Kirigami.Action {
         id: chapterAction
-        property bool visible: AudioManager.entryuid > 0 && chapterList.count !== 0
+        visible: AudioManager.entryuid > 0 && chapterList.count !== 0
         text: KI18n.i18nc("@action:button", "Chapters")
         icon.name: "view-media-playlist"
         onTriggered: chapterOverlay.open()
@@ -343,7 +344,7 @@ FocusScope {
 
     Kirigami.Action {
         id: infoAction
-        property bool visible: AudioManager.entryuid > 0
+        visible: AudioManager.entryuid > 0
         text: KI18n.i18nc("@action:button", "Show Info")
         icon.name: "documentinfo"
         onTriggered: entryDetailsOverlay.open()
@@ -353,7 +354,7 @@ FocusScope {
         id: sleepAction
         checkable: true
         checked: AudioManager.remainingSleepTime > 0
-        property bool visible: true
+        visible: true
         text: KI18n.i18nc("@action:button", "Sleep Timer")
         icon.name: "clock"
         onTriggered: {
