@@ -121,6 +121,7 @@
     <p xml:lang="pt-BR">O Kasts é um aplicativo de podcast convergente que fica bem no computadore no celular.</p>
     <p xml:lang="ru">Kasts — универсальное приложение для прослушивания подкастов, которое одинаково хорошо выглядит на компьютерах и мобильных устройствах.</p>
     <p xml:lang="sa">कास्ट्स् इति एकः अभिसरणीयः पोड्कास्ट् अनुप्रयोगः अस्ति यः डेस्कटॉप् तथा मोबाईल् इत्यत्र उत्तमं दृश्यते ।</p>
+    <p xml:lang="sk">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="sl">Kasts je konvergentni program za spletne oddaje za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
     <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
@@ -154,6 +155,7 @@
     <p xml:lang="pt-BR">Seus principais recursos são:</p>
     <p xml:lang="ru">Основные возможности:</p>
     <p xml:lang="sa">अस्य मुख्यविशेषताः सन्ति :</p>
+    <p xml:lang="sk">Its main features are:</p>
     <p xml:lang="sl">Njegove glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
     <p xml:lang="tr">Temel özellikleri:</p>
@@ -187,6 +189,7 @@
       <li xml:lang="pt-BR">Gerenciamento de episódios por meio da fila de reprodução</li>
       <li xml:lang="ru">Управление выпусками с помощью очереди воспроизведения</li>
       <li xml:lang="sa">प्ले कतारद्वारा प्रकरणप्रबन्धनम्</li>
+      <li xml:lang="sk">Episode management through play queue</li>
       <li xml:lang="sl">Upravljanje z epizodami prek čakalne vrste predvajanj</li>
       <li xml:lang="sv">Avsnittshantering via uppspelningskö</li>
       <li xml:lang="tr">Çalma kuyruğu üzerinden bölüm yönetimi</li>
@@ -219,6 +222,7 @@
       <li xml:lang="pt-BR">Sincronize as posições de reprodução com outros clientes por meio do gpodder.net ou gpodder-nextcloud</li>
       <li xml:lang="ru">Синхронизация позиций воспроизведения с другими клиентами с помощью gpodder.net или gpodder-nextcloud</li>
       <li xml:lang="sa">gpodder.net अथवा gpodder-nextcloud इत्यस्य माध्यमेन अन्यैः क्लायन्ट्-सहितं प्लेबैक्-स्थानानि समन्वययन्तु</li>
+      <li xml:lang="sk">Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
       <li xml:lang="sl">Usklajevanje položajev predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
       <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
@@ -252,6 +256,7 @@
       <li xml:lang="pt-BR">Velocidade de reprodução variável</li>
       <li xml:lang="ru">Регулируемая скорость воспроизведения</li>
       <li xml:lang="sa">चर प्लेबैकवेग</li>
+      <li xml:lang="sk">Variable playback speed</li>
       <li xml:lang="sl">Spremenljiva hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
       <li xml:lang="tr">Değişken çalma hızı</li>
@@ -285,6 +290,7 @@
       <li xml:lang="pt-BR">Pesquisar podcasts</li>
       <li xml:lang="ru">Поиск подкастов</li>
       <li xml:lang="sa">पोड्कास्ट् अन्वेष्टुम्</li>
+      <li xml:lang="sk">Search for podcasts</li>
       <li xml:lang="sl">Iskanje spletnih oddaj</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
       <li xml:lang="tr">Pod yayını arama</li>
@@ -317,6 +323,7 @@
       <li xml:lang="pt-BR">Integração total do sistema: por exemplo, inibir a suspensão do sistema durantea audição</li>
       <li xml:lang="ru">Полная интеграция с системой: например, запрет перехода в состояние ожидания во время прослушивания</li>
       <li xml:lang="sa">पूर्णप्रणालीसमायोजनम् : उदा. शृण्वन् प्रणाली निलम्बनं निरुध्यते</li>
+      <li xml:lang="sk">Full system integration: e.g. inhibit system suspend while listening</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
       <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu engelleme</li>
@@ -365,6 +372,7 @@
       <caption xml:lang="pt-BR">Kasts na área de trabalho com a barra de título padrão</caption>
       <caption xml:lang="ru">Kasts на компьютере со стандартной строкой заголовка</caption>
       <caption xml:lang="sa">पूर्वनिर्धारितशीर्षकपट्ट्या सह डेस्कटॉप् मध्ये कास्ट्स्</caption>
+      <caption xml:lang="sk">Kasts on the desktop with default header bar</caption>
       <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
@@ -400,6 +408,7 @@
       <caption xml:lang="pt-BR">Kasts na área de trabalho com barra de título minimizada</caption>
       <caption xml:lang="ru">Kasts на компьютере с минимизированной строкой заголовка</caption>
       <caption xml:lang="sa">न्यूनतमशीर्षकपट्ट्या सह डेस्कटॉप् मध्ये कास्ट्स्</caption>
+      <caption xml:lang="sk">Kasts on the desktop with minimized header bar</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjenim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
@@ -437,6 +446,7 @@
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="ru">Kasts на телефоне</caption>
       <caption xml:lang="sa">एकस्मिन् दूरभाषे कास्ट्स्</caption>
+      <caption xml:lang="sk">Kasts on a phone</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
       <caption xml:lang="tr">Telefonda Kastlar</caption>
@@ -474,6 +484,7 @@
       <caption xml:lang="pt-BR">Controles do player móvel Kasts</caption>
       <caption xml:lang="ru">Элементы управления мобильного проигрывателя Kasts</caption>
       <caption xml:lang="sa">कास्ट्स् मोबाईल प्लेयर नियन्त्रणानि</caption>
+      <caption xml:lang="sk">Kasts mobile player controls</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
       <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
@@ -514,6 +525,7 @@
           <li xml:lang="nl">Opgelost: incidentele crashes bij het bijwerken van podcasts nadat de toepassing een tijdje open is geweest.</li>
           <li xml:lang="pt-BR">Corrigido um problema que causava travamentos ocasionais ao atualizar podcasts após o aplicativo estar aberto por um tempo.</li>
           <li xml:lang="ru">Исправлены периодические аварийные завершения при обновлении подкастов после длительной работы приложения;</li>
+          <li xml:lang="sk">Fixed occasional crashes when updating podcasts after app has been open for a while.</li>
           <li xml:lang="sl">Odpravljena občasna sesutja pri posodabljanju podkastov, potem ko je bila aplikacija nekaj časa odprta.</li>
           <li xml:lang="tr">Uygulama bir süre açık kaldıktan sonra pod yayınları güncellenirken ara sıra yaşanan çökmeler düzeltildi.</li>
           <li xml:lang="uk">Усунено рідкісні аварійні завершення роботи при оновленні трансляцій після того, як програма пропрацює певний час.</li>
@@ -531,6 +543,7 @@
           <li xml:lang="nl">Opgelost: een crash die optrad bij het resetten van de slaaptimer.</li>
           <li xml:lang="pt-BR">Corrigido um erro que causava o fechamento inesperado do jogo ao redefinir o temporizador de suspensão.</li>
           <li xml:lang="ru">Исправлено аварийное завершение при сбросе таймера сна;</li>
+          <li xml:lang="sk">Fixed a crash happening when resetting the sleep timer.</li>
           <li xml:lang="sl">Popravljena napaka, ki je povzročala sesutje pri ponastavitvi časovnika spanja.</li>
           <li xml:lang="tr">Uyku zamanlayıcısı sıfırlanırken oluşan bir çökme düzeltildi.</li>
           <li xml:lang="uk">Усунено аварійне завершення роботи при скиданні таймера присипляння.</li>
@@ -548,6 +561,7 @@
           <li xml:lang="nl">Opgelost: de sorteerfunctie in afleveringslijsten.</li>
           <li xml:lang="pt-BR">Corrigida a funcionalidade de ordenação nas listas de episódios.</li>
           <li xml:lang="ru">Исправлена сортировка списков эпизодов;</li>
+          <li xml:lang="sk">Fixed the sort order functionality on episode lists.</li>
           <li xml:lang="sl">Popravljena funkcionalnost vrstnega reda razvrščanja na seznamih epizod.</li>
           <li xml:lang="tr">Bölüm listelerindeki sıralama işlevi düzeltildi.</li>
           <li xml:lang="uk">Виправлено можливість зміни упорядкування у списках епізодів.</li>
@@ -565,6 +579,7 @@
           <li xml:lang="nl">Opgelost: visuele fouten in de kopafbeelding en de abonnementslijst.</li>
           <li xml:lang="pt-BR">Corrigidos problemas visuais na imagem do cabeçalho e na lista de assinaturas.</li>
           <li xml:lang="ru">Исправлены визуальные дефекты в изображении заголовка и в списке подписок;</li>
+          <li xml:lang="sk">Fixed visual glitches in the header image and in the subscription list.</li>
           <li xml:lang="sl">Popravljene vizualne napake v sliki glave in na seznamu naročnin.</li>
           <li xml:lang="tr">Başlık görselindeki ve abonelik listesindeki görsel bozukluklar düzeltildi.</li>
           <li xml:lang="uk">Виправлено візуальні недоліки у зображення заголовка та у списку підписок.</li>
@@ -601,6 +616,7 @@
         <p xml:lang="nl">Belangrijkste wijzigingen in versie 24.02.0:</p>
         <p xml:lang="pt-BR">Alterações em destaque na versão 24.02.0:</p>
         <p xml:lang="ru">Основные изменения в версии 24.02.0:</p>
+        <p xml:lang="sk">Highlights of changes in 24.02.0:</p>
         <p xml:lang="sl">Poudarki sprememb v različici 24.02.0:</p>
         <p xml:lang="tr">24.02.0 sürümündeki öne çıkan değişiklikler:</p>
         <p xml:lang="uk">Акценти змін у 24.02.0:</p>
@@ -619,6 +635,7 @@
           <li xml:lang="nl">Kasts is overgezet naar Qt6 en KDE Frameworks 6.</li>
           <li xml:lang="pt-BR">O Kasts foi portado para Qt6 e KDE Frameworks 6.</li>
           <li xml:lang="ru">Kasts перенесён на Qt6 и KDE Frameworks 6;</li>
+          <li xml:lang="sk">Kasts has been ported to Qt6 and KDE Frameworks 6.</li>
           <li xml:lang="sl">Kasts je bil prenesen na Qt6 in KDE Frameworks 6.</li>
           <li xml:lang="tr">Kastlar’ın Qt6 ve KDE Frameworks 6 geçişi yapıldı.</li>
           <li xml:lang="uk">Kasts портовано на Qt6 і KDE Frameworks 6.</li>
@@ -636,6 +653,7 @@
           <li xml:lang="nl">Het kleurenschema kan nu handmatig worden geselecteerd.</li>
           <li xml:lang="pt-BR">Agora é possível selecionar o esquema de cores manualmente.</li>
           <li xml:lang="ru">Цветовую схему теперь можно выбрать вручную;</li>
+          <li xml:lang="sk">The color scheme can now be selected manually.</li>
           <li xml:lang="sl">Barvno shemo je zdaj mogoče izbrati ročno.</li>
           <li xml:lang="tr">Renk şeması artık elle seçilebilir.</li>
           <li xml:lang="uk">Схему кольорів у новій версії можна вибирати вручну.</li>
@@ -653,6 +671,7 @@
           <li xml:lang="nl">Diverse fouten met betrekking tot afbeeldingen en afspeelbediening zijn opgelost.</li>
           <li xml:lang="pt-BR">Corrigidos diversos erros relacionados a imagens e controles de reprodução.</li>
           <li xml:lang="ru">Исправлены несколько ошибок, связанных с изображениями и элементами управления воспроизведением;</li>
+          <li xml:lang="sk">Fixed several bugs related to images and playback controls.</li>
           <li xml:lang="sl">Popravljenih več napak, povezanih s slikami in kontrolami predvajanja.</li>
           <li xml:lang="tr">Görseller ve dinleme denetimleriyle ilgili çeşitli hatalar düzeltildi.</li>
           <li xml:lang="uk">Виправлено декілька вад, пов'язаних із зображеннями та керуванням відтворенням.</li>
@@ -670,6 +689,7 @@
           <li xml:lang="nl">Netwerkcontroles voor verbindingen met datalimiet kunnen nu volledig worden uitgeschakeld.</li>
           <li xml:lang="pt-BR">Agora é possível desativar completamente as verificações de rede para conexões com tarifação limitada.</li>
           <li xml:lang="ru">Проверку сетевых подключений с тарификацией теперь можно полностью отключить;</li>
+          <li xml:lang="sk">Network checks for metered connections can now be fully disabled.</li>
           <li xml:lang="sl">Preverjanje omrežja za merjene povezave je zdaj mogoče popolnoma onemogočiti.</li>
           <li xml:lang="tr">Kotalı bağlantılar için ağ denetimleri artık tümüyle devre dışı bırakılabilir.</li>
           <li xml:lang="uk">У новій версії можна повністю вимкнути перевірки мережі для з'єднань з тарифікацією.</li>
@@ -687,6 +707,7 @@
           <li xml:lang="nl">Het bijwerken van podcasts zou nu aanzienlijk sneller moeten gaan, zelfs op trage hardware.</li>
           <li xml:lang="pt-BR">A atualização de podcasts agora deve ser significativamente mais rápida em computadores com hardware mais lento.</li>
           <li xml:lang="ru">Обновление подкастов на медленном оборудовании теперь выполняется значительно быстрее;</li>
+          <li xml:lang="sk">Updating podcasts should now be significantly faster on slow hardware.</li>
           <li xml:lang="sl">Posodabljanje podkastov bi moralo biti zdaj bistveno hitrejše na počasni strojni opremi.</li>
           <li xml:lang="tr">Pod yayınlarının güncellenmesi yavaş donanımlarda artık önemli ölçüde daha hızlı olmalıdır.</li>
           <li xml:lang="uk">У новій версії має бути значно швидшим оновлення списку трансляцій на повільному обладнанні.</li>
@@ -720,6 +741,7 @@
         <p xml:lang="nl">Nieuwe functies en reparaties van bugs in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades e correções de bugs nesta versão:</p>
         <p xml:lang="ru">Новые возможности и исправления ошибок в этом выпуске:</p>
+        <p xml:lang="sk">New features and bugfixes in this release:</p>
         <p xml:lang="sl">Nove zmožnosti in popravki napak v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler ve hata düzeltmeleri:</p>
         <p xml:lang="uk">Нові можливості і виправлення вад у цьому випуску:</p>
@@ -738,6 +760,7 @@
           <li xml:lang="nl">De bedieningselementen van de speler in de kopbalk zijn opnieuw ontworpen, deels gebaseerd op het ontwerp van Elisa. De kopbalk is in grootte aanpasbaar en kan volledig worden ingeklapt tot een minimale werkbalk.</li>
           <li xml:lang="pt-BR">Os controles de reprodução na barra de cabeçalho foram redesenhados, em parte com base no design do Elisa. A barra de cabeçalho pode ser redimensionada e recolhida completamente, restando apenas uma barra de ferramentas minimalista.</li>
           <li xml:lang="ru">Панель управления плеером была переработана с учётом оформления Elisa; её можно изменять в размерах и полностью сворачивать до минимальной панели инструментов;</li>
+          <li xml:lang="sk">The header bar player controls have been redesigned, partly based on the design of Elisa. The header bar is resizeable and can be fully collapsed to just a minimal toolbar.</li>
           <li xml:lang="sl">Kontrolniki predvajalnika v vrstici glave so bili preoblikovani, deloma po zasnovi Elise. Velikost vrstice glave je mogoče spreminjati in jo je mogoče popolnoma strniti v strnjeno orodno vrstico.</li>
           <li xml:lang="tr">Başlık çubuğundaki dinleme denetimleri, kısmen Elisa’nın tasarımına dayanarak yeniden tasarlandı. Başlık çubuğu yeniden boyutlandırılabilir ve sadece küçük bir araç çubuğu olacak şekilde tümüyle daraltılabilir.</li>
           <li xml:lang="uk">Елементи керування у заголовку програвача було перероблено, частково на основі дизайну Elisa. Розмір заголовка можна змінювати, і його можна повністю згорнути до мінімальної панелі інструментів.</li>
@@ -755,6 +778,7 @@
           <li xml:lang="nl">Het menu in de linker zijbalk in de bureaubladmodus is opnieuw ontworpen. Het maakt nu gebruik van vergelijkbare knoppen als die in de onderste navigatiebalk in de mobiele modus.</li>
           <li xml:lang="pt-BR">O menu lateral esquerdo no modo desktop foi redesenhado. Agora, ele usa botões semelhantes aos da barra de navegação inferior no modo mobile.</li>
           <li xml:lang="ru">Меню на левой боковой панели в режиме рабочего стола было переработано; теперь в нём используются кнопки, аналогичные тем, что применяются в нижней панели навигации в мобильном режиме;</li>
+          <li xml:lang="sk">The left sidebar menu in desktop mode has been redesigned. It's now using similar buttons to the ones used in the bottom navigation bar in mobile mode.</li>
           <li xml:lang="sl">Levi stranski meni v namiznem načinu je bil preoblikovan. Zdaj uporablja podobne gumbe kot tisti v spodnji navigacijski vrstici v mobilnem načinu.</li>
           <li xml:lang="tr">Masaüstü kipinde sol kenar çubuğu menüsü yeniden tasarlandı. Artık taşınabilir kipte alt dolaşma çubuğunda kullanılanlara benzer düğmeler kullanıyor.</li>
           <li xml:lang="uk">Ліве бічне меню в режимі для робочих станцій було перероблено. У новій версії у ньому використано кнопки, схожі на ті, що використовуються в нижній панелі навігації у мобільному режимі.</li>
@@ -772,6 +796,7 @@
           <li xml:lang="nl">De audio-backend is volledig opnieuw geschreven. Deze kan nu overweg met meerdere backends: libVLC, gstreamer en Qt Multimedia. Kasts zal libVLC als standaard backend gebruiken indien beschikbaar, wat veelvoorkomende problemen zou moeten oplossen: volumeregeling is nu beschikbaar via de hoofdwerkbalk en zoeken zou de audio niet langer moeten laten vastlopen.</li>
           <li xml:lang="pt-BR">O backend de áudio foi reescrito do zero. Agora ele pode lidar com múltiplos backends: libVLC, gstreamer e Qt Multimedia. O Kasts usará o libVLC como backend padrão quando disponível, o que deve resolver problemas comuns: o controle de volume agora está disponível na barra de ferramentas principal e a busca não deve mais causar travamentos no áudio.</li>
           <li xml:lang="ru">Модуль воспроизведения аудио был полностью переписан; теперь он поддерживает несколько механизмов: libVLC, gstreamer и Qt Multimedia. Kasts по умолчанию использует libVLC, если он доступен, что должно решить распространённые проблемы: регулировка громкости теперь доступна из главной панели инструментов, а перемотка больше не должна приводить к зависанию звука;</li>
+          <li xml:lang="sk">The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
           <li xml:lang="sl">Zvočni zaledni sistem je bil popolnoma napisan na novo. Zdaj lahko podpira več zalednih sistemov: libVLC, gstreamer in Qt Multimedia. Kasts bo uporabljal libVLC kot privzeti zaledni sistem, ko bo na voljo, kar bi moralo rešiti pogoste težave: nadzor glasnosti je zdaj na voljo prek glavne orodne vrstice, iskanje pa ne bi smelo več povzročati prekinitev zvoka.</li>
           <li xml:lang="tr">Ses arka ucu sıfırdan yeniden yazıldı. Artık birden fazla arka ucu işleyebilir: libVLC, gstreamer ve Qt Multimedia. Kastlar, uygun olduğunda libVLC’yi öntanımlı arka uç olarak kullanacak ve bu da yaygın sorunları çözecektir: Ses denetimi artık ana araç çubuğu aracılığıyla kullanılabilir ve kaydırma işlemi artık sesin takılmasına neden olmamalıdır.</li>
           <li xml:lang="uk">Модуль обробки звуку було переписано з нуля. Тепер він може працювати із декількома модулями: libVLC, gstreamer та Qt Multimedia. Kasts використовуватиме libVLC як типовий модуль, коли він доступний, що має вирішити поширені проблеми: керування гучністю у новій версії доступне через головну панель інструментів, а пошук більше не повинен призводити до зависання звуку.</li>
@@ -789,6 +814,7 @@
           <li xml:lang="nl">Het instellingenmenu is overgezet naar de nieuwe formuliercomponenten.</li>
           <li xml:lang="pt-BR">O menu de configurações foi adaptado para os novos componentes do formulário.</li>
           <li xml:lang="ru">Меню настроек переведено на новые компоненты форм;</li>
+          <li xml:lang="sk">The settings menu was ported to the new form components.</li>
           <li xml:lang="sl">Meni z nastavitvami je bil prenesen v nove komponente obrazca.</li>
           <li xml:lang="tr">Ayarlar menüsü yeni form bileşenlerine uyarlandı.</li>
           <li xml:lang="uk">Меню параметрів було портовано на нові компоненти форми.</li>
@@ -806,6 +832,7 @@
           <li xml:lang="nl">Ondersteuning voor hoofdstukafbeeldingen is toegevoegd.</li>
           <li xml:lang="pt-BR">Foi adicionado suporte para imagens nos capítulos.</li>
           <li xml:lang="ru">Добавлена поддержка изображений глав;</li>
+          <li xml:lang="sk">Support for chapter images was added.</li>
           <li xml:lang="sl">Dodana je bila podpora za slike poglavij.</li>
           <li xml:lang="tr">Bölüm görselleri için destek eklendi.</li>
           <li xml:lang="uk">Було додано підтримку зображень для глав.</li>
@@ -823,6 +850,7 @@
           <li xml:lang="nl">Tijdstempels in afleveringsbeschrijvingen zijn nu aanklikbaar, waardoor de audio naar dat punt in de aflevering springt.</li>
           <li xml:lang="pt-BR">Os marcadores de tempo mencionados nas descrições dos episódios agora são clicáveis, o que fará com que o áudio avance para esse ponto específico do episódio.</li>
           <li xml:lang="ru">Метки времени в описаниях выпусков теперь можно щёлкать мышью для перехода к соответствующему моменту в аудио;</li>
+          <li xml:lang="sk">Timestamps mentioned in episode descriptions are now clickable, which will make the audio jump to that point in the episode.</li>
           <li xml:lang="sl">Časovne žige, omenjene v opisih epizod, je zdaj mogoče klikniti, in bo zvok preskočil na to mesto v epizodi.</li>
           <li xml:lang="tr">Bölüm açıklamalarında bahsedilen zaman damgaları artık tıklanabilir, bu da sesin bölümde o noktaya atlamasını sağlayacaktır.</li>
           <li xml:lang="uk">Позначки часу, згадані в описах епізодів, тепер можна натискати, що перемикати звук на потрібний момент в епізоді.</li>
@@ -840,6 +868,7 @@
           <li xml:lang="nl">Afbeeldingen in koppen zijn nu klikbaar. Hierdoor wordt de betreffende afbeelding op volledig scherm weergegeven.</li>
           <li xml:lang="pt-BR">Agora é possível clicar nas imagens dos cabeçalhos. Isso abrirá uma visualização em tela cheia da imagem em questão.</li>
           <li xml:lang="ru">Изображения в заголовках теперь можно открывать щелчком мыши; при этом изображение откроется в полноэкранном режиме.</li>
+          <li xml:lang="sk">Images in headers are now clickable. This will open a fullscreen view of the image in question.</li>
           <li xml:lang="sl">Na slike v glavah je zdaj mogoče klilniti. To bo odprlo celozaslonski pogled zadevne slike.</li>
           <li xml:lang="tr">Başlıklardaki görseller artık tıklanabilir. Bu, söz konusu görselin tam ekran görünümünü açacaktır.</li>
           <li xml:lang="uk">Зображення у заголовках можна натискати. У результаті буде відкрито повноекранний перегляд відповідного зображення.</li>
@@ -857,6 +886,7 @@
           <li xml:lang="nl">De abonneerknop is nu uitgeschakeld wanneer een podcast net is toegevoegd.</li>
           <li xml:lang="pt-BR">O botão de inscrição agora fica desativado quando um podcast acaba de ser adicionado.</li>
           <li xml:lang="ru">Кнопка подписки отключается при добавлении подкаста;</li>
+          <li xml:lang="sk">The subscribe button is now disabled when a podcast has just been added.</li>
           <li xml:lang="sl">Gumb za naročnino je zdaj onemogočen, ko je bil podkast pravkar dodan.</li>
           <li xml:lang="tr">Yeni bir pod yayını eklendiğinde abone ol düğmesi artık devre dışıdır.</li>
           <li xml:lang="uk">У новій версії кнопку підписки буде вимкнено, якщо подкаст було додано щойно.</li>
@@ -874,6 +904,7 @@
           <li xml:lang="nl">Diverse problemen met de indeling van talen, die van rechts naar links worden gelezen, zijn opgelost.</li>
           <li xml:lang="pt-BR">Diversos problemas relacionados a layouts de idioma da direita para a esquerda foram resolvidos.</li>
           <li xml:lang="ru">Исправлено несколько проблем с раскладками для языков с письмом справа налево;</li>
+          <li xml:lang="sk">Several issues with right-to-left language layouts were solved.</li>
           <li xml:lang="sl">Odpravljenih je bilo več težav z jezikovnimi postavitvami od desne proti levi.</li>
           <li xml:lang="tr">Sağdan sola dil yerleşimleriyle ilgili çeşitli sorunlar çözüldü.</li>
           <li xml:lang="uk">Виправлено декілька проблем із компонуваннями для мов із записом справа ліворуч.</li>
@@ -901,6 +932,7 @@
           <li xml:lang="nl">Het interface is vereenvoudigd doordat er slechts één pagina tegelijk wordt weergegeven in plaats van kolommen toe te voegen, en doordat de podcastpagina is gecombineerd met de pagina met de lijst van podcastafleveringen.</li>
           <li xml:lang="pt-BR">A interface foi simplificada exibindo apenas uma página por vez, em vez de adicionar colunas, e combinando a página do podcast com a página da lista de episódios do podcast.</li>
           <li xml:lang="ru">Интерфейс упрощён за счёт отображения только одной страницы за раз вместо добавления столбцов, а также за счёт объединения страницы подкаста со страницей списка выпусков подкаста;</li>
+          <li xml:lang="sk">The interface is simplified by only showing one page at a time instead of adding columns, and by combining the podcast page with the podcast epizóda list page.</li>
           <li xml:lang="sl">Vmesnik je poenostavljen tako, da se namesto dodajanja stolpcev prikazuje le ena stran naenkrat, stran podkasta pa je združena s stranjo s seznamom epizod podkasta.</li>
           <li xml:lang="tr">Sütunlar eklemek yerine aynı anda yalnızca bir sayfa gösterilerek ve pod yayını sayfası ile pod yayını bölüm listesi sayfası birleştirilerek arayüz basitleştirildi.</li>
           <li xml:lang="uk">Інтерфейс спрощено завдяки показу лише однієї сторінки за раз замість додавання стовпців, а також поєднанню сторінки подкасту зі сторінкою списку епізодів подкасту.</li>
@@ -918,6 +950,7 @@
           <li xml:lang="nl">De informatiepagina's voor podcasts en afleveringen zijn verbeterd door een knoppenbalk toe te voegen (waardoor acties niet langer in de toepassingskop staan) en door de indeling van de informatie te herzien.</li>
           <li xml:lang="pt-BR">As páginas de informações sobre podcasts e episódios foram aprimoradas com a adição de uma barra de ferramentas com botões (removendo as ações do cabeçalho do aplicativo) e com a reformulação do layout das informações.</li>
           <li xml:lang="ru">На страницах с информацией о подкастах и выпусках добавлена панель кнопок (действия вынесены из заголовка приложения) и переработана структура размещения информации;</li>
+          <li xml:lang="sk">The podcast and epizóda info pages are improved by adding a button toolbar (moving actions out of the app header) and by reworking the information layout.</li>
           <li xml:lang="sl">Strani z informacijami o podkastu in epizodi sta izboljšani z dodajanjem orodne vrstice z gumbi (dejanja so prestavljena iz glave aplikacije) in s preoblikovanjem postavitve informacij.</li>
           <li xml:lang="tr">Pod yayını ve bölüm bilgisi sayfaları, bir düğme araç çubuğu eklenerek (eylemler uygulama başlığının dışına taşınarak) ve bilgi yerleşimi yeniden çalışılarak iyileştirildi.</li>
           <li xml:lang="uk">Сторінки інформації про подкасти та епізоди удосконалено шляхом додавання панелі інструментів із кнопками (переміщення кнопок за межі заголовка програми) та переробки компонування відомостей.</li>
@@ -935,6 +968,7 @@
           <li xml:lang="nl">Er is een slaaptimer geïmplementeerd.</li>
           <li xml:lang="pt-BR">Um temporizador de sono foi implementado.</li>
           <li xml:lang="ru">Реализован таймер сна;</li>
+          <li xml:lang="sk">A sleep timer has been implemented.</li>
           <li xml:lang="sl">Vgrajen je bil časovnik za spanje.</li>
           <li xml:lang="tr">Bir uyku zamanlayıcısı gerçeklendi.</li>
           <li xml:lang="uk">Реалізовано таймер присипляння.</li>
@@ -952,6 +986,7 @@
           <li xml:lang="nl">De toepassing onthoudt nu de positie en grootte van het venster.</li>
           <li xml:lang="pt-BR">O aplicativo agora se lembrará da posição e do tamanho da sua janela.</li>
           <li xml:lang="ru">Реализовано сохранение положения и размера окна;</li>
+          <li xml:lang="sk">The app will now remember the position and size of its window.</li>
           <li xml:lang="sl">Aplikacija si bo zdaj zapomnila položaj in velikost svojega okna.</li>
           <li xml:lang="tr">Uygulama artık penceresinin konumunu ve boyutunu anımsıyor.</li>
           <li xml:lang="uk">У новій версії програма запам'ятовує розташування та розміри свого вікна.</li>
@@ -969,6 +1004,7 @@
           <li xml:lang="nl">Kasts heeft nu de mogelijkheid om alle lokale aflevering-statussen naar de synchronisatieserver te sturen.</li>
           <li xml:lang="pt-BR">O Kasts agora tem a capacidade de enviar todos os estados locais dos episódios para o servidor de sincronização.</li>
           <li xml:lang="ru">Добавлена возможность отправки всех локальных состояний эпизодов на сервер синхронизации;</li>
+          <li xml:lang="sk">Kasts now has the ability to push all local epizóda states to the sync server.</li>
           <li xml:lang="sl">Kasts ima zdaj možnost pošiljanja vseh lokalnih stanj epizod na strežnik za sinhronizacijo.</li>
           <li xml:lang="tr">Kastlar, artık tüm yerel bölüm durumlarını eşzamanlama sunucusuna gönderme yeteneğine sahip.</li>
           <li xml:lang="uk">Нова версія Kasts здатна надсилати усі локальні стани епізодів на сервер синхронізації.</li>
@@ -986,6 +1022,7 @@
           <li xml:lang="nl">Een instelling is toegevoegd waarmee Kasts kan aangeven hoeveel recente afleveringen als niet-afgespeeld moeten worden gemarkeerd bij het toevoegen van een nieuwe podcast.</li>
           <li xml:lang="pt-BR">Foi adicionada uma configuração para indicar ao Kasts quantos episódios recentes devem ser marcados como não reproduzidos ao adicionar um novo podcast.</li>
           <li xml:lang="ru">Добавлена настройка для указания количества последних выпусков, которые будут помечаться как непрослушанные при добавлении нового подкаста;</li>
+          <li xml:lang="sk">A setting has been added to tell Kasts how many recent epizódas should be marked as unplayed when adding a new podcast.</li>
           <li xml:lang="sl">Dodana je bila nastavitev, ki Kastsu pove, koliko nedavnih epizod naj bo označenih kot nepreigranih pri dodajanju novega podkasta.</li>
           <li xml:lang="tr">Yeni bir pod yayını eklerken kaç tane son bölümün dinlenmiş olarak imlenmesi gerektiğini Kastlar’a söyleyen bir ayar eklendi.</li>
           <li xml:lang="uk">Додано пункт параметрів, який повідомляє Kasts, скільки нещодавніх епізодів слід позначити як невідтворені під час додавання нового подкасту.</li>
@@ -1003,6 +1040,7 @@
           <li xml:lang="nl">Opgelost: diverse kleine UI-fouten en -storingen.</li>
           <li xml:lang="pt-BR">Diversos pequenos erros e falhas na interface do usuário foram corrigidos.</li>
           <li xml:lang="ru">Исправлены несколько мелких ошибок и недочётов в интерфейсе;</li>
+          <li xml:lang="sk">Several small UI bugs and glitches were solved.</li>
           <li xml:lang="sl">Odpravljenih je bilo več manjših napak in spodrsljajev v uporabniškem vmesniku.</li>
           <li xml:lang="tr">Çeşitli küçük arayüz hataları ve aksaklıklar çözüldü.</li>
           <li xml:lang="uk">Виправлено декілька невеличких вад та недоліків інтерфейсу.</li>
@@ -1027,6 +1065,7 @@
           <li xml:lang="nl">De routine voor het bijwerken van podcasts is volledig herzien, waardoor diverse fouten zijn verholpen. Er wordt nu gebruikgemaakt van multithreading en bestaande afleveringsinformatie wordt ook bijgewerkt.</li>
           <li xml:lang="pt-BR">A rotina de atualização do podcast foi completamente reformulada, corrigindo diversos bugs. Agora utiliza multithreading e também atualiza as informações dos episódios existentes.</li>
           <li xml:lang="ru">Процедура обновления подкастов полностью переработана; исправлено несколько ошибок; используется многопоточность; реализовано обновление информации о существующих эпизодах.</li>
+          <li xml:lang="sk">The podcast update routine has been completely overhauled, solving several bugs. It's now using multithreading, and it will also update existing epizóda information.</li>
           <li xml:lang="sl">Rutina posodabljanja podkastov je bila popolnoma prenovljena in odpravljenih je bilo več napak. Zdaj uporablja večnitnost in posodobila bo tudi obstoječe informacije o epizodah.</li>
           <li xml:lang="tr">Pod yayını güncelleme yordamı tamamen elden geçirildi ve çeşitli hatalar çözüldü. Artık çoklu iş parçacığı kullanıyor ve var olan bölüm bilgilerini de güncelleyecek.</li>
           <li xml:lang="uk">Процедуру оновлення подкастів було повністю перероблено, що усунуло декілька вад. У новій версії використано багатопотоковість, а також оновлення відомостей про наявні епізоди.</li>
@@ -1044,6 +1083,7 @@
           <li xml:lang="nl">Er zijn algemene verbeteringen doorgevoerd om ervoor te zorgen dat de toepassing goed werkt op kleine schermen, zowel in portret- als landschapsmodus.</li>
           <li xml:lang="pt-BR">Foram feitas melhorias gerais para garantir que o aplicativo se adapte bem a telas pequenas, tanto no modo retrato quanto no modo paisagem.</li>
           <li xml:lang="ru">Реализованы общие улучшения для лучшего соответствия приложения экранам небольшого размера в портретной и альбомной ориентации;</li>
+          <li xml:lang="sk">General improvements were made to make sure that the app fits well on small screens in both portrait and landscape mode.</li>
           <li xml:lang="sl">Narejene so bile splošne izboljšave, da se aplikacija dobro prilega majhnim zaslonom tako v pokončnem kot ležečem načinu.</li>
           <li xml:lang="tr">Uygulamanın küçük ekranlarda hem dikey hem de yatay kipte iyi oturmasını sağlamak için genel iyileştirmeler yapıldı.</li>
           <li xml:lang="uk">Програму було удосконалено так, щоб забезпечити добрі умови показу вікна програми на малих екранах як у портретному, так і в альбомному режимі.</li>
@@ -1061,6 +1101,7 @@
           <li xml:lang="nl">Afleveringsafbeeldingen worden voortaan, indien beschikbaar, opgehaald uit id3v2tag.</li>
           <li xml:lang="pt-BR">As imagens dos episódios agora serão obtidas a partir da tag id3v2, se disponíveis.</li>
           <li xml:lang="ru">Изображения эпизодов извлекаются из метки id3v2tag при её наличии;</li>
+          <li xml:lang="sk">Episode images will now be retrieved from id3v2tag if available.</li>
           <li xml:lang="sl">Slike epizod bodo zdaj pridobljene iz id3v2tag, če bodo na voljo.</li>
           <li xml:lang="tr">Bölüm görselleri artık kullanılabiliyorlarsa id3v2tag’den alınacak.</li>
           <li xml:lang="uk">Зображення для епізодів буде отримати з id3v2tag, якщо такі доступні.</li>
@@ -1078,6 +1119,7 @@
           <li xml:lang="nl">Nieuwe afleveringen zullen aan de wachtrij in aflopende chronologische volgorde toegevoegd worden (in plaats van oplopend) per podcast.</li>
           <li xml:lang="pt-BR">Novos episódios serão adicionados à fila em ordem cronológica crescente (em vez de decrescente) para cada podcast.</li>
           <li xml:lang="ru">Новые выпуски добавляются в очередь в порядке возрастания даты выпуска (а не убывания) для каждого подкаста;</li>
+          <li xml:lang="sk">New epizódas will be added to the poradie in ascending chronological order (rather than descending) per podcast.</li>
           <li xml:lang="sl">Nove epizode bodo dodane v čakalno vrsto v naraščajočem kronološkem vrstnem redu (namesto padajočega) za vsak podkast.</li>
           <li xml:lang="tr">Yeni bölümler, her bir pod yayını için azalan yerine artan kronolojik sırayla kuyruğa eklenecek.</li>
           <li xml:lang="uk">Нові епізоди будуть додаватися до черги у порядку зростання (а не спадання) за часом для кожного подкасту.</li>
@@ -1095,6 +1137,7 @@
           <li xml:lang="nl">Een schakelaar is geïntroduceerd om optioneel de resterende tijd aan te passen op afleveringen gebaseerd op de huidige afspeelsnelheid.</li>
           <li xml:lang="pt-BR">Foi adicionada uma opção para ajustar o tempo restante dos episódios com base na taxa de reprodução atual.</li>
           <li xml:lang="ru">Добавлен переключатель для настройки оставшегося времени эпизодов с учётом текущей скорости воспроизведения;</li>
+          <li xml:lang="sk">A switch has been introduced to optionally adjust the time left on episodes based on the current playback rate.</li>
           <li xml:lang="sl">Uvedeno je bilo stikalo za izbirno prilagajanje preostalega časa epizod glede na trenutno hitrost predvajanja.</li>
           <li xml:lang="tr">Bölümlerde kalan süreyi geçerli dinleme hızına göre isteğe bağlı olarak ayarlamak için bir anahtar sunuldu.</li>
           <li xml:lang="uk">Було впроваджено перемикач, який надає змогу додатково налаштувати час, що залишився до кінця епізодів, залежно від поточної швидкості відтворення.</li>
@@ -1112,6 +1155,7 @@
           <li xml:lang="nl">De pagina's met afleveringendetails hebben een contextactie om direct naar de lijst met afleveringen voor die podcast te gaan.</li>
           <li xml:lang="pt-BR">As páginas de detalhes do episódio agora possuem uma ação contextual que leva diretamente à lista de episódios daquele podcast.</li>
           <li xml:lang="ru">На страницах сведений о выпуске добавлено контекстное действие для перехода к списку выпусков этого подкаста;</li>
+          <li xml:lang="sk">The epizóda details pages now have a context action to go straight to the list of epizódas for that podcast.</li>
           <li xml:lang="sl">Strani s podrobnostmi o epizodi imajo zdaj kontekstno dejanje, s katerim se lahko neposredno premaknete na seznam epizod za ta podcast.</li>
           <li xml:lang="tr">Bölüm ayrıntıları sayfaları, artık söz konusu pod yayını için bölüm listesine doğrudan gitmek için bir bağlam eylemine sahip.</li>
           <li xml:lang="uk">Для сторінок з параметрами епізоду реалізовано контекстну дію для переходу безпосередньо до списку епізодів цього подкасту.</li>
@@ -1129,6 +1173,7 @@
           <li xml:lang="nl">Het is nu mogelijk om te synchroniseren met eigen GPodder-servers (d.w.z. andere dan het officiële gpodder.net exemplaar).</li>
           <li xml:lang="pt-BR">Agora é possível sincronizar com servidores GPodder personalizados (ou seja, diferentes da instância oficial gpodder.net).</li>
           <li xml:lang="ru">Добавлена возможность синхронизации с пользовательскими серверами GPodder, отличными от официального gpodder.net;</li>
+          <li xml:lang="sk">It's now possible to sync with custom GPodder servers (i.e. other than the official gpodder.net instance).</li>
           <li xml:lang="sl">Zdaj je mogoče sinhronizirati s strežniki GPodder po meri (tj. z drugimi, razen z uradnim pojavkom gpodder.net).</li>
           <li xml:lang="tr">Artık özel GPodder sunucularıyla (örn. resmî gpodder.net örneği dışındakilerle) eşzamanlama yapmak olanaklı.</li>
           <li xml:lang="uk">У новій версії можна синхронізувати дані з нетиповими серверами GPodder (тобто відмінними від офіційного екземпляра gpodder.net).</li>
@@ -1146,6 +1191,7 @@
           <li xml:lang="nl">Podcasts kunnen nu opnieuw bijgewerkt worden zelfs wanneer de synchronisatieserver niet beschikbaar is. Dit was een fout in eerdere versies.</li>
           <li xml:lang="pt-BR">Agora é possível atualizar podcasts mesmo quando o servidor de sincronização estiver indisponível. Isso era um bug em versões anteriores.</li>
           <li xml:lang="ru">Подкасты теперь можно обновлять, даже если сервер синхронизации недоступен. Эта ошибка присутствовала в предыдущих версиях;</li>
+          <li xml:lang="sk">Podcasts can now again be updated even when the sync server is unavailable. This was a bug in previous versions.</li>
           <li xml:lang="sl">Podcaste je zdaj mogoče posodabljati, tudi če strežnik za sinhronizacijo ni na voljo. To je bila napaka v prejšnjih različicah.</li>
           <li xml:lang="tr">Pod yayınları artık eşzamanlama sunucusu kullanılamadığında bile güncellenebilecek. Bu, önceki sürümlerdeki bir hataydı.</li>
           <li xml:lang="uk">Подкасти у новій версії можна оновлювати, навіть якщо сервер синхронізації недоступний. Цим виправлено помилку у попередніх версіях.</li>
@@ -1170,6 +1216,7 @@
           <li xml:lang="nl">Algemene verbeteringen in de codekwaliteit en reparaties van fouten</li>
           <li xml:lang="pt-BR">Melhorias gerais na qualidade do código e correções de bugs</li>
           <li xml:lang="ru">Улучшение качества кода и исправление ошибок;</li>
+          <li xml:lang="sk">General code quality improvements and bugfixes</li>
           <li xml:lang="sl">Splošne izboljšave kakovosti kode in popravki napak</li>
           <li xml:lang="tr">Genel kod kalitesi iyileştirmeleri ve hata düzeltmeleri</li>
           <li xml:lang="uk">Загальне удосконалення програмного коду та виправлення вад</li>
@@ -1194,6 +1241,7 @@
           <li xml:lang="nl">Diverse verbeteringen aan de gebruikersinterface</li>
           <li xml:lang="pt-BR">Várias melhorias na interface do usuário</li>
           <li xml:lang="ru">Различные улучшения пользовательского интерфейса;</li>
+          <li xml:lang="sk">Various User interface improvements</li>
           <li xml:lang="sl">Različne izboljšave uporabniškega vmesnika</li>
           <li xml:lang="tr">Çeşitli kullanıcı arayüzü iyileştirmeleri</li>
           <li xml:lang="uk">Різноманітні удосконалення інтерфейсу користувача</li>
@@ -1211,6 +1259,7 @@
           <li xml:lang="nl">Blijf de acties van de aflevering ophalen totdat we het huidige tijdstempel hebben</li>
           <li xml:lang="pt-BR">Continuar buscando as ações do episódio até obter o carimbo de data/hora atual</li>
           <li xml:lang="ru">Продолжать получать действия с эпизодами до тех пор, пока не будет получена текущая метка времени;</li>
+          <li xml:lang="sk">Keep fetching episode actions until we get the current timestamp</li>
           <li xml:lang="sl">Nadaljuje s pridobivanjem dejanj epizode, dokler ne dobi trenutnega časovnega žiga</li>
           <li xml:lang="tr">Geçerli zaman damgasını alana kadar bölüm eylemlerini getirmeyi sürdür</li>
           <li xml:lang="uk">Отримання епізоду у новій версії триває до моменту, коли буде досягнуто поточної часової позначки</li>
@@ -1228,6 +1277,7 @@
           <li xml:lang="nl">Schakel de pictogrammen voor gpodder en nextcloud weer in</li>
           <li xml:lang="pt-BR">Reativação dos ícones para gpodder e nextcloud</li>
           <li xml:lang="ru">Повторное включение значков для gpodder и nextcloud;</li>
+          <li xml:lang="sk">Re-enable icons for gpodder and nextcloud</li>
           <li xml:lang="sl">Ponovno omogoča ikone za gpodder in nextcloud</li>
           <li xml:lang="tr">Gpodder ve Nextcloud için simgeleri yeniden etkinleştir</li>
           <li xml:lang="uk">Знову увімкнено піктограми для gpodder і nextcloud</li>
@@ -1251,6 +1301,7 @@
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
+        <p xml:lang="sk">New features in this release:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler:</p>
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
@@ -1269,6 +1320,7 @@
           <li xml:lang="nl">Ondersteuning voor hoofdstukken, zowel RSS-feeds als hoofdstukken gecodeerd met MP3-tags worden ondersteund</li>
           <li xml:lang="pt-BR">Suporte para capítulos, tanto feeds RSS quanto capítulos codificados em tags MP3</li>
           <li xml:lang="ru">Поддержка глав: поддерживаются главы из RSS-каналов и меток MP3;</li>
+          <li xml:lang="sk">Support for chapters, both RSS feed and MP3 tags encoded chapters are supported</li>
           <li xml:lang="sl">Podpora za poglavja, podprta so tako poglavja, kodirana z viri RSS kot tudi z oznakami MP3</li>
           <li xml:lang="tr">Fasıllar için destek, hem RSS beslemesi hem de MP3 künyeleriyle kodlanmış fasıllar desteklenir</li>
           <li xml:lang="uk">Підтримка розділів, передбачено підтримку розділів, закодовані як у RSS-каналі, так і у мітках MP3</li>
@@ -1286,6 +1338,7 @@
           <li xml:lang="nl">Verschillende verbeteringen in gebruikersinterface</li>
           <li xml:lang="pt-BR">Diversas melhorias na interface do usuário</li>
           <li xml:lang="ru">Несколько улучшений в пользовательском интерфейсе;</li>
+          <li xml:lang="sk">Several improvements in user interface</li>
           <li xml:lang="sl">Več izboljšav uporabniškega vmesnika</li>
           <li xml:lang="tr">Kullanıcı arayüzünde çeşitli iyileştirmeler</li>
           <li xml:lang="uk">Декілька удосконалень у інтерфейсі користувача</li>
@@ -1303,6 +1356,7 @@
           <li xml:lang="nl">Optimalisatie en verbeteringen voor de backend</li>
           <li xml:lang="pt-BR">Otimização e melhorias para o backend</li>
           <li xml:lang="ru">Оптимизация и улучшения модуля;</li>
+          <li xml:lang="sk">Optimization and improvements for backend</li>
           <li xml:lang="sl">Optimizacija in izboljšave za zaledni sistem</li>
           <li xml:lang="tr">Arka uç için eniyileme ve iyileştirmeler</li>
           <li xml:lang="uk">Оптимізація та удосконалення у модулі обробки</li>
@@ -1320,6 +1374,7 @@
           <li xml:lang="nl">Instellingenpagina herzien</li>
           <li xml:lang="pt-BR">Página de configurações reformulada</li>
           <li xml:lang="ru">Переработана страница параметров;</li>
+          <li xml:lang="sk">Reworked settings page</li>
           <li xml:lang="sl">Predelana stran z nastavitvami</li>
           <li xml:lang="tr">Yeniden çalışılmış ayarlar sayfası</li>
           <li xml:lang="uk">Перероблено сторінку параметрів</li>
@@ -1337,6 +1392,7 @@
           <li xml:lang="nl">Ondersteuning voor het synchroniseren van abonnementen en de afspeelpositie van afleveringen met gpodder.net of de nextcloud-gpodder-toepassing.</li>
           <li xml:lang="pt-BR">Suporte para sincronização de assinaturas e posição de reprodução de episódios usando gpodder.net ou o aplicativo nextcloud-gpodder</li>
           <li xml:lang="ru">Синхронизация подписок и позиций воспроизведения эпизодов с использованием сервиса gpodder.net или приложения nextcloud-gpodder;</li>
+          <li xml:lang="sk">Support for syncing subscriptions and episode play position using gpodder.net or nextcloud-gpodder app</li>
           <li xml:lang="sl">Podpora za sinhronizacijo naročnin in položaja predvajanja epizod z uporabo aplikacije gpodder.net ali nextcloud-gpodder</li>
           <li xml:lang="tr">Abonelikleri ve bölüm çalma konumunu gpodder.net veya nextcloud-gpodder uygulaması kullanarak eşzamanlama desteği</li>
           <li xml:lang="uk">Реалізовано підтримку синхронізацію підписок та позицій відтворення у епізодах за допомогою програми gpodder.net або nextcloud-gpodder</li>
@@ -1355,6 +1411,7 @@
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
+          <li xml:lang="sk">Several bugfixes.</li>
           <li xml:lang="sl">Več popravkov hroščev.</li>
           <li xml:lang="tr">Çeşitli hata düzeltmeleri</li>
           <li xml:lang="uk">Декілька виправлень вад.</li>
@@ -1378,6 +1435,7 @@
         <p xml:lang="nl">Naast enkele kleine reparaties van fouten is het nu mogelijk om de locatie te wijzigen waar de gedownloade podcastafleveringen en gecachede afbeeldingen worden opgeslagen. Deze bestanden kunnen veel schijfruimte in beslag nemen, dus het is prettig om ze elders te kunnen opslaan op systemen met beperkte schijfruimte in de thuismap. De bijbehorende instellingen tonen nu de schijfruimte die door afleveringen en afbeeldingen wordt gebruikt en maken het mogelijk om de afbeeldingscache te wissen.</p>
         <p xml:lang="pt-BR">Além de algumas pequenas correções de bugs, agora é possível alterar o local onde os episódios de podcast baixados e as imagens em cache são salvos. Esses arquivos podem ocupar muito espaço em disco, então é ótimo poder armazená-los em outro local em sistemas com espaço limitado na pasta pessoal. As configurações relacionadas agora mostram o espaço em disco usado por episódios e imagens e permitem limpar o cache de imagens.</p>
         <p xml:lang="ru">Помимо исправления нескольких незначительных ошибок, теперь можно изменить каталог для сохранения загруженных выпусков подкастов и кэшированных изображений. Эти файлы могут занимать много места на диске, поэтому возможность хранить их в другом месте полезна в системах с ограниченным дисковым пространством домашней папки. В соответствующих настройках теперь отображается объём дискового пространства, занятый выпусками и изображениями, а также доступна очистка кэша изображений.</p>
+        <p xml:lang="sk">Next to some minor bugfixes, it is now possible to change the location where the sťahovanieed podcast epizódas and cached images are saved. These files can take up a lot of disk space, so it's nice to be able to store them elsewhere on systems with limited home folder disk space. The related settings now show the disk space used by epizódas and images, and allow to clear the image cache.</p>
         <p xml:lang="sl">Poleg nekaj manjših popravkov napak je zdaj mogoče spremeniti lokacijo, kamor se shranjujejo prenesene epizode podkastov in predpomnjene slike. Te datoteke lahko zavzamejo veliko prostora na disku, zato je lepo, da jih lahko shranite drugje v sistemih z omejenim prostorom na disku v domači mapi. Sorodne nastavitve zdaj prikazujejo prostor na disku, ki ga zasedajo epizode in slike, ter omogočajo brisanje predpomnilnika slik.</p>
         <p xml:lang="tr">Bazı küçük hata düzeltmelerinin yanı sıra, artık indirilen pod yayını bölümlerinin ve önbelleğe alınmış görsellerin kaydedildiği konumu değiştirmek olanaklı. Bu dosyalar çok fazla disk alanı kaplayabilir, bu nedenle ev dizininde sınırlı disk alanı olan sistemlerde bunları başka bir yerde depolayabilmek güzeldir. İlgili ayarlar artık bölümler ve görseller tarafından kullanılan disk alanını gösterir ve görsel önbelleğini temizlemeye izin verir.</p>
         <p xml:lang="uk">Окрім деяких незначних виправлень вад, тепер можна змінити місце, де зберігаються завантажені епізоди подкастів та кешовані зображення. Ці файли можуть займати багато місця на диску, тому зручно мати можливість зберігати їх в іншому місці на системах з обмеженим дисковим простором домашньої теки. У пов'язаних параметрах тепер буде показано місце на диску, яке використовується епізодами та зображеннями, і можна буде очистити кеш зображень.</p>
@@ -1401,6 +1459,7 @@
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
+        <p xml:lang="sk">New features in this release:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler:</p>
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
@@ -1419,6 +1478,7 @@
           <li xml:lang="nl">Ontdek de pagina om podcasts te zoeken op podcastindex.org</li>
           <li xml:lang="pt-BR">Página de descobrimento para pesquisar podcasts em podcastindex.org</li>
           <li xml:lang="ru">Страница «Поиск» для поиска подкастов на сайте podcastindex.org;</li>
+          <li xml:lang="sk">Discover page to search for podcasts on podcastindex.org</li>
           <li xml:lang="sl">Stran raziskovalca za iskanje podkastov na podcastindex.org</li>
           <li xml:lang="tr">podcastindex.org üzerinde pod yayınları aramak için Keşfet sayfası</li>
           <li xml:lang="uk">Реалізовано сторінку ознайомлення для пошуку подкастів на podcastindex.org</li>
@@ -1436,6 +1496,7 @@
           <li xml:lang="nl">Downloads van podcasts kunnen hersteld worden.</li>
           <li xml:lang="pt-BR">Os downloads de podcasts já podem ser retomados.</li>
           <li xml:lang="ru">Возобновление загрузки подкастов;</li>
+          <li xml:lang="sk">Podcast sťahovanies can now be resumed.</li>
           <li xml:lang="sl">Prenos podkastov je zdaj mogoče nadaljevati.</li>
           <li xml:lang="tr">Pod yayını indirmeleri artık sürdürülebilir.</li>
           <li xml:lang="uk">У новій версії можна відновлювати отримання подкастів.</li>
@@ -1453,6 +1514,7 @@
           <li xml:lang="nl">Het dialoogvenster voor de afspeelsnelheidsinstellingen is bijgewerkt.</li>
           <li xml:lang="pt-BR">Diálogo de configurações de velocidade de reprodução atualizado.</li>
           <li xml:lang="ru">Обновлён диалог настройки скорости воспроизведения;</li>
+          <li xml:lang="sk">Updated playback speed settings dialog.</li>
           <li xml:lang="sl">Posodobljeno pogovorno okno z nastavitvami hitrosti predvajanja.</li>
           <li xml:lang="tr">Güncellenmiş dinleme hızı ayarları iletişim kutusu</li>
           <li xml:lang="uk">Оновлено вікно параметрів швидкості відтворення.</li>
@@ -1470,6 +1532,7 @@
           <li xml:lang="nl">Instellingen om netwerktoegang op verbindingen met datalimiet toe te staan/te weigeren.</li>
           <li xml:lang="pt-BR">Configurações para permitir/bloquear o acesso à rede em conexões limitadas.</li>
           <li xml:lang="ru">Настройки разрешения/запрета сетевого доступа при учёте трафика;</li>
+          <li xml:lang="sk">Settings to allow/disallow network access on metered connections.</li>
           <li xml:lang="sl">Nastavitve za dovoljenje/preprečevanje dostopa do omrežja za merjene povezave.</li>
           <li xml:lang="tr">Kotalı bağlantılarda ağ erişimine izin verme/vermeme ayarları</li>
           <li xml:lang="uk">Пункт параметрів для вмикання або вимикання доступу до мережі на тарифікованих з'єднаннях.</li>
@@ -1487,6 +1550,7 @@
           <li xml:lang="nl">Meer gedetailleerde foutmeldingen, van waaruit de volledige lijst met fouten kan worden geopend.</li>
           <li xml:lang="pt-BR">Notificações de erro mais descritivas, a partir das quais é possível abrir a lista completa de erros.</li>
           <li xml:lang="ru">Более информативные уведомления об ошибках; полный список ошибок можно просмотреть;</li>
+          <li xml:lang="sk">More descriptive error notifications from which the complete list of errors can be opened.</li>
           <li xml:lang="sl">Bolj opisna obvestila o napakah, iz katerih je mogoče odpreti celoten seznam napak.</li>
           <li xml:lang="tr">Hataların tam listesinin açılabileceği daha açıklayıcı hata bildirimleri</li>
           <li xml:lang="uk">Докладніші сповіщення про помилки, з яких можна відкрити повний список помилок.</li>
@@ -1504,6 +1568,7 @@
           <li xml:lang="nl">Enkele kleinere verbeteringen: accentuering van menu-items, tekstballonnen, sneltoetsen</li>
           <li xml:lang="pt-BR">Diversas melhorias menores: destaque de itens de menu, dicas de ferramentas, teclas de atalho</li>
           <li xml:lang="ru">Несколько мелких улучшений: подсветка пунктов меню, всплывающие подсказки, комбинации клавиш;</li>
+          <li xml:lang="sk">Several smaller improvements: menu item highlighting, tooltips, hotkeys</li>
           <li xml:lang="sl">Nekaj ​​manjših izboljšav: označevanje elementov menija, orodni namigi, bližnjice</li>
           <li xml:lang="tr">Çeşitli daha küçük iyileştirmeler: menü ögesi vurgulama, araç ipuçları, kısayol düğmeleri</li>
           <li xml:lang="uk">Декілька незначних удосконалень: підсвічування пунктів меню, підказки, клавіатурні скорочення</li>
@@ -1522,6 +1587,7 @@
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
+          <li xml:lang="sk">Several bugfixes.</li>
           <li xml:lang="sl">Več popravkov hroščev.</li>
           <li xml:lang="tr">Çeşitli hata düzeltmeleri</li>
           <li xml:lang="uk">Декілька виправлень вад.</li>
@@ -1546,6 +1612,7 @@
         <p xml:lang="nl">Eerste uitgave van Kasts, een op Kirigami gebaseerde, convergente podcastspeler. Uitgebracht als onderdeel van Plasma Mobile Gear 21.06. Bevat:</p>
         <p xml:lang="pt-BR">Primeira versão do Kasts, um reprodutor de podcasts convergente baseado em Kirigami. Lançado como parte do Plasma Mobile Gear 21.06. Inclui:</p>
         <p xml:lang="ru">Представлен первый выпуск Kasts — универсального подкаст-плеера на основе Kirigami. Выпущен в составе Plasma Mobile Gear 21.06. Добавлены возможности:</p>
+        <p xml:lang="sk">First release of Kasts, a Kirigami-based convergent podcast player. Released as part of Plasma Mobile Gear 21.06. It features:</p>
         <p xml:lang="sl">Prva izdaja Kastsa, konvergentnega predvajalnika podkastov, ki temelji na Kirigamiju. Izdana kot del Plasma Mobile Gear 21.06. Vsebuje:</p>
         <p xml:lang="tr">Kirigami tabanlı, yakınsak bir pod yayını çaları lan Kastlar’ın ilk sürümü. Plasma Mobile Gear 21.06’nın bir parçası olarak yayımlandı. Şunları içerir:</p>
         <p xml:lang="uk">Перший випуск Kasts, однорідного програвача подкастів на основі Kirigami. Випущено як частину Plasma Mobile Gear 21.06. У випуску:</p>
@@ -1565,6 +1632,7 @@
           <li xml:lang="nl">een afspeelwachtrij</li>
           <li xml:lang="pt-BR">uma fila de reprodução</li>
           <li xml:lang="ru">очередь воспроизведения;</li>
+          <li xml:lang="sk">a play queue</li>
           <li xml:lang="sl">čakalno vrsto za predvajanje</li>
           <li xml:lang="tr">bir çalma kuyruğu</li>
           <li xml:lang="uk">черга відтворення</li>
@@ -1583,6 +1651,7 @@
           <li xml:lang="nl">besturing van meldingenpaneel en vergrendelscherm van media</li>
           <li xml:lang="pt-BR">painel de notificações e controles de mídia da tela de bloqueio</li>
           <li xml:lang="ru">управление воспроизведением в панели уведомлений и на экране блокировки;</li>
+          <li xml:lang="sk">notification panel and lockscreen media controls</li>
           <li xml:lang="sl">obvestilno ploščo in nadzor medijev na zaklenjenem zaslonu</li>
           <li xml:lang="tr">bildirim paneli ve kilit ekranı ortam denetimleri</li>
           <li xml:lang="uk">панель сповіщень і керування відтворення з екрана блокування</li>
@@ -1601,6 +1670,7 @@
           <li xml:lang="nl">voorkomt dat systemd pauzeren wordt geactiveerd tijdens het luisteren naar podcasts</li>
           <li xml:lang="pt-BR">inibe a suspensão do systemd durante a reprodução de podcasts</li>
           <li xml:lang="ru">Запрещён переход в режим ожидания systemd при прослушивании подкастов;</li>
+          <li xml:lang="sk">inhibits systemd suspend while listening to podcasts</li>
           <li xml:lang="sl">preprečuje ustavitev sistema systemd med poslušanjem podkastov</li>
           <li xml:lang="tr">pod yayını dinlerken systemd’nin askıya alınmasını engeller</li>
           <li xml:lang="uk">успадковує присипляння systemd під час прослуховування трансляцій</li>
@@ -1619,6 +1689,7 @@
           <li xml:lang="nl">convergente UI; ziet er goed uit op mobiel en bureaublad</li>
           <li xml:lang="pt-BR">interface convergente; visual atraente em dispositivos móveis e desktops</li>
           <li xml:lang="ru">Универсальный интерфейс; одинаково хорошо выглядит на мобильных устройствах и настольных компьютерах;</li>
+          <li xml:lang="sk">convergent UI; looks good on mobile and desktop</li>
           <li xml:lang="sl">konvergenten uporabniški vmesnik; je videti dobro na mobilnih napravah in namiznih računalnikih</li>
           <li xml:lang="tr">yakınsak arayüz; masaüstü ve taşınabilirde iyi görünür</li>
           <li xml:lang="uk">однорідний інтерфейс; чудово виглядає на мобільних пристроях та робочих станціях</li>
