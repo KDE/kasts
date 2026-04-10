@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:43+0000\n"
+"POT-Creation-Date: 2026-04-10 00:46+0000\n"
 "PO-Revision-Date: 2026-01-27 17:12+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -133,13 +133,13 @@ msgid "Open"
 msgstr "Öffnen"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:133 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:134 qml/GenericEntryDelegate.qml:367
 #, kde-format
 msgid "Play"
 msgstr "Wiedergabe"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:133 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:134 qml/GenericEntryDelegate.qml:390
 #, kde-format
 msgid "Pause"
 msgstr "Anhalten"
@@ -191,42 +191,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Mediendatei wird wiedergegeben"
 
-#: main.cpp:131
+#: main.cpp:121
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast-Anwendung"
 
-#: main.cpp:133
+#: main.cpp:123
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Fügt einen neuen Podcast zu den Abonnements hinzu."
 
-#: main.cpp:134
+#: main.cpp:124
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcast-Adresse"
 
-#: main.cpp:139 qml/Main.qml:26
+#: main.cpp:129 qml/Main.qml:26
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:141
+#: main.cpp:131
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast-Wiedergabe"
 
-#: main.cpp:143
+#: main.cpp:133
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 KDE-Gemeinschaft"
 
-#: main.cpp:144
+#: main.cpp:134
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:145
+#: main.cpp:135
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -418,94 +418,94 @@ msgstr "Einmal zulassen"
 msgid "Always Allow"
 msgstr "Immer zulassen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:123
+#: qml/Desktop/DesktopPlayerControls.qml:124
 #, kde-format
 msgid "Seek backward"
 msgstr "Rückwärts spulen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:142
+#: qml/Desktop/DesktopPlayerControls.qml:143
 #, kde-format
 msgid "Seek forward"
 msgstr "Vorwärts spulen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:151
+#: qml/Desktop/DesktopPlayerControls.qml:152
 #, kde-format
 msgid "Skip forward"
 msgstr "Vorwärts springen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:171
+#: qml/Desktop/DesktopPlayerControls.qml:172
 #, kde-format
 msgid "Playback rate:"
 msgstr "Wiedergabegeschwindigkeit:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:226
+#: qml/Desktop/DesktopPlayerControls.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Kapitelliste anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:237
+#: qml/Desktop/DesktopPlayerControls.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Episoden-Informationen anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:248
+#: qml/Desktop/DesktopPlayerControls.qml:249
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Schlummereinstellungen öffnen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:262
+#: qml/Desktop/DesktopPlayerControls.qml:263
 #: qml/Mobile/MobilePlayerControls.qml:353
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Lautstärkeeinstellungen öffnen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:294
+#: qml/Desktop/DesktopPlayerControls.qml:295
 #: qml/Mobile/MobilePlayerControls.qml:383
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Stummschaltung an/aus"
 
-#: qml/Desktop/DesktopPlayerControls.qml:310
+#: qml/Desktop/DesktopPlayerControls.qml:311
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Mehr anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:339
+#: qml/Desktop/DesktopPlayerControls.qml:340
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:347
+#: qml/Desktop/DesktopPlayerControls.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Informationen anzeigen"
 
-#: qml/Desktop/DesktopPlayerControls.qml:357
+#: qml/Desktop/DesktopPlayerControls.qml:358
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Schlummerfunktion"
 
-#: qml/Desktop/DesktopPlayerControls.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:391
 #, kde-format
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:410 qml/Desktop/HeaderBar.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:34
 #: qml/Mobile/MobilePlayerControls.qml:182
 #, kde-format
 msgid "No Episode Title"
 msgstr "Kein Episodentitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:415 qml/Desktop/HeaderBar.qml:125
+#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:131
 #: qml/Mobile/MobilePlayerControls.qml:192
 #, kde-format
 msgid "No episode loaded"
@@ -713,7 +713,7 @@ msgid "Link Copied"
 msgstr "Verknüpfung kopiert"
 
 #: qml/EpisodeListPage.qml:21 qml/KastsGlobalDrawer.qml:107
-#: qml/Mobile/BottomToolbar.qml:44
+#: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
@@ -882,7 +882,7 @@ msgid "Podcast Details"
 msgstr "Podcast-Details"
 
 #: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:97
-#: qml/Mobile/BottomToolbar.qml:36
+#: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
@@ -1102,7 +1102,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Suchen in:"
 
-#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:28
+#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:19
 #, kde-format
 msgctxt ""
@@ -1111,13 +1111,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "Warteschlange"
 
-#: qml/KastsGlobalDrawer.qml:136 qml/Mobile/BottomToolbar.qml:52
+#: qml/KastsGlobalDrawer.qml:136 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: qml/Main.qml:201
+#: qml/Main.qml:187
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1125,7 +1125,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 von %1 Podcast aktualisiert"
 msgstr[1] "%2 von %1 Podcasts aktualisiert"
 
-#: qml/Main.qml:225
+#: qml/Main.qml:211
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1133,7 +1133,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 von %1 Datei verschoben"
 msgstr[1] "%2 von %1 Dateien verschoben"
 
-#: qml/Main.qml:280
+#: qml/Main.qml:266
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
