@@ -495,7 +495,27 @@
   </screenshots>
   <launchable type="desktop-id">org.kde.kasts.desktop</launchable>
   <releases>
-    <release version="26.04.0" date="2026-04-16"/>
+    <release version="26.04.0" date="2026-04-16">
+      <description>
+        <p>New features in this release:</p>
+        <ul>
+          <li>A large part of the app backend (e.g. database storage) has been rewritten to use unique identifiers for podcasts and episodes. This solves several known issues (e.g. database conflicts) and paves the way to future improvements in UI speed and memory/cpu consumption.</li>
+          <li>Due to this rewrite, bulk episode actions (e.g. add/remove from queue, mark as favorite) should now be much faster on large selections.</li>
+          <li>There is now a setting that controls the maximum amount of parallel episode downloads (the default is 2).</li>
+          <li>Podcast updates that are hosted on the same server will now be processed sequentially. This is done to avoid triggering server limits, e.g. maximum allowed parallel connections. Podcasts hosted on different servers are still processed in parallel.</li>
+          <li>Long episode titles will now be fully visible on the episode details page. The text will be wrapped rather than elided.</li>
+        </ul>
+        <p>Bugfixes in this release:</p>
+        <ul>
+          <li>Fix the issue where the dialogs for setting up synchronization would show up in the wrong window.</li>
+          <li>Fix and optimize the scaling of podcast and episode images throughout the app.</li>
+          <li>Fix an issue where an invalid image URL in an episode description could make the app crash.</li>
+          <li>When streaming episodes, first try the original episode URL. If that one fails, try again with the URL obtained after following all redirects. For some reason either one can fail (for any of the available audio backends), so let's try both.</li>
+          <li>Fix issues with the layout on android version 15 or higher.</li>
+          <li>Use 'episode' instead of 'track' in the UI.</li>
+        </ul>
+      </description>
+    </release>
     <release version="25.12.3" date="2026-03-05"/>
     <release version="25.12.2" date="2026-02-05"/>
     <release version="25.12.1" date="2026-01-08"/>
