@@ -121,7 +121,7 @@
     <p xml:lang="pt-BR">O Kasts é um aplicativo de podcast convergente que fica bem no computadore no celular.</p>
     <p xml:lang="ru">Kasts — универсальное приложение для прослушивания подкастов, которое одинаково хорошо выглядит на компьютерах и мобильных устройствах.</p>
     <p xml:lang="sa">कास्ट्स् इति एकः अभिसरणीयः पोड्कास्ट् अनुप्रयोगः अस्ति यः डेस्कटॉप् तथा मोबाईल् इत्यत्र उत्तमं दृश्यते ।</p>
-    <p xml:lang="sk">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
+    <p xml:lang="sk">Kasts je konvergentná podcastová aplikácia, ktorá vyzerá dobre na počítači aj na mobile.</p>
     <p xml:lang="sl">Kasts je konvergentni program za spletne oddaje za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddradioprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
     <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
@@ -155,7 +155,7 @@
     <p xml:lang="pt-BR">Seus principais recursos são:</p>
     <p xml:lang="ru">Основные возможности:</p>
     <p xml:lang="sa">अस्य मुख्यविशेषताः सन्ति :</p>
-    <p xml:lang="sk">Its main features are:</p>
+    <p xml:lang="sk">Jej hlavné funkcie sú:</p>
     <p xml:lang="sl">Njegove glavne zmožnosti so:</p>
     <p xml:lang="sv">Dess huvudfunktioner är:</p>
     <p xml:lang="tr">Temel özellikleri:</p>
@@ -189,7 +189,7 @@
       <li xml:lang="pt-BR">Gerenciamento de episódios por meio da fila de reprodução</li>
       <li xml:lang="ru">Управление выпусками с помощью очереди воспроизведения</li>
       <li xml:lang="sa">प्ले कतारद्वारा प्रकरणप्रबन्धनम्</li>
-      <li xml:lang="sk">Episode management through play queue</li>
+      <li xml:lang="sk">Správa epizód prostredníctvom frontu prehrávania</li>
       <li xml:lang="sl">Upravljanje z epizodami prek čakalne vrste predvajanj</li>
       <li xml:lang="sv">Avsnittshantering via uppspelningskö</li>
       <li xml:lang="tr">Çalma kuyruğu üzerinden bölüm yönetimi</li>
@@ -222,7 +222,7 @@
       <li xml:lang="pt-BR">Sincronize as posições de reprodução com outros clientes por meio do gpodder.net ou gpodder-nextcloud</li>
       <li xml:lang="ru">Синхронизация позиций воспроизведения с другими клиентами с помощью gpodder.net или gpodder-nextcloud</li>
       <li xml:lang="sa">gpodder.net अथवा gpodder-nextcloud इत्यस्य माध्यमेन अन्यैः क्लायन्ट्-सहितं प्लेबैक्-स्थानानि समन्वययन्तु</li>
-      <li xml:lang="sk">Sync playback positions with other clients through gpodder.net or gpodder-nextcloud</li>
+      <li xml:lang="sk">Synchronizácia pozícií prehrávania s inými klientmi cez gpodder.net alebo gpodder-nextcloud</li>
       <li xml:lang="sl">Usklajevanje položajev predvajanja z ostalimi odjemalci prek gpodder.net ali gpodder-nextcloud</li>
       <li xml:lang="sv">Synkronisera uppspelningsposition med andra klienter via gpodder.net eller gpodder-nextcloud</li>
       <li xml:lang="tr">Çalma konumlarını, gpodder.net veya gpodder-nextcloud üzerinden eşzamanlama</li>
@@ -256,7 +256,7 @@
       <li xml:lang="pt-BR">Velocidade de reprodução variável</li>
       <li xml:lang="ru">Регулируемая скорость воспроизведения</li>
       <li xml:lang="sa">चर प्लेबैकवेग</li>
-      <li xml:lang="sk">Variable playback speed</li>
+      <li xml:lang="sk">Variabilná rýchlosť prehrávania</li>
       <li xml:lang="sl">Spremenljiva hitrost predvajanja</li>
       <li xml:lang="sv">Variabel uppspelningshastighet</li>
       <li xml:lang="tr">Değişken çalma hızı</li>
@@ -290,7 +290,7 @@
       <li xml:lang="pt-BR">Pesquisar podcasts</li>
       <li xml:lang="ru">Поиск подкастов</li>
       <li xml:lang="sa">पोड्कास्ट् अन्वेष्टुम्</li>
-      <li xml:lang="sk">Search for podcasts</li>
+      <li xml:lang="sk">Vyhľadávanie podcastov</li>
       <li xml:lang="sl">Iskanje spletnih oddaj</li>
       <li xml:lang="sv">Sök efter poddradioprogram</li>
       <li xml:lang="tr">Pod yayını arama</li>
@@ -323,7 +323,7 @@
       <li xml:lang="pt-BR">Integração total do sistema: por exemplo, inibir a suspensão do sistema durantea audição</li>
       <li xml:lang="ru">Полная интеграция с системой: например, запрет перехода в состояние ожидания во время прослушивания</li>
       <li xml:lang="sa">पूर्णप्रणालीसमायोजनम् : उदा. शृण्वन् प्रणाली निलम्बनं निरुध्यते</li>
-      <li xml:lang="sk">Full system integration: e.g. inhibit system suspend while listening</li>
+      <li xml:lang="sk">Plná systémová integrácia: napr. zablokovanie uspania systému počas počúvania</li>
       <li xml:lang="sl">Popolna sistemska integracija: npr. preprečevanje mirovanja sistema pri poslušanju</li>
       <li xml:lang="sv">Fullständig systemintegrering: t.ex. förhindra att systemet går till viloläge under uppspelning</li>
       <li xml:lang="tr">Tam sistem tümleşimi; örn. dinlerken sistem uykusunu engelleme</li>
@@ -372,7 +372,7 @@
       <caption xml:lang="pt-BR">Kasts na área de trabalho com a barra de título padrão</caption>
       <caption xml:lang="ru">Kasts на компьютере со стандартной строкой заголовка</caption>
       <caption xml:lang="sa">पूर्वनिर्धारितशीर्षकपट्ट्या सह डेस्कटॉप् मध्ये कास्ट्स्</caption>
-      <caption xml:lang="sk">Kasts on the desktop with default header bar</caption>
+      <caption xml:lang="sk">Kasts na pracovnej ploche s predvolenou hlavičkou</caption>
       <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
       <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
@@ -408,7 +408,7 @@
       <caption xml:lang="pt-BR">Kasts na área de trabalho com barra de título minimizada</caption>
       <caption xml:lang="ru">Kasts на компьютере с минимизированной строкой заголовка</caption>
       <caption xml:lang="sa">न्यूनतमशीर्षकपट्ट्या सह डेस्कटॉप् मध्ये कास्ट्स्</caption>
-      <caption xml:lang="sk">Kasts on the desktop with minimized header bar</caption>
+      <caption xml:lang="sk">Kasts na pracovnej ploche s minimalizovanou hlavičkou</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjenim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
       <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
@@ -446,7 +446,7 @@
       <caption xml:lang="pt-BR">Kasts em um celular</caption>
       <caption xml:lang="ru">Kasts на телефоне</caption>
       <caption xml:lang="sa">एकस्मिन् दूरभाषे कास्ट्स्</caption>
-      <caption xml:lang="sk">Kasts on a phone</caption>
+      <caption xml:lang="sk">Kasts na telefóne</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
       <caption xml:lang="tr">Telefonda Kastlar</caption>
@@ -484,7 +484,7 @@
       <caption xml:lang="pt-BR">Controles do player móvel Kasts</caption>
       <caption xml:lang="ru">Элементы управления мобильного проигрывателя Kasts</caption>
       <caption xml:lang="sa">कास्ट्स् मोबाईल प्लेयर नियन्त्रणानि</caption>
-      <caption xml:lang="sk">Kasts mobile player controls</caption>
+      <caption xml:lang="sk">Ovládacie prvky mobilného prehrávača Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
       <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
@@ -512,25 +512,109 @@
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
-        <p xml:lang="sk">New features in this release:</p>
+        <p xml:lang="sk">Nové funkcie v tomto vydaní:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler:</p>
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
         <ul>
           <li>A large part of the app backend (e.g. database storage) has been rewritten to use unique identifiers for podcasts and episodes. This solves several known issues (e.g. database conflicts) and paves the way to future improvements in UI speed and memory/cpu consumption.</li>
+          <li xml:lang="ca">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de podcasts i episodis. Això resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
+          <li xml:lang="ka">აპის უკანაბოლოს დიდი ნაწილი (მაგ: მონაცემთა ბაზის საცავი) თავიდან იქნა დაწერილი, რომ გამოიყენოს უნიკალური იდენტიფიკატორები პოდკასტებისა და ეპიზოდებისთვის. ეს ჭრის რამდენიმე ცნობილ პრობლემას (მაგ: მონაცემთა ბაზის კონფლიქტებს) და გვაძლევს გზას მომავალში ინტერფეისის სიჩქარისა და მეხსიერების/პროცესორის გამოყენების ოპტიმიზაციისკენ.</li>
+          <li xml:lang="nl">Een groot deel van de backend van de toepassing (bijv. databaseopslag) is herschreven om unieke identificatoren te gebruiken voor podcasts en afleveringen. Dit lost verschillende bekende problemen op (bijv. databaseconflicten) en maakt de weg vrij voor toekomstige verbeteringen in de snelheid van de gebruikersinterface en het geheugen-/CPU-verbruik.</li>
+          <li xml:lang="pt-BR">Grande parte do backend do aplicativo (por exemplo, o armazenamento do banco de dados) foi reescrita para usar identificadores exclusivos para podcasts e episódios. Isso resolve diversos problemas conhecidos (como conflitos no banco de dados) e abre caminho para futuras melhorias na velocidade da interface do usuário e no consumo de memória/CPU.</li>
+          <li xml:lang="sk">Veľká časť backendu aplikácie (napr. ukladanie do databázy) bola prepísaná na používanie jedinečných identifikátorov pre podcasty a epizódy. Tým sa vyriešilo niekoľko známych problémov (napr. konflikty v databáze) a pripravila sa cesta pre budúce zlepšenie rýchlosti rozhrania a spotreby pamäte/procesora.</li>
+          <li xml:lang="sl">Velik del zalednega dela aplikacije (npr. shranjevanje podatkovne baze) je bil prepisan tako, da za podcaste in epizode uporablja enolične identifikatorje. To rešuje več znanih težav (npr. konflikte podatkovnih baz) in utira pot prihodnjim izboljšavam hitrosti uporabniškega vmesnika in porabe pomnilnika/procesorja.</li>
+          <li xml:lang="uk">Значну частину серверної частини програми (наприклад, сховище бази даних) було переписано з метою використання унікальних ідентифікаторів для трансляцій та епізодів. Це вирішує кілька відомих проблем (наприклад, конфлікти бази даних) та прокладає шлях до майбутніх покращень швидкості інтерфейсу користувача та споживання пам'яті/процесора.</li>
           <li>Due to this rewrite, bulk episode actions (e.g. add/remove from queue, mark as favorite) should now be much faster on large selections.</li>
+          <li xml:lang="ca">A causa d'aquesta reescriptura, les accions en massa d'episodis (p. ex. afegir/eliminar de la cua, marcar com a favorit) ara haurien de ser molt més ràpides en seleccions grans.</li>
+          <li xml:lang="ka">ამ თავიდან დაწერის გამო მასიური ეპიზოდის ქმედებები (მაგ: რიგიდან ამოღება/ჩამატება, მათი რჩეულად მონიშვნა) ახლა ბევრი ელემენტის მონიშვნისას გაცილებით სწრაფი უნდა იყოს.</li>
+          <li xml:lang="nl">Door deze herziening zouden bulkacties met afleveringen (bijv. toevoegen/verwijderen uit de wachtrij, markeren als favoriet) nu veel sneller moeten verlopen bij grote selecties.</li>
+          <li xml:lang="pt-BR">Graças a essa reformulação, as ações em massa relacionadas a episódios (por exemplo, adicionar/remover da fila, marcar como favorito) agora devem ser muito mais rápidas em grandes seleções.</li>
+          <li xml:lang="sk">Vďaka tomuto prepísaniu by hromadné akcie s epizódami (napr. pridanie/odstránenie z frontu, označenie ako obľúbené) mali byť teraz oveľa rýchlejšie pri veľkých výberoch.</li>
+          <li xml:lang="sl">Zaradi te prenove bi morala biti množična dejanja epizod (npr. dodajanje/odstranjevanje iz čakalne vrste, označevanje kot priljubljeno) zdaj veliko hitrejša pri velikih izborih.</li>
+          <li xml:lang="uk">Завдяки цьому переписуванню, пакетні дії з епізодами (наприклад, додавання/вилучення з черги, позначення улюбленим) тепер мають бути набагато швидшими для великих вибраних списків.</li>
           <li>There is now a setting that controls the maximum amount of parallel episode downloads (the default is 2).</li>
+          <li xml:lang="ca">Ara hi ha una opció que controla la quantitat màxima de descàrregues d'episodis en paral·lel (el valor predeterminat és 2).</li>
+          <li xml:lang="ka">ახლა არსებობს პარამეტრი, რომელიც აკონტროლებს ეპიზოდების პარალელური გადმოწერის მაქს. რაოდენობას (ნაგულისხმევია 2).</li>
+          <li xml:lang="nl">Er is nu een instelling waarmee het maximale aantal gelijktijdige afleveringsdownloads kan worden geregeld (de standaardwaarde is 2).</li>
+          <li xml:lang="pt-BR">Agora existe uma configuração que controla a quantidade máxima de downloads paralelos de episódios (o padrão é 2).</li>
+          <li xml:lang="sk">Teraz je k dispozícii nastavenie, ktoré ovláda maximálny počet súbežných sťahovaní epizód (predvolená hodnota je 2).</li>
+          <li xml:lang="sl">Zdaj je na voljo nastavitev, ki nadzoruje največje število vzporednih prenosov epizod (privzeta vrednost je 2).</li>
+          <li xml:lang="uk">У новій версії передбачено параметр, який контролює максимальну кількість паралельних завантажень епізодів (типово — 2).</li>
           <li>Podcast updates that are hosted on the same server will now be processed sequentially. This is done to avoid triggering server limits, e.g. maximum allowed parallel connections. Podcasts hosted on different servers are still processed in parallel.</li>
+          <li xml:lang="ca">Les actualitzacions de pòdcast que estan allotjades en el mateix servidor ara es processaran seqüencialment. Això es fa per a evitar l'activació dels límits del servidor, p. ex. el màxim permès de connexions en paral·lel. Els pòdcasts allotjats en diferents servidors encara es processen en paral·lel.</li>
+          <li xml:lang="ka">პოდკასტის განახლებები, რომლებიც იგივე სერვერზეა მოთავსებული, მიმდევრობით განხორციელდება. ეს ხდება იმიტომ, რომ არ მოხდეს სერვერის ლიმიტების (მაგ: მაქს. დაშვებული პარალელური კავშირების) გადაჭარბება. სხვადასხვა სერვერებზე მოთავსებული პოდკასტების გადმოწერა მაინც პარალელურად მოხდება.</li>
+          <li xml:lang="nl">Bijgewerkte podcasts die op dezelfde server worden gehost, worden nu sequentieel verwerkt. Dit wordt gedaan om te voorkomen dat serverlimieten worden overschreden, bijvoorbeeld het maximaal toegestane aantal parallelle verbindingen. Podcasts die op verschillende servers worden gehost, worden nog steeds parallel verwerkt.</li>
+          <li xml:lang="pt-BR">As atualizações de podcasts hospedadas no mesmo servidor agora serão processadas sequencialmente. Isso é feito para evitar o acionamento dos limites do servidor, como o número máximo de conexões paralelas permitidas. Podcasts hospedados em servidores diferentes ainda são processados ​​em paralelo.</li>
+          <li xml:lang="sk">Aktualizácie podcastov umiestnených na rovnakom serveri sa teraz spracúvajú postupne. Toto sa robí, aby sa predišlo prekročeniu limitov servera, napr. maximálneho počtu súbežných pripojení. Podcasty na rôznych serveroch sa stále spracúvajú súbežne.</li>
+          <li xml:lang="sl">Posodobitve podkastov, ki gostujejo na istem strežniku, bodo zdaj obdelane zaporedno. To se naredi, da se prepreči sprožanje omejitev strežnika, npr. največje dovoljeno število vzporednih povezav. Podkasti, ki gostujejo na različnih strežnikih, se še vedno obdelujejo vzporedno.</li>
+          <li xml:lang="uk">Оновлення трансляцій, розміщені на одному сервері, тепер обробляються послідовно. Це зроблено для того, щоб уникнути спрацьовування обмежень сервера, наприклад, максимально дозволеної кількості паралельних з'єднань. Трансляції, розміщені на різних серверах, все одно оброблятимуться паралельно.</li>
           <li>Long episode titles will now be fully visible on the episode details page. The text will be wrapped rather than elided.</li>
+          <li xml:lang="ca">Els títols llargs d'episodis ara seran completament visibles a la pàgina de detalls de l'episodi. El text s'ajustarà en lloc d'elidir-se.</li>
+          <li xml:lang="ka">გრძელი ეპიზოდის სათაურები ახლა სრულად ხილული იქნება ეპიზოდის დეტალების გვერდზე. ტექსტი წაკვეთის მაგიერ ახლა გადატანილი იქნება.</li>
+          <li xml:lang="nl">Lange afleveringstitels zullen nu volledig zichtbaar zijn op de pagina met afleveringsdetails. De tekst wordt opgebroken in plaats van ingekort.</li>
+          <li xml:lang="pt-BR">Os títulos longos dos episódios agora serão exibidos por completo na página de detalhes do episódio. O texto será exibido em sequência, em vez de ser cortado.</li>
+          <li xml:lang="sk">Dlhé názvy epizód budú teraz plne viditeľné na stránke podrobností epizódy. Text sa zalomí namiesto skrátenia.</li>
+          <li xml:lang="sl">Dolgi naslovi epizod bodo odslej v celoti vidni na strani s podrobnostmi epizode. Besedilo bo prelomljeno in ne izpuščeno.</li>
+          <li xml:lang="uk">У новій версії довгі назви епізодів будуть повністю видимими сторінці параметрів епізоду. Текст буде перенесено на наступний рядок, а не пропущено.</li>
         </ul>
         <p>Bugfixes in this release:</p>
+        <p xml:lang="ca">Correccions d'errors d'aquesta versió:</p>
+        <p xml:lang="ka">გასწორებული შეცდომები ამ გამოცემაში:</p>
+        <p xml:lang="nl">Reparaties van fouten in deze uitgave:</p>
+        <p xml:lang="pt-BR">Correções de bugs nesta versão:</p>
+        <p xml:lang="sk">Opravy chýb v tomto vydaní:</p>
+        <p xml:lang="sl">Popravki napak v tej izdaji:</p>
+        <p xml:lang="uk">Виправлення вад у цьому випуску:</p>
         <ul>
           <li>Fix the issue where the dialogs for setting up synchronization would show up in the wrong window.</li>
+          <li xml:lang="ca">Corregeix el problema on els diàlegs per a configurar la sincronització es mostraven en la finestra incorrecta.</li>
+          <li xml:lang="ka">გასწორდა პრობლემა, სადაც დიალოგების სინქრონიზაციის მოსარგებლად არასწორ ფანჯარაში ჩანდა ხოლმე.</li>
+          <li xml:lang="nl">Los het probleem op waarbij de dialoogvensters voor het instellen van synchronisatie in het verkeerde venster verschenen.</li>
+          <li xml:lang="pt-BR">Corrigido o problema em que as caixas de diálogo para configurar a sincronização apareciam na janela errada.</li>
+          <li xml:lang="sk">Oprava problému, keď sa dialógy na nastavenie synchronizácie zobrazovali v nesprávnom okne.</li>
+          <li xml:lang="sl">Odpravljena je težava, pri kateri so se pogovorna okna za nastavitev sinhronizacije prikazovala v napačnem oknu.</li>
+          <li xml:lang="uk">Виправлено проблему, через яку діалогові вікна для налаштування синхронізації було показано не у тому вікні.</li>
           <li>Fix and optimize the scaling of podcast and episode images throughout the app.</li>
+          <li xml:lang="ca">Corregeix i optimitza l'escalat d'imatges de podcast i episodi a tota l'aplicació.</li>
+          <li xml:lang="ka">გასწორდა და მოხდა პოდკასტის და ეპიზოდის გამოსახულებების მასშტაბის ოპტიმიზაცია მთელ აპლიკაციაში.</li>
+          <li xml:lang="nl">Corrigeer en optimaliseer de schaalvergroting van podcast- en afleveringsafbeeldingen in de hele toepassing.</li>
+          <li xml:lang="pt-BR">Corrigido e otimizado o dimensionamento das imagens de podcasts e episódios em todo o aplicativo.</li>
+          <li xml:lang="sk">Oprava a optimalizácia škálovania obrázkov podcastov a epizód v celej aplikácii.</li>
+          <li xml:lang="sl">Popravi in optimizira merilo slik podkastov in epizod v celotni aplikaciji.</li>
+          <li xml:lang="uk">Виправлено та оптимізовано масштабування зображень трансляцій та епізодів у всій програмі.</li>
           <li>Fix an issue where an invalid image URL in an episode description could make the app crash.</li>
+          <li xml:lang="ca">Corregeix un problema en què un URL d'imatge no vàlid en una descripció d'episodi podria fer que l'aplicació falli.</li>
+          <li xml:lang="ka">გასწორდა პრობლემა, სადაც არასწორი გამოსახულების ბმული ეპიზოდის აღწერაში აპლიკაციის ავარიულად დასრულებას იწვევდა.</li>
+          <li xml:lang="nl">Er is een probleem opgelost waarbij een ongeldige afbeeldings-URL in een afleveringsbeschrijving ervoor kon zorgen dat de toepassing vastliep.</li>
+          <li xml:lang="pt-BR">Corrigido um problema em que um URL de imagem inválido na descrição de um episódio podia causar o travamento do aplicativo.</li>
+          <li xml:lang="sk">Oprava problému, keď neplatná URL adresa obrázka v popise epizódy mohla spôsobiť pád aplikácie.</li>
+          <li xml:lang="sl">Odpravljena je težava, pri kateri je lahko neveljaven URL slike v opisu epizode povzročil sesutje aplikacije.</li>
+          <li xml:lang="uk">Виправлено проблему, через яку нечинна адреса зображення в описі епізоду могла призвести до аварійного завершення роботи програми.</li>
           <li>When streaming episodes, first try the original episode URL. If that one fails, try again with the URL obtained after following all redirects. For some reason either one can fail (for any of the available audio backends), so let's try both.</li>
+          <li xml:lang="ca">Quan es transmeten episodis, primer intenta l'URL de l'episodi original. Si això falla, ho torna a intentar amb l'URL obtingut després de seguir totes les redireccions. Pot fallar per algun motiu qualsevol (per a qualsevol dels dorsals d'àudio disponibles), així que prova tots dos.</li>
+          <li xml:lang="ka">ეპიზოდების დასტრიმვისას ჯერ სცადეთ ორიგინალი ეპიზოდის ბმული. თუ ის ჩავარდება, სცადეთ ბმული, რომელსაც ყველა გადამისამართების შემდეგ მიიღებთ. თუ რამე მიზეზით ერთ-ერთმა არ იმუშავა (ნებისმიერი ხელმისაწვდომი აუდიოს უკანაბოლოსთვის), ორივე ვცადოთ.</li>
+          <li xml:lang="nl">Probeer bij het streamen van afleveringen eerst de originele URL van de aflevering. Als die niet werkt, probeer het dan opnieuw met de URL die u krijgt na alle omleidingen. Om welke reden dan ook kunnen beide methoden mislukken (voor elk van de beschikbare audio-backends), dus laten we ze allebei proberen.</li>
+          <li xml:lang="pt-BR">Ao reproduzir episódios, tenta primeiro o URL original do episódio. Se esse também falhar, tenta novamente com o URL obtido após seguir todos os redirecionamentos. Por algum motivo, qualquer um dos dois pode falhar (para qualquer um dos servidores de áudio disponíveis), então vamos tentar ambos.</li>
+          <li xml:lang="sk">Pri streamovaní epizód sa najprv skúsi pôvodná URL epizódy. Ak zlyhá, skúsi sa znova s URL získanou po nasledovaní všetkých presmerovaní. Z nejakého dôvodu môže zlyhať ktorákoľvek z nich (pre akýkoľvek dostupný zvukový backend), preto sa skúšajú obe.</li>
+          <li xml:lang="sl">Pri pretakanju epizod najprej poskusi z izvirnim URL-jem epizode. Če ta ne uspe, poskusi znova z URL-jem, ki ste ga pridobili po vseh preusmeritvah. Iz nekega razloga lahko kateri koli od njiju ne uspe (za kateri koli od razpoložljivih zvočnih strežnikov), zato poskusimo oba.</li>
+          <li xml:lang="uk">Під час потокового передавання епізодів реалізовано початкове використання оригінальної адреси епізоду. Якщо ця спроба не спрацює, спробуйте ще раз з адресою, отриманою після виконання всіх переспрямовувань. З якоїсь причини будь-яка з цих спроб може не спрацювати (для будь-якого з доступних аудіосерверів), тому програма намагається спробувати обидві.</li>
           <li>Fix issues with the layout on android version 15 or higher.</li>
+          <li xml:lang="ca">Corregeix els problemes amb la disposició a la versió 15 o superior d'Android.</li>
+          <li xml:lang="ka">გასწორდა პრობლემები განლაგებასთან Android-ის ვერსიაში 15, ან უფრო ახალი.</li>
+          <li xml:lang="nl">Los problemen met de indeling op in Android-versie 15 of hoger.</li>
+          <li xml:lang="pt-BR">Corrigidos problemas de layout no Android versão 15 ou superior.</li>
+          <li xml:lang="sk">Oprava problémov s rozložením na Androide verzie 15 alebo vyššej.</li>
+          <li xml:lang="sl">Odpravi težave s postavitvijo v sistemu Android različice 15 ali novejše.</li>
+          <li xml:lang="uk">Виправлено вади з компонуванням вікна у версіях android 15 та новіших.</li>
           <li>Use 'episode' instead of 'track' in the UI.</li>
+          <li xml:lang="ca">Utilitza «episode» en lloc de «track» a la interfície d'usuari.</li>
+          <li xml:lang="ka">'ეპიზოდის' გამოყენება 'ტრეკის' მაგიერ ინტერფეისში.</li>
+          <li xml:lang="nl">Gebruik 'episode' in plaats van 'track' in de gebruikersinterface.</li>
+          <li xml:lang="pt-BR">Usar 'episódio' em vez de 'faixa' na interface do usuário.</li>
+          <li xml:lang="sk">Použitie slova 'epizóda' namiesto 'stopa' v rozhraní.</li>
+          <li xml:lang="sl">Uporabi 'epizoda' namesto 'skladba' v uporabniškem vmesniku.</li>
+          <li xml:lang="uk">В інтерфейсі програми здійснено перехід від терміна «доріжка» до терміна «епізод».</li>
         </ul>
       </description>
     </release>
@@ -1339,7 +1423,7 @@
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
-        <p xml:lang="sk">New features in this release:</p>
+        <p xml:lang="sk">Nové funkcie v tomto vydaní:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler:</p>
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
@@ -1497,7 +1581,7 @@
         <p xml:lang="nl">Nieuwe functies in deze uitgave:</p>
         <p xml:lang="pt-BR">Novas funcionalidades nesta versão:</p>
         <p xml:lang="ru">Новое в этом выпуске:</p>
-        <p xml:lang="sk">New features in this release:</p>
+        <p xml:lang="sk">Nové funkcie v tomto vydaní:</p>
         <p xml:lang="sl">Nove zmožnosti v tej izdaji:</p>
         <p xml:lang="tr">Bu sürümdeki yeni özellikler:</p>
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
