@@ -97,7 +97,7 @@
     <p xml:lang="ar">كاست تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de pòdcast que funciona bé a l'escriptori i al mòbil.</p>
     <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que treballa bé en l'escriptori i en el mòbil.</p>
-    <p xml:lang="cs">Kasts je konvergovaná aplikace pro podcasty, která vypadá dobře na počítači i mobilu.</p>
+    <p xml:lang="cs">Kasts je konvergentní aplikace pro podcasty, která vypadá dobře na počítači i mobilu.</p>
     <p xml:lang="da">Kasts er et konvergerende podcastprogram, der ser godt ud på desktop og mobiler.</p>
     <p xml:lang="de">Kasts ist eine konvergente Podcast-Anwendung, die sowohl auf Desktop-Rechnern, als auch auf Mobilgeräten gut aussieht.</p>
     <p xml:lang="en-GB">Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
@@ -349,7 +349,7 @@
       <caption xml:lang="ar">كاست على سطح المكتب مع الشريط الرأسي المبدئي</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera predeterminada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera predeterminada</caption>
-      <caption xml:lang="cs">Kasty na ploše s výchozím záhlavím</caption>
+      <caption xml:lang="cs">Kasts na ploše s výchozím záhlavím</caption>
       <caption xml:lang="da">Kast på desktoppen med standard overskriftsbar</caption>
       <caption xml:lang="de">Kasts auf der Arbeitsfläche mit Standard-Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with default header bar</caption>
@@ -385,7 +385,7 @@
       <caption xml:lang="ar">كاست على سطح المكتب مع شريط رأسي مصغر</caption>
       <caption xml:lang="ca">El Kasts a l'escriptori amb la barra de capçalera minimitzada</caption>
       <caption xml:lang="ca-valencia">Kasts en l'escriptori amb la barra de capçalera minimitzada</caption>
-      <caption xml:lang="cs">Kasty na ploše s minimalizovaným záhlavím</caption>
+      <caption xml:lang="cs">Kasts na ploše s minimalizovaným záhlavím</caption>
       <caption xml:lang="da">Kasts på desktoppen med minimeret overskriftsbar</caption>
       <caption xml:lang="de">Kasts auf der Arbeitsfläche mit minimierter Kopfleiste</caption>
       <caption xml:lang="en-GB">Kasts on the desktop with minimised header bar</caption>
@@ -520,6 +520,8 @@
           <li>A large part of the app backend (e.g. database storage) has been rewritten to use unique identifiers for podcasts and episodes. This solves several known issues (e.g. database conflicts) and paves the way to future improvements in UI speed and memory/cpu consumption.</li>
           <li xml:lang="ca">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de podcasts i episodis. Això resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
           <li xml:lang="ca-valencia">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de pòdcast i episodis. Açò resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí cap a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
+          <li xml:lang="cs">Velká část podpůrné vrstvy aplikace (např. úložiště databáze) byla přepracována tak, aby pro podcasty a epizody používala jedinečné identifikátory. Tím se vyřešilo několik známých problémů (např. konflikty v databázi) a připravila se půda pro budoucí zlepšení rychlosti uživatelského rozhraní a snížení spotřeby paměti a procesoru.</li>
+          <li xml:lang="he">חלק גדול ממנגנון היישום (כלומר אחסון במסד נתונים) שוכתב כך שישתמש במזהים ייחודיים להסכתים ולפרקים. השכתוב הזה פותר מגוון תקלות ידועות (כלומר סתירות במסד הנתונים) וסולל את הדרך לשיפורים עתידיים במהירות ממשק המשתמש וצריכה של זיכרון/מעבד.</li>
           <li xml:lang="ia">Un grande parte del backend  (retro administration) del application (p.ex. le immagazinage in bases de datos) ha essite rescribite pro usar  identificatores unic pro podcasts e episodios. Isto resolve plure problemas  cognoscite (p.ex. conflictos de base de datos) e prepara le via pro meliorationes futur in le velocitate del UI e le consumo de memoria/CPU.</li>
           <li xml:lang="nl">Een groot deel van de backend van de toepassing (bijv. databaseopslag) is herschreven om unieke identificatoren te gebruiken voor podcasts en afleveringen. Dit lost verschillende bekende problemen op (bijv. databaseconflicten) en maakt de weg vrij voor toekomstige verbeteringen in de snelheid van de gebruikersinterface en het geheugen-/CPU-verbruik.</li>
           <li xml:lang="pt-BR">Grande parte do backend do aplicativo (por exemplo, o armazenamento do banco de dados) foi reescrita para usar identificadores exclusivos para podcasts e episódios. Isso resolve diversos problemas conhecidos (como conflitos no banco de dados) e abre caminho para futuras melhorias na velocidade da interface do usuário e no consumo de memória/CPU.</li>
@@ -530,6 +532,8 @@
           <li>Due to this rewrite, bulk episode actions (e.g. add/remove from queue, mark as favorite) should now be much faster on large selections.</li>
           <li xml:lang="ca">A causa d'aquesta reescriptura, les accions en massa d'episodis (p. ex. afegir/eliminar de la cua, marcar com a favorit) ara haurien de ser molt més ràpides en seleccions grans.</li>
           <li xml:lang="ca-valencia">A causa d'esta reescriptura, les accions en massa d'episodis (p. ex., afegir/eliminar de la cua, marcar com a favorit) ara haurien de ser molt més ràpides en seleccions grans.</li>
+          <li xml:lang="cs">Díky této úpravě by hromadné operace s epizodami (např. přidání do fronty, odebrání z fronty, označení jako oblíbené) měly být nyní při výběru většího počtu položek mnohem rychlejší.</li>
+          <li xml:lang="he">בעקבות השכתוב הזה, פעולות על פרקים במרוכז (כלומר: הוספה/הסרה מהתור, סימון כמועדף) עכשיו אמורות להיות מהירות יותר במקרה של בחירות גדולות.</li>
           <li xml:lang="ia">Debite a iste re-scriptura, le actiones de episodios in massa  (p.ex. adder/remover del cauda, marcar como favorite) deberea  ora esser multo plus rapide sur selectiones grande.</li>
           <li xml:lang="nl">Door deze herziening zouden bulkacties met afleveringen (bijv. toevoegen/verwijderen uit de wachtrij, markeren als favoriet) nu veel sneller moeten verlopen bij grote selecties.</li>
           <li xml:lang="pt-BR">Graças a essa reformulação, as ações em massa relacionadas a episódios (por exemplo, adicionar/remover da fila, marcar como favorito) agora devem ser muito mais rápidas em grandes seleções.</li>
@@ -540,6 +544,7 @@
           <li>There is now a setting that controls the maximum amount of parallel episode downloads (the default is 2).</li>
           <li xml:lang="ca">Ara hi ha una opció que controla la quantitat màxima de descàrregues d'episodis en paral·lel (el valor predeterminat és 2).</li>
           <li xml:lang="ca-valencia">Ara hi ha una opció que controla la quantitat màxima de descàrregues d'episodis en paral·lel (el valor predeterminat és 2).</li>
+          <li xml:lang="cs">Nyní je k dispozici nastavení, které určuje maximální počet souběžných stahování epizod (výchozí hodnota je 2).</li>
           <li xml:lang="he">מעתה יש הגדרה ששולטת בכמות ההורדות המרביות במקביל (ברירת המחדל היא 2).</li>
           <li xml:lang="ia">Il ha ora un preferentia que controla le amonta maxime de discargas  de episodios in parallel (le valor predefinite es 2).</li>
           <li xml:lang="nl">Er is nu een instelling waarmee het maximale aantal gelijktijdige afleveringsdownloads kan worden geregeld (de standaardwaarde is 2).</li>
@@ -551,6 +556,7 @@
           <li>Podcast updates that are hosted on the same server will now be processed sequentially. This is done to avoid triggering server limits, e.g. maximum allowed parallel connections. Podcasts hosted on different servers are still processed in parallel.</li>
           <li xml:lang="ca">Les actualitzacions de pòdcast que estan allotjades en el mateix servidor ara es processaran seqüencialment. Això es fa per a evitar l'activació dels límits del servidor, p. ex. el màxim permès de connexions en paral·lel. Els pòdcasts allotjats en diferents servidors encara es processen en paral·lel.</li>
           <li xml:lang="ca-valencia">Les actualitzacions de pòdcast que estan allotjades en el mateix servidor ara es processaran seqüencialment. Açò es fa per a evitar l'activació dels límits del servidor, p. ex., el màxim permés de connexions en paral·lel. Els pòdcast allotjats en diferents servidors encara es processen en paral·lel.</li>
+          <li xml:lang="cs">Aktualizace podcastů, které jsou hostovány na stejném serveru, budou nyní zpracovávány postupně. Důvodem je snaha zabránit překročení limitů serveru, např. maximálního povoleného počtu souběžných připojení. Podcasty hostované na různých serverech jsou i nadále zpracovávány souběžně.</li>
           <li xml:lang="ia">Actualisationes de podcast que es albergate in le mesme servitor essera  ora processate sequentialmente. Isto es facite pro evitar le activation de  limites del servitor, p.ex. le maximo de connexiones parallel permittite.  Podcasts albergate in differente servitores es ancora processate in parallel.</li>
           <li xml:lang="nl">Bijgewerkte podcasts die op dezelfde server worden gehost, worden nu sequentieel verwerkt. Dit wordt gedaan om te voorkomen dat serverlimieten worden overschreden, bijvoorbeeld het maximaal toegestane aantal parallelle verbindingen. Podcasts die op verschillende servers worden gehost, worden nog steeds parallel verwerkt.</li>
           <li xml:lang="pt-BR">As atualizações de podcasts hospedadas no mesmo servidor agora serão processadas sequencialmente. Isso é feito para evitar o acionamento dos limites do servidor, como o número máximo de conexões paralelas permitidas. Podcasts hospedados em servidores diferentes ainda são processados ​​em paralelo.</li>
@@ -561,6 +567,8 @@
           <li>Long episode titles will now be fully visible on the episode details page. The text will be wrapped rather than elided.</li>
           <li xml:lang="ca">Els títols llargs d'episodis ara seran completament visibles a la pàgina de detalls de l'episodi. El text s'ajustarà en lloc d'elidir-se.</li>
           <li xml:lang="ca-valencia">Els títols llargs d'episodis ara seran completament visibles a la pàgina de detalls de l'episodi. El text s'ajustarà en lloc d'elidir-se.</li>
+          <li xml:lang="cs">Dlouhé názvy epizod budou nyní na stránce s podrobnostmi o epizodě zobrazeny v plném znění. Text se automaticky zalomí, místo aby byl zkrácen.</li>
+          <li xml:lang="he">כותרות ארוכות של פרקים גלויות עתה במלואן בעמוד פרטי הפרק. הטקסט יגלוש במקום להיחתך.</li>
           <li xml:lang="ia">Titulos longe de episodios essera ora completemente visibile sur le pagina  de detalios del episodio. Le texto essera involvite in loco de esser elidite.</li>
           <li xml:lang="nl">Lange afleveringstitels zullen nu volledig zichtbaar zijn op de pagina met afleveringsdetails. De tekst wordt opgebroken in plaats van ingekort.</li>
           <li xml:lang="pt-BR">Os títulos longos dos episódios agora serão exibidos por completo na página de detalhes do episódio. O texto será exibido em sequência, em vez de ser cortado.</li>
@@ -572,6 +580,7 @@
         <p>Bugfixes in this release:</p>
         <p xml:lang="ca">Correccions d'errors d'aquesta versió:</p>
         <p xml:lang="ca-valencia">Esmenes d'errors d'esta versió:</p>
+        <p xml:lang="cs">Opravy chyb v této verzi:</p>
         <p xml:lang="fr">Correction de bogues dans cette version :</p>
         <p xml:lang="he">תיקוני תקלות במהדורה הזאת:</p>
         <p xml:lang="ia">Correctiones de faltas in iste version:</p>
@@ -585,6 +594,8 @@
           <li>Fix the issue where the dialogs for setting up synchronization would show up in the wrong window.</li>
           <li xml:lang="ca">Corregeix el problema on els diàlegs per a configurar la sincronització es mostraven en la finestra incorrecta.</li>
           <li xml:lang="ca-valencia">Corregix el problema on els diàlegs per a configurar la sincronització es mostraven en la finestra incorrecta.</li>
+          <li xml:lang="cs">Opraven problém, kvůli kterému se dialogová okna pro nastavení synchronizace zobrazovala v nesprávném okně.</li>
+          <li xml:lang="he">תיקון התקלה שבה החלוניות להגדרת הסנכרון הופיעו בחלון הלא נכון.</li>
           <li xml:lang="ia">Corrige le problema ubi le dialogos pro configurar le synchronisation  appareva in le fenestra incorrecte.</li>
           <li xml:lang="nl">Los het probleem op waarbij de dialoogvensters voor het instellen van synchronisatie in het verkeerde venster verschenen.</li>
           <li xml:lang="pt-BR">Corrigido o problema em que as caixas de diálogo para configurar a sincronização apareciam na janela errada.</li>
@@ -595,6 +606,7 @@
           <li>Fix and optimize the scaling of podcast and episode images throughout the app.</li>
           <li xml:lang="ca">Corregeix i optimitza l'escalat d'imatges de podcast i episodi a tota l'aplicació.</li>
           <li xml:lang="ca-valencia">Corregix i optimitza l'escalat d'imatges de pòdcast i episodi a tota l'aplicació.</li>
+          <li xml:lang="cs">Opraveno a optimalizováno měřítko obrázků podcastů a epizod v celé aplikaci.</li>
           <li xml:lang="fr">Correction et optimisation de la mise à l'échelle des images de podcasts et d'épisodes dans la totalité de l'application.</li>
           <li xml:lang="ia">Corrige e optimisa le scalar del imagines de podcast e episodios  in tote le application.</li>
           <li xml:lang="nl">Corrigeer en optimaliseer de schaalvergroting van podcast- en afleveringsafbeeldingen in de hele toepassing.</li>
@@ -606,6 +618,7 @@
           <li>Fix an issue where an invalid image URL in an episode description could make the app crash.</li>
           <li xml:lang="ca">Corregeix un problema en què un URL d'imatge no vàlid en una descripció d'episodi podria fer que l'aplicació falli.</li>
           <li xml:lang="ca-valencia">Corregix un problema en què un URL d'imatge no vàlid en una descripció d'episodi podria fer que l'aplicació falle.</li>
+          <li xml:lang="cs">Opravena chyba, kvůli které mohla neplatná adresa URL obrázku v popisu epizody způsobit pád aplikace.</li>
           <li xml:lang="fr">Correction d'un problème où une URL d'image invalide dans la description d'un épisode pouvait faire planter l'application.</li>
           <li xml:lang="he">תוקנה בעיה שכתובת תמונה שגויה בתיאור פרק יכלה לגרום ליישום לקרוס.</li>
           <li xml:lang="ia">Corrige un problema ubi un URL de imagine invalide in un description de  episodio poteva causar le collapso del application.</li>
@@ -618,6 +631,8 @@
           <li>When streaming episodes, first try the original episode URL. If that one fails, try again with the URL obtained after following all redirects. For some reason either one can fail (for any of the available audio backends), so let's try both.</li>
           <li xml:lang="ca">Quan es transmeten episodis, primer intenta l'URL de l'episodi original. Si això falla, ho torna a intentar amb l'URL obtingut després de seguir totes les redireccions. Pot fallar per algun motiu qualsevol (per a qualsevol dels dorsals d'àudio disponibles), així que prova tots dos.</li>
           <li xml:lang="ca-valencia">Quan es transmeten episodis, primer intenta l'URL de l'episodi original. Si açò falla, ho torna a intentar amb l'URL obtingut després de seguir totes les redireccions. Pot fallar per algun motiu qualsevol (per a qualsevol dels dorsals d'àudio disponibles), així que prova tots dos.</li>
+          <li xml:lang="cs">Při streamování epizod se nejprve zkouší původní URL adresa epizody. Pokud to nevyjde, zkouší se to znovu s URL adresou, která je získána po absolvování všech přesměrování. Z nějakého důvodu může selhat kterákoli z těchto možností (u kteréhokoli z dostupných zvukových podpůrných vrstev), proto se zkouší obě.</li>
+          <li xml:lang="he">בעת הזרמת פרקים, קודם לנסות את כתובת הפרק המקורית. אם היא נכשלת, לנסות שוב עם הכתובת שהושגה לאחר מעקב אחר כל ההפניות. מסיבות כלשהן אחת השיטות עלולה להיכשל (עבור כל אחד ממנגנוני השמע הזמינים), אז כדאי לנסות את שניהם.</li>
           <li xml:lang="ia">Quando on transmitte episodios in fluxo, tenta primo le URL original del episodio.  Si illo falle, tenta de novo con le URL obtenite post sequer tote le redirectiones.  Per alcun ration, qualcunque de illos pote faller (pro qualcunque del backends  de audio disponibile), assi que nos tenta ambe.</li>
           <li xml:lang="nl">Probeer bij het streamen van afleveringen eerst de originele URL van de aflevering. Als die niet werkt, probeer het dan opnieuw met de URL die u krijgt na alle omleidingen. Om welke reden dan ook kunnen beide methoden mislukken (voor elk van de beschikbare audio-backends), dus laten we ze allebei proberen.</li>
           <li xml:lang="pt-BR">Ao reproduzir episódios, tenta primeiro o URL original do episódio. Se esse também falhar, tenta novamente com o URL obtido após seguir todos os redirecionamentos. Por algum motivo, qualquer um dos dois pode falhar (para qualquer um dos servidores de áudio disponíveis), então vamos tentar ambos.</li>
@@ -628,6 +643,7 @@
           <li>Fix issues with the layout on android version 15 or higher.</li>
           <li xml:lang="ca">Corregeix els problemes amb la disposició a la versió 15 o superior d'Android.</li>
           <li xml:lang="ca-valencia">Corregix els problemes amb la disposició a la versió 15 o superior d'Android.</li>
+          <li xml:lang="cs">Opraven problém s rozvržením v systému Android verze 15 a vyšší.</li>
           <li xml:lang="fr">Correction des problèmes de mise en page sous Android version 15 ou ultérieure.</li>
           <li xml:lang="he">תוקנו תקלות בפריסה ב־Android בגרסה 15 ומעלה.</li>
           <li xml:lang="ia">Corrige problemas con le disposition in le version 15 de Android o superior.</li>
@@ -640,6 +656,7 @@
           <li>Use 'episode' instead of 'track' in the UI.</li>
           <li xml:lang="ca">Utilitza «episode» en lloc de «track» a la interfície d'usuari.</li>
           <li xml:lang="ca-valencia">Utilitza «episode» en lloc de «track» a la interfície d'usuari.</li>
+          <li xml:lang="cs">V uživatelském rozhraní použit výraz 'epizoda' namísto 'stopa'.</li>
           <li xml:lang="fr">Utilisation de « épisode » au lieu de « piste » dans l'interface utilisateur.</li>
           <li xml:lang="he">להשתמש ב‚פרק’ במקום ב‚רצועה’ בממשק המשתמש.</li>
           <li xml:lang="ia">Usa 'episodio' in loco de 'tracia' in le UI.</li>
