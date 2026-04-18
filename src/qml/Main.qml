@@ -112,7 +112,7 @@ Kirigami.ApplicationWindow {
 
     property bool showGlobalDrawer: !Kirigami.Settings.isMobile || WindowUtils.isWidescreen
 
-    globalDrawer: globalDrawerLoader.item as globalDrawer
+    globalDrawer: globalDrawerLoader.item as KastsGlobalDrawer
 
     Loader {
         id: globalDrawerLoader
