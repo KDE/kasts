@@ -22,7 +22,9 @@ FocusScope {
     id: root
     implicitHeight: playerControlToolBar.implicitHeight + Kirigami.Units.largeSpacing * 2
 
-    property HeaderBar headerBar: undefined
+    property string image: ""
+    property int handlePosition: 0
+    property var openFullScreenImage: undefined
     property alias chapterModel: chapterModel
     /*
      * Emmited when User uses the Item as a handle to resize the layout.
@@ -30,7 +32,7 @@ FocusScope {
      * offset: cursor offset (y coordinate relative to this Item, where dragging
      * begun)
      */
-    signal handlePositionChanged(int y, int offset)
+    signal handleDragged(int y, int offset)
 
     Rectangle {
         id: toolbarBackground
@@ -54,7 +56,7 @@ FocusScope {
             }
 
             onPositionChanged: mouse => {
-                root.handlePositionChanged(mouse.y, dragStartOffset);
+                root.handleDragged(mouse.y, dragStartOffset);
             }
 
             drag.axis: Drag.YAxis
@@ -89,7 +91,7 @@ FocusScope {
         Loader {
             Layout.fillHeight: true
             Layout.preferredWidth: height
-            active: (root.headerBar as HeaderBar).handlePosition === 0
+            active: root.handlePosition === 0
             visible: active
             sourceComponent: imageComponent
         }
@@ -98,15 +100,15 @@ FocusScope {
             id: imageComponent
             ImageWithFallback {
                 id: frontImage
-                imageSource: (root.headerBar as HeaderBar).image
+                imageSource: root.image
                 absoluteRadius: Kirigami.Units.smallSpacing
-                visible: (root.headerBar as HeaderBar).handlePosition === 0
+                visible: root.handlePosition === 0
                 MouseArea {
                     anchors.fill: parent
                     cursorShape: AudioManager.entryuid > 0 ? Qt.PointingHandCursor : Qt.ArrowCursor
                     enabled: AudioManager.entryuid > 0
                     onClicked: {
-                        root.headerBar.openFullScreenImage();
+                        root.openFullScreenImage();
                     }
                 }
             }
@@ -323,7 +325,7 @@ FocusScope {
                 contentData: root.extraActions
                 onVisibleChanged: {
                     if (visible) {
-                        for (var i in contentData) {
+                        for (let i in contentData) {
                             overflowMenu.contentData[i].visible = overflowMenu.contentData[i].action.visible;
                             overflowMenu.contentData[i].height = (overflowMenu.contentData[i].action.visible) ? overflowMenu.contentData[i].implicitHeight : 0; // workaround for qqc2-breeze-style
                         }
@@ -412,15 +414,12 @@ FocusScope {
         padding: Kirigami.Units.largeSpacing
 
         Controls.Label {
-            id: text
-            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : KI18n.i18n("No episode loaded")
+            id: entryDetailsText
+            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(entryDetailsOverlay.preferredWidth, font.pixelSize) : KI18n.i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
-            onLinkHovered: {
-                cursorShape: Qt.PointingHandCursor;
-            }
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
                     if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {

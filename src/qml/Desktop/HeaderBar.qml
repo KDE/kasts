@@ -38,12 +38,12 @@ FocusScope {
 
     function openEntry(): void {
         if (AudioManager.entryuid > 0) {
-            var mainWindow = root.Controls.ApplicationWindow.window as Main;
+            const mainWindow = root.Controls.ApplicationWindow.window as Main;
             mainWindow.pushPage("QueuePage");
             mainWindow.pageStack.get(0).lastEntry = AudioManager.entryuid;
-            var model = mainWindow.pageStack.get(0).queueList.model;
-            for (var i = 0; i < model.rowCount(); i++) {
-                var index = model.index(i, 0);
+            const model = mainWindow.pageStack.get(0).queueList.model;
+            for (let i = 0; i < model.rowCount(); i++) {
+                const index = model.index(i, 0);
                 if (AudioManager.entryuid == model.data(index, AbstractEpisodeModel.EntryuidRole)) {
                     mainWindow.pageStack.get(0).queueList.currentIndex = i;
                     mainWindow.pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
@@ -240,9 +240,11 @@ FocusScope {
         anchors.left: root.left
         anchors.right: root.right
 
-        headerBar: root as HeaderBar
+        handlePosition: root.handlePosition
+        image: root.image
+        openFullScreenImage: root.openFullScreenImage
 
-        onHandlePositionChanged: (y, offset) => {
+        onHandleDragged: (y, offset) => {
             root.handlePosition = Math.max(0, Math.min(root.maximumHeight, root.height - implicitHeight - offset + y));
             settings.headerSize = root.handlePosition;
         }
