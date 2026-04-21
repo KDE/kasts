@@ -29,7 +29,7 @@ Kirigami.Dialog {
         id: _rateModel
 
         Component.onCompleted: {
-            for (var rate in SettingsManager.playbackRates) {
+            for (let rate in SettingsManager.playbackRates) {
                 rateModel.append({
                     value: SettingsManager.playbackRates[rate] / 100.0,
                     name: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"
@@ -40,7 +40,7 @@ Kirigami.Dialog {
 
     function getRateList(): list<int> {
         var list = [];
-        for (var i = 0; i < rateModel.count; i++) {
+        for (let i = 0; i < rateModel.count; i++) {
             list.push(Math.round(rateModel.get(i).value * 100));
         }
         return list;
@@ -76,7 +76,7 @@ Kirigami.Dialog {
                     var found = false;
                     var insertIndex = 0;
                     var newValue = (Math.round(rateSlider.value * 20) / 20.0);
-                    for (var i = 0; i < root.rateModel.count; i++) {
+                    for (let i = 0; i < root.rateModel.count; i++) {
                         if (newValue == root.rateModel.get(i).value) {
                             found = true;
                             break;
@@ -144,7 +144,7 @@ Kirigami.Dialog {
                     text: value.toFixed(2)
                     closable: true
                     onRemoved: {
-                        for (var i = 0; i < root.rateModel.count; i++) {
+                        for (let i = 0; i < root.rateModel.count; i++) {
                             if (value == root.rateModel.get(i).value) {
                                 root.rateModel.remove(i);
                                 break;

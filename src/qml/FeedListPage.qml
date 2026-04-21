@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
             onTriggered: root.refreshing = true
         },
         Kirigami.Action {
-            id: addAction
+            id: pageAddAction
             text: KI18n.i18nc("@action:intoolbar", "Add Podcast…")
             icon.name: "list-add"
             onTriggered: {
@@ -72,8 +72,8 @@ Kirigami.ScrollablePage {
                     // have to use script because KI18n.i18n doesn't work within ListElement
                     Component.onCompleted: {
                         if (sortActionRoot.visible) {
-                            var sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
-                            for (var i in sortList) {
+                            const sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
+                            for (let i in sortList) {
                                 sortModel.append({
                                     name: gridView.model.getSortName(sortList[i]),
                                     iconName: gridView.model.getSortIconName(sortList[i]),
@@ -113,7 +113,7 @@ Kirigami.ScrollablePage {
             checkable: true
         },
         Kirigami.Action {
-            id: importAction
+            id: pageImportAction
             text: KI18n.i18nc("@action:intoolbar", "Import Podcasts…")
             icon.name: "document-import"
             displayHint: Kirigami.DisplayHint.AlwaysHide
@@ -130,7 +130,7 @@ Kirigami.ScrollablePage {
     // add the default actions through onCompleted to add them to the ones
     // defined above
     Component.onCompleted: {
-        for (var i in gridView.contextualActionList) {
+        for (let i in gridView.contextualActionList) {
             pageActions.push(gridView.contextualActionList[i]);
         }
     }
@@ -177,7 +177,7 @@ Kirigami.ScrollablePage {
 
     FeedListGridView {
         id: gridView
-        addAction: addAction
-        importAction: importAction
+        addAction: pageAddAction
+        importAction: pageImportAction
     }
 }

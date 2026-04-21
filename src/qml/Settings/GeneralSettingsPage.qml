@@ -39,7 +39,7 @@ FormCard.FormCardPage {
 
             Component.onCompleted: {
                 // have to use Number because QML doesn't know about enum names
-                for (var index in AudioManager.availableBackends) {
+                for (let index in AudioManager.availableBackends) {
                     backendModel.append({
                         text: AudioManager.backendName(AudioManager.availableBackends[index]),
                         value: Number(AudioManager.availableBackends[index])

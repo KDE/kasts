@@ -51,7 +51,7 @@ Kirigami.ApplicationWindow {
                 }
                 Component.onCompleted: {
                     // have to use Number because QML doesn't know about enum names
-                    for (var index in audio.availableBackends) {
+                    for (let index in audio.availableBackends) {
                         backendModel.append({
                             text: audio.backendName(audio.availableBackends[index]),
                             value: Number(audio.availableBackends[index])

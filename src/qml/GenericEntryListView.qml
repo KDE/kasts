@@ -145,8 +145,8 @@ ListView {
                 // have to use script because KI18n.i18n doesn't work within ListElement
                 Component.onCompleted: {
                     if (sortActionRoot.visible) {
-                        var sortList = [AbstractEpisodeProxyModel.DateDescending, AbstractEpisodeProxyModel.DateAscending];
-                        for (var i in sortList) {
+                        const sortList = [AbstractEpisodeProxyModel.DateDescending, AbstractEpisodeProxyModel.DateAscending];
+                        for (let i in sortList) {
                             sortModel.append({
                                 "name": root.model.getSortName(sortList[i]),
                                 "iconName": root.model.getSortIconName(sortList[i]),
@@ -201,8 +201,8 @@ ListView {
                 // have to use script because KI18n.i18n doesn't work within ListElement
                 Component.onCompleted: {
                     if (filterActionRoot.visible) {
-                        var filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter];
-                        for (var i in filterList) {
+                        const filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter];
+                        for (let i in filterList) {
                             filterModel.append({
                                 name: root.model.getFilterName(filterList[i]),
                                 filterType: filterList[i]

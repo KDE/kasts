@@ -194,9 +194,6 @@ Kirigami.Page {
                             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText
                             wrapMode: Text.WordWrap
-                            onLinkHovered: {
-                                cursorShape: Qt.PointingHandCursor;
-                            }
                             onLinkActivated: link => {
                                 if (link.split("://")[0] === "timestamp") {
                                     if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {

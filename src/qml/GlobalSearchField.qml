@@ -33,8 +33,8 @@ Kirigami.SearchField {
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
         var episodeModel = mainWindow.pageStack.get(0).episodeList.model;
-        for (var i = 0; i < episodeModel.rowCount(); i++) {
-            var index = episodeModel.index(i, 0);
+        for (let i = 0; i < episodeModel.rowCount(); i++) {
+            const index = episodeModel.index(i, 0);
             if (entryuid == episodeModel.data(index, AbstractEpisodeModel.EntryuidRole)) {
                 mainWindow.pageStack.get(0).episodeList.currentIndex = i;
                 mainWindow.pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
@@ -132,7 +132,7 @@ Kirigami.SearchField {
             function reload(): void {
                 clear();
                 var searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
-                for (var i in searchList) {
+                for (let i in searchList) {
                     searchSettingsModel.append({
                         name: proxyModel.getSearchFlagName(searchList[i]),
                         searchFlag: searchList[i],

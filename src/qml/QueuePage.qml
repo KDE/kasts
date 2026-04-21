@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
     ]
 
     Component.onCompleted: {
-        for (var i in queueList.defaultActionList) {
+        for (let i in queueList.defaultActionList) {
             pageActions.push(queueList.defaultActionList[i]);
         }
     }

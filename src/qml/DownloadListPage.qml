@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
     ]
 
     Component.onCompleted: {
-        for (var i in episodeList.defaultActionList) {
+        for (let i in episodeList.defaultActionList) {
             pageActions.push(episodeList.defaultActionList[i]);
         }
     }

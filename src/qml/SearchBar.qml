@@ -97,8 +97,8 @@ Controls.Control {
         function reload(): void {
             clear();
             if (showSearchFilters) {
-                var searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
-                for (var i in searchList) {
+                const searchList = [AbstractEpisodeProxyModel.TitleFlag, AbstractEpisodeProxyModel.ContentFlag, AbstractEpisodeProxyModel.FeedNameFlag];
+                for (let i in searchList) {
                     searchSettingsModel.append({
                         name: proxyModel.getSearchFlagName(searchList[i]),
                         searchFlag: searchList[i],

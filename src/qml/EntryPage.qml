@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
         function onQueueStatusChanged(): void {
             if (!root.entry.queueStatus) {
                 // this entry has just been removed from the queue
-                var pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
+                const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).pageName === "queuepage") {
                         if (pageStack.get(0).lastEntry) {
@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
         function onStatusChanged(): void {
             if (root.entry.enclosure.status === Enclosure.Downloadable) {
                 // this entry has just been deleted on the downloadpage
-                var pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
+                const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).pageName === "downloadpage") {
                         if (pageStack.get(0).lastEntry) {

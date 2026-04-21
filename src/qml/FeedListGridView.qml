@@ -111,7 +111,6 @@ GridView {
 
     property list<var> selectionForContextMenu: []
     property ItemSelectionModel selectionModel: ItemSelectionModel {
-        id: selectionModel
         model: root.model
         onSelectionChanged: {
             root.selectionForContextMenu = selectedIndexes;
@@ -237,11 +236,11 @@ GridView {
             // because the selected QModelIndexes will no longer be valid
             // after we start deleting feeds.
             var feeds = [];
-            for (var i in root.selectionForContextMenu) {
+            for (let i in root.selectionForContextMenu) {
                 feeds[i] = root.model.data(root.selectionForContextMenu[i], FeedsModel.FeedRole);
             }
             var appPageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
-            for (var i in feeds) {
+            for (let i in feeds) {
                 if ((root.Controls.ApplicationWindow.window as Main).lastFeeduid === feeds[i].feeduid) {
                     while (appPageStack.depth > 1) {
                         appPageStack.pop();

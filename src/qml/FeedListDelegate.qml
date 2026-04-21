@@ -153,8 +153,8 @@ Controls.ItemDelegate {
                 if (root.isCurrentItem) {
                     // yet another hack because "index" is still giving the old
                     // value here; so we have to manually find the new index.
-                    var mymodel = ((root.listView as FeedListGridView).model as FeedsProxyModel);
-                    for (var i = 0; i < mymodel.rowCount(); i++) {
+                    const mymodel = ((root.listView as FeedListGridView).model as FeedsProxyModel);
+                    for (let i = 0; i < mymodel.rowCount(); i++) {
                         if (mymodel.data(mymodel.index(i, 0), FeedsModel.UrlRole) == root.currentItemUrl) {
                             (root.listView as FeedListGridView).currentIndex = i;
                         }

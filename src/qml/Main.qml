@@ -8,7 +8,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQuick.Effects
 import QtCore
 
 import org.kde.kirigami as Kirigami
@@ -55,7 +54,7 @@ Kirigami.ApplicationWindow {
         if (page === "SettingsView") {
             settingsView.open();
         } else {
-            var pageObject = Qt.createComponent("org.kde.kasts", page);
+            let pageObject = Qt.createComponent("org.kde.kasts", page);
             if (!pageObject) {
                 page = "FeedListPage";
                 pageObject = Qt.createComponent("org.kde.kasts", page);

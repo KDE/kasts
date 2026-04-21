@@ -522,7 +522,7 @@ Kirigami.ScrollablePage {
 
         function update(): void {
             deviceListModel.clear();
-            for (var index in Sync.deviceList) {
+            for (let index in Sync.deviceList) {
                 deviceListModel.append({
                     device: Sync.deviceList[index]
                 });

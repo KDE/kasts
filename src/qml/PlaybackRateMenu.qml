@@ -62,7 +62,7 @@ Controls.Menu {
 
         function resetModel(): void {
             playbackRateModel.clear();
-            for (var rate in SettingsManager.playbackRates) {
+            for (let rate in SettingsManager.playbackRates) {
                 playbackRateModel.append({
                     value: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2),
                     name: (SettingsManager.playbackRates[rate] / 100.0).toFixed(2) + "x"
