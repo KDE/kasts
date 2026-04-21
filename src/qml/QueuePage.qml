@@ -106,7 +106,6 @@ Kirigami.ScrollablePage {
                 id: entryDelegate
                 width: parent.width
                 isQueue: true
-                listView: root.queueList
                 listViewObject: root.queueList
                 focus: parent.activeFocus
                 entry: focusScope.entry

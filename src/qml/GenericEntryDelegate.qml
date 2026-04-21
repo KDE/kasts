@@ -91,7 +91,10 @@ AddonDelegates.RoundedItemDelegate {
             entry.new = false;
         }
         if (isQueue || isDownloads) {
-            root.lastEntry = entryuid;
+            const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
+            if (pageStack.get(0)?.lastEntry > -1) {
+                pageStack.get(0).lastEntry = entryuid;
+            }
         }
 
         if (mainWindow.pageStack.depth > (mainWindow.currentPage === "FeedListPage" ? 2 : 1)) {
