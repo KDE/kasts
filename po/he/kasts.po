@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-22 00:44+0000\n"
 "PO-Revision-Date: 2026-03-11 20:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -131,13 +131,13 @@ msgid "Open"
 msgstr "פתיחה"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:134 qml/GenericEntryDelegate.qml:367
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:370
 #, kde-format
 msgid "Play"
 msgstr "נגינה"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:134 qml/GenericEntryDelegate.qml:390
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:393
 #, kde-format
 msgid "Pause"
 msgstr "השהיה"
@@ -204,7 +204,7 @@ msgstr "הוספת הסכת חדש למינויים."
 msgid "Podcast URL"
 msgstr "כתובת הסכת"
 
-#: main.cpp:129 qml/Main.qml:26
+#: main.cpp:129 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
@@ -413,94 +413,94 @@ msgstr "לאפשר חד־פעמית"
 msgid "Always Allow"
 msgstr "לאפשר תמיד"
 
-#: qml/Desktop/DesktopPlayerControls.qml:124
+#: qml/Desktop/DesktopPlayerControls.qml:126
 #, kde-format
 msgid "Seek backward"
 msgstr "חתירה אחורה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:143
+#: qml/Desktop/DesktopPlayerControls.qml:145
 #, kde-format
 msgid "Seek forward"
 msgstr "חתירה קדימה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:152
+#: qml/Desktop/DesktopPlayerControls.qml:154
 #, kde-format
 msgid "Skip forward"
 msgstr "דילוג קדימה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:172
+#: qml/Desktop/DesktopPlayerControls.qml:174
 #, kde-format
 msgid "Playback rate:"
 msgstr "קצב נגינה:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:227
+#: qml/Desktop/DesktopPlayerControls.qml:229
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "הצגת רשימת קטעים"
 
-#: qml/Desktop/DesktopPlayerControls.qml:238
+#: qml/Desktop/DesktopPlayerControls.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "הצגת פרטי פרק"
 
-#: qml/Desktop/DesktopPlayerControls.qml:249
+#: qml/Desktop/DesktopPlayerControls.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "פתיחת הגדרות מתזמן שינה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:263
-#: qml/Mobile/MobilePlayerControls.qml:353
+#: qml/Desktop/DesktopPlayerControls.qml:265
+#: qml/Mobile/MobilePlayerControls.qml:350
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "פתיחת הגדרות עוצמת שמע"
 
-#: qml/Desktop/DesktopPlayerControls.qml:295
-#: qml/Mobile/MobilePlayerControls.qml:383
+#: qml/Desktop/DesktopPlayerControls.qml:297
+#: qml/Mobile/MobilePlayerControls.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "השתקה/השמעה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:311
+#: qml/Desktop/DesktopPlayerControls.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "להציג עוד"
 
-#: qml/Desktop/DesktopPlayerControls.qml:340
+#: qml/Desktop/DesktopPlayerControls.qml:342
 #, kde-format
 msgctxt "@action:button"
 msgid "Chapters"
 msgstr "קטעים"
 
-#: qml/Desktop/DesktopPlayerControls.qml:348
+#: qml/Desktop/DesktopPlayerControls.qml:350
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "הצגת פרטים"
 
-#: qml/Desktop/DesktopPlayerControls.qml:358
+#: qml/Desktop/DesktopPlayerControls.qml:360
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "מתזמן שינה"
 
-#: qml/Desktop/DesktopPlayerControls.qml:391
+#: qml/Desktop/DesktopPlayerControls.qml:393
 #, kde-format
 msgid "Chapters"
 msgstr "קטעים"
 
-#: qml/Desktop/DesktopPlayerControls.qml:411 qml/Desktop/HeaderBar.qml:34
+#: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:34
 #: qml/Mobile/MobilePlayerControls.qml:182
 #, kde-format
 msgid "No Episode Title"
 msgstr "אין כותרת פרק"
 
-#: qml/Desktop/DesktopPlayerControls.qml:416 qml/Desktop/HeaderBar.qml:131
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:131
 #: qml/Mobile/MobilePlayerControls.qml:192
 #, kde-format
 msgid "No episode loaded"
@@ -847,19 +847,19 @@ msgctxt "@action:button"
 msgid "Synchronize"
 msgstr "סנכרון"
 
-#: qml/FeedListGridView.qml:215
+#: qml/FeedListGridView.qml:214
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "בחירה בהכול"
 
-#: qml/FeedListGridView.qml:224
+#: qml/FeedListGridView.qml:223
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "ביטול בחירה"
 
-#: qml/FeedListGridView.qml:233
+#: qml/FeedListGridView.qml:232
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -869,7 +869,7 @@ msgstr[1] "הסרת הסכתים"
 msgstr[2] "הסרת הסכתים"
 msgstr[3] "הסרת הסכתים"
 
-#: qml/FeedListGridView.qml:257
+#: qml/FeedListGridView.qml:256
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -960,47 +960,47 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "מסנן פעיל: %1"
 
-#: qml/GenericEntryDelegate.qml:221
+#: qml/GenericEntryDelegate.qml:224
 #, kde-format
 msgid "Played"
 msgstr "הושמע"
 
-#: qml/GenericEntryDelegate.qml:221
+#: qml/GenericEntryDelegate.qml:224
 #, kde-format
 msgid "Read"
 msgstr "נקרא"
 
-#: qml/GenericEntryDelegate.qml:227
+#: qml/GenericEntryDelegate.qml:230
 #, kde-format
 msgid "New"
 msgstr "חדש"
 
-#: qml/GenericEntryDelegate.qml:327 qml/GenericEntryListView.qml:265
+#: qml/GenericEntryDelegate.qml:330 qml/GenericEntryListView.qml:265
 #, kde-format
 msgid "Remove from Queue"
 msgstr "הסרה מהתור"
 
-#: qml/GenericEntryDelegate.qml:336 qml/GenericEntryListView.qml:325
+#: qml/GenericEntryDelegate.qml:339 qml/GenericEntryListView.qml:325
 #, kde-format
 msgid "Download"
 msgstr "הורדה"
 
-#: qml/GenericEntryDelegate.qml:346
+#: qml/GenericEntryDelegate.qml:349
 #, kde-format
 msgid "Cancel Download"
 msgstr "ביטול הורדה"
 
-#: qml/GenericEntryDelegate.qml:353
+#: qml/GenericEntryDelegate.qml:356
 #, kde-format
 msgid "Delete Download"
 msgstr "מחיקת הורדה"
 
-#: qml/GenericEntryDelegate.qml:360 qml/GenericEntryListView.qml:255
+#: qml/GenericEntryDelegate.qml:363 qml/GenericEntryListView.qml:255
 #, kde-format
 msgid "Add to Queue"
 msgstr "הוספה לתור"
 
-#: qml/GenericEntryDelegate.qml:377 qml/GenericEntryListView.qml:344
+#: qml/GenericEntryDelegate.qml:380 qml/GenericEntryListView.qml:344
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1113,7 +1113,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: qml/Main.qml:187
+#: qml/Main.qml:186
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1123,7 +1123,7 @@ msgstr[1] "עודכנו %1 מתוך שני הסכתים"
 msgstr[2] "עודכנו %2 מתוך %1 הסכתים"
 msgstr[3] "עודכנו %2 מתוך %1 הסכתים"
 
-#: qml/Main.qml:211
+#: qml/Main.qml:210
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1133,7 +1133,7 @@ msgstr[1] "הועברו %2 מתוך שני קבצים"
 msgstr[2] "הועברו %2 מתוך %1 קבצים"
 msgstr[3] "הועברו %2 מתוך %1 קבצים"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:265
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1154,7 +1154,7 @@ msgstr "אין כותרת"
 msgid "No podcast title"
 msgstr "אין כותרת להסכת"
 
-#: qml/Mobile/MobilePlayerControls.qml:226
+#: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
 msgid "No chapters found"
 msgstr "לא נמצאו קטעים"
