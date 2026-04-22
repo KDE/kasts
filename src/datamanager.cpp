@@ -173,6 +173,7 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             // Remove entries from Queue
             bulkQueueStatus(false, entries);
 
+            // TODO: Optimize the file deletion; do not depend on the entry objects
             // Delete entries themselves
             qCDebug(kastsDataManager) << "delete entries of" << feeduid;
             for (auto &entryuid : std::as_const(entries)) {

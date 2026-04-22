@@ -860,21 +860,23 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // delete entry authors that were removed
-    writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
-    for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
-        if (entryDetails.state != RecordState::Deleted) {
-            for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
-                if (authorDetails.state == RecordState::Deleted) {
-                    updatedEntryuids.insert(entryDetails.entryuid);
-                    writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                    writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
-                    dbExecute(writeQuery);
-                    qCDebug(kastsUpdater) << "deleted old entry author:" << m_feed.feeduid << entryDetails.entryuid << authorDetails.name;
+    if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
+        writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
+        for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
+            if (entryDetails.state != RecordState::Deleted) {
+                for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
+                    if (authorDetails.state == RecordState::Deleted) {
+                        updatedEntryuids.insert(entryDetails.entryuid);
+                        writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
+                        writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+                        dbExecute(writeQuery);
+                        qCDebug(kastsUpdater) << "deleted old entry author:" << m_feed.feeduid << entryDetails.entryuid << authorDetails.name;
+                    }
                 }
             }
         }
+        writeQuery.clear();
     }
-    writeQuery.clear();
 
     // new enclosures
     writeQuery.prepare(
@@ -923,20 +925,22 @@ void UpdateFeedJob::writeToDatabase()
     writeQuery.clear();
 
     // delete removed enclosures
-    writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
-    for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
-        if (entryDetails.state != RecordState::Deleted) {
-            for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
-                if (enclosureDetails.state == RecordState::Deleted) {
-                    updatedEntryuids.insert(entryDetails.entryuid);
-                    writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
-                    dbExecute(writeQuery);
-                    qCDebug(kastsUpdater) << "deleted old enclosure:" << m_feed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
+    if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
+        writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
+        for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
+            if (entryDetails.state != RecordState::Deleted) {
+                for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+                    if (enclosureDetails.state == RecordState::Deleted) {
+                        updatedEntryuids.insert(entryDetails.entryuid);
+                        writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
+                        dbExecute(writeQuery);
+                        qCDebug(kastsUpdater) << "deleted old enclosure:" << m_feed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
+                    }
                 }
             }
         }
+        writeQuery.clear();
     }
-    writeQuery.clear();
 
     // new chapters
     writeQuery.prepare(QStringLiteral("INSERT INTO Chapters (entryuid, start, title, link, image) VALUES (:entryuid, :start, :title, :link, :image);"));
