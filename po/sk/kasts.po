@@ -1911,12 +1911,12 @@ msgid ""
 "\n"
 "Continue?"
 msgstr ""
-"Please všimnite si, že pushing the playback state of all local episodes to "
-"the server might take a very long time and/or might overload the server. "
-"Also všimnite si, že this action will overwrite all existing episode states "
-"on the server.\n"
+"Upozorňujeme, že odosielanie stavu prehrávania všetkých lokálnych epizód na "
+"server môže trvať veľmi dlho a/alebo môže preťažiť server. Tiež "
+"upozorňujeme, že táto akcia prepíše všetky existujúce stavy epizód na "
+"serveri.\n"
 "\n"
-"Continue?"
+"Pokračovať?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:234
 #, kde-format
