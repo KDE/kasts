@@ -88,6 +88,12 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo13());
     if (dbversion < 14)
         TRUE_OR_RETURN(migrateTo14());
+    if (dbversion > 14) {
+        qCritical() << "Database version number" << dbversion
+                    << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
+                       "corruption of the database.";
+    }
+
     return true;
 }
 
@@ -816,5 +822,19 @@ void Database::cleanup()
     // feed
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url is NULL or url='';"));
+    execute(query);
+
+    // Update the hasEnclosure field in case there are no enclosures in the
+    // database that are linked to that entryuid. This shouldn't happen, but
+    // if it does, then it will mess up the app.  (Also see BUG 519232)
+    query.prepare(
+        QStringLiteral("UPDATE Entries SET hasEnclosure = 0 WHERE NOT EXISTS (SELECT 1 FROM Enclosures WHERE Entries.entryuid = Enclosures.entryuid);"));
+    execute(query);
+
+    // Wipe the hashes for feed updates on app startup.
+    // This is mainly done to mitigate the side effects of BUG 519232, and
+    // should probably be removed in the future in favour of a "force update"
+    // button
+    query.prepare(QStringLiteral("UPDATE Feeds SET lastHash = NULL;"));
     execute(query);
 }
