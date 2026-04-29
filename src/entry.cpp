@@ -106,6 +106,10 @@ void Entry::updateFromDb(bool emitSignals)
         m_favorite = entryQuery.value(QStringLiteral("favorite")).toBool();
         Q_EMIT favoriteChanged(m_favorite);
     }
+    if (m_removed != entryQuery.value(QStringLiteral("removed")).toBool()) {
+        m_removed = entryQuery.value(QStringLiteral("removed")).toBool();
+        Q_EMIT removedChanged(m_removed);
+    }
 
     setHasEnclosure(entryQuery.value(QStringLiteral("hasEnclosure")).toBool(), emitSignals);
     setImage(entryQuery.value(QStringLiteral("image")).toString(), emitSignals);
@@ -199,6 +203,11 @@ bool Entry::getNew() const
 bool Entry::favorite() const
 {
     return m_favorite;
+}
+
+bool Entry::removed() const
+{
+    return m_removed;
 }
 
 QString Entry::baseUrl() const

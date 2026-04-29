@@ -78,6 +78,7 @@ struct EntryDetails {
     bool read;
     bool isNew;
     bool favorite;
+    bool removed;
     bool hasEnclosure;
     QString image;
     QHash<QString, AuthorDetails> authors; // key = author name
@@ -91,6 +92,7 @@ struct EntryDetails {
     int oldCreated;
     int oldUpdated;
     QString oldLink;
+    bool oldRemoved;
     bool oldHasEnclosure; // TODO: probably don't need this since there is the enclosure QHash anyway
     QString oldImage;
 };

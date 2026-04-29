@@ -249,11 +249,30 @@ AddonDelegates.RoundedItemDelegate {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: ((!root.isQueue && root.entry.queueStatus) || root.entry.favorite ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? (root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "")
-                    Layout.fillWidth: true
+                    text: (((!root.isQueue && root.entry.queueStatus) || root.entry.favorite) ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? (root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "") + (root.entry.removed ? "  ·" : "")
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
+                }
+                Kirigami.Icon {
+                    Layout.maximumHeight: 0.8 * supertitle.implicitHeight
+                    Layout.maximumWidth: 0.8 * supertitle.implicitHeight
+                    source: "emblem-unmounted"
+                    visible: root.entry.removed
+                    opacity: 0.7
+
+                    HoverHandler {
+                        id: removedHover
+                    }
+
+                    Controls.ToolTip.text: KI18n.i18nc("@info:tooltip Tooltip for an icon that can be displayed on an episode list item", "This episode is no longer available through the podcast RSS feed.")
+                    Controls.ToolTip.visible: removedHover.hovered
+                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                Controls.Label {
+                    text: ""
+                    Layout.fillWidth: true
+                    font: Kirigami.Theme.smallFont
                 }
             }
             Controls.Label {

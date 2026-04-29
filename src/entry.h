@@ -36,6 +36,7 @@ class Entry : public QObject
     Q_PROPERTY(bool read READ read WRITE setRead NOTIFY readChanged)
     Q_PROPERTY(bool new READ getNew WRITE setNew NOTIFY newChanged)
     Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
+    Q_PROPERTY(bool removed READ removed NOTIFY removedChanged)
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT)
     Q_PROPERTY(bool hasEnclosure READ hasEnclosure NOTIFY hasEnclosureChanged)
     Q_PROPERTY(QString image READ image NOTIFY imageChanged)
@@ -58,6 +59,7 @@ public:
     bool read() const;
     bool getNew() const;
     bool favorite() const;
+    bool removed() const;
     Enclosure *enclosure() const;
     bool hasEnclosure() const;
     QString image() const;
@@ -85,6 +87,7 @@ Q_SIGNALS:
     void readChanged(bool read);
     void newChanged(bool state);
     void favoriteChanged(bool favorite);
+    void removedChanged(bool removed);
     void hasEnclosureChanged(bool hasEnclosure);
     void imageChanged(const QString &url);
     void cachedImageChanged(const QString &imagePath);
@@ -114,6 +117,7 @@ private:
     bool m_read;
     bool m_new;
     bool m_favorite;
+    bool m_removed;
     Enclosure *m_enclosure = nullptr;
     QString m_image;
     bool m_hasenclosure = false;
