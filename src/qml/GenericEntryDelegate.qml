@@ -209,6 +209,41 @@ AddonDelegates.RoundedItemDelegate {
             Layout.preferredWidth: size
             Layout.rightMargin: Kirigami.Units.smallSpacing
             fractionalRadius: 1.0 / 8.0
+
+            // Make it possible to select this item by single-tapping the image
+            TapHandler {
+                acceptedModifiers: Qt.NoModifier
+                // grab exclusive hold of the tap if it's within the image
+                gesturePolicy: TapHandler.WithinBounds
+
+                onTapped: eventPoint => {
+                    const modelIndex = root.listViewObject.model.index(root.index, 0);
+                    root.listViewObject.selectionModel.select(modelIndex, ItemSelectionModel.Toggle | ItemSelectionModel.Rows);
+                }
+            }
+
+            HoverHandler {
+                id: hoverHandler
+            }
+
+            Item {
+                anchors.fill: parent
+                visible: hoverHandler.hovered
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "black"
+                    opacity: 0.3
+                }
+
+                Kirigami.Icon {
+                    id: selectIcon
+                    anchors.centerIn: parent
+                    source: root.selected ? "emblem-remove" : "emblem-added"
+                    // width: Kirigami.Units.gridUnit
+                    height: width
+                }
+            }
         }
 
         ColumnLayout {

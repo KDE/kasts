@@ -401,6 +401,8 @@ if(ANDROID)
         view-sort-ascending-name
         kde-symbolic
         emblem-unmounted
+        emblem-added
+        emblem-remove
     )
     ecm_add_android_apk(kasts ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
