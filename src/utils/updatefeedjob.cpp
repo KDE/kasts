@@ -216,6 +216,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         entryDetails.read = query.value(QStringLiteral("read")).toBool();
         entryDetails.isNew = query.value(QStringLiteral("new")).toBool();
         entryDetails.link = query.value(QStringLiteral("link")).toString();
+        entryDetails.removed = query.value(QStringLiteral("removed")).toBool();
         entryDetails.hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
         entryDetails.image = query.value(QStringLiteral("image")).toString();
         entryDetails.state = RecordState::Deleted; // will be set to appropriate value if the entry is found in the updated rss feed
@@ -226,6 +227,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         entryDetails.oldCreated = entryDetails.created;
         entryDetails.oldUpdated = entryDetails.updated;
         entryDetails.oldLink = entryDetails.link;
+        entryDetails.oldRemoved = entryDetails.removed;
         entryDetails.oldHasEnclosure = entryDetails.hasEnclosure;
         entryDetails.oldImage = entryDetails.image;
 
@@ -529,6 +531,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
             updatedFeed.entries[id].created = created;
             updatedFeed.entries[id].updated = updated;
             updatedFeed.entries[id].link = link;
+            updatedFeed.entries[id].removed = false;
             updatedFeed.entries[id].hasEnclosure = hasEnclosure;
             updatedFeed.entries[id].image = image;
             updatedFeed.entries[id].state = RecordState::Modified;
@@ -840,6 +843,20 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
             writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
             writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
             writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
+            dbExecute(writeQuery);
+        }
+    }
+    writeQuery.clear();
+
+    // removed entries
+    // rather than actually remove the episodes, we mark them as such through
+    // the column "removed"
+    writeQuery.prepare(QStringLiteral("UPDATE Entries SET removed=:removed WHERE entryuid=:entryuid;"));
+    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        if (entryDetails.state == RecordState::Deleted && !entryDetails.removed) {
+            updatedEntryuids.insert(entryDetails.entryuid);
+            writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
+            writeQuery.bindValue(QStringLiteral(":removed"), true);
             dbExecute(writeQuery);
         }
     }
