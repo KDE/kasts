@@ -775,8 +775,8 @@ void UpdateFeedJob::writeToDatabase()
 
     // new entries
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite) VALUES "
-                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite);"));
+        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite, removed) VALUES "
+                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite, :removed);"));
     for (const EntryDetails &entryDetails : std::as_const(m_feed.entries)) {
         if (entryDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
@@ -791,10 +791,11 @@ void UpdateFeedJob::writeToDatabase()
             writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
             writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
             writeQuery.bindValue(QStringLiteral(":favorite"), false);
+            writeQuery.bindValue(QStringLiteral(":removed"), false);
             if (dbExecute(writeQuery)) {
                 QVariant lastId = writeQuery.lastInsertId();
                 if (lastId.isValid()) {
-                    m_feed.entries[entryDetails.id].entryuid = lastId.toLongLong(); // TODO: check if this is ok wrt 'detaching'
+                    m_feed.entries[entryDetails.id].entryuid = lastId.toLongLong();
                     newEntryuids.insert(lastId.toLongLong());
                 } else {
                     qCDebug(kastsUpdater) << "new episode did not get a valid entryuid" << entryDetails.id;
