@@ -573,7 +573,7 @@ msgstr "已下载"
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr ""
+msgstr "已加入队列的"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1542,7 +1542,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "同时下载剧集的最大数量"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
