@@ -50,8 +50,8 @@ ecm_setup_version(${PROJECT_VERSION}
 )
 
 ecm_set_disabled_deprecation_versions(
-    QT 6.5.0
-    KF 6.12.0
+    QT 6.11.0
+    KF 6.26.0
 )
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Quick Test Gui QuickControls2 Sql Svg Xml Network)
