@@ -1921,6 +1921,7 @@
           <li xml:lang="sl">preprečuje ustavitev sistema systemd med poslušanjem podkastov</li>
           <li xml:lang="tr">pod yayını dinlerken systemd’nin askıya alınmasını engeller</li>
           <li xml:lang="uk">успадковує присипляння systemd під час прослуховування трансляцій</li>
+          <li xml:lang="zh-TW">例如聆聽 Podcasts 時阻擋 systemd 暫停</li>
           <li>convergent UI; looks good on mobile and desktop</li>
           <li xml:lang="ar">واجهة مستخدم متقاربة؛ تظهر بشكل جميل على الهاتف والحاسوب</li>
           <li xml:lang="ca">IU convergent; es veu bé en el mòbil i l'escriptori</li>
