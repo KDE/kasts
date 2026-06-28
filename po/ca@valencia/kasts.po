@@ -403,7 +403,7 @@ msgid ""
 "be disabled through: Settings > Network."
 msgstr ""
 "Pareix que no s'ha pogut accedir a la xarxa. Si açò és incorrecte, esta "
-"comprovació es pot desactivar a través de «Configuració -> Xarxa»."
+"comprovació es pot desactivar a través de «Configuració → Xarxa»."
 
 #: qml/ConnectionCheckAction.qml:85
 #, kde-format
@@ -1095,7 +1095,7 @@ msgstr "Preferències de busca"
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
-msgstr "Busca a:"
+msgstr "Busca en:"
 
 #: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:19
