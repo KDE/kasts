@@ -83,11 +83,11 @@ Kirigami.ApplicationWindow {
     }
 
     Settings {
-        property alias lastOpenedPage: kastsMainWindow.currentPage
         property alias feedSorting: kastsMainWindow.feedSorting
     }
 
     Component.onCompleted: {
+        currentPage = KastsState.lastOpenedPage;
         pageStack.initialPage = pushPage(currentPage);
 
         // Delete played enclosures if set in settings
@@ -103,6 +103,11 @@ Kirigami.ApplicationWindow {
                 Fetcher.fetchAll();
             }
         }
+    }
+
+    Component.onDestruction: {
+        KastsState.lastOpenedPage = currentPage;
+        KastsState.save();
     }
 
     property bool showGlobalDrawer: !Kirigami.Settings.isMobile || Utils.isWidescreen

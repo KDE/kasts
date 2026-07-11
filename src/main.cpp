@@ -14,6 +14,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickView>
+#include <QSettings>
 #include <QString>
 #include <QStringList>
 #include <QSysInfo>
@@ -113,6 +114,18 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Kasts"));
+
+    // migrate settings to new location
+    {
+        QSettings oldSettings(QStringLiteral("KDE"), QStringLiteral("kasts"));
+        KConfig stateConfig(QStringLiteral("kastsstaterc"), KConfig::SimpleConfig, QStandardPaths::GenericStateLocation);
+
+        if (oldSettings.contains("lastOpenedPage")) {
+            const QString lastOpenedPage = oldSettings.value("lastOpenedPage").toString();
+            oldSettings.remove("lastOpenedPage");
+            stateConfig.group(QStringLiteral("General")).writeEntry("lastOpenedPage", lastOpenedPage);
+        }
+    }
 
     QQmlApplicationEngine engine;
     KLocalization::setupLocalizedContext(&engine);
