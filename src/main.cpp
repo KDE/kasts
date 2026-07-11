@@ -7,6 +7,7 @@
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QFile>
 #include <QIcon>
 #include <QLoggingCategory>
 #include <QObject>
@@ -124,6 +125,30 @@ int main(int argc, char *argv[])
             const QString lastOpenedPage = oldSettings.value("lastOpenedPage").toString();
             oldSettings.remove("lastOpenedPage");
             stateConfig.group(QStringLiteral("General")).writeEntry("lastOpenedPage", lastOpenedPage);
+        }
+
+        if (oldSettings.contains("headerSize")) {
+            const int headerSize = oldSettings.value("headerSize").toInt();
+            oldSettings.remove("headerSize");
+            stateConfig.group(QStringLiteral("General")).writeEntry("headerSize", headerSize);
+        }
+
+        if (oldSettings.contains("episodeListFilterType")) {
+            const int episodeListFilterType = oldSettings.value("episodeListFilterType").toInt();
+            oldSettings.remove("episodeListFilterType");
+            stateConfig.group(QStringLiteral("General")).writeEntry("episodeListFilterType", episodeListFilterType);
+        }
+
+        if (oldSettings.contains("episodeListSortType")) {
+            const int episodeListSortType = oldSettings.value("episodeListSortType").toInt();
+            oldSettings.remove("episodeListSortType");
+            stateConfig.group(QStringLiteral("General")).writeEntry("episodeListSortType", episodeListSortType);
+        }
+
+        if (oldSettings.contains("feedSorting")) {
+            const int feedSorting = oldSettings.value("feedSorting").toInt();
+            oldSettings.remove("feedSorting");
+            stateConfig.group(QStringLiteral("General")).writeEntry("feedSorting", feedSorting);
         }
     }
 

@@ -22,7 +22,7 @@ FocusScope {
     id: root
     height: headerMetaData.implicitHeight + desktopPlayerControls.implicitHeight
 
-    property int handlePosition: settings.headerSize
+    property int handlePosition: KastsState.headerSize
     property int maximumHeight: Kirigami.Units.gridUnit * 8
     property int minimumImageSize: Kirigami.Units.gridUnit * 1.5
     property int subtitleCollapseHeight: Kirigami.Units.gridUnit * 2.5
@@ -35,6 +35,11 @@ FocusScope {
 
     property Item headerMetaData: _headerMetaData
     property DesktopPlayerControls desktopPlayerControls: _desktopPlayerControls
+
+    Component.onDestruction: {
+        KastsState.headerSize = handlePosition;
+        KastsState.save();
+    }
 
     function openEntry(): void {
         if (AudioManager.entryuid > 0) {
@@ -246,7 +251,6 @@ FocusScope {
 
         onHandleDragged: (y, offset) => {
             root.handlePosition = Math.max(0, Math.min(root.maximumHeight, root.height - implicitHeight - offset + y));
-            settings.headerSize = root.handlePosition;
         }
     }
 
@@ -259,11 +263,5 @@ FocusScope {
         id: fullScreenImageLoader
         active: false
         visible: active
-    }
-
-    Settings {
-        id: settings
-
-        property int headerSize: Kirigami.Units.gridUnit * 5
     }
 }

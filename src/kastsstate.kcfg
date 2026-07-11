@@ -4,10 +4,31 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile stateConfig="true"/>
+    <include>abstractepisodeproxymodel.h</include>
+    <include>feedsproxymodel.h</include>
 
     <group name="General">
         <entry type="String" key="lastOpenedPage">
         </entry>
+        <entry type="Int" key="headerSize">
+          <default>90</default>
+        </entry>
+        <entry name="episodeListFilterType" type="Enum">
+          <choices name="AbstractEpisodeProxyModel::FilterType">
+          </choices>
+          <default>AbstractEpisodeProxyModel::NoFilter</default>
+        </entry>
+        <entry name="episodeListSortType" type="Enum">
+          <choices name="AbstractEpisodeProxyModel::SortType">
+          </choices>
+          <default>AbstractEpisodeProxyModel::DateDescending</default>
+        </entry>
+        <entry name="feedSorting" type="Enum">
+          <choices name="FeedsProxyModel::SortType">
+          </choices>
+          <default>FeedsProxyModel::UnreadDescending</default>
+        </entry>
+
     </group>
 
 </kcfg>

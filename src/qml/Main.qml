@@ -48,7 +48,7 @@ Kirigami.ApplicationWindow {
     }
     property int lastFeeduid: 0
     property string currentPage: ""
-    property int feedSorting: FeedsProxyModel.UnreadDescending
+    property int feedSorting: KastsState.feedSorting
 
     function pushPage(page: string): void {
         if (page === "SettingsView") {
@@ -82,10 +82,6 @@ Kirigami.ApplicationWindow {
         window: kastsMainWindow
     }
 
-    Settings {
-        property alias feedSorting: kastsMainWindow.feedSorting
-    }
-
     Component.onCompleted: {
         currentPage = KastsState.lastOpenedPage;
         pageStack.initialPage = pushPage(currentPage);
@@ -107,6 +103,7 @@ Kirigami.ApplicationWindow {
 
     Component.onDestruction: {
         KastsState.lastOpenedPage = currentPage;
+        KastsState.feedSorting = feedSorting;
         KastsState.save();
     }
 

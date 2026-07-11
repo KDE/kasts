@@ -67,6 +67,12 @@ Kirigami.ScrollablePage {
         }
     }
 
+    Component.onDestruction: {
+        KastsState.episodeListFilterType = episodeProxyModel.filterType;
+        KastsState.episodeListSortType = episodeProxyModel.sortType;
+        KastsState.save();
+    }
+
     actions: pageActions
 
     header: Loader {
@@ -86,9 +92,6 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
         reuseItems: true
 
-        property int episodeListFilterType: AbstractEpisodeProxyModel.NoFilter
-        property int episodeListSortType: AbstractEpisodeProxyModel.DateDescending
-
         Kirigami.PlaceholderMessage {
             visible: episodeList.count === 0
 
@@ -102,16 +105,10 @@ Kirigami.ScrollablePage {
             id: episodeProxyModel
 
             // save and restore filter settings
-            filterType: settings.episodeListFilterType
-            onFilterTypeChanged: {
-                episodeList.episodeListFilterType = filterType;
-            }
+            filterType: KastsState.episodeListFilterType
 
             // save and restore sort settings
-            sortType: settings.episodeListSortType
-            onSortTypeChanged: {
-                episodeList.episodeListSortType = sortType;
-            }
+            sortType: KastsState.episodeListSortType
         }
 
         delegate: GenericEntryDelegate {
@@ -120,13 +117,6 @@ Kirigami.ScrollablePage {
 
         FilterInlineMessage {
             proxyModel: episodeProxyModel
-        }
-
-        Settings {
-            id: settings
-
-            property alias episodeListFilterType: episodeList.episodeListFilterType
-            property alias episodeListSortType: episodeList.episodeListSortType
         }
     }
 
