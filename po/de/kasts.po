@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:44+0000\n"
+"POT-Creation-Date: 2026-07-12 00:43+0000\n"
 "PO-Revision-Date: 2026-04-24 08:01+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -191,42 +191,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Mediendatei wird wiedergegeben"
 
-#: main.cpp:121
+#: main.cpp:134
 #, kde-format
 msgid "Podcast Application"
 msgstr "Podcast-Anwendung"
 
-#: main.cpp:123
+#: main.cpp:136
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Fügt einen neuen Podcast zu den Abonnements hinzu."
 
-#: main.cpp:124
+#: main.cpp:137
 #, kde-format
 msgid "Podcast URL"
 msgstr "Podcast-Adresse"
 
-#: main.cpp:129 qml/Main.qml:25
+#: main.cpp:142 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:131
+#: main.cpp:144
 #, kde-format
 msgid "Podcast Player"
 msgstr "Podcast-Wiedergabe"
 
-#: main.cpp:133
+#: main.cpp:146
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 KDE-Gemeinschaft"
 
-#: main.cpp:134
+#: main.cpp:147
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:135
+#: main.cpp:148
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -1110,7 +1110,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:191
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1118,7 +1118,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 von %1 Podcast aktualisiert"
 msgstr[1] "%2 von %1 Podcasts aktualisiert"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:215
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1126,7 +1126,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 von %1 Datei verschoben"
 msgstr[1] "%2 von %1 Dateien verschoben"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

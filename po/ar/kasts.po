@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:44+0000\n"
+"POT-Creation-Date: 2026-07-12 00:43+0000\n"
 "PO-Revision-Date: 2026-03-12 10:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -189,42 +189,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "جاري تشغيل الوسائط"
 
-#: main.cpp:121
+#: main.cpp:134
 #, kde-format
 msgid "Podcast Application"
 msgstr "تطبيق مدونات صوتية"
 
-#: main.cpp:123
+#: main.cpp:136
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "أضف مدونة صوتية جديدة للاشتراكات."
 
-#: main.cpp:124
+#: main.cpp:137
 #, kde-format
 msgid "Podcast URL"
 msgstr "رابط المدونة الصوتية"
 
-#: main.cpp:129 qml/Main.qml:25
+#: main.cpp:142 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "كاست"
 
-#: main.cpp:131
+#: main.cpp:144
 #, kde-format
 msgid "Podcast Player"
 msgstr "مشغل مدونات صوتية"
 
-#: main.cpp:133
+#: main.cpp:146
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 مجتمع كيدي"
 
-#: main.cpp:134
+#: main.cpp:147
 #, kde-format
 msgid "Tobias Fella"
 msgstr "توبايس فيلال"
 
-#: main.cpp:135
+#: main.cpp:148
 #, kde-format
 msgid "Bart De Vries"
 msgstr "برات دي فرايس"
@@ -1123,7 +1123,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "الإعدادات"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:191
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1135,7 +1135,7 @@ msgstr[3] "حدثت %1 مدونات من أصل %2"
 msgstr[4] "حدثت %1 مدونة من أصل %2"
 msgstr[5] "حدثت %1 مدونة من أصل %2"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:215
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1147,7 +1147,7 @@ msgstr[3] "نقل %1 ملفات من أصل %2"
 msgstr[4] "نقل %1 ملف من أصل %2"
 msgstr[5] "نقل %1 ملف من أصل %2"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

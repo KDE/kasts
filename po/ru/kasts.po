@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:44+0000\n"
+"POT-Creation-Date: 2026-07-12 00:43+0000\n"
 "PO-Revision-Date: 2026-03-16 15:58+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -190,42 +190,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Воспроизведение мультимедиа"
 
-#: main.cpp:121
+#: main.cpp:134
 #, kde-format
 msgid "Podcast Application"
 msgstr "Приложение для прослушивания подкастов"
 
-#: main.cpp:123
+#: main.cpp:136
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Добавляет новый подкаст в подписки."
 
-#: main.cpp:124
+#: main.cpp:137
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL-адрес подкаста"
 
-#: main.cpp:129 qml/Main.qml:25
+#: main.cpp:142 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:131
+#: main.cpp:144
 #, kde-format
 msgid "Podcast Player"
 msgstr "Проигрыватель подкастов"
 
-#: main.cpp:133
+#: main.cpp:146
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© Сообщество KDE, 2020–2025"
 
-#: main.cpp:134
+#: main.cpp:147
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:135
+#: main.cpp:148
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -1116,7 +1116,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Настройка"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:191
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1126,7 +1126,7 @@ msgstr[1] "Выполнено обновление подкастов (%2 из %
 msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
 msgstr[3] "Выполнено обновление подкаста (%2 из %1)"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:215
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1136,7 +1136,7 @@ msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[3] "Выполнено перемещение файла (%2 из %1)"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:270
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
