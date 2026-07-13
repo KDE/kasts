@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-07-06 17:58+0200\n"
+"PO-Revision-Date: 2026-07-12 10:42+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -59,7 +59,7 @@ msgstr "%1 och %2"
 #: error.cpp:48
 #, kde-format
 msgid "Podcast update error"
-msgstr "Uppdateringsfel för poddradioprogram"
+msgstr "Uppdateringsfel för poddsändning"
 
 #: error.cpp:50
 #, kde-format
@@ -188,17 +188,17 @@ msgstr "Spelar media"
 #: main.cpp:121
 #, kde-format
 msgid "Podcast Application"
-msgstr "Poddradioprogram"
+msgstr "Poddsändningsprogram"
 
 #: main.cpp:123
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Lägger till ett nytt poddradioprogram i prenumerationerna."
+msgstr "Lägger till en ny poddsändning i prenumerationerna."
 
 #: main.cpp:124
 #, kde-format
 msgid "Podcast URL"
-msgstr "Poddradiowebbadress"
+msgstr "Poddsändningswebbadress"
 
 #: main.cpp:129 qml/Main.qml:25
 #, kde-format
@@ -283,7 +283,7 @@ msgstr "Beskrivning"
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
-msgstr "Poddradiotitel"
+msgstr "Poddsändningstitel"
 
 #: models/abstractepisodeproxymodel.cpp:217
 #, kde-format
@@ -345,18 +345,18 @@ msgstr "Antal favoriter: stigande"
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles alphabetically"
 msgid "Podcast title: A → Z"
-msgstr "Poddradiotitel: A → Z"
+msgstr "Poddsändningstitel: A → Z"
 
 #: models/feedsproxymodel.cpp:134
 #, kde-format
 msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
-msgstr "Poddradiotitel: Z → A"
+msgstr "Poddsändningstitel: Z → A"
 
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
-msgstr "Lägg till nytt poddradioprogram"
+msgstr "Lägg till ny poddsändning"
 
 #: qml/AddFeedSheet.qml:28
 #, kde-format
@@ -366,7 +366,7 @@ msgstr "Webbadress:"
 #: qml/AddFeedSheet.qml:50
 #, kde-format
 msgid "Add Podcast"
-msgstr "Lägg till poddradioprogram"
+msgstr "Lägg till poddsändning"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -540,7 +540,7 @@ msgstr "Nerladdningar"
 #: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:53
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Uppdatera alla poddradioprogram"
+msgstr "Uppdatera alla poddsändningar"
 
 #: qml/DownloadListPage.qml:60
 #, kde-format
@@ -684,7 +684,7 @@ msgstr "Lägg till i favoriter"
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
-msgstr "Öppna poddradioprogram"
+msgstr "Öppna poddsändning"
 
 #: qml/EntryPage.qml:286
 #, kde-format
@@ -747,7 +747,7 @@ msgstr "Visa fellogg"
 #: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:250
 #, kde-format
 msgid "Podcast Details"
-msgstr "Information om poddradioprogram"
+msgstr "Information om poddsändningar"
 
 #: qml/FeedDetailsPage.qml:130
 #, kde-format
@@ -758,7 +758,7 @@ msgstr "av %1"
 #: qml/FeedDetailsPage.qml:161
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Uppdatera poddradioprogram"
+msgstr "Uppdatera poddsändning"
 
 #: qml/FeedDetailsPage.qml:180
 #, kde-format
@@ -768,7 +768,7 @@ msgstr "Visa detaljinformation"
 #: qml/FeedDetailsPage.qml:246
 #, kde-format
 msgid "Podcast URL:"
-msgstr "Poddradiowebbadress:"
+msgstr "Poddsändningswebbadress:"
 
 #: qml/FeedDetailsPage.qml:267
 #, kde-format
@@ -807,13 +807,13 @@ msgstr "Fel (%1): %2"
 #: qml/FeedListDelegate.qml:261
 #, kde-format
 msgid "Remove Podcast"
-msgstr "Ta bort poddradioprogram"
+msgstr "Ta bort poddsändning"
 
 #: qml/FeedListGridView.qml:34
 #, kde-format
 msgctxt "@info Placeholder message for empty podcast list"
 msgid "No podcasts added yet"
-msgstr "Inga poddradioprogram tillagda ännu"
+msgstr "Inga poddsändningar tillagda ännu"
 
 #: qml/FeedListGridView.qml:34
 #, kde-format
@@ -821,13 +821,13 @@ msgctxt ""
 "@info Placeholder message for podcast list when no podcast matches the "
 "search criteria"
 msgid "No podcasts found"
-msgstr "Inga poddradioprogram hittades"
+msgstr "Inga poddsändningar hittades"
 
 #: qml/FeedListGridView.qml:35
 #, kde-format
 msgctxt "@info:tipoftheday"
 msgid "Get started by adding podcasts:"
-msgstr "Kom igång genom att lägga till poddradioprogram:"
+msgstr "Kom igång genom att lägga till poddsändningar:"
 
 #: qml/FeedListGridView.qml:49
 #, kde-format
@@ -858,14 +858,14 @@ msgstr "Avmarkera alla"
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
 msgid_plural "Remove Podcasts"
-msgstr[0] "Ta bort poddradioprogram"
-msgstr[1] "Ta bort poddradioprogram"
+msgstr[0] "Ta bort poddsändning"
+msgstr[1] "Ta bort poddsändningar"
 
 #: qml/FeedListGridView.qml:256
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
-msgstr "Information om poddradioprogram"
+msgstr "Information om poddsändning"
 
 #: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:97
 #: qml/Mobile/BottomToolbar.qml:35
@@ -878,13 +878,13 @@ msgstr "Prenumerationer"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Uppdatera alla poddradioprogram"
+msgstr "Uppdatera alla poddsändningar"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Lägg till poddradioprogram…"
+msgstr "Lägg till poddsändning…"
 
 #: qml/FeedListPage.qml:63
 #, kde-format
@@ -902,19 +902,19 @@ msgstr "Välj hur prenumerationer sorteras"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importera poddradioprogram…"
+msgstr "Importera poddsändning…"
 
 #: qml/FeedListPage.qml:123
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Exportera poddradioprogram…"
+msgstr "Exportera poddsändning…"
 
 #: qml/FeedListPage.qml:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
-msgstr "Importera poddradioprogram"
+msgstr "Importera poddsändning"
 
 #: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
 #, kde-format
@@ -938,7 +938,7 @@ msgstr "Alla filer (*)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
-msgstr "Exportera poddradioprogram"
+msgstr "Exportera poddsändning"
 
 #: qml/FilterInlineMessage.qml:34
 #, kde-format
@@ -1108,8 +1108,8 @@ msgstr "Inställningar"
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
-msgstr[0] "Uppdaterade %2 av %1 poddradioprogram"
-msgstr[1] "Uppdaterade %2 av %1 poddradioprogram"
+msgstr[0] "Uppdaterade %2 av %1 poddsändning"
+msgstr[1] "Uppdaterade %2 av %1 poddsändningar"
 
 #: qml/Main.qml:210
 #, kde-format
@@ -1140,7 +1140,7 @@ msgstr "Ingen titel"
 #: qml/Mobile/MobilePlayerControls.qml:160
 #, kde-format
 msgid "No podcast title"
-msgstr "Ingen poddradiotitel"
+msgstr "Ingen poddsändningstitel"
 
 #: qml/Mobile/MobilePlayerControls.qml:223
 #, kde-format
@@ -1281,7 +1281,7 @@ msgstr "Visa alltid poddsändningarnas titlar i prenumerationsvyn"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr "Visa avsnittsbild istället för podsändningsbild i listor"
+msgstr "Visa avsnittsbild istället för poddsändningsbild i listor"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
@@ -2279,8 +2279,8 @@ msgstr "(Steg %1 av %2) Laddar upp lokala prenumerationsuppdateringar"
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %3 of %4) Updated %2 of %1 podcast"
 msgid_plural "(Step %3 of %4) Updated %2 of %1 podcasts"
-msgstr[0] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
-msgstr[1] "(Steg %3 av %4) Uppdaterade %2 av %1 poddradioprogram"
+msgstr[0] "(Steg %3 av %4) Uppdaterade %2 av %1 poddsändning"
+msgstr[1] "(Steg %3 av %4) Uppdaterade %2 av %1 poddsändningar"
 
 #: sync/syncjob.cpp:890
 #, kde-format
