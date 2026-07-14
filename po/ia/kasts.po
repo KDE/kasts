@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:43+0000\n"
+"POT-Creation-Date: 2026-07-14 00:42+0000\n"
 "PO-Revision-Date: 2026-03-11 12:49+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -189,42 +189,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproducente multimedia"
 
-#: main.cpp:134
+#: main.cpp:159
 #, kde-format
 msgid "Podcast Application"
 msgstr "Application de Podcast"
 
-#: main.cpp:136
+#: main.cpp:161
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Adde nove podcast a subscriptiones."
 
-#: main.cpp:137
+#: main.cpp:162
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL de Podcast"
 
-#: main.cpp:142 qml/Main.qml:25
+#: main.cpp:167 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:144
+#: main.cpp:169
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de Podcast"
 
-#: main.cpp:146
+#: main.cpp:171
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 Communitate de KDE"
 
-#: main.cpp:147
+#: main.cpp:172
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:148
+#: main.cpp:173
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -504,7 +504,7 @@ msgstr "Capitulos"
 msgid "No Episode Title"
 msgstr "Necun tutulo de Episodio"
 
-#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:131
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:136
 #: qml/Mobile/MobilePlayerControls.qml:192
 #, kde-format
 msgid "No episode loaded"
@@ -718,7 +718,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Cerca"
 
-#: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:334
+#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:334
 #, kde-format
 msgid "No episodes available"
 msgstr "Nulle episodio disponibile"
@@ -1109,7 +1109,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Preferentias"
 
-#: qml/Main.qml:191
+#: qml/Main.qml:188
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1117,7 +1117,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Actualisate %2 de %1 Podcast"
 msgstr[1] "Actualisate %2 de %1 Podcastes"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:212
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1125,7 +1125,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Movite %2 de %1 file"
 msgstr[1] "Movite %2 de %1 files"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

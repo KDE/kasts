@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:43+0000\n"
+"POT-Creation-Date: 2026-07-14 00:42+0000\n"
 "PO-Revision-Date: 2026-06-06 12:12+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -188,42 +188,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "미디어 재생 중"
 
-#: main.cpp:134
+#: main.cpp:159
 #, kde-format
 msgid "Podcast Application"
 msgstr "팟캐스트 앱"
 
-#: main.cpp:136
+#: main.cpp:161
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "새 팟캐스트를 구독 목록에 추가합니다."
 
-#: main.cpp:137
+#: main.cpp:162
 #, kde-format
 msgid "Podcast URL"
 msgstr "팟캐스트 URL"
 
-#: main.cpp:142 qml/Main.qml:25
+#: main.cpp:167 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:144
+#: main.cpp:169
 #, kde-format
 msgid "Podcast Player"
 msgstr "팟캐스트 재생기"
 
-#: main.cpp:146
+#: main.cpp:171
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 KDE Community"
 
-#: main.cpp:147
+#: main.cpp:172
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:148
+#: main.cpp:173
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -501,7 +501,7 @@ msgstr "챕터"
 msgid "No Episode Title"
 msgstr "에피소드 제목 없음"
 
-#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:131
+#: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:136
 #: qml/Mobile/MobilePlayerControls.qml:192
 #, kde-format
 msgid "No episode loaded"
@@ -715,7 +715,7 @@ msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "검색"
 
-#: qml/EpisodeListPage.qml:98 qml/FeedDetailsPage.qml:334
+#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:334
 #, kde-format
 msgid "No episodes available"
 msgstr "에피소드 없음"
@@ -1102,21 +1102,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "설정"
 
-#: qml/Main.qml:191
+#: qml/Main.qml:188
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "팟캐스트 %2개 중 %1개 업데이트됨"
 
-#: qml/Main.qml:215
+#: qml/Main.qml:212
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "파일 %1개 중 %2개 이동함"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:267
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
