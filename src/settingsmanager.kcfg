@@ -291,7 +291,7 @@
             <label>IP or hostname of the proxy</label>
             <default>127.0.0.1</default>
         </entry>
-        <entry name="ProxyPort" type="int">
+        <entry name="ProxyPort" type="Int">
             <label>The port number of the proxy</label>
             <default>1080</default>
         </entry>
