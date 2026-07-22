@@ -406,3 +406,5 @@ else()
 endif()
 
 install(TARGETS kasts ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+install(FILES settingsmanager.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR} RENAME kasts.kcfg)
