@@ -698,6 +698,7 @@ bool UpdateFeedJob::processChapters(const QString &id, const QMultiMap<QString, 
                     isNewOrModified = true;
                     ChapterDetails chapterDetails;
                     chapterDetails.start = startInt;
+                    chapterDetails.title = title;
                     chapterDetails.link = link;
                     chapterDetails.image = image;
                     chapterDetails.state = RecordState::New;
