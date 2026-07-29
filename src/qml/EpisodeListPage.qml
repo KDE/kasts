@@ -9,7 +9,6 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as Controls
-import QtCore
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n

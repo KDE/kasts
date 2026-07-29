@@ -8,7 +8,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtCore
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig

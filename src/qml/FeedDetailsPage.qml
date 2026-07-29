@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -113,7 +115,7 @@ Kirigami.ScrollablePage {
 
         header: ColumnLayout {
             id: headerColumn
-            height: (isSubscribed && entryList.count > 0) ? implicitHeight : entryList.height
+            height: (root.isSubscribed && entryList.count > 0) ? implicitHeight : entryList.height
             width: entryList.width
             spacing: 0
 
@@ -124,10 +126,10 @@ Kirigami.ScrollablePage {
                 id: headerImage
                 Layout.fillWidth: true
 
-                property string authors: isSubscribed ? feed.authors : feed.author
+                property string authors: root.isSubscribed ? root.feed.authors : root.feed.author
 
-                image: isSubscribed ? feed.image : feed.image
-                title: isSubscribed ? feed.name : feed.title
+                image: root.feed.image
+                title: root.isSubscribed ? root.feed.name : root.feed.title
                 subtitle: authors ? KI18n.i18nc("by <author(s)>", "by %1", authors) : ""
             }
 
@@ -157,7 +159,7 @@ Kirigami.ScrollablePage {
 
                     actions: [
                         Kirigami.Action {
-                            visible: isSubscribed
+                            visible: root.isSubscribed
                             icon.name: "view-refresh"
                             text: KI18n.i18n("Refresh Podcast")
                             onTriggered: root.refreshing = true
@@ -165,14 +167,14 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             icon.name: "kt-add-feeds"
                             text: enabled ? KI18n.i18n("Subscribe") : KI18n.i18n("Subscribed")
-                            enabled: !DataManager.feedExists(feed.url)
-                            visible: !isSubscribed
+                            enabled: !DataManager.feedExists(root.feed.url)
+                            visible: !root.isSubscribed
                             onTriggered: {
-                                DataManager.addFeed(feed.url);
+                                DataManager.addFeed(root.feed.url);
                                 enabled = false;
                                 // Also disable button on discoverpage
-                                if (subscribeAction !== undefined) {
-                                    subscribeAction.enabled = false;
+                                if (root.subscribeAction !== undefined) {
+                                    root.subscribeAction.enabled = false;
                                 }
                             }
                         },
@@ -180,9 +182,9 @@ Kirigami.ScrollablePage {
                             icon.name: "documentinfo"
                             text: KI18n.i18n("Show Details")
                             checkable: true
-                            checked: showMoreInfo
+                            checked: root.showMoreInfo
                             onCheckedChanged: checked => {
-                                showMoreInfo = checked;
+                                root.showMoreInfo = checked;
                             }
                         }
                     ]
@@ -190,8 +192,8 @@ Kirigami.ScrollablePage {
                     // add the default actions through onCompleted to add them
                     // to the ones defined above
                     Component.onCompleted: {
-                        if (isSubscribed) {
-                            for (var i in entryList.defaultActionList) {
+                        if (root.isSubscribed) {
+                            for (let i in entryList.defaultActionList) {
                                 feedToolBar.actions.push(entryList.defaultActionList[i]);
                             }
                         }
@@ -205,7 +207,7 @@ Kirigami.ScrollablePage {
 
             // podcast description
             Controls.Control {
-                Layout.fillHeight: !isSubscribed
+                Layout.fillHeight: !root.isSubscribed
                 Layout.fillWidth: true
                 leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
@@ -228,7 +230,7 @@ Kirigami.ScrollablePage {
                         textFormat: root.showMoreInfo ? TextEdit.RichText : Text.StyledText
                         maximumLineCount: root.showMoreInfo ? undefined : 2
                         elide: Text.ElideRight
-                        text: feed.description
+                        text: root.feed.description
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize
                         wrapMode: Text.WordWrap
                         color: Kirigami.Theme.textColor
@@ -250,7 +252,7 @@ Kirigami.ScrollablePage {
                         Kirigami.UrlButton {
                             id: feedUrl
                             Layout.alignment: Qt.AlignTop
-                            url: feed.url
+                            url: root.feed.url
                             wrapMode: TextEdit.Wrap
                             horizontalAlignment: Text.AlignLeft
                             Layout.fillWidth: true
@@ -260,7 +262,6 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignTop
                         visible: root.showMoreInfo
-                        height: visible ? implicitHeight : 0
                         spacing: Kirigami.Units.smallSpacing
                         Controls.Label {
                             Layout.alignment: Qt.AlignTop
@@ -271,7 +272,7 @@ Kirigami.ScrollablePage {
 
                         Kirigami.UrlButton {
                             Layout.alignment: Qt.AlignTop
-                            url: feed.link
+                            url: root.feed.link
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                             horizontalAlignment: Text.AlignLeft
@@ -280,34 +281,31 @@ Kirigami.ScrollablePage {
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && root.showMoreInfo
-                        height: visible ? implicitHeight : 0
+                        visible: root.isSubscribed && root.showMoreInfo
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: isSubscribed ? KI18n.i18n("Subscribed since: %1", feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: root.isSubscribed ? KI18n.i18n("Subscribed since: %1", root.feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && root.showMoreInfo
-                        height: visible ? implicitHeight : 0
+                        visible: root.isSubscribed && root.showMoreInfo
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: isSubscribed ? KI18n.i18n("Last updated: %1", feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: root.isSubscribed ? KI18n.i18n("Last updated: %1", root.feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: isSubscribed && root.showMoreInfo
-                        height: visible ? implicitHeight : 0
+                        visible: root.isSubscribed && root.showMoreInfo
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: KI18n.i18np("1 Episode", "%1 Episodes", feed.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", feed.unreadEntryCount)
+                        text: KI18n.i18np("1 Episode", "%1 Episodes", root.feed.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", root.feed.unreadEntryCount)
                         wrapMode: Text.WordWrap
                     }
 
@@ -324,16 +322,15 @@ Kirigami.ScrollablePage {
             Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                height: visible ? implicitHeight : 0
-                visible: entryList.count === 0 && isSubscribed
+                visible: entryList.count === 0 && root.isSubscribed
 
                 Kirigami.PlaceholderMessage {
                     anchors.centerIn: parent
 
                     width: Kirigami.Units.gridUnit * 20
 
-                    text: feed.errorId === 0 ? KI18n.i18n("No episodes available") : KI18n.i18n("Error (%1): %2", feed.errorId, feed.errorString)
-                    icon.name: feed.errorId === 0 ? "" : "data-error"
+                    text: root.feed.errorId === 0 ? KI18n.i18n("No episodes available") : KI18n.i18n("Error (%1): %2", root.feed.errorId, root.feed.errorString)
+                    icon.name: root.feed.errorId === 0 ? "" : "data-error"
                 }
             }
         }
