@@ -216,6 +216,28 @@ Kirigami.ScrollablePage {
                         text: KI18n.i18nc("@action:intoolbar Button to open the podcast URL in browser", "Open Podcast")
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                         onTriggered: (root.Controls.ApplicationWindow.window as Main).openPodcast(root.entry.feeduid)
+                    },
+                    Kirigami.Action {
+                        text: KI18n.i18nc("@action:button", "Copy Episode Download URL")
+                        icon.name: "edit-copy"
+                        displayHint: Kirigami.DisplayHint.AlwaysHide
+
+                        onTriggered: {
+                            (root.Controls.ApplicationWindow.window as Main).showPassiveNotification(KI18n.i18nc("@info:status", "Link Copied"));
+                            enclosureUrl.selectAll();
+                            enclosureUrl.copy();
+                            enclosureUrl.deselect();
+                        }
+
+                        // copy url from this invisible textedit
+                        property TextEdit _helper : TextEdit {
+                            id: enclosureUrl
+                            visible: false
+                            readOnly: true
+                            textFormat: TextEdit.RichText
+                            text: root.entry.hasEnclosure ? root.entry.enclosure.url : ""
+                            color: Kirigami.Theme.textColor
+                        }
                     }
                 ]
             }
@@ -275,35 +297,6 @@ Kirigami.ScrollablePage {
                 entryuid: root.entryuid
             }
             delegate: ChapterListDelegate {}
-        }
-
-        Controls.Button {
-            Layout.leftMargin: Kirigami.Units.gridUnit
-            Layout.rightMargin: Kirigami.Units.gridUnit
-            Layout.bottomMargin: Kirigami.Units.gridUnit
-            visible: root.entry.hasEnclosure
-
-            text: KI18n.i18nc("@action:button", "Copy Episode Download URL")
-            height: enclosureUrl.height
-            width: enclosureUrl.height
-            icon.name: "edit-copy"
-
-            onClicked: {
-                (Controls.ApplicationWindow.window as Main).showPassiveNotification(KI18n.i18nc("@info:status", "Link Copied"));
-                enclosureUrl.selectAll();
-                enclosureUrl.copy();
-                enclosureUrl.deselect();
-            }
-
-            // copy url from this invisible textedit
-            TextEdit {
-                id: enclosureUrl
-                visible: false
-                readOnly: true
-                textFormat: TextEdit.RichText
-                text: root.entry.hasEnclosure ? root.entry.enclosure.url : ""
-                color: Kirigami.Theme.textColor
-            }
         }
     }
 }
