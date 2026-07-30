@@ -213,6 +213,7 @@ GridView {
         icon.name: "edit-select-all"
         text: KI18n.i18nc("@action:intoolbar", "Select All")
         visible: true
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         onTriggered: {
             root.selectionModel.select(root.model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
         }
@@ -221,6 +222,7 @@ GridView {
     property Kirigami.Action selectNoneAction: Kirigami.Action {
         icon.name: "edit-select-none"
         text: KI18n.i18nc("@action:intoolbar", "Deselect All")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         visible: root.selectionModel.hasSelection
         onTriggered: {
             root.selectionModel.clearSelection();

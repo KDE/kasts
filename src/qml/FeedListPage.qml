@@ -61,6 +61,7 @@ Kirigami.ScrollablePage {
             id: sortActionRoot
             icon.name: "view-sort"
             text: KI18n.i18nc("@action:intoolbar Open menu with options to sort subscriptions", "Sort")
+            displayHint: Kirigami.DisplayHint.AlwaysHide
 
             tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort subscriptions")
 
