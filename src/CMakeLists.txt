@@ -291,6 +291,7 @@ target_link_libraries(kasts
         KF6::ColorScheme
         KF6::IconThemes
         KMediaSession
+        KirigamiApp
 )
 
 if(TARGET KF6::BreezeIcons)

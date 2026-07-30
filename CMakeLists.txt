@@ -59,7 +59,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n CoreAddons Kirigami 
 
 find_package(KF6 ${KF_MIN_VERSION} QUIET COMPONENTS BreezeIcons)
 
-find_package(KF6KirigamiAddons 1.6.0)
+find_package(KF6KirigamiAddons 1.12.0)
 set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required application components and runtime dependency"

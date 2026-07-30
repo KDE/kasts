@@ -40,6 +40,7 @@
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowSystem>
 #endif
+#include <KirigamiAddons/App/KirigamiAppDefaults>
 
 #ifdef WITH_BREEZEICONS_LIB
 #include <BreezeIcons>
@@ -64,8 +65,6 @@ Q_DECL_EXPORT
 
 int main(int argc, char *argv[])
 {
-    KIconTheme::initTheme();
-
     // Check if we need to force the interface to mobile or desktop, or stick
     // with the built-in Kirigami setting
     if (SettingsManager::self() && SettingsManager::self()->interfaceMode() != 2) {
@@ -86,29 +85,15 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     qInstallMessageHandler(myMessageHandler);
     QLoggingCategory::setFilterRules(QStringLiteral("org.kde.*=true"));
-    QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
     QApplication app(argc, argv);
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
-    }
-#endif
-
-#ifdef Q_OS_WINDOWS
-    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
-    }
-
-    QApplication::setStyle(QStringLiteral("breeze"));
-    auto font = app.font();
-    font.setPointSize(10);
-    app.setFont(font);
 #endif
 
 #ifdef WITH_BREEZEICONS_LIB
     BreezeIcons::initIcons();
 #endif
+
+    KirigamiAppDefaults::apply(&app);
 
     KLocalizedString::setApplicationDomain("kasts");
 
@@ -175,8 +160,6 @@ int main(int argc, char *argv[])
 
 #ifndef Q_OS_ANDROID
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("kasts")));
-
-    KCrash::initialize();
 #endif
 
 #ifdef HAVE_KDBUSADDONS
