@@ -111,10 +111,6 @@
                     "path": "."
                 },
                 {
-                    "type": "patch",
-                    "path": ".patches/0001-force-breeze-icons.patch"
-                },
-                {
                     "type": "file",
                     "path": ".patches/run_kasts.sh"
                 }
