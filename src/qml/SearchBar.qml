@@ -23,6 +23,8 @@ Controls.Control {
     property bool showSearchFilters: true
     required property string placeholderText
 
+    Component.onDestruction: proxyModel.searchFilter = ""
+
     leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
     rightPadding: Kirigami.Units.largeSpacing
     topPadding: Kirigami.Units.smallSpacing
