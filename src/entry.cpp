@@ -29,30 +29,30 @@ Entry::Entry(const qint64 entryuid, QObject *parent)
 
     qCDebug(kastsObjects) << "Entry object" << m_entryuid << "constructed";
 
-    connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
+    connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this](const bool state, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid) && state != m_read) {
             m_read = state;
             Q_EMIT readChanged(m_read);
         }
     });
-    connect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
+    connect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, [this](const bool state, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid) && state != m_new) {
             m_new = state;
             Q_EMIT newChanged(m_new);
         }
     });
-    connect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
+    connect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, [this](const bool state, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid) && state != m_favorite) {
             m_favorite = state;
             Q_EMIT favoriteChanged(m_favorite);
         }
     });
-    connect(&DataManager::instance(), &DataManager::entryQueueStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
+    connect(&DataManager::instance(), &DataManager::entryQueueStatusChanged, this, [this](const bool state, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             Q_EMIT queueStatusChanged(state);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
+    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](const QString url) {
         if (url == m_image) {
             Q_EMIT imageChanged(url);
             Q_EMIT cachedImageChanged(cachedImage());

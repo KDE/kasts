@@ -111,9 +111,9 @@ private:
     QDateTime m_created;
     QDateTime m_updated;
     QString m_link;
-    bool m_read;
-    bool m_new;
-    bool m_favorite;
+    bool m_read = false;
+    bool m_new = false;
+    bool m_favorite = false;
     Enclosure *m_enclosure = nullptr;
     QString m_image;
     bool m_hasenclosure = false;
