@@ -32,7 +32,7 @@ GridView {
         anchors.centerIn: parent
         type: feedsModel.searchFilter === "" ? Kirigami.PlaceholderMessage.Actionable : Kirigami.PlaceholderMessage.Informational
         text: feedsModel.searchFilter === "" ? KI18n.i18nc("@info Placeholder message for empty podcast list", "No podcasts added yet") : KI18n.i18nc("@info Placeholder message for podcast list when no podcast matches the search criteria", "No podcasts found")
-        explanation: feedsModel.searchFilter === "" ? KI18n.i18nc("@info:tipoftheday", "Get started by adding podcasts:") : null
+        explanation: feedsModel.searchFilter === "" ? KI18n.i18nc("@info:tipoftheday", "Get started by adding podcasts:") : ""
 
         readonly property int buttonSize: Math.max(discoverButton.implicitWidth, addButton.implicitWidth, importButton.implicitWidth, syncButton.implicitWidth)
 
