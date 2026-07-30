@@ -88,6 +88,7 @@ Kirigami.ScrollablePage {
         sourceComponent: SearchBar {
             proxyModel: root.feed.entries ? root.feed.entries : emptyListModel
             parentKey: searchActionButton
+            placeholderText: KI18n.i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
         }
     }
 

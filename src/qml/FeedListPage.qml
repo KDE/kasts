@@ -148,6 +148,7 @@ Kirigami.ScrollablePage {
             proxyModel: gridView.model
             parentKey: searchActionButton
             showSearchFilters: false
+            placeholderText: KI18n.i18nc("@label:textbox Placeholder text for search field", "Search subscriptions…")
         }
     }
 

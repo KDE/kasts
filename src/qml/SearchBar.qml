@@ -21,6 +21,7 @@ Controls.Control {
     required property var proxyModel
     required property var parentKey
     property bool showSearchFilters: true
+    required property string placeholderText
 
     leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
     rightPadding: Kirigami.Units.largeSpacing
@@ -42,7 +43,7 @@ Controls.Control {
     contentItem: Kirigami.SearchField {
         id: searchField
         Layout.fillWidth: true
-        placeholderText: KI18n.i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
+        placeholderText: root.placeholderText
         text: root.proxyModel.searchFilter
         focus: true
         autoAccept: false
