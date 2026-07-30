@@ -283,20 +283,5 @@ Kirigami.ScrollablePage {
                 text = root.entry.adjustedContent(width, font.pixelSize);
             }
         }
-
-        ListView {
-            visible: count !== 0
-            Layout.fillWidth: true
-            implicitHeight: contentHeight
-            interactive: false
-            currentIndex: -1
-            Layout.leftMargin: Kirigami.Units.gridUnit
-            Layout.rightMargin: Kirigami.Units.gridUnit
-            Layout.bottomMargin: Kirigami.Units.gridUnit
-            model: ChapterModel {
-                entryuid: root.entryuid
-            }
-            delegate: ChapterListDelegate {}
-        }
     }
 }
