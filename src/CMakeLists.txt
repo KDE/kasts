@@ -95,7 +95,6 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/Mobile/BottomToolbar.qml
         qml/QueuePage.qml
         qml/EpisodeListPage.qml
-        qml/DownloadListPage.qml
         qml/ErrorList.qml
         qml/ErrorListOverlay.qml
         qml/GenericHeader.qml

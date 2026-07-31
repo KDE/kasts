@@ -111,16 +111,6 @@ Kirigami.OverlayDrawer {
                             (root.Controls.ApplicationWindow.window as Main).pushPage("EpisodeListPage");
                         }
                     }
-                    Kirigami.NavigationTabButton {
-                        Layout.fillWidth: true
-                        display: root.buttonDisplayMode
-                        text: KI18n.i18nc("@title of page with list of downloaded episodes", "Downloads")
-                        icon.name: "download"
-                        checked: (root.Controls.ApplicationWindow.window as Main).currentPage == "DownloadListPage" && !root.settingsOpened
-                        onClicked: {
-                            (root.Controls.ApplicationWindow.window as Main).pushPage("DownloadListPage");
-                        }
-                    }
                 }
             }
 
