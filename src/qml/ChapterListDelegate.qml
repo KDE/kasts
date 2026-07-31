@@ -37,7 +37,7 @@ AddonDelegates.RoundedItemDelegate {
 
     contentItem: RowLayout {
         Delegates.IconTitleSubtitle {
-            icon.source: root.chapter ? root.chapter.cachedImage : ""
+            icon.source: root.chapter ? root.chapter.image : ""
             title: root.title
             subtitle: root.formattedStart
             Layout.fillWidth: true

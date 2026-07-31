@@ -115,54 +115,6 @@ void Fetcher::fetch(const QStringList &urls)
     qCDebug(kastsFetcher) << "end of Fetcher::fetch";
 }
 
-QString Fetcher::image(const QString &url)
-{
-    if (url.isEmpty()) {
-        return QLatin1String("no-image");
-    }
-
-    // if image is already cached, then return the path
-    QString path = StorageManager::instance().imagePath(url);
-    if (QFileInfo::exists(path)) {
-        if (QFileInfo(path).size() != 0) {
-            return QUrl::fromLocalFile(path).toString();
-        }
-    }
-
-    // avoid restarting an image download if it's already running
-    if (m_ongoingImageDownloads.contains(url)) {
-        return QLatin1String("fetching");
-    }
-
-    // if image has not yet been cached, then check for network connectivity if
-    // possible; and download the image
-    if (!NetworkConnectionManager::instance().imageDownloadsAllowed()) {
-        return QLatin1String("no-image");
-    }
-
-    m_ongoingImageDownloads.insert(url);
-    QNetworkRequest request((QUrl(url)));
-    request.setTransferTimeout();
-    QNetworkReply *reply = get(request);
-    connect(reply, &QNetworkReply::finished, this, [this, reply, path, url]() {
-        if (reply->isOpen() && !reply->error()) {
-            QByteArray data = reply->readAll();
-            QFile file(path);
-
-            // TODO: We currently don't handle the case where we can't store the image locally.
-            // Maybe we should emit an error?  But this would probably flood the error log.
-            if (file.open(QIODevice::WriteOnly)) {
-                file.write(data);
-                file.close();
-                Q_EMIT downloadFinished(url);
-            }
-        }
-        m_ongoingImageDownloads.remove(url);
-        reply->deleteLater();
-    });
-    return QLatin1String("fetching");
-}
-
 EnclosureDownloadJob *Fetcher::enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title)
 {
     QPointer<EnclosureDownloadJob> newDownloadJob = new EnclosureDownloadJob(entryuid, url, path, title);

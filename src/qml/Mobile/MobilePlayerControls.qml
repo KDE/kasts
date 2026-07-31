@@ -61,7 +61,7 @@ Kirigami.Page {
 
         Image {
             id: backgroundImage
-            source: AudioManager.entry.cachedImage
+            source: AudioManager.entry.image
             asynchronous: true
             visible: GraphicsInfo.api === GraphicsInfo.Software
             anchors.fill: parent
@@ -120,7 +120,7 @@ Kirigami.Page {
                         width: Utils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((root.chapterModel.currentChapter && root.chapterModel.currentChapter !== undefined) ? root.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((root.chapterModel.currentChapter && root.chapterModel.currentChapter !== undefined) ? root.chapterModel.currentChapter.image : AudioManager.entry.image) : ""
                             imageResize: false // prevent stuttering when resizing
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent

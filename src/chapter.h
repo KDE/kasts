@@ -23,7 +23,6 @@ class Chapter : public QObject
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QString link READ link NOTIFY linkChanged)
     Q_PROPERTY(QString image READ image NOTIFY imageChanged)
-    Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(int start READ start NOTIFY startChanged)
 
 public:
@@ -34,7 +33,6 @@ public:
     QString title() const;
     QString link() const;
     QString image() const;
-    QString cachedImage() const;
     int start() const;
 
     void setTitle(const QString &title, bool emitSignal = true);
@@ -46,7 +44,6 @@ Q_SIGNALS:
     void titleChanged(const QString &title);
     void linkChanged(const QString &link);
     void imageChanged(const QString &url);
-    void cachedImageChanged(const QString &imagePath);
     void startChanged(const int &start);
 
 private:

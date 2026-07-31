@@ -17,7 +17,8 @@ import org.kde.kasts
 
 Item {
     id: root
-    property string imageSource: "no-image"
+
+    required property string imageSource
     property real imageOpacity: 1
     property int absoluteRadius: 0
     property real fractionalRadius: 0.0
@@ -30,7 +31,7 @@ Item {
         id: imageLoader
         anchors.fill: parent
         visible: GraphicsInfo.api === GraphicsInfo.Software
-        sourceComponent: (root.imageSource === "no-image" || root.imageSource === "") ? fallbackImg : (root.imageSource === "fetching" ? loaderSymbol : realImg)
+        sourceComponent: root.imageSource === "" ? fallbackImg : realImg
     }
 
     MultiEffect {
@@ -55,6 +56,7 @@ Item {
     Component {
         id: realImg
         Image {
+            id: image
             anchors.fill: parent
             source: root.imageSource
             fillMode: root.imageFillMode
@@ -66,6 +68,12 @@ Item {
             // will ever have (this is mainly the MobilePlayerControls)
             sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
             sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
+
+            Loader {
+                active: image.status === Image.Loading
+                anchors.fill: parent
+                sourceComponent: loaderSymbol
+            }
         }
     }
 
@@ -114,7 +122,7 @@ Item {
 
     Loader {
         anchors.fill: parent
-        active: root.imageTitle !== "" && (SettingsManager.alwaysShowFeedTitles ? true : (root.imageSource === "no-image" || root.imageSource === "fetching"))
+        active: root.imageTitle.length > 0 && (SettingsManager.alwaysShowFeedTitles || root.imageSource.length === 0)
         sourceComponent: imageText
     }
 

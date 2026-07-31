@@ -52,15 +52,6 @@ Entry::Entry(const qint64 entryuid, QObject *parent)
             Q_EMIT queueStatusChanged(state);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](const QString url) {
-        if (url == m_image) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        } else if (m_image.isEmpty() && url == m_feed->image()) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        }
-    });
     connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
         if (m_entryuid == entryuid) {
             updateFromDb();
@@ -292,7 +283,6 @@ void Entry::setImage(const QString &image, bool emitSignal)
         m_image = image;
         if (emitSignal) {
             Q_EMIT imageChanged(m_image);
-            Q_EMIT cachedImageChanged(cachedImage());
         }
     }
 }
@@ -440,24 +430,6 @@ QString Entry::image() const
         // else fall back to feed image
         return m_feed->image();
     }
-}
-
-QString Entry::cachedImage() const
-{
-    // First check for an image in the downloaded file
-    if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
-        // use embedded image if available
-        return m_enclosure->cachedEmbeddedImage();
-    }
-
-    // Then check for the entry image, fall back if needed to feed image
-    QString image = m_image;
-    if (image.isEmpty()) {
-        // else fall back to feed image
-        image = m_feed->image();
-    }
-
-    return Fetcher::instance().image(image);
 }
 
 bool Entry::queueStatus() const

@@ -40,7 +40,6 @@ class Entry : public QObject
     Q_PROPERTY(Enclosure *enclosure READ enclosure CONSTANT)
     Q_PROPERTY(bool hasEnclosure READ hasEnclosure NOTIFY hasEnclosureChanged)
     Q_PROPERTY(QString image READ image NOTIFY imageChanged)
-    Q_PROPERTY(QString cachedImage READ cachedImage NOTIFY cachedImageChanged)
     Q_PROPERTY(bool queueStatus READ queueStatus WRITE setQueueStatus NOTIFY queueStatusChanged)
 
 public:
@@ -63,7 +62,6 @@ public:
     Enclosure *enclosure() const;
     bool hasEnclosure() const;
     QString image() const;
-    QString cachedImage() const;
     bool queueStatus() const;
     Feed *feed() const;
 
@@ -90,7 +88,6 @@ Q_SIGNALS:
     void removedChanged(bool removed);
     void hasEnclosureChanged(bool hasEnclosure);
     void imageChanged(const QString &url);
-    void cachedImageChanged(const QString &imagePath);
     void queueStatusChanged(bool queueStatus);
 
 private:

@@ -126,7 +126,7 @@ Kirigami.ScrollablePage {
 
                 property string authors: isSubscribed ? feed.authors : feed.author
 
-                image: isSubscribed ? feed.cachedImage : feed.image
+                image: isSubscribed ? feed.image : feed.image
                 title: isSubscribed ? feed.name : feed.title
                 subtitle: authors ? KI18n.i18nc("by <author(s)>", "by %1", authors) : ""
             }

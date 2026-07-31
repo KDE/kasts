@@ -10,9 +10,12 @@
 #include <QFile>
 #include <QIcon>
 #include <QLoggingCategory>
+#include <QNetworkAccessManager>
+#include <QNetworkDiskCache>
 #include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlNetworkAccessManagerFactory>
 #include <QQuickStyle>
 #include <QQuickView>
 #include <QSettings>
@@ -62,6 +65,23 @@
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
 #endif
+
+class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
+{
+public:
+    QNetworkAccessManager *create(QObject *parent) override
+    {
+        static QNetworkAccessManager *manager = nullptr;
+        if (!manager) {
+            manager = new QNetworkAccessManager(parent);
+            auto cache = new QNetworkDiskCache(manager);
+            QString directory = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
+            cache->setCacheDirectory(directory);
+            manager->setCache(cache);
+        }
+        return manager;
+    }
+};
 
 int main(int argc, char *argv[])
 {
@@ -138,6 +158,8 @@ int main(int argc, char *argv[])
     }
 
     QQmlApplicationEngine engine;
+    NetworkAccessManagerFactory networkAccessManagerFactory;
+    engine.setNetworkAccessManagerFactory(&networkAccessManagerFactory);
     KLocalization::setupLocalizedContext(&engine);
 
     QCommandLineParser parser;

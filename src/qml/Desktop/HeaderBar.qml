@@ -29,8 +29,8 @@ FocusScope {
     property int authorCollapseHeight: Kirigami.Units.gridUnit * 4
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
-    property string image: AudioManager.entry ? ((root.desktopPlayerControls.chapterModel.currentChapter && root.desktopPlayerControls.chapterModel.currentChapter !== undefined) ? root.desktopPlayerControls.chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
-    property string blurredImage: AudioManager.entry ? AudioManager.entry.cachedImage : "no-image"
+    property string image: AudioManager.entry ? ((root.desktopPlayerControls.chapterModel.currentChapter && root.desktopPlayerControls.chapterModel.currentChapter !== undefined) ? root.desktopPlayerControls.chapterModel.currentChapter.image : AudioManager.entry.image) : ""
+    property string blurredImage: AudioManager.entry ? AudioManager.entry.image : ""
     property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
 
     property Item headerMetaData: _headerMetaData

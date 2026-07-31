@@ -807,7 +807,7 @@ void AudioManager::updateMetaData()
         d->m_player.metaData()->setArtist(d->m_entry->authors());
     }
     if (!d->m_entry->image().isEmpty()) {
-        d->m_player.metaData()->setArtworkUrl(QUrl(d->m_entry->cachedImage()));
+        d->m_player.metaData()->setArtworkUrl(QUrl(d->m_entry->image()));
     }
 }
 

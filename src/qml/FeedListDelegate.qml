@@ -166,7 +166,7 @@ Controls.ItemDelegate {
         ImageWithFallback {
             id: img
             anchors.fill: parent
-            imageSource: root.feed.cachedImage
+            imageSource: root.feed.image
             imageTitle: root.feed.name
             imageResize: false // no "stuttering" on resizing the window
             isLoading: root.feed.refreshing

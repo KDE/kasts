@@ -99,7 +99,7 @@ Kirigami.SearchField {
             required property int entryuid
 
             contentItem: Delegates.IconTitleSubtitle {
-                icon.source: albumDelegate.entry.cachedImage
+                icon.source: albumDelegate.entry.image
                 title: albumDelegate.entry.title
                 subtitle: albumDelegate.entry.feed.name
             }

@@ -18,12 +18,6 @@ Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const 
     , m_start(start)
 {
     qCDebug(kastsObjects) << "Chapter object constructed: entryuid" << m_entry->entryuid() << ", chapter start" << m_start;
-    connect(&Fetcher::instance(), &Fetcher::downloadFinished, this, [this](QString url) {
-        if (url == m_image) {
-            Q_EMIT imageChanged(url);
-            Q_EMIT cachedImageChanged(cachedImage());
-        }
-    });
 }
 
 Chapter::~Chapter()
@@ -53,24 +47,8 @@ QString Chapter::image() const
     } else if (m_entry) {
         // fall back to entry image
         return m_entry->image();
-    } else {
-        return QStringLiteral("no-image");
     }
-}
-
-QString Chapter::cachedImage() const
-{
-    // First check for the feed image, fall back if needed
-    QString image = m_image;
-    if (image.isEmpty()) {
-        if (m_entry) {
-            return m_entry->cachedImage();
-        } else {
-            return QStringLiteral("no-image");
-        }
-    }
-
-    return Fetcher::instance().image(image);
+    return {};
 }
 
 int Chapter::start() const
@@ -104,7 +82,6 @@ void Chapter::setImage(const QString &image, bool emitSignal)
         m_image = image;
         if (emitSignal) {
             Q_EMIT imageChanged(m_image);
-            Q_EMIT cachedImageChanged(cachedImage());
         }
     }
 }

@@ -311,7 +311,6 @@ void Enclosure::processDownloadedFile()
 
     // Trigger update of image since the downloaded file can have an embedded image
     Q_EMIT m_entry->imageChanged(m_entry->image());
-    Q_EMIT m_entry->cachedImageChanged(m_entry->cachedImage());
 }
 
 void Enclosure::deleteFile()

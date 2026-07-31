@@ -47,7 +47,6 @@ public:
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
-    Q_INVOKABLE QString image(const QString &url);
 
     EnclosureDownloadJob *enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title);
     void processEnclosureDownloadQueue();

@@ -62,7 +62,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.cachedImage : AudioManager.entry.cachedImage) : "no-image"
+                    imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((chapterModel.currentChapter && chapterModel.currentChapter !== undefined) ? chapterModel.currentChapter.image : AudioManager.entry.image) : ""
                     Layout.fillHeight: true
                     Layout.preferredWidth: height
                 }

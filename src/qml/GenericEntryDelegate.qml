@@ -200,7 +200,7 @@ AddonDelegates.RoundedItemDelegate {
 
         ImageWithFallback {
             id: img
-            imageSource: root.showFeedImage ? root.entry.feed.cachedImage : root.entry.cachedImage
+            imageSource: root.showFeedImage ? root.entry.feed.image : root.entry.image
             property int size: Kirigami.Units.gridUnit * 3
             Layout.preferredHeight: size
             Layout.preferredWidth: size
