@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-14 00:42+0000\n"
+"POT-Creation-Date: 2026-07-31 00:44+0000\n"
 "PO-Revision-Date: 2023-11-06 00:55+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -47,13 +47,13 @@ msgstr ""
 msgid "Podcast downloads not allowed on metered connection"
 msgstr ""
 
-#: entry.cpp:136 feed.cpp:144
+#: entry.cpp:140 feed.cpp:144
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr ""
 
-#: entry.cpp:139 feed.cpp:147
+#: entry.cpp:143 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -130,13 +130,13 @@ msgid "Open"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:370
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:389
 #, kde-format
 msgid "Play"
 msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:393
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:412
 #, kde-format
 msgid "Pause"
 msgstr ""
@@ -188,42 +188,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr ""
 
-#: main.cpp:159
+#: main.cpp:144
 #, kde-format
 msgid "Podcast Application"
 msgstr ""
 
-#: main.cpp:161
+#: main.cpp:146
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr ""
 
-#: main.cpp:162
+#: main.cpp:147
 #, kde-format
 msgid "Podcast URL"
 msgstr ""
 
-#: main.cpp:167 qml/Main.qml:25
+#: main.cpp:152 qml/Main.qml:25
 #, kde-format
 msgid "Kasts"
 msgstr ""
 
-#: main.cpp:169
+#: main.cpp:154
 #, kde-format
 msgid "Podcast Player"
 msgstr ""
 
-#: main.cpp:171
+#: main.cpp:156
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr ""
 
-#: main.cpp:172
+#: main.cpp:157
 #, kde-format
 msgid "Tobias Fella"
 msgstr ""
 
-#: main.cpp:173
+#: main.cpp:158
 #, kde-format
 msgid "Bart De Vries"
 msgstr ""
@@ -687,13 +687,13 @@ msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr ""
 
-#: qml/EntryPage.qml:286
+#: qml/EntryPage.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr ""
 
-#: qml/EntryPage.qml:292
+#: qml/EntryPage.qml:226
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -968,32 +968,42 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:330 qml/GenericEntryListView.qml:265
+#: qml/GenericEntryDelegate.qml:268
+#, kde-format
+msgctxt ""
+"@info:tooltip Tooltip for an icon that can be displayed on an episode list "
+"item"
+msgid ""
+"This episode has been removed from the podcast RSS feed by the podcast "
+"author(s). Downloading and/or streaming this episode might be broken."
+msgstr ""
+
+#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
 #, kde-format
 msgid "Remove from Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:339 qml/GenericEntryListView.qml:325
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:325
 #, kde-format
 msgid "Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:349
+#: qml/GenericEntryDelegate.qml:368
 #, kde-format
 msgid "Cancel Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:356
+#: qml/GenericEntryDelegate.qml:375
 #, kde-format
 msgid "Delete Download"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:363 qml/GenericEntryListView.qml:255
+#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:255
 #, kde-format
 msgid "Add to Queue"
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:380 qml/GenericEntryListView.qml:344
+#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:344
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
