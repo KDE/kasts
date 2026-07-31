@@ -77,7 +77,7 @@ Control {
         anchors.fill: parent
         anchors.leftMargin: handle.width / 2
         anchors.rightMargin: handle.width / 2
-        spacing: 0
+        spacing: 1
         Repeater {
             id: chapters
             delegate: Rectangle {
@@ -90,7 +90,8 @@ Control {
                 // If we're not dragging, use the more precise method using the AudioManager. If we're dragging, this doesn't work because the AudioManager isn't updated while dragging
                 readonly property bool isCurrent: dragArea.drag.active ? (x - 1.01 <= handle.centerX && handle.centerX < x + width) : (start * 1000 <= AudioManager.position && (start + duration) * 1000 > AudioManager.position)
                 readonly property bool isPrevious: dragArea.drag.active ? (x + width < handle.centerX) : ((start + duration) * 1000 < AudioManager.position)
-                Layout.preferredWidth: duration * 1000 / root.duration * (layout.width - chapters.count + 1)
+                Layout.preferredWidth: duration
+                Layout.fillWidth: true
                 Layout.preferredHeight: root.grooveSize
                 Layout.alignment: Qt.AlignVCenter
                 radius: height / 2
