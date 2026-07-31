@@ -249,7 +249,8 @@ AddonDelegates.RoundedItemDelegate {
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (((!root.isQueue && root.entry.queueStatus) || root.entry.favorite) ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? (root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "") + (root.entry.removed ? "  ·" : "")
+                    readonly property bool showEnclosureSize: root.entry.enclosure && root.entry.enclosure.status !== Enclosure.Status.Downloaded && root.entry.enclosure.size > 0
+                    text: (((!root.isQueue && root.entry.queueStatus) || root.entry.favorite) ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (showEnclosureSize ? ("  ·  " + root.entry.enclosure.formattedSize) : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "") + (root.entry.removed ? "  ·" : "")
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
