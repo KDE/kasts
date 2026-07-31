@@ -134,6 +134,7 @@ ListView {
         enabled: visible
         icon.name: "view-sort"
         text: KI18n.i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
 
         tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort episodes")
 
@@ -236,6 +237,7 @@ ListView {
     readonly property Kirigami.Action selectAllAction: Kirigami.Action {
         icon.name: "edit-select-all"
         text: KI18n.i18n("Select All")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         visible: true
         onTriggered: {
             root.selectionModel.select(root.model.index(0, 0), ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Columns);
@@ -245,6 +247,7 @@ ListView {
     readonly property Kirigami.Action selectNoneAction: Kirigami.Action {
         icon.name: "edit-select-none"
         text: KI18n.i18n("Deselect All")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         visible: root.selectionModel.hasSelection
         onTriggered: {
             root.selectionModel.clearSelection();
@@ -289,6 +292,7 @@ ListView {
 
     readonly property Kirigami.Action markNewAction: Kirigami.Action {
         text: KI18n.i18n("Label as \"New\"")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? !root.singleSelectedEntry.new : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(true, root.selectionForContextMenu);
@@ -297,6 +301,7 @@ ListView {
 
     readonly property Kirigami.Action markNotNewAction: Kirigami.Action {
         text: KI18n.i18n("Remove \"New\" Label")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
         visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? root.singleSelectedEntry.new : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(false, root.selectionForContextMenu);
