@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-31 00:44+0000\n"
-"PO-Revision-Date: 2026-07-12 10:39+0200\n"
+"PO-Revision-Date: 2026-07-31 08:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -976,6 +976,9 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Det här avsnittet har tagits bort från poddsändningens RSS-flöde av "
+"författaren/författarna. Nerladdning och/eller strömning av avsnittet kanske "
+"inte fungerar."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
 #, kde-format

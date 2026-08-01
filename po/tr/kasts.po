@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-31 00:44+0000\n"
-"PO-Revision-Date: 2026-03-11 13:06+0300\n"
+"PO-Revision-Date: 2026-07-31 19:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -982,6 +982,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Bu bölüm, pod yayını sahipleri tarafından pod yayını RSS beslemesinden "
+"kaldırıldı. Bu bölümü indirmek veya akışını başlatmak çalışmıyor olabilir."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
 #, kde-format

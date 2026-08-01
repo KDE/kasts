@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-31 00:44+0000\n"
-"PO-Revision-Date: 2026-03-11 05:53+0100\n"
+"PO-Revision-Date: 2026-07-31 05:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -980,6 +980,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"ეს ეპიზოდი ამოღებულია პოდკასტის RSS არხიდან პოდკასტის ავტორ(ებ)-ის მიერ. ამ "
+"ეპიზოდის გადმოწერა და/ან სტრიმინგი, შეიძლება, გაფუჭებული იყოს."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
 #, kde-format
