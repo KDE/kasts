@@ -10,6 +10,7 @@ import QtQuick.Layouts
 import QtQuick.Effects
 
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 import org.kde.kasts
 
@@ -130,25 +131,39 @@ Item {
                 }
             }
 
-            Controls.Label {
-                Layout.fillWidth: true
-                visible: root.subtitle !== ""
-                text: root.subtitle
-                fontSizeMode: Text.Fit
-                font.pointSize: Kirigami.Theme.defaultFont.pointSize
-                minimumPointSize: Kirigami.Theme.defaultFont.pointSize
-                font.bold: true
-                horizontalAlignment: Text.AlignLeft
-                color: "#eff0f1" // breeze light text color
-                elide: Text.ElideRight
-                opacity: 1
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: root.subtitleClickable ? Qt.PointingHandCursor : undefined
-                    onClicked: {
-                        if (root.subtitleClickable) {
-                            root.subtitleClicked();
+            RowLayout {
+                Controls.Label {
+                    visible: root.subtitle !== ""
+                    text: root.subtitle
+                    fontSizeMode: Text.Fit
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize
+                    minimumPointSize: Kirigami.Theme.defaultFont.pointSize
+                    font.bold: true
+                    horizontalAlignment: Text.AlignLeft
+                    color: "#eff0f1" // breeze light text color
+                    elide: Text.ElideRight
+                    opacity: 1
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: root.subtitleClickable ? Qt.PointingHandCursor : undefined
+                        onClicked: {
+                            if (root.subtitleClickable) {
+                                root.subtitleClicked();
+                            }
                         }
+                    }
+                }
+                Controls.ToolButton {
+                    icon.color: "white"
+                    icon.name: "documentinfo"
+                    display: Controls.Button.IconOnly
+                    Controls.ToolTip.visible: hovered
+                    Controls.ToolTip.text: text
+                    Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    text: KI18n.i18n("Show Details")
+                    onClicked: {
+                        let dialog = Qt.createComponent("org.kde.kasts", "FeedDetailsDialog").createObject(root) as FeedDetailsDialog;
+                        dialog.open();
                     }
                 }
             }
