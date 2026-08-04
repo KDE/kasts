@@ -6,7 +6,6 @@
 
 #include "chapter.h"
 
-#include "fetcher.h"
 #include "objectslogging.h"
 
 Chapter::Chapter(Entry *entry, const QString &title, const QString &link, const QString &image, const int &start, QObject *parent)

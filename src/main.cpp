@@ -71,14 +71,12 @@ class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 public:
     QNetworkAccessManager *create(QObject *parent) override
     {
-        static QNetworkAccessManager *manager = nullptr;
-        if (!manager) {
-            manager = new QNetworkAccessManager(parent);
-            auto cache = new QNetworkDiskCache(manager);
-            QString directory = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
-            cache->setCacheDirectory(directory);
-            manager->setCache(cache);
-        }
+        QNetworkAccessManager *manager = new QNetworkAccessManager(parent);
+        auto cache = new QNetworkDiskCache(manager);
+        QString directory = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
+        cache->setCacheDirectory(directory);
+        cache->setMaximumCacheSize(500 * 1024 * 1024);
+        manager->setCache(cache);
         return manager;
     }
 };

@@ -14,6 +14,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QNetworkDiskCache>
 #include <QRegularExpression>
 #include <QStandardPaths>
 
@@ -24,6 +25,13 @@
 StorageManager::StorageManager()
 {
     connect(this, &StorageManager::error, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
+
+    // delete old image cache
+    // TODO: can probably be removed in a next version (i.e. after 26.12)
+    QDir oldcache = QDir(storagePath() + QStringLiteral("/images/"));
+    if (oldcache.exists()) {
+        oldcache.removeRecursively();
+    }
 }
 
 QString StorageManager::storagePath() const
@@ -107,7 +115,7 @@ void StorageManager::setStoragePath(QUrl url)
 
 QString StorageManager::imageDirPath() const
 {
-    QString path = storagePath() + QStringLiteral("/images/");
+    QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
     // Create path if it doesn't exist yet
     QFileInfo().absoluteDir().mkpath(path);
     return path;
@@ -180,6 +188,13 @@ void StorageManager::clearImageCache()
         qCDebug(kastsStorageManager) << image;
         QFile(QDir(imageDirPath()).absoluteFilePath(image)).remove();
     }
+
+    // Also wipe the built-in QNetWorkAccessManager cache
+    QNetworkDiskCache *cache = new QNetworkDiskCache(this);
+    cache->setCacheDirectory(imageDirPath());
+    cache->clear();
+    cache->deleteLater();
+
     Q_EMIT imageDirSizeChanged();
 }
 

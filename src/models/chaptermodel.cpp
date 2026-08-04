@@ -193,10 +193,9 @@ void ChapterModel::loadMPEGChapters()
         auto chapterFrame = dynamic_cast<TagLib::ID3v2::ChapterFrame *>(frame);
 
         const auto &apicList = chapterFrame->embeddedFrameListMap()["APIC"];
-        QString image = QStringLiteral("%1,%2").arg(m_entry->id()).arg(chapterFrame->startTime());
-        // TODO: get hashed filename from a method in Fetcher
-        auto hash = QString::fromLatin1(QCryptographicHash::hash(image.toLatin1(), QCryptographicHash::Md5).toHex());
-        auto path = QStringLiteral("%1/images/%2").arg(StorageManager::instance().storagePath(), hash);
+        QString imageName = QStringLiteral("%1,%2").arg(m_entry->id()).arg(chapterFrame->startTime());
+        QString path = StorageManager::instance().imagePath(imageName);
+        QString image = QUrl::fromLocalFile(path).toString();
         if (!apicList.isEmpty()) {
             if (!QFileInfo::exists(path)) {
                 QFile file(path);
@@ -220,7 +219,7 @@ void ChapterModel::loadMPEGChapters()
             return chapter->start() == it->start();
         });
         if (originalChapter != m_chapters.end()) {
-            (*originalChapter)->image() = chapter->image();
+            (*originalChapter)->setImage(chapter->image());
         } else {
             m_chapters << chapter;
         }
