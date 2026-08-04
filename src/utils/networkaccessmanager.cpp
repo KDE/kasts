@@ -13,33 +13,32 @@
 #include "kasts-version.h"
 
 NetworkAccessManager::NetworkAccessManager(QObject *parent)
-    : QObject(parent)
+    : QNetworkAccessManager(parent)
 {
-    m_manager = new QNetworkAccessManager(this);
-    m_manager->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-    m_manager->setStrictTransportSecurityEnabled(true);
+    this->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+    this->setStrictTransportSecurityEnabled(true);
     // HACK TODO: Disable hstsstore temporarily because of malloc crash deep in
     // qt6 somewhere.  This is to be reenabled once the bug is solved upstream
-    m_manager->enableStrictTransportSecurityStore(false);
+    this->enableStrictTransportSecurityStore(false);
 }
 
-QNetworkReply *NetworkAccessManager::get(QNetworkRequest &request) const
+QNetworkReply *NetworkAccessManager::get(QNetworkRequest &request)
 {
     setHeader(request);
-    return m_manager->get(request);
+    return QNetworkAccessManager::get(request);
 }
 
-QNetworkReply *NetworkAccessManager::post(QNetworkRequest &request, const QByteArray &data) const
+QNetworkReply *NetworkAccessManager::post(QNetworkRequest &request, const QByteArray &data)
 {
     setHeader(request);
     request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/json"));
-    return m_manager->post(request, data);
+    return QNetworkAccessManager::post(request, data);
 }
 
-QNetworkReply *NetworkAccessManager::head(QNetworkRequest &request) const
+QNetworkReply *NetworkAccessManager::head(QNetworkRequest &request)
 {
     setHeader(request);
-    return m_manager->head(request);
+    return QNetworkAccessManager::head(request);
 }
 
 void NetworkAccessManager::setHeader(QNetworkRequest &request) const

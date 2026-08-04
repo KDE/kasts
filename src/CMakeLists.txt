@@ -23,6 +23,7 @@ add_executable(kasts
     utils/fetchfeedsjob.cpp
     utils/systrayicon.cpp
     utils/networkaccessmanager.cpp
+    utils/networkaccessmanagerfactory.cpp
     utils/networkconnectionmanager.cpp
     utils/colorschemer.cpp
     utils/utils.cpp

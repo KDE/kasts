@@ -23,7 +23,6 @@
 #include <QStringList>
 #include <QSysInfo>
 #include <QVariant>
-#include <klocalizedqmlcontext.h>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -57,6 +56,7 @@
 #include "kasts-version.h"
 #include "settingsmanager.h"
 #include "utils/colorschemer.h"
+#include "utils/networkaccessmanagerfactory.h"
 
 #ifdef Q_OS_WINDOWS
 #include <windows.h>
@@ -65,21 +65,6 @@
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
 #endif
-
-class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
-{
-public:
-    QNetworkAccessManager *create(QObject *parent) override
-    {
-        QNetworkAccessManager *manager = new QNetworkAccessManager(parent);
-        auto cache = new QNetworkDiskCache(manager);
-        QString directory = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
-        cache->setCacheDirectory(directory);
-        cache->setMaximumCacheSize(500 * 1024 * 1024);
-        manager->setCache(cache);
-        return manager;
-    }
-};
 
 int main(int argc, char *argv[])
 {
