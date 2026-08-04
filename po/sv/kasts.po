@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-31 00:44+0000\n"
+"POT-Creation-Date: 2026-08-04 00:43+0000\n"
 "PO-Revision-Date: 2026-07-31 08:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -520,12 +520,12 @@ msgstr "Sök på podcastindex.org"
 msgid "Search"
 msgstr "Sök"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribe"
 msgstr "Prenumerera"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribed"
 msgstr "Prenumererar"
@@ -666,7 +666,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Beteckna som \"ny\""
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:316
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:321
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -674,7 +674,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Ta bort från favoriter"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:307
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:312
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -706,13 +706,19 @@ msgid "Episodes"
 msgstr "Avsnitt"
 
 #: qml/EpisodeListPage.qml:59 qml/FeedDetailsPage.qml:70
-#: qml/FeedListPage.qml:112
+#: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Sök"
 
-#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:334
+#: qml/EpisodeListPage.qml:87 qml/FeedDetailsPage.qml:91
+#, kde-format
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search episodes…"
+msgstr "Sök efter avsnitt…"
+
+#: qml/EpisodeListPage.qml:102 qml/FeedDetailsPage.qml:335
 #, kde-format
 msgid "No episodes available"
 msgstr "Inga avsnitt tillgängliga"
@@ -749,57 +755,57 @@ msgstr "Visa fellogg"
 msgid "Podcast Details"
 msgstr "Information om poddsändning"
 
-#: qml/FeedDetailsPage.qml:130
+#: qml/FeedDetailsPage.qml:131
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "av %1"
 
-#: qml/FeedDetailsPage.qml:161
+#: qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Uppdatera poddsändning"
 
-#: qml/FeedDetailsPage.qml:180
+#: qml/FeedDetailsPage.qml:181
 #, kde-format
 msgid "Show Details"
 msgstr "Visa detaljinformation"
 
-#: qml/FeedDetailsPage.qml:246
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Poddsändningswebbadress:"
 
-#: qml/FeedDetailsPage.qml:267
+#: qml/FeedDetailsPage.qml:268
 #, kde-format
 msgid "Weblink:"
 msgstr "Webblänk:"
 
-#: qml/FeedDetailsPage.qml:287
+#: qml/FeedDetailsPage.qml:288
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Prenumerant sedan: %1"
 
-#: qml/FeedDetailsPage.qml:298
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "Last updated: %1"
 msgstr "senaste uppdatering: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:310
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 avsnitt"
 msgstr[1] "%1 avsnitt"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:310
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 ospelat"
 msgstr[1] "%1 ospelade"
 
-#: qml/FeedDetailsPage.qml:334
+#: qml/FeedDetailsPage.qml:335
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Fel (%1): %2"
@@ -847,13 +853,13 @@ msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/FeedListGridView.qml:223
+#: qml/FeedListGridView.qml:224
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Avmarkera alla"
 
-#: qml/FeedListGridView.qml:232
+#: qml/FeedListGridView.qml:234
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -861,7 +867,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Ta bort poddsändning"
 msgstr[1] "Ta bort poddsändningar"
 
-#: qml/FeedListGridView.qml:256
+#: qml/FeedListGridView.qml:258
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -892,49 +898,57 @@ msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Sortera"
 
-#: qml/FeedListPage.qml:65
+#: qml/FeedListPage.qml:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
 msgstr "Välj hur prenumerationer sorteras"
 
-#: qml/FeedListPage.qml:117
+#: qml/FeedListPage.qml:118
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
 msgstr "Importera poddsändningar…"
 
-#: qml/FeedListPage.qml:123
+#: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
 msgstr "Exportera poddsändningar…"
 
-#: qml/FeedListPage.qml:159
+#: qml/FeedListPage.qml:151
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of podcast subscriptions"
+#| msgid "Subscriptions"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search subscriptions…"
+msgstr "Prenumerationer"
+
+#: qml/FeedListPage.qml:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Importera poddsändningar"
 
-#: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "OPML-filer (*.opml)"
 
-#: qml/FeedListPage.qml:161
+#: qml/FeedListPage.qml:163
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "XML-filer (*.xml)"
 
-#: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Alla filer (*)"
 
-#: qml/FeedListPage.qml:167
+#: qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
@@ -980,12 +994,12 @@ msgstr ""
 "författaren/författarna. Nerladdning och/eller strömning av avsnittet kanske "
 "inte fungerar."
 
-#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
+#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Ta bort från kö"
 
-#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:325
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:330
 #, kde-format
 msgid "Download"
 msgstr "Ladda ner"
@@ -1000,12 +1014,12 @@ msgstr "Avbryt nerladdning"
 msgid "Delete Download"
 msgstr "Ta bort nerladdning"
 
-#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:255
+#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:258
 #, kde-format
 msgid "Add to Queue"
 msgstr "Lägg till i kö"
 
-#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:344
+#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:349
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1019,13 +1033,13 @@ msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Sortera"
 
-#: qml/GenericEntryListView.qml:138
+#: qml/GenericEntryListView.qml:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Välj hur avsnitt sorteras"
 
-#: qml/GenericEntryListView.qml:192
+#: qml/GenericEntryListView.qml:193
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1033,43 +1047,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtrera"
 
-#: qml/GenericEntryListView.qml:194
+#: qml/GenericEntryListView.qml:195
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Filtrera avsnitt enligt status"
 
-#: qml/GenericEntryListView.qml:238
+#: qml/GenericEntryListView.qml:239
 #, kde-format
 msgid "Select All"
 msgstr "Markera alla"
 
-#: qml/GenericEntryListView.qml:247
+#: qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Deselect All"
 msgstr "Avmarkera alla"
 
-#: qml/GenericEntryListView.qml:275
+#: qml/GenericEntryListView.qml:278
 #, kde-format
 msgid "Mark as Played"
 msgstr "Markera som spelad"
 
-#: qml/GenericEntryListView.qml:283
+#: qml/GenericEntryListView.qml:286
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Markera som ospelad"
 
-#: qml/GenericEntryListView.qml:291
+#: qml/GenericEntryListView.qml:294
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Beteckna som \"ny\""
 
-#: qml/GenericEntryListView.qml:299
+#: qml/GenericEntryListView.qml:303
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Ta bort beteckningen \"ny\""
 
-#: qml/GenericEntryListView.qml:335
+#: qml/GenericEntryListView.qml:340
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1083,19 +1097,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Inga sökresultat"
 
-#: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:58
+#: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Avancerade sökalternativ"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:122
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Sökinställningar"
 
-#: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:123
+#: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:126
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1233,12 +1247,6 @@ msgstr "Återstående tid"
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "Kön är tom"
-
-#: qml/SearchBar.qml:45
-#, kde-format
-msgctxt "@label:textbox Placeholder text for episode search field"
-msgid "Search episodes…"
-msgstr "Sök efter avsnitt…"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
 #, kde-format

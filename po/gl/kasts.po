@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-31 00:44+0000\n"
+"POT-Creation-Date: 2026-08-04 00:43+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -527,12 +527,12 @@ msgstr "Buscar en podcastindex.org"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribe"
 msgstr "Subscribirse"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
 #, kde-format
 msgid "Subscribed"
 msgstr "Subscribiuse"
@@ -680,7 +680,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Etiquetar como novo"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:316
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:321
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -688,7 +688,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Retirar dos favoritos"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:307
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:312
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -720,13 +720,19 @@ msgid "Episodes"
 msgstr "Episodios"
 
 #: qml/EpisodeListPage.qml:59 qml/FeedDetailsPage.qml:70
-#: qml/FeedListPage.qml:112
+#: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:334
+#: qml/EpisodeListPage.qml:87 qml/FeedDetailsPage.qml:91
+#, kde-format
+msgctxt "@label:textbox Placeholder text for episode search field"
+msgid "Search episodes…"
+msgstr "Buscar nos episodios…"
+
+#: qml/EpisodeListPage.qml:102 qml/FeedDetailsPage.qml:335
 #, kde-format
 msgid "No episodes available"
 msgstr "Non hai episodios dispoñíbeis"
@@ -763,57 +769,57 @@ msgstr "Amosar o rexistro de erros"
 msgid "Podcast Details"
 msgstr "Detalles do podcast"
 
-#: qml/FeedDetailsPage.qml:130
+#: qml/FeedDetailsPage.qml:131
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "de %1"
 
-#: qml/FeedDetailsPage.qml:161
+#: qml/FeedDetailsPage.qml:162
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Actualizar o podcast"
 
-#: qml/FeedDetailsPage.qml:180
+#: qml/FeedDetailsPage.qml:181
 #, kde-format
 msgid "Show Details"
 msgstr "Amosar os detalles"
 
-#: qml/FeedDetailsPage.qml:246
+#: qml/FeedDetailsPage.qml:247
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL do podcast:"
 
-#: qml/FeedDetailsPage.qml:267
+#: qml/FeedDetailsPage.qml:268
 #, kde-format
 msgid "Weblink:"
 msgstr "Ligazón web:"
 
-#: qml/FeedDetailsPage.qml:287
+#: qml/FeedDetailsPage.qml:288
 #, kde-format
 msgid "Subscribed since: %1"
 msgstr "Data de subscrición: %1"
 
-#: qml/FeedDetailsPage.qml:298
+#: qml/FeedDetailsPage.qml:299
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Última actualización: %1"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:310
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodio"
 msgstr[1] "%1 episodios"
 
-#: qml/FeedDetailsPage.qml:309
+#: qml/FeedDetailsPage.qml:310
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 sen reproducir"
 msgstr[1] "%1 sen reproducir"
 
-#: qml/FeedDetailsPage.qml:334
+#: qml/FeedDetailsPage.qml:335
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Erro (%1): %2"
@@ -861,13 +867,13 @@ msgctxt "@action:intoolbar"
 msgid "Select All"
 msgstr "Seleccionalo todo"
 
-#: qml/FeedListGridView.qml:223
+#: qml/FeedListGridView.qml:224
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Deselect All"
 msgstr "Anular a selección"
 
-#: qml/FeedListGridView.qml:232
+#: qml/FeedListGridView.qml:234
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove Podcast"
@@ -875,7 +881,7 @@ msgid_plural "Remove Podcasts"
 msgstr[0] "Retirar o podcast"
 msgstr[1] "Retirar os podcasts"
 
-#: qml/FeedListGridView.qml:256
+#: qml/FeedListGridView.qml:258
 #, kde-format
 msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
@@ -906,49 +912,57 @@ msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Ordenar"
 
-#: qml/FeedListPage.qml:65
+#: qml/FeedListPage.qml:66
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
 msgstr "Seleccionar como ordenar as subscricións."
 
-#: qml/FeedListPage.qml:117
+#: qml/FeedListPage.qml:118
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
 msgstr "Importar podcasts…"
 
-#: qml/FeedListPage.qml:123
+#: qml/FeedListPage.qml:124
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
 msgstr "Exportar podcasts…"
 
-#: qml/FeedListPage.qml:159
+#: qml/FeedListPage.qml:151
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of podcast subscriptions"
+#| msgid "Subscriptions"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search subscriptions…"
+msgstr "Subscricións"
+
+#: qml/FeedListPage.qml:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Importar podcasts"
 
-#: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Ficheiros OPML (*.opml)"
 
-#: qml/FeedListPage.qml:161
+#: qml/FeedListPage.qml:163
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "Ficheiros XML (*.xml)"
 
-#: qml/FeedListPage.qml:161 qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Todos os ficheiros (*)"
 
-#: qml/FeedListPage.qml:167
+#: qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
@@ -991,12 +1005,12 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:265
+#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Retirar da cola"
 
-#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:325
+#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:330
 #, kde-format
 msgid "Download"
 msgstr "Descargar"
@@ -1011,12 +1025,12 @@ msgstr "Cancelar a descarga"
 msgid "Delete Download"
 msgstr "Eliminar a descarga"
 
-#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:255
+#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:258
 #, kde-format
 msgid "Add to Queue"
 msgstr "Engadir á cola"
 
-#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:344
+#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:349
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1030,13 +1044,13 @@ msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Ordenar"
 
-#: qml/GenericEntryListView.qml:138
+#: qml/GenericEntryListView.qml:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Seleccionar como ordenar os episodios."
 
-#: qml/GenericEntryListView.qml:192
+#: qml/GenericEntryListView.qml:193
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1044,43 +1058,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtrar"
 
-#: qml/GenericEntryListView.qml:194
+#: qml/GenericEntryListView.qml:195
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Filtrar os episodios por estado."
 
-#: qml/GenericEntryListView.qml:238
+#: qml/GenericEntryListView.qml:239
 #, kde-format
 msgid "Select All"
 msgstr "Seleccionalo todo"
 
-#: qml/GenericEntryListView.qml:247
+#: qml/GenericEntryListView.qml:249
 #, kde-format
 msgid "Deselect All"
 msgstr "Anular a selección"
 
-#: qml/GenericEntryListView.qml:275
+#: qml/GenericEntryListView.qml:278
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marcar como reproducido"
 
-#: qml/GenericEntryListView.qml:283
+#: qml/GenericEntryListView.qml:286
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marcar como non reproducido"
 
-#: qml/GenericEntryListView.qml:291
+#: qml/GenericEntryListView.qml:294
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etiquetar como novo"
 
-#: qml/GenericEntryListView.qml:299
+#: qml/GenericEntryListView.qml:303
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Retirar a etiqueta de novo"
 
-#: qml/GenericEntryListView.qml:335
+#: qml/GenericEntryListView.qml:340
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1094,19 +1108,19 @@ msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "A busca non ten resultados."
 
-#: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:58
+#: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opcións avanzadas de busca"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:119
+#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:122
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Configuración da busca"
 
-#: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:123
+#: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:126
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1245,12 +1259,6 @@ msgstr "Tempo restante"
 msgctxt "@info"
 msgid "Queue is empty"
 msgstr "A cola está baleira"
-
-#: qml/SearchBar.qml:45
-#, kde-format
-msgctxt "@label:textbox Placeholder text for episode search field"
-msgid "Search episodes…"
-msgstr "Buscar nos episodios…"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
 #, kde-format
