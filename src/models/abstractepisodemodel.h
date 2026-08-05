@@ -27,6 +27,7 @@ public:
         ReadRole,
         NewRole,
         FavoriteRole,
+        DownloadedRole,
         ContentRole,
         FeedNameRole,
         UpdatedRole,

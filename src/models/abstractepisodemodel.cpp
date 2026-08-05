@@ -21,6 +21,7 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
         {ReadRole, "read"},
         {NewRole, "new"},
         {FavoriteRole, "favorite"},
+        {DownloadedRole, "downloaded"},
         {ContentRole, "content"},
         {FeedNameRole, "feedname"},
         {UpdatedRole, "updated"},

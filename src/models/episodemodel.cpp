@@ -53,6 +53,8 @@ QVariant EpisodeModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(m_entries[index.row()].isNew);
     case AbstractEpisodeModel::Roles::FavoriteRole:
         return QVariant::fromValue(m_entries[index.row()].favorite);
+    case AbstractEpisodeModel::Roles::DownloadedRole:
+        return QVariant::fromValue(m_downloaded[index.row()]);
     case AbstractEpisodeModel::Roles::ContentRole:
         return QVariant::fromValue(m_entries[index.row()].content);
     case AbstractEpisodeModel::Roles::FeedNameRole:
@@ -74,9 +76,12 @@ void EpisodeModel::updateInternalState()
 {
     m_entries.clear();
     m_feedNames.clear();
+    m_downloaded.clear();
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid ORDER BY updated DESC;"));
+    query.prepare(
+        QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid LEFT JOIN (SELECT DISTINCT entryuid, downloaded FROM Enclosures "
+                       "ORDER BY enclosureuid ASC) as UniqueEncl ON UniqueEncl.entryuid=Entries.entryuid ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
         DataTypes::EntryDetails entryDetails;
@@ -94,6 +99,7 @@ void EpisodeModel::updateInternalState()
         entryDetails.hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
         entryDetails.image = query.value(QStringLiteral("image")).toString();
         m_entries += entryDetails;
+        m_downloaded += query.value(QStringLiteral("Enclosures.downloaded")).toInt();
         m_feedNames += query.value(QStringLiteral("Feeds.name")).toString();
     }
     query.finish();

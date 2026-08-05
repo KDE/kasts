@@ -35,4 +35,5 @@ public Q_SLOTS:
 private:
     QList<DataTypes::EntryDetails> m_entries;
     QStringList m_feedNames;
+    QList<int> m_downloaded;
 };

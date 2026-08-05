@@ -28,6 +28,9 @@ public:
         NotNewFilter,
         FavoriteFilter,
         NotFavoriteFilter,
+        DownloadedFilter,
+        PartiallyDownloadedFilter,
+        NotDownloadedFilter,
     };
     Q_ENUM(FilterType)
 
