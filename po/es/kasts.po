@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:43+0000\n"
+"POT-Creation-Date: 2026-08-05 00:44+0000\n"
 "PO-Revision-Date: 2026-08-01 00:20+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -49,13 +49,13 @@ msgstr "Medio no válido"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "La descarga de pódcast no está permitida en conexiones de uso medido"
 
-#: entry.cpp:140 feed.cpp:144
+#: entry.cpp:131 feed.cpp:138
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 y %2"
 
-#: entry.cpp:143 feed.cpp:147
+#: entry.cpp:134 feed.cpp:141
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -190,42 +190,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Reproduciendo medio"
 
-#: main.cpp:144
+#: main.cpp:149
 #, kde-format
 msgid "Podcast Application"
 msgstr "Aplicación de pódcast"
 
-#: main.cpp:146
+#: main.cpp:151
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Añade un nuevo pódcast a las suscripciones."
 
-#: main.cpp:147
+#: main.cpp:152
 #, kde-format
 msgid "Podcast URL"
 msgstr "URL del pódcast"
 
-#: main.cpp:152 qml/Main.qml:25
+#: main.cpp:157 qml/Main.qml:24
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:154
+#: main.cpp:159
 #, kde-format
 msgid "Podcast Player"
 msgstr "Reproductor de pódcast"
 
-#: main.cpp:156
+#: main.cpp:161
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020-2025 la Comunidad KDE"
 
-#: main.cpp:157
+#: main.cpp:162
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:158
+#: main.cpp:163
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -302,7 +302,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Fecha: primero los más antiguos"
 
-#: models/chaptermodel.cpp:215
+#: models/chaptermodel.cpp:214
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -527,24 +527,24 @@ msgstr "Buscar en podcastindex.org"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:169
 #, kde-format
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:169
 #, kde-format
 msgid "Subscribed"
 msgstr "Suscrito"
 
-#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:46
+#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:45
 #: qml/KastsGlobalDrawer.qml:117
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
 msgstr "Descargas"
 
-#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:53
+#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:52
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Actualizar todos los pódcast"
@@ -705,27 +705,27 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Enlace copiado"
 
-#: qml/EpisodeListPage.qml:21 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Episodios"
 
-#: qml/EpisodeListPage.qml:59 qml/FeedDetailsPage.qml:70
+#: qml/EpisodeListPage.qml:58 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/EpisodeListPage.qml:87 qml/FeedDetailsPage.qml:91
+#: qml/EpisodeListPage.qml:86 qml/FeedDetailsPage.qml:93
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Buscar episodios…"
 
-#: qml/EpisodeListPage.qml:102 qml/FeedDetailsPage.qml:335
+#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "No episodes available"
 msgstr "No hay episodios disponibles"
@@ -757,33 +757,33 @@ msgstr "Borrar todos los errores"
 msgid "Show Error Log"
 msgstr "Mostrar el registro de errores"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:31 qml/FeedListDelegate.qml:250
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalles del pódcast"
 
-#: qml/FeedDetailsPage.qml:131
+#: qml/FeedDetailsPage.qml:133
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "por %1"
 
-#: qml/FeedDetailsPage.qml:162
+#: qml/FeedDetailsPage.qml:164
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Actualizar pódcast"
 
-#: qml/FeedDetailsPage.qml:181
+#: qml/FeedDetailsPage.qml:183
 #, kde-format
 msgid "Show Details"
 msgstr "Mostrar detalles"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:249
 #, kde-format
 msgid "Podcast URL:"
 msgstr "URL del pódcast:"
 
-#: qml/FeedDetailsPage.qml:268
+#: qml/FeedDetailsPage.qml:269
 #, kde-format
 msgid "Weblink:"
 msgstr "Enlace web:"
@@ -793,26 +793,26 @@ msgstr "Enlace web:"
 msgid "Subscribed since: %1"
 msgstr "Suscrito desde: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:298
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Última actualización: %1"
 
-#: qml/FeedDetailsPage.qml:310
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 episodio"
 msgstr[1] "%1 episodios"
 
-#: qml/FeedDetailsPage.qml:310
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 no reproducido"
 msgstr[1] "%1 no reproducidos"
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
@@ -1136,7 +1136,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Preferencias"
 
-#: qml/Main.qml:188
+#: qml/Main.qml:187
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1144,7 +1144,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Se ha actualizado %2 de %1 pódcast"
 msgstr[1] "Se han actualizado %2 de %1 pódcast"
 
-#: qml/Main.qml:212
+#: qml/Main.qml:211
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1152,7 +1152,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 de %1 archivo movido"
 msgstr[1] "%2 de %1 archivos movidos"
 
-#: qml/Main.qml:267
+#: qml/Main.qml:266
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -2358,12 +2358,12 @@ msgstr "Sincronización terminada con error"
 msgid "Downloading %1"
 msgstr "Descargando %1"
 
-#: utils/storagemanager.cpp:90
+#: utils/storagemanager.cpp:98
 #, kde-format
 msgid "Old location:"
 msgstr "Antigua ubicación:"
 
-#: utils/storagemanager.cpp:90
+#: utils/storagemanager.cpp:98
 #, kde-format
 msgid "New location:"
 msgstr "Nueva ubicación:"

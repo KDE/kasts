@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:43+0000\n"
+"POT-Creation-Date: 2026-08-05 00:44+0000\n"
 "PO-Revision-Date: 2026-03-13 13:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -48,13 +48,13 @@ msgstr "Ógild miðlaskrá"
 msgid "Podcast downloads not allowed on metered connection"
 msgstr "Niðurhal á hlaðvörpum er ekki leyft á gagnamældri tengingu"
 
-#: entry.cpp:140 feed.cpp:144
+#: entry.cpp:131 feed.cpp:138
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 og %2"
 
-#: entry.cpp:143 feed.cpp:147
+#: entry.cpp:134 feed.cpp:141
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
@@ -189,42 +189,42 @@ msgctxt "Explanation for sleep inhibit during media playback"
 msgid "Playing Media"
 msgstr "Spila miðlaskrá"
 
-#: main.cpp:144
+#: main.cpp:149
 #, kde-format
 msgid "Podcast Application"
 msgstr "Hlaðvarpsforrit"
 
-#: main.cpp:146
+#: main.cpp:151
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
 msgstr "Bætir nýju hlaðvarpi við áskriftir."
 
-#: main.cpp:147
+#: main.cpp:152
 #, kde-format
 msgid "Podcast URL"
 msgstr "Slóð á hlaðvarp"
 
-#: main.cpp:152 qml/Main.qml:25
+#: main.cpp:157 qml/Main.qml:24
 #, kde-format
 msgid "Kasts"
 msgstr "Kasts"
 
-#: main.cpp:154
+#: main.cpp:159
 #, kde-format
 msgid "Podcast Player"
 msgstr "Hlaðvarpspilari"
 
-#: main.cpp:156
+#: main.cpp:161
 #, kde-format
 msgid "© 2020–2025 KDE Community"
 msgstr "© 2020–2025 KDE-samfélagið"
 
-#: main.cpp:157
+#: main.cpp:162
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: main.cpp:158
+#: main.cpp:163
 #, kde-format
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
@@ -301,7 +301,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Dagsetning: elsta fyrst"
 
-#: models/chaptermodel.cpp:215
+#: models/chaptermodel.cpp:214
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -524,24 +524,24 @@ msgstr "Leita á podcastindex.org"
 msgid "Search"
 msgstr "Leita"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:169
 #, kde-format
 msgid "Subscribe"
 msgstr "Gerast áskrifandi"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:167
+#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:169
 #, kde-format
 msgid "Subscribed"
 msgstr "Í áskrift"
 
-#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:46
+#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:45
 #: qml/KastsGlobalDrawer.qml:117
 #, kde-format
 msgctxt "@title of page with list of downloaded episodes"
 msgid "Downloads"
 msgstr "Sóttar skrár"
 
-#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:53
+#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:52
 #, kde-format
 msgid "Refresh All Podcasts"
 msgstr "Endurhlaða öll hlaðvörp"
@@ -702,27 +702,27 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Tengill afritaður"
 
-#: qml/EpisodeListPage.qml:21 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Þættir"
 
-#: qml/EpisodeListPage.qml:59 qml/FeedDetailsPage.qml:70
+#: qml/EpisodeListPage.qml:58 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Leita"
 
-#: qml/EpisodeListPage.qml:87 qml/FeedDetailsPage.qml:91
+#: qml/EpisodeListPage.qml:86 qml/FeedDetailsPage.qml:93
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Leita í þáttum…"
 
-#: qml/EpisodeListPage.qml:102 qml/FeedDetailsPage.qml:335
+#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "No episodes available"
 msgstr "Engir þættir í boði"
@@ -754,33 +754,33 @@ msgstr "Hreinsa allar villur"
 msgid "Show Error Log"
 msgstr "Birta villuannál"
 
-#: qml/FeedDetailsPage.qml:29 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:31 qml/FeedListDelegate.qml:250
 #, kde-format
 msgid "Podcast Details"
 msgstr "Upplýsingar um hlaðvarp"
 
-#: qml/FeedDetailsPage.qml:131
+#: qml/FeedDetailsPage.qml:133
 #, kde-format
 msgctxt "by <author(s)>"
 msgid "by %1"
 msgstr "höfundur: %1"
 
-#: qml/FeedDetailsPage.qml:162
+#: qml/FeedDetailsPage.qml:164
 #, kde-format
 msgid "Refresh Podcast"
 msgstr "Endurhlaða hlaðvarp"
 
-#: qml/FeedDetailsPage.qml:181
+#: qml/FeedDetailsPage.qml:183
 #, kde-format
 msgid "Show Details"
 msgstr "Sýna upplýsingar"
 
-#: qml/FeedDetailsPage.qml:247
+#: qml/FeedDetailsPage.qml:249
 #, kde-format
 msgid "Podcast URL:"
 msgstr "Slóð á hlaðvarp:"
 
-#: qml/FeedDetailsPage.qml:268
+#: qml/FeedDetailsPage.qml:269
 #, kde-format
 msgid "Weblink:"
 msgstr "Veftengill:"
@@ -790,26 +790,26 @@ msgstr "Veftengill:"
 msgid "Subscribed since: %1"
 msgstr "Í áskrift síðan: %1"
 
-#: qml/FeedDetailsPage.qml:299
+#: qml/FeedDetailsPage.qml:298
 #, kde-format
 msgid "Last updated: %1"
 msgstr "Síðast uppfært: %1"
 
-#: qml/FeedDetailsPage.qml:310
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Episode"
 msgid_plural "%1 Episodes"
 msgstr[0] "1 þáttur"
 msgstr[1] "%1 þættir"
 
-#: qml/FeedDetailsPage.qml:310
+#: qml/FeedDetailsPage.qml:308
 #, kde-format
 msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "1 óspilaður"
 msgstr[1] "%1 óspilaðir"
 
-#: qml/FeedDetailsPage.qml:335
+#: qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "Error (%1): %2"
 msgstr "Villa (%1): %2"
@@ -1131,7 +1131,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Stillingar"
 
-#: qml/Main.qml:188
+#: qml/Main.qml:187
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1139,7 +1139,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Uppfærði %2 af %1 hlaðvarpi"
 msgstr[1] "Uppfærði %2 af %1 hlaðvörpum"
 
-#: qml/Main.qml:212
+#: qml/Main.qml:211
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1147,7 +1147,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Færði %2 af %1 skrá"
 msgstr[1] "Færði %2 af %1 skrám"
 
-#: qml/Main.qml:267
+#: qml/Main.qml:266
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -2343,12 +2343,12 @@ msgstr "Samstillingu lokið með villu"
 msgid "Downloading %1"
 msgstr "Sæki %1"
 
-#: utils/storagemanager.cpp:90
+#: utils/storagemanager.cpp:98
 #, kde-format
 msgid "Old location:"
 msgstr "Eldri staðsetning:"
 
-#: utils/storagemanager.cpp:90
+#: utils/storagemanager.cpp:98
 #, kde-format
 msgid "New location:"
 msgstr "Ný staðsetning"
