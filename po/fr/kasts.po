@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:44+0000\n"
-"PO-Revision-Date: 2026-08-01 09:47+0200\n"
+"PO-Revision-Date: 2026-08-05 12:46+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -924,12 +924,10 @@ msgid "Export Podcasts…"
 msgstr "Exporter des podcasts..."
 
 #: qml/FeedListPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Abonnements"
+msgstr "Rechercher les abonnements…"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
