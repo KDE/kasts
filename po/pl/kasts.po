@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:44+0000\n"
-"PO-Revision-Date: 2026-05-09 16:14+0200\n"
+"PO-Revision-Date: 2026-08-08 12:48+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -926,12 +926,10 @@ msgid "Export Podcasts…"
 msgstr "Wyeksportuj podkasty…"
 
 #: qml/FeedListPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Śledzone"
+msgstr "Poszukaj śledzonych…"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
@@ -999,6 +997,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Autorzy podkastu usunęli ten odcinek z kanału RSS podkastu. Pobieranie i/lub "
+"strumieniowanie tego odcinka może się nie powieść."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
 #, kde-format
