@@ -1725,6 +1725,7 @@
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
+          <li xml:lang="pl">Naprawa kilku błędów.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
           <li xml:lang="sk">Several bugfixes.</li>
@@ -1915,6 +1916,7 @@
           <li xml:lang="it">Diverse correzioni di bug.</li>
           <li xml:lang="ka">გასწორდა რამდენიმე შეცდომა.</li>
           <li xml:lang="nl">Verschillende reparaties van fouten.</li>
+          <li xml:lang="pl">Naprawa kilku błędów.</li>
           <li xml:lang="pt-BR">Várias correções de bugs.</li>
           <li xml:lang="ru">Исправлено несколько ошибок;</li>
           <li xml:lang="sk">Several bugfixes.</li>
@@ -1962,6 +1964,7 @@
           <li xml:lang="it">una coda di riproduzione</li>
           <li xml:lang="ka">დაკვრის რიგი</li>
           <li xml:lang="nl">een afspeelwachtrij</li>
+          <li xml:lang="pl">kolejka odtwarzania</li>
           <li xml:lang="pt-BR">uma fila de reprodução</li>
           <li xml:lang="ru">очередь воспроизведения;</li>
           <li xml:lang="sk">a play queue</li>
