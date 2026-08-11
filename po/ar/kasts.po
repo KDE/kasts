@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 10:14+0400\n"
+"PO-Revision-Date: 2026-08-10 14:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -933,12 +933,10 @@ msgid "Export Podcasts…"
 msgstr "صدّر مدونات صوتية…"
 
 #: qml/FeedListPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "الاشتراكات"
+msgstr "ابحث في الاشتراكات…"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
@@ -1006,6 +1004,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"أزيلت هذه الحلقة من تغذية RSS الخاص بالبودكاست من قِبل مؤلفي البودكاست. قد "
+"يتعطل تنزيل هذه الحلقة و/أو بثها."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
 #, kde-format
@@ -1323,13 +1323,13 @@ msgstr "سمة الألوان"
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
-msgstr "عرض عناوين المدونة الصوتية في الاشتراك"
+msgstr "اعرض دائما عناوين المدونة الصوتية في الاشتراك"
 
 #: qml/Settings/AppearanceSettingsPage.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
-msgstr "أعرض صورة الحلقة عوضا عن صورة المدونة الصوتية في القوائم"
+msgstr "اعرض صورة الحلقة عوضا عن صورة المدونة الصوتية في القوائم"
 
 #: qml/Settings/AppearanceSettingsPage.qml:94
 #, kde-format
