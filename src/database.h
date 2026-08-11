@@ -12,7 +12,7 @@
 #include <QSqlQuery>
 #include <QString>
 
-#include "error.h"
+#include "models/errorlogmodel.h"
 
 class Database : public QObject
 {
@@ -43,7 +43,7 @@ public:
     static bool executeThread(QSqlQuery &query);
 
 Q_SIGNALS:
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(ErrorLogModel::Type type, const QString &message);
 
 private:
     Database();
@@ -67,6 +67,7 @@ private:
     bool migrateTo13();
     bool migrateTo14();
     bool migrateTo15();
+    bool migrateTo16();
 
     void createBackup(const QString &suffix);
     void cleanup();

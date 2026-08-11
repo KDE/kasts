@@ -413,21 +413,21 @@ void AudioManager::play()
         if (!NetworkConnectionManager::instance().streamingAllowed()) {
             if (NetworkConnectionManager::instance().networkReachable()) {
                 qCDebug(kastsAudio) << "Refusing to play: streaming on metered connection not allowed";
-                QString feedUrl, entryId;
+                QString entryTitle;
                 if (d->m_entry) {
-                    feedUrl = d->m_entry->feed()->url();
-                    entryId = d->m_entry->id();
+                    entryTitle = d->m_entry->title();
                 }
-                Q_EMIT logError(Error::Type::MeteredStreamingNotAllowed, feedUrl, entryId, 0, i18n("Streaming on metered connection not allowed"), QString());
+                Q_EMIT logError(ErrorLogModel::Type::MeteredStreamingNotAllowed,
+                                i18nc("@info:status Error message notification", "Streaming on metered connection not allowed for episode: %1", entryTitle));
                 return;
             } else {
                 qCDebug(kastsAudio) << "Refusing to play: no network connection";
-                QString feedUrl, entryId;
+                QString entryTitle;
                 if (d->m_entry) {
-                    feedUrl = d->m_entry->feed()->url();
-                    entryId = d->m_entry->id();
+                    entryTitle = d->m_entry->title();
                 }
-                Q_EMIT logError(Error::Type::NoNetwork, feedUrl, entryId, 0, i18n("No network connection"), QString());
+                Q_EMIT logError(ErrorLogModel::Type::NoNetwork,
+                                i18nc("@info:status Error message notification", "No network connection while attempting to stream episode: %1", entryTitle));
                 return;
             }
         }
@@ -596,12 +596,8 @@ void AudioManager::mediaStatusChanged()
             if (badEntry) {
                 if (badEntry->enclosure()) {
                     badEntry->enclosure()->deleteFile();
-                    Q_EMIT logError(Error::Type::InvalidMedia,
-                                    badEntry->feed()->url(),
-                                    badEntry->id(),
-                                    KMediaSession::InvalidMedia,
-                                    i18n("Invalid Media"),
-                                    QString());
+                    Q_EMIT logError(ErrorLogModel::Type::InvalidMedia,
+                                    i18nc("@info:status Error message notification", "Invalid Media for episode: %1", badEntry->title()));
                 }
                 delete badEntry;
             }

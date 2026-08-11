@@ -43,8 +43,8 @@ Kirigami.InlineMessage {
 
     Connections {
         target: ErrorLogModel
-        function onNewErrorLogged(error: Error): void {
-            root.text = error.description;
+        function onNewErrorLogged(description: string): void {
+            root.text = description;
             root.visible = true;
             hideTimer.start();
         }

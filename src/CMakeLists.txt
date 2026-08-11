@@ -13,7 +13,6 @@ add_executable(kasts
     datatypes.cpp
     enclosure.cpp
     entry.cpp
-    error.cpp
     feed.cpp
     fetcher.cpp
     utils/enclosuredownloadjob.cpp

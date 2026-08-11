@@ -103,7 +103,7 @@ void Fetcher::fetch(const QStringList &urls)
     connect(fetchFeedsJob, &FetchFeedsJob::result, this, [this, fetchFeedsJob]() {
         qCDebug(kastsFetcher) << "result slot of FetchFeedsJob";
         if (fetchFeedsJob->error() && !fetchFeedsJob->aborted()) {
-            Q_EMIT error(Error::Type::FeedUpdate, QString(), QString(), fetchFeedsJob->error(), fetchFeedsJob->errorString(), QString());
+            Q_EMIT error(ErrorLogModel::Type::FeedUpdate, fetchFeedsJob->errorString(), 0);
         }
         if (m_updating) {
             m_updating = false;

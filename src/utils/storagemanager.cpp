@@ -94,9 +94,12 @@ void StorageManager::setStoragePath(QUrl url)
             if (moveJob->error() != 0) {
                 // Go back to previous old path
                 SettingsManager::self()->setStoragePath(oldUrl);
-                QString title =
-                    i18n("Old location:") + QStringLiteral(" ") + oldPath + QStringLiteral("; ") + i18n("New location:") + QStringLiteral(" ") + newPath;
-                Q_EMIT error(Error::Type::StorageMoveError, QString(), QString(), moveJob->error(), moveJob->errorString(), title);
+                Q_EMIT error(ErrorLogModel::Type::StorageMoveError,
+                             i18nc("@info:status Error message notification.",
+                                   "Error moving storage path from %1 to %2; error: %3",
+                                   oldPath,
+                                   newPath,
+                                   moveJob->errorString()));
             }
             Q_EMIT storageMoveFinished();
             Q_EMIT storagePathChanged(newPath);

@@ -14,7 +14,7 @@
 
 #include <KFormat>
 
-#include "error.h"
+#include "models/errorlogmodel.h"
 
 class Entry;
 
@@ -94,7 +94,7 @@ Q_SIGNALS:
     void durationChanged();
     void sizeChanged();
     void sizeOnDiskChanged();
-    void downloadError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void downloadError(const ErrorLogModel::Type type, const QString &message);
 
 private:
     void updateFromDb();

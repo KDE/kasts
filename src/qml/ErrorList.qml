@@ -34,7 +34,9 @@ ListView {
     delegate: AddonDelegates.RoundedItemDelegate {
         id: delegate
 
-        required property Error error
+        required property string message
+        required property string description
+        required property date date
 
         highlighted: false
         hoverEnabled: false
@@ -50,25 +52,19 @@ ListView {
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
                 Controls.Label {
-                    text: delegate.error.description + "  ·  " + delegate.error.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + delegate.error.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
+                    text: delegate.description + "  ·  " + delegate.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + delegate.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
                 }
                 Controls.Label {
-                    text: delegate.error.title
+                    text: delegate.message
                     Layout.fillWidth: true
-                    elide: Text.ElideRight
+                    // elide: Text.ElideRight
+                    wrapMode: Text.Wrap
                     font.weight: Font.Normal
                     opacity: 1
-                }
-                Controls.Label {
-                    text: KI18n.i18n("Error code:") + " " + delegate.error.code + (delegate.error.message ? "  ·  " + delegate.error.message : "")
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                    font: Kirigami.Theme.smallFont
-                    opacity: 0.7
                 }
             }
         }

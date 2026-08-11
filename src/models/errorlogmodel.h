@@ -13,7 +13,7 @@
 #include <QQmlEngine>
 #include <QVariant>
 
-#include "error.h"
+class Error;
 
 class ErrorLogModel : public QAbstractListModel
 {
@@ -22,6 +22,28 @@ class ErrorLogModel : public QAbstractListModel
     QML_SINGLETON
 
 public:
+    enum Type {
+        Unknown = -1,
+        FeedUpdate = 0,
+        MediaDownload,
+        MeteredNotAllowed,
+        InvalidMedia,
+        DiscoverError,
+        StorageMoveError,
+        SyncError,
+        MeteredStreamingNotAllowed,
+        NoNetwork,
+        Database,
+    };
+    Q_ENUM(Type)
+
+    enum RoleNames {
+        MessageRole = Qt::DisplayRole,
+        DescriptionRole = Qt::UserRole + 1,
+        DateRole,
+    };
+    Q_ENUM(RoleNames);
+
     static ErrorLogModel &instance()
     {
         static ErrorLogModel _instance;
@@ -40,13 +62,21 @@ public:
     Q_INVOKABLE void clearAll();
 
 public:
-    void
-    monitorErrorMessages(const Error::Type type, const QString &url, const QString &id, const int errorCode, const QString &errorString, const QString &title);
+    void monitorErrorMessages(const ErrorLogModel::Type type, const QString &message);
 
 Q_SIGNALS:
-    void newErrorLogged(Error *error);
+    void newErrorLogged(const QString &message);
 
 private:
+    struct Error {
+        Type type;
+        QString message;
+        QDateTime date;
+    };
     explicit ErrorLogModel();
-    QList<Error *> m_errors;
+    QList<ErrorLogModel::Error> m_errors;
+
+    static int typeToDb(const Type type); // needed to translate ErrorLogModel::Type values to int for sqlite
+    static Type dbToType(const int value); // needed to translate from int to ErrorLogModel::Type values for sqlite
+    static QString description(const Type type);
 };

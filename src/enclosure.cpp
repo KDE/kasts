@@ -27,7 +27,6 @@
 #include "database.h"
 #include "datamanager.h"
 #include "entry.h"
-#include "error.h"
 #include "fetcher.h"
 #include "models/downloadmodel.h"
 #include "models/errorlogmodel.h"
@@ -185,15 +184,14 @@ void Enclosure::download()
     // TODO: move this check to fetcher; needs error refactoring to use uids
     if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
         if (NetworkConnectionManager::instance().networkReachable()) {
-            Q_EMIT downloadError(Error::Type::MeteredNotAllowed,
-                                 m_entry->feed()->url(),
-                                 m_entry->id(),
-                                 0,
-                                 i18n("Podcast downloads not allowed on metered connection"),
-                                 QString());
+            Q_EMIT downloadError(
+                ErrorLogModel::Type::MeteredStreamingNotAllowed,
+                i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", m_entry->title()));
             return;
         } else {
-            Q_EMIT downloadError(Error::Type::NoNetwork, m_entry->feed()->url(), m_entry->id(), 0, i18n("No network connection"), QString());
+            Q_EMIT downloadError(
+                ErrorLogModel::Type::NoNetwork,
+                i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", m_entry->title()));
             return;
         }
     }
@@ -223,12 +221,8 @@ void Enclosure::download()
             if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
                 m_entry->feed()->setErrorId(downloadJob->error());
                 m_entry->feed()->setErrorString(downloadJob->errorString());
-                Q_EMIT downloadError(Error::Type::MediaDownload,
-                                     m_entry->feed()->url(),
-                                     m_entry->id(),
-                                     downloadJob->error(),
-                                     downloadJob->errorString(),
-                                     QString());
+                Q_EMIT downloadError(ErrorLogModel::Type::MediaDownload,
+                                     i18nc("@info:status Error message notification", "Error downloading media: %1", downloadJob->errorString()));
             }
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);

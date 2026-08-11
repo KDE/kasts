@@ -22,7 +22,6 @@
 #include <QThread>
 #include <QUrl>
 
-#include "error.h"
 #include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
@@ -736,6 +735,32 @@ bool Database::migrateTo15()
     return true;
 }
 
+bool Database::migrateTo16()
+{
+    qDebug() << "Migrating database to version 16";
+
+    // no backup needed since we only add one extra column
+
+    // TODO: incorporate title into description when upgrading the error db table
+    // See original description method below
+
+    // QString Error::title() const
+    // {
+    //     QString title = m_title;
+    //     if (title.isEmpty()) {
+    //         if (!id.isEmpty()) {
+    //             if (DataManager::instance().getEntry(id))
+    //                 title = DataManager::instance().getEntry(id)->title();
+    //         } else if (!url.isEmpty()) {
+    //             if (DataManager::instance().getFeed(url))
+    //                 title = DataManager::instance().getFeed(url)->name();
+    //         }
+    //     }
+    //     return title;
+
+    return true;
+}
+
 bool Database::execute(const QString &queryString)
 {
     QSqlQuery q;
@@ -748,7 +773,7 @@ bool Database::execute(QSqlQuery &query)
     bool state = executeThread(query);
 
     if (!state) {
-        Q_EMIT Database::instance().error(Error::Type::Database, QString(), QString(), query.lastError().type(), query.lastQuery(), query.lastError().text());
+        Q_EMIT Database::instance().error(ErrorLogModel::Type::Database, query.lastError().text());
     }
 
     return state;

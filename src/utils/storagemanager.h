@@ -14,7 +14,7 @@
 
 #include <KFormat>
 
-#include "error.h"
+#include "models/errorlogmodel.h"
 
 class StorageManager : public QObject
 {
@@ -67,7 +67,7 @@ public:
     QString sanitizedFilePath(const QString &path) const;
 
 Q_SIGNALS:
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(ErrorLogModel::Type type, const QString &message);
 
     void storagePathChanged(QString path);
     void storageMoveStarted();

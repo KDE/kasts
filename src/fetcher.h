@@ -19,7 +19,7 @@
 #include <Syndication/Syndication>
 
 #include "enclosuredownloadjob.h"
-#include "error.h"
+#include "models/errorlogmodel.h"
 #include "utils/networkaccessmanager.h"
 
 class Fetcher : public QObject
@@ -80,7 +80,7 @@ Q_SIGNALS:
     void updateTotalChanged(int nrOfFeeds);
     void updatingChanged(bool state);
 
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(ErrorLogModel::Type type, const QString &message, const qint64 feeduid);
     void downloadFinished(QString url) const;
     void foundRedirectedUrl(const QUrl &url, const QUrl &newUrl);
 

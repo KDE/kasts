@@ -31,7 +31,6 @@
 #include "database.h"
 #include "datatypes.h"
 #include "enclosure.h"
-#include "error.h"
 #include "fetcher.h"
 #include "fetchfeedsjob.h"
 #include "settingsmanager.h"
@@ -152,7 +151,9 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray
     if (reply->error()) {
         if (!m_abort) {
             qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
-            Q_EMIT error(Error::Type::FeedUpdate, m_url, QString(), reply->error(), reply->errorString(), QString());
+            Q_EMIT error(ErrorLogModel::Type::FeedUpdate,
+                         i18nc("@info:status Error message notification", "Error retrieving podcast: %1; error: %2", updatedFeed.name, reply->errorString()),
+                         m_feeduid);
         } else {
             qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
         }
@@ -1074,7 +1075,7 @@ bool UpdateFeedJob::dbExecute(QSqlQuery &query)
     bool state = Database::executeThread(query);
 
     if (!state) {
-        Q_EMIT error(Error::Type::Database, QString(), QString(), query.lastError().type(), query.lastQuery(), query.lastError().text());
+        Q_EMIT error(ErrorLogModel::Type::Database, query.lastQuery(), m_feeduid);
     }
 
     return state;

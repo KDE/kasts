@@ -19,7 +19,6 @@
 #include <qtmetamacros.h>
 
 #include "entry.h"
-#include "error.h"
 
 class AudioManagerPrivate;
 
@@ -129,7 +128,7 @@ Q_SIGNALS:
 
     void isStreamingChanged();
 
-    void logError(const Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void logError(const ErrorLogModel::Type type, const QString &message);
 
     // mpris2 signals
     void raiseWindowRequested();

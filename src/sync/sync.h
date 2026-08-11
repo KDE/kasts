@@ -12,7 +12,7 @@
 
 #include <KFormat>
 
-#include "error.h"
+#include "models/errorlogmodel.h"
 #include "sync/syncutils.h"
 
 namespace QKeychain
@@ -118,7 +118,7 @@ Q_SIGNALS:
     void loginSucceeded();
     void deviceListReceived();
 
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(ErrorLogModel::Type type, const QString &message);
     void syncProgressChanged();
     void abortSync();
 

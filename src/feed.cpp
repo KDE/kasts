@@ -12,7 +12,6 @@
 
 #include "database.h"
 #include "datamanager.h"
-#include "error.h"
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
@@ -93,18 +92,13 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             Q_EMIT favoriteEntryCountChanged();
         }
     });
-    connect(&Fetcher::instance(),
-            &Fetcher::error,
-            this,
-            [this](const Error::Type type, const QString &url, const QString &id, int errorId, const QString &errorString) {
-                Q_UNUSED(type)
-                Q_UNUSED(id)
-                if (url == m_url) {
-                    setErrorId(errorId);
-                    setErrorString(errorString);
-                    setRefreshing(false);
-                }
-            });
+    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const ErrorLogModel::Type type, const QString &message, const qint64 feeduid) {
+        Q_UNUSED(type)
+        if (feeduid == m_feeduid) {
+            setErrorString(message);
+            setRefreshing(false);
+        }
+    });
 
     m_entries = new EntriesProxyModel(m_feeduid, this);
 

@@ -16,7 +16,7 @@
 #include <ThreadWeaver/Job>
 
 #include "datatypes.h"
-#include "error.h"
+#include "models/errorlogmodel.h"
 
 class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 {
@@ -42,7 +42,7 @@ Q_SIGNALS:
     void entryUpdated(const qint64 entryuid);
     void aborting();
     void finished();
-    void error(Error::Type type, const QString &url, const QString &id, const int errorId, const QString &errorString, const QString &title);
+    void error(ErrorLogModel::Type type, const QString &message, const qint64 feeduid);
 
 private:
     bool downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray &data);
