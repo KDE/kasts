@@ -113,7 +113,7 @@ msgstr "مثال مشغل KMediaSession"
 #: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
-msgstr "اختر ملفاً…"
+msgstr "اختر ملفًا…"
 
 #: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
@@ -1476,10 +1476,10 @@ msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
 msgid_plural "Every %1 days"
 msgstr[0] "كل يوم"
-msgstr[1] "يومياً"
+msgstr[1] "يوميًا"
 msgstr[2] "كل يومين"
 msgstr[3] "كل %1 أيام"
-msgstr[4] "كل %1 يوماً"
+msgstr[4] "كل %1 يومًا"
 msgstr[5] "كل %1 يوم"
 
 #: qml/Settings/GeneralSettingsPage.qml:180
