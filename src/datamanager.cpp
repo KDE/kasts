@@ -200,11 +200,6 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             qCDebug(kastsDataManager) << "delete database part of" << feeduid;
 
             Database::instance().transaction();
-            // Delete related Errors
-            query.prepare(QStringLiteral("DELETE FROM Errors WHERE url IN (SELECT url FROM Feeds WHERE feeduid=:feeduid);"));
-            query.bindValue(QStringLiteral(":feeduid"), feeduid);
-            Database::instance().execute(query);
-
             // Delete FeedAuthors
             query.prepare(QStringLiteral("DELETE FROM FeedAuthors WHERE feeduid=:feeduid;"));
             query.bindValue(QStringLiteral(":feeduid"), feeduid);

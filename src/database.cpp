@@ -89,7 +89,9 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo14());
     if (dbversion < 15)
         TRUE_OR_RETURN(migrateTo15());
-    if (dbversion > 15) {
+    if (dbversion < 16)
+        TRUE_OR_RETURN(migrateTo16());
+    if (dbversion > 16) {
         qCritical() << "Database version number" << dbversion
                     << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
                        "corruption of the database.";
@@ -741,22 +743,14 @@ bool Database::migrateTo16()
 
     // no backup needed since we only add one extra column
 
-    // TODO: incorporate title into description when upgrading the error db table
-    // See original description method below
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Errorstemp (type INTEGER, message TEXT, date INTEGER);")));
+    TRUE_OR_RETURN(execute(QStringLiteral("INSERT INTO Errorstemp (type, message, date) SELECT type, concat(message, '; ', title), date FROM Errors;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Errors;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Errorstemp RENAME TO Errors;")));
 
-    // QString Error::title() const
-    // {
-    //     QString title = m_title;
-    //     if (title.isEmpty()) {
-    //         if (!id.isEmpty()) {
-    //             if (DataManager::instance().getEntry(id))
-    //                 title = DataManager::instance().getEntry(id)->title();
-    //         } else if (!url.isEmpty()) {
-    //             if (DataManager::instance().getFeed(url))
-    //                 title = DataManager::instance().getFeed(url)->name();
-    //         }
-    //     }
-    //     return title;
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 16;")));
+    TRUE_OR_RETURN(commit());
 
     return true;
 }
