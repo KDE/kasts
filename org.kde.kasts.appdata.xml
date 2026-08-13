@@ -602,7 +602,7 @@
           <li xml:lang="tr">Aynı sunucuda barındırılan pod yayınları güncellemeleri artık sırayla işlenecektir. Bu, sunucu sınırlarının (örneğin, izin verilen en çok paralel bağlantı sayısı) tetiklenmesini önlemek için yapılır. Farklı sunucularda barındırılan pod yayınları ise paralel olarak işlenmeyi sürdürecektir.</li>
           <li xml:lang="uk">Оновлення трансляцій, розміщені на одному сервері, тепер обробляються послідовно. Це зроблено для того, щоб уникнути спрацьовування обмежень сервера, наприклад, максимально дозволеної кількості паралельних з'єднань. Трансляції, розміщені на різних серверах, все одно оброблятимуться паралельно.</li>
           <li>Long episode titles will now be fully visible on the episode details page. The text will be wrapped rather than elided.</li>
-          <li xml:lang="ar">ستظهر عناوين الحلقات الطويلة الآن بالكامل في صفحة تفاصيل الحلقة. سيُلف النص بدلاً من حذفه.</li>
+          <li xml:lang="ar">ستظهر عناوين الحلقات الطويلة الآن بالكامل في صفحة تفاصيل الحلقة. سيُلف النص بدلًا من حذفه.</li>
           <li xml:lang="ca">Els títols llargs d'episodis ara seran completament visibles a la pàgina de detalls de l'episodi. El text s'ajustarà en lloc d'elidir-se.</li>
           <li xml:lang="ca-valencia">Els títols llargs d'episodis ara seran completament visibles a la pàgina de detalls de l'episodi. El text s'ajustarà en lloc d'elidir-se.</li>
           <li xml:lang="cs">Dlouhé názvy epizod budou nyní na stránce s podrobnostmi o epizodě zobrazeny v plném znění. Text se automaticky zalomí, místo aby byl zkrácen.</li>
@@ -701,7 +701,7 @@
           <li xml:lang="tr">Bölüm açıklamasındaki geçersiz görsel URL’lerinin uygulamanın çökmesine neden olabileceği bir sorun düzeltildi.</li>
           <li xml:lang="uk">Виправлено проблему, через яку нечинна адреса зображення в описі епізоду могла призвести до аварійного завершення роботи програми.</li>
           <li>When streaming episodes, first try the original episode URL. If that one fails, try again with the URL obtained after following all redirects. For some reason either one can fail (for any of the available audio backends), so let's try both.</li>
-          <li xml:lang="ar">عند بث الحلقات، جرب أولاً رابط الحلقة الأصلي. إذا لم ينجح ذلك، فجرب مرة أخرى باستخدام الرابط الذي حصلت عليه بعد اتباع جميع عمليات إعادة التوجيه. قد يفشل أي منهما لسبب ما (بالنسبة لأي من الخوادم الصوتية المتاحة)، لذا دعنا نجرب كليهما.</li>
+          <li xml:lang="ar">عند بث الحلقات، جرب أولًا رابط الحلقة الأصلي. إذا لم ينجح ذلك، فجرب مرة أخرى باستخدام الرابط الذي حصلت عليه بعد اتباع جميع عمليات إعادة التوجيه. قد يفشل أي منهما لسبب ما (بالنسبة لأي من الخوادم الصوتية المتاحة)، لذا دعنا نجرب كليهما.</li>
           <li xml:lang="ca">Quan es transmeten episodis, primer intenta l'URL de l'episodi original. Si això falla, ho torna a intentar amb l'URL obtingut després de seguir totes les redireccions. Pot fallar per algun motiu qualsevol (per a qualsevol dels dorsals d'àudio disponibles), així que prova tots dos.</li>
           <li xml:lang="ca-valencia">Quan es transmeten episodis, primer intenta l'URL de l'episodi original. Si açò falla, ho torna a intentar amb l'URL obtingut després de seguir totes les redireccions. Pot fallar per algun motiu qualsevol (per a qualsevol dels dorsals d'àudio disponibles), així que prova tots dos.</li>
           <li xml:lang="cs">Při streamování epizod se nejprve zkouší původní URL adresa epizody. Pokud to nevyjde, zkouší se to znovu s URL adresou, která je získána po absolvování všech přesměrování. Z nějakého důvodu může selhat kterákoli z těchto možností (u kteréhokoli z dostupných zvukových podpůrných vrstev), proto se zkouší obě.</li>
@@ -739,7 +739,7 @@
           <li xml:lang="tr">Android sürüm 15 ve üzerinde yerleşim sorunları düzeltildi.</li>
           <li xml:lang="uk">Виправлено вади з компонуванням вікна у версіях android 15 та новіших.</li>
           <li>Use 'episode' instead of 'track' in the UI.</li>
-          <li xml:lang="ar">استخدم كلمة ”حلقة“ بدلاً من ”مقطع“ في واجهة المستخدم.</li>
+          <li xml:lang="ar">استخدم كلمة ”حلقة“ بدلًا من ”مقطع“ في واجهة المستخدم.</li>
           <li xml:lang="ca">Utilitza «episode» en lloc de «track» a la interfície d'usuari.</li>
           <li xml:lang="ca-valencia">Utilitza «episode» en lloc de «track» a la interfície d'usuari.</li>
           <li xml:lang="cs">V uživatelském rozhraní použit výraz 'epizoda' namísto 'stopa'.</li>
@@ -1615,7 +1615,7 @@
         <p xml:lang="uk">Нові можливості у цьому випуску:</p>
         <ul>
           <li>Support for chapters, both RSS feed and MP3 tags encoded chapters are supported</li>
-          <li xml:lang="ar">دعم الفصول، كلاً من فصول خلاصة RSS وفصول وسوم MP3 المرمزة مدعومة</li>
+          <li xml:lang="ar">دعم الفصول، كلًا من فصول خلاصة RSS وفصول وسوم MP3 المرمزة مدعومة</li>
           <li xml:lang="ca">Admet capítols, tant els capítols codificats amb RSS com amb etiquetes MP3</li>
           <li xml:lang="ca-valencia">Admet capítols, tant els capítols codificats amb RSS com amb etiquetes MP3</li>
           <li xml:lang="cs">Podpora kapitol, podporovány jsou jak kapitoly zakódované v RSS kanálu, tak i v MP3 tagu.</li>
