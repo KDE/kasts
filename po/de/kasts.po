@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:44+0000\n"
+"POT-Creation-Date: 2026-08-13 00:46+0000\n"
 "PO-Revision-Date: 2026-04-24 08:01+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -30,82 +30,57 @@ msgid "Your emails"
 msgstr "kde-i18n-de@kde.org"
 
 #: audiomanager.cpp:421
-#, kde-format
-msgid "Streaming on metered connection not allowed"
+#, fuzzy, kde-format
+#| msgid "Streaming on metered connection not allowed"
+msgctxt "@info:status Error message notification"
+msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Streaming über getaktete Verbindungen nicht erlaubt"
 
-#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430
 #, kde-format
-msgid "No network connection"
-msgstr "Keine Netzwerkverbindung"
+msgctxt "@info:status Error message notification"
+msgid "No network connection while attempting to stream episode: %1"
+msgstr ""
 
-#: audiomanager.cpp:603
-#, kde-format
-msgid "Invalid Media"
-msgstr "Ungültige Medien"
+#: audiomanager.cpp:600
+#, fuzzy, kde-format
+#| msgid "Invalid media file"
+msgctxt "@info:status Error message notification"
+msgid "Invalid Media for episode: %1"
+msgstr "Ungültige Mediendatei"
 
-#: enclosure.cpp:192
-#, kde-format
-msgid "Podcast downloads not allowed on metered connection"
+#: enclosure.cpp:189
+#, fuzzy, kde-format
+#| msgid "Podcast downloads not allowed on metered connection"
+msgctxt "@info:status Error message notification"
+msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
 "Herunterladen von Podcasts ist über getaktete Verbindungen nicht erlaubt"
 
-#: entry.cpp:131 feed.cpp:138
+#: enclosure.cpp:194
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "No network connection while attempting to download episode %1"
+msgstr ""
+
+#: enclosure.cpp:225
+#, fuzzy, kde-format
+#| msgid "Downloading %1"
+msgctxt "@info:status Error message notification"
+msgid "Error downloading media: %1"
+msgstr "%1 wird heruntergeladen"
+
+#: entry.cpp:131 feed.cpp:132
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 und %2"
 
-#: entry.cpp:134 feed.cpp:141
+#: entry.cpp:134 feed.cpp:135
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
 msgstr "%1 und %2"
-
-#: error.cpp:48
-#, kde-format
-msgid "Podcast update error"
-msgstr "Fehler beim Aktualisieren der Podcasts"
-
-#: error.cpp:50
-#, kde-format
-msgid "Media download error"
-msgstr "Fehler beim Herunterladen von Medien"
-
-#: error.cpp:52
-#, kde-format
-msgid "Update not allowed on metered connection"
-msgstr "Aktualisierung ist bei getakteten Verbindungen nicht erlaubt"
-
-#: error.cpp:54
-#, kde-format
-msgid "Invalid media file"
-msgstr "Ungültige Mediendatei"
-
-#: error.cpp:56
-#, kde-format
-msgid "Nothing found"
-msgstr "Nichts gefunden"
-
-#: error.cpp:58
-#, kde-format
-msgid "Error moving storage path"
-msgstr "Fehler beim Verschieben des Speicherpfades"
-
-#: error.cpp:60
-#, kde-format
-msgid "Error syncing feed and/or episode status"
-msgstr "Fehler beim Synchronisieren des Quellen- und/oder Episodenzustands"
-
-#: error.cpp:62
-#, kde-format
-msgid "Streaming not allowed on metered connection"
-msgstr "Streaming ist bei getakteten Verbindungen nicht erlaubt"
-
-#: error.cpp:66
-#, kde-format
-msgid "Database error"
-msgstr "Datenbankfehler"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -308,6 +283,56 @@ msgstr "Datum: ältere zuerst"
 msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "Unbenanntes Kapitel"
+
+#: models/errorlogmodel.cpp:111
+#, kde-format
+msgid "Podcast update error"
+msgstr "Fehler beim Aktualisieren der Podcasts"
+
+#: models/errorlogmodel.cpp:113
+#, kde-format
+msgid "Media download error"
+msgstr "Fehler beim Herunterladen von Medien"
+
+#: models/errorlogmodel.cpp:115
+#, kde-format
+msgid "Update not allowed on metered connection"
+msgstr "Aktualisierung ist bei getakteten Verbindungen nicht erlaubt"
+
+#: models/errorlogmodel.cpp:117
+#, kde-format
+msgid "Invalid media file"
+msgstr "Ungültige Mediendatei"
+
+#: models/errorlogmodel.cpp:119
+#, kde-format
+msgid "Nothing found"
+msgstr "Nichts gefunden"
+
+#: models/errorlogmodel.cpp:121
+#, kde-format
+msgid "Error moving storage path"
+msgstr "Fehler beim Verschieben des Speicherpfades"
+
+#: models/errorlogmodel.cpp:123
+#, kde-format
+msgid "Error syncing feed and/or episode status"
+msgstr "Fehler beim Synchronisieren des Quellen- und/oder Episodenzustands"
+
+#: models/errorlogmodel.cpp:125
+#, kde-format
+msgid "Streaming not allowed on metered connection"
+msgstr "Streaming ist bei getakteten Verbindungen nicht erlaubt"
+
+#: models/errorlogmodel.cpp:127
+#, kde-format
+msgid "No network connection"
+msgstr "Keine Netzwerkverbindung"
+
+#: models/errorlogmodel.cpp:129
+#, kde-format
+msgid "Database error"
+msgstr "Datenbankfehler"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -734,11 +759,6 @@ msgstr "Keine Episoden verfügbar"
 #, kde-format
 msgid "No errors logged"
 msgstr "Keine Fehler protokolliert"
-
-#: qml/ErrorList.qml:67
-#, kde-format
-msgid "Error code:"
-msgstr "Fehlercode: "
 
 #: qml/ErrorListOverlay.qml:21
 #, kde-format
@@ -2227,45 +2247,71 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts auf %1"
 
-#: sync/sync.cpp:292
-#, kde-format
-msgid "Could not log into GPodder-nextcloud server"
+#: sync/sync.cpp:289
+#, fuzzy, kde-format
+#| msgid "Could not log into GPodder-nextcloud server"
+msgctxt "@info:status Error message notification"
+msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "Kann nicht am GPodder-Nextcloud-Server anmelden"
 
-#: sync/sync.cpp:331
-#, kde-format
-msgid "Could not log into GPodder server"
+#: sync/sync.cpp:325
+#, fuzzy, kde-format
+#| msgid "Could not log into GPodder server"
+msgctxt "@info:status Error message notification"
+msgid "Could not log into GPodder server; error: %1"
 msgstr "Kann nicht am GPodder-Server anmelden"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
-#, kde-format
-msgid "I/O denied: Cannot save password."
-msgstr "E/A verweigert: Passwort kann nicht gespeichert werden."
-
-#: sync/sync.cpp:562 sync/sync.cpp:563
-#, kde-format
-msgid "I/O denied: Cannot access password file."
+#: sync/sync.cpp:466
+#, fuzzy, kde-format
+#| msgid "I/O denied: Cannot access password file."
+msgctxt "@info:status Error message notification"
+msgid "I/O denied: Cannot save password to file %1"
 msgstr "E/A verweigert: Kein Zugriff auf Passwortdatei."
 
-#: sync/sync.cpp:645
-#, kde-format
-msgid "Could not create GPodder device"
+#: sync/sync.cpp:543
+#, fuzzy, kde-format
+#| msgid "I/O denied: Cannot access password file."
+msgctxt "@info:status Error message notification"
+msgid "I/O denied: Cannot access password file %1"
+msgstr "E/A verweigert: Kein Zugriff auf Passwortdatei."
+
+#: sync/sync.cpp:621
+#, fuzzy, kde-format
+#| msgid "Could not create GPodder device"
+msgctxt "@info:status Error message notification"
+msgid "Could not create GPodder device; error: %1"
 msgstr "GPodder-Gerät kann nicht angelegt werden"
 
-#: sync/sync.cpp:671
-#, kde-format
-msgid "Could not retrieve synced device status"
+#: sync/sync.cpp:644
+#, fuzzy, kde-format
+#| msgid "Could not retrieve synced device status"
+msgctxt "@info:status Error message notification"
+msgid "Could not retrieve synced device status; error: %1"
 msgstr "Zustand des abgeglichenen Geräts kann nicht geholt werden"
 
-#: sync/sync.cpp:724
-#, kde-format
-msgid "Could not retrieve subscriptions for device %1"
+#: sync/sync.cpp:691
+#, fuzzy, kde-format
+#| msgid "Could not retrieve subscriptions for device %1"
+msgctxt "@info:status Error message notification"
+msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Abonnements des Geräts „%1“ können nicht geholt werden"
 
-#: sync/sync.cpp:743
-#, kde-format
-msgid "Could not upload subscriptions for device %1"
+#: sync/sync.cpp:709
+#, fuzzy, kde-format
+#| msgid "Could not upload subscriptions for device %1"
+msgctxt "@info:status Error message notification"
+msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Abonnements des Geräts „%1“ können nicht hochgeladen werden"
+
+#: sync/sync.cpp:764
+#, fuzzy, kde-format
+#| msgid "Error: %1"
+msgctxt ""
+"@info:status Error message notification. First argument is an already "
+"translated error description; the second argument is the raw error string "
+"from the underlying task."
+msgid "%1; error: %2"
+msgstr "Fehler: %1"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2364,15 +2410,12 @@ msgstr "Abgleich mit Fehler beendet"
 msgid "Downloading %1"
 msgstr "%1 wird heruntergeladen"
 
-#: utils/storagemanager.cpp:98
-#, kde-format
-msgid "Old location:"
-msgstr "Alter Speicherort:"
-
-#: utils/storagemanager.cpp:98
-#, kde-format
-msgid "New location:"
-msgstr "Neuer Speicherort:"
+#: utils/storagemanager.cpp:99
+#, fuzzy, kde-format
+#| msgid "Error moving storage path"
+msgctxt "@info:status Error message notification."
+msgid "Error moving storage path from %1 to %2; error: %3"
+msgstr "Fehler beim Verschieben des Speicherpfades"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2434,6 +2477,27 @@ msgstr "Vorwärts springen"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Beenden"
+
+#: utils/updatefeedjob.cpp:155
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "Error retrieving podcast: %1; error: %2"
+msgstr ""
+
+#~ msgid "Invalid Media"
+#~ msgstr "Ungültige Medien"
+
+#~ msgid "Error code:"
+#~ msgstr "Fehlercode: "
+
+#~ msgid "I/O denied: Cannot save password."
+#~ msgstr "E/A verweigert: Passwort kann nicht gespeichert werden."
+
+#~ msgid "Old location:"
+#~ msgstr "Alter Speicherort:"
+
+#~ msgid "New location:"
+#~ msgstr "Neuer Speicherort:"
 
 #~ msgid "No Track Title"
 #~ msgstr "Kein Stücktitel"

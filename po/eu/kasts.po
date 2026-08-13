@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:44+0000\n"
+"POT-Creation-Date: 2026-08-13 00:46+0000\n"
 "PO-Revision-Date: 2026-01-04 12:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -31,81 +31,56 @@ msgid "Your emails"
 msgstr "xalba@ni.eus"
 
 #: audiomanager.cpp:421
-#, kde-format
-msgid "Streaming on metered connection not allowed"
+#, fuzzy, kde-format
+#| msgid "Streaming on metered connection not allowed"
+msgctxt "@info:status Error message notification"
+msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Tarifatutako konexioetan ez da korronteak ez daude baimenduta"
 
-#: audiomanager.cpp:430 enclosure.cpp:196 error.cpp:64
+#: audiomanager.cpp:430
 #, kde-format
-msgid "No network connection"
-msgstr "Sareko konexiorik ez"
+msgctxt "@info:status Error message notification"
+msgid "No network connection while attempting to stream episode: %1"
+msgstr ""
 
-#: audiomanager.cpp:603
-#, kde-format
-msgid "Invalid Media"
-msgstr "Komunikabide baliogabea"
+#: audiomanager.cpp:600
+#, fuzzy, kde-format
+#| msgid "Invalid media file"
+msgctxt "@info:status Error message notification"
+msgid "Invalid Media for episode: %1"
+msgstr "Komunikabide-fitxategia baliogabea"
 
-#: enclosure.cpp:192
-#, kde-format
-msgid "Podcast downloads not allowed on metered connection"
+#: enclosure.cpp:189
+#, fuzzy, kde-format
+#| msgid "Podcast downloads not allowed on metered connection"
+msgctxt "@info:status Error message notification"
+msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Tarifatutako konexioetan podcast zama-jaisteak ez daude baimenduta "
 
-#: entry.cpp:131 feed.cpp:138
+#: enclosure.cpp:194
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "No network connection while attempting to download episode %1"
+msgstr ""
+
+#: enclosure.cpp:225
+#, fuzzy, kde-format
+#| msgid "Downloading %1"
+msgctxt "@info:status Error message notification"
+msgid "Error downloading media: %1"
+msgstr "%1 zama-jaisten"
+
+#: entry.cpp:131 feed.cpp:132
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 eta %2"
 
-#: entry.cpp:134 feed.cpp:141
+#: entry.cpp:134 feed.cpp:135
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
 msgstr "%1, eta %2"
-
-#: error.cpp:48
-#, kde-format
-msgid "Podcast update error"
-msgstr "Podcasta eguneratzeko errorea"
-
-#: error.cpp:50
-#, kde-format
-msgid "Media download error"
-msgstr "Komunikabidea zama-jaisteko errorea"
-
-#: error.cpp:52
-#, kde-format
-msgid "Update not allowed on metered connection"
-msgstr "Eguneratzea ez dago baimenduta tarifatutako konexioan"
-
-#: error.cpp:54
-#, kde-format
-msgid "Invalid media file"
-msgstr "Komunikabide-fitxategia baliogabea"
-
-#: error.cpp:56
-#, kde-format
-msgid "Nothing found"
-msgstr "Ez da ezer aurkitu"
-
-#: error.cpp:58
-#, kde-format
-msgid "Error moving storage path"
-msgstr "Biltegiratze bide-izena mugitzeko errorea"
-
-#: error.cpp:60
-#, kde-format
-msgid "Error syncing feed and/or episode status"
-msgstr "Jarioa eta/edo atalen egoera sinkronizatzeko errorea"
-
-#: error.cpp:62
-#, kde-format
-msgid "Streaming not allowed on metered connection"
-msgstr "Korronterik ez da baimentzen tarifatutako konexioan"
-
-#: error.cpp:66
-#, kde-format
-msgid "Database error"
-msgstr "Datu-basearen errorea"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -308,6 +283,56 @@ msgstr "Data: zaharragoak aurrena"
 msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "Atal izengabea"
+
+#: models/errorlogmodel.cpp:111
+#, kde-format
+msgid "Podcast update error"
+msgstr "Podcasta eguneratzeko errorea"
+
+#: models/errorlogmodel.cpp:113
+#, kde-format
+msgid "Media download error"
+msgstr "Komunikabidea zama-jaisteko errorea"
+
+#: models/errorlogmodel.cpp:115
+#, kde-format
+msgid "Update not allowed on metered connection"
+msgstr "Eguneratzea ez dago baimenduta tarifatutako konexioan"
+
+#: models/errorlogmodel.cpp:117
+#, kde-format
+msgid "Invalid media file"
+msgstr "Komunikabide-fitxategia baliogabea"
+
+#: models/errorlogmodel.cpp:119
+#, kde-format
+msgid "Nothing found"
+msgstr "Ez da ezer aurkitu"
+
+#: models/errorlogmodel.cpp:121
+#, kde-format
+msgid "Error moving storage path"
+msgstr "Biltegiratze bide-izena mugitzeko errorea"
+
+#: models/errorlogmodel.cpp:123
+#, kde-format
+msgid "Error syncing feed and/or episode status"
+msgstr "Jarioa eta/edo atalen egoera sinkronizatzeko errorea"
+
+#: models/errorlogmodel.cpp:125
+#, kde-format
+msgid "Streaming not allowed on metered connection"
+msgstr "Korronterik ez da baimentzen tarifatutako konexioan"
+
+#: models/errorlogmodel.cpp:127
+#, kde-format
+msgid "No network connection"
+msgstr "Sareko konexiorik ez"
+
+#: models/errorlogmodel.cpp:129
+#, kde-format
+msgid "Database error"
+msgstr "Datu-basearen errorea"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -742,11 +767,6 @@ msgstr "Ez dago atalik erabilgarri"
 #, kde-format
 msgid "No errors logged"
 msgstr "Ez da errorerik erregistratu"
-
-#: qml/ErrorList.qml:67
-#, kde-format
-msgid "Error code:"
-msgstr "Errore kodea:"
 
 #: qml/ErrorListOverlay.qml:21
 #, kde-format
@@ -2229,45 +2249,71 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts %1(e)an"
 
-#: sync/sync.cpp:292
-#, kde-format
-msgid "Could not log into GPodder-nextcloud server"
+#: sync/sync.cpp:289
+#, fuzzy, kde-format
+#| msgid "Could not log into GPodder-nextcloud server"
+msgctxt "@info:status Error message notification"
+msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
 
-#: sync/sync.cpp:331
-#, kde-format
-msgid "Could not log into GPodder server"
+#: sync/sync.cpp:325
+#, fuzzy, kde-format
+#| msgid "Could not log into GPodder server"
+msgctxt "@info:status Error message notification"
+msgid "Could not log into GPodder server; error: %1"
 msgstr "Ezin du saio-hasi «GPodder-nextcloud» zerbitzarian"
 
-#: sync/sync.cpp:481 sync/sync.cpp:482
-#, kde-format
-msgid "I/O denied: Cannot save password."
-msgstr "S/I ukatu da: Ezin da pasahitza gorde."
-
-#: sync/sync.cpp:562 sync/sync.cpp:563
-#, kde-format
-msgid "I/O denied: Cannot access password file."
+#: sync/sync.cpp:466
+#, fuzzy, kde-format
+#| msgid "I/O denied: Cannot access password file."
+msgctxt "@info:status Error message notification"
+msgid "I/O denied: Cannot save password to file %1"
 msgstr "S/I ukatu da: Ezin da pasahitz-fitxategia atzitu."
 
-#: sync/sync.cpp:645
-#, kde-format
-msgid "Could not create GPodder device"
+#: sync/sync.cpp:543
+#, fuzzy, kde-format
+#| msgid "I/O denied: Cannot access password file."
+msgctxt "@info:status Error message notification"
+msgid "I/O denied: Cannot access password file %1"
+msgstr "S/I ukatu da: Ezin da pasahitz-fitxategia atzitu."
+
+#: sync/sync.cpp:621
+#, fuzzy, kde-format
+#| msgid "Could not create GPodder device"
+msgctxt "@info:status Error message notification"
+msgid "Could not create GPodder device; error: %1"
 msgstr "Ezin izan du «GPodder» gailua sortu"
 
-#: sync/sync.cpp:671
-#, kde-format
-msgid "Could not retrieve synced device status"
+#: sync/sync.cpp:644
+#, fuzzy, kde-format
+#| msgid "Could not retrieve synced device status"
+msgctxt "@info:status Error message notification"
+msgid "Could not retrieve synced device status; error: %1"
 msgstr "Ezin izan du ekarri sinkronizatutako gailuaren egoera"
 
-#: sync/sync.cpp:724
-#, kde-format
-msgid "Could not retrieve subscriptions for device %1"
+#: sync/sync.cpp:691
+#, fuzzy, kde-format
+#| msgid "Could not retrieve subscriptions for device %1"
+msgctxt "@info:status Error message notification"
+msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Ezin izan ditu %1 gailuaren harpidetzak ekarri"
 
-#: sync/sync.cpp:743
-#, kde-format
-msgid "Could not upload subscriptions for device %1"
+#: sync/sync.cpp:709
+#, fuzzy, kde-format
+#| msgid "Could not upload subscriptions for device %1"
+msgctxt "@info:status Error message notification"
+msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Ezin izan ditu %1 gailuaren harpidetzak zama-igo"
+
+#: sync/sync.cpp:764
+#, fuzzy, kde-format
+#| msgid "Error: %1"
+msgctxt ""
+"@info:status Error message notification. First argument is an already "
+"translated error description; the second argument is the raw error string "
+"from the underlying task."
+msgid "%1; error: %2"
+msgstr "Errorea: %1"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2361,15 +2407,12 @@ msgstr "Sinkronizatzea erroreekin amaitu da"
 msgid "Downloading %1"
 msgstr "%1 zama-jaisten"
 
-#: utils/storagemanager.cpp:98
-#, kde-format
-msgid "Old location:"
-msgstr "Kokaleku zaharra:"
-
-#: utils/storagemanager.cpp:98
-#, kde-format
-msgid "New location:"
-msgstr "Kokaleku berria:"
+#: utils/storagemanager.cpp:99
+#, fuzzy, kde-format
+#| msgid "Error moving storage path"
+msgctxt "@info:status Error message notification."
+msgid "Error moving storage path from %1 to %2; error: %3"
+msgstr "Biltegiratze bide-izena mugitzeko errorea"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2431,6 +2474,27 @@ msgstr "Jauzi aurrerantz"
 msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Irten"
+
+#: utils/updatefeedjob.cpp:155
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "Error retrieving podcast: %1; error: %2"
+msgstr ""
+
+#~ msgid "Invalid Media"
+#~ msgstr "Komunikabide baliogabea"
+
+#~ msgid "Error code:"
+#~ msgstr "Errore kodea:"
+
+#~ msgid "I/O denied: Cannot save password."
+#~ msgstr "S/I ukatu da: Ezin da pasahitza gorde."
+
+#~ msgid "Old location:"
+#~ msgstr "Kokaleku zaharra:"
+
+#~ msgid "New location:"
+#~ msgstr "Kokaleku berria:"
 
 #~ msgid "No Track Title"
 #~ msgstr "Pistaren titulurik ez"
