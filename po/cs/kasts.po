@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-04 10:15+0200\n"
+"PO-Revision-Date: 2026-08-13 11:01+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -29,45 +29,40 @@ msgid "Your emails"
 msgstr "vit@pelcak.org,libor.filípek@gmail.com"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Streamování na měřeném připojení není povoleno"
+msgstr "Streamování na měřeném připojení není pro tuto epizodu povoleno: %1"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "Žádné síťové připojení při pokusu o přehrání epizody: %1"
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Neplatný soubor média"
+msgstr "Neplatný mediální soubor pro epizodu: %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr ""
-"Stahování podcastů při použití měřeného síťového připojení není povoleno"
+msgstr "Stahování epizody %1 není povoleno u měřeného připojení"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "Žádné síťové připojení při pokusu o stažení epizody %1"
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Stahuje se %1"
+msgstr "Chyba při stahování média: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -2242,70 +2237,61 @@ msgid "Kasts on %1"
 msgstr "Kasts na %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "Nelze se přihlásit k serveru GPodder-nextcloud"
+msgstr "Nepodařilo se přihlásit k serveru GPodder-nextcloud; chyba: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "Nelze se přihlásit k serveru GPodder"
+msgstr "Nepodařilo se přihlásit k serveru GPodder; chyba: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "I/O zamítnuto: Nelze přistupovat k souboru hesel."
+msgstr "I/O zamítnuto: Nelze uložit heslo do souboru %1"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "I/O zamítnuto: Nelze přistupovat k souboru hesel."
+msgstr "I/O zamítnuto: Nelze získat přístup k souboru s hesly %1"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "Nelze vytvořit zařízení GPodder"
+msgstr "Nelze vytvořit zařízení GPodder; chyba: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Nelze načíst stav synchronizovaného zařízení"
+msgstr "Nepodařilo se načíst stav synchronizovaného zařízení; chyba: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Nelze načíst odběry pro zařízení %1"
+msgstr "Nelze načíst odběry pro zařízení %1; chyba: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Nelze nahrát odběry pro zařízení %1"
+msgstr "Nepodařilo se nahrát odběry pro zařízení %1; chyba: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Chyba: %1"
+msgstr "%1; chyba: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2401,11 +2387,10 @@ msgid "Downloading %1"
 msgstr "Stahuje se %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Chyba při změně místa úložiště"
+msgstr "Došlo k chybě při přesunu umístění úložiště z %1 do %2; chyba: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2472,7 +2457,7 @@ msgstr "Ukončit"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Chyba při načítání podcastu: %1; chyba: %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Neplatné médium"

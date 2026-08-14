@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-04 05:18+0200\n"
+"PO-Revision-Date: 2026-08-13 07:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -29,44 +29,40 @@ msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "გაზომვად შეერთებებზე სტრიმინგი დაშვებული არაა"
+msgstr "გაზომვად შეერთებებზე სტრიმინგი ეპიზოდისთვის %1 დაშვებული არაა"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "ეპიზოდის სტრიმინგის მცდელობისას ქსელთან კავშირი აღმოჩენილი არ იყო: %1"
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "არასწორი მედია ფაილი"
+msgstr "არასწორი მედია ფაილი ეპიზოდისთვის: %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "გაზომვად შეერთებებზე პოდკასტების გადმოწერა დაშვებული არაა"
+msgstr "გაზომვად შეერთებებზე ეპიზოდის %1 გადმოწერა დაშვებული არაა"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "ეპიზოდის %1 გადმოწერის მცდელობისას ქსელთან კავშირი აღმოჩენილი არ იყო"
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "%1-ის გადმოწერა"
+msgstr "მედიის გადმოწერის შეცდომა: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -2231,70 +2227,61 @@ msgid "Kasts on %1"
 msgstr "Kasts %1-ზე"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "GPodder-nextcloud-ის სერვერზე შესვლის პრობლემა"
+msgstr "GPodder-nextcloud-ის სერვერზე შესვლის შეცდომა: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "GPodder-ის სერვერზე შესვლის პრობლემა"
+msgstr "GPodder-ის სერვერზე შესვლის შეცდომა: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
+msgstr "შ/გ-ის შეცდომა: პაროლის ფაილში %1 ჩაწერა შეუძლებელია"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან წვდომა აკრძალულია."
+msgstr "შ/გ-ის შეცდომა: პაროლის ფაილთან %1 წვდომა აკრძალულია"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "GPodder მოწყობილობის შექმნის შეცდომა"
+msgstr "GPodder მოწყობილობის შექმნის შეცდომა: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "სინრქონიზებული მოწყობილობის მდგომარეობის მიღების შეცდომა"
+msgstr "სინრქონიზებული მოწყობილობის მდგომარეობის მიღების შეცდომა: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "მოწყობილობის (%1) გამოწერების მიღების შეცდომა"
+msgstr "მოწყობილობის (%1) გამოწერების მიღების შეცდომა: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "მოწყობილობის (%1) გამოწერების ატვირთვის შეცდომა"
+msgstr "მოწყობილობის (%1) გამოწერების ატვირთვის შეცდომა: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "შეცდომა: %1"
+msgstr "%1; შეცდომა: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2389,11 +2376,10 @@ msgid "Downloading %1"
 msgstr "%1-ის გადმოწერა"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "საცავის ბილიკის გადატანის შეცდომა"
+msgstr "საცავის ბილიკის %1-დან %2-ზე გადატანის შეცდომა: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2460,7 +2446,7 @@ msgstr "გასვლა"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "პოდკასტის %1 მიღების შეცდომა: %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "არასწორი მედია"

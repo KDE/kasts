@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-04 11:57+0300\n"
+"PO-Revision-Date: 2026-08-13 17:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -29,47 +29,44 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr ""
 "Потокове передавання даних на з'єднанні з обліком передавання даних "
-"заборонено"
+"заборонено для епізоду: %1"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
+"Немає з'єднання з мережею під час спроби потокового надсилання епізоду %1"
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Некоректний мультимедійний файл"
+msgstr "Некоректні мультимедійні дані для епізоду: %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
-"Отримання трансляцій заборонено через використання вимірюваного з'єднання"
+"Отримання епізоду %1 заборонено через використання тарифікованого з'єднання"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "Немає з'єднання з мережею під час спроби отримання епізоду %1"
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Отримуємо %1"
+msgstr "Помилка під час отримання мультимедійних даних: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -2260,72 +2257,64 @@ msgid "Kasts on %1"
 msgstr "Kasts на %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "Не вдалося увійти до облікового запису на сервері GPodder-nextcloud"
+msgstr ""
+"Не вдалося увійти до облікового запису на сервері GPodder-nextcloud; "
+"помилка: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "Не вдалося увійти до сервера GPodder"
+msgstr "Не вдалося увійти до сервера GPodder; помилка: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr ""
-"Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
+msgstr "Заборонено введення-виведення: не вдалося зберегти пароль до файла %1"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
 msgstr ""
-"Заборонено введення-виведення: не вдалося отримати доступ до файла паролів."
+"Заборонено введення-виведення: не вдалося отримати доступ до файла паролів %1"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "Не вдалося створити пристрій GPodder"
+msgstr "Не вдалося створити пристрій GPodder; помилка: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Не вдалося отримати стан синхронізованого пристрою"
+msgstr "Не вдалося отримати стан синхронізованого пристрою; помилка: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Не вдалося отримати підписки для пристрою %1"
+msgstr "Не вдалося отримати підписки для пристрою %1; помилка: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Не вдалося вивантажити підписки для пристрою %1"
+msgstr "Не вдалося вивантажити підписки для пристрою %1; помилка: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Помилка: %1"
+msgstr "%1; помилка: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2422,11 +2411,10 @@ msgid "Downloading %1"
 msgstr "Отримуємо %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Помилка під час зміни шляху зберігання даних"
+msgstr "Помилка під час зміни шляху зберігання даних з %1 на %2; помилка: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2493,7 +2481,7 @@ msgstr "Вийти"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Помилка під час спроби отримати трансляцію: %1; помилка: %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Некоректне мультимедіа"

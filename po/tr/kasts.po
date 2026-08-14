@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-04 19:06+0300\n"
+"PO-Revision-Date: 2026-08-13 19:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -29,44 +29,40 @@ msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Ölçülü bağlantılarda akışa izin verilmiyor"
+msgstr "Bölüm için ölçülen bağlantılarda akışa izin verilmiyor: %1"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "Bölüm akışı yapılmaya çalışılırken ağ bağlantısı bulunamadı: %1"
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Geçersiz ortam dosyası"
+msgstr "Bölüm için geçersiz ortam dosyası: %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Ölçülü bağlantılarda pod yayını indirmelerine izin verilmiyor"
+msgstr "%1 bölümünün ölçülen bağlantılarda indirilmesine izin verilmiyor"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "%1 bölümü indirilmeye çalışılırken ağ bağlantısı bulunamadı"
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "İndiriliyor: %1"
+msgstr "Ortam indirilirken hata: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -2232,70 +2228,61 @@ msgid "Kasts on %1"
 msgstr "%1 üzerinde Kastlar"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "GPodder-nextcloud sunucusuna oturum açılamadı"
+msgstr "GPodder-nextcloud sunucusuna oturum açılamadı; hata: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "GPodder sunucusuna oturum açılamadı"
+msgstr "GPodder sunucusuna oturum açılamadı; hata: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "Girdi–Çıktı reddedildi: Parola dosyasına erişilemiyor."
+msgstr "Girdi–Çıktı reddedildi: Parola, %1 dosyasına kaydedilemiyor"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "Girdi–Çıktı reddedildi: Parola dosyasına erişilemiyor."
+msgstr "Girdi–Çıktı reddedildi: %1 parola dosyasına erişilemiyor"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "GPodder aygıtı oluşturulamadı"
+msgstr "GPodder aygıtı oluşturulamadı; hata: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Eşzamanlanmış aygıt durumu alınamadı"
+msgstr "Eşzamanlanmış aygıt durumu alınamadı; hata: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "%1 aygıtı için abonelikler alınamadı"
+msgstr "%1 aygıtı için abonelikler alınamadı; hata: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "%1 aygıtı için abonelikler yüklenemedi"
+msgstr "%1 aygıtı için abonelikler yüklenemedi; hata: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Hata: %1"
+msgstr "%1; hata: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2390,11 +2377,10 @@ msgid "Downloading %1"
 msgstr "İndiriliyor: %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Depolama yolu taşınırken hata"
+msgstr "Depolama yolu %1 konumundan %2 konumuna taşınamadı; hata: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2461,7 +2447,7 @@ msgstr "Çık"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Pod yayını alınamadı: %1; hata: %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Geçersiz Ortam"
