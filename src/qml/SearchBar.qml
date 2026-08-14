@@ -64,7 +64,7 @@ Controls.Control {
                 if (searchSettingsMenu.visible) {
                     searchSettingsMenu.dismiss();
                 } else {
-                    searchSettingsMenu.popup(searchSettingsButton);
+                    searchSettingsMenu.popup(searchField);
                 }
             }
         }
