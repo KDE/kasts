@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2021-2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-03-11 11:09+0100\n"
+"PO-Revision-Date: 2026-08-13 17:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1945,13 +1945,13 @@ msgstr "Sincronitza amb el servidor gpodder.net oficial"
 #, kde-format
 msgctxt "@label"
 msgid "GPodder Nextcloud"
-msgstr "Nextcloud de GPodder"
+msgstr "GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:249
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr "Sincronitza amb l'aplicació Nextcloud de GPodder"
+msgstr "Sincronitza amb l'aplicació GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:296
 #, kde-format
@@ -1963,7 +1963,7 @@ msgstr "Sincronitza les credencials d'inici de sessió"
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
-msgstr "Sincronitza amb l'aplicació Nextcloud de GPodder"
+msgstr "Sincronitza amb l'aplicació GPodder Nextcloud"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:329
 #, kde-format
@@ -1979,7 +1979,7 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
-"Sincronitza amb un servidor de Nextcloud que té instal·lada l'aplicació de "
+"Sincronitza amb un servidor Nextcloud que té instal·lada l'aplicació de "
 "sincronització de GPodder: %1.<br/>Es recomana crear manualment una "
 "contrasenya d'aplicació per a Kasts a través de la interfície web i emprar "
 "estes credencials."
@@ -2168,7 +2168,7 @@ msgid ""
 "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
 "retrieved."
 msgstr ""
-"No s'ha pogut recuperar la contrasenya per a l'usuari «%1» al servidor de "
+"No s'ha pogut recuperar la contrasenya per a l'usuari «%1» al servidor "
 "Nextcloud «%2»."
 
 #: qml/SyncPasswordOverlay.qml:47
