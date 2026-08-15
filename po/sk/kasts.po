@@ -27,44 +27,40 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Streaming on metered connection not allowed"
+msgstr "Streamovanie na meranom pripojení nie je povolené pre epizódu: %1"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "Pri pokuse o streamovanie epizódy nie je sieťové pripojenie: %1"
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Invalid media file"
+msgstr "Neplatné médium pre epizódu: %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Podcast downloads not allowed on metered connection"
+msgstr "Sťahovanie epizódy %1 nie je na meranom pripojení povolené"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "Pri pokuse o stiahnutie epizódy nie je sieťové pripojenie: %1"
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Preberá sa %1"
+msgstr "Chyba pri sťahovaní média: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -942,12 +938,10 @@ msgid "Export Podcasts…"
 msgstr "Pridať Podcast"
 
 #: qml/FeedListPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Odbery"
+msgstr "Hľadať v odberoch…"
 
 #: qml/FeedListPage.qml:161
 #, kde-format
@@ -1015,6 +1009,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Túto epizódu autori podcastu odstránili z kanála RSS. Jej sťahovanie alebo "
+"streamovanie nemusí fungovať."
 
 #: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
 #, kde-format
@@ -2238,70 +2234,61 @@ msgid "Kasts on %1"
 msgstr "Kasts on %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "Could not log into GPodder-nextcloud server"
+msgstr "Nepodarilo sa prihlásiť na server GPodder-nextcloud; chyba: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "Could not log into GPodder server"
+msgstr "Nepodarilo sa prihlásiť na server GPodder; chyba: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "I/O denied: Cannot access password file."
+msgstr "V/V zamietnuté: heslo sa nedá uložiť do súboru %1"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "I/O denied: Cannot access password file."
+msgstr "V/V zamietnuté: nedá sa pristúpiť k súboru s heslom %1"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "Could not create GPodder device"
+msgstr "Nepodarilo sa vytvoriť zariadenie GPodder; chyba: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Could not retrieve synced device status"
+msgstr "Nepodarilo sa získať stav synchronizovaného zariadenia; chyba: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Could not retrieve subscriptions for device %1"
+msgstr "Nepodarilo sa získať odbery pre zariadenie %1; chyba: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Could not upload subscriptions for device %1"
+msgstr "Nepodarilo sa odoslať odbery pre zariadenie %1; chyba: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Chyba: %1"
+msgstr "%1; chyba: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2397,11 +2384,10 @@ msgid "Downloading %1"
 msgstr "Preberá sa %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Error moving storage path"
+msgstr "Chyba pri presune cesty úložiska z %1 do %2; chyba: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2468,7 +2454,7 @@ msgstr "Ukončiť"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Chyba pri načítaní podcastu: %1; chyba: %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Invalid Media"
