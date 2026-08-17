@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-05 12:46+0200\n"
+"PO-Revision-Date: 2026-08-14 11:55+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.07.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,11 +39,10 @@ msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
 
 #: audiomanager.cpp:600
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Fichier de média non valable"
+msgstr "Media non valable pour un épisode : %1"
 
 #: enclosure.cpp:189
 #, fuzzy, kde-format
@@ -61,11 +60,10 @@ msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
 #: enclosure.cpp:225
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Téléchargement de %1"
+msgstr "Erreur durant le téléchargement du media : %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -2264,27 +2262,25 @@ msgid "Could not log into GPodder server; error: %1"
 msgstr "Impossible de se connecter au serveur « GPodder »"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr ""
-"Refus Entrée / Sortie : impossible d'accéder au fichier de mots de passe."
+"Refus Entrée / Sortie : impossible d'enregistrer le mot de passe dans le "
+"fichier %1."
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
 msgstr ""
-"Refus Entrée / Sortie : impossible d'accéder au fichier de mots de passe."
+"Refus Entrée / Sortie : impossible d'accéder au fichier %1 de mots de passe."
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "Impossible de créer un périphérique « GPodder »"
+msgstr "Impossible de créer un périphérique « GPodder ». Erreur : %1"
 
 #: sync/sync.cpp:644
 #, fuzzy, kde-format
@@ -2308,14 +2304,13 @@ msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Impossible d'envoyer des abonnements vers le périphérique %1"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Erreur : %1"
+msgstr "%1. Erreur : %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2485,7 +2480,7 @@ msgstr "Quitter"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Erreur lors de la récupération du podcast : %1. Erreur : %2"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Média non valable"
