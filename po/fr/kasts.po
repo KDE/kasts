@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2026-08-14 11:55+0200\n"
+"PO-Revision-Date: 2026-08-16 13:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -26,17 +26,19 @@ msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
 #: audiomanager.cpp:421
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Le streaming sur une connexion facturée n'est pas autorisée."
+msgstr ""
+"Le streaming sur une connexion facturée n'est pas autorisée pour cette "
+"épisode : %1"
 
 #: audiomanager.cpp:430
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
+"Aucune connexion réseau lors de la tentative de lecture de l'épisode : %1"
 
 #: audiomanager.cpp:600
 #, kde-format
@@ -45,19 +47,20 @@ msgid "Invalid Media for episode: %1"
 msgstr "Media non valable pour un épisode : %1"
 
 #: enclosure.cpp:189
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
-"Les mises à jour de podcasts sur des connexions facturées ne sont pas "
-"autorisées."
+"Le téléchargement de l'épisode %1 n'est pas autorisé avec des connexions "
+"facturées."
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
 msgstr ""
+"Aucune connexion réseau lors de la tentative de téléchargement de l'épisode "
+"%1"
 
 #: enclosure.cpp:225
 #, kde-format
@@ -2248,18 +2251,17 @@ msgid "Kasts on %1"
 msgstr "Kasts sur %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "Impossible de se connecter au serveur « GPodder-Nextcloud »"
+msgstr ""
+"Impossible de se connecter au serveur « GPodder-Nextcloud ». Erreur : %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "Impossible de se connecter au serveur « GPodder »"
+msgstr "Impossible de se connecter au serveur « GPodder ». Erreur : %1"
 
 #: sync/sync.cpp:466
 #, kde-format
@@ -2283,25 +2285,23 @@ msgid "Could not create GPodder device; error: %1"
 msgstr "Impossible de créer un périphérique « GPodder ». Erreur : %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Impossible de charger l'état du périphérique synchronisé"
+msgstr "Impossible de charger l'état du périphérique synchronisé. Erreur : %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Impossible de recevoir des abonnements du périphérique %1"
+msgstr "Impossible de recevoir des abonnements du périphérique %1. Erreur : %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Impossible d'envoyer des abonnements vers le périphérique %1"
+msgstr ""
+"Impossible d'envoyer des abonnements vers le périphérique %1. Erreur : %2"
 
 #: sync/sync.cpp:764
 #, kde-format
@@ -2408,11 +2408,12 @@ msgid "Downloading %1"
 msgstr "Téléchargement de %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Erreur lors du déplacement du dossier de stockage"
+msgstr ""
+"Erreur lors du déplacement du dossier d'enregistrement de %1 vers %2. "
+"Erreur : %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
