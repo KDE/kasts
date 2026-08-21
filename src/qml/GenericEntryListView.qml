@@ -30,6 +30,21 @@ ListView {
         }
     }
 
+    // Section headers; currently only shown when filtering for downloads
+    section {
+        delegate: Kirigami.ListSectionHeader {
+            clip: true
+            height: (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter) ? implicitHeight : 0
+            width: root.width
+
+            required property string section
+
+            // NOTE: the Enclosure.Status enum values get converted to strings
+            text: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : section == "Downloadable" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Not Downloaded") : section == "NoEnclosure" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Episodes without Media Files") : ""
+        }
+        property: "downloaded"
+    }
+
     topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
     currentIndex: -1
 
@@ -202,7 +217,7 @@ ListView {
                 // have to use script because KI18n.i18n doesn't work within ListElement
                 Component.onCompleted: {
                     if (filterActionRoot.visible) {
-                        const filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter];
+                        const filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter, AbstractEpisodeProxyModel.DownloadedFilter, AbstractEpisodeProxyModel.NotDownloadedFilter];
                         for (let i in filterList) {
                             filterModel.append({
                                 name: root.model.getFilterName(filterList[i]),

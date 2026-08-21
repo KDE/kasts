@@ -102,6 +102,7 @@ Kirigami.ScrollablePage {
             required property Entry entry
             required property int entryuid
             required property int index
+            required property int downloaded
 
             GenericEntryDelegate {
                 id: entryDelegate
@@ -114,6 +115,7 @@ Kirigami.ScrollablePage {
                 entry: focusScope.entry
                 entryuid: focusScope.entryuid
                 index: focusScope.index
+                downloaded: focusScope.downloaded
             }
         }
 

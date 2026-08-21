@@ -29,6 +29,7 @@ AddonDelegates.RoundedItemDelegate {
     required property Entry entry
     required property int entryuid
     required property int index
+    required property int downloaded
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 

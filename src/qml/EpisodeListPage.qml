@@ -104,11 +104,17 @@ Kirigami.ScrollablePage {
         model: EpisodeProxyModel {
             id: episodeProxyModel
 
+            // save and restore sort settings
+            sortType: KastsState.episodeListSortType
+
             // save and restore filter settings
             filterType: KastsState.episodeListFilterType
 
-            // save and restore sort settings
-            sortType: KastsState.episodeListSortType
+            Component.onCompleted: {
+                // setting filter once again to filter after sorting in case
+                // the download filter is active, which has its own sorting
+                filterType = KastsState.episodeListFilterType;
+            }
         }
 
         delegate: GenericEntryDelegate {

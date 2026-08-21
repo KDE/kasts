@@ -65,6 +65,7 @@ Kirigami.ScrollablePage {
         delegate: GenericEntryDelegate {
             listViewObject: episodeList
             isDownloads: true
+            downloaded: 0
         }
 
         section {

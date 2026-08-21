@@ -45,6 +45,15 @@ bool AbstractEpisodeProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
     case NotFavoriteFilter:
         accepted = !sourceModel()->data(index, AbstractEpisodeModel::Roles::FavoriteRole).value<bool>();
         break;
+    case DownloadedFilter:
+        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloaded
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloading
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::PartiallyDownloaded;
+        break;
+    case NotDownloadedFilter:
+        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloadable
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::NoEnclosure;
+        break;
     default:
         accepted = true;
         break;
@@ -101,13 +110,18 @@ AbstractEpisodeProxyModel::SortType AbstractEpisodeProxyModel::sortType() const
 
 void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 {
-    if (type != m_currentFilter) {
-        beginFilterChange();
-        m_currentFilter = type;
-        endFilterChange();
+    beginFilterChange();
+    m_currentFilter = type;
+    endFilterChange();
 
-        Q_EMIT filterTypeChanged();
+    if (type == AbstractEpisodeProxyModel::DownloadedFilter || type == AbstractEpisodeProxyModel::NotDownloadedFilter) {
+        setSortRole(AbstractEpisodeModel::Roles::DownloadedOrderRole);
+        sort(0, Qt::AscendingOrder);
+    } else {
+        setSortType(m_currentSort);
     }
+
+    Q_EMIT filterTypeChanged();
 }
 
 void AbstractEpisodeProxyModel::setSearchFilter(const QString &searchString)
@@ -132,21 +146,19 @@ void AbstractEpisodeProxyModel::setSearchFlags(AbstractEpisodeProxyModel::Search
 
 void AbstractEpisodeProxyModel::setSortType(SortType type)
 {
-    if (type != m_currentSort) {
-        m_currentSort = type;
-        setSortRole(AbstractEpisodeModel::UpdatedRole);
+    m_currentSort = type;
+    setSortRole(AbstractEpisodeModel::UpdatedRole);
 
-        switch (type) {
-        case SortType::DateDescending:
-            sort(0, Qt::DescendingOrder);
-            break;
-        case SortType::DateAscending:
-            sort(0, Qt::AscendingOrder);
-            break;
-        }
-
-        Q_EMIT sortTypeChanged();
+    switch (type) {
+    case SortType::DateDescending:
+        sort(0, Qt::DescendingOrder);
+        break;
+    case SortType::DateAscending:
+        sort(0, Qt::AscendingOrder);
+        break;
     }
+
+    Q_EMIT sortTypeChanged();
 }
 
 QString AbstractEpisodeProxyModel::getFilterName(FilterType type)
@@ -166,6 +178,10 @@ QString AbstractEpisodeProxyModel::getFilterName(FilterType type)
         return i18nc("@label:chooser Choice of filter for episode list", "Episodes marked as Favorite");
     case FilterType::NotFavoriteFilter:
         return i18nc("@label:chooser Choice of filter for episode list", "Episodes not marked as Favorite");
+    case FilterType::DownloadedFilter:
+        return i18nc("@label:chooser Choice of filter for episode list", "Downloaded episodes");
+    case FilterType::NotDownloadedFilter:
+        return i18nc("@label:chooser Choice of filter for episode list", "Not downloaded episodes");
     default:
         return QString();
     }
