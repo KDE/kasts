@@ -12,7 +12,6 @@
 #include <QObject>
 #include <QVariant>
 
-#include "datatypes.h"
 #include "models/abstractepisodemodel.h"
 
 class Feed;
@@ -23,14 +22,7 @@ class EntriesModel : public AbstractEpisodeModel
 
 public:
     explicit EntriesModel(const qint64 feeduid, QObject *parent = nullptr);
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex &parent) const override;
-
-public Q_SLOTS:
-    void updateInternalState() override;
 
 protected:
     const qint64 m_feeduid;
-    QString m_feedname;
-    QList<DataTypes::EntryDetails> m_entries;
 };

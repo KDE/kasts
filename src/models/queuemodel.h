@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QAbstractItemModel>
 #include <QItemSelection>
 #include <QModelIndex>
 #include <QObject>
@@ -37,9 +38,6 @@ public:
         return &instance();
     }
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    int rowCount(const QModelIndex &parent) const override;
-
     qint64 timeLeft() const;
     QString formattedTimeLeft() const;
 
@@ -58,9 +56,6 @@ public:
     bool entryInQueue(const qint64 entryuid) const;
     Q_INVOKABLE void sortQueue(const AbstractEpisodeProxyModel::SortType sortType);
 
-public Q_SLOTS:
-    void updateInternalState() override;
-
 Q_SIGNALS:
     void timeLeftChanged();
 
@@ -72,6 +67,4 @@ Q_SIGNALS:
 private:
     explicit QueueModel(QObject *parent = nullptr);
     void updateQueueListnrs() const;
-
-    QList<qint64> m_queue; // list of entries/enclosures in the order that they should show up in queuelist
 };

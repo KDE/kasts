@@ -47,8 +47,8 @@ UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, QObject *parent)
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
     connect(this, &UpdateFeedJob::feedUpdated, &Fetcher::instance(), &Fetcher::feedUpdated);
-    connect(this, &UpdateFeedJob::entryAdded, &Fetcher::instance(), &Fetcher::entryAdded);
-    connect(this, &UpdateFeedJob::entryUpdated, &Fetcher::instance(), &Fetcher::entryUpdated);
+    connect(this, &UpdateFeedJob::entriesAdded, &Fetcher::instance(), &Fetcher::entriesAdded);
+    connect(this, &UpdateFeedJob::entriesUpdated, &Fetcher::instance(), &Fetcher::entriesUpdated);
     connect(this, &UpdateFeedJob::error, &Fetcher::instance(), &Fetcher::error);
 }
 
@@ -1056,17 +1056,13 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     if (dbCommit()) {
         // emit signals for new entries
-        for (const qint64 entryuid : std::as_const(newEntryuids)) {
-            qCDebug(kastsUpdater) << "new episode" << entryuid;
-            Q_EMIT entryAdded(entryuid);
-        }
+        qCDebug(kastsUpdater) << "new episodes" << newEntryuids;
+        Q_EMIT entriesAdded(newEntryuids.values());
 
         // emit signals for updated entries or entries with new/updated authors,
         // enclosures or chapters
-        for (const qint64 entryuid : std::as_const(updatedEntryuids)) {
-            qCDebug(kastsUpdater) << "updated episode" << entryuid;
-            Q_EMIT entryUpdated(entryuid);
-        }
+        qCDebug(kastsUpdater) << "updated episodes" << updatedEntryuids;
+        Q_EMIT entriesUpdated(updatedEntryuids.values());
     }
 }
 

@@ -24,9 +24,11 @@ AddonDelegates.RoundedItemDelegate {
     LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
+    // These are the properties exposed by the model that are used in this delegate
+    // NOTE: don't forget to also add new properties to the delegate in QueuePage
     required property Entry entry
+    required property int entryuid
     required property int index
-    property int entryuid: entry ? entry.entryuid : 0
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 

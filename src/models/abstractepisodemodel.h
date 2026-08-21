@@ -12,6 +12,8 @@
 #include <QObject>
 #include <QQmlEngine>
 
+#include "datatypes.h"
+
 class AbstractEpisodeModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -28,14 +30,27 @@ public:
         NewRole,
         FavoriteRole,
         ContentRole,
-        FeedNameRole,
+        CreatedRole,
         UpdatedRole,
+        LinkRole,
+        DownloadedRole,
+        DownloadedOrderRole,
+        FeeduidRole,
+        FeedNameRole,
     };
     Q_ENUM(Roles)
 
-    explicit AbstractEpisodeModel(QObject *parent = nullptr);
+    explicit AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent = nullptr);
     virtual QHash<int, QByteArray> roleNames() const override;
+    virtual QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
+    virtual int rowCount(const QModelIndex &parent) const override;
 
-public Q_SLOTS:
-    virtual void updateInternalState() = 0;
+protected:
+    virtual void updateInternalState();
+    virtual void updateEntries(const QList<qint64> &entryuids);
+
+    QString m_feedQuery, m_entryQuery, m_enclosureQuery;
+    QList<qint64> m_entryOrder;
+    QHash<qint64, DataTypes::EntryDetails> m_entries;
+    QHash<qint64, DataTypes::FeedDetails> m_feeds;
 };

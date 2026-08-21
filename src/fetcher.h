@@ -62,8 +62,8 @@ public:
     Q_INVOKABLE bool isSystemProxyDefined();
 
 Q_SIGNALS:
-    void entryAdded(const qint64 entryuid);
-    void entryUpdated(const qint64 entryuid);
+    void entriesAdded(const QList<qint64> &entryuids);
+    void entriesUpdated(const QList<qint64> &entryuids);
     void feedUpdated(const qint64 feeduid);
     void feedDetailsUpdated(const qint64 feeduid,
                             const QString &url,

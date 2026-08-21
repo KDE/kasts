@@ -24,7 +24,7 @@
 #include "entry.h"
 #include "feed.h"
 #include "fetcher.h"
-#include "models/episodemodel.h"
+#include "models/abstractepisodemodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
@@ -61,9 +61,11 @@ DataManager::DataManager()
                     feed->setRefreshing(true);
                 }
             });
-    connect(&Fetcher::instance(), &Fetcher::entryAdded, this, [this](const qint64 entryuid) {
-        // Only add the new entry to m_entries
-        m_entries[entryuid] = nullptr;
+    connect(&Fetcher::instance(), &Fetcher::entriesAdded, this, [this](const QList<qint64> &entryuids) {
+        for (const qint64 entryuid : std::as_const(entryuids)) {
+            // Only add the new entry to m_entries
+            m_entries[entryuid] = nullptr;
+        }
     });
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         Q_EMIT feedEntriesUpdated(feeduid);
@@ -721,7 +723,7 @@ QList<qint64> DataManager::getEntryuidsFromModelIndexList(const QModelIndexList 
 {
     QList<qint64> entryuids;
     for (const QModelIndex &index : std::as_const(list)) {
-        entryuids += index.data(EpisodeModel::Roles::EntryuidRole).value<qint64>();
+        entryuids += index.data(AbstractEpisodeModel::Roles::EntryuidRole).value<qint64>();
     }
     qCDebug(kastsDataManager) << "Entryuids of selection:" << entryuids;
     return entryuids;

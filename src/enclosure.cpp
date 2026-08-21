@@ -43,8 +43,8 @@ Enclosure::Enclosure(Entry *entry)
     connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
     connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
-        if (m_entry->entryuid() == entryuid) {
+    connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
+        if (entryuids.contains(m_entryuid)) {
             updateFromDb();
         }
     });

@@ -38,8 +38,8 @@ Q_SIGNALS:
                             const QDateTime &lastUpdated,
                             const QString &dirname);
     void feedUpdated(const qint64 feeduid);
-    void entryAdded(const qint64 entryuid);
-    void entryUpdated(const qint64 entryuid);
+    void entriesAdded(const QList<qint64> &entryuids);
+    void entriesUpdated(const QList<qint64> &entryuids);
     void aborting();
     void finished();
     void error(ErrorLogModel::Type type, const QString &message, const qint64 feeduid);

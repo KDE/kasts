@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "models/abstractepisodemodel.h"
+#include "models/abstractepisodeproxymodel.h"
 
 #include <KLocalizedString>
 
-#include "datamanager.h"
+#include "enclosure.h"
+#include "models/abstractepisodemodel.h"
 
 AbstractEpisodeProxyModel::AbstractEpisodeProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -101,35 +102,9 @@ AbstractEpisodeProxyModel::SortType AbstractEpisodeProxyModel::sortType() const
 void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 {
     if (type != m_currentFilter) {
-        disconnect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, nullptr);
-        disconnect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, nullptr);
-        disconnect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, nullptr);
-
-        beginResetModel();
+        beginFilterChange();
         m_currentFilter = type;
-        dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
-        endResetModel();
-
-        // connect to signals which indicate that read/new statuses have been updated
-        if (type == ReadFilter || type == NotReadFilter) {
-            connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this]() {
-                beginResetModel();
-                dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
-                endResetModel();
-            });
-        } else if (type == NewFilter || type == NotNewFilter) {
-            connect(&DataManager::instance(), &DataManager::entryNewStatusChanged, this, [this]() {
-                beginResetModel();
-                dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
-                endResetModel();
-            });
-        } else if (type == FavoriteFilter || type == NotFavoriteFilter) {
-            connect(&DataManager::instance(), &DataManager::entryFavoriteStatusChanged, this, [this]() {
-                beginResetModel();
-                dynamic_cast<AbstractEpisodeModel *>(sourceModel())->updateInternalState();
-                endResetModel();
-            });
-        }
+        endFilterChange();
 
         Q_EMIT filterTypeChanged();
     }
@@ -138,9 +113,9 @@ void AbstractEpisodeProxyModel::setFilterType(FilterType type)
 void AbstractEpisodeProxyModel::setSearchFilter(const QString &searchString)
 {
     if (searchString != m_searchFilter) {
-        beginResetModel();
+        beginFilterChange();
         m_searchFilter = searchString;
-        endResetModel();
+        endFilterChange();
 
         Q_EMIT searchFilterChanged();
     }
@@ -149,9 +124,9 @@ void AbstractEpisodeProxyModel::setSearchFilter(const QString &searchString)
 void AbstractEpisodeProxyModel::setSearchFlags(AbstractEpisodeProxyModel::SearchFlags searchFlags)
 {
     if (searchFlags != m_searchFlags) {
-        beginResetModel();
+        beginFilterChange();
         m_searchFlags = searchFlags;
-        endResetModel();
+        endFilterChange();
     }
 }
 

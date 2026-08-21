@@ -6,13 +6,8 @@
 
 #pragma once
 
-#include <QHash>
-#include <QModelIndex>
 #include <QObject>
-#include <QVariant>
-#include <QVector>
 
-#include "datatypes.h"
 #include "models/abstractepisodemodel.h"
 
 class EpisodeModel : public AbstractEpisodeModel
@@ -25,14 +20,7 @@ public:
         static EpisodeModel _instance;
         return _instance;
     }
-    explicit EpisodeModel(QObject *parent = nullptr);
-    QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
-    int rowCount(const QModelIndex &parent) const override;
-
-public Q_SLOTS:
-    void updateInternalState() override;
 
 private:
-    QList<DataTypes::EntryDetails> m_entries;
-    QStringList m_feedNames;
+    explicit EpisodeModel(QObject *parent = nullptr);
 };

@@ -100,6 +100,7 @@ Kirigami.ScrollablePage {
             height: entryDelegate.height
 
             required property Entry entry
+            required property int entryuid
             required property int index
 
             GenericEntryDelegate {
@@ -108,7 +109,10 @@ Kirigami.ScrollablePage {
                 isQueue: true
                 listViewObject: root.queueList
                 focus: parent.activeFocus
+
+                // required properties from model need to passed on manually
                 entry: focusScope.entry
+                entryuid: focusScope.entryuid
                 index: focusScope.index
             }
         }

@@ -52,8 +52,8 @@ Entry::Entry(const qint64 entryuid, QObject *parent)
             Q_EMIT queueStatusChanged(state);
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::entryUpdated, this, [this](const qint64 entryuid) {
-        if (m_entryuid == entryuid) {
+    connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
+        if (entryuids.contains(m_entryuid)) {
             updateFromDb();
         }
     });

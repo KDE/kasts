@@ -52,6 +52,7 @@ public:
         Queued = 2,
         PartiallyDownloaded = 3,
         Downloaded = 4,
+        NoEnclosure = 5,
     };
     Q_ENUM(Status)
 

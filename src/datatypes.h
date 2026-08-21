@@ -81,10 +81,15 @@ struct EntryDetails {
     bool removed;
     bool hasEnclosure;
     QString image;
+    RecordState state;
     QHash<QString, AuthorDetails> authors; // key = author name
     QHash<QString, EnclosureDetails> enclosures; // key = enclosure url
     QHash<int, ChapterDetails> chapters; // key = start
-    RecordState state;
+
+    // these lists can store a particular order of authors and enclosures when
+    // needed
+    QList<QString> authorOrder;
+    QList<QString> enclosureOrder;
 
     // Fields that are only used in case state == Modified
     QString oldTitle;
@@ -113,9 +118,12 @@ struct FeedDetails {
     QString lastHash;
     int filterType = 0;
     int sortType = 0;
+    RecordState state;
     QHash<QString, AuthorDetails> authors; // key = author name
     QHash<QString, EntryDetails> entries; // key = id from feed
-    RecordState state;
+
+    // this list can store a particular order of entries when needed
+    QList<QString> entryOrder;
 
     // Fields that are only used in case state == Modified
     QString oldName;
