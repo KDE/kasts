@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:46+0000\n"
-"PO-Revision-Date: 2025-07-20 11:08+0300\n"
+"PO-Revision-Date: 2026-07-23 18:29+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -523,17 +523,15 @@ msgstr "Luvut"
 
 #: qml/Desktop/DesktopPlayerControls.qml:413 qml/Desktop/HeaderBar.qml:34
 #: qml/Mobile/MobilePlayerControls.qml:182
-#, fuzzy, kde-format
-#| msgid "Episode List"
+#, kde-format
 msgid "No Episode Title"
-msgstr "Jaksoluettelo"
+msgstr "Ei jakson otsikkoa"
 
 #: qml/Desktop/DesktopPlayerControls.qml:418 qml/Desktop/HeaderBar.qml:136
 #: qml/Mobile/MobilePlayerControls.qml:192
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No episode loaded"
-msgstr "Ei jaksoja saatavilla"
+msgstr "Ei ladattuja jaksoja"
 
 # *** TARKISTA: Voi olla myös asennussovelluksen nimi, Discover
 #: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:87
@@ -1186,10 +1184,9 @@ msgstr ""
 "Podcastien lataamista ei toistaiseksi sallita maksullisissa yhteyksissä "
 
 #: qml/Mobile/MobilePlayerControls.qml:30
-#, fuzzy, kde-format
-#| msgid "No episodes available"
+#, kde-format
 msgid "No Episode Loaded"
-msgstr "Ei jaksoja saatavilla"
+msgstr "Ei ladattuja jaksoja"
 
 #: qml/Mobile/MobilePlayerControls.qml:152
 #, kde-format
@@ -1427,16 +1424,12 @@ msgid "Select audio backend"
 msgstr "Valitse äänijärjestelmä"
 
 #: qml/Settings/GeneralSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Label for setting whether the total track time is shown or "
-#| "a countdown of the remaining play time"
-#| msgid "Show time left instead of total track time"
+#, kde-format
 msgctxt ""
 "@option:check Label for setting whether the total episode time is shown or a "
 "countdown of the remaining play time"
 msgid "Show time left instead of total episode time"
-msgstr "Näytä raidan kokonaisajan sijaan jäljellä oleva aika"
+msgstr "Näytä jakson kokonaisajan sijaan jäljellä oleva aika"
 
 #: qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
