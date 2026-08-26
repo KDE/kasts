@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:46+0000\n"
+"POT-Creation-Date: 2026-08-26 00:46+0000\n"
 "PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -106,13 +106,13 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:389
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:392
 #, kde-format
 msgid "Play"
 msgstr "Ludi"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:415
 #, kde-format
 msgid "Pause"
 msgstr "Paŭzo"
@@ -204,73 +204,89 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:181
+#: models/abstractepisodeproxymodel.cpp:168
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Neniu filtrilo"
 
-#: models/abstractepisodeproxymodel.cpp:183
+#: models/abstractepisodeproxymodel.cpp:170
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Ludis epizodojn"
 
-#: models/abstractepisodeproxymodel.cpp:185
+#: models/abstractepisodeproxymodel.cpp:172
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Neluditaj epizodoj"
 
-#: models/abstractepisodeproxymodel.cpp:187
+#: models/abstractepisodeproxymodel.cpp:174
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Epizodoj markitaj kiel \"Novaj\""
 
-#: models/abstractepisodeproxymodel.cpp:189
+#: models/abstractepisodeproxymodel.cpp:176
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Epizodoj ne markitaj kiel \"Novaj\""
 
-#: models/abstractepisodeproxymodel.cpp:191
+#: models/abstractepisodeproxymodel.cpp:178
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Epizodoj markitaj kiel Favoritaj"
 
-#: models/abstractepisodeproxymodel.cpp:193
+#: models/abstractepisodeproxymodel.cpp:180
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Epizodoj ne markitaj kiel Favoritaj"
 
-#: models/abstractepisodeproxymodel.cpp:203
+#: models/abstractepisodeproxymodel.cpp:182
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Downloaded episodes"
+msgstr "Neluditaj epizodoj"
+
+#: models/abstractepisodeproxymodel.cpp:184
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Automatically download new episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Not downloaded episodes"
+msgstr "Aŭtomate elŝuti novajn epizodojn"
+
+#: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Titolo"
 
-#: models/abstractepisodeproxymodel.cpp:205
+#: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Priskribo"
 
-#: models/abstractepisodeproxymodel.cpp:207
+#: models/abstractepisodeproxymodel.cpp:198
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Podkasta titolo"
 
-#: models/abstractepisodeproxymodel.cpp:217
+#: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Dato: pli nova unue"
 
-#: models/abstractepisodeproxymodel.cpp:219
+#: models/abstractepisodeproxymodel.cpp:210
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -580,28 +596,28 @@ msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Neniuj elŝutoj"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, fuzzy, kde-format
 #| msgid "Downloading"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Elŝutante"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, fuzzy, kde-format
 #| msgid "Incomplete Downloads"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Nekompletaj Elŝutoj"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, fuzzy, kde-format
 #| msgid "Downloaded"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Elŝutite"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@title of page showing the list queued items; this is the noun 'the "
@@ -705,7 +721,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Etikedi kiel \"Nova\""
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:321
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:336
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -713,7 +729,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Forigi el Favoritoj"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:312
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:327
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -1000,22 +1016,22 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Aktiva filtrilo: %1"
 
-#: qml/GenericEntryDelegate.qml:224
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "Played"
 msgstr "Ludita"
 
-#: qml/GenericEntryDelegate.qml:224
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "Read"
 msgstr "Legi"
 
-#: qml/GenericEntryDelegate.qml:230
+#: qml/GenericEntryDelegate.qml:233
 #, kde-format
 msgid "New"
 msgstr "Nova"
 
-#: qml/GenericEntryDelegate.qml:268
+#: qml/GenericEntryDelegate.qml:271
 #, kde-format
 msgctxt ""
 "@info:tooltip Tooltip for an icon that can be displayed on an episode list "
@@ -1025,32 +1041,32 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
+#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:283
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Forigi de Queue"
 
-#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:330
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:345
 #, kde-format
 msgid "Download"
 msgstr "Elŝuti"
 
-#: qml/GenericEntryDelegate.qml:368
+#: qml/GenericEntryDelegate.qml:371
 #, kde-format
 msgid "Cancel Download"
 msgstr "Nuligi Elŝuton"
 
-#: qml/GenericEntryDelegate.qml:375
+#: qml/GenericEntryDelegate.qml:378
 #, kde-format
 msgid "Delete Download"
 msgstr "Forigi Elŝuton"
 
-#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:258
+#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:273
 #, kde-format
 msgid "Add to Queue"
 msgstr "Aldoni al Vico"
 
-#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:349
+#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:364
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1058,19 +1074,34 @@ msgctxt ""
 msgid "Stream"
 msgstr "Rojo"
 
-#: qml/GenericEntryListView.qml:136
+#: qml/GenericEntryListView.qml:43
+#, fuzzy, kde-format
+#| msgid "Downloaded"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Not Downloaded"
+msgstr "Elŝutite"
+
+#: qml/GenericEntryListView.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes not marked as Favorite"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Episodes without Media Files"
+msgstr "Epizodoj ne markitaj kiel Favoritaj"
+
+#: qml/GenericEntryListView.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Ordigi"
 
-#: qml/GenericEntryListView.qml:139
+#: qml/GenericEntryListView.qml:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Elekti kiel ordigi epizodojn"
 
-#: qml/GenericEntryListView.qml:193
+#: qml/GenericEntryListView.qml:208
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1078,43 +1109,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtrilo"
 
-#: qml/GenericEntryListView.qml:195
+#: qml/GenericEntryListView.qml:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Filtri epizodojn laŭ stato"
 
-#: qml/GenericEntryListView.qml:239
+#: qml/GenericEntryListView.qml:254
 #, kde-format
 msgid "Select All"
 msgstr "Elekti ĉiujn"
 
-#: qml/GenericEntryListView.qml:249
+#: qml/GenericEntryListView.qml:264
 #, kde-format
 msgid "Deselect All"
 msgstr "Malelekti Ĉion"
 
-#: qml/GenericEntryListView.qml:278
+#: qml/GenericEntryListView.qml:293
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marki kiel Ludita"
 
-#: qml/GenericEntryListView.qml:286
+#: qml/GenericEntryListView.qml:301
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marki kiel Neludata"
 
-#: qml/GenericEntryListView.qml:294
+#: qml/GenericEntryListView.qml:309
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Etikedi kiel \"Nova\""
 
-#: qml/GenericEntryListView.qml:303
+#: qml/GenericEntryListView.qml:318
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Forigi \"Novan\" Etikedon"
 
-#: qml/GenericEntryListView.qml:340
+#: qml/GenericEntryListView.qml:355
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"

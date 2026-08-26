@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:46+0000\n"
+"POT-Creation-Date: 2026-08-26 00:46+0000\n"
 "PO-Revision-Date: 2026-03-13 13:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -106,13 +106,13 @@ msgid "Open"
 msgstr "Opna"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:389
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:392
 #, kde-format
 msgid "Play"
 msgstr "Spila"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:412
+#: qml/Desktop/DesktopPlayerControls.qml:136 qml/GenericEntryDelegate.qml:415
 #, kde-format
 msgid "Pause"
 msgstr "Á pásu"
@@ -204,73 +204,89 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:181
+#: models/abstractepisodeproxymodel.cpp:168
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Engin sía"
 
-#: models/abstractepisodeproxymodel.cpp:183
+#: models/abstractepisodeproxymodel.cpp:170
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Spilaðir þættir"
 
-#: models/abstractepisodeproxymodel.cpp:185
+#: models/abstractepisodeproxymodel.cpp:172
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Óspilaðir þættir"
 
-#: models/abstractepisodeproxymodel.cpp:187
+#: models/abstractepisodeproxymodel.cpp:174
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Þættir merktir sem \"Nýtt\""
 
-#: models/abstractepisodeproxymodel.cpp:189
+#: models/abstractepisodeproxymodel.cpp:176
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Þættir ekki merktir sem \"Nýtt\""
 
-#: models/abstractepisodeproxymodel.cpp:191
+#: models/abstractepisodeproxymodel.cpp:178
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Þættir merktir sem eftirlæti"
 
-#: models/abstractepisodeproxymodel.cpp:193
+#: models/abstractepisodeproxymodel.cpp:180
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Þættir ekki merktir sem eftirlæti"
 
-#: models/abstractepisodeproxymodel.cpp:203
+#: models/abstractepisodeproxymodel.cpp:182
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Downloaded episodes"
+msgstr "Óspilaðir þættir"
+
+#: models/abstractepisodeproxymodel.cpp:184
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Automatically download new episodes"
+msgctxt "@label:chooser Choice of filter for episode list"
+msgid "Not downloaded episodes"
+msgstr "Sækja nýja þætti sjálfkrafa"
+
+#: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Titill"
 
-#: models/abstractepisodeproxymodel.cpp:205
+#: models/abstractepisodeproxymodel.cpp:196
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Lýsing"
 
-#: models/abstractepisodeproxymodel.cpp:207
+#: models/abstractepisodeproxymodel.cpp:198
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Titill hlaðvarps"
 
-#: models/abstractepisodeproxymodel.cpp:217
+#: models/abstractepisodeproxymodel.cpp:208
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Dagsetning: nýjasta fyrst"
 
-#: models/abstractepisodeproxymodel.cpp:219
+#: models/abstractepisodeproxymodel.cpp:210
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -577,25 +593,25 @@ msgctxt "@info:placeholder"
 msgid "No downloads"
 msgstr "Engar sóttar skrár"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Sæki"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Ófullgert niðurhal"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Sótt"
 
-#: qml/DownloadListPage.qml:76
+#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
@@ -695,7 +711,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Merkja sem \"Nýtt\""
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:321
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:336
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -703,7 +719,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Fjarlægja úr eftirlætum"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:312
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:327
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -990,22 +1006,22 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Virk sía: %1"
 
-#: qml/GenericEntryDelegate.qml:224
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "Played"
 msgstr "Spilað"
 
-#: qml/GenericEntryDelegate.qml:224
+#: qml/GenericEntryDelegate.qml:227
 #, kde-format
 msgid "Read"
 msgstr "Lesa"
 
-#: qml/GenericEntryDelegate.qml:230
+#: qml/GenericEntryDelegate.qml:233
 #, kde-format
 msgid "New"
 msgstr "Nýtt"
 
-#: qml/GenericEntryDelegate.qml:268
+#: qml/GenericEntryDelegate.qml:271
 #, kde-format
 msgctxt ""
 "@info:tooltip Tooltip for an icon that can be displayed on an episode list "
@@ -1015,32 +1031,32 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:349 qml/GenericEntryListView.qml:268
+#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:283
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Fjarlægja úr biðröð"
 
-#: qml/GenericEntryDelegate.qml:358 qml/GenericEntryListView.qml:330
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:345
 #, kde-format
 msgid "Download"
 msgstr "Sækja"
 
-#: qml/GenericEntryDelegate.qml:368
+#: qml/GenericEntryDelegate.qml:371
 #, kde-format
 msgid "Cancel Download"
 msgstr "Hætta við niðurhal"
 
-#: qml/GenericEntryDelegate.qml:375
+#: qml/GenericEntryDelegate.qml:378
 #, kde-format
 msgid "Delete Download"
 msgstr "Eyða niðurhali"
 
-#: qml/GenericEntryDelegate.qml:382 qml/GenericEntryListView.qml:258
+#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:273
 #, kde-format
 msgid "Add to Queue"
 msgstr "Bæta við biðröð"
 
-#: qml/GenericEntryDelegate.qml:399 qml/GenericEntryListView.qml:349
+#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:364
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1048,19 +1064,35 @@ msgctxt ""
 msgid "Stream"
 msgstr "Streyma"
 
-#: qml/GenericEntryListView.qml:136
+#: qml/GenericEntryListView.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title:group Status of downloaded episodes"
+#| msgid "Downloaded"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Not Downloaded"
+msgstr "Sótt"
+
+#: qml/GenericEntryListView.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Episodes not marked as Favorite"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Episodes without Media Files"
+msgstr "Þættir ekki merktir sem eftirlæti"
+
+#: qml/GenericEntryListView.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Raða"
 
-#: qml/GenericEntryListView.qml:139
+#: qml/GenericEntryListView.qml:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Veldu hvernig eigi að raða þáttum"
 
-#: qml/GenericEntryListView.qml:193
+#: qml/GenericEntryListView.qml:208
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1068,43 +1100,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Sía"
 
-#: qml/GenericEntryListView.qml:195
+#: qml/GenericEntryListView.qml:210
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Sía þætti eftir stöðu"
 
-#: qml/GenericEntryListView.qml:239
+#: qml/GenericEntryListView.qml:254
 #, kde-format
 msgid "Select All"
 msgstr "Velja allt"
 
-#: qml/GenericEntryListView.qml:249
+#: qml/GenericEntryListView.qml:264
 #, kde-format
 msgid "Deselect All"
 msgstr "Afvelja allt"
 
-#: qml/GenericEntryListView.qml:278
+#: qml/GenericEntryListView.qml:293
 #, kde-format
 msgid "Mark as Played"
 msgstr "Merkja sem spilað"
 
-#: qml/GenericEntryListView.qml:286
+#: qml/GenericEntryListView.qml:301
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Merkja sem óspilað"
 
-#: qml/GenericEntryListView.qml:294
+#: qml/GenericEntryListView.qml:309
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Merkja sem \"Nýtt\""
 
-#: qml/GenericEntryListView.qml:303
+#: qml/GenericEntryListView.qml:318
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Fjarlægja \"Nýtt\"-merki"
 
-#: qml/GenericEntryListView.qml:340
+#: qml/GenericEntryListView.qml:355
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
