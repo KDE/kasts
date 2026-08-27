@@ -48,7 +48,8 @@ bool AbstractEpisodeProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
     case DownloadedFilter:
         accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloaded
             || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloading
-            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::PartiallyDownloaded;
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::PartiallyDownloaded
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Queued;
         break;
     case NotDownloadedFilter:
         accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloadable
