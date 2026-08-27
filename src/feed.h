@@ -13,8 +13,6 @@
 #include <QVector>
 #include <qqmlintegration.h>
 
-#include "models/entriesproxymodel.h"
-
 class Feed : public QObject
 {
     Q_OBJECT
@@ -37,7 +35,6 @@ class Feed : public QObject
     Q_PROPERTY(int favoriteEntryCount READ favoriteEntryCount NOTIFY favoriteEntryCountChanged)
     Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
     Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
-    Q_PROPERTY(EntriesProxyModel *entries MEMBER m_entries CONSTANT)
 
 public:
     explicit Feed(const qint64 feeduid, QObject *parent = nullptr);
@@ -99,8 +96,6 @@ private:
     void updateUnreadEntryCountFromDB();
     void updateNewEntryCountFromDB();
     void updateFavoriteEntryCountFromDB();
-    void initFilterType(int value);
-    void initSortType(int value);
 
     qint64 m_feeduid;
     QString m_url;
@@ -119,5 +114,4 @@ private:
     int m_newEntryCount = -1;
     int m_favoriteEntryCount = -1;
     bool m_refreshing = false;
-    EntriesProxyModel *m_entries;
 };

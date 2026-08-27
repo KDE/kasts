@@ -38,7 +38,7 @@ ListView {
 
             required property string section
 
-            // NOTE: the Enclosure.Status enum values get converted to strings
+            // NOTE: the DataTypes.EnclosureStatus enum values get converted to strings
             text: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : section == "Downloadable" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Not Downloaded") : section == "NoEnclosure" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Episodes without Media Files") : ""
         }
         property: "downloaded"
@@ -341,7 +341,7 @@ ListView {
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
         text: KI18n.i18n("Download")
         icon.name: "download"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : true)
         onTriggered: {
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.selection = root.selectionForContextMenu;
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
@@ -351,7 +351,7 @@ ListView {
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
         text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", root.selectionForContextMenu.length)
         icon.name: "delete"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloadable : false) : true)
         onTriggered: {
             DataManager.bulkDeleteEnclosuresByIndex(root.selectionForContextMenu);
         }
@@ -360,7 +360,7 @@ ListView {
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : false)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : false)
         onTriggered: {
             if (!root.singleSelectedEntry.queueStatus) {
                 root.singleSelectedEntry.queueStatus = true;
@@ -417,17 +417,17 @@ ListView {
         }
         Controls.MenuItem {
             action: root.downloadEnclosureAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== Enclosure.Downloaded : false) : true
+            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.deleteEnclosureAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== Enclosure.Downloadable : false) : true
+            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloadable : false) : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.streamAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? (root.singleSelectedEntry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : false
+            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? (root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : false
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         onClosed: {

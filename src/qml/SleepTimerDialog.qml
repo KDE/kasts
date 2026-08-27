@@ -10,6 +10,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kasts
 
@@ -59,7 +60,7 @@ Kirigami.Dialog {
         Controls.Label {
             opacity: root.timerActive ? 1 : 0.5
             Layout.bottomMargin: Kirigami.Units.largeSpacing
-            text: KI18n.i18n("Remaining time: %1", AudioManager.formattedRemainingSleepTime)
+            text: KI18n.i18n("Remaining time: %1", Format.formatDuration(AudioManager.remainingSleepTime > 0 ? AudioManager.remainingSleepTime * 1000 : 0))
         }
 
         RowLayout {

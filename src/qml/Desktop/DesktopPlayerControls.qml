@@ -12,6 +12,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kmediasession
 import org.kde.kasts
@@ -177,7 +178,7 @@ FocusScope {
 
         Controls.Label {
             id: currentPositionLabel
-            text: AudioManager.formattedPosition
+            text: Format.formatDuration(AudioManager.position)
             visible: !playerControlToolBar.tooNarrowAudioLabels
             Layout.alignment: Qt.AlignVCenter
         }
@@ -202,7 +203,7 @@ FocusScope {
                 id: endLabel
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: SettingsManager.toggleRemainingTime ? "-" + AudioManager.formattedLeftDuration : AudioManager.formattedDuration
+                text: SettingsManager.toggleRemainingTime ? "-" + Format.formatDuration(AudioManager.leftDuration) : Format.formatDuration(AudioManager.duration)
             }
 
             MouseArea {

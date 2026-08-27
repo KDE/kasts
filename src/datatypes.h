@@ -10,14 +10,31 @@
 #include <QQmlEngine>
 #include <QString>
 
-#include "enclosure.h"
-
 namespace DataTypes
 {
 Q_NAMESPACE
 QML_ELEMENT
 
-// enums
+// enums and conversion functions
+enum EnclosureStatus {
+    Error = -1,
+    Downloadable = 0,
+    Downloading = 1,
+    Queued = 2,
+    PartiallyDownloaded = 3,
+    Downloaded = 4,
+    NoEnclosure = 5,
+};
+Q_ENUM_NS(EnclosureStatus)
+inline int statusToDb(DataTypes::EnclosureStatus status) // needed to translate Enclosure::Status values to int for sqlite
+{
+    return static_cast<int>(status);
+};
+inline DataTypes::EnclosureStatus dbToStatus(int value) // needed to translate from int to Enclosure::Status values for sqlite
+{
+    return DataTypes::EnclosureStatus(value);
+};
+
 enum RecordState {
     Unmodified = 0,
     New,
@@ -43,7 +60,7 @@ struct EnclosureDetails {
     QString type;
     QString url;
     int playPosition;
-    Enclosure::Status downloaded;
+    DataTypes::EnclosureStatus downloaded;
     RecordState state;
 
     // Fields that are only used in case state == Modified

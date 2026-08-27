@@ -15,7 +15,6 @@
 #include <QString>
 #include <QUrl>
 
-#include <KFormat>
 #include <qtmetamacros.h>
 
 #include "entry.h"
@@ -41,17 +40,14 @@ class AudioManager : public QObject
     Q_PROPERTY(KMediaSession::Error error READ error NOTIFY errorChanged)
     Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
     Q_PROPERTY(qint64 position READ position WRITE setPosition NOTIFY positionChanged)
+    Q_PROPERTY(qint64 leftDuration READ leftDuration NOTIFY positionChanged)
     Q_PROPERTY(bool seekable READ seekable NOTIFY seekableChanged)
     Q_PROPERTY(bool canPlay READ canPlay NOTIFY canPlayChanged)
     Q_PROPERTY(bool canSkipForward READ canSkipForward NOTIFY canSkipForwardChanged)
     Q_PROPERTY(bool canSkipBackward READ canSkipBackward NOTIFY canSkipBackwardChanged)
     Q_PROPERTY(bool canGoNext READ canGoNext NOTIFY canGoNextChanged)
-    Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY positionChanged)
-    Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
-    Q_PROPERTY(QString formattedPosition READ formattedPosition NOTIFY positionChanged)
     Q_PROPERTY(qint64 sleepTime READ sleepTime WRITE setSleepTimer RESET stopSleepTimer NOTIFY sleepTimerChanged)
     Q_PROPERTY(qint64 remainingSleepTime READ remainingSleepTime NOTIFY remainingSleepTimeChanged)
-    Q_PROPERTY(QString formattedRemainingSleepTime READ formattedRemainingSleepTime NOTIFY remainingSleepTimeChanged)
     Q_PROPERTY(bool isStreaming READ isStreaming NOTIFY isStreamingChanged)
 
 public:
@@ -85,6 +81,7 @@ public:
     [[nodiscard]] KMediaSession::Error error() const;
     [[nodiscard]] qint64 duration() const;
     [[nodiscard]] qint64 position() const;
+    [[nodiscard]] qint64 leftDuration() const;
     [[nodiscard]] bool seekable() const;
     [[nodiscard]] bool canPlay() const;
     [[nodiscard]] bool canPause() const;
@@ -92,13 +89,8 @@ public:
     [[nodiscard]] bool canSkipBackward() const;
     [[nodiscard]] bool canGoNext() const;
 
-    QString formattedDuration() const;
-    QString formattedLeftDuration() const;
-    QString formattedPosition() const;
-
     qint64 sleepTime() const; // returns originally set sleep time
     qint64 remainingSleepTime() const; // returns remaining sleep time
-    QString formattedRemainingSleepTime() const;
 
     bool isStreaming() const;
 
@@ -172,5 +164,4 @@ private:
     friend class AudioManagerPrivate;
 
     std::unique_ptr<AudioManagerPrivate> d;
-    KFormat m_kformat;
 };

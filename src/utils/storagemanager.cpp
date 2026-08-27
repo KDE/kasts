@@ -34,7 +34,7 @@ StorageManager::StorageManager()
     }
 }
 
-QString StorageManager::storagePath() const
+QString StorageManager::storagePath()
 {
     QString path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 
@@ -116,7 +116,7 @@ void StorageManager::setStoragePath(QUrl url)
     }
 }
 
-QString StorageManager::imageDirPath() const
+QString StorageManager::imageDirPath()
 {
     QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1StringView("/cacheDir/");
     // Create path if it doesn't exist yet
@@ -124,17 +124,17 @@ QString StorageManager::imageDirPath() const
     return path;
 }
 
-QString StorageManager::imagePath(const QString &url) const
+QString StorageManager::imagePath(const QString &url)
 {
     return imageDirPath() + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString());
 }
 
-QString StorageManager::enclosureDirPath() const
+QString StorageManager::enclosureDirPath()
 {
     return enclosureDirPath(QLatin1String(""));
 }
 
-QString StorageManager::enclosureDirPath(const QString &feedname) const
+QString StorageManager::enclosureDirPath(const QString &feedname)
 {
     QString path = storagePath() + QStringLiteral("/enclosures/");
 
@@ -147,20 +147,20 @@ QString StorageManager::enclosureDirPath(const QString &feedname) const
     return path;
 }
 
-QString StorageManager::enclosurePath(const QString &name, const QString &url, const QString &feedname) const
+QString StorageManager::enclosurePath(const QString &title, const QString &url, const QString &feedDirName)
 {
     // Generate filename based on episode name and url hash with feedname as subdirectory
-    QString enclosureFilenameBase = sanitizedFilePath(name) + QStringLiteral(".")
+    QString enclosureFilenameBase = sanitizedFilePath(title) + QStringLiteral(".")
         + QString::fromStdString(QCryptographicHash::hash(url.toUtf8(), QCryptographicHash::Md5).toHex().toStdString()).left(6);
 
     QString enclosureFilenameExt = QFileInfo(QUrl::fromUserInput(url).fileName()).suffix();
 
     QString enclosureFilename = !enclosureFilenameExt.isEmpty() ? enclosureFilenameBase + QStringLiteral(".") + enclosureFilenameExt : enclosureFilenameBase;
 
-    return enclosureDirPath(feedname) + enclosureFilename;
+    return enclosureDirPath(feedDirName) + enclosureFilename;
 }
 
-qint64 StorageManager::dirSize(const QString &path) const
+qint64 StorageManager::dirSize(const QString &path)
 {
     qint64 size = 0;
     QFileInfoList files = QDir(path).entryInfoList(QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot);
@@ -201,32 +201,22 @@ void StorageManager::clearImageCache()
     Q_EMIT imageDirSizeChanged();
 }
 
-qint64 StorageManager::enclosureDirSize() const
+qint64 StorageManager::enclosureDirSize()
 {
     return dirSize(enclosureDirPath());
 }
 
-qint64 StorageManager::imageDirSize() const
+qint64 StorageManager::imageDirSize()
 {
     return dirSize(imageDirPath());
 }
 
-QString StorageManager::formattedEnclosureDirSize() const
-{
-    return m_kformat.formatByteSize(enclosureDirSize());
-}
-
-QString StorageManager::formattedImageDirSize() const
-{
-    return m_kformat.formatByteSize(imageDirSize());
-}
-
-QString StorageManager::passwordFilePath(const QString &username) const
+QString StorageManager::passwordFilePath(const QString &username)
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QStringLiteral("/") + username;
 }
 
-QString StorageManager::sanitizedFilePath(const QString &path) const
+QString StorageManager::sanitizedFilePath(const QString &path)
 {
     // NOTE: Any changes here require a database migration and corresponding
     // updates in database.cpp (see e.g. migrateTo8())

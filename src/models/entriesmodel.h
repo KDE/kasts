@@ -22,6 +22,7 @@ class EntriesModel : public AbstractEpisodeModel
 
 public:
     explicit EntriesModel(const qint64 feeduid, QObject *parent = nullptr);
+    ~EntriesModel();
 
 protected:
     const qint64 m_feeduid;

@@ -25,6 +25,7 @@ add_executable(kasts
     utils/networkaccessmanagerfactory.cpp
     utils/networkconnectionmanager.cpp
     utils/colorschemer.cpp
+    utils/entryutils.cpp
     utils/utils.cpp
     models/abstractepisodemodel.cpp
     models/abstractepisodeproxymodel.cpp
@@ -172,6 +173,13 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
+    HEADER "models/entriesproxymodellogging.h"
+    IDENTIFIER "kastsEntriesProxyModel"
+    CATEGORY_NAME "org.kde.kasts.entriesproxymodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
     HEADER "entrylogging.h"
     IDENTIFIER "kastsEntry"
     CATEGORY_NAME "org.kde.kasts.entry"
@@ -196,6 +204,13 @@ ecm_qt_declare_logging_category(kasts
     HEADER "models/downloadmodellogging.h"
     IDENTIFIER "kastsDownloadModel"
     CATEGORY_NAME "org.kde.kasts.downloadmodel"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "models/episodemodellogging.h"
+    IDENTIFIER "kastsEpisodeModel"
+    CATEGORY_NAME "org.kde.kasts.episodemodel"
     DEFAULT_SEVERITY Info
 )
 

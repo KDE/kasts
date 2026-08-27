@@ -15,7 +15,6 @@
 #include "feed.h"
 #include "feedlogging.h"
 #include "fetcher.h"
-#include "models/abstractepisodeproxymodel.h"
 #include "objectslogging.h"
 
 Feed::Feed(const qint64 feeduid, QObject *parent)
@@ -43,8 +42,6 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     m_image = query.value(QStringLiteral("image")).toString();
     m_link = query.value(QStringLiteral("link")).toString();
     m_description = query.value(QStringLiteral("description")).toString();
-    int filterTypeValue = query.value(QStringLiteral("filterType")).toInt();
-    int sortTypeValue = query.value(QStringLiteral("sortType")).toInt();
     m_dirname = query.value(QStringLiteral("dirname")).toString();
 
     m_errorId = 0;
@@ -98,14 +95,6 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             setErrorString(message);
             setRefreshing(false);
         }
-    });
-
-    m_entries = new EntriesProxyModel(m_feeduid, this);
-
-    initFilterType(filterTypeValue);
-
-    QTimer::singleShot(0, this, [this, sortTypeValue]() {
-        initSortType(sortTypeValue);
     });
 }
 
@@ -179,50 +168,6 @@ void Feed::updateFavoriteEntryCountFromDB()
     if (!query.next())
         m_favoriteEntryCount = -1;
     m_favoriteEntryCount = query.value(0).toInt();
-}
-
-void Feed::initFilterType(int value)
-{
-    // restore saved filter
-    AbstractEpisodeProxyModel::FilterType filterType = AbstractEpisodeProxyModel::FilterType(value);
-    if (filterType != m_entries->filterType()) {
-        m_entries->setFilterType(filterType);
-    }
-
-    // save filter to db when changed
-    connect(m_entries, &EntriesProxyModel::filterTypeChanged, this, [this]() {
-        int filterTypeValue = static_cast<int>(m_entries->filterType());
-
-        Database::instance().transaction();
-        QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET filterType=:filterType WHERE feeduid=:feeduid;"));
-        writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-        writeQuery.bindValue(QStringLiteral(":filterType"), filterTypeValue);
-        Database::instance().execute(writeQuery);
-        Database::instance().commit();
-    });
-}
-
-void Feed::initSortType(int value)
-{
-    // restore saved sorting
-    AbstractEpisodeProxyModel::SortType sortType = AbstractEpisodeProxyModel::SortType(value);
-    if (sortType != m_entries->sortType()) {
-        m_entries->setSortType(sortType);
-    }
-
-    // save sort to db when changed
-    connect(m_entries, &EntriesProxyModel::sortTypeChanged, this, [this]() {
-        int sortTypeValue = static_cast<int>(m_entries->sortType());
-
-        Database::instance().transaction();
-        QSqlQuery writeQuery;
-        writeQuery.prepare(QStringLiteral("UPDATE Feeds SET sortType=:sortType WHERE feeduid=:feeduid;"));
-        writeQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-        writeQuery.bindValue(QStringLiteral(":sortType"), sortTypeValue);
-        Database::instance().execute(writeQuery);
-        Database::instance().commit();
-    });
 }
 
 qint64 Feed::feeduid() const

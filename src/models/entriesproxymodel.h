@@ -23,6 +23,7 @@ class EntriesProxyModel : public AbstractEpisodeProxyModel
 
 public:
     explicit EntriesProxyModel(const qint64 feeduid, QObject *parent = nullptr);
+    ~EntriesProxyModel();
 
 private:
     EntriesModel *m_entriesModel;

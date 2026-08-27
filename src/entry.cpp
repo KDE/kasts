@@ -20,13 +20,12 @@
 #include "fetcher.h"
 #include "objectslogging.h"
 #include "queuemodel.h"
+#include "utils/entryutils.h"
 
 Entry::Entry(const qint64 entryuid, QObject *parent)
-    : QObject(&DataManager::instance()) // TODO: remove explicit parenting after refactor
+    : QObject(parent)
     , m_entryuid(entryuid)
 {
-    Q_UNUSED(parent)
-
     qCDebug(kastsObjects) << "Entry object" << m_entryuid << "constructed";
 
     connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this](const bool state, const QList<qint64> &entryuids) {
@@ -421,15 +420,13 @@ bool Entry::hasEnclosure() const
 
 QString Entry::image() const
 {
-    if (m_hasenclosure && !m_enclosure->cachedEmbeddedImage().isEmpty()) {
-        // use embedded image if available
-        return m_enclosure->cachedEmbeddedImage();
-    } else if (!m_image.isEmpty()) {
-        return m_image;
-    } else {
-        // else fall back to feed image
-        return m_feed->image();
+    QString enclosureUrl;
+    DataTypes::EnclosureStatus enclosureStatus = DataTypes::EnclosureStatus::NoEnclosure;
+    if (m_enclosure) {
+        enclosureUrl = m_enclosure->url();
+        enclosureStatus = m_enclosure->status();
     }
+    return EntryUtils::entryImage(m_image, m_feed->image(), enclosureUrl, enclosureStatus, m_title, m_feed->dirname());
 }
 
 bool Entry::queueStatus() const

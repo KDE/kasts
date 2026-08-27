@@ -8,7 +8,7 @@
 
 #include <KLocalizedString>
 
-#include "enclosure.h"
+#include "datatypes.h"
 #include "models/abstractepisodemodel.h"
 
 AbstractEpisodeProxyModel::AbstractEpisodeProxyModel(QObject *parent)
@@ -46,14 +46,20 @@ bool AbstractEpisodeProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
         accepted = !sourceModel()->data(index, AbstractEpisodeModel::Roles::FavoriteRole).value<bool>();
         break;
     case DownloadedFilter:
-        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloaded
-            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloading
-            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::PartiallyDownloaded
-            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Queued;
+        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::Downloaded
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::Downloading
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::PartiallyDownloaded
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::Queued;
         break;
     case NotDownloadedFilter:
-        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::Downloadable
-            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<Enclosure::Status>() == Enclosure::Status::NoEnclosure;
+        accepted = sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::Downloadable
+            || sourceModel()->data(index, AbstractEpisodeModel::Roles::DownloadedRole).value<DataTypes::EnclosureStatus>()
+                == DataTypes::EnclosureStatus::NoEnclosure;
         break;
     default:
         accepted = true;
@@ -119,7 +125,7 @@ void AbstractEpisodeProxyModel::setFilterType(FilterType type)
         setSortRole(AbstractEpisodeModel::Roles::DownloadedOrderRole);
         sort(0, Qt::AscendingOrder);
     } else {
-        setSortType(m_currentSort);
+        setSortType(m_currentSort, true);
     }
 
     Q_EMIT filterTypeChanged();
@@ -145,21 +151,24 @@ void AbstractEpisodeProxyModel::setSearchFlags(AbstractEpisodeProxyModel::Search
     }
 }
 
-void AbstractEpisodeProxyModel::setSortType(SortType type)
+void AbstractEpisodeProxyModel::setSortType(SortType type, bool force)
 {
-    m_currentSort = type;
-    setSortRole(AbstractEpisodeModel::UpdatedRole);
+    if (m_currentSort != type || force) {
+        m_currentSort = type;
+        setSortRole(AbstractEpisodeModel::UpdatedRole);
 
-    switch (type) {
-    case SortType::DateDescending:
-        sort(0, Qt::DescendingOrder);
-        break;
-    case SortType::DateAscending:
-        sort(0, Qt::AscendingOrder);
-        break;
+        switch (type) {
+        case SortType::DateDescending:
+            // we assume that the base model is already sorted on descending date
+            sort(-1);
+            break;
+        case SortType::DateAscending:
+            sort(0, Qt::AscendingOrder);
+            break;
+        }
+
+        Q_EMIT sortTypeChanged();
     }
-
-    Q_EMIT sortTypeChanged();
 }
 
 QString AbstractEpisodeProxyModel::getFilterName(FilterType type)

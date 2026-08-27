@@ -23,7 +23,7 @@
 #include "settingsmanager.h"
 
 QueueModel::QueueModel(QObject *parent)
-    : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name FROM Feeds;"),
+    : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds;"),
                            QStringLiteral("SELECT * FROM Queue JOIN Entries ON Entries.entryuid=Queue.entryuid ORDER BY listnr;"),
                            QStringLiteral("SELECT * FROM Queue JOIN Enclosures ON Enclosures.entryuid=Queue.entryuid;"),
                            parent)
@@ -37,7 +37,7 @@ QueueModel::QueueModel(QObject *parent)
 
 qint64 QueueModel::timeLeft() const
 {
-    qint64 result = 0;
+    qint64 unscaledTimeLeft = 0;
 
     QSqlQuery query;
     query.prepare(
@@ -46,23 +46,17 @@ qint64 QueueModel::timeLeft() const
     if (query.next()) {
         qint64 total_duration = 1000 * query.value(QStringLiteral("SUM(Enclosures.duration)")).toLongLong();
         qint64 total_playedtime = query.value(QStringLiteral("SUM(Enclosures.playPosition)")).toLongLong();
-        result = total_duration - total_playedtime;
-        qCDebug(kastsQueueModel) << "timeLeft is" << result;
+        unscaledTimeLeft = total_duration - total_playedtime;
+        qCDebug(kastsQueueModel) << "timeLeft is" << unscaledTimeLeft;
     }
     query.finish();
 
-    return result;
-}
-
-QString QueueModel::formattedTimeLeft() const
-{
     qreal rate = 1.0;
     if (SettingsManager::self()->adjustTimeLeft()) {
         rate = AudioManager::instance().playbackRate();
         rate = (rate > 0.0) ? rate : 1.0;
     }
-    static KFormat format;
-    return format.formatDuration(timeLeft() / rate, KFormat::HideSeconds | KFormat::InitialDuration);
+    return (unscaledTimeLeft / rate);
 }
 
 QString QueueModel::getSortName(AbstractEpisodeProxyModel::SortType type)

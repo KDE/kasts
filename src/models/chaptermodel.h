@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <KFormat>
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
@@ -30,7 +29,6 @@ public:
         LinkRole = Qt::UserRole + 1,
         ImageRole,
         StartTimeRole,
-        FormattedStartTimeRole,
         ChapterRole,
         DurationRole,
         EntryRole,
@@ -67,7 +65,6 @@ private:
     qint64 m_entryuid;
     QPointer<Entry> m_entry = nullptr;
     QVector<Chapter *> m_chapters;
-    KFormat m_kformat;
     int m_currentChapter = 0;
     int m_duration;
 };

@@ -18,6 +18,10 @@
 #include "datamanager.h"
 #include "datatypes.h"
 #include "fetcher.h"
+#include "models/episodemodellogging.h"
+#include "objectslogging.h"
+#include "queuemodel.h"
+#include "utils/entryutils.h"
 
 AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent)
     : QAbstractListModel(parent)
@@ -25,25 +29,39 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
     , m_entryQuery(entryQuery)
     , m_enclosureQuery(enclosureQuery)
 {
-    // TODO: We should probably connect to feedUpdated to also get updates of e.g. the feed name?
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const qint64 feeduid) {
+        if (m_feeds.contains(feeduid)) {
+            updateFeeds({feeduid});
+            // TODO: consider using dataChanged on the relevant feed properties??
+        }
+    });
 
     connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
         updateEntries(entryuids);
         for (const qint64 entryuid : std::as_const(entryuids)) {
             qsizetype idx = m_entryOrder.indexOf(entryuid);
             if (idx > -1 && m_entries.contains(entryuid)) {
-                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), QList<int>(AbstractEpisodeModel::Roles::ReadRole));
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::ReadRole});
             }
         }
     });
     // The following lambda slot function ensure that any changes signaled by
     // DataManager are also applied to the model data and propagated correctly.
+    connect(&DataManager::instance(), &DataManager::entryQueueStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
+        Q_UNUSED(state)
+        for (const qint64 entryuid : std::as_const(entryuids)) {
+            qsizetype idx = m_entryOrder.indexOf(entryuid);
+            if (idx > -1 && m_entries.contains(entryuid)) {
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::QueueStatusRole});
+            }
+        }
+    });
     connect(&DataManager::instance(), &DataManager::entryReadStatusChanged, this, [this](bool state, const QList<qint64> &entryuids) {
         for (const qint64 entryuid : std::as_const(entryuids)) {
             qsizetype idx = m_entryOrder.indexOf(entryuid);
             if (idx > -1 && m_entries.contains(entryuid)) {
                 m_entries[entryuid].read = state;
-                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), QList<int>(AbstractEpisodeModel::Roles::ReadRole));
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::ReadRole});
             }
         }
     });
@@ -52,7 +70,7 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
             qsizetype idx = m_entryOrder.indexOf(entryuid);
             if (idx > -1 && m_entries.contains(entryuid)) {
                 m_entries[entryuid].isNew = state;
-                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), QList<int>(AbstractEpisodeModel::Roles::NewRole));
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::NewRole});
             }
         }
     });
@@ -61,36 +79,64 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
             qsizetype idx = m_entryOrder.indexOf(entryuid);
             if (idx > -1 && m_entries.contains(entryuid)) {
                 m_entries[entryuid].favorite = state;
-                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), QList<int>(AbstractEpisodeModel::Roles::FavoriteRole));
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::FavoriteRole});
             }
         }
     });
     connect(&DataManager::instance(),
             &DataManager::enclosureStatusesChanged,
             this,
-            [this](const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) {
+            [this](const QList<DataTypes::EnclosureStatus> &statuses, const QList<qint64> &entryuids) {
                 Q_ASSERT(entryuids.size() == statuses.size());
                 for (int i = 0; i < entryuids.size(); i++) {
                     qsizetype idx = m_entryOrder.indexOf(entryuids[i]);
                     if (idx > -1 && m_entries[entryuids[i]].enclosureOrder.length() > 0) {
                         m_entries[entryuids[i]].enclosures[m_entries[entryuids[i]].enclosureOrder[0]].downloaded = statuses[i];
-                        Q_EMIT dataChanged(index(idx, 0), index(idx, 0), QList<int>(AbstractEpisodeModel::Roles::DownloadedRole));
+                        Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::DownloadedRole});
+                        // The image might also have changed, e.g. through an embedded image in the id3 tag
+                        Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::ImageRole});
                     }
                 }
             });
-    // TODO: implement
-    //  - queue status
-    //  - playpositions
-    //  - duration
-    //  - size
-    //  - image
-    //  - other enclosure properties
-
-    QTimer::singleShot(0, this, [this]() {
-        beginResetModel();
-        updateInternalState();
-        endResetModel();
+    connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, [this](const QList<qint64> &positions, const QList<qint64> &entryuids) {
+        Q_ASSERT(entryuids.size() == positions.size());
+        for (int i = 0; i < entryuids.size(); i++) {
+            qsizetype idx = m_entryOrder.indexOf(entryuids[i]);
+            if (idx > -1 && m_entries[entryuids[i]].enclosureOrder.length() > 0) {
+                m_entries[entryuids[i]].enclosures[m_entries[entryuids[i]].enclosureOrder[0]].playPosition = positions[i];
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::PlayPositionRole});
+            }
+        }
     });
+    connect(&DataManager::instance(), &DataManager::enclosureDurationsChanged, this, [this](const QList<qint64> &durations, const QList<qint64> &entryuids) {
+        Q_ASSERT(entryuids.size() == durations.size());
+        for (int i = 0; i < entryuids.size(); i++) {
+            qsizetype idx = m_entryOrder.indexOf(entryuids[i]);
+            if (idx > -1 && m_entries[entryuids[i]].enclosureOrder.length() > 0) {
+                m_entries[entryuids[i]].enclosures[m_entries[entryuids[i]].enclosureOrder[0]].duration = durations[i];
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::DurationRole});
+            }
+        }
+    });
+    connect(&DataManager::instance(), &DataManager::enclosureSizesChanged, this, [this](const QList<qint64> &sizes, const QList<qint64> &entryuids) {
+        Q_ASSERT(entryuids.size() == sizes.size());
+        for (int i = 0; i < entryuids.size(); i++) {
+            qsizetype idx = m_entryOrder.indexOf(entryuids[i]);
+            if (idx > -1 && m_entries[entryuids[i]].enclosureOrder.length() > 0) {
+                m_entries[entryuids[i]].enclosures[m_entries[entryuids[i]].enclosureOrder[0]].size = sizes[i];
+                Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::SizeRole});
+            }
+        }
+    });
+
+    updateInternalState();
+
+    qCDebug(kastsObjects) << "AbstractEpisodeModel constructed" << this;
+}
+
+AbstractEpisodeModel::~AbstractEpisodeModel()
+{
+    qCDebug(kastsObjects) << "AbstractEpisodeModel destructed" << this;
 }
 
 QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
@@ -100,62 +146,113 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
         {EntryuidRole, "entryuid"},
         {EntryRole, "entry"},
         {IdRole, "id"},
+        {QueueStatusRole, "queueStatus"},
         {ReadRole, "read"},
-        {NewRole, "new"},
+        {NewRole, "isNew"},
         {FavoriteRole, "favorite"},
+        {RemovedRole, "removed"},
         {ContentRole, "content"},
         {CreatedRole, "created"},
         {UpdatedRole, "updated"},
         {LinkRole, "link"},
+        {ImageRole, "image"},
+        {HasEnclosureRole, "hasEnclosure"},
+        {PlayPositionRole, "playPosition"},
+        {DurationRole, "duration"},
+        {SizeRole, "size"},
         {DownloadedRole, "downloaded"},
         {DownloadedOrderRole, "downloadedorder"},
         {FeeduidRole, "feeduid"},
-        {FeedNameRole, "feedname"},
+        {FeedNameRole, "feedName"},
+        {FeedImageRole, "feedImage"},
     };
 }
 
 QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
 {
+    qCDebug(kastsEpisodeModel) << "calling data for row" << index << "and role" << roleNames()[role];
+
+    if (!index.isValid()) {
+        return QVariant();
+    }
+
     switch (role) {
     case AbstractEpisodeModel::Roles::TitleRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].title);
     case AbstractEpisodeModel::Roles::EntryuidRole:
         return QVariant::fromValue(m_entryOrder[index.row()]);
     case AbstractEpisodeModel::Roles::EntryRole:
-        return QVariant::fromValue(DataManager::instance().getEntry(m_entries[m_entryOrder[index.row()]].entryuid));
+        return QVariant::fromValue(DataManager::instance().getEntry(m_entryOrder[index.row()]));
     case AbstractEpisodeModel::Roles::IdRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].id);
+    case AbstractEpisodeModel::Roles::QueueStatusRole:
+        return QVariant::fromValue(QueueModel::instance().entryInQueue(m_entryOrder[index.row()]));
     case AbstractEpisodeModel::Roles::ReadRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].read);
     case AbstractEpisodeModel::Roles::NewRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].isNew);
     case AbstractEpisodeModel::Roles::FavoriteRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].favorite);
+    case AbstractEpisodeModel::Roles::RemovedRole:
+        return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].removed);
     case AbstractEpisodeModel::Roles::ContentRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].content);
     case AbstractEpisodeModel::Roles::CreatedRole:
-        return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].created);
+        return QVariant::fromValue(QDateTime::fromSecsSinceEpoch(m_entries[m_entryOrder[index.row()]].created));
     case AbstractEpisodeModel::Roles::UpdatedRole:
-        return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].updated);
+        return QVariant::fromValue(QDateTime::fromSecsSinceEpoch(m_entries[m_entryOrder[index.row()]].updated));
     case AbstractEpisodeModel::Roles::LinkRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].link);
-    case AbstractEpisodeModel::Roles::DownloadedRole:
-        if (m_entries[m_entryOrder[index.row()]].enclosureOrder.length() > 0) {
-            return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder[0]].downloaded);
-        } else {
-            return QVariant::fromValue(Enclosure::Status::NoEnclosure);
-        }
-    case AbstractEpisodeModel::Roles::DownloadedOrderRole:
-        if (m_entries[m_entryOrder[index.row()]].enclosureOrder.length() > 0) {
+    case AbstractEpisodeModel::Roles::ImageRole: {
+        const DataTypes::EnclosureStatus enclosureStatus = m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()
+            ? DataTypes::EnclosureStatus::NoEnclosure
+            : m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloaded;
+        return QVariant::fromValue(EntryUtils::entryImage(m_entries[m_entryOrder[index.row()]].image,
+                                                          m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].image,
+                                                          m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0),
+                                                          enclosureStatus,
+                                                          m_entries[m_entryOrder[index.row()]].title,
+                                                          m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].dirname));
+    }
+    case AbstractEpisodeModel::Roles::HasEnclosureRole:
+        return !m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty();
+    case AbstractEpisodeModel::Roles::PlayPositionRole:
+        if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
             return QVariant::fromValue(
-                static_cast<int>(m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder[0]].downloaded));
+                m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].playPosition);
         } else {
-            return QVariant::fromValue(static_cast<int>(Enclosure::Status::NoEnclosure));
+            return QVariant();
         }
+    case AbstractEpisodeModel::Roles::DurationRole:
+        if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
+            return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].duration);
+        } else {
+            return QVariant();
+        }
+    case AbstractEpisodeModel::Roles::SizeRole:
+        if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
+            return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].size);
+        } else {
+            return QVariant();
+        }
+    case AbstractEpisodeModel::Roles::DownloadedRole: {
+        const DataTypes::EnclosureStatus enclosureStatus = m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()
+            ? DataTypes::EnclosureStatus::NoEnclosure
+            : m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloaded;
+        return QVariant::fromValue(enclosureStatus);
+    }
+    case AbstractEpisodeModel::Roles::DownloadedOrderRole: {
+        const DataTypes::EnclosureStatus enclosureStatus = m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()
+            ? DataTypes::EnclosureStatus::NoEnclosure
+            : m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloaded;
+        return QVariant::fromValue(static_cast<int>(enclosureStatus));
+    }
     case AbstractEpisodeModel::Roles::FeeduidRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].feeduid);
     case AbstractEpisodeModel::Roles::FeedNameRole:
         return QVariant::fromValue(m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].name);
+    case AbstractEpisodeModel::Roles::FeedImageRole:
+        return QVariant::fromValue(m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].image);
     default:
         return QVariant();
     }
@@ -180,6 +277,8 @@ void AbstractEpisodeModel::updateInternalState()
         DataTypes::FeedDetails feedDetails;
         feedDetails.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         feedDetails.name = query.value(QStringLiteral("name")).toString();
+        feedDetails.image = query.value(QStringLiteral("image")).toString();
+        feedDetails.dirname = query.value(QStringLiteral("dirname")).toString();
         m_feeds[feedDetails.feeduid] = feedDetails;
     }
     query.finish();
@@ -198,6 +297,7 @@ void AbstractEpisodeModel::updateInternalState()
         entryDetails.read = query.value(QStringLiteral("read")).toBool();
         entryDetails.isNew = query.value(QStringLiteral("new")).toBool();
         entryDetails.favorite = query.value(QStringLiteral("favorite")).toBool();
+        entryDetails.removed = query.value(QStringLiteral("removed")).toBool();
         entryDetails.link = query.value(QStringLiteral("link")).toString();
         entryDetails.hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
         entryDetails.image = query.value(QStringLiteral("image")).toString();
@@ -212,12 +312,14 @@ void AbstractEpisodeModel::updateInternalState()
         DataTypes::EnclosureDetails enclosureDetails;
         qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
         enclosureDetails.enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
+        enclosureDetails.type = query.value(QStringLiteral("type")).toString();
         enclosureDetails.duration = query.value(QStringLiteral("duration")).toLongLong();
         enclosureDetails.size = query.value(QStringLiteral("size")).toLongLong();
         enclosureDetails.url = query.value(QStringLiteral("url")).toString();
         enclosureDetails.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
-        enclosureDetails.downloaded = Enclosure::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
-        if (m_entries.contains(entryuid) && !m_entries[entryuid].enclosures.contains(enclosureDetails.url)) {
+        enclosureDetails.downloaded = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
+        if (m_entries.contains(entryuid) && !m_entries[entryuid].enclosures.contains(enclosureDetails.url)
+            && (enclosureDetails.type.contains(QStringLiteral("audio")) || enclosureDetails.type.contains(QStringLiteral("video")))) {
             m_entries[entryuid].enclosures[enclosureDetails.url] = enclosureDetails;
             m_entries[entryuid].enclosureOrder += enclosureDetails.url;
         }
@@ -245,6 +347,7 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
                 m_entries[entryuid].read = query.value(QStringLiteral("read")).toBool();
                 m_entries[entryuid].isNew = query.value(QStringLiteral("new")).toBool();
                 m_entries[entryuid].favorite = query.value(QStringLiteral("favorite")).toBool();
+                m_entries[entryuid].removed = query.value(QStringLiteral("removed")).toBool();
                 m_entries[entryuid].link = query.value(QStringLiteral("link")).toString();
                 m_entries[entryuid].hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
                 m_entries[entryuid].image = query.value(QStringLiteral("image")).toString();
@@ -263,12 +366,14 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
             while (query.next()) {
                 DataTypes::EnclosureDetails enclosureDetails;
                 enclosureDetails.enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
+                enclosureDetails.type = query.value(QStringLiteral("type")).toString();
                 enclosureDetails.duration = query.value(QStringLiteral("duration")).toLongLong();
                 enclosureDetails.size = query.value(QStringLiteral("size")).toLongLong();
                 enclosureDetails.url = query.value(QStringLiteral("url")).toString();
                 enclosureDetails.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
-                enclosureDetails.downloaded = Enclosure::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
-                if (!m_entries[entryuid].enclosures.contains(enclosureDetails.url)) {
+                enclosureDetails.downloaded = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
+                if (!m_entries[entryuid].enclosures.contains(enclosureDetails.url)
+                    && (enclosureDetails.type.contains(QStringLiteral("audio")) || enclosureDetails.type.contains(QStringLiteral("video")))) {
                     m_entries[entryuid].enclosures[enclosureDetails.url] = enclosureDetails;
                     m_entries[entryuid].enclosureOrder += enclosureDetails.url;
                 }
@@ -276,4 +381,22 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
         }
     }
     query.finish();
+}
+
+void AbstractEpisodeModel::updateFeeds(const QList<qint64> &feeduids)
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds WHERE feeduid=:feeduid"));
+    for (const qint64 feeduid : std::as_const(feeduids)) {
+        if (m_feeds.contains(feeduid)) {
+            query.bindValue(QStringLiteral(":feeduid"), feeduid);
+            Database::instance().execute(query);
+            while (query.next()) {
+                m_feeds[feeduid].feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
+                m_feeds[feeduid].name = query.value(QStringLiteral("name")).toString();
+                m_feeds[feeduid].image = query.value(QStringLiteral("image")).toString();
+                m_feeds[feeduid].dirname = query.value(QStringLiteral("dirname")).toString();
+            }
+        }
+    }
 }

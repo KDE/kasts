@@ -25,8 +25,6 @@
 #include "settingsmanager.h"
 #include "sync/sync.h"
 #include "utils/fetchfeedsjob.h"
-#include "utils/networkconnectionmanager.h"
-#include "utils/storagemanager.h"
 
 Fetcher::Fetcher()
 {

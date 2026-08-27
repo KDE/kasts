@@ -14,6 +14,7 @@ import QtQml.Models
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kmediasession
 import org.kde.kasts
@@ -29,7 +30,21 @@ AddonDelegates.RoundedItemDelegate {
     required property Entry entry
     required property int entryuid
     required property int index
+    required property string title
     required property int downloaded
+    required property bool hasEnclosure
+    required property bool isNew
+    required property bool read
+    required property bool favorite
+    required property bool removed
+    required property date updated
+    required property string image
+    required property string feedImage
+    required property string feedName
+    required property bool queueStatus
+    required property int playPosition
+    required property int duration
+    required property int size
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
@@ -40,14 +55,14 @@ AddonDelegates.RoundedItemDelegate {
     property GenericEntryListView listViewObject: undefined
     property bool selected: false
 
-    property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: entry.enclosure && (!downloadFilterActive || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
-    property bool showCancelDownloadButton: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || entry.enclosure.status == Enclosure.Queued)
-    property bool showDeleteDownloadButton: downloadFilterActive && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || entry.enclosure.status === Enclosure.PartiallyDownloaded)
-    property bool showAddToQueueButton: !downloadFilterActive && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showPlayButton: !downloadFilterActive && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !downloadFilterActive && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showPauseButton: !downloadFilterActive && entry.queueStatus && entry.enclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showRemoveFromQueueButton: !hasEnclosure && queueStatus
+    property bool showDownloadButton: hasEnclosure && (!downloadFilterActive || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded) && (downloaded === DataTypes.EnclosureStatus.Downloadable || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showCancelDownloadButton: hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloading || downloaded == DataTypes.EnclosureStatus.Queued)
+    property bool showDeleteDownloadButton: downloadFilterActive && hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloaded || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)
+    property bool showAddToQueueButton: !downloadFilterActive && !queueStatus && hasEnclosure && downloaded === DataTypes.EnclosureStatus.Downloaded
+    property bool showPlayButton: !downloadFilterActive && queueStatus && hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !downloadFilterActive && hasEnclosure && (downloaded !== DataTypes.EnclosureStatus.Downloaded && downloaded !== DataTypes.EnclosureStatus.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: !downloadFilterActive && queueStatus && hasEnclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton: Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
@@ -57,10 +72,21 @@ AddonDelegates.RoundedItemDelegate {
         Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
+    function leftDuration(duration: int, playPosition: int): int {
+        var rate = 1.0;
+
+        if (SettingsManager.adjustTimeLeft) {
+            rate = AudioManager.playbackRate;
+            rate = (rate > 0.0) ? rate : 1.0;
+        }
+        var diff = duration * 1000 - playPosition;
+        return (diff / rate);
+    }
+
     highlighted: selected
 
     Accessible.role: Accessible.Button
-    Accessible.name: entry.title
+    Accessible.name: title
     Accessible.onPressAction: {
         delegateTapped();
     }
@@ -89,9 +115,9 @@ AddonDelegates.RoundedItemDelegate {
         // only mark pure rss feeds as read + not new;
         // podcasts should only be marked read once they have been listened to, and only
         // marked as non-new once they've been downloaded
-        if (!entry.enclosure) {
-            entry.read = true;
-            entry.new = false;
+        if (!hasEnclosure) {
+            DataManager.bulkMarkRead(true, [entryuid]);
+            DataManager.bulkMarkNew(false, [entryuid]);
         }
         if (isQueue || downloadFilterActive) {
             const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
@@ -203,7 +229,7 @@ AddonDelegates.RoundedItemDelegate {
 
         ImageWithFallback {
             id: img
-            imageSource: root.showFeedImage ? root.entry.feed.image : root.entry.image
+            imageSource: root.showFeedImage ? root.feedImage : root.image
             property int size: Kirigami.Units.gridUnit * 3
             Layout.preferredHeight: size
             Layout.preferredWidth: size
@@ -220,39 +246,39 @@ AddonDelegates.RoundedItemDelegate {
                     Layout.maximumHeight: playedLabel.implicitHeight
                     Layout.maximumWidth: playedLabel.implicitHeight
                     source: "checkbox"
-                    visible: root.entry.read
+                    visible: root.read
                 }
                 Controls.Label {
                     id: playedLabel
-                    text: (root.entry.enclosure ? KI18n.i18n("Played") : KI18n.i18n("Read")) + "  ·"
+                    text: (root.hasEnclosure ? KI18n.i18n("Played") : KI18n.i18n("Read")) + "  ·"
                     font: Kirigami.Theme.smallFont
-                    visible: root.entry.read
+                    visible: root.read
                     opacity: 0.7
                 }
                 Controls.Label {
-                    text: root.entry.new ? KI18n.i18n("New") + "  ·" : ""
+                    text: root.isNew ? KI18n.i18n("New") + "  ·" : ""
                     font.capitalization: Font.AllUppercase
                     color: Kirigami.Theme.highlightColor
-                    visible: root.entry.new
+                    visible: root.isNew
                     opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth: 0.8 * supertitle.implicitHeight
                     source: "starred-symbolic"
-                    visible: root.entry.favorite
+                    visible: root.favorite
                     opacity: 0.7
                 }
                 Kirigami.Icon {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth: 0.8 * supertitle.implicitHeight
                     source: "source-playlist"
-                    visible: !root.isQueue && root.entry.queueStatus
+                    visible: !root.isQueue && root.queueStatus
                     opacity: 0.7
                 }
                 Controls.Label {
                     id: supertitle
-                    text: (((!root.isQueue && root.entry.queueStatus) || root.entry.favorite) ? "·  " : "") + root.entry.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.entry.enclosure ? (root.entry.enclosure.size !== 0 ? "  ·  " + root.entry.enclosure.formattedSize : "") : "") + ((root.entry.feed && root.showFeedTitle) ? "  ·  " + root.entry.feed.name : "") + (root.entry.removed ? "  ·" : "")
+                    text: (((!root.isQueue && root.queueStatus) || root.favorite) ? "·  " : "") + root.updated.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + (root.hasEnclosure ? (root.size !== 0 ? "  ·  " + Format.formatByteSize(root.size) : "") : "") + (root.showFeedTitle ? "  ·  " + root.feedName : "") + (root.removed ? "  ·" : "")
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
@@ -261,7 +287,7 @@ AddonDelegates.RoundedItemDelegate {
                     Layout.maximumHeight: 0.8 * supertitle.implicitHeight
                     Layout.maximumWidth: 0.8 * supertitle.implicitHeight
                     source: "emblem-unmounted"
-                    visible: root.entry.removed
+                    visible: root.removed
                     opacity: 0.7
 
                     HoverHandler {
@@ -279,19 +305,19 @@ AddonDelegates.RoundedItemDelegate {
                 }
             }
             Controls.Label {
-                text: root.entry.title
+                text: root.title
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || root.entry.enclosure.status === Enclosure.Queued || (root.downloadFilterActive && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: root.hasEnclosure && (root.downloaded === DataTypes.EnclosureStatus.Downloading || root.downloaded === DataTypes.EnclosureStatus.Queued || (root.downloadFilterActive && root.downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)) ? downloadProgress : (root.hasEnclosure && root.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
                 id: subtitle
                 Controls.Label {
-                    text: root.entry.enclosure ? root.entry.enclosure.formattedDuration : ""
+                    text: root.hasEnclosure ? Format.formatDuration(root.duration * 1000) : ""
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     font: Kirigami.Theme.smallFont
@@ -302,21 +328,21 @@ AddonDelegates.RoundedItemDelegate {
                 id: downloadProgress
                 RowLayout {
                     Controls.Label {
-                        visible: root.entry.enclosure.status != Enclosure.Queued
-                        text: root.entry.enclosure.formattedDownloadSize
+                        visible: root.downloaded != DataTypes.EnclosureStatus.Queued
+                        text: Format.formatByteSize(root.entry.enclosure.downloadSize)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
-                        indeterminate: root.entry.enclosure.status == Enclosure.Queued
+                        indeterminate: root.downloaded == DataTypes.EnclosureStatus.Queued
                         from: 0
                         to: 1
                         value: root.entry.enclosure.downloadProgress
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: root.entry.enclosure.formattedSize
+                        text: Format.formatByteSize(root.size)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -327,19 +353,19 @@ AddonDelegates.RoundedItemDelegate {
                 id: playProgress
                 RowLayout {
                     Controls.Label {
-                        text: root.entry.enclosure.formattedPlayPosition
+                        text: Format.formatDuration(root.playPosition)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
                         from: 0
-                        to: root.entry.enclosure.duration
-                        value: root.entry.enclosure.playPosition / 1000
+                        to: root.duration
+                        value: root.playPosition / 1000
                         Layout.fillWidth: true
                     }
                     Controls.Label {
-                        text: SettingsManager.toggleRemainingTime ? "-" + root.entry.enclosure.formattedLeftDuration : root.entry.enclosure.formattedDuration
+                        text: SettingsManager.toggleRemainingTime ? "-" + Format.formatDuration(root.leftDuration(root.duration, root.playPosition)) : Format.formatDuration(root.duration * 1000)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -352,7 +378,7 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Remove from Queue")
             icon.name: "list-remove"
             onClicked: {
-                root.entry.queueStatus = false;
+                DataManager.bulkQueueStatus(false, [root.entryuid]);
             }
             visible: root.showRemoveFromQueueButton
         }
@@ -385,7 +411,7 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Add to Queue")
             icon.name: "media-playlist-append"
             visible: root.showAddToQueueButton
-            onClicked: root.entry.queueStatus = true
+            onClicked: DataManager.bulkQueueStatus(true, [root.entryuid])
         }
 
         IconOnlyButton {
@@ -403,8 +429,8 @@ AddonDelegates.RoundedItemDelegate {
             icon.name: "media-playback-cloud"
             visible: root.showStreamingPlayButton
             onClicked: {
-                if (!root.entry.queueStatus) {
-                    root.entry.queueStatus = true;
+                if (!root.queueStatus) {
+                    DataManager.bulkQueueStatus(true, [root.entryuid]);
                 }
                 AudioManager.entryuid = root.entryuid;
                 AudioManager.play();

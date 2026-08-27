@@ -12,8 +12,7 @@
 #include <QQmlEngine>
 #include <QString>
 
-#include <KFormat>
-
+#include "datatypes.h"
 #include "models/errorlogmodel.h"
 
 class Entry;
@@ -25,39 +24,19 @@ class Enclosure : public QObject
     QML_UNCREATABLE("")
 
     Q_PROPERTY(qint64 enclosureuid READ enclosureuid CONSTANT)
-    Q_PROPERTY(qint64 size READ size WRITE setSize NOTIFY sizeChanged)
-    Q_PROPERTY(QString formattedSize READ formattedSize NOTIFY sizeChanged)
-    Q_PROPERTY(qint64 sizeOnDisk READ sizeOnDisk NOTIFY sizeOnDiskChanged)
+    Q_PROPERTY(qint64 size READ size NOTIFY sizeChanged)
     Q_PROPERTY(QString type MEMBER m_type NOTIFY typeChanged)
     Q_PROPERTY(QString url READ url NOTIFY urlChanged)
-    Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
+    Q_PROPERTY(DataTypes::EnclosureStatus status READ status NOTIFY statusChanged)
     Q_PROPERTY(double downloadProgress MEMBER m_downloadProgress NOTIFY downloadProgressChanged)
-    Q_PROPERTY(QString formattedDownloadSize READ formattedDownloadSize NOTIFY downloadProgressChanged)
+    Q_PROPERTY(qint64 downloadSize READ downloadSize NOTIFY downloadProgressChanged)
     Q_PROPERTY(QString path READ path NOTIFY pathChanged)
-    Q_PROPERTY(QString cachedEmbeddedImage READ cachedEmbeddedImage CONSTANT)
     Q_PROPERTY(qint64 playPosition READ playPosition WRITE setPlayPosition NOTIFY playPositionChanged)
-    Q_PROPERTY(QString formattedLeftDuration READ formattedLeftDuration NOTIFY leftDurationChanged)
-    Q_PROPERTY(QString formattedPlayPosition READ formattedPlayPosition NOTIFY playPositionChanged)
-    Q_PROPERTY(qint64 duration READ duration WRITE setDuration NOTIFY durationChanged)
-    Q_PROPERTY(QString formattedDuration READ formattedDuration NOTIFY durationChanged)
+    Q_PROPERTY(qint64 duration READ duration NOTIFY durationChanged)
 
 public:
     Enclosure(Entry *entry);
     ~Enclosure();
-
-    enum Status {
-        Error = -1,
-        Downloadable = 0,
-        Downloading = 1,
-        Queued = 2,
-        PartiallyDownloaded = 3,
-        Downloaded = 4,
-        NoEnclosure = 5,
-    };
-    Q_ENUM(Status)
-
-    static int statusToDb(Status status); // needed to translate Enclosure::Status values to int for sqlite
-    static Status dbToStatus(int value); // needed to translate from int to Enclosure::Status values for sqlite
 
     Q_INVOKABLE void download();
     Q_INVOKABLE void deleteFile();
@@ -65,36 +44,25 @@ public:
     qint64 enclosureuid() const;
     QString path() const;
     QString url() const;
-    Status status() const;
-    QString cachedEmbeddedImage() const;
+    DataTypes::EnclosureStatus status() const;
     qint64 playPosition() const;
     qint64 duration() const;
     qint64 size() const;
-    qint64 sizeOnDisk() const;
-    QString formattedSize() const;
-    QString formattedDuration() const;
-    QString formattedLeftDuration() const;
-    QString formattedPlayPosition() const;
-    QString formattedDownloadSize() const;
+    qint64 downloadSize() const;
 
-    void setStatus(Status status);
     void setPlayPosition(const qint64 &position);
-    void setDuration(const qint64 &duration);
-    void setSize(const qint64 &size);
     void checkSizeOnDisk();
 
 Q_SIGNALS:
     void typeChanged(const QString &type);
     void urlChanged(const QString &url);
     void pathChanged(const QString &path);
-    void statusChanged(Entry *entry, Status status);
+    void statusChanged(Entry *entry, DataTypes::EnclosureStatus status);
     void downloadProgressChanged();
     void cancelDownload();
     void playPositionChanged();
-    void leftDurationChanged();
     void durationChanged();
     void sizeChanged();
-    void sizeOnDiskChanged();
     void downloadError(const ErrorLogModel::Type type, const QString &message);
 
 private:
@@ -113,6 +81,5 @@ private:
     qint64 m_playposition_dbsave;
     double m_downloadProgress = 0;
     qint64 m_downloadSize = 0;
-    Status m_status;
-    KFormat m_kformat;
+    DataTypes::EnclosureStatus m_status;
 };

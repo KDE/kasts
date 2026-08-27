@@ -26,11 +26,11 @@
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
+#include "datatypes.h"
 #include "entry.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
 #include "objectslogging.h"
-#include "settingsmanager.h"
 #include "utils/enclosuredownloadjob.h"
 #include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
@@ -39,14 +39,12 @@ Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
-    connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
     connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             updateFromDb();
         }
     });
-    connect(&AudioManager::instance(), &AudioManager::playbackRateChanged, this, &Enclosure::leftDurationChanged);
     connect(&DataManager::instance(), &DataManager::entryPlayPositionsChanged, this, [this](const QList<qint64> &positions, const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             qint64 index = entryuids.indexOf(m_entryuid);
@@ -71,16 +69,19 @@ Enclosure::Enclosure(Entry *entry)
             Q_EMIT sizeChanged();
         }
     });
-    connect(&DataManager::instance(), &DataManager::enclosureStatusesChanged, this, [this](const QList<Status> &statuses, const QList<qint64> &entryuids) {
-        if (entryuids.contains(m_entryuid)) {
-            qint64 index = entryuids.indexOf(m_entryuid);
-            Q_ASSERT(index > -1);
-            m_status = statuses[index];
-            m_downloadProgress = 0;
-            m_downloadSize = 0;
-            Q_EMIT statusChanged(m_entry, m_status);
-        }
-    });
+    connect(&DataManager::instance(),
+            &DataManager::enclosureStatusesChanged,
+            this,
+            [this](const QList<DataTypes::EnclosureStatus> &statuses, const QList<qint64> &entryuids) {
+                if (entryuids.contains(m_entryuid)) {
+                    qint64 index = entryuids.indexOf(m_entryuid);
+                    Q_ASSERT(index > -1);
+                    m_status = statuses[index];
+                    m_downloadProgress = 0;
+                    m_downloadSize = 0;
+                    Q_EMIT statusChanged(m_entry, m_status);
+                }
+            });
     // This connection is there to keep other objects of the currently playing
     // enclosure in sync without writing the position to the DB (yet)
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](const qint64 position, const qint64 entryuid) {
@@ -108,7 +109,7 @@ Enclosure::Enclosure(Entry *entry)
     m_type = query.value(QStringLiteral("type")).toString();
     m_url = query.value(QStringLiteral("url")).toString();
     m_playposition = query.value(QStringLiteral("playposition")).toLongLong();
-    m_status = dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
+    m_status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
     m_playposition_dbsave = m_playposition;
 
     // using qtimer to do this update after the constructor so the signals can be picked up correctly
@@ -138,7 +139,7 @@ void Enclosure::updateFromDb()
         return;
     }
 
-    if (m_url != query.value(QStringLiteral("url")).toString() && m_status != Downloaded) {
+    if (m_url != query.value(QStringLiteral("url")).toString() && m_status != DataTypes::EnclosureStatus::Downloaded) {
         // this means that the audio file has changed, or at least its location
         // let's only do something if the file isn't downloaded.
         // try to delete the file first (it actually shouldn't exist)
@@ -163,19 +164,9 @@ void Enclosure::updateFromDb()
     }
 }
 
-int Enclosure::statusToDb(Enclosure::Status status)
-{
-    return static_cast<int>(status);
-}
-
-Enclosure::Status Enclosure::dbToStatus(int value)
-{
-    return Enclosure::Status(value);
-}
-
 void Enclosure::download()
 {
-    if (m_status == Downloaded) {
+    if (m_status == DataTypes::EnclosureStatus::Downloaded) {
         return;
     }
 
@@ -202,9 +193,6 @@ void Enclosure::download()
     m_downloadSize = 0;
     Q_EMIT downloadProgressChanged();
 
-    m_entry->feed()->setErrorId(0);
-    m_entry->feed()->setErrorString(QString());
-
     connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
         checkSizeOnDisk();
         if (downloadJob->error() == 0) {
@@ -212,13 +200,13 @@ void Enclosure::download()
         } else {
             QFile file(path());
             if (file.exists() && file.size() > 0) {
-                setStatus(PartiallyDownloaded);
+                DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
+                                                                 QList<qint64>({m_entryuid}));
             } else {
-                setStatus(Downloadable);
+                DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                                 QList<qint64>({m_entryuid}));
             }
             if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
-                m_entry->feed()->setErrorId(downloadJob->error());
-                m_entry->feed()->setErrorString(downloadJob->errorString());
                 Q_EMIT downloadError(ErrorLogModel::Type::MediaDownload,
                                      i18nc("@info:status Error message notification", "Error downloading media: %1", downloadJob->errorString()));
             }
@@ -232,9 +220,11 @@ void Enclosure::download()
         checkSizeOnDisk();
         QFile file(path());
         if (file.exists() && file.size() > 0) {
-            setStatus(PartiallyDownloaded);
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
+                                                             QList<qint64>({m_entryuid}));
         } else {
-            setStatus(Downloadable);
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                             QList<qint64>({m_entryuid}));
         }
         disconnect(this, &Enclosure::cancelDownload, this, nullptr);
     });
@@ -242,14 +232,15 @@ void Enclosure::download()
     connect(downloadJob, &KJob::processedAmountChanged, this, [this, resumedAt](KJob *kjob, KJob::Unit unit, qulonglong amount) {
         Q_ASSERT(unit == KJob::Unit::Bytes);
 
-        setStatus(Status::Downloading);
+        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloading}),
+                                                         QList<qint64>({m_entryuid}));
 
         qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));
         qint64 currentSize = static_cast<qint64>(amount);
 
         if ((totalSize > 0) && (m_size != totalSize + resumedAt)) {
-            qCDebug(kastsEnclosure) << "Correct filesize for enclosure" << m_entry->title() << "from" << m_size << "to" << totalSize + resumedAt;
-            setSize(totalSize + resumedAt);
+            qCDebug(kastsEnclosure) << "Correct filesize for enclosure" << m_entryuid << "from" << m_size << "to" << totalSize + resumedAt;
+            DataManager::instance().bulkSetEnclosureSizes(QList<qint64>({totalSize + resumedAt}), QList<qint64>({m_entryuid}));
         }
 
         m_downloadSize = currentSize + resumedAt;
@@ -261,7 +252,7 @@ void Enclosure::download()
         qCDebug(kastsEnclosure) << "m_size" << m_size;
     });
 
-    setStatus(Queued);
+    DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Queued}), QList<qint64>({m_entryuid}));
 }
 
 void Enclosure::processDownloadedFile()
@@ -281,8 +272,9 @@ void Enclosure::processDownloadedFile()
     // otherwise the file will get deleted because of mismatch in signature
     if (m_sizeOnDisk != size()) {
         qCDebug(kastsEnclosure) << "Correcting enclosure file size mismatch for" << m_entry->title() << "from" << size() << "to" << m_sizeOnDisk;
-        setSize(m_sizeOnDisk);
-        setStatus(Downloaded);
+        DataManager::instance().bulkSetEnclosureSizes(QList<qint64>({m_sizeOnDisk}), QList<qint64>({m_entryuid}));
+        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
+                                                         QList<qint64>({m_entryuid}));
     }
 
     // Check the duration inside the tag, it should be more accurate than the
@@ -292,37 +284,24 @@ void Enclosure::processDownloadedFile()
         int fileduration = f.audioProperties()->lengthInSeconds();
         if (fileduration > 0 && fileduration != duration()) {
             qCDebug(kastsEnclosure) << "Correcting enclosure duration mismatch for" << m_entry->title() << "from" << duration() << "to" << fileduration;
-            setDuration(fileduration);
+            DataManager::instance().bulkSetEnclosureDurations(QList<qint64>({fileduration}), QList<qint64>({m_entryuid}));
         }
     }
 
     // Unset "new" status of item
     if (m_entry->getNew()) {
-        m_entry->setNew(false);
+        DataManager::instance().bulkMarkNew(false, QList<qint64>({m_entryuid}));
     }
 
     // Trigger update of image since the downloaded file can have an embedded image
     Q_EMIT m_entry->imageChanged(m_entry->image());
+    // TODO: update of the image should be triggered in the model based on a downloadedChanged signal sent by Fetcher(?)
+    // once this method has moved to Fetcher
 }
 
 void Enclosure::deleteFile()
 {
-    qCDebug(kastsEnclosure) << "Trying to delete enclosure file" << path();
-    if (m_entryuid == AudioManager::instance().entryuid()) {
-        qCDebug(kastsEnclosure) << "Track is still playing; let's unload it before deleting";
-        AudioManager::instance().setEntryuid(0);
-    }
-
-    // First check if file still exists; you never know what has happened
-    if (QFile(path()).exists()) {
-        QFile(path()).remove();
-    }
-
-    // If file disappeared unexpectedly, then still change status to downloadable
-    setStatus(Downloadable);
-    m_sizeOnDisk = 0;
-    Q_EMIT sizeOnDiskChanged();
-    Q_EMIT downloadProgressChanged();
+    DataManager::instance().bulkDeleteEnclosures(QList<qint64>({m_entryuid}));
 }
 
 qint64 Enclosure::enclosureuid() const
@@ -337,57 +316,12 @@ QString Enclosure::url() const
 
 QString Enclosure::path() const
 {
-    return StorageManager::instance().enclosurePath(m_entry->title(), m_url, m_entry->feed()->dirname());
+    return StorageManager::enclosurePath(m_entry->title(), m_url, m_entry->feed()->dirname());
 }
 
-Enclosure::Status Enclosure::status() const
+DataTypes::EnclosureStatus Enclosure::status() const
 {
     return m_status;
-}
-
-QString Enclosure::cachedEmbeddedImage() const
-{
-    // if image is already cached, then return the path
-    QString cachedpath = StorageManager::instance().imagePath(m_url);
-    if (QFileInfo::exists(cachedpath)) {
-        if (QFileInfo(cachedpath).size() != 0) {
-            return QUrl::fromLocalFile(cachedpath).toString();
-        }
-    }
-
-    if (m_status != Downloaded || path().isEmpty()) {
-        return QLatin1String("");
-    }
-
-    const auto mime = QMimeDatabase().mimeTypeForFile(path()).name();
-    if (mime != QStringLiteral("audio/mpeg")) {
-        return QLatin1String("");
-    }
-
-    TagLib::MPEG::File f(path().toStdString().data());
-    if (!f.isValid() || !f.hasID3v2Tag()) {
-        return QLatin1String("");
-    }
-
-    bool imageFound = false;
-    for (const auto &frame : f.ID3v2Tag()->frameListMap()["APIC"]) {
-        auto pictureFrame = dynamic_cast<TagLib::ID3v2::AttachedPictureFrame *>(frame);
-        QByteArray data(pictureFrame->picture().data(), pictureFrame->picture().size());
-        if (!data.isEmpty() && QImage().loadFromData(data)) {
-            QFile file(cachedpath);
-            if (file.open(QIODevice::WriteOnly)) {
-                file.write(data);
-                file.close();
-                imageFound = true;
-            }
-        }
-    }
-
-    if (imageFound) {
-        return cachedpath;
-    } else {
-        return QLatin1String("");
-    }
 }
 
 qint64 Enclosure::playPosition() const
@@ -405,44 +339,12 @@ qint64 Enclosure::size() const
     return m_size;
 }
 
-qint64 Enclosure::sizeOnDisk() const
-{
-    return m_sizeOnDisk;
-}
-
-void Enclosure::setStatus(Enclosure::Status status)
-{
-    if (m_status != status) {
-        m_status = status;
-        DataManager::instance().bulkSetEnclosureStatuses((QList<Status>{status}), QList<qint64>({m_entryuid}));
-        qCDebug(kastsEnclosure) << "updating enclosure status" << status << m_entry->title();
-    }
-}
-
 void Enclosure::setPlayPosition(const qint64 &position)
 {
     if (m_playposition != position) {
         m_playposition = position;
         DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({m_entryuid}));
         qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
-    }
-}
-
-void Enclosure::setDuration(const qint64 &duration)
-{
-    if (m_duration != duration) {
-        m_duration = duration;
-        DataManager::instance().bulkSetEnclosureDurations(QList<qint64>({duration}), QList<qint64>({m_entryuid}));
-        qCDebug(kastsEnclosure) << "updating entry duration" << duration << m_entry->title();
-    }
-}
-
-void Enclosure::setSize(const qint64 &size)
-{
-    if (m_size != size) {
-        m_size = size;
-        DataManager::instance().bulkSetEnclosureSizes(QList<qint64>({size}), QList<qint64>({m_entryuid}));
-        qCDebug(kastsEnclosure) << "updating entry enclosure size" << size << m_entry->title();
     }
 }
 
@@ -456,60 +358,36 @@ void Enclosure::checkSizeOnDisk()
             // file is on disk and has correct size, write to database if it
             // wasn't already registered so
             // this should, in principle, never happen unless the db was deleted
-            setStatus(Downloaded);
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
+                                                             QList<qint64>({m_entryuid}));
         } else if (file.size() > 0) {
             // file was downloaded, but there is a size mismatch
             // set to PartiallyDownloaded such that download can be resumed
-            setStatus(PartiallyDownloaded);
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
+                                                             QList<qint64>({m_entryuid}));
         } else {
             // file is empty
-            setStatus(Downloadable);
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                             QList<qint64>({m_entryuid}));
         }
         if (file.size() != m_sizeOnDisk) {
             m_sizeOnDisk = file.size();
             m_downloadSize = m_sizeOnDisk;
             m_downloadProgress = (m_size == 0) ? 0.0 : static_cast<double>(m_sizeOnDisk) / static_cast<double>(m_size);
-            Q_EMIT sizeOnDiskChanged();
         }
     } else {
         // file does not exist
-        setStatus(Downloadable);
+        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                         QList<qint64>({m_entryuid}));
         if (m_sizeOnDisk != 0) {
             m_sizeOnDisk = 0;
             m_downloadSize = 0;
             m_downloadProgress = 0.0;
-            Q_EMIT sizeOnDiskChanged();
         }
     }
 }
 
-QString Enclosure::formattedSize() const
+qint64 Enclosure::downloadSize() const
 {
-    return m_kformat.formatByteSize(m_size);
-}
-
-QString Enclosure::formattedDownloadSize() const
-{
-    return m_kformat.formatByteSize(m_downloadSize);
-}
-
-QString Enclosure::formattedDuration() const
-{
-    return m_kformat.formatDuration(m_duration * 1000);
-}
-
-QString Enclosure::formattedLeftDuration() const
-{
-    qreal rate = 1.0;
-    if (SettingsManager::self()->adjustTimeLeft()) {
-        rate = AudioManager::instance().playbackRate();
-        rate = (rate > 0.0) ? rate : 1.0;
-    }
-    qint64 diff = duration() * 1000 - playPosition();
-    return m_kformat.formatDuration(diff / rate);
-}
-
-QString Enclosure::formattedPlayPosition() const
-{
-    return m_kformat.formatDuration(m_playposition);
+    return m_downloadSize;
 }

@@ -9,7 +9,7 @@
 #include "datamanager.h"
 
 EpisodeModel::EpisodeModel(QObject *parent)
-    : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name FROM Feeds;"),
+    : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds;"),
                            QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid ORDER BY updated DESC;"),
                            QStringLiteral("SELECT * FROM Enclosures;"),
                            parent)

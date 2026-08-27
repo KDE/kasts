@@ -30,7 +30,6 @@
 
 #include "database.h"
 #include "datatypes.h"
-#include "enclosure.h"
 #include "fetcher.h"
 #include "fetchfeedsjob.h"
 #include "settingsmanager.h"
@@ -248,7 +247,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         enclosureDetails.type = query.value(QStringLiteral("type")).toString();
         enclosureDetails.url = query.value(QStringLiteral("url")).toString();
         enclosureDetails.playPosition = query.value(QStringLiteral("playposition")).toInt();
-        enclosureDetails.downloaded = Enclosure::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
+        enclosureDetails.downloaded = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
         enclosureDetails.state = RecordState::Deleted; // will be set to appropriate value if the enclosure is found in the updated rss feed
 
         // already set the content of all the "old" fields
@@ -662,7 +661,7 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
             enclosureDetails.type = type;
             enclosureDetails.url = url;
             enclosureDetails.playPosition = 0;
-            enclosureDetails.downloaded = Enclosure::Downloadable;
+            enclosureDetails.downloaded = DataTypes::Downloadable;
             enclosureDetails.state = RecordState::New;
             updatedFeed.entries[id].enclosures[url] = enclosureDetails;
             qCDebug(kastsUpdater) << "this is a new enclosure:" << id << url;
@@ -934,7 +933,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
                     writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
                     writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
                     writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
-                    writeQuery.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(enclosureDetails.downloaded));
+                    writeQuery.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(enclosureDetails.downloaded));
                     dbExecute(writeQuery);
                 }
             }

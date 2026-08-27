@@ -12,6 +12,7 @@ import org.kde.kirigami.delegates as Delegates
 import org.kde.kirigamiaddons.delegates as AddonDelegates
 import org.kde.kmediasession
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kasts
 
@@ -24,10 +25,9 @@ AddonDelegates.RoundedItemDelegate {
 
     required property Chapter chapter
     required property string title
-    required property string formattedStart
     required property int start
 
-    property bool streamingButtonVisible: entryuid > 0 && entry && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
+    property bool streamingButtonVisible: entryuid > 0 && entry && entry.enclosure && (entry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
 
     Accessible.role: Accessible.Button
     Accessible.name: title
@@ -39,14 +39,14 @@ AddonDelegates.RoundedItemDelegate {
         Delegates.IconTitleSubtitle {
             icon.source: root.chapter ? root.chapter.image : ""
             title: root.title
-            subtitle: root.formattedStart
+            subtitle: Format.formatDuration(root.start * 1000)
             Layout.fillWidth: true
         }
 
         Controls.ToolButton {
             icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
             text: KI18n.i18n("Play")
-            enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.streamingButtonVisible)
+            enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: root.clicked()
         }

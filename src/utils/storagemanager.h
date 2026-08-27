@@ -12,8 +12,6 @@
 #include <QString>
 #include <QUrl>
 
-#include <KFormat>
-
 #include "models/errorlogmodel.h"
 
 class StorageManager : public QObject
@@ -27,8 +25,6 @@ class StorageManager : public QObject
     Q_PROPERTY(QString storagePath READ storagePath NOTIFY storagePathChanged)
     Q_PROPERTY(qint64 enclosureDirSize READ enclosureDirSize NOTIFY enclosureDirSizeChanged)
     Q_PROPERTY(qint64 imageDirSize READ imageDirSize NOTIFY imageDirSizeChanged)
-    Q_PROPERTY(QString formattedEnclosureDirSize READ formattedEnclosureDirSize NOTIFY enclosureDirSizeChanged)
-    Q_PROPERTY(QString formattedImageDirSize READ formattedImageDirSize NOTIFY imageDirSizeChanged)
 
 public:
     static StorageManager &instance()
@@ -44,27 +40,24 @@ public:
 
     static const int maxFilenameLength = 200;
 
-    QString storagePath() const;
+    static QString storagePath();
     Q_INVOKABLE void setStoragePath(QUrl url);
 
-    QString imageDirPath() const;
-    QString imagePath(const QString &url) const;
+    static QString imageDirPath();
+    static QString imagePath(const QString &url);
 
-    QString enclosureDirPath() const;
-    QString enclosureDirPath(const QString &feedname) const;
-    QString enclosurePath(const QString &name, const QString &url, const QString &feedname) const;
+    static QString enclosureDirPath();
+    static QString enclosureDirPath(const QString &feedname);
+    static QString enclosurePath(const QString &name, const QString &url, const QString &feedname);
 
-    qint64 enclosureDirSize() const;
-    qint64 imageDirSize() const;
-    QString formattedEnclosureDirSize() const;
-    QString formattedImageDirSize() const;
+    static qint64 enclosureDirSize();
+    static qint64 imageDirSize();
 
     void removeImage(const QString &url);
     Q_INVOKABLE void clearImageCache();
 
-    QString passwordFilePath(const QString &username) const;
-
-    QString sanitizedFilePath(const QString &path) const;
+    static QString passwordFilePath(const QString &username);
+    static QString sanitizedFilePath(const QString &path);
 
 Q_SIGNALS:
     void error(ErrorLogModel::Type type, const QString &message);
@@ -82,9 +75,8 @@ Q_SIGNALS:
 private:
     StorageManager();
 
-    qint64 dirSize(const QString &path) const;
+    static qint64 dirSize(const QString &path);
 
     int m_storageMoveProgress;
     int m_storageMoveTotal;
-    KFormat m_kformat;
 };

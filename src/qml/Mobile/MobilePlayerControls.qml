@@ -14,6 +14,7 @@ import QtQuick.Effects
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kmediasession
 import org.kde.kasts
@@ -405,7 +406,7 @@ Kirigami.Page {
                     Controls.Label {
                         Layout.alignment: Qt.AlignLeft
                         padding: Kirigami.Units.largeSpacing
-                        text: AudioManager.formattedPosition
+                        text: Format.formatDuration(AudioManager.position)
                         font: Kirigami.Theme.smallFont
                     }
                     Loader {
@@ -422,7 +423,7 @@ Kirigami.Page {
                             padding: Kirigami.Units.largeSpacing
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            text: (SettingsManager.toggleRemainingTime) ? "-" + AudioManager.formattedLeftDuration : AudioManager.formattedDuration
+                            text: (SettingsManager.toggleRemainingTime) ? "-" + Format.formatDuration(AudioManager.leftDuration) : Format.formatDuration(AudioManager.duration)
                             font: Kirigami.Theme.smallFont
                         }
                         MouseArea {

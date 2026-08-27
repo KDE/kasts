@@ -67,7 +67,7 @@ public:
     void setFilterType(FilterType type);
     void setSearchFilter(const QString &searchString);
     void setSearchFlags(SearchFlags searchFlags);
-    void setSortType(SortType type);
+    void setSortType(SortType type, bool force = false);
 
     Q_INVOKABLE static QString getFilterName(FilterType type);
     Q_INVOKABLE static QString getSearchFlagName(SearchFlag flag);

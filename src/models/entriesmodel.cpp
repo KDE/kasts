@@ -10,10 +10,11 @@
 #include <QString>
 
 #include "datamanager.h"
+#include "objectslogging.h"
 
 EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
     : AbstractEpisodeModel(
-          QStringLiteral("SELECT feeduid, name FROM Feeds WHERE feeduid=%1;").arg(feeduid),
+          QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds WHERE feeduid=%1;").arg(feeduid),
           QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid WHERE Feeds.feeduid=%1 ORDER BY updated DESC;").arg(feeduid),
           QStringLiteral("SELECT * FROM Enclosures WHERE feeduid=%1;").arg(feeduid),
           parent) // TODO: probably needs another parent?
@@ -29,4 +30,10 @@ EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
             endResetModel();
         }
     });
+    qCDebug(kastsObjects) << "EntriesModel constructed for feeduid" << m_feeduid << this;
+}
+
+EntriesModel::~EntriesModel()
+{
+    qCDebug(kastsObjects) << "EntriesModel destructed for feeduid" << m_feeduid << this;
 }

@@ -11,6 +11,7 @@ import QtQuick.Controls as Controls
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kasts
 
@@ -74,7 +75,7 @@ Kirigami.ScrollablePage {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", QueueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + QueueModel.formattedTimeLeft
+            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", QueueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + Format.formatDuration(QueueModel.timeLeft, Format.HideSeconds | Format.InitialDuration)
         }
     }
 
@@ -102,7 +103,21 @@ Kirigami.ScrollablePage {
             required property Entry entry
             required property int entryuid
             required property int index
+            required property string title
             required property int downloaded
+            required property bool hasEnclosure
+            required property bool isNew
+            required property bool read
+            required property bool favorite
+            required property bool removed
+            required property date updated
+            required property string image
+            required property string feedImage
+            required property string feedName
+            required property bool queueStatus
+            required property int playPosition
+            required property int duration
+            required property int size
 
             GenericEntryDelegate {
                 id: entryDelegate
@@ -115,7 +130,21 @@ Kirigami.ScrollablePage {
                 entry: focusScope.entry
                 entryuid: focusScope.entryuid
                 index: focusScope.index
+                title: focusScope.title
                 downloaded: focusScope.downloaded
+                hasEnclosure: focusScope.hasEnclosure
+                isNew: focusScope.isNew
+                read: focusScope.read
+                favorite: focusScope.favorite
+                removed: focusScope.removed
+                updated: focusScope.updated
+                image: focusScope.image
+                feedImage: focusScope.feedImage
+                feedName: focusScope.feedName
+                queueStatus: focusScope.queueStatus
+                playPosition: focusScope.playPosition
+                duration: focusScope.duration
+                size: focusScope.size
             }
         }
 

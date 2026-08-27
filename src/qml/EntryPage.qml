@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
     Connections {
         target: root.entry.enclosure
         function onStatusChanged(): void {
-            if (root.entry.enclosure.status === Enclosure.Downloadable) {
+            if (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloadable) {
                 // this entry has just been deleted on the downloadpage
                 const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
                 if (pageStack.depth > 1) {
@@ -116,7 +116,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to start episode download", "Download")
-                        visible: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloadable || root.entry.enclosure.status === Enclosure.PartiallyDownloaded)
+                        visible: root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloadable || root.entry.enclosure.status === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         icon.name: "download"
                         onTriggered: {
                             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.entry = root.entry;
@@ -125,7 +125,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to cancel ongoing download of episode", "Cancel Download")
-                        visible: root.entry.enclosure && root.entry.enclosure.status === Enclosure.Downloading
+                        visible: root.entry.enclosure && root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloading
                         icon.name: "edit-delete-remove"
                         onTriggered: {
                             root.entry.enclosure.cancelDownload();
@@ -141,7 +141,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to start playback of the episode", "Play")
-                        visible: root.entry.enclosure && root.entry.enclosure.status === Enclosure.Downloaded && root.entry.queueStatus && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: root.entry.enclosure && root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded && root.entry.queueStatus && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-start"
                         onTriggered: {
                             AudioManager.entryuid = root.entryuid;
@@ -150,7 +150,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
-                        visible: root.entry.enclosure && root.entry.enclosure.status !== Enclosure.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: root.entry.enclosure && root.entry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-cloud"
                         onTriggered: {
                             if (!root.entry.queueStatus) {
@@ -179,7 +179,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to remove the downloaded episode audio file", "Delete Download")
                         icon.name: "delete"
-                        visible: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || root.entry.enclosure.status === Enclosure.PartiallyDownloaded)
+                        visible: root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded || root.entry.enclosure.status === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         onTriggered: {
                             root.entry.enclosure.deleteFile();
                         }
@@ -264,7 +264,7 @@ Kirigami.ScrollablePage {
 
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
-                    if (AudioManager.entry && AudioManager.entry.enclosure && root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloaded || SettingsManager.prioritizeStreaming)) {
+                    if (AudioManager.entry && AudioManager.entry.enclosure && root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded || SettingsManager.prioritizeStreaming)) {
                         if (AudioManager.entryuid !== root.entryuid) {
                             if (!root.entry.queueStatus) {
                                 root.entry.queueStatus = true;

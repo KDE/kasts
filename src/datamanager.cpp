@@ -25,6 +25,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/abstractepisodemodel.h"
+#include "models/entriesproxymodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
@@ -64,7 +65,7 @@ DataManager::DataManager()
     connect(&Fetcher::instance(), &Fetcher::entriesAdded, this, [this](const QList<qint64> &entryuids) {
         for (const qint64 entryuid : std::as_const(entryuids)) {
             // Only add the new entry to m_entries
-            m_entries[entryuid] = nullptr;
+            m_entries.insert(entryuid);
         }
     });
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
@@ -84,7 +85,7 @@ DataManager::DataManager()
     query.prepare(QStringLiteral("SELECT entryuid FROM Entries ORDER BY updated DESC;"));
     Database::instance().execute(query);
     while (query.next()) {
-        m_entries[query.value(QStringLiteral("entryuid")).toLongLong()] = nullptr;
+        m_entries.insert(query.value(QStringLiteral("entryuid")).toLongLong());
     }
     query.finish();
 }
@@ -100,25 +101,40 @@ Feed *DataManager::getFeed(const qint64 feeduid) const
     return nullptr;
 }
 
-Feed *DataManager::getFeed(const QString &feedurl) const
-{
-    return getFeed(getFeeduidFromUrl(feedurl));
-}
-
 Entry *DataManager::getEntry(const qint64 entryuid) const
 {
     if (m_entries.contains(entryuid)) {
-        if (m_entries[entryuid] == nullptr)
-            loadEntry(entryuid);
-        return m_entries[entryuid];
+        Entry *entry = new Entry(entryuid);
+        QQmlEngine::setObjectOwnership(entry, QJSEngine::JavaScriptOwnership);
+        return entry;
     }
     return nullptr;
+}
+
+EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT EXISTS(SELECT 1 FROM Feeds WHERE feeduid=:feeduid LIMIT 1);"));
+    query.bindValue(QStringLiteral(":feeduid"), feeduid);
+    Database::instance().execute(query);
+    if (query.next() && query.value(0).toBool()) {
+        EntriesProxyModel *entriesModel = new EntriesProxyModel(feeduid);
+        QQmlEngine::setObjectOwnership(entriesModel, QJSEngine::JavaScriptOwnership);
+        return entriesModel;
+    } else {
+        return nullptr;
+    }
 }
 
 Entry *DataManager::getEntry(const QString &id) const
 {
     // Apply fuzzy logic to find matching entryuid
     return getEntry(findEntryuids(QStringList({id}))[0][0]);
+}
+
+Feed *DataManager::getFeed(const QString &feedurl) const
+{
+    return getFeed(getFeeduidFromUrl(feedurl));
 }
 
 void DataManager::removeFeed(Feed *feed)
@@ -183,7 +199,6 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
                     getEntry(entryuid)->enclosure()->deleteFile(); // delete enclosure (if it exists)
                 if (!getEntry(entryuid)->image().isEmpty())
                     StorageManager::instance().removeImage(getEntry(entryuid)->image()); // delete entry images
-                delete m_entries[entryuid]; // delete pointer
                 m_entries.remove(entryuid); // delete the hash key
             }
 
@@ -358,18 +373,17 @@ void DataManager::deletePlayedEnclosures()
     query.prepare(
         QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
                        "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
-    query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(Enclosure::Downloaded));
-    query.bindValue(QStringLiteral(":partiallydownloaded"), Enclosure::statusToDb(Enclosure::PartiallyDownloaded));
+    query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(DataTypes::Downloaded));
+    query.bindValue(QStringLiteral(":partiallydownloaded"), DataTypes::statusToDb(DataTypes::PartiallyDownloaded));
     query.bindValue(QStringLiteral(":read"), true);
     Database::instance().execute(query);
+    QSet<qint64> entriesToBeDeleted;
     while (query.next()) {
-        const qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
-        qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:" << entryuid;
-        Entry *entry = getEntry(entryuid);
-        if (entry->hasEnclosure()) {
-            entry->enclosure()->deleteFile();
-        }
+        qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:"
+                                  << query.value(QStringLiteral("entryuid")).toLongLong();
+        entriesToBeDeleted += query.value(QStringLiteral("entryuid")).toLongLong();
     }
+    bulkDeleteEnclosures(entriesToBeDeleted.values());
 }
 
 void DataManager::importFeeds(const QString &path)
@@ -427,16 +441,6 @@ void DataManager::loadFeed(const qint64 feeduid) const
     }
 
     m_feeds[feeduid] = new Feed(feeduid);
-}
-
-void DataManager::loadEntry(const qint64 entryuid) const
-{
-    if (m_entries[entryuid]) {
-        // nothing to do if Entry object already exists
-        return;
-    }
-
-    m_entries[entryuid] = new Entry(entryuid);
 }
 
 bool DataManager::feedExists(const QString &url)
@@ -629,14 +633,41 @@ void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const
 
 void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
 {
-    // TODO: use database directly here?
+    QSqlQuery query;
+    query.prepare(
+        QStringLiteral("SELECT Entries.title, Enclosures.url, Enclosures.downloaded, Feeds.dirname FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid "
+                       "JOIN Enclosures ON "
+                       "Enclosures.entryuid=Entries.entryuid WHERE Entries.entryuid=:entryuid;"));
+    QHash<qint64, QString> filesToBeDeleted;
     for (const qint64 &entryuid : std::as_const(entryuids)) {
-        if (getEntry(entryuid)->hasEnclosure()) {
-            if (getEntry(entryuid)->enclosure()->status() == Enclosure::Downloading) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuid);
+        Database::instance().execute(query);
+        if (query.next()) { // Only check the first enclosure
+            const DataTypes::EnclosureStatus enclosureStatus = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
+            const QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
+            const QString entryTitle = query.value(QStringLiteral("Entries.title")).toString();
+            const QString feedDirName = query.value(QStringLiteral("Feeds.dirname")).toString();
+            const QString enclosurePath = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirName);
+            if (enclosureStatus == DataTypes::EnclosureStatus::Downloading) {
+                // TODO: refactor cancelDownload method to Fetcher
                 getEntry(entryuid)->enclosure()->cancelDownload();
             }
-            getEntry(entryuid)->enclosure()->deleteFile();
+            if (QFileInfo::exists(enclosurePath)) {
+                filesToBeDeleted[entryuid] = enclosurePath;
+            }
         }
+    }
+
+    // If file disappeared unexpectedly, then still change status to downloadable
+    // Doing this before the actual deletion to give the AudioManager a chance to
+    // unload the file first; this is done through the enclosureStatusesChanged
+    // signal
+    DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>(filesToBeDeleted.size(), DataTypes::EnclosureStatus::Downloadable),
+                                                     filesToBeDeleted.keys());
+
+    for (auto [entryuid, enclosurePath] : filesToBeDeleted.asKeyValueRange()) {
+        qCDebug(kastsDataManager) << "Trying to delete enclosure file" << enclosurePath << "for entryuid" << entryuid;
+        QFile::remove(enclosurePath);
     }
 }
 
@@ -667,9 +698,23 @@ void DataManager::bulkSetEnclosureDurations(const QList<qint64> &durations, cons
 {
     Q_ASSERT(durations.count() == entryuids.count());
 
+    QList<qint64> changed_durations, changed_entryuids;
+    // First check the database
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT duration FROM Enclosures WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        Database::instance().execute(query);
+        if (query.next()) {
+            if (query.value(QStringLiteral("duration")).toLongLong() != durations[i]) {
+                changed_durations += durations[i];
+                changed_entryuids += entryuids[i];
+            }
+        }
+    }
+
     // also save to database
     Database::instance().transaction();
-    QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE entryuid=:entryuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
@@ -678,17 +723,33 @@ void DataManager::bulkSetEnclosureDurations(const QList<qint64> &durations, cons
     }
     Database::instance().commit();
 
-    qCDebug(kastsDataManager) << "Updated entry durations for entries:" << entryuids << ", durations:" << durations;
-    Q_EMIT enclosureDurationsChanged(durations, entryuids);
+    if (changed_entryuids.size() > 0) {
+        qCDebug(kastsDataManager) << "Updated entry durations for entries:" << changed_entryuids << ", durations:" << changed_durations;
+        Q_EMIT enclosureDurationsChanged(changed_durations, changed_entryuids);
+    }
 }
 
 void DataManager::bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<qint64> &entryuids) const
 {
     Q_ASSERT(sizes.count() == entryuids.count());
 
+    QList<qint64> changed_sizes, changed_entryuids;
+    // First check the database
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT size FROM Enclosures WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        Database::instance().execute(query);
+        if (query.next()) {
+            if (query.value(QStringLiteral("size")).toLongLong() != sizes[i]) {
+                changed_sizes += sizes[i];
+                changed_entryuids += entryuids[i];
+            }
+        }
+    }
+
     // also save to database
     Database::instance().transaction();
-    QSqlQuery query;
     query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE entryuid=:entryuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
@@ -697,26 +758,45 @@ void DataManager::bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<
     }
     Database::instance().commit();
 
-    qCDebug(kastsDataManager) << "Updated entry enclosure sizes for entries:" << entryuids << ", durations:" << sizes;
-    Q_EMIT enclosureSizesChanged(sizes, entryuids);
+    if (changed_entryuids.size() > 0) {
+        qCDebug(kastsDataManager) << "Updated entry enclosure sizes for entries:" << changed_entryuids << ", sizes:" << changed_sizes;
+        Q_EMIT enclosureSizesChanged(changed_sizes, changed_entryuids);
+    }
 }
 
-void DataManager::bulkSetEnclosureStatuses(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const
+void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatus> &statuses, const QList<qint64> &entryuids) const
 {
     Q_ASSERT(statuses.count() == entryuids.count());
 
-    Database::instance().transaction();
+    QList<DataTypes::EnclosureStatus> changed_statuses;
+    QList<qint64> changed_entryuids;
+    // First check the database
     QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT downloaded FROM Enclosures WHERE entryuid=:entryuid;"));
+    for (qint64 i = 0; i < entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        Database::instance().execute(query);
+        if (query.next()) {
+            if (DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt()) != statuses[i]) {
+                changed_statuses += statuses[i];
+                changed_entryuids += entryuids[i];
+            }
+        }
+    }
+
+    Database::instance().transaction();
     query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
-        query.bindValue(QStringLiteral(":downloaded"), Enclosure::statusToDb(statuses[i]));
+        query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(statuses[i]));
         Database::instance().execute(query);
     }
     Database::instance().commit();
 
-    qCDebug(kastsDataManager) << "Updated entry enclosure statuses for entries:" << entryuids << ", statuses:" << statuses;
-    Q_EMIT enclosureStatusesChanged(statuses, entryuids);
+    if (changed_entryuids.size() > 0) {
+        qCDebug(kastsDataManager) << "Updated entry enclosure statuses for entries:" << changed_entryuids << ", statuses:" << changed_statuses;
+        Q_EMIT enclosureStatusesChanged(changed_statuses, changed_entryuids);
+    }
 }
 
 QList<qint64> DataManager::getEntryuidsFromModelIndexList(const QModelIndexList &list) const

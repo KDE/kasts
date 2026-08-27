@@ -23,8 +23,10 @@ Kirigami.ScrollablePage {
     LayoutMirroring.childrenInherit: true
 
     required property QtObject feed
+    property int feeduid: feed.feeduid ? feed.feeduid : -1
     property bool isSubscribed: true
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
+    property EntriesProxyModel entriesModel: DataManager.getEntriesProxyModel(feeduid)
 
     property bool showMoreInfo: false
 
@@ -71,12 +73,12 @@ Kirigami.ScrollablePage {
         icon.name: "search"
         text: KI18n.i18nc("@action:intoolbar", "Search")
         checkable: true
-        enabled: root.feed.entries ? true : false
+        enabled: root.feeduid > -1 ? true : false
         visible: enabled
 
         // Make sure to show the searchbar if there is still a searchFilter active
         Component.onCompleted: {
-            checked = (root.feed.entries ? root.feed.entries.searchFilter != "" : false);
+            checked = (root.feeduid > -1 ? root.entriesModel.searchFilter != "" : false);
         }
     }
 
@@ -88,7 +90,7 @@ Kirigami.ScrollablePage {
         visible: active
 
         sourceComponent: SearchBar {
-            proxyModel: root.feed.entries ? root.feed.entries : emptyListModel
+            proxyModel: root.feeduid > -1 ? root.entriesModel : emptyListModel
             parentKey: searchActionButton
             placeholderText: KI18n.i18nc("@label:textbox Placeholder text for episode search field", "Search episodes…")
         }
@@ -104,7 +106,7 @@ Kirigami.ScrollablePage {
         reuseItems: true
         currentIndex: -1
 
-        model: root.feed.entries ? root.feed.entries : emptyListModel
+        model: root.feeduid > -1 ? root.entriesModel : emptyListModel
         delegate: GenericEntryDelegate {
             listViewObject: entryList
             // no need to show the podcast image or title on every delegate
@@ -336,7 +338,7 @@ Kirigami.ScrollablePage {
         }
 
         FilterInlineMessage {
-            proxyModel: root.feed.entries ? root.feed.entries : emptyListModel
+            proxyModel: root.feeduid > -1 ? root.entriesModel : emptyListModel
         }
     }
 }

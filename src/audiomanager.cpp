@@ -111,6 +111,21 @@ AudioManager::AudioManager(QObject *parent)
         if (DataManager::instance().lastPlayingEntry() > 0) {
             setEntryuid(DataManager::instance().lastPlayingEntry());
         }
+
+        // Also connect signal to make sure that the track is unloaded when
+        // the enclosure disappears
+        connect(&DataManager::instance(),
+                &DataManager::enclosureStatusesChanged,
+                this,
+                [this](QList<DataTypes::EnclosureStatus> statuses, QList<qint64> entryuids) {
+                    Q_ASSERT(statuses.size() == entryuids.size());
+                    qsizetype index = entryuids.indexOf(d->m_entryuid);
+                    if (index > -1 && index < statuses.size()) {
+                        if (statuses[index] == DataTypes::EnclosureStatus::Downloadable) {
+                            next();
+                        }
+                    }
+                });
     });
 }
 
@@ -332,11 +347,11 @@ void AudioManager::setEntryuid(const qint64 entryuid)
 
     // do some checks on the new entry to see whether it's valid and not corrupted
     if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
-        && (entry->enclosure()->status() == Enclosure::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
+        && (entry->enclosure()->status() == DataTypes::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
         qCDebug(kastsAudio) << "Going to change source";
         setEntryInfo(entry);
 
-        if (entry->enclosure()->status() == Enclosure::Downloaded) { // i.e. local file
+        if (entry->enclosure()->status() == DataTypes::Downloaded) { // i.e. local file
             if (d->m_isStreaming) {
                 d->m_isStreaming = false;
                 Q_EMIT isStreamingChanged();
@@ -520,7 +535,7 @@ bool AudioManager::canGoNext() const
                 Entry *next_entry = new Entry(QueueModel::instance().queue()[index + 1]);
                 if (next_entry && next_entry->enclosure()) {
                     qCDebug(kastsAudio) << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
-                    if (next_entry->enclosure()->status() == Enclosure::Downloaded) {
+                    if (next_entry->enclosure()->status() == DataTypes::Downloaded) {
                         delete next_entry;
                         return true;
                     } else {
@@ -614,7 +629,7 @@ void AudioManager::playerDurationChanged(const qint64 duration)
         if (duration > 0 && (duration / 1000) != d->m_entry->enclosure()->duration()) {
             qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << duration / 1000 << "(was" << d->m_entry->enclosure()->duration()
                                 << ")";
-            d->m_entry->enclosure()->setDuration(duration / 1000);
+            DataManager::instance().bulkSetEnclosureDurations(QList<qint64>({duration / 1000}), QList<qint64>({d->m_entryuid}));
         }
     }
 
@@ -807,12 +822,7 @@ void AudioManager::updateMetaData()
     }
 }
 
-QString AudioManager::formattedDuration() const
-{
-    return m_kformat.formatDuration(duration());
-}
-
-QString AudioManager::formattedLeftDuration() const
+qint64 AudioManager::leftDuration() const
 {
     qreal rate = 1.0;
     if (SettingsManager::self()->adjustTimeLeft()) {
@@ -820,12 +830,7 @@ QString AudioManager::formattedLeftDuration() const
         rate = (rate > 0.0) ? rate : 1.0;
     }
     qint64 diff = duration() - position();
-    return m_kformat.formatDuration(diff / rate);
-}
-
-QString AudioManager::formattedPosition() const
-{
-    return m_kformat.formatDuration(position());
+    return (diff / rate);
 }
 
 qint64 AudioManager::sleepTime() const
@@ -887,13 +892,4 @@ void AudioManager::stopSleepTimer()
         Q_EMIT sleepTimerChanged(-1);
         Q_EMIT remainingSleepTimeChanged(-1);
     }
-}
-
-QString AudioManager::formattedRemainingSleepTime() const
-{
-    qint64 timeLeft = remainingSleepTime() * 1000;
-    if (timeLeft < 0) {
-        timeLeft = 0;
-    }
-    return m_kformat.formatDuration(timeLeft);
 }

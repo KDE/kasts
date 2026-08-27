@@ -17,6 +17,7 @@
 #include "entry.h"
 #include "feed.h"
 #include "models/abstractepisodeproxymodel.h"
+#include "models/entriesproxymodel.h"
 
 class DataManager : public QObject
 {
@@ -37,6 +38,7 @@ public:
 
     Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
     Q_INVOKABLE Entry *getEntry(const qint64 entryuid) const;
+    Q_INVOKABLE EntriesProxyModel *getEntriesProxyModel(const qint64 feeduid) const;
 
     // TODO: to be removed
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
@@ -72,7 +74,7 @@ public:
     Q_INVOKABLE void bulkSetPlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkSetEnclosureDurations(const QList<qint64> &durations, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<qint64> &entryuids) const;
-    Q_INVOKABLE void bulkSetEnclosureStatuses(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatus> &statuses, const QList<qint64> &entryuids) const;
 
     Q_INVOKABLE void bulkMarkReadByIndex(bool state, const QModelIndexList &list) const;
     Q_INVOKABLE void bulkMarkNewByIndex(bool state, const QModelIndexList &list) const;
@@ -93,7 +95,7 @@ Q_SIGNALS:
     void entryPlayPositionsChanged(const QList<qint64> &positions, const QList<qint64> &entryuids) const;
     void enclosureDurationsChanged(const QList<qint64> &durations, const QList<qint64> &entryuids) const;
     void enclosureSizesChanged(const QList<qint64> &sizes, const QList<qint64> &entryuids) const;
-    void enclosureStatusesChanged(const QList<Enclosure::Status> &statuses, const QList<qint64> &entryuids) const;
+    void enclosureStatusesChanged(const QList<DataTypes::EnclosureStatus> &statuses, const QList<qint64> &entryuids) const;
 
     void unreadEntryCountChanged(const qint64 feeduid) const;
     void newEntryCountChanged(const qint64 feeduid) const;
@@ -102,7 +104,6 @@ Q_SIGNALS:
 private:
     DataManager();
     void loadFeed(const qint64 feeduid) const;
-    void loadEntry(const qint64 entryuid) const;
 
     // TODO: probably needs to be updated after refactor
     qint64 getFeeduidFromUrl(const QString &url) const;
@@ -113,5 +114,5 @@ private:
     QList<qint64> getEntryuidsFromModelIndexList(const QModelIndexList &list) const;
 
     mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
-    mutable QHash<qint64, QPointer<Entry>> m_entries; // hash of pointers to all entries in db, key = entryuid (lazy loading)
+    mutable QSet<qint64> m_entries; // set of all entryuids
 };

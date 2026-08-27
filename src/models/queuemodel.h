@@ -24,7 +24,6 @@ class QueueModel : public AbstractEpisodeModel
     QML_SINGLETON
 
     Q_PROPERTY(int timeLeft READ timeLeft NOTIFY timeLeftChanged)
-    Q_PROPERTY(QString formattedTimeLeft READ formattedTimeLeft NOTIFY timeLeftChanged)
 
 public:
     static QueueModel &instance()
@@ -39,7 +38,6 @@ public:
     }
 
     qint64 timeLeft() const;
-    QString formattedTimeLeft() const;
 
     Q_INVOKABLE static QString getSortName(AbstractEpisodeProxyModel::SortType type);
     Q_INVOKABLE static QString getSortIconName(AbstractEpisodeProxyModel::SortType type);

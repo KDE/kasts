@@ -26,28 +26,38 @@ public:
         EntryuidRole = Qt::UserRole + 1,
         EntryRole,
         IdRole,
+        QueueStatusRole,
         ReadRole,
         NewRole,
         FavoriteRole,
+        RemovedRole,
         ContentRole,
         CreatedRole,
         UpdatedRole,
         LinkRole,
+        ImageRole,
+        HasEnclosureRole,
+        PlayPositionRole,
+        DurationRole,
+        SizeRole,
         DownloadedRole,
         DownloadedOrderRole,
         FeeduidRole,
         FeedNameRole,
+        FeedImageRole,
     };
     Q_ENUM(Roles)
 
     explicit AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent = nullptr);
+    ~AbstractEpisodeModel();
     virtual QHash<int, QByteArray> roleNames() const override;
     virtual QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
     virtual int rowCount(const QModelIndex &parent) const override;
 
 protected:
-    virtual void updateInternalState();
-    virtual void updateEntries(const QList<qint64> &entryuids);
+    void updateInternalState();
+    void updateEntries(const QList<qint64> &entryuids);
+    void updateFeeds(const QList<qint64> &feeduids);
 
     QString m_feedQuery, m_entryQuery, m_enclosureQuery;
     QList<qint64> m_entryOrder;

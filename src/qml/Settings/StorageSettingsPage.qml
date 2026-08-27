@@ -12,6 +12,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.ki18n
+import org.kde.coreaddons
 
 import org.kde.kasts
 
@@ -74,14 +75,14 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             text: KI18n.i18nc("@label showing the storage space used by local podcast downloads", "Podcast downloads")
-            description: KI18n.i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedEnclosureDirSize)
+            description: KI18n.i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", Format.formatByteSize(StorageManager.enclosureDirSize))
         }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormTextDelegate {
             text: KI18n.i18nc("@label showing the storage space used by the image cache", "Image cache")
-            description: KI18n.i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", StorageManager.formattedImageDirSize)
+            description: KI18n.i18nc("@label Using <amount of bytes> of disk space", "Using %1 of disk space", Format.formatByteSize(StorageManager.imageDirSize))
 
             trailing: Controls.Button {
                 icon.name: "edit-clear-all"
