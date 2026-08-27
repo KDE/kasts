@@ -36,7 +36,6 @@ add_executable(kasts
     models/queuemodel.cpp
     models/episodemodel.cpp
     models/episodeproxymodel.cpp
-    models/downloadmodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
     sync/sync.cpp

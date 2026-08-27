@@ -34,20 +34,20 @@ AddonDelegates.RoundedItemDelegate {
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
     property bool isQueue: false
-    property bool isDownloads: false
+    property bool downloadFilterActive: ListView.view && ListView.view.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter
     property bool showFeedImage: !SettingsManager.showEpisodeImage
     property bool showFeedTitle: SettingsManager.showPodcastTitle
     property GenericEntryListView listViewObject: undefined
     property bool selected: false
 
     property bool showRemoveFromQueueButton: !entry.enclosure && entry.queueStatus
-    property bool showDownloadButton: entry.enclosure && (!isDownloads || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || isDownloads) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showDownloadButton: entry.enclosure && (!downloadFilterActive || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (entry.enclosure.status === Enclosure.Downloadable || entry.enclosure.status === Enclosure.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
     property bool showCancelDownloadButton: entry.enclosure && (entry.enclosure.status === Enclosure.Downloading || entry.enclosure.status == Enclosure.Queued)
-    property bool showDeleteDownloadButton: isDownloads && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showAddToQueueButton: !isDownloads && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
-    property bool showPlayButton: !isDownloads && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !isDownloads && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showPauseButton: !isDownloads && entry.queueStatus && entry.enclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showDeleteDownloadButton: downloadFilterActive && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded || entry.enclosure.status === Enclosure.PartiallyDownloaded)
+    property bool showAddToQueueButton: !downloadFilterActive && !entry.queueStatus && entry.enclosure && entry.enclosure.status === Enclosure.Downloaded
+    property bool showPlayButton: !downloadFilterActive && entry.queueStatus && entry.enclosure && (entry.enclosure.status === Enclosure.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !downloadFilterActive && entry.enclosure && (entry.enclosure.status !== Enclosure.Downloaded && entry.enclosure.status !== Enclosure.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: !downloadFilterActive && entry.queueStatus && entry.enclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton: Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
@@ -93,7 +93,7 @@ AddonDelegates.RoundedItemDelegate {
             entry.read = true;
             entry.new = false;
         }
-        if (isQueue || isDownloads) {
+        if (isQueue || downloadFilterActive) {
             const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
             if (pageStack.get(0)?.lastEntry > -1) {
                 pageStack.get(0).lastEntry = entryuid;
@@ -285,7 +285,7 @@ AddonDelegates.RoundedItemDelegate {
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || root.entry.enclosure.status === Enclosure.Queued || (root.isDownloads && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: root.entry.enclosure && (root.entry.enclosure.status === Enclosure.Downloading || root.entry.enclosure.status === Enclosure.Queued || (root.downloadFilterActive && root.entry.enclosure.status === Enclosure.PartiallyDownloaded)) ? downloadProgress : (root.entry.enclosure && root.entry.enclosure.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {

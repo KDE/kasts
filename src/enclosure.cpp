@@ -28,7 +28,6 @@
 #include "datamanager.h"
 #include "entry.h"
 #include "fetcher.h"
-#include "models/downloadmodel.h"
 #include "models/errorlogmodel.h"
 #include "objectslogging.h"
 #include "settingsmanager.h"
@@ -41,7 +40,6 @@ Enclosure::Enclosure(Entry *entry)
     , m_entry(entry)
 {
     connect(this, &Enclosure::playPositionChanged, this, &Enclosure::leftDurationChanged);
-    connect(this, &Enclosure::statusChanged, &DownloadModel::instance(), &DownloadModel::monitorDownloadStatus);
     connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
     connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {

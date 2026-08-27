@@ -19,7 +19,6 @@ ListView {
     id: root
     clip: true
     property bool isQueue: false
-    property bool isDownloads: false
 
     property list<var> selectionForContextMenu: []
     property var singleSelectedEntry: undefined
@@ -145,8 +144,6 @@ ListView {
 
     readonly property Kirigami.Action sortAction: Kirigami.Action {
         id: sortActionRoot
-        visible: !root.isDownloads
-        enabled: visible
         icon.name: "view-sort"
         text: KI18n.i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
         displayHint: Kirigami.DisplayHint.AlwaysHide
@@ -202,7 +199,7 @@ ListView {
 
     readonly property Kirigami.Action filterAction: Kirigami.Action {
         id: filterActionRoot
-        visible: !root.isDownloads && !root.isQueue
+        visible: !root.isQueue
         enabled: visible
         icon.name: "view-filter"
         text: KI18n.i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
