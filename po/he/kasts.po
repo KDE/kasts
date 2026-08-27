@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-26 00:46+0000\n"
-"PO-Revision-Date: 2026-08-13 09:02+0300\n"
+"PO-Revision-Date: 2026-08-26 08:29+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -243,20 +243,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "פרקים שלא מסומנים כמועדפים"
 
 #: models/abstractepisodeproxymodel.cpp:182
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "פרקים שלא נוגנו"
+msgstr "פרקים שירדו"
 
 #: models/abstractepisodeproxymodel.cpp:184
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "הורדת פרקים חדשים אוטומטית"
+msgstr "פרקים שלא ירדו"
 
 #: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
@@ -1065,20 +1061,16 @@ msgid "Stream"
 msgstr "הזרמה"
 
 #: qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "ירדו"
+msgstr "לא ירדו"
 
 #: qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "פרקים שלא מסומנים כמועדפים"
+msgstr "פרקים בלי קובצי מדיה"
 
 #: qml/GenericEntryListView.qml:151
 #, kde-format

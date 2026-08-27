@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-26 00:46+0000\n"
-"PO-Revision-Date: 2026-08-13 07:13+0200\n"
+"PO-Revision-Date: 2026-08-26 07:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -51,19 +51,19 @@ msgstr "Neveljaven medij za epizodo: %1"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Prenos epizode %1 ni dovoljen na merjeni povezavi"
+msgstr "Prejem epizode %1 ni dovoljen na merjeni povezavi"
 
 #: enclosure.cpp:194
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr "Ni omrežne povezave med poskusom prenosa epizode %1"
+msgstr "Ni omrežne povezave med poskusom prejema epizode %1"
 
 #: enclosure.cpp:225
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Napaka pri prejemanje medija: %1"
+msgstr "Napaka pri prejemanju medija: %1"
 
 #: entry.cpp:131 feed.cpp:132
 #, kde-format
@@ -244,20 +244,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "Epizode neoznačene kot Priljubljene"
 
 #: models/abstractepisodeproxymodel.cpp:182
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "Nepredvajane epizode"
+msgstr "Prejete epizode"
 
 #: models/abstractepisodeproxymodel.cpp:184
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "Samodejno prejmi nove epizode"
+msgstr "Ne prejete epizode"
 
 #: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
@@ -1069,20 +1065,16 @@ msgid "Stream"
 msgstr "Pretoči v živo"
 
 #: qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "Prejeto"
+msgstr "Ne prejeto"
 
 #: qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "Epizode neoznačene kot Priljubljene"
+msgstr "Epizode brez medijskih datotek"
 
 #: qml/GenericEntryListView.qml:151
 #, kde-format
@@ -1754,7 +1746,7 @@ msgstr ""
 "Zvočno zaledje pri pretakanju zvoka morda ne bo upoštevalo nastavitev "
 "posredniškega strežnika na ravni sistema ali aplikacije. Nastavitve morajo "
 "še vedno upoštevati vsa druga dejanja, povezana z omrežjem, vključno s "
-"prenosom epizod."
+"prejemom epizod."
 
 #: qml/Settings/SettingsView.qml:17
 #, kde-format
