@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-28 00:45+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -46,19 +46,19 @@ msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr ""
 
-#: enclosure.cpp:189
+#: enclosure.cpp:187
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
 
-#: enclosure.cpp:194
+#: enclosure.cpp:192
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
-#: enclosure.cpp:225
+#: enclosure.cpp:223
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
@@ -200,49 +200,49 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:168
+#: models/abstractepisodeproxymodel.cpp:169
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "没有过滤条件"
 
-#: models/abstractepisodeproxymodel.cpp:170
+#: models/abstractepisodeproxymodel.cpp:171
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "已播放的单集："
 
-#: models/abstractepisodeproxymodel.cpp:172
+#: models/abstractepisodeproxymodel.cpp:173
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "未播放的单集："
 
-#: models/abstractepisodeproxymodel.cpp:174
+#: models/abstractepisodeproxymodel.cpp:175
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "标记为“新”的单集"
 
-#: models/abstractepisodeproxymodel.cpp:176
+#: models/abstractepisodeproxymodel.cpp:177
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "未标为“新”的单集"
 
-#: models/abstractepisodeproxymodel.cpp:178
+#: models/abstractepisodeproxymodel.cpp:179
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "标记为收藏的剧集"
 
-#: models/abstractepisodeproxymodel.cpp:180
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "未标为收藏的剧集"
 
-#: models/abstractepisodeproxymodel.cpp:182
+#: models/abstractepisodeproxymodel.cpp:183
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Unplayed episodes"
@@ -250,7 +250,7 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
 msgstr "未播放的单集："
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:185
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Automatically download new episodes"
@@ -258,31 +258,31 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
 msgstr "自动下载新单集"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "标题"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:197
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "描述"
 
-#: models/abstractepisodeproxymodel.cpp:198
+#: models/abstractepisodeproxymodel.cpp:199
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "播客标题"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:209
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "日期：新的在前"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:211
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -570,48 +570,6 @@ msgstr "订阅"
 msgid "Subscribed"
 msgstr "已订阅"
 
-#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:45
-#: qml/KastsGlobalDrawer.qml:117
-#, kde-format
-msgctxt "@title of page with list of downloaded episodes"
-msgid "Downloads"
-msgstr "下载"
-
-#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:52
-#, kde-format
-msgid "Refresh All Podcasts"
-msgstr "刷新所有播客"
-
-#: qml/DownloadListPage.qml:60
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No downloads"
-msgstr "暂无下载"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloading"
-msgstr "下载中"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Incomplete Downloads"
-msgstr "未完成的下载"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloaded"
-msgstr "已下载"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Queued"
-msgstr "已加入队列的"
-
 #: qml/EntryPage.qml:24
 #, kde-format
 msgctxt "@title"
@@ -706,7 +664,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "标记为“新”"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:336
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:333
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -714,7 +672,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "从收藏中移除"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:327
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:324
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -745,20 +703,25 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "单集"
 
-#: qml/EpisodeListPage.qml:58 qml/FeedDetailsPage.qml:72
+#: qml/EpisodeListPage.qml:44
+#, kde-format
+msgid "Refresh All Podcasts"
+msgstr "刷新所有播客"
+
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "搜索"
 
-#: qml/EpisodeListPage.qml:86 qml/FeedDetailsPage.qml:93
+#: qml/EpisodeListPage.qml:78 qml/FeedDetailsPage.qml:93
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "搜索单集中..."
 
-#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:332
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "No episodes available"
 msgstr "无可播放剧集"
@@ -1021,12 +984,12 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:283
+#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:280
 #, kde-format
 msgid "Remove from Queue"
 msgstr "移出队列"
 
-#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:345
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:342
 #, kde-format
 msgid "Download"
 msgstr "下载"
@@ -1041,12 +1004,12 @@ msgstr "取消下载"
 msgid "Delete Download"
 msgstr "删除下载"
 
-#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:273
+#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:270
 #, kde-format
 msgid "Add to Queue"
 msgstr "加入队列"
 
-#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:364
+#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:361
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1054,7 +1017,31 @@ msgctxt ""
 msgid "Stream"
 msgstr "流式播放"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloading"
+msgstr "下载中"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Incomplete Downloads"
+msgstr "未完成的下载"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloaded"
+msgstr "已下载"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
+msgstr "已加入队列的"
+
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title:group Status of downloaded episodes"
 #| msgid "Downloaded"
@@ -1062,7 +1049,7 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "已下载"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Episodes not marked as Favorite"
@@ -1070,19 +1057,19 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "未标为收藏的剧集"
 
-#: qml/GenericEntryListView.qml:151
+#: qml/GenericEntryListView.qml:148
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "排序"
 
-#: qml/GenericEntryListView.qml:154
+#: qml/GenericEntryListView.qml:151
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "选择如何排序单集"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:205
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1090,43 +1077,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "过滤器"
 
-#: qml/GenericEntryListView.qml:210
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "按状态过滤单集"
 
-#: qml/GenericEntryListView.qml:254
+#: qml/GenericEntryListView.qml:251
 #, kde-format
 msgid "Select All"
 msgstr "全部选中"
 
-#: qml/GenericEntryListView.qml:264
+#: qml/GenericEntryListView.qml:261
 #, kde-format
 msgid "Deselect All"
 msgstr "全部不选"
 
-#: qml/GenericEntryListView.qml:293
+#: qml/GenericEntryListView.qml:290
 #, kde-format
 msgid "Mark as Played"
 msgstr "标记为已播放"
 
-#: qml/GenericEntryListView.qml:301
+#: qml/GenericEntryListView.qml:298
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "标记为未播放"
 
-#: qml/GenericEntryListView.qml:309
+#: qml/GenericEntryListView.qml:306
 #, kde-format
 msgid "Label as \"New\""
 msgstr "标记为“新”"
 
-#: qml/GenericEntryListView.qml:318
+#: qml/GenericEntryListView.qml:315
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "移除“新”标记"
 
-#: qml/GenericEntryListView.qml:355
+#: qml/GenericEntryListView.qml:352
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1166,7 +1153,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "加入队列"
 
-#: qml/KastsGlobalDrawer.qml:136 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -2454,3 +2441,11 @@ msgstr ""
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr ""
+
+#~ msgctxt "@title of page with list of downloaded episodes"
+#~ msgid "Downloads"
+#~ msgstr "下载"
+
+#~ msgctxt "@info:placeholder"
+#~ msgid "No downloads"
+#~ msgstr "暂无下载"

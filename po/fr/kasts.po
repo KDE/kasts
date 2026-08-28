@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-28 00:45+0000\n"
 "PO-Revision-Date: 2026-08-16 13:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Media non valable pour un épisode : %1"
 
-#: enclosure.cpp:189
+#: enclosure.cpp:187
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
@@ -54,7 +54,7 @@ msgstr ""
 "Le téléchargement de l'épisode %1 n'est pas autorisé avec des connexions "
 "facturées."
 
-#: enclosure.cpp:194
+#: enclosure.cpp:192
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
@@ -62,7 +62,7 @@ msgstr ""
 "Aucune connexion réseau lors de la tentative de téléchargement de l'épisode "
 "%1"
 
-#: enclosure.cpp:225
+#: enclosure.cpp:223
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
@@ -204,87 +204,87 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:168
+#: models/abstractepisodeproxymodel.cpp:169
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Aucun filtre"
 
-#: models/abstractepisodeproxymodel.cpp:170
+#: models/abstractepisodeproxymodel.cpp:171
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Épisodes lus"
 
-#: models/abstractepisodeproxymodel.cpp:172
+#: models/abstractepisodeproxymodel.cpp:173
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Épisodes non lus"
 
-#: models/abstractepisodeproxymodel.cpp:174
+#: models/abstractepisodeproxymodel.cpp:175
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "Épisodes marqués comme « Nouveau »"
 
-#: models/abstractepisodeproxymodel.cpp:176
+#: models/abstractepisodeproxymodel.cpp:177
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Épisodes non marqués comme « Nouveau »"
 
-#: models/abstractepisodeproxymodel.cpp:178
+#: models/abstractepisodeproxymodel.cpp:179
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Épisodes marqués en favori"
 
-#: models/abstractepisodeproxymodel.cpp:180
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Épisodes non marqués en favoris"
 
-#: models/abstractepisodeproxymodel.cpp:182
+#: models/abstractepisodeproxymodel.cpp:183
 #, fuzzy, kde-format
 #| msgid "No Downloaded Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
 msgstr "Aucun épisode téléchargé"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:185
 #, fuzzy, kde-format
 #| msgid "No Downloaded Episodes"
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
 msgstr "Aucun épisode téléchargé"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Titre"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:197
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Description"
 
-#: models/abstractepisodeproxymodel.cpp:198
+#: models/abstractepisodeproxymodel.cpp:199
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Titre de podcast"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:209
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Date : le plus récent d'abord"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:211
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -577,48 +577,6 @@ msgstr "S'abonner"
 msgid "Subscribed"
 msgstr "Abonné"
 
-#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:45
-#: qml/KastsGlobalDrawer.qml:117
-#, kde-format
-msgctxt "@title of page with list of downloaded episodes"
-msgid "Downloads"
-msgstr "Téléchargements"
-
-#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:52
-#, kde-format
-msgid "Refresh All Podcasts"
-msgstr "Rafraîchir tous les podcasts"
-
-#: qml/DownloadListPage.qml:60
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No downloads"
-msgstr "Aucun téléchargement"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloading"
-msgstr "Téléchargement en cours"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Incomplete Downloads"
-msgstr "Téléchargements incomplets"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloaded"
-msgstr "Téléchargé"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, kde-format
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Queued"
-msgstr "Mis en file d'attente"
-
 #: qml/EntryPage.qml:24
 #, kde-format
 msgctxt "@title"
@@ -713,7 +671,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Étiqueter comme « Nouveau »"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:336
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:333
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -721,7 +679,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Supprimer des favoris"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:327
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:324
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -752,20 +710,25 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Épisodes"
 
-#: qml/EpisodeListPage.qml:58 qml/FeedDetailsPage.qml:72
+#: qml/EpisodeListPage.qml:44
+#, kde-format
+msgid "Refresh All Podcasts"
+msgstr "Rafraîchir tous les podcasts"
+
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Rechercher"
 
-#: qml/EpisodeListPage.qml:86 qml/FeedDetailsPage.qml:93
+#: qml/EpisodeListPage.qml:78 qml/FeedDetailsPage.qml:93
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Rechercher des épisodes..."
 
-#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:332
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "No episodes available"
 msgstr "Aucun épisode disponible"
@@ -1034,12 +997,12 @@ msgstr ""
 "podcast. Le téléchargement et / ou la diffusion de cet épisode peuvent être "
 "interrompus."
 
-#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:283
+#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:280
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Supprimer de la file d'attente"
 
-#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:345
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:342
 #, kde-format
 msgid "Download"
 msgstr "Télécharger"
@@ -1054,12 +1017,12 @@ msgstr "Annuler le téléchargement"
 msgid "Delete Download"
 msgstr "Supprimer le téléchargement"
 
-#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:273
+#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:270
 #, kde-format
 msgid "Add to Queue"
 msgstr "Ajouter à la file d'attente"
 
-#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:364
+#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:361
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1067,7 +1030,31 @@ msgctxt ""
 msgid "Stream"
 msgstr "Flux"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloading"
+msgstr "Téléchargement en cours"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Incomplete Downloads"
+msgstr "Téléchargements incomplets"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloaded"
+msgstr "Téléchargé"
+
+#: qml/GenericEntryListView.qml:42
+#, kde-format
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
+msgstr "Mis en file d'attente"
+
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title:group Status of downloaded episodes"
 #| msgid "Downloaded"
@@ -1075,7 +1062,7 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "Téléchargé"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Episodes not marked as Favorite"
@@ -1083,19 +1070,19 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "Épisodes non marqués en favoris"
 
-#: qml/GenericEntryListView.qml:151
+#: qml/GenericEntryListView.qml:148
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Trier"
 
-#: qml/GenericEntryListView.qml:154
+#: qml/GenericEntryListView.qml:151
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Sélectionner le mode de tri des épisodes"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:205
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1103,43 +1090,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtrer"
 
-#: qml/GenericEntryListView.qml:210
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Filtrer les épisodes selon leurs états"
 
-#: qml/GenericEntryListView.qml:254
+#: qml/GenericEntryListView.qml:251
 #, kde-format
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: qml/GenericEntryListView.qml:264
+#: qml/GenericEntryListView.qml:261
 #, kde-format
 msgid "Deselect All"
 msgstr "Tout désélectionner"
 
-#: qml/GenericEntryListView.qml:293
+#: qml/GenericEntryListView.qml:290
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marquer comme lu"
 
-#: qml/GenericEntryListView.qml:301
+#: qml/GenericEntryListView.qml:298
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marquer comme « Non joué »"
 
-#: qml/GenericEntryListView.qml:309
+#: qml/GenericEntryListView.qml:306
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Étiqueter comme « Nouveau »"
 
-#: qml/GenericEntryListView.qml:318
+#: qml/GenericEntryListView.qml:315
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Supprimer l'étiquette « Nouveau »"
 
-#: qml/GenericEntryListView.qml:355
+#: qml/GenericEntryListView.qml:352
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1180,7 +1167,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "File d'attente"
 
-#: qml/KastsGlobalDrawer.qml:136 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -2512,6 +2499,14 @@ msgstr "Quitter"
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Erreur lors de la récupération du podcast : %1. Erreur : %2"
+
+#~ msgctxt "@title of page with list of downloaded episodes"
+#~ msgid "Downloads"
+#~ msgstr "Téléchargements"
+
+#~ msgctxt "@info:placeholder"
+#~ msgid "No downloads"
+#~ msgstr "Aucun téléchargement"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Média non valable"

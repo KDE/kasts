@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-28 00:45+0000\n"
 "PO-Revision-Date: 2026-07-23 18:29+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -47,20 +47,20 @@ msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Virheellinen mediatiedosto"
 
-#: enclosure.cpp:189
+#: enclosure.cpp:187
 #, fuzzy, kde-format
 #| msgid "Podcast downloads not allowed on metered connection"
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Podcastien lataamista ei sallittu maksullisissa yhteyksissä"
 
-#: enclosure.cpp:194
+#: enclosure.cpp:192
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
-#: enclosure.cpp:225
+#: enclosure.cpp:223
 #, fuzzy, kde-format
 #| msgid "Downloading %1"
 msgctxt "@info:status Error message notification"
@@ -203,49 +203,49 @@ msgstr "Tobias Fella"
 msgid "Bart De Vries"
 msgstr "Bart De Vries"
 
-#: models/abstractepisodeproxymodel.cpp:168
+#: models/abstractepisodeproxymodel.cpp:169
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "No filter"
 msgstr "Ei suodatinta"
 
-#: models/abstractepisodeproxymodel.cpp:170
+#: models/abstractepisodeproxymodel.cpp:171
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Played episodes"
 msgstr "Kuunnellut jaksot"
 
-#: models/abstractepisodeproxymodel.cpp:172
+#: models/abstractepisodeproxymodel.cpp:173
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Unplayed episodes"
 msgstr "Kuuntelemattomat jaksot"
 
-#: models/abstractepisodeproxymodel.cpp:174
+#: models/abstractepisodeproxymodel.cpp:175
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as \"New\""
 msgstr "”Uusiksi” merkityt jaksot"
 
-#: models/abstractepisodeproxymodel.cpp:176
+#: models/abstractepisodeproxymodel.cpp:177
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as \"New\""
 msgstr "Jaksot, joita ei ole merkitty ”uusiksi”"
 
-#: models/abstractepisodeproxymodel.cpp:178
+#: models/abstractepisodeproxymodel.cpp:179
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes marked as Favorite"
 msgstr "Suosikeiksi merkityt jaksot"
 
-#: models/abstractepisodeproxymodel.cpp:180
+#: models/abstractepisodeproxymodel.cpp:181
 #, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Episodes not marked as Favorite"
 msgstr "Jaksot, joita ei ole merkitty suosikeiksi"
 
-#: models/abstractepisodeproxymodel.cpp:182
+#: models/abstractepisodeproxymodel.cpp:183
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Unplayed episodes"
@@ -253,7 +253,7 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
 msgstr "Kuuntelemattomat jaksot"
 
-#: models/abstractepisodeproxymodel.cpp:184
+#: models/abstractepisodeproxymodel.cpp:185
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Automatically download new episodes"
@@ -261,31 +261,31 @@ msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
 msgstr "Lataa uudet jaksot automaattisesti"
 
-#: models/abstractepisodeproxymodel.cpp:194
+#: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Title"
 msgstr "Otsikko"
 
-#: models/abstractepisodeproxymodel.cpp:196
+#: models/abstractepisodeproxymodel.cpp:197
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Description"
 msgstr "Kuvaus"
 
-#: models/abstractepisodeproxymodel.cpp:198
+#: models/abstractepisodeproxymodel.cpp:199
 #, kde-format
 msgctxt "@label:chooser Choice of fields to search for string"
 msgid "Podcast title"
 msgstr "Podcastin otsikko"
 
-#: models/abstractepisodeproxymodel.cpp:208
+#: models/abstractepisodeproxymodel.cpp:209
 #, kde-format
 msgctxt "@label:chooser Sort episodes by decreasing date"
 msgid "Date: newer first"
 msgstr "Päiväys: uusin ensin"
 
-#: models/abstractepisodeproxymodel.cpp:210
+#: models/abstractepisodeproxymodel.cpp:211
 #, kde-format
 msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
@@ -576,55 +576,6 @@ msgstr "Tilaa"
 msgid "Subscribed"
 msgstr "Tilattu"
 
-#: qml/DownloadListPage.qml:19 qml/EpisodeListPage.qml:45
-#: qml/KastsGlobalDrawer.qml:117
-#, kde-format
-msgctxt "@title of page with list of downloaded episodes"
-msgid "Downloads"
-msgstr "Lataukset"
-
-#: qml/DownloadListPage.qml:35 qml/EpisodeListPage.qml:52
-#, kde-format
-msgid "Refresh All Podcasts"
-msgstr "Virkistä kaikki podcastit"
-
-#: qml/DownloadListPage.qml:60
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No downloads"
-msgstr "Ei latauksia"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgid "Downloading"
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloading"
-msgstr "Ladataan"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Incomplete Downloads"
-msgstr "Kesken olevat lataukset"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgid "Downloaded"
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Downloaded"
-msgstr "Ladattu"
-
-#: qml/DownloadListPage.qml:77 qml/GenericEntryListView.qml:43
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
-msgctxt "@title:group Status of downloaded episodes"
-msgid "Queued"
-msgstr "Jono"
-
 #: qml/EntryPage.qml:24
 #, kde-format
 msgctxt "@title"
@@ -719,7 +670,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:336
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:333
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -727,7 +678,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Poista suosikeista"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:327
+#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:324
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -758,20 +709,25 @@ msgctxt "@title of page with list of podcast episodes"
 msgid "Episodes"
 msgstr "Jaksot"
 
-#: qml/EpisodeListPage.qml:58 qml/FeedDetailsPage.qml:72
+#: qml/EpisodeListPage.qml:44
+#, kde-format
+msgid "Refresh All Podcasts"
+msgstr "Virkistä kaikki podcastit"
+
+#: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:72
 #: qml/FeedListPage.qml:113
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
 msgstr "Etsi"
 
-#: qml/EpisodeListPage.qml:86 qml/FeedDetailsPage.qml:93
+#: qml/EpisodeListPage.qml:78 qml/FeedDetailsPage.qml:93
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
 msgstr "Etsi jaksoja…"
 
-#: qml/EpisodeListPage.qml:101 qml/FeedDetailsPage.qml:332
+#: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:332
 #, kde-format
 msgid "No episodes available"
 msgstr "Ei jaksoja saatavilla"
@@ -1040,12 +996,12 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:283
+#: qml/GenericEntryDelegate.qml:352 qml/GenericEntryListView.qml:280
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Poista jonosta"
 
-#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:345
+#: qml/GenericEntryDelegate.qml:361 qml/GenericEntryListView.qml:342
 #, kde-format
 msgid "Download"
 msgstr "Lataa"
@@ -1060,12 +1016,12 @@ msgstr "Peru lataus"
 msgid "Delete Download"
 msgstr "Poista lataus"
 
-#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:273
+#: qml/GenericEntryDelegate.qml:385 qml/GenericEntryListView.qml:270
 #, kde-format
 msgid "Add to Queue"
 msgstr "Lisää jonoon"
 
-#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:364
+#: qml/GenericEntryDelegate.qml:402 qml/GenericEntryListView.qml:361
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1073,14 +1029,45 @@ msgctxt ""
 msgid "Stream"
 msgstr "Suoratoista"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
+#, fuzzy, kde-format
+#| msgid "Downloading"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloading"
+msgstr "Ladataan"
+
+#: qml/GenericEntryListView.qml:42
+#, fuzzy, kde-format
+#| msgid "Incomplete Downloads"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Incomplete Downloads"
+msgstr "Kesken olevat lataukset"
+
+#: qml/GenericEntryListView.qml:42
+#, fuzzy, kde-format
+#| msgid "Downloaded"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Downloaded"
+msgstr "Ladattu"
+
+#: qml/GenericEntryListView.qml:42
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title of page showing the list queued items; this is the noun 'the "
+#| "queue', not the verb"
+#| msgid "Queue"
+msgctxt "@title:group Status of downloaded episodes"
+msgid "Queued"
+msgstr "Jono"
+
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgid "Downloaded"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "Ladattu"
 
-#: qml/GenericEntryListView.qml:43
+#: qml/GenericEntryListView.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Episodes not marked as Favorite"
@@ -1088,19 +1075,19 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "Jaksot, joita ei ole merkitty suosikeiksi"
 
-#: qml/GenericEntryListView.qml:151
+#: qml/GenericEntryListView.qml:148
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Lajittele"
 
-#: qml/GenericEntryListView.qml:154
+#: qml/GenericEntryListView.qml:151
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Valitse, miten jaksot lajitellaan"
 
-#: qml/GenericEntryListView.qml:208
+#: qml/GenericEntryListView.qml:205
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1108,43 +1095,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Suodata"
 
-#: qml/GenericEntryListView.qml:210
+#: qml/GenericEntryListView.qml:207
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Suodata jaksoja tilan mukaan"
 
-#: qml/GenericEntryListView.qml:254
+#: qml/GenericEntryListView.qml:251
 #, kde-format
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: qml/GenericEntryListView.qml:264
+#: qml/GenericEntryListView.qml:261
 #, kde-format
 msgid "Deselect All"
 msgstr "Poista kaikki valinnat"
 
-#: qml/GenericEntryListView.qml:293
+#: qml/GenericEntryListView.qml:290
 #, kde-format
 msgid "Mark as Played"
 msgstr "Merkitse kuunnelluksi"
 
-#: qml/GenericEntryListView.qml:301
+#: qml/GenericEntryListView.qml:298
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Merkitse kuuntelemattomaksi"
 
-#: qml/GenericEntryListView.qml:309
+#: qml/GenericEntryListView.qml:306
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Merkitse ”uudeksi”"
 
-#: qml/GenericEntryListView.qml:318
+#: qml/GenericEntryListView.qml:315
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Poista ”Uusi”-nimiö"
 
-#: qml/GenericEntryListView.qml:355
+#: qml/GenericEntryListView.qml:352
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1185,7 +1172,7 @@ msgctxt ""
 msgid "Queue"
 msgstr "Jono"
 
-#: qml/KastsGlobalDrawer.qml:136 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
@@ -2502,6 +2489,14 @@ msgstr "Lopeta"
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr ""
+
+#~ msgctxt "@title of page with list of downloaded episodes"
+#~ msgid "Downloads"
+#~ msgstr "Lataukset"
+
+#~ msgctxt "@info:placeholder"
+#~ msgid "No downloads"
+#~ msgstr "Ei latauksia"
 
 #~ msgid "Invalid Media"
 #~ msgstr "Virheellinen media"
