@@ -243,20 +243,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "未标为收藏的剧集"
 
 #: models/abstractepisodeproxymodel.cpp:183
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "未播放的单集："
+msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "自动下载新单集"
+msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
@@ -1042,20 +1038,16 @@ msgid "Queued"
 msgstr "已加入队列的"
 
 #: qml/GenericEntryListView.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "已下载"
+msgstr ""
 
 #: qml/GenericEntryListView.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "未标为收藏的剧集"
+msgstr ""
 
 #: qml/GenericEntryListView.qml:148
 #, kde-format
@@ -1587,7 +1579,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
-msgstr ""
+msgstr "下载"
 
 #: qml/Settings/NetworkSettingsPage.qml:36
 #, kde-format
@@ -2441,11 +2433,3 @@ msgstr ""
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr ""
-
-#~ msgctxt "@title of page with list of downloaded episodes"
-#~ msgid "Downloads"
-#~ msgstr "下载"
-
-#~ msgctxt "@info:placeholder"
-#~ msgid "No downloads"
-#~ msgstr "暂无下载"

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-28 00:45+0000\n"
-"PO-Revision-Date: 2026-08-16 13:38+0200\n"
+"PO-Revision-Date: 2026-08-27 19:16+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.07.90\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -247,18 +247,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "Épisodes non marqués en favoris"
 
 #: models/abstractepisodeproxymodel.cpp:183
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "Aucun épisode téléchargé"
+msgstr "Épisodes téléchargés"
 
 #: models/abstractepisodeproxymodel.cpp:185
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "Aucun épisode téléchargé"
+msgstr "Épisodes non téléchargés"
 
 #: models/abstractepisodeproxymodel.cpp:195
 #, kde-format
@@ -1055,20 +1053,16 @@ msgid "Queued"
 msgstr "Mis en file d'attente"
 
 #: qml/GenericEntryListView.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "Téléchargé"
+msgstr "Non téléchargé"
 
 #: qml/GenericEntryListView.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "Épisodes non marqués en favoris"
+msgstr "Épisodes dans fichiers de media"
 
 #: qml/GenericEntryListView.qml:148
 #, kde-format
