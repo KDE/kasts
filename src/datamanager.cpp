@@ -105,7 +105,6 @@ Entry *DataManager::getEntry(const qint64 entryuid) const
 {
     if (m_entries.contains(entryuid)) {
         Entry *entry = new Entry(entryuid);
-        QQmlEngine::setObjectOwnership(entry, QJSEngine::JavaScriptOwnership);
         return entry;
     }
     return nullptr;
@@ -119,7 +118,6 @@ EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
     Database::instance().execute(query);
     if (query.next() && query.value(0).toBool()) {
         EntriesProxyModel *entriesModel = new EntriesProxyModel(feeduid);
-        QQmlEngine::setObjectOwnership(entriesModel, QJSEngine::JavaScriptOwnership);
         return entriesModel;
     } else {
         return nullptr;

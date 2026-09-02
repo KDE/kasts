@@ -27,7 +27,6 @@ AddonDelegates.RoundedItemDelegate {
 
     // These are the properties exposed by the model that are used in this delegate
     // NOTE: don't forget to also add new properties to the delegate in QueuePage
-    required property Entry entry
     required property int entryuid
     required property int index
     required property string title
@@ -45,6 +44,8 @@ AddonDelegates.RoundedItemDelegate {
     required property int playPosition
     required property int duration
     required property int size
+
+    readonly property Entry entry: DataManager.getEntry(entryuid)
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
