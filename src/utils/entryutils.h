@@ -20,5 +20,5 @@ QString entryImage(const QString &entryImage,
                    const QString &feedDirname);
 QString
 cachedEmbeddedImage(const QString &enclosureUrl, const DataTypes::EnclosureStatus enclosureStatus, const QString &entryTitle, const QString &feedDirname);
-bool hasEnclosure(DataTypes::EntryDetails entryDetails);
+qint64 checkSizeOnDisk(const qint64 entryuid, const QString &filename, const qint64 size);
 }

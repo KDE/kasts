@@ -100,7 +100,6 @@ Kirigami.ScrollablePage {
             width: root.queueList.width
             height: entryDelegate.height
 
-            required property Entry entry
             required property int entryuid
             required property int index
             required property string title
@@ -115,9 +114,11 @@ Kirigami.ScrollablePage {
             required property string feedImage
             required property string feedName
             required property bool queueStatus
+            required property bool enclosureUrl
             required property int playPosition
             required property int duration
             required property int size
+            required property int downloadSize
 
             GenericEntryDelegate {
                 id: entryDelegate
@@ -127,7 +128,6 @@ Kirigami.ScrollablePage {
                 focus: parent.activeFocus
 
                 // required properties from model need to passed on manually
-                entry: focusScope.entry
                 entryuid: focusScope.entryuid
                 index: focusScope.index
                 title: focusScope.title
@@ -142,9 +142,11 @@ Kirigami.ScrollablePage {
                 feedImage: focusScope.feedImage
                 feedName: focusScope.feedName
                 queueStatus: focusScope.queueStatus
+                enclosureUrl: focusScope.enclosureUrl
                 playPosition: focusScope.playPosition
                 duration: focusScope.duration
                 size: focusScope.size
+                downloadSize: focusScope.downloadSize
             }
         }
 

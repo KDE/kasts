@@ -47,8 +47,8 @@ public:
     static QString imagePath(const QString &url);
 
     static QString enclosureDirPath();
-    static QString enclosureDirPath(const QString &feedname);
-    static QString enclosurePath(const QString &name, const QString &url, const QString &feedname);
+    static QString enclosureDirPath(const QString &feedDirName);
+    static QString enclosurePath(const QString &name, const QString &url, const QString &feedDirName);
 
     static qint64 enclosureDirSize();
     static qint64 imageDirSize();

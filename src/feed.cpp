@@ -89,13 +89,6 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             Q_EMIT favoriteEntryCountChanged();
         }
     });
-    connect(&Fetcher::instance(), &Fetcher::error, this, [this](const ErrorLogModel::Type type, const QString &message, const qint64 feeduid) {
-        Q_UNUSED(type)
-        if (feeduid == m_feeduid) {
-            setErrorString(message);
-            setRefreshing(false);
-        }
-    });
 }
 
 Feed::~Feed()

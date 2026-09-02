@@ -214,11 +214,6 @@ void QueueModel::moveQueueItem(const qint64 from, const qint64 to_orig)
     Q_EMIT DataManager::instance().entryQueueStatusChanged(true, QList<qint64>());
 }
 
-Entry *QueueModel::getQueueEntry(int index) const
-{
-    return DataManager::instance().getEntry(m_entryOrder[index]);
-}
-
 QList<qint64> QueueModel::queue() const
 {
     return m_entryOrder;

@@ -27,12 +27,10 @@ AddonDelegates.RoundedItemDelegate {
 
     // These are the properties exposed by the model that are used in this delegate
     // NOTE: don't forget to also add new properties to the delegate in QueuePage
-    required property Entry entry
     required property int entryuid
     required property int index
     required property string title
     required property int downloaded
-    required property bool hasEnclosure
     required property bool isNew
     required property bool read
     required property bool favorite
@@ -42,9 +40,12 @@ AddonDelegates.RoundedItemDelegate {
     required property string feedImage
     required property string feedName
     required property bool queueStatus
+    required property bool hasEnclosure
+    required property bool enclosureUrl
     required property int playPosition
     required property int duration
     required property int size
+    required property int downloadSize
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
@@ -329,7 +330,7 @@ AddonDelegates.RoundedItemDelegate {
                 RowLayout {
                     Controls.Label {
                         visible: root.downloaded != DataTypes.EnclosureStatus.Queued
-                        text: Format.formatByteSize(root.entry.enclosure.downloadSize)
+                        text: Format.formatByteSize(root.downloadSize)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -338,7 +339,7 @@ AddonDelegates.RoundedItemDelegate {
                         indeterminate: root.downloaded == DataTypes.EnclosureStatus.Queued
                         from: 0
                         to: 1
-                        value: root.entry.enclosure.downloadProgress
+                        value: root.size > 0 ? root.downloadSize / root.size : 0.0
                         Layout.fillWidth: true
                     }
                     Controls.Label {
@@ -387,7 +388,7 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Download")
             icon.name: "download"
             onClicked: {
-                root.mainWindow.downloadOverlay.entry = root.entry;
+                root.mainWindow.downloadOverlay.entryuid = root.entryuid;
                 root.mainWindow.downloadOverlay.run();
             }
             visible: root.showDownloadButton
@@ -396,14 +397,14 @@ AddonDelegates.RoundedItemDelegate {
         IconOnlyButton {
             text: KI18n.i18n("Cancel Download")
             icon.name: "edit-delete-remove"
-            onClicked: root.entry.enclosure.cancelDownload()
+            onClicked: Fetcher.cancelEnclosureDownload(root.entryuid)
             visible: root.showCancelDownloadButton
         }
 
         IconOnlyButton {
             text: KI18n.i18n("Delete Download")
             icon.name: "delete"
-            onClicked: root.entry.enclosure.deleteFile()
+            onClicked: DataManager.bulkDeleteEnclosures([root.entryuid])
             visible: root.showDeleteDownloadButton
         }
 

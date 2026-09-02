@@ -17,6 +17,7 @@
 #include <id3v2tag.h>
 #include <mpegfile.h>
 
+#include "datamanager.h"
 #include "storagemanager.h"
 
 QString EntryUtils::entryImage(const QString &entryImage,
@@ -43,6 +44,12 @@ QString EntryUtils::cachedEmbeddedImage(const QString &enclosureUrl,
                                         const QString &entryTitle,
                                         const QString &feedDirname)
 {
+    QString path = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirname);
+
+    if (enclosureStatus != DataTypes::EnclosureStatus::Downloaded || path.isEmpty()) {
+        return QLatin1String("");
+    }
+
     // if image is already cached, then return the path
     QString cachedpath = StorageManager::imagePath(enclosureUrl);
     if (QFileInfo::exists(cachedpath)) {
@@ -50,12 +57,6 @@ QString EntryUtils::cachedEmbeddedImage(const QString &enclosureUrl,
             return QUrl::fromLocalFile(cachedpath).toString();
         }
     }
-    QString path = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirname);
-
-    if (enclosureStatus != DataTypes::EnclosureStatus::Downloaded || path.isEmpty()) {
-        return QLatin1String("");
-    }
-
     const auto mime = QMimeDatabase().mimeTypeForFile(path).name();
     if (mime != QStringLiteral("audio/mpeg")) {
         return QLatin1String("");
@@ -81,13 +82,42 @@ QString EntryUtils::cachedEmbeddedImage(const QString &enclosureUrl,
     }
 
     if (imageFound) {
-        return cachedpath;
+        return QUrl::fromLocalFile(cachedpath).toString();
     } else {
         return QLatin1String("");
     }
 }
 
-bool hasEnclosure(DataTypes::EntryDetails entryDetails)
+qint64 EntryUtils::checkSizeOnDisk(const qint64 entryuid, const QString &filename, const qint64 size)
 {
-    return !entryDetails.enclosures.isEmpty();
+    // In principle the database contains this status, we check anyway in case
+    // something changed on disk
+    qint64 sizeOnDisk = 0;
+
+    QFile file(filename);
+    if (file.exists()) {
+        if (file.size() == size && file.size() > 0) {
+            // file is on disk and has correct size, write to database if it
+            // wasn't already registered so
+            // this should, in principle, never happen unless the db was deleted
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
+                                                             QList<qint64>({entryuid}));
+        } else if (file.size() > 0) {
+            // file was downloaded, but there is a size mismatch
+            // set to PartiallyDownloaded such that download can be resumed
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
+                                                             QList<qint64>({entryuid}));
+        } else {
+            // file is empty
+            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                             QList<qint64>({entryuid}));
+        }
+        sizeOnDisk = file.size();
+    } else {
+        // file does not exist
+        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
+                                                         QList<qint64>({entryuid}));
+        sizeOnDisk = 0;
+    }
+    return sizeOnDisk;
 }

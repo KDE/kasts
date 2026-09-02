@@ -105,7 +105,6 @@ Entry *DataManager::getEntry(const qint64 entryuid) const
 {
     if (m_entries.contains(entryuid)) {
         Entry *entry = new Entry(entryuid);
-        QQmlEngine::setObjectOwnership(entry, QJSEngine::JavaScriptOwnership);
         return entry;
     }
     return nullptr;
@@ -119,7 +118,6 @@ EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
     Database::instance().execute(query);
     if (query.next() && query.value(0).toBool()) {
         EntriesProxyModel *entriesModel = new EntriesProxyModel(feeduid);
-        QQmlEngine::setObjectOwnership(entriesModel, QJSEngine::JavaScriptOwnership);
         return entriesModel;
     } else {
         return nullptr;
@@ -191,15 +189,11 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             // Remove entries from Queue
             bulkQueueStatus(false, entries);
 
-            // TODO: Optimize the file deletion; do not depend on the entry objects
-            // Delete entries themselves
             qCDebug(kastsDataManager) << "delete entries of" << feeduid;
+            // first remove downloaded enclosures and cached images
+            bulkDeleteEnclosures(entries);
             for (auto &entryuid : std::as_const(entries)) {
-                if (getEntry(entryuid)->hasEnclosure())
-                    getEntry(entryuid)->enclosure()->deleteFile(); // delete enclosure (if it exists)
-                if (!getEntry(entryuid)->image().isEmpty())
-                    StorageManager::instance().removeImage(getEntry(entryuid)->image()); // delete entry images
-                m_entries.remove(entryuid); // delete the hash key
+                m_entries.remove(entryuid); // delete from the QSet
             }
 
             qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feeduid;
@@ -617,12 +611,9 @@ void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list) con
 
 void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
 {
-    // TODO: move away from instantiation of entries
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
-        if (getEntry(entryuid)->hasEnclosure()) {
-            getEntry(entryuid)->enclosure()->download();
-        }
+        Fetcher::instance().downloadEnclosure(entryuid);
     }
 }
 
@@ -642,18 +633,24 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
     for (const qint64 &entryuid : std::as_const(entryuids)) {
         query.bindValue(QStringLiteral(":entryuid"), entryuid);
         Database::instance().execute(query);
-        if (query.next()) { // Only check the first enclosure
+        while (query.next()) { // Only check the first enclosure
             const DataTypes::EnclosureStatus enclosureStatus = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
             const QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
             const QString entryTitle = query.value(QStringLiteral("Entries.title")).toString();
             const QString feedDirName = query.value(QStringLiteral("Feeds.dirname")).toString();
             const QString enclosurePath = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirName);
             if (enclosureStatus == DataTypes::EnclosureStatus::Downloading) {
-                // TODO: refactor cancelDownload method to Fetcher
-                getEntry(entryuid)->enclosure()->cancelDownload();
+                Fetcher::instance().cancelEnclosureDownload(entryuid);
             }
             if (QFileInfo::exists(enclosurePath)) {
                 filesToBeDeleted[entryuid] = enclosurePath;
+            }
+            // remove associated cached images if present
+            QString cachedpath = StorageManager::imagePath(enclosureUrl);
+            if (QFileInfo::exists(cachedpath)) {
+                if (QFileInfo(cachedpath).size() != 0) {
+                    QFile::remove(cachedpath);
+                }
             }
         }
     }

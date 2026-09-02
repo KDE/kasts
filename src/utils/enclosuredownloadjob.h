@@ -24,12 +24,19 @@ public:
     };
     Q_ENUM(Status)
 
-    explicit EnclosureDownloadJob(const qint64 entryuid, const QString &url, const QString &filename, const QString &title, QObject *parent = nullptr);
+    explicit EnclosureDownloadJob(const qint64 entryuid,
+                                  const QString &url,
+                                  const QString &filename,
+                                  const QString &title,
+                                  const qint64 size,
+                                  const qint64 duration,
+                                  QObject *parent = nullptr);
     ~EnclosureDownloadJob();
 
     void start() override;
     bool doKill() override;
     Status status() const;
+    qint64 entryuid() const;
 
 Q_SIGNALS:
     void statusChanged(EnclosureDownloadJob::Status status);
@@ -37,11 +44,15 @@ Q_SIGNALS:
 private:
     void startDownload();
     QNetworkReply *getNetworkReply(const QString &url, const QString &filePath) const;
+    void processDownloadedFile();
 
     qint64 m_entryuid;
     QString m_url;
     QString m_filename;
     QString m_title;
+    qint64 m_size;
+    qint64 m_duration;
+    qint64 m_sizeOnDisk;
     QNetworkReply *m_reply = nullptr;
     Status m_status = Queued;
 };

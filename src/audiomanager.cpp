@@ -601,21 +601,14 @@ void AudioManager::mediaStatusChanged()
                 }
             });
         } else { // not streaming or already tried the redirected url
-            // save pointer to this bad entry to allow
-            // us to delete the enclosure after the track has been unloaded
+            // delete the enclosure after the track has been unloaded
+            Q_EMIT logError(ErrorLogModel::Type::InvalidMedia,
+                            i18nc("@info:status Error message notification", "Invalid Media for episode: %1", d->m_entry->title()));
             qint64 badEntryuid = d->m_entryuid;
             DataManager::instance().setLastPlayingEntry(0);
             stop();
             next();
-            Entry *badEntry = new Entry(badEntryuid);
-            if (badEntry) {
-                if (badEntry->enclosure()) {
-                    badEntry->enclosure()->deleteFile();
-                    Q_EMIT logError(ErrorLogModel::Type::InvalidMedia,
-                                    i18nc("@info:status Error message notification", "Invalid Media for episode: %1", badEntry->title()));
-                }
-                delete badEntry;
-            }
+            DataManager::instance().bulkDeleteEnclosures(QList<qint64>({badEntryuid}));
         }
     }
 }

@@ -49,7 +49,6 @@ public:
     Q_INVOKABLE void moveQueueItem(const qint64 from, const qint64 to);
 
     // TODO: check if any of these can be made private after refactor
-    Entry *getQueueEntry(int index) const;
     QList<qint64> queue() const;
     bool entryInQueue(const qint64 entryuid) const;
     Q_INVOKABLE void sortQueue(const AbstractEpisodeProxyModel::SortType sortType);
