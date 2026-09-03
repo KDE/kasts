@@ -36,6 +36,7 @@ public:
         LinkRole,
         ImageRole,
         HasEnclosureRole,
+        EnclosureUrlRole,
         PlayPositionRole,
         DurationRole,
         SizeRole,

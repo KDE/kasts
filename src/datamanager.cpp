@@ -622,15 +622,7 @@ void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
     // TODO: move away from instantiation of entries
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
-        Entry *entry = new Entry(entryuid);
-        if (entry) {
-            if (entry->hasEnclosure()) {
-                entry->enclosure()->download();
-            }
-            // FIXME: deleting the entry here, will make the download abort, I think
-            // to be solved by refactor
-            // delete entry;
-        }
+        Fetcher::instance().downloadEnclosure(entryuid);
     }
 }
 
@@ -657,10 +649,7 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
             const QString feedDirName = query.value(QStringLiteral("Feeds.dirname")).toString();
             const QString enclosurePath = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirName);
             if (enclosureStatus == DataTypes::EnclosureStatus::Downloading) {
-                // FIXME: refactor cancelDownload method to Fetcher
-                // this will not even work anymore
-                Entry *entry = new Entry(entryuid);
-                entry->enclosure()->cancelDownload();
+                Fetcher::instance().cancelEnclosureDownload(entryuid);
             }
             if (QFileInfo::exists(enclosurePath)) {
                 filesToBeDeleted[entryuid] = enclosurePath;

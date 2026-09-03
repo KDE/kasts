@@ -21,8 +21,11 @@
 #include <QTimer>
 
 #include "database.h"
+#include "datatypes.h"
 #include "models/errorlogmodel.h"
+#include "networkconnectionmanager.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
 #include "sync/sync.h"
 #include "utils/fetchfeedsjob.h"
 
@@ -100,7 +103,7 @@ void Fetcher::fetch(const QStringList &urls)
     connect(fetchFeedsJob, &FetchFeedsJob::result, this, [this, fetchFeedsJob]() {
         qCDebug(kastsFetcher) << "result slot of FetchFeedsJob";
         if (fetchFeedsJob->error() && !fetchFeedsJob->aborted()) {
-            Q_EMIT error(ErrorLogModel::Type::FeedUpdate, fetchFeedsJob->errorString(), 0);
+            Q_EMIT error(ErrorLogModel::Type::FeedUpdate, fetchFeedsJob->errorString());
         }
         if (m_updating) {
             m_updating = false;
@@ -112,9 +115,69 @@ void Fetcher::fetch(const QStringList &urls)
     qCDebug(kastsFetcher) << "end of Fetcher::fetch";
 }
 
-EnclosureDownloadJob *Fetcher::enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title)
+void Fetcher::downloadEnclosure(const qint64 entryuid)
 {
-    QPointer<EnclosureDownloadJob> newDownloadJob = new EnclosureDownloadJob(entryuid, url, path, title);
+    QSqlQuery query;
+    query.prepare(
+        QStringLiteral("SELECT * FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON Feeds.feeduid=Enclosures.feeduid WHERE "
+                       "Enclosures.entryuid=:entryuid;"));
+    query.bindValue(QStringLiteral(":entryuid"), entryuid);
+    Database::instance().execute(query);
+    if (!query.next()) {
+        return;
+    }
+
+    DataTypes::EnclosureStatus status = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
+
+    QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
+    QString title = query.value(QStringLiteral("Entries.title")).toString();
+    QString dirname = query.value(QStringLiteral("Feeds.dirname")).toString();
+    qint64 size = query.value(QStringLiteral("Enclosures.size")).toInt();
+    qint64 duration = query.value(QStringLiteral("Enclosures.duration")).toInt();
+    QString path = StorageManager::enclosurePath(title, enclosureUrl, dirname);
+    query.finish();
+
+    if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
+        if (NetworkConnectionManager::instance().networkReachable()) {
+            Q_EMIT error(ErrorLogModel::Type::MeteredStreamingNotAllowed,
+                         i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", title));
+            return;
+        } else {
+            Q_EMIT error(ErrorLogModel::Type::NoNetwork,
+                         i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", title));
+            return;
+        }
+    }
+
+    if (status == DataTypes::EnclosureStatus::Downloaded) {
+        return;
+    }
+
+    enqueueEnclosureDownload(entryuid, enclosureUrl, path, title, size, duration);
+}
+
+void Fetcher::cancelEnclosureDownload(const qint64 entryuid)
+{
+    for (const QPointer<EnclosureDownloadJob> job : std::as_const(m_ongoingEnclosureDownloads)) {
+        if (job->entryuid() == entryuid) {
+            job->doKill();
+        }
+    }
+    for (const QPointer<EnclosureDownloadJob> job : std::as_const(m_enclosureDownloadQueue)) {
+        if (job->entryuid() == entryuid) {
+            job->doKill();
+        }
+    }
+}
+
+void Fetcher::enqueueEnclosureDownload(const qint64 entryuid,
+                                       const QString &url,
+                                       const QString &path,
+                                       const QString &title,
+                                       const qint64 size,
+                                       const qint64 duration)
+{
+    QPointer<EnclosureDownloadJob> newDownloadJob = new EnclosureDownloadJob(entryuid, url, path, title, size, duration);
     connect(newDownloadJob, &EnclosureDownloadJob::finished, this, [this, newDownloadJob]() {
         // This is called whenever a DownloadEnclosureJob has finished
         if (m_ongoingEnclosureDownloads.contains(newDownloadJob)) {
@@ -131,8 +194,6 @@ EnclosureDownloadJob *Fetcher::enqueueEnclosureDownload(const qint64 entryuid, c
 
     m_enclosureDownloadQueue.enqueue(newDownloadJob);
     processEnclosureDownloadQueue();
-
-    return newDownloadJob;
 }
 
 void Fetcher::processEnclosureDownloadQueue()

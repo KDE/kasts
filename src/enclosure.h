@@ -67,14 +67,12 @@ Q_SIGNALS:
 
 private:
     void updateFromDb();
-    void processDownloadedFile();
 
     qint64 m_enclosureuid;
     qint64 m_entryuid;
     Entry *m_entry;
     qint64 m_duration;
     qint64 m_size = 0;
-    qint64 m_sizeOnDisk = 0;
     QString m_type;
     QString m_url;
     qint64 m_playposition;

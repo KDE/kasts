@@ -48,8 +48,8 @@ public:
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
 
-    EnclosureDownloadJob *enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title);
-    void processEnclosureDownloadQueue();
+    Q_INVOKABLE void downloadEnclosure(const qint64 entryuid);
+    Q_INVOKABLE void cancelEnclosureDownload(const qint64 entryuid);
 
     QNetworkReply *get(QNetworkRequest &request) const;
     QNetworkReply *post(QNetworkRequest &request, const QByteArray &data) const;
@@ -80,12 +80,16 @@ Q_SIGNALS:
     void updateTotalChanged(int nrOfFeeds);
     void updatingChanged(bool state);
 
-    void error(ErrorLogModel::Type type, const QString &message, const qint64 feeduid);
+    void error(ErrorLogModel::Type type, const QString &message);
     void downloadFinished(QString url) const;
     void foundRedirectedUrl(const QUrl &url, const QUrl &newUrl);
 
 private:
     Fetcher();
+
+    void
+    enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title, const qint64 size, const qint64 duration);
+    void processEnclosureDownloadQueue();
 
     QSet<QString> m_ongoingImageDownloads;
     QSet<EnclosureDownloadJob *> m_ongoingEnclosureDownloads;

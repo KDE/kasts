@@ -156,6 +156,7 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
         {LinkRole, "link"},
         {ImageRole, "image"},
         {HasEnclosureRole, "hasEnclosure"},
+        {EnclosureUrlRole, "enclosureUrl"},
         {PlayPositionRole, "playPosition"},
         {DurationRole, "duration"},
         {SizeRole, "size"},
@@ -213,6 +214,12 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
     }
     case AbstractEpisodeModel::Roles::HasEnclosureRole:
         return !m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty();
+    case AbstractEpisodeModel::Roles::EnclosureUrlRole:
+        if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
+            return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].url);
+        } else {
+            return QVariant();
+        }
     case AbstractEpisodeModel::Roles::PlayPositionRole:
         if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
             return QVariant::fromValue(

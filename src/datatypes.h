@@ -55,23 +55,24 @@ struct AuthorDetails {
 
 struct EnclosureDetails {
     qint64 enclosureuid;
-    int duration;
-    int size;
+    qint64 duration;
+    qint64 size;
+    qint64 downloadSize;
     QString type;
     QString url;
-    int playPosition;
+    qint64 playPosition;
     DataTypes::EnclosureStatus downloaded;
     RecordState state;
 
     // Fields that are only used in case state == Modified
-    int oldDuration;
-    int oldSize;
+    qint64 oldDuration;
+    qint64 oldSize;
     QString oldType;
     QString oldUrl;
 };
 
 struct ChapterDetails {
-    int start;
+    qint64 start;
     QString title;
     QString link;
     QString image;
@@ -89,8 +90,8 @@ struct EntryDetails {
     QString id;
     QString title;
     QString content;
-    int created;
-    int updated;
+    qint64 created;
+    qint64 updated;
     QString link;
     bool read;
     bool isNew;
@@ -101,7 +102,7 @@ struct EntryDetails {
     RecordState state;
     QHash<QString, AuthorDetails> authors; // key = author name
     QHash<QString, EnclosureDetails> enclosures; // key = enclosure url
-    QHash<int, ChapterDetails> chapters; // key = start
+    QHash<qint64, ChapterDetails> chapters; // key = start
 
     // these lists can store a particular order of authors and enclosures when
     // needed
@@ -111,8 +112,8 @@ struct EntryDetails {
     // Fields that are only used in case state == Modified
     QString oldTitle;
     QString oldContent;
-    int oldCreated;
-    int oldUpdated;
+    qint64 oldCreated;
+    qint64 oldUpdated;
     QString oldLink;
     bool oldRemoved;
     bool oldHasEnclosure; // TODO: probably don't need this since there is the enclosure QHash anyway
@@ -128,8 +129,8 @@ struct FeedDetails {
     QString image;
     QString link;
     QString description;
-    int subscribed;
-    int lastUpdated;
+    qint64 subscribed;
+    qint64 lastUpdated;
     bool isNew;
     QString dirname;
     QString lastHash;
@@ -148,7 +149,7 @@ struct FeedDetails {
     QString oldImage;
     QString oldLink;
     QString oldDescription;
-    int oldLastUpdated;
+    qint64 oldLastUpdated;
     QString oldDirname;
     QString oldLastHash;
 };

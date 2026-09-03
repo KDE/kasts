@@ -21,12 +21,12 @@ ListView {
     property bool isQueue: false
 
     property list<var> selectionForContextMenu: []
-    property var singleSelectedEntryuid: undefined
-    property var singleSelectedEntryRead: undefined
-    property var singleSelectedEntryNew: undefined
-    property var singleSelectedEntryFavorite: undefined
-    property var singleSelectedEntryQueueStatus: undefined
-    property var singleSelectedEntryDownloaded: undefined
+    property int singleSelectedEntryuid: -1
+    property bool singleSelectedEntryRead: false
+    property bool singleSelectedEntryNew: false
+    property bool singleSelectedEntryFavorite: false
+    property bool singleSelectedEntryQueueStatus: false
+    property int singleSelectedEntryDownloaded: -1
     property ItemSelectionModel selectionModel: ItemSelectionModel {
         model: root.model
         onSelectionChanged: {
@@ -61,12 +61,12 @@ ListView {
             singleSelectedEntryQueueStatus = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.QueueStatusRole);
             singleSelectedEntryDownloaded = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.DownloadedRole);
         } else {
-            singleSelectedEntryuid = undefined;
-            singleSelectedEntryRead = undefined;
-            singleSelectedEntryNew = undefined;
-            singleSelectedEntryFavorite = undefined;
-            singleSelectedEntryQueueStatus = undefined;
-            singleSelectedEntryDownloaded = undefined;
+            singleSelectedEntryuid = -1;
+            singleSelectedEntryRead = false;
+            singleSelectedEntryNew = false;
+            singleSelectedEntryFavorite = false;
+            singleSelectedEntryQueueStatus = false;
+            singleSelectedEntryDownloaded = -1;
         }
     }
 

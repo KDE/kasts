@@ -31,7 +31,6 @@ AddonDelegates.RoundedItemDelegate {
     required property int index
     required property string title
     required property int downloaded
-    required property bool hasEnclosure
     required property bool isNew
     required property bool read
     required property bool favorite
@@ -41,6 +40,8 @@ AddonDelegates.RoundedItemDelegate {
     required property string feedImage
     required property string feedName
     required property bool queueStatus
+    required property bool hasEnclosure
+    required property bool enclosureUrl
     required property int playPosition
     required property int duration
     required property int size
@@ -388,7 +389,7 @@ AddonDelegates.RoundedItemDelegate {
             text: KI18n.i18n("Download")
             icon.name: "download"
             onClicked: {
-                root.mainWindow.downloadOverlay.entry = root.entry;
+                root.mainWindow.downloadOverlay.entryuid = root.entryuid;
                 root.mainWindow.downloadOverlay.run();
             }
             visible: root.showDownloadButton
@@ -397,7 +398,7 @@ AddonDelegates.RoundedItemDelegate {
         IconOnlyButton {
             text: KI18n.i18n("Cancel Download")
             icon.name: "edit-delete-remove"
-            onClicked: root.entry.enclosure.cancelDownload()
+            onClicked: Fetcher.cancelEnclosureDownload(root.entryuid)
             visible: root.showCancelDownloadButton
         }
 

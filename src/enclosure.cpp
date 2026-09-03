@@ -113,7 +113,8 @@ Enclosure::Enclosure(Entry *entry)
     m_playposition_dbsave = m_playposition;
 
     // using qtimer to do this update after the constructor so the signals can be picked up correctly
-    QTimer::singleShot(0, this, &Enclosure::checkSizeOnDisk);
+    // FIXME: do we still need this?  Need to find a solution using datamanager or fetcher
+    // QTimer::singleShot(0, this, &Enclosure::checkSizeOnDisk);
 
     qCDebug(kastsObjects) << "Enclosure object" << m_enclosureuid << "constructed (corresponding entryuid is" << m_entryuid << ")";
 }
@@ -166,137 +167,57 @@ void Enclosure::updateFromDb()
 
 void Enclosure::download()
 {
-    if (m_status == DataTypes::EnclosureStatus::Downloaded) {
-        return;
-    }
-
-    // TODO: move this check to fetcher; needs error refactoring to use uids
-    if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
-        if (NetworkConnectionManager::instance().networkReachable()) {
-            Q_EMIT downloadError(
-                ErrorLogModel::Type::MeteredStreamingNotAllowed,
-                i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", m_entry->title()));
-            return;
-        } else {
-            Q_EMIT downloadError(
-                ErrorLogModel::Type::NoNetwork,
-                i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", m_entry->title()));
-            return;
-        }
-    }
-
-    checkSizeOnDisk();
-    EnclosureDownloadJob *downloadJob = Fetcher::instance().enqueueEnclosureDownload(m_entryuid, m_url, path(), m_entry->title());
-
-    qint64 resumedAt = m_sizeOnDisk;
-    m_downloadProgress = 0;
-    m_downloadSize = 0;
-    Q_EMIT downloadProgressChanged();
-
-    connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
-        checkSizeOnDisk();
-        if (downloadJob->error() == 0) {
-            processDownloadedFile();
-        } else {
-            QFile file(path());
-            if (file.exists() && file.size() > 0) {
-                DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
-                                                                 QList<qint64>({m_entryuid}));
-            } else {
-                DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                                 QList<qint64>({m_entryuid}));
-            }
-            if (downloadJob->error() != QNetworkReply::OperationCanceledError) {
-                Q_EMIT downloadError(ErrorLogModel::Type::MediaDownload,
-                                     i18nc("@info:status Error message notification", "Error downloading media: %1", downloadJob->errorString()));
-            }
-        }
-        disconnect(this, &Enclosure::cancelDownload, this, nullptr);
-        Q_EMIT statusChanged(m_entry, m_status);
-    });
-
-    connect(this, &Enclosure::cancelDownload, this, [this, downloadJob]() {
-        downloadJob->doKill();
-        checkSizeOnDisk();
-        QFile file(path());
-        if (file.exists() && file.size() > 0) {
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
-                                                             QList<qint64>({m_entryuid}));
-        } else {
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                             QList<qint64>({m_entryuid}));
-        }
-        disconnect(this, &Enclosure::cancelDownload, this, nullptr);
-    });
-
-    connect(downloadJob, &KJob::processedAmountChanged, this, [this, resumedAt](KJob *kjob, KJob::Unit unit, qulonglong amount) {
-        Q_ASSERT(unit == KJob::Unit::Bytes);
-
-        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloading}),
-                                                         QList<qint64>({m_entryuid}));
-
-        qint64 totalSize = static_cast<qint64>(kjob->totalAmount(unit));
-        qint64 currentSize = static_cast<qint64>(amount);
-
-        if ((totalSize > 0) && (m_size != totalSize + resumedAt)) {
-            qCDebug(kastsEnclosure) << "Correct filesize for enclosure" << m_entryuid << "from" << m_size << "to" << totalSize + resumedAt;
-            DataManager::instance().bulkSetEnclosureSizes(QList<qint64>({totalSize + resumedAt}), QList<qint64>({m_entryuid}));
-        }
-
-        m_downloadSize = currentSize + resumedAt;
-        m_downloadProgress = static_cast<double>(m_downloadSize) / static_cast<double>(m_size);
-        Q_EMIT downloadProgressChanged();
-
-        qCDebug(kastsEnclosure) << "m_downloadSize" << m_downloadSize;
-        qCDebug(kastsEnclosure) << "m_downloadProgress" << m_downloadProgress;
-        qCDebug(kastsEnclosure) << "m_size" << m_size;
-    });
-
-    DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Queued}), QList<qint64>({m_entryuid}));
-}
-
-void Enclosure::processDownloadedFile()
-{
-    // This will be run if the enclosure has been downloaded successfully
-
-    // First check if file size is larger than 0; otherwise something unexpected
-    // must have happened
-    checkSizeOnDisk();
-    if (m_sizeOnDisk == 0) {
-        deleteFile();
-        return;
-    }
-
-    // Check if reported filesize in rss feed corresponds to real file size
-    // if not, correct the filesize in the database
-    // otherwise the file will get deleted because of mismatch in signature
-    if (m_sizeOnDisk != size()) {
-        qCDebug(kastsEnclosure) << "Correcting enclosure file size mismatch for" << m_entry->title() << "from" << size() << "to" << m_sizeOnDisk;
-        DataManager::instance().bulkSetEnclosureSizes(QList<qint64>({m_sizeOnDisk}), QList<qint64>({m_entryuid}));
-        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
-                                                         QList<qint64>({m_entryuid}));
-    }
-
-    // Check the duration inside the tag, it should be more accurate than the
-    // value from the feed entry
-    TagLib::FileRef f(path().toStdString().data());
-    if (!f.isNull() && f.audioProperties()) {
-        int fileduration = f.audioProperties()->lengthInSeconds();
-        if (fileduration > 0 && fileduration != duration()) {
-            qCDebug(kastsEnclosure) << "Correcting enclosure duration mismatch for" << m_entry->title() << "from" << duration() << "to" << fileduration;
-            DataManager::instance().bulkSetEnclosureDurations(QList<qint64>({fileduration}), QList<qint64>({m_entryuid}));
-        }
-    }
-
-    // Unset "new" status of item
-    if (m_entry->getNew()) {
-        DataManager::instance().bulkMarkNew(false, QList<qint64>({m_entryuid}));
-    }
-
-    // Trigger update of image since the downloaded file can have an embedded image
-    Q_EMIT m_entry->imageChanged(m_entry->image());
-    // TODO: update of the image should be triggered in the model based on a downloadedChanged signal sent by Fetcher(?)
-    // once this method has moved to Fetcher
+    // if (m_status == DataTypes::EnclosureStatus::Downloaded) {
+    //     return;
+    // }
+    //
+    // // TODO: move this check to fetcher; needs error refactoring to use uids
+    // if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
+    //     if (NetworkConnectionManager::instance().networkReachable()) {
+    //         Q_EMIT downloadError(
+    //             ErrorLogModel::Type::MeteredStreamingNotAllowed,
+    //             i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", m_entry->title()));
+    //         return;
+    //     } else {
+    //         Q_EMIT downloadError(
+    //             ErrorLogModel::Type::NoNetwork,
+    //             i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", m_entry->title()));
+    //         return;
+    //     }
+    // }
+    //
+    // EnclosureDownloadJob *downloadJob = Fetcher::instance().enqueueEnclosureDownload(m_entryuid, m_url, path(), m_entry->title(), m_size, m_duration);
+    //
+    // m_downloadProgress = 0;
+    // m_downloadSize = 0;
+    // Q_EMIT downloadProgressChanged();
+    //
+    // connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
+    //     if (downloadJob->error() != 0 && downloadJob->status() != EnclosureDownloadJob::Status::Canceled) {
+    //         if (downloadJob->error() != QNetworkReply::OperationCanceledError) { // This should be superfluous wrt Status::Canceled
+    //             Q_EMIT downloadError(ErrorLogModel::Type::MediaDownload,
+    //                                  i18nc("@info:status Error message notification", "Error downloading media: %1", downloadJob->errorString()));
+    //         }
+    //     }
+    //     Q_EMIT statusChanged(m_entry, m_status);
+    // });
+    //
+    // connect(this, &Enclosure::cancelDownload, downloadJob, &EnclosureDownloadJob::doKill);
+    //
+    // connect(downloadJob, &KJob::processedAmountChanged, this, [this](KJob *kjob, KJob::Unit unit, qulonglong amount) {
+    //     Q_UNUSED(kjob)
+    //     Q_ASSERT(unit == KJob::Unit::Bytes);
+    //
+    //     m_downloadSize = static_cast<qint64>(amount);
+    //     m_downloadProgress = static_cast<double>(m_downloadSize) / static_cast<double>(m_size);
+    //     Q_EMIT downloadProgressChanged();
+    //
+    //     qCDebug(kastsEnclosure) << "m_downloadSize" << m_downloadSize;
+    //     qCDebug(kastsEnclosure) << "m_downloadProgress" << m_downloadProgress;
+    //     qCDebug(kastsEnclosure) << "m_size" << m_size;
+    // });
+    //
+    // DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Queued}), QList<qint64>({m_entryuid}));
 }
 
 void Enclosure::deleteFile()
@@ -345,45 +266,6 @@ void Enclosure::setPlayPosition(const qint64 &position)
         m_playposition = position;
         DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({m_entryuid}));
         qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
-    }
-}
-
-void Enclosure::checkSizeOnDisk()
-{
-    // In principle the database contains this status, we check anyway in case
-    // something changed on disk
-    QFile file(path());
-    if (file.exists()) {
-        if (file.size() == m_size && file.size() > 0) {
-            // file is on disk and has correct size, write to database if it
-            // wasn't already registered so
-            // this should, in principle, never happen unless the db was deleted
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
-                                                             QList<qint64>({m_entryuid}));
-        } else if (file.size() > 0) {
-            // file was downloaded, but there is a size mismatch
-            // set to PartiallyDownloaded such that download can be resumed
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
-                                                             QList<qint64>({m_entryuid}));
-        } else {
-            // file is empty
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                             QList<qint64>({m_entryuid}));
-        }
-        if (file.size() != m_sizeOnDisk) {
-            m_sizeOnDisk = file.size();
-            m_downloadSize = m_sizeOnDisk;
-            m_downloadProgress = (m_size == 0) ? 0.0 : static_cast<double>(m_sizeOnDisk) / static_cast<double>(m_size);
-        }
-    } else {
-        // file does not exist
-        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                         QList<qint64>({m_entryuid}));
-        if (m_sizeOnDisk != 0) {
-            m_sizeOnDisk = 0;
-            m_downloadSize = 0;
-            m_downloadProgress = 0.0;
-        }
     }
 }
 

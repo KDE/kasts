@@ -265,18 +265,17 @@ Kirigami.ApplicationWindow {
     property ConnectionCheckAction downloadOverlay: ConnectionCheckAction {
         headingText: KI18n.i18nc("@info:status", "Podcast downloads are currently not allowed on metered connections")
         condition: NetworkConnectionManager.episodeDownloadsAllowed
-        property var entry: undefined
+        property var entryuid: undefined
         property var selection: undefined
 
         function action(): void {
             if (selection) {
                 DataManager.bulkDownloadEnclosuresByIndex(selection);
-            } else if (entry) {
-                entry.queueStatus = true;
-                entry.enclosure.download();
+            } else if (entryuid) {
+                DataManager.bulkDownloadEnclosuresByIndex([entryuid]);
             }
             selection = undefined;
-            entry = undefined;
+            entryuid = undefined;
         }
 
         function allowOnceAction(): void {

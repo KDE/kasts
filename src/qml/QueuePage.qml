@@ -114,6 +114,7 @@ Kirigami.ScrollablePage {
             required property string feedImage
             required property string feedName
             required property bool queueStatus
+            required property bool enclosureUrl
             required property int playPosition
             required property int duration
             required property int size
@@ -140,6 +141,7 @@ Kirigami.ScrollablePage {
                 feedImage: focusScope.feedImage
                 feedName: focusScope.feedName
                 queueStatus: focusScope.queueStatus
+                enclosureUrl: focusScope.enclosureUrl
                 playPosition: focusScope.playPosition
                 duration: focusScope.duration
                 size: focusScope.size

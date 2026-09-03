@@ -119,7 +119,7 @@ Kirigami.ScrollablePage {
                         visible: root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloadable || root.entry.enclosure.status === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         icon.name: "download"
                         onTriggered: {
-                            (root.Controls.ApplicationWindow.window as Main).downloadOverlay.entry = root.entry;
+                            (root.Controls.ApplicationWindow.window as Main).downloadOverlay.entryuid = root.entryuid;
                             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
                         }
                     },
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
                         visible: root.entry.enclosure && root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloading
                         icon.name: "edit-delete-remove"
                         onTriggered: {
-                            root.entry.enclosure.cancelDownload();
+                            Fetcher.cancelEnclosureDownload(root.entryuid);
                         }
                     },
                     Kirigami.Action {
@@ -230,7 +230,7 @@ Kirigami.ScrollablePage {
                         }
 
                         // copy url from this invisible textedit
-                        property TextEdit _helper : TextEdit {
+                        property TextEdit _helper: TextEdit {
                             id: enclosureUrl
                             visible: false
                             readOnly: true
