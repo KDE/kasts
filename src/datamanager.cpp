@@ -193,10 +193,14 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             // Delete entries themselves
             qCDebug(kastsDataManager) << "delete entries of" << feeduid;
             for (auto &entryuid : std::as_const(entries)) {
-                if (getEntry(entryuid)->hasEnclosure())
-                    getEntry(entryuid)->enclosure()->deleteFile(); // delete enclosure (if it exists)
-                if (!getEntry(entryuid)->image().isEmpty())
-                    StorageManager::instance().removeImage(getEntry(entryuid)->image()); // delete entry images
+                Entry *entry = new Entry(entryuid, this);
+                if (entry) {
+                    if (entry->hasEnclosure())
+                        entry->enclosure()->deleteFile(); // delete enclosure (if it exists)
+                    if (!entry->image().isEmpty())
+                        StorageManager::instance().removeImage(entry->image()); // delete entry images
+                    delete entry;
+                }
                 m_entries.remove(entryuid); // delete the hash key
             }
 
@@ -618,8 +622,14 @@ void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
     // TODO: move away from instantiation of entries
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
-        if (getEntry(entryuid)->hasEnclosure()) {
-            getEntry(entryuid)->enclosure()->download();
+        Entry *entry = new Entry(entryuid);
+        if (entry) {
+            if (entry->hasEnclosure()) {
+                entry->enclosure()->download();
+            }
+            // FIXME: deleting the entry here, will make the download abort, I think
+            // to be solved by refactor
+            // delete entry;
         }
     }
 }
@@ -647,8 +657,10 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
             const QString feedDirName = query.value(QStringLiteral("Feeds.dirname")).toString();
             const QString enclosurePath = StorageManager::enclosurePath(entryTitle, enclosureUrl, feedDirName);
             if (enclosureStatus == DataTypes::EnclosureStatus::Downloading) {
-                // TODO: refactor cancelDownload method to Fetcher
-                getEntry(entryuid)->enclosure()->cancelDownload();
+                // FIXME: refactor cancelDownload method to Fetcher
+                // this will not even work anymore
+                Entry *entry = new Entry(entryuid);
+                entry->enclosure()->cancelDownload();
             }
             if (QFileInfo::exists(enclosurePath)) {
                 filesToBeDeleted[entryuid] = enclosurePath;

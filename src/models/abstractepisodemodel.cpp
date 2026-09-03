@@ -144,7 +144,6 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
     return {
         {TitleRole, "title"},
         {EntryuidRole, "entryuid"},
-        {EntryRole, "entry"},
         {IdRole, "id"},
         {QueueStatusRole, "queueStatus"},
         {ReadRole, "read"},
@@ -181,8 +180,6 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].title);
     case AbstractEpisodeModel::Roles::EntryuidRole:
         return QVariant::fromValue(m_entryOrder[index.row()]);
-    case AbstractEpisodeModel::Roles::EntryRole:
-        return QVariant::fromValue(DataManager::instance().getEntry(m_entryOrder[index.row()]));
     case AbstractEpisodeModel::Roles::IdRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].id);
     case AbstractEpisodeModel::Roles::QueueStatusRole:

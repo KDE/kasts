@@ -24,7 +24,6 @@ public:
     enum Roles {
         TitleRole = Qt::DisplayRole,
         EntryuidRole = Qt::UserRole + 1,
-        EntryRole,
         IdRole,
         QueueStatusRole,
         ReadRole,

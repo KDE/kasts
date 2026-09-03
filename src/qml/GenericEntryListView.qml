@@ -21,7 +21,12 @@ ListView {
     property bool isQueue: false
 
     property list<var> selectionForContextMenu: []
-    property var singleSelectedEntry: undefined
+    property var singleSelectedEntryuid: undefined
+    property var singleSelectedEntryRead: undefined
+    property var singleSelectedEntryNew: undefined
+    property var singleSelectedEntryFavorite: undefined
+    property var singleSelectedEntryQueueStatus: undefined
+    property var singleSelectedEntryDownloaded: undefined
     property ItemSelectionModel selectionModel: ItemSelectionModel {
         model: root.model
         onSelectionChanged: {
@@ -49,9 +54,19 @@ ListView {
 
     onSelectionForContextMenuChanged: {
         if (selectionForContextMenu.length === 1) {
-            singleSelectedEntry = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.EntryRole);
+            singleSelectedEntryuid = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.EntryuidRole);
+            singleSelectedEntryRead = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.ReadRole);
+            singleSelectedEntryNew = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.NewRole);
+            singleSelectedEntryFavorite = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.FavoriteRole);
+            singleSelectedEntryQueueStatus = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.QueueStatusRole);
+            singleSelectedEntryDownloaded = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.DownloadedRole);
         } else {
-            singleSelectedEntry = undefined;
+            singleSelectedEntryuid = undefined;
+            singleSelectedEntryRead = undefined;
+            singleSelectedEntryNew = undefined;
+            singleSelectedEntryFavorite = undefined;
+            singleSelectedEntryQueueStatus = undefined;
+            singleSelectedEntryDownloaded = undefined;
         }
     }
 
@@ -269,7 +284,7 @@ ListView {
     readonly property Kirigami.Action addToQueueAction: Kirigami.Action {
         text: KI18n.i18n("Add to Queue")
         icon.name: "media-playlist-append"
-        visible: root.selectionModel.hasSelection && !root.isQueue && (root.singleSelectedEntry ? !root.singleSelectedEntry.queueStatus : true)
+        visible: root.selectionModel.hasSelection && !root.isQueue && (root.singleSelectedEntryuid ? !root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection && !listView.isQueue
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(true, root.selectionForContextMenu);
@@ -279,7 +294,7 @@ ListView {
     readonly property Kirigami.Action removeFromQueueAction: Kirigami.Action {
         text: KI18n.i18n("Remove from Queue")
         icon.name: "list-remove"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? root.singleSelectedEntry.queueStatus : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryQueueStatus ? root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(false, root.selectionForContextMenu);
@@ -288,7 +303,7 @@ ListView {
 
     readonly property Kirigami.Action markPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Played")
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? !root.singleSelectedEntry.read : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryRead ? !root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(true, root.selectionForContextMenu);
         }
@@ -296,7 +311,7 @@ ListView {
 
     readonly property Kirigami.Action markNotPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Unplayed")
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? root.singleSelectedEntry.read : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryRead ? root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(false, root.selectionForContextMenu);
         }
@@ -305,7 +320,7 @@ ListView {
     readonly property Kirigami.Action markNewAction: Kirigami.Action {
         text: KI18n.i18n("Label as \"New\"")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? !root.singleSelectedEntry.new : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryNew ? !root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(true, root.selectionForContextMenu);
         }
@@ -314,7 +329,7 @@ ListView {
     readonly property Kirigami.Action markNotNewAction: Kirigami.Action {
         text: KI18n.i18n("Remove \"New\" Label")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? root.singleSelectedEntry.new : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryNew ? root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(false, root.selectionForContextMenu);
         }
@@ -323,7 +338,7 @@ ListView {
     readonly property Kirigami.Action markFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
         icon.name: "starred-symbolic"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? !root.singleSelectedEntry.favorite : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryFavorite ? !root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(true, root.selectionForContextMenu);
         }
@@ -332,7 +347,7 @@ ListView {
     readonly property Kirigami.Action markNotFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
         icon.name: "non-starred-symbolic"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? root.singleSelectedEntry.favorite : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryFavorite ? root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(false, root.selectionForContextMenu);
         }
@@ -341,7 +356,7 @@ ListView {
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
         text: KI18n.i18n("Download")
         icon.name: "download"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded ? false : true)
         onTriggered: {
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.selection = root.selectionForContextMenu;
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
@@ -351,7 +366,7 @@ ListView {
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
         text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", root.selectionForContextMenu.length)
         icon.name: "delete"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloadable : false) : true)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded ? true : false)
         onTriggered: {
             DataManager.bulkDeleteEnclosuresByIndex(root.selectionForContextMenu);
         }
@@ -360,12 +375,12 @@ ListView {
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : false)
+        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure ? true : false)
         onTriggered: {
-            if (!root.singleSelectedEntry.queueStatus) {
-                root.singleSelectedEntry.queueStatus = true;
+            if (!root.singleSelectedEntryQueueStatus) {
+                DataManager.bulkQueueStatus(true, [root.singleSelectedEntryuid]);
             }
-            AudioManager.entryuid = root.singleSelectedEntry.entryuid;
+            AudioManager.entryuid = root.singleSelectedEntryuid;
             AudioManager.play();
         }
     }
@@ -377,57 +392,57 @@ ListView {
 
         Controls.MenuItem {
             action: root.addToQueueAction
-            visible: !root.isQueue && (root.singleSelectedEntry ? !root.singleSelectedEntry.queueStatus : true)
+            visible: !root.isQueue && (root.singleSelectedEntryuid ? !root.singleSelectedEntryQueueStatus : true)
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.removeFromQueueAction
-            visible: root.singleSelectedEntry ? root.singleSelectedEntry.queueStatus : true
+            visible: root.singleSelectedEntryuid ? root.singleSelectedEntryQueueStatus : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markPlayedAction
-            visible: root.singleSelectedEntry ? !root.singleSelectedEntry.read : true
+            visible: root.singleSelectedEntryuid ? !root.singleSelectedEntryRead : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markNotPlayedAction
-            visible: root.singleSelectedEntry ? root.singleSelectedEntry.read : true
+            visible: root.singleSelectedEntryuid ? root.singleSelectedEntryRead : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markNewAction
-            visible: root.singleSelectedEntry ? !root.singleSelectedEntry.new : true
+            visible: root.singleSelectedEntryuid ? !root.singleSelectedEntryNew : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markNotNewAction
-            visible: root.singleSelectedEntry ? root.singleSelectedEntry.new : true
+            visible: root.singleSelectedEntryuid ? root.singleSelectedEntryNew : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markFavoriteAction
-            visible: root.singleSelectedEntry ? !root.singleSelectedEntry.favorite : true
+            visible: root.singleSelectedEntryuid ? !root.singleSelectedEntryFavorite : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.markNotFavoriteAction
-            visible: root.singleSelectedEntry ? root.singleSelectedEntry.favorite : true
+            visible: root.singleSelectedEntryuid ? root.singleSelectedEntryFavorite : true
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.downloadEnclosureAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded : false) : true
+            visible: root.singleSelectedEntryuid ? (root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.NoEnclosure || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded ? false : true) : false
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.deleteEnclosureAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloadable : false) : true
+            visible: root.singleSelectedEntryuid ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure ? root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded : false) : false
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         Controls.MenuItem {
             action: root.streamAction
-            visible: root.singleSelectedEntry ? (root.singleSelectedEntry.hasEnclosure ? (root.singleSelectedEntry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : false
+            visible: root.singleSelectedEntryuid ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : false
             height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
         }
         onClosed: {
