@@ -181,7 +181,7 @@ Kirigami.ScrollablePage {
                         icon.name: "delete"
                         visible: root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded || root.entry.enclosure.status === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         onTriggered: {
-                            root.entry.enclosure.deleteFile();
+                            DataManager.bulkDeleteEnclosures([root.entryuid]);
                         }
                     },
                     Kirigami.Action {

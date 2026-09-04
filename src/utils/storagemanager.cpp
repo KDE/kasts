@@ -134,12 +134,12 @@ QString StorageManager::enclosureDirPath()
     return enclosureDirPath(QLatin1String(""));
 }
 
-QString StorageManager::enclosureDirPath(const QString &feedname)
+QString StorageManager::enclosureDirPath(const QString &feedDirName)
 {
     QString path = storagePath() + QStringLiteral("/enclosures/");
 
-    if (!feedname.isEmpty()) {
-        path += feedname + QStringLiteral("/");
+    if (!feedDirName.isEmpty()) {
+        path += feedDirName + QStringLiteral("/");
     }
 
     // Create path if it doesn't exist yet

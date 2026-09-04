@@ -76,6 +76,8 @@ Q_SIGNALS:
     void feedUpdateStatusChanged(const qint64 feeduid, bool status);
     void cancelFetching();
 
+    void enclosureDownloadProgress(const qint64 entryuid, const qint64 amount);
+
     void updateProgressChanged(int progress);
     void updateTotalChanged(int nrOfFeeds);
     void updatingChanged(bool state);

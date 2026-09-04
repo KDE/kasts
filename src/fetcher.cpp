@@ -117,43 +117,47 @@ void Fetcher::fetch(const QStringList &urls)
 
 void Fetcher::downloadEnclosure(const qint64 entryuid)
 {
+    // FIXME: take the correct enclosure; this sometimes produces a different enclosure than abstractepisodemodel
     QSqlQuery query;
     query.prepare(
         QStringLiteral("SELECT * FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON Feeds.feeduid=Enclosures.feeduid WHERE "
                        "Enclosures.entryuid=:entryuid;"));
     query.bindValue(QStringLiteral(":entryuid"), entryuid);
     Database::instance().execute(query);
-    if (!query.next()) {
-        return;
-    }
+    while (query.next()) {
+        DataTypes::EnclosureStatus status = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
 
-    DataTypes::EnclosureStatus status = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
+        QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
+        QString title = query.value(QStringLiteral("Entries.title")).toString();
+        QString dirname = query.value(QStringLiteral("Feeds.dirname")).toString();
+        qint64 size = query.value(QStringLiteral("Enclosures.size")).toInt();
+        qint64 duration = query.value(QStringLiteral("Enclosures.duration")).toInt();
+        QString path = StorageManager::enclosurePath(title, enclosureUrl, dirname);
+        QString type = query.value(QStringLiteral("Enclosures.type")).toString();
 
-    QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
-    QString title = query.value(QStringLiteral("Entries.title")).toString();
-    QString dirname = query.value(QStringLiteral("Feeds.dirname")).toString();
-    qint64 size = query.value(QStringLiteral("Enclosures.size")).toInt();
-    qint64 duration = query.value(QStringLiteral("Enclosures.duration")).toInt();
-    QString path = StorageManager::enclosurePath(title, enclosureUrl, dirname);
-    query.finish();
+        if (type.contains(QStringLiteral("audio")) || type.contains(QStringLiteral("video"))) {
+            if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
+                if (NetworkConnectionManager::instance().networkReachable()) {
+                    Q_EMIT error(ErrorLogModel::Type::MeteredStreamingNotAllowed,
+                                 i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", title));
+                    return;
+                } else {
+                    Q_EMIT error(ErrorLogModel::Type::NoNetwork,
+                                 i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", title));
+                    return;
+                }
+            }
 
-    if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
-        if (NetworkConnectionManager::instance().networkReachable()) {
-            Q_EMIT error(ErrorLogModel::Type::MeteredStreamingNotAllowed,
-                         i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", title));
-            return;
-        } else {
-            Q_EMIT error(ErrorLogModel::Type::NoNetwork,
-                         i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", title));
+            if (status == DataTypes::EnclosureStatus::Downloaded) {
+                return;
+            }
+
+            enqueueEnclosureDownload(entryuid, enclosureUrl, path, title, size, duration);
+
+            // stop after first enclosure that matches audio or video as type
             return;
         }
     }
-
-    if (status == DataTypes::EnclosureStatus::Downloaded) {
-        return;
-    }
-
-    enqueueEnclosureDownload(entryuid, enclosureUrl, path, title, size, duration);
 }
 
 void Fetcher::cancelEnclosureDownload(const qint64 entryuid)
@@ -178,8 +182,29 @@ void Fetcher::enqueueEnclosureDownload(const qint64 entryuid,
                                        const qint64 duration)
 {
     QPointer<EnclosureDownloadJob> newDownloadJob = new EnclosureDownloadJob(entryuid, url, path, title, size, duration);
+
+    connect(newDownloadJob, &KJob::processedAmountChanged, this, [this, entryuid](KJob *kjob, KJob::Unit unit, qulonglong amount) {
+        Q_UNUSED(kjob)
+        Q_ASSERT(unit == KJob::Unit::Bytes);
+
+        qint64 downloadSize = static_cast<qint64>(amount);
+        Q_EMIT enclosureDownloadProgress(entryuid, downloadSize);
+
+        qCDebug(kastsFetcher) << "downloadSize for entryuid" << entryuid << ":" << downloadSize;
+    });
+
     connect(newDownloadJob, &EnclosureDownloadJob::finished, this, [this, newDownloadJob]() {
         // This is called whenever a DownloadEnclosureJob has finished
+
+        // First process potential errors
+        if (newDownloadJob->error() != 0 && newDownloadJob->status() != EnclosureDownloadJob::Status::Canceled) {
+            if (newDownloadJob->error() != QNetworkReply::OperationCanceledError) { // This should be superfluous wrt Status::Canceled
+                Q_EMIT error(ErrorLogModel::Type::MediaDownload,
+                             i18nc("@info:status Error message notification", "Error downloading media: %1", newDownloadJob->errorString()));
+            }
+        }
+
+        // Update the queues
         if (m_ongoingEnclosureDownloads.contains(newDownloadJob)) {
             qCDebug(kastsFetcher) << "EnclosureDownloadJob removed from ongoingDownloads:" << newDownloadJob;
             m_ongoingEnclosureDownloads.remove(newDownloadJob);

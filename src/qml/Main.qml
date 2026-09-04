@@ -272,7 +272,7 @@ Kirigami.ApplicationWindow {
             if (selection) {
                 DataManager.bulkDownloadEnclosuresByIndex(selection);
             } else if (entryuid) {
-                DataManager.bulkDownloadEnclosuresByIndex([entryuid]);
+                DataManager.bulkDownloadEnclosures([entryuid]);
             }
             selection = undefined;
             entryuid = undefined;

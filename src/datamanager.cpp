@@ -189,19 +189,11 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
             // Remove entries from Queue
             bulkQueueStatus(false, entries);
 
-            // TODO: Optimize the file deletion; do not depend on the entry objects
-            // Delete entries themselves
             qCDebug(kastsDataManager) << "delete entries of" << feeduid;
+            // first remove downloaded enclosures and cached images
+            bulkDeleteEnclosures(entries);
             for (auto &entryuid : std::as_const(entries)) {
-                Entry *entry = new Entry(entryuid, this);
-                if (entry) {
-                    if (entry->hasEnclosure())
-                        entry->enclosure()->deleteFile(); // delete enclosure (if it exists)
-                    if (!entry->image().isEmpty())
-                        StorageManager::instance().removeImage(entry->image()); // delete entry images
-                    delete entry;
-                }
-                m_entries.remove(entryuid); // delete the hash key
+                m_entries.remove(entryuid); // delete from the QSet
             }
 
             qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feeduid;
@@ -619,7 +611,6 @@ void DataManager::bulkDownloadEnclosuresByIndex(const QModelIndexList &list) con
 
 void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
 {
-    // TODO: move away from instantiation of entries
     bulkQueueStatus(true, entryuids);
     for (const qint64 &entryuid : std::as_const(entryuids)) {
         Fetcher::instance().downloadEnclosure(entryuid);
@@ -642,7 +633,7 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
     for (const qint64 &entryuid : std::as_const(entryuids)) {
         query.bindValue(QStringLiteral(":entryuid"), entryuid);
         Database::instance().execute(query);
-        if (query.next()) { // Only check the first enclosure
+        while (query.next()) { // Only check the first enclosure
             const DataTypes::EnclosureStatus enclosureStatus = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
             const QString enclosureUrl = query.value(QStringLiteral("Enclosures.url")).toString();
             const QString entryTitle = query.value(QStringLiteral("Entries.title")).toString();
@@ -653,6 +644,13 @@ void DataManager::bulkDeleteEnclosures(const QList<qint64> &entryuids) const
             }
             if (QFileInfo::exists(enclosurePath)) {
                 filesToBeDeleted[entryuid] = enclosurePath;
+            }
+            // remove associated cached images if present
+            QString cachedpath = StorageManager::imagePath(enclosureUrl);
+            if (QFileInfo::exists(cachedpath)) {
+                if (QFileInfo(cachedpath).size() != 0) {
+                    QFile::remove(cachedpath);
+                }
             }
         }
     }

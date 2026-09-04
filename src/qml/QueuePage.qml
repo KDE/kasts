@@ -118,6 +118,7 @@ Kirigami.ScrollablePage {
             required property int playPosition
             required property int duration
             required property int size
+            required property int downloadSize
 
             GenericEntryDelegate {
                 id: entryDelegate
@@ -145,6 +146,7 @@ Kirigami.ScrollablePage {
                 playPosition: focusScope.playPosition
                 duration: focusScope.duration
                 size: focusScope.size
+                downloadSize: focusScope.downloadSize
             }
         }
 

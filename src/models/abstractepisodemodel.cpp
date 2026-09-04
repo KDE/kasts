@@ -21,6 +21,7 @@
 #include "models/episodemodellogging.h"
 #include "objectslogging.h"
 #include "queuemodel.h"
+#include "storagemanager.h"
 #include "utils/entryutils.h"
 
 AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent)
@@ -128,6 +129,13 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
             }
         }
     });
+    connect(&Fetcher::instance(), &Fetcher::enclosureDownloadProgress, this, [this](const qint64 entryuid, const qint64 amount) {
+        qsizetype idx = m_entryOrder.indexOf(entryuid);
+        if (idx > -1 && m_entries[m_entryOrder[idx]].enclosureOrder.length() > 0) {
+            m_entries[m_entryOrder[idx]].enclosures[m_entries[m_entryOrder[idx]].enclosureOrder[0]].downloadSize = amount;
+            Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::DownloadSizeRole});
+        }
+    });
 
     updateInternalState();
 
@@ -162,6 +170,7 @@ QHash<int, QByteArray> AbstractEpisodeModel::roleNames() const
         {SizeRole, "size"},
         {DownloadedRole, "downloaded"},
         {DownloadedOrderRole, "downloadedorder"},
+        {DownloadSizeRole, "downloadSize"},
         {FeeduidRole, "feeduid"},
         {FeedNameRole, "feedName"},
         {FeedImageRole, "feedImage"},
@@ -251,6 +260,23 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
             : m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloaded;
         return QVariant::fromValue(static_cast<int>(enclosureStatus));
     }
+    case AbstractEpisodeModel::Roles::DownloadSizeRole:
+        if (!m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0).isEmpty()) {
+            if (m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloadSize < 0) {
+                return QVariant::fromValue(EntryUtils::checkSizeOnDisk(
+                    m_entryOrder[index.row()],
+                    StorageManager::enclosurePath(
+                        m_entries[m_entryOrder[index.row()]].title,
+                        m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].url,
+                        m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].dirname),
+                    m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].size));
+            } else {
+                return QVariant::fromValue(
+                    m_entries[m_entryOrder[index.row()]].enclosures[m_entries[m_entryOrder[index.row()]].enclosureOrder.value(0)].downloadSize);
+            }
+        } else {
+            return QVariant::fromValue(qint64(0));
+        }
     case AbstractEpisodeModel::Roles::FeeduidRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].feeduid);
     case AbstractEpisodeModel::Roles::FeedNameRole:
@@ -319,6 +345,7 @@ void AbstractEpisodeModel::updateInternalState()
         enclosureDetails.type = query.value(QStringLiteral("type")).toString();
         enclosureDetails.duration = query.value(QStringLiteral("duration")).toLongLong();
         enclosureDetails.size = query.value(QStringLiteral("size")).toLongLong();
+        enclosureDetails.downloadSize = -1;
         enclosureDetails.url = query.value(QStringLiteral("url")).toString();
         enclosureDetails.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
         enclosureDetails.downloaded = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());

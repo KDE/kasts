@@ -18,6 +18,7 @@
 #include <qtmetamacros.h>
 
 #include "entry.h"
+#include "errorlogmodel.h"
 
 class AudioManagerPrivate;
 

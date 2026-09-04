@@ -42,6 +42,7 @@ public:
         SizeRole,
         DownloadedRole,
         DownloadedOrderRole,
+        DownloadSizeRole,
         FeeduidRole,
         FeedNameRole,
         FeedImageRole,

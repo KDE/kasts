@@ -29,17 +29,13 @@
 #include "datatypes.h"
 #include "entry.h"
 #include "fetcher.h"
-#include "models/errorlogmodel.h"
 #include "objectslogging.h"
-#include "utils/enclosuredownloadjob.h"
-#include "utils/networkconnectionmanager.h"
 #include "utils/storagemanager.h"
 
 Enclosure::Enclosure(Entry *entry)
     : QObject(entry)
     , m_entry(entry)
 {
-    connect(this, &Enclosure::downloadError, &ErrorLogModel::instance(), &ErrorLogModel::monitorErrorMessages);
     connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
         if (entryuids.contains(m_entryuid)) {
             updateFromDb();
@@ -77,8 +73,6 @@ Enclosure::Enclosure(Entry *entry)
                     qint64 index = entryuids.indexOf(m_entryuid);
                     Q_ASSERT(index > -1);
                     m_status = statuses[index];
-                    m_downloadProgress = 0;
-                    m_downloadSize = 0;
                     Q_EMIT statusChanged(m_entry, m_status);
                 }
             });
@@ -94,7 +88,7 @@ Enclosure::Enclosure(Entry *entry)
     // TODO: this will just take the first enclosure found; we should handle
     // multiple ones
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid"));
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%')"));
     query.bindValue(QStringLiteral(":entryuid"), entry->entryuid());
     Database::instance().execute(query);
 
@@ -112,10 +106,6 @@ Enclosure::Enclosure(Entry *entry)
     m_status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
     m_playposition_dbsave = m_playposition;
 
-    // using qtimer to do this update after the constructor so the signals can be picked up correctly
-    // FIXME: do we still need this?  Need to find a solution using datamanager or fetcher
-    // QTimer::singleShot(0, this, &Enclosure::checkSizeOnDisk);
-
     qCDebug(kastsObjects) << "Enclosure object" << m_enclosureuid << "constructed (corresponding entryuid is" << m_entryuid << ")";
 }
 
@@ -132,11 +122,11 @@ void Enclosure::updateFromDb()
     // notably untrustworthy.  We generally get them from the files themselves
     // at the time they are downloaded.
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE enclosureuid=:enclosureuid"));
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
     query.bindValue(QStringLiteral(":enclosureuid"), m_enclosureuid);
     Database::instance().execute(query);
 
-    if (!query.next()) {
+    while (query.next()) {
         return;
     }
 
@@ -144,7 +134,7 @@ void Enclosure::updateFromDb()
         // this means that the audio file has changed, or at least its location
         // let's only do something if the file isn't downloaded.
         // try to delete the file first (it actually shouldn't exist)
-        deleteFile();
+        DataManager::instance().bulkDownloadEnclosures(QList<qint64>({m_entryuid}));
 
         m_url = query.value(QStringLiteral("url")).toString();
         Q_EMIT urlChanged(m_url);
@@ -163,66 +153,6 @@ void Enclosure::updateFromDb()
             Q_EMIT typeChanged(m_type);
         }
     }
-}
-
-void Enclosure::download()
-{
-    // if (m_status == DataTypes::EnclosureStatus::Downloaded) {
-    //     return;
-    // }
-    //
-    // // TODO: move this check to fetcher; needs error refactoring to use uids
-    // if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
-    //     if (NetworkConnectionManager::instance().networkReachable()) {
-    //         Q_EMIT downloadError(
-    //             ErrorLogModel::Type::MeteredStreamingNotAllowed,
-    //             i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", m_entry->title()));
-    //         return;
-    //     } else {
-    //         Q_EMIT downloadError(
-    //             ErrorLogModel::Type::NoNetwork,
-    //             i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", m_entry->title()));
-    //         return;
-    //     }
-    // }
-    //
-    // EnclosureDownloadJob *downloadJob = Fetcher::instance().enqueueEnclosureDownload(m_entryuid, m_url, path(), m_entry->title(), m_size, m_duration);
-    //
-    // m_downloadProgress = 0;
-    // m_downloadSize = 0;
-    // Q_EMIT downloadProgressChanged();
-    //
-    // connect(downloadJob, &KJob::result, this, [this, downloadJob]() {
-    //     if (downloadJob->error() != 0 && downloadJob->status() != EnclosureDownloadJob::Status::Canceled) {
-    //         if (downloadJob->error() != QNetworkReply::OperationCanceledError) { // This should be superfluous wrt Status::Canceled
-    //             Q_EMIT downloadError(ErrorLogModel::Type::MediaDownload,
-    //                                  i18nc("@info:status Error message notification", "Error downloading media: %1", downloadJob->errorString()));
-    //         }
-    //     }
-    //     Q_EMIT statusChanged(m_entry, m_status);
-    // });
-    //
-    // connect(this, &Enclosure::cancelDownload, downloadJob, &EnclosureDownloadJob::doKill);
-    //
-    // connect(downloadJob, &KJob::processedAmountChanged, this, [this](KJob *kjob, KJob::Unit unit, qulonglong amount) {
-    //     Q_UNUSED(kjob)
-    //     Q_ASSERT(unit == KJob::Unit::Bytes);
-    //
-    //     m_downloadSize = static_cast<qint64>(amount);
-    //     m_downloadProgress = static_cast<double>(m_downloadSize) / static_cast<double>(m_size);
-    //     Q_EMIT downloadProgressChanged();
-    //
-    //     qCDebug(kastsEnclosure) << "m_downloadSize" << m_downloadSize;
-    //     qCDebug(kastsEnclosure) << "m_downloadProgress" << m_downloadProgress;
-    //     qCDebug(kastsEnclosure) << "m_size" << m_size;
-    // });
-    //
-    // DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Queued}), QList<qint64>({m_entryuid}));
-}
-
-void Enclosure::deleteFile()
-{
-    DataManager::instance().bulkDeleteEnclosures(QList<qint64>({m_entryuid}));
 }
 
 qint64 Enclosure::enclosureuid() const
@@ -267,9 +197,4 @@ void Enclosure::setPlayPosition(const qint64 &position)
         DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({m_entryuid}));
         qCDebug(kastsEnclosure) << "save playPosition" << position << m_entry->title();
     }
-}
-
-qint64 Enclosure::downloadSize() const
-{
-    return m_downloadSize;
 }

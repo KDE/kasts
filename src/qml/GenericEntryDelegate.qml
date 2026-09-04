@@ -45,8 +45,7 @@ AddonDelegates.RoundedItemDelegate {
     required property int playPosition
     required property int duration
     required property int size
-
-    readonly property Entry entry: DataManager.getEntry(entryuid)
+    required property int downloadSize
 
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
@@ -331,7 +330,7 @@ AddonDelegates.RoundedItemDelegate {
                 RowLayout {
                     Controls.Label {
                         visible: root.downloaded != DataTypes.EnclosureStatus.Queued
-                        text: Format.formatByteSize(root.entry.enclosure.downloadSize)
+                        text: Format.formatByteSize(root.downloadSize)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
@@ -340,7 +339,7 @@ AddonDelegates.RoundedItemDelegate {
                         indeterminate: root.downloaded == DataTypes.EnclosureStatus.Queued
                         from: 0
                         to: 1
-                        value: root.entry.enclosure.downloadProgress
+                        value: root.size > 0 ? root.downloadSize / root.size : 0.0
                         Layout.fillWidth: true
                     }
                     Controls.Label {
@@ -405,7 +404,7 @@ AddonDelegates.RoundedItemDelegate {
         IconOnlyButton {
             text: KI18n.i18n("Delete Download")
             icon.name: "delete"
-            onClicked: root.entry.enclosure.deleteFile()
+            onClicked: DataManager.bulkDeleteEnclosures([root.entryuid])
             visible: root.showDeleteDownloadButton
         }
 

@@ -45,7 +45,6 @@ private:
     void startDownload();
     QNetworkReply *getNetworkReply(const QString &url, const QString &filePath) const;
     void processDownloadedFile();
-    void checkSizeOnDisk();
 
     qint64 m_entryuid;
     QString m_url;
@@ -54,8 +53,6 @@ private:
     qint64 m_size;
     qint64 m_duration;
     qint64 m_sizeOnDisk;
-    qint64 m_downloadSize;
-    qint64 m_downloadProgress;
     QNetworkReply *m_reply = nullptr;
     Status m_status = Queued;
 };

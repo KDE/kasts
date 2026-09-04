@@ -23,6 +23,7 @@ Kirigami.InlineMessage {
     }
     type: Kirigami.MessageType.Error
     showCloseButton: true
+    clip: true
 
     actions: [
         Kirigami.Action {

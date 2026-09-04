@@ -22,6 +22,7 @@
 #include "datatypes.h"
 #include "fetcher.h"
 #include "objectslogging.h"
+#include "utils/entryutils.h"
 
 EnclosureDownloadJob::EnclosureDownloadJob(const qint64 entryuid,
                                            const QString &url,
@@ -39,6 +40,7 @@ EnclosureDownloadJob::EnclosureDownloadJob(const qint64 entryuid,
     , m_duration(duration)
 {
     setCapabilities(Killable);
+    DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Queued}), QList<qint64>({entryuid}));
     qCDebug(kastsObjects) << "Constructed EnclosureDownloadJob" << entryuid << url;
 }
 
@@ -54,10 +56,8 @@ void EnclosureDownloadJob::start()
 
 void EnclosureDownloadJob::startDownload()
 {
-    checkSizeOnDisk();
+    m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size);
     qint64 resumedAt = m_sizeOnDisk;
-    m_downloadProgress = 0;
-    m_downloadSize = 0;
 
     m_status = EnclosureDownloadJob::Status::Downloading;
     Q_EMIT statusChanged(m_status);
@@ -184,49 +184,11 @@ bool EnclosureDownloadJob::doKill()
     if (m_reply) {
         m_reply->abort();
     } else {
+        m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size);
         emitResult();
     }
 
     return true;
-}
-
-void EnclosureDownloadJob::checkSizeOnDisk()
-{
-    // In principle the database contains this status, we check anyway in case
-    // something changed on disk
-    QFile file(m_filename);
-    if (file.exists()) {
-        if (file.size() == m_size && file.size() > 0) {
-            // file is on disk and has correct size, write to database if it
-            // wasn't already registered so
-            // this should, in principle, never happen unless the db was deleted
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloaded}),
-                                                             QList<qint64>({m_entryuid}));
-        } else if (file.size() > 0) {
-            // file was downloaded, but there is a size mismatch
-            // set to PartiallyDownloaded such that download can be resumed
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::PartiallyDownloaded}),
-                                                             QList<qint64>({m_entryuid}));
-        } else {
-            // file is empty
-            DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                             QList<qint64>({m_entryuid}));
-        }
-        if (file.size() != m_sizeOnDisk) {
-            m_sizeOnDisk = file.size();
-            m_downloadSize = m_sizeOnDisk;
-            m_downloadProgress = (m_size == 0) ? 0.0 : static_cast<double>(m_sizeOnDisk) / static_cast<double>(m_size);
-        }
-    } else {
-        // file does not exist
-        DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloadable}),
-                                                         QList<qint64>({m_entryuid}));
-        if (m_sizeOnDisk != 0) {
-            m_sizeOnDisk = 0;
-            m_downloadSize = 0;
-            m_downloadProgress = 0.0;
-        }
-    }
 }
 
 void EnclosureDownloadJob::processDownloadedFile()
@@ -235,7 +197,8 @@ void EnclosureDownloadJob::processDownloadedFile()
 
     // First check if file size is larger than 0; otherwise something unexpected
     // must have happened
-    checkSizeOnDisk();
+    m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size);
+
     if (m_sizeOnDisk == 0) {
         DataManager::instance().bulkDeleteEnclosures(QList<qint64>({m_entryuid}));
         return;
