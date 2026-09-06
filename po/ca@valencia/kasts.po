@@ -4,7 +4,7 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2021-2026 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2021-2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
@@ -1689,7 +1689,7 @@ msgstr "Socks5"
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Amfitrió"
+msgstr "Servidor"
 
 #: qml/Settings/NetworkSettingsPage.qml:182
 #, kde-format
@@ -2061,7 +2061,7 @@ msgstr "Utilitza un servidor personalitzat"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
-msgstr "Nom de l'amfitrió:"
+msgstr "Nom del servidor:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
 #, kde-format
@@ -2482,11 +2482,3 @@ msgstr "Ix"
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "S'ha produït un error mentre es recuperava el pòdcast: %1; error: %2"
-
-#~ msgctxt "@title of page with list of downloaded episodes"
-#~ msgid "Downloads"
-#~ msgstr "Baixades"
-
-#~ msgctxt "@info:placeholder"
-#~ msgid "No downloads"
-#~ msgstr "No hi ha cap baixada"
