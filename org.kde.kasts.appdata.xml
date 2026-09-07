@@ -97,7 +97,7 @@
     <p>Kasts is a convergent podcast application that looks good on desktop and mobile.</p>
     <p xml:lang="ar">كاست تطبيق مدونات صوتية بشكل جميل للحاسب والهاتف</p>
     <p xml:lang="ca">El Kasts és una aplicació convergent de pòdcast que funciona bé a l'escriptori i al mòbil.</p>
-    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que treballa bé en l'escriptori i en el mòbil.</p>
+    <p xml:lang="ca-valencia">Kasts és una aplicació convergent de pòdcast que funciona bé en l'escriptori i en el mòbil.</p>
     <p xml:lang="cs">Kasts je konvergentní aplikace pro podcasty, která vypadá dobře na počítači i mobilu.</p>
     <p xml:lang="da">Kasts er et konvergerende podcastprogram, der ser godt ud på desktop og mobiler.</p>
     <p xml:lang="de">Kasts ist eine konvergente Podcast-Anwendung, die sowohl auf Desktop-Rechnern, als auch auf Mobilgeräten gut aussieht.</p>
@@ -800,7 +800,7 @@
           <li>Fixed a crash happening when resetting the sleep timer.</li>
           <li xml:lang="ar">إصلاح انهيار يحدث عند إعادة ضبط مؤقت النوم.</li>
           <li xml:lang="ca">S'ha corregit un error en restablir el temporitzador de son.</li>
-          <li xml:lang="ca-valencia">S'ha corregit un error en restablir el temporitzador de son.</li>
+          <li xml:lang="ca-valencia">S'ha esmenat un error en restablir el temporitzador de son.</li>
           <li xml:lang="cs">Opravena chyba způsobující pád aplikace při resetování časovače spánku.</li>
           <li xml:lang="es">Se ha corregido un error que provocaba un fallo al reiniciar el temporizador de suspensión.</li>
           <li xml:lang="fi">korjattiin uniajastinta alustettaessa tapahtunut kaatuminen</li>
@@ -840,7 +840,7 @@
           <li>Fixed visual glitches in the header image and in the subscription list.</li>
           <li xml:lang="ar">إصلاح مشكلات بصرية في صورة الترويسة وقائمة الاشتراكات.</li>
           <li xml:lang="ca">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
-          <li xml:lang="ca-valencia">S'han corregit els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
+          <li xml:lang="ca-valencia">S'han esmenat els errors visuals a la imatge de capçalera i a la llista de subscripcions.</li>
           <li xml:lang="cs">Opraveny vizuální chyby v hlavičkovém obrázku a v seznamu odběrů.</li>
           <li xml:lang="es">Se han corregido defectos visuales en la imagen de la cabecera y en la lista de suscripciones.</li>
           <li xml:lang="fi">korjattu näyttövikoja otsakekuvassa ja tilausluettelossa</li>
@@ -1058,7 +1058,7 @@
           <li>The left sidebar menu in desktop mode has been redesigned. It's now using similar buttons to the ones used in the bottom navigation bar in mobile mode.</li>
           <li xml:lang="ar">أُعيد تصميم قائمة الشريط الجانبي الأيسر في وضع الحاسوب. وهي تستخدم الآن أزرارًا مشابهة لتلك المستخدمة في شريط التنقل السفلي في وضع الهاتف.</li>
           <li xml:lang="ca">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
-          <li xml:lang="ca-valencia">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats a la barra de navegació inferior en el mode mòbil.</li>
+          <li xml:lang="ca-valencia">S'ha redissenyat el menú de la barra lateral esquerra en el mode d'escriptori. Ara utilitza botons similars als utilitzats en la barra de navegació inferior en el mode mòbil.</li>
           <li xml:lang="cs">Levé postranní menu v režimu pro stolní počítače bylo přepracováno. Nyní používá podobná tlačítka jako ta, která se používají v dolní navigační liště v mobilním režimu.</li>
           <li xml:lang="es">Se ha rediseñado el menú de la barra lateral izquierda en el modo de escritorio, que ahora usa botones similares a los de la barra de navegación inferior del modo móvil.</li>
           <li xml:lang="fi">työpöytätilan vasen sivupaneelivalikko suunniteltiin uudelleen: se käyttää nyt samanlaisia painikkeita kuin mobiilitilan alanavigointipalkki</li>
