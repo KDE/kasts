@@ -18,14 +18,14 @@
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
-#include "entry.h"
 #include "objectslogging.h"
 #include "settingsmanager.h"
 
 QueueModel::QueueModel(QObject *parent)
     : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds;"),
                            QStringLiteral("SELECT * FROM Queue JOIN Entries ON Entries.entryuid=Queue.entryuid ORDER BY listnr;"),
-                           QStringLiteral("SELECT * FROM Queue JOIN Enclosures ON Enclosures.entryuid=Queue.entryuid;"),
+                           QStringLiteral("SELECT * FROM Queue JOIN Enclosures ON Enclosures.entryuid=Queue.entryuid WHERE (Enclosures.type LIKE '%audio%' OR "
+                                          "Enclosures.type LIKE '%video%') ORDER BY Enclosures.enclosureuid;"),
                            parent)
 {
     // Connect positionChanged to make sure that the remaining playing time in

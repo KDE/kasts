@@ -30,13 +30,16 @@ AddonDelegates.RoundedItemDelegate {
     required property int entryuid
     required property int index
     required property string title
+    required property string content
     required property int downloaded
+    required property string link
     required property bool isNew
     required property bool read
     required property bool favorite
     required property bool removed
     required property date updated
     required property string image
+    required property int feeduid
     required property string feedImage
     required property string feedName
     required property bool queueStatus
@@ -112,6 +115,26 @@ AddonDelegates.RoundedItemDelegate {
         updateIsSelected();
     }
 
+    function openEntryPage(): void {
+        mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
+            entryuid: entryuid,
+            isNew: Qt.binding(() => root.isNew),
+            read: Qt.binding(() => root.read),
+            favorite: Qt.binding(() => root.favorite),
+            queueStatus: Qt.binding(() => root.queueStatus),
+            image: Qt.binding(() => root.image),
+            entryTitle: Qt.binding(() => root.title),
+            content: Qt.binding(() => root.content),
+            feedName: Qt.binding(() => root.feedName),
+            downloaded: Qt.binding(() => root.downloaded),
+            hasEnclosure: Qt.binding(() => root.hasEnclosure),
+            enclosureUrl: Qt.binding(() => root.enclosureUrl),
+            playPosition: Qt.binding(() => root.playPosition),
+            feeduid: root.feeduid,
+            link: Qt.binding(() => root.link)
+        });
+    }
+
     function delegateTapped(): void {
         // only mark pure rss feeds as read + not new;
         // podcasts should only be marked read once they have been listened to, and only
@@ -131,9 +154,7 @@ AddonDelegates.RoundedItemDelegate {
             mainWindow.pageStack.pop();
         }
 
-        mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entryuid: entryuid
-        });
+        openEntryPage();
     }
 
     TapHandler {

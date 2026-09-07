@@ -56,7 +56,7 @@ void EnclosureDownloadJob::start()
 
 void EnclosureDownloadJob::startDownload()
 {
-    m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size);
+    m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size, false);
     qint64 resumedAt = m_sizeOnDisk;
 
     m_status = EnclosureDownloadJob::Status::Downloading;

@@ -19,7 +19,7 @@ QNetworkAccessManager *NetworkAccessManagerFactory::create(QObject *parent)
 {
     QNetworkAccessManager *manager = new NetworkAccessManager(parent);
     auto cache = new QNetworkDiskCache(manager);
-    QString directory = StorageManager::instance().imageDirPath();
+    QString directory = StorageManager::imageDirPath();
     cache->setCacheDirectory(directory);
     cache->setMaximumCacheSize(500 * 1024 * 1024);
     manager->setCache(cache);

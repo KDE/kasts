@@ -263,6 +263,13 @@ ecm_qt_declare_logging_category(kasts
     DEFAULT_SEVERITY Info
 )
 
+ecm_qt_declare_logging_category(kasts
+    HEADER "utils/entryutilslogging.h"
+    IDENTIFIER "kastsEntryUtils"
+    CATEGORY_NAME "org.kde.kasts.entryutils"
+    DEFAULT_SEVERITY Info
+)
+
 
 if(ANDROID)
     target_sources(kasts PRIVATE utils/androidlogging.h)

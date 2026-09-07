@@ -103,25 +103,30 @@ Kirigami.ScrollablePage {
             required property int entryuid
             required property int index
             required property string title
+            required property string content
             required property int downloaded
-            required property bool hasEnclosure
+            required property string link
             required property bool isNew
             required property bool read
             required property bool favorite
             required property bool removed
             required property date updated
             required property string image
+            required property string feeduid
             required property string feedImage
             required property string feedName
             required property bool queueStatus
+            required property bool hasEnclosure
             required property bool enclosureUrl
             required property int playPosition
             required property int duration
             required property int size
             required property int downloadSize
 
+            property GenericEntryDelegate entryDelegate: _delegate
+
             GenericEntryDelegate {
-                id: entryDelegate
+                id: _delegate
                 width: parent.width
                 isQueue: true
                 listViewObject: root.queueList
@@ -131,22 +136,40 @@ Kirigami.ScrollablePage {
                 entryuid: focusScope.entryuid
                 index: focusScope.index
                 title: focusScope.title
+                content: focusScope.content
                 downloaded: focusScope.downloaded
-                hasEnclosure: focusScope.hasEnclosure
+                link: focusScope.link
                 isNew: focusScope.isNew
                 read: focusScope.read
                 favorite: focusScope.favorite
                 removed: focusScope.removed
                 updated: focusScope.updated
                 image: focusScope.image
+                feeduid: focusScope.feeduid
                 feedImage: focusScope.feedImage
                 feedName: focusScope.feedName
                 queueStatus: focusScope.queueStatus
+                hasEnclosure: focusScope.hasEnclosure
                 enclosureUrl: focusScope.enclosureUrl
                 playPosition: focusScope.playPosition
                 duration: focusScope.duration
                 size: focusScope.size
                 downloadSize: focusScope.downloadSize
+            }
+
+            // This function is needed to close the EntryPage if it is opened over the
+            // QueuePage when the episode is removed from the queue (e.g. when the
+            // episode finishes).
+            ListView.onPooled: {
+                const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
+                if (pageStack.depth > 1) {
+                    if (pageStack.get(0).pageName === "queuepage") {
+                        if (pageStack.get(0).lastEntry && pageStack.get(0).lastEntry === focusScope.entryuid) {
+                            // if this EntryPage was open, then close it
+                            pageStack.pop();
+                        }
+                    }
+                }
             }
         }
 

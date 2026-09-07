@@ -416,7 +416,7 @@ FocusScope {
 
         Controls.Label {
             id: entryDetailsText
-            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(entryDetailsOverlay.preferredWidth, font.pixelSize) : KI18n.i18n("No episode loaded")
+            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? EntryUtils.adjustedContent(entryDetailsOverlay.preferredWidth, font.pixelSize, AudioManager.entry.content, AudioManager.entry.link) : KI18n.i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
             textFormat: Text.RichText

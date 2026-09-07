@@ -198,12 +198,10 @@ void DataManager::removeFeeds(const QList<Feed *> &feeds)
 
             qCDebug(kastsDataManager) << "Remove feed image" << feed->image() << "for feed" << feeduid;
             qCDebug(kastsDataManager) << "Remove feed enclosure download directory" << feed->dirname() << "for feed" << feeduid;
-            QDir enclosureDir = QDir(StorageManager::instance().enclosureDirPath() + feed->dirname());
+            QDir enclosureDir = QDir(StorageManager::enclosureDirPath() + feed->dirname());
             if (!feed->dirname().isEmpty() && enclosureDir.exists()) {
                 enclosureDir.removeRecursively();
             }
-            if (!feed->image().isEmpty())
-                StorageManager::instance().removeImage(feed->image());
             m_feeds.remove(feeduid); // remove from m_feeds
             delete feed; // remove the pointer
 
@@ -675,7 +673,8 @@ void DataManager::bulkSetPlayPositions(const QList<qint64> &playPositions, const
     QSqlQuery query;
     Database::instance().transaction();
     // TODO: switch to saving the position on the entry?
-    query.prepare(QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid;"));
+    query.prepare(
+        QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":playposition"), playPositions[i]);
@@ -698,7 +697,8 @@ void DataManager::bulkSetEnclosureDurations(const QList<qint64> &durations, cons
     QList<qint64> changed_durations, changed_entryuids;
     // First check the database
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT duration FROM Enclosures WHERE entryuid=:entryuid;"));
+    query.prepare(
+        QStringLiteral("SELECT duration FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         Database::instance().execute(query);
@@ -712,7 +712,7 @@ void DataManager::bulkSetEnclosureDurations(const QList<qint64> &durations, cons
 
     // also save to database
     Database::instance().transaction();
-    query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE entryuid=:entryuid;"));
+    query.prepare(QStringLiteral("UPDATE Enclosures SET duration=:duration WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":duration"), durations[i]);
@@ -733,7 +733,8 @@ void DataManager::bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<
     QList<qint64> changed_sizes, changed_entryuids;
     // First check the database
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT size FROM Enclosures WHERE entryuid=:entryuid;"));
+    query.prepare(
+        QStringLiteral("SELECT size FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         Database::instance().execute(query);
@@ -747,7 +748,7 @@ void DataManager::bulkSetEnclosureSizes(const QList<qint64> &sizes, const QList<
 
     // also save to database
     Database::instance().transaction();
-    query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE entryuid=:entryuid;"));
+    query.prepare(QStringLiteral("UPDATE Enclosures SET size=:size WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":size"), sizes[i]);
@@ -769,7 +770,9 @@ void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatu
     QList<qint64> changed_entryuids;
     // First check the database
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT downloaded FROM Enclosures WHERE entryuid=:entryuid;"));
+    query.prepare(
+        QStringLiteral("SELECT downloaded FROM Enclosures WHERE entryuid=:entryuid AND (Enclosures.type LIKE '%audio%' OR Enclosures.type LIKE '%video%') "
+                       "ORDER BY Enclosures.enclosureuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         Database::instance().execute(query);
@@ -782,7 +785,7 @@ void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatu
     }
 
     Database::instance().transaction();
-    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid;"));
+    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(statuses[i]));

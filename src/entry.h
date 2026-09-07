@@ -72,8 +72,6 @@ public:
     void setFavorite(bool favorite);
     void setQueueStatus(bool status);
 
-    Q_INVOKABLE QString adjustedContent(int width, int fontSize);
-
 Q_SIGNALS:
     void titleChanged(const QString &title);
     void contentChanged(const QString &content);

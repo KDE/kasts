@@ -54,9 +54,8 @@ FocusScope {
                     mainWindow.pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 }
             }
-            mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage", Component.PreferSynchronous, mainWindow.pageStack.get(0)), {
-                entryuid: AudioManager.entryuid
-            });
+            // now open the relevant EntryPage
+            mainWindow.pageStack.get(0).queueList.currentItem.entryDelegate.openEntryPage();
         }
     }
 

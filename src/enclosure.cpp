@@ -88,7 +88,7 @@ Enclosure::Enclosure(Entry *entry)
     // TODO: this will just take the first enclosure found; we should handle
     // multiple ones
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%')"));
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid"));
     query.bindValue(QStringLiteral(":entryuid"), entry->entryuid());
     Database::instance().execute(query);
 

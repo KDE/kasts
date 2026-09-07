@@ -343,7 +343,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         QString generatedDirname = generateFeedDirname(updatedFeed.name);
         if (generatedDirname != updatedFeed.dirname) {
             updatedFeed.dirname = generatedDirname;
-            QString enclosurePath = StorageManager::instance().enclosureDirPath();
+            QString enclosurePath = StorageManager::enclosureDirPath();
             if (QDir(enclosurePath + updatedFeed.oldDirname).exists()) {
                 QDir().rename(enclosurePath + updatedFeed.oldDirname, enclosurePath + updatedFeed.dirname);
             } else {
@@ -649,8 +649,8 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
 
             // Check if entry title or enclosure URL has changed
             if (updatedFeed.entries[id].title != updatedFeed.entries[id].oldTitle) {
-                QString oldFilename = StorageManager::instance().enclosurePath(updatedFeed.entries[id].oldTitle, url, updatedFeed.dirname);
-                QString newFilename = StorageManager::instance().enclosurePath(updatedFeed.entries[id].title, url, updatedFeed.dirname);
+                QString oldFilename = StorageManager::enclosurePath(updatedFeed.entries[id].oldTitle, url, updatedFeed.dirname);
+                QString newFilename = StorageManager::enclosurePath(updatedFeed.entries[id].title, url, updatedFeed.dirname);
                 QFile::rename(oldFilename, newFilename);
             }
         } else {
@@ -1096,7 +1096,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name)
 {
     // Generate directory name for enclosures based on feed name
     // NOTE: Any changes here require a database migration!
-    QString dirBaseName = StorageManager::instance().sanitizedFilePath(name);
+    QString dirBaseName = StorageManager::sanitizedFilePath(name);
     QString dirName = dirBaseName;
 
     QStringList dirNameList;
@@ -1109,7 +1109,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name)
 
     // Check for duplicate names in database and on filesystem
     int numDups = 1; // Minimum to append is " (1)" if file already exists
-    while (dirNameList.contains(dirName) || QDir(StorageManager::instance().enclosureDirPath() + dirName).exists()) {
+    while (dirNameList.contains(dirName) || QDir(StorageManager::enclosureDirPath() + dirName).exists()) {
         dirName = QStringLiteral("%1 (%2)").arg(dirBaseName, QString::number(numDups));
         numDups++;
     }

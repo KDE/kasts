@@ -14,6 +14,7 @@
 #include <QTimer>
 #include <QVariant>
 
+#include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
 #include "datatypes.h"
@@ -30,6 +31,16 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
     , m_entryQuery(entryQuery)
     , m_enclosureQuery(enclosureQuery)
 {
+    // Update the position of the currently playing track directly from
+    // audiomanager to avoid the deliberate delay in writing to the database
+    connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](const qint64 position, const qint64 entryuid) {
+        qsizetype idx = m_entryOrder.indexOf(entryuid);
+        if (idx > -1 && m_entries[entryuid].enclosureOrder.length() > 0) {
+            m_entries[entryuid].enclosures[m_entries[entryuid].enclosureOrder[0]].playPosition = position;
+            Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::PlayPositionRole});
+        }
+    });
+
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const qint64 feeduid) {
         if (m_feeds.contains(feeduid)) {
             updateFeeds({feeduid});
@@ -387,7 +398,7 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
     }
     query.finish();
 
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid;"));
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;"));
     for (const qint64 entryuid : std::as_const(entryuids)) {
         if (m_entryOrder.contains(entryuid) && m_entries.contains(entryuid)) {
             m_entries[entryuid].enclosures.clear();

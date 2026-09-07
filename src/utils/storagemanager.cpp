@@ -175,13 +175,6 @@ qint64 StorageManager::dirSize(const QString &path)
     return size;
 }
 
-void StorageManager::removeImage(const QString &url)
-{
-    qCDebug(kastsStorageManager) << "Removing image" << imagePath(url);
-    QFile(imagePath(url)).remove();
-    Q_EMIT imageDirSizeChanged();
-}
-
 void StorageManager::clearImageCache()
 {
     qCDebug(kastsStorageManager) << imageDirPath();

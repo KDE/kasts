@@ -117,11 +117,10 @@ void Fetcher::fetch(const QStringList &urls)
 
 void Fetcher::downloadEnclosure(const qint64 entryuid)
 {
-    // FIXME: take the correct enclosure; this sometimes produces a different enclosure than abstractepisodemodel
     QSqlQuery query;
-    query.prepare(
-        QStringLiteral("SELECT * FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON Feeds.feeduid=Enclosures.feeduid WHERE "
-                       "Enclosures.entryuid=:entryuid;"));
+    query.prepare(QStringLiteral(
+        "SELECT * FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid JOIN Feeds ON Feeds.feeduid=Enclosures.feeduid WHERE "
+        "Enclosures.entryuid=:entryuid AND (Enclosures.type LIKE '%audio%' OR Enclosures.type LIKE '%video%') ORDER BY Enclosures.enclosureuid;"));
     query.bindValue(QStringLiteral(":entryuid"), entryuid);
     Database::instance().execute(query);
     while (query.next()) {

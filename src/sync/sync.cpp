@@ -455,7 +455,7 @@ void Sync::savePasswordToFile(const QString &username, const QString &password)
 
     // NOTE: Store in the same location as database, which can be different from
     //       the storagePath
-    QString filePath = StorageManager::instance().passwordFilePath(username);
+    QString filePath = StorageManager::passwordFilePath(username);
 
     QFile passwordFile(filePath);
     passwordFile.remove();
@@ -498,7 +498,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
                 if (readJob->error() == QKeychain::Error::NoError) {
                     Q_EMIT passwordRetrievalFinished(readJob->textData());
                     // if a password file is present, delete it
-                    QFile(StorageManager::instance().passwordFilePath(username)).remove();
+                    QFile(StorageManager::passwordFilePath(username)).remove();
                 } else {
                     qCDebug(kastsSync) << "Could not read the access token from the keychain: " << qPrintable(readJob->errorString());
                     // no password from the keychain, try token file
@@ -511,7 +511,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
                                 disconnect(this, &Sync::passwordSaveFinished, this, nullptr);
                                 bool removed = false;
                                 if (saved) {
-                                    QFile passwordFile(StorageManager::instance().passwordFilePath(username));
+                                    QFile passwordFile(StorageManager::passwordFilePath(username));
                                     removed = passwordFile.remove();
                                 }
                                 if (!(saved && removed)) {
@@ -533,7 +533,7 @@ void Sync::retrievePasswordFromKeyChain(const QString &username)
 
 QString Sync::retrievePasswordFromFile(const QString &username)
 {
-    QFile passwordFile(StorageManager::instance().passwordFilePath(username));
+    QFile passwordFile(StorageManager::passwordFilePath(username));
 
     if (passwordFile.open(QFile::ReadOnly)) {
         qCDebug(kastsSync) << "Retrieved password from file for user" << username;
@@ -577,7 +577,7 @@ void Sync::onWriteDummyJobFinished(QKeychain::WritePasswordJob *writeDummyJob, c
     } else {
         // opening keychain succeeded, let's try to delete the password
 
-        QFile(StorageManager::instance().passwordFilePath(username)).remove();
+        QFile(StorageManager::passwordFilePath(username)).remove();
 
         QKeychain::DeletePasswordJob *deleteJob = new QKeychain::DeletePasswordJob(qAppName());
         deleteJob->setAutoDelete(true);

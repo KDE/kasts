@@ -123,6 +123,11 @@ AudioManager::AudioManager(QObject *parent)
                     if (index > -1 && index < statuses.size()) {
                         if (statuses[index] == DataTypes::EnclosureStatus::Downloadable) {
                             next();
+                        } else if (statuses[index] == DataTypes::EnclosureStatus::Downloaded) {
+                            // stop streaming and load the downloaded file instead
+                            qint64 position = this->position();
+                            setEntryuid(d->m_entryuid);
+                            this->setPosition(position);
                         }
                     }
                 });

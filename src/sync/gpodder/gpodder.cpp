@@ -225,7 +225,9 @@ UploadEpisodeActionRequest *GPodder::uploadEpisodeActions(const QList<SyncUtils:
             actionObject.insert(QStringLiteral("episode"), episodeAction.url);
         } else if (!episodeAction.id.isEmpty()) {
             QSqlQuery query;
-            query.prepare(QStringLiteral("SELECT url FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid WHERE Entries.id=:id;"));
+            query.prepare(
+                QStringLiteral("SELECT url FROM Enclosures JOIN Entries ON Entries.entryuid=Enclosures.entryuid WHERE Entries.id=:id AND (Enclosures.type LIKE "
+                               "'%audio%' OR Enclosures.type LIKE '%video%') ORDER BY Enclosures.enclosureuid;"));
             query.bindValue(QStringLiteral(":id"), episodeAction.id);
             Database::instance().execute(query);
             if (!query.next()) {

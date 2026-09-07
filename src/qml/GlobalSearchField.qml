@@ -27,9 +27,6 @@ Kirigami.SearchField {
     function openEntry(entryuid: int): void {
         var mainWindow = (Controls.ApplicationWindow.window as Main);
         mainWindow.pushPage("EpisodeListPage");
-        mainWindow.pageStack.push(Qt.createComponent("org.kde.kasts", "EntryPage"), {
-            entryuid: entryuid
-        });
 
         // Find the index of the entry on the EpisodeListPage and scroll to it
         var episodeModel = mainWindow.pageStack.get(0).episodeList.model;
@@ -39,6 +36,9 @@ Kirigami.SearchField {
                 mainWindow.pageStack.get(0).episodeList.currentIndex = i;
                 mainWindow.pageStack.get(0).episodeList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
                 mainWindow.pageStack.get(0).episodeList.positionViewAtIndex(i, ListView.Center);
+
+                // now open the relevant EntryPage
+                mainWindow.pageStack.get(0).episodeList.currentItem.openEntryPage();
             }
         }
     }
@@ -95,13 +95,15 @@ Kirigami.SearchField {
             id: albumDelegate
 
             required property int index
-            required property var entry
-            required property int entryuid
+            required property var entryuid
+            required property string title
+            required property string feedName
+            required property string image
 
             contentItem: Delegates.IconTitleSubtitle {
-                icon.source: albumDelegate.entry.image
-                title: albumDelegate.entry.title
-                subtitle: albumDelegate.entry.feed.name
+                icon.source: albumDelegate.image
+                title: albumDelegate.title
+                subtitle: albumDelegate.feedName
             }
             onClicked: {
                 root.openEntry(albumDelegate.entryuid);

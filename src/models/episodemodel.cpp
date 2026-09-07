@@ -11,7 +11,7 @@
 EpisodeModel::EpisodeModel(QObject *parent)
     : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds;"),
                            QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid ORDER BY updated DESC;"),
-                           QStringLiteral("SELECT * FROM Enclosures;"),
+                           QStringLiteral("SELECT * FROM Enclosures WHERE (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;"),
                            parent)
 {
     // When feed is updated or removed, the entire model needs to be reset

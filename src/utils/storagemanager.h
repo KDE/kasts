@@ -53,7 +53,6 @@ public:
     static qint64 enclosureDirSize();
     static qint64 imageDirSize();
 
-    void removeImage(const QString &url);
     Q_INVOKABLE void clearImageCache();
 
     static QString passwordFilePath(const QString &username);

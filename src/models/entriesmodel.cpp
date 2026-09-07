@@ -16,8 +16,8 @@ EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
     : AbstractEpisodeModel(
           QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds WHERE feeduid=%1;").arg(feeduid),
           QStringLiteral("SELECT * FROM Entries JOIN Feeds ON Feeds.feeduid=Entries.feeduid WHERE Feeds.feeduid=%1 ORDER BY updated DESC;").arg(feeduid),
-          QStringLiteral("SELECT * FROM Enclosures WHERE feeduid=%1;").arg(feeduid),
-          parent) // TODO: probably needs another parent?
+          QStringLiteral("SELECT * FROM Enclosures WHERE feeduid=%1 AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;").arg(feeduid),
+          parent)
     , m_feeduid(feeduid)
 {
     // When feed is updated, the entire model needs to be reset
