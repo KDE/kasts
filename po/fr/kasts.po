@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-03-12 12:26+0100\n"
+"PO-Revision-Date: 2026-08-27 19:16+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1301,7 +1301,7 @@ msgstr "Toujours afficher les titres des podcasts dans la vue des épisodes"
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
-msgstr "Boîte à miniatures"
+msgstr "Boite à miniatures"
 
 #: qml/Settings/AppearanceSettingsPage.qml:115
 #, kde-format
