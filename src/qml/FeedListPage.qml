@@ -13,6 +13,7 @@ import Qt.labs.platform
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as Addons
 import org.kde.ki18n
 
 import org.kde.kasts
@@ -32,6 +33,52 @@ Kirigami.ScrollablePage {
         if (refreshing) {
             updateAllFeeds.run();
             refreshing = false;
+        }
+    }
+
+    Component {
+        id: sortMenuComponent
+        Addons.ConvergentContextMenu {
+            id: sortMenu
+
+            property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
+
+            property Instantiator repeater: Instantiator {
+                model: ListModel {
+                    id: sortModel
+                    // have to use script because KI18n.i18n doesn't work within ListElement
+                    Component.onCompleted: {
+                        const sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
+                        for (let i in sortList) {
+                            sortModel.append({
+                                name: gridView.model.getSortName(sortList[i]),
+                                iconName: gridView.model.getSortIconName(sortList[i]),
+                                sortType: sortList[i]
+                            });
+                        }
+                    }
+                }
+
+                Kirigami.Action {
+                    required property string iconName
+                    required property string name
+                    required property int sortType
+
+                    icon.name: iconName
+                    text: name
+                    checkable: true
+                    checked: root.Controls.ApplicationWindow.window ? (root.Controls.ApplicationWindow.window as Main).feedSorting === sortType : false
+                    Controls.ActionGroup.group: sortMenu.sortGroup
+
+                    onTriggered: {
+                        (root.Controls.ApplicationWindow.window as Main).feedSorting = sortType;
+                    }
+                }
+
+                onObjectAdded: (index, object) => {
+                    sortMenu.actions.push(object);
+                }
+            }
         }
     }
 
@@ -62,49 +109,10 @@ Kirigami.ScrollablePage {
             icon.name: "view-sort"
             text: KI18n.i18nc("@action:intoolbar Open menu with options to sort subscriptions", "Sort")
             displayHint: Kirigami.DisplayHint.AlwaysHide
-
             tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort subscriptions")
-
-            property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
-
-            property Instantiator repeater: Instantiator {
-                model: ListModel {
-                    id: sortModel
-                    // have to use script because KI18n.i18n doesn't work within ListElement
-                    Component.onCompleted: {
-                        if (sortActionRoot.visible) {
-                            const sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
-                            for (let i in sortList) {
-                                sortModel.append({
-                                    name: gridView.model.getSortName(sortList[i]),
-                                    iconName: gridView.model.getSortIconName(sortList[i]),
-                                    sortType: sortList[i]
-                                });
-                            }
-                        }
-                    }
-                }
-
-                Kirigami.Action {
-                    required property string iconName
-                    required property string name
-                    required property int sortType
-
-                    visible: sortActionRoot.visible
-                    icon.name: iconName
-                    text: name
-                    checkable: true
-                    checked: root.Controls.ApplicationWindow.window ? (root.Controls.ApplicationWindow.window as Main).feedSorting === sortType : false
-                    Controls.ActionGroup.group: sortActionRoot.sortGroup
-
-                    onTriggered: {
-                        (root.Controls.ApplicationWindow.window as Main).feedSorting = sortType;
-                    }
-                }
-
-                onObjectAdded: (index, object) => {
-                    sortActionRoot.children.push(object);
-                }
+            onTriggered: {
+                const item = sortMenuComponent.createObject(root.Controls.Overlay.overlay);
+                (item as Addons.ConvergentContextMenu).popup();
             }
         },
         Kirigami.Action {

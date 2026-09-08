@@ -11,6 +11,7 @@ import QtQuick.Controls as Controls
 import QtQml.Models
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as Addons
 import org.kde.ki18n
 
 import org.kde.kasts
@@ -156,23 +157,17 @@ ListView {
 
     // For lack of a better place, we put generic entry list actions here so
     // they can be re-used across the different ListViews.
+    Component {
+        id: sortMenuComponent
+        Addons.ConvergentContextMenu {
+            id: sortMenu
+            property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
 
-    readonly property Kirigami.Action sortAction: Kirigami.Action {
-        id: sortActionRoot
-        icon.name: "view-sort"
-        text: KI18n.i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
-        displayHint: Kirigami.DisplayHint.AlwaysHide
-
-        tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort episodes")
-
-        property Controls.ActionGroup sortGroup: Controls.ActionGroup {}
-
-        property Instantiator repeater: Instantiator {
-            model: ListModel {
-                id: sortModel
-                // have to use script because KI18n.i18n doesn't work within ListElement
-                Component.onCompleted: {
-                    if (sortActionRoot.visible) {
+            property Instantiator repeater: Instantiator {
+                model: ListModel {
+                    id: sortModel
+                    // have to use script because KI18n.i18n doesn't work within ListElement
+                    Component.onCompleted: {
                         const sortList = [AbstractEpisodeProxyModel.DateDescending, AbstractEpisodeProxyModel.DateAscending];
                         for (let i in sortList) {
                             sortModel.append({
@@ -183,31 +178,84 @@ ListView {
                         }
                     }
                 }
-            }
 
-            Kirigami.Action {
-                required property string iconName
-                required property string name
-                required property int sortType
+                Kirigami.Action {
+                    required property string iconName
+                    required property string name
+                    required property int sortType
 
-                visible: sortActionRoot.visible
-                icon.name: iconName
-                text: name
-                checkable: !root.isQueue
-                checked: !root.isQueue && (root.model.sortType === sortType)
-                Controls.ActionGroup.group: root.isQueue ? null : sortActionRoot.sortGroup
+                    icon.name: iconName
+                    text: name
+                    checkable: !root.isQueue
+                    checked: !root.isQueue && (root.model.sortType === sortType)
+                    Controls.ActionGroup.group: root.isQueue ? null : sortMenu.sortGroup
 
-                onTriggered: {
-                    if (root.isQueue) {
-                        QueueModel.sortQueue(sortType);
-                    } else {
-                        root.model.sortType = sortType;
+                    onTriggered: {
+                        if (root.isQueue) {
+                            QueueModel.sortQueue(sortType);
+                        } else {
+                            root.model.sortType = sortType;
+                        }
                     }
                 }
-            }
 
-            onObjectAdded: (index, object) => {
-                sortActionRoot.children.push(object);
+                onObjectAdded: (index, object) => {
+                    sortMenu.actions.push(object);
+                }
+            }
+        }
+    }
+
+    readonly property Kirigami.Action sortAction: Kirigami.Action {
+        id: sortActionRoot
+        icon.name: "view-sort"
+        text: KI18n.i18nc("@action:intoolbar Open menu with options to sort episodes", "Sort")
+        displayHint: Kirigami.DisplayHint.AlwaysHide
+        tooltip: KI18n.i18nc("@info:tooltip", "Select how to sort episodes")
+        onTriggered: {
+            const item = sortMenuComponent.createObject(root.Controls.Overlay.overlay);
+            (item as Addons.ConvergentContextMenu).popup();
+        }
+    }
+
+    Component {
+        id: filterMenuComponent
+        Addons.ConvergentContextMenu {
+            id: filterMenu
+            property Controls.ActionGroup filterGroup: Controls.ActionGroup {}
+
+            property Instantiator repeater: Instantiator {
+                model: ListModel {
+                    id: filterModel
+                    // have to use script because KI18n.i18n doesn't work within ListElement
+                    Component.onCompleted: {
+                        const filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter, AbstractEpisodeProxyModel.DownloadedFilter, AbstractEpisodeProxyModel.NotDownloadedFilter];
+                        for (let i in filterList) {
+                            filterModel.append({
+                                name: root.model.getFilterName(filterList[i]),
+                                filterType: filterList[i]
+                            });
+                        }
+                    }
+                }
+
+                Kirigami.Action {
+                    required property string name
+                    required property int filterType
+
+                    text: name
+                    checkable: true
+                    checked: root.model.filterType === filterType
+                    Controls.ActionGroup.group: filterMenu.filterGroup
+
+                    onTriggered: {
+                        root.model.filterType = filterType;
+                    }
+                }
+
+                onObjectAdded: (index, object) => {
+                    filterMenu.actions.push(object);
+                }
             }
         }
     }
@@ -218,46 +266,10 @@ ListView {
         enabled: visible
         icon.name: "view-filter"
         text: KI18n.i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
-
         tooltip: KI18n.i18nc("@info:tooltip", "Filter episodes by status")
-
-        property Controls.ActionGroup filterGroup: Controls.ActionGroup {}
-
-        property Instantiator repeater: Instantiator {
-            model: ListModel {
-                id: filterModel
-                // have to use script because KI18n.i18n doesn't work within ListElement
-                Component.onCompleted: {
-                    if (filterActionRoot.visible) {
-                        const filterList = [AbstractEpisodeProxyModel.NoFilter, AbstractEpisodeProxyModel.ReadFilter, AbstractEpisodeProxyModel.NotReadFilter, AbstractEpisodeProxyModel.NewFilter, AbstractEpisodeProxyModel.NotNewFilter, AbstractEpisodeProxyModel.FavoriteFilter, AbstractEpisodeProxyModel.NotFavoriteFilter, AbstractEpisodeProxyModel.DownloadedFilter, AbstractEpisodeProxyModel.NotDownloadedFilter];
-                        for (let i in filterList) {
-                            filterModel.append({
-                                name: root.model.getFilterName(filterList[i]),
-                                filterType: filterList[i]
-                            });
-                        }
-                    }
-                }
-            }
-
-            Kirigami.Action {
-                required property string name
-                required property int filterType
-
-                visible: filterActionRoot.visible
-                text: name
-                checkable: true
-                checked: root.model.filterType === filterType
-                Controls.ActionGroup.group: filterActionRoot.filterGroup
-
-                onTriggered: {
-                    root.model.filterType = filterType;
-                }
-            }
-
-            onObjectAdded: (index, object) => {
-                filterActionRoot.children.push(object);
-            }
+        onTriggered: {
+            const item = filterMenuComponent.createObject(root.Controls.Overlay.overlay);
+            (item as Addons.ConvergentContextMenu).popup();
         }
     }
 
@@ -284,7 +296,7 @@ ListView {
     readonly property Kirigami.Action addToQueueAction: Kirigami.Action {
         text: KI18n.i18n("Add to Queue")
         icon.name: "media-playlist-append"
-        visible: root.selectionModel.hasSelection && !root.isQueue && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryQueueStatus : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && !root.isQueue && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection && !listView.isQueue
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(true, root.selectionForContextMenu);
@@ -295,7 +307,7 @@ ListView {
     readonly property Kirigami.Action removeFromQueueAction: Kirigami.Action {
         text: KI18n.i18n("Remove from Queue")
         icon.name: "list-remove"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryQueueStatus : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(false, root.selectionForContextMenu);
@@ -305,7 +317,7 @@ ListView {
 
     readonly property Kirigami.Action markPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Played")
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryRead : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryRead = true;
@@ -314,7 +326,7 @@ ListView {
 
     readonly property Kirigami.Action markNotPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Unplayed")
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryRead : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryRead = false;
@@ -324,7 +336,7 @@ ListView {
     readonly property Kirigami.Action markNewAction: Kirigami.Action {
         text: KI18n.i18n("Label as \"New\"")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryNew : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryNew = true;
@@ -334,7 +346,7 @@ ListView {
     readonly property Kirigami.Action markNotNewAction: Kirigami.Action {
         text: KI18n.i18n("Remove \"New\" Label")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryNew : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryNew = false;
@@ -344,7 +356,7 @@ ListView {
     readonly property Kirigami.Action markFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
         icon.name: "starred-symbolic"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryFavorite : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryFavorite = true;
@@ -354,7 +366,7 @@ ListView {
     readonly property Kirigami.Action markNotFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
         icon.name: "non-starred-symbolic"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryFavorite : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryFavorite = false;
@@ -364,7 +376,7 @@ ListView {
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
         text: KI18n.i18n("Download")
         icon.name: "download"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded : true)
         onTriggered: {
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.selection = root.selectionForContextMenu;
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
@@ -374,7 +386,7 @@ ListView {
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
         text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", root.selectionForContextMenu.length)
         icon.name: "delete"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
         onTriggered: {
             DataManager.bulkDeleteEnclosuresByIndex(root.selectionForContextMenu);
         }
@@ -383,7 +395,7 @@ ListView {
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
-        visible: root.selectionModel.hasSelection && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure : true)
         onTriggered: {
             if (!root.singleSelectedEntryQueueStatus) {
                 DataManager.bulkQueueStatus(true, [root.singleSelectedEntryuid]);
@@ -395,67 +407,16 @@ ListView {
 
     readonly property list<Kirigami.Action> defaultActionList: [sortAction, filterAction, addToQueueAction, removeFromQueueAction, markPlayedAction, markNotPlayedAction, markNewAction, markNotNewAction, markFavoriteAction, markNotFavoriteAction, downloadEnclosureAction, deleteEnclosureAction, streamAction, selectAllAction, selectNoneAction]
 
-    property Controls.Menu contextMenu: Controls.Menu {
+    readonly property Component contextMenu: Component {
         id: contextMenu
+        Addons.ConvergentContextMenu {
 
-        Controls.MenuItem {
-            action: root.addToQueueAction
-            visible: !root.isQueue && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryQueueStatus : true)
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.removeFromQueueAction
-            visible: root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryQueueStatus : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markPlayedAction
-            visible: root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryRead : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markNotPlayedAction
-            visible: root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryRead : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markNewAction
-            visible: root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryNew : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markNotNewAction
-            visible: root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryNew : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markFavoriteAction
-            visible: root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryFavorite : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.markNotFavoriteAction
-            visible: root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryFavorite : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.downloadEnclosureAction
-            visible: root.singleSelectedEntryuid > 0 ? (root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.NoEnclosure || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded ? false : true) : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.deleteEnclosureAction
-            visible: root.singleSelectedEntryuid > 0 ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure ? root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded : false) : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        Controls.MenuItem {
-            action: root.streamAction
-            visible: root.singleSelectedEntryuid > 0 ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure ? (root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed) : false) : true
-            height: visible ? implicitHeight : 0 // workaround for qqc2-breeze-style
-        }
-        onClosed: {
-            // reset to normal selection if this context menu is closed
-            root.selectionForContextMenu = root.selectionModel.selectedIndexes;
+            actions: [root.addToQueueAction, root.removeFromQueueAction, root.markPlayedAction, root.markNotPlayedAction, root.markNewAction, root.markNotNewAction, root.markFavoriteAction, root.markNotFavoriteAction, root.downloadEnclosureAction, root.deleteEnclosureAction, root.streamAction]
+
+            onClosed: {
+                // reset to normal selection if this context menu is closed
+                root.selectionForContextMenu = root.selectionModel.selectedIndexes;
+            }
         }
     }
 }

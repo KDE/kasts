@@ -13,6 +13,7 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.kirigamiaddons.components as AddonComponents
 import org.kde.ki18n
 import org.kde.coreaddons
 
@@ -196,11 +197,13 @@ AddonDelegates.RoundedItemDelegate {
             const modelIndex = root.listViewObject.model.index(root.index, 0);
 
             if (root.listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
-                root.listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
+                const item = root.listViewObject.contextMenu.createObject(root.Controls.Overlay.overlay);
+                (item as AddonComponents.ConvergentContextMenu).popup();
             } else if (button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
                 root.listViewObject.selectionForContextMenu = [modelIndex];
-                root.listViewObject.contextMenu.popup(null, eventPoint.position.x + 1, eventPoint.position.y + 1);
+                const item = root.listViewObject.contextMenu.createObject(root.Controls.Overlay.overlay);
+                (item as AddonComponents.ConvergentContextMenu).popup();
             } else if (button == Qt.LeftButton || button == Qt.NoButton) {
                 root.listViewObject.currentIndex = root.index;
                 root.listViewObject.selectionModel.setCurrentIndex(modelIndex, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
