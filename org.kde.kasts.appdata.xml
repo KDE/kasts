@@ -651,7 +651,7 @@
           <li xml:lang="ca-valencia">Corregix el problema on els diàlegs per a configurar la sincronització es mostraven en la finestra incorrecta.</li>
           <li xml:lang="cs">Opraven problém, kvůli kterému se dialogová okna pro nastavení synchronizace zobrazovala v nesprávném okně.</li>
           <li xml:lang="es">Se ha corregido el problema que mostraba los diálogos de configuración de la sincronización en la ventana incorrecta.</li>
-          <li xml:lang="fr">Correction du problème où les boîtes de dialogue pour configurer la synchronisation apparaissaient dans la mauvaise fenêtre.</li>
+          <li xml:lang="fr">Correction du problème où les boites de dialogue pour configurer la synchronisation apparaissaient dans la mauvaise fenêtre.</li>
           <li xml:lang="he">תיקון התקלה שבה החלוניות להגדרת הסנכרון הופיעו בחלון הלא נכון.</li>
           <li xml:lang="ia">Corrige le problema ubi le dialogos pro configurar le synchronisation  appareva in le fenestra incorrecte.</li>
           <li xml:lang="it">Corregge il problema per cui le finestre per la configurazione della sincronizzazione venivano visualizzate nella finestra sbagliata.</li>
@@ -1884,7 +1884,7 @@
           <li xml:lang="cs">Aktualizované nastavení rychlosti přehrávání.</li>
           <li xml:lang="es">Actualización del diálogo de ajustes de la velocidad de reproducción.</li>
           <li xml:lang="fi">päivitettiin toistonopeusasetusikkuna</li>
-          <li xml:lang="fr">Mise à jour de la boîte de dialogue concernant les paramètres de vitesse de lecture.</li>
+          <li xml:lang="fr">Mise à jour de la boite de dialogue concernant les paramètres de vitesse de lecture.</li>
           <li xml:lang="he">חלונית הגדרות מהירות הנגינה עודכנה.</li>
           <li xml:lang="ia">Actualisate le Dialogo de preferentias de velocitate de reproduction. </li>
           <li xml:lang="is">Uppfærsla á stillingaglugga afspilunarhraða.</li>
