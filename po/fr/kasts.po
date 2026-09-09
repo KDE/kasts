@@ -711,7 +711,7 @@ msgstr "Épisodes"
 #: qml/EpisodeListPage.qml:44
 #, kde-format
 msgid "Refresh All Podcasts"
-msgstr "Rafraîchir tous les podcasts"
+msgstr "Rafraichir tous les podcasts"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:74
 #: qml/FeedListPage.qml:113
@@ -767,7 +767,7 @@ msgstr "par %1"
 #: qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Refresh Podcast"
-msgstr "Rafraîchir le podcast"
+msgstr "Rafraichir le podcast"
 
 #: qml/FeedDetailsPage.qml:185
 #, kde-format
@@ -887,7 +887,7 @@ msgstr "Abonnements"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
-msgstr "Rafraîchir tous les podcasts"
+msgstr "Rafraichir tous les podcasts"
 
 #: qml/FeedListPage.qml:54
 #, kde-format
@@ -1515,7 +1515,7 @@ msgstr "Rechercher des mises à jour de podcasts au démarrage"
 msgctxt "@option:check"
 msgid "Update existing episode data on refresh (slower)"
 msgstr ""
-"Mettre à jour les données d'un épisode existant par rafraîchissement (Le "
+"Mettre à jour les données d'un épisode existant par rafraichissement (Le "
 "plus lent)"
 
 #: qml/Settings/GeneralSettingsPage.qml:205
