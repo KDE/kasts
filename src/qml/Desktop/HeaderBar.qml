@@ -12,7 +12,6 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import QtQuick.Effects
 import QtQml.Models
-import QtCore
 
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
@@ -29,8 +28,8 @@ FocusScope {
     property int authorCollapseHeight: Kirigami.Units.gridUnit * 4
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
-    property string image: AudioManager.entry ? ((root.desktopPlayerControls.chapterModel.currentChapter && root.desktopPlayerControls.chapterModel.currentChapter !== undefined) ? root.desktopPlayerControls.chapterModel.currentChapter.image : AudioManager.entry.image) : ""
-    property string blurredImage: AudioManager.entry ? AudioManager.entry.image : ""
+    property string image: AudioManager.entryuid > 0 ? (root.desktopPlayerControls.chapterModel.hasChapters && root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entry.image) : ""
+    property string blurredImage: AudioManager.entryuid > 0 ? AudioManager.entry.image : ""
     property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
 
     property Item headerMetaData: _headerMetaData

@@ -227,9 +227,4 @@ void EnclosureDownloadJob::processDownloadedFile()
 
     // Unset "new" status of item
     DataManager::instance().bulkMarkNew(false, QList<qint64>({m_entryuid}));
-
-    // Trigger update of image since the downloaded file can have an embedded image
-    // Q_EMIT m_entry->imageChanged(m_entry->image());
-    // FIXME: update of the image should be triggered in the model based on a downloadedChanged signal sent by Fetcher(?)
-    // once this method has moved to Fetcher
 }

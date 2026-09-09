@@ -7,7 +7,6 @@ add_subdirectory(kmediasession)
 add_executable(kasts
     main.cpp
     audiomanager.cpp
-    chapter.cpp
     database.cpp
     datamanager.cpp
     datatypes.cpp

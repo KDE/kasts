@@ -11,8 +11,7 @@
 
 #include <mpegfile.h>
 
-#include "chapter.h"
-#include "entry.h"
+#include "datatypes.h"
 
 class ChapterModel : public QAbstractListModel
 {
@@ -20,7 +19,7 @@ class ChapterModel : public QAbstractListModel
     QML_ELEMENT
 
     Q_PROPERTY(qint64 entryuid READ entryuid WRITE setEntryuid NOTIFY entryuidChanged)
-    Q_PROPERTY(Chapter *currentChapter READ currentChapter NOTIFY currentChapterChanged)
+    Q_PROPERTY(bool hasChapters READ hasChapters NOTIFY hasChaptersChanged)
     Q_PROPERTY(int duration READ duration WRITE setDuration NOTIFY durationChanged)
 
 public:
@@ -29,10 +28,10 @@ public:
         LinkRole = Qt::UserRole + 1,
         ImageRole,
         StartTimeRole,
-        ChapterRole,
         DurationRole,
-        EntryRole,
         EntryuidRole,
+        QueueStatusRole,
+        EnclosureStatusRole,
     };
     Q_ENUM(RoleNames);
 
@@ -46,14 +45,16 @@ public:
     void setEntryuid(const qint64 entryuid);
     qint64 entryuid() const;
 
-    Chapter *currentChapter() const;
+    bool hasChapters() const;
+
+    Q_INVOKABLE QString imageForPosition(const qint64 position) const;
 
     void setDuration(int duration);
     int duration() const;
 
 Q_SIGNALS:
     void entryuidChanged();
-    void currentChapterChanged();
+    void hasChaptersChanged();
     void durationChanged();
 
 private:
@@ -63,8 +64,10 @@ private:
     void loadMPEGChapters();
 
     qint64 m_entryuid;
-    QPointer<Entry> m_entry = nullptr;
-    QVector<Chapter *> m_chapters;
+    QList<DataTypes::ChapterDetails> m_chapters;
     int m_currentChapter = 0;
     int m_duration;
+
+    QString m_entryId, m_entryTitle, m_entryImage, m_enclosureUrl, m_feedDirName, m_feedImage;
+    DataTypes::EnclosureStatus m_enclosureStatus = DataTypes::EnclosureStatus::NoEnclosure;
 };

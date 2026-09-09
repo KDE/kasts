@@ -121,7 +121,7 @@ Kirigami.Page {
                         width: Utils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: (AudioManager.entryuid > 0 && AudioManager.entry) ? ((root.chapterModel.currentChapter && root.chapterModel.currentChapter !== undefined) ? root.chapterModel.currentChapter.image : AudioManager.entry.image) : ""
+                            imageSource: AudioManager.entryuid > 0 ? (root.chapterModel.hasChapters && root.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entry.image) : ""
                             imageResize: false // prevent stuttering when resizing
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent

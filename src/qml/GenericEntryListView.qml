@@ -61,7 +61,7 @@ ListView {
             singleSelectedEntryQueueStatus = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.QueueStatusRole);
             singleSelectedEntryDownloaded = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.DownloadedRole);
         } else {
-            singleSelectedEntryuid = -1;
+            singleSelectedEntryuid = 0;
             singleSelectedEntryRead = false;
             singleSelectedEntryNew = false;
             singleSelectedEntryFavorite = false;

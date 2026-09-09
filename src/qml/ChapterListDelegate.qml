@@ -19,15 +19,16 @@ import org.kde.kasts
 AddonDelegates.RoundedItemDelegate {
     id: root
 
-    required property Entry entry
     required property int entryuid
-    property var overlay: undefined
-
-    required property Chapter chapter
     required property string title
     required property int start
+    required property string image
+    required property int enclosureStatus
+    required property bool queueStatus
 
-    property bool streamingButtonVisible: entryuid > 0 && entry && entry.enclosure && (entry.enclosure.status !== DataTypes.EnclosureStatus.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
+    property var overlay: undefined
+
+    property bool streamingButtonVisible: entryuid > 0 && (enclosureStatus !== DataTypes.EnclosureStatus.NoEnclosure) && (enclosureStatus !== DataTypes.EnclosureStatus.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
 
     Accessible.role: Accessible.Button
     Accessible.name: title
@@ -37,7 +38,7 @@ AddonDelegates.RoundedItemDelegate {
 
     contentItem: RowLayout {
         Delegates.IconTitleSubtitle {
-            icon.source: root.chapter ? root.chapter.image : ""
+            icon.source: root.image
             title: root.title
             subtitle: Format.formatDuration(root.start * 1000)
             Layout.fillWidth: true
@@ -46,15 +47,15 @@ AddonDelegates.RoundedItemDelegate {
         Controls.ToolButton {
             icon.name: root.streamingButtonVisible ? "media-playback-cloud" : "media-playback-start"
             text: KI18n.i18n("Play")
-            enabled: root.entryuid > 0 && root.entry && root.entry.enclosure && (root.entry.enclosure.status === DataTypes.EnclosureStatus.Downloaded || root.streamingButtonVisible)
+            enabled: root.entryuid > 0 && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloaded || root.streamingButtonVisible)
             display: Controls.Button.IconOnly
             onClicked: root.clicked()
         }
     }
 
     onClicked: {
-        if (!root.entry.queueStatus) {
-            root.entry.queueStatus = true;
+        if (!root.queueStatus) {
+            DataManager.bulkQueueStatus(true, [root.entryuid]);
         }
         if (AudioManager.entryuid != root.entryuid) {
             AudioManager.entryuid = root.entryuid;
