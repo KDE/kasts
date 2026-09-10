@@ -767,7 +767,7 @@ bool Database::execute(QSqlQuery &query)
     bool state = executeThread(query);
 
     if (!state) {
-        Q_EMIT Database::instance().error(ErrorLogModel::Type::Database, QStringLiteral("%1: %2").arg(query.lastError().text(), query.executedQuery()));
+        Q_EMIT Database::instance().error(ErrorLogModel::Type::Database, QStringLiteral("%1: %2").arg(query.lastError().text(), query.lastQuery()));
     }
 
     return state;

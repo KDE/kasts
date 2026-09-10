@@ -42,7 +42,7 @@ Q_SIGNALS:
     void entriesUpdated(const QList<qint64> &entryuids);
     void aborting();
     void finished();
-    void error(ErrorLogModel::Type type, const QString &message, const qint64 feeduid);
+    void error(ErrorLogModel::Type type, const QString &message);
 
 private:
     bool downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray &data);
