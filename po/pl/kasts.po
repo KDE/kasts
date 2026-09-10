@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:43+0000\n"
+"POT-Creation-Date: 2026-09-10 00:45+0000\n"
 "PO-Revision-Date: 2026-08-29 21:40+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -29,54 +29,54 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lukasz.wojnilowicz@gmail.com, ignacy.kajdan@gmail.com"
 
-#: audiomanager.cpp:436
+#: audiomanager.cpp:441
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Strumieniowanie w sieci taryfowej jest niedozwolone dla odcinka: %1"
 
-#: audiomanager.cpp:445
+#: audiomanager.cpp:450
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
 "Podczas próby strumieniowania odcinka %1 nie było połączenia sieciowego"
 
-#: audiomanager.cpp:615
+#: audiomanager.cpp:611
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Nieprawidłowy plik multimedialny dla odcinka: %1"
 
-#: enclosure.cpp:178
-#, kde-format
-msgctxt "@info:status Error message notification"
-msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Pobieranie odcinka %1 w sieci taryfowej jest niedozwolone"
-
-#: enclosure.cpp:183
-#, kde-format
-msgctxt "@info:status Error message notification"
-msgid "No network connection while attempting to download episode %1"
-msgstr "Podczas próby pobrania odcinka %1 nie było połączenia sieciowego"
-
-#: enclosure.cpp:211
-#, kde-format
-msgctxt "@info:status Error message notification"
-msgid "Error downloading media: %1"
-msgstr "Błąd przy pobieraniu multimediów: %1"
-
-#: entry.cpp:130 feed.cpp:121
+#: entry.cpp:130 feed.cpp:114
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 oraz %2"
 
-#: entry.cpp:133 feed.cpp:124
+#: entry.cpp:133 feed.cpp:117
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
 msgstr "%1, oraz %2"
+
+#: fetcher.cpp:141
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "Download of episode %1 not allowed on metered connection"
+msgstr "Pobieranie odcinka %1 w sieci taryfowej jest niedozwolone"
+
+#: fetcher.cpp:145
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "No network connection while attempting to download episode %1"
+msgstr "Podczas próby pobrania odcinka %1 nie było połączenia sieciowego"
+
+#: fetcher.cpp:202
+#, kde-format
+msgctxt "@info:status Error message notification"
+msgid "Error downloading media: %1"
+msgstr "Błąd przy pobieraniu multimediów: %1"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -103,14 +103,14 @@ msgstr "LUB"
 msgid "Open"
 msgstr "Otwórz"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:48
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:418
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:443
 #, kde-format
 msgid "Play"
 msgstr "Odtwórz"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:441
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:466
 #, kde-format
 msgid "Pause"
 msgstr "Wstrzymaj"
@@ -286,7 +286,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Data: najstarsze najpierw"
 
-#: models/chaptermodel.cpp:211
+#: models/chaptermodel.cpp:195
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -532,19 +532,19 @@ msgstr "Odliczanie do uśpienia"
 msgid "Chapters"
 msgstr "Rozdziały"
 
-#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:34
+#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:33
 #: qml/Mobile/MobilePlayerControls.qml:183
 #, kde-format
 msgid "No Episode Title"
 msgstr "Brak tytułu odcinka"
 
-#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:136
+#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:134
 #: qml/Mobile/MobilePlayerControls.qml:193
 #, kde-format
 msgid "No episode loaded"
 msgstr "Nie wczytano żadnego odcinka"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:41 qml/KastsGlobalDrawer.qml:87
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -570,43 +570,43 @@ msgstr "Śledź"
 msgid "Subscribed"
 msgstr "Śledzone"
 
-#: qml/EntryPage.qml:24
+#: qml/EntryPage.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Episode Details"
 msgstr "Szczegóły odcinka"
 
-#: qml/EntryPage.qml:110
+#: qml/EntryPage.qml:97
 #, kde-format
 msgctxt "@action:intoolbar Button to open an episode URL in browser"
 msgid "Open in Browser"
 msgstr "Otwórz w przeglądarce"
 
-#: qml/EntryPage.qml:118
+#: qml/EntryPage.qml:105
 #, kde-format
 msgctxt "@action:intoolbar Button to start episode download"
 msgid "Download"
 msgstr "Pobierz"
 
-#: qml/EntryPage.qml:127
+#: qml/EntryPage.qml:114
 #, kde-format
 msgctxt "@action:intoolbar Button to cancel ongoing download of episode"
 msgid "Cancel Download"
 msgstr "Anuluj pobieranie"
 
-#: qml/EntryPage.qml:135
+#: qml/EntryPage.qml:122
 #, kde-format
 msgctxt "@action:intoolbar Button to pause the playback of the episode"
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: qml/EntryPage.qml:143
+#: qml/EntryPage.qml:130
 #, kde-format
 msgctxt "@action:intoolbar Button to start playback of the episode"
 msgid "Play"
 msgstr "Odtwórz"
 
-#: qml/EntryPage.qml:152
+#: qml/EntryPage.qml:139
 #, kde-format
 msgctxt ""
 "@action:intoolbar Action to start playback by streaming the episode rather "
@@ -614,25 +614,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Strumień"
 
-#: qml/EntryPage.qml:164
+#: qml/EntryPage.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Dodaj do kolejki"
 
-#: qml/EntryPage.qml:164
+#: qml/EntryPage.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Usuń z kolejki"
 
-#: qml/EntryPage.qml:180
+#: qml/EntryPage.qml:167
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Usuń pobrane"
 
-#: qml/EntryPage.qml:188
+#: qml/EntryPage.qml:175
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -640,31 +640,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Wyzeruj położenie odtwarzania"
 
-#: qml/EntryPage.qml:194
+#: qml/EntryPage.qml:181
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Oznacz jako nieodtworzone"
 
-#: qml/EntryPage.qml:194
+#: qml/EntryPage.qml:181
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Oznacz jako odtworzone"
 
-#: qml/EntryPage.qml:201
+#: qml/EntryPage.qml:188
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Usuń etykietę „nowy”"
 
-#: qml/EntryPage.qml:201
+#: qml/EntryPage.qml:188
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Dodaj etykietę „nowy”"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:333
+#: qml/EntryPage.qml:195 qml/GenericEntryListView.qml:367
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -672,25 +672,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Usuń z ulubionych"
 
-#: qml/EntryPage.qml:208 qml/GenericEntryListView.qml:324
+#: qml/EntryPage.qml:195 qml/GenericEntryListView.qml:357
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Dodaj do ulubionych"
 
-#: qml/EntryPage.qml:216
+#: qml/EntryPage.qml:203
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Otwórz podkast"
 
-#: qml/EntryPage.qml:221
+#: qml/EntryPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Skopiuj adres URL do pobrania odcinka"
 
-#: qml/EntryPage.qml:226
+#: qml/EntryPage.qml:213
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -709,7 +709,7 @@ msgid "Refresh All Podcasts"
 msgstr "Odśwież wszystkie podkasty"
 
 #: qml/EpisodeListPage.qml:50 qml/FeedDetailsPage.qml:74
-#: qml/FeedListPage.qml:113
+#: qml/FeedListPage.qml:121
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Search"
@@ -743,7 +743,7 @@ msgctxt "@action:button"
 msgid "Clear All Errors"
 msgstr "Wyczyść wszystkie błędy"
 
-#: qml/ErrorNotification.qml:30
+#: qml/ErrorNotification.qml:31
 #, kde-format
 msgid "Show Error Log"
 msgstr "Pokaż dziennik błędów"
@@ -874,80 +874,80 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Szczegóły podkastu"
 
-#: qml/FeedListPage.qml:22 qml/KastsGlobalDrawer.qml:97
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
 msgstr "Śledzone"
 
-#: qml/FeedListPage.qml:48 qml/QueuePage.qml:40
+#: qml/FeedListPage.qml:95 qml/QueuePage.qml:40
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
 msgstr "Odśwież wszystkie podkasty"
 
-#: qml/FeedListPage.qml:54
+#: qml/FeedListPage.qml:101
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
 msgstr "Dodaj podkast…"
 
-#: qml/FeedListPage.qml:63
+#: qml/FeedListPage.qml:110
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort subscriptions"
 msgid "Sort"
 msgstr "Uszereguj"
 
-#: qml/FeedListPage.qml:66
+#: qml/FeedListPage.qml:112
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
 msgstr "Wybierz jak uszeregować śledzone"
 
-#: qml/FeedListPage.qml:118
+#: qml/FeedListPage.qml:126
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
 msgstr "Zaimportuj podkasty…"
 
-#: qml/FeedListPage.qml:124
+#: qml/FeedListPage.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
 msgstr "Wyeksportuj podkasty…"
 
-#: qml/FeedListPage.qml:151
+#: qml/FeedListPage.qml:159
 #, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
 msgstr "Poszukaj śledzonych…"
 
-#: qml/FeedListPage.qml:161
+#: qml/FeedListPage.qml:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Podcasts"
 msgstr "Zaimportuj podkasty"
 
-#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#: qml/FeedListPage.qml:171 qml/FeedListPage.qml:179
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "OPML Files (*.opml)"
 msgstr "Pliki OPML (*.opml)"
 
-#: qml/FeedListPage.qml:163
+#: qml/FeedListPage.qml:171
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "XML Files (*.xml)"
 msgstr "Pliki XML (*.xml)"
 
-#: qml/FeedListPage.qml:163 qml/FeedListPage.qml:171
+#: qml/FeedListPage.qml:171 qml/FeedListPage.qml:179
 #, kde-format
 msgctxt "@label:listbox File filter option in file dialog"
 msgid "All Files (*)"
 msgstr "Wszystkie pliki (*)"
 
-#: qml/FeedListPage.qml:169
+#: qml/FeedListPage.qml:177
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Podcasts"
@@ -965,22 +965,22 @@ msgctxt "@info:status Name of the filter which is active on the ListView"
 msgid "Active filter: %1"
 msgstr "Stosowany filtr: %1"
 
-#: qml/GenericEntryDelegate.qml:253
+#: qml/GenericEntryDelegate.qml:278
 #, kde-format
 msgid "Played"
 msgstr "Odtworzone"
 
-#: qml/GenericEntryDelegate.qml:253
+#: qml/GenericEntryDelegate.qml:278
 #, kde-format
 msgid "Read"
 msgstr "Przeczytane"
 
-#: qml/GenericEntryDelegate.qml:259
+#: qml/GenericEntryDelegate.qml:284
 #, kde-format
 msgid "New"
 msgstr "Nowe"
 
-#: qml/GenericEntryDelegate.qml:297
+#: qml/GenericEntryDelegate.qml:322
 #, kde-format
 msgctxt ""
 "@info:tooltip Tooltip for an icon that can be displayed on an episode list "
@@ -992,32 +992,32 @@ msgstr ""
 "Autorzy podkastu usunęli ten odcinek z kanału RSS podkastu. Pobieranie i/lub "
 "strumieniowanie tego odcinka może się nie powieść."
 
-#: qml/GenericEntryDelegate.qml:378 qml/GenericEntryListView.qml:280
+#: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Usuń z kolejki"
 
-#: qml/GenericEntryDelegate.qml:387 qml/GenericEntryListView.qml:342
+#: qml/GenericEntryDelegate.qml:412 qml/GenericEntryListView.qml:377
 #, kde-format
 msgid "Download"
 msgstr "Pobierz"
 
-#: qml/GenericEntryDelegate.qml:397
+#: qml/GenericEntryDelegate.qml:422
 #, kde-format
 msgid "Cancel Download"
 msgstr "Anuluj pobieranie"
 
-#: qml/GenericEntryDelegate.qml:404
+#: qml/GenericEntryDelegate.qml:429
 #, kde-format
 msgid "Delete Download"
 msgstr "Usuń pobrane"
 
-#: qml/GenericEntryDelegate.qml:411 qml/GenericEntryListView.qml:270
+#: qml/GenericEntryDelegate.qml:436 qml/GenericEntryListView.qml:297
 #, kde-format
 msgid "Add to Queue"
 msgstr "Dodaj do kolejki"
 
-#: qml/GenericEntryDelegate.qml:428 qml/GenericEntryListView.qml:361
+#: qml/GenericEntryDelegate.qml:453 qml/GenericEntryListView.qml:396
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1025,55 +1025,55 @@ msgctxt ""
 msgid "Stream"
 msgstr "Strumień"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Pobieranie"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Niecałkowicie pobrane"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Pobrane"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
 msgstr "W kolejce"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "Niepobrane"
 
-#: qml/GenericEntryListView.qml:42
+#: qml/GenericEntryListView.qml:48
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "Odcinki bez plików multimedialnych"
 
-#: qml/GenericEntryListView.qml:148
+#: qml/GenericEntryListView.qml:212
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Uszereguj"
 
-#: qml/GenericEntryListView.qml:151
+#: qml/GenericEntryListView.qml:214
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Wybierz jak uszeregować odcinki"
 
-#: qml/GenericEntryListView.qml:205
+#: qml/GenericEntryListView.qml:268
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1081,43 +1081,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtr"
 
-#: qml/GenericEntryListView.qml:207
+#: qml/GenericEntryListView.qml:269
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Odfiltruj odcinki po stanie"
 
-#: qml/GenericEntryListView.qml:251
+#: qml/GenericEntryListView.qml:278
 #, kde-format
 msgid "Select All"
 msgstr "Zaznacz wszystkie"
 
-#: qml/GenericEntryListView.qml:261
+#: qml/GenericEntryListView.qml:288
 #, kde-format
 msgid "Deselect All"
 msgstr "Odznacz wszystkie"
 
-#: qml/GenericEntryListView.qml:290
+#: qml/GenericEntryListView.qml:319
 #, kde-format
 msgid "Mark as Played"
 msgstr "Oznacz jako odtworzone"
 
-#: qml/GenericEntryListView.qml:298
+#: qml/GenericEntryListView.qml:328
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Oznacz jako nieodtworzone"
 
-#: qml/GenericEntryListView.qml:306
+#: qml/GenericEntryListView.qml:337
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Dodaj etykietę „nowy”"
 
-#: qml/GenericEntryListView.qml:315
+#: qml/GenericEntryListView.qml:347
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Usuń etykietę „nowy”"
 
-#: qml/GenericEntryListView.qml:352
+#: qml/GenericEntryListView.qml:387
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1126,25 +1126,25 @@ msgstr[0] "Usuń pobrane"
 msgstr[1] "Usuń pobrane"
 msgstr[2] "Usuń pobrane"
 
-#: qml/GlobalSearchField.qml:112
+#: qml/GlobalSearchField.qml:114
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Nie ma żadnych wyników wyszukiwania"
 
-#: qml/GlobalSearchField.qml:118 qml/SearchBar.qml:61
+#: qml/GlobalSearchField.qml:120 qml/SearchBar.qml:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Ustawienia rozszerzone wyszukiwania"
 
-#: qml/GlobalSearchField.qml:152 qml/SearchBar.qml:122
+#: qml/GlobalSearchField.qml:154 qml/SearchBar.qml:122
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Ustawienia wyszukiwania"
 
-#: qml/GlobalSearchField.qml:156 qml/SearchBar.qml:126
+#: qml/GlobalSearchField.qml:158 qml/SearchBar.qml:126
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -2397,7 +2397,7 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Ukończono synchronizację z błędem"
 
-#: utils/enclosuredownloadjob.cpp:54
+#: utils/enclosuredownloadjob.cpp:77
 #, kde-format
 msgid "Downloading %1"
 msgstr "Pobieranie %1"
