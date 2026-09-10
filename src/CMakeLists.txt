@@ -269,7 +269,6 @@ ecm_qt_declare_logging_category(kasts
     DEFAULT_SEVERITY Info
 )
 
-
 if(ANDROID)
     target_sources(kasts PRIVATE utils/androidlogging.h)
 endif()
@@ -283,11 +282,37 @@ ecm_add_app_icon(kasts ICONS ${kasts_ICONS_PNG}
     ../icons/128-apps-kasts.png
 )
 
-kconfig_target_kcfg_file(kasts FILE settingsmanager.kcfg CLASS_NAME SettingsManager MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS PARENT_IN_CONSTRUCTOR SINGLETON GENERATE_MOC QML_REGISTRATION)
+kconfig_target_kcfg_file(kasts
+    FILE settingsmanager.kcfg
+    CLASS_NAME SettingsManager
+    MUTATORS
+    GENERATE_PROPERTIES
+    DEFAULT_VALUE_GETTERS
+    PARENT_IN_CONSTRUCTOR
+    SINGLETON
+    GENERATE_MOC
+    QML_REGISTRATION
+)
 
-kconfig_target_kcfg_file(kasts FILE kastsstate.kcfg CLASS_NAME KastsState MUTATORS GENERATE_PROPERTIES DEFAULT_VALUE_GETTERS SINGLETON GENERATE_MOC QML_REGISTRATION)
+kconfig_target_kcfg_file(kasts
+    FILE kastsstate.kcfg
+    CLASS_NAME KastsState
+    MUTATORS
+    GENERATE_PROPERTIES
+    DEFAULT_VALUE_GETTERS
+    SINGLETON
+    GENERATE_MOC
+    QML_REGISTRATION
+)
 
-target_include_directories(kasts PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/utils ${CMAKE_CURRENT_SOURCE_DIR}/sync)
+target_include_directories(kasts
+    PRIVATE
+        ${CMAKE_BINARY_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/models
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils
+        ${CMAKE_CURRENT_SOURCE_DIR}/sync
+)
+
 target_link_libraries(kasts
     PRIVATE
         Qt::Core
@@ -428,4 +453,8 @@ endif()
 
 install(TARGETS kasts ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-install(FILES settingsmanager.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR} RENAME kasts.kcfg)
+install(
+    FILES settingsmanager.kcfg
+    DESTINATION ${KDE_INSTALL_KCFGDIR}
+    RENAME kasts.kcfg
+)

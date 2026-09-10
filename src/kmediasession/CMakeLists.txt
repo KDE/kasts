@@ -1,15 +1,35 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be>
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH
+    ${CMAKE_MODULE_PATH}
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
+    ${ECM_MODULE_PATH}
+)
 
-option(BUILD_EXAMPLE_PLAYER "Build and install example audio backend player" OFF)
+option(
+    BUILD_EXAMPLE_PLAYER
+    "Build and install example audio backend player"
+    OFF
+)
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Multimedia)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
+find_package(Qt6 ${QT_MIN_VERSION}
+    REQUIRED
+    NO_MODULE
+    COMPONENTS
+        Core
+        Qml
+        Multimedia
+)
+find_package(KF6 ${KF_MIN_VERSION}
+    REQUIRED
+    COMPONENTS
+        CoreAddons
+        I18n
+)
 
-if (NOT ANDROID)
-    if (NOT WIN32)
+if(NOT ANDROID)
+    if(NOT WIN32)
         find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus)
     endif()
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Widgets)
@@ -22,7 +42,7 @@ set_package_properties(LIBVLC PROPERTIES
     TYPE RECOMMENDED)
 
 option(BUILD_GSTREAMER_BACKEND "Build gstreamer audio backend" ON)
-if (BUILD_GSTREAMER_BACKEND)
+if(BUILD_GSTREAMER_BACKEND)
     find_package(PkgConfig REQUIRED) #finding pkg-config is a helper tool
     #using pkg-config to getting Gstreamer
     pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-1.0)
@@ -39,10 +59,15 @@ add_library(KMediaSession
     mpris2/mpris2.cpp
 )
 
-ecm_add_qml_module(kmediasessionqmlplugin URI "org.kde.kmediasession" GENERATE_PLUGIN_SOURCE)
+ecm_add_qml_module(kmediasessionqmlplugin
+    URI "org.kde.kmediasession"
+    GENERATE_PLUGIN_SOURCE
+)
 target_sources(kmediasessionqmlplugin PRIVATE types.h)
 target_link_libraries(kmediasessionqmlplugin PUBLIC KMediaSession)
-ecm_finalize_qml_module(kmediasessionqmlplugin DESTINATION ${KDE_INSTALL_QMLDIR})
+ecm_finalize_qml_module(kmediasessionqmlplugin
+    DESTINATION ${KDE_INSTALL_QMLDIR}
+)
 
 ecm_qt_declare_logging_category(KMediaSession
     HEADER "kmediasessionlogging.h"
@@ -82,10 +107,16 @@ ecm_qt_declare_logging_category(KMediaSession
 if(ANDROID)
     target_sources(KMediaSession PRIVATE androidlogging.h)
 else()
-    if (NOT WIN32)
+    if(NOT WIN32)
         set(KMediaSession_dbus_srcs "")
-        qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml inhibitinterface)
-        qt_add_dbus_interface(KMediaSession_dbus_srcs dbus-interfaces/org.gnome.SessionManager.xml gnomesessioninterface)
+        qt_add_dbus_interface(KMediaSession_dbus_srcs
+            dbus-interfaces/org.freedesktop.PowerManagement.Inhibit.xml
+            inhibitinterface
+        )
+        qt_add_dbus_interface(KMediaSession_dbus_srcs
+            dbus-interfaces/org.gnome.SessionManager.xml
+            gnomesessioninterface
+        )
         target_sources(KMediaSession PRIVATE
             mpris2/mediaplayer2.cpp
             mpris2/mediaplayer2player.cpp
@@ -94,7 +125,7 @@ else()
     endif()
 endif()
 
-if (LIBVLC_FOUND)
+if(LIBVLC_FOUND)
     ecm_qt_declare_logging_category(KMediaSession
         HEADER "vlcmediabackendlogging.h"
         IDENTIFIER "VlcMediaBackendLog"
@@ -112,7 +143,7 @@ if (LIBVLC_FOUND)
     )
 endif()
 
-if (GSTREAMER_FOUND)
+if(GSTREAMER_FOUND)
     ecm_qt_declare_logging_category(KMediaSession
         HEADER "gstmediabackendlogging.h"
         IDENTIFIER "GstMediaBackendLog"
@@ -143,23 +174,23 @@ target_link_libraries(KMediaSession PRIVATE
 
 qt_extract_metatypes(KMediaSession)
 
-if (LIBVLC_FOUND)
+if(LIBVLC_FOUND)
     target_link_libraries(KMediaSession PRIVATE LIBVLC::LIBVLC)
     target_compile_definitions(KMediaSession PRIVATE HAVE_LIBVLC)
 endif()
 
-if (GSTREAMER_FOUND)
+if(GSTREAMER_FOUND)
     target_link_libraries(KMediaSession PRIVATE PkgConfig::GSTREAMER)
     target_compile_definitions(KMediaSession PRIVATE HAVE_GST)
 endif()
 
-if (ANDROID OR WIN32)
+if(ANDROID OR WIN32)
 else()
     target_link_libraries(KMediaSession PRIVATE Qt::DBus)
 endif()
 
 install(TARGETS KMediaSession ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-if (BUILD_EXAMPLE_PLAYER)
+if(BUILD_EXAMPLE_PLAYER)
     add_subdirectory(example-app)
 endif()

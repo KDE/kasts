@@ -1,10 +1,24 @@
 # SPDX-License-Identifier: BSD-2-Clause
 # SPDX-FileCopyrightText: 2022-2023 Bart De Vries <bart@mogwai.be>
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Qml Gui Multimedia)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons Kirigami I18n)
+find_package(Qt6 ${QT_MIN_VERSION}
+    REQUIRED
+    NO_MODULE
+    COMPONENTS
+        Core
+        Qml
+        Gui
+        Multimedia
+)
+find_package(KF6 ${KF_MIN_VERSION}
+    REQUIRED
+    COMPONENTS
+        CoreAddons
+        Kirigami
+        I18n
+)
 
-if (NOT ANDROID)
+if(NOT ANDROID)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Widgets)
 endif()
 
@@ -27,7 +41,7 @@ target_link_libraries(kmediasession-example PRIVATE
     KMediaSession
 )
 
-if (NOT ANDROID)
+if(NOT ANDROID)
     target_link_libraries(kmediasession-example PRIVATE Qt::Widgets)
 endif()
 
