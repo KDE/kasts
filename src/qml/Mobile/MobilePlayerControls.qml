@@ -190,7 +190,7 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.adjustedContent(width, font.pixelSize) : KI18n.i18n("No episode loaded")
+                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? EntryUtils.adjustedContent(width, font.pixelSize, AudioManager.entry.content, AudioManager.entry.link) : KI18n.i18n("No episode loaded")
                             verticalAlignment: Text.AlignTop
                             baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
                             textFormat: Text.RichText

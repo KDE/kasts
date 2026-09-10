@@ -22,6 +22,8 @@
 #include <QThread>
 #include <QUrl>
 
+#include <KLocalizedString>
+
 #include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
@@ -767,7 +769,11 @@ bool Database::execute(QSqlQuery &query)
     bool state = executeThread(query);
 
     if (!state) {
-        Q_EMIT Database::instance().error(ErrorLogModel::Type::Database, QStringLiteral("%1: %2").arg(query.lastError().text(), query.executedQuery()));
+        Q_EMIT Database::instance().error(ErrorLogModel::Type::Database,
+                                          i18nc("Database error message combining the error description (%1) and the DB query string (%2)",
+                                                "%1: %2",
+                                                query.lastError().text(),
+                                                query.lastQuery()));
     }
 
     return state;

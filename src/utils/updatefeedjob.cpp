@@ -151,8 +151,7 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray
         if (!m_abort) {
             qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
             Q_EMIT error(ErrorLogModel::Type::FeedUpdate,
-                         i18nc("@info:status Error message notification", "Error retrieving podcast: %1; error: %2", updatedFeed.name, reply->errorString()),
-                         m_feeduid);
+                         i18nc("@info:status Error message notification", "Error retrieving podcast: %1; error: %2", updatedFeed.name, reply->errorString()));
         } else {
             qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
         }
@@ -1070,7 +1069,11 @@ bool UpdateFeedJob::dbExecute(QSqlQuery &query)
     bool state = Database::executeThread(query);
 
     if (!state) {
-        Q_EMIT error(ErrorLogModel::Type::Database, query.lastQuery(), m_feeduid);
+        Q_EMIT error(ErrorLogModel::Type::Database,
+                     i18nc("Database error message combining the error description (%1) and the DB query string (%2)",
+                           "%1: %2",
+                           query.lastError().text(),
+                           query.lastQuery()));
     }
 
     return state;
