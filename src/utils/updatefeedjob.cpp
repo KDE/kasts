@@ -60,7 +60,7 @@ void UpdateFeedJob::run(JobPointer, Thread *)
 
     Database::openDatabase(QString::number(m_feeduid));
 
-    DataTypes::FeedDetails updatedFeed;
+    DataTypes::FeedUpdateDetails updatedFeed;
     QByteArray data;
 
     if (downloadFeed(updatedFeed, data)) {
@@ -76,7 +76,7 @@ void UpdateFeedJob::run(JobPointer, Thread *)
     Q_EMIT finished();
 }
 
-bool UpdateFeedJob::downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray &data)
+bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data)
 {
     qCDebug(kastsUpdater) << "get old feed data from DB for" << m_feeduid;
 
@@ -90,7 +90,7 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray
         return false;
     }
     if (query.next()) {
-        DataTypes::FeedDetails feedDetail;
+        DataTypes::FeedUpdateDetails feedDetail;
         updatedFeed.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         updatedFeed.name = query.value(QStringLiteral("name")).toString();
         updatedFeed.url = query.value(QStringLiteral("url")).toString();
@@ -175,7 +175,7 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray
     return continueProcessFeed;
 }
 
-void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::FeedDetails &updatedFeed, const QByteArray &data)
+void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data)
 {
     // Now that we now we have to update everything, we continue retrieving the
     // old data from the database
@@ -186,7 +186,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
     while (query.next()) {
-        AuthorDetails authorDetails;
+        AuthorUpdateDetails authorDetails;
         authorDetails.name = query.value(QStringLiteral("name")).toString();
         authorDetails.email = query.value(QStringLiteral("email")).toString();
         authorDetails.state = RecordState::Deleted; // will be reset to Unmodified if the author is found in the updated rss feed
@@ -204,7 +204,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
     while (query.next()) {
-        EntryDetails entryDetails;
+        EntryUpdateDetails entryDetails;
         entryDetails.entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
         entryDetails.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         entryDetails.id = query.value(QStringLiteral("id")).toString();
@@ -238,7 +238,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
     while (query.next()) {
-        EnclosureDetails enclosureDetails;
+        EnclosureUpdateDetails enclosureDetails;
         enclosureDetails.enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
         QString id = query.value(QStringLiteral("id")).toString();
         enclosureDetails.duration = query.value(QStringLiteral("duration")).toInt();
@@ -265,7 +265,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
     while (query.next()) {
-        AuthorDetails authorDetails;
+        AuthorUpdateDetails authorDetails;
         QString id = query.value(QStringLiteral("id")).toString();
         authorDetails.name = query.value(QStringLiteral("name")).toString();
         authorDetails.email = query.value(QStringLiteral("email")).toString();
@@ -284,7 +284,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
     while (query.next()) {
-        ChapterDetails chapterDetails;
+        ChapterUpdateDetails chapterDetails;
         QString id = query.value(QStringLiteral("id")).toString();
         chapterDetails.start = query.value(QStringLiteral("start")).toInt();
         chapterDetails.title = query.value(QStringLiteral("title")).toString();
@@ -403,7 +403,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
 
 bool UpdateFeedJob::processFeedAuthors(const QList<Syndication::PersonPtr> &authors,
                                        const QMultiMap<QString, QDomElement> &otherItems,
-                                       DataTypes::FeedDetails &updatedFeed)
+                                       DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool isNewOrModified = false;
 
@@ -435,7 +435,7 @@ bool UpdateFeedJob::processFeedAuthors(const QList<Syndication::PersonPtr> &auth
     return isNewOrModified;
 }
 
-bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email, DataTypes::FeedDetails &updatedFeed)
+bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email, DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool isNewOrModified = false;
 
@@ -452,7 +452,7 @@ bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email,
         }
     } else {
         isNewOrModified = true;
-        AuthorDetails authorDetails;
+        AuthorUpdateDetails authorDetails;
         authorDetails.name = name;
         authorDetails.email = email;
         authorDetails.state = RecordState::New;
@@ -463,7 +463,7 @@ bool UpdateFeedJob::processFeedAuthor(const QString &name, const QString &email,
     return isNewOrModified;
 }
 
-bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::FeedDetails &updatedFeed, bool markUnreadOnNewFeed)
+bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::FeedUpdateDetails &updatedFeed, bool markUnreadOnNewFeed)
 {
     qCDebug(kastsUpdater) << "Processing" << entry->title();
     bool isNewOrModified = false;
@@ -541,7 +541,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
         }
     } else {
         isNewOrModified = true;
-        EntryDetails entryDetails;
+        EntryUpdateDetails entryDetails;
         entryDetails.entryuid = 0; // to be replaced by autoincremented value when added to DB
         entryDetails.feeduid = updatedFeed.feeduid;
         entryDetails.id = id;
@@ -574,7 +574,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
 bool UpdateFeedJob::processEntryAuthors(const QString &id,
                                         const QList<Syndication::PersonPtr> &authors,
                                         const QMultiMap<QString, QDomElement> &otherItems,
-                                        DataTypes::FeedDetails &updatedFeed)
+                                        DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool newOrModifiedAuthors = false;
 
@@ -593,7 +593,7 @@ bool UpdateFeedJob::processEntryAuthors(const QString &id,
     return newOrModifiedAuthors;
 }
 
-bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, const QString &email, DataTypes::FeedDetails &updatedFeed)
+bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, const QString &email, DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool isNewOrModified = false;
 
@@ -610,7 +610,7 @@ bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, c
         }
     } else {
         isNewOrModified = true;
-        AuthorDetails authorDetails;
+        AuthorUpdateDetails authorDetails;
         authorDetails.name = name;
         authorDetails.email = email;
         authorDetails.state = RecordState::New;
@@ -621,7 +621,7 @@ bool UpdateFeedJob::processEntryAuthor(const QString &id, const QString &name, c
     return isNewOrModified;
 }
 
-bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication::EnclosurePtr> &enclosures, DataTypes::FeedDetails &updatedFeed)
+bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication::EnclosurePtr> &enclosures, DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool anyEnclosureUpdated = false;
 
@@ -653,7 +653,7 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
                 QFile::rename(oldFilename, newFilename);
             }
         } else {
-            EnclosureDetails enclosureDetails;
+            EnclosureUpdateDetails enclosureDetails;
             enclosureDetails.enclosureuid = 0; // this will be set once the enclosure is written to the database
             enclosureDetails.duration = duration;
             enclosureDetails.size = size;
@@ -674,7 +674,7 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
 bool UpdateFeedJob::processChapters(const QString &id,
                                     const QMultiMap<QString, QDomElement> &otherItems,
                                     const QString &link,
-                                    DataTypes::FeedDetails &updatedFeed)
+                                    DataTypes::FeedUpdateDetails &updatedFeed)
 {
     bool newOrModifiedChapters = false;
 
@@ -716,7 +716,7 @@ bool UpdateFeedJob::processChapters(const QString &id,
                     }
                 } else {
                     isNewOrModified = true;
-                    ChapterDetails chapterDetails;
+                    ChapterUpdateDetails chapterDetails;
                     chapterDetails.start = startInt;
                     chapterDetails.title = title;
                     chapterDetails.link = link;
@@ -733,7 +733,7 @@ bool UpdateFeedJob::processChapters(const QString &id,
     return newOrModifiedChapters;
 }
 
-void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
+void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 {
     QSet<qint64> newEntryuids, updatedEntryuids;
 
@@ -760,7 +760,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // new feed authors
     writeQuery.prepare(QStringLiteral("INSERT INTO FeedAuthors (feeduid, name, email) VALUES (:feeduid, :name, :email);"));
-    for (const AuthorDetails &authorDetails : std::as_const(updatedFeed.authors)) {
+    for (const AuthorUpdateDetails &authorDetails : std::as_const(updatedFeed.authors)) {
         if (authorDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
             writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
@@ -772,7 +772,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // update feed authors
     writeQuery.prepare(QStringLiteral("UPDATE FeedAuthors SET email=:email WHERE feeduid=:feeduid AND name=:name;"));
-    for (const AuthorDetails &authorDetails : std::as_const(updatedFeed.authors)) {
+    for (const AuthorUpdateDetails &authorDetails : std::as_const(updatedFeed.authors)) {
         if (authorDetails.state == RecordState::Modified) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
             writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
@@ -784,7 +784,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // deleted removed feed authors
     writeQuery.prepare(QStringLiteral("DELETE FROM FeedAuthors WHERE feeduid=:feeduid and name=:name;"));
-    for (const AuthorDetails &authorDetails : std::as_const(updatedFeed.authors)) {
+    for (const AuthorUpdateDetails &authorDetails : std::as_const(updatedFeed.authors)) {
         if (authorDetails.state == RecordState::Deleted) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
             writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
@@ -798,7 +798,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     writeQuery.prepare(
         QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite, removed) VALUES "
                        "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite, :removed);"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
             writeQuery.bindValue(QStringLiteral(":id"), entryDetails.id);
@@ -830,7 +830,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     writeQuery.prepare(
         QStringLiteral("UPDATE Entries SET id=:id, title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
                        "image=:image WHERE entryuid=:entryuid;"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::Modified) {
             updatedEntryuids.insert(entryDetails.entryuid);
             writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -851,7 +851,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     // rather than actually remove the episodes, we mark them as such through
     // the column "removed"
     writeQuery.prepare(QStringLiteral("UPDATE Entries SET removed=:removed WHERE entryuid=:entryuid;"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::Deleted && !entryDetails.removed) {
             updatedEntryuids.insert(entryDetails.entryuid);
             writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -863,11 +863,11 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // new authors
     writeQuery.prepare(QStringLiteral("INSERT INTO EntryAuthors (entryuid, name, email) VALUES (:entryuid, :name, :email);"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping authors for id:" << entryDetails.id;
         } else {
-            for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
+            for (const AuthorUpdateDetails &authorDetails : std::as_const(entryDetails.authors)) {
                 if (authorDetails.state == RecordState::New) {
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -882,8 +882,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // update authors
     writeQuery.prepare(QStringLiteral("UPDATE EntryAuthors SET email=:email WHERE entryuid=:entryuid AND name=:name;"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
-        for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        for (const AuthorUpdateDetails &authorDetails : std::as_const(entryDetails.authors)) {
             if (authorDetails.state == RecordState::Modified) {
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -898,9 +898,9 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     // delete entry authors that were removed
     if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
         writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
-        for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
             if (entryDetails.state != RecordState::Deleted) {
-                for (const AuthorDetails &authorDetails : std::as_const(entryDetails.authors)) {
+                for (const AuthorUpdateDetails &authorDetails : std::as_const(entryDetails.authors)) {
                     if (authorDetails.state == RecordState::Deleted) {
                         updatedEntryuids.insert(entryDetails.entryuid);
                         writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -918,11 +918,11 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     writeQuery.prepare(
         QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, playposition, downloaded) VALUES (:entryuid, :feeduid, "
                        ":url, :duration, :size, :type, :playposition, :downloaded);"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
         } else {
-            for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+            for (const EnclosureUpdateDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
                 if (enclosureDetails.state == RecordState::New) {
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -944,8 +944,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     writeQuery.prepare(
         QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE entryuid=:entryuid "
                        "AND enclosureuid=:enclosureuid;"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
-        for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        for (const EnclosureUpdateDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
             if (enclosureDetails.state == RecordState::Modified) {
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
@@ -963,9 +963,9 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
     // delete removed enclosures
     if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
         writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
-        for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
             if (entryDetails.state != RecordState::Deleted) {
-                for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+                for (const EnclosureUpdateDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
                     if (enclosureDetails.state == RecordState::Deleted) {
                         updatedEntryuids.insert(entryDetails.entryuid);
                         writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
@@ -980,11 +980,11 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // new chapters
     writeQuery.prepare(QStringLiteral("INSERT INTO Chapters (entryuid, start, title, link, image) VALUES (:entryuid, :start, :title, :link, :image);"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping chapters for id:" << entryDetails.id;
         } else {
-            for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
+            for (const ChapterUpdateDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
                 if (chapterDetails.state == RecordState::New) {
                     updatedEntryuids.insert(entryDetails.entryuid);
                     writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
@@ -1001,8 +1001,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // update chapters
     writeQuery.prepare(QStringLiteral("UPDATE Chapters SET title=:title, link=:link, image=:image WHERE entryuid=:entryuid AND start=:start;"));
-    for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
-        for (const ChapterDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        for (const ChapterUpdateDetails &chapterDetails : std::as_const(entryDetails.chapters)) {
             if (chapterDetails.state == RecordState::Modified) {
                 updatedEntryuids.insert(entryDetails.entryuid);
                 writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);

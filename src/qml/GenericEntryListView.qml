@@ -27,7 +27,7 @@ ListView {
     property bool singleSelectedEntryNew: false
     property bool singleSelectedEntryFavorite: false
     property bool singleSelectedEntryQueueStatus: false
-    property int singleSelectedEntryDownloaded: -1
+    property int singleSelectedEntryEnclosureStatus: -1
     property ItemSelectionModel selectionModel: ItemSelectionModel {
         model: root.model
         onSelectionChanged: {
@@ -47,7 +47,7 @@ ListView {
             // NOTE: the DataTypes.EnclosureStatus enum values get converted to strings
             text: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : section == "Downloadable" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Not Downloaded") : section == "NoEnclosure" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Episodes without Media Files") : ""
         }
-        property: "downloaded"
+        property: "enclosureStatus"
     }
 
     topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
@@ -60,14 +60,14 @@ ListView {
             singleSelectedEntryNew = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.NewRole);
             singleSelectedEntryFavorite = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.FavoriteRole);
             singleSelectedEntryQueueStatus = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.QueueStatusRole);
-            singleSelectedEntryDownloaded = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.DownloadedRole);
+            singleSelectedEntryEnclosureStatus = selectionForContextMenu[0].model.data(selectionForContextMenu[0], AbstractEpisodeModel.EnclosureStatusRole);
         } else {
             singleSelectedEntryuid = 0;
             singleSelectedEntryRead = false;
             singleSelectedEntryNew = false;
             singleSelectedEntryFavorite = false;
             singleSelectedEntryQueueStatus = false;
-            singleSelectedEntryDownloaded = -1;
+            singleSelectedEntryEnclosureStatus = -1;
         }
     }
 
@@ -376,7 +376,7 @@ ListView {
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
         text: KI18n.i18n("Download")
         icon.name: "download"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded : true)
         onTriggered: {
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.selection = root.selectionForContextMenu;
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
@@ -386,7 +386,7 @@ ListView {
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
         text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", root.selectionForContextMenu.length)
         icon.name: "delete"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
         onTriggered: {
             DataManager.bulkDeleteEnclosuresByIndex(root.selectionForContextMenu);
         }
@@ -395,7 +395,7 @@ ListView {
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryDownloaded !== DataTypes.EnclosureStatus.NoEnclosure : true)
+        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.NoEnclosure : true)
         onTriggered: {
             if (!root.singleSelectedEntryQueueStatus) {
                 DataManager.bulkQueueStatus(true, [root.singleSelectedEntryuid]);

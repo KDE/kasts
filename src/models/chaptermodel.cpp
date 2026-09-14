@@ -152,7 +152,7 @@ void ChapterModel::loadFromDatabase()
     query.bindValue(QStringLiteral(":entryuid"), m_entryuid);
     Database::instance().execute(query);
     while (query.next()) {
-        DataTypes::ChapterDetails chapter;
+        DataTypes::ChapterUpdateDetails chapter;
         chapter.title = query.value(QStringLiteral("title")).toString();
         chapter.link = query.value(QStringLiteral("link")).toString();
         chapter.image = query.value(QStringLiteral("image")).toString();
@@ -169,7 +169,7 @@ void ChapterModel::loadMPEGChapters()
         return;
     }
     for (const auto &frame : f.ID3v2Tag()->frameListMap()["CHAP"]) {
-        DataTypes::ChapterDetails chapter;
+        DataTypes::ChapterUpdateDetails chapter;
         auto chapterFrame = dynamic_cast<TagLib::ID3v2::ChapterFrame *>(frame);
 
         const auto &apicList = chapterFrame->embeddedFrameListMap()["APIC"];
@@ -204,7 +204,7 @@ void ChapterModel::loadMPEGChapters()
             m_chapters << chapter;
         }
     }
-    std::sort(m_chapters.begin(), m_chapters.end(), [](const DataTypes::ChapterDetails a, const DataTypes::ChapterDetails b) {
+    std::sort(m_chapters.begin(), m_chapters.end(), [](const DataTypes::ChapterUpdateDetails a, const DataTypes::ChapterUpdateDetails b) {
         return a.start < b.start;
     });
 }

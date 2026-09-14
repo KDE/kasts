@@ -21,7 +21,6 @@
 #include <utility>
 
 #include "database.h"
-#include "entry.h"
 #include "feed.h"
 #include "fetcher.h"
 #include "models/abstractepisodemodel.h"
@@ -101,13 +100,50 @@ Feed *DataManager::getFeed(const qint64 feeduid) const
     return nullptr;
 }
 
-Entry *DataManager::getEntry(const qint64 entryuid) const
+DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
 {
-    if (m_entries.contains(entryuid)) {
-        Entry *entry = new Entry(entryuid);
-        return entry;
+    DataTypes::EntryFeedDetails entry;
+
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Entries WHERE entryuid=:entryuid;"));
+    query.bindValue(QStringLiteral(":entryuid"), entryuid);
+    Database::instance().execute(query);
+    if (query.next()) {
+        entry.entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+        entry.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
+        entry.id = query.value(QStringLiteral("id")).toString();
+        entry.title = query.value(QStringLiteral("title")).toString();
+        entry.content = query.value(QStringLiteral("content")).toString();
+        entry.created = query.value(QStringLiteral("created")).toInt();
+        entry.updated = query.value(QStringLiteral("updated")).toInt();
+        entry.read = query.value(QStringLiteral("read")).toBool();
+        entry.isNew = query.value(QStringLiteral("new")).toBool();
+        entry.favorite = query.value(QStringLiteral("favorite")).toBool();
+        entry.removed = query.value(QStringLiteral("removed")).toBool();
+        entry.link = query.value(QStringLiteral("link")).toString();
+        entry.hasEnclosure = false;
+        entry.image = query.value(QStringLiteral("image")).toString();
     }
-    return nullptr;
+    query.finish();
+
+    query.prepare(QStringLiteral("SELECT * FROM Enclosures WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%') ORDER BY enclosureuid;"));
+    entry.enclosure = {};
+    query.bindValue(QStringLiteral(":entryuid"), entryuid);
+    Database::instance().execute(query);
+    if (query.next()) {
+        entry.enclosure.enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
+        entry.enclosure.type = query.value(QStringLiteral("type")).toString();
+        entry.enclosure.duration = query.value(QStringLiteral("duration")).toLongLong();
+        entry.enclosure.size = query.value(QStringLiteral("size")).toLongLong();
+        entry.enclosure.downloadSize = -1;
+        entry.enclosure.url = query.value(QStringLiteral("url")).toString();
+        entry.enclosure.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
+        entry.enclosure.status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
+        entry.hasEnclosure = true;
+    }
+    query.finish();
+
+    return entry;
 }
 
 EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
@@ -122,12 +158,6 @@ EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
     } else {
         return nullptr;
     }
-}
-
-Entry *DataManager::getEntry(const QString &id) const
-{
-    // Apply fuzzy logic to find matching entryuid
-    return getEntry(findEntryuids(QStringList({id}))[0][0]);
 }
 
 Feed *DataManager::getFeed(const QString &feedurl) const

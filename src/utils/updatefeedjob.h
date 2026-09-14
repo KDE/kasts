@@ -45,20 +45,21 @@ Q_SIGNALS:
     void error(ErrorLogModel::Type type, const QString &message);
 
 private:
-    bool downloadFeed(DataTypes::FeedDetails &updatedFeed, QByteArray &data);
-    void processFeed(const Syndication::FeedPtr feed, DataTypes::FeedDetails &updatedFeed, const QByteArray &data);
-    bool
-    processFeedAuthors(const QList<Syndication::PersonPtr> &authors, const QMultiMap<QString, QDomElement> &otherItems, DataTypes::FeedDetails &updatedFeed);
-    bool processFeedAuthor(const QString &name, const QString &email, DataTypes::FeedDetails &updatedFeed);
-    bool processEntry(const Syndication::ItemPtr &entry, DataTypes::FeedDetails &updatedFeed, bool markUnreadOnNew);
+    bool downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data);
+    void processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data);
+    bool processFeedAuthors(const QList<Syndication::PersonPtr> &authors,
+                            const QMultiMap<QString, QDomElement> &otherItems,
+                            DataTypes::FeedUpdateDetails &updatedFeed);
+    bool processFeedAuthor(const QString &name, const QString &email, DataTypes::FeedUpdateDetails &updatedFeed);
+    bool processEntry(const Syndication::ItemPtr &entry, DataTypes::FeedUpdateDetails &updatedFeed, bool markUnreadOnNew);
     bool processEntryAuthors(const QString &id,
                              const QList<Syndication::PersonPtr> &authors,
                              const QMultiMap<QString, QDomElement> &otherItems,
-                             DataTypes::FeedDetails &updatedFeed);
-    bool processEntryAuthor(const QString &id, const QString &name, const QString &email, DataTypes::FeedDetails &updatedFeed);
-    bool processChapters(const QString &id, const QMultiMap<QString, QDomElement> &otherItems, const QString &link, DataTypes::FeedDetails &updatedFeed);
-    bool processEnclosures(const QString &id, const QList<Syndication::EnclosurePtr> &enclosures, DataTypes::FeedDetails &updatedFeed);
-    void writeToDatabase(DataTypes::FeedDetails &updatedFeed);
+                             DataTypes::FeedUpdateDetails &updatedFeed);
+    bool processEntryAuthor(const QString &id, const QString &name, const QString &email, DataTypes::FeedUpdateDetails &updatedFeed);
+    bool processChapters(const QString &id, const QMultiMap<QString, QDomElement> &otherItems, const QString &link, DataTypes::FeedUpdateDetails &updatedFeed);
+    bool processEnclosures(const QString &id, const QList<Syndication::EnclosurePtr> &enclosures, DataTypes::FeedUpdateDetails &updatedFeed);
+    void writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed);
 
     bool dbExecute(QSqlQuery &query);
     bool dbTransaction();

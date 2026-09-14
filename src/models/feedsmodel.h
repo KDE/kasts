@@ -43,5 +43,5 @@ private:
 
     void updateFeed(const qint64 feeduid);
 
-    QList<DataTypes::FeedDetails> m_feeds;
+    QList<DataTypes::FeedUpdateDetails> m_feeds;
 };

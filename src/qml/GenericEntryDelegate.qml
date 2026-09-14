@@ -32,7 +32,7 @@ AddonDelegates.RoundedItemDelegate {
     required property int index
     required property string title
     required property string content
-    required property int downloaded
+    required property int enclosureStatus
     required property string link
     required property bool isNew
     required property bool read
@@ -61,12 +61,12 @@ AddonDelegates.RoundedItemDelegate {
     property bool selected: false
 
     property bool showRemoveFromQueueButton: !hasEnclosure && queueStatus
-    property bool showDownloadButton: hasEnclosure && (!downloadFilterActive || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded) && (downloaded === DataTypes.EnclosureStatus.Downloadable || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
-    property bool showCancelDownloadButton: hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloading || downloaded == DataTypes.EnclosureStatus.Queued)
-    property bool showDeleteDownloadButton: downloadFilterActive && hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloaded || downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)
-    property bool showAddToQueueButton: !downloadFilterActive && !queueStatus && hasEnclosure && downloaded === DataTypes.EnclosureStatus.Downloaded
-    property bool showPlayButton: !downloadFilterActive && queueStatus && hasEnclosure && (downloaded === DataTypes.EnclosureStatus.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !downloadFilterActive && hasEnclosure && (downloaded !== DataTypes.EnclosureStatus.Downloaded && downloaded !== DataTypes.EnclosureStatus.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showDownloadButton: hasEnclosure && (!downloadFilterActive || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (enclosureStatus === DataTypes.EnclosureStatus.Downloadable || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showCancelDownloadButton: hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloading || enclosureStatus == DataTypes.EnclosureStatus.Queued)
+    property bool showDeleteDownloadButton: downloadFilterActive && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)
+    property bool showAddToQueueButton: !downloadFilterActive && !queueStatus && hasEnclosure && enclosureStatus === DataTypes.EnclosureStatus.Downloaded
+    property bool showPlayButton: !downloadFilterActive && queueStatus && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: !downloadFilterActive && hasEnclosure && (enclosureStatus !== DataTypes.EnclosureStatus.Downloaded && enclosureStatus !== DataTypes.EnclosureStatus.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
     property bool showPauseButton: !downloadFilterActive && queueStatus && hasEnclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton: Controls.ToolButton {
@@ -127,7 +127,7 @@ AddonDelegates.RoundedItemDelegate {
             entryTitle: Qt.binding(() => root.title),
             content: Qt.binding(() => root.content),
             feedName: Qt.binding(() => root.feedName),
-            downloaded: Qt.binding(() => root.downloaded),
+            enclosureStatus: Qt.binding(() => root.enclosureStatus),
             hasEnclosure: Qt.binding(() => root.hasEnclosure),
             enclosureUrl: Qt.binding(() => root.enclosureUrl),
             playPosition: Qt.binding(() => root.playPosition),
@@ -336,7 +336,7 @@ AddonDelegates.RoundedItemDelegate {
                 font.weight: Font.Normal
             }
             Loader {
-                sourceComponent: root.hasEnclosure && (root.downloaded === DataTypes.EnclosureStatus.Downloading || root.downloaded === DataTypes.EnclosureStatus.Queued || (root.downloadFilterActive && root.downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)) ? downloadProgress : (root.hasEnclosure && root.playPosition > 0 ? playProgress : subtitle)
+                sourceComponent: root.hasEnclosure && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloading || root.enclosureStatus === DataTypes.EnclosureStatus.Queued || (root.downloadFilterActive && root.enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)) ? downloadProgress : (root.hasEnclosure && root.playPosition > 0 ? playProgress : subtitle)
                 Layout.fillWidth: true
             }
             Component {
@@ -353,14 +353,14 @@ AddonDelegates.RoundedItemDelegate {
                 id: downloadProgress
                 RowLayout {
                     Controls.Label {
-                        visible: root.downloaded != DataTypes.EnclosureStatus.Queued
+                        visible: root.enclosureStatus != DataTypes.EnclosureStatus.Queued
                         text: Format.formatByteSize(root.downloadSize)
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
                     }
                     Controls.ProgressBar {
-                        indeterminate: root.downloaded == DataTypes.EnclosureStatus.Queued
+                        indeterminate: root.enclosureStatus == DataTypes.EnclosureStatus.Queued
                         from: 0
                         to: 1
                         value: root.size > 0 ? root.downloadSize / root.size : 0.0

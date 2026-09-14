@@ -64,7 +64,7 @@ private:
     void loadMPEGChapters();
 
     qint64 m_entryuid;
-    QList<DataTypes::ChapterDetails> m_chapters;
+    QList<DataTypes::ChapterUpdateDetails> m_chapters;
     int m_currentChapter = 0;
     int m_duration;
 

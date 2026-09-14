@@ -14,9 +14,8 @@
 #include <QStringList>
 #include <QtQml/qqmlregistration.h>
 
-#include "entry.h"
+#include "datatypes.h"
 #include "feed.h"
-#include "models/abstractepisodeproxymodel.h"
 #include "models/entriesproxymodel.h"
 
 class DataManager : public QObject
@@ -37,12 +36,11 @@ public:
     }
 
     Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
-    Q_INVOKABLE Entry *getEntry(const qint64 entryuid) const;
+    Q_INVOKABLE DataTypes::EntryFeedDetails getEntry(const qint64 entryuid) const;
     Q_INVOKABLE EntriesProxyModel *getEntriesProxyModel(const qint64 feeduid) const;
 
     // TODO: to be removed
     Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
-    Q_INVOKABLE Entry *getEntry(const QString &id) const;
 
     // routines for fuzzy matching of feeds and entries/enclosures to uids
     // returns a list because there can be more than one result per input value

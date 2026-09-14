@@ -47,7 +47,7 @@ FeedsModel::FeedsModel(QObject *parent)
     query.prepare(QStringLiteral("SELECT * FROM Feeds;"));
     Database::instance().execute(query);
     while (query.next()) {
-        DataTypes::FeedDetails feedDetails;
+        DataTypes::FeedUpdateDetails feedDetails;
         feedDetails.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         feedDetails.name = query.value(QStringLiteral("name")).toString();
         feedDetails.url = query.value(QStringLiteral("url")).toString();
@@ -123,7 +123,7 @@ void FeedsModel::updateFeed(const qint64 feeduid)
         }
     }
     if (idx < 0) {
-        DataTypes::FeedDetails feedDetails;
+        DataTypes::FeedUpdateDetails feedDetails;
         m_feeds += feedDetails;
         idx = m_feeds.count() - 1;
     }

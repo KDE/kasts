@@ -104,7 +104,7 @@ Kirigami.ScrollablePage {
             required property int index
             required property string title
             required property string content
-            required property int downloaded
+            required property int enclosureStatus
             required property string link
             required property bool isNew
             required property bool read
@@ -137,7 +137,7 @@ Kirigami.ScrollablePage {
                 index: focusScope.index
                 title: focusScope.title
                 content: focusScope.content
-                downloaded: focusScope.downloaded
+                enclosureStatus: focusScope.enclosureStatus
                 link: focusScope.link
                 isNew: focusScope.isNew
                 read: focusScope.read
