@@ -10,11 +10,13 @@
 #include <memory>
 
 #include <QAudio>
+#include <QAudioDevice>
 #include <QAudioOutput>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>
+#include <QMediaDevices>
 #include <QMediaMetaData>
 #include <QStandardPaths>
 #include <QTemporaryDir>
@@ -29,6 +31,8 @@ private:
 
     QMediaPlayer m_player;
     QAudioOutput m_output;
+
+    QMediaDevices m_mediaDevices;
 
     std::unique_ptr<QTemporaryDir> imageCacheDir = nullptr;
 
@@ -62,6 +66,12 @@ QtMediaBackend::QtMediaBackend(QObject *parent)
     connect(&d->m_player, &QMediaPlayer::durationChanged, this, &QtMediaBackend::playerDurationSignalChanges);
     connect(&d->m_player, &QMediaPlayer::positionChanged, this, &QtMediaBackend::playerPositionSignalChanges);
     connect(&d->m_player, &QMediaPlayer::seekableChanged, this, &QtMediaBackend::playerSeekableSignalChanges);
+
+    // Signal is emitted whenever the global output device is changed and we must manually move ourselves to that device.
+    connect(&d->m_mediaDevices, &QMediaDevices::audioOutputsChanged, this, [this] {
+        qDebug() << "device changed";
+        d->m_output.setDevice(QAudioDevice{});
+    });
 }
 
 QtMediaBackend::~QtMediaBackend()
