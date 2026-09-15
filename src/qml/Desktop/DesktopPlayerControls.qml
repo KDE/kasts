@@ -411,19 +411,19 @@ FocusScope {
 
         showCloseButton: true
 
-        title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
+        title: (AudioManager.entryuid > 0) ? AudioManager.entryTitle : KI18n.i18n("No Episode Title")
         padding: Kirigami.Units.largeSpacing
 
         Controls.Label {
             id: entryDetailsText
-            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? EntryUtils.adjustedContent(entryDetailsOverlay.preferredWidth, font.pixelSize, AudioManager.entry.content, AudioManager.entry.link) : KI18n.i18n("No episode loaded")
+            text: (AudioManager.entryuid > 0) ? EntryUtils.adjustedContent(entryDetailsOverlay.preferredWidth, font.pixelSize, AudioManager.entryContent, AudioManager.entryLink) : KI18n.i18n("No episode loaded")
             verticalAlignment: Text.AlignTop
-            baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
+            baseUrl: (AudioManager.entryuid > 0) ? EntryUtils.baseUrl(AudioManager.entryLink) : ""
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
-                    if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {
+                    if (AudioManager.entryuid > 0) {
                         AudioManager.seek(link.split("://")[1]);
                     }
                 } else {

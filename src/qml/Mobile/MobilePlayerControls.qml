@@ -28,7 +28,7 @@ Kirigami.Page {
     required property NumberAnimation closeAnimation
     property alias chapterModel: _chapterModel
 
-    title: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Loaded")
+    title: (AudioManager.entryuid > 0) ? AudioManager.entryTitle : KI18n.i18n("No Episode Loaded")
     clip: true
     Layout.margins: 0
 
@@ -62,7 +62,7 @@ Kirigami.Page {
 
         Image {
             id: backgroundImage
-            source: AudioManager.entry.image
+            source: AudioManager.entryImage
             asynchronous: true
             visible: GraphicsInfo.api === GraphicsInfo.Software
             anchors.fill: parent
@@ -121,7 +121,7 @@ Kirigami.Page {
                         width: Utils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
-                            imageSource: AudioManager.entryuid > 0 ? (root.chapterModel.hasChapters && root.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entry.image) : ""
+                            imageSource: AudioManager.entryuid > 0 ? (root.chapterModel.hasChapters && root.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entryImage) : ""
                             imageResize: false // prevent stuttering when resizing
                             imageFillMode: Image.PreserveAspectCrop
                             anchors.centerIn: parent
@@ -150,7 +150,7 @@ Kirigami.Page {
                             anchors.right: parent.right
                             anchors.margins: 0
                             Controls.Label {
-                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Title")
+                                text: (AudioManager.entryuid > 0) ? AudioManager.entryTitle : KI18n.i18n("No Title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -158,7 +158,7 @@ Kirigami.Page {
                             }
 
                             Controls.Label {
-                                text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.feed.name : KI18n.i18n("No podcast title")
+                                text: (AudioManager.entryuid > 0) ? AudioManager.entryFeedName : KI18n.i18n("No podcast title")
                                 elide: Text.ElideRight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.maximumWidth: parent.width
@@ -180,7 +180,7 @@ Kirigami.Page {
                         id: description
                         width: parent.width
                         Kirigami.Heading {
-                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
+                            text: (AudioManager.entryuid > 0) ? AudioManager.entryTitle : KI18n.i18n("No Episode Title")
                             level: 3
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
@@ -190,14 +190,14 @@ Kirigami.Page {
                         Controls.Label {
                             id: text
                             Layout.fillWidth: true
-                            text: (AudioManager.entryuid > 0 && AudioManager.entry) ? EntryUtils.adjustedContent(width, font.pixelSize, AudioManager.entry.content, AudioManager.entry.link) : KI18n.i18n("No episode loaded")
+                            text: (AudioManager.entryuid > 0) ? EntryUtils.adjustedContent(width, font.pixelSize, AudioManager.entryContent, AudioManager.entryLink) : KI18n.i18n("No episode loaded")
                             verticalAlignment: Text.AlignTop
-                            baseUrl: (AudioManager.entryuid > 0 && AudioManager.entry) ? AudioManager.entry.baseUrl : ""
+                            baseUrl: (AudioManager.entryuid > 0) ? EntryUtils.baseUrl(AudioManager.entryLink) : ""
                             textFormat: Text.RichText
                             wrapMode: Text.WordWrap
                             onLinkActivated: link => {
                                 if (link.split("://")[0] === "timestamp") {
-                                    if (AudioManager.entryuid > 0 && AudioManager.entry && AudioManager.entry.enclosure) {
+                                    if (AudioManager.entryuid > 0) {
                                         AudioManager.seek(link.split("://")[1]);
                                     }
                                 } else {

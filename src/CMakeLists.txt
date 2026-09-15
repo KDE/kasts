@@ -10,8 +10,6 @@ add_executable(kasts
     database.cpp
     datamanager.cpp
     datatypes.cpp
-    enclosure.cpp
-    entry.cpp
     feed.cpp
     fetcher.cpp
     utils/enclosuredownloadjob.cpp
@@ -165,30 +163,9 @@ ecm_qt_declare_logging_category(kasts
 )
 
 ecm_qt_declare_logging_category(kasts
-    HEADER "enclosurelogging.h"
-    IDENTIFIER "kastsEnclosure"
-    CATEGORY_NAME "org.kde.kasts.enclosure"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(kasts
     HEADER "models/entriesproxymodellogging.h"
     IDENTIFIER "kastsEntriesProxyModel"
     CATEGORY_NAME "org.kde.kasts.entriesproxymodel"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(kasts
-    HEADER "entrylogging.h"
-    IDENTIFIER "kastsEntry"
-    CATEGORY_NAME "org.kde.kasts.entry"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(kasts
-    HEADER "feedlogging.h"
-    IDENTIFIER "kastsFeed"
-    CATEGORY_NAME "org.kde.kasts.feed"
     DEFAULT_SEVERITY Info
 )
 

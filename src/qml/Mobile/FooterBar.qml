@@ -142,7 +142,7 @@ Flickable {
 
                 Image {
                     id: backgroundImage
-                    source: AudioManager.entry.image
+                    source: AudioManager.entryImage
                     asynchronous: true
                     visible: GraphicsInfo.api === GraphicsInfo.Software
                     anchors.fill: parent

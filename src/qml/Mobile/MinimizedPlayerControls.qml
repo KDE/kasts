@@ -62,7 +62,7 @@ Item {
                 anchors.fill: parent
 
                 ImageWithFallback {
-                    imageSource: AudioManager.entryuid > 0 ? (chapterModel.hasChapters && chapterModel.imageForPosition(AudioManager.position) !== "" ? chapterModel.imageForPosition(AudioManager.position) : AudioManager.entry.image) : ""
+                    imageSource: AudioManager.entryuid > 0 ? (chapterModel.hasChapters && chapterModel.imageForPosition(AudioManager.position) !== "" ? chapterModel.imageForPosition(AudioManager.position) : AudioManager.entryImage) : ""
                     Layout.fillHeight: true
                     Layout.preferredWidth: height
                 }
@@ -76,7 +76,7 @@ Item {
 
                     Controls.Label {
                         id: mainLabel
-                        text: AudioManager.entry.title
+                        text: AudioManager.entryTitle
                         wrapMode: Text.Wrap
                         Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
                         Layout.fillWidth: true
@@ -89,7 +89,7 @@ Item {
 
                     Controls.Label {
                         id: feedLabel
-                        text: AudioManager.entry.feed.name
+                        text: AudioManager.entryFeedName
                         wrapMode: Text.Wrap
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         Layout.fillWidth: true

@@ -222,14 +222,13 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(QDateTime::fromSecsSinceEpoch(m_entries[m_entryOrder[index.row()]].updated));
     case AbstractEpisodeModel::Roles::LinkRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].link);
-    case AbstractEpisodeModel::Roles::ImageRole: {
+    case AbstractEpisodeModel::Roles::ImageRole:
         return QVariant::fromValue(EntryUtils::entryImage(m_entries[m_entryOrder[index.row()]].image,
                                                           m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].image,
                                                           m_entries[m_entryOrder[index.row()]].enclosure.url,
                                                           m_entries[m_entryOrder[index.row()]].enclosure.status,
                                                           m_entries[m_entryOrder[index.row()]].title,
                                                           m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].dirname));
-    }
     case AbstractEpisodeModel::Roles::HasEnclosureRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].hasEnclosure);
     case AbstractEpisodeModel::Roles::EnclosureUrlRole:

@@ -20,6 +20,8 @@
 #include <QtAssert>
 #include <utility>
 
+#include <KLocalizedString>
+
 #include "database.h"
 #include "feed.h"
 #include "fetcher.h"
@@ -143,6 +145,48 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     }
     query.finish();
 
+    QStringList authors;
+    query.prepare(QStringLiteral("SELECT name FROM EntryAuthors WHERE entryuid=:entryuid;"));
+    query.bindValue(QStringLiteral(":entryuid"), entryuid);
+    Database::instance().execute(query);
+    while (query.next()) {
+        authors += query.value(QStringLiteral("name")).toString();
+    }
+    if (authors.size() == 1) {
+        entry.authors = authors[0];
+    } else if (authors.size() == 2) {
+        entry.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+    } else if (authors.size() > 2) {
+        auto last = authors.takeLast();
+        entry.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
+    }
+
+    // TODO: add more fields; these are the only ones that are currently used
+    // in combination with EntryDetails, i.e. in AudioManager and EpisodeModels
+    query.prepare(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds WHERE feeduid=:feeduid"));
+    query.bindValue(QStringLiteral(":feeduid"), entry.feeduid);
+    Database::instance().execute(query);
+    if (query.next()) {
+        entry.feed.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
+        entry.feed.name = query.value(QStringLiteral("name")).toString();
+        entry.feed.image = query.value(QStringLiteral("image")).toString();
+        entry.feed.dirname = query.value(QStringLiteral("dirname")).toString();
+    }
+
+    query.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
+    query.bindValue(QStringLiteral(":feeduid"), entry.feeduid);
+    Database::instance().execute(query);
+    while (query.next()) {
+        authors += query.value(QStringLiteral("name")).toString();
+    }
+    if (authors.size() == 1) {
+        entry.feed.authors = authors[0];
+    } else if (authors.size() == 2) {
+        entry.feed.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+    } else if (authors.size() > 2) {
+        auto last = authors.takeLast();
+        entry.feed.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
+    }
     return entry;
 }
 

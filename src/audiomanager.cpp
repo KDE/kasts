@@ -17,11 +17,12 @@
 
 #include "audiologging.h"
 #include "datamanager.h"
-#include "feed.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
+#include "storagemanager.h"
+#include "utils/entryutils.h"
 #include "utils/networkconnectionmanager.h"
 
 class AudioManagerPrivate
@@ -32,7 +33,7 @@ private:
                                            static_cast<KMediaSession::MediaBackends>(SettingsManager::self()->mediabackend()));
 
     qint64 m_entryuid = 0;
-    QPointer<Entry> m_entry = nullptr;
+    DataTypes::EntryFeedDetails m_entry;
     bool m_readyToPlay = false;
     bool m_isSeekable = false;
     bool m_continuePlayback = false;
@@ -105,6 +106,12 @@ AudioManager::AudioManager(QObject *parent)
 
     connect(this, &AudioManager::positionChanged, this, &AudioManager::savePlayPositionToDB);
 
+    connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
+        if (entryuids.contains(d->m_entryuid)) {
+            Q_EMIT entryDetailsChanged(d->m_entryuid);
+        }
+    });
+
     // Encapsulated in singleShot to avoid a circular dependency of the Entry and AudioManager objects
     QTimer::singleShot(0, this, [this]() {
         // Check if an entry was playing when the program was shut down and restore it
@@ -159,9 +166,48 @@ qint64 AudioManager::entryuid() const
     return d->m_entryuid;
 }
 
-Entry *AudioManager::entry() const
+qint64 AudioManager::entryFeeduid() const
 {
-    return d->m_entry;
+    return d->m_entry.feeduid;
+}
+
+QString AudioManager::entryTitle() const
+{
+    return d->m_entry.title;
+}
+
+QString AudioManager::entryImage() const
+{
+    return EntryUtils::entryImage(d->m_entry.image,
+                                  d->m_entry.feed.image,
+                                  d->m_entry.enclosure.url,
+                                  d->m_entry.enclosure.status,
+                                  d->m_entry.title,
+                                  d->m_entry.feed.dirname);
+}
+
+QString AudioManager::entryContent() const
+{
+    return d->m_entry.content;
+}
+
+QString AudioManager::entryLink() const
+{
+    return d->m_entry.link;
+}
+
+QString AudioManager::entryAuthors() const
+{
+    if (!d->m_entry.authors.isEmpty()) {
+        return d->m_entry.authors;
+    } else {
+        return d->m_entry.feed.authors;
+    }
+}
+
+QString AudioManager::entryFeedName() const
+{
+    return d->m_entry.feed.name;
 }
 
 bool AudioManager::muted() const
@@ -195,15 +241,15 @@ qint64 AudioManager::duration() const
 {
     // we fake the duration in case the track has not been properly loaded yet
     if (!d->m_readyToPlay) {
-        if (d->m_entry && d->m_entry->enclosure()) {
-            return d->m_entry->enclosure()->duration() * 1000;
+        if (d->m_entry.hasEnclosure) {
+            return d->m_entry.enclosure.duration * 1000;
         } else {
             return 0;
         }
     } else if (d->m_player.duration() > 0) {
         return d->m_player.duration();
-    } else if (d->m_entry && d->m_entry->enclosure()) {
-        return d->m_entry->enclosure()->duration() * 1000;
+    } else if (d->m_entry.hasEnclosure) {
+        return d->m_entry.enclosure.duration * 1000;
     } else {
         return 0;
     }
@@ -213,8 +259,8 @@ qint64 AudioManager::position() const
 {
     // we fake the player position in case there is still a pending seek
     if (!d->m_readyToPlay) {
-        if (d->m_entry && d->m_entry->enclosure()) {
-            return d->m_entry->enclosure()->playPosition();
+        if (d->m_entry.hasEnclosure) {
+            return d->m_entry.enclosure.playPosition;
         } else {
             return 0;
         }
@@ -318,20 +364,20 @@ void AudioManager::setEntryuid(const qint64 entryuid)
     d->m_lockPositionSaving = true;
     d->m_lastSignificantPosition = -2 * d->m_significantInterval;
 
-    Entry *oldEntry = d->m_entry;
-    d->m_entry = nullptr;
+    DataTypes::EntryFeedDetails oldEntry = d->m_entry;
+    d->m_entry = {};
     d->m_entryuid = 0;
 
     // Check if the previous track needs to be marked as read
-    if (oldEntry) {
+    if (oldEntry.entryuid > 0) {
         if (!signalDisconnect) {
             qCDebug(kastsAudio) << "Checking previous track";
             qCDebug(kastsAudio) << "Left time" << (duration() - position());
             qCDebug(kastsAudio) << "MediaStatus" << d->m_player.mediaStatus();
             if (((duration() > 0) && (position() > 0) && ((duration() - position()) < SettingsManager::self()->markAsPlayedBeforeEnd() * 1000))
                 || (d->m_player.mediaStatus() == KMediaSession::EndOfMedia)) {
-                qCDebug(kastsAudio) << "Mark as read:" << oldEntry->title();
-                DataManager::instance().bulkMarkRead(true, QList<qint64>({oldEntry->entryuid()}));
+                qCDebug(kastsAudio) << "Mark as read:" << oldEntry.title;
+                DataManager::instance().bulkMarkRead(true, QList<qint64>({oldEntry.entryuid}));
                 stop();
                 d->m_continuePlayback = SettingsManager::self()->continuePlayingNextEntry();
             } else {
@@ -340,29 +386,23 @@ void AudioManager::setEntryuid(const qint64 entryuid)
                 d->m_continuePlayback = continuePlaying;
             }
         }
-
-        // Now we can safely delete the old entry object
-        delete oldEntry;
     }
 
-    Entry *entry = nullptr;
-    if (entryuid > 0) {
-        entry = new Entry(entryuid, this);
-    }
+    DataTypes::EntryFeedDetails entry = DataManager::instance().getEntry(entryuid);
 
     // do some checks on the new entry to see whether it's valid and not corrupted
-    if (entry != nullptr && entry->hasEnclosure() && entry->enclosure()
-        && (entry->enclosure()->status() == DataTypes::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
+    if (entry.hasEnclosure && entry.enclosure.enclosureuid > 0
+        && (entry.enclosure.status == DataTypes::Downloaded || NetworkConnectionManager::instance().streamingAllowed())) {
         qCDebug(kastsAudio) << "Going to change source";
         setEntryInfo(entry);
 
-        if (entry->enclosure()->status() == DataTypes::Downloaded) { // i.e. local file
+        if (entry.enclosure.status == DataTypes::Downloaded) { // i.e. local file
             if (d->m_isStreaming) {
                 d->m_isStreaming = false;
                 Q_EMIT isStreamingChanged();
             }
 
-            prepareAudio(QUrl::fromLocalFile(entry->enclosure()->path()));
+            prepareAudio(QUrl::fromLocalFile(StorageManager::enclosurePath(entry.title, entry.enclosure.url, entry.feed.dirname)));
         } else {
             // i.e. streaming
             // we try the original url first; if this fails, we try again with
@@ -373,14 +413,13 @@ void AudioManager::setEntryuid(const qint64 entryuid)
             }
 
             d->m_tryingRedirectedUrl = false;
-            prepareAudio(QUrl(entry->enclosure()->url()));
+            prepareAudio(QUrl(entry.enclosure.url));
         }
 
     } else {
         DataManager::instance().setLastPlayingEntry(0);
-        d->m_entry = nullptr;
+        d->m_entry = {};
         d->m_entryuid = 0;
-        Q_EMIT entryChanged(nullptr);
         Q_EMIT entryuidChanged(0);
         d->m_player.stop();
         d->m_player.setSource(QUrl());
@@ -434,8 +473,8 @@ void AudioManager::play()
             if (NetworkConnectionManager::instance().networkReachable()) {
                 qCDebug(kastsAudio) << "Refusing to play: streaming on metered connection not allowed";
                 QString entryTitle;
-                if (d->m_entry) {
-                    entryTitle = d->m_entry->title();
+                if (d->m_entry.entryuid > 0) {
+                    entryTitle = d->m_entry.title;
                 }
                 Q_EMIT logError(ErrorLogModel::Type::MeteredStreamingNotAllowed,
                                 i18nc("@info:status Error message notification", "Streaming on metered connection not allowed for episode: %1", entryTitle));
@@ -443,8 +482,8 @@ void AudioManager::play()
             } else {
                 qCDebug(kastsAudio) << "Refusing to play: no network connection";
                 QString entryTitle;
-                if (d->m_entry) {
-                    entryTitle = d->m_entry->title();
+                if (d->m_entry.entryuid > 0) {
+                    entryTitle = d->m_entry.title;
                 }
                 Q_EMIT logError(ErrorLogModel::Type::NoNetwork,
                                 i18nc("@info:status Error message notification", "No network connection while attempting to stream episode: %1", entryTitle));
@@ -462,8 +501,8 @@ void AudioManager::play()
         d->m_isSeekable = true;
         Q_EMIT seekableChanged(d->m_isSeekable);
 
-        if (d->m_entry && d->m_entry->getNew()) {
-            d->m_entry->setNew(false);
+        if (d->m_entry.entryuid > 0 && d->m_entry.isNew) {
+            DataManager::instance().bulkMarkNew(false, QList<qint64>({d->m_entry.entryuid}));
         }
     }
 }
@@ -532,25 +571,23 @@ void AudioManager::skipBackward()
 
 bool AudioManager::canGoNext() const
 {
-    if (d->m_entry) {
+    if (d->m_entry.entryuid > 0) {
         int index = QueueModel::instance().queue().indexOf(d->m_entryuid);
         if (index >= 0) {
             // check if there is a next track
             if (index < QueueModel::instance().queue().count() - 1) {
-                Entry *next_entry = new Entry(QueueModel::instance().queue()[index + 1]);
-                if (next_entry && next_entry->enclosure()) {
-                    qCDebug(kastsAudio) << "Enclosure status" << next_entry->enclosure()->path() << next_entry->enclosure()->status();
-                    if (next_entry->enclosure()->status() == DataTypes::Downloaded) {
-                        delete next_entry;
+                // TODO: use QueueModel::instance().data() here???
+                DataTypes::EntryFeedDetails next_entry = DataManager::instance().getEntry(QueueModel::instance().queue()[index + 1]);
+                if (next_entry.entryuid > 0 && next_entry.hasEnclosure) {
+                    qCDebug(kastsAudio) << "Enclosure status of next track" << next_entry.title << next_entry.enclosure.status;
+                    if (next_entry.enclosure.status == DataTypes::Downloaded) {
                         return true;
                     } else {
                         if (NetworkConnectionManager::instance().streamingAllowed()) {
-                            delete next_entry;
                             return true;
                         }
                     }
                 }
-                delete next_entry;
             }
         }
     }
@@ -591,7 +628,7 @@ void AudioManager::mediaStatusChanged()
             // i.e. streaming; we first want to resolve the real URL, following
             // redirects
             d->m_tryingRedirectedUrl = true;
-            QUrl loadUrl = QUrl(d->m_entry->enclosure()->url());
+            QUrl loadUrl = QUrl(d->m_entry.enclosure.url);
             Fetcher::instance().getRedirectedUrl(loadUrl);
             connect(&Fetcher::instance(), &Fetcher::foundRedirectedUrl, this, [this, loadUrl](const QUrl &oldUrl, const QUrl &newUrl) {
                 qCDebug(kastsAudio) << oldUrl << newUrl;
@@ -608,7 +645,7 @@ void AudioManager::mediaStatusChanged()
         } else { // not streaming or already tried the redirected url
             // delete the enclosure after the track has been unloaded
             Q_EMIT logError(ErrorLogModel::Type::InvalidMedia,
-                            i18nc("@info:status Error message notification", "Invalid Media for episode: %1", d->m_entry->title()));
+                            i18nc("@info:status Error message notification", "Invalid Media for episode: %1", d->m_entry.title));
             qint64 badEntryuid = d->m_entryuid;
             DataManager::instance().setLastPlayingEntry(0);
             stop();
@@ -623,11 +660,12 @@ void AudioManager::playerDurationChanged(const qint64 duration)
     qCDebug(kastsAudio) << "AudioManager::playerDurationChanged" << duration;
 
     // Check if duration mentioned in enclosure corresponds to real duration
-    if (d->m_entry && d->m_entry->enclosure()) {
-        if (duration > 0 && (duration / 1000) != d->m_entry->enclosure()->duration()) {
-            qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry->id() << "to" << duration / 1000 << "(was" << d->m_entry->enclosure()->duration()
-                                << ")";
+    if (d->m_entry.hasEnclosure) {
+        if (duration > 0 && (duration / 1000) != d->m_entry.enclosure.duration) {
+            qCDebug(kastsAudio) << "Correcting duration of" << d->m_entry.title << "to" << duration / 1000 << "(was" << d->m_entry.enclosure.duration << ")";
             DataManager::instance().bulkSetEnclosureDurations(QList<qint64>({duration / 1000}), QList<qint64>({d->m_entryuid}));
+            // also update duration on locally stored value
+            d->m_entry.enclosure.duration = duration / 1000;
         }
     }
 
@@ -669,12 +707,14 @@ void AudioManager::savePlayPositionToDB(const qint64 position, const qint64 entr
             d->m_lastSignificantPosition = position;
 
             // Also make sure to save the current play position to the database
+            // and the locally stored value in m_entry
             DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({entryuid}));
+            d->m_entry.enclosure.playPosition = position;
         }
     }
 }
 
-void AudioManager::setEntryInfo(Entry *entry)
+void AudioManager::setEntryInfo(DataTypes::EntryFeedDetails entry)
 {
     // Set info for next track in preparation for the actual audio player to be
     // set up and configured.  We set all the info based on what's in the entry
@@ -682,12 +722,11 @@ void AudioManager::setEntryInfo(Entry *entry)
 
     d->m_player.setSource(QUrl());
     d->m_entry = entry;
-    d->m_entryuid = entry->entryuid();
-    Q_EMIT entryChanged(entry);
+    d->m_entryuid = entry.entryuid;
     Q_EMIT entryuidChanged(d->m_entryuid);
 
-    qint64 newDuration = entry->enclosure()->duration() * 1000;
-    qint64 newPosition = entry->enclosure()->playPosition();
+    qint64 newDuration = entry.enclosure.duration * 1000;
+    qint64 newPosition = entry.enclosure.playPosition;
     if (newPosition > newDuration && newPosition < 0) {
         newPosition = 0;
     }
@@ -713,13 +752,13 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
 
     // save the current playing track in the settingsfile for restoring on startup
     DataManager::instance().setLastPlayingEntry(d->m_entryuid);
-    qCDebug(kastsAudio) << "Changed source to" << d->m_entry->title();
+    qCDebug(kastsAudio) << "Changed source to" << d->m_entry.title;
 
     d->m_player.pause();
 
     qint64 newDuration = duration();
 
-    qint64 startingPosition = d->m_entry->enclosure()->playPosition();
+    qint64 startingPosition = d->m_entry.enclosure.playPosition;
     qCDebug(kastsAudio) << "Changing position to" << startingPosition / 1000 << "sec";
     // if a seek is still pending then we don't set the position here
     // this can happen e.g. if a chapter marker was clicked on a non-playing entry
@@ -747,7 +786,7 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
     Q_EMIT seekableChanged(true);
 
     qCDebug(kastsAudio) << "Duration reported by d->m_player" << d->m_player.duration();
-    qCDebug(kastsAudio) << "Duration reported by enclosure (in ms)" << d->m_entry->enclosure()->duration() * 1000;
+    qCDebug(kastsAudio) << "Duration reported by enclosure (in ms)" << d->m_entry.enclosure.duration * 1000;
     qCDebug(kastsAudio) << "Duration reported by AudioManager" << newDuration;
     qCDebug(kastsAudio) << "Position reported by d->m_player" << d->m_player.position();
     qCDebug(kastsAudio) << "Saved position stored in enclosure (in ms)" << startingPosition;
@@ -805,18 +844,23 @@ void AudioManager::checkForPendingSeek()
 void AudioManager::updateMetaData()
 {
     // set metadata for MPRIS2
-    if (!d->m_entry->title().isEmpty()) {
-        d->m_player.metaData()->setTitle(d->m_entry->title());
+    if (!d->m_entry.title.isEmpty()) {
+        d->m_player.metaData()->setTitle(d->m_entry.title);
     }
-    // TODO: set URL??  d->m_entry->enclosure()->path();
-    if (!d->m_entry->feed()->name().isEmpty()) {
-        d->m_player.metaData()->setAlbum(d->m_entry->feed()->name());
+    // TODO: set URL?? StorageManager::enclosurePath(entry.title, entry.enclosure.url, entry.feed.dirname);
+    if (!d->m_entry.feed.name.isEmpty()) {
+        d->m_player.metaData()->setAlbum(d->m_entry.feed.name);
     }
-    if (d->m_entry->authors().length() > 0) {
-        d->m_player.metaData()->setArtist(d->m_entry->authors());
+    if (!d->m_entry.authors.isEmpty()) {
+        d->m_player.metaData()->setArtist(d->m_entry.authors);
     }
-    if (!d->m_entry->image().isEmpty()) {
-        d->m_player.metaData()->setArtworkUrl(QUrl(d->m_entry->image()));
+    if (!d->m_entry.image.isEmpty()) {
+        d->m_player.metaData()->setArtworkUrl(QUrl(EntryUtils::entryImage(d->m_entry.image,
+                                                                          d->m_entry.feed.image,
+                                                                          d->m_entry.enclosure.url,
+                                                                          d->m_entry.enclosure.status,
+                                                                          d->m_entry.title,
+                                                                          d->m_entry.feed.dirname)));
     }
 }
 

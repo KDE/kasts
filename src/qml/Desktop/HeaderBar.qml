@@ -28,9 +28,9 @@ FocusScope {
     property int authorCollapseHeight: Kirigami.Units.gridUnit * 4
     property int disappearHeight: Kirigami.Units.gridUnit * 1.0
 
-    property string image: AudioManager.entryuid > 0 ? (root.desktopPlayerControls.chapterModel.hasChapters && root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entry.image) : ""
-    property string blurredImage: AudioManager.entryuid > 0 ? AudioManager.entry.image : ""
-    property string title: AudioManager.entry ? AudioManager.entry.title : KI18n.i18n("No Episode Title")
+    property string image: AudioManager.entryuid > 0 ? (root.desktopPlayerControls.chapterModel.hasChapters && root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.desktopPlayerControls.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entryImage) : ""
+    property string blurredImage: AudioManager.entryuid > 0 ? AudioManager.entryImage : ""
+    property string title: AudioManager.entryuid > 0 ? AudioManager.entryTitle : KI18n.i18n("No Episode Title")
 
     property Item headerMetaData: _headerMetaData
     property DesktopPlayerControls desktopPlayerControls: _desktopPlayerControls
@@ -45,12 +45,15 @@ FocusScope {
             const mainWindow = root.Controls.ApplicationWindow.window as Main;
             mainWindow.pushPage("QueuePage");
             mainWindow.pageStack.get(0).lastEntry = AudioManager.entryuid;
+
+            // Find the index of the entry on the EpisodeListPage and scroll to it
             const model = mainWindow.pageStack.get(0).queueList.model;
             for (let i = 0; i < model.rowCount(); i++) {
                 const index = model.index(i, 0);
                 if (AudioManager.entryuid == model.data(index, AbstractEpisodeModel.EntryuidRole)) {
                     mainWindow.pageStack.get(0).queueList.currentIndex = i;
                     mainWindow.pageStack.get(0).queueList.selectionModel.setCurrentIndex(index, ItemSelectionModel.ClearAndSelect | ItemSelectionModel.Rows);
+                    mainWindow.pageStack.get(0).queueList.positionViewAtIndex(i, ListView.Center);
                 }
             }
             // now open the relevant EntryPage
@@ -131,8 +134,8 @@ FocusScope {
         property string image: root.image
         property string blurredImage: root.blurredImage
         property string title: root.title
-        property string feed: AudioManager.entry ? AudioManager.entry.feed.name : KI18n.i18n("No episode loaded")
-        property string authors: AudioManager.entry ? AudioManager.entry.feed.authors : ""
+        property string feed: AudioManager.entryuid > 0 ? AudioManager.entryFeedName : KI18n.i18n("No episode loaded")
+        property string authors: AudioManager.entryuid > 0 ? AudioManager.entryAuthors : ""
 
         implicitHeight: root.handlePosition
         implicitWidth: parent.width
@@ -208,7 +211,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
+                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entryFeeduid);
                         }
                     }
                 }
@@ -228,7 +231,7 @@ FocusScope {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entry.feeduid);
+                            (root.Controls.ApplicationWindow.window as Main).openPodcast(AudioManager.entryFeeduid);
                         }
                     }
                 }

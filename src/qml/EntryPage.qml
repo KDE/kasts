@@ -38,23 +38,6 @@ Kirigami.ScrollablePage {
 
     padding: 0  // needed to get the inline header to fill the page
 
-    onEnclosureStatusChanged: {
-        if (enclosureStatus === DataTypes.EnclosureStatus.Downloadable) {
-            // this entry has just been deleted on the downloadpage
-            const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
-            if (pageStack.depth > 1) {
-                if (pageStack.get(0).pageName === "downloadpage") {
-                    if (pageStack.get(0).lastEntry) {
-                        if (pageStack.get(0).lastEntry === root.entryuid) {
-                            // if this EntryPage was open, then close it
-                            pageStack.pop();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     ColumnLayout {
         spacing: 0
 
@@ -251,7 +234,7 @@ Kirigami.ScrollablePage {
 
             onLinkActivated: link => {
                 if (link.split("://")[0] === "timestamp") {
-                    if (AudioManager.entry && AudioManager.entry.enclosure && root.hasEnclosure && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloaded || SettingsManager.prioritizeStreaming)) {
+                    if (root.hasEnclosure && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloaded || SettingsManager.prioritizeStreaming)) {
                         if (AudioManager.entryuid !== root.entryuid) {
                             if (!root.queueStatus) {
                                 DataManager.bulkQueueStatus(true, [root.entryuid]);

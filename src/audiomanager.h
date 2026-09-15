@@ -17,7 +17,7 @@
 
 #include <qtmetamacros.h>
 
-#include "entry.h"
+#include "datatypes.h"
 #include "errorlogmodel.h"
 
 class AudioManagerPrivate;
@@ -32,7 +32,14 @@ class AudioManager : public QObject
     Q_PROPERTY(QList<KMediaSession::MediaBackends> availableBackends READ availableBackends CONSTANT)
 
     Q_PROPERTY(qint64 entryuid READ entryuid WRITE setEntryuid NOTIFY entryuidChanged)
-    Q_PROPERTY(Entry *entry READ entry NOTIFY entryChanged)
+    Q_PROPERTY(qint64 entryFeeduid READ entryFeeduid NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryTitle READ entryTitle NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryImage READ entryImage NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryContent READ entryContent NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryLink READ entryLink NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryAuthors READ entryAuthors NOTIFY entryDetailsChanged)
+    Q_PROPERTY(QString entryFeedName READ entryFeedName NOTIFY entryDetailsChanged)
+
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(qreal volume READ volume WRITE setVolume NOTIFY volumeChanged)
     Q_PROPERTY(KMediaSession::MediaStatus status READ status NOTIFY statusChanged)
@@ -70,7 +77,14 @@ public:
     [[nodiscard]] QList<KMediaSession::MediaBackends> availableBackends() const;
 
     [[nodiscard]] qint64 entryuid() const;
-    [[nodiscard]] Entry *entry() const;
+    [[nodiscard]] qint64 entryFeeduid() const;
+    [[nodiscard]] QString entryTitle() const;
+    [[nodiscard]] QString entryImage() const;
+    [[nodiscard]] QString entryContent() const;
+    [[nodiscard]] QString entryLink() const;
+    [[nodiscard]] QString entryAuthors() const;
+    [[nodiscard]] QString entryFeedName() const;
+
     [[nodiscard]] bool muted() const;
     [[nodiscard]] qreal volume() const;
     [[nodiscard]] QUrl source() const;
@@ -99,7 +113,8 @@ Q_SIGNALS:
     void currentBackendChanged(KMediaSession::MediaBackends backend);
 
     void entryuidChanged(const qint64 entryuid);
-    void entryChanged(Entry *entry);
+    void entryDetailsChanged(const qint64 entryuid);
+
     void mutedChanged(const bool muted);
     void volumeChanged();
     void sourceChanged();
@@ -154,7 +169,7 @@ private Q_SLOTS:
     void playerMutedChanged();
     void playerVolumeChanged();
     void savePlayPositionToDB(const qint64 position, const qint64 entryuid);
-    void setEntryInfo(Entry *entry);
+    void setEntryInfo(DataTypes::EntryFeedDetails entry);
     void prepareAudio(const QUrl &loadUrl);
     void checkForPendingSeek();
     void updateMetaData();

@@ -13,7 +13,6 @@
 #include "database.h"
 #include "datamanager.h"
 #include "feed.h"
-#include "feedlogging.h"
 #include "fetcher.h"
 #include "objectslogging.h"
 
