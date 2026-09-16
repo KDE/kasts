@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to start episode download", "Download")
-                        visible: root.hasEnclosure && (root.downloaded === DataTypes.EnclosureStatus.Downloadable || root.downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)
+                        visible: root.hasEnclosure && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloadable || root.enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         icon.name: "download"
                         onTriggered: {
                             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.entryuid = root.entryuid;
@@ -95,7 +95,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to cancel ongoing download of episode", "Cancel Download")
-                        visible: root.hasEnclosure && root.downloaded === DataTypes.EnclosureStatus.Downloading
+                        visible: root.hasEnclosure && root.enclosureStatus === DataTypes.EnclosureStatus.Downloading
                         icon.name: "edit-delete-remove"
                         onTriggered: {
                             Fetcher.cancelEnclosureDownload(root.entryuid);
@@ -111,7 +111,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to start playback of the episode", "Play")
-                        visible: root.hasEnclosure && root.downloaded === DataTypes.EnclosureStatus.Downloaded && root.queueStatus && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: root.hasEnclosure && root.enclosureStatus === DataTypes.EnclosureStatus.Downloaded && root.queueStatus && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-start"
                         onTriggered: {
                             AudioManager.entryuid = root.entryuid;
@@ -120,7 +120,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
-                        visible: root.hasEnclosure && root.downloaded !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+                        visible: root.hasEnclosure && root.enclosureStatus !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-cloud"
                         onTriggered: {
                             if (!root.queueStatus) {
@@ -149,7 +149,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to remove the downloaded episode audio file", "Delete Download")
                         icon.name: "delete"
-                        visible: root.hasEnclosure && (root.downloaded === DataTypes.EnclosureStatus.Downloaded || root.downloaded === DataTypes.EnclosureStatus.PartiallyDownloaded)
+                        visible: root.hasEnclosure && (root.enclosureStatus === DataTypes.EnclosureStatus.Downloaded || root.enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)
                         onTriggered: {
                             DataManager.bulkDeleteEnclosures([root.entryuid]);
                         }
@@ -157,7 +157,7 @@ Kirigami.ScrollablePage {
                     Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Button to reset the play position of an episode to the start", "Reset Play Position")
                         visible: root.hasEnclosure && root.playPosition > 1000
-                        onTriggered: root.hasEnclosure.playPosition = 0
+                        onTriggered: root.playPosition = 0
                         displayHint: Kirigami.DisplayHint.AlwaysHide
                     },
                     Kirigami.Action {

@@ -1064,11 +1064,12 @@ void Sync::retrieveAllLocalEpisodeStates()
     QList<SyncUtils::EpisodeAction> actions;
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.entryuid = Entries.entryuid;"));
+    query.prepare(QStringLiteral(
+        "SELECT * FROM Enclosures INNER JOIN Entries ON Enclosures.entryuid = Entries.entryuid INNER JOIN Feeds ON Feeds.feeduid = Entries.feeduid;"));
     Database::instance().execute(query);
     while (query.next()) {
-        qulonglong position_sec = query.value(QStringLiteral("playposition")).toInt() / 1000;
-        qulonglong duration = query.value(QStringLiteral("duration")).toInt();
+        qint64 position_sec = query.value(QStringLiteral("Entries.playposition")).toLongLong() / 1000;
+        qint64 duration = query.value(QStringLiteral("Enclosures.duration")).toLongLong();
         bool read = query.value(QStringLiteral("read")).toBool();
         if (read) {
             if (duration == 0)
@@ -1077,11 +1078,11 @@ void Sync::retrieveAllLocalEpisodeStates()
         }
         if (position_sec > 0 && duration > 0) {
             SyncUtils::EpisodeAction action;
-            action.entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
-            action.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
-            action.podcast = query.value(QStringLiteral("feed")).toString();
-            action.id = query.value(QStringLiteral("id")).toString();
-            action.url = query.value(QStringLiteral("url")).toString();
+            action.entryuid = query.value(QStringLiteral("Enclosures.entryuid")).toLongLong();
+            action.feeduid = query.value(QStringLiteral("Enclosures.feeduid")).toLongLong();
+            action.podcast = query.value(QStringLiteral("Feeds.url")).toString();
+            action.id = query.value(QStringLiteral("Entries.id")).toString();
+            action.url = query.value(QStringLiteral("Enclosures.url")).toString();
             action.started = position_sec;
             action.position = position_sec;
             action.total = duration;

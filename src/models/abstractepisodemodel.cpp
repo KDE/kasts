@@ -36,7 +36,7 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
     connect(&AudioManager::instance(), &AudioManager::positionChanged, this, [this](const qint64 position, const qint64 entryuid) {
         qsizetype idx = m_entryOrder.indexOf(entryuid);
         if (idx > -1 && m_entries[entryuid].hasEnclosure) {
-            m_entries[entryuid].enclosure.playPosition = position;
+            m_entries[entryuid].playPosition = position;
             Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::PlayPositionRole});
         }
     });
@@ -116,7 +116,7 @@ AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QStri
         for (int i = 0; i < entryuids.size(); i++) {
             qsizetype idx = m_entryOrder.indexOf(entryuids[i]);
             if (idx > -1 && m_entries[entryuids[i]].hasEnclosure) {
-                m_entries[entryuids[i]].enclosure.playPosition = positions[i];
+                m_entries[entryuids[i]].playPosition = positions[i];
                 Q_EMIT dataChanged(index(idx, 0), index(idx, 0), {AbstractEpisodeModel::Roles::PlayPositionRole});
             }
         }
@@ -234,7 +234,7 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
     case AbstractEpisodeModel::Roles::EnclosureUrlRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosure.url);
     case AbstractEpisodeModel::Roles::PlayPositionRole:
-        return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosure.playPosition);
+        return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].playPosition);
     case AbstractEpisodeModel::Roles::DurationRole:
         return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosure.duration);
     case AbstractEpisodeModel::Roles::SizeRole:
@@ -244,7 +244,7 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
     case AbstractEpisodeModel::Roles::EnclosureStatusOrderRole:
         return QVariant::fromValue(static_cast<int>(m_entries[m_entryOrder[index.row()]].enclosure.status));
     case AbstractEpisodeModel::Roles::DownloadSizeRole:
-        if (!m_entries[m_entryOrder[index.row()]].hasEnclosure) {
+        if (m_entries[m_entryOrder[index.row()]].hasEnclosure) {
             if (m_entries[m_entryOrder[index.row()]].enclosure.downloadSize < 0) {
                 return QVariant::fromValue(
                     EntryUtils::checkSizeOnDisk(m_entryOrder[index.row()],
@@ -308,6 +308,7 @@ void AbstractEpisodeModel::updateInternalState()
         entryDetails.read = query.value(QStringLiteral("read")).toBool();
         entryDetails.isNew = query.value(QStringLiteral("new")).toBool();
         entryDetails.favorite = query.value(QStringLiteral("favorite")).toBool();
+        entryDetails.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
         entryDetails.removed = query.value(QStringLiteral("removed")).toBool();
         entryDetails.link = query.value(QStringLiteral("link")).toString();
         entryDetails.hasEnclosure = false;
@@ -329,7 +330,6 @@ void AbstractEpisodeModel::updateInternalState()
             m_entries[entryuid].enclosure.size = query.value(QStringLiteral("size")).toLongLong();
             m_entries[entryuid].enclosure.downloadSize = -1;
             m_entries[entryuid].enclosure.url = query.value(QStringLiteral("url")).toString();
-            m_entries[entryuid].enclosure.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
             m_entries[entryuid].enclosure.status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
             m_entries[entryuid].hasEnclosure = true;
         }
@@ -357,6 +357,7 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
                 m_entries[entryuid].read = query.value(QStringLiteral("read")).toBool();
                 m_entries[entryuid].isNew = query.value(QStringLiteral("new")).toBool();
                 m_entries[entryuid].favorite = query.value(QStringLiteral("favorite")).toBool();
+                m_entries[entryuid].playPosition = query.value(QStringLiteral("playposition")).toLongLong();
                 m_entries[entryuid].removed = query.value(QStringLiteral("removed")).toBool();
                 m_entries[entryuid].link = query.value(QStringLiteral("link")).toString();
                 m_entries[entryuid].hasEnclosure = false;
@@ -379,7 +380,6 @@ void AbstractEpisodeModel::updateEntries(const QList<qint64> &entryuids)
                 m_entries[entryuid].enclosure.size = query.value(QStringLiteral("size")).toLongLong();
                 m_entries[entryuid].enclosure.downloadSize = -1;
                 m_entries[entryuid].enclosure.url = query.value(QStringLiteral("url")).toString();
-                m_entries[entryuid].enclosure.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
                 m_entries[entryuid].enclosure.status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
                 m_entries[entryuid].hasEnclosure = true;
             }

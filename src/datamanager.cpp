@@ -116,11 +116,12 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
         entry.id = query.value(QStringLiteral("id")).toString();
         entry.title = query.value(QStringLiteral("title")).toString();
         entry.content = query.value(QStringLiteral("content")).toString();
-        entry.created = query.value(QStringLiteral("created")).toInt();
-        entry.updated = query.value(QStringLiteral("updated")).toInt();
+        entry.created = query.value(QStringLiteral("created")).toLongLong();
+        entry.updated = query.value(QStringLiteral("updated")).toLongLong();
         entry.read = query.value(QStringLiteral("read")).toBool();
         entry.isNew = query.value(QStringLiteral("new")).toBool();
         entry.favorite = query.value(QStringLiteral("favorite")).toBool();
+        entry.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
         entry.removed = query.value(QStringLiteral("removed")).toBool();
         entry.link = query.value(QStringLiteral("link")).toString();
         entry.hasEnclosure = false;
@@ -139,7 +140,6 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
         entry.enclosure.size = query.value(QStringLiteral("size")).toLongLong();
         entry.enclosure.downloadSize = -1;
         entry.enclosure.url = query.value(QStringLiteral("url")).toString();
-        entry.enclosure.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
         entry.enclosure.status = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
         entry.hasEnclosure = true;
     }
@@ -173,6 +173,7 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
         entry.feed.dirname = query.value(QStringLiteral("dirname")).toString();
     }
 
+    authors.clear();
     query.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
     query.bindValue(QStringLiteral(":feeduid"), entry.feeduid);
     Database::instance().execute(query);
@@ -747,8 +748,7 @@ void DataManager::bulkSetPlayPositions(const QList<qint64> &playPositions, const
     QSqlQuery query;
     Database::instance().transaction();
     // TODO: switch to saving the position on the entry?
-    query.prepare(
-        QStringLiteral("UPDATE Enclosures SET playposition=:playposition WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
+    query.prepare(QStringLiteral("UPDATE Entries SET playposition=:playposition WHERE entryuid=:entryuid;"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":playposition"), playPositions[i]);
