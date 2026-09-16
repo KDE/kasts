@@ -93,7 +93,9 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo15());
     if (dbversion < 16)
         TRUE_OR_RETURN(migrateTo16());
-    if (dbversion > 16) {
+    if (dbversion < 17)
+        TRUE_OR_RETURN(migrateTo17());
+    if (dbversion > 17) {
         qCritical() << "Database version number" << dbversion
                     << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
                        "corruption of the database.";
@@ -752,6 +754,126 @@ bool Database::migrateTo16()
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Errorstemp RENAME TO Errors;")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 16;")));
+    TRUE_OR_RETURN(commit());
+
+    return true;
+}
+
+bool Database::migrateTo17()
+{
+    qDebug() << "Migrating database to version 17";
+
+    // First make a backup of the database just in case migration fails.
+    createBackup(QStringLiteral("v16"));
+
+    // drop hasEnclosure column on Entries
+    TRUE_OR_RETURN(transaction());
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA foreign_keys=OFF;")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Entriestemp ("
+                               "    entryuid INTEGER PRIMARY KEY,"
+                               "    feeduid INTEGER,"
+                               "    id TEXT,"
+                               "    title TEXT,"
+                               "    content TEXT,"
+                               "    created INTEGER,"
+                               "    updated INTEGER,"
+                               "    link TEXT,"
+                               "    read BOOL,"
+                               "    new BOOL,"
+                               "    image TEXT,"
+                               "    favorite BOOL DEFAULT 0,"
+                               "    playposition INTEGER,"
+                               "    removed BOOL DEFAULT 0,"
+                               "    FOREIGN KEY(feeduid) REFERENCES Feeds(feeduid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Entriestemp ("
+                               "    entryuid,"
+                               "    feeduid,"
+                               "    id,"
+                               "    title,"
+                               "    content,"
+                               "    created,"
+                               "    updated,"
+                               "    link,"
+                               "    read,"
+                               "    new,"
+                               "    image,"
+                               "    favorite,"
+                               "    playposition,"
+                               "    removed) "
+                               "SELECT "
+                               "    Entries.entryuid, "
+                               "    feeduid, "
+                               "    id, "
+                               "    title, "
+                               "    content, "
+                               "    created, "
+                               "    updated, "
+                               "    link, "
+                               "    read, "
+                               "    new, "
+                               "    image, "
+                               "    favorite, "
+                               "    multEnclosure.playmax, "
+                               "    removed "
+                               "FROM Entries "
+                               "    JOIN (SELECT Entries.entryuid, MAX(Enclosures.playposition) as playmax "
+                               "        FROM Entries JOIN Enclosures ON Enclosures.entryuid=Entries.entryuid "
+                               "            GROUP BY Enclosures.entryuid) multEnclosure "
+                               "    ON multEnclosure.entryuid = Entries.entryuid;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Entries;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entriestemp RENAME TO Entries;")));
+
+    // drop playposition column on Enclosures
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("CREATE TABLE IF NOT EXISTS Enclosurestemp ("
+                               "    enclosureuid INTEGER PRIMARY KEY,"
+                               "    entryuid INTEGER,"
+                               "    feeduid INTEGER,"
+                               "    url TEXT, "
+                               "    duration INTEGER,"
+                               "    size INTEGER,"
+                               "    type TEXT,"
+                               "    downloaded INTEGER,"
+                               "    FOREIGN KEY(entryuid) REFERENCES Entries(entryuid),"
+                               "    FOREIGN KEY(feeduid) REFERENCES Feeds(feeduid));")));
+
+    TRUE_OR_RETURN(
+        execute(QStringLiteral("INSERT INTO Enclosurestemp ("
+                               "    enclosureuid,"
+                               "    entryuid,"
+                               "    feeduid,"
+                               "    url,"
+                               "    duration,"
+                               "    size,"
+                               "    type,"
+                               "    downloaded) "
+                               "SELECT"
+                               "    enclosureuid,"
+                               "    entryuid,"
+                               "    feeduid,"
+                               "    url,"
+                               "    duration,"
+                               "    size,"
+                               "    type,"
+                               "    downloaded "
+                               "FROM Enclosures;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("DROP TABLE Enclosures;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosurestemp RENAME TO Enclosures;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA foreign_key_check;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA foreign_keys=ON;")));
+
+    // clean up EntryAuthors
+    TRUE_OR_RETURN(execute(QStringLiteral("DELETE FROM EntryAuthors WHERE (name IS NULL OR trim(name) = '') AND (email IS NULL OR trim(email) = '');")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 17;")));
     TRUE_OR_RETURN(commit());
 
     return true;

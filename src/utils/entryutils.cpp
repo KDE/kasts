@@ -69,6 +69,10 @@ QString EntryUtils::cachedEmbeddedImage(const QString &enclosureUrl,
         return QLatin1String("");
     }
 
+    if (!QFileInfo::exists(path)) {
+        return QLatin1String("");
+    }
+
     TagLib::MPEG::File f(path.toStdString().data());
     if (!f.isValid() || !f.hasID3v2Tag()) {
         return QLatin1String("");

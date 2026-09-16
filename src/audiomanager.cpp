@@ -108,6 +108,7 @@ AudioManager::AudioManager(QObject *parent)
 
     connect(&Fetcher::instance(), &Fetcher::entriesUpdated, this, [this](const QList<qint64> &entryuids) {
         if (entryuids.contains(d->m_entryuid)) {
+            d->m_entry = DataManager::instance().getEntry(d->m_entryuid);
             Q_EMIT entryDetailsChanged(d->m_entryuid);
         }
     });
@@ -260,7 +261,7 @@ qint64 AudioManager::position() const
     // we fake the player position in case there is still a pending seek
     if (!d->m_readyToPlay) {
         if (d->m_entry.hasEnclosure) {
-            return d->m_entry.enclosure.playPosition;
+            return d->m_entry.playPosition;
         } else {
             return 0;
         }
@@ -709,7 +710,7 @@ void AudioManager::savePlayPositionToDB(const qint64 position, const qint64 entr
             // Also make sure to save the current play position to the database
             // and the locally stored value in m_entry
             DataManager::instance().bulkSetPlayPositions(QList<qint64>({position}), QList<qint64>({entryuid}));
-            d->m_entry.enclosure.playPosition = position;
+            d->m_entry.playPosition = position;
         }
     }
 }
@@ -726,7 +727,7 @@ void AudioManager::setEntryInfo(DataTypes::EntryFeedDetails entry)
     Q_EMIT entryuidChanged(d->m_entryuid);
 
     qint64 newDuration = entry.enclosure.duration * 1000;
-    qint64 newPosition = entry.enclosure.playPosition;
+    qint64 newPosition = entry.playPosition;
     if (newPosition > newDuration && newPosition < 0) {
         newPosition = 0;
     }
@@ -758,7 +759,7 @@ void AudioManager::prepareAudio(const QUrl &loadUrl)
 
     qint64 newDuration = duration();
 
-    qint64 startingPosition = d->m_entry.enclosure.playPosition;
+    qint64 startingPosition = d->m_entry.playPosition;
     qCDebug(kastsAudio) << "Changing position to" << startingPosition / 1000 << "sec";
     // if a seek is still pending then we don't set the position here
     // this can happen e.g. if a chapter marker was clicked on a non-playing entry

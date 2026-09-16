@@ -97,8 +97,8 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByt
         updatedFeed.image = query.value(QStringLiteral("image")).toString();
         updatedFeed.link = query.value(QStringLiteral("link")).toString();
         updatedFeed.description = query.value(QStringLiteral("description")).toString();
-        updatedFeed.subscribed = query.value(QStringLiteral("subscribed")).toInt();
-        updatedFeed.lastUpdated = query.value(QStringLiteral("lastUpdated")).toInt();
+        updatedFeed.subscribed = query.value(QStringLiteral("subscribed")).toLongLong();
+        updatedFeed.lastUpdated = query.value(QStringLiteral("lastUpdated")).toLongLong();
         updatedFeed.isNew = query.value(QStringLiteral("new")).toBool();
         updatedFeed.dirname = query.value(QStringLiteral("dirname")).toString();
         updatedFeed.lastHash = query.value(QStringLiteral("lastHash")).toString();
@@ -210,13 +210,13 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         entryDetails.id = query.value(QStringLiteral("id")).toString();
         entryDetails.title = query.value(QStringLiteral("title")).toString();
         entryDetails.content = query.value(QStringLiteral("content")).toString();
-        entryDetails.created = query.value(QStringLiteral("created")).toInt();
-        entryDetails.updated = query.value(QStringLiteral("updated")).toInt();
+        entryDetails.created = query.value(QStringLiteral("created")).toLongLong();
+        entryDetails.updated = query.value(QStringLiteral("updated")).toLongLong();
         entryDetails.read = query.value(QStringLiteral("read")).toBool();
         entryDetails.isNew = query.value(QStringLiteral("new")).toBool();
         entryDetails.link = query.value(QStringLiteral("link")).toString();
+        entryDetails.playPosition = query.value(QStringLiteral("playposition")).toLongLong();
         entryDetails.removed = query.value(QStringLiteral("removed")).toBool();
-        entryDetails.hasEnclosure = query.value(QStringLiteral("hasEnclosure")).toBool();
         entryDetails.image = query.value(QStringLiteral("image")).toString();
         entryDetails.state = RecordState::Deleted; // will be set to appropriate value if the entry is found in the updated rss feed
 
@@ -227,7 +227,6 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         entryDetails.oldUpdated = entryDetails.updated;
         entryDetails.oldLink = entryDetails.link;
         entryDetails.oldRemoved = entryDetails.removed;
-        entryDetails.oldHasEnclosure = entryDetails.hasEnclosure;
         entryDetails.oldImage = entryDetails.image;
 
         updatedFeed.entries[entryDetails.id] = entryDetails;
@@ -241,11 +240,10 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         EnclosureUpdateDetails enclosureDetails;
         enclosureDetails.enclosureuid = query.value(QStringLiteral("enclosureuid")).toLongLong();
         QString id = query.value(QStringLiteral("id")).toString();
-        enclosureDetails.duration = query.value(QStringLiteral("duration")).toInt();
-        enclosureDetails.size = query.value(QStringLiteral("size")).toInt();
+        enclosureDetails.duration = query.value(QStringLiteral("duration")).toLongLong();
+        enclosureDetails.size = query.value(QStringLiteral("size")).toLongLong();
         enclosureDetails.type = query.value(QStringLiteral("type")).toString();
         enclosureDetails.url = query.value(QStringLiteral("url")).toString();
-        enclosureDetails.playPosition = query.value(QStringLiteral("playposition")).toInt();
         enclosureDetails.downloaded = DataTypes::dbToStatus(query.value(QStringLiteral("downloaded")).toInt());
         enclosureDetails.state = RecordState::Deleted; // will be set to appropriate value if the enclosure is found in the updated rss feed
 
@@ -257,6 +255,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
 
         if (updatedFeed.entries.contains(id)) {
             updatedFeed.entries[id].enclosures[enclosureDetails.url] = enclosureDetails;
+            updatedFeed.entries[id].hasEnclosure = true;
         }
     }
     query.finish();
@@ -286,7 +285,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     while (query.next()) {
         ChapterUpdateDetails chapterDetails;
         QString id = query.value(QStringLiteral("id")).toString();
-        chapterDetails.start = query.value(QStringLiteral("start")).toInt();
+        chapterDetails.start = query.value(QStringLiteral("start")).toLongLong();
         chapterDetails.title = query.value(QStringLiteral("title")).toString();
         chapterDetails.link = query.value(QStringLiteral("link")).toString();
         chapterDetails.image = query.value(QStringLiteral("image")).toString();
@@ -554,6 +553,7 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
         entryDetails.isNew = isNew;
         entryDetails.hasEnclosure = hasEnclosure;
         entryDetails.image = image;
+        entryDetails.playPosition = 0;
         entryDetails.state = RecordState::New;
         updatedFeed.entries[id] = entryDetails;
         qCDebug(kastsUpdater) << "this is a new episode:" << id;
@@ -659,7 +659,6 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
             enclosureDetails.size = size;
             enclosureDetails.type = type;
             enclosureDetails.url = url;
-            enclosureDetails.playPosition = 0;
             enclosureDetails.downloaded = DataTypes::Downloadable;
             enclosureDetails.state = RecordState::New;
             updatedFeed.entries[id].enclosures[url] = enclosureDetails;
@@ -690,10 +689,10 @@ bool UpdateFeedJob::processChapters(const QString &id,
                 while (startParts.count() > 3) {
                     startParts.removeLast();
                 }
-                int startInt = 0;
+                qint64 startInt = 0;
                 for (const QString &part : std::as_const(startParts)) {
                     // strip off decimal point if it's present
-                    startInt = part.split(QStringLiteral("."))[0].toInt() + startInt * 60;
+                    startInt = part.split(QStringLiteral("."))[0].toLongLong() + startInt * 60;
                 }
                 qCDebug(kastsUpdater) << "Found chapter mark:" << start << "; in seconds:" << startInt;
                 QString image = element.attribute(QStringLiteral("image"));
@@ -796,8 +795,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 
     // new entries
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, hasEnclosure, image, favorite, removed) VALUES "
-                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :hasEnclosure, :image, :favorite, :removed);"));
+        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, image, favorite, playposition, removed) VALUES "
+                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :image, :favorite, :playposition, :removed);"));
     for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
@@ -807,11 +806,11 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
             writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
             writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
             writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
-            writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
             writeQuery.bindValue(QStringLiteral(":read"), entryDetails.read);
             writeQuery.bindValue(QStringLiteral(":new"), entryDetails.isNew);
             writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
             writeQuery.bindValue(QStringLiteral(":favorite"), false);
+            writeQuery.bindValue(QStringLiteral(":playposition"), entryDetails.playPosition);
             writeQuery.bindValue(QStringLiteral(":removed"), false);
             if (dbExecute(writeQuery)) {
                 QVariant lastId = writeQuery.lastInsertId();
@@ -828,7 +827,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 
     // update entries
     writeQuery.prepare(
-        QStringLiteral("UPDATE Entries SET id=:id, title=:title, content=:content, created=:created, updated=:updated, link=:link, hasEnclosure=:hasEnclosure, "
+        QStringLiteral("UPDATE Entries SET id=:id, title=:title, content=:content, created=:created, updated=:updated, link=:link, "
                        "image=:image WHERE entryuid=:entryuid;"));
     for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::Modified) {
@@ -840,7 +839,6 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
             writeQuery.bindValue(QStringLiteral(":created"), entryDetails.created);
             writeQuery.bindValue(QStringLiteral(":updated"), entryDetails.updated);
             writeQuery.bindValue(QStringLiteral(":link"), entryDetails.link);
-            writeQuery.bindValue(QStringLiteral(":hasEnclosure"), entryDetails.hasEnclosure);
             writeQuery.bindValue(QStringLiteral(":image"), entryDetails.image);
             dbExecute(writeQuery);
         }
@@ -916,8 +914,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 
     // new enclosures
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, playposition, downloaded) VALUES (:entryuid, :feeduid, "
-                       ":url, :duration, :size, :type, :playposition, :downloaded);"));
+        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, downloaded) VALUES (:entryuid, :feeduid, "
+                       ":url, :duration, :size, :type, :downloaded);"));
     for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
@@ -931,7 +929,6 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
                     writeQuery.bindValue(QStringLiteral(":size"), enclosureDetails.size);
                     writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
                     writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
-                    writeQuery.bindValue(QStringLiteral(":playposition"), enclosureDetails.playPosition);
                     writeQuery.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(enclosureDetails.downloaded));
                     dbExecute(writeQuery);
                 }

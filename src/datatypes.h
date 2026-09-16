@@ -51,7 +51,6 @@ struct EnclosureDetails {
     qint64 downloadSize;
     QString type;
     QString url;
-    qint64 playPosition;
     DataTypes::EnclosureStatus status = DataTypes::EnclosureStatus::NoEnclosure;
 };
 
@@ -68,6 +67,7 @@ struct EntryDetails {
     bool read;
     bool isNew;
     bool favorite;
+    qint64 playPosition;
     bool removed;
     bool hasEnclosure = false;
     QString image;
@@ -114,7 +114,6 @@ struct EnclosureUpdateDetails {
     qint64 downloadSize;
     QString type;
     QString url;
-    qint64 playPosition;
     DataTypes::EnclosureStatus downloaded;
     RecordState state;
 
@@ -150,6 +149,7 @@ struct EntryUpdateDetails {
     bool read;
     bool isNew;
     bool favorite;
+    qint64 playPosition;
     bool removed;
     bool hasEnclosure;
     QString image;

@@ -41,11 +41,12 @@ qint64 QueueModel::timeLeft() const
 
     QSqlQuery query;
     query.prepare(
-        QStringLiteral("SELECT SUM(Enclosures.duration), SUM(Enclosures.playPosition) FROM Queue JOIN Enclosures ON Enclosures.entryuid = Queue.entryuid"));
+        QStringLiteral("SELECT SUM(Enclosures.duration), SUM(Entries.playPosition) FROM Queue JOIN Enclosures ON Enclosures.entryuid = Queue.entryuid JOIN "
+                       "Entries ON Entries.entryuid = Queue.entryuid"));
     Database::instance().execute(query);
     if (query.next()) {
         qint64 total_duration = 1000 * query.value(QStringLiteral("SUM(Enclosures.duration)")).toLongLong();
-        qint64 total_playedtime = query.value(QStringLiteral("SUM(Enclosures.playPosition)")).toLongLong();
+        qint64 total_playedtime = query.value(QStringLiteral("SUM(Entries.playPosition)")).toLongLong();
         unscaledTimeLeft = total_duration - total_playedtime;
         qCDebug(kastsQueueModel) << "timeLeft is" << unscaledTimeLeft;
     }
