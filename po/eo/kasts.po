@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:45+0000\n"
+"POT-Creation-Date: 2026-09-17 00:43+0000\n"
 "PO-Revision-Date: 2025-02-14 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -47,6 +47,15 @@ msgstr ""
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Nevalida komunikila dosiero"
+
+#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#, fuzzy, kde-format
+#| msgid "Error: %1"
+msgctxt ""
+"Database error message combining the error description (%1) and the DB query "
+"string (%2)"
+msgid "%1: %2"
+msgstr "Eraro: %1"
 
 #: entry.cpp:130 feed.cpp:114
 #, kde-format

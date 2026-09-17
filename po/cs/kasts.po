@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:45+0000\n"
+"POT-Creation-Date: 2026-09-17 00:43+0000\n"
 "PO-Revision-Date: 2026-08-26 11:09+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -45,6 +45,19 @@ msgstr "Žádné síťové připojení při pokusu o přehrání epizody: %1"
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Neplatný mediální soubor pro epizodu: %1"
+
+#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:status Error message notification. First argument is an already "
+#| "translated error description; the second argument is the raw error string "
+#| "from the underlying task."
+#| msgid "%1; error: %2"
+msgctxt ""
+"Database error message combining the error description (%1) and the DB query "
+"string (%2)"
+msgid "%1: %2"
+msgstr "%1; chyba: %2"
 
 #: entry.cpp:130 feed.cpp:114
 #, kde-format

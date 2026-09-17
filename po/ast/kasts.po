@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:45+0000\n"
+"POT-Creation-Date: 2026-09-17 00:43+0000\n"
 "PO-Revision-Date: 2023-11-06 00:55+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -43,6 +43,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
+msgstr ""
+
+#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#, kde-format
+msgctxt ""
+"Database error message combining the error description (%1) and the DB query "
+"string (%2)"
+msgid "%1: %2"
 msgstr ""
 
 #: entry.cpp:130 feed.cpp:114

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:45+0000\n"
+"POT-Creation-Date: 2026-09-17 00:43+0000\n"
 "PO-Revision-Date: 2026-08-31 18:48+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -41,6 +41,19 @@ msgstr "Ingen nätverksanslutning vid försök att strömma avsnitt: %1"
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
 msgstr "Ogiltig media för avsnitt: %1"
+
+#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:status Error message notification. First argument is an already "
+#| "translated error description; the second argument is the raw error string "
+#| "from the underlying task."
+#| msgid "%1; error: %2"
+msgctxt ""
+"Database error message combining the error description (%1) and the DB query "
+"string (%2)"
+msgid "%1: %2"
+msgstr "%1, fel: %2"
 
 #: entry.cpp:130 feed.cpp:114
 #, kde-format
