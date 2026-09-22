@@ -1,21 +1,21 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021-2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-06-06 12:12+0200\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"PO-Revision-Date: 2026-09-21 22:49+0200\n"
+"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
+"Language-Team: Korean\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,33 +28,30 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: audiomanager.cpp:480
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "종량제 연결에서 스트리밍이 허용되지 않음"
+msgstr "종량제 연결에서 에피소드에 대한 스트리밍이 허용되지 않음: %1"
 
 #: audiomanager.cpp:489
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "에피소드를 스트림하려고 시도했지만 네트워크에 연결되지 않았음: %1"
 
 #: audiomanager.cpp:648
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "잘못된 미디어 파일"
+msgstr "잘못된 에피소드 미디어 파일: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "오류: %1"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
@@ -69,24 +66,22 @@ msgid "%1, and %2"
 msgstr "%1 그리고 %2"
 
 #: fetcher.cpp:141
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "종량제 연결에서 팟캐스트 다운로드가 허용되지 않음"
+msgstr "종량제 연결에서 %1 에피소드 다운로드가 허용되지 않음"
 
 #: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "%1 에피소드를 다운로드하려고 시도했지만 네트워크에 연결되지 않았음"
 
 #: fetcher.cpp:202
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "%1 다운로드 중"
+msgstr "미디어 다운로드 오류: %1"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -255,18 +250,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "책갈피에 등록되지 않은 에피소드"
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "다운로드한 에피소드 없음"
+msgstr "다운로드한 에피소드"
 
 #: models/abstractepisodeproxymodel.cpp:194
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "다운로드한 에피소드 없음"
+msgstr "다운로드하지 않은 에피소드"
 
 #: models/abstractepisodeproxymodel.cpp:204
 #, kde-format
@@ -923,12 +916,10 @@ msgid "Export Podcasts…"
 msgstr "팟캐스트 내보내기…"
 
 #: qml/FeedListPage.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "구독"
+msgstr "구독 검색…"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -996,6 +987,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"이 에피소드는 팟캐스트 제작자에 의해서 팟캐스트 RSS 피드에서 삭제되었습니다. "
+"해당 에피소드의 다운로드나 스트리밍이 올바르지 않게 동작할 수도 있습니다."
 
 #: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
@@ -1055,20 +1048,16 @@ msgid "Queued"
 msgstr "대기열에 추가됨"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "다운로드됨"
+msgstr "다운로드되지 않음"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "책갈피에 등록되지 않은 에피소드"
+msgstr "미디어 파일이 없는 에피소드"
 
 #: qml/GenericEntryListView.qml:212
 #, kde-format
@@ -2242,70 +2231,61 @@ msgid "Kasts on %1"
 msgstr "%1의 Kasts"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "GPodder-nextcloud 서버에 연결할 수 없음"
+msgstr "GPodder-nextcloud 서버에 로그인할 수 없음. 오류: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "GPodder 서버에 연결할 수 없음"
+msgstr "GPodder 서버에 로그인할 수 없음. 오류: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
+msgstr "I/O 거부됨: 암호를 %1 파일에 저장할 수 없음"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "I/O 거부됨: 암호 파일에 접근할 수 없습니다."
+msgstr "I/O 거부됨: 암호 파일 %1에 접근할 수 없음"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "GPodder 장치를 만들 수 없음"
+msgstr "GPodder 장치를 만들 수 없음. 오류: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "동기화된 장치 상태를 가져올 수 없음"
+msgstr "동기화된 장치 상태를 가져올 수 없음. 오류: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "%1 장치의 구독을 가져올 수 없음"
+msgstr "%1 장치의 구독을 가져올 수 없음. 오류: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "%1 장치의 구독을 업로드할 수 없음"
+msgstr "%1 장치의 구독을 업로드할 수 없음. 오류: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "오류: %1"
+msgstr "%1. 오류: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2399,11 +2379,10 @@ msgid "Downloading %1"
 msgstr "%1 다운로드 중"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "저장소 경로 이동 중 오류 발생"
+msgstr "저장소 경로를 %1에서 %2(으)로 이동할 수 없음. 오류: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2470,7 +2449,7 @@ msgstr "끝내기"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "%1 팟캐스트를 가져오는 중 오류 발생. 오류: %2"
 
 #~ msgctxt "@title of page with list of downloaded episodes"
 #~ msgid "Downloads"

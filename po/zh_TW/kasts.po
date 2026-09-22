@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-05-21 22:32+0900\n"
+"PO-Revision-Date: 2026-09-22 01:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,33 +31,30 @@ msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
 #: audiomanager.cpp:480
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "未允許透過計量連線進行串流"
+msgstr "未允許透過計量連線串流集數：%1"
 
 #: audiomanager.cpp:489
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "嘗試串流集數時沒有網路連線：%1"
 
 #: audiomanager.cpp:648
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "無效媒體檔案"
+msgstr "集數媒體無效：%1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "錯誤：%1"
+msgstr "%1：%2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
@@ -72,24 +69,22 @@ msgid "%1, and %2"
 msgstr "%1，和 %2"
 
 #: fetcher.cpp:141
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "未允許透過計量連線下載 Podcast"
+msgstr "未允許透過計量連線下載第 %1 集"
 
 #: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "嘗試下載集數時沒有網路連線：%1"
 
 #: fetcher.cpp:202
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "正在下載 %1"
+msgstr "下載媒體時發生錯誤：%1"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -258,20 +253,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "未標記為最愛的集數"
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "未播放的集數"
+msgstr "已下載的集數"
 
 #: models/abstractepisodeproxymodel.cpp:194
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "自動下載新集數"
+msgstr "未下載的集數"
 
 #: models/abstractepisodeproxymodel.cpp:204
 #, kde-format
@@ -926,12 +917,10 @@ msgid "Export Podcasts…"
 msgstr "匯出 Podcast…"
 
 #: qml/FeedListPage.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "訂閱"
+msgstr "搜尋訂閱…"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -999,6 +988,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"這一集已被 Podcast 作者從 Podcast 的 RSS 訂閱來源移除。可能會無法下載或串流這"
+"一集。"
 
 #: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
@@ -1058,20 +1049,16 @@ msgid "Queued"
 msgstr "已佇列"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "已下載"
+msgstr "未下載"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "未標記為最愛的集數"
+msgstr "沒有媒體檔案的集數"
 
 #: qml/GenericEntryListView.qml:212
 #, kde-format
@@ -2242,70 +2229,61 @@ msgid "Kasts on %1"
 msgstr "%1 上的 Kasts"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "無法登入 GPodder-nextcloud 伺服器"
+msgstr "無法登入 GPodder-nextcloud 伺服器；錯誤：%1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "無法登入 GPodder 伺服器"
+msgstr "無法登入 GPodder 伺服器；錯誤：%1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "I/O 被拒絕：無法存取密碼檔案。"
+msgstr "I/O 被拒絕：無法儲存密碼到檔案 %1"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "I/O 被拒絕：無法存取密碼檔案。"
+msgstr "I/O 被拒絕：無法存取密碼檔案 %1"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "無法建立 GPodder 裝置"
+msgstr "無法建立 GPodder 裝置；錯誤：%1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "無法取得已同步裝置狀態"
+msgstr "無法取得已同步裝置狀態；錯誤：%1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "無法從裝置 %1 取得訂閱"
+msgstr "無法從裝置 %1 取得訂閱；錯誤：%2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "無法為 %1 上傳訂閱"
+msgstr "無法為裝置 %1 上傳訂閱；錯誤：%2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "錯誤：%1"
+msgstr "%1；錯誤：%2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2399,11 +2377,10 @@ msgid "Downloading %1"
 msgstr "正在下載 %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "移動儲存路徑時發生錯誤"
+msgstr "將儲存路徑從 %1 移動到 %2 時發生錯誤；錯誤：%3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2470,7 +2447,7 @@ msgstr "離開"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "取得 Podcast 發生錯誤：%1；錯誤：%2"
 
 #~ msgctxt "@title of page with list of downloaded episodes"
 #~ msgid "Downloads"
