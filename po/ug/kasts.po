@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-05-30 16:51-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -47,13 +47,12 @@ msgid "Invalid Media for episode: %1"
 msgstr ""
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
@@ -80,11 +79,10 @@ msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
 #: fetcher.cpp:202
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "%1 نى چۈشۈرۈۋاتىدۇ"
+msgstr ""
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -94,7 +92,7 @@ msgstr ""
 #: kmediasession/example-app/qml/Main.qml:74
 #, kde-format
 msgid "Select File…"
-msgstr ""
+msgstr "ھۆججەت تاللا…"
 
 #: kmediasession/example-app/qml/Main.qml:80
 #, kde-format
@@ -188,7 +186,7 @@ msgstr ""
 #: main.cpp:157 qml/Main.qml:24
 #, kde-format
 msgid "Kasts"
-msgstr "Kasts"
+msgstr ""
 
 #: main.cpp:159
 #, kde-format
@@ -203,7 +201,7 @@ msgstr ""
 #: main.cpp:162
 #, kde-format
 msgid "Tobias Fella"
-msgstr "Tobias Fella"
+msgstr ""
 
 #: main.cpp:163
 #, kde-format
@@ -253,12 +251,10 @@ msgid "Episodes not marked as Favorite"
 msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "چۈشۈرۈلدى"
+msgstr ""
 
 #: models/abstractepisodeproxymodel.cpp:194
 #, kde-format
@@ -555,7 +551,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
-msgstr "Discover"
+msgstr ""
 
 #: qml/DiscoverPage.qml:43
 #, kde-format
@@ -1049,12 +1045,10 @@ msgid "Queued"
 msgstr "ئۆچىرەت"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "چۈشۈرۈلدى"
+msgstr ""
 
 #: qml/GenericEntryListView.qml:48
 #, kde-format
@@ -1379,7 +1373,7 @@ msgstr "ئاق"
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
-msgstr ""
+msgstr "قاراڭغۇ"
 
 #: qml/Settings/AppearanceSettingsPage.qml:167
 #, kde-format
@@ -1652,7 +1646,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr ""
+msgstr "سىستېما كۆڭۈلدىكى"
 
 #: qml/Settings/NetworkSettingsPage.qml:138
 #, kde-format
@@ -1664,7 +1658,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
-msgstr "HTTP"
+msgstr ""
 
 #: qml/Settings/NetworkSettingsPage.qml:156
 #, kde-format
@@ -2205,7 +2199,7 @@ msgstr "توختات"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: sync/sync.cpp:175
 #, kde-format
@@ -2269,14 +2263,13 @@ msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr ""
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "خاتالىق: %1"
+msgstr ""
 
 #: sync/syncjob.cpp:65
 #, kde-format
