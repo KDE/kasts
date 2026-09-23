@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-08-26 09:11+0200\n"
+"PO-Revision-Date: 2026-09-17 12:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,17 +53,12 @@ msgid "Invalid Media for episode: %1"
 msgstr "Fitxer multimèdia no vàlid de l'episodi: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Error message notification. First argument is an already "
-#| "translated error description; the second argument is the raw error string "
-#| "from the underlying task."
-#| msgid "%1; error: %2"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "%1; error: %2"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
@@ -1702,7 +1697,7 @@ msgstr "Socks5"
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Servidor"
+msgstr "Amfitrió"
 
 #: qml/Settings/NetworkSettingsPage.qml:182
 #, kde-format
@@ -2074,7 +2069,7 @@ msgstr "Utilitza un servidor personalitzat"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
-msgstr "Nom del servidor:"
+msgstr "Nom de l'amfitrió:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
 #, kde-format
