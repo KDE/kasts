@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-09-09 18:22+0400\n"
+"PO-Revision-Date: 2026-09-23 17:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -47,17 +47,12 @@ msgid "Invalid Media for episode: %1"
 msgstr "وسائط غير صالحة للحلقة: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Error message notification. First argument is an already "
-#| "translated error description; the second argument is the raw error string "
-#| "from the underlying task."
-#| msgid "%1; error: %2"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "%1؛ خطأ: %2"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format

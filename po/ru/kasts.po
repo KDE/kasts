@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-03-16 15:58+0300\n"
+"PO-Revision-Date: 2026-09-23 09:04+0200\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -30,33 +30,30 @@ msgid "Your emails"
 msgstr "translation-team@basealt.ru"
 
 #: audiomanager.cpp:480
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Потоковая передача запрещена при лимитном подключении"
+msgstr "Потоковая передача выпуска запрещена при лимитном подключении: %1"
 
 #: audiomanager.cpp:489
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "Нет подключения к сети при попытке потоковой передачи выпуска: %1"
 
 #: audiomanager.cpp:648
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Некорректный файл мультимедиа"
+msgstr "Некорректный файл мультимедиа для выпуска: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "Ошибка: %1"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
@@ -71,24 +68,22 @@ msgid "%1, and %2"
 msgstr "%1 и %2"
 
 #: fetcher.cpp:141
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Загрузка подкастов запрещена при лимитном подключении"
+msgstr "Загрузка выпуска %1 запрещена при лимитном подключении"
 
 #: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "Не удалось загрузить выпуск %1: нет подключения к сети"
 
 #: fetcher.cpp:202
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Загрузка %1"
+msgstr "Ошибка загрузки мультимедийных данных: %1"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -257,20 +252,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "Выпуски, не добавленные в избранное"
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "Невоспроизведённые выпуски"
+msgstr "Загруженные выпуски"
 
 #: models/abstractepisodeproxymodel.cpp:194
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "Автоматически загружать новые выпуски"
+msgstr "Незагруженные выпуски"
 
 #: models/abstractepisodeproxymodel.cpp:204
 #, kde-format
@@ -936,12 +927,10 @@ msgid "Export Podcasts…"
 msgstr "Экспорт подкастов…"
 
 #: qml/FeedListPage.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Подписки"
+msgstr "Поиск подписок…"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -1009,6 +998,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Этот выпуск удалён из RSS-канала подкаста автором. Загрузка и потоковая "
+"передача этого выпуска могут не работать."
 
 #: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
@@ -1068,20 +1059,16 @@ msgid "Queued"
 msgstr "В очереди"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "Загружено"
+msgstr "Не загружено"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "Выпуски, не добавленные в избранное"
+msgstr "Выпуски без файлов мультимедиа"
 
 #: qml/GenericEntryListView.qml:212
 #, kde-format
@@ -2286,70 +2273,62 @@ msgid "Kasts on %1"
 msgstr "Kasts на %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "Не удалось войти на сервер GPodder-nextcloud"
+msgstr "Не удалось войти на сервер GPodder-nextcloud; ошибка: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "Не удалось войти на сервер GPodder"
+msgstr "Не удалось войти на сервер GPodder; ошибка: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "Запрещён ввод/вывод: не удалось получить доступ к файлу пароля."
+msgstr "Запрещён ввод/вывод: не удалось сохранить пароль в файл «%1»"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "Запрещён ввод/вывод: не удалось получить доступ к файлу пароля."
+msgstr "Запрещён ввод/вывод: не удалось получить доступ к файлу пароля «%1»"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "Не удалось создать устройство GPodder"
+msgstr "Не удалось создать устройство GPodder; ошибка: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Не удалось получить состояние синхронизированного устройства"
+msgstr ""
+"Не удалось получить состояние синхронизированного устройства; ошибка: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Не удалось получить подписки для устройства %1"
+msgstr "Не удалось получить подписки для устройства %1; ошибка: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Не удалось отправить подписки для устройства %1"
+msgstr "Не удалось отправить подписки для устройства %1; ошибка: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Ошибка: %1"
+msgstr "%1; ошибка: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2446,11 +2425,10 @@ msgid "Downloading %1"
 msgstr "Загрузка %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Ошибка при изменении пути сохранения данных"
+msgstr "Ошибка при изменении пути сохранения данных с %1 на %2; ошибка: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2517,7 +2495,7 @@ msgstr "Выйти"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Ошибка получения подкаста %1; ошибка: %2"
 
 #~ msgctxt "@title of page with list of downloaded episodes"
 #~ msgid "Downloads"
