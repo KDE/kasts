@@ -23,10 +23,18 @@ class FeedsModel : public QAbstractListModel
 
 public:
     enum Roles {
+        NameRole = Qt::DisplayRole,
         FeeduidRole = Qt::UserRole,
-        FeedRole,
         UrlRole,
-        TitleRole,
+        ImageRole,
+        LinkRole,
+        DescriptionRole,
+        AuthorsRole,
+        RefreshingRole,
+        IsSubscribedRole,
+        SubscribedRole,
+        LastUpdatedRole,
+        EntryCountRole,
         UnreadCountRole,
         NewCountRole,
         FavoriteCountRole,
@@ -34,14 +42,19 @@ public:
     Q_ENUM(Roles)
 
     explicit FeedsModel(QObject *parent = nullptr);
+    ~FeedsModel();
+
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent) const override;
 
 private:
-    void triggerFeedUpdate(const qint64 feeduid);
-
     void updateFeed(const qint64 feeduid);
+    void updateEntryCount(const qint64 feeduid);
+    void updateNewCount(const qint64 feeduid);
+    void updateUnreadCount(const qint64 feeduid);
+    void updateFavoriteCount(const qint64 feeduid);
 
-    QList<DataTypes::FeedUpdateDetails> m_feeds;
+    QList<qint64> m_feedOrder;
+    QHash<qint64, DataTypes::FeedDetails> m_feeds;
 };

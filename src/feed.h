@@ -19,62 +19,41 @@ class Feed : public QObject
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    Q_PROPERTY(qint64 feeduid READ feeduid CONSTANT)
-    Q_PROPERTY(QString url READ url CONSTANT)
-    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
-    Q_PROPERTY(QString image READ image NOTIFY imageChanged)
-    Q_PROPERTY(QString link READ link NOTIFY linkChanged)
-    Q_PROPERTY(QString description READ description NOTIFY descriptionChanged)
-    Q_PROPERTY(QString authors READ authors NOTIFY authorsChanged)
-    Q_PROPERTY(bool refreshing READ refreshing WRITE setRefreshing NOTIFY refreshingChanged)
-    Q_PROPERTY(QDateTime subscribed READ subscribed CONSTANT)
-    Q_PROPERTY(QDateTime lastUpdated READ lastUpdated WRITE setLastUpdated NOTIFY lastUpdatedChanged)
-    Q_PROPERTY(int entryCount READ entryCount NOTIFY entryCountChanged)
-    Q_PROPERTY(int unreadEntryCount READ unreadEntryCount NOTIFY unreadEntryCountChanged)
-    Q_PROPERTY(int newEntryCount READ newEntryCount NOTIFY newEntryCountChanged)
-    Q_PROPERTY(int favoriteEntryCount READ favoriteEntryCount NOTIFY favoriteEntryCountChanged)
-    Q_PROPERTY(int errorId READ errorId WRITE setErrorId NOTIFY errorIdChanged)
-    Q_PROPERTY(QString errorString READ errorString WRITE setErrorString NOTIFY errorStringChanged)
+    Q_PROPERTY(qint64 feeduid MEMBER m_feeduid CONSTANT)
+    Q_PROPERTY(QString url MEMBER m_url NOTIFY urlChanged)
+    Q_PROPERTY(QString name MEMBER m_name NOTIFY nameChanged)
+    Q_PROPERTY(QString image MEMBER m_image NOTIFY imageChanged)
+    Q_PROPERTY(QString link MEMBER m_link NOTIFY linkChanged)
+    Q_PROPERTY(QString description MEMBER m_description NOTIFY descriptionChanged)
+    Q_PROPERTY(QString authors MEMBER m_authors NOTIFY authorsChanged)
+    Q_PROPERTY(QDateTime subscribed MEMBER m_subscribed CONSTANT)
+    Q_PROPERTY(QDateTime lastUpdated MEMBER m_lastUpdated NOTIFY lastUpdatedChanged)
+    Q_PROPERTY(bool refreshing MEMBER m_refreshing NOTIFY refreshingChanged)
+    Q_PROPERTY(bool isSubscribed MEMBER m_isSubscribed CONSTANT)
+    Q_PROPERTY(qint64 entryCount READ entryCount NOTIFY entryCountChanged)
+    Q_PROPERTY(qint64 unreadCount READ unreadCount NOTIFY unreadCountChanged)
+    Q_PROPERTY(qint64 newCount READ newCount NOTIFY newCountChanged)
+    Q_PROPERTY(qint64 favoriteCount READ favoriteCount NOTIFY favoriteCountChanged)
 
 public:
     explicit Feed(const qint64 feeduid, QObject *parent = nullptr);
+    explicit Feed(const QString &url,
+                  const QString &name,
+                  const QString &image,
+                  const QString &link,
+                  const QString &description,
+                  const QString &authors,
+                  const QDateTime &lastUpdated,
+                  QObject *parent = nullptr);
     ~Feed();
 
-    void updateAuthors();
-
-    qint64 feeduid() const;
-    QString url() const;
-    QString name() const;
-    QString image() const;
-    QString link() const;
-    QString description() const;
-    QString authors() const;
-    QDateTime subscribed() const;
-    QDateTime lastUpdated() const;
-    QString dirname() const;
-    int entryCount() const;
-    int unreadEntryCount() const;
-    int newEntryCount() const;
-    int favoriteEntryCount() const;
-    bool read() const;
-    int errorId() const;
-    QString errorString() const;
-
-    bool refreshing() const;
-
-    void setName(const QString &name);
-    void setImage(const QString &image);
-    void setLink(const QString &link);
-    void setDescription(const QString &description);
-    void setLastUpdated(const QDateTime &lastUpdated);
-    void setDirname(const QString &dirname);
-    void setRefreshing(bool refreshing);
-    void setErrorId(int errorId);
-    void setErrorString(const QString &errorString);
-
-    Q_INVOKABLE void refresh();
+    qint64 entryCount() const;
+    qint64 unreadCount() const;
+    qint64 newCount() const;
+    qint64 favoriteCount() const;
 
 Q_SIGNALS:
+    void urlChanged(const QString &url);
     void nameChanged(const QString &name);
     void imageChanged(const QString &image);
     void linkChanged(const QString &link);
@@ -82,20 +61,14 @@ Q_SIGNALS:
     void authorsChanged(const QString &authors);
     void lastUpdatedChanged(const QDateTime &lastUpdated);
     void dirnameChanged(const QString &dirname);
+    void refreshingChanged(const bool status);
     void entryCountChanged();
-    void unreadEntryCountChanged();
-    void newEntryCountChanged();
-    void favoriteEntryCountChanged();
-    void errorIdChanged(int errorId);
-    void errorStringChanged(const QString &errorString);
-
-    void refreshingChanged(bool refreshing);
+    void unreadCountChanged();
+    void newCountChanged();
+    void favoriteCountChanged();
 
 private:
-    void updateEntryCountFromDB();
-    void updateUnreadEntryCountFromDB();
-    void updateNewEntryCountFromDB();
-    void updateFavoriteEntryCountFromDB();
+    void updateFeed();
 
     qint64 m_feeduid;
     QString m_url;
@@ -107,11 +80,6 @@ private:
     QDateTime m_subscribed;
     QDateTime m_lastUpdated;
     QString m_dirname;
-    int m_errorId;
-    QString m_errorString;
-    int m_entryCount = -1;
-    int m_unreadEntryCount = -1;
-    int m_newEntryCount = -1;
-    int m_favoriteEntryCount = -1;
-    bool m_refreshing = false;
+    bool m_refreshing;
+    bool m_isSubscribed;
 };

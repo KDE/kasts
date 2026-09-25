@@ -320,9 +320,8 @@ void Sync::login(const QString &username, const QString &password)
         connect(deviceRequest, &DeviceRequest::finished, this, [this, deviceRequest, username, password]() {
             if (deviceRequest->error() || deviceRequest->aborted()) {
                 if (deviceRequest->error()) {
-                    Q_EMIT error(
-                        ErrorLogModel::Type::SyncError,
-                        i18nc("@info:status %1 is the error message", "Could not log into GPodder server; error: %1", deviceRequest->errorString()));
+                    Q_EMIT error(ErrorLogModel::Type::SyncError,
+                                 i18nc("@info:status %1 is the error message", "Could not log into GPodder server; error: %1", deviceRequest->errorString()));
                 }
                 m_gpodder->deleteLater();
                 m_gpodder = nullptr;
@@ -616,9 +615,8 @@ void Sync::registerNewDevice(const QString &id, const QString &caption, const QS
     connect(updateDeviceRequest, &UpdateDeviceRequest::finished, this, [this, updateDeviceRequest, id, caption]() {
         if (updateDeviceRequest->error() || updateDeviceRequest->aborted()) {
             if (updateDeviceRequest->error()) {
-                Q_EMIT error(
-                    ErrorLogModel::Type::SyncError,
-                    i18nc("@info:status %1 is the error message", "Could not create GPodder device; error: %1", updateDeviceRequest->errorString()));
+                Q_EMIT error(ErrorLogModel::Type::SyncError,
+                             i18nc("@info:status %1 is the error message", "Could not create GPodder device; error: %1", updateDeviceRequest->errorString()));
             }
         } else {
             setDevice(id);
@@ -639,9 +637,8 @@ void Sync::linkUpAllDevices()
     connect(syncRequest, &SyncRequest::finished, this, [this, syncRequest]() {
         if (syncRequest->error() || syncRequest->aborted()) {
             if (syncRequest->error()) {
-                Q_EMIT error(
-                    ErrorLogModel::Type::SyncError,
-                    i18nc("@info:status %1 is the error message", "Could not retrieve synced device status; error: %1", syncRequest->errorString()));
+                Q_EMIT error(ErrorLogModel::Type::SyncError,
+                             i18nc("@info:status %1 is the error message", "Could not retrieve synced device status; error: %1", syncRequest->errorString()));
             }
             syncRequest->deleteLater();
             return;
@@ -827,7 +824,7 @@ void Sync::applySubscriptionChangesLocally(const QStringList &addList, const QSt
     m_allowSyncActionLogging = false;
 
     // removals
-    DataManager::instance().removeFeeds(removeList);
+    DataManager::instance().removeFeeds(DataManager::instance().findFeeduids(removeList));
 
     // additions
     DataManager::instance().addFeeds(addList, false);

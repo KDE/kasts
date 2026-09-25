@@ -32,59 +32,63 @@ QVariant PodcastSearchModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(QStringLiteral("DEADBEEF"));
     }
     switch (role) {
-    case Id:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("id")].toInt();
-    case Title:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("title")].toString();
-    case Url:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("url")].toString();
-    case OriginalUrl:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("originalUrl")].toString();
-    case Link:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("link")].toString();
-    case Description:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("description")].toString();
-    case Author:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("author")].toString();
-    case OwnerName:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("ownerName")].toString();
-    case Image:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("image")].toString();
-    case Artwork:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("artwork")].toString();
-    case LastUpdateTime:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastUpdateTime")].toInt();
-    case LastCrawlTime:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastCrawlTime")].toInt();
-    case LastParseTime:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastParseTime")].toInt();
-    case LastGoodHttpStatusTime:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastGoodHttpStatusTime")].toInt();
-    case LastHttpStatus:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastHttpStatus")].toInt();
-    case ContentType:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("contentType")].toString();
-    case ItunesId:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("itunesId")].toInt();
-    case Generator:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("generator")].toString();
-    case Language:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("language")].toString();
-    case Type:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("type")].toInt();
-    case Dead:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("dead")].toInt();
-    case CrawlErrors:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("crawlErrors")].toInt();
-    case ParseErrors:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("parseErrors")].toInt();
-    case Categories: {
+    case NameRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("title")].toString());
+    case IdRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("id")].toInt());
+    case UrlRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("url")].toString());
+    case OriginalUrlRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("originalUrl")].toString());
+    case LinkRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("link")].toString());
+    case DescriptionRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("description")].toString());
+    case AuthorRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("author")].toString());
+    case OwnerNameRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("ownerName")].toString());
+    case ImageRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("image")].toString());
+    case ArtworkRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("artwork")].toString());
+    case LastUpdatedRole:
+        return QVariant::fromValue(
+            QDateTime::fromSecsSinceEpoch(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastUpdateTime")].toInt()));
+    case LastCrawlTimeRole:
+        return QVariant::fromValue(
+            QDateTime::fromSecsSinceEpoch(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastCrawlTime")].toInt()));
+    case LastParseTimeRole:
+        return QVariant::fromValue(
+            QDateTime::fromSecsSinceEpoch(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastParseTime")].toInt()));
+    case LastGoodHttpStatusTimeRole:
+        return QVariant::fromValue(
+            QDateTime::fromSecsSinceEpoch(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastGoodHttpStatusTime")].toInt()));
+    case LastHttpStatusRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("lastHttpStatus")].toInt());
+    case ContentTypeRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("contentType")].toString());
+    case ItunesIdRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("itunesId")].toInt());
+    case GeneratorRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("generator")].toString());
+    case LanguageRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("language")].toString());
+    case TypeRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("type")].toInt());
+    case DeadRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("dead")].toInt());
+    case CrawlErrorsRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("crawlErrors")].toInt());
+    case ParseErrorsRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("parseErrors")].toInt());
+    case CategoriesRole: {
         // TODO: Implement this function to add to the list of categories.
     }
-    case Locked:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("locked")].toInt();
-    case ImageUrlHash:
-        return m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("imageUrlHash")].toInt();
+    case LockedRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("locked")].toInt());
+    case ImageUrlHashRole:
+        return QVariant::fromValue(m_data[QStringLiteral("feeds")].toArray()[index.row()].toObject()[QStringLiteral("imageUrlHash")].toInt());
     default:
         return QVariant();
     }
@@ -93,32 +97,32 @@ QVariant PodcastSearchModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> PodcastSearchModel::roleNames() const
 {
     return {
-        {Id, "id"},
-        {Title, "title"},
-        {Url, "url"},
-        {OriginalUrl, "originalUrl"},
-        {Link, "link"},
-        {Description, "description"},
-        {Author, "author"},
-        {OwnerName, "ownerName"},
-        {Image, "image"},
-        {Artwork, "artwork"},
-        {LastUpdateTime, "lastUpdateTime"},
-        {LastCrawlTime, "lastCrawlTime"},
-        {LastParseTime, "lastParseTime"},
-        {LastGoodHttpStatusTime, "lastGoodHttpStatusTime"},
-        {LastHttpStatus, "lastHttpStatus"},
-        {ContentType, "contentType"},
-        {ItunesId, "itunesId"},
-        {Generator, "generator"},
-        {Language, "language"},
-        {Type, "type"},
-        {Dead, "dead"},
-        {CrawlErrors, "crawlErrors"},
-        {ParseErrors, "parseErrors"},
-        {Categories, "categories"},
-        {Locked, "locked"},
-        {ImageUrlHash, "imageUrlHash"},
+        {NameRole, "name"},
+        {IdRole, "id"},
+        {UrlRole, "url"},
+        {OriginalUrlRole, "originalUrl"},
+        {LinkRole, "link"},
+        {DescriptionRole, "description"},
+        {AuthorRole, "author"},
+        {OwnerNameRole, "ownerName"},
+        {ImageRole, "image"},
+        {ArtworkRole, "artwork"},
+        {LastUpdatedRole, "lastUpdated"},
+        {LastCrawlTimeRole, "lastCrawlTime"},
+        {LastParseTimeRole, "lastParseTime"},
+        {LastGoodHttpStatusTimeRole, "lastGoodHttpStatusTime"},
+        {LastHttpStatusRole, "lastHttpStatus"},
+        {ContentTypeRole, "contentType"},
+        {ItunesIdRole, "itunesId"},
+        {GeneratorRole, "generator"},
+        {LanguageRole, "language"},
+        {TypeRole, "type"},
+        {DeadRole, "dead"},
+        {CrawlErrorsRole, "crawlErrors"},
+        {ParseErrorsRole, "parseErrors"},
+        {CategoriesRole, "categories"},
+        {LockedRole, "locked"},
+        {ImageUrlHashRole, "imageUrlHash"},
     };
 }
 

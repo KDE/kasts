@@ -13,6 +13,8 @@
 #include <QString>
 #include <QUrl>
 
+#include <KLocalizedString>
+
 #include <attachedpictureframe.h>
 #include <fileref.h>
 #include <id3v2frame.h>
@@ -234,4 +236,25 @@ QString EntryUtils::adjustedContent(const int width, const int fontSize, const Q
 QString EntryUtils::baseUrl(const QString &link)
 {
     return QUrl(link).adjusted(QUrl::RemovePath).toString();
+}
+
+QString EntryUtils::combineAuthors(const QStringList &authorList)
+{
+    if (authorList.size() == 1) {
+        return authorList[0];
+    } else if (authorList.size() == 2) {
+        return i18nc("%1 and %2 are episode or podcast author names, used when there are exactly two authors",
+                     "%1 and %2",
+                     authorList.first(),
+                     authorList.last());
+    } else if (authorList.size() > 2) {
+        QStringList authorListCopy = authorList;
+        const QString last = authorListCopy.takeLast();
+        return i18nc("%1 is a comma-separated list of episode or podcast author names, %2 is the last author name",
+                     "%1, and %2",
+                     authorListCopy.join(u','),
+                     last);
+    } else {
+        return QLatin1String("");
+    }
 }

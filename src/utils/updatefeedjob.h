@@ -29,14 +29,7 @@ public:
     void abort();
 
 Q_SIGNALS:
-    void feedDetailsUpdated(const qint64 feeduid,
-                            const QString &url,
-                            const QString &name,
-                            const QString &image,
-                            const QString &link,
-                            const QString &description,
-                            const QDateTime &lastUpdated,
-                            const QString &dirname);
+    void feedDetailsUpdated(const qint64 feeduid);
     void feedUpdated(const qint64 feeduid);
     void entriesAdded(const QList<qint64> &entryuids);
     void entriesUpdated(const QList<qint64> &entryuids);

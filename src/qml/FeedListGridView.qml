@@ -239,11 +239,11 @@ GridView {
             // after we start deleting feeds.
             var feeds = [];
             for (let i in root.selectionForContextMenu) {
-                feeds[i] = root.model.data(root.selectionForContextMenu[i], FeedsModel.FeedRole);
+                feeds[i] = root.model.data(root.selectionForContextMenu[i], FeedsModel.FeeduidRole);
             }
             var appPageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
             for (let i in feeds) {
-                if ((root.Controls.ApplicationWindow.window as Main).lastFeeduid === feeds[i].feeduid) {
+                if ((root.Controls.ApplicationWindow.window as Main).lastFeeduid === feeds[i]) {
                     while (appPageStack.depth > 1) {
                         appPageStack.pop();
                     }
@@ -262,7 +262,7 @@ GridView {
             while (appPageStack.depth > 1)
                 appPageStack.pop();
             appPageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-                feed: root.selectionForContextMenu[0].model.data(root.selectionForContextMenu[0], FeedsModel.FeedRole)
+                feed: DataManager.getFeed(root.selectionForContextMenu[0].model.data(root.selectionForContextMenu[0], FeedsModel.FeeduidRole))
             });
         }
     }

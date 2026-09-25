@@ -9,7 +9,7 @@
 
 #include <QString>
 
-#include "datamanager.h"
+#include "fetcher.h"
 #include "objectslogging.h"
 
 EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
@@ -23,7 +23,7 @@ EntriesModel::EntriesModel(const qint64 feeduid, QObject *parent)
     // When feed is updated, the entire model needs to be reset
     // because we cannot know where the new entries will be inserted into the
     // list (or that maybe even items have been removed.
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         if (m_feeds.contains(feeduid)) {
             beginResetModel();
             updateInternalState();

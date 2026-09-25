@@ -7,6 +7,7 @@
 #include "models/episodemodel.h"
 
 #include "datamanager.h"
+#include "fetcher.h"
 
 EpisodeModel::EpisodeModel(QObject *parent)
     : AbstractEpisodeModel(QStringLiteral("SELECT feeduid, name, image, dirname FROM Feeds;"),
@@ -17,7 +18,7 @@ EpisodeModel::EpisodeModel(QObject *parent)
     // When feed is updated or removed, the entire model needs to be reset
     // because we cannot know where the new entries will be inserted into the
     // list (or that maybe even items have been removed.
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         if (m_feeds.contains(feeduid)) {
             beginResetModel();
             updateInternalState();

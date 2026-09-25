@@ -17,15 +17,31 @@ import org.kde.kasts
 Controls.ItemDelegate {
     id: root
 
+    required property int feeduid
+    required property string name
+    required property string url
+    required property string link
+    required property string description
+    required property string authors
+    required property string image
+    required property bool isSubscribed
+    required property date subscribed
+    required property date lastUpdated
+    required property int entryCount
+    required property int unreadCount
+    required property int newCount
+    required property int favoriteCount
+    required property bool refreshing
+    required property var model
+
     required property QtObject listView
-    required property Feed feed
     required property int index
     required property int cardSize
     required property int cardMargin
     required property int row
 
     property int feedSorting: (Controls.ApplicationWindow.window as Main) ? (Controls.ApplicationWindow.window as Main).feedSorting : 0 // need to do this check because the window becomes null just before delegate destruction
-    property var countProperty: (feedSorting === FeedsProxyModel.UnreadDescending || feedSorting === FeedsProxyModel.UnreadAscending) ? feed.unreadEntryCount : ((feedSorting === FeedsProxyModel.NewDescending || feedSorting === FeedsProxyModel.NewAscending) ? feed.newEntryCount : ((feedSorting === FeedsProxyModel.FavoriteDescending || feedSorting === FeedsProxyModel.FavoriteAscending) ? feed.favoriteEntryCount : 0))
+    property var countProperty: (feedSorting === FeedsProxyModel.UnreadDescending || feedSorting === FeedsProxyModel.UnreadAscending) ? unreadCount : ((feedSorting === FeedsProxyModel.NewDescending || feedSorting === FeedsProxyModel.NewAscending) ? newCount : ((feedSorting === FeedsProxyModel.FavoriteDescending || feedSorting === FeedsProxyModel.FavoriteAscending) ? favoriteCount : 0))
     property int borderWidth: 1
     implicitWidth: root.cardSize + 2 * root.cardMargin
     implicitHeight: root.cardSize + 2 * root.cardMargin
@@ -36,8 +52,18 @@ Controls.ItemDelegate {
     property var activeBackgroundColor: Qt.lighter(Kirigami.Theme.highlightColor, 1.3)
     highlighted: selected
 
+    function openPodcast(): void {
+        (Controls.ApplicationWindow.window as Main).lastFeeduid = root.feeduid;
+        var appPageStack = (Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
+        if (appPageStack.depth > 1)
+            appPageStack.pop();
+        appPageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
+            feed: DataManager.getFeed(feeduid)
+        });
+    }
+
     Accessible.role: Accessible.Button
-    Accessible.name: feed.name
+    Accessible.name: name
     Accessible.onPressAction: {
         clicked();
     }
@@ -142,7 +168,7 @@ Controls.ItemDelegate {
             function onLayoutAboutToBeChanged(): void {
                 if (root.GridView.view.currentItem === root) {
                     root.isCurrentItem = true;
-                    root.currentItemUrl = root.feed.url;
+                    root.currentItemUrl = root.url;
                 } else {
                     root.isCurrentItem = false;
                     root.currentItemUrl = "";
@@ -166,10 +192,10 @@ Controls.ItemDelegate {
         ImageWithFallback {
             id: img
             anchors.fill: parent
-            imageSource: root.feed.image
-            imageTitle: root.feed.name
+            imageSource: root.image
+            imageTitle: root.name
             imageResize: false // no "stuttering" on resizing the window
-            isLoading: root.feed.refreshing
+            isLoading: root.refreshing
             absoluteRadius: Kirigami.Units.smallSpacing - root.borderWidth
         }
 
@@ -215,18 +241,10 @@ Controls.ItemDelegate {
         }
     }
 
-    onClicked: {
-        (Controls.ApplicationWindow.window as Main).lastFeeduid = root.feed.feeduid;
-        var appPageStack = (Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
-        if (appPageStack.depth > 1)
-            appPageStack.pop();
-        appPageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-            feed: feed
-        });
-    }
+    onClicked: openPodcast()
 
     Controls.ToolTip.visible: hovered
-    Controls.ToolTip.text: feed.name
+    Controls.ToolTip.text: name
     Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
 
     Kirigami.MenuDialog {
@@ -234,7 +252,7 @@ Controls.ItemDelegate {
         // parent: applicationWindow().overlay
         showCloseButton: true
 
-        title: root.feed.name
+        title: root.name
 
         actions: [
             Kirigami.Action {
@@ -243,7 +261,7 @@ Controls.ItemDelegate {
                     while (appPageStack.depth > 1)
                         appPageStack.pop();
                     appPageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-                        feed: root.feed
+                        feed: DataManager.getFeed(root.feeduid)
                     });
                 }
                 icon.name: "documentinfo"
@@ -252,10 +270,10 @@ Controls.ItemDelegate {
             Kirigami.Action {
                 onTriggered: {
                     var appPageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
-                    if (root.feed.feeduid === (root.Controls.ApplicationWindow.window as Main).lastFeeduid)
+                    if (root.feeduid === (root.Controls.ApplicationWindow.window as Main).lastFeeduid)
                         while (appPageStack.depth > 1)
                             appPageStack.pop();
-                    DataManager.removeFeed(root.feed);
+                    DataManager.removeFeeds([root.feeduid]);
                 }
                 icon.name: "delete"
                 text: KI18n.i18n("Remove Podcast")

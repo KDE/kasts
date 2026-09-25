@@ -84,11 +84,15 @@ struct FeedDetails {
     QString description;
     qint64 subscribed;
     qint64 lastUpdated;
-    bool isNew;
     QString dirname;
     QString lastHash;
     int filterType = 0;
     int sortType = 0;
+    bool refreshing = false;
+    qint64 entryCount = -1;
+    qint64 unreadCount = -1;
+    qint64 newCount = -1;
+    qint64 favoriteCount = -1;
 };
 
 // This combines EntryDetails with the info on the related Feed

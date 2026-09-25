@@ -15,13 +15,13 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "objectslogging.h"
+#include "utils/entryutils.h"
 
 Feed::Feed(const qint64 feeduid, QObject *parent)
-    : QObject(&DataManager::instance()) // TODO: remove explicit parenting after refactor
+    : QObject(parent)
     , m_feeduid(feeduid)
+    , m_isSubscribed(true)
 {
-    Q_UNUSED(parent)
-
     qCDebug(kastsObjects) << "Feed object" << m_feeduid << "constructed";
 
     QSqlQuery query;
@@ -31,299 +31,212 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     if (!query.next())
         qWarning() << "Failed to load feed" << feeduid;
 
-    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toInt());
-
-    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toInt());
-
     m_feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
-    m_url = query.value(QStringLiteral("url")).toString();
     m_name = query.value(QStringLiteral("name")).toString();
+    m_url = query.value(QStringLiteral("url")).toString();
     m_image = query.value(QStringLiteral("image")).toString();
     m_link = query.value(QStringLiteral("link")).toString();
     m_description = query.value(QStringLiteral("description")).toString();
+    m_subscribed.setSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toLongLong());
+    m_lastUpdated.setSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toLongLong());
     m_dirname = query.value(QStringLiteral("dirname")).toString();
 
-    m_errorId = 0;
-    m_errorString = QLatin1String("");
+    QStringList authors;
+    query.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+    Database::instance().execute(query);
+    while (query.next()) {
+        authors += query.value(QStringLiteral("name")).toString();
+    }
+    m_authors = EntryUtils::combineAuthors(authors);
 
-    updateAuthors();
-    updateEntryCountFromDB();
-    updateUnreadEntryCountFromDB();
-    updateNewEntryCountFromDB();
-    updateFavoriteEntryCountFromDB();
-
-    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const qint64 feeduid, bool status) {
+    connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
-            setRefreshing(status);
+            Q_EMIT entryCountChanged();
+            Q_EMIT unreadCountChanged();
+            Q_EMIT newCountChanged();
         }
     });
-    connect(&DataManager::instance(), &DataManager::feedEntriesUpdated, this, [this](const qint64 feeduid) {
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
-            updateEntryCountFromDB();
-            Q_EMIT entryCountChanged();
-            updateUnreadEntryCountFromDB();
-            Q_EMIT DataManager::instance().unreadEntryCountChanged(m_feeduid);
-            Q_EMIT unreadEntryCountChanged();
-            Q_EMIT DataManager::instance().newEntryCountChanged(m_feeduid);
-            Q_EMIT newEntryCountChanged();
-            setErrorId(0);
-            setErrorString(QLatin1String(""));
+            updateFeed();
         }
     });
     connect(&DataManager::instance(), &DataManager::unreadEntryCountChanged, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
-            updateUnreadEntryCountFromDB();
-            Q_EMIT unreadEntryCountChanged();
+            Q_EMIT unreadCountChanged();
         }
     });
     connect(&DataManager::instance(), &DataManager::newEntryCountChanged, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
-            updateNewEntryCountFromDB();
-            Q_EMIT newEntryCountChanged();
+            Q_EMIT newCountChanged();
         }
     });
     connect(&DataManager::instance(), &DataManager::favoriteEntryCountChanged, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
-            updateFavoriteEntryCountFromDB();
-            Q_EMIT favoriteEntryCountChanged();
+            Q_EMIT favoriteCountChanged();
+        }
+    });
+    connect(&Fetcher::instance(), &Fetcher::feedUpdateStatusChanged, this, [this](const qint64 feeduid, bool status) {
+        if (feeduid == m_feeduid) {
+            m_refreshing = status;
+            Q_EMIT refreshingChanged(m_refreshing);
         }
     });
 }
 
+Feed::Feed(const QString &url,
+           const QString &name,
+           const QString &image,
+           const QString &link,
+           const QString &description,
+           const QString &authors,
+           const QDateTime &lastUpdated,
+           QObject *parent)
+    : QObject(parent)
+    , m_feeduid(0)
+    , m_url(url)
+    , m_name(name)
+    , m_image(image)
+    , m_link(link)
+    , m_description(description)
+    , m_authors(authors)
+    , m_lastUpdated(lastUpdated)
+    , m_isSubscribed(false)
+{
+    qCDebug(kastsObjects) << "Feed object" << m_name << "constructed (non-subscribed)";
+}
+
 Feed::~Feed()
 {
-    qCDebug(kastsObjects) << "Feed object" << m_feeduid << "destructed";
-}
-
-void Feed::updateAuthors()
-{
-    QStringList authors;
-
-    QSqlQuery authorQuery;
-    authorQuery.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
-    authorQuery.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-    Database::instance().execute(authorQuery);
-    while (authorQuery.next()) {
-        authors += authorQuery.value(QStringLiteral("name")).toString();
+    if (m_isSubscribed) {
+        qCDebug(kastsObjects) << "Feed object" << m_feeduid << "destructed";
+    } else {
+        qCDebug(kastsObjects) << "Feed object" << m_name << "destructed (non-subscribed)";
     }
+}
 
-    if (authors.size() == 1) {
-        m_authors = authors[0];
-    } else if (authors.size() == 2) {
-        m_authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
-    } else if (authors.size() > 2) {
-        auto last = authors.takeLast();
-        m_authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
+void Feed::updateFeed()
+{
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+    Database::instance().execute(query);
+    if (!query.next())
+        qWarning() << "Failed to load feed" << m_feeduid;
+
+    QString name = query.value(QStringLiteral("name")).toString();
+    QString url = query.value(QStringLiteral("url")).toString();
+    QString image = query.value(QStringLiteral("image")).toString();
+    QString link = query.value(QStringLiteral("link")).toString();
+    QString description = query.value(QStringLiteral("description")).toString();
+    QDateTime subscribed = QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("subscribed")).toLongLong());
+    QDateTime lastUpdated = QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("lastUpdated")).toLongLong());
+    QString dirname = query.value(QStringLiteral("dirname")).toString();
+
+    QStringList authorList;
+    query.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
+    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+    Database::instance().execute(query);
+    while (query.next()) {
+        authorList += query.value(QStringLiteral("name")).toString();
     }
-    Q_EMIT authorsChanged(m_authors);
-}
+    QString authors = EntryUtils::combineAuthors(authorList);
 
-void Feed::updateEntryCountFromDB()
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid;"));
-    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-    Database::instance().execute(query);
-    if (!query.next())
-        m_entryCount = -1;
-    m_entryCount = query.value(0).toInt();
-}
-
-void Feed::updateUnreadEntryCountFromDB()
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid AND read=0;"));
-    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-    Database::instance().execute(query);
-    if (!query.next())
-        m_unreadEntryCount = -1;
-    m_unreadEntryCount = query.value(0).toInt();
-}
-
-void Feed::updateNewEntryCountFromDB()
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND new=1;"));
-    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-    Database::instance().execute(query);
-    if (!query.next())
-        m_newEntryCount = -1;
-    m_newEntryCount = query.value(0).toInt();
-}
-
-void Feed::updateFavoriteEntryCountFromDB()
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND favorite=1;"));
-    query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
-    Database::instance().execute(query);
-    if (!query.next())
-        m_favoriteEntryCount = -1;
-    m_favoriteEntryCount = query.value(0).toInt();
-}
-
-qint64 Feed::feeduid() const
-{
-    return m_feeduid;
-}
-
-QString Feed::url() const
-{
-    return m_url;
-}
-
-QString Feed::name() const
-{
-    return m_name;
-}
-
-QString Feed::image() const
-{
-    return m_image;
-}
-
-QString Feed::link() const
-{
-    return m_link;
-}
-
-QString Feed::description() const
-{
-    return m_description;
-}
-
-QString Feed::authors() const
-{
-    return m_authors;
-}
-
-QDateTime Feed::subscribed() const
-{
-    return m_subscribed;
-}
-
-QDateTime Feed::lastUpdated() const
-{
-    return m_lastUpdated;
-}
-
-QString Feed::dirname() const
-{
-    return m_dirname;
-}
-
-int Feed::entryCount() const
-{
-    return m_entryCount;
-}
-
-int Feed::unreadEntryCount() const
-{
-    return m_unreadEntryCount;
-}
-
-int Feed::newEntryCount() const
-{
-    return m_newEntryCount;
-}
-
-int Feed::favoriteEntryCount() const
-{
-    return m_favoriteEntryCount;
-}
-
-bool Feed::refreshing() const
-{
-    return m_refreshing;
-}
-
-int Feed::errorId() const
-{
-    return m_errorId;
-}
-
-QString Feed::errorString() const
-{
-    return m_errorString;
-}
-
-void Feed::setName(const QString &name)
-{
+    // send signals if needed
     if (name != m_name) {
         m_name = name;
         Q_EMIT nameChanged(m_name);
     }
-}
-
-void Feed::setImage(const QString &image)
-{
+    if (url != m_url) {
+        m_url = url;
+        Q_EMIT urlChanged(m_url);
+    }
     if (image != m_image) {
         m_image = image;
         Q_EMIT imageChanged(m_image);
     }
-}
-
-void Feed::setLink(const QString &link)
-{
     if (link != m_link) {
         m_link = link;
         Q_EMIT linkChanged(m_link);
     }
-}
-
-void Feed::setDescription(const QString &description)
-{
     if (description != m_description) {
         m_description = description;
         Q_EMIT descriptionChanged(m_description);
     }
-}
-
-void Feed::setLastUpdated(const QDateTime &lastUpdated)
-{
+    if (subscribed != m_subscribed) {
+        m_subscribed = subscribed;
+    }
     if (lastUpdated != m_lastUpdated) {
         m_lastUpdated = lastUpdated;
         Q_EMIT lastUpdatedChanged(m_lastUpdated);
     }
-}
-
-void Feed::setDirname(const QString &dirname)
-{
     if (dirname != m_dirname) {
         m_dirname = dirname;
         Q_EMIT dirnameChanged(m_dirname);
     }
-}
-
-void Feed::setRefreshing(bool refreshing)
-{
-    if (refreshing != m_refreshing) {
-        m_refreshing = refreshing;
-        if (!m_refreshing) {
-            m_errorId = 0;
-            m_errorString = QString();
-        }
-        Q_EMIT refreshingChanged(m_refreshing);
+    if (authors != m_authors) {
+        m_authors = authors;
+        Q_EMIT authorsChanged(m_authors);
     }
 }
 
-void Feed::setErrorId(int errorId)
+qint64 Feed::entryCount() const
 {
-    if (errorId != m_errorId) {
-        m_errorId = errorId;
-        Q_EMIT errorIdChanged(m_errorId);
+    if (m_isSubscribed) {
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid;"));
+        query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+        Database::instance().execute(query);
+        if (!query.next())
+            return -1;
+        return query.value(0).toInt();
+    } else {
+        return 0;
     }
 }
 
-void Feed::setErrorString(const QString &errorString)
+qint64 Feed::unreadCount() const
 {
-    if (errorString != m_errorString) {
-        m_errorString = errorString;
-        Q_EMIT errorStringChanged(m_errorString);
+    if (m_isSubscribed) {
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries WHERE feeduid=:feeduid AND read=0;"));
+        query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+        Database::instance().execute(query);
+        if (!query.next())
+            return -1;
+        return query.value(0).toInt();
+    } else {
+        return 0;
     }
 }
 
-void Feed::refresh()
+qint64 Feed::newCount() const
 {
-    Fetcher::instance().fetch(m_url);
+    if (m_isSubscribed) {
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND new=1;"));
+        query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+        Database::instance().execute(query);
+        if (!query.next())
+            return -1;
+        return query.value(0).toInt();
+    } else {
+        return 0;
+    }
+}
+
+qint64 Feed::favoriteCount() const
+{
+    if (m_isSubscribed) {
+        QSqlQuery query;
+        query.prepare(QStringLiteral("SELECT COUNT (id) FROM Entries where feeduid=:feeduid AND favorite=1;"));
+        query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+        Database::instance().execute(query);
+        if (!query.next())
+            return -1;
+        return query.value(0).toInt();
+    } else {
+        return 0;
+    }
 }

@@ -73,12 +73,16 @@ Kirigami.ScrollablePage {
         delegate: AddonDelegates.RoundedItemDelegate {
             id: listItem
 
-            required property string title
-            required property string image
             required property string url
+            required property string name
+            required property string image
+            required property string link
+            required property string description
+            required property string author
+            required property date lastUpdated
             required property var model
 
-            text: title
+            text: name
 
             contentItem: RowLayout {
                 ImageWithFallback {
@@ -115,8 +119,7 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 (Controls.ApplicationWindow.window as Main).pageStack.push(Qt.createComponent("org.kde.kasts", "FeedDetailsPage"), {
-                    feed: subscribeAction.enabled ? listItem.model : DataManager.getFeed(listItem.url),
-                    isSubscribed: !subscribeAction.enabled,
+                    feed: subscribeAction.enabled ? DataManager.getFeed(url, name, image, link, description, author, lastUpdated) : DataManager.getFeed(DataManager.findFeeduids([listItem.url])[0]),
                     subscribeAction: subscribeAction,
                     showMoreInfo: true
                 });

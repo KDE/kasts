@@ -24,9 +24,10 @@ ErrorLogModel::ErrorLogModel()
         error.message = query.value(QStringLiteral("message")).toString();
         error.date = QDateTime::fromSecsSinceEpoch(query.value(QStringLiteral("date")).toInt());
         m_errors += error;
-
-        connect(&Database::instance(), &Database::error, this, &ErrorLogModel::monitorErrorMessages);
     }
+    query.finish();
+
+    connect(&Database::instance(), &Database::error, this, &ErrorLogModel::monitorErrorMessages);
 }
 
 QVariant ErrorLogModel::data(const QModelIndex &index, int role) const

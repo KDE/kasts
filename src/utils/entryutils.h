@@ -32,4 +32,5 @@ public:
     static qint64 checkSizeOnDisk(const qint64 entryuid, const QString &filename, const qint64 size, bool updateStatus = true);
     Q_INVOKABLE static QString adjustedContent(const int width, const int fontSize, const QString &content, const QString &link);
     Q_INVOKABLE static QString baseUrl(const QString &link);
+    static QString combineAuthors(const QStringList &authorList);
 };

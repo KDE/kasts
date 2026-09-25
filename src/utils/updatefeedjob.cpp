@@ -383,14 +383,7 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     writeToDatabase(updatedFeed);
 
     if (hasFeedBeenUpdated) {
-        Q_EMIT feedDetailsUpdated(updatedFeed.feeduid,
-                                  m_url,
-                                  updatedFeed.name,
-                                  updatedFeed.image,
-                                  updatedFeed.link,
-                                  updatedFeed.description,
-                                  current,
-                                  updatedFeed.dirname);
+        Q_EMIT feedDetailsUpdated(updatedFeed.feeduid);
     }
 
     if (updatedEntries || updatedFeed.isNew) {

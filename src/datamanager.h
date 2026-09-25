@@ -36,32 +36,35 @@ public:
     }
 
     Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
+    Q_INVOKABLE Feed *getFeed(const QString &url,
+                              const QString &name,
+                              const QString &image,
+                              const QString &link,
+                              const QString &description,
+                              const QString &authors,
+                              const QDateTime &lastUpdated);
     Q_INVOKABLE DataTypes::EntryFeedDetails getEntry(const qint64 entryuid) const;
     Q_INVOKABLE EntriesProxyModel *getEntriesProxyModel(const qint64 feeduid) const;
-
-    // TODO: to be removed
-    Q_INVOKABLE Feed *getFeed(const QString &feedurl) const;
 
     // routines for fuzzy matching of feeds and entries/enclosures to uids
     // returns a list because there can be more than one result per input value
     QList<QList<qint64>> findEntryuids(const QStringList &ids, const QStringList &enclosureUrls = QStringList()) const;
+    Q_INVOKABLE QList<qint64> findFeeduids(const QStringList &urls) const;
 
-    Q_INVOKABLE void addFeed(const QString &url);
-    void addFeeds(const QStringList &urls, const bool fetch);
-    Q_INVOKABLE void removeFeed(Feed *feed);
-    void removeFeeds(const QStringList &feedurls);
-    Q_INVOKABLE void removeFeeds(const QVariantList feedsVariantList);
-    void removeFeeds(const QList<Feed *> &feeds);
+    Q_INVOKABLE void addFeed(const QString &url) const;
+    void addFeeds(const QStringList &urls, const bool fetch) const;
+    Q_INVOKABLE void removeFeed(const qint64 feeduid) const;
+    Q_INVOKABLE void removeFeeds(const QList<qint64> &feeduids) const;
 
     // TODO: remove afer queuemodel refactor
-    Q_INVOKABLE qint64 lastPlayingEntry();
+    Q_INVOKABLE qint64 lastPlayingEntry() const;
     Q_INVOKABLE void setLastPlayingEntry(const qint64 entryuid);
 
     Q_INVOKABLE void deletePlayedEnclosures();
 
-    Q_INVOKABLE void importFeeds(const QString &path);
-    Q_INVOKABLE void exportFeeds(const QString &path);
-    Q_INVOKABLE bool feedExists(const QString &url);
+    Q_INVOKABLE void importFeeds(const QString &path) const;
+    Q_INVOKABLE void exportFeeds(const QString &path) const;
+    Q_INVOKABLE bool feedExists(const QString &url) const;
 
     Q_INVOKABLE void bulkMarkRead(bool state, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkMarkNew(bool state, const QList<qint64> &entryuids) const;
@@ -82,9 +85,8 @@ public:
     Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const;
 
 Q_SIGNALS:
-    void feedAdded(const qint64 feeduid);
-    void feedRemoved(const qint64 feeduid);
-    void feedEntriesUpdated(const qint64 feeduid);
+    void feedAdded(const qint64 feeduid) const;
+    void feedRemoved(const qint64 feeduid) const;
 
     void entryReadStatusChanged(bool state, const QList<qint64> &entryuids) const;
     void entryNewStatusChanged(bool state, const QList<qint64> &entryuids) const;
@@ -103,14 +105,7 @@ private:
     DataManager();
     void loadFeed(const qint64 feeduid) const;
 
-    // TODO: probably needs to be updated after refactor
-    qint64 getFeeduidFromUrl(const QString &url) const;
-    qint64 getEntryuidFromId(const QString &id) const;
-
-    QString cleanUrl(const QString &url);
+    QString cleanUrl(const QString &url) const;
 
     QList<qint64> getEntryuidsFromModelIndexList(const QModelIndexList &list) const;
-
-    mutable QHash<qint64, QPointer<Feed>> m_feeds; // hash of pointers to all feeds in db, key = feeduid (lazy loading)
-    mutable QSet<qint64> m_entries; // set of all entryuids
 };
