@@ -20,8 +20,6 @@
 #include <QtAssert>
 #include <utility>
 
-#include <KLocalizedString>
-
 #include "database.h"
 #include "feed.h"
 #include "fetcher.h"
@@ -30,6 +28,7 @@
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
+#include "utils/entryutils.h"
 #include "utils/storagemanager.h"
 
 DataManager::DataManager()
@@ -152,14 +151,7 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     while (query.next()) {
         authors += query.value(QStringLiteral("name")).toString();
     }
-    if (authors.size() == 1) {
-        entry.authors = authors[0];
-    } else if (authors.size() == 2) {
-        entry.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
-    } else if (authors.size() > 2) {
-        auto last = authors.takeLast();
-        entry.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
-    }
+    entry.authors = EntryUtils::combineAuthors(authors);
 
     // TODO: add more fields; these are the only ones that are currently used
     // in combination with EntryDetails, i.e. in AudioManager and EpisodeModels
@@ -180,14 +172,7 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     while (query.next()) {
         authors += query.value(QStringLiteral("name")).toString();
     }
-    if (authors.size() == 1) {
-        entry.feed.authors = authors[0];
-    } else if (authors.size() == 2) {
-        entry.feed.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
-    } else if (authors.size() > 2) {
-        auto last = authors.takeLast();
-        entry.feed.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
-    }
+    entry.feed.authors = EntryUtils::combineAuthors(authors);
     return entry;
 }
 

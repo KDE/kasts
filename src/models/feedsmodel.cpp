@@ -15,8 +15,9 @@
 #include "database.h"
 #include "datamanager.h"
 #include "datatypes.h"
-#include "feed.h"
 #include "fetcher.h"
+#include "objectslogging.h"
+#include "utils/entryutils.h"
 
 FeedsModel::FeedsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -44,10 +45,20 @@ FeedsModel::FeedsModel(QObject *parent)
     connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, &FeedsModel::triggerFeedUpdate);
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Feeds;"));
+    query.prepare(
+        QStringLiteral("SELECT "
+                       "    *, "
+                       "    COUNT(Entries.entryuid) AS entryCount, "
+                       "    SUM(CASE WHEN NOT Entries.read THEN 1 ELSE 0 END) AS unreadCount, "
+                       "    SUM(CASE WHEN Entries.new THEN 1 ELSE 0 END) AS newCount, "
+                       "    SUM(CASE WHEN Entries.favorite THEN 1 ELSE 0 END) AS favoriteCount "
+                       "FROM Feeds "
+                       "    INNER JOIN Entries "
+                       "        ON Entries.feeduid=Feeds.feeduid "
+                       "        GROUP BY Feeds.feeduid;"));
     Database::instance().execute(query);
     while (query.next()) {
-        DataTypes::FeedUpdateDetails feedDetails;
+        DataTypes::FeedDetails feedDetails;
         feedDetails.feeduid = query.value(QStringLiteral("feeduid")).toLongLong();
         feedDetails.name = query.value(QStringLiteral("name")).toString();
         feedDetails.url = query.value(QStringLiteral("url")).toString();
@@ -56,20 +67,52 @@ FeedsModel::FeedsModel(QObject *parent)
         feedDetails.description = query.value(QStringLiteral("description")).toString();
         feedDetails.subscribed = query.value(QStringLiteral("feeduid")).toLongLong();
         feedDetails.lastUpdated = query.value(QStringLiteral("lastUpdated")).toLongLong();
+        feedDetails.entryCount = query.value(QStringLiteral("entryCount")).toLongLong();
+        feedDetails.unreadEntryCount = query.value(QStringLiteral("unreadCount")).toLongLong();
+        feedDetails.newEntryCount = query.value(QStringLiteral("newCount")).toLongLong();
+        feedDetails.favoriteEntryCount = query.value(QStringLiteral("favoriteCount")).toLongLong();
         m_feeds += feedDetails;
     }
+    query.finish();
+
+    for (DataTypes::FeedDetails &feed : m_feeds) {
+        QStringList authors;
+        query.prepare(QStringLiteral("SELECT name FROM FeedAuthors WHERE feeduid=:feeduid"));
+        query.bindValue(QStringLiteral(":feeduid"), feed.feeduid);
+        Database::instance().execute(query);
+        while (query.next()) {
+            authors += query.value(QStringLiteral("name")).toString();
+        }
+        feed.authors = EntryUtils::combineAuthors(authors);
+    }
+
+    qCDebug(kastsObjects) << "FeedsModel constructed" << this;
+}
+
+FeedsModel::~FeedsModel()
+{
+    qCDebug(kastsObjects) << "FeedsModel destructed" << this;
 }
 
 QHash<int, QByteArray> FeedsModel::roleNames() const
 {
     return {
-        {FeeduidRole, "feeduid"},
-        {FeedRole, "feed"},
-        {UrlRole, "url"},
         {TitleRole, "title"},
+        {FeeduidRole, "feeduid"},
+        {UrlRole, "url"},
+        {ImageRole, "image"},
+        {LinkRole, "link"},
+        {DescriptionRole, "description"},
+        {AuthorsRole, "authors"},
+        {RefreshingRole, "refreshing"},
+        {IsSubscribedRole, "isSubscribed"},
+        {SubscribedRole, "subscribed"},
+        {LastUpdatedRole, "lastUpdated"},
+        {EntryCountRole, "entryCount"},
         {UnreadCountRole, "unreadCount"},
         {NewCountRole, "newCount"},
         {FavoriteCountRole, "favoriteCount"},
+        {FeedRole, "feed"},
     };
 }
 
@@ -82,21 +125,36 @@ int FeedsModel::rowCount(const QModelIndex &parent) const
 QVariant FeedsModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case FeeduidRole:
-        return QVariant::fromValue(m_feeds[index.row()].feeduid);
-    case FeedRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(m_feeds[index.row()].feeduid));
-    case Qt::DisplayRole:
-    case UrlRole:
-        return QVariant::fromValue(m_feeds[index.row()].url);
     case TitleRole:
         return QVariant::fromValue(m_feeds[index.row()].name);
+    case FeeduidRole:
+        return QVariant::fromValue(m_feeds[index.row()].feeduid);
+    case UrlRole:
+        return QVariant::fromValue(m_feeds[index.row()].url);
+    case ImageRole:
+        return QVariant::fromValue(m_feeds[index.row()].image);
+    case LinkRole:
+        return QVariant::fromValue(m_feeds[index.row()].link);
+    case DescriptionRole:
+        return QVariant::fromValue(m_feeds[index.row()].description);
+    case AuthorsRole:
+        return QVariant::fromValue(m_feeds[index.row()].authors);
+    case RefreshingRole:
+        return QVariant::fromValue(m_feeds[index.row()].refreshing);
+    case IsSubscribedRole:
+        return QVariant::fromValue(true);
+    case LastUpdatedRole:
+        return QVariant::fromValue(m_feeds[index.row()].lastUpdated);
+    case EntryCountRole:
+        return QVariant::fromValue(m_feeds[index.row()].entryCount);
     case UnreadCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(m_feeds[index.row()].feeduid)->unreadEntryCount());
+        return QVariant::fromValue(m_feeds[index.row()].unreadEntryCount);
     case NewCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(m_feeds[index.row()].feeduid)->newEntryCount());
+        return QVariant::fromValue(m_feeds[index.row()].newEntryCount);
     case FavoriteCountRole:
-        return QVariant::fromValue(DataManager::instance().getFeed(m_feeds[index.row()].feeduid)->favoriteEntryCount());
+        return QVariant::fromValue(m_feeds[index.row()].favoriteEntryCount);
+    case FeedRole:
+        return QVariant::fromValue(DataManager::instance().getFeed(m_feeds[index.row()].feeduid));
     default:
         return QVariant();
     }
@@ -123,13 +181,23 @@ void FeedsModel::updateFeed(const qint64 feeduid)
         }
     }
     if (idx < 0) {
-        DataTypes::FeedUpdateDetails feedDetails;
+        DataTypes::FeedDetails feedDetails;
         m_feeds += feedDetails;
         idx = m_feeds.count() - 1;
     }
 
     QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
+    query.prepare(
+        QStringLiteral("SELECT "
+                       "    *, "
+                       "    COUNT(Entries.entryuid) AS entryCount, "
+                       "    SUM(CASE WHEN NOT Entries.read THEN 1 ELSE 0 END) AS unreadCount, "
+                       "    SUM(CASE WHEN Entries.new THEN 1 ELSE 0 END) AS newCount, "
+                       "    SUM(CASE WHEN Entries.favorite THEN 1 ELSE 0 END) AS favoriteCount "
+                       "FROM Feeds "
+                       "    INNER JOIN Entries "
+                       "        ON Entries.feeduid=Feeds.feeduid "
+                       "WHERE Feeds.feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), feeduid);
     Database::instance().execute(query);
     if (query.next()) {
@@ -141,5 +209,9 @@ void FeedsModel::updateFeed(const qint64 feeduid)
         m_feeds[idx].description = query.value(QStringLiteral("description")).toString();
         m_feeds[idx].subscribed = query.value(QStringLiteral("feeduid")).toLongLong();
         m_feeds[idx].lastUpdated = query.value(QStringLiteral("lastUpdated")).toLongLong();
+        m_feeds[idx].entryCount = query.value(QStringLiteral("entryCount")).toLongLong();
+        m_feeds[idx].unreadEntryCount = query.value(QStringLiteral("unreadCount")).toLongLong();
+        m_feeds[idx].newEntryCount = query.value(QStringLiteral("newCount")).toLongLong();
+        m_feeds[idx].favoriteEntryCount = query.value(QStringLiteral("favoriteCount")).toLongLong();
     }
 }
