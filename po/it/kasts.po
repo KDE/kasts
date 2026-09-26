@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-08-26 15:18+0200\n"
+"PO-Revision-Date: 2026-09-17 11:35+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -49,17 +49,12 @@ msgid "Invalid Media for episode: %1"
 msgstr "Contenuti multimediali non validi per l'episodio: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Error message notification. First argument is an already "
-#| "translated error description; the second argument is the raw error string "
-#| "from the underlying task."
-#| msgid "%1; error: %2"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "%1; errore: %2"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
 #, kde-format
