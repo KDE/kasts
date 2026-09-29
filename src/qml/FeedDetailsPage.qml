@@ -23,8 +23,21 @@ Kirigami.ScrollablePage {
     LayoutMirroring.childrenInherit: true
 
     required property QtObject feed
-    property int feeduid: feed.feeduid ? feed.feeduid : -1
-    property bool isSubscribed: true
+    required property int feeduid
+    required property string name
+    required property string url
+    required property string link
+    required property string description
+    required property string authors
+    required property string image
+    required property bool isSubscribed
+    required property date subscribed
+    required property date lastUpdated
+    required property int entryCount
+    required property int unreadCount
+    required property int newCount
+    required property int favoriteCount
+
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
     property EntriesProxyModel entriesModel: DataManager.getEntriesProxyModel(feeduid)
 
@@ -128,10 +141,10 @@ Kirigami.ScrollablePage {
                 id: headerImage
                 Layout.fillWidth: true
 
-                property string authors: root.isSubscribed ? root.feed.authors : root.feed.author
+                property string authors: root.isSubscribed ? root.authors : root.feed.author
 
-                image: root.feed.image
-                title: root.isSubscribed ? root.feed.name : root.feed.title
+                image: root.image
+                title: root.isSubscribed ? root.name : root.feed.title
                 subtitle: authors ? KI18n.i18nc("by <author(s)>", "by %1", authors) : ""
             }
 
@@ -169,10 +182,10 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             icon.name: "kt-add-feeds"
                             text: enabled ? KI18n.i18n("Subscribe") : KI18n.i18n("Subscribed")
-                            enabled: !DataManager.feedExists(root.feed.url)
+                            enabled: !DataManager.feedExists(root.url)
                             visible: !root.isSubscribed
                             onTriggered: {
-                                DataManager.addFeed(root.feed.url);
+                                DataManager.addFeed(root.url);
                                 enabled = false;
                                 // Also disable button on discoverpage
                                 if (root.subscribeAction !== undefined) {
@@ -232,7 +245,7 @@ Kirigami.ScrollablePage {
                         textFormat: root.showMoreInfo ? TextEdit.RichText : Text.StyledText
                         maximumLineCount: root.showMoreInfo ? undefined : 2
                         elide: Text.ElideRight
-                        text: root.feed.description
+                        text: root.description
                         font.pointSize: Kirigami.Theme.defaultFont.pointSize
                         wrapMode: Text.WordWrap
                         color: Kirigami.Theme.textColor
@@ -254,7 +267,7 @@ Kirigami.ScrollablePage {
                         Kirigami.UrlButton {
                             id: feedUrl
                             Layout.alignment: Qt.AlignTop
-                            url: root.feed.url
+                            url: root.url
                             wrapMode: TextEdit.Wrap
                             horizontalAlignment: Text.AlignLeft
                             Layout.fillWidth: true
@@ -274,7 +287,7 @@ Kirigami.ScrollablePage {
 
                         Kirigami.UrlButton {
                             Layout.alignment: Qt.AlignTop
-                            url: root.feed.link
+                            url: root.link
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                             horizontalAlignment: Text.AlignLeft
@@ -287,7 +300,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: root.isSubscribed ? KI18n.i18n("Subscribed since: %1", root.feed.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: root.isSubscribed ? KI18n.i18n("Subscribed since: %1", root.subscribed.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
@@ -297,7 +310,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: root.isSubscribed ? KI18n.i18n("Last updated: %1", root.feed.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
+                        text: root.isSubscribed ? KI18n.i18n("Last updated: %1", root.lastUpdated.toLocaleString(Qt.locale(), Locale.ShortFormat)) : ""
                         wrapMode: Text.WordWrap
                     }
                     Kirigami.SelectableLabel {
@@ -307,7 +320,7 @@ Kirigami.ScrollablePage {
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: KI18n.i18np("1 Episode", "%1 Episodes", root.feed.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", root.feed.unreadEntryCount)
+                        text: KI18n.i18np("1 Episode", "%1 Episodes", root.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", root.unreadCount)
                         wrapMode: Text.WordWrap
                     }
 

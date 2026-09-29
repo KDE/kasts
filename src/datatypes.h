@@ -90,9 +90,9 @@ struct FeedDetails {
     int sortType = 0;
     bool refreshing = false;
     qint64 entryCount = -1;
-    qint64 unreadEntryCount = -1;
-    qint64 newEntryCount = -1;
-    qint64 favoriteEntryCount = -1;
+    qint64 unreadCount = -1;
+    qint64 newCount = -1;
+    qint64 favoriteCount = -1;
 };
 
 // This combines EntryDetails with the info on the related Feed

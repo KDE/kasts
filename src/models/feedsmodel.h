@@ -23,7 +23,7 @@ class FeedsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        TitleRole = Qt::DisplayRole,
+        NameRole = Qt::DisplayRole,
         FeeduidRole = Qt::UserRole,
         UrlRole,
         ImageRole,

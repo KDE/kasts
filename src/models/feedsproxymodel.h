@@ -29,8 +29,8 @@ public:
         NewAscending,
         FavoriteDescending,
         FavoriteAscending,
-        TitleAscending,
-        TitleDescending,
+        NameAscending,
+        NameDescending,
     };
     Q_ENUM(SortType)
 

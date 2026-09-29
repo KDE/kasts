@@ -73,12 +73,13 @@ Kirigami.ScrollablePage {
         delegate: AddonDelegates.RoundedItemDelegate {
             id: listItem
 
-            required property string title
+            required property string name
             required property string image
             required property string url
+            required property date lastUpdated
             required property var model
 
-            text: title
+            text: name
 
             contentItem: RowLayout {
                 ImageWithFallback {

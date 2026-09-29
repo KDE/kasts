@@ -21,8 +21,8 @@ FeedsProxyModel::FeedsProxyModel(QObject *parent)
 
 bool FeedsProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    QString leftTitle = sourceModel()->data(left, FeedsModel::TitleRole).toString();
-    QString rightTitle = sourceModel()->data(right, FeedsModel::TitleRole).toString();
+    QString leftTitle = sourceModel()->data(left, FeedsModel::NameRole).toString();
+    QString rightTitle = sourceModel()->data(right, FeedsModel::NameRole).toString();
 
     if (m_currentSort == SortType::UnreadDescending || m_currentSort == SortType::UnreadAscending) {
         int leftUnreadCount = sourceModel()->data(left, FeedsModel::UnreadCountRole).toInt();
@@ -57,7 +57,7 @@ bool FeedsProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right
                 return leftFavoriteCount < rightFavoriteCount;
             }
         }
-    } else if (m_currentSort == SortType::TitleDescending) {
+    } else if (m_currentSort == SortType::NameDescending) {
         return QString::localeAwareCompare(leftTitle, rightTitle) > 0;
     }
 
@@ -71,7 +71,7 @@ bool FeedsProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
 
     bool found = m_searchFilter.isEmpty();
     if (!m_searchFilter.isEmpty()) {
-        if (sourceModel()->data(index, FeedsModel::Roles::TitleRole).value<QString>().contains(m_searchFilter, Qt::CaseInsensitive)) {
+        if (sourceModel()->data(index, FeedsModel::Roles::NameRole).value<QString>().contains(m_searchFilter, Qt::CaseInsensitive)) {
             found |= true;
         }
     }
@@ -128,9 +128,9 @@ QString FeedsProxyModel::getSortName(SortType type) const
         return i18nc("@label:chooser Sort podcasts by decreasing number of favorites", "Favorite count: descending");
     case SortType::FavoriteAscending:
         return i18nc("@label:chooser Sort podcasts by increasing number of favorites", "Favorite count: ascending");
-    case SortType::TitleAscending:
+    case SortType::NameAscending:
         return i18nc("@label:chooser Sort podcasts titles alphabetically", "Podcast title: A → Z");
-    case SortType::TitleDescending:
+    case SortType::NameDescending:
         return i18nc("@label:chooser Sort podcasts titles in reverse alphabetical order", "Podcast title: Z → A");
     default:
         return QString();
@@ -148,9 +148,9 @@ QString FeedsProxyModel::getSortIconName(SortType type) const
     case SortType::NewAscending:
     case SortType::FavoriteAscending:
         return QStringLiteral("view-sort-ascending");
-    case SortType::TitleDescending:
+    case SortType::NameDescending:
         return QStringLiteral("view-sort-descending-name");
-    case SortType::TitleAscending:
+    case SortType::NameAscending:
         return QStringLiteral("view-sort-ascending-name");
     default:
         return QString();
