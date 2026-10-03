@@ -155,10 +155,10 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     if (authors.size() == 1) {
         entry.authors = authors[0];
     } else if (authors.size() == 2) {
-        entry.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+        entry.authors = i18nc("%1 and %2 are episode author names, used when there are exactly two authors", "%1 and %2", authors.first(), authors.last());
     } else if (authors.size() > 2) {
         auto last = authors.takeLast();
-        entry.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
+        entry.authors = i18nc("%1 is a comma-separated list of episode author names, %2 is the last author name", "%1, and %2", authors.join(u','), last);
     }
 
     // TODO: add more fields; these are the only ones that are currently used
@@ -182,10 +182,10 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     if (authors.size() == 1) {
         entry.feed.authors = authors[0];
     } else if (authors.size() == 2) {
-        entry.feed.authors = i18nc("<name> and <name>", "%1 and %2", authors.first(), authors.last());
+        entry.feed.authors = i18nc("%1 and %2 are feed author names, used when there are exactly two authors", "%1 and %2", authors.first(), authors.last());
     } else if (authors.size() > 2) {
         auto last = authors.takeLast();
-        entry.feed.authors = i18nc("<name(s)>, and <name>", "%1, and %2", authors.join(u','), last);
+        entry.feed.authors = i18nc("%1 is a comma-separated list of feed author names, %2 is the last author name", "%1, and %2", authors.join(u','), last);
     }
     return entry;
 }

@@ -477,7 +477,7 @@ void AudioManager::play()
                     entryTitle = d->m_entry.title;
                 }
                 Q_EMIT logError(ErrorLogModel::Type::MeteredStreamingNotAllowed,
-                                i18nc("@info:status Error message notification", "Streaming on metered connection not allowed for episode: %1", entryTitle));
+                                i18nc("@info:status %1 is the episode title", "Streaming on metered connection not allowed for episode: %1", entryTitle));
                 return;
             } else {
                 qCDebug(kastsAudio) << "Refusing to play: no network connection";
@@ -486,7 +486,7 @@ void AudioManager::play()
                     entryTitle = d->m_entry.title;
                 }
                 Q_EMIT logError(ErrorLogModel::Type::NoNetwork,
-                                i18nc("@info:status Error message notification", "No network connection while attempting to stream episode: %1", entryTitle));
+                                i18nc("@info:status %1 is the episode title", "No network connection while attempting to stream episode: %1", entryTitle));
                 return;
             }
         }
@@ -645,7 +645,7 @@ void AudioManager::mediaStatusChanged()
         } else { // not streaming or already tried the redirected url
             // delete the enclosure after the track has been unloaded
             Q_EMIT logError(ErrorLogModel::Type::InvalidMedia,
-                            i18nc("@info:status Error message notification", "Invalid Media for episode: %1", d->m_entry.title));
+                            i18nc("@info:status %1 is the episode title", "Invalid Media for episode: %1", d->m_entry.title));
             qint64 badEntryuid = d->m_entryuid;
             DataManager::instance().setLastPlayingEntry(0);
             stop();

@@ -331,7 +331,7 @@ Kirigami.ScrollablePage {
 
                     width: Kirigami.Units.gridUnit * 20
 
-                    text: root.feed.errorId === 0 ? KI18n.i18n("No episodes available") : KI18n.i18n("Error (%1): %2", root.feed.errorId, root.feed.errorString)
+                    text: root.feed.errorId === 0 ? KI18n.i18n("No episodes available") : KI18n.i18nc("%1 is the error ID, %2 is the error message", "Error (%1): %2", root.feed.errorId, root.feed.errorString)
                     icon.name: root.feed.errorId === 0 ? "" : "data-error"
                 }
             }

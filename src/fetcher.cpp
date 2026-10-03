@@ -138,11 +138,11 @@ void Fetcher::downloadEnclosure(const qint64 entryuid)
             if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
                 if (NetworkConnectionManager::instance().networkReachable()) {
                     Q_EMIT error(ErrorLogModel::Type::MeteredStreamingNotAllowed,
-                                 i18nc("@info:status Error message notification", "Download of episode %1 not allowed on metered connection", title));
+                                 i18nc("@info:status %1 is the episode title", "Download of episode %1 not allowed on metered connection", title));
                     return;
                 } else {
                     Q_EMIT error(ErrorLogModel::Type::NoNetwork,
-                                 i18nc("@info:status Error message notification", "No network connection while attempting to download episode %1", title));
+                                 i18nc("@info:status %1 is the episode title", "No network connection while attempting to download episode %1", title));
                     return;
                 }
             }
@@ -199,7 +199,7 @@ void Fetcher::enqueueEnclosureDownload(const qint64 entryuid,
         if (newDownloadJob->error() != 0 && newDownloadJob->status() != EnclosureDownloadJob::Status::Canceled) {
             if (newDownloadJob->error() != QNetworkReply::OperationCanceledError) { // This should be superfluous wrt Status::Canceled
                 Q_EMIT error(ErrorLogModel::Type::MediaDownload,
-                             i18nc("@info:status Error message notification", "Error downloading media: %1", newDownloadJob->errorString()));
+                             i18nc("@info:status %1 is the error message", "Error downloading media: %1", newDownloadJob->errorString()));
             }
         }
 

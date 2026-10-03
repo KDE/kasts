@@ -286,7 +286,7 @@ void Sync::login(const QString &username, const QString &password)
                 if (subRequest->error()) {
                     Q_EMIT error(
                         ErrorLogModel::Type::SyncError,
-                        i18nc("@info:status Error message notification", "Could not log into GPodder-nextcloud server; error: %1", subRequest->errorString()));
+                        i18nc("@info:status %1 is the error message", "Could not log into GPodder-nextcloud server; error: %1", subRequest->errorString()));
                 }
                 if (m_syncEnabled) {
                     setSyncEnabled(false);
@@ -322,7 +322,7 @@ void Sync::login(const QString &username, const QString &password)
                 if (deviceRequest->error()) {
                     Q_EMIT error(
                         ErrorLogModel::Type::SyncError,
-                        i18nc("@info:status Error message notification", "Could not log into GPodder server; error: %1", deviceRequest->errorString()));
+                        i18nc("@info:status %1 is the error message", "Could not log into GPodder server; error: %1", deviceRequest->errorString()));
                 }
                 m_gpodder->deleteLater();
                 m_gpodder = nullptr;
@@ -463,7 +463,7 @@ void Sync::savePasswordToFile(const QString &username, const QString &password)
     QDir fileDir = QFileInfo(passwordFile).dir();
     if (!((fileDir.exists() || fileDir.mkpath(QStringLiteral("."))) && passwordFile.open(QFile::WriteOnly))) {
         Q_EMIT error(ErrorLogModel::Type::SyncError,
-                     i18nc("@info:status Error message notification", "I/O denied: Cannot save password to file %1", passwordFile.fileName()));
+                     i18nc("@info:status %1 is the file name", "I/O denied: Cannot save password to file %1", passwordFile.fileName()));
         Q_EMIT passwordSaveFinished(false);
     } else {
         passwordFile.write(password.toUtf8());
@@ -540,7 +540,7 @@ QString Sync::retrievePasswordFromFile(const QString &username)
         return QString::fromUtf8(passwordFile.readAll());
     } else {
         Q_EMIT error(ErrorLogModel::Type::SyncError,
-                     i18nc("@info:status Error message notification", "I/O denied: Cannot access password file %1", passwordFile.fileName()));
+                     i18nc("@info:status %1 is the file name", "I/O denied: Cannot access password file %1", passwordFile.fileName()));
         return QLatin1String("");
     }
 }
@@ -618,7 +618,7 @@ void Sync::registerNewDevice(const QString &id, const QString &caption, const QS
             if (updateDeviceRequest->error()) {
                 Q_EMIT error(
                     ErrorLogModel::Type::SyncError,
-                    i18nc("@info:status Error message notification", "Could not create GPodder device; error: %1", updateDeviceRequest->errorString()));
+                    i18nc("@info:status %1 is the error message", "Could not create GPodder device; error: %1", updateDeviceRequest->errorString()));
             }
         } else {
             setDevice(id);
@@ -641,7 +641,7 @@ void Sync::linkUpAllDevices()
             if (syncRequest->error()) {
                 Q_EMIT error(
                     ErrorLogModel::Type::SyncError,
-                    i18nc("@info:status Error message notification", "Could not retrieve synced device status; error: %1", syncRequest->errorString()));
+                    i18nc("@info:status %1 is the error message", "Could not retrieve synced device status; error: %1", syncRequest->errorString()));
             }
             syncRequest->deleteLater();
             return;
@@ -669,7 +669,7 @@ void Sync::linkUpAllDevices()
                 if (upSyncRequest->error()) {
                     // Q_EMIT error(
                     //     ErrorLogModel::Type::SyncError,
-                    //     i18n("@info:status Error message notification", "Could not update synced device status; error: %1", upSyncRequest->errorString()));
+                    //     i18nc("@info:status %1 is the error message", "Could not update synced device status; error: %1", upSyncRequest->errorString()));
                 }
                 // upSyncRequest->deleteLater();
                 // return;
@@ -687,7 +687,7 @@ void Sync::linkUpAllDevices()
                     if (subRequest->error() || subRequest->aborted()) {
                         if (subRequest->error()) {
                             Q_EMIT error(ErrorLogModel::Type::SyncError,
-                                         i18nc("@info:status Error message notification",
+                                         i18nc("@info:status %1 is the device name, %2 is the error message",
                                                "Could not retrieve subscriptions for device %1; error: %2",
                                                device,
                                                subRequest->errorString()));
@@ -705,7 +705,7 @@ void Sync::linkUpAllDevices()
                             connect(upSubRequest, &UploadSubscriptionRequest::finished, this, [this, upSubRequest, syncdevice]() {
                                 if (upSubRequest->error()) {
                                     Q_EMIT error(ErrorLogModel::Type::SyncError,
-                                                 i18nc("@info:status Error message notification",
+                                                 i18nc("@info:status %1 is the device name, %2 is the error message",
                                                        "Could not upload subscriptions for device %1; error: %2",
                                                        syncdevice,
                                                        upSubRequest->errorString()));

@@ -95,7 +95,7 @@ void StorageManager::setStoragePath(QUrl url)
                 // Go back to previous old path
                 SettingsManager::self()->setStoragePath(oldUrl);
                 Q_EMIT error(ErrorLogModel::Type::StorageMoveError,
-                             i18nc("@info:status Error message notification.",
+                             i18nc("@info:status %1 is the old storage path, %2 is the new storage path, %3 is the error message",
                                    "Error moving storage path from %1 to %2; error: %3",
                                    oldPath,
                                    newPath,
