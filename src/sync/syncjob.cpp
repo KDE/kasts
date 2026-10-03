@@ -868,35 +868,34 @@ QString SyncJob::getProgressMessage(SyncJobStatus status) const
     int total = totalAmount(KJob::Unit::Items);
 
     switch (status) {
-    case Started:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Start sync", processed, total);
+    case Started: // Some languages have multiple plural forms depending on the amount, so we need to use i18ncp() here to make sure the correct form can be used
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Start sync", "(Step %1 of %2) Start sync", processed, total);
         break;
     case SubscriptionDownload:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote subscription updates", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote subscription updates", "(Step %1 of %2) Requesting remote subscription updates", processed, total);
         break;
     case SubscriptionUpload:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local subscription updates", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local subscription updates", "(Step %1 of %2) Uploading local subscription updates", processed, total);
         break;
-    case SubscriptionFetch:
-        return i18ncp("Subscription/Episode sync progress step",
-                      "(Step %3 of %4) Updated %2 of %1 podcast",
-                      "(Step %3 of %4) Updated %2 of %1 podcasts",
-                      m_feedUpdateTotal,
-                      m_feedUpdateProgress,
-                      processed,
-                      total);
+    case SubscriptionFetch: // We need to concatenate the two messages here, since i18ncp() doesn't support multiple plural indicators in one string
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2)", "(Step %1 of %2)", processed, total) + QStringLiteral(" ")
+            + i18ncp("Subscription/Episode sync progress step",
+                     "Updated %2 of %1 podcast",
+                     "Updated %2 of %1 podcasts",
+                     m_feedUpdateTotal,
+                     m_feedUpdateProgress);
         break;
     case EpisodeDownload:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote episode updates", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Requesting remote episode updates", "(Step %1 of %2) Requesting remote episode updates", processed, total);
         break;
     case ApplyEpisodeActions:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Applying remote episode changes", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Applying remote episode changes", "(Step %1 of %2) Applying remote episode changes", processed, total);
         break;
     case EpisodeUpload:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local episode updates", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Uploading local episode updates", "(Step %1 of %2) Uploading local episode updates", processed, total);
         break;
     case Finished:
-        return i18nc("Subscription/Episode sync progress step", "(Step %1 of %2) Finished sync", processed, total);
+        return i18ncp("Subscription/Episode sync progress step", "(Step %1 of %2) Finished sync", "(Step %1 of %2) Finished sync", processed, total);
         break;
     case Aborted:
         return i18nc("Subscription/Episode sync progress step", "Sync aborted");
