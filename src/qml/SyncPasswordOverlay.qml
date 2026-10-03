@@ -44,7 +44,7 @@ Kirigami.Dialog {
                 Layout.fillWidth: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: Sync.provider === SyncUtils.GPodderNextcloud ? KI18n.i18n("The password for user \"%1\" on Nextcloud server \"%2\" could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : KI18n.i18n("The password for user \"%1\" on \"gpodder.net\" could not be retrieved.", SettingsManager.syncUsername)
+                text: Sync.provider === SyncUtils.GPodderNextcloud ? KI18n.i18n("The password for user “%1 on Nextcloud server “%2” could not be retrieved.", SettingsManager.syncUsername, SettingsManager.syncHostname) : KI18n.i18n("The password for user “%1“ on “gpodder.net” could not be retrieved.", SettingsManager.syncUsername)
                 color: Kirigami.Theme.textColor
             }
         }

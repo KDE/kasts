@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
             FormCard.FormTextDelegate {
                 id: accountStatus
                 text: KI18n.i18nc("@label", "Account")
-                description: Sync.syncEnabled ? KI18n.i18nc("@info:status Shows which sync account and sync server the user is logged into", "Logged into account \"%1\" on server \"%2\"", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : KI18n.i18nc("@info:status", "Syncing disabled")
+                description: Sync.syncEnabled ? KI18n.i18nc("@info:status Shows which sync account and sync server the user is logged into", "Logged into account “%1“ on server “%2“", Sync.username, (Sync.provider == SyncUtils.GPodderNet && Sync.hostname == "") ? "gpodder.net" : Sync.hostname) : KI18n.i18nc("@info:status", "Syncing disabled")
 
                 trailing: Controls.Button {
                     text: Sync.syncEnabled ? KI18n.i18nc("@action:button", "Logout") : KI18n.i18nc("@action:button", "Login")
@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
 
             FormCard.FormTextDelegate {
                 id: manualSync
-                text: KI18n.i18nc("@label", "Manually sync")
+                text: KI18n.i18nc("@label", "Sync manually")
 
                 trailing: Controls.Button {
                     text: KI18n.i18nc("@action:button", "Sync Now")
@@ -414,7 +414,7 @@ Kirigami.ScrollablePage {
 
         showCloseButton: true
 
-        title: KI18n.i18nc("@title", "Sync Device Settings")
+        title: KI18n.i18nc("@title", "Device Sync Settings")
 
         onOpenedChanged: {
             parent = Utils.focusedWindowItem();
@@ -572,7 +572,7 @@ Kirigami.ScrollablePage {
                 Layout.fillHeight: true
                 readOnly: true
                 wrapMode: Text.WordWrap
-                text: KI18n.i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select \"Ok\".")
+                text: KI18n.i18nc("@label", "Should all podcast subscriptions on this gpodder.net account be synced across all devices?\nIf you don't know what this means, you should probably select “Ok”.")
                 color: Kirigami.Theme.textColor
                 Keys.onReturnPressed: syncGroupOverlay.accepted()
             }
