@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-07-23 18:29+0300\n"
+"PO-Revision-Date: 2026-09-05 10:53+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -554,35 +554,28 @@ msgid "No downloads"
 msgstr "Ei latauksia"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Ladataan"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Kesken olevat lataukset"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
-msgstr "Ladattu"
+msgstr "Ladatut"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Jono"
+msgstr "Jonossa"
 
 #: qml/EntryPage.qml:24
 #, kde-format
@@ -1554,9 +1547,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Merkitse kaikki jaksot kuuntelemattomiksi"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Lataukset"
@@ -1565,7 +1556,7 @@ msgstr "Lataukset"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Rinnakkaisten jaksolatausten enimmäismäärä"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
