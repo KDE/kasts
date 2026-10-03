@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:44+0000\n"
-"PO-Revision-Date: 2026-07-23 18:29+0300\n"
+"PO-Revision-Date: 2026-09-05 10:53+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -28,24 +28,22 @@ msgid "Your emails"
 msgstr "translator@legisign.org"
 
 #: audiomanager.cpp:480
-#, fuzzy, kde-format
-#| msgid "Streaming on metered connection not allowed"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "Suoratoistoa ei sallittu maksullisessa yhteydessä"
+msgstr "Suoratoistoa ei sallita maksullisessa yhteydessä, jakso: %1"
 
 #: audiomanager.cpp:489
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr ""
+msgstr "Ei verkkoyhteyttä yritettäessä suoratoistaa jaksoa: %1"
 
 #: audiomanager.cpp:648
-#, fuzzy, kde-format
-#| msgid "Invalid media file"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Invalid Media for episode: %1"
-msgstr "Virheellinen mediatiedosto"
+msgstr "Virheellinen media, jakso: %1"
 
 #: database.cpp:774 utils/updatefeedjob.cpp:1074
 #, fuzzy, kde-format
@@ -69,24 +67,22 @@ msgid "%1, and %2"
 msgstr "%1 ja %2"
 
 #: fetcher.cpp:141
-#, fuzzy, kde-format
-#| msgid "Podcast downloads not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "Podcastien lataamista ei sallittu maksullisissa yhteyksissä"
+msgstr "Jakson %1 lataamista ei sallita maksullisissa yhteyksissä"
 
 #: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "No network connection while attempting to download episode %1"
-msgstr ""
+msgstr "Ei verkkoyhteyttä yritettäessä ladata jaksoa %1"
 
 #: fetcher.cpp:202
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error downloading media: %1"
-msgstr "Ladataan: %1"
+msgstr "Virhe ladattaessa mediaa: %1"
 
 #: kmediasession/example-app/qml/Main.qml:20
 #, kde-format
@@ -930,12 +926,10 @@ msgid "Export Podcasts…"
 msgstr "Vie podcasteja…"
 
 #: qml/FeedListPage.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Tilaukset"
+msgstr "Etsi tilauksia…"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -1004,6 +998,8 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Podcastin tekijät ovat poistaneet tämän jakson podcastin RSS-syötteestä. "
+"Jakson lataus tai suoratoisto saattaa epäonnistua."
 
 #: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
@@ -1039,35 +1035,28 @@ msgid "Stream"
 msgstr "Suoratoista"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Ladataan"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Kesken olevat lataukset"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
-msgstr "Ladattu"
+msgstr "Ladatut"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title of page showing the list queued items; this is the noun 'the "
-#| "queue', not the verb"
-#| msgid "Queue"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
-msgstr "Jono"
+msgstr "Jonossa"
 
 #: qml/GenericEntryListView.qml:48
 #, fuzzy, kde-format
@@ -1619,9 +1608,7 @@ msgid "Mark all episodes as unplayed"
 msgstr "Merkitse kaikki jaksot kuuntelemattomiksi"
 
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Downloads"
 msgstr "Lataukset"
@@ -1630,7 +1617,7 @@ msgstr "Lataukset"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
-msgstr ""
+msgstr "Rinnakkaisten jaksolatausten enimmäismäärä"
 
 #: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
@@ -2268,70 +2255,61 @@ msgid "Kasts on %1"
 msgstr "Kasts koneella %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder-nextcloud server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
-msgstr "GPodder-Nextcloud-palvelimeen ei voitu kirjautua."
+msgstr "GPodder-Nextcloud-palvelimeen ei voitu kirjautua; virhe: %1"
 
 #: sync/sync.cpp:325
-#, fuzzy, kde-format
-#| msgid "Could not log into GPodder server"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not log into GPodder server; error: %1"
-msgstr "GPodder-palvelimeen ei voitu kirjautua"
+msgstr "GPodder-palvelimeen ei voitu kirjautua; virhe: %1"
 
 #: sync/sync.cpp:466
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "I/O estetty: ei pääsyä salasanatiedostoon."
+msgstr "I/O estetty: ei voida tallentaa salasanaa tiedostoon %1"
 
 #: sync/sync.cpp:543
-#, fuzzy, kde-format
-#| msgid "I/O denied: Cannot access password file."
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "I/O estetty: ei pääsyä salasanatiedostoon."
+msgstr "I/O estetty: ei pääsyä salasanatiedostoon %1"
 
 #: sync/sync.cpp:621
-#, fuzzy, kde-format
-#| msgid "Could not create GPodder device"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not create GPodder device; error: %1"
-msgstr "GPodder-laitetta ei voida luoda"
+msgstr "GPodder-laitetta ei voida luoda; virhe: %1"
 
 #: sync/sync.cpp:644
-#, fuzzy, kde-format
-#| msgid "Could not retrieve synced device status"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "Ei saatu synkronoidun laitteen tilaa"
+msgstr "Ei saatu noudettua tahdistetun laitteen tilaa; virhe: %1"
 
 #: sync/sync.cpp:691
-#, fuzzy, kde-format
-#| msgid "Could not retrieve subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Ei saatu laitteen %1 tilauksia"
+msgstr "Ei saatu noudettua laitteen %1 tilauksia; virhe: %2"
 
 #: sync/sync.cpp:709
-#, fuzzy, kde-format
-#| msgid "Could not upload subscriptions for device %1"
+#, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Ei saatu lähetettyä laitteen %1 tilauksia"
+msgstr "Ei saatu lähetettyä laitteen %1 tilauksia; virhe: %2"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Virhe: %1"
+msgstr "%1; virhe: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
@@ -2426,11 +2404,10 @@ msgid "Downloading %1"
 msgstr "Ladataan: %1"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgid "Error moving storage path"
+#, kde-format
 msgctxt "@info:status Error message notification."
 msgid "Error moving storage path from %1 to %2; error: %3"
-msgstr "Virhe siirrettäessä tallennuspaikkaa"
+msgstr "Virhe siirrettäessä tallennussijaintia %1 → %2; virhe: %3"
 
 #: utils/storagemovejob.cpp:58
 #, kde-format
@@ -2497,7 +2474,7 @@ msgstr "Lopeta"
 #, kde-format
 msgctxt "@info:status Error message notification"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr ""
+msgstr "Virhe noudettaessa podcastia: %1; virhe: %2"
 
 #~ msgctxt "@title of page with list of downloaded episodes"
 #~ msgid "Downloads"
