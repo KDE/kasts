@@ -151,7 +151,7 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByt
         if (!m_abort) {
             qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
             Q_EMIT error(ErrorLogModel::Type::FeedUpdate,
-                         i18nc("@info:status Error message notification", "Error retrieving podcast: %1; error: %2", updatedFeed.name, reply->errorString()));
+                         i18nc("@info:status %1 is the podcast name, %2 is the error message", "Error retrieving podcast: %1; error: %2", updatedFeed.name, reply->errorString()));
         } else {
             qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
         }

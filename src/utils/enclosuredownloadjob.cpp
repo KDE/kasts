@@ -74,7 +74,7 @@ void EnclosureDownloadJob::startDownload()
     }
 
     // TODO: do we really need the entry title only for the description which is not realy used otherwise?
-    Q_EMIT description(this, i18n("Downloading %1", m_title));
+    Q_EMIT description(this, i18nc("%1 is the title of the episode being downloaded", "Downloading %1", m_title));
 
     connect(m_reply, &QNetworkReply::downloadProgress, this, [this, resumedAt](qint64 received, qint64 total) {
         DataManager::instance().bulkSetEnclosureStatuses(QList<DataTypes::EnclosureStatus>({DataTypes::EnclosureStatus::Downloading}),

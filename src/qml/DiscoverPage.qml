@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
         contentItem: RowLayout {
             Kirigami.SearchField {
                 id: textField
-                placeholderText: KI18n.i18n("Search podcastindex.org")
+                placeholderText: KI18n.i18nc("@label:textbox Placeholder text for search field", "Search podcastindex.org…")
                 Layout.fillWidth: true
                 Keys.onReturnPressed: {
                     searchButton.clicked();
