@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:44+0000\n"
+"POT-Creation-Date: 2026-10-06 00:45+0000\n"
 "PO-Revision-Date: 2026-09-17 05:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,20 +30,26 @@ msgid "Your emails"
 msgstr "jlp@holodeck1.com,matjaz.jeran@amis.net,miles@filmsi.net"
 
 #: audiomanager.cpp:480
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Streaming on metered connection not allowed for episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Pretočno predvajanje na merjeni povezavi ni dovoljeno za epizodo: %1"
 
 #: audiomanager.cpp:489
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "No network connection while attempting to stream episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "Ni omrežne povezave med poskusom pretakanja epizode: %1"
 
 #: audiomanager.cpp:648
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Invalid Media for episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Neveljaven medij za epizodo: %1"
 
@@ -55,33 +61,76 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
+#: datamanager.cpp:158
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode author names, used when there are exactly two authors"
+msgid "%1 and %2"
+msgstr "%1 in %2"
+
+#: datamanager.cpp:161
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode author names, %2 is the last author "
+"name"
+msgid "%1, and %2"
+msgstr "%1, in %2"
+
+#: datamanager.cpp:185
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are feed author names, used when there are exactly two authors"
+msgid "%1 and %2"
+msgstr "%1 in %2"
+
+#: datamanager.cpp:188
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of feed author names, %2 is the last author name"
+msgid "%1, and %2"
+msgstr "%1, in %2"
+
+#: feed.cpp:113
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 in %2"
 
-#: datamanager.cpp:161 datamanager.cpp:188 feed.cpp:116
+#: feed.cpp:116
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
 msgstr "%1, in %2"
 
 #: fetcher.cpp:141
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Download of episode %1 not allowed on metered connection"
+msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Prejem epizode %1 ni dovoljen na merjeni povezavi"
 
 #: fetcher.cpp:145
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "No network connection while attempting to download episode %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "Ni omrežne povezave med poskusom prejema epizode %1"
 
 #: fetcher.cpp:202
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Error downloading media: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
 msgstr "Napaka pri prejemanju medija: %1"
 
@@ -558,8 +607,10 @@ msgid "Discover"
 msgstr "Odkrij"
 
 #: qml/DiscoverPage.qml:43
-#, kde-format
-msgid "Search podcastindex.org"
+#, fuzzy, kde-format
+#| msgid "Search podcastindex.org"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
 msgstr "Preišči podcastindex.org"
 
 #: qml/DiscoverPage.qml:52
@@ -815,7 +866,9 @@ msgstr[2] "%1 nepredvajani"
 msgstr[3] "%1 nepredvajane"
 
 #: qml/FeedDetailsPage.qml:334
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error (%1): %2"
+msgctxt "%1 is the error ID, %2 is the error message"
 msgid "Error (%1): %2"
 msgstr "Napaka (%1): %2"
 
@@ -1860,10 +1913,14 @@ msgid "Account"
 msgstr "Račun"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:status Shows which sync account and sync server the user is logged "
+#| "into"
+#| msgid "Logged into account \"%1\" on server \"%2\""
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
-msgid "Logged into account \"%1\" on server \"%2\""
+msgid "Logged into account “%1” on server “%2”"
 msgstr "Prijavljen na račun \"%1\" na strežniku \"%2\""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
@@ -1887,8 +1944,8 @@ msgstr "Prijava"
 #: qml/Settings/SynchronizationSettingsPage.qml:52
 #, kde-format
 msgctxt "@label"
-msgid "Manually sync"
-msgstr "Ročna sinhronizacija"
+msgid "Sync manually"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:55
 #, kde-format
@@ -2077,10 +2134,12 @@ msgid "Hostname:"
 msgstr "Ime gostitelja:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title of dialog box"
+#| msgid "Device Sync Settings"
 msgctxt "@title"
-msgid "Sync Device Settings"
-msgstr "Nastavitve naprave za sinhronizacijo"
+msgid "Device Sync Settings"
+msgstr "Nastavitve sinhronizacije naprave"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
@@ -2155,12 +2214,17 @@ msgid "Device Sync Settings"
 msgstr "Nastavitve sinhronizacije naprave"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid ""
+#| "Should all podcast subscriptions on this gpodder.net account be synced "
+#| "across all devices?\n"
+#| "If you don't know what this means, you should probably select \"Ok\"."
 msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
 "across all devices?\n"
-"If you don't know what this means, you should probably select \"Ok\"."
+"If you don't know what this means, you should probably select “Ok”."
 msgstr ""
 "Naj se vse naročnine spletnih oddaj na tem računu gpodder.net sinhronizirajo "
 "na vseh napravah?\n"
@@ -2173,9 +2237,11 @@ msgid "Sync Now?"
 msgstr "Naj sihroniziram zdaj?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Perform a first sync now?"
 msgctxt "@label"
-msgid "Perform a first sync now?"
+msgid "Perform the first sync now?"
 msgstr "Naj izvedem prvo sinhronizacijo zdaj?"
 
 #: qml/SleepTimerDialog.qml:20
@@ -2224,17 +2290,21 @@ msgid "Sync Password Required"
 msgstr "Zahtevano geslo za uskladitev"
 
 #: qml/SyncPasswordOverlay.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
+#| "retrieved."
 msgid ""
-"The password for user \"%1\" on Nextcloud server \"%2\" could not be "
-"retrieved."
+"The password for user “%1” on Nextcloud server “%2” could not be retrieved."
 msgstr ""
 "Gesla za uporabnika »%1« na strežniku Nextcloud »%2« ni bilo mogoče "
 "pridobiti."
 
 #: qml/SyncPasswordOverlay.qml:47
-#, kde-format
-msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+#, fuzzy, kde-format
+#| msgid ""
+#| "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+msgid "The password for user “%1” on “gpodder.net” could not be retrieved."
 msgstr "Gesla za uporabnika »%1« na »gpodder.net« ni bilo mogoče pridobiti."
 
 #: qml/SyncPasswordOverlay.qml:54
@@ -2267,50 +2337,66 @@ msgid "Kasts on %1"
 msgstr "Kasts na %1"
 
 #: sync/sync.cpp:289
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not log into GPodder-nextcloud server; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "Ni bila mogoča prijava na strežnik GPodder-nextcloud; napaka: %1"
 
 #: sync/sync.cpp:325
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not log into GPodder server; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "Ni se bilo mogoče prijaviti na strežnik GPodder; napaka %1"
 
 #: sync/sync.cpp:466
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "I/O denied: Cannot save password to file %1"
+msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "V/I zavrnjen: Ni mogoče shraniti gesla v datoteko %1"
 
 #: sync/sync.cpp:543
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "I/O denied: Cannot access password file %1"
+msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "V/I zavrnjen: Ni mogoče dostopati do datoteke z gesli %1"
 
 #: sync/sync.cpp:621
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not create GPodder device; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "Ni bilo mogoče ustvariti naprave GPodder; napaka %1"
 
 #: sync/sync.cpp:644
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not retrieve synced device status; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "Ni bilo mogoče pridobiti stanja usklajene naprave; napaka %1"
 
 #: sync/sync.cpp:691
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not retrieve subscriptions for device %1; error: %2"
+msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Ni bilo mogoče pridobiti naročnin za napravo %1; napaka %2"
 
 #: sync/sync.cpp:709
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not upload subscriptions for device %1; error: %2"
+msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Ni bilo mogoče poslati naročnin za napravo %1; napaka %2"
 
@@ -2413,13 +2499,19 @@ msgid "Sync finished with error"
 msgstr "Usklajevanje se je končalo z napako"
 
 #: utils/enclosuredownloadjob.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloading %1"
+msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Prejemanje %1"
 
 #: utils/storagemanager.cpp:99
-#, kde-format
-msgctxt "@info:status Error message notification."
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification."
+#| msgid "Error moving storage path from %1 to %2; error: %3"
+msgctxt ""
+"@info:status %1 is the old storage path, %2 is the new storage path, %3 is "
+"the error message"
 msgid "Error moving storage path from %1 to %2; error: %3"
 msgstr "Napaka pri premikanju pomnilniške poti iz %1 v %2; napaka: %3"
 
@@ -2485,10 +2577,20 @@ msgid "Quit"
 msgstr "Končaj"
 
 #: utils/updatefeedjob.cpp:154
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Error retrieving podcast: %1; error: %2"
+msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Napaka pri pridobivanju podcasta: %1; napaka: %2"
+
+#~ msgctxt "@label"
+#~ msgid "Manually sync"
+#~ msgstr "Ročna sinhronizacija"
+
+#~ msgctxt "@title"
+#~ msgid "Sync Device Settings"
+#~ msgstr "Nastavitve naprave za sinhronizacijo"
 
 #~ msgctxt "@title of page with list of downloaded episodes"
 #~ msgid "Downloads"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:44+0000\n"
+"POT-Creation-Date: 2026-10-06 00:45+0000\n"
 "PO-Revision-Date: 2026-09-17 11:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -30,20 +30,26 @@ msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
 #: audiomanager.cpp:480
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Streaming on metered connection not allowed for episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "No se permite emitir en conexiones de uso medido para el episodio: %1"
 
 #: audiomanager.cpp:489
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "No network connection while attempting to stream episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "No hay conexión de red al intentar emitir el episodio: %1"
 
 #: audiomanager.cpp:648
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Invalid Media for episode: %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Contenido multimedia no válido para el episodio: %1"
 
@@ -55,34 +61,77 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: datamanager.cpp:158 datamanager.cpp:185 feed.cpp:113
+#: datamanager.cpp:158
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode author names, used when there are exactly two authors"
+msgid "%1 and %2"
+msgstr "%1 y %2"
+
+#: datamanager.cpp:161
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode author names, %2 is the last author "
+"name"
+msgid "%1, and %2"
+msgstr "%1 y %2"
+
+#: datamanager.cpp:185
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are feed author names, used when there are exactly two authors"
+msgid "%1 and %2"
+msgstr "%1 y %2"
+
+#: datamanager.cpp:188
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of feed author names, %2 is the last author name"
+msgid "%1, and %2"
+msgstr "%1 y %2"
+
+#: feed.cpp:113
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
 msgstr "%1 y %2"
 
-#: datamanager.cpp:161 datamanager.cpp:188 feed.cpp:116
+#: feed.cpp:116
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
 msgstr "%1 y %2"
 
 #: fetcher.cpp:141
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Download of episode %1 not allowed on metered connection"
+msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
 "La descarga del episodio %1 no está permitida en conexiones de uso medido"
 
 #: fetcher.cpp:145
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "No network connection while attempting to download episode %1"
+msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "No hay conexión de red al intentar descargar el episodio %1"
 
 #: fetcher.cpp:202
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Error downloading media: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
 msgstr "Ha ocurrido un error al descargar contenido multimedia: %1"
 
@@ -560,8 +609,10 @@ msgid "Discover"
 msgstr "Descubrir"
 
 #: qml/DiscoverPage.qml:43
-#, kde-format
-msgid "Search podcastindex.org"
+#, fuzzy, kde-format
+#| msgid "Search podcastindex.org"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
 msgstr "Buscar en podcastindex.org"
 
 #: qml/DiscoverPage.qml:52
@@ -813,7 +864,9 @@ msgstr[0] "1 no reproducido"
 msgstr[1] "%1 no reproducidos"
 
 #: qml/FeedDetailsPage.qml:334
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Error (%1): %2"
+msgctxt "%1 is the error ID, %2 is the error message"
 msgid "Error (%1): %2"
 msgstr "Error (%1): %2"
 
@@ -1850,10 +1903,14 @@ msgid "Account"
 msgstr "Cuenta"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@info:status Shows which sync account and sync server the user is logged "
+#| "into"
+#| msgid "Logged into account \"%1\" on server \"%2\""
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
-msgid "Logged into account \"%1\" on server \"%2\""
+msgid "Logged into account “%1” on server “%2”"
 msgstr "Sesión iniciada en la cuenta «%1» en el servidor «%2»"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
@@ -1877,8 +1934,8 @@ msgstr "Inicio de sesión"
 #: qml/Settings/SynchronizationSettingsPage.qml:52
 #, kde-format
 msgctxt "@label"
-msgid "Manually sync"
-msgstr "Sincronización manual"
+msgid "Sync manually"
+msgstr ""
 
 #: qml/Settings/SynchronizationSettingsPage.qml:55
 #, kde-format
@@ -2069,10 +2126,12 @@ msgid "Hostname:"
 msgstr "Servidor:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title of dialog box"
+#| msgid "Device Sync Settings"
 msgctxt "@title"
-msgid "Sync Device Settings"
-msgstr "Preferencias del dispositivo de sincronización"
+msgid "Device Sync Settings"
+msgstr "Preferencias de la sincronización del dispositivo"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:427
 #, kde-format
@@ -2147,12 +2206,17 @@ msgid "Device Sync Settings"
 msgstr "Preferencias de la sincronización del dispositivo"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid ""
+#| "Should all podcast subscriptions on this gpodder.net account be synced "
+#| "across all devices?\n"
+#| "If you don't know what this means, you should probably select \"Ok\"."
 msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
 "across all devices?\n"
-"If you don't know what this means, you should probably select \"Ok\"."
+"If you don't know what this means, you should probably select “Ok”."
 msgstr ""
 "¿Se deben sincronizar todas las suscripciones a pódcast de esta cuenta de "
 "gpodder.net con todos los dispositivos?\n"
@@ -2165,9 +2229,11 @@ msgid "Sync Now?"
 msgstr "¿Sincronizar ahora?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "Perform a first sync now?"
 msgctxt "@label"
-msgid "Perform a first sync now?"
+msgid "Perform the first sync now?"
 msgstr "¿Realizar una primera sincronización ahora?"
 
 #: qml/SleepTimerDialog.qml:20
@@ -2216,17 +2282,21 @@ msgid "Sync Password Required"
 msgstr "Se necesita contraseña de sincronización"
 
 #: qml/SyncPasswordOverlay.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
+#| "retrieved."
 msgid ""
-"The password for user \"%1\" on Nextcloud server \"%2\" could not be "
-"retrieved."
+"The password for user “%1” on Nextcloud server “%2” could not be retrieved."
 msgstr ""
 "No se ha podido obtener la contraseña del usuario «%1» en el servidor "
 "Nextcloud «%2»."
 
 #: qml/SyncPasswordOverlay.qml:47
-#, kde-format
-msgid "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+#, fuzzy, kde-format
+#| msgid ""
+#| "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+msgid "The password for user “%1” on “gpodder.net” could not be retrieved."
 msgstr ""
 "No se ha podido obtener la contraseña del usuario «%1» en «gpodder.net»."
 
@@ -2260,54 +2330,70 @@ msgid "Kasts on %1"
 msgstr "Kasts en %1"
 
 #: sync/sync.cpp:289
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not log into GPodder-nextcloud server; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr ""
 "No se ha podido iniciar sesión en el servidor GPodder-nextcloud. Error: %1"
 
 #: sync/sync.cpp:325
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not log into GPodder server; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "No se ha podido iniciar sesión en el servidor GPodder. Error: %1"
 
 #: sync/sync.cpp:466
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "I/O denied: Cannot save password to file %1"
+msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "E/S denegada: No se puede guardar la contraseña en el archivo %1"
 
 #: sync/sync.cpp:543
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "I/O denied: Cannot access password file %1"
+msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "E/S denegada: No se puede acceder al archivo de contraseñas %1"
 
 #: sync/sync.cpp:621
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not create GPodder device; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "No se ha podido crear el dispositivo GPodder. Error: %1"
 
 #: sync/sync.cpp:644
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not retrieve synced device status; error: %1"
+msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr ""
 "No se ha podido obtener el estado de sincronización del dispositivo. Error: "
 "%1"
 
 #: sync/sync.cpp:691
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not retrieve subscriptions for device %1; error: %2"
+msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr ""
 "No se han podido obtener las suscripciones para el dispositivo %1. Error: %2"
 
 #: sync/sync.cpp:709
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Could not upload subscriptions for device %1; error: %2"
+msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr ""
 "No se han podido enviar las suscripciones para el dispositivo %1. Error: %2"
@@ -2410,13 +2496,19 @@ msgid "Sync finished with error"
 msgstr "Sincronización terminada con error"
 
 #: utils/enclosuredownloadjob.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Downloading %1"
+msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Descargando %1"
 
 #: utils/storagemanager.cpp:99
-#, kde-format
-msgctxt "@info:status Error message notification."
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification."
+#| msgid "Error moving storage path from %1 to %2; error: %3"
+msgctxt ""
+"@info:status %1 is the old storage path, %2 is the new storage path, %3 is "
+"the error message"
 msgid "Error moving storage path from %1 to %2; error: %3"
 msgstr "Error al mover la ruta de almacenamiento de %1 a %2. Error: %3"
 
@@ -2482,7 +2574,17 @@ msgid "Quit"
 msgstr "Salir"
 
 #: utils/updatefeedjob.cpp:154
-#, kde-format
-msgctxt "@info:status Error message notification"
+#, fuzzy, kde-format
+#| msgctxt "@info:status Error message notification"
+#| msgid "Error retrieving podcast: %1; error: %2"
+msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Ha ocurrido un error al obtener el pódcast: %1. Error: %2"
+
+#~ msgctxt "@label"
+#~ msgid "Manually sync"
+#~ msgstr "Sincronización manual"
+
+#~ msgctxt "@title"
+#~ msgid "Sync Device Settings"
+#~ msgstr "Preferencias del dispositivo de sincronización"
