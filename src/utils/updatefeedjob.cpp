@@ -926,7 +926,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedDetails &updatedFeed)
 
     // update enclosures
     writeQuery.prepare(
-        QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, title=:title, type=:type, url=:url WHERE entryuid=:entryuid "
+        QStringLiteral("UPDATE Enclosures SET duration=:duration, size=:size, type=:type, url=:url WHERE entryuid=:entryuid "
                        "AND enclosureuid=:enclosureuid;"));
     for (const EntryDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         for (const EnclosureDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
