@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-07-14 23:20+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-10-06 13:45+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -53,13 +53,13 @@ msgstr ""
 #, kde-format
 msgctxt "<name> and <name>"
 msgid "%1 and %2"
-msgstr "%1 a %2"
+msgstr "%1, a %2"
 
 #: entry.cpp:139 feed.cpp:147
 #, kde-format
 msgctxt "<name(s)>, and <name>"
 msgid "%1, and %2"
-msgstr "%1 a %2"
+msgstr "%1, a %2"
 
 #: error.cpp:48
 #, kde-format
@@ -519,7 +519,7 @@ msgstr "Prozkoumat"
 #: qml/DiscoverPage.qml:43
 #, kde-format
 msgid "Search podcastindex.org"
-msgstr "Prohledávat podcastindex.org"
+msgstr "Prohledat podcastindex.org"
 
 #: qml/DiscoverPage.qml:52
 #, kde-format
