@@ -27,52 +27,49 @@ Item {
     property int imageFillMode: Image.PreserveAspectCrop
     property bool imageResize: true
 
-    Loader {
-        id: imageLoader
-        anchors.fill: parent
+    Image {
+        id: image
         visible: GraphicsInfo.api === GraphicsInfo.Software
-        sourceComponent: root.imageSource === "" ? fallbackImg : realImg
+        anchors.fill: parent
+        source: root.imageSource
+        fillMode: root.imageFillMode
+        asynchronous: true
+        mipmap: !root.imageResize
+        // Resize images; preferably to the size that they will be shown (i.e.
+        // when imageResize == true), otherwise set a maximum value that is
+        // about twice as large as the largest size these fallback images
+        // will ever have (this is mainly the MobilePlayerControls)
+        sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
+        sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
+
+        Loader {
+            active: image.status === Image.Loading
+            anchors.fill: parent
+            sourceComponent: loaderSymbol
+        }
+
+        Loader {
+            active: image.status === Image.Null || image.status == Image.Error || image.source === ""
+            anchors.fill: parent
+            sourceComponent: fallbackImg
+        }
     }
 
     MultiEffect {
         anchors.fill: parent
-        source: imageLoader.item as Item
+        source: image
         opacity: root.imageOpacity
         maskEnabled: true
         maskThresholdMin: 0.5
         maskSpreadAtMin: 0.5
         maskSource: ShaderEffectSource {
-            width: imageLoader.width
-            height: imageLoader.height
+            width: image.width
+            height: image.height
             sourceItem: Rectangle {
                 anchors.centerIn: parent
-                width: Math.min(imageLoader.width, imageLoader.height)
+                width: Math.min(image.width, image.height)
                 height: width
                 radius: (root.absoluteRadius > 0) ? root.absoluteRadius : ((root.fractionalRadius > 0) ? Math.min(width, height) * root.fractionalRadius : 0)
-            }
-        }
-    }
-
-    Component {
-        id: realImg
-        Image {
-            id: image
-            anchors.fill: parent
-            source: root.imageSource
-            fillMode: root.imageFillMode
-            asynchronous: true
-            mipmap: !root.imageResize
-            // Resize images; preferably to the size that they will be shown (i.e.
-            // when imageResize == true), otherwise set a maximum value that is
-            // about twice as large as the largest size these fallback images
-            // will ever have (this is mainly the MobilePlayerControls)
-            sourceSize.width: root.imageResize ? width * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
-            sourceSize.height: root.imageResize ? height * Screen.devicePixelRatio : Kirigami.Units.gridUnit * 40
-
-            Loader {
-                active: image.status === Image.Loading
-                anchors.fill: parent
-                sourceComponent: loaderSymbol
             }
         }
     }
