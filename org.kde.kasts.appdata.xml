@@ -39,7 +39,7 @@
   <name xml:lang="sk">Kasts</name>
   <name xml:lang="sl">Kasts</name>
   <name xml:lang="sv">Kasts</name>
-  <name xml:lang="tr">Kastlar</name>
+  <name xml:lang="tr">Kasts</name>
   <name xml:lang="uk">Kasts</name>
   <name xml:lang="zh-CN">Kasts</name>
   <name xml:lang="zh-TW">Kasts</name>
@@ -124,7 +124,7 @@
     <p xml:lang="sk">Kasts je konvergentná podcastová aplikácia, ktorá vyzerá dobre na počítači aj na mobile.</p>
     <p xml:lang="sl">Kasts je konvergentni program za spletne oddaje za namizje in mobilne naprave.</p>
     <p xml:lang="sv">Kasts är ett konvergent poddsändningsprogram som ser bra ut på skrivbordsdatorer och mobiler.</p>
-    <p xml:lang="tr">Kastlar, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
+    <p xml:lang="tr">Kasts, hem masaüstü hem de taşınabilirde iyi çalışan, yakınsak bir pod yayını uygulamasıdır.</p>
     <p xml:lang="uk">Kasts — універсальна програма для роботи із трансляціями (подкастами), яка однаково добре виглядає на комп'ютерах і мобільних пристроях.</p>
     <p xml:lang="zh-TW">Kasts 是一個跨平台的 Podcast 應用程式，在桌面上或手機上都好看。</p>
     <p>Its main features are:</p>
@@ -376,7 +376,7 @@
       <caption xml:lang="sk">Kasts na pracovnej ploche s predvolenou hlavičkou</caption>
       <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
-      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kastlar</caption>
+      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="zh-TW">桌面上的 Kasts，使用預設標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
@@ -412,7 +412,7 @@
       <caption xml:lang="sk">Kasts na pracovnej ploche s minimalizovanou hlavičkou</caption>
       <caption xml:lang="sl">Kasts na namizju s strnjenim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med minimerad huvudrad</caption>
-      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kastlar</caption>
+      <caption xml:lang="tr">Küçültülmüş başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із мінімізованою смужкою заголовка</caption>
       <caption xml:lang="zh-TW">桌面上的 Kasts，使用最小化標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop-minimized-header.png</image>
@@ -450,7 +450,7 @@
       <caption xml:lang="sk">Kasts na telefóne</caption>
       <caption xml:lang="sl">Kasts na telefonu</caption>
       <caption xml:lang="sv">Kasts på en telefon</caption>
-      <caption xml:lang="tr">Telefonda Kastlar</caption>
+      <caption xml:lang="tr">Telefonda Kasts</caption>
       <caption xml:lang="uk">Kasts на телефоні</caption>
       <caption xml:lang="zh-CN">在手机上运行的 Kasts</caption>
       <caption xml:lang="zh-TW">手機上的 Kasts</caption>
@@ -488,7 +488,7 @@
       <caption xml:lang="sk">Ovládacie prvky mobilného prehrávača Kasts</caption>
       <caption xml:lang="sl">Kasts upravljanje mobilnega predvajalnika</caption>
       <caption xml:lang="sv">Kasts kontroller för mediaspelare</caption>
-      <caption xml:lang="tr">Kastlar taşınabilir çalar denetimleri</caption>
+      <caption xml:lang="tr">Kasts taşınabilir çalar denetimleri</caption>
       <caption xml:lang="uk">Засоби керування мобільним програвачем Kasts</caption>
       <caption xml:lang="zh-TW">Kasts 行動版播放器控制</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-mobile-player.png</image>
@@ -928,7 +928,7 @@
           <li xml:lang="sk">Kasts has been ported to Qt6 and KDE Frameworks 6.</li>
           <li xml:lang="sl">Kasts je bil prenesen na Qt6 in KDE Frameworks 6.</li>
           <li xml:lang="sv">Kasts har konverterats till Qt6 och KDE Ramverk 6.</li>
-          <li xml:lang="tr">Kastlar’ın Qt6 ve KDE Frameworks 6 geçişi yapıldı.</li>
+          <li xml:lang="tr">Kasts’ın Qt6 ve KDE Frameworks 6 geçişi yapıldı.</li>
           <li xml:lang="uk">Kasts портовано на Qt6 і KDE Frameworks 6.</li>
           <li>The color scheme can now be selected manually.</li>
           <li xml:lang="ar">أصبح بالإمكان اختيار مخطط الألوان يدويًا.</li>
@@ -1105,7 +1105,7 @@
           <li xml:lang="sk">The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
           <li xml:lang="sl">Zvočni zaledni sistem je bil popolnoma napisan na novo. Zdaj lahko podpira več zalednih sistemov: libVLC, gstreamer in Qt Multimedia. Kasts bo uporabljal libVLC kot privzeti zaledni sistem, ko bo na voljo, kar bi moralo rešiti pogoste težave: nadzor glasnosti je zdaj na voljo prek glavne orodne vrstice, iskanje pa ne bi smelo več povzročati prekinitev zvoka.</li>
           <li xml:lang="sv">Ljudgränssnittet har skrivits om från grunden. Den kan nu hantera flera gränssnitt: libVLC, gstreamer och Qt Multimedia. Kasts använder libVLC som standardgränssnitt när det är tillgängligt, vilket borde lösa vanliga problem: Volymkontroll är nu tillgänglig via huvudverktygsraden och sökning borde inte längre få ljudet att hänga sig.</li>
-          <li xml:lang="tr">Ses arka ucu sıfırdan yeniden yazıldı. Artık birden fazla arka ucu işleyebilir: libVLC, gstreamer ve Qt Multimedia. Kastlar, uygun olduğunda libVLC’yi öntanımlı arka uç olarak kullanacak ve bu da yaygın sorunları çözecektir: Ses denetimi artık ana araç çubuğu aracılığıyla kullanılabilir ve kaydırma işlemi artık sesin takılmasına neden olmamalıdır.</li>
+          <li xml:lang="tr">Ses arka ucu sıfırdan yeniden yazıldı. Artık birden fazla arka ucu işleyebilir: libVLC, gstreamer ve Qt Multimedia. Kasts, uygun olduğunda libVLC’yi öntanımlı arka uç olarak kullanacak ve bu da yaygın sorunları çözecektir: Ses denetimi artık ana araç çubuğu aracılığıyla kullanılabilir ve kaydırma işlemi artık sesin takılmasına neden olmamalıdır.</li>
           <li xml:lang="uk">Модуль обробки звуку було переписано з нуля. Тепер він може працювати із декількома модулями: libVLC, gstreamer та Qt Multimedia. Kasts використовуватиме libVLC як типовий модуль, коли він доступний, що має вирішити поширені проблеми: керування гучністю у новій версії доступне через головну панель інструментів, а пошук більше не повинен призводити до зависання звуку.</li>
           <li>The settings menu was ported to the new form components.</li>
           <li xml:lang="ar">نُقلت قائمة الإعدادات إلى مكونات النماذج الجديدة.</li>
@@ -1335,7 +1335,7 @@
           <li xml:lang="sk">Kasts má teraz možnosť odosielať všetky lokálne stavy epizód na server synchronizácie.</li>
           <li xml:lang="sl">Kasts ima zdaj možnost pošiljanja vseh lokalnih stanj epizod na strežnik za sinhronizacijo.</li>
           <li xml:lang="sv">Kasts har nu möjlighet att skicka alla lokala avsnittstillstånd till synkroniseringsservern.</li>
-          <li xml:lang="tr">Kastlar, artık tüm yerel bölüm durumlarını eşzamanlama sunucusuna gönderme yeteneğine sahip.</li>
+          <li xml:lang="tr">Kasts, artık tüm yerel bölüm durumlarını eşzamanlama sunucusuna gönderme yeteneğine sahip.</li>
           <li xml:lang="uk">Нова версія Kasts здатна надсилати усі локальні стани епізодів на сервер синхронізації.</li>
           <li>A setting has been added to tell Kasts how many recent episodes should be marked as unplayed when adding a new podcast.</li>
           <li xml:lang="ar">أُضيف إعداد لإخبار كاست بعدد الحلقات الأخيرة التي يجب وسمها كغير مشغلة عند إضافة مدونة صوتية جديدة.</li>
@@ -1355,7 +1355,7 @@
           <li xml:lang="sk">Bolo pridané nastavenie, ktoré informuje Kasts o počte posledných epizód, ktoré sa majú označiť ako neprehrané pri pridávaní nového podcastu.</li>
           <li xml:lang="sl">Dodana je bila nastavitev, ki Kastsu pove, koliko nedavnih epizod naj bo označenih kot nepreigranih pri dodajanju novega podkasta.</li>
           <li xml:lang="sv">En inställning har lagts till för att tala om för Kasts hur många nya avsnitt som ska markeras som ospelade när en ny podsändning läggs till.</li>
-          <li xml:lang="tr">Yeni bir pod yayını eklerken kaç tane son bölümün dinlenmiş olarak imlenmesi gerektiğini Kastlar’a söyleyen bir ayar eklendi.</li>
+          <li xml:lang="tr">Yeni bir pod yayını eklerken kaç tane son bölümün dinlenmiş olarak imlenmesi gerektiğini Kasts’a söyleyen bir ayar eklendi.</li>
           <li xml:lang="uk">Додано пункт параметрів, який повідомляє Kasts, скільки нещодавніх епізодів слід позначити як невідтворені під час додавання нового подкасту.</li>
           <li>Several small UI bugs and glitches were solved.</li>
           <li xml:lang="ar">حُلّت عدة علل ومشكلات صغيرة في واجهة المستخدم.</li>
@@ -2019,7 +2019,7 @@
         <p xml:lang="sk">First release of Kasts, a Kirigami-based convergent podcast player. Released as part of Plasma Mobile Gear 21.06. It features:</p>
         <p xml:lang="sl">Prva izdaja Kastsa, konvergentnega predvajalnika podkastov, ki temelji na Kirigamiju. Izdana kot del Plasma Mobile Gear 21.06. Vsebuje:</p>
         <p xml:lang="sv">Första utgåvan av Kasts, en Kirigami-baserad konvergent poddsändningsspelare. Utgiven som en del av Plasma Mobile Gear 21.06. Den innehåller:</p>
-        <p xml:lang="tr">Kirigami tabanlı, yakınsak bir pod yayını çaları lan Kastlar’ın ilk sürümü. Plasma Mobile Gear 21.06’nın bir parçası olarak yayımlandı. Şunları içerir:</p>
+        <p xml:lang="tr">Kirigami tabanlı, yakınsak bir pod yayını çaları olan Kasts’ın ilk sürümü. Plasma Mobile Gear 21.06’nın bir parçası olarak yayımlandı. Şunları içerir:</p>
         <p xml:lang="uk">Перший випуск Kasts, однорідного програвача подкастів на основі Kirigami. Випущено як частину Plasma Mobile Gear 21.06. У випуску:</p>
         <ul>
           <li>a play queue</li>
