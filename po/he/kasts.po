@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:45+0000\n"
+"POT-Creation-Date: 2026-10-08 00:44+0000\n"
 "PO-Revision-Date: 2026-09-17 08:36+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
-#: audiomanager.cpp:480
+#: audiomanager.cpp:481
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Streaming on metered connection not allowed for episode: %1"
@@ -36,7 +36,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "הזרמה על רשתות מוגבלות אינה מורשית לפרק: %1"
 
-#: audiomanager.cpp:489
+#: audiomanager.cpp:490
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "No network connection while attempting to stream episode: %1"
@@ -44,7 +44,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "אין חיבור לרישיון בזמן הניסיון להזרים את הפרק: %1"
 
-#: audiomanager.cpp:648
+#: audiomanager.cpp:649
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Invalid Media for episode: %1"
@@ -52,7 +52,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "מדיה שגויה לפרק: %1"
 
-#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#: database.cpp:896 utils/updatefeedjob.cpp:1071
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -79,7 +79,7 @@ msgctxt ""
 msgid "%1, and %2"
 msgstr "%1, וגם %2"
 
-#: datamanager.cpp:185
+#: datamanager.cpp:186
 #, fuzzy, kde-format
 #| msgctxt "<name> and <name>"
 #| msgid "%1 and %2"
@@ -88,7 +88,7 @@ msgctxt ""
 msgid "%1 and %2"
 msgstr "%1 וגם %2"
 
-#: datamanager.cpp:188
+#: datamanager.cpp:189
 #, fuzzy, kde-format
 #| msgctxt "<name(s)>, and <name>"
 #| msgid "%1, and %2"

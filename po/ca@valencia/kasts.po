@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:45+0000\n"
+"POT-Creation-Date: 2026-10-08 00:44+0000\n"
 "PO-Revision-Date: 2026-10-06 09:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: audiomanager.cpp:480
+#: audiomanager.cpp:481
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
@@ -38,7 +38,7 @@ msgstr ""
 "No es permet la transmissió en continu amb una connexió d'ús mesurat per "
 "episodi: %1"
 
-#: audiomanager.cpp:489
+#: audiomanager.cpp:490
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
@@ -46,13 +46,13 @@ msgstr ""
 "No hi ha cap connexió de xarxa en intentar la transmissió en continu de "
 "l'episodi: %1"
 
-#: audiomanager.cpp:648
+#: audiomanager.cpp:649
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Fitxer multimèdia no vàlid de l'episodi: %1"
 
-#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#: database.cpp:896 utils/updatefeedjob.cpp:1071
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -75,14 +75,14 @@ msgctxt ""
 msgid "%1, and %2"
 msgstr "%1 i %2"
 
-#: datamanager.cpp:185
+#: datamanager.cpp:186
 #, kde-format
 msgctxt ""
 "%1 and %2 are feed author names, used when there are exactly two authors"
 msgid "%1 and %2"
 msgstr "%1 i %2"
 
-#: datamanager.cpp:188
+#: datamanager.cpp:189
 #, kde-format
 msgctxt ""
 "%1 is a comma-separated list of feed author names, %2 is the last author name"

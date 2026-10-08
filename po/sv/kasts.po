@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:45+0000\n"
+"POT-Creation-Date: 2026-10-08 00:44+0000\n"
 "PO-Revision-Date: 2026-09-17 21:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -24,7 +24,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: audiomanager.cpp:480
+#: audiomanager.cpp:481
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Streaming on metered connection not allowed for episode: %1"
@@ -32,7 +32,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Strömning är inte tillåten med uppmätt anslutning för avsnitt: %1"
 
-#: audiomanager.cpp:489
+#: audiomanager.cpp:490
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "No network connection while attempting to stream episode: %1"
@@ -40,7 +40,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "Ingen nätverksanslutning vid försök att strömma avsnitt: %1"
 
-#: audiomanager.cpp:648
+#: audiomanager.cpp:649
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Invalid Media for episode: %1"
@@ -48,7 +48,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ogiltig media för avsnitt: %1"
 
-#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#: database.cpp:896 utils/updatefeedjob.cpp:1071
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -75,7 +75,7 @@ msgctxt ""
 msgid "%1, and %2"
 msgstr "%1 och %2"
 
-#: datamanager.cpp:185
+#: datamanager.cpp:186
 #, fuzzy, kde-format
 #| msgctxt "<name> and <name>"
 #| msgid "%1 and %2"
@@ -84,7 +84,7 @@ msgctxt ""
 msgid "%1 and %2"
 msgstr "%1 och %2"
 
-#: datamanager.cpp:188
+#: datamanager.cpp:189
 #, fuzzy, kde-format
 #| msgctxt "<name(s)>, and <name>"
 #| msgid "%1, and %2"

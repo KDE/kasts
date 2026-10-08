@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:45+0000\n"
+"POT-Creation-Date: 2026-10-08 00:44+0000\n"
 "PO-Revision-Date: 2026-09-21 22:49+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: audiomanager.cpp:480
+#: audiomanager.cpp:481
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Streaming on metered connection not allowed for episode: %1"
@@ -35,7 +35,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "종량제 연결에서 에피소드에 대한 스트리밍이 허용되지 않음: %1"
 
-#: audiomanager.cpp:489
+#: audiomanager.cpp:490
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "No network connection while attempting to stream episode: %1"
@@ -43,7 +43,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "에피소드를 스트림하려고 시도했지만 네트워크에 연결되지 않았음: %1"
 
-#: audiomanager.cpp:648
+#: audiomanager.cpp:649
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Invalid Media for episode: %1"
@@ -51,7 +51,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "잘못된 에피소드 미디어 파일: %1"
 
-#: database.cpp:774 utils/updatefeedjob.cpp:1074
+#: database.cpp:896 utils/updatefeedjob.cpp:1071
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -78,7 +78,7 @@ msgctxt ""
 msgid "%1, and %2"
 msgstr "%1 그리고 %2"
 
-#: datamanager.cpp:185
+#: datamanager.cpp:186
 #, fuzzy, kde-format
 #| msgctxt "<name> and <name>"
 #| msgid "%1 and %2"
@@ -87,7 +87,7 @@ msgctxt ""
 msgid "%1 and %2"
 msgstr "%1 그리고 %2"
 
-#: datamanager.cpp:188
+#: datamanager.cpp:189
 #, fuzzy, kde-format
 #| msgctxt "<name(s)>, and <name>"
 #| msgid "%1, and %2"

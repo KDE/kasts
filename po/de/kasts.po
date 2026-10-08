@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:45+0000\n"
-"PO-Revision-Date: 2026-04-24 08:01+0200\n"
+"POT-Creation-Date: 2026-10-08 00:44+0000\n"
+"PO-Revision-Date: 2026-10-05 18:25+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,34 +29,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-i18n-de@kde.org"
 
-#: audiomanager.cpp:480
+#: audiomanager.cpp:481
 #, fuzzy, kde-format
 #| msgid "Streaming on metered connection not allowed"
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Streaming über getaktete Verbindungen nicht erlaubt"
 
-#: audiomanager.cpp:489
+#: audiomanager.cpp:490
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
 
-#: audiomanager.cpp:648
+#: audiomanager.cpp:649
 #, fuzzy, kde-format
 #| msgid "Invalid media file"
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ungültige Mediendatei"
 
-#: database.cpp:774 utils/updatefeedjob.cpp:1074
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#: database.cpp:896 utils/updatefeedjob.cpp:1071
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "Fehler: %1"
+msgstr "%1: %2"
 
 #: datamanager.cpp:158
 #, fuzzy, kde-format
@@ -77,7 +76,7 @@ msgctxt ""
 msgid "%1, and %2"
 msgstr "%1 und %2"
 
-#: datamanager.cpp:185
+#: datamanager.cpp:186
 #, fuzzy, kde-format
 #| msgctxt "<name> and <name>"
 #| msgid "%1 and %2"
@@ -86,7 +85,7 @@ msgctxt ""
 msgid "%1 and %2"
 msgstr "%1 und %2"
 
-#: datamanager.cpp:188
+#: datamanager.cpp:189
 #, fuzzy, kde-format
 #| msgctxt "<name(s)>, and <name>"
 #| msgid "%1, and %2"
@@ -295,18 +294,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "Nicht als Favoriten gekennzeichnete Episoden"
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "Keine heruntergeladenen Episoden"
+msgstr "Heruntergeladene Episoden"
 
 #: models/abstractepisodeproxymodel.cpp:194
-#, fuzzy, kde-format
-#| msgid "No Downloaded Episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "Keine heruntergeladenen Episoden"
+msgstr "Nicht heruntergeladene Episoden"
 
 #: models/abstractepisodeproxymodel.cpp:204
 #, kde-format
@@ -773,7 +770,7 @@ msgstr "Suchen"
 #, kde-format
 msgctxt "@label:textbox Placeholder text for episode search field"
 msgid "Search episodes…"
-msgstr "Episoden suchen …"
+msgstr "Episoden durchsuchen …"
 
 #: qml/EpisodeListPage.qml:93 qml/FeedDetailsPage.qml:334
 #, kde-format
@@ -899,7 +896,7 @@ msgstr "Online suchen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Synchronize"
-msgstr "Abgleichen"
+msgstr "Synchronisieren"
 
 #: qml/FeedListGridView.qml:214
 #, kde-format
@@ -971,12 +968,10 @@ msgid "Export Podcasts…"
 msgstr "Podcasts exportieren …"
 
 #: qml/FeedListPage.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Abonnements"
+msgstr "Abonnements durchsuchen …"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -1044,6 +1039,9 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
+"Diese Episode wurde vom Autor/von den Autoren des Podcasts aus dem RSS-Feed "
+"entfernt. Das Herunterladen und/oder Streamen dieser Episode funktioniert "
+"möglicherweise nicht mehr."
 
 #: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
 #, kde-format
@@ -1103,20 +1101,16 @@ msgid "Queued"
 msgstr "In der Warteschlange"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title:group Status of downloaded episodes"
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "Heruntergeladen"
+msgstr "Nicht heruntergeladen"
 
 #: qml/GenericEntryListView.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "Nicht als Favoriten gekennzeichnete Episoden"
+msgstr "Episoden ohne Mediendateien"
 
 #: qml/GenericEntryListView.qml:212
 #, kde-format
@@ -1813,7 +1807,7 @@ msgstr "Netzwerk"
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
-msgstr "Abgleich"
+msgstr "Synchronisierung"
 
 #: qml/Settings/SettingsView.qml:53
 #, kde-format
@@ -1916,7 +1910,7 @@ msgstr "In Konto „%1“ auf Server „%2“ angemeldet"
 #, kde-format
 msgctxt "@info:status"
 msgid "Syncing disabled"
-msgstr "Abgleich deaktiviert"
+msgstr "Synchronisierung deaktiviert"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:41
 #, kde-format
@@ -1940,37 +1934,37 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Sync Now"
-msgstr "Jetzt abgleichen"
+msgstr "Jetzt synchronisieren"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:67
 #, kde-format
 msgctxt "@info:status"
 msgid "Last full sync with server"
-msgstr "Letzter vollständiger Abgleich mit dem Server"
+msgstr "Letzte vollständige Synchronisierung mit dem Server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Last quick upload to sync server"
-msgstr "Letzter Schnellupload zum Abgleichserver"
+msgstr "Letzter Schnellupload zum Synchronisierungsserver"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:81
 #, kde-format
 msgctxt "@title Form header for settings related to automatic syncing"
 msgid "Automatic syncing"
-msgstr "Automatischer Abgleich"
+msgstr "Automatische Synchronisierung"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:91
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync on startup"
-msgstr "Vollständigen Abgleich beim Start durchführen"
+msgstr "Vollständige Synchronisierung beim Start durchführen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Do full sync when fetching podcasts"
-msgstr "Vollständigen Abgleich beim Aktualisieren der Podcasts durchführen"
+msgstr "Vollständige Synchronisierung beim Abrufen der Podcasts durchführen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:111
 #, kde-format
@@ -2039,7 +2033,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Select Sync Provider"
-msgstr "Abgleichanbieter auswählen"
+msgstr "Synchronisierungsanbieter auswählen"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:242
 #, kde-format
@@ -2051,7 +2045,7 @@ msgstr "gpodder.net"
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with official gpodder.net server"
-msgstr "Abgleich über offiziellen gpodder.net-Server"
+msgstr "Synchronisierung über offiziellen gpodder.net-Server"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:248
 #, kde-format
@@ -2063,25 +2057,25 @@ msgstr "GPodder Nextcloud"
 #, kde-format
 msgctxt "@label"
 msgid "Synchronize with GPodder Nextcloud app"
-msgstr "Abgleich über GPodder-Nextcloud-App"
+msgstr "Synchronisierung über GPodder-Nextcloud-App"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:296
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Login Credentials"
-msgstr "Anmeldedaten für Abgleich"
+msgstr "Anmeldedaten für Synchronisierung"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:329
 #, kde-format
 msgctxt "@label"
 msgid "Sync with GPodder Nextcloud app"
-msgstr "Mittels GPodder-Nextcloud-App abgleichen"
+msgstr "Synchronisierung über GPodder-Nextcloud-App"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:329
 #, kde-format
 msgctxt "@label"
 msgid "Sync with gpodder.net service"
-msgstr "Mittels gpodder.net-Dienst abgleichen"
+msgstr "Synchronisierung über gpodder.net-Dienst"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:339
 #, kde-format
@@ -2091,9 +2085,9 @@ msgid ""
 ">It is advised to manually create an app password for Kasts through the web "
 "interface and use those credentials."
 msgstr ""
-"Abgleich mit einem Nextcloud-Server, der die GPodder-Sync-App installiert "
-"hat: %1.<br/>Es wird empfohlen, in der Web-Oberfläche ein Anwendungspasswort "
-"für Kasts einzurichten und zur Anmeldung zu nutzen."
+"Synchronisierung mit einem Nextcloud-Server, auf dem die GPodder-Sync-App "
+"installiert ist: %1.<br/>Es wird empfohlen, in der Web-Oberfläche manuell "
+"ein Anwendungspasswort für Kasts anzulegen und zur Anmeldung zu verwenden."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:339
 #, kde-format
@@ -2204,7 +2198,7 @@ msgstr "Oder ein bestehendes Gerät auswählen"
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Device Sync Settings"
-msgstr "Einstellungen zum Geräteabgleich"
+msgstr "Einstellungen zur Gerätesynchronisierung"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
 #, fuzzy, kde-format
@@ -2228,7 +2222,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title of dialog box"
 msgid "Sync Now?"
-msgstr "Jetzt abgleichen?"
+msgstr "Jetzt synchronisieren?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
 #, fuzzy, kde-format
@@ -2281,7 +2275,7 @@ msgstr "Stunden"
 #: qml/SyncPasswordOverlay.qml:24
 #, kde-format
 msgid "Sync Password Required"
-msgstr "Abgleichpasswort erforderlich"
+msgstr "Passwort zur Synchronisierung erforderlich"
 
 #: qml/SyncPasswordOverlay.qml:47
 #, fuzzy, kde-format
@@ -2388,19 +2382,18 @@ msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Abonnements des Geräts „%1“ können nicht hochgeladen werden"
 
 #: sync/sync.cpp:764
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
 "translated error description; the second argument is the raw error string "
 "from the underlying task."
 msgid "%1; error: %2"
-msgstr "Fehler: %1"
+msgstr "%1. Fehler: %2"
 
 #: sync/syncjob.cpp:65
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr "Abonnement-Aktualisierungen können nicht vom Server geholt werden"
+msgstr "Abonnement-Aktualisierungen können nicht vom Server abgerufen werden"
 
 #: sync/syncjob.cpp:68
 #, kde-format
@@ -2410,7 +2403,7 @@ msgstr "Abonnement-Änderungen können nicht zum Server hochgeladen werden"
 #: sync/syncjob.cpp:71
 #, kde-format
 msgid "Could not retrieve episode updates from server"
-msgstr "Episoden-Aktualisierungen können nicht vom Server geholt werden"
+msgstr "Episoden-Aktualisierungen können nicht vom Server abgerufen werden"
 
 #: sync/syncjob.cpp:74
 #, kde-format
@@ -2426,7 +2419,7 @@ msgstr "Interner Datenfehler"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Start sync"
-msgstr "(Schritt %1 von %2) Abgleich starten"
+msgstr "(Schritt %1 von %2) Synchronisierung starten"
 
 #: sync/syncjob.cpp:875
 #, kde-format
@@ -2475,19 +2468,19 @@ msgstr ""
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Finished sync"
-msgstr "(Schritt %1 von %2) Abgleich abgeschlossen"
+msgstr "(Schritt %1 von %2) Synchronisierung abgeschlossen"
 
 #: sync/syncjob.cpp:902
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync aborted"
-msgstr "Abgleich abgebrochen"
+msgstr "Synchronisierung abgebrochen"
 
 #: sync/syncjob.cpp:906
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
-msgstr "Abgleich mit Fehler beendet"
+msgstr "Synchronisierung mit Fehler beendet"
 
 #: utils/enclosuredownloadjob.cpp:77
 #, fuzzy, kde-format
