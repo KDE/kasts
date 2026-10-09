@@ -28,7 +28,7 @@ public:
         LinkRole = Qt::UserRole + 1,
         ImageRole,
         StartTimeRole,
-        DurationRole,
+        LengthRole,
         EntryuidRole,
         QueueStatusRole,
         EnclosureStatusRole,
@@ -66,7 +66,7 @@ private:
     qint64 m_entryuid;
     QList<DataTypes::ChapterUpdateDetails> m_chapters;
     int m_currentChapter = 0;
-    int m_duration;
+    int m_duration = 0;
 
     QString m_entryId, m_entryTitle, m_entryImage, m_enclosureUrl, m_feedDirName, m_feedImage;
     DataTypes::EnclosureStatus m_enclosureStatus = DataTypes::EnclosureStatus::NoEnclosure;

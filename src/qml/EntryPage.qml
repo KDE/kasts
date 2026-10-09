@@ -138,6 +138,12 @@ Kirigami.ScrollablePage {
                             }
                         },
                         Kirigami.Action {
+                            text: KI18n.i18nc("@action:intoolbar", "Chapters")
+                            visible: root.enableActions && chapterModel.rowCount !== 0
+                            icon.name: "view-media-playlist"
+                            onTriggered: chapterDialog.open()
+                        },
+                        Kirigami.Action {
                             text: !root.queueStatus ? KI18n.i18nc("@action:intoolbar Button to add an episode to the play queue", "Add to Queue") : KI18n.i18nc("@action:intoolbar Button to remove an episode from the play queue", "Remove from Queue")
                             icon.name: !root.queueStatus ? "media-playlist-append" : "list-remove"
                             visible: root.enableActions && (root.hasEnclosure || root.queueStatus)
@@ -262,24 +268,13 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+    }
 
-        Loader {
-            Layout.fillWidth: true
-            active: root.enableActions
-            sourceComponent: ListView {
-                visible: count !== 0
-                Layout.fillWidth: true
-                implicitHeight: contentHeight
-                interactive: false
-                currentIndex: -1
-                Layout.leftMargin: Kirigami.Units.gridUnit
-                Layout.rightMargin: Kirigami.Units.gridUnit
-                Layout.bottomMargin: Kirigami.Units.gridUnit
-                model: ChapterModel {
-                    entryuid: root.entryuid
-                }
-                delegate: ChapterListDelegate {}
-            }
+    ChapterDialog {
+        id: chapterDialog
+        model: ChapterModel {
+            id: chapterModel
+            entryuid: root.entryuid
         }
     }
 }

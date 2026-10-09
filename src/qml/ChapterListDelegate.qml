@@ -26,8 +26,6 @@ AddonDelegates.RoundedItemDelegate {
     required property int enclosureStatus
     required property bool queueStatus
 
-    property var overlay: undefined
-
     property bool streamingButtonVisible: entryuid > 0 && (enclosureStatus !== DataTypes.EnclosureStatus.NoEnclosure) && (enclosureStatus !== DataTypes.EnclosureStatus.Downloaded) && NetworkConnectionManager.streamingAllowed && (SettingsManager.prioritizeStreaming || AudioManager.entryuid == entryuid)
 
     Accessible.role: Accessible.Button
