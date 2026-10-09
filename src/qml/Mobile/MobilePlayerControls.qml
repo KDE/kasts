@@ -229,7 +229,7 @@ Kirigami.Page {
                         model: ChapterModel {
                             id: _chapterModel
                             entryuid: AudioManager.entryuid
-                            duration: AudioManager.duration / 1000
+                            duration: AudioManager.duration
                         }
                         clip: true
                         visible: chapterList.count !== 0

@@ -108,6 +108,7 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/ErrorNotification.qml
         qml/ConnectionCheckAction.qml
         qml/ChapterListDelegate.qml
+        qml/ChapterDialog.qml
         qml/SyncPasswordOverlay.qml
         qml/Settings/SettingsView.qml
         qml/Settings/GeneralSettingsPage.qml

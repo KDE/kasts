@@ -339,10 +339,10 @@ FocusScope {
     // Actions which will be used to create buttons on toolbar or in overflow menu
     Kirigami.Action {
         id: chapterAction
-        visible: AudioManager.entryuid > 0 && chapterList.count !== 0
-        text: KI18n.i18nc("@action:button", "Chapters")
+        visible: AudioManager.entryuid > 0 && chapterModel.rowCount !== 0
+        text: KI18n.i18nc("@action:intoolbar", "Chapters")
         icon.name: "view-media-playlist"
-        onTriggered: chapterOverlay.open()
+        onTriggered: chapterDialog.open()
     }
 
     Kirigami.Action {
@@ -384,25 +384,9 @@ FocusScope {
         duration: AudioManager.duration
     }
 
-    Kirigami.Dialog {
-        id: chapterOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 30
-        preferredHeight: Kirigami.Units.gridUnit * 25
-
-        showCloseButton: true
-
-        title: KI18n.i18n("Chapters")
-
-        ListView {
-            id: chapterList
-
-            currentIndex: -1
-
-            model: chapterModel
-            delegate: ChapterListDelegate {
-                overlay: chapterOverlay
-            }
-        }
+    ChapterDialog {
+        id: chapterDialog
+        model: chapterModel
     }
 
     Kirigami.Dialog {

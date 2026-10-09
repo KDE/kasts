@@ -57,7 +57,7 @@ QVariant ChapterModel::data(const QModelIndex &index, int role) const
         }
     case StartTimeRole:
         return QVariant::fromValue(m_chapters.at(index.row()).start);
-    case DurationRole:
+    case LengthRole:
         if (m_chapters.size() > index.row() + 1) {
             return QVariant::fromValue(m_chapters.at(index.row() + 1).start - m_chapters.at(index.row()).start);
         } else {
@@ -91,7 +91,7 @@ QHash<int, QByteArray> ChapterModel::roleNames() const
         {LinkRole, "link"},
         {ImageRole, "image"},
         {StartTimeRole, "start"},
-        {DurationRole, "duration"},
+        {LengthRole, "length"},
         {EntryuidRole, "entryuid"},
         {QueueStatusRole, "queueStatus"},
         {EnclosureStatusRole, "enclosureStatus"},
@@ -133,6 +133,9 @@ void ChapterModel::load()
             m_enclosureStatus = DataTypes::dbToStatus(query.value(QStringLiteral("Enclosures.downloaded")).toInt());
             m_feedDirName = query.value(QStringLiteral("Feeds.dirname")).toString();
             m_feedImage = query.value(QStringLiteral("Feeds.image")).toString();
+            if (m_duration == 0) {
+                m_duration = query.value(QStringLiteral("Enclosures.duration")).toLongLong() * 1000;
+            }
 
             loadChaptersFromFile();
             if (m_chapters.isEmpty()) {

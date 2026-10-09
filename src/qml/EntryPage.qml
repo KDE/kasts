@@ -119,6 +119,12 @@ Kirigami.ScrollablePage {
                         }
                     },
                     Kirigami.Action {
+                        text: KI18n.i18nc("@action:intoolbar", "Chapters")
+                        visible: chapterModel.rowCount !== 0
+                        icon.name: "view-media-playlist"
+                        onTriggered: chapterDialog.open()
+                    },
+                    Kirigami.Action {
                         text: KI18n.i18nc("@action:intoolbar Action to start playback by streaming the episode rather than downloading it first", "Stream")
                         visible: root.hasEnclosure && root.enclosureStatus !== DataTypes.EnclosureStatus.Downloaded && NetworkConnectionManager.streamingAllowed && (AudioManager.entryuid !== root.entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
                         icon.name: "media-playback-cloud"
@@ -250,19 +256,14 @@ Kirigami.ScrollablePage {
             }
         }
 
-        ListView {
-            visible: count !== 0
-            Layout.fillWidth: true
-            implicitHeight: contentHeight
-            interactive: false
-            currentIndex: -1
-            Layout.leftMargin: Kirigami.Units.gridUnit
-            Layout.rightMargin: Kirigami.Units.gridUnit
-            Layout.bottomMargin: Kirigami.Units.gridUnit
-            model: ChapterModel {
-                entryuid: root.entryuid
-            }
-            delegate: ChapterListDelegate {}
+        ChapterModel {
+            id: chapterModel
+            entryuid: root.entryuid
+        }
+
+        ChapterDialog {
+            id: chapterDialog
+            model: chapterModel
         }
     }
 }
