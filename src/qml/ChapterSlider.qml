@@ -84,13 +84,14 @@ Control {
                 id: delegate
 
                 required property int start
-                required property int duration
+                required property int length
                 required property string title
 
                 // If we're not dragging, use the more precise method using the AudioManager. If we're dragging, this doesn't work because the AudioManager isn't updated while dragging
-                readonly property bool isCurrent: dragArea.drag.active ? (x - 1.01 <= handle.centerX && handle.centerX < x + width) : (start * 1000 <= AudioManager.position && (start + duration) * 1000 > AudioManager.position)
-                readonly property bool isPrevious: dragArea.drag.active ? (x + width < handle.centerX) : ((start + duration) * 1000 < AudioManager.position)
-                Layout.preferredWidth: duration
+                readonly property bool isCurrent: dragArea.drag.active ? (x - 1.01 <= handle.centerX && handle.centerX < x + width) : (start * 1000 <= AudioManager.position && (start + length) * 1000 > AudioManager.position)
+                readonly property bool isPrevious: dragArea.drag.active ? (x + width < handle.centerX) : ((start + length) * 1000 < AudioManager.position)
+
+                Layout.preferredWidth: length * 1000 / root.duration * (layout.width - chapters.count + 1)
                 Layout.fillWidth: true
                 Layout.preferredHeight: root.grooveSize
                 Layout.alignment: Qt.AlignVCenter

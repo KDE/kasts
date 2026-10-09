@@ -26,7 +26,11 @@ Kirigami.Page {
 
     required property NumberAnimation openAnimation
     required property NumberAnimation closeAnimation
-    property alias chapterModel: _chapterModel
+    readonly property ChapterModel chapterModel: ChapterModel {
+        id: _chapterModel
+        entryuid: AudioManager.entryuid
+        duration: AudioManager.duration
+    }
 
     title: (AudioManager.entryuid > 0) ? AudioManager.entryTitle : KI18n.i18n("No Episode Loaded")
     clip: true
@@ -216,7 +220,7 @@ Kirigami.Page {
                     anchors.rightMargin: Kirigami.Units.largeSpacing * 2
 
                     Kirigami.PlaceholderMessage {
-                        visible: chapterList.count === 0
+                        visible: !root.chapterModel.hasChapters
 
                         width: parent.width
                         anchors.centerIn: parent
@@ -226,13 +230,9 @@ Kirigami.Page {
 
                     ListView {
                         id: chapterList
-                        model: ChapterModel {
-                            id: _chapterModel
-                            entryuid: AudioManager.entryuid
-                            duration: AudioManager.duration / 1000
-                        }
+                        model: root.chapterModel
                         clip: true
-                        visible: chapterList.count !== 0
+                        visible: root.chapterModel.hasChapters
                         anchors.fill: parent
                         delegate: ChapterListDelegate {}
                     }
@@ -301,7 +301,7 @@ Kirigami.Page {
                     }
 
                     Controls.ToolButton {
-                        visible: AudioManager.entryuid > 0 && chapterList.count !== 0
+                        visible: AudioManager.entryuid > 0 && root.chapterModel.hasChapters
                         checked: swipeView.currentIndex === 2
                         Layout.maximumHeight: parent.height
                         Layout.preferredHeight: contextButtons.buttonSize

@@ -26,7 +26,11 @@ FocusScope {
     property string image: ""
     property int handlePosition: 0
     property var openFullScreenImage: undefined
-    property alias chapterModel: chapterModel
+    readonly property ChapterModel chapterModel: ChapterModel {
+        entryuid: AudioManager.entryuid
+        duration: AudioManager.duration
+    }
+
     /*
      * Emmited when User uses the Item as a handle to resize the layout.
      * y: difference to previous position
@@ -185,7 +189,7 @@ FocusScope {
 
         ChapterSlider {
             id: durationSlider
-            model: chapterModel
+            model: root.chapterModel
             enabled: AudioManager.canPlay
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
@@ -339,10 +343,10 @@ FocusScope {
     // Actions which will be used to create buttons on toolbar or in overflow menu
     Kirigami.Action {
         id: chapterAction
-        visible: AudioManager.entryuid > 0 && chapterList.count !== 0
-        text: KI18n.i18nc("@action:button", "Chapters")
+        visible: AudioManager.entryuid > 0 && root.chapterModel.hasChapters
+        text: KI18n.i18nc("@action:intoolbar", "Chapters")
         icon.name: "view-media-playlist"
-        onTriggered: chapterOverlay.open()
+        onTriggered: chapterDialog.open()
     }
 
     Kirigami.Action {
@@ -378,31 +382,9 @@ FocusScope {
         text: infoAction.text + sleepAction.text
     }
 
-    ChapterModel {
-        id: chapterModel
-        entryuid: AudioManager.entryuid
-        duration: AudioManager.duration
-    }
-
-    Kirigami.Dialog {
-        id: chapterOverlay
-        preferredWidth: Kirigami.Units.gridUnit * 30
-        preferredHeight: Kirigami.Units.gridUnit * 25
-
-        showCloseButton: true
-
-        title: KI18n.i18n("Chapters")
-
-        ListView {
-            id: chapterList
-
-            currentIndex: -1
-
-            model: chapterModel
-            delegate: ChapterListDelegate {
-                overlay: chapterOverlay
-            }
-        }
+    ChapterDialog {
+        id: chapterDialog
+        model: root.chapterModel
     }
 
     Kirigami.Dialog {
