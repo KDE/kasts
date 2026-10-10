@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:44+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-09-21 22:49+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -51,62 +51,13 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "잘못된 에피소드 미디어 파일: %1"
 
-#: database.cpp:896 utils/updatefeedjob.cpp:1071
+#: database.cpp:896 utils/updatefeedjob.cpp:1064
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
 msgstr "%1: %2"
-
-#: datamanager.cpp:158
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
-msgctxt ""
-"%1 and %2 are episode author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 그리고 %2"
-
-#: datamanager.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
-msgctxt ""
-"%1 is a comma-separated list of episode author names, %2 is the last author "
-"name"
-msgid "%1, and %2"
-msgstr "%1 그리고 %2"
-
-#: datamanager.cpp:186
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
-msgctxt ""
-"%1 and %2 are feed author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 그리고 %2"
-
-#: datamanager.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
-msgctxt ""
-"%1 is a comma-separated list of feed author names, %2 is the last author name"
-msgid "%1, and %2"
-msgstr "%1 그리고 %2"
-
-#: feed.cpp:113
-#, kde-format
-msgctxt "<name> and <name>"
-msgid "%1 and %2"
-msgstr "%1 그리고 %2"
-
-#: feed.cpp:116
-#, kde-format
-msgctxt "<name(s)>, and <name>"
-msgid "%1, and %2"
-msgstr "%1 그리고 %2"
 
 #: fetcher.cpp:141
 #, fuzzy, kde-format
@@ -346,52 +297,52 @@ msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "이름 없는 챕터"
 
-#: models/errorlogmodel.cpp:111
+#: models/errorlogmodel.cpp:112
 #, kde-format
 msgid "Podcast update error"
 msgstr "팟캐스트 업데이트 오류"
 
-#: models/errorlogmodel.cpp:113
+#: models/errorlogmodel.cpp:114
 #, kde-format
 msgid "Media download error"
 msgstr "미디어 다운로드 오류"
 
-#: models/errorlogmodel.cpp:115
+#: models/errorlogmodel.cpp:116
 #, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "종량제 연결에서 업데이트가 허용되지 않음"
 
-#: models/errorlogmodel.cpp:117
+#: models/errorlogmodel.cpp:118
 #, kde-format
 msgid "Invalid media file"
 msgstr "잘못된 미디어 파일"
 
-#: models/errorlogmodel.cpp:119
+#: models/errorlogmodel.cpp:120
 #, kde-format
 msgid "Nothing found"
 msgstr "찾을 수 없음"
 
-#: models/errorlogmodel.cpp:121
+#: models/errorlogmodel.cpp:122
 #, kde-format
 msgid "Error moving storage path"
 msgstr "저장소 경로 이동 중 오류 발생"
 
-#: models/errorlogmodel.cpp:123
+#: models/errorlogmodel.cpp:124
 #, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr "피드 및 에피소드 상태 동기화 오류"
 
-#: models/errorlogmodel.cpp:125
+#: models/errorlogmodel.cpp:126
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "종량제 연결에서 스트리밍이 허용되지 않음"
 
-#: models/errorlogmodel.cpp:127
+#: models/errorlogmodel.cpp:128
 #, kde-format
 msgid "No network connection"
 msgstr "네트워크 연결 없음"
 
-#: models/errorlogmodel.cpp:129
+#: models/errorlogmodel.cpp:130
 #, kde-format
 msgid "Database error"
 msgstr "데이터베이스 오류"
@@ -615,12 +566,12 @@ msgstr "podcastindex.org 검색"
 msgid "Search"
 msgstr "검색"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
@@ -803,7 +754,7 @@ msgstr "모든 오류 삭제"
 msgid "Show Error Log"
 msgstr "오류 로그 표시"
 
-#: qml/FeedDetailsPage.qml:33 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:32 qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Podcast Details"
 msgstr "팟캐스트 자세한 정보"
@@ -856,14 +807,7 @@ msgid "1 Unplayed"
 msgid_plural "%1 Unplayed"
 msgstr[0] "%1개 재생하지 않음"
 
-#: qml/FeedDetailsPage.qml:334
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
-msgctxt "%1 is the error ID, %2 is the error message"
-msgid "Error (%1): %2"
-msgstr "오류(%1): %2"
-
-#: qml/FeedListDelegate.qml:261
+#: qml/FeedListDelegate.qml:279
 #, kde-format
 msgid "Remove Podcast"
 msgstr "팟캐스트 삭제"
@@ -2308,7 +2252,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "GPodder-nextcloud 서버에 로그인할 수 없음. 오류: %1"
 
-#: sync/sync.cpp:325
+#: sync/sync.cpp:324
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not log into GPodder server; error: %1"
@@ -2316,7 +2260,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "GPodder 서버에 로그인할 수 없음. 오류: %1"
 
-#: sync/sync.cpp:466
+#: sync/sync.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "I/O denied: Cannot save password to file %1"
@@ -2324,7 +2268,7 @@ msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "I/O 거부됨: 암호를 %1 파일에 저장할 수 없음"
 
-#: sync/sync.cpp:543
+#: sync/sync.cpp:542
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "I/O denied: Cannot access password file %1"
@@ -2332,7 +2276,7 @@ msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "I/O 거부됨: 암호 파일 %1에 접근할 수 없음"
 
-#: sync/sync.cpp:621
+#: sync/sync.cpp:619
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not create GPodder device; error: %1"
@@ -2340,7 +2284,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "GPodder 장치를 만들 수 없음. 오류: %1"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:641
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not retrieve synced device status; error: %1"
@@ -2348,7 +2292,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "동기화된 장치 상태를 가져올 수 없음. 오류: %1"
 
-#: sync/sync.cpp:691
+#: sync/sync.cpp:688
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not retrieve subscriptions for device %1; error: %2"
@@ -2356,7 +2300,7 @@ msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "%1 장치의 구독을 가져올 수 없음. 오류: %2"
 
-#: sync/sync.cpp:709
+#: sync/sync.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not upload subscriptions for device %1; error: %2"
@@ -2364,7 +2308,7 @@ msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "%1 장치의 구독을 업로드할 수 없음. 오류: %2"
 
-#: sync/sync.cpp:764
+#: sync/sync.cpp:761
 #, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
@@ -2466,6 +2410,26 @@ msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "%1 다운로드 중"
 
+#: utils/entryutils.cpp:247
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode or podcast author names, used when there are exactly "
+"two authors"
+msgid "%1 and %2"
+msgstr "%1 그리고 %2"
+
+#: utils/entryutils.cpp:254
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode or podcast author names, %2 is the "
+"last author name"
+msgid "%1, and %2"
+msgstr "%1 그리고 %2"
+
 #: utils/storagemanager.cpp:99
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification."
@@ -2544,6 +2508,37 @@ msgstr "끝내기"
 msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "%1 팟캐스트를 가져오는 중 오류 발생. 오류: %2"
+
+#, fuzzy
+#~| msgctxt "<name> and <name>"
+#~| msgid "%1 and %2"
+#~ msgctxt ""
+#~ "%1 and %2 are feed author names, used when there are exactly two authors"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 그리고 %2"
+
+#, fuzzy
+#~| msgctxt "<name(s)>, and <name>"
+#~| msgid "%1, and %2"
+#~ msgctxt ""
+#~ "%1 is a comma-separated list of feed author names, %2 is the last author "
+#~ "name"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 그리고 %2"
+
+#~ msgctxt "<name> and <name>"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 그리고 %2"
+
+#~ msgctxt "<name(s)>, and <name>"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 그리고 %2"
+
+#, fuzzy
+#~| msgid "Error (%1): %2"
+#~ msgctxt "%1 is the error ID, %2 is the error message"
+#~ msgid "Error (%1): %2"
+#~ msgstr "오류(%1): %2"
 
 #~ msgctxt "@label"
 #~ msgid "Manually sync"

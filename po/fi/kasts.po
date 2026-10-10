@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:44+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-09-05 10:53+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Virheellinen media, jakso: %1"
 
-#: database.cpp:896 utils/updatefeedjob.cpp:1071
+#: database.cpp:896 utils/updatefeedjob.cpp:1064
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -59,55 +59,6 @@ msgctxt ""
 "string (%2)"
 msgid "%1: %2"
 msgstr "Virhe: %1"
-
-#: datamanager.cpp:158
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
-msgctxt ""
-"%1 and %2 are episode author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 ja %2"
-
-#: datamanager.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
-msgctxt ""
-"%1 is a comma-separated list of episode author names, %2 is the last author "
-"name"
-msgid "%1, and %2"
-msgstr "%1 ja %2"
-
-#: datamanager.cpp:186
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
-msgctxt ""
-"%1 and %2 are feed author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 ja %2"
-
-#: datamanager.cpp:189
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
-msgctxt ""
-"%1 is a comma-separated list of feed author names, %2 is the last author name"
-msgid "%1, and %2"
-msgstr "%1 ja %2"
-
-#: feed.cpp:113
-#, kde-format
-msgctxt "<name> and <name>"
-msgid "%1 and %2"
-msgstr "%1 ja %2"
-
-#: feed.cpp:116
-#, kde-format
-msgctxt "<name(s)>, and <name>"
-msgid "%1, and %2"
-msgstr "%1 ja %2"
 
 #: fetcher.cpp:141
 #, fuzzy, kde-format
@@ -351,52 +302,52 @@ msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "Nimetön luku"
 
-#: models/errorlogmodel.cpp:111
+#: models/errorlogmodel.cpp:112
 #, kde-format
 msgid "Podcast update error"
 msgstr "Podcast-virkistysvirhe"
 
-#: models/errorlogmodel.cpp:113
+#: models/errorlogmodel.cpp:114
 #, kde-format
 msgid "Media download error"
 msgstr "Median latausvirhe"
 
-#: models/errorlogmodel.cpp:115
+#: models/errorlogmodel.cpp:116
 #, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "Maksullinen yhteys ei salli virkistystä"
 
-#: models/errorlogmodel.cpp:117
+#: models/errorlogmodel.cpp:118
 #, kde-format
 msgid "Invalid media file"
 msgstr "Virheellinen mediatiedosto"
 
-#: models/errorlogmodel.cpp:119
+#: models/errorlogmodel.cpp:120
 #, kde-format
 msgid "Nothing found"
 msgstr "Mitään ei löytynyt"
 
-#: models/errorlogmodel.cpp:121
+#: models/errorlogmodel.cpp:122
 #, kde-format
 msgid "Error moving storage path"
 msgstr "Virhe siirrettäessä tallennuspaikkaa"
 
-#: models/errorlogmodel.cpp:123
+#: models/errorlogmodel.cpp:124
 #, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr "Virhe synkronoitaessa syötteen tai jakson tilaa"
 
-#: models/errorlogmodel.cpp:125
+#: models/errorlogmodel.cpp:126
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Suoratoistoa ei sallittu maksullisissa yhteyksissä"
 
-#: models/errorlogmodel.cpp:127
+#: models/errorlogmodel.cpp:128
 #, kde-format
 msgid "No network connection"
 msgstr "Ei verkkoyhteyttä"
 
-#: models/errorlogmodel.cpp:129
+#: models/errorlogmodel.cpp:130
 #, kde-format
 msgid "Database error"
 msgstr "Tietokantavirhe"
@@ -622,12 +573,12 @@ msgstr "Etsi podcastindex.orgista"
 msgid "Search"
 msgstr "Etsi"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribe"
 msgstr "Tilaa"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribed"
 msgstr "Tilattu"
@@ -810,7 +761,7 @@ msgstr "Tyhjennä kaikki virheet"
 msgid "Show Error Log"
 msgstr "Näytä virheloki"
 
-#: qml/FeedDetailsPage.qml:33 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:32 qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podcastin tiedot"
@@ -865,14 +816,7 @@ msgid_plural "%1 Unplayed"
 msgstr[0] "Yksi kuuntelematta"
 msgstr[1] "%1 kuuntelematta"
 
-#: qml/FeedDetailsPage.qml:334
-#, fuzzy, kde-format
-#| msgid "Error (%1): %2"
-msgctxt "%1 is the error ID, %2 is the error message"
-msgid "Error (%1): %2"
-msgstr "Virhe (%1): %2"
-
-#: qml/FeedListDelegate.qml:261
+#: qml/FeedListDelegate.qml:279
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Poista podcast"
@@ -2332,7 +2276,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "GPodder-Nextcloud-palvelimeen ei voitu kirjautua; virhe: %1"
 
-#: sync/sync.cpp:325
+#: sync/sync.cpp:324
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not log into GPodder server; error: %1"
@@ -2340,7 +2284,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "GPodder-palvelimeen ei voitu kirjautua; virhe: %1"
 
-#: sync/sync.cpp:466
+#: sync/sync.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "I/O denied: Cannot save password to file %1"
@@ -2348,7 +2292,7 @@ msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "I/O estetty: ei voida tallentaa salasanaa tiedostoon %1"
 
-#: sync/sync.cpp:543
+#: sync/sync.cpp:542
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "I/O denied: Cannot access password file %1"
@@ -2356,7 +2300,7 @@ msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "I/O estetty: ei pääsyä salasanatiedostoon %1"
 
-#: sync/sync.cpp:621
+#: sync/sync.cpp:619
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not create GPodder device; error: %1"
@@ -2364,7 +2308,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "GPodder-laitetta ei voida luoda; virhe: %1"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:641
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not retrieve synced device status; error: %1"
@@ -2372,7 +2316,7 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "Ei saatu noudettua tahdistetun laitteen tilaa; virhe: %1"
 
-#: sync/sync.cpp:691
+#: sync/sync.cpp:688
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not retrieve subscriptions for device %1; error: %2"
@@ -2380,7 +2324,7 @@ msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Ei saatu noudettua laitteen %1 tilauksia; virhe: %2"
 
-#: sync/sync.cpp:709
+#: sync/sync.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Could not upload subscriptions for device %1; error: %2"
@@ -2388,7 +2332,7 @@ msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Ei saatu lähetettyä laitteen %1 tilauksia; virhe: %2"
 
-#: sync/sync.cpp:764
+#: sync/sync.cpp:761
 #, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
@@ -2491,6 +2435,26 @@ msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Ladataan: %1"
 
+#: utils/entryutils.cpp:247
+#, fuzzy, kde-format
+#| msgctxt "<name> and <name>"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode or podcast author names, used when there are exactly "
+"two authors"
+msgid "%1 and %2"
+msgstr "%1 ja %2"
+
+#: utils/entryutils.cpp:254
+#, fuzzy, kde-format
+#| msgctxt "<name(s)>, and <name>"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode or podcast author names, %2 is the "
+"last author name"
+msgid "%1, and %2"
+msgstr "%1 ja %2"
+
 #: utils/storagemanager.cpp:99
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification."
@@ -2569,6 +2533,37 @@ msgstr "Lopeta"
 msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Virhe noudettaessa podcastia: %1; virhe: %2"
+
+#, fuzzy
+#~| msgctxt "<name> and <name>"
+#~| msgid "%1 and %2"
+#~ msgctxt ""
+#~ "%1 and %2 are feed author names, used when there are exactly two authors"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 ja %2"
+
+#, fuzzy
+#~| msgctxt "<name(s)>, and <name>"
+#~| msgid "%1, and %2"
+#~ msgctxt ""
+#~ "%1 is a comma-separated list of feed author names, %2 is the last author "
+#~ "name"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 ja %2"
+
+#~ msgctxt "<name> and <name>"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 ja %2"
+
+#~ msgctxt "<name(s)>, and <name>"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 ja %2"
+
+#, fuzzy
+#~| msgid "Error (%1): %2"
+#~ msgctxt "%1 is the error ID, %2 is the error message"
+#~ msgid "Error (%1): %2"
+#~ msgstr "Virhe (%1): %2"
 
 #~ msgctxt "@label"
 #~ msgid "Manually sync"

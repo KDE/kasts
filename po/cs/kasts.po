@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:44+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-10-06 13:45+0200\n"
 "Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -46,54 +46,13 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Neplatný mediální soubor pro epizodu: %1"
 
-#: database.cpp:896 utils/updatefeedjob.cpp:1071
+#: database.cpp:896 utils/updatefeedjob.cpp:1064
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
 msgstr "%1: %2"
-
-#: datamanager.cpp:158
-#, kde-format
-msgctxt ""
-"%1 and %2 are episode author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 a %2"
-
-#: datamanager.cpp:161
-#, kde-format
-msgctxt ""
-"%1 is a comma-separated list of episode author names, %2 is the last author "
-"name"
-msgid "%1, and %2"
-msgstr "%1 a %2"
-
-#: datamanager.cpp:186
-#, kde-format
-msgctxt ""
-"%1 and %2 are feed author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 a %2"
-
-#: datamanager.cpp:189
-#, kde-format
-msgctxt ""
-"%1 is a comma-separated list of feed author names, %2 is the last author name"
-msgid "%1, and %2"
-msgstr "%1, a %2"
-
-#: feed.cpp:113
-#, kde-format
-msgctxt "<name> and <name>"
-msgid "%1 and %2"
-msgstr "%1, a %2"
-
-#: feed.cpp:116
-#, kde-format
-msgctxt "<name(s)>, and <name>"
-msgid "%1, and %2"
-msgstr "%1, a %2"
 
 #: fetcher.cpp:141
 #, kde-format
@@ -327,52 +286,52 @@ msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "Kapitola bez názvu"
 
-#: models/errorlogmodel.cpp:111
+#: models/errorlogmodel.cpp:112
 #, kde-format
 msgid "Podcast update error"
 msgstr "Chyba aktualizace podcastu"
 
-#: models/errorlogmodel.cpp:113
+#: models/errorlogmodel.cpp:114
 #, kde-format
 msgid "Media download error"
 msgstr "Chyba stahování média"
 
-#: models/errorlogmodel.cpp:115
+#: models/errorlogmodel.cpp:116
 #, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "Aktualizace při použití měřeného síťového připojení není povolena"
 
-#: models/errorlogmodel.cpp:117
+#: models/errorlogmodel.cpp:118
 #, kde-format
 msgid "Invalid media file"
 msgstr "Neplatný soubor média"
 
-#: models/errorlogmodel.cpp:119
+#: models/errorlogmodel.cpp:120
 #, kde-format
 msgid "Nothing found"
 msgstr "Nic nenalezeno"
 
-#: models/errorlogmodel.cpp:121
+#: models/errorlogmodel.cpp:122
 #, kde-format
 msgid "Error moving storage path"
 msgstr "Chyba při změně místa úložiště"
 
-#: models/errorlogmodel.cpp:123
+#: models/errorlogmodel.cpp:124
 #, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr "Chyba při synchronizaci kanálu nebo stavu epizody"
 
-#: models/errorlogmodel.cpp:125
+#: models/errorlogmodel.cpp:126
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "Streamování na měřeném připojení není povoleno"
 
-#: models/errorlogmodel.cpp:127
+#: models/errorlogmodel.cpp:128
 #, kde-format
 msgid "No network connection"
 msgstr "Žádné síťové připojení"
 
-#: models/errorlogmodel.cpp:129
+#: models/errorlogmodel.cpp:130
 #, kde-format
 msgid "Database error"
 msgstr "Chyba databáze"
@@ -596,12 +555,12 @@ msgstr "Prohledat podcastindex.org…"
 msgid "Search"
 msgstr "Hledat"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribe"
 msgstr "Přihlásit se k odběru"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribed"
 msgstr "Odebíráno"
@@ -784,7 +743,7 @@ msgstr "Smazat všechny chyby"
 msgid "Show Error Log"
 msgstr "Zobrazit záznam chyb"
 
-#: qml/FeedDetailsPage.qml:33 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:32 qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Podcast Details"
 msgstr "Podrobnosti podcastu"
@@ -841,13 +800,7 @@ msgstr[0] "1 nepřehraná"
 msgstr[1] "%1 nepřehrané"
 msgstr[2] "%1 nepřehraných"
 
-#: qml/FeedDetailsPage.qml:334
-#, kde-format
-msgctxt "%1 is the error ID, %2 is the error message"
-msgid "Error (%1): %2"
-msgstr "Chyba (%1): %2"
-
-#: qml/FeedListDelegate.qml:261
+#: qml/FeedListDelegate.qml:279
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Odstranit podcast"
@@ -2291,49 +2244,49 @@ msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "Nepodařilo se přihlásit k serveru GPodder-nextcloud; chyba: %1"
 
-#: sync/sync.cpp:325
+#: sync/sync.cpp:324
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "Nepodařilo se přihlásit k serveru GPodder; chyba: %1"
 
-#: sync/sync.cpp:466
+#: sync/sync.cpp:465
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "I/O zamítnuto: Nelze uložit heslo do souboru %1"
 
-#: sync/sync.cpp:543
+#: sync/sync.cpp:542
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "I/O zamítnuto: Nelze získat přístup k souboru s hesly %1"
 
-#: sync/sync.cpp:621
+#: sync/sync.cpp:619
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "Nelze vytvořit zařízení GPodder; chyba: %1"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:641
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "Nepodařilo se načíst stav synchronizovaného zařízení; chyba: %1"
 
-#: sync/sync.cpp:691
+#: sync/sync.cpp:688
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Nelze načíst odběry pro zařízení %1; chyba: %2"
 
-#: sync/sync.cpp:709
+#: sync/sync.cpp:706
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "Nepodařilo se nahrát odběry pro zařízení %1; chyba: %2"
 
-#: sync/sync.cpp:764
+#: sync/sync.cpp:761
 #, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
@@ -2436,6 +2389,30 @@ msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Stahuje se %1"
 
+#: utils/entryutils.cpp:247
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 and %2 are episode author names, used when there are exactly two "
+#| "authors"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode or podcast author names, used when there are exactly "
+"two authors"
+msgid "%1 and %2"
+msgstr "%1 a %2"
+
+#: utils/entryutils.cpp:254
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a comma-separated list of episode author names, %2 is the last "
+#| "author name"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode or podcast author names, %2 is the "
+"last author name"
+msgid "%1, and %2"
+msgstr "%1 a %2"
+
 #: utils/storagemanager.cpp:99
 #, kde-format
 msgctxt ""
@@ -2510,6 +2487,29 @@ msgstr "Ukončit"
 msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Chyba při načítání podcastu: %1; chyba: %2"
+
+#~ msgctxt ""
+#~ "%1 and %2 are feed author names, used when there are exactly two authors"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 a %2"
+
+#~ msgctxt ""
+#~ "%1 is a comma-separated list of feed author names, %2 is the last author "
+#~ "name"
+#~ msgid "%1, and %2"
+#~ msgstr "%1, a %2"
+
+#~ msgctxt "<name> and <name>"
+#~ msgid "%1 and %2"
+#~ msgstr "%1, a %2"
+
+#~ msgctxt "<name(s)>, and <name>"
+#~ msgid "%1, and %2"
+#~ msgstr "%1, a %2"
+
+#~ msgctxt "%1 is the error ID, %2 is the error message"
+#~ msgid "Error (%1): %2"
+#~ msgstr "Chyba (%1): %2"
 
 #~ msgctxt "@label"
 #~ msgid "Manually sync"

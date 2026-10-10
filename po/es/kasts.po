@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:44+0000\n"
+"POT-Creation-Date: 2026-10-10 00:45+0000\n"
 "PO-Revision-Date: 2026-10-06 12:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -47,54 +47,13 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Contenido multimedia no válido para el episodio: %1"
 
-#: database.cpp:896 utils/updatefeedjob.cpp:1071
+#: database.cpp:896 utils/updatefeedjob.cpp:1064
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
 msgstr "%1: %2"
-
-#: datamanager.cpp:158
-#, kde-format
-msgctxt ""
-"%1 and %2 are episode author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 y %2"
-
-#: datamanager.cpp:161
-#, kde-format
-msgctxt ""
-"%1 is a comma-separated list of episode author names, %2 is the last author "
-"name"
-msgid "%1, and %2"
-msgstr "%1 y %2"
-
-#: datamanager.cpp:186
-#, kde-format
-msgctxt ""
-"%1 and %2 are feed author names, used when there are exactly two authors"
-msgid "%1 and %2"
-msgstr "%1 y %2"
-
-#: datamanager.cpp:189
-#, kde-format
-msgctxt ""
-"%1 is a comma-separated list of feed author names, %2 is the last author name"
-msgid "%1, and %2"
-msgstr "%1 y %2"
-
-#: feed.cpp:113
-#, kde-format
-msgctxt "<name> and <name>"
-msgid "%1 and %2"
-msgstr "%1 y %2"
-
-#: feed.cpp:116
-#, kde-format
-msgctxt "<name(s)>, and <name>"
-msgid "%1, and %2"
-msgstr "%1 y %2"
 
 #: fetcher.cpp:141
 #, kde-format
@@ -329,52 +288,52 @@ msgctxt "@info"
 msgid "Unnamed chapter"
 msgstr "Capítulo sin nombre"
 
-#: models/errorlogmodel.cpp:111
+#: models/errorlogmodel.cpp:112
 #, kde-format
 msgid "Podcast update error"
 msgstr "Error de actualización de pódcast"
 
-#: models/errorlogmodel.cpp:113
+#: models/errorlogmodel.cpp:114
 #, kde-format
 msgid "Media download error"
 msgstr "Error de descarga multimedia"
 
-#: models/errorlogmodel.cpp:115
+#: models/errorlogmodel.cpp:116
 #, kde-format
 msgid "Update not allowed on metered connection"
 msgstr "Actualizar «No disponible» en conexiones de uso medido"
 
-#: models/errorlogmodel.cpp:117
+#: models/errorlogmodel.cpp:118
 #, kde-format
 msgid "Invalid media file"
 msgstr "Archivo multimedia no válido"
 
-#: models/errorlogmodel.cpp:119
+#: models/errorlogmodel.cpp:120
 #, kde-format
 msgid "Nothing found"
 msgstr "No se ha encontrado nada"
 
-#: models/errorlogmodel.cpp:121
+#: models/errorlogmodel.cpp:122
 #, kde-format
 msgid "Error moving storage path"
 msgstr "Error al mover la ruta de almacenamiento"
 
-#: models/errorlogmodel.cpp:123
+#: models/errorlogmodel.cpp:124
 #, kde-format
 msgid "Error syncing feed and/or episode status"
 msgstr "Error al sincronizar la fuente y/o el estado de los episodios"
 
-#: models/errorlogmodel.cpp:125
+#: models/errorlogmodel.cpp:126
 #, kde-format
 msgid "Streaming not allowed on metered connection"
 msgstr "No se permite emitir en conexiones de uso medido"
 
-#: models/errorlogmodel.cpp:127
+#: models/errorlogmodel.cpp:128
 #, kde-format
 msgid "No network connection"
 msgstr "No hay conexión de red"
 
-#: models/errorlogmodel.cpp:129
+#: models/errorlogmodel.cpp:130
 #, kde-format
 msgid "Database error"
 msgstr "Error de base de datos"
@@ -599,12 +558,12 @@ msgstr "Buscar en podcastindex.org…"
 msgid "Search"
 msgstr "Buscar"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribe"
 msgstr "Suscribirse"
 
-#: qml/DiscoverPage.qml:98 qml/FeedDetailsPage.qml:171
+#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:171
 #, kde-format
 msgid "Subscribed"
 msgstr "Suscrito"
@@ -787,7 +746,7 @@ msgstr "Borrar todos los errores"
 msgid "Show Error Log"
 msgstr "Mostrar el registro de errores"
 
-#: qml/FeedDetailsPage.qml:33 qml/FeedListDelegate.qml:250
+#: qml/FeedDetailsPage.qml:32 qml/FeedListDelegate.qml:268
 #, kde-format
 msgid "Podcast Details"
 msgstr "Detalles del pódcast"
@@ -842,13 +801,7 @@ msgid_plural "%1 Unplayed"
 msgstr[0] "1 no reproducido"
 msgstr[1] "%1 no reproducidos"
 
-#: qml/FeedDetailsPage.qml:334
-#, kde-format
-msgctxt "%1 is the error ID, %2 is the error message"
-msgid "Error (%1): %2"
-msgstr "Error (%1): %2"
-
-#: qml/FeedListDelegate.qml:261
+#: qml/FeedListDelegate.qml:279
 #, kde-format
 msgid "Remove Podcast"
 msgstr "Eliminar pódcast"
@@ -2296,31 +2249,31 @@ msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr ""
 "No se ha podido iniciar sesión en el servidor GPodder-nextcloud. Error: %1"
 
-#: sync/sync.cpp:325
+#: sync/sync.cpp:324
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "No se ha podido iniciar sesión en el servidor GPodder. Error: %1"
 
-#: sync/sync.cpp:466
+#: sync/sync.cpp:465
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "E/S denegada: No se puede guardar la contraseña en el archivo %1"
 
-#: sync/sync.cpp:543
+#: sync/sync.cpp:542
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "E/S denegada: No se puede acceder al archivo de contraseñas %1"
 
-#: sync/sync.cpp:621
+#: sync/sync.cpp:619
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "No se ha podido crear el dispositivo GPodder. Error: %1"
 
-#: sync/sync.cpp:644
+#: sync/sync.cpp:641
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
@@ -2328,21 +2281,21 @@ msgstr ""
 "No se ha podido obtener el estado de sincronización del dispositivo. Error: "
 "%1"
 
-#: sync/sync.cpp:691
+#: sync/sync.cpp:688
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr ""
 "No se han podido obtener las suscripciones para el dispositivo %1. Error: %2"
 
-#: sync/sync.cpp:709
+#: sync/sync.cpp:706
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr ""
 "No se han podido enviar las suscripciones para el dispositivo %1. Error: %2"
 
-#: sync/sync.cpp:764
+#: sync/sync.cpp:761
 #, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
@@ -2445,6 +2398,30 @@ msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Descargando %1"
 
+#: utils/entryutils.cpp:247
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 and %2 are episode author names, used when there are exactly two "
+#| "authors"
+#| msgid "%1 and %2"
+msgctxt ""
+"%1 and %2 are episode or podcast author names, used when there are exactly "
+"two authors"
+msgid "%1 and %2"
+msgstr "%1 y %2"
+
+#: utils/entryutils.cpp:254
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "%1 is a comma-separated list of episode author names, %2 is the last "
+#| "author name"
+#| msgid "%1, and %2"
+msgctxt ""
+"%1 is a comma-separated list of episode or podcast author names, %2 is the "
+"last author name"
+msgid "%1, and %2"
+msgstr "%1 y %2"
+
 #: utils/storagemanager.cpp:99
 #, kde-format
 msgctxt ""
@@ -2519,3 +2496,26 @@ msgstr "Salir"
 msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Ha ocurrido un error al obtener el pódcast: %1. Error: %2"
+
+#~ msgctxt ""
+#~ "%1 and %2 are feed author names, used when there are exactly two authors"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 y %2"
+
+#~ msgctxt ""
+#~ "%1 is a comma-separated list of feed author names, %2 is the last author "
+#~ "name"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 y %2"
+
+#~ msgctxt "<name> and <name>"
+#~ msgid "%1 and %2"
+#~ msgstr "%1 y %2"
+
+#~ msgctxt "<name(s)>, and <name>"
+#~ msgid "%1, and %2"
+#~ msgstr "%1 y %2"
+
+#~ msgctxt "%1 is the error ID, %2 is the error message"
+#~ msgid "Error (%1): %2"
+#~ msgstr "Error (%1): %2"
