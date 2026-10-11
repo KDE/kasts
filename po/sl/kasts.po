@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-10 00:45+0000\n"
-"PO-Revision-Date: 2026-10-06 10:59+0200\n"
+"PO-Revision-Date: 2026-10-10 08:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2402,11 +2402,7 @@ msgid "Downloading %1"
 msgstr "Prejemanje %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 and %2 are episode author names, used when there are exactly two "
-#| "authors"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2414,11 +2410,7 @@ msgid "%1 and %2"
 msgstr "%1 in %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a comma-separated list of episode author names, %2 is the last "
-#| "author name"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"

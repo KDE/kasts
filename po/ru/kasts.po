@@ -335,7 +335,7 @@ msgstr "Нет сетевого соединения"
 #: models/errorlogmodel.cpp:130
 #, kde-format
 msgid "Database error"
-msgstr "Ошибка базы данных "
+msgstr "Ошибка базы данных"
 
 #: models/feedsproxymodel.cpp:120
 #, kde-format
@@ -2409,11 +2409,7 @@ msgid "Downloading %1"
 msgstr "Загрузка %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 and %2 are episode author names, used when there are exactly two "
-#| "authors"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2421,11 +2417,7 @@ msgid "%1 and %2"
 msgstr "%1 и %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a comma-separated list of episode author names, %2 is the last "
-#| "author name"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
