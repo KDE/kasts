@@ -5,7 +5,6 @@
  */
 
 import QtQuick
-import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -51,17 +50,16 @@ ListView {
                 spacing: Kirigami.Units.smallSpacing
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignVCenter
-                Controls.Label {
+                Kirigami.SelectableLabel {
                     text: delegate.description + "  ·  " + delegate.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + delegate.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                     Layout.fillWidth: true
-                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
                 }
-                Controls.Label {
+                Kirigami.SelectableLabel {
                     text: delegate.message
                     Layout.fillWidth: true
-                    // elide: Text.ElideRight
                     wrapMode: Text.Wrap
                     font.weight: Font.Normal
                     opacity: 1
