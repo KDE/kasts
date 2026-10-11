@@ -76,6 +76,30 @@ void UpdateFeedJob::run(JobPointer, Thread *)
     Q_EMIT finished();
 }
 
+QNetworkReply *UpdateFeedJob::getUrl(NetworkAccessManager &manager, const QUrl &url)
+{
+    QEventLoop loop;
+
+    QNetworkRequest request(url);
+    request.setTransferTimeout();
+    QNetworkReply *reply = manager.get(request);
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+
+    // HACK: if this object is parented by a FetchFeedsJob, then also connect
+    // its "aborting" signal to the qnetworkreply; it's done this way because
+    // we cannot connect signals to "this" inside a ThreadWeaver job
+    FetchFeedsJob *fetchfeedjob = qobject_cast<FetchFeedsJob *>(parent());
+    if (fetchfeedjob) {
+        connect(fetchfeedjob, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
+    }
+
+    qCDebug(kastsUpdater) << "Eventloop started for" << m_feeduid;
+    loop.exec();
+    qCDebug(kastsUpdater) << "Eventloop finished" << m_feeduid;
+
+    return reply;
+}
+
 bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data)
 {
     qCDebug(kastsUpdater) << "get old feed data from DB for" << m_feeduid;
@@ -122,29 +146,19 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByt
     query.finish(); // release lock on database
 
     // we continue to retrieve the updated feed
-    // note that this has to be done with an eventloop to do the network
-    // request/reply in a blocking way since we're in a separate thread
-    // managed by ThreadWeaver
-    QEventLoop loop;
     NetworkAccessManager manager;
     bool continueProcessFeed = false;
 
-    QNetworkRequest request((QUrl(m_url)));
-    request.setTransferTimeout();
-    QNetworkReply *reply = manager.get(request);
-    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+    QNetworkReply *reply = getUrl(manager, QUrl(m_url));
 
-    // HACK: if this object is parented by a FetchFeedsJob, then also connect
-    // its "aborting" signal to the qnetworkreply; it's done this way because
-    // we cannot connect signals to "this" inside a ThreadWeaver job
-    FetchFeedsJob *fetchfeedjob = qobject_cast<FetchFeedsJob *>(parent());
-    if (fetchfeedjob) {
-        connect(fetchfeedjob, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
+    // Qt refuses https->http redirects; browsers upgrade them to https instead
+    if (reply->error() == QNetworkReply::InsecureRedirectError && reply->url().scheme() == QLatin1String("http")) {
+        QUrl upgradedUrl = reply->url();
+        upgradedUrl.setScheme(QStringLiteral("https"));
+        qCDebug(kastsUpdater) << "Refused insecure redirect to" << reply->url() << "; retrying with" << upgradedUrl;
+        delete reply;
+        reply = getUrl(manager, upgradedUrl);
     }
-
-    qCDebug(kastsUpdater) << "Eventloop started for" << m_feeduid;
-    loop.exec();
-    qCDebug(kastsUpdater) << "Eventloop finished" << m_feeduid;
 
     qCDebug(kastsUpdater) << "got networkreply for" << reply;
     if (reply->error()) {

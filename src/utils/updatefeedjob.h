@@ -18,6 +18,10 @@
 #include "datatypes.h"
 #include "models/errorlogmodel.h"
 
+class NetworkAccessManager;
+class QNetworkReply;
+class QUrl;
+
 class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 {
     Q_OBJECT
@@ -38,6 +42,7 @@ Q_SIGNALS:
     void error(ErrorLogModel::Type type, const QString &message);
 
 private:
+    QNetworkReply *getUrl(NetworkAccessManager &manager, const QUrl &url);
     bool downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data);
     void processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data);
     bool processFeedAuthors(const QList<Syndication::PersonPtr> &authors,
