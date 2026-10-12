@@ -303,16 +303,16 @@ void KMediaSession::setCurrentBackend(KMediaSession::MediaBackends backend)
     case KMediaSession::MediaBackends::Qt:
         d->m_player = new QtMediaBackend(this);
         break;
-#ifdef HAVE_LIBVLC
     case KMediaSession::MediaBackends::Vlc:
+#ifdef HAVE_LIBVLC
         d->m_player = new VlcMediaBackend(this);
-        break;
 #endif
-#ifdef HAVE_GST
+        break;
     case KMediaSession::MediaBackends::Gst:
+#ifdef HAVE_GST
         d->m_player = new GstMediaBackend(this);
-        break;
 #endif
+        break;
     };
 
     connect(d->m_player, &AbstractMediaBackend::mutedChanged, this, &KMediaSession::mutedChanged);
