@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-10 00:45+0000\n"
-"PO-Revision-Date: 2026-10-06 09:54+0200\n"
+"PO-Revision-Date: 2026-10-10 11:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2401,11 +2401,7 @@ msgid "Downloading %1"
 msgstr "S'està descarregant %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 and %2 are episode author names, used when there are exactly two "
-#| "authors"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2413,11 +2409,7 @@ msgid "%1 and %2"
 msgstr "%1 i %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a comma-separated list of episode author names, %2 is the last "
-#| "author name"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
@@ -2500,26 +2492,3 @@ msgstr "Ix"
 msgctxt "@info:status %1 is the podcast name, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "S'ha produït un error mentre es recuperava el pòdcast: %1; error: %2"
-
-#~ msgctxt ""
-#~ "%1 and %2 are feed author names, used when there are exactly two authors"
-#~ msgid "%1 and %2"
-#~ msgstr "%1 i %2"
-
-#~ msgctxt ""
-#~ "%1 is a comma-separated list of feed author names, %2 is the last author "
-#~ "name"
-#~ msgid "%1, and %2"
-#~ msgstr "%1 i %2"
-
-#~ msgctxt "<name> and <name>"
-#~ msgid "%1 and %2"
-#~ msgstr "%1 i %2"
-
-#~ msgctxt "<name(s)>, and <name>"
-#~ msgid "%1, and %2"
-#~ msgstr "%1 i %2"
-
-#~ msgctxt "%1 is the error ID, %2 is the error message"
-#~ msgid "Error (%1): %2"
-#~ msgstr "S'ha produït un error (%1): %2"
