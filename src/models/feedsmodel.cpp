@@ -65,7 +65,7 @@ FeedsModel::FeedsModel(QObject *parent)
                        "    SUM(CASE WHEN Entries.new THEN 1 ELSE 0 END) AS newCount, "
                        "    SUM(CASE WHEN Entries.favorite THEN 1 ELSE 0 END) AS favoriteCount "
                        "FROM Feeds "
-                       "    INNER JOIN Entries "
+                       "    LEFT OUTER JOIN Entries "
                        "        ON Entries.feeduid=Feeds.feeduid "
                        "        GROUP BY Feeds.feeduid;"));
     Database::instance().execute(query);
@@ -190,7 +190,7 @@ void FeedsModel::updateFeed(const qint64 feeduid)
                        "    SUM(CASE WHEN Entries.new THEN 1 ELSE 0 END) AS newCount, "
                        "    SUM(CASE WHEN Entries.favorite THEN 1 ELSE 0 END) AS favoriteCount "
                        "FROM Feeds "
-                       "    INNER JOIN Entries "
+                       "    LEFT OUTER JOIN Entries "
                        "        ON Entries.feeduid=Feeds.feeduid "
                        "WHERE Feeds.feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), feeduid);
