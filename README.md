@@ -49,9 +49,8 @@ sudo make install
 ```
 
 This assumes all dependencies are installed. If your distribution does not provide
-them, you can use [kdesrc-build](https://kdesrc-build.kde.org/) to build all of them.
+them, you can use [kde-builder](https://develop.kde.org/docs/getting-started/building/).
 
 ## Android
 
 You can build Kasts for Android using KDE's [Docker-based build environment](https://community.kde.org/Android/Environment_via_Container).
-
