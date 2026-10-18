@@ -53,7 +53,7 @@ ListView {
                 Kirigami.SelectableLabel {
                     text: delegate.description + "  ·  " + delegate.date.toLocaleDateString(Qt.locale(), Locale.NarrowFormat) + "  ·  " + delegate.date.toLocaleTimeString(Qt.locale(), Locale.NarrowFormat)
                     Layout.fillWidth: true
-                    wrapMode: Text.NoWrap
+                    wrapMode: Text.Wrap
                     font: Kirigami.Theme.smallFont
                     opacity: 0.7
                 }
