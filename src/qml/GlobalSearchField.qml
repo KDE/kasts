@@ -53,9 +53,18 @@ Kirigami.SearchField {
         searchDialog.searchFieldRightActions.push(origAction);
     }
 
+    onFocusReasonChanged: {
+        if (focusReason == Qt.ShortcutFocusReason) {
+            searchDialog.open();
+            searchDialog.text = text;
+            searchDialog.forceActiveFocus();
+        }
+    }
+
     TapHandler {
         onTapped: {
             searchDialog.open();
+            searchDialog.text = root.text;
             searchDialog.forceActiveFocus();
         }
         acceptedButtons: Qt.RightButton | Qt.LeftButton
