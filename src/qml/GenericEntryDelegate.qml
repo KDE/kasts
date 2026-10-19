@@ -332,6 +332,8 @@ AddonDelegates.RoundedItemDelegate {
             Controls.Label {
                 text: root.title
                 Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                maximumLineCount: 2
                 elide: Text.ElideRight
                 font.weight: Font.Normal
             }
