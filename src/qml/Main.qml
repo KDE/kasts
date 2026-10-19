@@ -26,6 +26,13 @@ Kirigami.ApplicationWindow {
     width: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
     height: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
 
+    // hide on startup when minimizeToTrayOnStartup has been set
+    // avoid binding the visible property; otherwise the main window will
+    // appear/disappear on toggling the setting
+    visible: {
+        visible = !(SettingsManager.showTrayIcon && SettingsManager.minimizeToTray && SettingsManager.minimizeToTrayOnStartup);
+    }
+
     pageStack.clip: true
     pageStack.popHiddenPages: true
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar

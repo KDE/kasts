@@ -103,10 +103,12 @@ FormCard.FormCardPage {
     FormCard.FormHeader {
         title: KI18n.i18nc("@title Title header for settings related to the tray icon", "Tray icon")
         Layout.fillWidth: true
+        visible: SystrayIcon.available
     }
 
     FormCard.FormCard {
         Layout.fillWidth: true
+        visible: SystrayIcon.available
 
         FormCard.FormSwitchDelegate {
             id: showTrayIcon
@@ -128,6 +130,18 @@ FormCard.FormCardPage {
             checked: SettingsManager.minimizeToTray
             onToggled: {
                 SettingsManager.minimizeToTray = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormSwitchDelegate {
+            id: minimizeToTrayOnStartup
+            visible: SystrayIcon.available
+            enabled: SettingsManager.minimizeToTray && SettingsManager.showTrayIcon && SystrayIcon.available
+            text: KI18n.i18nc("@option:check", "Minimize to tray on startup")
+            checked: SettingsManager.minimizeToTrayOnStartup
+            onToggled: {
+                SettingsManager.minimizeToTrayOnStartup = checked;
                 SettingsManager.save();
             }
         }

@@ -131,6 +131,10 @@
             <label>Minimize to system tray instead of closing application</label>
             <default>true</default>
         </entry>
+        <entry name="minimizeToTrayOnStartup" type="Bool">
+            <label>Minimize to system tray on app startup</label>
+            <default>false</default>
+        </entry>
         <entry name="articleFontUseSystem" type="Bool">
             <label>Use default system font</label>
             <default>true</default>
