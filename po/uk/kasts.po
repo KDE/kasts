@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2026-10-10 09:54+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -726,7 +726,7 @@ msgstr "Шукати епізоди…"
 msgid "No episodes available"
 msgstr "Немає доступних епізодів"
 
-#: qml/ErrorList.qml:31
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
 msgstr "У журналі немає записів помилок"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2025-07-31 12:22+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -732,7 +732,7 @@ msgstr "Søg episoder…"
 msgid "No episodes available"
 msgstr "Ingen episoder tilgængelig"
 
-#: qml/ErrorList.qml:31
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
 msgstr "Ingen fejl logget"

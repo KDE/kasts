@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2026-10-06 08:28+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -721,7 +721,7 @@ msgstr "Найти выпуски…"
 msgid "No episodes available"
 msgstr "Нет доступных выпусков"
 
-#: qml/ErrorList.qml:31
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
 msgstr "В журнале нет записей ошибок"

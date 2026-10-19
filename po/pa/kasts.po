@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -761,7 +761,7 @@ msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 msgid "No episodes available"
 msgstr "ਕੋਈ ਐਪੀਸੋਡ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: qml/ErrorList.qml:31
+#: qml/ErrorList.qml:30
 #, fuzzy, kde-format
 #| msgid "Error Log"
 msgid "No errors logged"

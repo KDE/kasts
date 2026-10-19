@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:46+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -734,7 +734,7 @@ msgstr "प्रकरणं अन्वेष्टुम्…"
 msgid "No episodes available"
 msgstr "कोऽपि प्रकरणः उपलब्धः नास्ति"
 
-#: qml/ErrorList.qml:31
+#: qml/ErrorList.qml:30
 #, kde-format
 msgid "No errors logged"
 msgstr "न दोषाः लॉग् कृताः"
