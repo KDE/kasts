@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-10-10 15:32+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1115,25 +1115,25 @@ msgid_plural "Delete Downloads"
 msgstr[0] "Borrar descarga"
 msgstr[1] "Borrar descargas"
 
-#: qml/GlobalSearchField.qml:114
+#: qml/GlobalSearchField.qml:123
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "Sin resultados para la búsqueda"
 
-#: qml/GlobalSearchField.qml:120 qml/SearchBar.qml:61
+#: qml/GlobalSearchField.qml:129 qml/SearchBar.qml:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "Opciones de búsqueda avanzadas"
 
-#: qml/GlobalSearchField.qml:154 qml/SearchBar.qml:122
+#: qml/GlobalSearchField.qml:163 qml/SearchBar.qml:122
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "Preferencias de búsqueda"
 
-#: qml/GlobalSearchField.qml:158 qml/SearchBar.qml:126
+#: qml/GlobalSearchField.qml:167 qml/SearchBar.qml:126
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1154,7 +1154,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Preferencias"
 
-#: qml/Main.qml:187
+#: qml/Main.qml:194
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1162,7 +1162,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Se ha actualizado %2 de %1 pódcast"
 msgstr[1] "Se han actualizado %2 de %1 pódcast"
 
-#: qml/Main.qml:211
+#: qml/Main.qml:218
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1170,7 +1170,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 de %1 archivo movido"
 msgstr[1] "%2 de %1 archivos movidos"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:273
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1342,55 +1342,63 @@ msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Icono de la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:115
+#: qml/Settings/AppearanceSettingsPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Mostrar icono en la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:127
+#: qml/Settings/AppearanceSettingsPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimizar en la bandeja del sistema en lugar de cerrar"
 
-#: qml/Settings/AppearanceSettingsPage.qml:139
+#: qml/Settings/AppearanceSettingsPage.qml:141
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Minimize to tray instead of closing"
+msgctxt "@option:check"
+msgid "Minimize to tray on startup"
+msgstr "Minimizar en la bandeja del sistema en lugar de cerrar"
+
+#: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Tipo de icono de la bandeja del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:146
+#: qml/Settings/AppearanceSettingsPage.qml:160
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Coloreado"
 
-#: qml/Settings/AppearanceSettingsPage.qml:150
+#: qml/Settings/AppearanceSettingsPage.qml:164
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Claro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:154
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Oscuro"
 
-#: qml/Settings/AppearanceSettingsPage.qml:167
+#: qml/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Texto"
 
-#: qml/Settings/AppearanceSettingsPage.qml:177
+#: qml/Settings/AppearanceSettingsPage.qml:191
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Usar el predeterminado del sistema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:192
+#: qml/Settings/AppearanceSettingsPage.qml:206
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-09-22 01:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1120,25 +1120,25 @@ msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "刪除下載"
 
-#: qml/GlobalSearchField.qml:114
+#: qml/GlobalSearchField.qml:123
 #, kde-format
 msgctxt "@info Placeholder text in search box"
 msgid "No search results"
 msgstr "沒有搜尋結果"
 
-#: qml/GlobalSearchField.qml:120 qml/SearchBar.qml:61
+#: qml/GlobalSearchField.qml:129 qml/SearchBar.qml:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Advanced Search Options"
 msgstr "進階搜尋選項"
 
-#: qml/GlobalSearchField.qml:154 qml/SearchBar.qml:122
+#: qml/GlobalSearchField.qml:163 qml/SearchBar.qml:122
 #, kde-format
 msgctxt "@title:menu"
 msgid "Search Preferences"
 msgstr "搜尋偏好設定"
 
-#: qml/GlobalSearchField.qml:158 qml/SearchBar.qml:126
+#: qml/GlobalSearchField.qml:167 qml/SearchBar.qml:126
 #, kde-format
 msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
@@ -1159,21 +1159,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "設定"
 
-#: qml/Main.qml:187
+#: qml/Main.qml:194
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "已更新 %2 個 Podcast，共 %1 個"
 
-#: qml/Main.qml:211
+#: qml/Main.qml:218
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "已移動 %2 個檔案，共 %1 個"
 
-#: qml/Main.qml:266
+#: qml/Main.qml:273
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1340,55 +1340,63 @@ msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "系統匣圖示"
 
-#: qml/Settings/AppearanceSettingsPage.qml:115
+#: qml/Settings/AppearanceSettingsPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "在系統匣中顯示圖示"
 
-#: qml/Settings/AppearanceSettingsPage.qml:127
+#: qml/Settings/AppearanceSettingsPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "最小化到系統匣而非關閉"
 
-#: qml/Settings/AppearanceSettingsPage.qml:139
+#: qml/Settings/AppearanceSettingsPage.qml:141
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Minimize to tray instead of closing"
+msgctxt "@option:check"
+msgid "Minimize to tray on startup"
+msgstr "最小化到系統匣而非關閉"
+
+#: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "系統匣圖示類型"
 
-#: qml/Settings/AppearanceSettingsPage.qml:146
+#: qml/Settings/AppearanceSettingsPage.qml:160
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "彩色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:150
+#: qml/Settings/AppearanceSettingsPage.qml:164
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "亮色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:154
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "暗色"
 
-#: qml/Settings/AppearanceSettingsPage.qml:167
+#: qml/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "文字"
 
-#: qml/Settings/AppearanceSettingsPage.qml:177
+#: qml/Settings/AppearanceSettingsPage.qml:191
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "使用系統預設"
 
-#: qml/Settings/AppearanceSettingsPage.qml:192
+#: qml/Settings/AppearanceSettingsPage.qml:206
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
