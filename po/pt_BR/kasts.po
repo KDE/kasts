@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 06:58-0300\n"
+"PO-Revision-Date: 2026-10-20 07:32-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1353,12 +1353,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Minimizar para a bandeja de ícones em vez de fechar"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Minimizar para a bandeja de ícones em vez de fechar"
+msgstr "Minimizar para a bandeja na inicialização"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format

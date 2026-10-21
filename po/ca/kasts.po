@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 11:08+0200\n"
+"PO-Revision-Date: 2026-10-20 09:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1358,12 +1358,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Minimitza a la safata del sistema en lloc de tancar"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Minimitza a la safata del sistema en lloc de tancar"
+msgstr "Minimitza a la safata del sistema en iniciar"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format

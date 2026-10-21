@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 23:28+0200\n"
+"PO-Revision-Date: 2026-10-20 13:06+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1357,12 +1357,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Minimalizovat do systémové lišty namísto zavření"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Minimalizovat do systémové lišty namísto zavření"
+msgstr "Minimalizovat do systémového panelu"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format

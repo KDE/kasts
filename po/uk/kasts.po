@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 09:54+0300\n"
+"PO-Revision-Date: 2026-10-20 09:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1369,12 +1369,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Мінімізувати до лотка замість закриття"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Мінімізувати до лотка замість закриття"
+msgstr "Згортати до лотка після запуску"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format
