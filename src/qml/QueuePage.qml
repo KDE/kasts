@@ -34,13 +34,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    readonly property list<Kirigami.Action> pageActions: [
-        Kirigami.Action {
-            icon.name: "view-refresh"
-            text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
-            onTriggered: root.refreshing = true
-        }
-    ]
+    readonly property Kirigami.Action refreshAction: Kirigami.Action {
+        icon.name: "view-refresh"
+        text: KI18n.i18nc("@action:intoolbar", "Refresh All Podcasts")
+        onTriggered: root.refreshing = true
+    }
+
+    readonly property list<Kirigami.Action> pageActions: [refreshAction]
 
     Component.onCompleted: {
         for (let i in queueList.defaultActionList) {
@@ -75,7 +75,7 @@ Kirigami.ScrollablePage {
             anchors.fill: parent
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", QueueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + Format.formatDuration(QueueModel.timeLeft, Format.HideSeconds | Format.InitialDuration)
+            text: KI18n.i18ncp("@info:progress", "1 Episode", "%1 Episodes", QueueModel.rowCount()) + "  ·  " + KI18n.i18nc("@info:progress", "Time Left") + ": " + Format.formatDuration(QueueModel.timeLeft, FormatTypes.HideSeconds | FormatTypes.InitialDuration)
         }
     }
 
