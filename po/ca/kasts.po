@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:52+0000\n"
+"POT-Creation-Date: 2026-10-23 00:48+0000\n"
 "PO-Revision-Date: 2026-10-20 09:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -104,13 +104,13 @@ msgid "Open"
 msgstr "Obre"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:443
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:445
 #, kde-format
 msgid "Play"
 msgstr "Reprodueix"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:466
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:468
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -986,32 +986,32 @@ msgstr ""
 "Aquest episodi s'ha eliminat del canal RSS del pòdcast per l'autor/s del "
 "pòdcast. La descàrrega o transmissió d'aquest episodi podria estar trencada."
 
-#: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
+#: qml/GenericEntryDelegate.qml:405 qml/GenericEntryListView.qml:308
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Elimina de la cua"
 
-#: qml/GenericEntryDelegate.qml:412 qml/GenericEntryListView.qml:377
+#: qml/GenericEntryDelegate.qml:414 qml/GenericEntryListView.qml:377
 #, kde-format
 msgid "Download"
 msgstr "Baixa"
 
-#: qml/GenericEntryDelegate.qml:422
+#: qml/GenericEntryDelegate.qml:424
 #, kde-format
 msgid "Cancel Download"
 msgstr "Cancel·la la baixada"
 
-#: qml/GenericEntryDelegate.qml:429
+#: qml/GenericEntryDelegate.qml:431
 #, kde-format
 msgid "Delete Download"
 msgstr "Suprimeix la baixada"
 
-#: qml/GenericEntryDelegate.qml:436 qml/GenericEntryListView.qml:297
+#: qml/GenericEntryDelegate.qml:438 qml/GenericEntryListView.qml:297
 #, kde-format
 msgid "Add to Queue"
 msgstr "Afegeix a la cua"
 
-#: qml/GenericEntryDelegate.qml:453 qml/GenericEntryListView.qml:396
+#: qml/GenericEntryDelegate.qml:455 qml/GenericEntryListView.qml:396
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

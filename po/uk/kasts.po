@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:52+0000\n"
+"POT-Creation-Date: 2026-10-23 00:48+0000\n"
 "PO-Revision-Date: 2026-10-20 09:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -102,13 +102,13 @@ msgid "Open"
 msgstr "Відкрити"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:443
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:445
 #, kde-format
 msgid "Play"
 msgstr "Відтворити"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:466
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:468
 #, kde-format
 msgid "Pause"
 msgstr "Призупинити"
@@ -990,32 +990,32 @@ msgstr ""
 "Цей епізод вилучено з подачі трансляцій RSS авторами трансляцій. Отримання і/"
 "або трансляція цього епізоду можуть бути некоректними."
 
-#: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
+#: qml/GenericEntryDelegate.qml:405 qml/GenericEntryListView.qml:308
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Вилучити з черги"
 
-#: qml/GenericEntryDelegate.qml:412 qml/GenericEntryListView.qml:377
+#: qml/GenericEntryDelegate.qml:414 qml/GenericEntryListView.qml:377
 #, kde-format
 msgid "Download"
 msgstr "Отримати"
 
-#: qml/GenericEntryDelegate.qml:422
+#: qml/GenericEntryDelegate.qml:424
 #, kde-format
 msgid "Cancel Download"
 msgstr "Скасувати отримання"
 
-#: qml/GenericEntryDelegate.qml:429
+#: qml/GenericEntryDelegate.qml:431
 #, kde-format
 msgid "Delete Download"
 msgstr "Вилучити отримані дані"
 
-#: qml/GenericEntryDelegate.qml:436 qml/GenericEntryListView.qml:297
+#: qml/GenericEntryDelegate.qml:438 qml/GenericEntryListView.qml:297
 #, kde-format
 msgid "Add to Queue"
 msgstr "Додати до черги відтворення"
 
-#: qml/GenericEntryDelegate.qml:453 qml/GenericEntryListView.qml:396
+#: qml/GenericEntryDelegate.qml:455 qml/GenericEntryListView.qml:396
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "

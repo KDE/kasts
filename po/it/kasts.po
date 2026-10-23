@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-11 18:30+0200\n"
+"POT-Creation-Date: 2026-10-23 00:48+0000\n"
+"PO-Revision-Date: 2026-10-20 15:25+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -61,7 +61,7 @@ msgstr "%1: %2"
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
-"Lo scaricamento dell'episodio %1 non è consentito con connessione a consumo."
+"Lo scaricamento dell'episodio %1 non è consentito con connessione a consumo"
 
 #: fetcher.cpp:145
 #, kde-format
@@ -102,13 +102,13 @@ msgid "Open"
 msgstr "Apri"
 
 #: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:443
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:445
 #, kde-format
 msgid "Play"
 msgstr "Riproduci"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:466
+#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:468
 #, kde-format
 msgid "Pause"
 msgstr "Pausa"
@@ -554,7 +554,7 @@ msgstr "Scopri"
 #, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search podcastindex.org…"
-msgstr "Cerca su podcastindex.org..."
+msgstr "Cerca su podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
 #, kde-format
@@ -884,7 +884,7 @@ msgstr "Aggiorna tutti i podcast"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add Podcast…"
-msgstr "Aggiungi podcast..."
+msgstr "Aggiungi podcast…"
 
 #: qml/FeedListPage.qml:110
 #, kde-format
@@ -902,13 +902,13 @@ msgstr "Seleziona come ordinare le sottoscrizioni"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Import Podcasts…"
-msgstr "Importa podcast..."
+msgstr "Importa podcast…"
 
 #: qml/FeedListPage.qml:132
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Export Podcasts…"
-msgstr "Esporta podcast..."
+msgstr "Esporta podcast…"
 
 #: qml/FeedListPage.qml:159
 #, kde-format
@@ -986,32 +986,32 @@ msgstr ""
 "podcast. Lo scaricamento e/o la trasmissione di questo episodio potrebbero  "
 "non funzionare."
 
-#: qml/GenericEntryDelegate.qml:403 qml/GenericEntryListView.qml:308
+#: qml/GenericEntryDelegate.qml:405 qml/GenericEntryListView.qml:308
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Rimuovi dalla coda"
 
-#: qml/GenericEntryDelegate.qml:412 qml/GenericEntryListView.qml:377
+#: qml/GenericEntryDelegate.qml:414 qml/GenericEntryListView.qml:377
 #, kde-format
 msgid "Download"
 msgstr "Scarica"
 
-#: qml/GenericEntryDelegate.qml:422
+#: qml/GenericEntryDelegate.qml:424
 #, kde-format
 msgid "Cancel Download"
 msgstr "Annulla lo scaricamento"
 
-#: qml/GenericEntryDelegate.qml:429
+#: qml/GenericEntryDelegate.qml:431
 #, kde-format
 msgid "Delete Download"
 msgstr "Elimina lo scaricamento"
 
-#: qml/GenericEntryDelegate.qml:436 qml/GenericEntryListView.qml:297
+#: qml/GenericEntryDelegate.qml:438 qml/GenericEntryListView.qml:297
 #, kde-format
 msgid "Add to Queue"
 msgstr "Aggiungi alla coda"
 
-#: qml/GenericEntryDelegate.qml:453 qml/GenericEntryListView.qml:396
+#: qml/GenericEntryDelegate.qml:455 qml/GenericEntryListView.qml:396
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1359,12 +1359,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Minimizza nel vassoio invece di chiudere"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Minimizza nel vassoio invece di chiudere"
+msgstr "Minimizza nel vassoio all'avvio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format
