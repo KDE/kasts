@@ -99,6 +99,7 @@ bool Database::migrate()
         qCritical() << "Database version number" << dbversion
                     << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
                        "corruption of the database.";
+        return false;
     }
 
     return true;
@@ -994,10 +995,43 @@ void Database::setWalMode()
 
 void Database::cleanup()
 {
-    // delete rows with empty feed urls, as this should never happen, but could
+    // Delete rows with empty feed urls, as this should never happen, but could
     // occur when something goes wrong (like a crash) when trying to add a new
     // feed
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Feeds WHERE url is NULL or url='';"));
     execute(query);
+    query.finish();
+
+    // Remove items from the queue that don't match existing entries
+    transaction();
+    query.prepare(QStringLiteral("DELETE FROM Queue WHERE NOT EXISTS(SELECT 1 FROM Entries WHERE Entries.entryuid = Queue.entryuid);"));
+    execute(query);
+    commit();
+    query.finish();
+
+    // Remove duplicate items from the queue
+    transaction();
+    query.prepare(QStringLiteral("DELETE FROM Queue WHERE listnr NOT IN (SELECT MIN(listnr) FROM Queue GROUP BY entryuid);"));
+    execute(query);
+    commit();
+    query.finish();
+
+    // Renumber the queue in case there are now holes in the numbering scheme
+    QList<qint64> entryuids;
+    query.prepare(QStringLiteral("SELECT * FROM Queue ORDER BY listnr;"));
+    execute(query);
+    while (query.next()) {
+        entryuids += query.value(QStringLiteral("entryuid")).toLongLong();
+    }
+    query.finish();
+    transaction();
+    query.prepare(QStringLiteral("UPDATE Queue SET listnr=:i WHERE entryuid=:entryuid;"));
+    for (int i = 0; i < entryuids.count(); i++) {
+        query.bindValue(QStringLiteral(":i"), i);
+        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
+        execute(query);
+    }
+    commit();
+    query.finish();
 }
