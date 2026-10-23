@@ -151,9 +151,9 @@ void QueueModel::removeFromQueue(const QList<qint64> &entryuids)
 
     if (useResetModel) {
         beginResetModel();
+        Database::instance().transaction();
     }
 
-    Database::instance().transaction();
     QSqlQuery query;
     query.prepare(QStringLiteral("DELETE FROM Queue WHERE entryuid=:entryuid;"));
     // doing a reverse loop here to avoid constantly resetting the currently playing track, which is expensive
@@ -174,6 +174,7 @@ void QueueModel::removeFromQueue(const QList<qint64> &entryuids)
             m_entryOrder.removeAt(index);
 
             // Then make sure that the database Queue table reflects these changes
+            // renumbering happens automatically based on trigger in DB schema
             query.bindValue(QStringLiteral(":entryuid"), entryuid);
             Database::instance().execute(query);
 
@@ -181,15 +182,15 @@ void QueueModel::removeFromQueue(const QList<qint64> &entryuids)
             qCDebug(kastsQueueModel) << "queueCount is" << m_entryOrder.count();
 
             if (!useResetModel) {
+                updateQueueListnrs();
                 endRemoveRows();
             }
         }
     }
-    Database::instance().commit();
-
-    updateQueueListnrs();
 
     if (useResetModel) {
+        Database::instance().commit();
+        updateQueueListnrs();
         endResetModel();
     }
 
@@ -199,20 +200,24 @@ void QueueModel::removeFromQueue(const QList<qint64> &entryuids)
 
 void QueueModel::moveQueueItem(const qint64 from, const qint64 to_orig)
 {
-    int to = (from < to_orig) ? to_orig + 1 : to_orig;
-    beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
-    // First move the items in the internal data structure
-    m_entryOrder.move(from, to_orig);
+    // check for valid indices; sometimes this is triggered by pooled delegates
+    // with index == -1
+    if ((from > -1) && (from < m_entryOrder.count()) && (to_orig > -1) && (to_orig < m_entryOrder.count())) {
+        int to = (from < to_orig) ? to_orig + 1 : to_orig;
+        beginMoveRows(QModelIndex(), from, from, QModelIndex(), to);
+        // First move the items in the internal data structure
+        m_entryOrder.move(from, to_orig);
 
-    // Then make sure that the database Queue table reflects these changes
-    updateQueueListnrs();
+        // Then make sure that the database Queue table reflects these changes
+        updateQueueListnrs();
 
-    endMoveRows();
+        endMoveRows();
 
-    qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to_orig;
+        qCDebug(kastsQueueModel) << "Moved entry" << from << "to" << to_orig;
 
-    // Send this signal mainly to inform AudioManager about a change in the queue
-    Q_EMIT DataManager::instance().entryQueueStatusChanged(true, QList<qint64>());
+        // Send this signal mainly to inform AudioManager about a change in the queue
+        Q_EMIT DataManager::instance().entryQueueStatusChanged(true, QList<qint64>());
+    }
 }
 
 QList<qint64> QueueModel::queue() const

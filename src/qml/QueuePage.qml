@@ -161,6 +161,9 @@ Kirigami.ScrollablePage {
             // QueuePage when the episode is removed from the queue (e.g. when the
             // episode finishes).
             ListView.onPooled: {
+                // workaround for pooled delegates sometimes becoming visible
+                // this mainly happens when removing rows
+                visible = false;
                 const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
                 if (pageStack.depth > 1) {
                     if (pageStack.get(0).pageName === "queuepage") {
@@ -170,6 +173,11 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+            }
+
+            ListView.onReused: {
+                // workaround for pooled delegates sometimes being visible
+                visible = true;
             }
         }
 
