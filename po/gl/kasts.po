@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:48+0000\n"
+"POT-Creation-Date: 2026-10-24 00:48+0000\n"
 "PO-Revision-Date: 2025-02-16 06:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ficheiro multimedia non válido"
 
-#: database.cpp:896 utils/updatefeedjob.cpp:1064
+#: database.cpp:897 utils/updatefeedjob.cpp:1064
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -880,7 +880,7 @@ msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
 msgstr "Subscricións"
 
-#: qml/FeedListPage.qml:95 qml/QueuePage.qml:40
+#: qml/FeedListPage.qml:95 qml/QueuePage.qml:39
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Refresh All Podcasts"
