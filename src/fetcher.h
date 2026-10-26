@@ -65,7 +65,7 @@ Q_SIGNALS:
     void entriesAdded(const QList<qint64> &entryuids);
     void entriesUpdated(const QList<qint64> &entryuids);
     void feedUpdated(const qint64 feeduid);
-    void feedDetailsUpdated(const qint64 feeduid);
+    void feedDetailsUpdated(const qint64 feeduid, const QString &url);
     void feedUpdateStatusChanged(const qint64 feeduid, bool status);
     void cancelFetching();
 

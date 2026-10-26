@@ -23,7 +23,7 @@ Kirigami.InlineMessage {
         bottomMargin: Kirigami.Units.largeSpacing + (mainWindow.errorNotification.visible ? mainWindow.errorNotification.height + Kirigami.Units.largeSpacing : 0) + (mainWindow.updateNotification.visible ? mainWindow.updateNotification.height + Kirigami.Units.largeSpacing : 0) + (mainWindow.updateSyncNotification.visible ? mainWindow.updateSyncNotification.height + Kirigami.Units.largeSpacing : 0)
     }
     type: Kirigami.MessageType.Information
-    visible: proxyModel.filterType != AbstractEpisodeProxyModel.NoFilter
+    visible: proxyModel ? proxyModel.filterType != AbstractEpisodeProxyModel.NoFilter : false
     text: textMetrics.text
     width: Math.min(textMetrics.width + 2 * Kirigami.Units.largeSpacing + 10 * Kirigami.Units.gridUnit, parent.width - anchors.leftMargin - anchors.rightMargin)
 
@@ -40,6 +40,6 @@ Kirigami.InlineMessage {
 
     TextMetrics {
         id: textMetrics
-        text: KI18n.i18nc("@info:status Name of the filter which is active on the ListView", "Active filter: %1", root.proxyModel.filterName)
+        text: root.proxyModel && root.proxyModel.filterName ? KI18n.i18nc("@info:status Name of the filter which is active on the ListView", "Active filter: %1", root.proxyModel.filterName) : ""
     }
 }

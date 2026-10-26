@@ -19,7 +19,7 @@ class Feed : public QObject
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    Q_PROPERTY(qint64 feeduid MEMBER m_feeduid CONSTANT)
+    Q_PROPERTY(qint64 feeduid MEMBER m_feeduid NOTIFY feeduidChanged)
     Q_PROPERTY(QString url MEMBER m_url NOTIFY urlChanged)
     Q_PROPERTY(QString name MEMBER m_name NOTIFY nameChanged)
     Q_PROPERTY(QString image MEMBER m_image NOTIFY imageChanged)
@@ -29,7 +29,7 @@ class Feed : public QObject
     Q_PROPERTY(QDateTime subscribed MEMBER m_subscribed CONSTANT)
     Q_PROPERTY(QDateTime lastUpdated MEMBER m_lastUpdated NOTIFY lastUpdatedChanged)
     Q_PROPERTY(bool refreshing MEMBER m_refreshing NOTIFY refreshingChanged)
-    Q_PROPERTY(bool isSubscribed MEMBER m_isSubscribed CONSTANT)
+    Q_PROPERTY(bool isSubscribed MEMBER m_isSubscribed NOTIFY isSubscribedChanged)
     Q_PROPERTY(qint64 entryCount READ entryCount NOTIFY entryCountChanged)
     Q_PROPERTY(qint64 unreadCount READ unreadCount NOTIFY unreadCountChanged)
     Q_PROPERTY(qint64 newCount READ newCount NOTIFY newCountChanged)
@@ -53,6 +53,7 @@ public:
     qint64 favoriteCount() const;
 
 Q_SIGNALS:
+    void feeduidChanged(const qint64 feeduid);
     void urlChanged(const QString &url);
     void nameChanged(const QString &name);
     void imageChanged(const QString &image);
@@ -62,6 +63,7 @@ Q_SIGNALS:
     void lastUpdatedChanged(const QDateTime &lastUpdated);
     void dirnameChanged(const QString &dirname);
     void refreshingChanged(const bool status);
+    void isSubscribedChanged(const bool isSubscribed);
     void entryCountChanged();
     void unreadCountChanged();
     void newCountChanged();
@@ -69,6 +71,7 @@ Q_SIGNALS:
 
 private:
     void updateFeed();
+    void connectSignals();
 
     qint64 m_feeduid;
     QString m_url;

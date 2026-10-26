@@ -50,6 +50,61 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
     }
     m_authors = EntryUtils::combineAuthors(authors);
 
+    connectSignals();
+}
+
+Feed::Feed(const QString &url,
+           const QString &name,
+           const QString &image,
+           const QString &link,
+           const QString &description,
+           const QString &authors,
+           const QDateTime &lastUpdated,
+           QObject *parent)
+    : QObject(parent)
+    , m_feeduid(0)
+    , m_url(url)
+    , m_name(name)
+    , m_image(image)
+    , m_link(link)
+    , m_description(description)
+    , m_authors(authors)
+    , m_lastUpdated(lastUpdated)
+    , m_isSubscribed(false)
+{
+    qCDebug(kastsObjects) << "Feed object" << m_name << "constructed (non-subscribed)" << this;
+
+    // if we subscribe to this feed, then we need to switch to the data in the database
+    connect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, [this](const qint64 feeduid, const QString &url) {
+        if (url == m_url) {
+            if (feeduid > 0) {
+                m_feeduid = feeduid;
+                Q_EMIT feeduidChanged(feeduid);
+
+                // disconnect this signal before connecting the signals for a subscribed feed
+                disconnect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, nullptr);
+
+                // now update everything to what's in the database
+                connectSignals();
+                updateFeed();
+                m_isSubscribed = true;
+                Q_EMIT isSubscribedChanged(m_isSubscribed);
+            }
+        }
+    });
+}
+
+Feed::~Feed()
+{
+    if (m_isSubscribed) {
+        qCDebug(kastsObjects) << "Feed object" << m_feeduid << "destructed" << this;
+    } else {
+        qCDebug(kastsObjects) << "Feed object" << m_name << "destructed (non-subscribed)" << this;
+    }
+}
+
+void Feed::connectSignals()
+{
     connect(&Fetcher::instance(), &Fetcher::feedUpdated, this, [this](const qint64 feeduid) {
         if (feeduid == m_feeduid) {
             Q_EMIT entryCountChanged();
@@ -83,37 +138,6 @@ Feed::Feed(const qint64 feeduid, QObject *parent)
             Q_EMIT refreshingChanged(m_refreshing);
         }
     });
-}
-
-Feed::Feed(const QString &url,
-           const QString &name,
-           const QString &image,
-           const QString &link,
-           const QString &description,
-           const QString &authors,
-           const QDateTime &lastUpdated,
-           QObject *parent)
-    : QObject(parent)
-    , m_feeduid(0)
-    , m_url(url)
-    , m_name(name)
-    , m_image(image)
-    , m_link(link)
-    , m_description(description)
-    , m_authors(authors)
-    , m_lastUpdated(lastUpdated)
-    , m_isSubscribed(false)
-{
-    qCDebug(kastsObjects) << "Feed object" << m_name << "constructed (non-subscribed)";
-}
-
-Feed::~Feed()
-{
-    if (m_isSubscribed) {
-        qCDebug(kastsObjects) << "Feed object" << m_feeduid << "destructed";
-    } else {
-        qCDebug(kastsObjects) << "Feed object" << m_name << "destructed (non-subscribed)";
-    }
 }
 
 void Feed::updateFeed()
