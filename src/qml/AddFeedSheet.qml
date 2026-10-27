@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
+ * SPDX-FileCopyrightText: 2026 Bart De Vries <bart@mogwai.be>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -13,45 +14,50 @@ import org.kde.ki18n
 
 import org.kde.kasts
 
-Kirigami.Dialog {
+Kirigami.PromptDialog {
     id: root
 
-    showCloseButton: true
-    standardButtons: Kirigami.Dialog.NoButton
+    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
     title: KI18n.i18n("Add New Podcast")
-    padding: Kirigami.Units.largeSpacing
     preferredWidth: Kirigami.Units.gridUnit * 20
 
-    ColumnLayout {
-        Controls.Label {
-            text: KI18n.i18n("Url:")
-        }
-        Controls.TextField {
-            id: urlField
-            Layout.fillWidth: true
-            placeholderText: "https://example.com/podcast-feed.rss"
-            // focus: addSheet.sheetOpen // disabled for now since it causes problem with virtual keyboard appearing at the same time as the overlay
-            Keys.onReturnPressed: addFeedAction.triggered()
-        }
-
-        // This item can be used to trigger the addition of a feed; it will open an
-        // overlay with options in case the operation is not allowed by the settings
-        ConnectionCheckAction {
-            id: addFeed
-            function action(): void {
-                DataManager.addFeed(urlField.text);
-            }
+    // This item can be used to trigger the addition of a feed; it will open an
+    // overlay with options in case the operation is not allowed by the settings
+    ConnectionCheckAction {
+        id: addFeed
+        function action(): void {
+            DataManager.addFeed(urlField.text.trim());
         }
     }
 
-    customFooterActions: Kirigami.Action {
-        id: addFeedAction
-        text: KI18n.i18n("Add Podcast")
-        enabled: urlField.text
-        onTriggered: {
-            root.close();
+    onAccepted: {
+        if (urlField.text.trim().length > 0) {
             addFeed.run();
+        }
+    }
+
+    onOpened: {
+        urlField.forceActiveFocus();
+    }
+
+    Component.onCompleted: {
+        standardButton(Kirigami.Dialog.Ok).enabled = Qt.binding(function () {
+            return urlField.acceptableInput && urlField.text.trim() != "";
+        });
+    }
+
+    Kirigami.FormLayout {
+        Controls.TextField {
+            id: urlField
+            implicitWidth: Kirigami.Units.gridUnit * 16
+            Layout.fillWidth: true
+            Kirigami.FormData.label: KI18n.i18n("Url:")
+            placeholderText: "https://example.com/podcast-feed.rss"
+            validator: RegularExpressionValidator {
+                regularExpression: /\S+/
+            }
+            Keys.onReturnPressed: root.accept()
         }
     }
 }

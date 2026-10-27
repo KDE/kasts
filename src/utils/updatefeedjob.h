@@ -24,6 +24,8 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
 
 public:
     explicit UpdateFeedJob(const qint64 feeduid, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const QString &url, QObject *parent = nullptr);
+    ~UpdateFeedJob();
 
     void run(ThreadWeaver::JobPointer, ThreadWeaver::Thread *) override;
     void abort();
@@ -33,12 +35,16 @@ Q_SIGNALS:
     void feedUpdated(const qint64 feeduid);
     void entriesAdded(const QList<qint64> &entryuids);
     void entriesUpdated(const QList<qint64> &entryuids);
+
+    void feedDetailsRetrieved(const DataTypes::FeedUpdateDetails &feedDetails);
+
     void aborting();
     void finished();
     void error(ErrorLogModel::Type type, const QString &message);
 
 private:
-    bool downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data);
+    bool downloadFeed(QByteArray &data);
+    bool retrieveFromDB(DataTypes::FeedUpdateDetails &updatedFeed);
     void processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data);
     bool processFeedAuthors(const QList<Syndication::PersonPtr> &authors,
                             const QMultiMap<QString, QDomElement> &otherItems,
@@ -63,4 +69,6 @@ private:
 
     qint64 m_feeduid;
     QString m_url;
+    bool m_writeToDatabase;
+    QString m_dbConnectionName;
 };

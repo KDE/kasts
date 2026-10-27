@@ -20,6 +20,7 @@ ListView {
     id: root
     clip: true
     property bool isQueue: false
+    property bool enableActions: true
 
     property list<var> selectionForContextMenu: []
     property int singleSelectedEntryuid: 0
@@ -262,7 +263,7 @@ ListView {
 
     readonly property Kirigami.Action filterAction: Kirigami.Action {
         id: filterActionRoot
-        visible: !root.isQueue
+        visible: root.enableActions && !root.isQueue
         enabled: visible
         icon.name: "view-filter"
         text: KI18n.i18nc("@action:intoolbar Button to open menu to filter episodes based on their status (played, new, etc.)", "Filter")
@@ -296,7 +297,7 @@ ListView {
     readonly property Kirigami.Action addToQueueAction: Kirigami.Action {
         text: KI18n.i18n("Add to Queue")
         icon.name: "media-playlist-append"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && !root.isQueue && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryQueueStatus : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && !root.isQueue && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection && !listView.isQueue
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(true, root.selectionForContextMenu);
@@ -307,7 +308,7 @@ ListView {
     readonly property Kirigami.Action removeFromQueueAction: Kirigami.Action {
         text: KI18n.i18n("Remove from Queue")
         icon.name: "list-remove"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryQueueStatus : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryQueueStatus : true)
         //visible: listView.selectionModel.hasSelection
         onTriggered: {
             DataManager.bulkQueueStatusByIndex(false, root.selectionForContextMenu);
@@ -317,7 +318,7 @@ ListView {
 
     readonly property Kirigami.Action markPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Played")
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryRead : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryRead = true;
@@ -326,7 +327,7 @@ ListView {
 
     readonly property Kirigami.Action markNotPlayedAction: Kirigami.Action {
         text: KI18n.i18n("Mark as Unplayed")
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryRead : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryRead : true)
         onTriggered: {
             DataManager.bulkMarkReadByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryRead = false;
@@ -336,7 +337,7 @@ ListView {
     readonly property Kirigami.Action markNewAction: Kirigami.Action {
         text: KI18n.i18n("Label as \"New\"")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryNew : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryNew = true;
@@ -346,7 +347,7 @@ ListView {
     readonly property Kirigami.Action markNotNewAction: Kirigami.Action {
         text: KI18n.i18n("Remove \"New\" Label")
         displayHint: Kirigami.DisplayHint.AlwaysHide
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryNew : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryNew : true)
         onTriggered: {
             DataManager.bulkMarkNewByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryNew = false;
@@ -356,7 +357,7 @@ ListView {
     readonly property Kirigami.Action markFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to add a podcast episode as favorite", "Add to Favorites")
         icon.name: "starred-symbolic"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryFavorite : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? !root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(true, root.selectionForContextMenu);
             root.singleSelectedEntryFavorite = true;
@@ -366,7 +367,7 @@ ListView {
     readonly property Kirigami.Action markNotFavoriteAction: Kirigami.Action {
         text: KI18n.i18nc("@action:intoolbar Button to remove the \"favorite\" property of a podcast episode", "Remove from Favorites")
         icon.name: "non-starred-symbolic"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryFavorite : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryFavorite : true)
         onTriggered: {
             DataManager.bulkMarkFavoriteByIndex(false, root.selectionForContextMenu);
             root.singleSelectedEntryFavorite = false;
@@ -376,7 +377,7 @@ ListView {
     readonly property Kirigami.Action downloadEnclosureAction: Kirigami.Action {
         text: KI18n.i18n("Download")
         icon.name: "download"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded : true)
         onTriggered: {
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.selection = root.selectionForContextMenu;
             (root.Controls.ApplicationWindow.window as Main).downloadOverlay.run();
@@ -386,7 +387,7 @@ ListView {
     readonly property Kirigami.Action deleteEnclosureAction: Kirigami.Action {
         text: KI18n.i18ncp("context menu action", "Delete Download", "Delete Downloads", root.selectionForContextMenu.length)
         icon.name: "delete"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded : true)
         onTriggered: {
             DataManager.bulkDeleteEnclosuresByIndex(root.selectionForContextMenu);
         }
@@ -395,7 +396,7 @@ ListView {
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
-        visible: (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.NoEnclosure : true)
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.Downloaded || root.singleSelectedEntryEnclosureStatus !== DataTypes.EnclosureStatus.NoEnclosure : true)
         onTriggered: {
             if (!root.singleSelectedEntryQueueStatus) {
                 DataManager.bulkQueueStatus(true, [root.singleSelectedEntryuid]);

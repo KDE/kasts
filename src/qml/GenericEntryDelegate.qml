@@ -51,6 +51,7 @@ AddonDelegates.RoundedItemDelegate {
     required property int size
     required property int downloadSize
 
+    readonly property bool enableActions: entryuid > 0
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
     property bool isQueue: false
@@ -60,14 +61,14 @@ AddonDelegates.RoundedItemDelegate {
     property GenericEntryListView listViewObject: undefined
     property bool selected: false
 
-    property bool showRemoveFromQueueButton: !hasEnclosure && queueStatus
-    property bool showDownloadButton: hasEnclosure && (!downloadFilterActive || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (enclosureStatus === DataTypes.EnclosureStatus.Downloadable || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
-    property bool showCancelDownloadButton: hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloading || enclosureStatus == DataTypes.EnclosureStatus.Queued)
-    property bool showDeleteDownloadButton: downloadFilterActive && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)
-    property bool showAddToQueueButton: !downloadFilterActive && !queueStatus && hasEnclosure && enclosureStatus === DataTypes.EnclosureStatus.Downloaded
-    property bool showPlayButton: !downloadFilterActive && queueStatus && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showStreamingPlayButton: !downloadFilterActive && hasEnclosure && (enclosureStatus !== DataTypes.EnclosureStatus.Downloaded && enclosureStatus !== DataTypes.EnclosureStatus.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
-    property bool showPauseButton: !downloadFilterActive && queueStatus && hasEnclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showRemoveFromQueueButton: enableActions && !hasEnclosure && queueStatus
+    property bool showDownloadButton: enableActions && hasEnclosure && (!downloadFilterActive || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (enclosureStatus === DataTypes.EnclosureStatus.Downloadable || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded) && (!NetworkConnectionManager.streamingAllowed || !SettingsManager.prioritizeStreaming || downloadFilterActive) && !(AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
+    property bool showCancelDownloadButton: enableActions && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloading || enclosureStatus == DataTypes.EnclosureStatus.Queued)
+    property bool showDeleteDownloadButton: enableActions && downloadFilterActive && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded || enclosureStatus === DataTypes.EnclosureStatus.PartiallyDownloaded)
+    property bool showAddToQueueButton: enableActions && !downloadFilterActive && !queueStatus && hasEnclosure && enclosureStatus === DataTypes.EnclosureStatus.Downloaded
+    property bool showPlayButton: enableActions && !downloadFilterActive && queueStatus && hasEnclosure && (enclosureStatus === DataTypes.EnclosureStatus.Downloaded) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showStreamingPlayButton: enableActions && !downloadFilterActive && hasEnclosure && (enclosureStatus !== DataTypes.EnclosureStatus.Downloaded && enclosureStatus !== DataTypes.EnclosureStatus.Downloading && NetworkConnectionManager.streamingAllowed && SettingsManager.prioritizeStreaming) && (AudioManager.entryuid !== entryuid || AudioManager.playbackState !== KMediaSession.PlayingState)
+    property bool showPauseButton: enableActions && !downloadFilterActive && queueStatus && hasEnclosure && (AudioManager.entryuid === entryuid && AudioManager.playbackState === KMediaSession.PlayingState)
 
     component IconOnlyButton: Controls.ToolButton {
         display: Controls.ToolButton.IconOnly
@@ -140,18 +141,18 @@ AddonDelegates.RoundedItemDelegate {
         // only mark pure rss feeds as read + not new;
         // podcasts should only be marked read once they have been listened to, and only
         // marked as non-new once they've been downloaded
-        if (!hasEnclosure) {
+        if (enableActions && !hasEnclosure) {
             DataManager.bulkMarkRead(true, [entryuid]);
             DataManager.bulkMarkNew(false, [entryuid]);
         }
-        if (isQueue || downloadFilterActive) {
+        if (enableActions && (isQueue || downloadFilterActive)) {
             const pageStack = (root.Controls.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack;
             if (pageStack.get(0)?.lastEntry > -1) {
                 pageStack.get(0).lastEntry = entryuid;
             }
         }
 
-        if (mainWindow.pageStack.depth > (mainWindow.currentPage === "FeedListPage" ? 2 : 1)) {
+        if (mainWindow.pageStack.depth > ((mainWindow.currentPage === "FeedListPage" || mainWindow.currentPage === "DiscoverPage") ? 2 : 1)) {
             mainWindow.pageStack.pop();
         }
 
@@ -196,10 +197,10 @@ AddonDelegates.RoundedItemDelegate {
             // Keep track of (currently) selected items
             const modelIndex = root.listViewObject.model.index(root.index, 0);
 
-            if (root.listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton) {
+            if (root.listViewObject.selectionModel.isSelected(modelIndex) && button == Qt.RightButton && root.enableActions) {
                 const item = root.listViewObject.contextMenu.createObject(root.Controls.Overlay.overlay);
                 (item as AddonComponents.ConvergentContextMenu).popup();
-            } else if (button == Qt.RightButton) {
+            } else if (button == Qt.RightButton && root.enableActions) {
                 // This item is right-clicked, but isn't selected
                 root.listViewObject.selectionForContextMenu = [modelIndex];
                 const item = root.listViewObject.contextMenu.createObject(root.Controls.Overlay.overlay);

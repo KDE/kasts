@@ -25,6 +25,12 @@
 #include "storagemanager.h"
 #include "utils/entryutils.h"
 
+AbstractEpisodeModel::AbstractEpisodeModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+    qCDebug(kastsObjects) << "Empty AbstractEpisodeModel constructed" << this;
+}
+
 AbstractEpisodeModel::AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent)
     : QAbstractListModel(parent)
     , m_feedQuery(feedQuery)

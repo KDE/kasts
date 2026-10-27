@@ -49,6 +49,7 @@ public:
     };
     Q_ENUM(Roles)
 
+    explicit AbstractEpisodeModel(QObject *parent = nullptr);
     explicit AbstractEpisodeModel(const QString &feedQuery, const QString &entryQuery, const QString &enclosureQuery, QObject *parent = nullptr);
     ~AbstractEpisodeModel();
     virtual QHash<int, QByteArray> roleNames() const override;
@@ -56,7 +57,7 @@ public:
     virtual int rowCount(const QModelIndex &parent) const override;
 
 protected:
-    void updateInternalState();
+    virtual void updateInternalState();
     void updateEntries(const QList<qint64> &entryuids);
     void updateFeeds(const QList<qint64> &feeduids);
 

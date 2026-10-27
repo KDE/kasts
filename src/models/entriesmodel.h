@@ -7,14 +7,9 @@
 
 #pragma once
 
-#include <QHash>
-#include <QModelIndex>
 #include <QObject>
-#include <QVariant>
 
 #include "models/abstractepisodemodel.h"
-
-class Feed;
 
 class EntriesModel : public AbstractEpisodeModel
 {

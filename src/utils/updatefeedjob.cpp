@@ -32,6 +32,7 @@
 #include "datatypes.h"
 #include "fetcher.h"
 #include "fetchfeedsjob.h"
+#include "objectslogging.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "updaterlogging.h"
@@ -42,6 +43,7 @@ using namespace DataTypes;
 UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, QObject *parent)
     : QObject(parent)
     , m_feeduid(feeduid)
+    , m_writeToDatabase(true)
 {
     // connect to signals in Fetcher such that GUI can pick up the changes
     connect(this, &UpdateFeedJob::feedDetailsUpdated, &Fetcher::instance(), &Fetcher::feedDetailsUpdated);
@@ -49,6 +51,25 @@ UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, QObject *parent)
     connect(this, &UpdateFeedJob::entriesAdded, &Fetcher::instance(), &Fetcher::entriesAdded);
     connect(this, &UpdateFeedJob::entriesUpdated, &Fetcher::instance(), &Fetcher::entriesUpdated);
     connect(this, &UpdateFeedJob::error, &Fetcher::instance(), &Fetcher::error);
+
+    qCDebug(kastsObjects) << "UpdateFeedJob constructed from feeduid" << m_feeduid << this;
+}
+
+UpdateFeedJob::UpdateFeedJob(const QString &url, QObject *parent)
+    : QObject(parent)
+    , m_feeduid(0)
+    , m_url(url)
+    , m_writeToDatabase(false)
+{
+    // connect to signals in Fetcher such that GUI can pick up the changes
+    connect(this, &UpdateFeedJob::error, &Fetcher::instance(), &Fetcher::error);
+
+    qCDebug(kastsObjects) << "UpdateFeedJob constructed from url" << m_url << this;
+}
+
+UpdateFeedJob::~UpdateFeedJob()
+{
+    qCDebug(kastsObjects) << "UpdateFeedJob destructed" << m_feeduid << m_url << this;
 }
 
 void UpdateFeedJob::run(JobPointer, Thread *)
@@ -58,31 +79,119 @@ void UpdateFeedJob::run(JobPointer, Thread *)
         return;
     }
 
-    Database::openDatabase(QString::number(m_feeduid));
-
     DataTypes::FeedUpdateDetails updatedFeed;
     QByteArray data;
 
-    if (downloadFeed(updatedFeed, data)) {
-        Syndication::DocumentSource document(data, m_url);
-        Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
-        processFeed(feed, updatedFeed, data);
-    } else {
-        // TODO: add some kind of error reporting
+    m_dbConnectionName = (m_feeduid > 0) ? QString::number(m_feeduid) : m_url;
+    Database::openDatabase(m_dbConnectionName);
+
+    // if we are dealing with a feed that's already been added to the database
+    if (m_feeduid > 0) {
+        bool continueProcessFeed = true;
+
+        // First get the current data from the DB, we'll check the lastHash to decide
+        // whether we actually have to update the feed or can simply skip it
+        QSqlQuery query(QSqlDatabase::database(m_dbConnectionName));
+        query.prepare(QStringLiteral("SELECT url, lastHash FROM Feeds WHERE feeduid=:feeduid;"));
+        query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
+        if (!dbExecute(query)) {
+            qCDebug(kastsUpdater) << "No feed found with feeduid" << m_feeduid;
+            continueProcessFeed = false;
+        }
+        QString lastHash;
+        if (query.next()) {
+            DataTypes::FeedUpdateDetails feedDetail;
+            m_url = query.value(QStringLiteral("url")).toString();
+            lastHash = query.value(QStringLiteral("lastHash")).toString();
+        } else {
+            continueProcessFeed = false;
+        }
+        // the next query.finish() is very important because otherwise it could
+        // block the database for writing on subsequent transactions!
+        query.finish();
+
+        if (continueProcessFeed && downloadFeed(data)) {
+            // check if the feed has been really been updated by checking if
+            // the hash is still the same
+            QString newHash = QString::fromLatin1(QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex());
+            qCDebug(kastsUpdater) << "RSS hashes (old and new)" << m_feeduid << lastHash << newHash;
+
+            if (newHash == lastHash) {
+                qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << m_feeduid;
+            } else {
+                // Now that we now we have to update everything, we continue retrieving the
+                // old data from the database
+                retrieveFromDB(updatedFeed);
+                Syndication::DocumentSource document(data, m_url);
+                Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+                processFeed(feed, updatedFeed, data);
+            }
+        }
+    } else { // we're dealing with a feed that has not been added to the DB
+        if (downloadFeed(data)) {
+            Syndication::DocumentSource document(data, m_url);
+            Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
+            processFeed(feed, updatedFeed, data);
+
+            Q_EMIT feedDetailsRetrieved(updatedFeed);
+        }
     }
 
-    Database::closeDatabase(QString::number(m_feeduid));
+    Database::closeDatabase(m_dbConnectionName);
 
     Q_EMIT finished();
 }
 
-bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByteArray &data)
+bool UpdateFeedJob::downloadFeed(QByteArray &data)
+{
+    // we continue to retrieve the updated feed
+    // note that this has to be done with an eventloop to do the network
+    // request/reply in a blocking way since we're in a separate thread
+    // managed by ThreadWeaver
+    QEventLoop loop;
+    NetworkAccessManager manager;
+    bool continueProcessFeed = true;
+
+    QNetworkRequest request((QUrl(m_url)));
+    request.setTransferTimeout();
+    QNetworkReply *reply = manager.get(request);
+    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
+
+    // HACK: if this object is parented by a FetchFeedsJob, then also connect
+    // its "aborting" signal to the qnetworkreply; it's done this way because
+    // we cannot connect signals to "this" inside a ThreadWeaver job
+    FetchFeedsJob *fetchfeedjob = qobject_cast<FetchFeedsJob *>(parent());
+    if (fetchfeedjob) {
+        connect(fetchfeedjob, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
+    }
+
+    qCDebug(kastsUpdater) << "Eventloop started for" << m_feeduid;
+    loop.exec();
+    qCDebug(kastsUpdater) << "Eventloop finished" << m_feeduid;
+
+    qCDebug(kastsUpdater) << "got networkreply for" << reply;
+    if (reply->error()) {
+        if (!m_abort) {
+            qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
+            Q_EMIT error(
+                ErrorLogModel::Type::FeedUpdate,
+                i18nc("@info:status %1 is the podcast url, %2 is the error message", "Error retrieving podcast: %1; error: %2", m_url, reply->errorString()));
+        } else {
+            qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
+        }
+        continueProcessFeed = false;
+    } else {
+        data = reply->readAll();
+    }
+    delete reply;
+    return continueProcessFeed;
+}
+
+bool UpdateFeedJob::retrieveFromDB(DataTypes::FeedUpdateDetails &updatedFeed)
 {
     qCDebug(kastsUpdater) << "get old feed data from DB for" << m_feeduid;
 
-    // First get the current data from the DB, we'll check the lastHash to decide
-    // whether we actually have to update the feed or can simply skip it
-    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
+    QSqlQuery query(QSqlDatabase::database(m_dbConnectionName));
     query.prepare(QStringLiteral("SELECT * FROM Feeds WHERE feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), m_feeduid);
     if (!dbExecute(query)) {
@@ -119,72 +228,9 @@ bool UpdateFeedJob::downloadFeed(DataTypes::FeedUpdateDetails &updatedFeed, QByt
     } else {
         return false;
     }
-    query.finish(); // release lock on database
-
-    // we continue to retrieve the updated feed
-    // note that this has to be done with an eventloop to do the network
-    // request/reply in a blocking way since we're in a separate thread
-    // managed by ThreadWeaver
-    QEventLoop loop;
-    NetworkAccessManager manager;
-    bool continueProcessFeed = false;
-
-    QNetworkRequest request((QUrl(m_url)));
-    request.setTransferTimeout();
-    QNetworkReply *reply = manager.get(request);
-    connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
-
-    // HACK: if this object is parented by a FetchFeedsJob, then also connect
-    // its "aborting" signal to the qnetworkreply; it's done this way because
-    // we cannot connect signals to "this" inside a ThreadWeaver job
-    FetchFeedsJob *fetchfeedjob = qobject_cast<FetchFeedsJob *>(parent());
-    if (fetchfeedjob) {
-        connect(fetchfeedjob, &FetchFeedsJob::aborting, reply, &QNetworkReply::abort);
-    }
-
-    qCDebug(kastsUpdater) << "Eventloop started for" << m_feeduid;
-    loop.exec();
-    qCDebug(kastsUpdater) << "Eventloop finished" << m_feeduid;
-
-    qCDebug(kastsUpdater) << "got networkreply for" << reply;
-    if (reply->error()) {
-        if (!m_abort) {
-            qCDebug(kastsUpdater) << "Error fetching feed" << reply->errorString();
-            Q_EMIT error(ErrorLogModel::Type::FeedUpdate,
-                         i18nc("@info:status %1 is the podcast name, %2 is the error message",
-                               "Error retrieving podcast: %1; error: %2",
-                               updatedFeed.name,
-                               reply->errorString()));
-        } else {
-            qCDebug(kastsUpdater) << "Aborted network reply to fetch feed" << m_feeduid;
-        }
-        continueProcessFeed = false;
-    } else {
-        data = reply->readAll();
-
-        // check if the feed has been really been updated by checking if
-        // the hash is still the same
-        QString newHash = QString::fromLatin1(QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex());
-        qCDebug(kastsUpdater) << "RSS hashes (old and new)" << m_feeduid << updatedFeed.lastHash << newHash;
-
-        if (newHash == updatedFeed.lastHash) {
-            qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << m_feeduid;
-            continueProcessFeed = false;
-        } else {
-            continueProcessFeed = true;
-        }
-    }
-    delete reply;
-    return continueProcessFeed;
-}
-
-void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data)
-{
-    // Now that we now we have to update everything, we continue retrieving the
-    // old data from the database
+    query.finish();
 
     // retrieve feed authors
-    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
     query.prepare(QStringLiteral("SELECT name, email FROM FeedAuthors WHERE feeduid=:feeduid;"));
     query.bindValue(QStringLiteral(":feeduid"), updatedFeed.feeduid);
     dbExecute(query);
@@ -305,6 +351,11 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     }
     query.finish();
 
+    return true;
+}
+
+void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::FeedUpdateDetails &updatedFeed, const QByteArray &data)
+{
     qCDebug(kastsUpdater) << "start process feed" << feed;
 
     if (feed.isNull())
@@ -338,9 +389,10 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
     }
 
     // if the title has changed, we need to rename the corresponding enclosure
-    // download directory name and move the files
+    // download directory name and move the files, but only if it's an
+    // existing feed
     // TODO: The rename should happen simultaneously with the write to the database rather than here
-    if (updatedFeed.oldName != updatedFeed.name || updatedFeed.oldDirname.isEmpty() || updatedFeed.isNew) {
+    if ((updatedFeed.feeduid > 0) && (updatedFeed.oldName != updatedFeed.name || updatedFeed.oldDirname.isEmpty() || updatedFeed.isNew)) {
         QString generatedDirname = generateFeedDirname(updatedFeed.name);
         if (generatedDirname != updatedFeed.dirname) {
             updatedFeed.dirname = generatedDirname;
@@ -383,14 +435,16 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
         updatedEntries = updatedEntries || isNewEntry;
     }
 
-    writeToDatabase(updatedFeed);
+    if (m_writeToDatabase) {
+        writeToDatabase(updatedFeed);
 
-    if (hasFeedBeenUpdated) {
-        Q_EMIT feedDetailsUpdated(updatedFeed.feeduid, updatedFeed.url);
-    }
+        if (hasFeedBeenUpdated) {
+            Q_EMIT feedDetailsUpdated(updatedFeed.feeduid, updatedFeed.url);
+        }
 
-    if (updatedEntries || updatedFeed.isNew) {
-        Q_EMIT feedUpdated(updatedFeed.feeduid);
+        if (updatedEntries || updatedFeed.isNew) {
+            Q_EMIT feedUpdated(updatedFeed.feeduid);
+        }
     }
 
     qCDebug(kastsUpdater) << "done processing feed" << feed;
@@ -555,6 +609,9 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
         qCDebug(kastsUpdater) << "this is a new episode:" << id;
     }
 
+    if (!updatedFeed.entryOrder.contains(id)) {
+        updatedFeed.entryOrder.append(id);
+    }
     // Process authors
     isUpdateDependencies = isUpdateDependencies | processEntryAuthors(id, entry->authors(), otherItems, updatedFeed);
 
@@ -660,6 +717,11 @@ bool UpdateFeedJob::processEnclosures(const QString &id, const QList<Syndication
             updatedFeed.entries[id].enclosures[url] = enclosureDetails;
             qCDebug(kastsUpdater) << "this is a new enclosure:" << id << url;
         }
+
+        if (!updatedFeed.entries[id].enclosureOrder.contains(url)) {
+            updatedFeed.entries[id].enclosureOrder.append(url);
+        }
+
         anyEnclosureUpdated = anyEnclosureUpdated | isNewEnclosure | isUpdateEnclosure;
     }
 
@@ -732,7 +794,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 {
     QSet<qint64> newEntryuids, updatedEntryuids;
 
-    QSqlQuery writeQuery(QSqlDatabase::database(QString::number(m_feeduid)));
+    QSqlQuery writeQuery(QSqlDatabase::database(m_dbConnectionName));
 
     dbTransaction();
 
@@ -1075,7 +1137,7 @@ bool UpdateFeedJob::dbExecute(QSqlQuery &query)
 bool UpdateFeedJob::dbTransaction()
 {
     // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
+    QSqlQuery query(QSqlDatabase::database(m_dbConnectionName));
     query.prepare(QStringLiteral("BEGIN IMMEDIATE TRANSACTION;"));
     return dbExecute(query);
 }
@@ -1083,7 +1145,7 @@ bool UpdateFeedJob::dbTransaction()
 bool UpdateFeedJob::dbCommit()
 {
     // use raw sqlite query to benefit from automatic retries on execute
-    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
+    QSqlQuery query(QSqlDatabase::database(m_dbConnectionName));
     query.prepare(QStringLiteral("COMMIT TRANSACTION;"));
     return dbExecute(query);
 }
@@ -1096,7 +1158,7 @@ QString UpdateFeedJob::generateFeedDirname(const QString &name)
     QString dirName = dirBaseName;
 
     QStringList dirNameList;
-    QSqlQuery query(QSqlDatabase::database(QString::number(m_feeduid)));
+    QSqlQuery query(QSqlDatabase::database(m_dbConnectionName));
     query.prepare(QStringLiteral("SELECT name FROM Feeds;"));
     dbExecute(query);
     while (query.next()) {

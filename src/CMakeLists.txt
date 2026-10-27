@@ -36,6 +36,8 @@ add_executable(kasts
     models/episodeproxymodel.cpp
     models/errorlogmodel.cpp
     models/podcastsearchmodel.cpp
+    models/unsubscribedentriesmodel.cpp
+    models/unsubscribedentriesproxymodel.cpp
     sync/sync.cpp
     sync/syncjob.cpp
     sync/syncutils.cpp
@@ -159,6 +161,13 @@ ecm_qt_declare_logging_category(kasts
     HEADER "enclosuredownloadlogging.h"
     IDENTIFIER "kastsEnclosureDownload"
     CATEGORY_NAME "org.kde.kasts.enclosuredownload"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "models/entriesmodellogging.h"
+    IDENTIFIER "kastsEntriesModel"
+    CATEGORY_NAME "org.kde.kasts.entriesmodel"
     DEFAULT_SEVERITY Info
 )
 

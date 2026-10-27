@@ -23,6 +23,7 @@
 #include "database.h"
 #include "datatypes.h"
 #include "models/errorlogmodel.h"
+#include "models/unsubscribedentriesproxymodel.h"
 #include "networkconnectionmanager.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
@@ -113,6 +114,11 @@ void Fetcher::fetch(const QStringList &urls)
 
     fetchFeedsJob->start();
     qCDebug(kastsFetcher) << "end of Fetcher::fetch";
+}
+
+UnsubscribedEntriesProxyModel *Fetcher::fetchUnsubscribedEntriesProxyModel(const QString &url)
+{
+    return new UnsubscribedEntriesProxyModel(url);
 }
 
 void Fetcher::downloadEnclosure(const qint64 entryuid)
