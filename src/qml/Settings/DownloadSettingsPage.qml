@@ -153,11 +153,12 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormSwitchDelegate {
-            id: doFullUpdate
-            checked: SettingsManager.doFullUpdate
-            text: KI18n.i18nc("@option:check", "Update existing episode data on refresh (slower)")
+            id: forceFeedUpdates
+            checked: SettingsManager.forceFeedUpdates
+            text: KI18n.i18nc("@option:check", "Force full subscription processing on each refresh")
+            description: KI18n.i18nc("@info related to a force update subscriptions setting", "When disabled (default), subscriptions are processed only if the subscription feed has changed since last update")
             onToggled: {
-                SettingsManager.doFullUpdate = checked;
+                SettingsManager.forceFeedUpdates = checked;
                 SettingsManager.save();
             }
         }

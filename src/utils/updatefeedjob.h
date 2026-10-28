@@ -23,7 +23,7 @@ class UpdateFeedJob : public QObject, public ThreadWeaver::Job
     Q_OBJECT
 
 public:
-    explicit UpdateFeedJob(const qint64 feeduid, QObject *parent = nullptr);
+    explicit UpdateFeedJob(const qint64 feeduid, const bool force, QObject *parent = nullptr);
     explicit UpdateFeedJob(const QString &url, QObject *parent = nullptr);
     ~UpdateFeedJob();
 
@@ -69,6 +69,7 @@ private:
 
     qint64 m_feeduid;
     QString m_url;
+    bool m_force;
     bool m_writeToDatabase;
     QString m_dbConnectionName;
 };

@@ -40,9 +40,10 @@
 using namespace ThreadWeaver;
 using namespace DataTypes;
 
-UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, QObject *parent)
+UpdateFeedJob::UpdateFeedJob(const qint64 feeduid, const bool force, QObject *parent)
     : QObject(parent)
     , m_feeduid(feeduid)
+    , m_force(force)
     , m_writeToDatabase(true)
 {
     // connect to signals in Fetcher such that GUI can pick up the changes
@@ -116,15 +117,15 @@ void UpdateFeedJob::run(JobPointer, Thread *)
             QString newHash = QString::fromLatin1(QCryptographicHash::hash(data, QCryptographicHash::Sha256).toHex());
             qCDebug(kastsUpdater) << "RSS hashes (old and new)" << m_feeduid << lastHash << newHash;
 
-            if (newHash == lastHash) {
-                qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << m_feeduid;
-            } else {
+            if ((newHash != lastHash) || m_force) {
                 // Now that we now we have to update everything, we continue retrieving the
                 // old data from the database
                 retrieveFromDB(updatedFeed);
                 Syndication::DocumentSource document(data, m_url);
                 Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
                 processFeed(feed, updatedFeed, data);
+            } else {
+                qCDebug(kastsUpdater) << "same RSS feed hash as last time; skipping feed update for" << m_feeduid;
             }
         }
     } else { // we're dealing with a feed that has not been added to the DB
@@ -522,11 +523,6 @@ bool UpdateFeedJob::processEntry(const Syndication::ItemPtr &entry, DataTypes::F
     if (updatedFeed.entries.contains(id)) {
         isNewOrModified = false;
         updatedFeed.entries[id].state = RecordState::Unmodified;
-
-        // stop here if doFullUpdate is set to false and this is an existing entry
-        if (!SettingsManager::self()->doFullUpdate()) {
-            return false;
-        }
     } else {
         isNewOrModified = true;
     }
@@ -952,23 +948,21 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
     writeQuery.clear();
 
     // delete entry authors that were removed
-    if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
-        writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
-        for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
-            if (entryDetails.state != RecordState::Deleted) {
-                for (const AuthorUpdateDetails &authorDetails : std::as_const(entryDetails.authors)) {
-                    if (authorDetails.state == RecordState::Deleted) {
-                        updatedEntryuids.insert(entryDetails.entryuid);
-                        writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
-                        writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
-                        dbExecute(writeQuery);
-                        qCDebug(kastsUpdater) << "deleted old entry author:" << updatedFeed.feeduid << entryDetails.entryuid << authorDetails.name;
-                    }
+    writeQuery.prepare(QStringLiteral("DELETE FROM EntryAuthors WHERE entryuid=:entryuid AND name=:name;"));
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        if (entryDetails.state != RecordState::Deleted) {
+            for (const AuthorUpdateDetails &authorDetails : std::as_const(entryDetails.authors)) {
+                if (authorDetails.state == RecordState::Deleted) {
+                    updatedEntryuids.insert(entryDetails.entryuid);
+                    writeQuery.bindValue(QStringLiteral(":entryuid"), entryDetails.entryuid);
+                    writeQuery.bindValue(QStringLiteral(":name"), authorDetails.name);
+                    dbExecute(writeQuery);
+                    qCDebug(kastsUpdater) << "deleted old entry author:" << updatedFeed.feeduid << entryDetails.entryuid << authorDetails.name;
                 }
             }
         }
-        writeQuery.clear();
     }
+    writeQuery.clear();
 
     // new enclosures
     writeQuery.prepare(
@@ -1016,22 +1010,20 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
     writeQuery.clear();
 
     // delete removed enclosures
-    if (SettingsManager::self()->doFullUpdate()) { // only if this is a full update
-        writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
-        for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
-            if (entryDetails.state != RecordState::Deleted) {
-                for (const EnclosureUpdateDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
-                    if (enclosureDetails.state == RecordState::Deleted) {
-                        updatedEntryuids.insert(entryDetails.entryuid);
-                        writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
-                        dbExecute(writeQuery);
-                        qCDebug(kastsUpdater) << "deleted old enclosure:" << updatedFeed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
-                    }
+    writeQuery.prepare(QStringLiteral("DELETE FROM Enclosures WHERE enclosureuid=:enclosureuid;"));
+    for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
+        if (entryDetails.state != RecordState::Deleted) {
+            for (const EnclosureUpdateDetails &enclosureDetails : std::as_const(entryDetails.enclosures)) {
+                if (enclosureDetails.state == RecordState::Deleted) {
+                    updatedEntryuids.insert(entryDetails.entryuid);
+                    writeQuery.bindValue(QStringLiteral(":enclosureuid"), enclosureDetails.enclosureuid);
+                    dbExecute(writeQuery);
+                    qCDebug(kastsUpdater) << "deleted old enclosure:" << updatedFeed.feeduid << enclosureDetails.enclosureuid << enclosureDetails.url;
                 }
             }
         }
-        writeQuery.clear();
     }
+    writeQuery.clear();
 
     // new chapters
     writeQuery.prepare(QStringLiteral("INSERT INTO Chapters (entryuid, start, title, link, image) VALUES (:entryuid, :start, :title, :link, :image);"));

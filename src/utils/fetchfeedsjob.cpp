@@ -80,7 +80,7 @@ void FetchFeedsJob::fetch()
             qCDebug(kastsUpdater) << "Starting to fetch" << feeduid;
             Q_EMIT Fetcher::instance().feedUpdateStatusChanged(feeduid, true);
 
-            UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feeduid, this);
+            UpdateFeedJob *updateFeedJob = new UpdateFeedJob(feeduid, SettingsManager::self()->forceFeedUpdates(), this);
             connect(this, &FetchFeedsJob::aborting, updateFeedJob, &UpdateFeedJob::abort);
             connect(updateFeedJob, &UpdateFeedJob::finished, this, [this, feeduid]() {
                 // TODO: add error processing
