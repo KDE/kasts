@@ -18,7 +18,7 @@ FormCard.FormCardPage {
     id: root
 
     FormCard.FormHeader {
-        title: KI18n.i18nc("@title Form header for settings related to app appearance", "Appearance")
+        title: KI18n.i18nc("@title Form header for settings", "Appearance and theming")
         Layout.fillWidth: true
     }
 
@@ -66,8 +66,15 @@ FormCard.FormCardPage {
             Component.onCompleted: currentIndex = ColorSchemer.indexForCurrentScheme()
             onCurrentValueChanged: ColorSchemer.apply(currentIndex)
         }
+    }
 
-        FormCard.FormDelegateSeparator {}
+    FormCard.FormHeader {
+        title: KI18n.i18nc("@title Form header for settings", "Subscription information")
+        Layout.fillWidth: true
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
 
         FormCard.FormSwitchDelegate {
             id: alwaysShowFeedTitles
@@ -78,6 +85,15 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
+    }
+
+    FormCard.FormHeader {
+        title: KI18n.i18nc("@title Form header for settings", "Episode information")
+        Layout.fillWidth: true
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
 
         FormCard.FormSwitchDelegate {
             id: showEpisodeImage
@@ -95,6 +111,29 @@ FormCard.FormCardPage {
             checked: SettingsManager.showPodcastTitle
             onToggled: {
                 SettingsManager.showPodcastTitle = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormSwitchDelegate {
+            id: showTimeLeft
+            checked: SettingsManager.toggleRemainingTime
+            text: KI18n.i18nc("@option:check Label for setting whether the total episode time is shown or a countdown of the remaining play time", "Show time left instead of total episode time")
+            onToggled: {
+                SettingsManager.toggleRemainingTime = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormSwitchDelegate {
+            id: adjustTimeLeft
+            checked: SettingsManager.adjustTimeLeft
+            enabled: SettingsManager.toggleRemainingTime
+            text: KI18n.i18nc("@option:check", "Adjust time left based on current playback speed")
+            onToggled: {
+                SettingsManager.adjustTimeLeft = checked;
                 SettingsManager.save();
             }
         }

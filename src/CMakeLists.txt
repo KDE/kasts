@@ -112,8 +112,9 @@ qt_add_qml_module(kasts URI org.kde.kasts
         qml/ChapterListDelegate.qml
         qml/SyncPasswordOverlay.qml
         qml/Settings/SettingsView.qml
-        qml/Settings/GeneralSettingsPage.qml
         qml/Settings/AppearanceSettingsPage.qml
+        qml/Settings/PlaybackSettingsPage.qml
+        qml/Settings/DownloadSettingsPage.qml
         qml/Settings/StorageDirDialog.qml
         qml/Settings/NetworkSettingsPage.qml
         qml/Settings/StorageSettingsPage.qml
