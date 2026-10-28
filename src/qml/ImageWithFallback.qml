@@ -15,6 +15,8 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.kasts
 
+// TODO: check if metered connection checks are needed to download images
+
 Item {
     id: root
 

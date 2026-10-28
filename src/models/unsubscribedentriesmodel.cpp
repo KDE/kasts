@@ -21,6 +21,7 @@ UnsubscribedEntriesModel::UnsubscribedEntriesModel(const QString &url, QObject *
     , m_url(url)
 
 {
+    // TODO: should this go through the metered network checks first?
     UpdateFeedJob *updateFeedJob = new UpdateFeedJob(m_url, this);
     connect(updateFeedJob, &UpdateFeedJob::feedDetailsRetrieved, this, &UnsubscribedEntriesModel::updateEntries);
 
