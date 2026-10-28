@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
     required property Feed feed
 
     property var subscribeAction: undefined // this is only used if instantiated from the discoverpage
-    property AbstractEpisodeProxyModel entriesModel: feed.isSubscribed ? DataManager.getEntriesProxyModel(feed.feeduid) : Fetcher.fetchUnsubscribedEntriesProxyModel(root.feed.url)
+    property AbstractEpisodeProxyModel entriesModel: feed.entriesProxyModel
 
     property bool showMoreInfo: false
 
@@ -295,11 +295,11 @@ Kirigami.ScrollablePage {
                     Kirigami.SelectableLabel {
                         Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
-                        visible: root.feed.isSubscribed && root.showMoreInfo
+                        visible: root.showMoreInfo
 
                         selectByMouse: !Kirigami.Settings.isMobile
                         textFormat: TextEdit.RichText
-                        text: root.feed.isSubscribed ? KI18n.i18np("1 Episode", "%1 Episodes", root.feed.entryCount) + ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", root.feed.unreadCount) : ""
+                        text: KI18n.i18np("1 Episode", "%1 Episodes", root.feed.entryCount) + (root.feed.isSubscribed ? ", " + KI18n.i18np("1 Unplayed", "%1 Unplayed", root.feed.unreadCount) : "")
                         wrapMode: Text.WordWrap
                     }
                 }

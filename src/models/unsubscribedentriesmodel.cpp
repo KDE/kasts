@@ -24,6 +24,7 @@ UnsubscribedEntriesModel::UnsubscribedEntriesModel(const QString &url, QObject *
     // TODO: should this go through the metered network checks first?
     UpdateFeedJob *updateFeedJob = new UpdateFeedJob(m_url, this);
     connect(updateFeedJob, &UpdateFeedJob::feedDetailsRetrieved, this, &UnsubscribedEntriesModel::updateEntries);
+    connect(updateFeedJob, &UpdateFeedJob::feedDetailsRetrieved, this, &UnsubscribedEntriesModel::feedDetailsRetrieved);
 
     ThreadWeaver::Queue::instance()->stream() << updateFeedJob;
     qCDebug(kastsEntriesModel) << "Enqueued updateFeedJob for feed" << m_url;
@@ -139,8 +140,10 @@ int UnsubscribedEntriesModel::rowCount(const QModelIndex &parent) const
     return m_feed.entryOrder.count();
 }
 
-void UnsubscribedEntriesModel::updateEntries(const DataTypes::FeedUpdateDetails &feedDetails)
+void UnsubscribedEntriesModel::updateEntries(const QString &url, const DataTypes::FeedUpdateDetails &feedDetails)
 {
+    Q_UNUSED(url);
+
     beginResetModel();
     m_feed = feedDetails;
     endResetModel();

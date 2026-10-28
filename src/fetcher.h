@@ -20,7 +20,6 @@
 
 #include "enclosuredownloadjob.h"
 #include "models/errorlogmodel.h"
-#include "models/unsubscribedentriesproxymodel.h"
 #include "utils/networkaccessmanager.h"
 
 class Fetcher : public QObject
@@ -48,8 +47,6 @@ public:
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetch(const QStringList &urls);
     Q_INVOKABLE void fetchAll();
-
-    Q_INVOKABLE UnsubscribedEntriesProxyModel *fetchUnsubscribedEntriesProxyModel(const QString &url);
 
     Q_INVOKABLE void downloadEnclosure(const qint64 entryuid);
     Q_INVOKABLE void cancelEnclosureDownload(const qint64 entryuid);

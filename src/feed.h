@@ -13,6 +13,8 @@
 #include <QVector>
 #include <qqmlintegration.h>
 
+#include "models/abstractepisodeproxymodel.h"
+
 class Feed : public QObject
 {
     Q_OBJECT
@@ -34,6 +36,7 @@ class Feed : public QObject
     Q_PROPERTY(qint64 unreadCount READ unreadCount NOTIFY unreadCountChanged)
     Q_PROPERTY(qint64 newCount READ newCount NOTIFY newCountChanged)
     Q_PROPERTY(qint64 favoriteCount READ favoriteCount NOTIFY favoriteCountChanged)
+    Q_PROPERTY(AbstractEpisodeProxyModel *entriesProxyModel READ entriesProxyModel NOTIFY entriesProxyModelChanged)
 
 public:
     explicit Feed(const qint64 feeduid, QObject *parent = nullptr);
@@ -52,6 +55,8 @@ public:
     qint64 newCount() const;
     qint64 favoriteCount() const;
 
+    AbstractEpisodeProxyModel *entriesProxyModel();
+
 Q_SIGNALS:
     void feeduidChanged(const qint64 feeduid);
     void urlChanged(const QString &url);
@@ -68,6 +73,7 @@ Q_SIGNALS:
     void unreadCountChanged();
     void newCountChanged();
     void favoriteCountChanged();
+    void entriesProxyModelChanged(const AbstractEpisodeProxyModel *entriesProxyModel);
 
 private:
     void updateFeed();
@@ -85,4 +91,8 @@ private:
     QString m_dirname;
     bool m_refreshing;
     bool m_isSubscribed;
+
+    qint64 m_entryCount = 0;
+
+    AbstractEpisodeProxyModel *m_entriesProxyModel = nullptr;
 };

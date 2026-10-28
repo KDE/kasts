@@ -8,12 +8,13 @@
 #include <QVariant>
 
 #include <KLocalizedString>
-#include <qtpreprocessorsupport.h>
 
 #include "database.h"
 #include "datamanager.h"
 #include "feed.h"
 #include "fetcher.h"
+#include "models/abstractepisodeproxymodel.h"
+#include "models/unsubscribedentriesproxymodel.h"
 #include "objectslogging.h"
 #include "utils/entryutils.h"
 
@@ -79,16 +80,24 @@ Feed::Feed(const QString &url,
         if (url == m_url) {
             if (feeduid > 0) {
                 m_feeduid = feeduid;
-                Q_EMIT feeduidChanged(feeduid);
 
-                // disconnect this signal before connecting the signals for a subscribed feed
-                disconnect(&Fetcher::instance(), &Fetcher::feedDetailsUpdated, this, nullptr);
+                // disconnect the signals before connecting the signals for a subscribed feed
+                disconnect(&Fetcher::instance(), nullptr, this, nullptr);
 
                 // now update everything to what's in the database
                 connectSignals();
                 updateFeed();
                 m_isSubscribed = true;
+
+                // replace the entriesProxyModel
+                if (m_entriesProxyModel) {
+                    delete m_entriesProxyModel;
+                    m_entriesProxyModel = entriesProxyModel();
+                }
+
                 Q_EMIT isSubscribedChanged(m_isSubscribed);
+                Q_EMIT feeduidChanged(feeduid);
+                Q_EMIT entriesProxyModelChanged(m_entriesProxyModel);
             }
         }
     });
@@ -216,7 +225,7 @@ qint64 Feed::entryCount() const
             return -1;
         return query.value(0).toInt();
     } else {
-        return 0;
+        return m_entryCount;
     }
 }
 
@@ -263,4 +272,65 @@ qint64 Feed::favoriteCount() const
     } else {
         return 0;
     }
+}
+
+AbstractEpisodeProxyModel *Feed::entriesProxyModel()
+{
+    if (!m_entriesProxyModel) {
+        if (m_isSubscribed) {
+            m_entriesProxyModel = new EntriesProxyModel(m_feeduid, this);
+        } else {
+            UnsubscribedEntriesProxyModel *entriesProxyModel = new UnsubscribedEntriesProxyModel(m_url, this);
+            m_entriesProxyModel = entriesProxyModel;
+
+            // when the full feed has been retrieved and parsed, we can update the
+            // data from there; it will contain more accurate data than what's retrieved
+            // from the search APIs
+            UnsubscribedEntriesModel *entriesModel = qobject_cast<UnsubscribedEntriesModel *>(m_entriesProxyModel->sourceModel());
+            if (entriesModel) {
+                connect(entriesModel,
+                        &UnsubscribedEntriesModel::feedDetailsRetrieved,
+                        this,
+                        [this](const QString &url, const DataTypes::FeedUpdateDetails &feedDetails) {
+                            if (url == m_url) {
+                                if (m_url != feedDetails.url) {
+                                    m_url = feedDetails.url;
+                                    Q_EMIT urlChanged(m_url);
+                                }
+                                if (m_name != feedDetails.name) {
+                                    m_name = feedDetails.name;
+                                    Q_EMIT nameChanged(m_name);
+                                }
+                                if (m_image != feedDetails.image) {
+                                    m_image = feedDetails.image;
+                                    Q_EMIT imageChanged(m_image);
+                                }
+                                if (m_link != feedDetails.link) {
+                                    m_link = feedDetails.link;
+                                    Q_EMIT linkChanged(m_link);
+                                }
+                                if (m_description != feedDetails.description) {
+                                    m_description = feedDetails.description;
+                                    Q_EMIT descriptionChanged(m_description);
+                                }
+                                if (m_authors != EntryUtils::combineAuthors(feedDetails.authors.keys())) {
+                                    m_authors = EntryUtils::combineAuthors(feedDetails.authors.keys());
+                                    Q_EMIT authorsChanged(m_authors);
+                                }
+                                if (m_lastUpdated != QDateTime::fromSecsSinceEpoch(feedDetails.lastUpdated)) {
+                                    m_lastUpdated = QDateTime::fromSecsSinceEpoch(feedDetails.lastUpdated);
+                                    Q_EMIT lastUpdatedChanged(m_lastUpdated);
+                                }
+                                if (m_entryCount != feedDetails.entryOrder.count()) {
+                                    m_entryCount = feedDetails.entryOrder.count();
+                                    Q_EMIT entryCountChanged();
+                                }
+                            }
+                        });
+            }
+        }
+    } else {
+        m_entriesProxyModel = nullptr;
+    }
+    return m_entriesProxyModel;
 }

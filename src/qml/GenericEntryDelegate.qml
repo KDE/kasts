@@ -55,7 +55,7 @@ AddonDelegates.RoundedItemDelegate {
     readonly property Main mainWindow: root.Controls.ApplicationWindow.window as Main
 
     property bool isQueue: false
-    property bool downloadFilterActive: ListView.view && ListView.view.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter
+    property bool downloadFilterActive: ListView.view && ListView.view.model && ListView.view.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter
     property bool showFeedImage: !SettingsManager.showEpisodeImage
     property bool showFeedTitle: SettingsManager.showPodcastTitle
     property GenericEntryListView listViewObject: undefined

@@ -44,7 +44,6 @@ public:
                               const QString &authors,
                               const QDateTime &lastUpdated);
     Q_INVOKABLE DataTypes::EntryFeedDetails getEntry(const qint64 entryuid) const;
-    Q_INVOKABLE EntriesProxyModel *getEntriesProxyModel(const qint64 feeduid) const;
 
     // routines for fuzzy matching of feeds and entries/enclosures to uids
     // returns a list because there can be more than one result per input value

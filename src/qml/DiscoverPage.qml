@@ -4,12 +4,15 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as AddonDelegates
+import org.kde.kirigamiaddons.components as Addons
 import org.kde.ki18n
 
 import org.kde.kasts
@@ -18,6 +21,43 @@ Kirigami.ScrollablePage {
     id: root
 
     title: KI18n.i18nc("@title of page allowing to search for new podcasts online", "Discover")
+
+    readonly property list<AbstractPodcastSearchModel> searchModels: [
+        PodcastIndexSearchModel {},
+        ItunesSearchModel {}
+    ]
+
+    property AbstractPodcastSearchModel podcastSearchModel: searchModels[0]
+
+    readonly property Component searchProviderMenuComponent: Component {
+        Addons.ConvergentContextMenu {
+            id: searchProviderMenu
+
+            // property Controls.ActionGroup searchProviderGroup: Controls.ActionGroup {}
+
+            readonly property Instantiator instantiator: Instantiator {
+                model: root.searchModels
+
+                delegate: Kirigami.Action {
+                    required property AbstractPodcastSearchModel modelData
+
+                    text: modelData.name
+                    checkable: true
+                    autoExclusive: true
+                    checked: modelData.name == root.podcastSearchModel.name
+                    onTriggered: {
+                        root.podcastSearchModel = Qt.binding(() => {
+                            return modelData;
+                        });
+                    }
+                }
+
+                onObjectAdded: (index, object) => {
+                    searchProviderMenu.actions.push(object as Kirigami.Action);
+                }
+            }
+        }
+    }
 
     header: Controls.Control {
         padding: Kirigami.Units.largeSpacing
@@ -37,24 +77,31 @@ Kirigami.ScrollablePage {
             }
         }
 
-        contentItem: RowLayout {
-            Kirigami.SearchField {
-                id: textField
-                placeholderText: KI18n.i18nc("@label:textbox Placeholder text for search field", "Search podcastindex.org…")
-                Layout.fillWidth: true
-                Keys.onReturnPressed: {
-                    searchButton.clicked();
+        contentItem: Kirigami.SearchField {
+            id: textField
+            Layout.fillWidth: true
+            placeholderText: root.podcastSearchModel.placeholderText
+            focus: true
+            autoAccept: false
+            onAccepted: {
+                root.podcastSearchModel.search(textField.text);
+            }
+
+            Kirigami.Action {
+                id: searchSettingsButton
+                icon.name: "settings-configure"
+                text: KI18n.i18nc("@action:intoolbar", "Select Search Provider")
+
+                onTriggered: {
+                    const item = root.searchProviderMenuComponent.createObject(root.Controls.Overlay.overlay);
+                    (item as Addons.ConvergentContextMenu).popup();
                 }
             }
 
-            Controls.Button {
-                id: searchButton
-                text: KI18n.i18nc("@action:button button next to search field to search for new podcasts", "Search")
-                display: (root.Controls.ApplicationWindow.window as Main).isWidescreen ? Controls.AbstractButton.TextBesideIcon : Controls.AbstractButton.IconOnly
-                icon.name: "search"
-                onClicked: {
-                    podcastSearchModel.search(textField.text);
-                }
+            Component.onCompleted: {
+                var origAction = rightActions[0];
+                rightActions[0] = searchSettingsButton;
+                rightActions.push(origAction);
             }
         }
     }
@@ -66,10 +113,7 @@ Kirigami.ScrollablePage {
     ListView {
         id: listView
         reuseItems: true
-
-        model: PodcastSearchModel {
-            id: podcastSearchModel
-        }
+        model: root.podcastSearchModel
 
         delegate: AddonDelegates.RoundedItemDelegate {
             id: listItem
@@ -81,7 +125,6 @@ Kirigami.ScrollablePage {
             required property string description
             required property string author
             required property date lastUpdated
-            required property var model
 
             text: name
 

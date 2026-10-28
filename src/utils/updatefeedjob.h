@@ -36,7 +36,7 @@ Q_SIGNALS:
     void entriesAdded(const QList<qint64> &entryuids);
     void entriesUpdated(const QList<qint64> &entryuids);
 
-    void feedDetailsRetrieved(const DataTypes::FeedUpdateDetails &feedDetails);
+    void feedDetailsRetrieved(const QString &url, const DataTypes::FeedUpdateDetails &feedDetails);
 
     void aborting();
     void finished();
