@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-24 00:48+0000\n"
-"PO-Revision-Date: 2026-10-09 16:04+0200\n"
+"PO-Revision-Date: 2026-10-27 12:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1354,12 +1354,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Minimisa a tabulieroin loco de clauder"
 
 #: qml/Settings/AppearanceSettingsPage.qml:141
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Minimisa a tabulieroin loco de clauder"
+msgstr "Minimisa a tabulieroin quando il starta"
 
 #: qml/Settings/AppearanceSettingsPage.qml:153
 #, kde-format
@@ -2399,11 +2397,7 @@ msgid "Downloading %1"
 msgstr "Discargante %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 and %2 are episode author names, used when there are exactly two "
-#| "authors"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2411,11 +2405,7 @@ msgid "%1 and %2"
 msgstr "%1 e %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "%1 is a comma-separated list of episode author names, %2 is the last "
-#| "author name"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
