@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
         contentItem: RowLayout {
             Kirigami.SearchField {
                 id: textField
-                placeholderText: KI18n.i18nc("@label:textbox Placeholder text for search field", "Search podcastindex.org…")
+                placeholderText: root.podcastSearchModel.placeholderText()
                 Layout.fillWidth: true
                 Keys.onReturnPressed: {
                     searchButton.clicked();
@@ -52,11 +52,13 @@ Kirigami.ScrollablePage {
                 text: Utils.isWidescreen ? KI18n.i18n("Search") : ""
                 icon.name: "search"
                 onClicked: {
-                    podcastSearchModel.search(textField.text);
+                    root.podcastSearchModel.search(textField.text);
                 }
             }
         }
     }
+
+    readonly property AbstractPodcastSearchModel podcastSearchModel: PodcastIndexSearchModel {}
 
     Component.onCompleted: {
         textField.forceActiveFocus();
@@ -65,10 +67,7 @@ Kirigami.ScrollablePage {
     ListView {
         id: listView
         reuseItems: true
-
-        model: PodcastSearchModel {
-            id: podcastSearchModel
-        }
+        model: root.podcastSearchModel
 
         delegate: AddonDelegates.RoundedItemDelegate {
             id: listItem
@@ -80,7 +79,6 @@ Kirigami.ScrollablePage {
             required property string description
             required property string author
             required property date lastUpdated
-            required property var model
 
             text: name
 
