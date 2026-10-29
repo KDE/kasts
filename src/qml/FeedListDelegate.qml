@@ -133,7 +133,7 @@ Controls.ItemDelegate {
             var modelIndex = ((root.listView as FeedListGridView).model as FeedsProxyModel).index(root.index, 0);
 
             if ((root.listView as FeedListGridView).selectionModel.isSelected(modelIndex) && mouse.button == Qt.RightButton) {
-                (root.listView as FeedListGridView).contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
+                (root.listView as FeedListGridView).contextMenu.popup();
             } else if (mouse.modifiers & Qt.ShiftModifier) {
                 // Have to take a detour through c++ since selecting large sets
                 // in QML is extremely slow
@@ -147,7 +147,7 @@ Controls.ItemDelegate {
             } else if (mouse.button == Qt.RightButton) {
                 // This item is right-clicked, but isn't selected
                 (root.listView as FeedListGridView).selectionForContextMenu = [modelIndex];
-                (root.listView as FeedListGridView).contextMenu.popup(null, mouse.x + 1, mouse.y + 1);
+                (root.listView as FeedListGridView).contextMenu.popup();
             }
         }
 
