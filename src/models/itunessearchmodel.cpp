@@ -48,8 +48,9 @@ QVariant ItunesSearchModel::data(const QModelIndex &index, int role) const
     case AuthorRole:
         return QVariant::fromValue(m_data[QStringLiteral("results")].toArray()[index.row()].toObject()[QStringLiteral("artistName")].toString());
     case LastUpdatedRole:
+        // the releaseDate string is structured like this: "2026-10-27T20:41:00Z"
         return QVariant::fromValue(
-            QDateTime::fromSecsSinceEpoch(m_data[QStringLiteral("results")].toArray()[index.row()].toObject()[QStringLiteral("releaseDate")].toInt()));
+            QDateTime::fromString(m_data[QStringLiteral("results")].toArray()[index.row()].toObject()[QStringLiteral("releaseDate")].toString(), Qt::ISODate));
     default:
         return QVariant();
     }

@@ -40,7 +40,7 @@ ListView {
     section {
         delegate: Kirigami.ListSectionHeader {
             clip: true
-            height: (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter) ? implicitHeight : 0
+            height: (root.model && (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter)) ? implicitHeight : 0
             width: root.width
 
             required property string section

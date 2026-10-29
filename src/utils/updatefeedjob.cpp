@@ -134,7 +134,7 @@ void UpdateFeedJob::run(JobPointer, Thread *)
             Syndication::FeedPtr feed = Syndication::parserCollection()->parse(document, QStringLiteral("Atom"));
             processFeed(feed, updatedFeed, data);
 
-            Q_EMIT feedDetailsRetrieved(updatedFeed);
+            Q_EMIT feedDetailsRetrieved(m_url, updatedFeed);
         }
     }
 
@@ -369,6 +369,11 @@ void UpdateFeedJob::processFeed(const Syndication::FeedPtr feed, DataTypes::Feed
 
     QDateTime current = QDateTime::currentDateTime();
 
+    // TODO: We should probably update the URL to the one from the feed, but
+    // this would require some refactoring since we also want to keep the
+    // original URL with which the feed was added around.  This one could be
+    // needed as an identifier to sync e.g. episode states.
+    updatedFeed.url = m_url;
     updatedFeed.name = feed->title();
     updatedFeed.link = feed->link();
     updatedFeed.description = feed->description();

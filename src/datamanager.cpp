@@ -24,7 +24,6 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/abstractepisodemodel.h"
-#include "models/entriesproxymodel.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
@@ -129,20 +128,6 @@ DataTypes::EntryFeedDetails DataManager::getEntry(const qint64 entryuid) const
     entry.feed.authors = EntryUtils::combineAuthors(authors);
 
     return entry;
-}
-
-EntriesProxyModel *DataManager::getEntriesProxyModel(const qint64 feeduid) const
-{
-    QSqlQuery query;
-    query.prepare(QStringLiteral("SELECT EXISTS(SELECT 1 FROM Feeds WHERE feeduid=:feeduid LIMIT 1);"));
-    query.bindValue(QStringLiteral(":feeduid"), feeduid);
-    Database::instance().execute(query);
-    if (query.next() && query.value(0).toBool()) {
-        EntriesProxyModel *entriesModel = new EntriesProxyModel(feeduid);
-        return entriesModel;
-    } else {
-        return nullptr;
-    }
 }
 
 void DataManager::removeFeed(const qint64 feeduid) const

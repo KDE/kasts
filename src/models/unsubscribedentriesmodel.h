@@ -24,8 +24,11 @@ public:
     virtual QVariant data(const QModelIndex &index, int role = Qt::UserRole) const override;
     virtual int rowCount(const QModelIndex &parent) const override;
 
+Q_SIGNALS:
+    void feedDetailsRetrieved(const QString &url, const DataTypes::FeedUpdateDetails &feedUpdateDetails);
+
 protected:
-    void updateEntries(const DataTypes::FeedUpdateDetails &feedDetails);
+    void updateEntries(const QString &url, const DataTypes::FeedUpdateDetails &feedDetails);
 
     QString m_url;
 
