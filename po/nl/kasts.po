@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
-"PO-Revision-Date: 2026-10-20 13:31+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"PO-Revision-Date: 2026-10-29 14:15+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,7 +45,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ongeldig medium voor aflevering: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1129
+#: database.cpp:897 utils/updatefeedjob.cpp:1121
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1263,9 +1263,11 @@ msgid "Queue is empty"
 msgstr "Wachtrij is leeg"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgctxt "@title Form header for settings related to app appearance"
-msgid "Appearance"
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to app appearance"
+#| msgid "Appearance"
+msgctxt "@title Form header for settings"
+msgid "Appearance and theming"
 msgstr "Uiterlijk"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
@@ -1306,92 +1308,246 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Kleurenthema"
 
-#: qml/Settings/AppearanceSettingsPage.qml:74
+#: qml/Settings/AppearanceSettingsPage.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of podcast subscriptions"
+#| msgid "Subscriptions"
+msgctxt "@title Form header for settings"
+msgid "Subscription information"
+msgstr "Inschrijvingen"
+
+#: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Altijd podcasttitels in inschrijvingenweergave tonen"
 
-#: qml/Settings/AppearanceSettingsPage.qml:84
+#: qml/Settings/AppearanceSettingsPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title Form header for section showing information about local storage"
+#| msgid "Information"
+msgctxt "@title Form header for settings"
+msgid "Episode information"
+msgstr "Informatie"
+
+#: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr ""
 "Afbeelding van episode tonen in plaats van afbeelding van podcast in lijsten"
 
-#: qml/Settings/AppearanceSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Altijd titels van podcast in lijsten met episodes tonen"
 
-#: qml/Settings/AppearanceSettingsPage.qml:104
+#: qml/Settings/AppearanceSettingsPage.qml:123
+#, kde-format
+msgctxt ""
+"@option:check Label for setting whether the total episode time is shown or a "
+"countdown of the remaining play time"
+msgid "Show time left instead of total episode time"
+msgstr "Resterende tijd tonen in plaats van tijdsduur van episode"
+
+#: qml/Settings/AppearanceSettingsPage.qml:134
+#, kde-format
+msgctxt "@option:check"
+msgid "Adjust time left based on current playback speed"
+msgstr "resterende tijd aanpassen op basis van de huidige afspeelsnelheid"
+
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Systeemvakpictogram"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Pictogram in systeemvak tonen"
 
-#: qml/Settings/AppearanceSettingsPage.qml:129
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Minimaliseren in systeemvak in plaats van sluiten"
 
-#: qml/Settings/AppearanceSettingsPage.qml:141
+#: qml/Settings/AppearanceSettingsPage.qml:180
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
 msgstr "Minimaliseren in systeemvak bij opstarten"
 
-#: qml/Settings/AppearanceSettingsPage.qml:153
+#: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Type systeemvakpictogram"
 
-#: qml/Settings/AppearanceSettingsPage.qml:160
+#: qml/Settings/AppearanceSettingsPage.qml:199
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Kleurrijk"
 
-#: qml/Settings/AppearanceSettingsPage.qml:164
+#: qml/Settings/AppearanceSettingsPage.qml:203
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Licht"
 
-#: qml/Settings/AppearanceSettingsPage.qml:168
+#: qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Donker"
 
-#: qml/Settings/AppearanceSettingsPage.qml:181
+#: qml/Settings/AppearanceSettingsPage.qml:220
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Tekst"
 
-#: qml/Settings/AppearanceSettingsPage.qml:191
+#: qml/Settings/AppearanceSettingsPage.qml:230
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Systeemstandaard gebruiken"
 
-#: qml/Settings/AppearanceSettingsPage.qml:206
+#: qml/Settings/AppearanceSettingsPage.qml:245
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Tekengrootte"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:47
+#: qml/Settings/DownloadSettingsPage.qml:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow episode downloads"
+msgctxt "@title Form header for download related settings"
+msgid "Episode download preferences"
+msgstr "Downloaden van episode is toegestaan"
+
+#: qml/Settings/DownloadSettingsPage.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Prefer streaming over downloading"
+msgstr "Aan streaming voorkeur geven boven downloaden"
+
+#: qml/Settings/DownloadSettingsPage.qml:32
+#, kde-format
+msgctxt "@info Extra information related to checkbox"
+msgid "Episode lists will show streaming buttons instead of download buttons"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:43
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr "Maximum aantal van parallelle downloads van afleveringen"
+
+#: qml/Settings/DownloadSettingsPage.qml:59
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related automated podcast updates"
+msgid "Automated actions"
+msgstr "Automatische synchronisatie"
+
+#: qml/Settings/DownloadSettingsPage.qml:69
+#, kde-format
+msgctxt "@option:check"
+msgid "Fetch podcast updates on startup"
+msgstr "Bijgewerkte podcast bij opstarten ophalen"
+
+#: qml/Settings/DownloadSettingsPage.qml:80
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Periodically retrieve podcast feeds"
+msgstr "Periodiek feeds van podcast ophalen"
+
+#: qml/Settings/DownloadSettingsPage.qml:85
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Never"
+msgstr "Nooit"
+
+#: qml/Settings/DownloadSettingsPage.qml:89
+#: qml/Settings/DownloadSettingsPage.qml:93
+#: qml/Settings/DownloadSettingsPage.qml:97
+#: qml/Settings/DownloadSettingsPage.qml:101
+#: qml/Settings/DownloadSettingsPage.qml:105
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every hour"
+msgid_plural "Every %1 hours"
+msgstr[0] "Elk uur"
+msgstr[1] "Elke %1 uren"
+
+#: qml/Settings/DownloadSettingsPage.qml:109
+#: qml/Settings/DownloadSettingsPage.qml:113
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Iedere dag"
+msgstr[1] "Iedere %1 dagen"
+
+#: qml/Settings/DownloadSettingsPage.qml:129
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Nieuwe episodes automatisch in de wachtrij zetten"
+
+#: qml/Settings/DownloadSettingsPage.qml:144
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Nieuwe episodes automatisch downloaden"
+
+#: qml/Settings/DownloadSettingsPage.qml:158
+#, kde-format
+msgctxt "@option:check"
+msgid "Force full subscription processing on each refresh"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:159
+#, kde-format
+msgctxt "@info related to a force update subscriptions setting"
+msgid ""
+"When disabled (default), subscriptions are processed only if the "
+"subscription feed has changed since last update"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:168
+#, kde-format
+msgctxt "@title Form header for settings triggered by adding new podcasts"
+msgid "When adding new podcasts"
+msgstr "Bij toevoegen van nieuwe podcasts"
+
+#: qml/Settings/DownloadSettingsPage.qml:177
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as played"
+msgstr "Alle episoden als afgespeeld markeren"
+
+#: qml/Settings/DownloadSettingsPage.qml:187
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark most recent episodes as unplayed"
+msgstr "Meest recente episoden als niet-afgespeeld markeren"
+
+#: qml/Settings/DownloadSettingsPage.qml:210
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as unplayed"
+msgstr "Alle episoden als niet-afgespeeld markeren"
+
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:53
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
@@ -1403,301 +1559,109 @@ msgctxt "@action:button"
 msgid "Clear All"
 msgstr "Alles wissen"
 
-#: qml/Settings/GeneralSettingsPage.qml:22
-#, kde-format
-msgctxt "@title Form header for settings related to playback"
-msgid "Playback settings"
-msgstr "Afspeelinstellingen"
-
-#: qml/Settings/GeneralSettingsPage.qml:31
-#, kde-format
-msgctxt "@label:listbox Label for setting to select audio playback backend"
-msgid "Select audio backend"
-msgstr "Audio-backend selecteren"
-
-#: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
-msgctxt ""
-"@option:check Label for setting whether the total episode time is shown or a "
-"countdown of the remaining play time"
-msgid "Show time left instead of total episode time"
-msgstr "Resterende tijd tonen in plaats van tijdsduur van episode"
-
-#: qml/Settings/GeneralSettingsPage.qml:74
-#, kde-format
-msgctxt "@option:check"
-msgid "Adjust time left based on current playback speed"
-msgstr "resterende tijd aanpassen op basis van de huidige afspeelsnelheid"
-
-#: qml/Settings/GeneralSettingsPage.qml:83
-#, kde-format
-msgctxt "@option:check"
-msgid "Prefer streaming over downloading"
-msgstr "Aan streaming voorkeur geven boven downloaden"
-
-#: qml/Settings/GeneralSettingsPage.qml:95
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip forward interval (in seconds)"
-msgstr "Interval voorwaarts overslaan (in seconden)"
-
-#: qml/Settings/GeneralSettingsPage.qml:109
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip backward interval (in seconds)"
-msgstr "Interval achterwaarts overslaan (in seconden)"
-
-#: qml/Settings/GeneralSettingsPage.qml:124
-#, kde-format
-msgctxt "@title Form header for settings related podcast updates"
-msgid "Podcast update settings"
-msgstr "Instellingen voor bijwerken van podcast"
-
-#: qml/Settings/GeneralSettingsPage.qml:133
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Periodically retrieve podcast feeds"
-msgstr "Periodiek feeds van podcast ophalen"
-
-#: qml/Settings/GeneralSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Never"
-msgstr "Nooit"
-
-#: qml/Settings/GeneralSettingsPage.qml:142
-#: qml/Settings/GeneralSettingsPage.qml:146
-#: qml/Settings/GeneralSettingsPage.qml:150
-#: qml/Settings/GeneralSettingsPage.qml:154
-#: qml/Settings/GeneralSettingsPage.qml:158
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every hour"
-msgid_plural "Every %1 hours"
-msgstr[0] "Elk uur"
-msgstr[1] "Elke %1 uren"
-
-#: qml/Settings/GeneralSettingsPage.qml:162
-#: qml/Settings/GeneralSettingsPage.qml:166
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every day"
-msgid_plural "Every %1 days"
-msgstr[0] "Iedere dag"
-msgstr[1] "Iedere %1 dagen"
-
-#: qml/Settings/GeneralSettingsPage.qml:180
-#, kde-format
-msgctxt "@option:check"
-msgid "Fetch podcast updates on startup"
-msgstr "Bijgewerkte podcast bij opstarten ophalen"
-
-#: qml/Settings/GeneralSettingsPage.qml:195
-#, kde-format
-msgctxt "@option:check"
-msgid "Update existing episode data on refresh (slower)"
-msgstr "Bestaande gegevens over episode bijwerken bij hernieuwen (langzamer)"
-
-#: qml/Settings/GeneralSettingsPage.qml:205
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Nieuwe episodes automatisch in de wachtrij zetten"
-
-#: qml/Settings/GeneralSettingsPage.qml:220
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Nieuwe episodes automatisch downloaden"
-
-#: qml/Settings/GeneralSettingsPage.qml:231
-#, kde-format
-msgctxt "@title Form header for settings related to the queue"
-msgid "Queue settings"
-msgstr "Instellingen voor wachtrijen"
-
-#: qml/Settings/GeneralSettingsPage.qml:241
-#, kde-format
-msgctxt "@option:check"
-msgid "Continue playing next episode after current one finishes"
-msgstr "Doorgaan met afspelen van de volgende episode nadat de huidige eindigt"
-
-#: qml/Settings/GeneralSettingsPage.qml:256
-#, kde-format
-msgctxt "@option:check"
-msgid "Reset play position after an episode is played"
-msgstr "Afspeelpositie resetten nadat een episode is afgespeeld"
-
-#: qml/Settings/GeneralSettingsPage.qml:270
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Gedrag van afgespeelde episoden"
-
-#: qml/Settings/GeneralSettingsPage.qml:275
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Niet verwijderen"
-
-#: qml/Settings/GeneralSettingsPage.qml:279
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Onmiddellijk verwijderen"
-
-#: qml/Settings/GeneralSettingsPage.qml:283
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Bij volgende start verwijderen"
-
-#: qml/Settings/GeneralSettingsPage.qml:301
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
-"Episoden als afgespeeld markeren bij de gegeven resterende tijd (in seconden)"
-
-#: qml/Settings/GeneralSettingsPage.qml:317
-#, kde-format
-msgctxt "@title Form header for settings triggered by adding new podcasts"
-msgid "When adding new podcasts"
-msgstr "Bij toevoegen van nieuwe podcasts"
-
-#: qml/Settings/GeneralSettingsPage.qml:326
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as played"
-msgstr "Alle episoden als afgespeeld markeren"
-
-#: qml/Settings/GeneralSettingsPage.qml:336
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark most recent episodes as unplayed"
-msgstr "Meest recente episoden als niet-afgespeeld markeren"
-
-#: qml/Settings/GeneralSettingsPage.qml:359
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as unplayed"
-msgstr "Alle episoden als niet-afgespeeld markeren"
-
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, kde-format
-msgctxt "@title Form header for download related settings"
-msgid "Downloads"
-msgstr "Downloads"
-
-#: qml/Settings/NetworkSettingsPage.qml:36
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Maximum number of parallel episode downloads"
-msgstr "Maximum aantal van parallelle downloads van afleveringen"
-
-#: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Netwerk"
 
-#: qml/Settings/NetworkSettingsPage.qml:62
+#: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Controles op netwerkverbinding inschakelen"
 
-#: qml/Settings/NetworkSettingsPage.qml:72
+#: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Op bemeterde verbindingen"
 
-#: qml/Settings/NetworkSettingsPage.qml:82
+#: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Bijwerken van Podcast is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:93
+#: qml/Settings/NetworkSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Downloaden van episode is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Downloaden van afbeeldingen is toegestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:115
+#: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Streaming toestaan"
 
-#: qml/Settings/NetworkSettingsPage.qml:124
+#: qml/Settings/NetworkSettingsPage.qml:99
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "Netwerkproxy"
 
-#: qml/Settings/NetworkSettingsPage.qml:129
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "Systeemstandaard"
 
-#: qml/Settings/NetworkSettingsPage.qml:138
+#: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "Geen proxy"
 
-#: qml/Settings/NetworkSettingsPage.qml:147
+#: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: qml/Settings/NetworkSettingsPage.qml:156
+#: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "Socks5"
 
-#: qml/Settings/NetworkSettingsPage.qml:171
+#: qml/Settings/NetworkSettingsPage.qml:146
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "Host"
 
-#: qml/Settings/NetworkSettingsPage.qml:182
+#: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "Poort"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:172
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "Gebruiker"
 
-#: qml/Settings/NetworkSettingsPage.qml:208
+#: qml/Settings/NetworkSettingsPage.qml:183
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: qml/Settings/NetworkSettingsPage.qml:222
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: qml/Settings/NetworkSettingsPage.qml:242
+#: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -1710,23 +1674,99 @@ msgstr ""
 "zouden nog steeds gehonoreerd moetn worden door alle andere aan het netwerk "
 "gerelateerde acties, inclusief het downloaden van episodes."
 
-#: qml/Settings/SettingsView.qml:17
+#: qml/Settings/PlaybackSettingsPage.qml:22
 #, kde-format
-msgctxt "@title:menu Category in settings"
-msgid "General"
-msgstr "Algemeen"
+msgctxt "@title Form header for settings related to playback"
+msgid "Playback settings"
+msgstr "Afspeelinstellingen"
 
-#: qml/Settings/SettingsView.qml:23
+#: qml/Settings/PlaybackSettingsPage.qml:31
+#, kde-format
+msgctxt "@label:listbox Label for setting to select audio playback backend"
+msgid "Select audio backend"
+msgstr "Audio-backend selecteren"
+
+#: qml/Settings/PlaybackSettingsPage.qml:63
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr "Interval voorwaarts overslaan (in seconden)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:77
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr "Interval achterwaarts overslaan (in seconden)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:92
+#, kde-format
+msgctxt "@title Form header for settings related to the queue"
+msgid "Queue settings"
+msgstr "Instellingen voor wachtrijen"
+
+#: qml/Settings/PlaybackSettingsPage.qml:102
+#, kde-format
+msgctxt "@option:check"
+msgid "Continue playing next episode after current one finishes"
+msgstr "Doorgaan met afspelen van de volgende episode nadat de huidige eindigt"
+
+#: qml/Settings/PlaybackSettingsPage.qml:117
+#, kde-format
+msgctxt "@option:check"
+msgid "Reset play position after an episode is played"
+msgstr "Afspeelpositie resetten nadat een episode is afgespeeld"
+
+#: qml/Settings/PlaybackSettingsPage.qml:131
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Gedrag van afgespeelde episoden"
+
+#: qml/Settings/PlaybackSettingsPage.qml:136
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Niet verwijderen"
+
+#: qml/Settings/PlaybackSettingsPage.qml:140
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Onmiddellijk verwijderen"
+
+#: qml/Settings/PlaybackSettingsPage.qml:144
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Bij volgende start verwijderen"
+
+#: qml/Settings/PlaybackSettingsPage.qml:162
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Episoden als afgespeeld markeren bij de gegeven resterende tijd (in seconden)"
+
+#: qml/Settings/SettingsView.qml:17
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "Uiterlijk"
 
-#: qml/Settings/SettingsView.qml:29
-#, kde-format
+#: qml/Settings/SettingsView.qml:23
+#, fuzzy, kde-format
+#| msgid "Playback rate:"
 msgctxt "@title:menu Category in settings"
-msgid "Storage"
-msgstr "Opslag"
+msgid "Playback"
+msgstr "Afspeelsnelheid:"
+
+#: qml/Settings/SettingsView.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for download related settings"
+#| msgid "Downloads"
+msgctxt "@title:menu Category in settings"
+msgid "Downloads"
+msgstr "Downloads"
 
 #: qml/Settings/SettingsView.qml:35
 #, kde-format
@@ -1737,22 +1777,28 @@ msgstr "Netwerk"
 #: qml/Settings/SettingsView.qml:41
 #, kde-format
 msgctxt "@title:menu Category in settings"
+msgid "Storage"
+msgstr "Opslag"
+
+#: qml/Settings/SettingsView.qml:47
+#, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Synchronisatie"
 
-#: qml/Settings/SettingsView.qml:53
+#: qml/Settings/SettingsView.qml:59
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Info over Kasts"
 
-#: qml/Settings/SettingsView.qml:56 qml/Settings/SettingsView.qml:63
+#: qml/Settings/SettingsView.qml:62 qml/Settings/SettingsView.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Info over"
 
-#: qml/Settings/SettingsView.qml:60
+#: qml/Settings/SettingsView.qml:66
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
@@ -2472,13 +2518,24 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: utils/updatefeedjob.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#: utils/updatefeedjob.cpp:179
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Fout bij ophalen van podcast: %1; fout: %2"
+
+#~ msgctxt "@title Form header for settings related podcast updates"
+#~ msgid "Podcast update settings"
+#~ msgstr "Instellingen voor bijwerken van podcast"
+
+#~ msgctxt "@option:check"
+#~ msgid "Update existing episode data on refresh (slower)"
+#~ msgstr ""
+#~ "Bestaande gegevens over episode bijwerken bij hernieuwen (langzamer)"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "General"
+#~ msgstr "Algemeen"
 
 #~ msgid "Add Podcast"
 #~ msgstr "Podcast toevoegen"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
 "PO-Revision-Date: 2026-01-04 12:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -50,7 +50,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Komunikabide-fitxategia baliogabea"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1129
+#: database.cpp:897 utils/updatefeedjob.cpp:1121
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -1288,9 +1288,11 @@ msgid "Queue is empty"
 msgstr "Ilara hutsik dago"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgctxt "@title Form header for settings related to app appearance"
-msgid "Appearance"
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to app appearance"
+#| msgid "Appearance"
+msgctxt "@title Form header for settings"
+msgid "Appearance and theming"
 msgstr "Itxura"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
@@ -1331,43 +1333,74 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Kolore-gaia"
 
-#: qml/Settings/AppearanceSettingsPage.qml:74
+#: qml/Settings/AppearanceSettingsPage.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of podcast subscriptions"
+#| msgid "Subscriptions"
+msgctxt "@title Form header for settings"
+msgid "Subscription information"
+msgstr "Harpidetzak"
+
+#: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Erakutsi beti podcasten izenburuak harpidetza-ikuspegian"
 
-#: qml/Settings/AppearanceSettingsPage.qml:84
+#: qml/Settings/AppearanceSettingsPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title Form header for section showing information about local storage"
+#| msgid "Information"
+msgctxt "@title Form header for settings"
+msgid "Episode information"
+msgstr "Informazioa"
+
+#: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "Zerrendetan, erakutsi atalaren irudia podcast-arenaren ordez"
 
-#: qml/Settings/AppearanceSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Erakutsi podcast-izenburuak atalen zerrendetan"
 
-#: qml/Settings/AppearanceSettingsPage.qml:104
+#: qml/Settings/AppearanceSettingsPage.qml:123
+#, kde-format
+msgctxt ""
+"@option:check Label for setting whether the total episode time is shown or a "
+"countdown of the remaining play time"
+msgid "Show time left instead of total episode time"
+msgstr "Erakutsi amaitzeko falta den denbora, atalaren denbora osoaren ordez"
+
+#: qml/Settings/AppearanceSettingsPage.qml:134
+#, kde-format
+msgctxt "@option:check"
+msgid "Adjust time left based on current playback speed"
+msgstr "Doitu falta den denbora, uneko atzera-jotze abiaduran oinarrituta"
+
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Erretiluko ikonoa"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Erakutsi ikonoa sistemaren erretiluan"
 
-#: qml/Settings/AppearanceSettingsPage.qml:129
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Ikonotu sistemaren erretiluan itxi ordez"
 
-#: qml/Settings/AppearanceSettingsPage.qml:141
+#: qml/Settings/AppearanceSettingsPage.qml:180
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Minimize to tray instead of closing"
@@ -1375,49 +1408,172 @@ msgctxt "@option:check"
 msgid "Minimize to tray on startup"
 msgstr "Ikonotu sistemaren erretiluan itxi ordez"
 
-#: qml/Settings/AppearanceSettingsPage.qml:153
+#: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Erretiluko ikono-mota"
 
-#: qml/Settings/AppearanceSettingsPage.qml:160
+#: qml/Settings/AppearanceSettingsPage.qml:199
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Koloretsua"
 
-#: qml/Settings/AppearanceSettingsPage.qml:164
+#: qml/Settings/AppearanceSettingsPage.qml:203
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Argia"
 
-#: qml/Settings/AppearanceSettingsPage.qml:168
+#: qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Iluna"
 
-#: qml/Settings/AppearanceSettingsPage.qml:181
+#: qml/Settings/AppearanceSettingsPage.qml:220
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Testua"
 
-#: qml/Settings/AppearanceSettingsPage.qml:191
+#: qml/Settings/AppearanceSettingsPage.qml:230
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Erabili sisteman lehenetsitakoa"
 
-#: qml/Settings/AppearanceSettingsPage.qml:206
+#: qml/Settings/AppearanceSettingsPage.qml:245
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Letra-tipoaren neurria"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:47
+#: qml/Settings/DownloadSettingsPage.qml:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow episode downloads"
+msgctxt "@title Form header for download related settings"
+msgid "Episode download preferences"
+msgstr "Baimendu atalak zama-jaistea"
+
+#: qml/Settings/DownloadSettingsPage.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Prefer streaming over downloading"
+msgstr "Hobetsi igortzea zama-jaistearen gainetik"
+
+#: qml/Settings/DownloadSettingsPage.qml:32
+#, kde-format
+msgctxt "@info Extra information related to checkbox"
+msgid "Episode lists will show streaming buttons instead of download buttons"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:43
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:59
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related automated podcast updates"
+msgid "Automated actions"
+msgstr "Sinkronizatze automatikoa"
+
+#: qml/Settings/DownloadSettingsPage.qml:69
+#, kde-format
+msgctxt "@option:check"
+msgid "Fetch podcast updates on startup"
+msgstr "Ekarri podcasten eguneratzeak abiatzean"
+
+#: qml/Settings/DownloadSettingsPage.qml:80
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Periodically retrieve podcast feeds"
+msgstr "Aldian-aldian podcasten jarioak ekarri"
+
+#: qml/Settings/DownloadSettingsPage.qml:85
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Never"
+msgstr "Inoiz ez"
+
+#: qml/Settings/DownloadSettingsPage.qml:89
+#: qml/Settings/DownloadSettingsPage.qml:93
+#: qml/Settings/DownloadSettingsPage.qml:97
+#: qml/Settings/DownloadSettingsPage.qml:101
+#: qml/Settings/DownloadSettingsPage.qml:105
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every hour"
+msgid_plural "Every %1 hours"
+msgstr[0] "Orduero"
+msgstr[1] "%1 orduero"
+
+#: qml/Settings/DownloadSettingsPage.qml:109
+#: qml/Settings/DownloadSettingsPage.qml:113
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Egunero"
+msgstr[1] "%1 egunero"
+
+#: qml/Settings/DownloadSettingsPage.qml:129
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Atal berriak automatikoki ilaran ipini"
+
+#: qml/Settings/DownloadSettingsPage.qml:144
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Atal berriak automatikoki zama-jaitsi"
+
+#: qml/Settings/DownloadSettingsPage.qml:158
+#, kde-format
+msgctxt "@option:check"
+msgid "Force full subscription processing on each refresh"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:159
+#, kde-format
+msgctxt "@info related to a force update subscriptions setting"
+msgid ""
+"When disabled (default), subscriptions are processed only if the "
+"subscription feed has changed since last update"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:168
+#, kde-format
+msgctxt "@title Form header for settings triggered by adding new podcasts"
+msgid "When adding new podcasts"
+msgstr "Podcast berriak gehitzean"
+
+#: qml/Settings/DownloadSettingsPage.qml:177
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as played"
+msgstr "Markatu atal guztiak jota gisa"
+
+#: qml/Settings/DownloadSettingsPage.qml:187
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark most recent episodes as unplayed"
+msgstr "Markatu atal berrienak jo gabe gisa"
+
+#: qml/Settings/DownloadSettingsPage.qml:210
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as unplayed"
+msgstr "Markatu atal denak jo gabe gisa"
+
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:53
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
@@ -1429,303 +1585,109 @@ msgctxt "@action:button"
 msgid "Clear All"
 msgstr "Garbitu dena"
 
-#: qml/Settings/GeneralSettingsPage.qml:22
-#, kde-format
-msgctxt "@title Form header for settings related to playback"
-msgid "Playback settings"
-msgstr "Atzera-jotze ezarpenak"
-
-#: qml/Settings/GeneralSettingsPage.qml:31
-#, kde-format
-msgctxt "@label:listbox Label for setting to select audio playback backend"
-msgid "Select audio backend"
-msgstr "Aukeratu audio-bizkarraldekoa"
-
-#: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
-msgctxt ""
-"@option:check Label for setting whether the total episode time is shown or a "
-"countdown of the remaining play time"
-msgid "Show time left instead of total episode time"
-msgstr "Erakutsi amaitzeko falta den denbora, atalaren denbora osoaren ordez"
-
-#: qml/Settings/GeneralSettingsPage.qml:74
-#, kde-format
-msgctxt "@option:check"
-msgid "Adjust time left based on current playback speed"
-msgstr "Doitu falta den denbora, uneko atzera-jotze abiaduran oinarrituta"
-
-#: qml/Settings/GeneralSettingsPage.qml:83
-#, kde-format
-msgctxt "@option:check"
-msgid "Prefer streaming over downloading"
-msgstr "Hobetsi igortzea zama-jaistearen gainetik"
-
-#: qml/Settings/GeneralSettingsPage.qml:95
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip forward interval (in seconds)"
-msgstr "Aurrerantz jauzteko bitartea (segundotan)"
-
-#: qml/Settings/GeneralSettingsPage.qml:109
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip backward interval (in seconds)"
-msgstr "Atzerantz jauzteko bitartea (segundotan)"
-
-#: qml/Settings/GeneralSettingsPage.qml:124
-#, kde-format
-msgctxt "@title Form header for settings related podcast updates"
-msgid "Podcast update settings"
-msgstr "Podcasta eguneratzeko ezarpenak"
-
-#: qml/Settings/GeneralSettingsPage.qml:133
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Periodically retrieve podcast feeds"
-msgstr "Aldian-aldian podcasten jarioak ekarri"
-
-#: qml/Settings/GeneralSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Never"
-msgstr "Inoiz ez"
-
-#: qml/Settings/GeneralSettingsPage.qml:142
-#: qml/Settings/GeneralSettingsPage.qml:146
-#: qml/Settings/GeneralSettingsPage.qml:150
-#: qml/Settings/GeneralSettingsPage.qml:154
-#: qml/Settings/GeneralSettingsPage.qml:158
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every hour"
-msgid_plural "Every %1 hours"
-msgstr[0] "Orduero"
-msgstr[1] "%1 orduero"
-
-#: qml/Settings/GeneralSettingsPage.qml:162
-#: qml/Settings/GeneralSettingsPage.qml:166
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every day"
-msgid_plural "Every %1 days"
-msgstr[0] "Egunero"
-msgstr[1] "%1 egunero"
-
-#: qml/Settings/GeneralSettingsPage.qml:180
-#, kde-format
-msgctxt "@option:check"
-msgid "Fetch podcast updates on startup"
-msgstr "Ekarri podcasten eguneratzeak abiatzean"
-
-#: qml/Settings/GeneralSettingsPage.qml:195
-#, kde-format
-msgctxt "@option:check"
-msgid "Update existing episode data on refresh (slower)"
-msgstr "Berritzean, eguneratu dagoen atalaren datuak (motelagoa)"
-
-#: qml/Settings/GeneralSettingsPage.qml:205
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Atal berriak automatikoki ilaran ipini"
-
-#: qml/Settings/GeneralSettingsPage.qml:220
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Atal berriak automatikoki zama-jaitsi"
-
-#: qml/Settings/GeneralSettingsPage.qml:231
-#, kde-format
-msgctxt "@title Form header for settings related to the queue"
-msgid "Queue settings"
-msgstr "Ilararen ezarpenak"
-
-#: qml/Settings/GeneralSettingsPage.qml:241
-#, kde-format
-msgctxt "@option:check"
-msgid "Continue playing next episode after current one finishes"
-msgstr "Jarraitu hurrengo atala jotzen unekoa amaitu ondoren"
-
-#: qml/Settings/GeneralSettingsPage.qml:256
-#, kde-format
-msgctxt "@option:check"
-msgid "Reset play position after an episode is played"
-msgstr "Berrezarri jotze-kokalekua atal bat jo ondoren"
-
-#: qml/Settings/GeneralSettingsPage.qml:270
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Jotako atalen jokabidea"
-
-#: qml/Settings/GeneralSettingsPage.qml:275
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Ez ezabatu"
-
-#: qml/Settings/GeneralSettingsPage.qml:279
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Ezabatu berehala"
-
-#: qml/Settings/GeneralSettingsPage.qml:283
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Ezabatu hurrengo abioan"
-
-#: qml/Settings/GeneralSettingsPage.qml:301
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
-"Markatu atalak jotzat falta den denbora adierazitakoa denean (segundotan)"
-
-#: qml/Settings/GeneralSettingsPage.qml:317
-#, kde-format
-msgctxt "@title Form header for settings triggered by adding new podcasts"
-msgid "When adding new podcasts"
-msgstr "Podcast berriak gehitzean"
-
-#: qml/Settings/GeneralSettingsPage.qml:326
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as played"
-msgstr "Markatu atal guztiak jota gisa"
-
-#: qml/Settings/GeneralSettingsPage.qml:336
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark most recent episodes as unplayed"
-msgstr "Markatu atal berrienak jo gabe gisa"
-
-#: qml/Settings/GeneralSettingsPage.qml:359
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as unplayed"
-msgstr "Markatu atal denak jo gabe gisa"
-
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of downloaded episodes"
-#| msgid "Downloads"
-msgctxt "@title Form header for download related settings"
-msgid "Downloads"
-msgstr "Zama-jaitsitakoak"
-
-#: qml/Settings/NetworkSettingsPage.qml:36
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Maximum number of parallel episode downloads"
-msgstr ""
-
-#: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Sarea"
 
-#: qml/Settings/NetworkSettingsPage.qml:62
+#: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Gaitu sare-konexio frogak"
 
-#: qml/Settings/NetworkSettingsPage.qml:72
+#: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Tarifatutako konexioetan"
 
-#: qml/Settings/NetworkSettingsPage.qml:82
+#: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Baimendu podcasten eguneratzeak"
 
-#: qml/Settings/NetworkSettingsPage.qml:93
+#: qml/Settings/NetworkSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Baimendu atalak zama-jaistea"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Baimendu irudiak zama-jaistea"
 
-#: qml/Settings/NetworkSettingsPage.qml:115
+#: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Baimendu datu-korronteak"
 
-#: qml/Settings/NetworkSettingsPage.qml:124
+#: qml/Settings/NetworkSettingsPage.qml:99
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "Sareko ordezkaria"
 
-#: qml/Settings/NetworkSettingsPage.qml:129
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "Sisteman lehenetsia"
 
-#: qml/Settings/NetworkSettingsPage.qml:138
+#: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "Ordezkaririk ez"
 
-#: qml/Settings/NetworkSettingsPage.qml:147
+#: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: qml/Settings/NetworkSettingsPage.qml:156
+#: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "Socks5"
 
-#: qml/Settings/NetworkSettingsPage.qml:171
+#: qml/Settings/NetworkSettingsPage.qml:146
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "Ostalaria"
 
-#: qml/Settings/NetworkSettingsPage.qml:182
+#: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "Portua"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:172
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: qml/Settings/NetworkSettingsPage.qml:208
+#: qml/Settings/NetworkSettingsPage.qml:183
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "Pasahitza"
 
-#: qml/Settings/NetworkSettingsPage.qml:222
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Aplikatu"
 
-#: qml/Settings/NetworkSettingsPage.qml:242
+#: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -1738,23 +1700,99 @@ msgstr ""
 "ekintza guztiek, atalak zama-jaistea barne, ezarpenei men egin beharko "
 "liekete."
 
-#: qml/Settings/SettingsView.qml:17
+#: qml/Settings/PlaybackSettingsPage.qml:22
 #, kde-format
-msgctxt "@title:menu Category in settings"
-msgid "General"
-msgstr "Orokorra"
+msgctxt "@title Form header for settings related to playback"
+msgid "Playback settings"
+msgstr "Atzera-jotze ezarpenak"
 
-#: qml/Settings/SettingsView.qml:23
+#: qml/Settings/PlaybackSettingsPage.qml:31
+#, kde-format
+msgctxt "@label:listbox Label for setting to select audio playback backend"
+msgid "Select audio backend"
+msgstr "Aukeratu audio-bizkarraldekoa"
+
+#: qml/Settings/PlaybackSettingsPage.qml:63
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr "Aurrerantz jauzteko bitartea (segundotan)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:77
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr "Atzerantz jauzteko bitartea (segundotan)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:92
+#, kde-format
+msgctxt "@title Form header for settings related to the queue"
+msgid "Queue settings"
+msgstr "Ilararen ezarpenak"
+
+#: qml/Settings/PlaybackSettingsPage.qml:102
+#, kde-format
+msgctxt "@option:check"
+msgid "Continue playing next episode after current one finishes"
+msgstr "Jarraitu hurrengo atala jotzen unekoa amaitu ondoren"
+
+#: qml/Settings/PlaybackSettingsPage.qml:117
+#, kde-format
+msgctxt "@option:check"
+msgid "Reset play position after an episode is played"
+msgstr "Berrezarri jotze-kokalekua atal bat jo ondoren"
+
+#: qml/Settings/PlaybackSettingsPage.qml:131
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Jotako atalen jokabidea"
+
+#: qml/Settings/PlaybackSettingsPage.qml:136
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Ez ezabatu"
+
+#: qml/Settings/PlaybackSettingsPage.qml:140
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Ezabatu berehala"
+
+#: qml/Settings/PlaybackSettingsPage.qml:144
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Ezabatu hurrengo abioan"
+
+#: qml/Settings/PlaybackSettingsPage.qml:162
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Markatu atalak jotzat falta den denbora adierazitakoa denean (segundotan)"
+
+#: qml/Settings/SettingsView.qml:17
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "Itxura"
 
-#: qml/Settings/SettingsView.qml:29
-#, kde-format
+#: qml/Settings/SettingsView.qml:23
+#, fuzzy, kde-format
+#| msgid "Playback rate:"
 msgctxt "@title:menu Category in settings"
-msgid "Storage"
-msgstr "Biltegiratzea"
+msgid "Playback"
+msgstr "Atzera-jotze emaria:"
+
+#: qml/Settings/SettingsView.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of downloaded episodes"
+#| msgid "Downloads"
+msgctxt "@title:menu Category in settings"
+msgid "Downloads"
+msgstr "Zama-jaitsitakoak"
 
 #: qml/Settings/SettingsView.qml:35
 #, kde-format
@@ -1765,22 +1803,28 @@ msgstr "Sarea"
 #: qml/Settings/SettingsView.qml:41
 #, kde-format
 msgctxt "@title:menu Category in settings"
+msgid "Storage"
+msgstr "Biltegiratzea"
+
+#: qml/Settings/SettingsView.qml:47
+#, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Sinkronizatzea"
 
-#: qml/Settings/SettingsView.qml:53
+#: qml/Settings/SettingsView.qml:59
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "Kasts-eri buruz"
 
-#: qml/Settings/SettingsView.qml:56 qml/Settings/SettingsView.qml:63
+#: qml/Settings/SettingsView.qml:62 qml/Settings/SettingsView.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Honi buruz"
 
-#: qml/Settings/SettingsView.qml:60
+#: qml/Settings/SettingsView.qml:66
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
@@ -2531,12 +2575,24 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Irten"
 
-#: utils/updatefeedjob.cpp:178
+#: utils/updatefeedjob.cpp:179
 #, fuzzy, kde-format
 #| msgid "Error moving storage path"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Biltegiratze bide-izena mugitzeko errorea"
+
+#~ msgctxt "@title Form header for settings related podcast updates"
+#~ msgid "Podcast update settings"
+#~ msgstr "Podcasta eguneratzeko ezarpenak"
+
+#~ msgctxt "@option:check"
+#~ msgid "Update existing episode data on refresh (slower)"
+#~ msgstr "Berritzean, eguneratu dagoen atalaren datuak (motelagoa)"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "General"
+#~ msgstr "Orokorra"
 
 #~ msgid "Add Podcast"
 #~ msgstr "Gehitu podcasta"

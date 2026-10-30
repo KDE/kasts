@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:52+0000\n"
-"PO-Revision-Date: 2026-10-20 11:20+0200\n"
+"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"PO-Revision-Date: 2026-10-29 07:44+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Некорректный файл мультимедиа для выпуска: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1129
+#: database.cpp:897 utils/updatefeedjob.cpp:1121
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1277,9 +1277,11 @@ msgid "Queue is empty"
 msgstr "Очередь пуста"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgctxt "@title Form header for settings related to app appearance"
-msgid "Appearance"
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to app appearance"
+#| msgid "Appearance"
+msgctxt "@title Form header for settings"
+msgid "Appearance and theming"
 msgstr "Внешний вид"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
@@ -1322,91 +1324,250 @@ msgctxt "@label:listbox"
 msgid "Color theme"
 msgstr "Цветовая схема"
 
-#: qml/Settings/AppearanceSettingsPage.qml:74
+#: qml/Settings/AppearanceSettingsPage.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@title of page with list of podcast subscriptions"
+#| msgid "Subscriptions"
+msgctxt "@title Form header for settings"
+msgid "Subscription information"
+msgstr "Подписки"
+
+#: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
 msgstr "Всегда показывать названия подкастов в области подписок"
 
-#: qml/Settings/AppearanceSettingsPage.qml:84
+#: qml/Settings/AppearanceSettingsPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@title Form header for section showing information about local storage"
+#| msgid "Information"
+msgctxt "@title Form header for settings"
+msgid "Episode information"
+msgstr "Информация"
+
+#: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Show episode image instead of podcast image in lists"
 msgstr "Показывать в списках обложку выпуска вместо обложки подкаста"
 
-#: qml/Settings/AppearanceSettingsPage.qml:94
+#: qml/Settings/AppearanceSettingsPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Show podcast titles in episode lists"
 msgstr "Показывать названия подкастов в списках выпусков"
 
-#: qml/Settings/AppearanceSettingsPage.qml:104
+#: qml/Settings/AppearanceSettingsPage.qml:123
+#, kde-format
+msgctxt ""
+"@option:check Label for setting whether the total episode time is shown or a "
+"countdown of the remaining play time"
+msgid "Show time left instead of total episode time"
+msgstr "Показывать оставшееся время вместо общей длительности выпуска"
+
+#: qml/Settings/AppearanceSettingsPage.qml:134
+#, kde-format
+msgctxt "@option:check"
+msgid "Adjust time left based on current playback speed"
+msgstr ""
+"Корректировать оставшееся время на основе текущей скорости воспроизведения"
+
+#: qml/Settings/AppearanceSettingsPage.qml:143
 #, kde-format
 msgctxt "@title Title header for settings related to the tray icon"
 msgid "Tray icon"
 msgstr "Значок в лотке"
 
-#: qml/Settings/AppearanceSettingsPage.qml:117
+#: qml/Settings/AppearanceSettingsPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid "Show icon in system tray"
 msgstr "Показывать значок в системном лотке"
 
-#: qml/Settings/AppearanceSettingsPage.qml:129
+#: qml/Settings/AppearanceSettingsPage.qml:168
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray instead of closing"
 msgstr "Сворачивать в лоток вместо закрытия"
 
-#: qml/Settings/AppearanceSettingsPage.qml:141
+#: qml/Settings/AppearanceSettingsPage.qml:180
 #, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
 msgstr "Сворачивать в лоток при запуске"
 
-#: qml/Settings/AppearanceSettingsPage.qml:153
+#: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
 msgctxt "@label:listbox Label for selecting the color of the tray icon"
 msgid "Tray icon type"
 msgstr "Тип значка в лотке"
 
-#: qml/Settings/AppearanceSettingsPage.qml:160
+#: qml/Settings/AppearanceSettingsPage.qml:199
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Colorful"
 msgstr "Цветной"
 
-#: qml/Settings/AppearanceSettingsPage.qml:164
+#: qml/Settings/AppearanceSettingsPage.qml:203
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Light"
 msgstr "Светлый"
 
-#: qml/Settings/AppearanceSettingsPage.qml:168
+#: qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgctxt "Label describing style of tray icon"
 msgid "Dark"
 msgstr "Тёмный"
 
-#: qml/Settings/AppearanceSettingsPage.qml:181
+#: qml/Settings/AppearanceSettingsPage.qml:220
 #, kde-format
 msgctxt "@title Form header for settings related to text/fonts"
 msgid "Text"
 msgstr "Текст"
 
-#: qml/Settings/AppearanceSettingsPage.qml:191
+#: qml/Settings/AppearanceSettingsPage.qml:230
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
 msgstr "Использовать системное значение по умолчанию"
 
-#: qml/Settings/AppearanceSettingsPage.qml:206
+#: qml/Settings/AppearanceSettingsPage.qml:245
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Font size"
 msgstr "Размер шрифта"
 
-#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:47
+#: qml/Settings/DownloadSettingsPage.qml:22
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Allow episode downloads"
+msgctxt "@title Form header for download related settings"
+msgid "Episode download preferences"
+msgstr "Разрешить загрузку выпусков"
+
+#: qml/Settings/DownloadSettingsPage.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Prefer streaming over downloading"
+msgstr "Приоритет потоковой передачи над загрузкой данных"
+
+#: qml/Settings/DownloadSettingsPage.qml:32
+#, kde-format
+msgctxt "@info Extra information related to checkbox"
+msgid "Episode lists will show streaming buttons instead of download buttons"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:43
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Maximum number of parallel episode downloads"
+msgstr "Максимальное количество параллельных загрузок выпусков"
+
+#: qml/Settings/DownloadSettingsPage.qml:59
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related automated podcast updates"
+msgid "Automated actions"
+msgstr "Автоматическая синхронизация"
+
+#: qml/Settings/DownloadSettingsPage.qml:69
+#, kde-format
+msgctxt "@option:check"
+msgid "Fetch podcast updates on startup"
+msgstr "Получать обновления подкастов при запуске"
+
+#: qml/Settings/DownloadSettingsPage.qml:80
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Periodically retrieve podcast feeds"
+msgstr "Периодически получать обновления каналов подкастов"
+
+#: qml/Settings/DownloadSettingsPage.qml:85
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Never"
+msgstr "Никогда"
+
+#: qml/Settings/DownloadSettingsPage.qml:89
+#: qml/Settings/DownloadSettingsPage.qml:93
+#: qml/Settings/DownloadSettingsPage.qml:97
+#: qml/Settings/DownloadSettingsPage.qml:101
+#: qml/Settings/DownloadSettingsPage.qml:105
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every hour"
+msgid_plural "Every %1 hours"
+msgstr[0] "Каждый %1 час"
+msgstr[1] "Каждые %1 часа"
+msgstr[2] "Каждые %1 часов"
+msgstr[3] "Ежечасно"
+
+#: qml/Settings/DownloadSettingsPage.qml:109
+#: qml/Settings/DownloadSettingsPage.qml:113
+#, kde-format
+msgctxt "@item:inlistbox automatic podcast update interval"
+msgid "Every day"
+msgid_plural "Every %1 days"
+msgstr[0] "Каждый %1 день"
+msgstr[1] "Каждые %1 дня"
+msgstr[2] "Каждые %1 дней"
+msgstr[3] "Ежедневно"
+
+#: qml/Settings/DownloadSettingsPage.qml:129
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Автоматически добавлять в очередь новые выпуски"
+
+#: qml/Settings/DownloadSettingsPage.qml:144
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Автоматически загружать новые выпуски"
+
+#: qml/Settings/DownloadSettingsPage.qml:158
+#, kde-format
+msgctxt "@option:check"
+msgid "Force full subscription processing on each refresh"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:159
+#, kde-format
+msgctxt "@info related to a force update subscriptions setting"
+msgid ""
+"When disabled (default), subscriptions are processed only if the "
+"subscription feed has changed since last update"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:168
+#, kde-format
+msgctxt "@title Form header for settings triggered by adding new podcasts"
+msgid "When adding new podcasts"
+msgstr "При добавлении новых подкастов"
+
+#: qml/Settings/DownloadSettingsPage.qml:177
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as played"
+msgstr "Отметить все выпуски воспроизведёнными"
+
+#: qml/Settings/DownloadSettingsPage.qml:187
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark most recent episodes as unplayed"
+msgstr "Отметить самые последние выпуски невоспроизведёнными"
+
+#: qml/Settings/DownloadSettingsPage.qml:210
+#, kde-format
+msgctxt "@option:radio"
+msgid "Mark all episodes as unplayed"
+msgstr "Отметить все выпуски невоспроизведёнными"
+
+#: qml/Settings/ErrorListPage.qml:19 qml/Settings/SettingsView.qml:53
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Error Log"
@@ -1418,308 +1579,109 @@ msgctxt "@action:button"
 msgid "Clear All"
 msgstr "Очистить список"
 
-#: qml/Settings/GeneralSettingsPage.qml:22
-#, kde-format
-msgctxt "@title Form header for settings related to playback"
-msgid "Playback settings"
-msgstr "Параметры воспроизведения"
-
-#: qml/Settings/GeneralSettingsPage.qml:31
-#, kde-format
-msgctxt "@label:listbox Label for setting to select audio playback backend"
-msgid "Select audio backend"
-msgstr "Выбор звукового модуля"
-
-#: qml/Settings/GeneralSettingsPage.qml:64
-#, kde-format
-msgctxt ""
-"@option:check Label for setting whether the total episode time is shown or a "
-"countdown of the remaining play time"
-msgid "Show time left instead of total episode time"
-msgstr "Показывать оставшееся время вместо общей длительности выпуска"
-
-#: qml/Settings/GeneralSettingsPage.qml:74
-#, kde-format
-msgctxt "@option:check"
-msgid "Adjust time left based on current playback speed"
-msgstr ""
-"Корректировать оставшееся время на основе текущей скорости воспроизведения"
-
-#: qml/Settings/GeneralSettingsPage.qml:83
-#, kde-format
-msgctxt "@option:check"
-msgid "Prefer streaming over downloading"
-msgstr "Приоритет потоковой передачи над загрузкой данных"
-
-#: qml/Settings/GeneralSettingsPage.qml:95
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip forward interval (in seconds)"
-msgstr "Интервал перехода вперёд (в секундах)"
-
-#: qml/Settings/GeneralSettingsPage.qml:109
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Skip backward interval (in seconds)"
-msgstr "Интервал перехода назад (в секундах)"
-
-#: qml/Settings/GeneralSettingsPage.qml:124
-#, kde-format
-msgctxt "@title Form header for settings related podcast updates"
-msgid "Podcast update settings"
-msgstr "Параметры обновления подкастов"
-
-#: qml/Settings/GeneralSettingsPage.qml:133
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Periodically retrieve podcast feeds"
-msgstr "Периодически получать обновления каналов подкастов"
-
-#: qml/Settings/GeneralSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Never"
-msgstr "Никогда"
-
-#: qml/Settings/GeneralSettingsPage.qml:142
-#: qml/Settings/GeneralSettingsPage.qml:146
-#: qml/Settings/GeneralSettingsPage.qml:150
-#: qml/Settings/GeneralSettingsPage.qml:154
-#: qml/Settings/GeneralSettingsPage.qml:158
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every hour"
-msgid_plural "Every %1 hours"
-msgstr[0] "Каждый %1 час"
-msgstr[1] "Каждые %1 часа"
-msgstr[2] "Каждые %1 часов"
-msgstr[3] "Ежечасно"
-
-#: qml/Settings/GeneralSettingsPage.qml:162
-#: qml/Settings/GeneralSettingsPage.qml:166
-#, kde-format
-msgctxt "@item:inlistbox automatic podcast update interval"
-msgid "Every day"
-msgid_plural "Every %1 days"
-msgstr[0] "Каждый %1 день"
-msgstr[1] "Каждые %1 дня"
-msgstr[2] "Каждые %1 дней"
-msgstr[3] "Ежедневно"
-
-#: qml/Settings/GeneralSettingsPage.qml:180
-#, kde-format
-msgctxt "@option:check"
-msgid "Fetch podcast updates on startup"
-msgstr "Получать обновления подкастов при запуске"
-
-#: qml/Settings/GeneralSettingsPage.qml:195
-#, kde-format
-msgctxt "@option:check"
-msgid "Update existing episode data on refresh (slower)"
-msgstr "Обновлять существующие данные выпусков при обновлении (медленнее)"
-
-#: qml/Settings/GeneralSettingsPage.qml:205
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Автоматически добавлять в очередь новые выпуски"
-
-#: qml/Settings/GeneralSettingsPage.qml:220
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Автоматически загружать новые выпуски"
-
-#: qml/Settings/GeneralSettingsPage.qml:231
-#, kde-format
-msgctxt "@title Form header for settings related to the queue"
-msgid "Queue settings"
-msgstr "Параметры очереди"
-
-#: qml/Settings/GeneralSettingsPage.qml:241
-#, kde-format
-msgctxt "@option:check"
-msgid "Continue playing next episode after current one finishes"
-msgstr ""
-"Переходить к воспроизведению следующего выпуска после завершения текущего"
-
-#: qml/Settings/GeneralSettingsPage.qml:256
-#, kde-format
-msgctxt "@option:check"
-msgid "Reset play position after an episode is played"
-msgstr "Сбрасывать позицию воспроизведения после воспроизведения выпуска"
-
-#: qml/Settings/GeneralSettingsPage.qml:270
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Обработка воспроизведённых выпусков"
-
-#: qml/Settings/GeneralSettingsPage.qml:275
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Не удалять"
-
-#: qml/Settings/GeneralSettingsPage.qml:279
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Удалять сразу"
-
-#: qml/Settings/GeneralSettingsPage.qml:283
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Удалять при следующем запуске"
-
-#: qml/Settings/GeneralSettingsPage.qml:301
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Mark episodes as played when the given time is remaining (in seconds)"
-msgstr ""
-"Отмечать выпуски воспроизведёнными, когда остаётся указанное время (в "
-"секундах)"
-
-#: qml/Settings/GeneralSettingsPage.qml:317
-#, kde-format
-msgctxt "@title Form header for settings triggered by adding new podcasts"
-msgid "When adding new podcasts"
-msgstr "При добавлении новых подкастов"
-
-#: qml/Settings/GeneralSettingsPage.qml:326
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as played"
-msgstr "Отметить все выпуски воспроизведёнными"
-
-#: qml/Settings/GeneralSettingsPage.qml:336
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark most recent episodes as unplayed"
-msgstr "Отметить самые последние выпуски невоспроизведёнными"
-
-#: qml/Settings/GeneralSettingsPage.qml:359
-#, kde-format
-msgctxt "@option:radio"
-msgid "Mark all episodes as unplayed"
-msgstr "Отметить все выпуски невоспроизведёнными"
-
 #: qml/Settings/NetworkSettingsPage.qml:28
-#, kde-format
-msgctxt "@title Form header for download related settings"
-msgid "Downloads"
-msgstr "Загрузки"
-
-#: qml/Settings/NetworkSettingsPage.qml:36
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Maximum number of parallel episode downloads"
-msgstr "Максимальное количество параллельных загрузок выпусков"
-
-#: qml/Settings/NetworkSettingsPage.qml:53
 #, kde-format
 msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Сеть"
 
-#: qml/Settings/NetworkSettingsPage.qml:62
+#: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Проверять наличие подключения к сети"
 
-#: qml/Settings/NetworkSettingsPage.qml:72
+#: qml/Settings/NetworkSettingsPage.qml:47
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "При лимитных подключениях"
 
-#: qml/Settings/NetworkSettingsPage.qml:82
+#: qml/Settings/NetworkSettingsPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Разрешить обновление подкастов"
 
-#: qml/Settings/NetworkSettingsPage.qml:93
+#: qml/Settings/NetworkSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Разрешить загрузку выпусков"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:79
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Разрешить загрузку изображений"
 
-#: qml/Settings/NetworkSettingsPage.qml:115
+#: qml/Settings/NetworkSettingsPage.qml:90
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Разрешить потоковую передачу"
 
-#: qml/Settings/NetworkSettingsPage.qml:124
+#: qml/Settings/NetworkSettingsPage.qml:99
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "Сетевой прокси"
 
-#: qml/Settings/NetworkSettingsPage.qml:129
+#: qml/Settings/NetworkSettingsPage.qml:104
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "Системное значение по умолчанию"
 
-#: qml/Settings/NetworkSettingsPage.qml:138
+#: qml/Settings/NetworkSettingsPage.qml:113
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "Без прокси"
 
-#: qml/Settings/NetworkSettingsPage.qml:147
+#: qml/Settings/NetworkSettingsPage.qml:122
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: qml/Settings/NetworkSettingsPage.qml:156
+#: qml/Settings/NetworkSettingsPage.qml:131
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "Socks5"
 
-#: qml/Settings/NetworkSettingsPage.qml:171
+#: qml/Settings/NetworkSettingsPage.qml:146
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "Хост"
 
-#: qml/Settings/NetworkSettingsPage.qml:182
+#: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "Порт"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:172
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "Пользователь"
 
-#: qml/Settings/NetworkSettingsPage.qml:208
+#: qml/Settings/NetworkSettingsPage.qml:183
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "Пароль"
 
-#: qml/Settings/NetworkSettingsPage.qml:222
+#: qml/Settings/NetworkSettingsPage.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Применить"
 
-#: qml/Settings/NetworkSettingsPage.qml:242
+#: qml/Settings/NetworkSettingsPage.qml:217
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -1732,23 +1694,101 @@ msgstr ""
 "менее, эти параметры будут учитываться при всех остальных связанных с сетью "
 "действиях, включая загрузку выпусков."
 
-#: qml/Settings/SettingsView.qml:17
+#: qml/Settings/PlaybackSettingsPage.qml:22
 #, kde-format
-msgctxt "@title:menu Category in settings"
-msgid "General"
-msgstr "Основное"
+msgctxt "@title Form header for settings related to playback"
+msgid "Playback settings"
+msgstr "Параметры воспроизведения"
 
-#: qml/Settings/SettingsView.qml:23
+#: qml/Settings/PlaybackSettingsPage.qml:31
+#, kde-format
+msgctxt "@label:listbox Label for setting to select audio playback backend"
+msgid "Select audio backend"
+msgstr "Выбор звукового модуля"
+
+#: qml/Settings/PlaybackSettingsPage.qml:63
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip forward interval (in seconds)"
+msgstr "Интервал перехода вперёд (в секундах)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:77
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Skip backward interval (in seconds)"
+msgstr "Интервал перехода назад (в секундах)"
+
+#: qml/Settings/PlaybackSettingsPage.qml:92
+#, kde-format
+msgctxt "@title Form header for settings related to the queue"
+msgid "Queue settings"
+msgstr "Параметры очереди"
+
+#: qml/Settings/PlaybackSettingsPage.qml:102
+#, kde-format
+msgctxt "@option:check"
+msgid "Continue playing next episode after current one finishes"
+msgstr ""
+"Переходить к воспроизведению следующего выпуска после завершения текущего"
+
+#: qml/Settings/PlaybackSettingsPage.qml:117
+#, kde-format
+msgctxt "@option:check"
+msgid "Reset play position after an episode is played"
+msgstr "Сбрасывать позицию воспроизведения после воспроизведения выпуска"
+
+#: qml/Settings/PlaybackSettingsPage.qml:131
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Обработка воспроизведённых выпусков"
+
+#: qml/Settings/PlaybackSettingsPage.qml:136
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Не удалять"
+
+#: qml/Settings/PlaybackSettingsPage.qml:140
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Удалять сразу"
+
+#: qml/Settings/PlaybackSettingsPage.qml:144
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Удалять при следующем запуске"
+
+#: qml/Settings/PlaybackSettingsPage.qml:162
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Mark episodes as played when the given time is remaining (in seconds)"
+msgstr ""
+"Отмечать выпуски воспроизведёнными, когда остаётся указанное время (в "
+"секундах)"
+
+#: qml/Settings/SettingsView.qml:17
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: qml/Settings/SettingsView.qml:29
-#, kde-format
+#: qml/Settings/SettingsView.qml:23
+#, fuzzy, kde-format
+#| msgid "Playback rate:"
 msgctxt "@title:menu Category in settings"
-msgid "Storage"
-msgstr "Хранение данных"
+msgid "Playback"
+msgstr "Скорость воспроизведения:"
+
+#: qml/Settings/SettingsView.qml:29
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for download related settings"
+#| msgid "Downloads"
+msgctxt "@title:menu Category in settings"
+msgid "Downloads"
+msgstr "Загрузки"
 
 #: qml/Settings/SettingsView.qml:35
 #, kde-format
@@ -1759,22 +1799,28 @@ msgstr "Сеть"
 #: qml/Settings/SettingsView.qml:41
 #, kde-format
 msgctxt "@title:menu Category in settings"
+msgid "Storage"
+msgstr "Хранение данных"
+
+#: qml/Settings/SettingsView.qml:47
+#, kde-format
+msgctxt "@title:menu Category in settings"
 msgid "Synchronization"
 msgstr "Синхронизация"
 
-#: qml/Settings/SettingsView.qml:53
+#: qml/Settings/SettingsView.qml:59
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About Kasts"
 msgstr "О программе Kasts"
 
-#: qml/Settings/SettingsView.qml:56 qml/Settings/SettingsView.qml:63
+#: qml/Settings/SettingsView.qml:62 qml/Settings/SettingsView.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Описание"
 
-#: qml/Settings/SettingsView.qml:60
+#: qml/Settings/SettingsView.qml:66
 #, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "About KDE"
@@ -2494,13 +2540,23 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Выйти"
 
-#: utils/updatefeedjob.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#: utils/updatefeedjob.cpp:179
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Ошибка получения подкаста %1; ошибка: %2"
+
+#~ msgctxt "@title Form header for settings related podcast updates"
+#~ msgid "Podcast update settings"
+#~ msgstr "Параметры обновления подкастов"
+
+#~ msgctxt "@option:check"
+#~ msgid "Update existing episode data on refresh (slower)"
+#~ msgstr "Обновлять существующие данные выпусков при обновлении (медленнее)"
+
+#~ msgctxt "@title:menu Category in settings"
+#~ msgid "General"
+#~ msgstr "Основное"
 
 #~ msgid "Add Podcast"
 #~ msgstr "Добавить подкаст"
