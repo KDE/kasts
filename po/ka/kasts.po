@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-29 03:26+0100\n"
+"PO-Revision-Date: 2026-10-30 04:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1262,12 +1262,10 @@ msgid "Queue is empty"
 msgstr "რიგი ცარიელია"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "გარეგნობა"
+msgstr "გარეგნობა და თემები"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1308,12 +1306,10 @@ msgid "Color theme"
 msgstr "ფერის თემა"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "გამოწერები"
+msgstr "გამოწერის ინფორმაცია"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1322,13 +1318,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "გამოწერის ხედში პოდკსტის სათაურების ყოველთვის ჩვენება"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "ინფორმაცია"
+msgstr "ინფორმაცია ეპიზოდის შესახებ"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1423,12 +1416,10 @@ msgid "Font size"
 msgstr "ფონტის ზომა"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "ეპიზოდების გადმოწერის უფლება"
+msgstr "ეპიზოდების გადმოწერის მორგება"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1441,6 +1432,7 @@ msgstr "სტრიმინგის პრიორიტეტის გა�
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"ეპიზოდების სიები გადმოწერის ღილაკების ნაცვლად სტრიმინგის ღილაკებს აჩვენებს"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1449,12 +1441,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "ეპიზოდების პარალელურად გადმოწერის მაქსიმალური რაოდენობა"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "ავტომატური სინქრონიზაცია"
+msgstr "ავტომატური ქმედებები"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1511,7 +1501,7 @@ msgstr "ახალი ეპიზოდების ავტომატუ�
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "გამოწერის ნაძალადევი სრული დამუშავება თითოეული განახლებისას"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1520,6 +1510,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"როცა გამორთულია (ნაგულისხმევი), გამოწერები დამუშავდება, მხოლოდ, მაშინ, თუ "
+"გამოწერის ლენტა ბოლო განახლების შემდეგ შეიცვალა"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1752,16 +1744,13 @@ msgid "Appearance"
 msgstr "გარეგნობა"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "დაკვრის სიჩქარე:"
+msgstr "დაკვრა"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "გადმოწერები"

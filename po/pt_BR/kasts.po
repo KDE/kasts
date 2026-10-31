@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-29 10:43-0300\n"
+"PO-Revision-Date: 2026-10-30 07:24-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1268,12 +1268,10 @@ msgid "Queue is empty"
 msgstr "A fila está vazia"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Aparência"
+msgstr "Aparência e tema"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1314,12 +1312,10 @@ msgid "Color theme"
 msgstr "Tema de cores"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Assinaturas"
+msgstr "Informações da assinatura"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1328,13 +1324,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Sempre mostrar títulos de podcast na visualização de assinatura"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informação"
+msgstr "Informações do episódio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1429,12 +1422,10 @@ msgid "Font size"
 msgstr "Tamanho da fonte"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Permitir downloads de episódios"
+msgstr "Preferências de download de episódios"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1447,6 +1438,8 @@ msgstr "Priorize a transmissão em vez do download"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"As listas de episódios exibirão botões de transmissão em vez de botões de "
+"download"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1455,12 +1448,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Número máximo de downloads de episódios em paralelo"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Sincronização automática"
+msgstr "Ações automatizadas"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1517,7 +1508,7 @@ msgstr "Baixar automaticamente novos episódios"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Forçar o processamento completo da assinatura a cada atualização"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1526,6 +1517,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Quando desativado (padrão), as assinaturas são processadas apenas se o feed "
+"de assinaturas tiver sido alterado desde a última atualização"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1758,16 +1751,13 @@ msgid "Appearance"
 msgstr "Aparência"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Taxa de reprodução:"
+msgstr "Reprodução"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Downloads"
