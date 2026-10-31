@@ -2191,7 +2191,7 @@ msgstr "Interromp"
 #, kde-format
 msgctxt "Volume as a percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: sync/sync.cpp:175
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kasts package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2021-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:44+0000\n"
-"PO-Revision-Date: 2026-03-11 11:48+0100\n"
+"PO-Revision-Date: 2026-10-30 13:30+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -196,7 +196,7 @@ msgstr "Podcastprogramma"
 #: main.cpp:123
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Voegt een niewe podcast toe aan inschrijvingen."
+msgstr "Voegt een nieuwe podcast toe aan abonnementen."
 
 #: main.cpp:124
 #, kde-format
@@ -875,7 +875,7 @@ msgstr "Podcast-details"
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr "Inschrijvingen"
+msgstr "Abonnementen"
 
 #: qml/FeedListPage.qml:48 qml/QueuePage.qml:39
 #, kde-format
@@ -899,7 +899,7 @@ msgstr "Sorteren"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Hoe inschrijvingen te sorteren selecteren"
+msgstr "Selecteer hoe abonnementen te sorteren"
 
 #: qml/FeedListPage.qml:117
 #, kde-format
