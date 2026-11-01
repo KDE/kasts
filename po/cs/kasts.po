@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-30 01:01+0100\n"
+"PO-Revision-Date: 2026-10-31 11:44+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1271,12 +1271,10 @@ msgid "Queue is empty"
 msgstr "Fronta je prázdná"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Vzhled"
+msgstr "Vzhled a styl"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1318,12 +1316,10 @@ msgid "Color theme"
 msgstr "Barevný motiv"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Odběry"
+msgstr "Informace o odběru"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1332,13 +1328,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Vždy zobrazovat názvy podcastů v pohledu přihlášení"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informace"
+msgstr "Informace o epizodě"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1433,12 +1426,10 @@ msgid "Font size"
 msgstr "Velikost písma"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Povolit stahování epizod"
+msgstr "Nastavení stahování epizod"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1451,6 +1442,8 @@ msgstr "Upřednostňovat streamování před stahováním"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"V seznamech epizod se budou místo tlačítek pro stažení zobrazovat tlačítka "
+"pro streamování"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1459,12 +1452,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Maximální počet souběžných stahování epizod"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Automatická synchronizace"
+msgstr "Automatizované akce"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1523,7 +1514,7 @@ msgstr "Automaticky stahovat nové epizody"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Při každém obnovení vynutit zpracování celého odběru"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1532,6 +1523,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Je-li tato možnost vypnutá (výchozí nastavení), odběry se zpracovávají pouze "
+"v případě, že se zdroj odběru od poslední aktualizace změnil"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1763,16 +1756,13 @@ msgid "Appearance"
 msgstr "Vzhled"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Rychlost přehrávání:"
+msgstr "Přehrávání"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Stahování"

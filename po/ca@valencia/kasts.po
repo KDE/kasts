@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-10-29 11:01+0100\n"
+"PO-Revision-Date: 2026-10-30 11:26+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -979,7 +979,7 @@ msgid ""
 "This episode has been removed from the podcast RSS feed by the podcast "
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
-"Este episodi s'ha eliminat del canal RSS del pòdcast pels autors del "
+"Este episodi s'ha eliminat de la font RSS del pòdcast pels autors del "
 "pòdcast. La descàrrega o transmissió d'este episodi podria estar trencada."
 
 #: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:309
@@ -1273,12 +1273,10 @@ msgid "Queue is empty"
 msgstr "La cua està buida"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Aparença"
+msgstr "Aparença i sistema de temes"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1319,12 +1317,10 @@ msgid "Color theme"
 msgstr "Tema de color"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Subscripcions"
+msgstr "Informació de subscripcions"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1333,13 +1329,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre els títols dels pòdcast en la vista de subscripcions"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informació"
+msgstr "Informació de l'episodi"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1436,12 +1429,10 @@ msgid "Font size"
 msgstr "Mida de la lletra"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Permet les baixades d'episodis"
+msgstr "Preferències de baixades d'episodis"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1454,6 +1445,8 @@ msgstr "Preferix la transmissió en continu sobre la baixada"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Les llistes d'episodis mostraran botons de transmissió en continu en lloc de "
+"botons de baixada"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1462,12 +1455,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Nombre màxim de baixades en paral·lel d'episodis"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Sincronització automàtica"
+msgstr "Accions automatitzades"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1524,7 +1515,7 @@ msgstr "Baixa automàticament els episodis nous"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Força el processament complet de la subscripció a cada actualització"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1533,6 +1524,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Quan està desactivat (predeterminat), les subscripcions només es processen "
+"si la font de subscripció ha canviat des de l'última actualització"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1646,7 +1639,7 @@ msgstr "Socks5"
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Amfitrió"
+msgstr "Servidor"
 
 #: qml/Settings/NetworkSettingsPage.qml:157
 #, kde-format
@@ -1765,16 +1758,13 @@ msgid "Appearance"
 msgstr "Aparença"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Velocitat de reproducció:"
+msgstr "Reproduïu"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Baixades"
@@ -2100,7 +2090,7 @@ msgstr "Utilitza un servidor personalitzat"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Hostname:"
-msgstr "Nom de l'amfitrió:"
+msgstr "Nom del servidor:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
 #, kde-format
@@ -2539,16 +2529,3 @@ msgstr "Ix"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "S'ha produït un error mentre es recuperava el pòdcast: %1; error: %2"
-
-#~ msgctxt "@title Form header for settings related podcast updates"
-#~ msgid "Podcast update settings"
-#~ msgstr "Configureu les actualitzacions dels pòdcast"
-
-#~ msgctxt "@option:check"
-#~ msgid "Update existing episode data on refresh (slower)"
-#~ msgstr ""
-#~ "Actualitza les dades dels episodis existents en actualitzar (més lent)"
-
-#~ msgctxt "@title:menu Category in settings"
-#~ msgid "General"
-#~ msgstr "General"

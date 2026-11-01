@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kasts package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2023-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:53+0000\n"
-"PO-Revision-Date: 2026-09-23 17:28+0400\n"
+"PO-Revision-Date: 2026-10-31 19:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,25 +29,19 @@ msgid "Your emails"
 msgstr "alfadhel.a@gmail.com"
 
 #: audiomanager.cpp:481
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Streaming on metered connection not allowed for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
-msgstr "البث عبر اتصال مُقاس غير مسموح به للحلقة: %1"
+msgstr "البث عبر اتصال محدود غير مسموح للحلقة: %1"
 
 #: audiomanager.cpp:490
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to stream episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
-msgstr "لا يوجد اتصال شبكة أثناء محاولة بث الحلقة: %1"
+msgstr "لا يوجد اتصال بالشبكة أثناء محاولة بث الحلقة: %1"
 
 #: audiomanager.cpp:649
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Invalid Media for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "وسائط غير صالحة للحلقة: %1"
@@ -61,25 +55,19 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: fetcher.cpp:147
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Download of episode %1 not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
-msgstr "تنزيل الحلقة %1 غير مسموح به عبر اتصال مُقاس"
+msgstr "تنزيل الحلقة %1 غير مسموح عبر اتصال محدود"
 
 #: fetcher.cpp:151
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to download episode %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
-msgstr "لا يوجد اتصال شبكة أثناء محاولة تنزيل الحلقة %1"
+msgstr "لا يوجد اتصال بالشبكة أثناء محاولة تنزيل الحلقة %1"
 
 #: fetcher.cpp:208
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error downloading media: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
 msgstr "خطأ في تنزيل الوسائط: %1"
@@ -551,11 +539,10 @@ msgid "Discover"
 msgstr "استكشاف"
 
 #: qml/DiscoverPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Search podcastindex.org"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search podcastindex.org…"
-msgstr "ابحث في podcastindex.org"
+msgstr "ابحث في podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
 #, kde-format
@@ -1303,12 +1290,10 @@ msgid "Queue is empty"
 msgstr "الطابور فارغ"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "المظهر"
+msgstr "المظهر والسمات"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1349,12 +1334,10 @@ msgid "Color theme"
 msgstr "سمة الألوان"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "الاشتراكات"
+msgstr "معلومات الاشتراك"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1363,13 +1346,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "اعرض دائما عناوين المدونة الصوتية في الاشتراك"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "معلومات"
+msgstr "معلومات الحلقة"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1416,12 +1396,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "تصغير إلى العلبة بدلا من الإغلاق"
 
 #: qml/Settings/AppearanceSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "تصغير إلى العلبة بدلا من الإغلاق"
+msgstr "التصغير إلى الصينية عند بدء التشغيل"
 
 #: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
@@ -1466,12 +1444,10 @@ msgid "Font size"
 msgstr "حجم الخط"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "السماح بتنزيلات الحلقة"
+msgstr "تفضيلات تنزيل الحلقات"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1483,7 +1459,7 @@ msgstr "فضّل البث المباشر على التنزيل"
 #, kde-format
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
-msgstr ""
+msgstr "ستعرض قوائم الحلقات أزرار البث بدلًا من أزرار التنزيل"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1492,12 +1468,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "أقصى عدد حلقات يمكن تنزيلها بالتوازي"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "مزامنة آليّة"
+msgstr "إجراءات آلية"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1562,7 +1536,7 @@ msgstr "تنزيل الحلقات الجديدة آليّا"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "فرض المعالجة الكاملة للاشتراكات عند كل تحديث"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1571,6 +1545,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"عند التعطيل (المبدئي)، تُعالج الاشتراكات فقط إذا تغيّر تغذية الاشتراك منذ آخر "
+"تحديث"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1801,16 +1777,13 @@ msgid "Appearance"
 msgstr "المظهر"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "معدل التشغيل:"
+msgstr "التشغيل"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "التنزيلات"
@@ -1920,15 +1893,11 @@ msgid "Account"
 msgstr "الحساب"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Shows which sync account and sync server the user is logged "
-#| "into"
-#| msgid "Logged into account \"%1\" on server \"%2\""
+#, kde-format
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account “%1” on server “%2”"
-msgstr "مسجل الدخول بحساب \"%1\" على خادم \"%2\""
+msgstr "سُجّل الدخول إلى الحساب «%1» على الخادم «%2»"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
 #, kde-format
@@ -1952,7 +1921,7 @@ msgstr "لج"
 #, kde-format
 msgctxt "@label"
 msgid "Sync manually"
-msgstr ""
+msgstr "زامن يدويًا"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:55
 #, kde-format
@@ -2139,9 +2108,7 @@ msgid "Hostname:"
 msgstr "اسم المضيف:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
-#, fuzzy, kde-format
-#| msgctxt "@title of dialog box"
-#| msgid "Device Sync Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Device Sync Settings"
 msgstr "إعدادات مزامنة الجهاز"
@@ -2219,12 +2186,7 @@ msgid "Device Sync Settings"
 msgstr "إعدادات مزامنة الجهاز"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid ""
-#| "Should all podcast subscriptions on this gpodder.net account be synced "
-#| "across all devices?\n"
-#| "If you don't know what this means, you should probably select \"Ok\"."
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -2233,7 +2195,7 @@ msgid ""
 msgstr ""
 "هل يجب مزامنة كافة اشتراكات البودكاست الموجودة على حساب gpodder.net عبر كافة "
 "الأجهزة؟\n"
-"إذا كنت لا تعرف ما يعنيه هذا، فمن الأفضل أن تختار \"موافق\"."
+"إذا كنت لا تعرف ما يعنيه هذا، فمن الأفضل أن تختار ”موافق“."
 
 #: qml/Settings/SynchronizationSettingsPage.qml:597
 #, kde-format
@@ -2242,12 +2204,10 @@ msgid "Sync Now?"
 msgstr "مزامنة الآن؟"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Perform a first sync now?"
+#, kde-format
 msgctxt "@label"
 msgid "Perform the first sync now?"
-msgstr "تنفيذ أول مزامنة الآن؟"
+msgstr "هل تريد إجراء المزامنة الأولى الآن؟"
 
 #: qml/SleepTimerDialog.qml:20
 #, kde-format
@@ -2295,20 +2255,15 @@ msgid "Sync Password Required"
 msgstr "مزامنة كلمة السر إجباري"
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
-#| "retrieved."
+#, kde-format
 msgid ""
 "The password for user “%1” on Nextcloud server “%2” could not be retrieved."
-msgstr "تعذر استرداد كلمة السر للمستخدم \"%1\" على خادم نكست كلاود \"%2\"."
+msgstr "تعذّر استرجاع كلمة سر المستخدم «%1» على خادم Nextcloud «%2»."
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+#, kde-format
 msgid "The password for user “%1” on “gpodder.net” could not be retrieved."
-msgstr "تعذر استرداد كلمة السر للمستخدم \"%1\" على \"gpodder.net\"."
+msgstr "تعذّر استرجاع كلمة سر المستخدم «%1» على «gpodder.net»."
 
 #: qml/SyncPasswordOverlay.qml:54
 #, kde-format
@@ -2340,68 +2295,52 @@ msgid "Kasts on %1"
 msgstr "كاست على %1"
 
 #: sync/sync.cpp:289
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder-nextcloud server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "تعذّر تسجيل الدخول إلى خادم GPodder-nextcloud؛ الخطأ: %1"
 
 #: sync/sync.cpp:324
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "تعذّر تسجيل الدخول إلى خادم GPodder؛ الخطأ: %1"
 
 #: sync/sync.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot save password to file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
-msgstr "قراء كتابة مرفوضة: لا يمكن حفظ كلمة السر في ملف %1"
+msgstr "رُفض الإدخال/الإخراج: تعذّر حفظ كلمة السر في الملف %1"
 
 #: sync/sync.cpp:542
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot access password file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
-msgstr "الإدخال/الإخراج مرفوض: تعذّر الوصول إلى ملف كلمة السر %1"
+msgstr "رُفض الإدخال/الإخراج: تعذّر الوصول إلى ملف كلمة السر %1"
 
 #: sync/sync.cpp:619
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not create GPodder device; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "تعذّر إنشاء جهاز GPodder؛ الخطأ: %1"
 
 #: sync/sync.cpp:641
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve synced device status; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
-msgstr "لا يمكن جلب حالات الأجهزة المتزامنة؛ الخطأ: %1"
+msgstr "تعذّر استرجاع حالة الجهاز المزامن؛ الخطأ: %1"
 
 #: sync/sync.cpp:688
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "تعذّر استرجاع الاشتراكات للجهاز %1؛ الخطأ: %2"
+msgstr "تعذّر استرجاع اشتراكات الجهاز %1؛ الخطأ: %2"
 
 #: sync/sync.cpp:706
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not upload subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "تعذّر رفع الاشتراكات للجهاز %1؛ الخطأ: %2"
+msgstr "تعذّر رفع اشتراكات الجهاز %1؛ الخطأ: %2"
 
 #: sync/sync.cpp:761
 #, kde-format
@@ -2504,16 +2443,13 @@ msgid "Sync finished with error"
 msgstr "انتهت المزامنة مع خطأ"
 
 #: utils/enclosuredownloadjob.cpp:77
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
-msgstr "جاري التنزيل %1"
+msgstr "يُنزّل %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2521,9 +2457,7 @@ msgid "%1 and %2"
 msgstr "%1 و %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
@@ -2531,9 +2465,7 @@ msgid "%1, and %2"
 msgstr "%1، و %2"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification."
-#| msgid "Error moving storage path from %1 to %2; error: %3"
+#, kde-format
 msgctxt ""
 "@info:status %1 is the old storage path, %2 is the new storage path, %3 is "
 "the error message"
@@ -2602,9 +2534,7 @@ msgid "Quit"
 msgstr "أنهِ"
 
 #: utils/updatefeedjob.cpp:179
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "خطأ في استرجاع البودكاست: %1؛ الخطأ: %2"
