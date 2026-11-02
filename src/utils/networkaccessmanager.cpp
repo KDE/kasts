@@ -20,6 +20,7 @@ NetworkAccessManager::NetworkAccessManager(QObject *parent)
     // HACK TODO: Disable hstsstore temporarily because of malloc crash deep in
     // qt6 somewhere.  This is to be reenabled once the bug is solved upstream
     this->enableStrictTransportSecurityStore(false);
+    this->setTransferTimeout();
 }
 
 QNetworkReply *NetworkAccessManager::get(QNetworkRequest &request)

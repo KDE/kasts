@@ -154,6 +154,8 @@ bool UpdateFeedJob::downloadFeed(QByteArray &data)
     bool continueProcessFeed = true;
 
     QNetworkRequest request((QUrl(m_url)));
+    // make sure the request times out, otherwise the overall feed update
+    // process can hang indefinitely
     request.setTransferTimeout();
     QNetworkReply *reply = manager.get(request);
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
