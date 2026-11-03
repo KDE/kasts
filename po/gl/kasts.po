@@ -556,22 +556,19 @@ msgid "No downloads"
 msgstr "Non hai descargas."
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Downloading"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Descargando"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Incomplete Downloads"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Descargas incompletas"
 
 #: qml/DownloadListPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Descargado"
