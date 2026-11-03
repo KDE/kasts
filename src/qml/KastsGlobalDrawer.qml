@@ -22,12 +22,13 @@ Kirigami.OverlayDrawer {
 
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 3
     readonly property real widescreenBigWidth: Kirigami.Units.gridUnit * 10
-    readonly property int buttonDisplayMode: Utils.isWidescreen ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
+    readonly property int isWidescreen: (root.Controls.ApplicationWindow.window as Main).isWidescreen
+    readonly property int buttonDisplayMode: isWidescreen && !Kirigami.Settings.isMobile ? Kirigami.NavigationTabButton.TextBesideIcon : Kirigami.NavigationTabButton.IconOnly
 
     // Keep track of the settings page being opened on the layer stack for mobile
     readonly property bool settingsOpened: Kirigami.Settings.isMobile && (Controls.ApplicationWindow.window as Main).pageStack.layers.depth >= 2 && ((Controls.ApplicationWindow.window as Main).pageStack.layers.currentItem as KirigamiSettings.ConfigurationView).title === "Settings"
 
-    width: (Controls.ApplicationWindow.window as Main).showGlobalDrawer ? (Utils.isWidescreen ? widescreenBigWidth : pinnedWidth) : 0
+    width: (Controls.ApplicationWindow.window as Main).showGlobalDrawer ? (isWidescreen && !Kirigami.Settings.isMobile ? widescreenBigWidth : pinnedWidth) : 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false

@@ -26,6 +26,7 @@ Kirigami.Page {
 
     required property NumberAnimation openAnimation
     required property NumberAnimation closeAnimation
+    readonly property int isWidescreen: (root.Controls.ApplicationWindow.window as Main).isWidescreen
     readonly property ChapterModel chapterModel: ChapterModel {
         id: _chapterModel
         entryuid: AudioManager.entryuid
@@ -115,14 +116,14 @@ Kirigami.Page {
                         id: coverImage
                         anchors {
                             top: parent.top
-                            bottom: Utils.isWidescreen ? parent.bottom : undefined
+                            bottom: root.isWidescreen ? parent.bottom : undefined
                             left: parent.left
-                            right: Utils.isWidescreen ? undefined : parent.right
+                            right: root.isWidescreen ? undefined : parent.right
                             margins: 0
-                            topMargin: Utils.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
+                            topMargin: root.isWidescreen ? 0 : (parent.height - Math.min(height, width) - imageLabels.implicitHeight - 2 * parent.textMargin) / 2
                         }
-                        height: Math.min(parent.height - (Utils.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
-                        width: Utils.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
+                        height: Math.min(parent.height - (root.isWidescreen ? 0 : imageLabels.implicitHeight + 2 * parent.textMargin), parent.width)
+                        width: root.isWidescreen ? Math.min(parent.height, parent.width / 2) : Math.min(parent.width, height)
 
                         ImageWithFallback {
                             imageSource: AudioManager.entryuid > 0 ? (root.chapterModel.hasChapters && root.chapterModel.imageForPosition(AudioManager.position) !== "" ? root.chapterModel.imageForPosition(AudioManager.position) : AudioManager.entryImage) : ""
@@ -138,12 +139,12 @@ Kirigami.Page {
 
                     Item {
                         anchors {
-                            top: Utils.isWidescreen ? parent.top : coverImage.bottom
+                            top: root.isWidescreen ? parent.top : coverImage.bottom
                             bottom: parent.bottom
-                            left: Utils.isWidescreen ? coverImage.right : parent.left
+                            left: root.isWidescreen ? coverImage.right : parent.left
                             right: parent.right
-                            leftMargin: Utils.isWidescreen ? parent.textMargin : 0
-                            topMargin: Utils.isWidescreen ? 0 : parent.textMargin
+                            leftMargin: root.isWidescreen ? parent.textMargin : 0
+                            topMargin: root.isWidescreen ? 0 : parent.textMargin
                             bottomMargin: 0
                         }
 
@@ -390,8 +391,8 @@ Kirigami.Page {
                 }
 
                 Loader {
-                    active: !Utils.isWidescreen
-                    visible: !Utils.isWidescreen
+                    active: !root.isWidescreen
+                    visible: !root.isWidescreen
                     sourceComponent: slider
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -410,7 +411,7 @@ Kirigami.Page {
                         font: Kirigami.Theme.smallFont
                     }
                     Loader {
-                        active: Utils.isWidescreen
+                        active: root.isWidescreen
                         sourceComponent: slider
                         Layout.fillWidth: true
                     }

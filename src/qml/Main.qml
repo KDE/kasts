@@ -19,7 +19,7 @@ import "Desktop"
 import "Mobile"
 
 Kirigami.ApplicationWindow {
-    id: kastsMainWindow
+    id: root
 
     title: KI18n.i18n("Kasts")
 
@@ -44,8 +44,9 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 17
     minimumHeight: Kirigami.Units.gridUnit * 12
 
-    property var miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
-    property int bottomMessageSpacing: {
+    readonly property int isWidescreen: width > Kirigami.Units.gridUnit * 33
+    readonly property int miniplayerSize: Kirigami.Units.gridUnit * 3 + Kirigami.Units.gridUnit / 6
+    readonly property int bottomMessageSpacing: {
         if (Kirigami.Settings.isMobile) {
             return Kirigami.Units.largeSpacing + (AudioManager.entryuid > 0 ? ((footerLoader.item as FooterBar).contentY == 0 ? miniplayerSize : 0) : 0);
         } else {
@@ -85,7 +86,7 @@ Kirigami.ApplicationWindow {
     }
 
     property var settingsView: SettingsView {
-        window: kastsMainWindow
+        window: root
     }
 
     Component.onCompleted: {
@@ -113,13 +114,13 @@ Kirigami.ApplicationWindow {
         KastsState.save();
     }
 
-    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || Utils.isWidescreen
+    property bool showGlobalDrawer: !Kirigami.Settings.isMobile || root.isWidescreen
 
     globalDrawer: globalDrawerLoader.item as KastsGlobalDrawer
 
     Loader {
         id: globalDrawerLoader
-        active: kastsMainWindow.showGlobalDrawer
+        active: root.showGlobalDrawer
         sourceComponent: KastsGlobalDrawer {}
     }
 
@@ -127,16 +128,16 @@ Kirigami.ApplicationWindow {
     Connections {
         target: AudioManager
         function onRaiseWindowRequested(): void {
-            kastsMainWindow.visible = true;
-            kastsMainWindow.show();
-            kastsMainWindow.raise();
-            kastsMainWindow.requestActivate();
+            root.visible = true;
+            root.show();
+            root.raise();
+            root.requestActivate();
         }
     }
     Connections {
         target: AudioManager
         function onQuitRequested(): void {
-            kastsMainWindow.close();
+            root.close();
         }
     }
 
@@ -164,9 +165,9 @@ Kirigami.ApplicationWindow {
         visible: active
         z: (!item || (item as Flickable).contentY === 0) ? -1 : 999
         sourceComponent: FooterBar {
-            contentHeight: kastsMainWindow.height * 2
+            contentHeight: root.height * 2
             focus: true
-            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : kastsMainWindow.SafeArea.margins.bottom
+            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : root.SafeArea.margins.bottom
         }
     }
 
@@ -174,7 +175,7 @@ Kirigami.ApplicationWindow {
         id: bottomToolbarLoader
         visible: active
         height: visible ? implicitHeight : 0
-        active: Kirigami.Settings.isMobile && !Utils.isWidescreen
+        active: Kirigami.Settings.isMobile && !root.isWidescreen
         sourceComponent: BottomToolbar {
             visible: opacity > 0
             opacity: (!footerLoader.item || (footerLoader.item as Flickable).contentY === 0) ? 1 : 0
@@ -323,12 +324,12 @@ Kirigami.ApplicationWindow {
 
     // Systray implementation
     Connections {
-        target: kastsMainWindow
+        target: root
 
         function onClosing(close: CloseEvent): void {
             if (SystrayIcon.available && SettingsManager.showTrayIcon && SettingsManager.minimizeToTray) {
                 close.accepted = false;
-                kastsMainWindow.hide();
+                root.hide();
             } else {
                 close.accepted = true;
                 Qt.quit();
@@ -340,14 +341,14 @@ Kirigami.ApplicationWindow {
         target: SystrayIcon
 
         function onRaiseWindow(): void {
-            if (kastsMainWindow.visible) {
-                kastsMainWindow.visible = false;
-                kastsMainWindow.hide();
+            if (root.visible) {
+                root.visible = false;
+                root.hide();
             } else {
-                kastsMainWindow.visible = true;
-                kastsMainWindow.show();
-                kastsMainWindow.raise();
-                kastsMainWindow.requestActivate();
+                root.visible = true;
+                root.show();
+                root.raise();
+                root.requestActivate();
             }
         }
     }

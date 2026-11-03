@@ -16,7 +16,6 @@ class Utils : public QObject
     QML_ELEMENT
     QML_SINGLETON
 
-    Q_PROPERTY(bool isWidescreen READ isWidescreen NOTIFY isWidescreenChanged)
     Q_PROPERTY(bool qtAbove69 READ qtAbove69 CONSTANT)
     Q_PROPERTY(QString styleName READ styleName CONSTANT)
 
@@ -28,15 +27,10 @@ public:
         return &_instance;
     }
 
-    bool isWidescreen() const;
     bool qtAbove69() const;
     QString styleName() const;
     Q_INVOKABLE QQuickItem *focusedWindowItem();
 
-Q_SIGNALS:
-    void isWidescreenChanged();
-
 private:
-    Utils();
-    QWindow *m_window = nullptr;
+    explicit Utils(QObject *parent = nullptr);
 };

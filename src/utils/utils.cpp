@@ -6,20 +6,10 @@
 #include <QGuiApplication>
 #include <QQuickStyle>
 #include <QQuickWindow>
-#include <QWindow>
 
-Utils::Utils()
-    : QObject(nullptr)
+Utils::Utils(QObject *parent)
+    : QObject(parent)
 {
-    auto allWindows = QGuiApplication::allWindows();
-    m_window = allWindows[0];
-    connect(m_window, &QWindow::widthChanged, this, &Utils::isWidescreenChanged);
-    connect(m_window, &QWindow::heightChanged, this, &Utils::isWidescreenChanged);
-}
-
-bool Utils::isWidescreen() const
-{
-    return m_window->width() > m_window->height();
 }
 
 bool Utils::qtAbove69() const
