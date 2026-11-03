@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-03 00:54+0000\n"
 "PO-Revision-Date: 2026-03-13 13:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -48,7 +48,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ógild miðlaskrá"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1121
+#: database.cpp:897 utils/updatefeedjob.cpp:1123
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -102,14 +102,14 @@ msgstr "EÐA"
 msgid "Open"
 msgstr "Opna"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:446
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:47
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:446
 #, kde-format
 msgid "Play"
 msgstr "Spila"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:469
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:469
 #, kde-format
 msgid "Pause"
 msgstr "Á pásu"
@@ -289,7 +289,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Dagsetning: elsta fyrst"
 
-#: models/chaptermodel.cpp:195
+#: models/chaptermodel.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -405,6 +405,13 @@ msgstr "Bæta við nýju hlaðvarpi"
 msgid "Url:"
 msgstr "Slóð:"
 
+#: qml/ChapterDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@title of dialog box showing a list of chapters"
+msgid "Chapters"
+msgstr "Kaflar"
+
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgctxt "@info:status"
@@ -448,95 +455,91 @@ msgstr "Leyfa einu sinni"
 msgid "Always Allow"
 msgstr "Leyfa alltaf"
 
-#: qml/Desktop/DesktopPlayerControls.qml:127
+#: qml/Desktop/DesktopPlayerControls.qml:131
 #, kde-format
 msgid "Seek backward"
 msgstr "Leita afturábak"
 
-#: qml/Desktop/DesktopPlayerControls.qml:146
+#: qml/Desktop/DesktopPlayerControls.qml:150
 #, kde-format
 msgid "Seek forward"
 msgstr "Leita áfram"
 
-#: qml/Desktop/DesktopPlayerControls.qml:155
+#: qml/Desktop/DesktopPlayerControls.qml:159
 #, kde-format
 msgid "Skip forward"
 msgstr "Hoppa áfram"
 
-#: qml/Desktop/DesktopPlayerControls.qml:175
+#: qml/Desktop/DesktopPlayerControls.qml:179
 #, kde-format
 msgid "Playback rate:"
 msgstr "Spilunarhraði:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:230
+#: qml/Desktop/DesktopPlayerControls.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Sýna lista yfir kafla"
 
-#: qml/Desktop/DesktopPlayerControls.qml:241
+#: qml/Desktop/DesktopPlayerControls.qml:245
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Sýna upplýsingar um þátt"
 
-#: qml/Desktop/DesktopPlayerControls.qml:252
+#: qml/Desktop/DesktopPlayerControls.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Opna stillingar fyrir tímastillt stopp"
 
-#: qml/Desktop/DesktopPlayerControls.qml:266
+#: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Opna hljóðstyrkstillingar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:298
+#: qml/Desktop/DesktopPlayerControls.qml:302
 #: qml/Mobile/MobilePlayerControls.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Þagga/afþagga"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Sýna meira"
 
-#: qml/Desktop/DesktopPlayerControls.qml:343
-#, kde-format
-msgctxt "@action:button"
+#: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Kaflar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:351
+#: qml/Desktop/DesktopPlayerControls.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Sýna upplýsingar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Tímastillt stopp"
 
-#: qml/Desktop/DesktopPlayerControls.qml:394
-#, kde-format
-msgid "Chapters"
-msgstr "Kaflar"
-
-#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:183
+#: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
+#: qml/Mobile/MobilePlayerControls.qml:187
 #, kde-format
 msgid "No Episode Title"
 msgstr "Enginn titill þáttar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:193
+#: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
+#: qml/Mobile/MobilePlayerControls.qml:197
 #, kde-format
 msgid "No episode loaded"
 msgstr "Engum þætti hlaðið inn"
@@ -613,25 +616,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Straumspila"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Bæta við biðröð"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Fjarlægja úr biðröð"
 
-#: qml/EntryPage.qml:157
+#: qml/EntryPage.qml:163
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Eyða niðurhali"
 
-#: qml/EntryPage.qml:165
+#: qml/EntryPage.qml:171
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -639,31 +642,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Endurstilla spilunarstað"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Merkja sem óspilað"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Merkja sem spilað"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Fjarlægja \"Nýtt\"-merki"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Merkja sem \"Nýtt\""
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:368
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:368
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -671,25 +674,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Fjarlægja úr eftirlætum"
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:358
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:358
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Bæta við eftirlæti"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:202
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Opna hlaðvarp"
 
-#: qml/EntryPage.qml:202
+#: qml/EntryPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Afrita niðurhalstengil þáttar"
 
-#: qml/EntryPage.qml:208
+#: qml/EntryPage.qml:214
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1181,22 +1184,22 @@ msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Ekki er leyft sem stendur að sækja hlaðvörp á gagnamældum tengingum"
 
-#: qml/Mobile/MobilePlayerControls.qml:31
+#: qml/Mobile/MobilePlayerControls.qml:35
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Engum þætti hlaðið inn"
 
-#: qml/Mobile/MobilePlayerControls.qml:153
+#: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No Title"
 msgstr "Enginn titill"
 
-#: qml/Mobile/MobilePlayerControls.qml:161
+#: qml/Mobile/MobilePlayerControls.qml:165
 #, kde-format
 msgid "No podcast title"
 msgstr "Enginn titill á hlaðvarpi"
 
-#: qml/Mobile/MobilePlayerControls.qml:224
+#: qml/Mobile/MobilePlayerControls.qml:228
 #, kde-format
 msgid "No chapters found"
 msgstr "Engir kaflar fundust"
@@ -2560,12 +2563,16 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Hætta"
 
-#: utils/updatefeedjob.cpp:179
+#: utils/updatefeedjob.cpp:181
 #, fuzzy, kde-format
 #| msgid "Error moving storage path"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Villa við að færa gagnageymsluslóð"
+
+#~ msgctxt "@action:button"
+#~ msgid "Chapters"
+#~ msgstr "Kaflar"
 
 #~ msgctxt "@title Form header for settings related podcast updates"
 #~ msgid "Podcast update settings"

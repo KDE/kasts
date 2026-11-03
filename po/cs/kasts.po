@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-03 00:54+0000\n"
 "PO-Revision-Date: 2026-10-31 11:44+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Neplatný mediální soubor pro epizodu: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1121
+#: database.cpp:897 utils/updatefeedjob.cpp:1123
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -97,14 +97,14 @@ msgstr "NEBO"
 msgid "Open"
 msgstr "Otevřít"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:446
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:47
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:446
 #, kde-format
 msgid "Play"
 msgstr "Přehrát"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:469
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:469
 #, kde-format
 msgid "Pause"
 msgstr "Pozastavit"
@@ -280,7 +280,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Datum: starší dříve"
 
-#: models/chaptermodel.cpp:195
+#: models/chaptermodel.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -396,6 +396,13 @@ msgstr "Přidat nový podcast"
 msgid "Url:"
 msgstr "Url:"
 
+#: qml/ChapterDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@title of dialog box showing a list of chapters"
+msgid "Chapters"
+msgstr "Kapitoly"
+
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgctxt "@info:status"
@@ -440,95 +447,91 @@ msgstr "Povolit jednou"
 msgid "Always Allow"
 msgstr "Vždy povolit"
 
-#: qml/Desktop/DesktopPlayerControls.qml:127
+#: qml/Desktop/DesktopPlayerControls.qml:131
 #, kde-format
 msgid "Seek backward"
 msgstr "Zpětný posun"
 
-#: qml/Desktop/DesktopPlayerControls.qml:146
+#: qml/Desktop/DesktopPlayerControls.qml:150
 #, kde-format
 msgid "Seek forward"
 msgstr "Posun vpřed"
 
-#: qml/Desktop/DesktopPlayerControls.qml:155
+#: qml/Desktop/DesktopPlayerControls.qml:159
 #, kde-format
 msgid "Skip forward"
 msgstr "Přeskočit vpřed"
 
-#: qml/Desktop/DesktopPlayerControls.qml:175
+#: qml/Desktop/DesktopPlayerControls.qml:179
 #, kde-format
 msgid "Playback rate:"
 msgstr "Rychlost přehrávání:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:230
+#: qml/Desktop/DesktopPlayerControls.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Zobrazit seznam kapitol"
 
-#: qml/Desktop/DesktopPlayerControls.qml:241
+#: qml/Desktop/DesktopPlayerControls.qml:245
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Zobrazit informace o epizodě"
 
-#: qml/Desktop/DesktopPlayerControls.qml:252
+#: qml/Desktop/DesktopPlayerControls.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Otevřít nastavení časování uspání"
 
-#: qml/Desktop/DesktopPlayerControls.qml:266
+#: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Otevřít nastavení hlasitosti"
 
-#: qml/Desktop/DesktopPlayerControls.qml:298
+#: qml/Desktop/DesktopPlayerControls.qml:302
 #: qml/Mobile/MobilePlayerControls.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Přepnout ztlumení"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Ukázat víc"
 
-#: qml/Desktop/DesktopPlayerControls.qml:343
-#, kde-format
-msgctxt "@action:button"
+#: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Kapitoly"
 
-#: qml/Desktop/DesktopPlayerControls.qml:351
+#: qml/Desktop/DesktopPlayerControls.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Zobrazit informace"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Časovač uspání"
 
-#: qml/Desktop/DesktopPlayerControls.qml:394
-#, kde-format
-msgid "Chapters"
-msgstr "Kapitoly"
-
-#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:183
+#: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
+#: qml/Mobile/MobilePlayerControls.qml:187
 #, kde-format
 msgid "No Episode Title"
 msgstr "Žádný název epizody"
 
-#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:193
+#: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
+#: qml/Mobile/MobilePlayerControls.qml:197
 #, kde-format
 msgid "No episode loaded"
 msgstr "Žádná epizoda nebyla načtena"
@@ -604,25 +607,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Streamovat"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Zařadit do fronty"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Odstranit z fronty"
 
-#: qml/EntryPage.qml:157
+#: qml/EntryPage.qml:163
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Smazat stahování"
 
-#: qml/EntryPage.qml:165
+#: qml/EntryPage.qml:171
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -630,31 +633,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Resetovat polohu přehrávání"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Označit jako nepřehrané"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Označit jako přehrané"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Odstranit \"Nový\" popisek"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Označit jako \"Nové\""
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:368
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:368
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -662,25 +665,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Odstranit z oblíbených"
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:358
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:358
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Přidat do oblíbených"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:202
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Otevřít podcast"
 
-#: qml/EntryPage.qml:202
+#: qml/EntryPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Zkopírovat odkaz pro stahování epizod"
 
-#: qml/EntryPage.qml:208
+#: qml/EntryPage.qml:214
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1175,22 +1178,22 @@ msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Stahování podcastů při použití měřeného síťového připojení není povoleno"
 
-#: qml/Mobile/MobilePlayerControls.qml:31
+#: qml/Mobile/MobilePlayerControls.qml:35
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Žádná epizoda nebyla načtena"
 
-#: qml/Mobile/MobilePlayerControls.qml:153
+#: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No Title"
 msgstr "Bez názvu"
 
-#: qml/Mobile/MobilePlayerControls.qml:161
+#: qml/Mobile/MobilePlayerControls.qml:165
 #, kde-format
 msgid "No podcast title"
 msgstr "Žádný název podcastu"
 
-#: qml/Mobile/MobilePlayerControls.qml:224
+#: qml/Mobile/MobilePlayerControls.qml:228
 #, kde-format
 msgid "No chapters found"
 msgstr "Nebyly nalezeny žádné kapitoly"
@@ -2511,11 +2514,15 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Ukončit"
 
-#: utils/updatefeedjob.cpp:179
+#: utils/updatefeedjob.cpp:181
 #, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Chyba při načítání podcastu: %1; chyba: %2"
+
+#~ msgctxt "@action:button"
+#~ msgid "Chapters"
+#~ msgstr "Kapitoly"
 
 #~ msgctxt "@title Form header for settings related podcast updates"
 #~ msgid "Podcast update settings"

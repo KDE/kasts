@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-03 00:54+0000\n"
 "PO-Revision-Date: 2026-09-22 01:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,7 +54,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "集數媒體無效：%1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1121
+#: database.cpp:897 utils/updatefeedjob.cpp:1123
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -111,14 +111,14 @@ msgstr "或"
 msgid "Open"
 msgstr "開啟"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:446
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:47
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:446
 #, kde-format
 msgid "Play"
 msgstr "播放"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:469
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:469
 #, kde-format
 msgid "Pause"
 msgstr "暫停"
@@ -294,7 +294,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "日期：舊的在前"
 
-#: models/chaptermodel.cpp:195
+#: models/chaptermodel.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -410,6 +410,13 @@ msgstr "新增 Podcast"
 msgid "Url:"
 msgstr "網址："
 
+#: qml/ChapterDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@title of dialog box showing a list of chapters"
+msgid "Chapters"
+msgstr "章節"
+
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgctxt "@info:status"
@@ -451,95 +458,91 @@ msgstr "允許一次"
 msgid "Always Allow"
 msgstr "總是允許"
 
-#: qml/Desktop/DesktopPlayerControls.qml:127
+#: qml/Desktop/DesktopPlayerControls.qml:131
 #, kde-format
 msgid "Seek backward"
 msgstr "倒轉"
 
-#: qml/Desktop/DesktopPlayerControls.qml:146
+#: qml/Desktop/DesktopPlayerControls.qml:150
 #, kde-format
 msgid "Seek forward"
 msgstr "快轉"
 
-#: qml/Desktop/DesktopPlayerControls.qml:155
+#: qml/Desktop/DesktopPlayerControls.qml:159
 #, kde-format
 msgid "Skip forward"
 msgstr "快轉"
 
-#: qml/Desktop/DesktopPlayerControls.qml:175
+#: qml/Desktop/DesktopPlayerControls.qml:179
 #, kde-format
 msgid "Playback rate:"
 msgstr "播放速度："
 
-#: qml/Desktop/DesktopPlayerControls.qml:230
+#: qml/Desktop/DesktopPlayerControls.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "顯示章節列表"
 
-#: qml/Desktop/DesktopPlayerControls.qml:241
+#: qml/Desktop/DesktopPlayerControls.qml:245
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "顯示本集資訊"
 
-#: qml/Desktop/DesktopPlayerControls.qml:252
+#: qml/Desktop/DesktopPlayerControls.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "開啟睡眠計時器設定"
 
-#: qml/Desktop/DesktopPlayerControls.qml:266
+#: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "開啟音量設定"
 
-#: qml/Desktop/DesktopPlayerControls.qml:298
+#: qml/Desktop/DesktopPlayerControls.qml:302
 #: qml/Mobile/MobilePlayerControls.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "切換靜音"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "顯示更多"
 
-#: qml/Desktop/DesktopPlayerControls.qml:343
-#, kde-format
-msgctxt "@action:button"
+#: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "章節"
 
-#: qml/Desktop/DesktopPlayerControls.qml:351
+#: qml/Desktop/DesktopPlayerControls.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "顯示資訊"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "睡眠計時器"
 
-#: qml/Desktop/DesktopPlayerControls.qml:394
-#, kde-format
-msgid "Chapters"
-msgstr "章節"
-
-#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:183
+#: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
+#: qml/Mobile/MobilePlayerControls.qml:187
 #, kde-format
 msgid "No Episode Title"
 msgstr "沒有集數標題"
 
-#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:193
+#: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
+#: qml/Mobile/MobilePlayerControls.qml:197
 #, kde-format
 msgid "No episode loaded"
 msgstr "未載入集數"
@@ -616,25 +619,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "串流"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "加到佇列"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "從佇列中移除"
 
-#: qml/EntryPage.qml:157
+#: qml/EntryPage.qml:163
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "刪除下載"
 
-#: qml/EntryPage.qml:165
+#: qml/EntryPage.qml:171
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -642,31 +645,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "重設播放位置"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "標記為未播放"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "標記為已播放"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "移除「新的」標記"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "標記為「新的」"
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:368
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:368
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -674,25 +677,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "從最愛中移除"
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:358
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:358
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "新增到最愛"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:202
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "開啟 Podcast"
 
-#: qml/EntryPage.qml:202
+#: qml/EntryPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "複製集數下載連結"
 
-#: qml/EntryPage.qml:208
+#: qml/EntryPage.qml:214
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1174,22 +1177,22 @@ msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "目前未允許透過計量連線下載 Podcast"
 
-#: qml/Mobile/MobilePlayerControls.qml:31
+#: qml/Mobile/MobilePlayerControls.qml:35
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "未載入集數"
 
-#: qml/Mobile/MobilePlayerControls.qml:153
+#: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No Title"
 msgstr "無標題"
 
-#: qml/Mobile/MobilePlayerControls.qml:161
+#: qml/Mobile/MobilePlayerControls.qml:165
 #, kde-format
 msgid "No podcast title"
 msgstr "無 Podcast 標題"
 
-#: qml/Mobile/MobilePlayerControls.qml:224
+#: qml/Mobile/MobilePlayerControls.qml:228
 #, kde-format
 msgid "No chapters found"
 msgstr "未找到章節"
@@ -2548,13 +2551,17 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "離開"
 
-#: utils/updatefeedjob.cpp:179
+#: utils/updatefeedjob.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Error retrieving podcast: %1; error: %2"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "取得 Podcast 發生錯誤：%1；錯誤：%2"
+
+#~ msgctxt "@action:button"
+#~ msgid "Chapters"
+#~ msgstr "章節"
 
 #~ msgctxt "@title Form header for settings related podcast updates"
 #~ msgid "Podcast update settings"

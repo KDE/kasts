@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-30 00:53+0000\n"
+"POT-Creation-Date: 2026-11-03 00:54+0000\n"
 "PO-Revision-Date: 2026-09-17 21:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ogiltig media för avsnitt: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1121
+#: database.cpp:897 utils/updatefeedjob.cpp:1123
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -105,14 +105,14 @@ msgstr "ELLER"
 msgid "Open"
 msgstr "Öppna"
 
-#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:49
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:446
+#: kmediasession/example-app/qml/Main.qml:103 qml/ChapterListDelegate.qml:47
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:446
 #, kde-format
 msgid "Play"
 msgstr "Spela"
 
 #: kmediasession/example-app/qml/Main.qml:111
-#: qml/Desktop/DesktopPlayerControls.qml:137 qml/GenericEntryDelegate.qml:469
+#: qml/Desktop/DesktopPlayerControls.qml:141 qml/GenericEntryDelegate.qml:469
 #, kde-format
 msgid "Pause"
 msgstr "Paus"
@@ -288,7 +288,7 @@ msgctxt "@label:chooser Sort episodes by increasing date"
 msgid "Date: older first"
 msgstr "Datum: äldre först"
 
-#: models/chaptermodel.cpp:195
+#: models/chaptermodel.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Unnamed chapter"
@@ -404,6 +404,13 @@ msgstr "Lägg till ny poddsändning"
 msgid "Url:"
 msgstr "Webbadress:"
 
+#: qml/ChapterDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@title of dialog box showing a list of chapters"
+msgid "Chapters"
+msgstr "Kapitel"
+
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
 msgctxt "@info:status"
@@ -447,95 +454,91 @@ msgstr "Tillåt en gång"
 msgid "Always Allow"
 msgstr "Tillåt alltid"
 
-#: qml/Desktop/DesktopPlayerControls.qml:127
+#: qml/Desktop/DesktopPlayerControls.qml:131
 #, kde-format
 msgid "Seek backward"
 msgstr "Sök bakåt"
 
-#: qml/Desktop/DesktopPlayerControls.qml:146
+#: qml/Desktop/DesktopPlayerControls.qml:150
 #, kde-format
 msgid "Seek forward"
 msgstr "Sök framåt"
 
-#: qml/Desktop/DesktopPlayerControls.qml:155
+#: qml/Desktop/DesktopPlayerControls.qml:159
 #, kde-format
 msgid "Skip forward"
 msgstr "Hoppa framåt"
 
-#: qml/Desktop/DesktopPlayerControls.qml:175
+#: qml/Desktop/DesktopPlayerControls.qml:179
 #, kde-format
 msgid "Playback rate:"
 msgstr "Uppspelningshastighet:"
 
-#: qml/Desktop/DesktopPlayerControls.qml:230
+#: qml/Desktop/DesktopPlayerControls.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Show chapter list"
 msgstr "Visa kapitellista"
 
-#: qml/Desktop/DesktopPlayerControls.qml:241
+#: qml/Desktop/DesktopPlayerControls.qml:245
 #, kde-format
 msgctxt "@action:button"
 msgid "Show episode info"
 msgstr "Visa avsnittsinformation"
 
-#: qml/Desktop/DesktopPlayerControls.qml:252
+#: qml/Desktop/DesktopPlayerControls.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open sleep timer settings"
 msgstr "Öppna sovtidsinställningar"
 
-#: qml/Desktop/DesktopPlayerControls.qml:266
+#: qml/Desktop/DesktopPlayerControls.qml:270
 #: qml/Mobile/MobilePlayerControls.qml:351
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Öppna volyminställningarna"
 
-#: qml/Desktop/DesktopPlayerControls.qml:298
+#: qml/Desktop/DesktopPlayerControls.qml:302
 #: qml/Mobile/MobilePlayerControls.qml:381
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
 msgstr "Ändra tyst"
 
-#: qml/Desktop/DesktopPlayerControls.qml:314
+#: qml/Desktop/DesktopPlayerControls.qml:318
 #, kde-format
 msgctxt "@action:button"
 msgid "Show more"
 msgstr "Visa fler"
 
-#: qml/Desktop/DesktopPlayerControls.qml:343
-#, kde-format
-msgctxt "@action:button"
+#: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
+#, fuzzy, kde-format
+#| msgid "Chapters"
+msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Kapitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:351
+#: qml/Desktop/DesktopPlayerControls.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Info"
 msgstr "Visa information"
 
-#: qml/Desktop/DesktopPlayerControls.qml:361
+#: qml/Desktop/DesktopPlayerControls.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Sleep Timer"
 msgstr "Sovtid"
 
-#: qml/Desktop/DesktopPlayerControls.qml:394
-#, kde-format
-msgid "Chapters"
-msgstr "Kapitel"
-
-#: qml/Desktop/DesktopPlayerControls.qml:414 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:183
+#: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
+#: qml/Mobile/MobilePlayerControls.qml:187
 #, kde-format
 msgid "No Episode Title"
 msgstr "Ingen avsnittstitel"
 
-#: qml/Desktop/DesktopPlayerControls.qml:419 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:193
+#: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
+#: qml/Mobile/MobilePlayerControls.qml:197
 #, kde-format
 msgid "No episode loaded"
 msgstr "Inget avsnitt inläst"
@@ -612,25 +615,25 @@ msgctxt ""
 msgid "Stream"
 msgstr "Ström"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to add an episode to the play queue"
 msgid "Add to Queue"
 msgstr "Lägg till i kö"
 
-#: qml/EntryPage.qml:141
+#: qml/EntryPage.qml:147
 #, kde-format
 msgctxt "@action:intoolbar Button to remove an episode from the play queue"
 msgid "Remove from Queue"
 msgstr "Ta bort från kö"
 
-#: qml/EntryPage.qml:157
+#: qml/EntryPage.qml:163
 #, kde-format
 msgctxt "@action:intoolbar Button to remove the downloaded episode audio file"
 msgid "Delete Download"
 msgstr "Ta bort nerladdning"
 
-#: qml/EntryPage.qml:165
+#: qml/EntryPage.qml:171
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to reset the play position of an episode to the "
@@ -638,31 +641,31 @@ msgctxt ""
 msgid "Reset Play Position"
 msgstr "Nollställ uppspelningsposition"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark eposide as not played"
 msgid "Mark as Unplayed"
 msgstr "Markera som ospelad"
 
-#: qml/EntryPage.qml:171
+#: qml/EntryPage.qml:177
 #, kde-format
 msgctxt "@action:intoolbar Button to mark episode as played"
 msgid "Mark as Played"
 msgstr "Markera som spelad"
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Remove \"New\" Label"
 msgstr "Ta bort beteckningen \"ny\""
 
-#: qml/EntryPage.qml:179
+#: qml/EntryPage.qml:185
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Beteckna som \"ny\""
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:368
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:368
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -670,25 +673,25 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Ta bort från favoriter"
 
-#: qml/EntryPage.qml:187 qml/GenericEntryListView.qml:358
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:358
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
 msgstr "Lägg till i favoriter"
 
-#: qml/EntryPage.qml:196
+#: qml/EntryPage.qml:202
 #, kde-format
 msgctxt "@action:intoolbar Button to open the podcast URL in browser"
 msgid "Open Podcast"
 msgstr "Öppna poddsändning"
 
-#: qml/EntryPage.qml:202
+#: qml/EntryPage.qml:208
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Episode Download URL"
 msgstr "Kopiera webbadress för nerladdning av avsnitt"
 
-#: qml/EntryPage.qml:208
+#: qml/EntryPage.qml:214
 #, kde-format
 msgctxt "@info:status"
 msgid "Link Copied"
@@ -1179,22 +1182,22 @@ msgstr ""
 "Nerladdningar av poddsändningar tillåts för närvarande inte för uppmätta "
 "anslutningar"
 
-#: qml/Mobile/MobilePlayerControls.qml:31
+#: qml/Mobile/MobilePlayerControls.qml:35
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Inget avsnitt inläst"
 
-#: qml/Mobile/MobilePlayerControls.qml:153
+#: qml/Mobile/MobilePlayerControls.qml:157
 #, kde-format
 msgid "No Title"
 msgstr "Ingen titel"
 
-#: qml/Mobile/MobilePlayerControls.qml:161
+#: qml/Mobile/MobilePlayerControls.qml:165
 #, kde-format
 msgid "No podcast title"
 msgstr "Ingen poddsändningstitel"
 
-#: qml/Mobile/MobilePlayerControls.qml:224
+#: qml/Mobile/MobilePlayerControls.qml:228
 #, kde-format
 msgid "No chapters found"
 msgstr "Inga kapitel hittades"
@@ -2566,13 +2569,17 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: utils/updatefeedjob.cpp:179
+#: utils/updatefeedjob.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Error retrieving podcast: %1; error: %2"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Fel vid hämtning av poddsändning: %1, fel: %2"
+
+#~ msgctxt "@action:button"
+#~ msgid "Chapters"
+#~ msgstr "Kapitel"
 
 #~ msgctxt "@title Form header for settings related podcast updates"
 #~ msgid "Podcast update settings"
