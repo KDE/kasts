@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
-"PO-Revision-Date: 2026-10-30 06:15+0100\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"PO-Revision-Date: 2026-11-03 07:09+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -398,8 +398,7 @@ msgid "Url:"
 msgstr "Naslov URL:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Poglavja"
@@ -487,14 +486,14 @@ msgid "Open sleep timer settings"
 msgstr "Odpri nastavitve časovnika spanja"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:351
+#: qml/Mobile/MobilePlayerControls.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Odpri nastavitve glasnosti"
 
 #: qml/Desktop/DesktopPlayerControls.qml:302
-#: qml/Mobile/MobilePlayerControls.qml:381
+#: qml/Mobile/MobilePlayerControls.qml:382
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -507,8 +506,7 @@ msgid "Show more"
 msgstr "Pokaži več"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Poglavja"
@@ -526,18 +524,18 @@ msgid "Sleep Timer"
 msgstr "Časomer spanja"
 
 #: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:187
+#: qml/Mobile/MobilePlayerControls.qml:188
 #, kde-format
 msgid "No Episode Title"
 msgstr "Ni naslova epizode"
 
 #: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:197
+#: qml/Mobile/MobilePlayerControls.qml:198
 #, kde-format
 msgid "No episode loaded"
 msgstr "Nobene epizode ni naložene"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -550,16 +548,18 @@ msgid "Search podcastindex.org…"
 msgstr "Preišči podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "Poišči"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Naroči se"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Naročen"
@@ -690,7 +690,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Povezava kopirana"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -866,7 +866,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podrobnosti spletne oddaje"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1143,7 +1143,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Išči v:"
 
-#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1152,13 +1152,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "Čakalna vrsta"
 
-#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:195
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1168,7 +1168,7 @@ msgstr[1] "Posodobljeno %2 od %1 spletne oddaje"
 msgstr[2] "Posodobljeno %2 od %1 spletnih oddaj"
 msgstr[3] "Posodobljeno %2 od %1 spletnih oddaj"
 
-#: qml/Main.qml:218
+#: qml/Main.qml:219
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1178,28 +1178,28 @@ msgstr[1] "Premaknjeno %2 od %1 datoteke"
 msgstr[2] "Premaknjeno %2 od %1 datotek"
 msgstr[3] "Premaknjeno %2 od %1 datotek"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Prejemi spletnih oddaj trenutno niso dovoljeni pri merjenih povezavah"
 
-#: qml/Mobile/MobilePlayerControls.qml:35
+#: qml/Mobile/MobilePlayerControls.qml:36
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Nobene epizode ni naložene"
 
-#: qml/Mobile/MobilePlayerControls.qml:157
+#: qml/Mobile/MobilePlayerControls.qml:158
 #, kde-format
 msgid "No Title"
 msgstr "Ni naslova"
 
-#: qml/Mobile/MobilePlayerControls.qml:165
+#: qml/Mobile/MobilePlayerControls.qml:166
 #, kde-format
 msgid "No podcast title"
 msgstr "Ni naslova spletne oddaje"
 
-#: qml/Mobile/MobilePlayerControls.qml:228
+#: qml/Mobile/MobilePlayerControls.qml:229
 #, kde-format
 msgid "No chapters found"
 msgstr "Ni najdenih poglavij"

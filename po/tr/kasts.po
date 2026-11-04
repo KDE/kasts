@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
-"PO-Revision-Date: 2026-10-20 19:36+0300\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"PO-Revision-Date: 2026-11-03 21:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -397,8 +397,7 @@ msgid "Url:"
 msgstr "URL:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Fasıllar"
@@ -487,14 +486,14 @@ msgid "Open sleep timer settings"
 msgstr "Uyku sayacı ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:351
+#: qml/Mobile/MobilePlayerControls.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Ses düzeyi ayarlarını aç"
 
 #: qml/Desktop/DesktopPlayerControls.qml:302
-#: qml/Mobile/MobilePlayerControls.qml:381
+#: qml/Mobile/MobilePlayerControls.qml:382
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -507,8 +506,7 @@ msgid "Show more"
 msgstr "Daha fazla göster"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Fasıllar"
@@ -526,18 +524,18 @@ msgid "Sleep Timer"
 msgstr "Uyku Sayacı"
 
 #: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:187
+#: qml/Mobile/MobilePlayerControls.qml:188
 #, kde-format
 msgid "No Episode Title"
 msgstr "Bölüm başlığı yok"
 
 #: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:197
+#: qml/Mobile/MobilePlayerControls.qml:198
 #, kde-format
 msgid "No episode loaded"
 msgstr "Yüklü bölüm yok"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -550,16 +548,18 @@ msgid "Search podcastindex.org…"
 msgstr "podcastindex.org’da ara…"
 
 #: qml/DiscoverPage.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "Ara"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
@@ -690,7 +690,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Bağlantı Kopyalandı"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -860,7 +860,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Pod Yayını Ayrıntıları"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1135,7 +1135,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Şurada ara:"
 
-#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1144,13 +1144,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "Kuyruk"
 
-#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:195
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1158,7 +1158,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2/%1 pod yayını güncellendi"
 msgstr[1] "%2/%1 pod yayını güncellendi"
 
-#: qml/Main.qml:218
+#: qml/Main.qml:219
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1166,29 +1166,29 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2/%1 Dosya Taşındı"
 msgstr[1] "%2/%1 Dosya Taşındı"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr ""
 "Şu anda ölçülü bağlantılar üzerinden pod yayını indirmelerine izin verilmiyor"
 
-#: qml/Mobile/MobilePlayerControls.qml:35
+#: qml/Mobile/MobilePlayerControls.qml:36
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Yüklü bölüm yok"
 
-#: qml/Mobile/MobilePlayerControls.qml:157
+#: qml/Mobile/MobilePlayerControls.qml:158
 #, kde-format
 msgid "No Title"
 msgstr "Başlık yok"
 
-#: qml/Mobile/MobilePlayerControls.qml:165
+#: qml/Mobile/MobilePlayerControls.qml:166
 #, kde-format
 msgid "No podcast title"
 msgstr "Pod yayını başlığı yok"
 
-#: qml/Mobile/MobilePlayerControls.qml:228
+#: qml/Mobile/MobilePlayerControls.qml:229
 #, kde-format
 msgid "No chapters found"
 msgstr "Bulunan fasıl yok"
@@ -1268,12 +1268,10 @@ msgid "Queue is empty"
 msgstr "Kuyruk boş"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Görünüş"
+msgstr "Görünüş ve Tema"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1314,12 +1312,10 @@ msgid "Color theme"
 msgstr "Renk teması"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Abonelikler"
+msgstr "Abonelik Bilgisi"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1328,13 +1324,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Abonelik görünümünde her zaman pod yayını başlıklarını göster"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Bilgi"
+msgstr "Bölüm Bilgisi"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1429,12 +1422,10 @@ msgid "Font size"
 msgstr "Yazıtipi puntosu"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Bölüm indirmeye izin ver"
+msgstr "Bölüm İndirme Tercihleri"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1447,6 +1438,8 @@ msgstr "İndirme yerine akışı yeğle"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Bölüm listeleri, indirme düğmeleri yerine akış başlatma düğmeleri "
+"gösterecektir."
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1455,12 +1448,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "En çok paralel bölüm indirme sayısı"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Kendiliğinden Eşzamanlama"
+msgstr "Otomatikleştirilmiş Eylemler"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1517,7 +1508,7 @@ msgstr "Yeni bölümleri kendiliğinden indir"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Her bir yenilemede tam abonelik işlemesini zorla"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1526,6 +1517,9 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Devre dışı bırakıldığında (öntanımlı davranış), abonelikler yalnızca son "
+"güncellemeden bu yana abonelik beslemesinde bir değişiklik olmuşsa "
+"işlenirler."
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1758,16 +1752,13 @@ msgid "Appearance"
 msgstr "Görünüş"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Çalma hızı:"
+msgstr "Çalma"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "İndirmeler"
@@ -2515,9 +2506,7 @@ msgid "Quit"
 msgstr "Çık"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Pod yayını alınamadı: %1; hata: %2"

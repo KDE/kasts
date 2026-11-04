@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
-"PO-Revision-Date: 2026-10-15 17:22+0300\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"PO-Revision-Date: 2026-11-03 20:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -397,11 +397,10 @@ msgid "Url:"
 msgstr "כתובת:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
-msgstr "קטעים"
+msgstr "פרקים"
 
 #: qml/ConnectionCheckAction.qml:21
 #, kde-format
@@ -483,14 +482,14 @@ msgid "Open sleep timer settings"
 msgstr "פתיחת הגדרות מתזמן שינה"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:351
+#: qml/Mobile/MobilePlayerControls.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "פתיחת הגדרות עוצמת שמע"
 
 #: qml/Desktop/DesktopPlayerControls.qml:302
-#: qml/Mobile/MobilePlayerControls.qml:381
+#: qml/Mobile/MobilePlayerControls.qml:382
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -503,11 +502,10 @@ msgid "Show more"
 msgstr "להציג עוד"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
-msgstr "קטעים"
+msgstr "פרקים"
 
 #: qml/Desktop/DesktopPlayerControls.qml:355
 #, kde-format
@@ -522,18 +520,18 @@ msgid "Sleep Timer"
 msgstr "מתזמן שינה"
 
 #: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:187
+#: qml/Mobile/MobilePlayerControls.qml:188
 #, kde-format
 msgid "No Episode Title"
 msgstr "אין כותרת פרק"
 
 #: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:197
+#: qml/Mobile/MobilePlayerControls.qml:198
 #, kde-format
 msgid "No episode loaded"
 msgstr "לא נטען פרק"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -546,16 +544,18 @@ msgid "Search podcastindex.org…"
 msgstr "חיפוש ב־podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "חיפוש"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "הרשמה"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "נרשמת"
@@ -686,7 +686,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "הקישור הועתק"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -862,7 +862,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "פרטי הסכת"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1139,7 +1139,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "חיפוש ב־:"
 
-#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1148,13 +1148,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "תור"
 
-#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:195
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1164,7 +1164,7 @@ msgstr[1] "עודכנו %1 מתוך שני הסכתים"
 msgstr[2] "עודכנו %2 מתוך %1 הסכתים"
 msgstr[3] "עודכנו %2 מתוך %1 הסכתים"
 
-#: qml/Main.qml:218
+#: qml/Main.qml:219
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1174,28 +1174,28 @@ msgstr[1] "הועברו %2 מתוך שני קבצים"
 msgstr[2] "הועברו %2 מתוך %1 קבצים"
 msgstr[3] "הועברו %2 מתוך %1 קבצים"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "הורדות הסכתים אסורות כרגע דרך חיבורים מוגבלים"
 
-#: qml/Mobile/MobilePlayerControls.qml:35
+#: qml/Mobile/MobilePlayerControls.qml:36
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "לא נטען פרק"
 
-#: qml/Mobile/MobilePlayerControls.qml:157
+#: qml/Mobile/MobilePlayerControls.qml:158
 #, kde-format
 msgid "No Title"
 msgstr "אין כותרת"
 
-#: qml/Mobile/MobilePlayerControls.qml:165
+#: qml/Mobile/MobilePlayerControls.qml:166
 #, kde-format
 msgid "No podcast title"
 msgstr "אין כותרת להסכת"
 
-#: qml/Mobile/MobilePlayerControls.qml:228
+#: qml/Mobile/MobilePlayerControls.qml:229
 #, kde-format
 msgid "No chapters found"
 msgstr "לא נמצאו קטעים"
@@ -1277,12 +1277,10 @@ msgid "Queue is empty"
 msgstr "התור ריק"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "מראה"
+msgstr "מראה וערכות עיצוב"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1323,12 +1321,10 @@ msgid "Color theme"
 msgstr "ערכת צבעים"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "מינויים"
+msgstr "פרטי מינוי"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1337,13 +1333,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "תמיד להציג את כותרות ההסכתים בתצוגת המינויים"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "פרטים"
+msgstr "פרטי פרק"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1390,12 +1383,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "למזער לשורת המערכת במקום לסגור"
 
 #: qml/Settings/AppearanceSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "למזער לשורת המערכת במקום לסגור"
+msgstr "למזער לשורת המערכת עם העלייה"
 
 #: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
@@ -1440,12 +1431,10 @@ msgid "Font size"
 msgstr "גודל כתב"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "לאפשר הורדת פרקים"
+msgstr "העדפות הורדת פרקים"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1457,7 +1446,7 @@ msgstr "עדיף הזרמה על פני הורדה"
 #, kde-format
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
-msgstr ""
+msgstr "רשימת הפרקים מציגה כפתורי הזרמה במקום כפתורי הורדה"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1466,12 +1455,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "מספר הורדות הפרקים המקבילות המרבי"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "מסתנכרן אוטומטית"
+msgstr "פעולות אוטומטיות"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1532,7 +1519,7 @@ msgstr "הורדת פרקים חדשים אוטומטית"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "אילוץ עיבוד מינויים מלא בכל ריענון"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1541,6 +1528,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"כשהאפשרות כבויה (ברירת מחדל), המינויים עוברים עיבוד רק אם ערוץ המינוי השתנה "
+"מאז העדכון האחרון"
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1771,16 +1760,13 @@ msgid "Appearance"
 msgstr "מראה"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "קצב נגינה:"
+msgstr "נגינה"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "הורדות"
@@ -2530,12 +2516,10 @@ msgid "Quit"
 msgstr "יציאה"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
-msgstr "שגיאה במשיכת ההסכת %1, תוכן השגיאה: %2"
+msgstr "שגיאה במשיכת הסכת: %1; שגיאה: %2"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

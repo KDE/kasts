@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-03 00:54+0000\n"
-"PO-Revision-Date: 2026-10-30 13:30+0100\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"PO-Revision-Date: 2026-11-03 11:26+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -397,8 +397,7 @@ msgid "Url:"
 msgstr "URL:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Hoofdstukken"
@@ -485,14 +484,14 @@ msgid "Open sleep timer settings"
 msgstr "Timerinstellingen voor slapen openen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:270
-#: qml/Mobile/MobilePlayerControls.qml:351
+#: qml/Mobile/MobilePlayerControls.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Open volume settings"
 msgstr "Volume-instellingen openen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:302
-#: qml/Mobile/MobilePlayerControls.qml:381
+#: qml/Mobile/MobilePlayerControls.qml:382
 #, kde-format
 msgctxt "@action:button"
 msgid "Toggle mute"
@@ -505,8 +504,7 @@ msgid "Show more"
 msgstr "Meer tonen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Hoofdstukken"
@@ -524,18 +522,18 @@ msgid "Sleep Timer"
 msgstr "Timer voor slapen"
 
 #: qml/Desktop/DesktopPlayerControls.qml:396 qml/Desktop/HeaderBar.qml:33
-#: qml/Mobile/MobilePlayerControls.qml:187
+#: qml/Mobile/MobilePlayerControls.qml:188
 #, kde-format
 msgid "No Episode Title"
 msgstr "Geen titel van episode"
 
 #: qml/Desktop/DesktopPlayerControls.qml:401 qml/Desktop/HeaderBar.qml:137
-#: qml/Mobile/MobilePlayerControls.qml:197
+#: qml/Mobile/MobilePlayerControls.qml:198
 #, kde-format
 msgid "No episode loaded"
 msgstr "Geen episode geladen"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
+#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -548,16 +546,18 @@ msgid "Search podcastindex.org…"
 msgstr "podcastindex.org doorzoeken"
 
 #: qml/DiscoverPage.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "Zoeken"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Inschrijven"
 
-#: qml/DiscoverPage.qml:102 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Ingeschreven"
@@ -688,7 +688,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Koppeling gekopieerd"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -858,7 +858,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podcast-details"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1134,7 +1134,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Zoeken in:"
 
-#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1143,13 +1143,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "Wachtrij"
 
-#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: qml/Main.qml:194
+#: qml/Main.qml:195
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1157,7 +1157,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 van %1 podcast bijgewerkt"
 msgstr[1] "%2 van %1 podcasts bijgewerkt"
 
-#: qml/Main.qml:218
+#: qml/Main.qml:219
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1165,28 +1165,28 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Verplaatst %2 van %1 bestand"
 msgstr[1] "Verplaatst %2 van %1 bestanden"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:274
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
 msgstr "Downloaden van Podcast is nu niet toegestaan op bemeterde verbindingen"
 
-#: qml/Mobile/MobilePlayerControls.qml:35
+#: qml/Mobile/MobilePlayerControls.qml:36
 #, kde-format
 msgid "No Episode Loaded"
 msgstr "Geen episode geladen"
 
-#: qml/Mobile/MobilePlayerControls.qml:157
+#: qml/Mobile/MobilePlayerControls.qml:158
 #, kde-format
 msgid "No Title"
 msgstr "Geen titel"
 
-#: qml/Mobile/MobilePlayerControls.qml:165
+#: qml/Mobile/MobilePlayerControls.qml:166
 #, kde-format
 msgid "No podcast title"
 msgstr "Geen podcasttitel"
 
-#: qml/Mobile/MobilePlayerControls.qml:228
+#: qml/Mobile/MobilePlayerControls.qml:229
 #, kde-format
 msgid "No chapters found"
 msgstr "Geen hoofdstukken gevonden."
