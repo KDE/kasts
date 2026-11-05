@@ -48,7 +48,7 @@ Kirigami.ScrollablePage {
                     id: sortModel
                     // have to use script because KI18n.i18n doesn't work within ListElement
                     Component.onCompleted: {
-                        const sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.TitleAscending, FeedsProxyModel.TitleDescending];
+                        const sortList = [FeedsProxyModel.UnreadDescending, FeedsProxyModel.UnreadAscending, FeedsProxyModel.NewDescending, FeedsProxyModel.NewAscending, FeedsProxyModel.FavoriteDescending, FeedsProxyModel.FavoriteAscending, FeedsProxyModel.NameAscending, FeedsProxyModel.NameDescending];
                         for (let i in sortList) {
                             sortModel.append({
                                 name: gridView.model.getSortName(sortList[i]),
