@@ -34,6 +34,7 @@ public:
         engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
+    ~DataManager();
 
     Q_INVOKABLE Feed *getFeed(const qint64 feeduid) const;
     Q_INVOKABLE Feed *getFeed(const QString &url,

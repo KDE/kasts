@@ -43,6 +43,7 @@ public:
         engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
+    ~Fetcher();
 
     Q_INVOKABLE void fetch(const QString &url);
     Q_INVOKABLE void fetch(const QStringList &urls);

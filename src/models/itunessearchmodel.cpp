@@ -18,10 +18,17 @@
 
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
+#include "objectslogging.h"
 
 ItunesSearchModel::ItunesSearchModel(QObject *parent)
     : AbstractPodcastSearchModel(parent)
 {
+    qCDebug(kastsObjects) << "ItunesSearchModel constructed" << this;
+}
+
+ItunesSearchModel::~ItunesSearchModel()
+{
+    qCDebug(kastsObjects) << "ItunesSearchModel destructed" << this;
 }
 
 void ItunesSearchModel::parseJsonResults(const QJsonObject &data)

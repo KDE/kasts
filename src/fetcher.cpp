@@ -24,6 +24,7 @@
 #include "datatypes.h"
 #include "models/errorlogmodel.h"
 #include "networkconnectionmanager.h"
+#include "objectslogging.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
 #include "sync/sync.h"
@@ -51,6 +52,12 @@ Fetcher::Fetcher()
     // setup update timer if required
     initializeUpdateTimer();
     connect(SettingsManager::self(), &SettingsManager::autoFeedUpdateIntervalChanged, this, &Fetcher::initializeUpdateTimer);
+    qCDebug(kastsObjects) << "Fetcher constructed" << this;
+}
+
+Fetcher::~Fetcher()
+{
+    qCDebug(kastsObjects) << "Fetcher destructed" << this;
 }
 
 void Fetcher::fetch(const QString &url)

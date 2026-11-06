@@ -59,6 +59,7 @@ public:
         engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
+    ~Sync();
 
     bool syncEnabled() const;
     QString username() const;
