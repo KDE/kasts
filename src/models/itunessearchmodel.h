@@ -19,6 +19,7 @@ class ItunesSearchModel : public AbstractPodcastSearchModel
 
 public:
     explicit ItunesSearchModel(QObject *parent = nullptr);
+    ~ItunesSearchModel();
 
     QString name() const override;
     QString placeholderText() const override;

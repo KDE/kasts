@@ -19,6 +19,7 @@
 #include "datamanager.h"
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
+#include "objectslogging.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "storagemanager.h"
@@ -140,9 +141,14 @@ AudioManager::AudioManager(QObject *parent)
                     }
                 });
     });
+
+    qCDebug(kastsObjects) << "AudioManager constructed" << this;
 }
 
-AudioManager::~AudioManager() = default;
+AudioManager::~AudioManager()
+{
+    qCDebug(kastsObjects) << "AudioManager destructed" << this;
+}
 
 QString AudioManager::backendName(KMediaSession::MediaBackends backend) const
 {

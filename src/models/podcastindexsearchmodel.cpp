@@ -21,10 +21,17 @@
 
 #include "fetcher.h"
 #include "models/errorlogmodel.h"
+#include "objectslogging.h"
 
 PodcastIndexSearchModel::PodcastIndexSearchModel(QObject *parent)
     : AbstractPodcastSearchModel(parent)
 {
+    qCDebug(kastsObjects) << "PodcastIndexSearchModel constructed" << this;
+}
+
+PodcastIndexSearchModel::~PodcastIndexSearchModel()
+{
+    qCDebug(kastsObjects) << "PodcastIndexSearchModel destructed" << this;
 }
 
 void PodcastIndexSearchModel::parseJsonResults(const QJsonObject &data)

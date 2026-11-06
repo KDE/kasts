@@ -20,14 +20,13 @@
 #include <KFormat>
 #include <KLocalizedString>
 
-#include <qhashfunctions.h>
-#include <qobject.h>
 #include <qt6keychain/keychain.h>
 
 #include "audiomanager.h"
 #include "database.h"
 #include "datamanager.h"
 #include "models/errorlogmodel.h"
+#include "objectslogging.h"
 #include "settingsmanager.h"
 #include "sync/gpodder/devicerequest.h"
 #include "sync/gpodder/gpodder.h"
@@ -51,6 +50,13 @@ Sync::Sync()
     connect(&AudioManager::instance(), &AudioManager::playbackStateChanged, this, &Sync::doQuickSync);
 
     retrieveCredentialsFromConfig();
+
+    qCDebug(kastsObjects) << "Sync constructed" << this;
+}
+
+Sync::~Sync()
+{
+    qCDebug(kastsObjects) << "Sync destructed" << this;
 }
 
 void Sync::retrieveCredentialsFromConfig()

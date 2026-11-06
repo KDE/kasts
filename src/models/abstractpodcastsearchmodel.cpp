@@ -17,9 +17,17 @@
 #include <QString>
 #include <QVariant>
 
+#include "objectslogging.h"
+
 AbstractPodcastSearchModel::AbstractPodcastSearchModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qCDebug(kastsObjects) << "AbstractPodcastSearchModel constructed" << this;
+}
+
+AbstractPodcastSearchModel::~AbstractPodcastSearchModel()
+{
+    qCDebug(kastsObjects) << "AbstractPodcastSearchModel destructed" << this;
 }
 
 QHash<int, QByteArray> AbstractPodcastSearchModel::roleNames() const

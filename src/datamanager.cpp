@@ -24,6 +24,7 @@
 #include "feed.h"
 #include "fetcher.h"
 #include "models/abstractepisodemodel.h"
+#include "objectslogging.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
 #include "sync/sync.h"
@@ -32,6 +33,12 @@
 
 DataManager::DataManager()
 {
+    qCDebug(kastsObjects) << "DataManager constructed" << this;
+}
+
+DataManager::~DataManager()
+{
+    qCDebug(kastsObjects) << "DataManager destructed" << this;
 }
 
 Feed *DataManager::getFeed(const qint64 feeduid) const

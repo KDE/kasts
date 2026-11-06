@@ -19,6 +19,7 @@ class PodcastIndexSearchModel : public AbstractPodcastSearchModel
 
 public:
     explicit PodcastIndexSearchModel(QObject *parent = nullptr);
+    ~PodcastIndexSearchModel();
 
     QString name() const override;
     QString placeholderText() const override;
