@@ -266,9 +266,9 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch) const
 
         Database::instance().transaction();
         QSqlQuery query;
-        query.prepare(
-            QStringLiteral("INSERT INTO Feeds (name, url, image, link, description, subscribed, lastUpdated, new, dirname, lastHash, filterType, sortType) "
-                           "VALUES (:name, :url, :image, :link, :description, :subscribed, :lastUpdated, :new, :dirname, :lastHash, :filterType, :sortType);"));
+        query.prepare(QStringLiteral(
+            "INSERT INTO Feeds (name, url, image, link, description, subscribed, lastUpdated, new, dirname, lastHash, filterType, sortType, archived) "
+            "VALUES (:name, :url, :image, :link, :description, :subscribed, :lastUpdated, :new, :dirname, :lastHash, :filterType, :sortType, :archived);"));
         query.bindValue(QStringLiteral(":name"), url);
         query.bindValue(QStringLiteral(":url"), url);
         query.bindValue(QStringLiteral(":image"), QLatin1String(""));
@@ -281,6 +281,7 @@ void DataManager::addFeeds(const QStringList &urls, const bool fetch) const
         query.bindValue(QStringLiteral(":lastHash"), QLatin1String(""));
         query.bindValue(QStringLiteral(":filterType"), 0);
         query.bindValue(QStringLiteral(":sortType"), 0);
+        query.bindValue(QStringLiteral(":archived"), false);
         if (Database::instance().execute(query)) {
             QVariant lastId = query.lastInsertId();
             if (lastId.isValid()) {

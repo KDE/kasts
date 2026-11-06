@@ -31,6 +31,7 @@ public:
         engine->setObjectOwnership(&instance(), QQmlEngine::CppOwnership);
         return &instance();
     }
+    ~Database();
 
     static void openDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
     static void closeDatabase(const QString &connectionName = QLatin1String(QSqlDatabase::defaultConnection));
@@ -69,6 +70,7 @@ private:
     bool migrateTo15();
     bool migrateTo16();
     bool migrateTo17();
+    bool migrateTo18();
 
     void createBackup(const QString &suffix);
     void cleanup();

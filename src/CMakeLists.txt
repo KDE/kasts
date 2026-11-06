@@ -12,6 +12,7 @@ add_executable(kasts
     datatypes.cpp
     feed.cpp
     fetcher.cpp
+    statistics.cpp
     utils/enclosuredownloadjob.cpp
     utils/storagemanager.cpp
     utils/storagemovejob.cpp
@@ -221,6 +222,13 @@ ecm_qt_declare_logging_category(kasts
     HEADER "objectslogging.h"
     IDENTIFIER "kastsObjects"
     CATEGORY_NAME "org.kde.kasts.objects"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(kasts
+    HEADER "statisticslogging.h"
+    IDENTIFIER "kastsStatistics"
+    CATEGORY_NAME "org.kde.kasts.statistics"
     DEFAULT_SEVERITY Info
 )
 

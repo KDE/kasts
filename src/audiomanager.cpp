@@ -22,6 +22,7 @@
 #include "objectslogging.h"
 #include "queuemodel.h"
 #include "settingsmanager.h"
+#include "statistics.h"
 #include "storagemanager.h"
 #include "utils/entryutils.h"
 #include "utils/networkconnectionmanager.h"
@@ -71,6 +72,9 @@ AudioManager::AudioManager(QObject *parent)
     , d(std::make_unique<AudioManagerPrivate>())
 {
     d->m_player.setMpris2PauseInsteadOfStop(true);
+
+    // create object that will log playback statistics
+    new Statistics(this);
 
     connect(&d->m_player, &KMediaSession::currentBackendChanged, this, &AudioManager::currentBackendChanged);
     connect(&d->m_player, &KMediaSession::mutedChanged, this, &AudioManager::playerMutedChanged);

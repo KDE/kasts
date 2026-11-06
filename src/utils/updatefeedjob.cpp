@@ -856,8 +856,10 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 
     // new entries
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Entries (feeduid, id, title, content, created, updated, link, read, new, image, favorite, playposition, removed) VALUES "
-                       "(:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :image, :favorite, :playposition, :removed);"));
+        QStringLiteral("INSERT INTO Entries"
+                       "(feeduid, id, title, content, created, updated, link, read, new, image, favorite, playposition, removed, playedtime, lastplayeddate)"
+                       "VALUES (:feeduid, :id, :title, :content, :created, :updated, :link, :read, :new, :image, :favorite, :playposition, :removed, "
+                       ":playedtime, :lastplayeddate);"));
     for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.state == RecordState::New) {
             writeQuery.bindValue(QStringLiteral(":feeduid"), entryDetails.feeduid);
@@ -873,6 +875,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
             writeQuery.bindValue(QStringLiteral(":favorite"), false);
             writeQuery.bindValue(QStringLiteral(":playposition"), entryDetails.playPosition);
             writeQuery.bindValue(QStringLiteral(":removed"), false);
+            writeQuery.bindValue(QStringLiteral(":playedtime"), 0);
+            writeQuery.bindValue(QStringLiteral(":lastplayeddate"), 0);
             if (dbExecute(writeQuery)) {
                 QVariant lastId = writeQuery.lastInsertId();
                 if (lastId.isValid()) {
