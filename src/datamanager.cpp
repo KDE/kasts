@@ -580,6 +580,18 @@ void DataManager::bulkDownloadEnclosures(const QList<qint64> &entryuids) const
     }
 }
 
+void DataManager::bulkCancelDownloadEnclosuresByIndex(const QModelIndexList &list) const
+{
+    bulkCancelDownloadEnclosures(getEntryuidsFromModelIndexList(list));
+}
+
+void DataManager::bulkCancelDownloadEnclosures(const QList<qint64> &entryuids) const
+{
+    for (const qint64 &entryuid : std::as_const(entryuids)) {
+        Fetcher::instance().cancelEnclosureDownload(entryuid);
+    }
+}
+
 void DataManager::bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const
 {
     bulkDeleteEnclosures(getEntryuidsFromModelIndexList(list));
@@ -747,6 +759,7 @@ void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatu
             }
         }
     }
+    query.finish();
 
     Database::instance().transaction();
     query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));

@@ -90,7 +90,7 @@ Rectangle {
             Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
             Controls.ToolTip.text: KI18n.i18n("Abort")
             text: KI18n.i18n("Abort")
-            icon.name: "edit-delete-remove"
+            icon.name: "process-stop"
             onClicked: root.abortAction()
         }
     }
