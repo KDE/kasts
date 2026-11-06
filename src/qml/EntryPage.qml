@@ -103,9 +103,9 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             text: KI18n.i18nc("@action:intoolbar Button to cancel ongoing download of episode", "Cancel Download")
                             visible: root.enableActions && root.hasEnclosure && root.enclosureStatus === DataTypes.EnclosureStatus.Downloading
-                            icon.name: "edit-delete-remove"
+                            icon.name: "process-stop"
                             onTriggered: {
-                                Fetcher.cancelEnclosureDownload(root.entryuid);
+                                DataManager.bulkCancelDownloadEnclosures([root.entryuid]);
                             }
                         },
                         Kirigami.Action {

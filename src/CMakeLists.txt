@@ -378,6 +378,7 @@ if(ANDROID)
         document-export
         document-open-folder
         document-save
+        process-stop
         edit-delete-remove
         edit-clear-all
         edit-select-all

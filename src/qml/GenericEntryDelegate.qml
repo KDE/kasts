@@ -423,8 +423,8 @@ AddonDelegates.RoundedItemDelegate {
 
         IconOnlyButton {
             text: KI18n.i18n("Cancel Download")
-            icon.name: "edit-delete-remove"
-            onClicked: Fetcher.cancelEnclosureDownload(root.entryuid)
+            icon.name: "process-stop"
+            onClicked: DataManager.bulkCancelDownloadEnclosures([root.entryuid])
             visible: root.showCancelDownloadButton
         }
 

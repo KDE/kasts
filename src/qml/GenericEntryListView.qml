@@ -39,6 +39,7 @@ ListView {
     // Section headers; currently only shown when filtering for downloads
     section {
         delegate: Kirigami.ListSectionHeader {
+            visible: height > 0
             clip: true
             height: (root.model && (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter)) ? implicitHeight : 0
             width: root.width
@@ -393,6 +394,15 @@ ListView {
         }
     }
 
+    readonly property Kirigami.Action cancelDownloadAction: Kirigami.Action {
+        text: KI18n.i18ncp("context menu action", "Cancel Download", "Cancel Downloads", root.selectionForContextMenu.length)
+        icon.name: "process-stop"
+        visible: root.enableActions && (root.selectionModel.hasSelection || root.selectionForContextMenu.length > 0) && (root.singleSelectedEntryuid > 0 ? root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.Queued || root.singleSelectedEntryEnclosureStatus === DataTypes.EnclosureStatus.Downloading : true)
+        onTriggered: {
+            DataManager.bulkCancelDownloadEnclosuresByIndex(root.selectionForContextMenu);
+        }
+    }
+
     readonly property Kirigami.Action streamAction: Kirigami.Action {
         text: KI18n.i18nc("@action:inmenu Action to start playback by streaming the episode rather than downloading it first", "Stream")
         icon.name: "media-playback-cloud"
@@ -406,13 +416,13 @@ ListView {
         }
     }
 
-    readonly property list<Kirigami.Action> defaultActionList: [sortAction, filterAction, addToQueueAction, removeFromQueueAction, markPlayedAction, markNotPlayedAction, markNewAction, markNotNewAction, markFavoriteAction, markNotFavoriteAction, downloadEnclosureAction, deleteEnclosureAction, streamAction, selectAllAction, selectNoneAction]
+    readonly property list<Kirigami.Action> defaultActionList: [sortAction, filterAction, addToQueueAction, removeFromQueueAction, markPlayedAction, markNotPlayedAction, markNewAction, markNotNewAction, markFavoriteAction, markNotFavoriteAction, downloadEnclosureAction, cancelDownloadAction, deleteEnclosureAction, streamAction, selectAllAction, selectNoneAction]
 
     readonly property Component contextMenu: Component {
         id: contextMenu
         Addons.ConvergentContextMenu {
 
-            actions: [root.addToQueueAction, root.removeFromQueueAction, root.markPlayedAction, root.markNotPlayedAction, root.markNewAction, root.markNotNewAction, root.markFavoriteAction, root.markNotFavoriteAction, root.downloadEnclosureAction, root.deleteEnclosureAction, root.streamAction]
+            actions: [root.addToQueueAction, root.removeFromQueueAction, root.markPlayedAction, root.markNotPlayedAction, root.markNewAction, root.markNotNewAction, root.markFavoriteAction, root.markNotFavoriteAction, root.downloadEnclosureAction, root.cancelDownloadAction, root.deleteEnclosureAction, root.streamAction]
 
             onClosed: {
                 // reset to normal selection if this context menu is closed

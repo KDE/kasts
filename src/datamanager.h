@@ -71,6 +71,7 @@ public:
     Q_INVOKABLE void bulkMarkFavorite(bool state, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkQueueStatus(bool state, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkDownloadEnclosures(const QList<qint64> &entryuids) const;
+    Q_INVOKABLE void bulkCancelDownloadEnclosures(const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkDeleteEnclosures(const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkSetPlayPositions(const QList<qint64> &playPositions, const QList<qint64> &entryuids) const;
     Q_INVOKABLE void bulkSetEnclosureDurations(const QList<qint64> &durations, const QList<qint64> &entryuids) const;
@@ -82,6 +83,7 @@ public:
     Q_INVOKABLE void bulkMarkFavoriteByIndex(bool state, const QModelIndexList &list) const;
     Q_INVOKABLE void bulkQueueStatusByIndex(bool state, const QModelIndexList &list) const;
     Q_INVOKABLE void bulkDownloadEnclosuresByIndex(const QModelIndexList &list) const;
+    Q_INVOKABLE void bulkCancelDownloadEnclosuresByIndex(const QModelIndexList &list) const;
     Q_INVOKABLE void bulkDeleteEnclosuresByIndex(const QModelIndexList &list) const;
 
 Q_SIGNALS:
