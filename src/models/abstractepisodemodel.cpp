@@ -257,7 +257,8 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
                                                 StorageManager::enclosurePath(m_entries[m_entryOrder[index.row()]].title,
                                                                               m_entries[m_entryOrder[index.row()]].enclosure.url,
                                                                               m_feeds[m_entries[m_entryOrder[index.row()]].feeduid].dirname),
-                                                m_entries[m_entryOrder[index.row()]].enclosure.size));
+                                                m_entries[m_entryOrder[index.row()]].enclosure.size,
+                                                m_entries[m_entryOrder[index.row()]].enclosure.status != DataTypes::EnclosureStatus::Queued));
             } else {
                 return QVariant::fromValue(m_entries[m_entryOrder[index.row()]].enclosure.downloadSize);
             }

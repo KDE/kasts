@@ -216,6 +216,10 @@
             <label>Allow streaming on metered connections</label>
             <default>false</default>
         </entry>
+        <entry name="networkAccessDelay" type="Int">
+            <label>Amount of time in secs to wait before trying to access the network after app startup</label>
+            <default>2</default>
+        </entry>
     </group>
     <group name="Persistency">
         <entry name="sleepTimerValue" type="Int">

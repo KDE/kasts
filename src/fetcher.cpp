@@ -49,6 +49,23 @@ Fetcher::Fetcher()
     // Set network proxy based on saved settings
     setNetworkProxy();
 
+    // delay to allow the network access to settle before trying to access anything
+    QTimer::singleShot(std::chrono::seconds(SettingsManager::self()->networkAccessDelay()), this, [this]() {
+        // Refresh feeds on startup if allowed
+        // NOTE: refresh+sync on startup is handled in Sync and not here, since it
+        // requires credentials to be loaded before starting a refresh+sync
+        // TODO: do we need error reporting if the conditions are not met?
+        if (NetworkConnectionManager::instance().feedUpdatesAllowed()) {
+            if (SettingsManager::self()->refreshOnStartup() && !(SettingsManager::self()->syncEnabled() && SettingsManager::self()->syncWhenUpdatingFeeds())) {
+                fetchAll();
+            }
+        }
+
+        // try(?) to resume downloads that were still running when the app was closed
+        // connection checks will be done inside the method
+        resumeDownloads();
+    });
+
     // setup update timer if required
     initializeUpdateTimer();
     connect(SettingsManager::self(), &SettingsManager::autoFeedUpdateIntervalChanged, this, &Fetcher::initializeUpdateTimer);
@@ -142,18 +159,6 @@ void Fetcher::downloadEnclosure(const qint64 entryuid)
         QString type = query.value(QStringLiteral("Enclosures.type")).toString();
 
         if (type.contains(QStringLiteral("audio")) || type.contains(QStringLiteral("video"))) {
-            if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
-                if (NetworkConnectionManager::instance().networkReachable()) {
-                    Q_EMIT error(ErrorLogModel::Type::MeteredStreamingNotAllowed,
-                                 i18nc("@info:status %1 is the episode title", "Download of episode %1 not allowed on metered connection", title));
-                    return;
-                } else {
-                    Q_EMIT error(ErrorLogModel::Type::NoNetwork,
-                                 i18nc("@info:status %1 is the episode title", "No network connection while attempting to download episode %1", title));
-                    return;
-                }
-            }
-
             if (status == DataTypes::EnclosureStatus::Downloaded) {
                 return;
             }
@@ -177,6 +182,19 @@ void Fetcher::cancelEnclosureDownload(const qint64 entryuid)
         if (job->entryuid() == entryuid) {
             job->doKill();
         }
+    }
+}
+void Fetcher::resumeDownloads()
+{
+    QList<qint64> entryuids;
+    QSqlQuery query;
+    query.prepare(QStringLiteral("SELECT entryuid FROM Enclosures WHERE downloaded=%1 OR downloaded=%2")
+                      .arg(DataTypes::statusToDb(DataTypes::EnclosureStatus::Downloading))
+                      .arg(DataTypes::EnclosureStatus::Queued));
+    Database::instance().execute(query);
+    while (query.next()) {
+        qint64 entryuid = query.value(QStringLiteral("entryuid")).toLongLong();
+        downloadEnclosure(entryuid);
     }
 }
 

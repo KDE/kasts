@@ -83,6 +83,7 @@ Q_SIGNALS:
 private:
     Fetcher();
 
+    void resumeDownloads();
     void
     enqueueEnclosureDownload(const qint64 entryuid, const QString &url, const QString &path, const QString &title, const qint64 size, const qint64 duration);
     void processEnclosureDownloadQueue();

@@ -31,6 +31,23 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         Layout.fillWidth: true
 
+        FormCard.FormTextDelegate {
+            id: networkAccesDelay
+            text: KI18n.i18nc("@label:spinbox", "Network access delay (in seconds)")
+            description: KI18n.i18nc("@info", "Time to wait after app startup before trying to access the network.\nThis can help in containerized environments.")
+            trailing: Controls.SpinBox {
+                value: SettingsManager.networkAccessDelay
+                from: 0
+                to: 10
+                onValueModified: {
+                    SettingsManager.networkAccessDelay = value;
+                    SettingsManager.save();
+                }
+            }
+        }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormSwitchDelegate {
             id: doNetworkChecks
             checked: SettingsManager.checkNetworkStatus
