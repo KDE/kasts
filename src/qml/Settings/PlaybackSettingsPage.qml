@@ -62,7 +62,6 @@ FormCard.FormCardPage {
             id: skipForwardStep
             text: KI18n.i18nc("@label:spinbox", "Skip forward interval (in seconds)")
             trailing: Controls.SpinBox {
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.skipForward
                 from: 1
                 to: 300
@@ -76,7 +75,6 @@ FormCard.FormCardPage {
             id: skipBackwardInterval
             text: KI18n.i18nc("@label:spinbox", "Skip backward interval (in seconds)")
             trailing: Controls.SpinBox {
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.skipBackward
                 from: 1
                 to: 300
@@ -162,7 +160,6 @@ FormCard.FormCardPage {
             text: KI18n.i18nc("@label:spinbox", "Mark episodes as played when the given time is remaining (in seconds)")
             textItem.wrapMode: Text.Wrap
             trailing: Controls.SpinBox {
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.markAsPlayedBeforeEnd
                 from: 0
                 to: 300
