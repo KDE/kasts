@@ -43,7 +43,6 @@ FormCard.FormCardPage {
             text: KI18n.i18nc("@label:spinbox", "Maximum number of parallel episode downloads")
             textItem.wrapMode: Text.Wrap
             trailing: Controls.SpinBox {
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 value: SettingsManager.maximumParallelEpisodeDownloads
                 from: 1
                 to: 16
@@ -192,7 +191,6 @@ FormCard.FormCardPage {
 
             trailing: Controls.SpinBox {
                 id: markCustomUnreadNumberSpinBox
-                Layout.rightMargin: Kirigami.Units.gridUnit
                 enabled: markCustomUnreadNumberButton.checked
                 value: SettingsManager.markUnreadOnNewFeedCustomAmount
                 from: 0
