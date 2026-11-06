@@ -96,14 +96,18 @@ void Sync::retrieveCredentialsFromConfig()
                 m_syncEnabled = SettingsManager::self()->syncEnabled();
                 Q_EMIT syncEnabledChanged();
 
-                // Now that we have all credentials we can do the initial sync if
-                // it's enabled in the config.  If it's not enabled, then we handle
-                // the automatic refresh through Main.qml
-                if (NetworkConnectionManager::instance().feedUpdatesAllowed()) {
-                    if (SettingsManager::self()->refreshOnStartup() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
-                        doRegularSync(true);
+                // delay to allow the network access to settle before trying to access anything
+                QTimer::singleShot(std::chrono::seconds(SettingsManager::self()->networkAccessDelay()), this, [this]() {
+                    // Now that we have all credentials we can do the initial sync if
+                    // it's enabled in the config.  If it's not enabled, then we handle
+                    // the automatic refresh through the constructor of Fetcher
+                    // TODO: do we need error reporting if the conditions are not met?
+                    if (NetworkConnectionManager::instance().feedUpdatesAllowed()) {
+                        if (SettingsManager::self()->refreshOnStartup() && SettingsManager::self()->syncWhenUpdatingFeeds()) {
+                            doRegularSync(true);
+                        }
                     }
-                }
+                });
             } else {
                 // Ask for password and try to log in; if it succeeds, try
                 // again to save the password.

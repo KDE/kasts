@@ -97,15 +97,6 @@ Kirigami.ApplicationWindow {
         if (SettingsManager.autoDeleteOnPlayed == 2) {
             DataManager.deletePlayedEnclosures();
         }
-
-        // Refresh feeds on startup if allowed
-        // NOTE: refresh+sync on startup is handled in Sync and not here, since it
-        // requires credentials to be loaded before starting a refresh+sync
-        if (NetworkConnectionManager.feedUpdatesAllowed) {
-            if (SettingsManager.refreshOnStartup && !(SettingsManager.syncEnabled && SettingsManager.syncWhenUpdatingFeeds)) {
-                Fetcher.fetchAll();
-            }
-        }
     }
 
     Component.onDestruction: {

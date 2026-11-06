@@ -21,6 +21,7 @@
 #include "datamanager.h"
 #include "datatypes.h"
 #include "fetcher.h"
+#include "networkconnectionmanager.h"
 #include "objectslogging.h"
 #include "utils/entryutils.h"
 
@@ -56,6 +57,21 @@ void EnclosureDownloadJob::start()
 
 void EnclosureDownloadJob::startDownload()
 {
+    if (!NetworkConnectionManager::instance().episodeDownloadsAllowed()) {
+        if (NetworkConnectionManager::instance().networkReachable()) {
+            ErrorLogModel::instance().monitorErrorMessages(
+                ErrorLogModel::Type::MeteredStreamingNotAllowed,
+                i18nc("@info:status %1 is the episode title", "Download of episode %1 not allowed on metered connection", m_title));
+        } else {
+            ErrorLogModel::instance().monitorErrorMessages(
+                ErrorLogModel::Type::NoNetwork,
+                i18nc("@info:status %1 is the episode title", "No network connection while attempting to download episode %1", m_title));
+        }
+        EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size, true); // update status
+        emitResult();
+        return;
+    }
+
     m_sizeOnDisk = EntryUtils::checkSizeOnDisk(m_entryuid, m_filename, m_size, false);
     qint64 resumedAt = m_sizeOnDisk;
 
