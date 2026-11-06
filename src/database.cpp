@@ -24,6 +24,7 @@
 
 #include <KLocalizedString>
 
+#include "objectslogging.h"
 #include "settingsmanager.h"
 
 #define TRUE_OR_RETURN(x)                                                                                                                                      \
@@ -39,6 +40,13 @@ Database::Database()
     }
 
     cleanup();
+
+    qCDebug(kastsObjects) << "Database constructed" << this;
+}
+
+Database::~Database()
+{
+    qCDebug(kastsObjects) << "Database destructed" << this;
 }
 
 void Database::openDatabase(const QString &connectionName)
@@ -95,7 +103,9 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo16());
     if (dbversion < 17)
         TRUE_OR_RETURN(migrateTo17());
-    if (dbversion > 17) {
+    if (dbversion < 18)
+        TRUE_OR_RETURN(migrateTo18());
+    if (dbversion > 18) {
         qCritical() << "Database version number" << dbversion
                     << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
                        "corruption of the database.";
@@ -875,6 +885,23 @@ bool Database::migrateTo17()
     TRUE_OR_RETURN(execute(QStringLiteral("DELETE FROM EntryAuthors WHERE (name IS NULL OR trim(name) = '') AND (email IS NULL OR trim(email) = '');")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 17;")));
+    TRUE_OR_RETURN(commit());
+
+    return true;
+}
+
+bool Database::migrateTo18()
+{
+    qDebug() << "Migrating database to version 18";
+
+    createBackup(QStringLiteral("v17"));
+
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Feeds ADD COLUMN archived BOOL DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entries ADD COLUMN playedtime INTEGER DEFAULT 0;")));
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entries ADD COLUMN lastplayeddate INTEGER DEFAULT 0;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 18;")));
     TRUE_OR_RETURN(commit());
 
     return true;
