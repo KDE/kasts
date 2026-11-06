@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-10-31 19:47+0400\n"
+"PO-Revision-Date: 2026-11-05 08:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -397,8 +397,7 @@ msgid "Url:"
 msgstr "الرابط:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "الفصول"
@@ -505,8 +504,7 @@ msgid "Show more"
 msgstr "عرض المزيد"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "الفصول"
@@ -548,8 +546,7 @@ msgid "Search podcastindex.org…"
 msgstr "ابحث في podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "ابحث"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-03 20:27+0200\n"
+"PO-Revision-Date: 2026-11-05 12:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -544,8 +544,7 @@ msgid "Search podcastindex.org…"
 msgstr "חיפוש ב־podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "חיפוש"

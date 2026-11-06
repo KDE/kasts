@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-09-05 10:53+0300\n"
+"PO-Revision-Date: 2026-10-06 16:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -52,13 +52,12 @@ msgid "Invalid Media for episode: %1"
 msgstr "Virheellinen media, jakso: %1"
 
 #: database.cpp:897 utils/updatefeedjob.cpp:1123
-#, fuzzy, kde-format
-#| msgid "Error: %1"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "Virhe: %1"
+msgstr "%1: %2"
 
 #: fetcher.cpp:147
 #, fuzzy, kde-format
@@ -251,20 +250,16 @@ msgid "Episodes not marked as Favorite"
 msgstr "Jaksot, joita ei ole merkitty suosikeiksi"
 
 #: models/abstractepisodeproxymodel.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Downloaded episodes"
-msgstr "Kuuntelemattomat jaksot"
+msgstr "Ladatut jaksot"
 
 #: models/abstractepisodeproxymodel.cpp:194
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Automatically download new episodes"
+#, kde-format
 msgctxt "@label:chooser Choice of filter for episode list"
 msgid "Not downloaded episodes"
-msgstr "Lataa uudet jaksot automaattisesti"
+msgstr "Lataamattomat jaksot"
 
 #: models/abstractepisodeproxymodel.cpp:204
 #, kde-format
@@ -1056,19 +1051,16 @@ msgid "Queued"
 msgstr "Jonossa"
 
 #: qml/GenericEntryListView.qml:49
-#, fuzzy, kde-format
-#| msgid "Downloaded"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
-msgstr "Ladattu"
+msgstr "Ei ladattu"
 
 #: qml/GenericEntryListView.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Episodes not marked as Favorite"
+#, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
-msgstr "Jaksot, joita ei ole merkitty suosikeiksi"
+msgstr "Mediatiedostottomat jaksot"
 
 #: qml/GenericEntryListView.qml:213
 #, kde-format

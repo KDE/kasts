@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-03 11:40+0100\n"
+"PO-Revision-Date: 2026-11-05 12:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -550,8 +550,7 @@ msgid "Search podcastindex.org…"
 msgstr "Buscar en podcastindex.org…"
 
 #: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "@action:button button next to search field to search for new podcasts"
 msgid "Search"
 msgstr "Buscar"
