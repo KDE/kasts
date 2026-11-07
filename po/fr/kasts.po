@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-10-30 15:50+0100\n"
+"POT-Creation-Date: 2026-11-07 00:56+0000\n"
+"PO-Revision-Date: 2026-11-05 18:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@kde.org"
 
-#: audiomanager.cpp:481
+#: audiomanager.cpp:487
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
@@ -33,7 +33,7 @@ msgstr ""
 "Le lecture d'un flux sur une connexion facturée est non autorisé pour cet "
 "épisode : %1"
 
-#: audiomanager.cpp:490
+#: audiomanager.cpp:496
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
@@ -41,13 +41,13 @@ msgstr ""
 "Aucune connexion réseau lors de la tentative de lecture d'un flux pour "
 "l'épisode : %1"
 
-#: audiomanager.cpp:649
+#: audiomanager.cpp:655
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Media non valable pour un épisode : %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -55,23 +55,7 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1 : %2"
 
-#: fetcher.cpp:147
-#, kde-format
-msgctxt "@info:status %1 is the episode title"
-msgid "Download of episode %1 not allowed on metered connection"
-msgstr ""
-"Le téléchargement de l'épisode %1 n'est pas autorisé avec des connexions "
-"facturées."
-
-#: fetcher.cpp:151
-#, kde-format
-msgctxt "@info:status %1 is the episode title"
-msgid "No network connection while attempting to download episode %1"
-msgstr ""
-"Aucune connexion réseau lors de la tentative de téléchargement de l'épisode "
-"%1"
-
-#: fetcher.cpp:208
+#: fetcher.cpp:227
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -393,6 +377,34 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Titre de podcast : de Z → A"
 
+#: models/itunessearchmodel.cpp:52
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr ""
+
+#: models/itunessearchmodel.cpp:57
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Placeholder text for episode search field"
+#| msgid "Search episodes…"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "Rechercher des épisodes..."
+
+#: models/podcastindexsearchmodel.cpp:55
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of fields to search for string"
+#| msgid "Podcast title"
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Titre de podcast"
+
+#: models/podcastindexsearchmodel.cpp:60
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Recherche du site « podcastindex.org » en cours..."
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -404,8 +416,7 @@ msgid "Url:"
 msgstr "URL :"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Chapitres"
@@ -514,8 +525,7 @@ msgid "Show more"
 msgstr "Afficher plus"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Chapitres"
@@ -544,31 +554,26 @@ msgstr "Aucun titre d'épisode"
 msgid "No episode loaded"
 msgstr "Aucun épisode téléchargé"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Discover"
 
-#: qml/DiscoverPage.qml:43
-#, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Recherche du site « podcastindex.org » en cours..."
-
-#: qml/DiscoverPage.qml:52
+#: qml/DiscoverPage.qml:93
 #, fuzzy, kde-format
-#| msgid "Search"
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Rechercher"
+#| msgctxt "@label"
+#| msgid "Select Sync Provider"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Sélectionner un fournisseur de synchronisation"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Abonné"
@@ -667,7 +672,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "Étiqueter comme « Nouveau »"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:368
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:369
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -675,7 +680,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Supprimer des favoris"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:358
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:359
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -988,12 +993,12 @@ msgstr ""
 "podcast. Le téléchargement et / ou la diffusion de cet épisode peuvent être "
 "interrompus."
 
-#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:309
+#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:310
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Supprimer de la file d'attente"
 
-#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:378
+#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:379
 #, kde-format
 msgid "Download"
 msgstr "Télécharger"
@@ -1008,12 +1013,12 @@ msgstr "Annuler le téléchargement"
 msgid "Delete Download"
 msgstr "Supprimer le téléchargement"
 
-#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:298
+#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:299
 #, kde-format
 msgid "Add to Queue"
 msgstr "Ajouter à la file d'attente"
 
-#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:397
+#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:407
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1021,55 +1026,55 @@ msgctxt ""
 msgid "Stream"
 msgstr "Flux"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "Téléchargement en cours"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Téléchargements incomplets"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "Téléchargé"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
 msgstr "Mis en file d'attente"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "Non téléchargé"
 
-#: qml/GenericEntryListView.qml:49
+#: qml/GenericEntryListView.qml:50
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "Épisodes dans fichiers de media"
 
-#: qml/GenericEntryListView.qml:213
+#: qml/GenericEntryListView.qml:214
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Trier"
 
-#: qml/GenericEntryListView.qml:215
+#: qml/GenericEntryListView.qml:216
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Sélectionner le mode de tri des épisodes"
 
-#: qml/GenericEntryListView.qml:269
+#: qml/GenericEntryListView.qml:270
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1077,49 +1082,58 @@ msgctxt ""
 msgid "Filter"
 msgstr "Filtrer"
 
-#: qml/GenericEntryListView.qml:270
+#: qml/GenericEntryListView.qml:271
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Filtrer les épisodes selon leurs états"
 
-#: qml/GenericEntryListView.qml:279
+#: qml/GenericEntryListView.qml:280
 #, kde-format
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: qml/GenericEntryListView.qml:289
+#: qml/GenericEntryListView.qml:290
 #, kde-format
 msgid "Deselect All"
 msgstr "Tout désélectionner"
 
-#: qml/GenericEntryListView.qml:320
+#: qml/GenericEntryListView.qml:321
 #, kde-format
 msgid "Mark as Played"
 msgstr "Marquer comme lu"
 
-#: qml/GenericEntryListView.qml:329
+#: qml/GenericEntryListView.qml:330
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Marquer comme « Non joué »"
 
-#: qml/GenericEntryListView.qml:338
+#: qml/GenericEntryListView.qml:339
 #, kde-format
 msgid "Label as \"New\""
 msgstr "Étiqueter comme « Nouveau »"
 
-#: qml/GenericEntryListView.qml:348
+#: qml/GenericEntryListView.qml:349
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "Supprimer l'étiquette « Nouveau »"
 
-#: qml/GenericEntryListView.qml:388
+#: qml/GenericEntryListView.qml:389
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
 msgid_plural "Delete Downloads"
 msgstr[0] "Supprimer le téléchargement"
 msgstr[1] "Supprimer les téléchargements"
+
+#: qml/GenericEntryListView.qml:398
+#, fuzzy, kde-format
+#| msgid "Cancel Download"
+msgctxt "context menu action"
+msgid "Cancel Download"
+msgid_plural "Cancel Downloads"
+msgstr[0] "Annuler le téléchargement"
+msgstr[1] "Annuler le téléchargement"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1160,7 +1174,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Configuration"
 
-#: qml/Main.qml:195
+#: qml/Main.qml:186
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1168,7 +1182,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 mis à jour du podcast %1"
 msgstr[1] "%2 mis à jour des %1 podcasts"
 
-#: qml/Main.qml:219
+#: qml/Main.qml:210
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1176,7 +1190,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Déplacement de %2 du fichier %1"
 msgstr[1] "Déplacement de %2 de %1 fichiers"
 
-#: qml/Main.qml:274
+#: qml/Main.qml:265
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1279,12 +1293,10 @@ msgid "Queue is empty"
 msgstr "La file d'attente est vide"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Apparence"
+msgstr "Apparence et gestion des thèmes"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1325,12 +1337,10 @@ msgid "Color theme"
 msgstr "Thème de couleurs"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Abonnements"
+msgstr "Informations sur les abonnements"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1339,13 +1349,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Toujours afficher les titres des podcasts dans la vue des abonnements"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informations"
+msgstr "Informations sur l'épisode"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1441,12 +1448,10 @@ msgid "Font size"
 msgstr "Taille de police"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Autoriser les téléchargements d'épisodes"
+msgstr "Préférences pour les téléchargements d'épisodes"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1459,6 +1464,8 @@ msgstr "Préférer la lecture de flux par rapport au téléchargement"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Les listes d'épisodes afficheront des boutons de diffusion en continu au "
+"lieu des boutons de téléchargement"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1466,38 +1473,36 @@ msgctxt "@label:spinbox"
 msgid "Maximum number of parallel episode downloads"
 msgstr "Nombre maximum de téléchargements d'épisodes en parallèle"
 
-#: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#: qml/Settings/DownloadSettingsPage.qml:58
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Synchronisation automatique"
+msgstr "Actions automatisées"
 
-#: qml/Settings/DownloadSettingsPage.qml:69
+#: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
 msgctxt "@option:check"
 msgid "Fetch podcast updates on startup"
 msgstr "Rechercher des mises à jour de podcasts au démarrage"
 
-#: qml/Settings/DownloadSettingsPage.qml:80
+#: qml/Settings/DownloadSettingsPage.qml:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Periodically retrieve podcast feeds"
 msgstr ""
 "Rechercher régulièrement les fils de discussions concernant les podcasts"
 
-#: qml/Settings/DownloadSettingsPage.qml:85
+#: qml/Settings/DownloadSettingsPage.qml:84
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Never"
 msgstr "Jamais"
 
-#: qml/Settings/DownloadSettingsPage.qml:89
-#: qml/Settings/DownloadSettingsPage.qml:93
-#: qml/Settings/DownloadSettingsPage.qml:97
-#: qml/Settings/DownloadSettingsPage.qml:101
-#: qml/Settings/DownloadSettingsPage.qml:105
+#: qml/Settings/DownloadSettingsPage.qml:88
+#: qml/Settings/DownloadSettingsPage.qml:92
+#: qml/Settings/DownloadSettingsPage.qml:96
+#: qml/Settings/DownloadSettingsPage.qml:100
+#: qml/Settings/DownloadSettingsPage.qml:104
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every hour"
@@ -1505,8 +1510,8 @@ msgid_plural "Every %1 hours"
 msgstr[0] "Chaque heure"
 msgstr[1] "Toutes les %1 heures"
 
-#: qml/Settings/DownloadSettingsPage.qml:109
-#: qml/Settings/DownloadSettingsPage.qml:113
+#: qml/Settings/DownloadSettingsPage.qml:108
+#: qml/Settings/DownloadSettingsPage.qml:112
 #, kde-format
 msgctxt "@item:inlistbox automatic podcast update interval"
 msgid "Every day"
@@ -1514,51 +1519,54 @@ msgid_plural "Every %1 days"
 msgstr[0] "Chaque jour"
 msgstr[1] "Tous les %1 jours"
 
-#: qml/Settings/DownloadSettingsPage.qml:129
+#: qml/Settings/DownloadSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically queue new episodes"
 msgstr "Mettre automatiquement les nouveaux épisodes en file d'attente "
 
-#: qml/Settings/DownloadSettingsPage.qml:144
+#: qml/Settings/DownloadSettingsPage.qml:143
 #, kde-format
 msgctxt "@option:check"
 msgid "Automatically download new episodes"
 msgstr "Télécharger automatiquement les nouveaux épisodes"
 
-#: qml/Settings/DownloadSettingsPage.qml:158
+#: qml/Settings/DownloadSettingsPage.qml:157
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Forcer le traitement complet des abonnements à chaque actualisation"
 
-#: qml/Settings/DownloadSettingsPage.qml:159
+#: qml/Settings/DownloadSettingsPage.qml:158
 #, kde-format
 msgctxt "@info related to a force update subscriptions setting"
 msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Lorsque cette option est désactivée (Par défaut), les abonnements sont "
+"traités uniquement si le flux d'abonnement a été modifié depuis la dernière "
+"mise à jour."
 
-#: qml/Settings/DownloadSettingsPage.qml:168
+#: qml/Settings/DownloadSettingsPage.qml:167
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Lors de l'ajout de nouveaux podcasts"
 
-#: qml/Settings/DownloadSettingsPage.qml:177
+#: qml/Settings/DownloadSettingsPage.qml:176
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Marquer tous les épisodes comme lus"
 
-#: qml/Settings/DownloadSettingsPage.qml:187
+#: qml/Settings/DownloadSettingsPage.qml:186
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Marquer les épisodes les plus récents comme non lus"
 
-#: qml/Settings/DownloadSettingsPage.qml:210
+#: qml/Settings/DownloadSettingsPage.qml:208
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1582,103 +1590,117 @@ msgctxt "@title Form header for settings related to network connections"
 msgid "Network"
 msgstr "Réseau"
 
+#: qml/Settings/NetworkSettingsPage.qml:36
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Network access delay (in seconds)"
+msgstr ""
+
 #: qml/Settings/NetworkSettingsPage.qml:37
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Time to wait after app startup before trying to access the network.\n"
+"This can help in containerized environments."
+msgstr ""
+
+#: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable network connection checks"
 msgstr "Activer les vérifications de connexion au réseau"
 
-#: qml/Settings/NetworkSettingsPage.qml:47
+#: qml/Settings/NetworkSettingsPage.qml:64
 #, kde-format
 msgctxt "@title Form header for settings related to metered connections"
 msgid "On metered connections"
 msgstr "Pour les connexions facturées"
 
-#: qml/Settings/NetworkSettingsPage.qml:57
+#: qml/Settings/NetworkSettingsPage.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow podcast updates"
 msgstr "Autoriser les mises à jour de podcasts"
 
-#: qml/Settings/NetworkSettingsPage.qml:68
+#: qml/Settings/NetworkSettingsPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow episode downloads"
 msgstr "Autoriser les téléchargements d'épisodes"
 
-#: qml/Settings/NetworkSettingsPage.qml:79
+#: qml/Settings/NetworkSettingsPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow image downloads"
 msgstr "Autoriser les téléchargements d'images"
 
-#: qml/Settings/NetworkSettingsPage.qml:90
+#: qml/Settings/NetworkSettingsPage.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow streaming"
 msgstr "Autoriser la lecture de flux"
 
-#: qml/Settings/NetworkSettingsPage.qml:99
+#: qml/Settings/NetworkSettingsPage.qml:116
 #, kde-format
 msgctxt "@title Form header for settings related to network proxies"
 msgid "Network Proxy"
 msgstr "Serveur mandataire du réseau"
 
-#: qml/Settings/NetworkSettingsPage.qml:104
+#: qml/Settings/NetworkSettingsPage.qml:121
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
 msgstr "Paramètres par défaut du système"
 
-#: qml/Settings/NetworkSettingsPage.qml:113
+#: qml/Settings/NetworkSettingsPage.qml:130
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "No Proxy"
 msgstr "Aucun serveur mandataire"
 
-#: qml/Settings/NetworkSettingsPage.qml:122
+#: qml/Settings/NetworkSettingsPage.qml:139
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "HTTP"
 msgstr "HTTP"
 
-#: qml/Settings/NetworkSettingsPage.qml:131
+#: qml/Settings/NetworkSettingsPage.qml:148
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "Socks5"
 msgstr "SOCKS5"
 
-#: qml/Settings/NetworkSettingsPage.qml:146
+#: qml/Settings/NetworkSettingsPage.qml:163
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
 msgstr "Hôte"
 
-#: qml/Settings/NetworkSettingsPage.qml:157
+#: qml/Settings/NetworkSettingsPage.qml:174
 #, kde-format
 msgctxt "@label:spinbox Port for proxy config"
 msgid "Port"
 msgstr "Port"
 
-#: qml/Settings/NetworkSettingsPage.qml:172
+#: qml/Settings/NetworkSettingsPage.qml:189
 #, kde-format
 msgctxt "@label:textbox Username for proxy config"
 msgid "User"
 msgstr "Utilisateur"
 
-#: qml/Settings/NetworkSettingsPage.qml:183
+#: qml/Settings/NetworkSettingsPage.qml:200
 #, kde-format
 msgctxt "@label:textbox Password for proxy config"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: qml/Settings/NetworkSettingsPage.qml:197
+#: qml/Settings/NetworkSettingsPage.qml:214
 #, kde-format
 msgctxt "@action:button"
 msgid "Apply"
 msgstr "Appliquer"
 
-#: qml/Settings/NetworkSettingsPage.qml:217
+#: qml/Settings/NetworkSettingsPage.qml:234
 #, kde-format
 msgctxt "@info:status Warning message related to app proxy settings"
 msgid ""
@@ -1709,55 +1731,55 @@ msgctxt "@label:spinbox"
 msgid "Skip forward interval (in seconds)"
 msgstr "Intervalle d'avance en avant (En secondes)"
 
-#: qml/Settings/PlaybackSettingsPage.qml:77
+#: qml/Settings/PlaybackSettingsPage.qml:76
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Skip backward interval (in seconds)"
 msgstr "Intervalle d'avance en arrière (En secondes)"
 
-#: qml/Settings/PlaybackSettingsPage.qml:92
+#: qml/Settings/PlaybackSettingsPage.qml:90
 #, kde-format
 msgctxt "@title Form header for settings related to the queue"
 msgid "Queue settings"
 msgstr "Configuration de files d'attente"
 
-#: qml/Settings/PlaybackSettingsPage.qml:102
+#: qml/Settings/PlaybackSettingsPage.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Continue playing next episode after current one finishes"
 msgstr "Continuer à lire l'épisode suivant à la fin de celui en cours"
 
-#: qml/Settings/PlaybackSettingsPage.qml:117
+#: qml/Settings/PlaybackSettingsPage.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "Ré-initialiser la position de lecture après la lecture d'un épisode"
 
-#: qml/Settings/PlaybackSettingsPage.qml:131
+#: qml/Settings/PlaybackSettingsPage.qml:129
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Played episode behavior"
 msgstr "Comportement pour les épisodes lus"
 
-#: qml/Settings/PlaybackSettingsPage.qml:136
+#: qml/Settings/PlaybackSettingsPage.qml:134
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Do not delete"
 msgstr "Ne pas supprimer"
 
-#: qml/Settings/PlaybackSettingsPage.qml:140
+#: qml/Settings/PlaybackSettingsPage.qml:138
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete immediately"
 msgstr "Supprimer immédiatement"
 
-#: qml/Settings/PlaybackSettingsPage.qml:144
+#: qml/Settings/PlaybackSettingsPage.qml:142
 #, kde-format
 msgctxt "@item:inlistbox What to do with played episodes"
 msgid "Delete at next startup"
 msgstr "Supprimer au prochain démarrage"
 
-#: qml/Settings/PlaybackSettingsPage.qml:162
+#: qml/Settings/PlaybackSettingsPage.qml:160
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
@@ -1772,16 +1794,13 @@ msgid "Appearance"
 msgstr "Apparence"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Taux de lecture :"
+msgstr "Lecture"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -2290,12 +2309,12 @@ msgctxt "Volume as a percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: sync/sync.cpp:175
+#: sync/sync.cpp:185
 #, kde-format
 msgid "Never"
 msgstr "Jamais"
 
-#: sync/sync.cpp:198
+#: sync/sync.cpp:208
 #, kde-format
 msgctxt ""
 "Suggested description for this device on gpodder sync service; argument is "
@@ -2303,20 +2322,20 @@ msgctxt ""
 msgid "Kasts on %1"
 msgstr "Kasts sur %1"
 
-#: sync/sync.cpp:289
+#: sync/sync.cpp:299
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr ""
 "Impossible de se connecter au serveur « GPodder-Nextcloud ». Erreur : %1"
 
-#: sync/sync.cpp:324
+#: sync/sync.cpp:334
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "Impossible de se connecter au serveur « GPodder ». Erreur : %1"
 
-#: sync/sync.cpp:465
+#: sync/sync.cpp:475
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
@@ -2324,7 +2343,7 @@ msgstr ""
 "Refus Entrées / Sorties : impossible d'enregistrer le mot de passe dans le "
 "fichier %1."
 
-#: sync/sync.cpp:542
+#: sync/sync.cpp:552
 #, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
@@ -2332,32 +2351,32 @@ msgstr ""
 "Refus Entrées / Sorties : impossible d'accéder au fichier %1 de mots de "
 "passe."
 
-#: sync/sync.cpp:619
+#: sync/sync.cpp:629
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "Impossible de créer un périphérique « GPodder ». Erreur : %1"
 
-#: sync/sync.cpp:641
+#: sync/sync.cpp:651
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "Impossible de charger l'état du périphérique synchronisé. Erreur : %1"
 
-#: sync/sync.cpp:688
+#: sync/sync.cpp:698
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "Impossible de recevoir des abonnements du périphérique %1. Erreur : %2"
 
-#: sync/sync.cpp:706
+#: sync/sync.cpp:716
 #, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr ""
 "Impossible d'envoyer des abonnements vers le périphérique %1. Erreur : %2"
 
-#: sync/sync.cpp:761
+#: sync/sync.cpp:771
 #, kde-format
 msgctxt ""
 "@info:status Error message notification. First argument is an already "
@@ -2456,7 +2475,23 @@ msgctxt "Subscription/Episode sync progress step"
 msgid "Sync finished with error"
 msgstr "Synchronisation terminée avec des erreurs"
 
-#: utils/enclosuredownloadjob.cpp:77
+#: utils/enclosuredownloadjob.cpp:64
+#, kde-format
+msgctxt "@info:status %1 is the episode title"
+msgid "Download of episode %1 not allowed on metered connection"
+msgstr ""
+"Le téléchargement de l'épisode %1 n'est pas autorisé avec des connexions "
+"facturées."
+
+#: utils/enclosuredownloadjob.cpp:68
+#, kde-format
+msgctxt "@info:status %1 is the episode title"
+msgid "No network connection while attempting to download episode %1"
+msgstr ""
+"Aucune connexion réseau lors de la tentative de téléchargement de l'épisode "
+"%1"
+
+#: utils/enclosuredownloadjob.cpp:93
 #, kde-format
 msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
@@ -2555,6 +2590,11 @@ msgstr "Quitter"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Erreur lors de la récupération du podcast : %1. Erreur : %2"
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Rechercher"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"
