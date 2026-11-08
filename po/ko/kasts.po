@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
 "PO-Revision-Date: 2026-09-21 22:49+0200\n"
 "Last-Translator: Shinjo Park <peremen@gmail.com>\n"
 "Language-Team: Korean\n"
@@ -51,7 +51,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "잘못된 에피소드 미디어 파일: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -59,7 +59,7 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Download of episode %1 not allowed on metered connection"
@@ -67,7 +67,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "종량제 연결에서 %1 에피소드 다운로드가 허용되지 않음"
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "No network connection while attempting to download episode %1"
@@ -75,7 +75,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "%1 에피소드를 다운로드하려고 시도했지만 네트워크에 연결되지 않았음"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Error downloading media: %1"
@@ -397,6 +397,35 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "팟캐스트 제목: 가나다 역순"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr ""
+
+#: models/itunessearchmodel.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Placeholder text for episode search field"
+#| msgid "Search episodes…"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "에피소드 검색…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of fields to search for string"
+#| msgid "Podcast title"
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "팟캐스트 제목"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, fuzzy, kde-format
+#| msgid "Search podcastindex.org"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "podcastindex.org 검색"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -546,32 +575,26 @@ msgstr "에피소드 제목 없음"
 msgid "No episode loaded"
 msgstr "불러온 에피소드 없음"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "둘러보기"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, fuzzy, kde-format
-#| msgid "Search podcastindex.org"
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "podcastindex.org 검색"
+#| msgctxt "@label"
+#| msgid "Select Sync Provider"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "동기화 공급자 선택"
 
-#: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Search"
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "검색"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "구독"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "구독 중"
@@ -2562,6 +2585,20 @@ msgstr "끝내기"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "%1 팟캐스트를 가져오는 중 오류 발생. 오류: %2"
+
+#, fuzzy
+#~| msgid "Cancel Download"
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "다운로드 취소"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "검색"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-04 04:28+0100\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
+"PO-Revision-Date: 2026-11-07 05:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "არასწორი მედია ეპიზოდისთვის: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -54,19 +54,19 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "გაზომვად შეერთებებზე ეპიზოდის %1 გადმოწერა დაშვებული არაა"
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "ეპიზოდის %1 გადმოწერის მცდელობისას ქსელთან კავშირი აღმოჩენილი არ იყო"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -386,6 +386,30 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "პოდკასტის სათაურით: Z → A"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr "iTunes"
+
+#: models/itunessearchmodel.cpp:50
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "iTunes-ში ძებნა…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Podcastindex"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Podcastindex.org-ზე ძებნა…"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -533,30 +557,24 @@ msgstr "ეპიზოდის სათაურის გარეშე"
 msgid "No episode loaded"
 msgstr "ჩატვირთული ეპიზოდების გარეშე"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "აღმოაჩინეთ"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Podcastindex.org-ზე ძებნა…"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "აირჩიეთ ძებნის მომწოდებელი"
 
-#: qml/DiscoverPage.qml:52
-#, kde-format
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "ძებნა"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "ხელმოწერა"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "გამოწერილია"
@@ -2506,6 +2524,30 @@ msgstr "გასვლა"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "პოდკასტის %1 მიღების შეცდომა: %2"
+
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "გადმოწერის გაუქმება"
+#~ msgstr[1] "გადმოწერების გაუქმება"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Network access delay (in seconds)"
+#~ msgstr "ქსელთან წვდომის დაყოვნება (წმ)"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Time to wait after app startup before trying to access the network.\n"
+#~ "This can help in containerized environments."
+#~ msgstr ""
+#~ "დრო, რომლის განმავლობაშიც მოხდება აპის გაშვების დალოდება ქსელთან "
+#~ "წვდომამდე.\n"
+#~ "ეს შეიძლება, დაგეხმაროთ კონტეინერიზებულ გარემოებში."
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "ძებნა"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

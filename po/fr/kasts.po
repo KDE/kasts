@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-10-30 15:50+0100\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
+"PO-Revision-Date: 2026-11-05 18:52+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Media non valable pour un épisode : %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -55,7 +55,7 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1 : %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
@@ -63,7 +63,7 @@ msgstr ""
 "Le téléchargement de l'épisode %1 n'est pas autorisé avec des connexions "
 "facturées."
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
@@ -71,7 +71,7 @@ msgstr ""
 "Aucune connexion réseau lors de la tentative de téléchargement de l'épisode "
 "%1"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -393,6 +393,34 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Titre de podcast : de Z → A"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr ""
+
+#: models/itunessearchmodel.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Placeholder text for episode search field"
+#| msgid "Search episodes…"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "Rechercher des épisodes..."
+
+#: models/podcastindexsearchmodel.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of fields to search for string"
+#| msgid "Podcast title"
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Titre de podcast"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Recherche du site « podcastindex.org » en cours..."
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -404,8 +432,7 @@ msgid "Url:"
 msgstr "URL :"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Chapitres"
@@ -514,8 +541,7 @@ msgid "Show more"
 msgstr "Afficher plus"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Chapitres"
@@ -544,31 +570,26 @@ msgstr "Aucun titre d'épisode"
 msgid "No episode loaded"
 msgstr "Aucun épisode téléchargé"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Discover"
 
-#: qml/DiscoverPage.qml:43
-#, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Recherche du site « podcastindex.org » en cours..."
-
-#: qml/DiscoverPage.qml:52
+#: qml/DiscoverPage.qml:93
 #, fuzzy, kde-format
-#| msgid "Search"
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Rechercher"
+#| msgctxt "@label"
+#| msgid "Select Sync Provider"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Sélectionner un fournisseur de synchronisation"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Abonné"
@@ -1279,12 +1300,10 @@ msgid "Queue is empty"
 msgstr "La file d'attente est vide"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Apparence"
+msgstr "Apparence et gestion des thèmes"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1325,12 +1344,10 @@ msgid "Color theme"
 msgstr "Thème de couleurs"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Abonnements"
+msgstr "Informations sur les abonnements"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1339,13 +1356,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Toujours afficher les titres des podcasts dans la vue des abonnements"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informations"
+msgstr "Informations sur l'épisode"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1441,12 +1455,10 @@ msgid "Font size"
 msgstr "Taille de police"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Autoriser les téléchargements d'épisodes"
+msgstr "Préférences pour les téléchargements d'épisodes"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1459,6 +1471,8 @@ msgstr "Préférer la lecture de flux par rapport au téléchargement"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Les listes d'épisodes afficheront des boutons de diffusion en continu au "
+"lieu des boutons de téléchargement"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1467,12 +1481,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Nombre maximum de téléchargements d'épisodes en parallèle"
 
 #: qml/Settings/DownloadSettingsPage.qml:59
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Synchronisation automatique"
+msgstr "Actions automatisées"
 
 #: qml/Settings/DownloadSettingsPage.qml:69
 #, kde-format
@@ -1530,7 +1542,7 @@ msgstr "Télécharger automatiquement les nouveaux épisodes"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Forcer le traitement complet des abonnements à chaque actualisation"
 
 #: qml/Settings/DownloadSettingsPage.qml:159
 #, kde-format
@@ -1539,6 +1551,9 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Lorsque cette option est désactivée (Par défaut), les abonnements sont "
+"traités uniquement si le flux d'abonnement a été modifié depuis la dernière "
+"mise à jour."
 
 #: qml/Settings/DownloadSettingsPage.qml:168
 #, kde-format
@@ -1772,16 +1787,13 @@ msgid "Appearance"
 msgstr "Apparence"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Taux de lecture :"
+msgstr "Lecture"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Téléchargements"
@@ -2555,6 +2567,19 @@ msgstr "Quitter"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Erreur lors de la récupération du podcast : %1. Erreur : %2"
+
+#, fuzzy
+#~| msgid "Cancel Download"
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "Annuler le téléchargement"
+#~ msgstr[1] "Annuler le téléchargement"
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Rechercher"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
 "PO-Revision-Date: 2021-06-21 09:28-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -45,7 +45,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr ""
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, fuzzy, kde-format
 #| msgid "Error (%1): %2"
 msgctxt ""
@@ -54,19 +54,19 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "ਗ਼ਲਤੀ (%1): %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr ""
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, fuzzy, kde-format
 #| msgid "Downloading %1"
 msgctxt "@info:status %1 is the error message"
@@ -404,6 +404,33 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "ਪੋਡਕਾਸਟ ਪਲੇਅਰ"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr ""
+
+#: models/itunessearchmodel.cpp:50
+#, fuzzy, kde-format
+#| msgid "New Episodes"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, fuzzy, kde-format
+#| msgid "Podcast Player"
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "ਪੋਡਕਾਸਟ ਪਲੇਅਰ"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, fuzzy, kde-format
+#| msgid "New Episodes"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -556,32 +583,24 @@ msgstr "ਕੋਈ ਐਪੀਸੋਡ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 msgid "No episode loaded"
 msgstr "ਕੋਈ ਐਪੀਸੋਡ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr ""
 
-#: qml/DiscoverPage.qml:43
-#, fuzzy, kde-format
-#| msgid "New Episodes"
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
+#: qml/DiscoverPage.qml:93
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr ""
 
-#: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "New Episodes"
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, fuzzy, kde-format
 msgid "Subscribe"
 msgstr "ਮੈਂਬਰ ਹੋ: %1"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, fuzzy, kde-format
 msgid "Subscribed"
 msgstr "ਮੈਂਬਰ ਹੋ: %1"
@@ -2599,6 +2618,21 @@ msgstr ""
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Cancel Download"
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
+#~ msgstr[1] "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~| msgid "New Episodes"
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "ਨਵੇਂ ਐਪੀਸੋਡ"
 
 #, fuzzy
 #~| msgid "Podcast Update Error"

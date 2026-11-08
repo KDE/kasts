@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-04 07:45+0200\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
+"PO-Revision-Date: 2026-11-07 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Некорректный файл мультимедиа для выпуска: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -55,19 +55,19 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Загрузка выпуска %1 запрещена при лимитном подключении"
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "Не удалось загрузить выпуск %1: нет подключения к сети"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -387,6 +387,30 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Название подкаста: Я → А"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr "iTunes"
+
+#: models/itunessearchmodel.cpp:50
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "Искать в iTunes…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Podcastindex"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Поиск на podcastindex.org…"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -534,30 +558,24 @@ msgstr "Название выпуска отсутствует"
 msgid "No episode loaded"
 msgstr "Ни один выпуск не загружен"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Поиск"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Поиск на podcastindex.org…"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Выбрать службу поиска"
 
-#: qml/DiscoverPage.qml:52
-#, kde-format
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Искать"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Оформлена подписка"
@@ -2537,6 +2555,31 @@ msgstr "Выйти"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Ошибка получения подкаста %1; ошибка: %2"
+
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "Отменить загрузки"
+#~ msgstr[1] "Отменить загрузки"
+#~ msgstr[2] "Отменить загрузки"
+#~ msgstr[3] "Отменить загрузку"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Network access delay (in seconds)"
+#~ msgstr "Задержка перед обращением к сети (в секундах)"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Time to wait after app startup before trying to access the network.\n"
+#~ "This can help in containerized environments."
+#~ msgstr ""
+#~ "Время ожидания после запуска приложения перед первым обращением к сети.\n"
+#~ "Может помочь при работе в контейнерах."
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Искать"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

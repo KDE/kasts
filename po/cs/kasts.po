@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-04 13:59+0100\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
+"PO-Revision-Date: 2026-11-07 11:03+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Neplatný mediální soubor pro epizodu: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -54,19 +54,19 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Stahování epizody %1 není povoleno u měřeného připojení"
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "Žádné síťové připojení při pokusu o stažení epizody %1"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -386,6 +386,30 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Název podcastu: Z → A"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr "iTunes"
+
+#: models/itunessearchmodel.cpp:50
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "Vyhledat v iTunes…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Podcastindex"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Prohledat podcastindex.org…"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -534,30 +558,24 @@ msgstr "Žádný název epizody"
 msgid "No episode loaded"
 msgstr "Žádná epizoda nebyla načtena"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Prozkoumat"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Prohledat podcastindex.org…"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Zvolte poskytovatele vyhledávání"
 
-#: qml/DiscoverPage.qml:52
-#, kde-format
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Hledat"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Přihlásit se k odběru"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Odebíráno"
@@ -2518,6 +2536,31 @@ msgstr "Ukončit"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Chyba při načítání podcastu: %1; chyba: %2"
+
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "Zrušit stahování"
+#~ msgstr[1] "Zrušit stahování"
+#~ msgstr[2] "Zrušit stahování"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Network access delay (in seconds)"
+#~ msgstr "Zpoždění při přístupu k síti (v sekundách)"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Time to wait after app startup before trying to access the network.\n"
+#~ "This can help in containerized environments."
+#~ msgstr ""
+#~ "Doba, po kterou je třeba po spuštění aplikace počkat, než se pokusíte o "
+#~ "přístup k síti.\n"
+#~ "To může být užitečné v kontejnerových prostředích."
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Hledat"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

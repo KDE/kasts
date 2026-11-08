@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
 "PO-Revision-Date: 2026-01-04 12:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -50,7 +50,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Komunikabide-fitxategia baliogabea"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -59,20 +59,20 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "Errorea: %1"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, fuzzy, kde-format
 #| msgid "Podcast downloads not allowed on metered connection"
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Tarifatutako konexioetan podcast zama-jaisteak ez daude baimenduta "
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr ""
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, fuzzy, kde-format
 #| msgid "Downloading %1"
 msgctxt "@info:status %1 is the error message"
@@ -397,6 +397,35 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Podcast izenburua: Z → A"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr ""
+
+#: models/itunessearchmodel.cpp:50
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox Placeholder text for episode search field"
+#| msgid "Search episodes…"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "Bilatu atalak…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of fields to search for string"
+#| msgid "Podcast title"
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Podcastaren izenburua"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, fuzzy, kde-format
+#| msgid "Search podcastindex.org"
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "Bilatu hemen, podcastindex.org"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -548,32 +577,26 @@ msgstr "Atal-titulurik ez"
 msgid "No episode loaded"
 msgstr "Ez dago atalik zamatu"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Aurkitu"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, fuzzy, kde-format
-#| msgid "Search podcastindex.org"
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "Bilatu hemen, podcastindex.org"
+#| msgctxt "@label"
+#| msgid "Select Sync Provider"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Hautatu sinkronizazio hornitzailea"
 
-#: qml/DiscoverPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Search"
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Bilatu"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Harpidetu"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Harpidetuta"
@@ -2586,6 +2609,21 @@ msgstr "Irten"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Biltegiratze bide-izena mugitzeko errorea"
+
+#, fuzzy
+#~| msgid "Cancel Download"
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "Utzi zama-jaistea"
+#~ msgstr[1] "Utzi zama-jaistea"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Bilatu"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"

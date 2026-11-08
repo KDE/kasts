@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:01+0000\n"
-"PO-Revision-Date: 2026-11-04 22:07+0300\n"
+"POT-Creation-Date: 2026-11-08 00:12+0000\n"
+"PO-Revision-Date: 2026-11-07 19:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Bölüm için geçersiz ortam dosyası: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1123
+#: database.cpp:897 utils/updatefeedjob.cpp:1128
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -54,19 +54,19 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: fetcher.cpp:147
+#: fetcher.cpp:141
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "%1 bölümünün ölçülen bağlantılarda indirilmesine izin verilmiyor"
 
-#: fetcher.cpp:151
+#: fetcher.cpp:145
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "%1 bölümü indirilmeye çalışılırken ağ bağlantısı bulunamadı"
 
-#: fetcher.cpp:208
+#: fetcher.cpp:202
 #, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
@@ -386,6 +386,30 @@ msgctxt "@label:chooser Sort podcasts titles in reverse alphabetical order"
 msgid "Podcast title: Z → A"
 msgstr "Pod yayını başlığı: Z → A"
 
+#: models/itunessearchmodel.cpp:45
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "iTunes"
+msgstr "iTunes"
+
+#: models/itunessearchmodel.cpp:50
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search iTunes…"
+msgstr "iTunes içinde ara…"
+
+#: models/podcastindexsearchmodel.cpp:48
+#, kde-format
+msgctxt "@label:chooser Choice of search providers"
+msgid "Podcastindex"
+msgstr "Podcastindex"
+
+#: models/podcastindexsearchmodel.cpp:53
+#, kde-format
+msgctxt "@label:textbox Placeholder text for search field"
+msgid "Search podcastindex.org…"
+msgstr "podcastindex.org’da ara…"
+
 #: qml/AddFeedSheet.qml:22
 #, kde-format
 msgid "Add New Podcast"
@@ -535,30 +559,24 @@ msgstr "Bölüm başlığı yok"
 msgid "No episode loaded"
 msgstr "Yüklü bölüm yok"
 
-#: qml/DiscoverPage.qml:20 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
 msgstr "Keşfet"
 
-#: qml/DiscoverPage.qml:43
+#: qml/DiscoverPage.qml:93
 #, kde-format
-msgctxt "@label:textbox Placeholder text for search field"
-msgid "Search podcastindex.org…"
-msgstr "podcastindex.org’da ara…"
+msgctxt "@action:intoolbar"
+msgid "Select Search Provider"
+msgstr "Arama Sağlayıcısı Seç"
 
-#: qml/DiscoverPage.qml:52
-#, kde-format
-msgctxt "@action:button button next to search field to search for new podcasts"
-msgid "Search"
-msgstr "Ara"
-
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribe"
 msgstr "Abone Ol"
 
-#: qml/DiscoverPage.qml:103 qml/FeedDetailsPage.qml:166
+#: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
 msgid "Subscribed"
 msgstr "Abone Olundu"
@@ -2509,6 +2527,31 @@ msgstr "Çık"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Pod yayını alınamadı: %1; hata: %2"
+
+#~| msgid "Cancel Download"
+#~ msgctxt "context menu action"
+#~ msgid "Cancel Download"
+#~ msgid_plural "Cancel Downloads"
+#~ msgstr[0] "İndirmeyi İptal Et"
+#~ msgstr[1] "İndirmeleri İptal Et"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Network access delay (in seconds)"
+#~ msgstr "Ağ erişim gecikmesi (saniye)"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Time to wait after app startup before trying to access the network.\n"
+#~ "This can help in containerized environments."
+#~ msgstr ""
+#~ "Uygulama başlatımından sonra ağa erişim denemesi öncesi beklenecek "
+#~ "zaman.\n"
+#~ "Bu, kapsayıcı içindeki ortamlarda yararlı olabilir."
+
+#~ msgctxt ""
+#~ "@action:button button next to search field to search for new podcasts"
+#~ msgid "Search"
+#~ msgstr "Ara"
 
 #~ msgctxt "@action:button"
 #~ msgid "Chapters"
