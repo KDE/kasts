@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-04 09:54+0100\n"
+"PO-Revision-Date: 2026-11-07 19:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -379,23 +379,19 @@ msgstr "Naslov spletne oddaje: Ž → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Poišči epizode …"
+msgstr "Poišči iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Naslov spletne oddaje"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -558,12 +554,10 @@ msgid "Discover"
 msgstr "Odkrij"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Izberi ponudnika sinhronizacije"
+msgstr "Izberi ponudnika iskanja"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1131,15 +1125,14 @@ msgstr[2] "Izbriši prejema"
 msgstr[3] "Izbriši prejeme"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
-msgstr[0] "Prekliči prejem"
+msgstr[0] "Prekliči prejeme"
 msgstr[1] "Prekliči prejem"
-msgstr[2] "Prekliči prejem"
-msgstr[3] "Prekliči prejem"
+msgstr[2] "Prekliči prejema"
+msgstr[3] "Prekliči prejeme"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1605,7 +1598,7 @@ msgstr "Omrežje"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Zakasnitev dostopa do omrežja (v sekundah)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1614,6 +1607,9 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Čas čakanja po zagonu aplikacije, pred poskusom vzpostavitve dostopa do "
+"omrežja.\n"
+"To je lahko koristno v okoljih z vsebniki."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format

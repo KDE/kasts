@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-05 07:37-0300\n"
+"PO-Revision-Date: 2026-11-07 05:54-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -381,23 +381,19 @@ msgstr "Título do podcast: Z → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Pesquisar episódios…"
+msgstr "Pesquisar iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Título do podcast"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -561,12 +557,10 @@ msgid "Discover"
 msgstr "Descobrir"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Selecione o provedor de sincronização"
+msgstr "Selecionar o provedor de pesquisa"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1126,13 +1120,12 @@ msgstr[0] "Excluir download"
 msgstr[1] "Nenhum downloads"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
 msgstr[0] "Cancelar download"
-msgstr[1] "Cancelar download"
+msgstr[1] "Cancelar downloads"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1589,7 +1582,7 @@ msgstr "Rede"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Atraso no acesso à rede (em segundos)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1598,6 +1591,9 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Tempo de espera após a inicialização do aplicativo antes de tentar acessar a "
+"rede.\n"
+"Isso pode ser útil em ambientes conteinerizados."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format

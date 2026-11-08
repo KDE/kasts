@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-04 07:45+0200\n"
+"PO-Revision-Date: 2026-11-07 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -379,23 +379,19 @@ msgstr "Название подкаста: Я → А"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Найти выпуски…"
+msgstr "Искать в iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Название подкаста"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -557,12 +553,10 @@ msgid "Discover"
 msgstr "Поиск"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Выбор поставщика услуг синхронизации"
+msgstr "Выбрать службу поиска"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1130,14 +1124,13 @@ msgstr[2] "Удалить загруженные данные"
 msgstr[3] "Удалить загруженные данные"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
-msgstr[0] "Отменить загрузку"
-msgstr[1] "Отменить загрузку"
-msgstr[2] "Отменить загрузку"
+msgstr[0] "Отменить загрузки"
+msgstr[1] "Отменить загрузки"
+msgstr[2] "Отменить загрузки"
 msgstr[3] "Отменить загрузку"
 
 #: qml/GlobalSearchField.qml:123
@@ -1607,7 +1600,7 @@ msgstr "Сеть"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Задержка перед обращением к сети (в секундах)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1616,6 +1609,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Время ожидания после запуска приложения перед первым обращением к сети.\n"
+"Может помочь при работе в контейнерах."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format

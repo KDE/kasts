@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-04 22:07+0300\n"
+"PO-Revision-Date: 2026-11-07 19:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -378,23 +378,19 @@ msgstr "Pod yayını başlığı: Z → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Bölümler ara…"
+msgstr "iTunes içinde ara…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Pod yayını başlığı"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -558,12 +554,10 @@ msgid "Discover"
 msgstr "Keşfet"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Eşzamanlama sağlayıcısı seç"
+msgstr "Arama Sağlayıcısı Seç"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1123,13 +1117,12 @@ msgstr[0] "İndimeyi Sil"
 msgstr[1] "İndirmeleri Sil"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
 msgstr[0] "İndirmeyi İptal Et"
-msgstr[1] "İndirmeyi İptal Et"
+msgstr[1] "İndirmeleri İptal Et"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1587,7 +1580,7 @@ msgstr "Ağ"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Ağ erişim gecikmesi (saniye)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1596,6 +1589,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Uygulama başlatımından sonra ağa erişim denemesi öncesi beklenecek zaman.\n"
+"Bu, kapsayıcı içindeki ortamlarda yararlı olabilir."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format

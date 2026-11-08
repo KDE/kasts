@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-05 12:57+0200\n"
+"PO-Revision-Date: 2026-11-07 19:43+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -378,23 +378,19 @@ msgstr "כותרת ההסכת: ת ← א"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "חיפוש פרקים…"
+msgstr "חיפוש ב־iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "כותרת ההסכת"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -554,12 +550,10 @@ msgid "Discover"
 msgstr "חשיפה"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "בחירת ספק סנכרון"
+msgstr "בחירת ספק חיפוש"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1127,15 +1121,14 @@ msgstr[2] "מחיקת ההורדות"
 msgstr[3] "מחיקת ההורדות"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
 msgstr[0] "ביטול הורדה"
-msgstr[1] "ביטול הורדה"
-msgstr[2] "ביטול הורדה"
-msgstr[3] "ביטול הורדה"
+msgstr[1] "ביטול הורדות"
+msgstr[2] "ביטול הורדות"
+msgstr[3] "ביטול הורדות"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1599,7 +1592,7 @@ msgstr "רשת"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "עיכוב בגישה לרשת (בשניות)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1608,6 +1601,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"הזמן להמתנה לאחר הפעלת היישום בטרם ניסיון לגשת לרשת.\n"
+"עשוי לסייע בסביבות מבודדות."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
