@@ -1106,7 +1106,7 @@ void Sync::retrieveAllLocalEpisodeStates()
     for (SyncUtils::EpisodeAction &action : actions) {
         writeQuery.prepare(QStringLiteral(
             "INSERT INTO EpisodeActions (entryuid, feeduid, podcast, url, id, action, started, position, total, durationdb, timestamp) VALUES (:entryuid, "
-            ":feeduid, :podcast, :url, :id, :action, :started, :position, :total, :timestamp);"));
+            ":feeduid, :podcast, :url, :id, :action, :started, :position, :total, :durationdb, :timestamp);"));
         writeQuery.bindValue(QStringLiteral(":entryuid"), action.entryuid);
         writeQuery.bindValue(QStringLiteral(":feeduid"), action.feeduid);
         writeQuery.bindValue(QStringLiteral(":podcast"), action.podcast);
