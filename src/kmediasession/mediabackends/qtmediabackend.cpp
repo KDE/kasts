@@ -69,7 +69,7 @@ QtMediaBackend::QtMediaBackend(QObject *parent)
 
     // Signal is emitted whenever the global output device is changed and we must manually move ourselves to that device.
     connect(&d->m_mediaDevices, &QMediaDevices::audioOutputsChanged, this, [this] {
-        qDebug() << "device changed";
+        qCDebug(QtMediaBackendLog) << "Audio output device changed";
         d->m_output.setDevice(QAudioDevice{});
     });
 }
