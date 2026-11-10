@@ -199,7 +199,7 @@ QVariant AbstractEpisodeModel::data(const QModelIndex &index, int role) const
 {
     qCDebug(kastsEpisodeModel) << "calling data for row" << index << "and role" << roleNames()[role];
 
-    if (!index.isValid()) {
+    if (!index.isValid() || (index.row() > m_entryOrder.count())) {
         return QVariant();
     }
 
