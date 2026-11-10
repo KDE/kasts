@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 12:50+0000\n"
-"PO-Revision-Date: 2026-10-20 15:25+0200\n"
+"PO-Revision-Date: 2026-11-08 07:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.10\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -381,23 +381,19 @@ msgstr "Titolo del podcast: Z → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Cerca episodi…"
+msgstr "Cerca su iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Titolo del podcast"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -416,8 +412,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Capitoli"
@@ -526,8 +521,7 @@ msgid "Show more"
 msgstr "Mostra altro"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Capitoli"
@@ -563,12 +557,10 @@ msgid "Discover"
 msgstr "Scopri"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Seleziona il fornitore di sincronizzazione"
+msgstr "Seleziona il fornitore di ricerca"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1129,13 +1121,12 @@ msgstr[0] "Elimina lo scaricamento"
 msgstr[1] "Elimina gli scaricamenti"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
-msgstr[0] "Annulla lo scaricamento"
-msgstr[1] "Annulla lo scaricamento"
+msgstr[0] "Annulla scaricamento"
+msgstr[1] "Annulla scaricamenti"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1295,12 +1286,10 @@ msgid "Queue is empty"
 msgstr "La coda è vuota"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Aspetto"
+msgstr "Aspetto e temi"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1341,12 +1330,10 @@ msgid "Color theme"
 msgstr "Tema di colori"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Sottoscrizioni"
+msgstr "Informazioni sulla sottoscrizione"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1355,13 +1342,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Mostra sempre i titoli dei podcast nella vista delle sottoscrizioni"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informazioni"
+msgstr "Informazioni sull'episodio"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1459,12 +1443,10 @@ msgid "Font size"
 msgstr "Dimensione del carattere"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Consenti gli scaricamenti degli episodi"
+msgstr "Preferenze per lo scaricamento degli episodi"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1477,6 +1459,8 @@ msgstr "Preferisci la trasmissione allo scaricamento"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Gli elenchi degli episodi mostreranno pulsanti per la trasmissione anziché "
+"pulsanti per lo scaricamento"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1485,12 +1469,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Numero massimo di scaricamenti di episodi paralleli"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Sincronizzazione automatica"
+msgstr "Azioni automatizzate"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1547,7 +1529,7 @@ msgstr "Scarica automaticamente i nuovi episodi"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Forza l'elaborazione completa dell'abbonamento a ogni aggiornamento"
 
 #: qml/Settings/DownloadSettingsPage.qml:158
 #, kde-format
@@ -1556,6 +1538,9 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Quando è disabilitata (impostazione predefinita), le sottoscrizioni vengono "
+"elaborate solo se la fonte di sottoscrizione ha subito modifiche dall'ultimo "
+"aggiornamento."
 
 #: qml/Settings/DownloadSettingsPage.qml:167
 #, kde-format
@@ -1603,7 +1588,7 @@ msgstr "Rete"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Ritardo di accesso alla rete (in secondi)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1612,6 +1597,9 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Tempo di attesa dopo l'avvio dell'applicazione prima di tentare l'accesso "
+"alla rete.\n"
+"Ciò può essere utile in ambienti che eseguiti in container."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1805,16 +1793,13 @@ msgid "Appearance"
 msgstr "Aspetto"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Velocità di riproduzione:"
+msgstr "Riproduzione"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Scaricamenti"
@@ -2591,9 +2576,7 @@ msgid "Quit"
 msgstr "Esci"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Errore durante il recupero del podcast: %1; errore: %2"
