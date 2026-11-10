@@ -21,6 +21,7 @@ ListView {
     clip: true
     property bool isQueue: false
     property bool enableActions: true
+    readonly property bool enableSectionHeaders: root.model && (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter)
 
     property list<var> selectionForContextMenu: []
     property int singleSelectedEntryuid: 0
@@ -39,17 +40,17 @@ ListView {
     // Section headers; currently only shown when filtering for downloads
     section {
         delegate: Kirigami.ListSectionHeader {
-            visible: height > 0
-            clip: true
-            height: (root.model && (root.model.filterType == AbstractEpisodeProxyModel.NotDownloadedFilter || root.model.filterType === AbstractEpisodeProxyModel.DownloadedFilter)) ? implicitHeight : 0
-            width: root.width
-
             required property string section
 
+            clip: true
+            height: root.enableSectionHeaders ? implicitHeight : 0
+            width: root.width
+            visible: height > 0
+
             // NOTE: the DataTypes.EnclosureStatus enum values get converted to strings
-            text: section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : section == "Downloadable" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Not Downloaded") : section == "NoEnclosure" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Episodes without Media Files") : ""
+            text: section ? (section == "Downloading" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloading") : section == "PartiallyDownloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Incomplete Downloads") : section == "Downloaded" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Downloaded") : section == "Queued" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Queued") : section == "Downloadable" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Not Downloaded") : section == "NoEnclosure" ? KI18n.i18nc("@title:group Status of downloaded episodes", "Episodes without Media Files") : "") : ""
         }
-        property: "enclosureStatus"
+        property: root.enableSectionHeaders ? "enclosureStatus" : ""
     }
 
     topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
