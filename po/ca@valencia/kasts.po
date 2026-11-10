@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 00:56+0000\n"
-"PO-Revision-Date: 2026-11-05 08:49+0100\n"
+"PO-Revision-Date: 2026-11-07 09:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -385,23 +385,19 @@ msgstr "Títol del pòdcast: Z → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Busca episodis…"
+msgstr "Busca en iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Títol del pòdcast"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -565,12 +561,10 @@ msgid "Discover"
 msgstr "Descobrix"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Trieu el proveïdor de sincronització"
+msgstr "Trieu el proveïdor de busca"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1130,13 +1124,12 @@ msgstr[0] "Suprimix la baixada"
 msgstr[1] "Suprimix les baixades"
 
 #: qml/GenericEntryListView.qml:398
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
 msgstr[0] "Cancel·la la baixada"
-msgstr[1] "Cancel·la la baixada"
+msgstr[1] "Cancel·la les baixades"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1596,7 +1589,7 @@ msgstr "Xarxa"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Retard d'accés a la xarxa (en segons)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1605,6 +1598,9 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Temps d'espera després de l'inici de l'aplicació abans de provar d'accedir a "
+"la xarxa.\n"
+"Açò pot ajudar en entorns dins de contenidors."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1676,7 +1672,7 @@ msgstr "Socks5"
 #, kde-format
 msgctxt "@label:textbox Hostname for proxy config"
 msgid "Host"
-msgstr "Servidor"
+msgstr "Amfitrió"
 
 #: qml/Settings/NetworkSettingsPage.qml:174
 #, kde-format
@@ -2578,8 +2574,3 @@ msgstr "Ix"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "S'ha produït un error mentre es recuperava el pòdcast: %1; error: %2"
-
-#~ msgctxt ""
-#~ "@action:button button next to search field to search for new podcasts"
-#~ msgid "Search"
-#~ msgstr "Busca"
