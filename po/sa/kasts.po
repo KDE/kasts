@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 12:50+0000\n"
+"POT-Creation-Date: 2026-11-11 03:11+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -29,27 +29,27 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: audiomanager.cpp:487
+#: audiomanager.cpp:491
 #, fuzzy, kde-format
 #| msgid "Streaming on metered connection not allowed"
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "मीटर् कृते संयोजने स्ट्रीमिंग् अनुमतं नास्ति"
 
-#: audiomanager.cpp:496
+#: audiomanager.cpp:500
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
 
-#: audiomanager.cpp:655
+#: audiomanager.cpp:659
 #, fuzzy, kde-format
 #| msgid "Invalid media file"
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "अमान्यमाध्यमसञ्चिका"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1128
+#: database.cpp:924 utils/updatefeedjob.cpp:1132
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -682,7 +682,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "\"नव\" इति लेबलं कुर्वन्तु ।"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:369
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:370
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -690,7 +690,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "प्रियतः निष्कासयन्तु"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:359
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:360
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -1002,12 +1002,12 @@ msgid ""
 "author(s). Downloading and/or streaming this episode might be broken."
 msgstr ""
 
-#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:310
+#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:311
 #, kde-format
 msgid "Remove from Queue"
 msgstr "कतारात् निष्कासयन्तु"
 
-#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:379
+#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:380
 #, kde-format
 msgid "Download"
 msgstr "अवाहरन"
@@ -1022,12 +1022,12 @@ msgstr "डाउनलोड् रद्दं कुर्वन्तु"
 msgid "Delete Download"
 msgstr "डाउनलोड् विलोपयन्तु"
 
-#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:299
+#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:300
 #, kde-format
 msgid "Add to Queue"
 msgstr "कतारं योजयतु"
 
-#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:407
+#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:408
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1035,28 +1035,28 @@ msgctxt ""
 msgid "Stream"
 msgstr "धारा"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgid "Downloading"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "डाउनलोड् करणम्"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgid "Incomplete Downloads"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "अपूर्ण डाउनलोड्स"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgid "Downloaded"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "डाउनलोड् कृतम्"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@title of page showing the list queued items; this is the noun 'the "
@@ -1066,14 +1066,14 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
 msgstr "पङ्क्ति"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgid "Downloaded"
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "डाउनलोड् कृतम्"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, fuzzy, kde-format
 #| msgctxt "@label:chooser Choice of filter for episode list"
 #| msgid "Episodes not marked as Favorite"
@@ -1081,19 +1081,19 @@ msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "प्रिय इति न चिह्निताः प्रकरणाः"
 
-#: qml/GenericEntryListView.qml:214
+#: qml/GenericEntryListView.qml:215
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "प्रकारं"
 
-#: qml/GenericEntryListView.qml:216
+#: qml/GenericEntryListView.qml:217
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "प्रकरणानाम् क्रमणं कथं करणीयम् इति चिनोतु"
 
-#: qml/GenericEntryListView.qml:270
+#: qml/GenericEntryListView.qml:271
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1101,43 +1101,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "फ़िल्टर"
 
-#: qml/GenericEntryListView.qml:271
+#: qml/GenericEntryListView.qml:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "स्थितिनुसारं प्रकरणानाम् छाननं कुर्वन्तु"
 
-#: qml/GenericEntryListView.qml:280
+#: qml/GenericEntryListView.qml:281
 #, kde-format
 msgid "Select All"
 msgstr "सर्वं चिनोतु"
 
-#: qml/GenericEntryListView.qml:290
+#: qml/GenericEntryListView.qml:291
 #, kde-format
 msgid "Deselect All"
 msgstr "सर्वाणि अचयनं कुर्वन्तु"
 
-#: qml/GenericEntryListView.qml:321
+#: qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Mark as Played"
 msgstr "Played इति चिह्नं कुर्वन्तु"
 
-#: qml/GenericEntryListView.qml:330
+#: qml/GenericEntryListView.qml:331
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Unplayed इति चिह्नं कुर्वन्तु"
 
-#: qml/GenericEntryListView.qml:339
+#: qml/GenericEntryListView.qml:340
 #, kde-format
 msgid "Label as \"New\""
 msgstr "\"नव\" इति लेबलं कुर्वन्तु ।"
 
-#: qml/GenericEntryListView.qml:349
+#: qml/GenericEntryListView.qml:350
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "\"नव\" लेबलं निष्कासयन्तु"
 
-#: qml/GenericEntryListView.qml:389
+#: qml/GenericEntryListView.qml:390
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1145,7 +1145,7 @@ msgid_plural "Delete Downloads"
 msgstr[0] "डाउनलोड् विलोपयन्तु"
 msgstr[1] "डाउनलोड्स् विलोपयन्तु"
 
-#: qml/GenericEntryListView.qml:398
+#: qml/GenericEntryListView.qml:399
 #, fuzzy, kde-format
 #| msgid "Cancel Download"
 msgctxt "context menu action"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 12:50+0000\n"
+"POT-Creation-Date: 2026-11-11 03:11+0000\n"
 "PO-Revision-Date: 2026-11-07 19:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -28,25 +28,25 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: audiomanager.cpp:487
+#: audiomanager.cpp:491
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Bölüm için ölçülen bağlantılarda akışa izin verilmiyor: %1"
 
-#: audiomanager.cpp:496
+#: audiomanager.cpp:500
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "Bölüm akışı yapılmaya çalışılırken ağ bağlantısı bulunamadı: %1"
 
-#: audiomanager.cpp:655
+#: audiomanager.cpp:659
 #, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Bölüm için geçersiz ortam dosyası: %1"
 
-#: database.cpp:897 utils/updatefeedjob.cpp:1128
+#: database.cpp:924 utils/updatefeedjob.cpp:1132
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -663,7 +663,7 @@ msgctxt "@action:intoolbar"
 msgid "Label as \"New\""
 msgstr "“Yeni” Olarak İmle"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:369
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:370
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to remove the \"favorite\" property of a podcast "
@@ -671,7 +671,7 @@ msgctxt ""
 msgid "Remove from Favorites"
 msgstr "Sık Kullanılanlardan Kaldır"
 
-#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:359
+#: qml/EntryPage.qml:193 qml/GenericEntryListView.qml:360
 #, kde-format
 msgctxt "@action:intoolbar Button to add a podcast episode as favorite"
 msgid "Add to Favorites"
@@ -983,12 +983,12 @@ msgstr ""
 "Bu bölüm, pod yayını sahipleri tarafından pod yayını RSS beslemesinden "
 "kaldırıldı. Bu bölümü indirmek veya akışını başlatmak çalışmıyor olabilir."
 
-#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:310
+#: qml/GenericEntryDelegate.qml:406 qml/GenericEntryListView.qml:311
 #, kde-format
 msgid "Remove from Queue"
 msgstr "Kuyruktan Kaldır"
 
-#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:379
+#: qml/GenericEntryDelegate.qml:415 qml/GenericEntryListView.qml:380
 #, kde-format
 msgid "Download"
 msgstr "İndir"
@@ -1003,12 +1003,12 @@ msgstr "İndirmeyi İptal Et"
 msgid "Delete Download"
 msgstr "İndirmeyi Sil"
 
-#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:299
+#: qml/GenericEntryDelegate.qml:439 qml/GenericEntryListView.qml:300
 #, kde-format
 msgid "Add to Queue"
 msgstr "Kuyruğa Ekle"
 
-#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:407
+#: qml/GenericEntryDelegate.qml:456 qml/GenericEntryListView.qml:408
 #, kde-format
 msgctxt ""
 "@action:inmenu Action to start playback by streaming the episode rather than "
@@ -1016,55 +1016,55 @@ msgctxt ""
 msgid "Stream"
 msgstr "Akışı Başlat"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloading"
 msgstr "İndiriliyor"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Incomplete Downloads"
 msgstr "Tamamlanmayan İndirmeler"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Downloaded"
 msgstr "İndirildi"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Queued"
 msgstr "Kuyrukta"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Not Downloaded"
 msgstr "İndirilmedi"
 
-#: qml/GenericEntryListView.qml:50
+#: qml/GenericEntryListView.qml:51
 #, kde-format
 msgctxt "@title:group Status of downloaded episodes"
 msgid "Episodes without Media Files"
 msgstr "Ortam Dosyasız Bölümler"
 
-#: qml/GenericEntryListView.qml:214
+#: qml/GenericEntryListView.qml:215
 #, kde-format
 msgctxt "@action:intoolbar Open menu with options to sort episodes"
 msgid "Sort"
 msgstr "Sırala"
 
-#: qml/GenericEntryListView.qml:216
+#: qml/GenericEntryListView.qml:217
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort episodes"
 msgstr "Bölümlerin nasıl sıralanacağını seç"
 
-#: qml/GenericEntryListView.qml:270
+#: qml/GenericEntryListView.qml:271
 #, kde-format
 msgctxt ""
 "@action:intoolbar Button to open menu to filter episodes based on their "
@@ -1072,43 +1072,43 @@ msgctxt ""
 msgid "Filter"
 msgstr "Süz"
 
-#: qml/GenericEntryListView.qml:271
+#: qml/GenericEntryListView.qml:272
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter episodes by status"
 msgstr "Bölümleri duruma göre süz"
 
-#: qml/GenericEntryListView.qml:280
+#: qml/GenericEntryListView.qml:281
 #, kde-format
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: qml/GenericEntryListView.qml:290
+#: qml/GenericEntryListView.qml:291
 #, kde-format
 msgid "Deselect All"
 msgstr "Tümünün Seçimini Kaldır"
 
-#: qml/GenericEntryListView.qml:321
+#: qml/GenericEntryListView.qml:322
 #, kde-format
 msgid "Mark as Played"
 msgstr "Dinlendi Olarak İmle"
 
-#: qml/GenericEntryListView.qml:330
+#: qml/GenericEntryListView.qml:331
 #, kde-format
 msgid "Mark as Unplayed"
 msgstr "Dinlenmedi Olarak İmle"
 
-#: qml/GenericEntryListView.qml:339
+#: qml/GenericEntryListView.qml:340
 #, kde-format
 msgid "Label as \"New\""
 msgstr "“Yeni” Olarak İmle"
 
-#: qml/GenericEntryListView.qml:349
+#: qml/GenericEntryListView.qml:350
 #, kde-format
 msgid "Remove \"New\" Label"
 msgstr "“Yeni” Etiketini Kaldır"
 
-#: qml/GenericEntryListView.qml:389
+#: qml/GenericEntryListView.qml:390
 #, kde-format
 msgctxt "context menu action"
 msgid "Delete Download"
@@ -1116,7 +1116,7 @@ msgid_plural "Delete Downloads"
 msgstr[0] "İndimeyi Sil"
 msgstr[1] "İndirmeleri Sil"
 
-#: qml/GenericEntryListView.qml:398
+#: qml/GenericEntryListView.qml:399
 #, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
