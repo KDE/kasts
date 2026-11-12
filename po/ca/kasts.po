@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-11 01:00+0000\n"
-"PO-Revision-Date: 2026-11-07 09:47+0100\n"
+"PO-Revision-Date: 2026-11-11 18:50+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2393,7 +2393,7 @@ msgstr "No s'han pogut recuperar del servidor les actualitzacions d'episodis"
 #: sync/syncjob.cpp:74
 #, kde-format
 msgid "Could not upload episode updates to server"
-msgstr "No s'han pogut pujar al servidor les actualitzacions d'episodis"
+msgstr "No s'han pogut carregar al servidor les actualitzacions d'episodis"
 
 #: sync/syncjob.cpp:77
 #, kde-format
