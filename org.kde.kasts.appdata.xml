@@ -530,7 +530,7 @@
         <ul>
           <li>A large part of the app backend (e.g. database storage) has been rewritten to use unique identifiers for podcasts and episodes. This solves several known issues (e.g. database conflicts) and paves the way to future improvements in UI speed and memory/cpu consumption.</li>
           <li xml:lang="ar">أعيدت كتابة جزء كبير من البنية الخلفية للتطبيق (مثل تخزين قاعدة البيانات) بحيث تستخدم معرّفات فريدة للبودكاست والحلقات. ويحل هذا العديد من المشكلات المعروفة (مثل تعارضات قاعدة البيانات) ويمهد الطريق لتحسينات مستقبلية في سرعة واجهة المستخدم واستهلاك الذاكرة/وحدة المعالجة المركزية.</li>
-          <li xml:lang="ca">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de podcasts i episodis. Això resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
+          <li xml:lang="ca">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de pòdcasts i episodis. Això resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
           <li xml:lang="ca-valencia">Una gran part del dorsal de l'aplicació (p. ex., l'emmagatzematge de la base de dades) s'ha reescrit per a utilitzar identificadors únics de pòdcast i episodis. Açò resol diversos problemes coneguts (p. ex., conflictes de bases de dades) i aplana el camí cap a millores futures en la velocitat de la IU i el consum de memòria / CPU.</li>
           <li xml:lang="cs">Velká část podpůrné vrstvy aplikace (např. úložiště databáze) byla přepracována tak, aby pro podcasty a epizody používala jedinečné identifikátory. Tím se vyřešilo několik známých problémů (např. konflikty v databázi) a připravila se půda pro budoucí zlepšení rychlosti uživatelského rozhraní a snížení spotřeby paměti a procesoru.</li>
           <li xml:lang="es">Gran parte del motor de la aplicación (por ejemplo, el almacenamiento de la base de datos) se ha reescrito para usar identificadores únicos para pódcast y episodios. Esto resuelve varios problemas conocidos (por ejemplo, conflictos de base de datos) y allana el camino para futuras mejoras en la velocidad de la interfaz de usuario y el consumo de memoria/CPU.</li>
@@ -674,7 +674,7 @@
           <li xml:lang="uk">Виправлено проблему, через яку діалогові вікна для налаштування синхронізації було показано не у тому вікні.</li>
           <li>Fix and optimize the scaling of podcast and episode images throughout the app.</li>
           <li xml:lang="ar">إصلاح وتحسين حجم صور البودكاست والحلقات في جميع أنحاء التطبيق.</li>
-          <li xml:lang="ca">Corregeix i optimitza l'escalat d'imatges de podcast i episodi a tota l'aplicació.</li>
+          <li xml:lang="ca">Corregeix i optimitza l'escalat d'imatges de pòdcast i episodi a tota l'aplicació.</li>
           <li xml:lang="ca-valencia">Corregix i optimitza l'escalat d'imatges de pòdcast i episodi a tota l'aplicació.</li>
           <li xml:lang="cs">Opraveno a optimalizováno měřítko obrázků podcastů a epizod v celé aplikaci.</li>
           <li xml:lang="es">Se ha corregido y optimizado el escalado de las imágenes de pódcast y episodios en toda la aplicación.</li>
