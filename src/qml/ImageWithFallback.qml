@@ -77,24 +77,6 @@ Item {
     }
 
     Component {
-        id: fallbackImg
-        Item {
-            anchors.fill: parent
-            // Add white background color in order to use coloroverlay later on
-            Rectangle {
-                anchors.fill: parent
-                color: "white"
-            }
-            Kirigami.Icon {
-                anchors.fill: parent
-                source: "rss"
-                isMask: true
-                color: "black"
-            }
-        }
-    }
-
-    Component {
         id: imageText
         Item {
             Rectangle {
@@ -126,6 +108,24 @@ Item {
     }
 
     Component {
+        id: fallbackImg
+        Item {
+            anchors.fill: parent
+            // Add white background color in order to use coloroverlay later on
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
+            }
+            Kirigami.Icon {
+                anchors.fill: parent
+                source: "rss"
+                isMask: true
+                color: "black"
+            }
+        }
+    }
+
+    Component {
         id: loaderSymbol
         Item {
             anchors.fill: parent
@@ -140,11 +140,5 @@ Item {
                 height: parent.height / 2
             }
         }
-    }
-
-    Loader {
-        active: root.isLoading
-        sourceComponent: loaderSymbol
-        anchors.fill: parent
     }
 }
