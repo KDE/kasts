@@ -411,4 +411,5 @@ void AbstractEpisodeModel::updateFeeds(const QList<qint64> &feeduids)
             }
         }
     }
+    query.finish();
 }
