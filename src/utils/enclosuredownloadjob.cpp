@@ -132,6 +132,7 @@ void EnclosureDownloadJob::startDownload()
 QNetworkReply *EnclosureDownloadJob::getNetworkReply(const QString &url, const QString &filePath) const
 {
     QNetworkRequest request((QUrl(url)));
+    NetworkAccessManager::setRequestType(request, NetworkAccessManager::RequestType::EpisodeDownload);
     request.setTransferTimeout();
 
     bool fileOpenSuccess = false;

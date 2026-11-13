@@ -17,7 +17,7 @@
 
 QNetworkAccessManager *NetworkAccessManagerFactory::create(QObject *parent)
 {
-    QNetworkAccessManager *manager = new NetworkAccessManager(parent);
+    QNetworkAccessManager *manager = new NetworkAccessManager(NetworkAccessManager::RequestType::ImageDownload, parent);
     auto cache = new QNetworkDiskCache(manager);
     QString directory = StorageManager::imageDirPath();
     cache->setCacheDirectory(directory);

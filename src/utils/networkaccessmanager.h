@@ -8,6 +8,7 @@
 
 #include <QByteArray>
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QObject>
 
@@ -16,12 +17,25 @@ class NetworkAccessManager : public QNetworkAccessManager
     Q_OBJECT
 
 public:
-    NetworkAccessManager(QObject *parent = nullptr);
+    // enum holding the different type of network requests, this annotation will
+    // be used to check whether this type of traffic is allowed on e.g. metered
+    // connections
+    enum RequestType {
+        Invalid = -1,
+        FeedUpdate = 0,
+        EpisodeDownload,
+        AudioStreaming,
+        ImageDownload,
+    };
+    Q_ENUM(RequestType);
 
-    QNetworkReply *get(QNetworkRequest &request);
-    QNetworkReply *post(QNetworkRequest &request, const QByteArray &data);
-    QNetworkReply *head(QNetworkRequest &request);
+    NetworkAccessManager(RequestType defaultType, QObject *parent = nullptr);
+    ~NetworkAccessManager();
 
-private:
-    void setHeader(QNetworkRequest &request) const;
+    static void setRequestType(QNetworkRequest &request, RequestType type);
+
+protected:
+    virtual QNetworkReply *createRequest(QNetworkAccessManager::Operation op, const QNetworkRequest &origRequest, QIODevice *outData = nullptr) override;
+
+    RequestType m_defaultType = RequestType::Invalid;
 };

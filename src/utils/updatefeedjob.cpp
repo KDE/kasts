@@ -150,10 +150,11 @@ bool UpdateFeedJob::downloadFeed(QByteArray &data)
     // request/reply in a blocking way since we're in a separate thread
     // managed by ThreadWeaver
     QEventLoop loop;
-    NetworkAccessManager manager;
+    NetworkAccessManager manager(NetworkAccessManager::RequestType::FeedUpdate);
     bool continueProcessFeed = true;
 
     QNetworkRequest request((QUrl(m_url)));
+    NetworkAccessManager::setRequestType(request, NetworkAccessManager::RequestType::FeedUpdate);
     // make sure the request times out, otherwise the overall feed update
     // process can hang indefinitely
     request.setTransferTimeout();

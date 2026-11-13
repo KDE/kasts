@@ -38,7 +38,7 @@ Fetcher::Fetcher()
     m_updateTotal = -1;
     m_updating = false;
 
-    m_manager = new NetworkAccessManager(this);
+    m_manager = new NetworkAccessManager(NetworkAccessManager::RequestType::FeedUpdate, this);
 
     // First save the original system proxy settings
     m_systemHttpProxy = qgetenv("http_proxy");
@@ -261,6 +261,7 @@ void Fetcher::processEnclosureDownloadQueue()
 void Fetcher::getRedirectedUrl(const QUrl &url)
 {
     QNetworkRequest request((QUrl(url)));
+    NetworkAccessManager::setRequestType(request, NetworkAccessManager::RequestType::AudioStreaming);
     request.setTransferTimeout(5000); // wait 5 seconds; it will fall back to original url otherwise
 
     QNetworkReply *reply = m_manager->head(request);
