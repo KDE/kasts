@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-11 03:11+0000\n"
-"PO-Revision-Date: 2026-11-05 08:58+0400\n"
+"PO-Revision-Date: 2026-11-12 08:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -378,23 +378,19 @@ msgstr "عنوان المدونة الصوتية: ي ← أ"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "ابحث في الحلقات…"
+msgstr "ابحث في iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "عنوان المدونة الصوتية"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -556,12 +552,10 @@ msgid "Discover"
 msgstr "استكشاف"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "اختر مزود مزامنة"
+msgstr "اختر مزوّد البحث"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1137,8 +1131,7 @@ msgstr[4] "احذف التنزيلات"
 msgstr[5] "احذف التنزيلات"
 
 #: qml/GenericEntryListView.qml:399
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
@@ -1621,7 +1614,7 @@ msgstr "الشبكة"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "تأخير الوصول إلى الشبكة (بالثواني)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1630,6 +1623,9 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"الفترة الزمنية التي يجب انتظارها بعد بدء تشغيل التطبيق قبل محاولة الوصول إلى "
+"الشبكة.\n"
+"قد يكون هذا مفيداً في البيئات المعتمدة على الحاويات."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
