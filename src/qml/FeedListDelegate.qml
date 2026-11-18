@@ -40,9 +40,9 @@ Controls.ItemDelegate {
     required property int cardMargin
     required property int row
 
-    property int feedSorting: (Controls.ApplicationWindow.window as Main) ? (Controls.ApplicationWindow.window as Main).feedSorting : 0 // need to do this check because the window becomes null just before delegate destruction
-    property var countProperty: (feedSorting === FeedsProxyModel.UnreadDescending || feedSorting === FeedsProxyModel.UnreadAscending) ? unreadCount : ((feedSorting === FeedsProxyModel.NewDescending || feedSorting === FeedsProxyModel.NewAscending) ? newCount : ((feedSorting === FeedsProxyModel.FavoriteDescending || feedSorting === FeedsProxyModel.FavoriteAscending) ? favoriteCount : 0))
-    property int borderWidth: 1
+    readonly property int feedSorting: (Controls.ApplicationWindow.window as Main) ? (Controls.ApplicationWindow.window as Main).feedSorting : 0 // need to do this check because the window becomes null just before delegate destruction
+    readonly property var countProperty: (feedSorting === FeedsProxyModel.UnreadDescending || feedSorting === FeedsProxyModel.UnreadAscending || feedSorting === FeedsProxyModel.NameAscending || feedSorting === FeedsProxyModel.NameDescending) ? unreadCount : ((feedSorting === FeedsProxyModel.NewDescending || feedSorting === FeedsProxyModel.NewAscending) ? newCount : ((feedSorting === FeedsProxyModel.FavoriteDescending || feedSorting === FeedsProxyModel.FavoriteAscending) ? favoriteCount : 0))
+    readonly property int borderWidth: 1
     implicitWidth: root.cardSize + 2 * root.cardMargin
     implicitHeight: root.cardSize + 2 * root.cardMargin
 
