@@ -790,10 +790,12 @@ void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatu
     query.finish();
 
     Database::instance().transaction();
-    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
+    query.prepare(QStringLiteral(
+        "UPDATE Enclosures SET downloaded=:downloaded, downloaddate=:downloaddate WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
     for (qint64 i = 0; i < entryuids.count(); ++i) {
         query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
         query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(statuses[i]));
+        query.bindValue(QStringLiteral(":downloaddate"), (statuses[i] == DataTypes::EnclosureStatus::Downloaded ? QDateTime::currentSecsSinceEpoch() : 0));
         Database::instance().execute(query);
     }
     Database::instance().commit();

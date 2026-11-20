@@ -71,6 +71,7 @@ private:
     bool migrateTo16();
     bool migrateTo17();
     bool migrateTo18();
+    bool migrateTo19();
 
     void createBackup(const QString &suffix);
     void cleanup();

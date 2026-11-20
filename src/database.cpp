@@ -105,7 +105,9 @@ bool Database::migrate()
         TRUE_OR_RETURN(migrateTo17());
     if (dbversion < 18)
         TRUE_OR_RETURN(migrateTo18());
-    if (dbversion > 18) {
+    if (dbversion < 19)
+        TRUE_OR_RETURN(migrateTo19());
+    if (dbversion > 19) {
         qCritical() << "Database version number" << dbversion
                     << "is larger than the highest version supported by the app. You've likely downgraded the app. Stopping now since continuing will lead to "
                        "corruption of the database.";
@@ -902,6 +904,21 @@ bool Database::migrateTo18()
     TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Entries ADD COLUMN lastplayeddate INTEGER DEFAULT 0;")));
 
     TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 18;")));
+    TRUE_OR_RETURN(commit());
+
+    return true;
+}
+
+bool Database::migrateTo19()
+{
+    qDebug() << "Migrating database to version 19";
+
+    // no backup needed; just adding one more column
+
+    TRUE_OR_RETURN(transaction());
+    TRUE_OR_RETURN(execute(QStringLiteral("ALTER TABLE Enclosures ADD COLUMN downloaddate INTEGER DEFAULT 0;")));
+
+    TRUE_OR_RETURN(execute(QStringLiteral("PRAGMA user_version = 19;")));
     TRUE_OR_RETURN(commit());
 
     return true;
