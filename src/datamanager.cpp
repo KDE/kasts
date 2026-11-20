@@ -14,11 +14,10 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QStandardPaths>
+#include <QTimer>
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
-#include <QtAssert>
-#include <utility>
 
 #include "database.h"
 #include "feed.h"
@@ -33,6 +32,9 @@
 
 DataManager::DataManager()
 {
+    // Delete played enclosures if set in settings
+    QTimer::singleShot(0, this, &DataManager::deletePlayedEnclosures);
+
     qCDebug(kastsObjects) << "DataManager constructed" << this;
 }
 
@@ -56,7 +58,7 @@ Feed *DataManager::getFeed(const QString &url,
                            const QString &link,
                            const QString &description,
                            const QString &authors,
-                           const QDateTime &lastUpdated)
+                           const QDateTime &lastUpdated) const
 {
     return new Feed(url, name, image, link, description, authors, lastUpdated);
 }
@@ -319,7 +321,7 @@ qint64 DataManager::lastPlayingEntry() const
     return query.value(QStringLiteral("entryuid")).toLongLong();
 }
 
-void DataManager::setLastPlayingEntry(const qint64 entryuid)
+void DataManager::setLastPlayingEntry(const qint64 entryuid) const
 {
     Database::instance().transaction();
     QSqlQuery query;
@@ -337,28 +339,55 @@ void DataManager::setLastPlayingEntry(const qint64 entryuid)
 
 void DataManager::deletePlayedEnclosures()
 {
-    QSqlQuery query;
-    if (SettingsManager::self()->keepFavorites()) {
-        query.prepare(
-            QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
-                           "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read) AND (favorite=:favorite);"));
-        query.bindValue(QStringLiteral(":favorite"), false);
-    } else {
-        query.prepare(
-            QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
-                           "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
+    if (SettingsManager::self()->autoDeleteOnPlayed() == 2 || SettingsManager::self()->autoDeleteOnAge()) {
+        QSqlQuery query;
+        QSet<qint64> entriesToBeDeleted;
+
+        if (SettingsManager::self()->autoDeleteOnPlayed() == 2) {
+            query.prepare(
+                QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE "
+                               "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
+
+            query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(DataTypes::Downloaded));
+            query.bindValue(QStringLiteral(":partiallydownloaded"), DataTypes::statusToDb(DataTypes::PartiallyDownloaded));
+            query.bindValue(QStringLiteral(":read"), true);
+
+            Database::instance().execute(query);
+            while (query.next()) {
+                if (!SettingsManager::self()->keepFavorites() || !query.value(QStringLiteral("favorite")).toBool()) {
+                    qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:"
+                                              << query.value(QStringLiteral("entryuid")).toLongLong();
+                    entriesToBeDeleted += query.value(QStringLiteral("entryuid")).toLongLong();
+                }
+            }
+            query.finish();
+        }
+
+        if (SettingsManager::self()->autoDeleteOnAge()) {
+            const qint64 autoDeleteAge = QDateTime::currentDateTime().addDays(-SettingsManager::self()->autoDeleteOnAgeInterval()).toSecsSinceEpoch();
+
+            query.prepare(
+                QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE "
+                               "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (Enclosures.downloaddate < :downloaddate) AND "
+                               "(Enclosures.downloaddate > 0);"));
+
+            query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(DataTypes::Downloaded));
+            query.bindValue(QStringLiteral(":partiallydownloaded"), DataTypes::statusToDb(DataTypes::PartiallyDownloaded));
+            query.bindValue(QStringLiteral(":downloaddate"), autoDeleteAge);
+
+            Database::instance().execute(query);
+            while (query.next()) {
+                if (!SettingsManager::self()->keepFavorites() || !query.value(QStringLiteral("favorite")).toBool()) {
+                    qCDebug(kastsDataManager) << "Found entry which has been downloaded and is too old; deleting now:"
+                                              << query.value(QStringLiteral("entryuid")).toLongLong();
+                    entriesToBeDeleted += query.value(QStringLiteral("entryuid")).toLongLong();
+                }
+            }
+            query.finish();
+        }
+
+        bulkDeleteEnclosures(entriesToBeDeleted.values());
     }
-    query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(DataTypes::Downloaded));
-    query.bindValue(QStringLiteral(":partiallydownloaded"), DataTypes::statusToDb(DataTypes::PartiallyDownloaded));
-    query.bindValue(QStringLiteral(":read"), true);
-    Database::instance().execute(query);
-    QSet<qint64> entriesToBeDeleted;
-    while (query.next()) {
-        qCDebug(kastsDataManager) << "Found entry which has been downloaded and is marked as played; deleting now:"
-                                  << query.value(QStringLiteral("entryuid")).toLongLong();
-        entriesToBeDeleted += query.value(QStringLiteral("entryuid")).toLongLong();
-    }
-    bulkDeleteEnclosures(entriesToBeDeleted.values());
 }
 
 void DataManager::importFeeds(const QString &path) const
@@ -790,10 +819,14 @@ void DataManager::bulkSetEnclosureStatuses(const QList<DataTypes::EnclosureStatu
     query.finish();
 
     Database::instance().transaction();
-    query.prepare(QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type LIKE '%video%');"));
-    for (qint64 i = 0; i < entryuids.count(); ++i) {
-        query.bindValue(QStringLiteral(":entryuid"), entryuids[i]);
-        query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(statuses[i]));
+    query.prepare(
+        QStringLiteral("UPDATE Enclosures SET downloaded=:downloaded, downloaddate=:downloaddate WHERE entryuid=:entryuid AND (type LIKE '%audio%' OR type "
+                       "LIKE '%video%');"));
+    for (qint64 i = 0; i < changed_entryuids.count(); ++i) {
+        query.bindValue(QStringLiteral(":entryuid"), changed_entryuids[i]);
+        query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(changed_statuses[i]));
+        query.bindValue(QStringLiteral(":downloaddate"),
+                        (changed_statuses[i] == DataTypes::EnclosureStatus::Downloaded ? QDateTime::currentSecsSinceEpoch() : 0));
         Database::instance().execute(query);
     }
     Database::instance().commit();

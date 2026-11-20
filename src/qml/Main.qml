@@ -92,11 +92,6 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: {
         currentPage = KastsState.lastOpenedPage;
         pageStack.initialPage = pushPage(currentPage);
-
-        // Delete played enclosures if set in settings
-        if (SettingsManager.autoDeleteOnPlayed == 2) {
-            DataManager.deletePlayedEnclosures();
-        }
     }
 
     Component.onDestruction: {

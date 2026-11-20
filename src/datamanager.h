@@ -43,7 +43,7 @@ public:
                               const QString &link,
                               const QString &description,
                               const QString &authors,
-                              const QDateTime &lastUpdated);
+                              const QDateTime &lastUpdated) const;
     Q_INVOKABLE DataTypes::EntryFeedDetails getEntry(const qint64 entryuid) const;
 
     // routines for fuzzy matching of feeds and entries/enclosures to uids
@@ -58,7 +58,7 @@ public:
 
     // TODO: remove afer queuemodel refactor
     Q_INVOKABLE qint64 lastPlayingEntry() const;
-    Q_INVOKABLE void setLastPlayingEntry(const qint64 entryuid);
+    Q_INVOKABLE void setLastPlayingEntry(const qint64 entryuid) const;
 
     Q_INVOKABLE void deletePlayedEnclosures();
 

@@ -56,6 +56,14 @@
             <label>Do not auto-delete episodes marked as favorite</label>
             <default>false</default>
         </entry>
+        <entry name="autoDeleteOnAge" type="Bool">
+            <label>Wether to delete episode</label>
+            <default>false</default>
+        </entry>
+        <entry name="autoDeleteOnAgeInterval" type="Int">
+            <label>Time in days before an episode download is automatically deleted</label>
+            <default>14</default>
+        </entry>
         <entry name="markAsPlayedBeforeEnd" type="Int">
             <label>Amount of seconds before end of stream that the episode should already be marked as played</label>
             <default>15</default>

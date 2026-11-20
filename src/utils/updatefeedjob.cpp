@@ -978,8 +978,8 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
 
     // new enclosures
     writeQuery.prepare(
-        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, downloaded) VALUES (:entryuid, :feeduid, "
-                       ":url, :duration, :size, :type, :downloaded);"));
+        QStringLiteral("INSERT INTO Enclosures (entryuid, feeduid, url, duration, size, type, downloaded, downloaddate) VALUES (:entryuid, :feeduid, "
+                       ":url, :duration, :size, :type, :downloaded, :downloaddate);"));
     for (const EntryUpdateDetails &entryDetails : std::as_const(updatedFeed.entries)) {
         if (entryDetails.entryuid == 0) {
             qCDebug(kastsUpdater) << "new episode did not get a valid entryuid; skipping enclosures for id:" << entryDetails.id;
@@ -994,6 +994,7 @@ void UpdateFeedJob::writeToDatabase(DataTypes::FeedUpdateDetails &updatedFeed)
                     writeQuery.bindValue(QStringLiteral(":type"), enclosureDetails.type);
                     writeQuery.bindValue(QStringLiteral(":url"), enclosureDetails.url);
                     writeQuery.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(enclosureDetails.downloaded));
+                    writeQuery.bindValue(QStringLiteral(":downloaddate"), 0);
                     dbExecute(writeQuery);
                 }
             }

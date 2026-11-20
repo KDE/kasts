@@ -217,6 +217,34 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {}
+
+        FormCard.FormSwitchDelegate {
+            id: autoDeleteOnAge
+            checked: SettingsManager.autoDeleteOnAge
+            text: KI18n.i18nc("@option:check Option in settings", "Delete episodes based on age")
+
+            onToggled: {
+                SettingsManager.autoDeleteOnAge = checked;
+                SettingsManager.save();
+            }
+        }
+
+        FormCard.FormTextDelegate {
+            id: autoDeleteOnAgeInterval
+            enabled: SettingsManager.autoDeleteOnAge
+            text: KI18n.i18nc("@label:spinbox related to the autoDeleteOnAge setting", "Number of days before downloads are deleted")
+            trailing: Controls.SpinBox {
+                value: SettingsManager.autoDeleteOnAgeInterval
+                from: 1
+                to: 365
+                onValueModified: {
+                    SettingsManager.autoDeleteOnAgeInterval = value;
+                    SettingsManager.save();
+                }
+            }
+        }
     }
 
     FormCard.FormHeader {
