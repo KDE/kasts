@@ -338,9 +338,16 @@ void DataManager::setLastPlayingEntry(const qint64 entryuid)
 void DataManager::deletePlayedEnclosures()
 {
     QSqlQuery query;
-    query.prepare(
-        QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
-                       "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
+    if (SettingsManager::self()->keepFavorites()) {
+        query.prepare(
+            QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
+                           "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read) AND (favorite=:favorite);"));
+        query.bindValue(QStringLiteral(":favorite"), false);
+    } else {
+        query.prepare(
+            QStringLiteral("SELECT * FROM Entries INNER JOIN Enclosures ON Entries.entryuid = Enclosures.entryuid WHERE"
+                           "(downloaded=:downloaded OR downloaded=:partiallydownloaded) AND (read=:read);"));
+    }
     query.bindValue(QStringLiteral(":downloaded"), DataTypes::statusToDb(DataTypes::Downloaded));
     query.bindValue(QStringLiteral(":partiallydownloaded"), DataTypes::statusToDb(DataTypes::PartiallyDownloaded));
     query.bindValue(QStringLiteral(":read"), true);
@@ -447,6 +454,7 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids) const
             feeduids += query.value(QStringLiteral("feeduid")).toLongLong();
         }
     }
+    query.finish();
 
     // Emit the signals to also update instantiated entry/enclosure/feed objects
     Q_EMIT entryReadStatusChanged(state, entryuids);
@@ -464,7 +472,26 @@ void DataManager::bulkMarkRead(bool state, const QList<qint64> &entryuids) const
 
         // 5) Delete episode if that setting is set
         if (SettingsManager::self()->autoDeleteOnPlayed() == 1) {
-            bulkDeleteEnclosures(entryuids);
+            QList<qint64> deleteEntryuids;
+
+            // do not delete favorites if keepFavorites is set
+            if (SettingsManager::self()->keepFavorites()) {
+                query.prepare(QStringLiteral("SELECT favorite FROM Entries WHERE entryuid=:entryuid;"));
+                for (const qint64 &entryuid : std::as_const(entryuids)) {
+                    query.bindValue(QStringLiteral(":entryuid"), entryuid);
+                    Database::instance().execute(query);
+                    while (query.next()) {
+                        if (!query.value(QStringLiteral("favorite")).toBool()) {
+                            deleteEntryuids += entryuid;
+                        }
+                    }
+                }
+                query.finish();
+            } else {
+                deleteEntryuids = entryuids;
+            }
+
+            bulkDeleteEnclosures(deleteEntryuids);
         }
 
         // 6) Log a sync action to sync this state with (gpodder) server

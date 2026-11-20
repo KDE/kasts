@@ -119,41 +119,7 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator {
-            above: resetPositionOnPlayed
-            below: episodeBehavior
-        }
-
-        FormCard.FormComboBoxDelegate {
-            id: episodeBehavior
-            text: KI18n.i18nc("@label:listbox", "Played episode behavior")
-            textRole: "text"
-            valueRole: "value"
-            model: [
-                {
-                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Do not delete"),
-                    value: 0
-                },
-                {
-                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"),
-                    value: 1
-                },
-                {
-                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"),
-                    value: 2
-                }
-            ]
-            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
-            onActivated: {
-                SettingsManager.autoDeleteOnPlayed = currentValue;
-                SettingsManager.save();
-            }
-        }
-
-        FormCard.FormDelegateSeparator {
-            above: episodeBehavior
-            below: markAsPlayedGracePeriod
-        }
+        FormCard.FormDelegateSeparator {}
 
         FormCard.FormTextDelegate {
             id: markAsPlayedGracePeriod

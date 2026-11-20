@@ -52,6 +52,10 @@
             </choices>
             <default>OnNextStartup</default>
         </entry>
+        <entry name="keepFavorites" type="Bool">
+            <label>Do not auto-delete episodes marked as favorite</label>
+            <default>false</default>
+        </entry>
         <entry name="markAsPlayedBeforeEnd" type="Int">
             <label>Amount of seconds before end of stream that the episode should already be marked as played</label>
             <default>15</default>

@@ -55,7 +55,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: KI18n.i18nc("@title Form header for settings related automated podcast updates", "Automated actions")
+        title: KI18n.i18nc("@title Form header for settings related to automated podcast updates", "Automated feed actions")
         Layout.fillWidth: true
     }
 
@@ -123,6 +123,26 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormSwitchDelegate {
+            id: forceFeedUpdates
+            checked: SettingsManager.forceFeedUpdates
+            text: KI18n.i18nc("@option:check", "Force full subscription processing on each refresh")
+            description: KI18n.i18nc("@info related to a force update subscriptions setting", "When disabled (default), subscriptions are processed only if the subscription feed has changed since last update")
+            onToggled: {
+                SettingsManager.forceFeedUpdates = checked;
+                SettingsManager.save();
+            }
+        }
+    }
+
+    FormCard.FormHeader {
+        title: KI18n.i18nc("@title Form header for settings related to automated episode updates", "Automated new episode actions")
+        Layout.fillWidth: true
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
+
+        FormCard.FormSwitchDelegate {
             id: autoQueue
             checked: SettingsManager.autoQueue
             text: KI18n.i18nc("@option:check", "Automatically queue new episodes")
@@ -148,16 +168,52 @@ FormCard.FormCardPage {
                 SettingsManager.save();
             }
         }
+    }
+
+    FormCard.FormHeader {
+        title: KI18n.i18nc("@title Form header for settings related to automated episode removal", "Automated episode removal")
+        Layout.fillWidth: true
+    }
+
+    FormCard.FormCard {
+        Layout.fillWidth: true
+
+        FormCard.FormComboBoxDelegate {
+            id: episodeBehavior
+            text: KI18n.i18nc("@label:listbox", "Played episode behavior")
+            textRole: "text"
+            valueRole: "value"
+            model: [
+                {
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Do not delete"),
+                    value: 0
+                },
+                {
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete immediately"),
+                    value: 1
+                },
+                {
+                    text: KI18n.i18nc("@item:inlistbox What to do with played episodes", "Delete at next startup"),
+                    value: 2
+                }
+            ]
+            Component.onCompleted: currentIndex = indexOfValue(SettingsManager.autoDeleteOnPlayed)
+            onActivated: {
+                SettingsManager.autoDeleteOnPlayed = currentValue;
+                SettingsManager.save();
+            }
+        }
 
         FormCard.FormDelegateSeparator {}
 
         FormCard.FormSwitchDelegate {
-            id: forceFeedUpdates
-            checked: SettingsManager.forceFeedUpdates
-            text: KI18n.i18nc("@option:check", "Force full subscription processing on each refresh")
-            description: KI18n.i18nc("@info related to a force update subscriptions setting", "When disabled (default), subscriptions are processed only if the subscription feed has changed since last update")
+            id: keepFavorites
+            checked: SettingsManager.keepFavorites
+            text: KI18n.i18nc("@option:check Option in settings", "Keep favorite episodes")
+            description: KI18n.i18nc("@info Description related to the keepFavorites setting", "Favorite episodes will not be deleted automatically")
+
             onToggled: {
-                SettingsManager.forceFeedUpdates = checked;
+                SettingsManager.keepFavorites = checked;
                 SettingsManager.save();
             }
         }
