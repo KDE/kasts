@@ -376,23 +376,19 @@ msgstr "Sťahovania"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Epizódy"
+msgstr "Hľadať v iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Sťahovania"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
 #, kde-format
@@ -411,8 +407,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Kapitoly"
@@ -519,8 +514,7 @@ msgid "Show more"
 msgstr "Show more"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Kapitoly"
@@ -556,12 +550,10 @@ msgid "Discover"
 msgstr "Discover"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Vybrať priečinok"
+msgstr "Vybrať poskytovateľa vyhľadávania"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1125,14 +1117,13 @@ msgstr[1] "Stiahnuť"
 msgstr[2] "Stiahnuť"
 
 #: qml/GenericEntryListView.qml:399
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
-msgstr[0] "Stiahnuť"
-msgstr[1] "Stiahnuť"
-msgstr[2] "Stiahnuť"
+msgstr[0] "Zrušiť sťahovanie"
+msgstr[1] "Zrušiť sťahovania"
+msgstr[2] "Zrušiť sťahovania"
 
 #: qml/GlobalSearchField.qml:123
 #, kde-format
@@ -1293,12 +1284,10 @@ msgid "Queue is empty"
 msgstr "Queue is empty"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Vzhľad"
+msgstr "Vzhľad a témy"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1339,12 +1328,10 @@ msgid "Color theme"
 msgstr "Farebná téma"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Odbery"
+msgstr "Informácie o odberoch"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1353,13 +1340,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "Always show podcast titles in subscription view"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Informácia"
+msgstr "Informácie o epizódach"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1454,12 +1438,10 @@ msgid "Font size"
 msgstr "Veľkosť písma"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Sťahovania"
+msgstr "Predvoľby sťahovania epizód"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1472,6 +1454,8 @@ msgstr "Prefer streaming over downloading"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Zoznamy epizód budú namiesto tlačidiel sťahovania zobrazovať tlačidlá "
+"streamovania"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1480,12 +1464,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Maximum počet parallel episode downloads"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Automatic syncing"
+msgstr "Automatické akcie"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1544,7 +1526,7 @@ msgstr "Stiahnuť"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Vynútiť úplné spracovanie odberov pri každom obnovení"
 
 #: qml/Settings/DownloadSettingsPage.qml:158
 #, kde-format
@@ -1553,6 +1535,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Keď je vypnuté (predvolené), odbery sa spracúvajú, iba ak sa ich kanál od "
+"poslednej aktualizácie zmenil"
 
 #: qml/Settings/DownloadSettingsPage.qml:167
 #, kde-format
@@ -1600,7 +1584,7 @@ msgstr "Sieť"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Oneskorenie prístupu k sieti (v sekundách)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1609,6 +1593,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Čas čakania po spustení aplikácie pred pokusom o prístup k sieti.\n"
+"Môže pomôcť v kontajnerových prostrediach."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1797,16 +1783,13 @@ msgid "Appearance"
 msgstr "Vzhľad"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Nastavenia"
+msgstr "Prehrávanie"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Sťahovania"
@@ -2568,15 +2551,12 @@ msgid "Quit"
 msgstr "Ukončiť"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status %1 is the podcast name, %2 is the error message"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Chyba pri načítaní podcastu: %1; chyba: %2"
 
 #, fuzzy
-#~| msgid "Search"
 #~ msgctxt ""
 #~ "@action:button button next to search field to search for new podcasts"
 #~ msgid "Search"
