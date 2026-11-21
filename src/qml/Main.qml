@@ -158,7 +158,7 @@ Kirigami.ApplicationWindow {
         sourceComponent: FooterBar {
             contentHeight: root.height * 2
             focus: true
-            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : root.SafeArea.margins.bottom
+            contentToPlayerSpacing: bottomToolbarLoader.active ? (bottomToolbarLoader.item as BottomToolbar).height + 1 : 0 // root.SafeArea.margins.bottom
         }
     }
 
