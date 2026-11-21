@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 01:09+0000\n"
 "PO-Revision-Date: 2026-03-13 13:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -48,7 +48,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ógild miðlaskrá"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1132
+#: database.cpp:924 utils/updatefeedjob.cpp:1133
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -1492,8 +1492,8 @@ msgstr "Hámarksfjöldi samhliða niðurhala á þáttum"
 #, fuzzy, kde-format
 #| msgctxt "@title Form header for settings related to automatic syncing"
 #| msgid "Automatic syncing"
-msgctxt "@title Form header for settings related automated podcast updates"
-msgid "Automated actions"
+msgctxt "@title Form header for settings related to automated podcast updates"
+msgid "Automated feed actions"
 msgstr "Sjálfvirk samstilling"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
@@ -1538,22 +1538,10 @@ msgstr[1] "Á %1 daga fresti"
 #: qml/Settings/DownloadSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Setja nýja þætti sjálfkrafa í biðröð"
-
-#: qml/Settings/DownloadSettingsPage.qml:143
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Sækja nýja þætti sjálfkrafa"
-
-#: qml/Settings/DownloadSettingsPage.qml:157
-#, kde-format
-msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:158
+#: qml/Settings/DownloadSettingsPage.qml:129
 #, kde-format
 msgctxt "@info related to a force update subscriptions setting"
 msgid ""
@@ -1561,25 +1549,89 @@ msgid ""
 "subscription feed has changed since last update"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:167
+#: qml/Settings/DownloadSettingsPage.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related to automated episode updates"
+msgid "Automated new episode actions"
+msgstr "Sjálfvirk samstilling"
+
+#: qml/Settings/DownloadSettingsPage.qml:148
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Setja nýja þætti sjálfkrafa í biðröð"
+
+#: qml/Settings/DownloadSettingsPage.qml:163
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Sækja nýja þætti sjálfkrafa"
+
+#: qml/Settings/DownloadSettingsPage.qml:174
+#, kde-format
+msgctxt "@title Form header for settings related to automated episode removal"
+msgid "Automated episode removal"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:183
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Meðhöndlun þátta sem búið er að spila"
+
+#: qml/Settings/DownloadSettingsPage.qml:188
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Ekki eyða"
+
+#: qml/Settings/DownloadSettingsPage.qml:192
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Eyða strax"
+
+#: qml/Settings/DownloadSettingsPage.qml:196
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Eyða næst þegar forritið er opnað"
+
+#: qml/Settings/DownloadSettingsPage.qml:212
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@option:check Option in settings"
+msgid "Keep favorite episodes"
+msgstr "Óspilaðir þættir"
+
+#: qml/Settings/DownloadSettingsPage.qml:213
+#, kde-format
+msgctxt "@info Description related to the keepFavorites setting"
+msgid "Favorite episodes will not be deleted automatically"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Þegar nýju hlaðvarpi er bætt við"
 
-#: qml/Settings/DownloadSettingsPage.qml:176
+#: qml/Settings/DownloadSettingsPage.qml:232
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Merkja alla þætti sem spilaða"
 
-#: qml/Settings/DownloadSettingsPage.qml:186
+#: qml/Settings/DownloadSettingsPage.qml:242
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Merkja nýlegustu þætti sem óspilaða"
 
-#: qml/Settings/DownloadSettingsPage.qml:208
+#: qml/Settings/DownloadSettingsPage.qml:264
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1767,31 +1819,7 @@ msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "Endurstilla spilunarstöðu þegar búið er að spila þátt"
 
-#: qml/Settings/PlaybackSettingsPage.qml:129
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Meðhöndlun þátta sem búið er að spila"
-
-#: qml/Settings/PlaybackSettingsPage.qml:134
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Ekki eyða"
-
-#: qml/Settings/PlaybackSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Eyða strax"
-
-#: qml/Settings/PlaybackSettingsPage.qml:142
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Eyða næst þegar forritið er opnað"
-
-#: qml/Settings/PlaybackSettingsPage.qml:160
+#: qml/Settings/PlaybackSettingsPage.qml:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
@@ -2611,7 +2639,7 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Hætta"
 
-#: utils/updatefeedjob.cpp:181
+#: utils/updatefeedjob.cpp:182
 #, fuzzy, kde-format
 #| msgid "Error moving storage path"
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"

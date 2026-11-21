@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 01:09+0000\n"
 "PO-Revision-Date: 2026-11-19 19:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Bölüm için geçersiz ortam dosyası: %1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1132
+#: database.cpp:924 utils/updatefeedjob.cpp:1133
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1461,9 +1461,11 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "En çok paralel bölüm indirme sayısı"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, kde-format
-msgctxt "@title Form header for settings related automated podcast updates"
-msgid "Automated actions"
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related automated podcast updates"
+#| msgid "Automated actions"
+msgctxt "@title Form header for settings related to automated podcast updates"
+msgid "Automated feed actions"
 msgstr "Otomatikleştirilmiş Eylemler"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
@@ -1508,22 +1510,10 @@ msgstr[1] "Her %1 gün"
 #: qml/Settings/DownloadSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Yeni bölümleri kendiliğinden kuyruğa ekle"
-
-#: qml/Settings/DownloadSettingsPage.qml:143
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Yeni bölümleri kendiliğinden indir"
-
-#: qml/Settings/DownloadSettingsPage.qml:157
-#, kde-format
-msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
 msgstr "Her bir yenilemede tam abonelik işlemesini zorla"
 
-#: qml/Settings/DownloadSettingsPage.qml:158
+#: qml/Settings/DownloadSettingsPage.qml:129
 #, kde-format
 msgctxt "@info related to a force update subscriptions setting"
 msgid ""
@@ -1534,25 +1524,89 @@ msgstr ""
 "güncellemeden bu yana abonelik beslemesinde bir değişiklik olmuşsa "
 "işlenirler."
 
-#: qml/Settings/DownloadSettingsPage.qml:167
+#: qml/Settings/DownloadSettingsPage.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related automated podcast updates"
+#| msgid "Automated actions"
+msgctxt "@title Form header for settings related to automated episode updates"
+msgid "Automated new episode actions"
+msgstr "Otomatikleştirilmiş Eylemler"
+
+#: qml/Settings/DownloadSettingsPage.qml:148
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Yeni bölümleri kendiliğinden kuyruğa ekle"
+
+#: qml/Settings/DownloadSettingsPage.qml:163
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Yeni bölümleri kendiliğinden indir"
+
+#: qml/Settings/DownloadSettingsPage.qml:174
+#, kde-format
+msgctxt "@title Form header for settings related to automated episode removal"
+msgid "Automated episode removal"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:183
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Dinlenmiş bölüm davranışı"
+
+#: qml/Settings/DownloadSettingsPage.qml:188
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Silme"
+
+#: qml/Settings/DownloadSettingsPage.qml:192
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Anında sil"
+
+#: qml/Settings/DownloadSettingsPage.qml:196
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Bir sonraki başlangıçta sil"
+
+#: qml/Settings/DownloadSettingsPage.qml:212
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@option:check Option in settings"
+msgid "Keep favorite episodes"
+msgstr "Dinlenmeyen bölümler"
+
+#: qml/Settings/DownloadSettingsPage.qml:213
+#, kde-format
+msgctxt "@info Description related to the keepFavorites setting"
+msgid "Favorite episodes will not be deleted automatically"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Pod Yayını Eklerken"
 
-#: qml/Settings/DownloadSettingsPage.qml:176
+#: qml/Settings/DownloadSettingsPage.qml:232
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Tüm bölümleri dinlendi olarak imle"
 
-#: qml/Settings/DownloadSettingsPage.qml:186
+#: qml/Settings/DownloadSettingsPage.qml:242
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "En son bölümleri dinlenmedi olarak imle"
 
-#: qml/Settings/DownloadSettingsPage.qml:208
+#: qml/Settings/DownloadSettingsPage.qml:264
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1742,31 +1796,7 @@ msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "Bir bölüm dinlendikten sonra çalma konumunu sıfırla"
 
-#: qml/Settings/PlaybackSettingsPage.qml:129
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Dinlenmiş bölüm davranışı"
-
-#: qml/Settings/PlaybackSettingsPage.qml:134
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Silme"
-
-#: qml/Settings/PlaybackSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Anında sil"
-
-#: qml/Settings/PlaybackSettingsPage.qml:142
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Bir sonraki başlangıçta sil"
-
-#: qml/Settings/PlaybackSettingsPage.qml:160
+#: qml/Settings/PlaybackSettingsPage.qml:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
@@ -2546,7 +2576,7 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Çık"
 
-#: utils/updatefeedjob.cpp:181
+#: utils/updatefeedjob.cpp:182
 #, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"

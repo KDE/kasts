@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 01:09+0000\n"
 "PO-Revision-Date: 2026-10-06 16:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -51,7 +51,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Virheellinen media, jakso: %1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1132
+#: database.cpp:924 utils/updatefeedjob.cpp:1133
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1491,8 +1491,8 @@ msgstr "Rinnakkaisten jaksolatausten enimmäismäärä"
 #, fuzzy, kde-format
 #| msgctxt "@title Form header for settings related to automatic syncing"
 #| msgid "Automatic syncing"
-msgctxt "@title Form header for settings related automated podcast updates"
-msgid "Automated actions"
+msgctxt "@title Form header for settings related to automated podcast updates"
+msgid "Automated feed actions"
 msgstr "Automaattinen tahdistus"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
@@ -1537,22 +1537,10 @@ msgstr[1] "%1 päivän välein"
 #: qml/Settings/DownloadSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "Lisää uudet jaksot jonoon automaattisesti"
-
-#: qml/Settings/DownloadSettingsPage.qml:143
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "Lataa uudet jaksot automaattisesti"
-
-#: qml/Settings/DownloadSettingsPage.qml:157
-#, kde-format
-msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:158
+#: qml/Settings/DownloadSettingsPage.qml:129
 #, kde-format
 msgctxt "@info related to a force update subscriptions setting"
 msgid ""
@@ -1560,25 +1548,89 @@ msgid ""
 "subscription feed has changed since last update"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:167
+#: qml/Settings/DownloadSettingsPage.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related to automated episode updates"
+msgid "Automated new episode actions"
+msgstr "Automaattinen tahdistus"
+
+#: qml/Settings/DownloadSettingsPage.qml:148
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "Lisää uudet jaksot jonoon automaattisesti"
+
+#: qml/Settings/DownloadSettingsPage.qml:163
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "Lataa uudet jaksot automaattisesti"
+
+#: qml/Settings/DownloadSettingsPage.qml:174
+#, kde-format
+msgctxt "@title Form header for settings related to automated episode removal"
+msgid "Automated episode removal"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:183
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "Toistetun jakson toiminta"
+
+#: qml/Settings/DownloadSettingsPage.qml:188
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "Älä poista"
+
+#: qml/Settings/DownloadSettingsPage.qml:192
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "Poista välittömästi"
+
+#: qml/Settings/DownloadSettingsPage.qml:196
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "Poista käynnistettäessä uudelleen"
+
+#: qml/Settings/DownloadSettingsPage.qml:212
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@option:check Option in settings"
+msgid "Keep favorite episodes"
+msgstr "Kuuntelemattomat jaksot"
+
+#: qml/Settings/DownloadSettingsPage.qml:213
+#, kde-format
+msgctxt "@info Description related to the keepFavorites setting"
+msgid "Favorite episodes will not be deleted automatically"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Lisättäessä uusia podcasteja"
 
-#: qml/Settings/DownloadSettingsPage.qml:176
+#: qml/Settings/DownloadSettingsPage.qml:232
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Merkitse kaikki jaksot kuunnelluiksi"
 
-#: qml/Settings/DownloadSettingsPage.qml:186
+#: qml/Settings/DownloadSettingsPage.qml:242
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Merkitse viimeisimmät jaksot kuuntelemattomiksi"
 
-#: qml/Settings/DownloadSettingsPage.qml:208
+#: qml/Settings/DownloadSettingsPage.qml:264
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1766,31 +1818,7 @@ msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "Palauta toistokohta, kun jakso on toistettu"
 
-#: qml/Settings/PlaybackSettingsPage.qml:129
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "Toistetun jakson toiminta"
-
-#: qml/Settings/PlaybackSettingsPage.qml:134
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "Älä poista"
-
-#: qml/Settings/PlaybackSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "Poista välittömästi"
-
-#: qml/Settings/PlaybackSettingsPage.qml:142
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "Poista käynnistettäessä uudelleen"
-
-#: qml/Settings/PlaybackSettingsPage.qml:160
+#: qml/Settings/PlaybackSettingsPage.qml:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
@@ -2618,7 +2646,7 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "Lopeta"
 
-#: utils/updatefeedjob.cpp:181
+#: utils/updatefeedjob.cpp:182
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Error retrieving podcast: %1; error: %2"

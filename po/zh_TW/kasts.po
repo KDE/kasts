@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:00+0000\n"
+"POT-Creation-Date: 2026-11-21 01:09+0000\n"
 "PO-Revision-Date: 2026-09-22 01:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,7 +54,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "集數媒體無效：%1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1132
+#: database.cpp:924 utils/updatefeedjob.cpp:1133
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1480,8 +1480,8 @@ msgstr "最多同時下載集數數量"
 #, fuzzy, kde-format
 #| msgctxt "@title Form header for settings related to automatic syncing"
 #| msgid "Automatic syncing"
-msgctxt "@title Form header for settings related automated podcast updates"
-msgid "Automated actions"
+msgctxt "@title Form header for settings related to automated podcast updates"
+msgid "Automated feed actions"
 msgstr "自動同步中"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
@@ -1524,22 +1524,10 @@ msgstr[0] "每 %1 天"
 #: qml/Settings/DownloadSettingsPage.qml:128
 #, kde-format
 msgctxt "@option:check"
-msgid "Automatically queue new episodes"
-msgstr "自動將新集數加入佇列"
-
-#: qml/Settings/DownloadSettingsPage.qml:143
-#, kde-format
-msgctxt "@option:check"
-msgid "Automatically download new episodes"
-msgstr "自動下載新集數"
-
-#: qml/Settings/DownloadSettingsPage.qml:157
-#, kde-format
-msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:158
+#: qml/Settings/DownloadSettingsPage.qml:129
 #, kde-format
 msgctxt "@info related to a force update subscriptions setting"
 msgid ""
@@ -1547,25 +1535,89 @@ msgid ""
 "subscription feed has changed since last update"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:167
+#: qml/Settings/DownloadSettingsPage.qml:138
+#, fuzzy, kde-format
+#| msgctxt "@title Form header for settings related to automatic syncing"
+#| msgid "Automatic syncing"
+msgctxt "@title Form header for settings related to automated episode updates"
+msgid "Automated new episode actions"
+msgstr "自動同步中"
+
+#: qml/Settings/DownloadSettingsPage.qml:148
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically queue new episodes"
+msgstr "自動將新集數加入佇列"
+
+#: qml/Settings/DownloadSettingsPage.qml:163
+#, kde-format
+msgctxt "@option:check"
+msgid "Automatically download new episodes"
+msgstr "自動下載新集數"
+
+#: qml/Settings/DownloadSettingsPage.qml:174
+#, kde-format
+msgctxt "@title Form header for settings related to automated episode removal"
+msgid "Automated episode removal"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:183
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Played episode behavior"
+msgstr "已播放集數行為"
+
+#: qml/Settings/DownloadSettingsPage.qml:188
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Do not delete"
+msgstr "不要刪除"
+
+#: qml/Settings/DownloadSettingsPage.qml:192
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete immediately"
+msgstr "立即刪除"
+
+#: qml/Settings/DownloadSettingsPage.qml:196
+#, kde-format
+msgctxt "@item:inlistbox What to do with played episodes"
+msgid "Delete at next startup"
+msgstr "下次啟動時刪除"
+
+#: qml/Settings/DownloadSettingsPage.qml:212
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser Choice of filter for episode list"
+#| msgid "Unplayed episodes"
+msgctxt "@option:check Option in settings"
+msgid "Keep favorite episodes"
+msgstr "未播放的集數"
+
+#: qml/Settings/DownloadSettingsPage.qml:213
+#, kde-format
+msgctxt "@info Description related to the keepFavorites setting"
+msgid "Favorite episodes will not be deleted automatically"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "新增 Podcast 時"
 
-#: qml/Settings/DownloadSettingsPage.qml:176
+#: qml/Settings/DownloadSettingsPage.qml:232
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "標記所有集數為已播放"
 
-#: qml/Settings/DownloadSettingsPage.qml:186
+#: qml/Settings/DownloadSettingsPage.qml:242
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "標記最新集數為未播放"
 
-#: qml/Settings/DownloadSettingsPage.qml:208
+#: qml/Settings/DownloadSettingsPage.qml:264
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1752,31 +1804,7 @@ msgctxt "@option:check"
 msgid "Reset play position after an episode is played"
 msgstr "播放集數後重設播放位置"
 
-#: qml/Settings/PlaybackSettingsPage.qml:129
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Played episode behavior"
-msgstr "已播放集數行為"
-
-#: qml/Settings/PlaybackSettingsPage.qml:134
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Do not delete"
-msgstr "不要刪除"
-
-#: qml/Settings/PlaybackSettingsPage.qml:138
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete immediately"
-msgstr "立即刪除"
-
-#: qml/Settings/PlaybackSettingsPage.qml:142
-#, kde-format
-msgctxt "@item:inlistbox What to do with played episodes"
-msgid "Delete at next startup"
-msgstr "下次啟動時刪除"
-
-#: qml/Settings/PlaybackSettingsPage.qml:160
+#: qml/Settings/PlaybackSettingsPage.qml:126
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Mark episodes as played when the given time is remaining (in seconds)"
@@ -2598,7 +2626,7 @@ msgctxt "@action:inmenu"
 msgid "Quit"
 msgstr "離開"
 
-#: utils/updatefeedjob.cpp:181
+#: utils/updatefeedjob.cpp:182
 #, fuzzy, kde-format
 #| msgctxt "@info:status Error message notification"
 #| msgid "Error retrieving podcast: %1; error: %2"
