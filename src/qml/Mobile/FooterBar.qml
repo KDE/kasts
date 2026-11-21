@@ -112,12 +112,9 @@ Flickable {
     ColumnLayout {
         id: contentZone
 
-        readonly property var rootSafeMargins: Controls.ApplicationWindow.window.SafeArea.margins
-
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottomMargin: rootSafeMargins.bottom
 
         height: (root.Controls.ApplicationWindow.window as Main).height + (root.Controls.ApplicationWindow.window as Main).miniplayerSize + root.contentToPlayerSpacing
         spacing: 0
@@ -170,8 +167,6 @@ Flickable {
             closeAnimation: root.toClose
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.topMargin: contentZone.rootSafeMargins.top
-            Layout.bottomMargin: contentZone.rootSafeMargins.bottom
         }
     }
 }
