@@ -23,6 +23,21 @@ Kirigami.ApplicationWindow {
 
     title: KI18n.i18n("Kasts")
 
+    // Account for SafeArea on android
+    Binding {
+        target: root.contentItem.anchors
+        property: "rightMargin"
+        value: root.SafeArea.margins.right
+        when: root.globalDrawer ? root.globalDrawer.edge == Qt.LeftEdge : false
+    }
+
+    Binding {
+        target: root.contentItem.anchors
+        property: "leftMargin"
+        value: root.SafeArea.margins.left
+        when: root.globalDrawer ? root.globalDrawer.edge == Qt.RightEdge : false
+    }
+
     width: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 20 : Kirigami.Units.gridUnit * 45
     height: Kirigami.Settings.isMobile ? Kirigami.Units.gridUnit * 37 : Kirigami.Units.gridUnit * 34
 
@@ -141,7 +156,7 @@ Kirigami.ApplicationWindow {
 
     // create space at the bottom to show miniplayer without it hiding stuff
     // underneath
-    pageStack.anchors.bottomMargin: (AudioManager.entryuid > 0 && Kirigami.Settings.isMobile) ? miniplayerSize + 1 : 0
+    pageStack.anchors.bottomMargin: (AudioManager.entryuid > 0 && Kirigami.Settings.isMobile) ? miniplayerSize + 1 + (bottomToolbarLoader.active ? 0 : root.SafeArea.margins.bottom) : 0
 
     Loader {
         id: footerLoader

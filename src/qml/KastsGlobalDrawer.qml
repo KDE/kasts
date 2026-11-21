@@ -28,16 +28,15 @@ Kirigami.OverlayDrawer {
     // Keep track of the settings page being opened on the layer stack for mobile
     readonly property bool settingsOpened: Kirigami.Settings.isMobile && (Controls.ApplicationWindow.window as Main).pageStack.layers.depth >= 2 && ((Controls.ApplicationWindow.window as Main).pageStack.layers.currentItem as KirigamiSettings.ConfigurationView).title === "Settings"
 
-    width: (Controls.ApplicationWindow.window as Main).showGlobalDrawer ? (isWidescreen && !Kirigami.Settings.isMobile ? widescreenBigWidth : pinnedWidth) : 0
+    width: leftPadding + rightPadding + ((Controls.ApplicationWindow.window as Main).showGlobalDrawer ? (isWidescreen && !Kirigami.Settings.isMobile ? widescreenBigWidth : pinnedWidth) : 0)
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     Kirigami.Theme.inherit: false
 
-    readonly property var rootSafeMargins: Controls.ApplicationWindow.window.SafeArea.margins
-    leftPadding: edge === Qt.LeftEdge ? rootSafeMargins.left : 0
-    rightPadding: edge === Qt.RightEdge ? rootSafeMargins.right : 0
-    topPadding: rootSafeMargins.top
-    bottomPadding: rootSafeMargins.bottom
+    leftPadding: edge === Qt.LeftEdge ? SafeArea.margins.left : 0
+    rightPadding: edge === Qt.RightEdge ? SafeArea.margins.right : 0
+    topPadding: 0 // top SafeArea margin is applied to the searchbar to make colours match
+    bottomPadding: SafeArea.margins.bottom
 
     contentItem: Loader {
         id: sidebarColumn
@@ -52,7 +51,7 @@ Kirigami.OverlayDrawer {
 
                 leftPadding: Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.smallSpacing
-                topPadding: Kirigami.Units.smallSpacing
+                topPadding: Kirigami.Units.smallSpacing + SafeArea.margins.top
                 bottomPadding: Kirigami.Units.smallSpacing
 
                 contentItem: GlobalSearchField {}

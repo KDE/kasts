@@ -39,8 +39,8 @@ Kirigami.Page {
 
     leftPadding: 0
     rightPadding: 0
-    topPadding: 0
-    bottomPadding: Kirigami.Units.gridUnit
+    topPadding: Controls.ApplicationWindow.window.SafeArea.margins.top
+    bottomPadding: Controls.ApplicationWindow.window.SafeArea.margins.bottom + Kirigami.Units.gridUnit
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
