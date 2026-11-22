@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-07 19:43+0200\n"
+"PO-Revision-Date: 2026-11-21 08:00+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1470,12 +1470,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "מספר הורדות הפרקים המקבילות המרבי"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated podcast updates"
 msgid "Automated feed actions"
-msgstr "פעולות אוטומטיות"
+msgstr "פעולות ערוץ אוטומטיות"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1537,12 +1535,10 @@ msgstr ""
 "מאז העדכון האחרון"
 
 #: qml/Settings/DownloadSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated episode updates"
 msgid "Automated new episode actions"
-msgstr "פעולות אוטומטיות"
+msgstr "פעולות אוטומטיות על פרקים חדשים"
 
 #: qml/Settings/DownloadSettingsPage.qml:148
 #, kde-format
@@ -1560,7 +1556,7 @@ msgstr "הורדת פרקים חדשים אוטומטית"
 #, kde-format
 msgctxt "@title Form header for settings related to automated episode removal"
 msgid "Automated episode removal"
-msgstr ""
+msgstr "הסרת פרקים אוטומטית"
 
 #: qml/Settings/DownloadSettingsPage.qml:183
 #, kde-format
@@ -1587,18 +1583,16 @@ msgid "Delete at next startup"
 msgstr "למחוק בעלייה הבאה"
 
 #: qml/Settings/DownloadSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Keep favorite episodes"
-msgstr "פרקים שלא נוגנו"
+msgstr "להשאיר פרקים מועדפים"
 
 #: qml/Settings/DownloadSettingsPage.qml:213
 #, kde-format
 msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
-msgstr ""
+msgstr "פרקים מועדפים לא יימחקו אוטומטית"
 
 #: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format

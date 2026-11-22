@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-07 12:57+0200\n"
+"PO-Revision-Date: 2026-11-21 12:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1480,12 +1480,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Максимальна кількість потоків паралельного отримання епізодів"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated podcast updates"
 msgid "Automated feed actions"
-msgstr "Автоматизовані дії"
+msgstr "Автоматизовані дії з подачами"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1547,12 +1545,10 @@ msgstr ""
 "підписки було змінено з часу останнього оновлення"
 
 #: qml/Settings/DownloadSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated episode updates"
 msgid "Automated new episode actions"
-msgstr "Автоматизовані дії"
+msgstr "Автоматизовані дії із новими епізодами"
 
 #: qml/Settings/DownloadSettingsPage.qml:148
 #, kde-format
@@ -1570,7 +1566,7 @@ msgstr "Отримувати автоматично нові епізоди"
 #, kde-format
 msgctxt "@title Form header for settings related to automated episode removal"
 msgid "Automated episode removal"
-msgstr ""
+msgstr "Автоматизоване вилучення епізодів"
 
 #: qml/Settings/DownloadSettingsPage.qml:183
 #, kde-format
@@ -1597,18 +1593,16 @@ msgid "Delete at next startup"
 msgstr "Вилучити під час наступного запуску"
 
 #: qml/Settings/DownloadSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Keep favorite episodes"
-msgstr "Невідтворені епізоди"
+msgstr "Зберігати улюблені епізоди"
 
 #: qml/Settings/DownloadSettingsPage.qml:213
 #, kde-format
 msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
-msgstr ""
+msgstr "Улюблені епізоди не буде вилучено автоматично"
 
 #: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format

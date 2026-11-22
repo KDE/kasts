@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-07 16:04+0100\n"
-"Last-Translator: freek <freekdekruijf@kde.nl>\n"
+"PO-Revision-Date: 2026-11-21 12:38+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1459,12 +1459,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Maximum aantal van parallelle downloads van afleveringen"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated podcast updates"
 msgid "Automated feed actions"
-msgstr "Automatische acties"
+msgstr "Automatische feed-acties"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1522,12 +1520,10 @@ msgstr ""
 "abonnementsfeed sinds de laatste update is gewijzigd."
 
 #: qml/Settings/DownloadSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated episode updates"
 msgid "Automated new episode actions"
-msgstr "Automatische acties"
+msgstr "Automatische acties bij nieuwe aflevering"
 
 #: qml/Settings/DownloadSettingsPage.qml:148
 #, kde-format
@@ -1545,7 +1541,7 @@ msgstr "Nieuwe episodes automatisch downloaden"
 #, kde-format
 msgctxt "@title Form header for settings related to automated episode removal"
 msgid "Automated episode removal"
-msgstr ""
+msgstr "Automatische verwijdering van aflevering"
 
 #: qml/Settings/DownloadSettingsPage.qml:183
 #, kde-format
@@ -1572,18 +1568,16 @@ msgid "Delete at next startup"
 msgstr "Bij volgende start verwijderen"
 
 #: qml/Settings/DownloadSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Keep favorite episodes"
-msgstr "Niet-afgespeelde episoden"
+msgstr "Favoriete afleveringen behouden"
 
 #: qml/Settings/DownloadSettingsPage.qml:213
 #, kde-format
 msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
-msgstr ""
+msgstr "Favoriete afleveringen worden niet automatisch verwijderd"
 
 #: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format

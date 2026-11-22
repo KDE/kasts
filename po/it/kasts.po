@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-08 07:09+0100\n"
+"PO-Revision-Date: 2026-11-21 08:30+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1469,12 +1469,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Numero massimo di scaricamenti di episodi paralleli"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated podcast updates"
 msgid "Automated feed actions"
-msgstr "Azioni automatizzate"
+msgstr "Azioni sulle fonti automatizzate"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1533,12 +1531,10 @@ msgstr ""
 "aggiornamento."
 
 #: qml/Settings/DownloadSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated episode updates"
 msgid "Automated new episode actions"
-msgstr "Azioni automatizzate"
+msgstr "Azioni per i nuovi episodi automatizzate"
 
 #: qml/Settings/DownloadSettingsPage.qml:148
 #, kde-format
@@ -1556,7 +1552,7 @@ msgstr "Scarica automaticamente i nuovi episodi"
 #, kde-format
 msgctxt "@title Form header for settings related to automated episode removal"
 msgid "Automated episode removal"
-msgstr ""
+msgstr "Rimozione automatica degli episodi"
 
 #: qml/Settings/DownloadSettingsPage.qml:183
 #, kde-format
@@ -1583,18 +1579,16 @@ msgid "Delete at next startup"
 msgstr "Elimina al prossimo avvio"
 
 #: qml/Settings/DownloadSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Keep favorite episodes"
-msgstr "Episodi non riprodotti"
+msgstr "Conserva gli episodi preferiti"
 
 #: qml/Settings/DownloadSettingsPage.qml:213
 #, kde-format
 msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
-msgstr ""
+msgstr "Gli episodi preferiti non saranno eliminati automaticamente"
 
 #: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
