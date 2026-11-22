@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-11 03:11+0000\n"
-"PO-Revision-Date: 2026-09-21 22:49+0200\n"
-"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
-"Language-Team: Korean\n"
+"PO-Revision-Date: 2026-11-22 00:20+0100\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,25 +28,19 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: audiomanager.cpp:491
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Streaming on metered connection not allowed for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "종량제 연결에서 에피소드에 대한 스트리밍이 허용되지 않음: %1"
 
 #: audiomanager.cpp:500
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to stream episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr "에피소드를 스트림하려고 시도했지만 네트워크에 연결되지 않았음: %1"
 
 #: audiomanager.cpp:659
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Invalid Media for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "잘못된 에피소드 미디어 파일: %1"
@@ -60,9 +54,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: fetcher.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error downloading media: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
 msgstr "미디어 다운로드 오류: %1"
@@ -385,30 +377,25 @@ msgstr "팟캐스트 제목: 가나다 역순"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "에피소드 검색…"
+msgstr "iTunes 검색…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "팟캐스트 제목"
+msgstr "Podcastindex"
 
 #: models/podcastindexsearchmodel.cpp:60
-#, fuzzy, kde-format
-#| msgid "Search podcastindex.org"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search podcastindex.org…"
-msgstr "podcastindex.org 검색"
+msgstr "podcastindex.org 검색…"
 
 #: qml/AddFeedSheet.qml:22
 #, kde-format
@@ -421,8 +408,7 @@ msgid "Url:"
 msgstr "URL:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "챕터"
@@ -529,8 +515,7 @@ msgid "Show more"
 msgstr "더 보기"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "챕터"
@@ -566,12 +551,10 @@ msgid "Discover"
 msgstr "둘러보기"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "동기화 공급자 선택"
+msgstr "검색 공급자 선택"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -1127,8 +1110,7 @@ msgid_plural "Delete Downloads"
 msgstr[0] "다운로드 삭제"
 
 #: qml/GenericEntryListView.qml:399
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
@@ -1287,12 +1269,10 @@ msgid "Queue is empty"
 msgstr "대기열이 비어 있음"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "모양"
+msgstr "모양과 테마"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1333,12 +1313,10 @@ msgid "Color theme"
 msgstr "색 테마"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "구독"
+msgstr "구독 정보"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
@@ -1347,13 +1325,10 @@ msgid "Always show podcast titles in subscription view"
 msgstr "구독 보기에 항상 팟캐스트 제목 표시"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "정보"
+msgstr "에피소드 정보"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1400,12 +1375,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "닫을 때 트레이로 최소화"
 
 #: qml/Settings/AppearanceSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "닫을 때 트레이로 최소화"
+msgstr "시작할 때 트레이로 최소화"
 
 #: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
@@ -1450,12 +1423,10 @@ msgid "Font size"
 msgstr "글꼴 크기"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "에피소드 다운로드 허용"
+msgstr "에피소드 다운로드 설정"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1467,7 +1438,7 @@ msgstr "다운로드보다 스트리밍 우선"
 #, kde-format
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
-msgstr ""
+msgstr "에피소드 목록에 다운로드 대신 스트리밍 단추 표시"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1476,12 +1447,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "최대 동시 에피소드 다운로드 개수"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "자동 동기화"
+msgstr "자동화된 동작"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1536,7 +1505,7 @@ msgstr "자동으로 새 에피소드 다운로드"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "새로 고침할 때마다 전체 구독 처리 강제"
 
 #: qml/Settings/DownloadSettingsPage.qml:158
 #, kde-format
@@ -1545,6 +1514,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"이 옵션이 비활성화되어 있을 때(기본값)에는 구독 피드가 마지막 업데이트 이후 "
+"변경되었을 때에만 구독이 처리됨"
 
 #: qml/Settings/DownloadSettingsPage.qml:167
 #, kde-format
@@ -1592,7 +1563,7 @@ msgstr "네트워크"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "네트워크 접근 지연 시간(초)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1601,6 +1572,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"앱 시작 이후 네트워크에 접근을 시도할 때까지 대기할 시간입니다.\n"
+"컨테이너화된 환경에서 도움이 될 수 있습니다."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1789,16 +1762,13 @@ msgid "Appearance"
 msgstr "모양"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "재생 속도:"
+msgstr "재생"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "다운로드"
@@ -1908,11 +1878,7 @@ msgid "Account"
 msgstr "계정"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Shows which sync account and sync server the user is logged "
-#| "into"
-#| msgid "Logged into account \"%1\" on server \"%2\""
+#, kde-format
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account “%1” on server “%2”"
@@ -1940,7 +1906,7 @@ msgstr "로그인"
 #, kde-format
 msgctxt "@label"
 msgid "Sync manually"
-msgstr ""
+msgstr "수동으로 동기화"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:55
 #, kde-format
@@ -2127,9 +2093,7 @@ msgid "Hostname:"
 msgstr "호스트 이름:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
-#, fuzzy, kde-format
-#| msgctxt "@title of dialog box"
-#| msgid "Device Sync Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Device Sync Settings"
 msgstr "장치 동기화 설정"
@@ -2207,12 +2171,7 @@ msgid "Device Sync Settings"
 msgstr "장치 동기화 설정"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid ""
-#| "Should all podcast subscriptions on this gpodder.net account be synced "
-#| "across all devices?\n"
-#| "If you don't know what this means, you should probably select \"Ok\"."
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -2230,9 +2189,7 @@ msgid "Sync Now?"
 msgstr "지금 동기화?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Perform a first sync now?"
+#, kde-format
 msgctxt "@label"
 msgid "Perform the first sync now?"
 msgstr "지금 첫 동기화를 진행하시겠습니까?"
@@ -2283,18 +2240,13 @@ msgid "Sync Password Required"
 msgstr "동기화 암호 필요"
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
-#| "retrieved."
+#, kde-format
 msgid ""
 "The password for user “%1” on Nextcloud server “%2” could not be retrieved."
 msgstr "Nextcloud 서버 \"%2\"의 사용자 \"%1\"의 암호를 가져올 수 없습니다."
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+#, kde-format
 msgid "The password for user “%1” on “gpodder.net” could not be retrieved."
 msgstr "\"gpodder.net\"의 사용자 \"%1\"의 암호를 가져올 수 없습니다."
 
@@ -2328,65 +2280,49 @@ msgid "Kasts on %1"
 msgstr "%1의 Kasts"
 
 #: sync/sync.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder-nextcloud server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "GPodder-nextcloud 서버에 로그인할 수 없음. 오류: %1"
 
 #: sync/sync.cpp:334
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "GPodder 서버에 로그인할 수 없음. 오류: %1"
 
 #: sync/sync.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot save password to file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "I/O 거부됨: 암호를 %1 파일에 저장할 수 없음"
 
 #: sync/sync.cpp:552
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot access password file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "I/O 거부됨: 암호 파일 %1에 접근할 수 없음"
 
 #: sync/sync.cpp:629
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not create GPodder device; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "GPodder 장치를 만들 수 없음. 오류: %1"
 
 #: sync/sync.cpp:651
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve synced device status; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "동기화된 장치 상태를 가져올 수 없음. 오류: %1"
 
 #: sync/sync.cpp:698
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
 msgstr "%1 장치의 구독을 가져올 수 없음. 오류: %2"
 
 #: sync/sync.cpp:716
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not upload subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
 msgstr "%1 장치의 구독을 업로드할 수 없음. 오류: %2"
@@ -2487,52 +2423,41 @@ msgid "Sync finished with error"
 msgstr "동기화 완료됨, 오류 발생"
 
 #: utils/enclosuredownloadjob.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Download of episode %1 not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "종량제 연결에서 %1 에피소드 다운로드가 허용되지 않음"
 
 #: utils/enclosuredownloadjob.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to download episode %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "%1 에피소드를 다운로드하려고 시도했지만 네트워크에 연결되지 않았음"
 
 #: utils/enclosuredownloadjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "%1 다운로드 중"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
 msgid "%1 and %2"
-msgstr "%1 그리고 %2"
+msgstr "%1와(과) %2|/|%1$[와과 %1] %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
 msgid "%1, and %2"
-msgstr "%1 그리고 %2"
+msgstr "%1, 그리고 %2"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification."
-#| msgid "Error moving storage path from %1 to %2; error: %3"
+#, kde-format
 msgctxt ""
 "@info:status %1 is the old storage path, %2 is the new storage path, %3 is "
 "the error message"
@@ -2601,9 +2526,7 @@ msgid "Quit"
 msgstr "끝내기"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "%1 팟캐스트를 가져오는 중 오류 발생. 오류: %2"
