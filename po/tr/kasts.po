@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-19 19:36+0300\n"
+"PO-Revision-Date: 2026-11-22 19:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1461,12 +1461,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "En çok paralel bölüm indirme sayısı"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated podcast updates"
 msgid "Automated feed actions"
-msgstr "Otomatikleştirilmiş Eylemler"
+msgstr "Otomatikleştirilmiş Besleme Eylemleri"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1525,12 +1523,10 @@ msgstr ""
 "işlenirler."
 
 #: qml/Settings/DownloadSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related automated podcast updates"
-#| msgid "Automated actions"
+#, kde-format
 msgctxt "@title Form header for settings related to automated episode updates"
 msgid "Automated new episode actions"
-msgstr "Otomatikleştirilmiş Eylemler"
+msgstr "Otomatikleştirilmiş Yeni Bölüm Eylemleri"
 
 #: qml/Settings/DownloadSettingsPage.qml:148
 #, kde-format
@@ -1548,7 +1544,7 @@ msgstr "Yeni bölümleri kendiliğinden indir"
 #, kde-format
 msgctxt "@title Form header for settings related to automated episode removal"
 msgid "Automated episode removal"
-msgstr ""
+msgstr "Otomatikleştirilmiş Bölüm Kaldırma"
 
 #: qml/Settings/DownloadSettingsPage.qml:183
 #, kde-format
@@ -1575,18 +1571,16 @@ msgid "Delete at next startup"
 msgstr "Bir sonraki başlangıçta sil"
 
 #: qml/Settings/DownloadSettingsPage.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of filter for episode list"
-#| msgid "Unplayed episodes"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Keep favorite episodes"
-msgstr "Dinlenmeyen bölümler"
+msgstr "Favori bölümleri tut"
 
 #: qml/Settings/DownloadSettingsPage.qml:213
 #, kde-format
 msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
-msgstr ""
+msgstr "Favori bölümler artık kendiliğinden silinmeyeceklerdir."
 
 #: qml/Settings/DownloadSettingsPage.qml:223
 #, kde-format
