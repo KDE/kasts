@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-11 03:11+0000\n"
-"PO-Revision-Date: 2026-08-29 21:40+0200\n"
+"PO-Revision-Date: 2026-11-22 09:24+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -30,47 +30,34 @@ msgid "Your emails"
 msgstr "lukasz.wojnilowicz@gmail.com, ignacy.kajdan@gmail.com"
 
 #: audiomanager.cpp:491
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Streaming on metered connection not allowed for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Streaming on metered connection not allowed for episode: %1"
 msgstr "Strumieniowanie w sieci taryfowej jest niedozwolone dla odcinka: %1"
 
 #: audiomanager.cpp:500
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to stream episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to stream episode: %1"
 msgstr ""
 "Podczas próby strumieniowania odcinka %1 nie było połączenia sieciowego"
 
 #: audiomanager.cpp:659
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Invalid Media for episode: %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Nieprawidłowy plik multimedialny dla odcinka: %1"
 
 #: database.cpp:924 utils/updatefeedjob.cpp:1132
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Error message notification. First argument is an already "
-#| "translated error description; the second argument is the raw error string "
-#| "from the underlying task."
-#| msgid "%1; error: %2"
+#, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
 "string (%2)"
 msgid "%1: %2"
-msgstr "%1; błąd: %2"
+msgstr "%1: %2"
 
 #: fetcher.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error downloading media: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Error downloading media: %1"
 msgstr "Błąd przy pobieraniu multimediów: %1"
@@ -167,7 +154,7 @@ msgstr "Aplikacja do podkastów"
 #: main.cpp:151
 #, kde-format
 msgid "Adds a new podcast to subscriptions."
-msgstr "Dodaje nowy podkast do zapisanych."
+msgstr "Dodaje nowy podkast do spisu nadawców."
 
 #: main.cpp:152
 #, kde-format
@@ -393,30 +380,25 @@ msgstr "Tytułu podkastu: Z → A"
 #, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "iTunes"
-msgstr ""
+msgstr "iTunes"
 
 #: models/itunessearchmodel.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Placeholder text for episode search field"
-#| msgid "Search episodes…"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search iTunes…"
-msgstr "Poszukaj odcinków…"
+msgstr "Poszukaj na iTunes…"
 
 #: models/podcastindexsearchmodel.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser Choice of fields to search for string"
-#| msgid "Podcast title"
+#, kde-format
 msgctxt "@label:chooser Choice of search providers"
 msgid "Podcastindex"
-msgstr "Tytułu podkastu"
+msgstr "Indeks podkastu"
 
 #: models/podcastindexsearchmodel.cpp:60
-#, fuzzy, kde-format
-#| msgid "Search podcastindex.org"
+#, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search podcastindex.org…"
-msgstr "Przeszukaj podcastindex.org"
+msgstr "Przeszukaj podcastindex.org…"
 
 #: qml/AddFeedSheet.qml:22
 #, kde-format
@@ -429,8 +411,7 @@ msgid "Url:"
 msgstr "URL:"
 
 #: qml/ChapterDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@title of dialog box showing a list of chapters"
 msgid "Chapters"
 msgstr "Rozdziały"
@@ -538,8 +519,7 @@ msgid "Show more"
 msgstr "Pokaż więcej"
 
 #: qml/Desktop/DesktopPlayerControls.qml:347 qml/EntryPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Chapters"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Chapters"
 msgstr "Rozdziały"
@@ -575,12 +555,10 @@ msgid "Discover"
 msgstr "Odkrywanie"
 
 #: qml/DiscoverPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Select Sync Provider"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Select Search Provider"
-msgstr "Wybierz dostawcę synchronizacji"
+msgstr "Wybierz dostawcę wyszukiwania"
 
 #: qml/DiscoverPage.qml:146 qml/FeedDetailsPage.qml:166
 #, kde-format
@@ -896,7 +874,7 @@ msgstr "Szczegóły podkastu"
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
 msgid "Subscriptions"
-msgstr "Śledzone"
+msgstr "Nadawcy"
 
 #: qml/FeedListPage.qml:95 qml/QueuePage.qml:39
 #, kde-format
@@ -920,7 +898,7 @@ msgstr "Uszereguj"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select how to sort subscriptions"
-msgstr "Wybierz jak uszeregować śledzone"
+msgstr "Wybierz jak uszeregować nadawców"
 
 #: qml/FeedListPage.qml:126
 #, kde-format
@@ -938,7 +916,7 @@ msgstr "Wyeksportuj podkasty…"
 #, kde-format
 msgctxt "@label:textbox Placeholder text for search field"
 msgid "Search subscriptions…"
-msgstr "Poszukaj śledzonych…"
+msgstr "Poszukaj nadawców…"
 
 #: qml/FeedListPage.qml:169
 #, kde-format
@@ -1144,8 +1122,7 @@ msgstr[1] "Usuń pobrane"
 msgstr[2] "Usuń pobrane"
 
 #: qml/GenericEntryListView.qml:399
-#, fuzzy, kde-format
-#| msgid "Cancel Download"
+#, kde-format
 msgctxt "context menu action"
 msgid "Cancel Download"
 msgid_plural "Cancel Downloads"
@@ -1313,12 +1290,10 @@ msgid "Queue is empty"
 msgstr "Kolejka jest pusta"
 
 #: qml/Settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to app appearance"
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Appearance and theming"
-msgstr "Wygląd"
+msgstr "Wygląd i zestawy wyglądu"
 
 #: qml/Settings/AppearanceSettingsPage.qml:30
 #, kde-format
@@ -1359,27 +1334,22 @@ msgid "Color theme"
 msgstr "Zestaw barw"
 
 #: qml/Settings/AppearanceSettingsPage.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@title of page with list of podcast subscriptions"
-#| msgid "Subscriptions"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Subscription information"
-msgstr "Śledzone"
+msgstr "Szczegóły o nadawcy"
 
 #: qml/Settings/AppearanceSettingsPage.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Always show podcast titles in subscription view"
-msgstr "Zawsze pokazuj tytuły podkastów w widoku śledzonych"
+msgstr "Zawsze pokazuj tytuły podkastów w widoku nadawców"
 
 #: qml/Settings/AppearanceSettingsPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title Form header for section showing information about local storage"
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Form header for settings"
 msgid "Episode information"
-msgstr "Szczegóły"
+msgstr "Szczegóły o odcinku"
 
 #: qml/Settings/AppearanceSettingsPage.qml:100
 #, kde-format
@@ -1426,12 +1396,10 @@ msgid "Minimize to tray instead of closing"
 msgstr "Zminimalizuj na tackę systemową zamiast zamykać"
 
 #: qml/Settings/AppearanceSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Minimize to tray instead of closing"
+#, kde-format
 msgctxt "@option:check"
 msgid "Minimize to tray on startup"
-msgstr "Zminimalizuj na tackę systemową zamiast zamykać"
+msgstr "Uruchamiaj na tackę systemową"
 
 #: qml/Settings/AppearanceSettingsPage.qml:192
 #, kde-format
@@ -1476,12 +1444,10 @@ msgid "Font size"
 msgstr "Rozmiar czcionki"
 
 #: qml/Settings/DownloadSettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Allow episode downloads"
+#, kde-format
 msgctxt "@title Form header for download related settings"
 msgid "Episode download preferences"
-msgstr "Zezwól na pobieranie odcinków"
+msgstr "Ustawienia pobierania odcinków"
 
 #: qml/Settings/DownloadSettingsPage.qml:31
 #, kde-format
@@ -1494,6 +1460,8 @@ msgstr "Przedkładaj strumieniowanie nad pobieranie"
 msgctxt "@info Extra information related to checkbox"
 msgid "Episode lists will show streaming buttons instead of download buttons"
 msgstr ""
+"Spis odcinków będzie pokazywał przyciski strumieniowania zamiast przycisków "
+"pobierania"
 
 #: qml/Settings/DownloadSettingsPage.qml:43
 #, kde-format
@@ -1502,12 +1470,10 @@ msgid "Maximum number of parallel episode downloads"
 msgstr "Największa liczba równocześnie pobieranych odcinków"
 
 #: qml/Settings/DownloadSettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for settings related to automatic syncing"
-#| msgid "Automatic syncing"
+#, kde-format
 msgctxt "@title Form header for settings related automated podcast updates"
 msgid "Automated actions"
-msgstr "Samosynchronizowanie"
+msgstr "Zautomatyzowane działania"
 
 #: qml/Settings/DownloadSettingsPage.qml:68
 #, kde-format
@@ -1566,7 +1532,7 @@ msgstr "Sam pobieraj nowe odcinki"
 #, kde-format
 msgctxt "@option:check"
 msgid "Force full subscription processing on each refresh"
-msgstr ""
+msgstr "Wymuś pełne przetwarzanie nadawców przy każdym odświeżeniu"
 
 #: qml/Settings/DownloadSettingsPage.qml:158
 #, kde-format
@@ -1575,6 +1541,8 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
+"Gdy wyłączone (domyślnie), nadawcy są przetwarzani tylko wtedy, gdy kanał "
+"nadawcy uległ zmianie od czasu ostatniego uaktualnienia"
 
 #: qml/Settings/DownloadSettingsPage.qml:167
 #, kde-format
@@ -1622,7 +1590,7 @@ msgstr "Sieć"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Network access delay (in seconds)"
-msgstr ""
+msgstr "Opóźnienie w dostępie do sieci (w sekundach)"
 
 #: qml/Settings/NetworkSettingsPage.qml:37
 #, kde-format
@@ -1631,6 +1599,8 @@ msgid ""
 "Time to wait after app startup before trying to access the network.\n"
 "This can help in containerized environments."
 msgstr ""
+"Czas oczekiwania na próbę połączenia z siecią po uruchomieniu aplikacji.\n"
+"Użyteczne w środowiskach skonteneryzowanych."
 
 #: qml/Settings/NetworkSettingsPage.qml:54
 #, kde-format
@@ -1821,16 +1791,13 @@ msgid "Appearance"
 msgstr "Wygląd"
 
 #: qml/Settings/SettingsView.qml:23
-#, fuzzy, kde-format
-#| msgid "Playback rate:"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Playback"
-msgstr "Szybkość odtwarzania:"
+msgstr "Odtwarzanie"
 
 #: qml/Settings/SettingsView.qml:29
-#, fuzzy, kde-format
-#| msgctxt "@title Form header for download related settings"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@title:menu Category in settings"
 msgid "Downloads"
 msgstr "Pobrane"
@@ -1940,11 +1907,7 @@ msgid "Account"
 msgstr "Konto"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@info:status Shows which sync account and sync server the user is logged "
-#| "into"
-#| msgid "Logged into account \"%1\" on server \"%2\""
+#, kde-format
 msgctxt ""
 "@info:status Shows which sync account and sync server the user is logged into"
 msgid "Logged into account “%1” on server “%2”"
@@ -1972,7 +1935,7 @@ msgstr "Zaloguj"
 #, kde-format
 msgctxt "@label"
 msgid "Sync manually"
-msgstr ""
+msgstr "Zsynchronizuj ręcznie"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:55
 #, kde-format
@@ -2161,9 +2124,7 @@ msgid "Hostname:"
 msgstr "Nazwa gospodarza:"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:417
-#, fuzzy, kde-format
-#| msgctxt "@title of dialog box"
-#| msgid "Device Sync Settings"
+#, kde-format
 msgctxt "@title"
 msgid "Device Sync Settings"
 msgstr "Ustawienia synchronizacji urządzenia"
@@ -2241,12 +2202,7 @@ msgid "Device Sync Settings"
 msgstr "Ustawienia synchronizacji urządzenia"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:575
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid ""
-#| "Should all podcast subscriptions on this gpodder.net account be synced "
-#| "across all devices?\n"
-#| "If you don't know what this means, you should probably select \"Ok\"."
+#, kde-format
 msgctxt "@label"
 msgid ""
 "Should all podcast subscriptions on this gpodder.net account be synced "
@@ -2265,12 +2221,10 @@ msgid "Sync Now?"
 msgstr "Czy zsynchronizować teraz?"
 
 #: qml/Settings/SynchronizationSettingsPage.qml:621
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Perform a first sync now?"
+#, kde-format
 msgctxt "@label"
 msgid "Perform the first sync now?"
-msgstr "Wykonać teraz pierwszą synchronizację?"
+msgstr "Czy wykonać pierwszą synchronizację teraz?"
 
 #: qml/SleepTimerDialog.qml:20
 #, kde-format
@@ -2318,19 +2272,14 @@ msgid "Sync Password Required"
 msgstr "Wymagane hasło do synchronizacji"
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on Nextcloud server \"%2\" could not be "
-#| "retrieved."
+#, kde-format
 msgid ""
 "The password for user “%1” on Nextcloud server “%2” could not be retrieved."
 msgstr ""
 "Nie można pobrać hasła dla użytkownika \"%1\" na serwerze Nextcloud \"%2\"."
 
 #: qml/SyncPasswordOverlay.qml:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "The password for user \"%1\" on \"gpodder.net\" could not be retrieved."
+#, kde-format
 msgid "The password for user “%1” on “gpodder.net” could not be retrieved."
 msgstr ""
 "Nie można pobrać hasła dla użytkownika \"%1\" na serwerze \"gpodder.net\"."
@@ -2365,68 +2314,52 @@ msgid "Kasts on %1"
 msgstr "Kasts na %1"
 
 #: sync/sync.cpp:299
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder-nextcloud server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder-nextcloud server; error: %1"
 msgstr "Nie można wejść na serwer GPodder-nextcloud; błąd: %1"
 
 #: sync/sync.cpp:334
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not log into GPodder server; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not log into GPodder server; error: %1"
 msgstr "Nie można wejść na serwer GPodder; błąd: %1"
 
 #: sync/sync.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot save password to file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot save password to file %1"
 msgstr "Odmówiono WE/WY: Nie można zapisać hasła do pliku %1"
 
 #: sync/sync.cpp:552
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "I/O denied: Cannot access password file %1"
+#, kde-format
 msgctxt "@info:status %1 is the file name"
 msgid "I/O denied: Cannot access password file %1"
 msgstr "Odmówiono WE/WY: Nie można uzyskać dostępu do hasła w pliku %1"
 
 #: sync/sync.cpp:629
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not create GPodder device; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not create GPodder device; error: %1"
 msgstr "Nie można utworzyć urządzenia GPodder; błąd: %1"
 
 #: sync/sync.cpp:651
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve synced device status; error: %1"
+#, kde-format
 msgctxt "@info:status %1 is the error message"
 msgid "Could not retrieve synced device status; error: %1"
 msgstr "Nie można pobrać stanu synchronizowanego urządzenia; błąd: %1"
 
 #: sync/sync.cpp:698
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not retrieve subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not retrieve subscriptions for device %1; error: %2"
-msgstr "Nie można pobrać śledzonych z urządzenia %1; błąd: %2"
+msgstr "Nie można pobrać nadawców z urządzenia %1; błąd: %2"
 
 #: sync/sync.cpp:716
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Could not upload subscriptions for device %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the device name, %2 is the error message"
 msgid "Could not upload subscriptions for device %1; error: %2"
-msgstr "Nie można wysłać śledzonych na urządzenie %1; błąd: %2"
+msgstr "Nie można wysłać nadawców na urządzenie %1; błąd: %2"
 
 #: sync/sync.cpp:771
 #, kde-format
@@ -2440,12 +2373,12 @@ msgstr "%1; błąd: %2"
 #: sync/syncjob.cpp:65
 #, kde-format
 msgid "Could not retrieve subscription updates from server"
-msgstr "Nie można pobrać uaktualnień śledzonych z serwera"
+msgstr "Nie można uaktualnić nadawców z serwera"
 
 #: sync/syncjob.cpp:68
 #, kde-format
 msgid "Could not upload subscription changes to server"
-msgstr "Nie można wysłać zmian śledzonych na serwer"
+msgstr "Nie można wysłać zmian w nadawcach na serwer"
 
 #: sync/syncjob.cpp:71
 #, kde-format
@@ -2472,13 +2405,13 @@ msgstr "(Krok %1 z %2) Rozpocznij synchronizowanie"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote subscription updates"
-msgstr "(Krok %1 z %2) Żądanie uaktualnienia zdalnie śledzonych"
+msgstr "(Krok %1 z %2) Żądanie uaktualnienia zdalnych nadawców"
 
 #: sync/syncjob.cpp:878
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local subscription updates"
-msgstr "(Krok %1 z %2) Wysyłanie uaktualnienia miejscowo Śledzonych"
+msgstr "(Krok %1 z %2) Wysyłanie uaktualnienia lokalnych nadawców"
 
 #: sync/syncjob.cpp:882
 #, kde-format
@@ -2493,7 +2426,7 @@ msgstr[2] "(Krok %3 z %4) Uaktualniono %2 z %1 podkastów"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Requesting remote episode updates"
-msgstr "(Krok %1 z %2) Żądanie uaktualnień zdalnych odcinków"
+msgstr "(Krok %1 z %2) Żądanie uaktualnienia zdalnych odcinków"
 
 #: sync/syncjob.cpp:893
 #, kde-format
@@ -2505,7 +2438,7 @@ msgstr "(Krok %1 z %2) Wprowadzanie zmian zdalnych odcinków"
 #, kde-format
 msgctxt "Subscription/Episode sync progress step"
 msgid "(Step %1 of %2) Uploading local episode updates"
-msgstr "(Krok %1 z %2) Wysyłanie uaktualnień miejscowych odcinków"
+msgstr "(Krok %1 z %2) Wysyłanie uaktualnień lokalnych odcinków"
 
 #: sync/syncjob.cpp:899
 #, kde-format
@@ -2526,32 +2459,25 @@ msgid "Sync finished with error"
 msgstr "Ukończono synchronizację z błędem"
 
 #: utils/enclosuredownloadjob.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Download of episode %1 not allowed on metered connection"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "Download of episode %1 not allowed on metered connection"
 msgstr "Pobieranie odcinka %1 w sieci taryfowej jest niedozwolone"
 
 #: utils/enclosuredownloadjob.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "No network connection while attempting to download episode %1"
+#, kde-format
 msgctxt "@info:status %1 is the episode title"
 msgid "No network connection while attempting to download episode %1"
 msgstr "Podczas próby pobrania odcinka %1 nie było połączenia sieciowego"
 
 #: utils/enclosuredownloadjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "Downloading %1"
+#, kde-format
 msgctxt "%1 is the title of the episode being downloaded"
 msgid "Downloading %1"
 msgstr "Pobieranie %1"
 
 #: utils/entryutils.cpp:247
-#, fuzzy, kde-format
-#| msgctxt "<name> and <name>"
-#| msgid "%1 and %2"
+#, kde-format
 msgctxt ""
 "%1 and %2 are episode or podcast author names, used when there are exactly "
 "two authors"
@@ -2559,9 +2485,7 @@ msgid "%1 and %2"
 msgstr "%1 oraz %2"
 
 #: utils/entryutils.cpp:254
-#, fuzzy, kde-format
-#| msgctxt "<name(s)>, and <name>"
-#| msgid "%1, and %2"
+#, kde-format
 msgctxt ""
 "%1 is a comma-separated list of episode or podcast author names, %2 is the "
 "last author name"
@@ -2569,9 +2493,7 @@ msgid "%1, and %2"
 msgstr "%1, oraz %2"
 
 #: utils/storagemanager.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification."
-#| msgid "Error moving storage path from %1 to %2; error: %3"
+#, kde-format
 msgctxt ""
 "@info:status %1 is the old storage path, %2 is the new storage path, %3 is "
 "the error message"
@@ -2640,9 +2562,7 @@ msgid "Quit"
 msgstr "Zakończ"
 
 #: utils/updatefeedjob.cpp:181
-#, fuzzy, kde-format
-#| msgctxt "@info:status Error message notification"
-#| msgid "Error retrieving podcast: %1; error: %2"
+#, kde-format
 msgctxt "@info:status %1 is the podcast url, %2 is the error message"
 msgid "Error retrieving podcast: %1; error: %2"
 msgstr "Błąd przy pobieraniu podkastu: %1; błąd: %2"
