@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:09+0000\n"
-"PO-Revision-Date: 2026-11-22 19:10+0300\n"
+"POT-Creation-Date: 2026-11-24 01:02+0000\n"
+"PO-Revision-Date: 2026-11-23 18:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -46,7 +46,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Bölüm için geçersiz ortam dosyası: %1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1133
+#: database.cpp:941 utils/updatefeedjob.cpp:1134
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1163,7 +1163,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:181
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1171,7 +1171,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2/%1 pod yayını güncellendi"
 msgstr[1] "%2/%1 pod yayını güncellendi"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1179,7 +1179,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2/%1 Dosya Taşındı"
 msgstr[1] "%2/%1 Dosya Taşındı"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:260
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1426,7 +1426,7 @@ msgstr "Metin"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use system default"
-msgstr "Sistem öntanımlısını kullan"
+msgstr "Sistem varsayılanını kullan"
 
 #: qml/Settings/AppearanceSettingsPage.qml:245
 #, kde-format
@@ -1518,7 +1518,7 @@ msgid ""
 "When disabled (default), subscriptions are processed only if the "
 "subscription feed has changed since last update"
 msgstr ""
-"Devre dışı bırakıldığında (öntanımlı davranış), abonelikler yalnızca son "
+"Devre dışı bırakıldığında (varsayılan davranış), abonelikler yalnızca son "
 "güncellemeden bu yana abonelik beslemesinde bir değişiklik olmuşsa "
 "işlenirler."
 
@@ -1582,25 +1582,39 @@ msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
 msgstr "Favori bölümler artık kendiliğinden silinmeyeceklerdir."
 
-#: qml/Settings/DownloadSettingsPage.qml:223
+#: qml/Settings/DownloadSettingsPage.qml:226
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter episodes by status"
+msgctxt "@option:check Option in settings"
+msgid "Delete episodes based on age"
+msgstr "Bölümleri duruma göre süz"
+
+#: qml/Settings/DownloadSettingsPage.qml:237
+#, kde-format
+msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
+msgid "Number of days before downloads are deleted"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Pod Yayını Eklerken"
 
-#: qml/Settings/DownloadSettingsPage.qml:232
+#: qml/Settings/DownloadSettingsPage.qml:260
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Tüm bölümleri dinlendi olarak imle"
 
-#: qml/Settings/DownloadSettingsPage.qml:242
+#: qml/Settings/DownloadSettingsPage.qml:270
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "En son bölümleri dinlenmedi olarak imle"
 
-#: qml/Settings/DownloadSettingsPage.qml:264
+#: qml/Settings/DownloadSettingsPage.qml:292
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
@@ -1686,7 +1700,7 @@ msgstr "Ağ Vekili"
 #, kde-format
 msgctxt "@option:radio Network proxy selection"
 msgid "System Default"
-msgstr "Sistem öntanımlısı"
+msgstr "Sistem varsayılanı"
 
 #: qml/Settings/NetworkSettingsPage.qml:130
 #, kde-format
@@ -1862,7 +1876,7 @@ msgstr "Depolama Konumu"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use default path"
-msgstr "Öntanımlı konumu kullan"
+msgstr "Varsayılan konumu kullan"
 
 #: qml/Settings/StorageSettingsPage.qml:50
 #, kde-format

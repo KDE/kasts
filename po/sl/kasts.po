@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:09+0000\n"
+"POT-Creation-Date: 2026-11-24 01:02+0000\n"
 "PO-Revision-Date: 2026-11-07 19:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Neveljaven medij za epizodo: %1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1133
+#: database.cpp:941 utils/updatefeedjob.cpp:1134
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1173,7 +1173,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:181
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1183,7 +1183,7 @@ msgstr[1] "Posodobljeno %2 od %1 spletne oddaje"
 msgstr[2] "Posodobljeno %2 od %1 spletnih oddaj"
 msgstr[3] "Posodobljeno %2 od %1 spletnih oddaj"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1193,7 +1193,7 @@ msgstr[1] "Premaknjeno %2 od %1 datoteke"
 msgstr[2] "Premaknjeno %2 od %1 datotek"
 msgstr[3] "Premaknjeno %2 od %1 datotek"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:260
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1606,25 +1606,39 @@ msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:223
+#: qml/Settings/DownloadSettingsPage.qml:226
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter episodes by status"
+msgctxt "@option:check Option in settings"
+msgid "Delete episodes based on age"
+msgstr "Filtriraj epizode po stanju"
+
+#: qml/Settings/DownloadSettingsPage.qml:237
+#, kde-format
+msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
+msgid "Number of days before downloads are deleted"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Kadar se dodajajo nove spletne oddaje"
 
-#: qml/Settings/DownloadSettingsPage.qml:232
+#: qml/Settings/DownloadSettingsPage.qml:260
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Označi vse epizode kot predvajane"
 
-#: qml/Settings/DownloadSettingsPage.qml:242
+#: qml/Settings/DownloadSettingsPage.qml:270
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Označi najnovejše epizode kot nepredvajane"
 
-#: qml/Settings/DownloadSettingsPage.qml:264
+#: qml/Settings/DownloadSettingsPage.qml:292
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"

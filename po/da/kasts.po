@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:09+0000\n"
+"POT-Creation-Date: 2026-11-24 01:02+0000\n"
 "PO-Revision-Date: 2025-07-31 12:22+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Ugyldig mediefil"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1133
+#: database.cpp:941 utils/updatefeedjob.cpp:1134
 #, fuzzy, kde-format
 #| msgid "Error: %1"
 msgctxt ""
@@ -1191,7 +1191,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:181
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1199,7 +1199,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "Opdaterede %2 af %1 podcast"
 msgstr[1] "Opdaterede %2 af %1 podcasts"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1207,7 +1207,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "Flyttede %2 af %1 fil"
 msgstr[1] "Flyttede %2 af %1 filer"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:260
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1626,25 +1626,39 @@ msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:223
+#: qml/Settings/DownloadSettingsPage.qml:226
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter episodes by status"
+msgctxt "@option:check Option in settings"
+msgid "Delete episodes based on age"
+msgstr "Filtrér episoder efter status"
+
+#: qml/Settings/DownloadSettingsPage.qml:237
+#, kde-format
+msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
+msgid "Number of days before downloads are deleted"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "Når der tilføjes nye podcasts"
 
-#: qml/Settings/DownloadSettingsPage.qml:232
+#: qml/Settings/DownloadSettingsPage.qml:260
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Markér alle episoder som afspillet"
 
-#: qml/Settings/DownloadSettingsPage.qml:242
+#: qml/Settings/DownloadSettingsPage.qml:270
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Markér de nyeste episoder som ikke afspillet"
 
-#: qml/Settings/DownloadSettingsPage.qml:264
+#: qml/Settings/DownloadSettingsPage.qml:292
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"

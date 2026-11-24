@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:09+0000\n"
+"POT-Creation-Date: 2026-11-24 01:02+0000\n"
 "PO-Revision-Date: 2026-11-21 07:48+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -47,7 +47,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "Некорректный файл мультимедиа для выпуска: %1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1133
+#: database.cpp:941 utils/updatefeedjob.cpp:1134
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1172,7 +1172,7 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Настройка"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:181
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1182,7 +1182,7 @@ msgstr[1] "Выполнено обновление подкастов (%2 из %
 msgstr[2] "Выполнено обновление подкастов (%2 из %1)"
 msgstr[3] "Выполнено обновление подкаста (%2 из %1)"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1192,7 +1192,7 @@ msgstr[1] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[2] "Выполнено перемещение файлов (%2 из %1)"
 msgstr[3] "Выполнено перемещение файла (%2 из %1)"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:260
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1602,25 +1602,39 @@ msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
 msgstr "Избранные выпуски не будут удаляться автоматически"
 
-#: qml/Settings/DownloadSettingsPage.qml:223
+#: qml/Settings/DownloadSettingsPage.qml:226
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter episodes by status"
+msgctxt "@option:check Option in settings"
+msgid "Delete episodes based on age"
+msgstr "Фильтровать выпуски по состоянию"
+
+#: qml/Settings/DownloadSettingsPage.qml:237
+#, kde-format
+msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
+msgid "Number of days before downloads are deleted"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "При добавлении новых подкастов"
 
-#: qml/Settings/DownloadSettingsPage.qml:232
+#: qml/Settings/DownloadSettingsPage.qml:260
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "Отметить все выпуски воспроизведёнными"
 
-#: qml/Settings/DownloadSettingsPage.qml:242
+#: qml/Settings/DownloadSettingsPage.qml:270
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "Отметить самые последние выпуски невоспроизведёнными"
 
-#: qml/Settings/DownloadSettingsPage.qml:264
+#: qml/Settings/DownloadSettingsPage.qml:292
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:09+0000\n"
+"POT-Creation-Date: 2026-11-24 01:02+0000\n"
 "PO-Revision-Date: 2026-09-22 01:20+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,7 +54,7 @@ msgctxt "@info:status %1 is the episode title"
 msgid "Invalid Media for episode: %1"
 msgstr "集數媒體無效：%1"
 
-#: database.cpp:924 utils/updatefeedjob.cpp:1133
+#: database.cpp:941 utils/updatefeedjob.cpp:1134
 #, kde-format
 msgctxt ""
 "Database error message combining the error description (%1) and the DB query "
@@ -1174,21 +1174,21 @@ msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "設定"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:181
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
 msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "已更新 %2 個 Podcast，共 %1 個"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:205
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
 msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "已移動 %2 個檔案，共 %1 個"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:260
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
@@ -1599,25 +1599,39 @@ msgctxt "@info Description related to the keepFavorites setting"
 msgid "Favorite episodes will not be deleted automatically"
 msgstr ""
 
-#: qml/Settings/DownloadSettingsPage.qml:223
+#: qml/Settings/DownloadSettingsPage.qml:226
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Filter episodes by status"
+msgctxt "@option:check Option in settings"
+msgid "Delete episodes based on age"
+msgstr "依狀態過濾集數"
+
+#: qml/Settings/DownloadSettingsPage.qml:237
+#, kde-format
+msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
+msgid "Number of days before downloads are deleted"
+msgstr ""
+
+#: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
 msgctxt "@title Form header for settings triggered by adding new podcasts"
 msgid "When adding new podcasts"
 msgstr "新增 Podcast 時"
 
-#: qml/Settings/DownloadSettingsPage.qml:232
+#: qml/Settings/DownloadSettingsPage.qml:260
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as played"
 msgstr "標記所有集數為已播放"
 
-#: qml/Settings/DownloadSettingsPage.qml:242
+#: qml/Settings/DownloadSettingsPage.qml:270
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark most recent episodes as unplayed"
 msgstr "標記最新集數為未播放"
 
-#: qml/Settings/DownloadSettingsPage.qml:264
+#: qml/Settings/DownloadSettingsPage.qml:292
 #, kde-format
 msgctxt "@option:radio"
 msgid "Mark all episodes as unplayed"
