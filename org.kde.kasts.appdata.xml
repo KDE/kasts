@@ -376,7 +376,7 @@
       <caption xml:lang="sk">Kasts na pracovnej ploche s predvolenou hlavičkou</caption>
       <caption xml:lang="sl">Kasts na namizju s privzetim pasom glave</caption>
       <caption xml:lang="sv">Kasts på skrivbordet med vanlig huvudrad</caption>
-      <caption xml:lang="tr">Öntanımlı başlık çubuğuyla masaüstünde Kasts</caption>
+      <caption xml:lang="tr">Varsayılan başlık çubuğuyla masaüstünde Kasts</caption>
       <caption xml:lang="uk">Kasts на стільниці із типовою смужкою заголовка</caption>
       <caption xml:lang="zh-TW">桌面上的 Kasts，使用預設標頭列</caption>
       <image>https://cdn.kde.org/screenshots/kasts/kasts-desktop.png</image>
@@ -586,7 +586,7 @@
           <li xml:lang="sk">Teraz je k dispozícii nastavenie, ktoré ovláda maximálny počet súbežných sťahovaní epizód (predvolená hodnota je 2).</li>
           <li xml:lang="sl">Zdaj je na voljo nastavitev, ki nadzoruje največje število vzporednih prenosov epizod (privzeta vrednost je 2).</li>
           <li xml:lang="sv">Det finns nu en inställning som bestämmer det maximala antalet parallella avsnittsnerladdningar (standardinställningen är 2).</li>
-          <li xml:lang="tr">Artık eşzamanlı olarak indirilebilecek en çok bölüm sayısını kontrol eden bir ayar var (öntanımlı değer 2’dir).</li>
+          <li xml:lang="tr">Artık eşzamanlı olarak indirilebilecek en çok bölüm sayısını kontrol eden bir ayar var (varsayılan değer 2’dir).</li>
           <li xml:lang="uk">У новій версії передбачено параметр, який контролює максимальну кількість паралельних завантажень епізодів (типово — 2).</li>
           <li>Podcast updates that are hosted on the same server will now be processed sequentially. This is done to avoid triggering server limits, e.g. maximum allowed parallel connections. Podcasts hosted on different servers are still processed in parallel.</li>
           <li xml:lang="ar">أصبحت تحديثات البودكاست المستضافة على نفس الخادم تُعالج الآن بشكل متسلسل. ويهدف ذلك إلى تجنب تجاوز حدود الخادم، مثل الحد الأقصى المسموح به للاتصالات المتوازية. أما البودكاست المستضافة على خوادم مختلفة، فلا تزال تُعالج بشكل متوازٍ.</li>
@@ -1106,7 +1106,7 @@
           <li xml:lang="sk">The audio backend has been re-written from scratch. It can now handle multiple backends: libVLC, gstreamer and Qt Multimedia. Kasts will use libVLC as default backend when available, which should solve common issues: volume control is now available through the main toolbar and seeking should no longer make the audio hang.</li>
           <li xml:lang="sl">Zvočni zaledni sistem je bil popolnoma napisan na novo. Zdaj lahko podpira več zalednih sistemov: libVLC, gstreamer in Qt Multimedia. Kasts bo uporabljal libVLC kot privzeti zaledni sistem, ko bo na voljo, kar bi moralo rešiti pogoste težave: nadzor glasnosti je zdaj na voljo prek glavne orodne vrstice, iskanje pa ne bi smelo več povzročati prekinitev zvoka.</li>
           <li xml:lang="sv">Ljudgränssnittet har skrivits om från grunden. Den kan nu hantera flera gränssnitt: libVLC, gstreamer och Qt Multimedia. Kasts använder libVLC som standardgränssnitt när det är tillgängligt, vilket borde lösa vanliga problem: Volymkontroll är nu tillgänglig via huvudverktygsraden och sökning borde inte längre få ljudet att hänga sig.</li>
-          <li xml:lang="tr">Ses arka ucu sıfırdan yeniden yazıldı. Artık birden fazla arka ucu işleyebilir: libVLC, gstreamer ve Qt Multimedia. Kasts, uygun olduğunda libVLC’yi öntanımlı arka uç olarak kullanacak ve bu da yaygın sorunları çözecektir: Ses denetimi artık ana araç çubuğu aracılığıyla kullanılabilir ve kaydırma işlemi artık sesin takılmasına neden olmamalıdır.</li>
+          <li xml:lang="tr">Ses arka ucu sıfırdan yeniden yazıldı. Artık birden fazla arka ucu işleyebilir: libVLC, gstreamer ve Qt Multimedia. Kasts, uygun olduğunda libVLC’yi varsayılan arka uç olarak kullanacak ve bu da yaygın sorunları çözecektir: Ses denetimi artık ana araç çubuğu aracılığıyla kullanılabilir ve kaydırma işlemi artık sesin takılmasına neden olmamalıdır.</li>
           <li xml:lang="uk">Модуль обробки звуку було переписано з нуля. Тепер він може працювати із декількома модулями: libVLC, gstreamer та Qt Multimedia. Kasts використовуватиме libVLC як типовий модуль, коли він доступний, що має вирішити поширені проблеми: керування гучністю у новій версії доступне через головну панель інструментів, а пошук більше не повинен призводити до зависання звуку.</li>
           <li>The settings menu was ported to the new form components.</li>
           <li xml:lang="ar">نُقلت قائمة الإعدادات إلى مكونات النماذج الجديدة.</li>
