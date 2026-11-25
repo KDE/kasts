@@ -1562,12 +1562,10 @@ msgid "Favorite episodes will not be deleted automatically"
 msgstr ""
 
 #: qml/Settings/DownloadSettingsPage.qml:226
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter episodes by status"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Delete episodes based on age"
-msgstr "按状态过滤单集"
+msgstr ""
 
 #: qml/Settings/DownloadSettingsPage.qml:237
 #, kde-format

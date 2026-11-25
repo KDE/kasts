@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:02+0000\n"
-"PO-Revision-Date: 2026-11-21 12:53+0200\n"
+"PO-Revision-Date: 2026-11-24 08:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1605,18 +1605,16 @@ msgid "Favorite episodes will not be deleted automatically"
 msgstr "Улюблені епізоди не буде вилучено автоматично"
 
 #: qml/Settings/DownloadSettingsPage.qml:226
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter episodes by status"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Delete episodes based on age"
-msgstr "Фільтрувати епізоди за станом"
+msgstr "Вилучати епізоди за віком"
 
 #: qml/Settings/DownloadSettingsPage.qml:237
 #, kde-format
 msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
 msgid "Number of days before downloads are deleted"
-msgstr ""
+msgstr "Кількість днів, перш ніж отримані дані буде вилучено"
 
 #: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format

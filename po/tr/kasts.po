@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 01:02+0000\n"
-"PO-Revision-Date: 2026-11-23 18:13+0300\n"
+"PO-Revision-Date: 2026-11-24 17:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1583,18 +1583,16 @@ msgid "Favorite episodes will not be deleted automatically"
 msgstr "Favori bölümler artık kendiliğinden silinmeyeceklerdir."
 
 #: qml/Settings/DownloadSettingsPage.qml:226
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Filter episodes by status"
+#, kde-format
 msgctxt "@option:check Option in settings"
 msgid "Delete episodes based on age"
-msgstr "Bölümleri duruma göre süz"
+msgstr "Bölümleri yaşına göre sil"
 
 #: qml/Settings/DownloadSettingsPage.qml:237
 #, kde-format
 msgctxt "@label:spinbox related to the autoDeleteOnAge setting"
 msgid "Number of days before downloads are deleted"
-msgstr ""
+msgstr "Bölümler silinmeden önceki gün sayısı"
 
 #: qml/Settings/DownloadSettingsPage.qml:251
 #, kde-format
