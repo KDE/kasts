@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 03:11+0000\n"
+"POT-Creation-Date: 2026-11-26 03:13+0000\n"
 "PO-Revision-Date: 2026-10-05 18:25+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -557,7 +557,7 @@ msgstr "Kein Episodentitel"
 msgid "No episode loaded"
 msgstr "Keine Episode geladen"
 
-#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -707,7 +707,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "Verknüpfung kopiert"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -877,7 +877,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "Podcast-Details"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1162,7 +1162,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "Suchen in:"
 
-#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1171,13 +1171,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "Warteschlange"
 
-#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:201
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1185,7 +1185,7 @@ msgid_plural "Updated %2 of %1 Podcasts"
 msgstr[0] "%2 von %1 Podcast aktualisiert"
 msgstr[1] "%2 von %1 Podcasts aktualisiert"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1193,7 +1193,7 @@ msgid_plural "Moved %2 of %1 Files"
 msgstr[0] "%2 von %1 Datei verschoben"
 msgstr[1] "%2 von %1 Dateien verschoben"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"

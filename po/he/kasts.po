@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kasts\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 03:11+0000\n"
+"POT-Creation-Date: 2026-11-26 03:13+0000\n"
 "PO-Revision-Date: 2026-11-07 19:43+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -543,7 +543,7 @@ msgstr "אין כותרת פרק"
 msgid "No episode loaded"
 msgstr "לא נטען פרק"
 
-#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:88
+#: qml/DiscoverPage.qml:23 qml/FeedListPage.qml:88 qml/KastsGlobalDrawer.qml:87
 #, kde-format
 msgctxt "@title of page allowing to search for new podcasts online"
 msgid "Discover"
@@ -691,7 +691,7 @@ msgctxt "@info:status"
 msgid "Link Copied"
 msgstr "הקישור הועתק"
 
-#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:108
+#: qml/EpisodeListPage.qml:20 qml/KastsGlobalDrawer.qml:107
 #: qml/Mobile/BottomToolbar.qml:43
 #, kde-format
 msgctxt "@title of page with list of podcast episodes"
@@ -867,7 +867,7 @@ msgctxt "@action:intoolbar Open view with more podcast details"
 msgid "Podcast Details"
 msgstr "פרטי הסכת"
 
-#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:98
+#: qml/FeedListPage.qml:23 qml/KastsGlobalDrawer.qml:97
 #: qml/Mobile/BottomToolbar.qml:35
 #, kde-format
 msgctxt "@title of page with list of podcast subscriptions"
@@ -1154,7 +1154,7 @@ msgctxt "@title:group Group of fields in which can be searched"
 msgid "Search in:"
 msgstr "חיפוש ב־:"
 
-#: qml/KastsGlobalDrawer.qml:78 qml/Mobile/BottomToolbar.qml:27
+#: qml/KastsGlobalDrawer.qml:77 qml/Mobile/BottomToolbar.qml:27
 #: qml/QueuePage.qml:20
 #, kde-format
 msgctxt ""
@@ -1163,13 +1163,13 @@ msgctxt ""
 msgid "Queue"
 msgstr "תור"
 
-#: qml/KastsGlobalDrawer.qml:127 qml/Mobile/BottomToolbar.qml:51
+#: qml/KastsGlobalDrawer.qml:126 qml/Mobile/BottomToolbar.qml:51
 #, kde-format
 msgctxt "@title of dialog with app settings"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: qml/Main.qml:186
+#: qml/Main.qml:201
 #, kde-format
 msgctxt "Number of Updated Podcasts"
 msgid "Updated %2 of %1 Podcast"
@@ -1179,7 +1179,7 @@ msgstr[1] "עודכנו %1 מתוך שני הסכתים"
 msgstr[2] "עודכנו %2 מתוך %1 הסכתים"
 msgstr[3] "עודכנו %2 מתוך %1 הסכתים"
 
-#: qml/Main.qml:210
+#: qml/Main.qml:225
 #, kde-format
 msgctxt "Number of Moved Files"
 msgid "Moved %2 of %1 File"
@@ -1189,7 +1189,7 @@ msgstr[1] "הועברו %2 מתוך שני קבצים"
 msgstr[2] "הועברו %2 מתוך %1 קבצים"
 msgstr[3] "הועברו %2 מתוך %1 קבצים"
 
-#: qml/Main.qml:265
+#: qml/Main.qml:280
 #, kde-format
 msgctxt "@info:status"
 msgid "Podcast downloads are currently not allowed on metered connections"
